@@ -701,6 +701,9 @@ bootstrap_pkgng()
   echo "Boot-strapping pkgng"
   mkdir -p ${1}/usr/local/etc
   cp /usr/local/etc/pkg-pubkey.cert ${1}/usr/local/etc/
+  if [ $? -ne 0 ] ; then
+     echo "Failed copying /usr/local/etc/pkg-pubkey.cert"
+  fi
 
   echo '#!/bin/sh
   tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
@@ -708,8 +711,7 @@ bootstrap_pkgng()
   rm pkg.txz
   ARCH=$(uname -m)
   REL=$(uname -r)
-  echo "packagesite: http://getmirror.pcbsd.org/packages/$REL/$ARCH" >/usr/local/etc/pkg.conf
-  echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+  echo "packagesite: http://ftp.pcbsd.org/pub/mirror/packages/$REL/$ARCH" >/usr/local/etc/pkg.conf
   echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
   echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
   pkg install -y pcbsd-utils
