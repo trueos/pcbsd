@@ -4,7 +4,7 @@ CONFIG	+= qt warn_on release
 
 LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplication-head
 
-INCLUDEPATH	+= ../libpcbsd/ /usr/local/include
+INCLUDEPATH	+= ../libpcbsd/utils /usr/local/include
 
 HEADERS	+= mainWin.h
 
