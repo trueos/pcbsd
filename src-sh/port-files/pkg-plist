@@ -580,7 +580,6 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pbi-manager/module-examples/firefox/scripts
 @dirrm share/pbi-manager/module-examples/firefox/xdg-desktop
 @dirrm share/pbi-manager/module-examples/firefox/xdg-menu
-@dirrm share/pbi-manager/module-examples/firefox/xdg-mime
 @dirrm share/pbi-manager/module-examples/firefox
 @dirrm share/pbi-manager/module-examples/gimp/resources
 @dirrm share/pbi-manager/module-examples/gimp/scripts
