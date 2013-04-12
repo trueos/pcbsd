@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=sudo pc-mounttray
+Type=Application
+Icon=devices.png
+Categories=Settings;System;
+Name=Mount Tray
+Comment=Tray application to add/remove portable devices

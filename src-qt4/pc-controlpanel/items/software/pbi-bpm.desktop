@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=BPM
+GenericName=BPM
+Comment=A BSD ports collection manager
+PC-PBIName=bpm
+Exec=pc-su %PBI_PREFIX%/.sbin/bpm
+Path=%PBI_PREFIX%
+Icon=%PBI_PREFIX%/share/icons/gnome/32x32/emblems/emblem-package.png
+StartupNotify=true
+Categories=Utilities;

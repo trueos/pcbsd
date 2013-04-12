@@ -1,0 +1,12 @@
+<RCC>
+  <qresource>
+    <file>monitor.png</file>
+    <file>colors.png</file>
+    <file>randr.png</file>
+    <file>smserver.png</file>
+    <file>kcontrol.png</file>
+    <file>font_bitmap.png</file>
+    <file>krdc.png</file>
+    <file>video-display.png</file>
+  </qresource>
+</RCC>

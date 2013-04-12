@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0">
+<context>
+    <name>dialogConfig</name>
+    <message>
+        <source>Configuration</source>
+        <translation>Konfiguration</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Speichern</translation>
+    </message>
+    <message>
+        <source>Alt+S</source>
+        <translation>Alt+S</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Abbrechen</translation>
+    </message>
+    <message>
+        <source>Alt+C</source>
+        <translation>Alt+C</translation>
+    </message>
+    <message>
+        <source>Jail Network Interface</source>
+        <translation>Jail Netzwerkschnittstelle</translation>
+    </message>
+    <message>
+        <source>Jail Directory</source>
+        <translation>Jail Verzeichnis</translation>
+    </message>
+    <message>
+        <source>Temp Directory</source>
+        <translation>Temp Verzeichnis</translation>
+    </message>
+    <message>
+        <source>Select Jail Directory</source>
+        <translation>Wählen Sie das Verzeichnis für Jail aus</translation>
+    </message>
+    <message>
+        <source>Select Temp Directory</source>
+        <translation>Wählen Sie das Verzeichnis für Temp aus</translation>
+    </message>
+</context>
+<context>
+    <name>dialogDisplayOutput</name>
+    <message>
+        <source>Command Output</source>
+        <translation>Kommandoausgabe</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Schließen</translation>
+    </message>
+    <message>
+        <source>Alt+C</source>
+        <translation>Alt+C</translation>
+    </message>
+</context>
+<context>
+    <name>dialogEditIP</name>
+    <message>
+        <source>Repository Configuration</source>
+        <translation>Repository Konfiguration</translation>
+    </message>
+    <message>
+        <source>Jail IP Addresses</source>
+        <translation>Jail IP-Adresse</translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation>&amp;Hinzufügen</translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation>&amp;Entfernen</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Speichern</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Abbrechen</translation>
+    </message>
+    <message>
+        <source>Add IP</source>
+        <translation>IP hinzufügen</translation>
+    </message>
+    <message>
+        <source>IP Address:</source>
+        <translation>IP-Adresse:</translation>
+    </message>
+    <message>
+        <source>Warden</source>
+        <translation>Warden</translation>
+    </message>
+    <message>
+        <source>Please enter a valid IPV4 or IPV6 address!</source>
+        <translation>Bitte geben Sie eine gültige IPv4 oder IPv6 Adresse ein!</translation>
+    </message>
+</context>
+<context>
+    <name>dialogImport</name>
+    <message>
+        <source>Import Jail</source>
+        <translation>Jail importieren</translation>
+    </message>
+    <message>
+        <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
+        <translation>Sie haben die Möglichkeit, die IP / den Hostnamen der importierten Jail zu ändern. Etwaige internen Referenzen zur alten IP / Hostnamen müssten nach dem Importieren womöglich noch geändert werden. </translation>
+    </message>
+    <message>
+        <source>Change IP Address</source>
+        <translation>IP-Adresse ändern</translation>
+    </message>
+    <message>
+        <source>999\.999\.999\.999; </source>
+        <translation>999\.999\.999\.999; </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Change Hostname</source>
+        <translation>Hostnamen ändern</translation>
+    </message>
+    <message>
+        <source>&amp;Ok</source>
+        <translation>&amp;Okay</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Abbrechen</translation>
+    </message>
+</context>
+<context>
+    <name>dialogWarden</name>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Datei</translation>
+    </message>
+    <message>
+        <source>Jails</source>
+        <translation>Jails</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>Be&amp;enden</translation>
+    </message>
+    <message>
+        <source>Exit</source>
+        <translation>Beenden</translation>
+    </message>
+    <message>
+        <source>New Jail</source>
+        <translation>Neue Jail</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>Erneuern</translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation>Konfiguration</translation>
+    </message>
+    <message>
+        <source>Import Jail</source>
+        <translation>Jail importieren</translation>
+    </message>
+    <message>
+        <source>Stop this Jail</source>
+        <translation>Diese Jail stoppen</translation>
+    </message>
+    <message>
+        <source>Toggle Autostart</source>
+        <translation>Autostart umschalten</translation>
+    </message>
+    <message>
+        <source>Export jail to .wdn file</source>
+        <translation>Jail in .wdn Datei exportieren</translation>
+    </message>
+    <message>
+        <source>Delete Jail</source>
+        <translation>Jail entfernen</translation>
+    </message>
+    <message>
+        <source>Start this Jail</source>
+        <translation>Diese Jail starten</translation>
+    </message>
+    <message>
+        <source>Stopping Jail</source>
+        <translation>Jail stoppen</translation>
+    </message>
+    <message>
+        <source>Stopping Jail:</source>
+        <translation>Stoppe Jail:</translation>
+    </message>
+    <message>
+        <source>Starting Jail</source>
+        <translation>Starte Jail</translation>
+    </message>
+    <message>
+        <source>Starting Jail:</source>
+        <translation>Starte Jail:</translation>
+    </message>
+    <message>
+        <source>Choose a directory to save the finished .wdn file:</source>
+        <translation>Verzeichnis auswählen, um die fertige .wdn Datei zu speichern:</translation>
+    </message>
+    <message>
+        <source>Exporting Jail</source>
+        <translation>Exportiere Jail</translation>
+    </message>
+    <message>
+        <source>Exporting Jail:</source>
+        <translation>Exportiere Jail:</translation>
+    </message>
+    <message>
+        <source>Deleting Jail</source>
+        <translation>Entferne Jail</translation>
+    </message>
+    <message>
+        <source>Deleting Jail:</source>
+        <translation>Entferne Jail:</translation>
+    </message>
+    <message>
+        <source>Select warden jail package</source>
+        <translation>Wählen Sie das Warden-Jail-Paket</translation>
+    </message>
+    <message>
+        <source>Installed Jails</source>
+        <translation>Installierte Jails</translation>
+    </message>
+    <message>
+        <source>Add a new Jail</source>
+        <translation>Neue Jail hinzufügen</translation>
+    </message>
+    <message>
+        <source>Remove the selected Jail</source>
+        <translation>Entferne die ausgewählte Jail</translation>
+    </message>
+    <message>
+        <source>Working on Jail</source>
+        <translation>In Jail arbeiten</translation>
+    </message>
+    <message>
+        <source>Info</source>
+        <translation>Info</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Werkzeuge</translation>
+    </message>
+    <message>
+        <source>Packages</source>
+        <translation>Pakete</translation>
+    </message>
+    <message>
+        <source>&lt;- Please select a jail</source>
+        <translation>&lt;- Bitte wählen Sie eine Jail aus</translation>
+    </message>
+    <message>
+        <source>Working on jail:</source>
+        <translation>Arbeite in Jail:</translation>
+    </message>
+    <message>
+        <source>Warden</source>
+        <translation>Warden</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete the jail</source>
+        <translation>Sind Sie sicher, dass Sie diese Jail entfernen wollen</translation>
+    </message>
+    <message>
+        <source>Jail Information</source>
+        <translation>Jail Informationen</translation>
+    </message>
+    <message>
+        <source>Jail Type:</source>
+        <translation>Jail Typ:</translation>
+    </message>
+    <message>
+        <source>Size on Disk:</source>
+        <translation>Größe auf Festplatte:</translation>
+    </message>
+    <message>
+        <source>Network Information</source>
+        <translation>Netzwerkinformationen</translation>
+    </message>
+    <message>
+        <source>Active Connections:</source>
+        <translation>Aktive Verbindungen:</translation>
+    </message>
+    <message>
+        <source>Additional IPs:</source>
+        <translation>Zusätzliche IPs:</translation>
+    </message>
+    <message>
+        <source>Listening on Ports:</source>
+        <translation>Lausche auf den Ports:</translation>
+    </message>
+    <message>
+        <source>Jail Management</source>
+        <translation>Jail Verwaltung</translation>
+    </message>
+    <message>
+        <source>User Administrator</source>
+        <translation>Benutzeradministrator</translation>
+    </message>
+    <message>
+        <source>Utilities</source>
+        <translation>Dienstprogramme</translation>
+    </message>
+    <message>
+        <source>Export Jail</source>
+        <translation>Jail exportieren</translation>
+    </message>
+    <message>
+        <source>Loading...</source>
+        <translation>Lade...</translation>
+    </message>
+    <message>
+        <source>(edit)</source>
+        <translation>(bearbeiten)</translation>
+    </message>
+    <message>
+        <source>Launch Terminal</source>
+        <translation>Konsole ausführen</translation>
+    </message>
+    <message>
+        <source>Check for Updates</source>
+        <translation>Auf Aktualisierungen überprüfen</translation>
+    </message>
+    <message>
+        <source>Package Set:</source>
+        <translation>Paket-Set:</translation>
+    </message>
+    <message>
+        <source>Start at boot:</source>
+        <translation>Beim Systemstart starten:</translation>
+    </message>
+    <message>
+        <source>No jail selected!</source>
+        <translation>Keine Jail ausgewählt!</translation>
+    </message>
+    <message>
+        <source>The Warden</source>
+        <translation>Warden</translation>
+    </message>
+    <message>
+        <source>Snapshots</source>
+        <translation>Schnappschüsse</translation>
+    </message>
+    <message>
+        <source>Start the selected jail</source>
+        <translation>Ausgewählte Jail starten</translation>
+    </message>
+    <message>
+        <source>Stop the selected jail</source>
+        <translation>Ausgewählte Jail stoppen</translation>
+    </message>
+    <message>
+        <source>Restore existing snapshot</source>
+        <translation>Bestehenden Schnappschuss wiederherstellen</translation>
+    </message>
+    <message>
+        <source>Delete the snapshot</source>
+        <translation>Schnappschuss löschen</translation>
+    </message>
+    <message>
+        <source>Loading snapshots...</source>
+        <translation>Lade Schnappschuss...</translation>
+    </message>
+    <message>
+        <source>For snapshot support you must be using ZFS</source>
+        <translation>Für die Unterstützung von Schnappschüssen ist ZFS notwendig</translation>
+    </message>
+    <message>
+        <source>No snapshots available. You may create one below.</source>
+        <translation>Keine Schnappschüsse verfügbar. Sie können unten einen Schnappschuss erstellen.</translation>
+    </message>
+    <message>
+        <source>Creating new snapshot... Please wait...</source>
+        <translation>Erstelle neuen Schnappschuss... Bitte warten...</translation>
+    </message>
+    <message>
+        <source>Reverting snapshot... Please wait...</source>
+        <translation>Schnappschuss wiederherstellen... Bitte warten...</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to revert to the snapshot:</source>
+        <translation>Sind Sie sicher, dass sie den Schnappschuss wiederherstellen wollen:</translation>
+    </message>
+    <message>
+        <source>Removing snapshot... Please wait...</source>
+        <translation>Entferne Schnappschuss... Bitte waren...</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to remove the snapshot:</source>
+        <translation>Sind Sie sicher, dass Sie den Schnappschuss entfernen wollen:</translation>
+    </message>
+    <message>
+        <source>Updates available!</source>
+        <translation>Aktualisierung verfügbar!</translation>
+    </message>
+    <message>
+        <source>Start update manager</source>
+        <translation>Starte Aktualisierungsverwaltung</translation>
+    </message>
+    <message>
+        <source>Service Manager</source>
+        <translation>Verwaltungsmanager</translation>
+    </message>
+    <message>
+        <source>Create a new snapshot</source>
+        <translation>Erstelle neuen Schnappschuss</translation>
+    </message>
+    <message>
+        <source>Mount the snapshot</source>
+        <translation>Hänge den Schnappschuss ein</translation>
+    </message>
+    <message>
+        <source>Unmount the snapshot</source>
+        <translation>Hänge den Schnappschuss aus</translation>
+    </message>
+    <message>
+        <source>(Cloned)</source>
+        <translation>(Geklont)</translation>
+    </message>
+    <message>
+        <source>Loading clones...</source>
+        <translation>Lade Klone...</translation>
+    </message>
+    <message>
+        <source>Mounted on: </source>
+        <translation>Eingehängt in: </translation>
+    </message>
+    <message>
+        <source>Snapshot not mounted</source>
+        <translation>Schnappschuss nicht eingehängt</translation>
+    </message>
+    <message>
+        <source>R&amp;estore</source>
+        <translation>&amp;Wiederherstellen</translation>
+    </message>
+    <message>
+        <source>&amp;Mount</source>
+        <translation>&amp;Einhängen</translation>
+    </message>
+    <message>
+        <source>&amp;Unmount</source>
+        <translation>&amp;Aushängen</translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation>&amp;Hinzufügen</translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation>&amp;Entfernen</translation>
+    </message>
+    <message>
+        <source>Cloning snapshot... Please wait...</source>
+        <translation>Klone Schnappschuss... Bitte warten...</translation>
+    </message>
+    <message>
+        <source>Removing clone... Please wait...</source>
+        <translation>Entferne Klon... Bitte warten...</translation>
+    </message>
+    <message>
+        <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
+        <translation>Alle neueren Schnappschüsse und eingehängten Klone gehen verloren und die Jail wird neu gestartet!</translation>
+    </message>
+    <message>
+        <source>Reverting snapshot</source>
+        <translation>Stelle Schnappschuss wieder her</translation>
+    </message>
+    <message>
+        <source>Reverting to snapshot:</source>
+        <translation>Wiederherstellen dieses Schnappschusses:</translation>
+    </message>
+    <message>
+        <source>No valid network interface specified! Select one now?</source>
+        <translation>Es wurde kein gültiges Netzwerkinterface angegeben! Jetzt eins auswählen?</translation>
+    </message>
+    <message>
+        <source>Scheduled Snapshots</source>
+        <translation>Geplante Schnappschüsse</translation>
+    </message>
+    <message>
+        <source>Snapshot Frequency</source>
+        <translation>Schnappschußhäufigkeit</translation>
+    </message>
+    <message>
+        <source>Days to keep</source>
+        <translation>Behalten für Tage</translation>
+    </message>
+</context>
+<context>
+    <name>dialogWorking</name>
+    <message>
+        <source>Working</source>
+        <translation>Arbeitend</translation>
+    </message>
+</context>
+<context>
+    <name>wizardNewJail</name>
+    <message>
+        <source>This wizard will walk you through creating a new jail. First, enter the new IP address and hostname and click next to continue.</source>
+        <translation>Dieser Assistent führt Sie durch die Erstellung einer neuen Jail. Als erstes geben Sie die neue IP-Adresse und den Hostnamen an und klicken sie weiter zum Fortfahren.</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation>IP-Adresse</translation>
+    </message>
+    <message>
+        <source>Hostname</source>
+        <translation>Hostname</translation>
+    </message>
+    <message>
+        <source>Jailbird</source>
+        <translation>Jailbird</translation>
+    </message>
+    <message>
+        <source>Please select the type of jail you want to create. </source>
+        <translation>Bitte wählen Sie den Jail-Typ aus, den Sie erstellen möchten. </translation>
+    </message>
+    <message>
+        <source>Jail Type</source>
+        <translation>Jail-Typ</translation>
+    </message>
+    <message>
+        <source>Traditional Jail (Secure, best for server applications)</source>
+        <translation>Traditionelle Jail (Sicher, am besten für Server-Programme)</translation>
+    </message>
+    <message>
+        <source>Ports Jail (Insecure, allows running X applications)</source>
+        <translation>Ports-Jail (Unsicher, erlaubt das Ausführen von X-Applikationen)</translation>
+    </message>
+    <message>
+        <source>Next enter the root password for this jail. </source>
+        <translation>Geben Sie als nächstes das Root-Passwort für die Jail ein. </translation>
+    </message>
+    <message>
+        <source>Root Password</source>
+        <translation>Root-Passwort</translation>
+    </message>
+    <message>
+        <source>Root Password (Confirm)</source>
+        <translation>Root-Passwort (Bestätigen)</translation>
+    </message>
+    <message>
+        <source>Jail Options</source>
+        <translation>Jail-Optionen</translation>
+    </message>
+    <message>
+        <source>Include system source</source>
+        <translation>Systemquellen einschließen</translation>
+    </message>
+    <message>
+        <source>Include ports tree</source>
+        <translation>Ports-Verzeichnis einschließen</translation>
+    </message>
+    <message>
+        <source>Start jail at system bootup</source>
+        <translation>Jail beim Hochfahren starten</translation>
+    </message>
+    <message>
+        <source>New Jail Wizard</source>
+        <translation>Neuer Jail-Assistent</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within in a jail)</source>
+        <translation>Linux Jail (virtualisierte Umgebung)</translation>
+    </message>
+    <message>
+        <source>Please select the Linux install script to use for this jail.</source>
+        <translation>Bitte wählen Sie das Linux Installationsskript für dieses Jail.</translation>
+    </message>
+    <message>
+        <source>Select Script</source>
+        <translation>Wähle Skript</translation>
+    </message>
+    <message>
+        <source>Linux install files (*)</source>
+        <translation>Linux Installationsdateien (*)</translation>
+    </message>
+    <message>
+        <source>Hostname already used!</source>
+        <translation>Hostname bereits vergeben!</translation>
+    </message>
+    <message>
+        <source>IP already used!</source>
+        <translation>IP bereits vergeben!</translation>
+    </message>
+    <message>
+        <source>Invalid IP address!</source>
+        <translation>Ungültige IP Adresse!</translation>
+    </message>
+    <message>
+        <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
+        <translation>Bitte nehmen Sie sich die Zeit und nehmen die weiteren Einstellungen für diese Jail vor. Denken Sie auch daran, daß sich die System-Sourcen in /usr/src befinden müssen, sofern Sie dies ausgewählt haben. </translation>
+    </message>
+    <message>
+        <source>Please take a moment and set any other options for this jail.</source>
+        <translation>Bitte nehmen Sie sich die Zeit und nehmen die weiteren Einstellungen für diese Jail vor.</translation>
+    </message>
+</context>
+</TS>

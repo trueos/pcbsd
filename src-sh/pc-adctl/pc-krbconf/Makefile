@@ -1,0 +1,50 @@
+#
+#	Makefile
+#
+
+.include <bsd.own.mk>
+
+MAN=
+PROGOWN=	root
+PROGGRP=	wheel
+PROGMODE=	0555
+DESTDIR=	/usr/local/bin
+
+PROG=	pc-krbconf
+SRCS=	pc-krbconf.c pc-krbconf.h
+
+CFLAGS+= -I. -I${.CURDIR}
+
+MAN=
+DEBUG=	0
+
+BISON=	yacc
+LEX=	lex
+
+.if ${DEBUG} == 1
+LEXFLAGS= -d
+.else
+LEXFLAGS=
+.endif
+
+OBJS+=	krb5-parser.tab.o krb5-lexer.lex.o
+
+CLEANFILES+= krb5-parser.tab.o krb5-lexer.lex.o \
+	krb5-parser.tab.c krb5-parser.tab.h krb5-lexer.lex.c \
+	krb5-parser.tab.i
+
+krb5-lexer.tab.o: krb5-parser.tab.c krb5-parser.tab.h
+krb5-parser.tab.o: krb5-lexer.lex.c krb5-parser.tab.h
+
+krb5-parser.tab.c: krb5-parser.y
+	${BISON} -o$@ -d krb5-parser.y
+
+krb5-parser.tab.h: krb5-parser.tab.c
+
+krb5-lexer.lex.c: krb5-lexer.l
+	${LEX} ${LEXFLAGS} -o$@ krb5-lexer.l
+
+test: ${PROG}
+	${.CURDIR}/${PROG} -s domain_realm < /etc/krb5.conf
+
+.include <bsd.prog.mk>

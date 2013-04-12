@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# PROVIDE: snddetect
+# REQUIRE: DAEMON
+# KEYWORD: nojail shutdown
+
+. /etc/rc.subr
+
+name="snddetect"
+rcvar=`set_rcvar`
+
+stop_cmd="snddetect_stop"
+start_cmd="snddetect_start"
+
+load_rc_config $name
+
+: ${snddetect_enable=NO}
+
+snddetect_start()
+{
+        # Remove our unknown sound flag before we redetect
+        if [ -e "/tmp/unknownSound" ]
+        then
+           rm /tmp/unknownSound
+        fi
+	/usr/local/bin/pc-sounddetect
+}
+
+snddetect_stop()
+{
+	echo ""
+}
+
+run_rc_command "$1"
+

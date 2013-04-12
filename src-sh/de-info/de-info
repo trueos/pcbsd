@@ -1,0 +1,152 @@
+#!/bin/sh
+
+PROFILES_PREFIX="/usr/local/share/pcbsd/de-profiles"
+
+SHOW_INSTALLED=0
+SHOW_ALL=0
+SHOW_ONLY_ACTIVE=1
+SHOW_TERMINAL=0
+SHOW_FILEMAN=0
+
+DEFAULT_TERMINAL="xterm"
+DEFAULT_SUDO="pc-su %s"
+DEFAULT_TERMINAL_COMMAND="-e"
+DEFAULT_TERMINAL_TITLE="-T"
+DEFAULT_TERMINAL_SEPARATE_ARGS="NO"
+display_help()
+{
+  echo "de-info - display desktop environment info script"
+  echo "usage: de-info [-i] [-a] [-terminal] [-fileman]"
+  echo " Without any params script displays current active desktop environment info"
+  echo " -i - display installed desktop environments list"
+  echo " -a - display all supported desktop environments list"
+  echo " -terminal - display terminal application call related to current environment"
+  echo " -fileman - display file manager related to current desktop environment"
+  exit 0
+}
+
+display_de_info()
+{
+    echo
+    echo "DE name: $DE_NAME"
+    if [ $DE_ACTIVE -eq 1 ] ; then
+      echo "Current DE: YES"
+      DE_INSTALLED=1
+    else
+      echo "Current DE: NO"
+    fi
+    if [ $DE_INSTALLED -eq 1 ] ; then
+      echo "Installed: YES"
+    else
+      echo "Installed: NO"
+    fi
+    if [ "$XDG" = "1" ] ; then
+      XDG="YES"
+    fi
+      echo "XDG compatible: $XDG"
+      echo "Sudo command: $DE_SU"  
+      echo "File manager: $DE_FILEMAN"
+      echo "Terminal: $DE_TERMINAL"
+      echo "Terminal title switch: $DE_TERMINAL_TITLE"
+      echo "Terminal command switch: $DE_TERMINAL_COMMAND"
+      echo "Terminal command separate args: $DE_TERMINAL_SEPARATE_ARGS"
+}
+
+parse_all()
+{
+  for PROF in `ls $PROFILES_PREFIX/*.profile`
+  do
+  DE_NAME=""
+  XDG=""
+  DE_SU=$DEFAULT_SUDO
+  DE_FILEMAN=""
+  DE_TERMINAL=$DEFAULT_TERMINAL
+  DE_TERMINAL_TITLE=$DEFAULT_TERMINAL_TITLE
+  DE_TERMINAL_COMMAND=$DEFAULT_TERMINAL_COMMAND
+  DE_TERMINAL_SEPARATE_ARGS=$DEFAULT_TERMINAL_SEPARATE_ARGS
+  DE_INSTALLED=0
+  DE_ACTIVE=0
+
+  . $PROF
+
+  active
+  installed
+
+  if  [ $DE_ACTIVE -eq 1 ] ||  ( [ $DE_INSTALLED -eq 1 ] && [ $SHOW_INSTALLED -eq 1 ] ) || [ $SHOW_ALL -eq 1 ]
+  then
+    display_de_info
+  fi
+
+  done
+
+}
+
+parse_current()
+{
+
+for PROF in `ls $PROFILES_PREFIX/*.profile`
+  do
+  DE_NAME=""
+  XDG=""
+  DE_TERMINAL=$DEFAULT_TERMINAL
+  DE_FILEMAN=""
+  DE_TERMINAL=$DEFAULT_TERMINAL
+  DE_TERMINAL_TITLE=$DEFAULT_TERMINAL_TITLE
+  DE_TERMINAL_COMMAND=$DEFAULT_TERMINAL_COMMAND
+  DE_TERMINAL_SEPARATE_ARGS=$DEFAULT_TERMINAL_SEPARATE_ARGS
+
+  DE_INSTALLED=0
+  DE_ACTIVE=0
+
+  . $PROF
+
+  active
+
+  if [ $DE_ACTIVE -eq 1 ] ; then
+    if [ $SHOW_TERMINAL -eq 1 ] ; then
+      echo "$DE_TERMINAL $DE_TERMINAL_COMMAND %s"
+    else
+      if [ $SHOW_FILEMAN -eq 1 ] ; then
+        echo $DE_FILEMAN
+      else
+        display_de_info
+      fi
+    fi
+  fi
+
+  done
+
+}
+
+
+if [ "$1" = "-help" ] || [ "$1" = "--help" ] || [ "$1" = "-?" ] 
+then
+display_help
+fi
+
+if [ "$1" = "-i" ] ; then
+SHOW_INSTALLED=1
+SHOW_ONLY_ACTIVE=0
+fi
+
+if [ "$1" = "-a" ] ; then
+SHOW_ALL=1
+SHOW_ONLY_ACTIVE=0
+fi
+
+if [ "$1" = "-terminal" ] ; then
+SHOW_TERMINAL=1
+fi
+
+if [ "$1" = "-fileman" ] ; then
+SHOW_FILEMAN=1
+fi
+
+
+if [ $SHOW_ONLY_ACTIVE -eq 1 ] ; then
+parse_current
+else
+parse_all
+fi
+
+

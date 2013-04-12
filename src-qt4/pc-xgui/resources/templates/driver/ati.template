@@ -1,0 +1,4 @@
+    Driver         "ati"
+    VendorName     "ATI Video Driver"
+    Option         "CPPIOMode" "yes" 
+    Option         "DynamicPM"  "on"

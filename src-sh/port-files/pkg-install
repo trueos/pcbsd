@@ -1,0 +1,16 @@
+#!/bin/sh
+# Script to install PBI repo on pkg add
+
+PREFIX=${PKG_PREFIX-/usr/local}
+
+if [ "$2" != "POST-INSTALL" ] ; then
+   exit 0
+fi
+
+# If this is a new install, add the PC-BSD master repo
+ls /var/db/pbi/keys/* 2>/dev/null >/dev/null
+if [ $? -ne 0 ] ; then
+        ${PREFIX}/sbin/pbi_addrepo ${PREFIX}/share/pbi-manager/pcbsd.rpo
+fi
+
+exit 0

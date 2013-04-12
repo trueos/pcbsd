@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pUserExclude</class>
+ <widget class="QDialog" name="pUserExclude">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>List Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="lPreserve.qrc">
+    <normaloff>:/images/images/lifepreserver.png</normaloff>:/images/images/lifepreserver.png</iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Custom Exclude List</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineNewExclude"/>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="pushAdd">
+          <property name="text">
+           <string>&amp;Add</string>
+          </property>
+          <property name="icon">
+           <iconset resource="lPreserve.qrc">
+            <normaloff>:/images/images/list-add.png</normaloff>:/images/images/list-add.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="pushBrowse">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="icon">
+           <iconset resource="lPreserve.qrc">
+            <normaloff>:/images/images/folder.png</normaloff>:/images/images/folder.png</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QListWidget" name="listExcludes"/>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QPushButton" name="pushRemove">
+            <property name="text">
+             <string>&amp;Remove</string>
+            </property>
+            <property name="icon">
+             <iconset resource="lPreserve.qrc">
+              <normaloff>:/images/images/list-remove.png</normaloff>:/images/images/list-remove.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>88</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Note: Please use full path names (paths with symbolic links will automatically be adjusted). Wildcards such as * are supported.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>178</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushOk">
+       <property name="text">
+        <string>&amp;Ok</string>
+       </property>
+       <property name="icon">
+        <iconset resource="lPreserve.qrc">
+         <normaloff>:/images/images/configure.png</normaloff>:/images/images/configure.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushCancel">
+       <property name="text">
+        <string>&amp;Cancel</string>
+       </property>
+       <property name="icon">
+        <iconset resource="lPreserve.qrc">
+         <normaloff>:/images/images/application-exit.png</normaloff>:/images/images/application-exit.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="lPreserve.qrc"/>
+ </resources>
+ <connections/>
+</ui>

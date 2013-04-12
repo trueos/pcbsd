@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su pc-adsldap
+Icon=/usr/local/share/pcbsd/icons/ldap.png
+Type=Application
+Keywords="active directory ldap"
+Categories=System;
+Name=Active Directory & LDAP

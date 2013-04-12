@@ -1,0 +1,2 @@
+    Driver         "fbdev"
+    VendorName     "Frame Buffer Driver"

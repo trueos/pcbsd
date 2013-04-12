@@ -1,0 +1,222 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_ldapconf
+# REQUIRE: root
+# BEFORE: NETWORK
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+
+pc_ldapconf_enable=${pc_ldap_enable-"NO"}
+
+name="pc_ldapconf"
+rcvar="pc_ldapconf_enable"
+    
+: ${OPENLDAP_CONF:="/usr/local/etc/openldap/ldap.conf"}
+: ${LDAPCONF:="/usr/local/bin/pc-ldapconf"}
+
+
+backup_openldap_conf()
+{
+	local conf="${OPENLDAP_CONF}"
+	local backup="${conf}.bak"
+
+	if [ -f "${conf}" ]
+	then
+		cp "${conf}" "${backup}"
+		return $?
+	fi
+
+	return 0
+}
+
+restore_openldap_conf()
+{
+	local conf="${OPENLDAP_CONF}"
+	local backup="${conf}.bak"
+
+	if [ -f "${backup}" ]
+	then
+		cp "${backup}" "${conf}"
+		return $?
+	fi
+
+	return 0
+}
+
+safe_save()
+{
+	local src="${1}"
+	local dst="${2}"
+
+	if [ ! -s "${src}" ]
+	then
+		return 1
+	fi
+
+	cp "${dst}" "${dst}.orig" >/dev/null 2>&1
+	mv "${src}" "${dst}"
+	if [ "$?" != "0" ]
+	then
+		cp "${dst}.orig" "${dst}" >/dev/null 2>&1
+		return 1
+	fi
+
+	chmod 644 "${dst}"
+	return 0
+}
+
+generate_openldap_conf()
+{
+	local conf="${OPENLDAP_CONF}"
+	local tmp=$(mktemp /tmp/tmp.XXXXXX)
+
+	local cmd="${LDAPCONF}"
+	if [ -f "${OPENLDAP_CONF}" ]
+	then
+		cmd="${LDAPCONF} -f ${OPENLDAP_CONF}"
+	fi
+
+	${cmd} \
+		-c -m "^HOST=$(ldap_get hostname)" \
+		-c -m "^BASE=$(ldap_get basedn)" \
+		-o "${tmp}"
+	if [ "$?" != "0" ]
+	then
+		return 1
+	fi
+	if ! safe_save "${tmp}" "${conf}"
+	then
+		return 1
+	fi
+
+	local em=$(ldap_get encryption_mode)
+	case "${em}" in 
+		start_tls)
+			tmp=$(mktemp /tmp/tmp.XXXXXX)
+			${cmd} \
+				-c -m "^TLS_CACERT=$(ldap_get tls_cacertfile)" \
+				-c -m "^TLS_REQCERT=allow" \
+				-o "${tmp}"
+				if [ "$?" != "0" ]
+				then
+					return 1
+				fi
+				if ! safe_save "${tmp}" "${conf}"
+				then
+					return 1
+				fi
+			;;
+
+		on)
+			tmp=$(mktemp /tmp/tmp.XXXXXX)
+			${cmd} \
+				-c -m "^URI=ldaps://$(ldap_get hostname)" \
+				-c -m "^TLS_CACERT=$(ldap_get tls_cacertfile)" \
+				-c -m "^TLS_REQCERT=allow" \
+				-o "${tmp}"
+				if [ "$?" != "0" ]
+				then
+					return 1
+				fi
+				if ! safe_save "${tmp}" "${conf}"
+				then
+					return 1
+				fi
+			;;
+	esac
+
+	return 0
+}
+
+ldapconf_status()
+{
+	local ret=0
+	local res=1
+	local fail="/tmp/.ldap_fail"
+	local ldapwhoami=/usr/local/bin/ldapwhoami
+	local options=
+
+	ldap_init
+	local anonbind=$(ldap_get anonbind)
+	local rootbasedn=$(ldap_get rootbasedn)
+	local rootbindpw=$(ldap_get rootbindpw)
+	local encryption_mode=$(ldap_get encryption_mode)
+
+	if [ "${encryption_mode}" = "start_tls" ]
+	then
+		options="-Z"
+	fi
+
+	if [ "${anonbind}" = "0" -o -z "${anonbind}" ]
+	then
+		local temp=$(mktemp /tmp/tmp.XXXXXX)
+
+		chmod 400 "${temp}"
+		echo -n "${rootbindpw}" > "${temp}"
+
+		local out=$(${ldapwhoami} ${options} -D "${rootbasedn}" -y "${temp}")
+		res=$?
+
+		rm -f "${temp}"
+		local dn=$(echo "${out}"|cut -f2 -d:)
+
+		if [ "${dn}" != "${rootbasedn}" ]
+		then
+			res=1
+		fi
+	else		
+		local out=$(${ldapwhoami} -D '' ${options})
+		res=$?
+
+		local dn=$(echo "${out}"|cut -f2 -d:)
+		if [ "${dn}" != "anonymous" ]
+		then
+			res=1
+		fi
+	fi
+
+	if [ "${res}" = "1" ]
+	then
+		touch "${fail}"
+	fi
+
+	if [ -f "${fail}" ]
+	then
+		rm -f "${fail}"
+		ret=1
+	fi
+
+	return ${ret}
+}
+
+ldapconf_start()
+{
+	ldap_init
+	if ldap_configured
+	then
+		return 0
+	fi
+
+	backup_openldap_conf
+	generate_openldap_conf
+	return $?
+}
+
+ldapconf_stop()
+{
+	restore_openldap_conf
+	return $?
+
+}
+
+extra_commands="status"
+start_cmd='ldapconf_start'
+status_cmd='ldapconf_status'
+stop_cmd='ldapconf_stop'
+            
+load_rc_config $name
+run_rc_command "$1"

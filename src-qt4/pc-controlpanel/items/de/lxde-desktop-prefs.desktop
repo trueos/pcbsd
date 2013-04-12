@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+PC-RequiredDE=LXDE
+Icon=/usr/local/share/pcbsd/icons/preferences-desktop.png
+Exec=pcmanfm --desktop-pref
+StartupNotify=true
+Terminal=false
+Categories=Settings;DesktopSettings;X-LXDE-Settings;GTK;
+OnlyShowIn=LXDE;
+Name=Desktop Preferences

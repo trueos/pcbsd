@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Value=1.0
+Type=Application
+Name=Kports
+GenericName=Kports
+PC-PBIName=kports
+Exec=pc-su %PBI_PREFIX%/.sbin/kports
+Icon=%PBI_PREFIX%/kports.png
+Path=%PBI_PREFIX%
+
+

@@ -1,0 +1,16 @@
+[Desktop Entry]
+PC-RequiredDE=Gnome
+Keywords="screensaver"
+Exec=gnome-screensaver-preferences
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=GNOME;Settings;DesktopSettings;
+NotShowIn=KDE;
+Icon=alacarte
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-screensaver-preferences
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=0.13.2
+Name=Gnome Screensaver Preferences
+Comment=Change screensaver settings for the Gnome desktop

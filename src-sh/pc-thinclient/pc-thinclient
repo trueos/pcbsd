@@ -1,0 +1,389 @@
+#!/bin/sh
+#
+# Copyright 2012 Kris Moore / iXsystems
+# All rights reserved
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted providing that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+# STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+# IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+#        Name: pc-thinclient
+# Description: Helper script to build / install the necessary bits to turn
+#              a PC-BSD system into a thin-client server 
+
+# Source our functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+# Set some universal variables
+PROGDIR="/usr/local/share/pcbsd/pc-thinclient"
+DHCPPORT="net/isc-dhcp42-server"
+PXEWORLD="/usr/home/thinclient"
+WORLDPORTS="x11/xorg graphics/xv"
+export WORLDPORTS
+SYSVER="`uname -r`"
+
+# Start by sourcing /etc/profile
+# This grabs any HTTP_ / FTP_ PROXY variables
+. /etc/profile
+
+# Start configuring the base system
+check_configsystem() {
+	echo "Setting up system for PXE booting..."
+
+	# Setup the new pxeboot user with a default password
+	cat /etc/passwd | grep pxeboot >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "thinclient" | pw useradd -n "pxeboot" -h 0 -s /bin/tcsh -d ${PXEWORLD}/mnt/xorg-config -c "pxeboot"
+		chown -R pxeboot:pxeboot ${PXEWORLD}/mnt/xorg-config
+	fi
+
+	# Copy over the default dhcpd.conf file
+	cp ${PROGDIR}/resources/dhcpd/dhcpd.conf /usr/local/etc/dhcpd.conf
+
+	# Ask for the NIC we want to run on
+	while
+	z=1
+	do
+		echo "What NIC do you wish DHCPD to listen on? (I.E. re0)"
+		echo -e "nic) \c"
+		read NIC 
+		
+		ifconfig $NIC >/dev/null 2>/dev/null
+		if [ $? -ne 0 -o -z "$NIC" ] ; then
+			echo "Invalid nic entered, please try again!"
+			sleep 1
+		else
+			break
+		fi
+	done
+
+	# Save the rc.conf glue
+	cat /etc/rc.conf | grep "# pc-thinclient" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "# pc-thinclient configuration
+dhcpd_enable=\"YES\"
+dhcpd_ifaces=\"${NIC}\"
+portmap_enable=\"YES\"
+nfs_server_enable=\"YES\"
+inetd_enable=\"YES\"
+ifconfig_${NIC}=\"192.168.2.2\"" >> /etc/rc.conf
+	fi
+
+	# Add firewall exception
+        if [ -e "/etc/pf.conf" ] ; then
+	  cat /etc/pf.conf | grep "pass in on ${NIC} all" >/dev/null 2>/dev/null
+	  if [ "$?" != "0" ] ; then
+  		# Setup the firewall exclusion for this NIC
+  		echo "pass in on ${NIC} all" >> /etc/pf.conf
+	  fi
+     	fi
+
+	# Add some entries for /etc/exports
+	cat /etc/exports 2>/dev/null | grep "$PXEWORLD" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+	  	echo "$PXEWORLD -maproot=nobody -ro -network 192.168.2 -mask 255.255.255" >>/etc/exports
+	fi
+
+	# Setup tftp
+	cat /etc/inetd.conf | grep "$PXEWORLD" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "tftp   dgram   udp     wait    root    /usr/libexec/tftpd      tftpd -l -s ${PXEWORLD}" >> /etc/inetd.conf
+	fi
+
+	# Setup rcpbind entries
+	cat /etc/hosts.allow 2>/dev/null | grep "192.168.2.0" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		sed  -i '' 's|rpcbind : ALL : deny|rpcbind : 192.168.2.0/255.255.255.0 : allow\
+portmap : 192.168.2.0/255.255.255.0 : allow\
+rpcbind : ALL : deny|' /etc/hosts.allow
+	fi
+
+	# Add a bulk of IPs to /etc/hosts this fixes bugs with RPC timeouts
+	# when mounting NFS
+	grep -q 'thinclient100' /etc/hosts
+	if [ $? -ne 0 ] ; then
+		i="100"
+		while
+		z="1"
+		do
+			if [ "${i}" = "200" ]; then break; fi
+			echo "192.168.2.${i}  thinclient${i}" >>/etc/hosts
+			i="`expr ${i} + 1`"
+		done
+	fi
+
+	# Make sure the NIC is set to the right IP before bringing up dhcpd
+	ifconfig $NIC 192.168.2.2
+
+	# Start the services
+	cmds="/etc/rc.d/nfsd /etc/rc.d/inetd /usr/local/etc/rc.d/isc-dhcpd"
+	for _sC in $cmds
+	do
+		echo -e "Starting ${_sC}...\c"
+		${_sC} restart >/dev/null 2>/dev/null
+		if [ "$?" != "0" ] ; then
+			echo -e "FAILED! Please run try running it manually."
+		else
+			echo -e "OK"
+		fi
+	done
+}
+
+# Check if we need to install custom config
+check_installconfig() {
+	if [ -e "${PXEWORLD}/etc/scripts/tcslogin.sh" ] ; then return ; fi
+
+	# Lets copy over the /etc/scripts directory
+	rm -rf ${PXEWORLD}/etc/scripts >/dev/null 2>/dev/null
+	cp -r ${PROGDIR}/resources/scripts ${PXEWORLD}/etc/scripts
+
+	# Remove a few rc.d things we dont need on clients
+	rm ${PXEWORLD}/etc/rc.d/cron
+	rm ${PXEWORLD}/etc/rc.d/sendmail
+
+	# Lets copy over all the /etc/ files we need
+	cp ${PROGDIR}/resources/etc/fstab ${PXEWORLD}/etc/
+	cp ${PROGDIR}/resources/etc/gettytab ${PXEWORLD}/etc/
+	cp ${PROGDIR}/resources/etc/hosts ${PXEWORLD}/etc/
+	cp ${PROGDIR}/resources/etc/motd ${PXEWORLD}/etc/
+	cp ${PROGDIR}/resources/etc/rc.conf ${PXEWORLD}/etc/
+	cp ${PROGDIR}/resources/etc/ttys ${PXEWORLD}/etc/
+
+	# Copy over rc.d / boot / root files
+	cp ${PROGDIR}/resources/boot/beastie.4th ${PXEWORLD}/boot/
+	cp ${PROGDIR}/resources/root/dot.login ${PXEWORLD}/root/.login
+
+	# Create a few directories used on client
+	mkdir -p ${PXEWORLD}/mnt/xorg-config
+
+	# Create the diskless configuration
+	mkdir -p ${PXEWORLD}/conf/base
+	mkdir -p ${PXEWORLD}/conf/base/etc
+	mkdir -p ${PXEWORLD}/conf/base/var
+	mkdir -p ${PXEWORLD}/conf/base/root
+	echo "10m" > ${PXEWORLD}/conf/base/etc/md_size
+	echo "20m" > ${PXEWORLD}/conf/base/var/md_size
+	echo "30m" > ${PXEWORLD}/conf/base/root/md_size
+	chroot ${PXEWORLD} tar cvf conf/base/etc.cpio.gz --format cpio --gzip etc 2>/dev/null
+	chroot ${PXEWORLD} tar cvf conf/base/var.cpio.gz --exclude var/db/pkg --format cpio --gzip var 2>/dev/null
+	chroot ${PXEWORLD} tar cvf conf/base/root.cpio.gz --format cpio --gzip root 2>/dev/null
+	
+}
+
+# Check if we need to build the world environment
+check_worldports() {
+	if [ -e "${PXEWORLD}/usr/local/bin/xv" ] ; then return ; fi
+
+	if [ ! -d "${PXEWORLD}/usr/ports/x11/xorg" -a ! -d "/usr/ports/x11/xorg" ] ; then
+		exit_err "Missing /usr/ports/x11/xorg, please checkout ports tree to continue"
+	fi 
+
+	if [ ! -d "${PXEWORLD}/usr/ports/x11/xorg" ] ; then
+		rm -rf "${PXEWORLD}/usr/ports"
+		echo "Copying /usr/ports -> ${PXEWORLD}/usr/ports"
+		cp -r /usr/ports ${PXEWORLD}/usr/ports
+	fi
+
+	# Building ports inside world
+	mount -t devfs devfs ${PXEWORLD}/dev
+	cp /etc/resolv.conf ${PXEWORLD}/etc/resolv.conf
+	echo "BATCH=yes" >> ${PXEWORLD}/etc/make.conf
+	echo '#!/bin/sh
+
+/etc/rc.d/ldconfig start
+chmod 777 /tmp
+MACHINE=i386 ; export MACHINE
+UNAME_p=i386 ; export UNAME_p
+UNAME_m=i386 ; export UNAME_m
+
+for p in $WORLDPORTS
+do
+	cd /usr/ports/$p
+	make install
+	if [ "$?" != "0" ] ; then
+		exit 1
+	fi
+done
+' > ${PXEWORLD}/.mkports.sh
+
+	chmod 755 ${PXEWORLD}/.mkports.sh
+	chroot ${PXEWORLD} /.mkports.sh
+	if [ "$?" != "0" ] ; then
+		exit_err "Failed building thinclient world ports!"
+	fi
+	rm ${PXEWORLD}/.mkports.sh
+	umount ${PXEWORLD}/dev
+
+}
+
+# Check if we need to build the world environment
+check_world() {
+  if [ -e "${PXEWORLD}/COPYRIGHT" ] ; then return ; fi
+	
+  mkdir -p "${PXEWORLD}"
+  cd "${PXEWORLD}"
+
+  # Default pcbsd.conf file
+  PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
+
+  # Set the mirror URL
+  get_mirror
+  MIRRORURL="$VAL"
+
+  # Set the system arch type
+  if [ "$SYSTYPE" = "desktop" ] ; then
+    # If building remote X server, we don't need to run amd64
+    ARCH="i386"
+  else
+    ARCH="`uname -m`"
+  fi
+
+  local dFiles="base.txz doc.txz kernel.txz games.txz"
+  if [ "$ARCH" = "amd64" ] ; then
+     dFiles="$dFiles lib32.txz"
+  fi
+
+  # To fetch the jail environment
+  echo "Fetching FreeBSD environment. This may take a while..."
+  for i in $dFiles
+  do
+    echo "Downloading ${MIRRORURL}/${SYSVER}/${ARCH}/dist/${i} ..."
+    
+    get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/${i}" "$i"
+    [ $? -ne 0 ] && exit_err "Error while downloading the freebsd world."
+  done
+
+  # Save the archive as our example world environment
+  mkdir -p ${PXEWORLD}/installarchive/
+
+  echo "Extracting FreeBSD environment... This may take a while..."
+  # Extract dist files
+  for i in $dFiles
+  do
+    tar xvpf ${i} 2>/dev/null
+    if [ $? -ne 0 ] ; then exit_err "Failed extracting FreeBSD environment"; fi
+
+    # Save the archive file
+    mv ${i} ${PXEWORLD}/installarchive/
+  done
+
+}
+
+# Function to check if dhcpd is installed
+check_dhcpd() {
+	which dhcpd >/dev/null 2>/dev/null
+	if [ "$?" = "0" ] ; then return; fi
+
+	if [ ! -d "/usr/ports/$DHCPPORT" ] ; then
+		exit_err "Missing /usr/ports/$DHCPPORT, please fetch the FreeBSD ports tree or install dhcp-server."
+	fi
+
+	echo "Installing $DHCPPORT"
+	cd /usr/ports/${DHCPPORT}
+	make install
+	if [ "$?" != "0" ] ; then exit_err "Failed installing ${DHCPPORT}"; fi
+}
+
+# Function which checks and sets up the thinclient as an install server
+check_installdirs() {
+	if [ -e "${PXEWORLD}/installscripts/pc-sysinstall.example" ]; then
+	   return
+	fi
+	touch ${PXEWORLD}/etc/installserver
+	mkdir ${PXEWORLD}/installscripts
+	cp ${PROGDIR}/resources/scripts/pc-sysinstall.example ${PXEWORLD}/installscripts/pc-sysinstall.example
+	echo "zfs_load=\"YES\"" > ${PXEWORLD}/boot/loader.conf
+	echo "geom_mirror_load=\"YES\"" >> ${PXEWORLD}/boot/loader.conf
+	echo "geom_eli_load=\"YES\"" >> ${PXEWORLD}/boot/loader.conf
+}
+
+do_removal() {
+	if [ -d "${PXEWORLD}" ] ; then
+		echo "Removing ${PXEWORLD}"
+		rm -rf ${PXEWORLD} 2>/dev/null
+		chflags -R noschg ${PXEWORLD} 2>/dev/null
+		rm -rf ${PXEWORLD} 2>/dev/null
+	fi
+}
+
+# Make sure we are root
+if [ `id -u` != "0" ] ; then exit_err "Must be run as root!"; fi
+
+# Check if we are removing the existing thinclient
+if [ "$1" = "-remove" -o "$1" = "remove" ] ;  then
+  do_removal
+  exit 0
+fi
+
+echo "$0 will install the components to convert this system into a thin-client server."
+echo -e "Continue? (Y/N) \c"
+read tmp
+if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
+	exit 0
+fi
+
+echo "Do you wish to make this a remote X desktop server or install server?"
+echo -e "(r/i) \c"
+read tmp
+if [ "$tmp" = "I" -o "$tmp" = "i" ] ; then
+   SYSTYPE="install"
+else
+   SYSTYPE="desktop"
+fi
+
+# Start by installing dhcpd
+check_dhcpd
+
+# Start by setting up a new buildworld
+check_world
+
+if [ "$SYSTYPE" = "desktop" ] ; then
+  # Build the ports inside the world environment
+  check_worldports
+else
+  # Setup the installation directories
+  check_installdirs
+fi
+
+# Install the thinclient configuration files
+check_installconfig
+
+# Tweak the base system to enable the thinclient
+check_configsystem
+
+if [ "$SYSTYPE" = "desktop" ] ; then
+  echo ""
+  echo "You will now need to enable remote desktop."
+  echo "This can be done via the PC-BSD Control Panel -> GDM Configuration"
+  echo "or by manually editing /usr/local/etc/gdm/custom.conf"
+else
+  echo ""
+  echo "To perform system installations, place your custom pc-sysinstall scripts in:"
+  echo "/usr/home/thinclient/installscripts"
+  echo ""
+  echo "An example script is provided in the above directory"
+  echo ""
+  echo "For unattended installations, save your pc-sysinstall script as:"
+  echo "/usr/home/thinclient/installscripts/unattended.cfg"
+fi
+
+echo " "
+echo "Your system is now setup to do PXE booting!"
+exit 0

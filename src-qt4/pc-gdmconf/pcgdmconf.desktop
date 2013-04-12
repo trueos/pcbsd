@@ -1,0 +1,31 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=pc-su pc-gdmconf
+
+Icon=/usr/local/share/pcbsd/icons/pc-gdmconf.png
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=System;Settings;
+Name=GDM configuration
+Name[de]=GDM Konfiguration
+Name[en_GB]=GDM configuration
+Name[en_ZA]=GDM configuration
+Name[es]=Configuración GDM
+Name[fr]=Configuration GDM
+Name[he]=הגדרות GDM
+Name[hr]=GDM postavke
+Name[hu]=GDM beállítás
+Name[it]=Configurazione GDM
+Name[ko]=GDM 설정
+Name[mn]=GDM тохиргоо
+Name[nl]=GDM-configuratie
+Name[pl]=Konfiguracja GDM
+Name[ru]=Конфигурация GDM
+Name[tg]=Танзимоти GDM
+Name[tr]=GDM yapılandırması
+Name[uk]=Налаштування входу (GDM)
+Name[zh_CN]=GDM配置

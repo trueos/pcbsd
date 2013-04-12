@@ -1,0 +1,62 @@
+#!/bin/sh
+# XDG Utils Script which supports the following options
+# - updatemenu
+# - applyoverlay
+
+PROGDIR="/usr/local/share/pcbsd/pc-xdgutil"
+
+show_usage() {
+	echo "${0}: Available Options
+------------------------------------------------------------------------
+updatemenu	Copies the default xdg menu schema to the system
+applyoverlay	Re-apply PC-BSD modified port files
+"
+
+	exit 1
+}
+
+# Copy over the PC-BSD XDG menu structure 
+update_xdg_menu() {
+
+	# Copy over the dir files
+	if [ -d "/usr/local/share/desktop-directories" ] ; then
+		cp ${PROGDIR}/desktop-dirs/*.directory /usr/local/share/desktop-directories/
+	fi
+	if [ -d "/usr/local/kde4/share/desktop-directories" ] ; then
+		cp ${PROGDIR}/desktop-dirs/*.directory /usr/local/kde4/share/desktop-directories/
+	fi
+
+	# Copy the default menu entry
+	mkdir -p /usr/local/etc/xdg/menus >/dev/null 2>/dev/null
+	cp ${PROGDIR}/applications.menu /usr/local/etc/xdg/menus/applications.menu
+
+	# Start copying the additional .menu files
+mFiles="/usr/local/etc/xdg/menus/gnome-applications.menu \
+/usr/local/etc/xdg/menus/xfce-applications.menu \
+/usr/local/kde4/etc/xdg/menus/applications.menu"
+	for i in $mFiles
+	do
+		if [ -e "${i}" ] ; then 
+			uMenu=`basename $i`
+			if [ -e "${PROGDIR}/${uMenu}" ] ; then
+				cp ${PROGDIR}/${uMenu} ${i}
+			else
+				cp ${PROGDIR}/applications.menu ${i}
+			fi
+		fi
+	done
+	
+}
+
+# Re-apply files which are shipped modified from port defaults
+apply_overlay_files() {
+
+}
+
+case $1 in
+     updatemenu) update_xdg_menu ;;
+   applyoverlay) apply_overlay_files ;;
+	      *) show_usage ;;
+esac
+
+exit 0

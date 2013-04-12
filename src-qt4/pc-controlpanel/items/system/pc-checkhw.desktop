@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-sysinstaller -checkhardware
+Icon=/usr/local/share/pcbsd/icons/hwinfo.png
+Type=Application
+Keywords="hardware check compatibility"
+Categories=System;
+Name=Hardware Compatibility

@@ -1,0 +1,9 @@
+<RCC>
+  <qresource>
+    <file>images/configure.png</file>
+    <file>images/player_play.png</file>
+    <file>images/process-stop.png</file>
+    <file>images/reload.png</file>
+    <file>NewLogoSmall.png</file>
+  </qresource>
+</RCC>

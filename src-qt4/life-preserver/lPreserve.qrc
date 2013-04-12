@@ -1,0 +1,33 @@
+<RCC>
+  <qresource prefix="images" >
+    <file>images/lifepreserver.png</file>
+    <file>images/backup-ok.png</file>
+    <file>images/backup-failed.png</file>
+    <file>images/folder.png</file>
+    <file>images/network-wired.png</file>
+    <file>images/drive-removable-media.png</file>
+    <file>images/application-exit.png</file>
+    <file>images/configure.png</file>
+    <file>images/list-add.png</file>
+    <file>images/list-remove.png</file>
+    <file>images/system-run.png</file>
+    <file>images/tray-icon-idle.png</file>
+    <file>images/tray-icon-active1.png</file>
+    <file>images/tray-icon-active2.png</file>
+    <file>images/tray-icon-active3.png</file>
+    <file>images/tray-icon-active4.png</file>
+    <file>images/tray-icon-active5.png</file>
+    <file>images/tray-icon-active6.png</file>
+    <file>images/tray-icon-active7.png</file>
+    <file>images/tray-icon-active8.png</file>
+    <file>images/tray-icon-active9.png</file>
+    <file>images/tray-icon-active10.png</file>
+    <file>images/tray-icon-active11.png</file>
+    <file>images/tray-icon-active12.png</file>
+    <file>images/tray-icon-active13.png</file>
+    <file>images/tray-icon-active14.png</file>
+    <file>images/tray-icon-active15.png</file>
+    <file>images/tray-icon-active16.png</file>
+    <file>images/tray-icon-failed.png</file>
+  </qresource>
+</RCC>

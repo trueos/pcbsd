@@ -1,0 +1,86 @@
+#!/bin/sh
+
+########## Memory related info ##################################
+VM_PAGESIZE=`sysctl -n vm.stats.vm.v_page_size`
+FREE_MEM=$((`sysctl -n vm.stats.vm.v_free_count` * $VM_PAGESIZE))
+INACT_MEM=$((`sysctl -n vm.stats.vm.v_inactive_count` * $VM_PAGESIZE))
+CACHE_MEM=$((`sysctl -n vm.stats.vm.v_cache_count` * $VM_PAGESIZE))
+
+AVAIL_MEMORY=$((`sysctl -n hw.realmem` /1024/1024))
+FREE_MEMORY=$((($FREE_MEM + $INACT_MEM + $CACHE_MEM) /1024 /1024))
+
+#############3 System type Pc-BSd or TrueOS #################3
+SYSTYPE="`pbreg get /PC-BSD/SysType`"
+
+display_pcbsd_banner()
+{
+  echo "     ____  ______        ____ _____ ____"
+  echo "    / __ \/ ____/       / __ ) ___// __ \ " 
+  echo "   / /_/ / /     ___   / __  \__ \/ / / / " 
+  echo "  / ____/ /___  /___/ / /_/ /__/ / /_/ / " 
+  echo " /_/    \____/       /_____/____/_____/" 
+  echo ""
+}
+
+display_trueos_banner()
+{
+echo "  ______                   ____  _____"
+echo " /_  __/______  _____     / __ \/ ___/ "
+echo "  / / / ___/ / / / _ \   / / / /\__ \ "
+echo " / / / /  / /_/ /  __/  / /_/ /___/ / "
+echo "/_/ /_/   \__,_/\___/   \____//____/  "
+echo ""                                      
+}
+display_pkg_version()
+{
+  VER=`pkg query %v $2`
+
+  if [ "$VER" != "" ] ; then
+    echo "${1}${VER}"
+  fi
+}
+
+if [ "$SYSTYPE" = "PCBSD" ]; then 
+    display_pcbsd_banner    
+fi
+if [ "$SYSTYPE" = "TRUEOS" ]; then 
+    display_trueos_banner 
+fi
+
+
+echo "General info:"
+echo "       Host:..............`hostname`"
+echo "       User:..............`whoami`"
+echo "       Uptime:............`uptime | awk '{sub(/^.* up +/,"");sub(/, *[0-9]+ users.*/,"");print}'`"
+echo "       FreeBSD ver:.......`uname -r`"
+echo "       Arch:..............`uname -m`"
+echo "       Kernel ident:......`uname -i`"
+echo "       CPU:...............`sysctl -n hw.model`"
+echo "       CPU cores:.........`sysctl -n kern.smp.cpus`"
+echo "       Memory (free/avail):${FREE_MEMORY} / ${AVAIL_MEMORY} Mb"
+if [ "$SYSTYPE" = "PCBSD" ]; then 
+echo "       Desktop environment:`de-info | grep "DE name" | sed "s/DE name: //"`"
+fi
+echo ""
+echo "Network ipv4 ip: "
+ifconfig | grep "inet " |  awk '{ print $2 }'
+##echo " ==> Network ipv6 ip: "
+##ifconfig | grep "inet6" |  awk '{ print $2 }'
+
+if [ "$SYSTYPE" = "PCBSD" ]; then 
+echo ""
+echo "Installed desktop environments:"
+display_pkg_version "       KDE:.........." "kde-workspace"
+display_pkg_version "       Gnome:........" "gnome-desktop"
+display_pkg_version "       LXDE:........." "lxde-meta"
+display_pkg_version "       XFCE:........." "xfce"
+display_pkg_version "       e17:.........." "enlightenment"
+display_pkg_version "       Awesome:......" "awesome"
+display_pkg_version "       FVWM:........." "fvwm2"
+fi
+echo ""
+echo "System components:"
+display_pkg_version "       PC-BSD CLI:...r" "pcbsd-utils"
+display_pkg_version "       PC-BSD UI:....r" "pcbsd-utils-qt4"
+
+echo ""

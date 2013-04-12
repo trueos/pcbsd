@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=sudo pc-soundconfig
+Type=Application
+Icon=/usr/local/share/pcbsd/icons/soundconfig.png
+Categories=Settings;System;
+Name=Sound Configuration
+Comment=Set and test the active sound device

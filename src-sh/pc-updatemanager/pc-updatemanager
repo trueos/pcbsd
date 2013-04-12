@@ -1,0 +1,540 @@
+#!/bin/sh
+# Script which performs updating services
+############################################################################
+
+# Source our functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+# Set the program location
+PROGDIR="/usr/local/share/pcbsd/pc-updatemanager" ; export PROGDIR
+
+# Start by sourcing /etc/profile
+# This grabs any HTTP_ / FTP_ PROXY variables
+. /etc/profile
+
+PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
+export PCBSD_ETCCONF
+
+# Set the pub openssl key
+SKEY="${PROGDIR}/conf/security.key" ; export SKEY
+
+# Directory to store downloaded updates
+DOWNLOADDIR="/usr/local/tmp"
+
+# Get the system version we are checking for updates to
+SYSVER="`uname -r`" ; export SYSVER
+
+# Get the system type
+SYSTYPE="`pbreg get /PC-BSD/SysType`" ; export SYSTYPE
+
+# Set the config location
+UPDATECONF="${PROGDIR}/conf/sysupdate.conf"
+
+# Set the system arch type
+ARCH=`uname -m`
+
+# Default pcbsd.conf file
+PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
+
+# Patchset Data
+PATCHSERVER="`cat ${UPDATECONF} | grep '^UPDATESERVER:' | cut -d ' ' -f 2`"
+PATCHSET="`cat ${UPDATECONF} | grep '^PATCHSET:' | cut -d ' ' -f 2`"
+PATCHFILE="${PATCHSET}.upd"
+PATCHURL="${PATCHSERVER}/${PATCHFILE}"
+PATCHTMPDIR=`mktemp -d /tmp/.sysupdateXXXXXX`
+PATCHTMPFILE="${PATCHTMPDIR}/sysupdate-${SYSVER}.upd"
+
+MUSTAGEDIR="${DOWNLOADDIR}/update-stagedir"
+
+# Enable ftp passive mode for file transfers
+FTP_PASSIVE_MODE="YES" ; export FTP_PASSIVE_MODE
+
+if [ ! -d "${DOWNLOADDIR}" ]; then mkdir -p ${DOWNLOADDIR}; fi
+
+
+# Trigger File for Tray Application
+TRIGGERFILE="/tmp/.sysupdatetraytrigger"
+
+DBDIR="/var/db/pc-updatemanager"
+INSDIR="${DBDIR}/installed"
+IGNDIR="${DBDIR}/ignored"
+
+
+######################################################################
+# Done with config values
+######################################################################
+
+show_usage() {
+        echo "$0 - Usage
+----
+  check 		- Check for system updates
+  install <tag>,<tag2> 	- Install system updates
+  pkgcheck 		- Check for updates to packages
+  pkgupdate 		- Install packages updates
+"	
+
+	exit 1
+}
+
+# Run-command, don't halt if command exits with non-0
+rc_nohalt()
+{
+  CMD="$1"
+ 
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_nohalt()"
+  fi
+
+  ${CMD}
+}
+
+# Run-command, halt if command exits with non-0
+rc_halt()
+{
+  CMD="$@"
+
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_halt()"
+  fi
+
+  ${CMD}
+  STATUS=$?
+  if [ ${STATUS} -ne 0 ] ; then
+    exit_err "Error ${STATUS}: ${CMD}"
+  fi
+}
+
+get_update_file() {
+
+  # Now fetch the update file
+  get_file "${PATCHURL}" "${PATCHTMPFILE}" 1 >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     rm ${PATCHTMPFILE} 2>/dev/null
+     is_net_up
+     if [ $? -eq 0 ] ; then 
+       echo "No updates available for $SYSVER!" ; exit 0 
+     else
+       exit_err "Could not contact update server!"
+     fi
+  fi
+
+  # Now fetch the update file signature
+  get_file "${PATCHURL}.sha1" "${PATCHTMPFILE}.sha1" 1 >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     rm ${PATCHTMPFILE}.sha1 2>/dev/null
+     is_net_up
+     if [ $? -eq 0 ] ; then 
+       echo "No updates available for $SYSVER!" ; exit 0 
+     else
+       exit_err "Could not contact update server!"
+     fi
+  fi
+
+  # Lets verify the signature of the file
+  openssl dgst -sha1 -verify ${SKEY} \
+	-signature ${PATCHTMPFILE}.sha1 \
+        ${PATCHTMPFILE} >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     rm ${PATCHTMPFILE} 2>/dev/null
+     rm ${PATCHTMPFILE}.sha1 2>/dev/null
+     exit_err "Update file failed verification..."
+  fi
+
+  # Done with the signature we can discard
+  rm ${PATCHTMPFILE}.sha1
+
+}
+
+do_check() {
+  # Setup our variable, we have no patches so far
+  PATCHFOUND="0" 
+
+  while read line
+  do
+     echo $line | grep -q "^MU:"
+     if [ $? -eq 0 ] ; then
+        parse_mu_update_line "$line"
+        continue
+     fi
+     echo $line | grep -q "^SA:"
+     if [ $? -eq 0 ] ; then
+        parse_sa_update_line "$line"
+        continue
+     fi
+  done < ${PATCHTMPFILE}
+
+  # If no patches
+  if [ "${PATCHFOUND}" = "0" ]; then 
+     # No available updates
+     echo "Your system is up to date!"
+  fi
+
+  rm ${PATCHTMPFILE}
+
+};
+
+parse_mu_update_line()
+{
+   local line="$1"
+
+   # Check if this is a major update we can install
+   local sysUpOVer=`echo $line | cut -d ':' -f 2`
+   local sysUpNVer=`echo $line | cut -d ':' -f 3`
+
+   # Is this an update for our version?
+   if [ `uname -r` != "$sysUpOVer" ] ; then return; fi
+
+   if [ $PATCHFOUND -eq 0 ] ; then
+      echo ""
+      echo "The following updates are available:"
+      echo "------------------------------------"
+   fi
+   echo "NAME: FreeBSD System Update to ${sysUpNVer}" 
+   echo "TYPE: SYSUPDATE" 
+   echo "TAG: fbsd-${sysUpNVer}"
+   echo "VERSION: ${sysUpNVer}" 
+   echo ""
+   echo "To install: \"pc-updatemanager install fbsd-${sysUpNVer}\""
+   echo ""
+   echo ""
+
+   PATCHFOUND="`expr ${PATCHFOUND} + 1`" 
+}
+
+parse_sa_update_line()
+{
+   local line="$1"
+
+   # Check if this is an update we can install
+   local saVer=`echo $line | cut -d ':' -f 2`
+   local saArch=`echo $line | cut -d ':' -f 3`
+   local saType=`echo $line | cut -d ':' -f 4`
+   local saIdent="`echo $line | cut -d ':' -f 5`"
+
+   # For this version?
+   if [ "$SYSVER" != "$saVer" ] ; then return ; fi
+
+   # For this system arch?
+   if [ "$ARCH" != "$saArch" -a "$saArch" != "noarch" ] ; then return ; fi
+
+   # For this system type?
+   if [ "$SYSTYPE" != "$saType" -a "$saType" != "both" ] ; then return ; fi
+
+   # Already installed?
+   if [ -e "${INSDIR}/${SYSVER}/$saIdent" ] ; then return ; fi
+
+   if [ $PATCHFOUND -eq 0 ] ; then
+      echo ""
+      echo "The following updates are available:"
+      echo "------------------------------------"
+   fi
+   local saDesc="`echo $line | cut -d ':' -f 6`"
+   local saSize=`echo $line | cut -d ':' -f 8`
+   local saDetail="http://trac.pcbsd.org`echo $line | cut -d ':' -f 10`"
+   local saDate="`echo $line | cut -d ':' -f 11`"
+
+   echo "NAME: ${saDesc}" 
+   echo "TYPE: PATCH" 
+   echo "TAG: ${saIdent}"
+   echo "DETAILS: ${saDetail}"
+   echo "DATE: ${saDate}"
+   echo "SIZE: ${saSize}Mb" 
+   echo " "
+   echo "To install: \"pc-updatemanager install ${saIdent}\""
+   echo " "
+
+   PATCHFOUND="`expr ${PATCHFOUND} + 1`" 
+}
+
+start_pcbsd_patch() {
+  local up="$1"
+  local saIdent=""
+  local saVer=""
+  local saArch=""
+  local saPlat=""
+  local saUrl=""
+  local saDesc=""
+  local saCsum=""
+  local patchLine=""
+  if [ -e "${INSDIR}/${SYSVER}/${up}" ]; then 
+     rm ${PATCHTMPFILE}
+     exit_err "Patch $up already installed!"
+  fi
+
+  while read line
+  do
+    echo $line | grep -q "^SA:"
+    if [ $? -ne 0 ] ; then continue; fi
+    saIdent="`echo $line | cut -d ':' -f 5`"
+    # Look for the right stand-alone update
+    if [ "$saIdent" != "$up" ] ; then continue ; fi
+    saVer=`echo $line | cut -d ':' -f 2`
+    saArch=`echo $line | cut -d ':' -f 3`
+    saType=`echo $line | cut -d ':' -f 4`
+    # Does this update apply to this system arch?
+    if [ "$saArch" != "$ARCH" -a "$saArch" != "noarch" ] ; then 
+       rm ${PATCHTMPFILE}
+       exit_err "Patch $up is not for this system arch type!"
+    fi
+    # For this version?
+    if [ "$saVer" != "$SYSVER" ] ; then 
+       rm ${PATCHTMPFILE}
+       exit_err "Patch $up is not for this system version!"
+    fi
+
+    # For this system type?
+    if [ "$SYSTYPE" != "$saType" -a "$saType" != "both" ] ; then
+       rm ${PATCHTMPFILE}
+       exit_err "Patch $up is not for this system type!"
+    fi
+
+    # Got here? We have a patch ready to go
+    patchLine="$line"
+    break
+  done < ${PATCHTMPFILE}
+
+  # Did we find the patch?
+  if [ -z "$patchLine" ] ; then 
+     rm ${PATCHTMPFILE}
+     exit_err "Patch $up not found!"
+  fi
+
+  # Get the patch details
+  saVer=`echo $patchLine | cut -d ':' -f 2`
+  saArch=`echo $patchLine | cut -d ':' -f 3`
+  saPlat=`echo $patchLine | cut -d ':' -f 4`
+  saIdent="`echo $patchLine | cut -d ':' -f 5`"
+  saDesc="`echo $patchLine | cut -d ':' -f 6`"
+  saUrl="`echo $patchLine | cut -d ':' -f 7`"
+  saCsum="`echo $patchLine | cut -d ':' -f 9`"
+  local FILENAME="`basename $saUrl`"
+
+  # Start downloading the patch
+  touch ${TRIGGERFILE}
+  echo "DOWNLOADING: ${saIdent}"
+  echo "DOWNLOADING: ${saIdent}" >${TRIGGERFILE}
+
+  # Get the file
+  get_file_from_mirrors "/${saUrl}" "${DOWNLOADDIR}/${FILENAME}"
+  if [ $? -ne 0 ] ; then
+     rm ${PATCHTMPFILE}
+     echo "FAILED: ${saIdent}" >${TRIGGERFILE}
+     exit_err "Failed to download: ${saIdent}"
+  fi
+
+  # Check the sha256 checksum
+  if [ "$saCsum" != "`sha256 -q ${DOWNLOADDIR}/${FILENAME} 2>/dev/null`" ]
+  then
+     # Download MD5 doesn't match! Delete the file
+     rm ${PATCHTMPFILE}
+     rm ${DOWNLOADDIR}/${FILENAME}
+     echo "FAILED: ${saIdent}" >${TRIGGERFILE}
+     exit_err "Failed to download: ${saIdent}"
+  else 
+     echo "DOWNLOADFINISHED: ${saIdent}"
+     echo "DOWNLOADFINISHED: ${saIdent}" >${TRIGGERFILE}
+  fi
+
+  echo "INSTALLING: ${saIdent}" >${TRIGGERFILE}
+  sleep 1
+
+  PATCHTMPDIR="`mktemp -d ${DOWNLOADDIR}/patchInstallXXXXX`"
+  rc_halt "tar xvJf ${DOWNLOADDIR}/${FILENAME} -C ${PATCHTMPDIR}" 2>/dev/null
+  PATCHDIR="$PATCHTMPDIR" ; export PATCHDIR
+  cd ${PATCHTMPDIR}
+  sh update.sh
+  if [ $? -eq 0 ]; then
+     touch "${INSDIR}/${SYSVER}/${saIdent}"
+     echo "INSTALLFINISHED: ${saIdent}"
+     echo "INSTALLFINISHED: ${saIdent}" >${TRIGGERFILE}
+  else
+     rm ${PATCHTMPFILE}
+     rm -rf ${PATCHTMPDIR}
+     rm ${DOWNLOADDIR}/${FILENAME}
+     echo "INSTALLFAILED: ${saIdent}" >${TRIGGERFILE}
+     exit_err "INSTALLFAILED: ${saIdent}"
+  fi
+
+  rc_halt "rm -rf ${PATCHTMPDIR}"
+  rc_halt "rm ${DOWNLOADDIR}/${FILENAME}"
+}
+
+start_major_fbsd_update() {
+  local rel=`echo $1 | sed 's|fbsd-||g'`
+
+  # Download update files from freebsd-update
+  freebsd-update --non-interactive -r "$rel" upgrade
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed running \"freebsd-update -r $rel upgrade\"..."
+  fi
+
+  # Now install files
+  freebsd-update --non-interactive install
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed running \"freebsd-update install\"..."
+  fi
+
+  # Now re-extract overlay files to ensure we do file fixing / massaging 
+  if [ "$SYSTYPE" = "PCBSD" ]; then 
+    pc-extractoverlay desktop
+  fi
+  if [ "$SYSTYPE" = "TRUEOS" ]; then 
+    pc-extractoverlay server
+  fi
+
+  # Set the new pkg.conf file to the new repo
+  local arch=`uname -m`
+  echo "packagesite: http://getmirror.pcbsd.org/packages/$rel/$arch" >/usr/local/etc/pkg.conf
+  echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+  echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
+  echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+
+  # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
+  pc-updatemanager pkgupdate -f
+
+  # Now re-extract overlay files again to grab any new changes from a port we just updated
+  if [ "$SYSTYPE" = "PCBSD" ]; then 
+    pc-extractoverlay desktop
+  fi
+  if [ "$SYSTYPE" = "TRUEOS" ]; then 
+    pc-extractoverlay server
+  fi
+
+  echo "Major update finished!" 
+  echo "Please reboot the system for changes to take effect." 
+}
+
+do_install() {
+        # Make sure we are root and have specified updates to install
+	if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
+	if [ -z "$1" ] ; then exit_err "No updates specified to install!"; fi
+
+	# Begin to update the selected items
+	for up in `echo $1 | sed 's|,| |g'`
+	do
+	  # If this is a major update, start it up!
+  	  echo $up | grep -q "^fbsd-" 
+	  if [ $? -eq 0 ] ; then 
+	    start_major_fbsd_update "$up"
+	    exit 0
+	  elif [ "$up" == "pkg-updates" ] ; then
+	    # Check if this is a pkg-update request or regular patch
+            start_pkg_updates
+            continue
+          else
+  	    echo $up | grep -q "^release-" 
+	    if [ $? -eq 0 ] ; then 
+	      start_major_update "$up"
+              continue
+            fi 
+
+	    # Doing regular pcbsd patch
+	    start_pcbsd_patch "${up}"
+            continue
+          fi
+
+	done 
+
+        # All Finished!
+        rm ${PATCHTMPFILE}
+        exit 0
+}
+
+is_net_up() {
+	ping -c 1 www.pcbsd.org >/dev/null 2>/dev/null
+	return $?
+}
+
+checkup_pkgs() {
+
+  # Checkout the installed pkgs and compare to master list
+  rc_halt "pkg-static update"
+  pkg-static upgrade -n >/tmp/.pkgData.$$
+  grep -q "Upgrading" /tmp/.pkgData.$$
+  if [ $? -ne 0 ] ; then
+     echo "All packages are up to date!"
+     rm /tmp/.pkgData.$$
+     return 0
+  fi
+
+  # Display the pkg update data
+  cat /tmp/.pkgData.$$
+  rm /tmp/.pkgData.$$
+  echo ""
+  echo "To start the upgrade run \"${0} pkgupdate\""
+  return 0
+}
+
+update_pkgs()
+{
+  if [ -n "$1" -a "$1" != "-f" ] ; then
+     exit_err "Invalid option $1 passed"
+  fi
+
+  # Running from a GUI?
+  if [ -n "$PCFETCHGUI" ] ; then
+    # Setup EVENT_PIPE
+    EVENT_PIPE="/tmp/pkgpipe.$$"
+    export EVENT_PIPE
+    rc_halt "mkfifo $EVENT_PIPE"
+    echo "EVENT_PIPE: $EVENT_PIPE"
+
+    # Wait for QT to open the pipe file
+    sleep 5
+  fi
+
+  # Lets pre-download all the packages
+  download_cache_packages "pkg-static upgrade -L -n $1"
+
+  # Start the package update!
+  pkg-static upgrade -L -y ${1}
+  result=$?
+
+  # Lets now re-extract our overlay data to grab any adjusted port files
+  pc-extractoverlay ports >/dev/null 2>/dev/null
+
+  # Now re-extract overlay files to ensure we do file fixing / massaging 
+  if [ "$SYSTYPE" = "PCBSD" ]; then 
+    pc-extractoverlay desktop
+  fi
+  if [ "$SYSTYPE" = "TRUEOS" ]; then 
+    pc-extractoverlay server
+  fi
+
+  # Cleanup EVENT_PIPE
+  if [ -n "$PCFETCHGUI" ] ; then
+    rm $EVENT_PIPE
+  fi
+
+  if [ $result -ne 0 ] ; then
+     echo "Failed updating..."
+  fi
+  exit $result
+}
+
+# Check if we have an update folder for the version we are on
+if [ ! -d "${AVAILDIR}/${SYSVER}" ] ; then mkdir -p ${AVAILDIR}/${SYSVER} ; fi
+
+if [ "`id -u`" = "0" ] ; then
+  # Make the installed directory for this version
+  if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
+
+  # Make the ignore directory for this version
+  if [ ! -d "${IGNDIR}/${SYSVER}" ] ; then mkdir -p ${IGNDIR}/${SYSVER} ; fi
+fi
+
+case $1 in
+  	   check) get_mirror
+                  MIRRORURL="$VAL"
+ 		  get_update_file
+                  do_check ;;
+	pkgcheck) checkup_pkgs ;;
+       pkgupdate) update_pkgs "$2" ;;
+ 	 install) get_mirror
+                  MIRRORURL="$VAL"
+ 		  get_update_file
+                  do_install "${2}" ;;
+	*) show_usage ;;
+esac
+
+exit 0

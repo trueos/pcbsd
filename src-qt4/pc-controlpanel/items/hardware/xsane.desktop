@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=xsane
+Terminal=false
+Type=Application
+Icon=scanner
+StartupNotify=true
+X-Desktop-File-Install-Version=0.15
+Categories=GTK;HardwareSettings;Settings;System;
+Name=Scanner

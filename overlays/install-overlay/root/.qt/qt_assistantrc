@@ -1,0 +1,26 @@
+[3.3]
+Family=Sans Serif
+FixedFamily=courier
+GeometryHeight=790
+GeometryMaximized=true
+GeometryWidth=1144
+GeometryX=0
+GeometryY=0
+LinkColor=#0000ff
+LinkUnderline=true
+MainwindowLayout=\0
+PDFApplication=\0
+Profile/default/Homepage=\0
+Profile/default/Source=/usr/X11R6/share/doc/qt/html/qlistbox.html^e
+RebuildDocDB=false
+SideBarPage=0
+Size=11
+Webbrowser=\0
+
+[3.3.6]
+Profile/default/DocFiles=/usr/X11R6/share/doc/qt/html/linguist.dcf^e/usr/X11R6/share/doc/qt/html/assistant.dcf^e/usr/X11R6/share/doc/qt/html/designer.dcf^e/usr/X11R6/share/doc/qt/html/qt.dcf^e/usr/X11R6/share/doc/qt/html/qmake.dcf^e
+Profile/default/DocIcons=linguist.png^eassistant.png^edesigner.png^eqt.png^e^0^e
+Profile/default/ImageDirs=../../gif/^e../../gif/^e../../gif/^e../../gif/^e../../gif/^e
+Profile/default/IndexPages=/usr/X11R6/share/doc/qt/html/linguist-manual.html^e/usr/X11R6/share/doc/qt/html/assistant.html^e/usr/X11R6/share/doc/qt/html/designer-manual.html^e/usr/X11R6/share/doc/qt/html/index.html^e/usr/X11R6/share/doc/qt/html/qmake-manual.html^e
+Profile/default/Titles=Guide to the Qt Translation Tools^eQt Assistant Manual^eQt Designer Manual^eQt Reference Documentation^eqmake User Guide^e
+

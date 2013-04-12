@@ -1,0 +1,35 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su pc-pfmanager
+Icon=preferences-system-network-sharing
+Type=Application
+
+
+X-KDE-RootOnly=true
+X-KDE-SubstituteUID=true
+Categories=System;
+Name=Firewall Manager
+Name[bn]=ফায়ারওয়াল
+Name[ca]=Gestor del tallafocs
+Name[da]=Håndtering af brandmur
+Name[en_GB]=Firewall Manager
+Name[en_ZA]=Firewall Manager
+Name[es]=Gestor del Firewall
+Name[fr]=Gestionnaire de pare-feu
+Name[fr_CA]=Gestionnaire de pare-feu
+Name[hr]=Upravljač vatrozida
+Name[hu]=Tűzfalkezelő
+Name[id]=Pengelola Firewall
+Name[it]=Gestione Firewall
+Name[ja]=ファイアーウォール
+Name[lt]=Užkarda
+Name[lv]=Ugunsm�ris
+Name[mn]=Галт хана
+Name[nl]=Firewall Manager
+Name[pl]=Menadżer Zapory Sieciowej
+Name[pt]=Firewall
+Name[pt_BR]=Gerenciador do Firewall
+Name[ru]=Управление брандмауером
+Name[tr]=Güvenlik duvarı yöneticisi
+Name[uk]=Налаштування брандмауера
+Name[zh_CN]=防火墙

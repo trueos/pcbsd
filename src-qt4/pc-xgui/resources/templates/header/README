@@ -1,0 +1,4 @@
+This directory contains any special headers needed for specific drivers, 
+otherwise the xorg.conf.generic is used. 
+
+

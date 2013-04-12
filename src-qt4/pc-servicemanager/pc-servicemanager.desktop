@@ -1,0 +1,28 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su pc-servicemanager
+Icon=preferences-system-network-sharing
+Type=Application
+
+
+X-KDE-RootOnly=true
+X-KDE-SubstituteUID=true
+Categories=System;Settings;Qt;
+Name=Service Manager
+Name[ca]=Gestor de serveis
+Name[da]=Servicehåndtering
+Name[en_GB]=Service Manager
+Name[en_ZA]=Service Manager
+Name[es]=Gestor de servicios.
+Name[fr]=Gestionnaire de services
+Name[fr_CA]=Gestionnaire de service
+Name[hr]=Upravljač servisa
+Name[hu]=Szolgáltatáskezelő
+Name[id]=Pengelola Layanan
+Name[it]=Gestione Servizi
+Name[nl]=Service Manager
+Name[pl]=Menadżer Usług
+Name[pt_BR]=Gerenciador de Serviços
+Name[ru]=Управление службами
+Name[tr]=Servis Yöneticisi
+Name[uk]=Керування службами

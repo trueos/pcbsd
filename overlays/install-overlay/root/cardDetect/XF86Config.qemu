@@ -1,0 +1,11 @@
+Section "Monitor"
+	Identifier	"Monitor0"
+	HorizSync	31.5 - 48.5
+	VertRefresh	50.0 - 90.0
+	Option		"DPMS"
+EndSection
+
+Section "Device"
+	Identifier	"Card0"
+	Driver		"cirrus"
+EndSection

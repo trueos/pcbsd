@@ -1,0 +1,24 @@
+SU implementation using Qt4 as the conversation frontend.
+
+Icons
+=====
+
+    Oxygen Icons: http://www.oxygen-icons.org/
+
+Configuring
+===========
+
+    "./configure" will bootstrap the build directory for you, or you can do it
+    manually if you like living on the edge.
+
+    If you're using CMake, a few settings are availble in the cache (QSU_*),
+    you can change them around by running: make edit_cache
+
+    Otherwise, when using qmake, you can simply copy the supplied config.h.def
+    and change to your hearts content.
+
+Installing
+==========
+
+    make install (as root)
+

@@ -1,0 +1,132 @@
+. /etc/rc.subr
+
+#
+#	LDAP config
+#
+: ${pc_ldap_enable:="NO"}
+: ${PC_LDAP_CONF:="/usr/local/etc/pc-ldap.conf"}
+: ${PC_LDAP_VAR_FILE:="/var/run/pcldap"}
+
+
+__ldap_escape()
+{
+	echo "${1}" | sed -Ee 's|\\|\\\\|g' -Ee 's|[^a-zA-Z0-9]|\\&|g'
+}
+
+__ldap_unescape()
+{
+	echo "${1}" | sed -Ee 's|\\([^a-zA-Z0-9])|\1|g' -Ee 's|\\\\|\\|g'
+}
+
+__do_ldap_get()
+{
+	local prefix="${1}"
+	local name="${2}"
+	local var=\$$(echo "${prefix}${name}")
+	local val="$(eval "echo ${var}")"
+
+	__ldap_unescape "${val}"
+}
+
+ldap_get()
+{
+	local vars="${*}"
+	local prefix="__pc_"
+
+	for v in ${vars}
+	do
+		__do_ldap_get "${prefix}" "${v}"
+	done
+}
+
+ldap_get_options()
+{
+	local prefix="__pc_"
+	local options=""
+
+	env | \
+	grep ^"${prefix}opt_" | \
+	sed -E "s#^${prefix}##" | \
+	cut -f1 -d= | \
+	xargs
+}
+
+__do_ldap_set()
+{
+	local prefix="${1}"
+	local var="${2}"
+	local val="$(__ldap_escape "${3}")"
+	local pair="${var}=${val}"
+
+	export eval "${prefix}${pair}"
+}
+
+ldap_set()
+{
+	local var="${1}"
+	local val="${2}"
+	local prefix="__pc_"
+
+	__do_ldap_set "${prefix}" "${var}" "${val}"
+}
+
+ldap_configured()
+{
+	if [ -f "${PC_LDAP_VAR_FILE}" ] 
+	then
+		return 0
+	fi
+
+	return 1
+}
+
+ldap_set_configured()
+{
+	touch "${PC_LDAP_VAR_FILE}"
+	return $?
+}
+
+ldap_unset_configured()
+{
+	rm -f "${PC_LDAP_VAR_FILE}"
+	return $?
+}
+
+ldap_init()
+{
+	local conf="${PC_LDAP_CONF}"
+ 	local tmpfile="$(mktemp -q /var/tmp/.adfooXXXXXX)"
+
+	egrep -v '^[[:space:]]+$|^$|^#|^[[:space:]]+#' < "${conf}" > "${tmpfile}"
+
+	exec 3<&0
+	exec 0<"${tmpfile}"
+	while read -r line
+	do
+		line=$(echo "${line}" | xargs)
+
+		echo "${line}" | egrep -q "^ldap_"
+		local ldap=$?
+
+		echo "${line}" | egrep -q "^opt_"
+		local opt=$?
+
+		if [ "${ldap}" = "0" ]
+		then
+			var=$(echo ${line}|cut -f1 -d=|xargs|sed -E 's/^ldap_//')
+
+		elif [ "${opt}" = "0" ]
+		then
+			var=$(echo ${line}|cut -f1 -d=|xargs)
+
+		fi
+
+		if [ "${ldap}" = "0" -o "${opt}" = "0" ]
+		then
+			val=$(echo ${line}|cut -f2- -d=|xargs)
+			ldap_set "${var}" "${val}"
+		fi
+	done
+	exec 0<&3
+	rm -f "${tmpfile}"
+}

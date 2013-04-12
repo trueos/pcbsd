@@ -1,0 +1,112 @@
+#!/bin/sh
+#
+# Copyright (c) 2012 iXsystems ( Kris Moore)
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+# ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+#
+
+resize_media()
+{
+  dev="$1"
+  rdev=`echo $dev | rev | cut -c 2- | rev`
+  glabel stop PCBSDUSB
+  glabel clear ${dev}
+  echo "Resizing file-system $dev on $rdev, this may take a few minutes..."
+  sleep 3 
+  echo "Adjusting partition tables on $rdev..."
+  gpart resize -i 1 $rdev >/dev/null 2>/dev/null
+  sleep 3
+  glabel label PCBSDUSB ${dev}
+  sleep 3 
+  echo "Running growfs on ${dev}, this may take a while..."
+  growfs -y /dev/$dev >/dev/null 2>/dev/null
+}
+
+disable_mfs()
+{
+  local odev="$1"
+  local ndev="$2"
+
+  echo "Cleaning up..."
+  sleep 5 
+  # Disable this mfsroot utility from running again
+  mount $ndev /mnt
+  sed -i '' 's|rootfs_load="YES"||g' /mnt/boot/loader.conf
+  sed -i '' 's|rootfs_type="mfs_root"||g' /mnt/boot/loader.conf
+  sed -i '' 's|rootfs_name="/boot/mfsroot"||g' /mnt/boot/loader.conf
+  sed -i '' 's|vfs.root.mountfrom="ufs:md0"||g' /mnt/boot/loader.conf
+
+  # If we are changing device names
+  # KPM - This will go away, once they fix growfs / glabel issue
+  if [ "$ndev" != "$odev" ] ; then
+    sed -i '' "s|$odev|$ndev|g" /mnt/etc/fstab
+  fi
+
+  umount /mnt
+}
+
+
+stty status '^T'
+
+# Set shell to ignore SIGINT (2), but not children;
+# shell catches SIGQUIT (3) and returns to single user.
+#
+trap : 2
+trap "echo 'Boot interrupted'; exit 1" 3
+
+HOME=/
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+export HOME PATH
+
+# Sleep a moment to let USB devices settle
+sleep 10
+clear
+
+#
+# Running LIVE USB image, lets resize
+#
+
+odev="/dev/ufs/PCBSDUSB"
+ndev="/dev/ufs/PCBSDUSB"
+
+dev=`glabel status | grep PCBSDUSB | awk '{print $3}'`
+if [ -n "$dev" ] ; then
+  echo "Do you want to expand the file-system for this LIVE media?"
+  echo "This process may take up to 15 minutes."
+  echo -e "Resize? (y/n):\c"
+  read ans
+  case $ans in
+     y|Y) resize_media "$dev"
+          odev="/dev/ufs/PCBSDUSB"
+          ndev="/dev/$dev"
+          ;;
+       *) ;;
+  esac 
+else
+  echo "Unable to resize file-system.. Rebooting into live image.."
+fi
+
+disable_mfs "$odev" "$ndev"
+
+echo "Rebooting..."
+reboot
