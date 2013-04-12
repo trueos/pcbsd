@@ -38,6 +38,7 @@ share/warden/scripts/backend/zfsmksnap.sh
 share/warden/scripts/backend/startjail.sh
 share/warden/scripts/backend/chrootjail.sh
 share/warden/scripts/backend/listjails.sh
+share/warden/scripts/backend/listpbis.sh
 share/warden/scripts/backend/cronsnap.sh
 share/warden/scripts/backend/setupusers.sh
 share/warden/scripts/backend/checkstatus.sh
