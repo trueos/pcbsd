@@ -3,7 +3,7 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS    += -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd
+LIBS    += -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
 HEADERS	+= btTray.h
 
@@ -13,7 +13,7 @@ SOURCES	+= main.cpp btTray.cpp
 
 RESOURCES += pc-bluetoothtray.qrc
 
-INCLUDEPATH += ../libpcbsd /usr/local/include
+INCLUDEPATH += ../libpcbsd/utils /usr/local/include
 
 QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
 

@@ -336,7 +336,7 @@ void Backend::readSystemUsers(){
   //make sure the lists are empty
   usernameList.clear(); displaynameList.clear(); homedirList.clear();
   //Get all the users from the file "/etc/passwd"
-  QStringList uList = Utils::runShellCommand("cat /etc/passwd");
+  QStringList uList = pcbsd::Utils::runShellCommand("cat /etc/passwd");
 
   //Remove all users that have:
   for(int i=0; i<uList.length(); i++){

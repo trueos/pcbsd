@@ -5,7 +5,7 @@ CONFIG	+= qt warn_on release
 
 QT	+= network
 
-LIBS	+= -L../../../libpcbsd -lpcbsd
+LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui
 
 HEADERS	+= networkman.h \
     dnslist.h
@@ -100,4 +100,4 @@ dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/s
 
 INSTALLS+= target dotrans cpres resperm
 
-INCLUDEPATH+= ../../../libpcbsd/
+INCLUDEPATH+= ../../../libpcbsd/ui ../../../libpcbsd/utils

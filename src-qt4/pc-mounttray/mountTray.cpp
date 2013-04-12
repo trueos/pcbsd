@@ -265,7 +265,7 @@ void MountTray::getInitialUsername(){
   }
   if(username=="root" || username.isEmpty() ){
    //attempt another method of determining the username
-   QStringList uList = Utils::runShellCommand("who");
+   QStringList uList = pcbsd::Utils::runShellCommand("who");
    if( uList.length() > 0 ){ 
      username = uList[0].section(" ",0,0,QString::SectionSkipEmpty);
      for(int i=0; i<uList.length(); i++){
@@ -287,7 +287,7 @@ void MountTray::getInitialUsername(){
 
 void MountTray::getDefaultFileManager(){
   //Get the command to open the appropriate file manager
-  QString fmcmd = Utils::runShellCommand("de-info -fileman").join(" ");
+  QString fmcmd = pcbsd::Utils::runShellCommand("de-info -fileman").join(" ");
   //qDebug() << "de-info result:" << fmcmd;
   fmcmd = fmcmd.remove("%s").simplified();
   //qDebug() << "FM command found:" << fmcmd;

@@ -191,7 +191,7 @@ void ServiceManager::enableSlot()
     // Disable the buttons until we are done
     setButtonsAllEnabled(false);
 
-    Utils::setConfFileValue( wDir + "/etc/rc.conf", tag, tag + "=\"YES\"", -1);
+    pcbsd::Utils::setConfFileValue( wDir + "/etc/rc.conf", tag, tag + "=\"YES\"", -1);
 
     // Set the service as enabled
     item->setText(4, tr("Enabled"));
@@ -215,7 +215,7 @@ void ServiceManager::disableSlot()
     // Disable the buttons until we are done
     setButtonsAllEnabled(false);
 
-    Utils::setConfFileValue( wDir + "/etc/rc.conf", tag, tag + "=\"NO\"", -1);
+    pcbsd::Utils::setConfFileValue( wDir + "/etc/rc.conf", tag, tag + "=\"NO\"", -1);
 
     // Set the service as enabled
     item->setText(4, tr("Disabled"));

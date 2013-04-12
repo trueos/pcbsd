@@ -48,13 +48,13 @@ void wificonfigwidgetbase::slotApply()
 	    return;
 	}
 	
-	if ( ! Utils::validateIPV4(lineIP->text()) ) {
+	if ( ! pcbsd::Utils::validateIPV4(lineIP->text()) ) {
 	    QMessageBox::warning( this, tr("Warning"),
 	    tr("IP Address is out of range! (") + lineIP->text() + tr(") Fields must be between 0-255.") );
 	   return;
                }
 	
-	if ( ! Utils::validateIPV4(lineNetmask->text()) ) {
+	if ( ! pcbsd::Utils::validateIPV4(lineNetmask->text()) ) {
 	    QMessageBox::warning( this, tr("Warning"),
 	    tr("Netmask is out of range! (") + lineNetmask->text() + tr(") Fields must be between 0-255.") );
 	   return;
@@ -87,15 +87,15 @@ void wificonfigwidgetbase::slotApply()
     // If the user disabled the device, do so now
     if ( checkDisableWireless->isChecked() )
     {
-	 Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, "", -1);
+	 pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, "", -1);
 	 runCommand("ifconfig " + DeviceName + " down");
          pushApply->setEnabled(FALSE);
 	 return;
     } 
 
     // Save the config
-    Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_lagg0", "", -1);
-    Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, \
+    pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_lagg0", "", -1);
+    pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, \
 	 "ifconfig_" + DeviceName + "=\"WPA " + ifConfigLine + "\"", -1);
 
     // Check if we need to enable LAGG
@@ -107,7 +107,7 @@ void wificonfigwidgetbase::slotApply()
 
     // Restart the network
     buttonCancel->setEnabled(false);
-    Utils::restartNetworking();
+    pcbsd::Utils::restartNetworking();
 
     buttonCancel->setEnabled(true);
     pushApply->setEnabled(FALSE);
@@ -217,8 +217,8 @@ void wificonfigwidgetbase::updateWPASupp()
     // If no networks, clear out WPA supplicant.conf and reset rc.conf
     if ( listEmpty  && ! WPAONLY ){
        fileout.remove();
-       Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_lagg0", "", -1);
-       Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, "ifconfig_" + DeviceName + "=\"SYNCDHCP\"");
+       pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_lagg0", "", -1);
+       pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName, "ifconfig_" + DeviceName + "=\"SYNCDHCP\"");
     }  
 
 }
@@ -321,7 +321,7 @@ void wificonfigwidgetbase::slotRescan()
     pushAddWifi->setEnabled(FALSE);
             
     // Start the scan and get the output
-    ifconfout = Utils::runShellCommand("ifconfig -v " + DeviceName + " up list scan");
+    ifconfout = pcbsd::Utils::runShellCommand("ifconfig -v " + DeviceName + " up list scan");
 
     //display the info for each wifi access point
     for(int i=1; i<ifconfout.size(); i++){    //Skip the header line by starting at 1
@@ -1075,10 +1075,10 @@ void wificonfigwidgetbase::slotFinishLoading()
 
    // Get the ifconfig string
    if ( usingLagg )
-     tmp = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_lagg0=", 1 );
+     tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_lagg0=", 1 );
 
    if ( tmp.isEmpty() )
-     tmp = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
+     tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
 
    if ( tmp.isEmpty() || tmp.indexOf("OFF") != -1 )  {
       checkDisableWireless->setChecked(TRUE);
@@ -1138,7 +1138,7 @@ void wificonfigwidgetbase::slotFinishLoading()
    }
    
    // Look for a country code
-   tmp = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
+   tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
    if ( tmp.indexOf("country ") != -1 ) {
        tmp.remove(0, tmp.lastIndexOf("country") + 8);
        Country = tmp.section(" ", 0,0);

@@ -295,8 +295,8 @@ void Installer::slotScanNetwork()
   listWidgetWifi->clear();
 
   // Start the scan and get the output
-  //ifconfout = Utils::runShellCommand("ifconfig -v wlan0 up list scan");
-  ifconfout = Utils::runShellCommand("ifconfig -v wlan0 list scan");
+  //ifconfout = pcbsd::Utils::runShellCommand("ifconfig -v wlan0 up list scan");
+  ifconfout = pcbsd::Utils::runShellCommand("ifconfig -v wlan0 list scan");
   
   qDebug() << ifconfout;
 
@@ -335,7 +335,7 @@ void Installer::slotAddNewWifi()
 void Installer::addNetworkProfile(QString ssid)
 {
   //get the full SSID string
-  QString dat = Utils::runShellCommandSearch("ifconfig -v wlan0 list scan",ssid);
+  QString dat = pcbsd::Utils::runShellCommandSearch("ifconfig -v wlan0 list scan",ssid);
   QStringList wdat = NetworkInterface::parseWifiScanLine(dat,true);
   QString SSID = wdat[0];
  

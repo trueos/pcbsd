@@ -69,7 +69,7 @@ void MenuItem::updateItem(){
     if( isMounted() ){
       if(mountpoint.isEmpty()){
       	//detect the current mountpoint
-      	QString output = Utils::runShellCommandSearch("mount",device);
+      	QString output = pcbsd::Utils::runShellCommandSearch("mount",device);
         mountpoint = output.section(" on ",1,1).section(" (",0,0).replace(" ","-");
       }
       devIcon->setEnabled(TRUE);  //Make the icon full color
@@ -105,8 +105,8 @@ bool MenuItem::isConnected(){
 
 bool MenuItem::isMounted(){
   //Check if device is mounted
-  QString chk = Utils::runShellCommandSearch("mount",device);  
-  if(chk.isEmpty() ){ chk = Utils::runShellCommandSearch("mount",devLabel->text().replace(" ","-")); } 
+  QString chk = pcbsd::Utils::runShellCommandSearch("mount",device);  
+  if(chk.isEmpty() ){ chk = pcbsd::Utils::runShellCommandSearch("mount",devLabel->text().replace(" ","-")); } 
 
   if(chk.isEmpty() ){ return FALSE; }
   else{ return TRUE; }
@@ -120,7 +120,7 @@ void MenuItem::cleanup(){
     //Just check for mountpoint removal
     if(QFile::exists(mountpoint)){
       qDebug() << "Removing old mountpoint:" << mountpoint;
-      QString output = Utils::runShellCommand("rmdir "+mountpoint).join(" ");
+      QString output = pcbsd::Utils::runShellCommand("rmdir "+mountpoint).join(" ");
       if(!output.isEmpty()){ qDebug() << " -Error:" <<output; }
     }
   }
@@ -160,7 +160,7 @@ bool MenuItem::checkSavedAutoMount(){
   if(QFile::exists(AMFILE)){
     QString cmd = "cat "+AMFILE;
     QString search = devLabel->text() +" "+ devType +" "+ filesystem;
-    QString chk = Utils::runShellCommandSearch(cmd, search);
+    QString chk = pcbsd::Utils::runShellCommandSearch(cmd, search);
     if( chk.isEmpty() ){ return FALSE; }
     else{ return TRUE; }
   }else{
@@ -209,11 +209,11 @@ void MenuItem::mountItem(){
   bool ok = FALSE;
   QString result, title;
   //Run the mounting commands
-  QStringList output = Utils::runShellCommand(cmd1);
+  QStringList output = pcbsd::Utils::runShellCommand(cmd1);
   if( output.join(" ").simplified().isEmpty() ){
     //directory created, run the next commands
     system(cmd3.toUtf8()); //set directory permissions before mounting device
-    output = Utils::runShellCommand(cmd2);
+    output = pcbsd::Utils::runShellCommand(cmd2);
     if( output.join(" ").simplified().isEmpty() ){
       title = tr("Success");
       result = QString( tr("%1 mounted at %2") ).arg(deviceName).arg(mntpoint);
@@ -224,7 +224,7 @@ void MenuItem::mountItem(){
       title = QString( tr("Error mounting %1 at %2") ).arg(deviceName).arg(mntpoint);
       result =  output.join(" ");
       //Remove the mount point just created
-      Utils::runShellCommand("rmdir "+mntpoint);
+      pcbsd::Utils::runShellCommand("rmdir "+mntpoint);
     }
   }else{
     qDebug() << "pc-mounttray: Error creating mountpoint:" << mntpoint;
@@ -252,7 +252,7 @@ void MenuItem::unmountItem(){
   if( !QFile::exists(mountpoint) ){
     if( isMounted() ){  //double check that it is actually mounted
       //mounted someplace else - find it
-      QString output = Utils::runShellCommandSearch("mount",device);
+      QString output = pcbsd::Utils::runShellCommandSearch("mount",device);
       mountpoint = output.section(" on ",1,1).section(" (",0,0).replace(" ","-");
     }else{
       //it is not mounted to begin with
@@ -267,10 +267,10 @@ void MenuItem::unmountItem(){
   QStringList output;
   QString result, title;
   bool ok = FALSE;
-  output = Utils::runShellCommand(cmd1);
+  output = pcbsd::Utils::runShellCommand(cmd1);
   if(output.join(" ").simplified().isEmpty()){
     //unmounting successful, remove the mount point directory
-    output = Utils::runShellCommand(cmd2);
+    output = pcbsd::Utils::runShellCommand(cmd2);
     if(!output.join(" ").simplified().isEmpty()){
       qDebug() << "pc-mounttray: Error removing mountpoint:" << mountpoint;
       qDebug() << " - Error message:" << output;

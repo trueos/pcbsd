@@ -9,6 +9,7 @@
 #include "wifiscanssid.h"
 #include "ui_wifiselectiondialog.h"
 #include "pcbsd-utils.h"
+#include "pcbsd-ui.h"
 
 class wifiselectiondialog : public QDialog, private Ui::wifiselectiondialog
 {

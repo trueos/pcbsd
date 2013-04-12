@@ -42,7 +42,7 @@ void BluetoothTray::programInit()
 bool BluetoothTray::checkForBtDevices(){
   bool oldStatus = isBTDevice;
   //Run a couple quick checks to see if a bluetooth device is plugged in
-  QStringList result = Utils::listShellCommandSearch("ngctl list","ubt0");
+  QStringList result = pcbsd::Utils::listShellCommandSearch("ngctl list","ubt0");
   if( result.isEmpty()){ isBTDevice=FALSE; } //no device has ever been plugged in since compupter turned on
   //else if( result[result.length()-1].contains("disconnected") ){ isBTDevice=FALSE; } //last entry says the device has been removed
   else{ isBTDevice=TRUE; }
@@ -98,7 +98,7 @@ void BluetoothTray::startBluetoothManager(){
   qDebug() << "pc-bluetoothtray: Starting Bluetooth Manager";
   //Start bluetooth manager completely seperate from the tray app
   QString cmd = "pc-bluetoothmanager &"; //might need to be "sudo ..."
-  Utils::runShellCommand(cmd);
+  pcbsd::Utils::runShellCommand(cmd);
 }
 
 void BluetoothTray::restartBluetooth(){

@@ -11,7 +11,7 @@
 *****************************************************************************/
 #include <QProcess>
 #include "snddialog.h"
-#include "pcbsd-utils.h"
+#include <pcbsd-utils.h>
 
 
 void sndDialog::programInit()
@@ -78,7 +78,7 @@ void sndDialog::slotSave()
   QString tmp;
   tmp.setNum(comboSound->currentIndex());
   system("sysctl hw.snd.default_unit=" + tmp.toLatin1());
-  Utils::setConfFileValue( "/etc/sysctl.conf", "hw.snd.default_unit=", "hw.snd.default_unit=" + tmp );
+  pcbsd::Utils::setConfFileValue( "/etc/sysctl.conf", "hw.snd.default_unit=", "hw.snd.default_unit=" + tmp );
   refreshDevices();
 }
 

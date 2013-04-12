@@ -77,7 +77,7 @@ void ethernetconfig::slot_apply()
     // If the user disabled the device, do so now
     if ( checkDisableNetwork->isChecked() )
     {
-      Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", "", -1);
+      pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", "", -1);
       runCommand("ifconfig " + DeviceName + " down");
       buttonApply->setEnabled(FALSE);
       return;
@@ -92,13 +92,13 @@ void ethernetconfig::slot_apply()
 	    return;
 	}
 	
-	if ( ! Utils::validateIPV4(lineIP->text() ) ) {
+	if ( ! pcbsd::Utils::validateIPV4(lineIP->text() ) ) {
 	    QMessageBox::warning( this, tr("Warning"),
 	    tr("IP Address is out of range! (") + lineIP->text() + tr(") Fields must be between 0-255.") );
 	   return;
                }
 	
-	if ( ! Utils::validateIPV4(lineNetmask->text() ) ) {
+	if ( ! pcbsd::Utils::validateIPV4(lineNetmask->text() ) ) {
 	    QMessageBox::warning( this, tr("Warning"),
 	    tr("Netmask is out of range! (") + lineNetmask->text() + tr(") Fields must be between 0-255.") );
 	   return;
@@ -125,10 +125,10 @@ void ethernetconfig::slot_apply()
     if ( checkIPv6Enable->isChecked() ) {
        // Get rid of the ifconfig line for the ipv6 interface
        // Remove old deprecated syntax as well:
-       Utils::setConfFileValue( "/etc/rc.conf", "ipv6_ifconfig_" + DeviceName + "=", "", -1);
-       Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", "", -1);
+       pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ipv6_ifconfig_" + DeviceName + "=", "", -1);
+       pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", "", -1);
        // Set accept_rtadv
-       Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", "ifconfig_" + DeviceName + "_ipv6=\"inet6 accept_rtadv\"", -1);
+       pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", "ifconfig_" + DeviceName + "_ipv6=\"inet6 accept_rtadv\"", -1);
     } else {
        // Set static address and disbale accept_rtadv.  This means someone will also have to set
        // the default gateway which currently is configured form the advanced tab.  This should
@@ -138,17 +138,17 @@ void ethernetconfig::slot_apply()
           if (!tmp.contains(QRegExp("^inet6 "))) {
 	     tmp.prepend("inet6 ");
           }
-          Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", "ifconfig_" + DeviceName + "_ipv6=\"" + tmp + " -accept_rtadv\"", -1);
+          pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", "ifconfig_" + DeviceName + "_ipv6=\"" + tmp + " -accept_rtadv\"", -1);
        }
     }
 
-   Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", "ifconfig_" + DeviceName + "=\"" + ifConfigLine + "\"", -1); 
+   pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", "ifconfig_" + DeviceName + "=\"" + ifConfigLine + "\"", -1); 
 
    // See if we need to enable lagg on this device
    if ( isWifiEnabled() && useLagg )
       NetworkInterface::enableLagg(QString("wlan0"));
     
-   Utils::restartNetworking();
+   pcbsd::Utils::restartNetworking();
 
    // Done, now set the apply button to off
    buttonApply->setEnabled(FALSE);
@@ -373,10 +373,10 @@ void ethernetconfig::slotFinishLoad()
 
    // Start loading the device information
    if ( useLagg )
-      tmp = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_lagg0=", 1 );
+      tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_lagg0=", 1 );
 
    if ( tmp.isEmpty() )
-      tmp = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
+      tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "=", 1 );
 
    // Using WPAE config?
    if ( tmp.indexOf("WPA") != -1 )
@@ -456,10 +456,10 @@ void ethernetconfig::slotFinishLoad()
 
   // Check for the IPv6 Configuration
   // Start loading the device information
-   tmp = Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", 1 );
+   tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ifconfig_" + DeviceName + "_ipv6=", 1 );
    if ( tmp.isEmpty() ) {
 	// Check for backward compat.
-	tmp = Utils::getConfFileValue( "/etc/rc.conf", "ipv6_ifconfig_" + DeviceName + "=", 1 );
+	tmp = pcbsd::Utils::getConfFileValue( "/etc/rc.conf", "ipv6_ifconfig_" + DeviceName + "=", 1 );
    }
    if ( ! tmp.isEmpty() ) {
 	// remove the SLAAC default.

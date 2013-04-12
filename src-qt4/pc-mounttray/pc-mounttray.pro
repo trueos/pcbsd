@@ -4,7 +4,7 @@ QT	+= core gui network
 
 CONFIG	+= qt warn_on release
 
-LIBS    += -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd
+LIBS    += -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
 HEADERS	+= mountTray.h menuItem.h devCheck.h
 
@@ -12,7 +12,7 @@ SOURCES	+= main.cpp mountTray.cpp menuItem.cpp devCheck.cpp
 
 RESOURCES += pc-mounttray.qrc
 
-INCLUDEPATH += ../libpcbsd /usr/local/include
+INCLUDEPATH += ../libpcbsd/utils /usr/local/include
 
 QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
 

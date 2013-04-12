@@ -13,6 +13,7 @@
 #include <QTimer>
 
 #include <pcbsd-utils.h>
+#include <pcbsd-ui.h>
 #include "updaterDialog.h"
 #include "ui_pbsystemtab.h"
 #include "portsnapprogress.h"

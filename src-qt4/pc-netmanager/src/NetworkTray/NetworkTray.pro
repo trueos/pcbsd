@@ -3,7 +3,7 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../../../libpcbsd -lpcbsd
+LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui
 
 HEADERS	+= NetworkTray.h netKey.h
 
@@ -83,4 +83,4 @@ QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
 TARGET  = pc-nettray
 target.path = /usr/local/bin/
 
-INCLUDEPATH+= ../../../libpcbsd/
+INCLUDEPATH+= ../../../libpcbsd/utils ../../../libpcbsd/ui

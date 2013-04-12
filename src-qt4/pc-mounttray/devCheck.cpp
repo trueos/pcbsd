@@ -57,7 +57,7 @@ QStringList DevCheck::devChildren(QString node){
 
 QString DevCheck::devLabel(QString node, QString filesystem){
   QString dlabel;
-  QStringList glout = Utils::runShellCommand("glabel list");
+  QStringList glout = pcbsd::Utils::runShellCommand("glabel list");
   int index = glout.indexOf("Geom name: "+node);
   while(index != -1){
     for(int i=index; i<glout.length(); i++){ 
@@ -110,7 +110,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   
   //Read the Device Info using "file -s <device>"
   QString cmd = "file -s "+fullDev;
-  QString output = Utils::runShellCommand(cmd).join(" ");
+  QString output = pcbsd::Utils::runShellCommand(cmd).join(" ");
   //if(isCD){ qDebug() << "File -s output:" << output; }
   
   // ** Get the max storage size **

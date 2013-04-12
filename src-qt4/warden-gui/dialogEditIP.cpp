@@ -85,7 +85,7 @@ void dialogEditIP::slotAddClicked()
 					tr("IP Address:"), QLineEdit::Normal,
 					QString(), &ok);
 	if ( ok ) {
-          if ( Utils::validateIPV4(url) || Utils::validateIPV6(url) )
+          if ( pcbsd::Utils::validateIPV4(url) || pcbsd::Utils::validateIPV6(url) )
 	    listIP->addItem(url);
           else
 	    QMessageBox::critical(this, tr("Warden"), \

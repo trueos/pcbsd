@@ -3,9 +3,9 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils
 
-INCLUDEPATH	+= /usr/local/include ../libpcbsd
+INCLUDEPATH	+= ../libpcbsd/utils /usr/local/include
 
 HEADERS	+= adsldap.h
 

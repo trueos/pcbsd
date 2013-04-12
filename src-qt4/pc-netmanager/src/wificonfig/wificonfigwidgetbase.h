@@ -7,6 +7,7 @@
 #include <qwidget.h>
 #include <pcbsd-netif.h>
 #include <pcbsd-utils.h>
+#include <pcbsd-ui.h>
 #include "wifiselectiondialog.h"
 #include "wepconfig.h"
 #include "dialogwpapersonal.h"

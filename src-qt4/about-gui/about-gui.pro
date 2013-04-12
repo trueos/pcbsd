@@ -13,8 +13,8 @@ target.path = /usr/local/bin
 TEMPLATE = app
 
 
-LIBS +=-L../libpcbsd -L/usr/local/lib -lpcbsd -lQtSolutions_SingleApplication-head
-INCLUDEPATH	+= ../libpcbsd/ /usr/local/include
+LIBS +=-L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplication-head
+INCLUDEPATH	+= ../libpcbsd/utils /usr/local/include
 
 SOURCES += main.cpp\
         mainwindow.cpp

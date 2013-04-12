@@ -76,7 +76,7 @@ void pcADSLDAP::saveSettings()
 void pcADSLDAP::loadSettings()
 {
   QSettings settings("PCBSD", "ADS");
-  QString tmp = Utils::getConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", 1) ;
+  QString tmp = pcbsd::Utils::getConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", 1) ;
   if ( tmp == "YES" ) 
     groupADS->setChecked(true);
   else
@@ -123,41 +123,41 @@ void pcADSLDAP::exportAD()
   QString tmp;
 
   // Now write ADCONF values
-  Utils::setConfFileValue(ADCONF, "ad_domainname =", "ad_domainname = " + lineADSDomainName->text(), -1);
-  Utils::setConfFileValue(ADCONF, "ad_adminname =", "ad_adminname = " + lineADSAdminName->text(), -1);
-  Utils::setConfFileValue(ADCONF, "ad_adminpw =", "ad_adminpw = " + lineADSAdminPW->text(), -1);
-  Utils::setConfFileValue(ADCONF, "ad_workgroup =", "ad_workgroup = " + lineADSWorkgroup->text().toUpper(), -1);
-  Utils::setConfFileValue(ADCONF, "ad_netbiosname =", "ad_netbiosname = " + lineADSNetBIOS->text().toUpper(), -1);
+  pcbsd::Utils::setConfFileValue(ADCONF, "ad_domainname =", "ad_domainname = " + lineADSDomainName->text(), -1);
+  pcbsd::Utils::setConfFileValue(ADCONF, "ad_adminname =", "ad_adminname = " + lineADSAdminName->text(), -1);
+  pcbsd::Utils::setConfFileValue(ADCONF, "ad_adminpw =", "ad_adminpw = " + lineADSAdminPW->text(), -1);
+  pcbsd::Utils::setConfFileValue(ADCONF, "ad_workgroup =", "ad_workgroup = " + lineADSWorkgroup->text().toUpper(), -1);
+  pcbsd::Utils::setConfFileValue(ADCONF, "ad_netbiosname =", "ad_netbiosname = " + lineADSNetBIOS->text().toUpper(), -1);
   
   if ( checkADSTrustedDomains->isChecked() )
-    Utils::setConfFileValue(ADCONF, "ad_allow_trusted_doms =", "ad_allow_trusted_doms = yes", -1);
+    pcbsd::Utils::setConfFileValue(ADCONF, "ad_allow_trusted_doms =", "ad_allow_trusted_doms = yes", -1);
   else
-    Utils::setConfFileValue(ADCONF, "ad_allow_trusted_doms =", "ad_allow_trusted_doms = no", -1);
+    pcbsd::Utils::setConfFileValue(ADCONF, "ad_allow_trusted_doms =", "ad_allow_trusted_doms = no", -1);
 
 }
 
 void pcADSLDAP::exportLDAP()
 {
-  Utils::setConfFileValue(LDCONF, "ldap_hostname =", "ldap_hostname = " + lineLDHostname->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_basedn =", "ldap_basedn = " + lineLDBaseDN->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_hostname =", "ldap_hostname = " + lineLDHostname->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_basedn =", "ldap_basedn = " + lineLDBaseDN->text(), -1);
   if ( checkLDAnonBinding->isChecked() )
-     Utils::setConfFileValue(LDCONF, "ldap_anonbind =", "ldap_anonbind = yes", -1);
+     pcbsd::Utils::setConfFileValue(LDCONF, "ldap_anonbind =", "ldap_anonbind = yes", -1);
   else
-     Utils::setConfFileValue(LDCONF, "ldap_anonbind =", "ldap_anonbind = no", -1);
-  Utils::setConfFileValue(LDCONF, "ldap_rootbasedn =", "ldap_rootbasedn = " + lineLDRootBindDN->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_rootbindpw =", "ldap_rootbindpw = " + lineLDRootBindPW->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_rootbindpw =", "ldap_rootbindpw = " + lineLDRootBindPW->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_pwencryption =", "ldap_pwencryption = " + comboLDPWEnc->currentText(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_usersuffix =", "ldap_usersuffix = " + lineLDUserSuffix->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_groupsuffix =", "ldap_groupsuffix = " + lineLDGroupSuffix->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_passwordstuff =", "ldap_passwordstuff = " + lineLDPWSuffix->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_machinesuffix =", "ldap_machinesuffix = " + lineLDMachineSuffix->text(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_encryption_mode =", "ldap_encryption_mode = " + comboLDEncMode->currentText().toLower(), -1);
-  Utils::setConfFileValue(LDCONF, "ldap_tls_cacertfile =", "ldap_tls_cacertfile = " + lineLDSelfSignedCert->text(), -1);
+     pcbsd::Utils::setConfFileValue(LDCONF, "ldap_anonbind =", "ldap_anonbind = no", -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_rootbasedn =", "ldap_rootbasedn = " + lineLDRootBindDN->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_rootbindpw =", "ldap_rootbindpw = " + lineLDRootBindPW->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_rootbindpw =", "ldap_rootbindpw = " + lineLDRootBindPW->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_pwencryption =", "ldap_pwencryption = " + comboLDPWEnc->currentText(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_usersuffix =", "ldap_usersuffix = " + lineLDUserSuffix->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_groupsuffix =", "ldap_groupsuffix = " + lineLDGroupSuffix->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_passwordstuff =", "ldap_passwordstuff = " + lineLDPWSuffix->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_machinesuffix =", "ldap_machinesuffix = " + lineLDMachineSuffix->text(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_encryption_mode =", "ldap_encryption_mode = " + comboLDEncMode->currentText().toLower(), -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "ldap_tls_cacertfile =", "ldap_tls_cacertfile = " + lineLDSelfSignedCert->text(), -1);
 
   // Remove old opts
   QString optName, optVal;
-  Utils::setConfFileValue(LDCONF, "opt_", "", -1);
+  pcbsd::Utils::setConfFileValue(LDCONF, "opt_", "", -1);
   for ( int i = 0; i < textLDAux->document()->lineCount(); ++i)
   { 
 
@@ -174,7 +174,7 @@ void pcADSLDAP::exportLDAP()
      qDebug() << textLDAux->document()->findBlockByLineNumber(i).text() << optName << optVal;
 
      // Save the config
-     Utils::setConfFileValue(LDCONF, optName + " =", optName + " = " + optVal, -1);
+     pcbsd::Utils::setConfFileValue(LDCONF, optName + " =", optName + " = " + optVal, -1);
   }
 }
 
@@ -185,22 +185,22 @@ void pcADSLDAP::exportSettings()
     exportAD();
     // Restart AD service if enabled   
     qDebug() << "Enabling AD";
-    Utils::setConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", "pc_activedirectory_enable=\"YES\"", -1);
-    Utils::runShellCommand("/usr/local/bin/pc-adctl start");
+    pcbsd::Utils::setConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", "pc_activedirectory_enable=\"YES\"", -1);
+    pcbsd::Utils::runShellCommand("/usr/local/bin/pc-adctl start");
   } else {
      qDebug() << "Disabling AD";
-     Utils::runShellCommand("/usr/local/bin/pc-adctl stop");
-     Utils::setConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", "pc_activedirectory_enable=\"NO\"", -1);
+     pcbsd::Utils::runShellCommand("/usr/local/bin/pc-adctl stop");
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "pc_activedirectory_enable=", "pc_activedirectory_enable=\"NO\"", -1);
   }
   
   // Enable the LDAP service
   if ( groupLDAP->isChecked() ) {
     exportLDAP();
-     Utils::setConfFileValue("/etc/rc.conf", "pc_ldap_enable=", "pc_ldap_enable=\"YES\"", -1);
-     Utils::runShellCommand("/usr/local/bin/pc-ldapctl start");
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "pc_ldap_enable=", "pc_ldap_enable=\"YES\"", -1);
+     pcbsd::Utils::runShellCommand("/usr/local/bin/pc-ldapctl start");
   } else {
      qDebug() << "Disabling LDAP";
-     Utils::runShellCommand("/usr/local/bin/pc-ldapctl stop");
-     Utils::setConfFileValue("/etc/rc.conf", "pc_ldap_enable=", "pc_ldap_enable=\"NO\"", -1);
+     pcbsd::Utils::runShellCommand("/usr/local/bin/pc-ldapctl stop");
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "pc_ldap_enable=", "pc_ldap_enable=\"NO\"", -1);
   }
 }

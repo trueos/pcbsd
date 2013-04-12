@@ -18,11 +18,11 @@ HEADERS  += btmaingui.h
 
 FORMS    += btmaingui.ui
 
-LIBS     += -L../libpcbsd -lpcbsd -lQtSolutions_SingleApplication-head
+LIBS     += -L../libpcbsd -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
 
 #RESOURCES += pc-bluetoothmanager.qrc
 
-INCLUDEPATH += ../libpcbsd /usr/local/include
+INCLUDEPATH += ../libpcbsd/ui ../libpcbsd/utils /usr/local/include
 
 TRANSLATIONS =  i18n/pc-bluetoothmanager_af.ts \
                 i18n/pc-bluetoothmanager_ar.ts \

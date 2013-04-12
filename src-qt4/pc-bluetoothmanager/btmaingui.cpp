@@ -2,6 +2,7 @@
 #include "ui_btmaingui.h"
 #include <pcbsd-hardware.h>
 #include <pcbsd-utils.h>
+#include <pcbsd-ui.h>
 #include <QDebug>
 #include <QMessageBox>
 
@@ -105,7 +106,7 @@ void btmaingui::scanForDevices(){
    newSaveBdaddrList.clear();
    //Start scanning and put the results in the listbox
    QStringList bdaddrList = Hardware::findBTdevices();
-   QStringList connectionList = Utils::runShellCommand("hccontrol read_connection_list");
+   QStringList connectionList = pcbsd::Utils::runShellCommand("hccontrol read_connection_list");
    for(int i=0; i<bdaddrList.length(); i++){
      if( !connectionList.contains(bdaddrList[i]) && !oldSaveBdaddrList.contains(bdaddrList[i]) ){ //Check if it is a new device (not connected or saved)
        QString name = Hardware::getBTRemoteName(bdaddrList[i],TRUE);
@@ -195,7 +196,7 @@ void btmaingui::addNewDevice(){
   //Ask for PIN and KEY for configuration
   QStringList requests;
   requests << tr("PIN Code (Examples: 0000, 1234, or none)") << tr("Link Key (Leave blank for automatic)");
-  QStringList outputs = Utils::quickUserInputBox(tr("Device Configuration"),requests);
+  QStringList outputs = pcbsd::UI::quickUserInputBox(tr("Device Configuration"),requests);
   if( outputs.length() != requests.length() ){ //rememberempty strings are valid
     //Error/cancelled operation - do nothing
     qDebug() << "Add new device: Cancelled";
@@ -234,7 +235,7 @@ void btmaingui::updateCompInfo(){
   ui->lineCompName->setText(compName[0]+" ("+compName[1]+")");
   //List all active connections (if any)
   currentSaveDeviceList.clear();
-  QStringList connectionList = Utils::runShellCommand("hccontrol read_connection_list");
+  QStringList connectionList = pcbsd::Utils::runShellCommand("hccontrol read_connection_list");
   if(connectionList.length() > 1){
     for(int i=1; i<connectionList.length(); i++){ //skip the first line (labels)
       QString bdaddr = connectionList[i].section(" ",0,0,QString::SectionSkipEmpty).simplified();
@@ -263,7 +264,7 @@ void btmaingui::updateOldDeviceInfo(int row){
 }
 
 bool btmaingui::rootPermissions(){
-  QString userID = Utils::runShellCommand("id -u").join("");
+  QString userID = pcbsd::Utils::runShellCommand("id -u").join("");
   if( userID.toInt() == 0){ return TRUE; }
   else{ return FALSE; }
 }
@@ -281,7 +282,7 @@ void btmaingui::configureOldDevice(){
   //Get the new PIN and KEY
   QStringList requests;
   requests << tr("PIN Code (Examples: 0000, 1234, or none)") << tr("Link Key (Leave blank for automatic)");
-  QStringList outputs = Utils::quickUserInputBox(tr("Device Configuration"),requests);
+  QStringList outputs = pcbsd::UI::quickUserInputBox(tr("Device Configuration"),requests);
   if( outputs.length() != requests.length() ){ //remember empty strings are valid
     //Error/cancelled operation - do nothing
     qDebug() << "Configure old device: Cancelled";
@@ -357,7 +358,7 @@ void btmaingui::changeCompName(){
   //Get the desired computer name
   QStringList requests;
   requests << tr("New Bluetooth Computer name");
-  QStringList outputs = Utils::quickUserInputBox(tr("New Bluetooth Name"),requests);
+  QStringList outputs = pcbsd::UI::quickUserInputBox(tr("New Bluetooth Name"),requests);
   //Check for invalid names
   if( outputs.join(" ").simplified().isEmpty() ){ 
     //Error/cancelled operation - do nothing
@@ -391,6 +392,6 @@ void btmaingui::slotSingleInstance()
 void btmaingui::startTrayApplication(){
   //Startup pc-bluetoothtray with sudo
   QString cmd = "sudo pc-bluetoothtray &";
-  Utils::runShellCommand(cmd);
+  pcbsd::Utils::runShellCommand(cmd);
 }
 

@@ -62,9 +62,9 @@ void dialogConfig::readConfig()
 {
     QSettings settings("PCBSD");
     
-    NIC = Utils::getValFromPCConf("/usr/local/etc/warden.conf", "NIC");
-    TMPDIR = Utils::getValFromPCConf("/usr/local/etc/warden.conf", "WTMP");
-    JailDir = Utils::getValFromPCConf("/usr/local/etc/warden.conf", "JDIR");
+    NIC = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "NIC");
+    TMPDIR = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "WTMP");
+    JailDir = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "JDIR");
     
     lineJailDir->setText(JailDir);
     lineTMPDIR->setText(TMPDIR);
@@ -103,9 +103,9 @@ void dialogConfig::slotChangeTMPDIR()
 void dialogConfig::slotSave()
 {
     
-    Utils::setValPCConf("/usr/local/etc/warden.conf", "NIC", comboNIC->currentText());
-    Utils::setValPCConf("/usr/local/etc/warden.conf", "WTMP", lineTMPDIR->text());
-    Utils::setValPCConf("/usr/local/etc/warden.conf", "JDIR", lineJailDir->text());
+    pcbsd::Utils::setValPCConf("/usr/local/etc/warden.conf", "NIC", comboNIC->currentText());
+    pcbsd::Utils::setValPCConf("/usr/local/etc/warden.conf", "WTMP", lineTMPDIR->text());
+    pcbsd::Utils::setValPCConf("/usr/local/etc/warden.conf", "JDIR", lineJailDir->text());
     
     emit saved();
     close();

@@ -107,7 +107,7 @@ QString NetworkTray::getWifiParent(QString dev)
 {
    dev.remove(0, dev.size() -1 );
    QString DevNum = dev;
-   return Utils::sysctl("net.wlan." + DevNum + ".%parent");
+   return pcbsd::Utils::sysctl("net.wlan." + DevNum + ".%parent");
 }
 
 void NetworkTray::confirmDevice( QString device )
@@ -475,13 +475,13 @@ void NetworkTray::monitorStatus(bool noloop) {
 // If the user wants to restart the network, do so
 void NetworkTray::slotRestartNetwork() {
   //trayIcon->showMessage( tr("Please Wait"),tr("Restarting Network"),QSystemTrayIcon::NoIcon,5000);  
-  Utils::restartNetworking();
+  pcbsd::Utils::restartNetworking();
 }
 
 void NetworkTray::openNetManager() {
   QString arguments;
   arguments = "pc-netmanager";
-  Utils::runShellCommand(arguments);
+  pcbsd::Utils::runShellCommand(arguments);
 }
 
 void  NetworkTray::openDeviceInfo() {
@@ -598,7 +598,7 @@ void NetworkTray::updateWifiNetworks(){
   
   //update the list of wifi networks available
   QString cmd = "ifconfig "+DeviceName+" list scan";
-  QStringList wifinet = Utils::runShellCommand(cmd);
+  QStringList wifinet = pcbsd::Utils::runShellCommand(cmd);
  
  //Redo the tray menu
   trayIconMenu = new QMenu(this);
@@ -679,7 +679,7 @@ void NetworkTray::slotGetNetKey(QAction* act){
   smSSID = smSSID.section(".",0,0,QString::SectionSkipEmpty);
   
   //get the full SSID string
-  QString dat = Utils::runShellCommandSearch("ifconfig -v "+DeviceName+" list scan",smSSID);
+  QString dat = pcbsd::Utils::runShellCommandSearch("ifconfig -v "+DeviceName+" list scan",smSSID);
   QStringList wdat = NetworkInterface::parseWifiScanLine(dat,true);
   QString SSID = wdat[0];
   

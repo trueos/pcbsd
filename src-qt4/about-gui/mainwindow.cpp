@@ -72,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QString Ver;
 
     //uname
-    QStringList unameParsed = QString(Utils::runShellCommand("uname -imnr").at(0)).split(" ", QString::SkipEmptyParts);
+    QStringList unameParsed = QString(pcbsd::Utils::runShellCommand("uname -imnr").at(0)).split(" ", QString::SkipEmptyParts);
     if (unameParsed.size()== 4)
     {
         ui->HostnameLabel->setText(unameParsed.at(0));
@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     // pcbsd version
-    Ver = Utils::runShellCommand("uname -r").at(0);
+    Ver = pcbsd::Utils::runShellCommand("uname -r").at(0);
     ui->VersionLabel->setText(Ver+" ("+Arch+")");
     ui->UnstableLabel->setVisible(false);
     Ver = Ver.trimmed();
@@ -105,10 +105,10 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     // CPU
-    ui->CPUInfoLabel->setText(Utils::sysctl("hw.model"));
+    ui->CPUInfoLabel->setText(pcbsd::Utils::sysctl("hw.model"));
 
     // memory
-    ui->MemoryLabel->setText(Utils::bytesToHumanReadable(Utils::sysctlAsInt("hw.realmem")));
+    ui->MemoryLabel->setText(pcbsd::Utils::bytesToHumanReadable(pcbsd::Utils::sysctlAsInt("hw.realmem")));
     //this->setFixedSize(this->geometry().width(),this->geometry().height());
 }
 
@@ -128,7 +128,7 @@ bool MainWindow::checkNG()
 bool MainWindow::checkNGPackage(QString name, QString &outVer)
 {
     outVer="";
-    QStringList out = Utils::runShellCommand(QString("pkg info -f ") + name);
+    QStringList out = pcbsd::Utils::runShellCommand(QString("pkg info -f ") + name);
     if (!out.size())
         return false;
     for (int i=0; i<out.size(); i++)
@@ -171,7 +171,7 @@ void MainWindow::slotSingleInstance()
 void MainWindow::on_pushButton_2_clicked()
 {
     //X.org version
-    QStringList xorgver = Utils::runShellCommand("Xorg -version");
+    QStringList xorgver = pcbsd::Utils::runShellCommand("Xorg -version");
     for(int i=0; i<xorgver.size(); i++)
     {
         QString str = xorgver.at(i);

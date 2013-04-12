@@ -12,9 +12,9 @@ FORMS	= snddialog.ui
 
 HEADERS += snddialog.h
 
-LIBS    += -L../libpcbsd -lpcbsd
+LIBS    += -L../libpcbsd -lpcbsd-utils
 
-INCLUDEPATH+= ../libpcbsd/
+INCLUDEPATH+= ../libpcbsd/utils
 
 RESOURCES = SoundConfig.qrc
 

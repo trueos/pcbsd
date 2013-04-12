@@ -3,8 +3,8 @@ TARGET = PCDM-session
 target.path=/usr/local/bin
 TEMPLATE = app
 
-LIBS += -L../libpcbsd -L/usr/local/lib -lpcbsd -lpam
-INCLUDEPATH += /usr/local/include ../libpcbsd
+LIBS += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lpam
+INCLUDEPATH += ../libpcbsd/utils /usr/local/include
 
 SOURCES += src/main.cpp \
            src/pcdm-gui.cpp \

@@ -36,10 +36,10 @@ void PBSystemTab::ProgramInit()
     checkProxy();
     
     //Get & Set CPU Type
-    labelCPU->setText(Utils::sysctl("hw.model").simplified());
+    labelCPU->setText(pcbsd::Utils::sysctl("hw.model").simplified());
     
     //Get & Set RAM
-    labelMemory->setText(Utils::bytesToHumanReadable(Utils::sysctlAsInt("hw.physmem")));
+    labelMemory->setText(pcbsd::Utils::bytesToHumanReadable(pcbsd::Utils::sysctlAsInt("hw.physmem")));
     
     // Read any kernel settings
     LoadKernSettings();
@@ -85,7 +85,7 @@ void PBSystemTab::loadMirrorConfig()
   QString tmp;
 
   // Get the current mirror
-  currentMirror = Utils::getMasterMirror();
+  currentMirror = pcbsd::Utils::getMasterMirror();
 
   // Load our array of mirrors
   comboMirrorList->clear();
@@ -143,7 +143,7 @@ void PBSystemTab::CheckPBVer()
 {
  
  QString pcVer="";
- QStringList out = Utils::runShellCommand(QString("pkg info -f pcbsd-base"));
+ QStringList out = pcbsd::Utils::runShellCommand(QString("pkg info -f pcbsd-base"));
  if (out.size()) {
    for (int i=0; i<out.size(); i++)
    {
@@ -228,9 +228,9 @@ void PBSystemTab::finishedSheet()
 void PBSystemTab::saveKernScreen()
 {
      if ( checkForceIbus->isChecked() )
-     		Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"YES\"", 1);
+     		pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"YES\"", 1);
      else
-     		Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"NO\"", 1);
+     		pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"NO\"", 1);
 
 }
 
@@ -253,7 +253,7 @@ void PBSystemTab::LoadKernSettings()
 // Checks the file for a string KEY, and sees if its set to VALUE
 bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 {
-    QString theValue = Utils::getConfFileValue(File, Key);
+    QString theValue = pcbsd::Utils::getConfFileValue(File, Key);
     if (theValue == Value) {
 	return TRUE;
     }
@@ -313,14 +313,14 @@ void PBSystemTab::miscSavePressed()
     
     if ( showBootCheck->isChecked() )
     {
-	Utils::setConfFileValue("/boot/loader.conf", "splash_pcx_load=", "splash_pcx_load=\"YES\"" );
-	Utils::setConfFileValue("/boot/loader.conf", "vesa_load=", "vesa_load=\"YES\"" );
-	Utils::setConfFileValue("/boot/loader.conf", "bitmap_load=", "bitmap_load=\"YES\"" );
-	Utils::setConfFileValue("/boot/loader.conf", "bitmap_name=", "bitmap_name=\"/boot/loading-screen.pcx\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "splash_pcx_load=", "splash_pcx_load=\"YES\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "vesa_load=", "vesa_load=\"YES\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "bitmap_load=", "bitmap_load=\"YES\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "bitmap_name=", "bitmap_name=\"/boot/loading-screen.pcx\"" );
      } else {
-	Utils::setConfFileValue("/boot/loader.conf", "splash_pcx_load=", "splash_pcx_load=\"NO\"" );
-	Utils::setConfFileValue("/boot/loader.conf", "vesa_load=", "vesa_load=\"NO\"" );
-	Utils::setConfFileValue("/boot/loader.conf", "bitmap_load=", "bitmap_load=\"NO\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "splash_pcx_load=", "splash_pcx_load=\"NO\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "vesa_load=", "vesa_load=\"NO\"" );
+	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "bitmap_load=", "bitmap_load=\"NO\"" );
      }
 }
 
@@ -417,7 +417,7 @@ void PBSystemTab::loadBootData()
     if ( checkValue("/boot/loader.conf", "splash_pcx_load=", "YES" ) )
         	showBootCheck->setChecked(TRUE);
 
-    if ( Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES"))
+    if ( pcbsd::Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES"))
 		checkForceIbus->setChecked(TRUE);
     else
 		checkForceIbus->setChecked(FALSE);
@@ -529,9 +529,9 @@ void PBSystemTab::saveMirrorConfig() {
 
 
     if ( ! radioSelectMirror->isChecked() ) {
-       Utils::setMasterMirror(lineCustomMirror->text());
+       pcbsd::Utils::setMasterMirror(lineCustomMirror->text());
     } else if (radioAutoMirror->isChecked() ) {
-       Utils::setMasterMirror("");
+       pcbsd::Utils::setMasterMirror("");
     } else {
        // Check if we have a mirror selected and save it
        QString curMirror;
@@ -545,7 +545,7 @@ void PBSystemTab::saveMirrorConfig() {
           i++;
        }
 	
-       Utils::setMasterMirror(curMirror);
+       pcbsd::Utils::setMasterMirror(curMirror);
     }
 }
 
@@ -596,24 +596,24 @@ void PBSystemTab::checkProxy()
   int port;
 
   // If no proxy set
-  if ( Utils::getProxyURL().isEmpty() )
+  if ( pcbsd::Utils::getProxyURL().isEmpty() )
     return;
 
   QNetworkProxy proxy;
-  if ( Utils::getProxyType() == "SOCKS5" )
+  if ( pcbsd::Utils::getProxyType() == "SOCKS5" )
     proxy.setType(QNetworkProxy::Socks5Proxy);
   else
     proxy.setType(QNetworkProxy::HttpProxy);
 
-  proxy.setHostName(Utils::getProxyURL());
+  proxy.setHostName(pcbsd::Utils::getProxyURL());
 
-  port = Utils::getProxyPort().toInt(&ok);
-  if ( ! Utils::getProxyPort().isEmpty() && ok )
+  port = pcbsd::Utils::getProxyPort().toInt(&ok);
+  if ( ! pcbsd::Utils::getProxyPort().isEmpty() && ok )
     proxy.setPort(port);
-  if ( ! Utils::getProxyUser().isEmpty() )
-    proxy.setUser(Utils::getProxyUser());
-  if ( ! Utils::getProxyPass().isEmpty() )
-    proxy.setPassword(Utils::getProxyPass());
+  if ( ! pcbsd::Utils::getProxyUser().isEmpty() )
+    proxy.setUser(pcbsd::Utils::getProxyUser());
+  if ( ! pcbsd::Utils::getProxyPass().isEmpty() )
+    proxy.setPassword(pcbsd::Utils::getProxyPass());
 
   QNetworkProxy::setApplicationProxy(proxy);
 }

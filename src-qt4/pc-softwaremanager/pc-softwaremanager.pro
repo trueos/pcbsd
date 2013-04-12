@@ -3,9 +3,9 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd -lQtSolutions_SingleApplication-head
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplication-head
 
-INCLUDEPATH+= ../libpcbsd/
+INCLUDEPATH+= ../libpcbsd/utils/
 
 HEADERS	+= softmanager-main.h softconfigwidget.h clickedWidget.h dialogPreferences.h \
     pbi.h

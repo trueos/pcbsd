@@ -3,8 +3,8 @@
 # -------------------------------------------------
 TARGET = pc-firstboot
 target.path = /usr/local/bin/
-LIBS    += -L../libpcbsd -lpcbsd
-INCLUDEPATH+= ../libpcbsd/
+LIBS    += -L../libpcbsd -lpcbsd-utils
+INCLUDEPATH+= ../libpcbsd/utils
 TEMPLATE = app
 SOURCES += main.cpp \
     dialogInfoBox.cpp \

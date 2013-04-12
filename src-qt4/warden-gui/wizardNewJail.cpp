@@ -91,7 +91,7 @@ bool wizardNewJail::validatePage()
 	    }
 
          // Check if we have a good IPV4 or IPV6 address
-	 if ( ! Utils::validateIPV4(lineIP->text()) && ! Utils::validateIPV6(lineIP->text()) ) {
+	 if ( ! pcbsd::Utils::validateIPV4(lineIP->text()) && ! pcbsd::Utils::validateIPV6(lineIP->text()) ) {
            button(QWizard::NextButton)->setEnabled(false);
            lineIP->setPalette(badPal);
            labelMessage->setText(tr("Invalid IP address!"));

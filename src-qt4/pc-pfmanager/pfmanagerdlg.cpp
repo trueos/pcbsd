@@ -26,7 +26,7 @@ void PFManagerDlg::enableClicked ( void )
         if ( checked )
         {
             _firewall.enable();
-	    Utils::setConfFileValue( "/etc/rc.conf", "pf_enable", "pf_enable=\"YES\"", -1);
+	    pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "pf_enable", "pf_enable=\"YES\"", -1);
    	    system("/etc/rc.d/pf start");
         }
         else
@@ -39,7 +39,7 @@ void PFManagerDlg::enableClicked ( void )
                                        QMessageBox::Yes, QMessageBox::No ) == QMessageBox::Yes )
             {
 		system("/etc/rc.d/pf stop");
-		Utils::setConfFileValue( "/etc/rc.conf", "pf_enable", "pf_enable=\"NO\"", -1);
+		pcbsd::Utils::setConfFileValue( "/etc/rc.conf", "pf_enable", "pf_enable=\"NO\"", -1);
             } else {
     		cbEnable->setChecked(true);
 	    }

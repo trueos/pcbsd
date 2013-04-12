@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <QDebug>
 #include <QTranslator>
-#include <qtsingleapplication.h>
+#include <pcbsd-ui.h>
 #include <err.h>
 #include "dialogwarden.h"
 

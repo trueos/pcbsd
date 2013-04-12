@@ -112,7 +112,7 @@ void dialogWarden::programInit()
 
 void dialogWarden::slotCheckNic() 
 {
-   QString NIC = Utils::getValFromPCConf("/usr/local/etc/warden.conf", "NIC");
+   QString NIC = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "NIC");
    if ( system("ifconfig " + NIC.toLatin1() + " >/dev/null 2>/dev/null") != 0 )
    {
       // Confirm with user
@@ -247,8 +247,8 @@ void dialogWarden::readConfig()
 {  
     
     ProgDir = "/usr/local/share/warden";
-    TMPDIR = Utils::getValFromPCConf("/usr/local/etc/warden.conf", "WTMP");
-    JailDir = Utils::getValFromPCConf("/usr/local/etc/warden.conf", "JDIR");
+    TMPDIR = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "WTMP");
+    JailDir = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "JDIR");
     
 }
 
@@ -1428,7 +1428,7 @@ void dialogWarden::slotTerminal()
    if ( ! listJails->currentItem() )
      return;
 
-   Utils::runInTerminal(QString("warden chroot ") + listJails->currentItem()->text(0),
+   pcbsd::Utils::runInTerminal(QString("warden chroot ") + listJails->currentItem()->text(0),
                         QString("Jail: ") + listJails->currentItem()->text(0));
 }
 
@@ -1481,12 +1481,12 @@ void dialogWarden::slotChangeMetaDefault()
       return;   
 
    // We can return if we just changed to what is already set
-   QString dMeta = Utils::getValFromPCConf(JailDir + listJails->currentItem()->text(0) + "/usr/local/etc/warden.conf", "PCBSD_METAPKGSET");
+   QString dMeta = pcbsd::Utils::getValFromPCConf(JailDir + listJails->currentItem()->text(0) + "/usr/local/etc/warden.conf", "PCBSD_METAPKGSET");
    if ( dMeta == comboPackageSet->currentText() )
       return;
 
    // Update now
-   Utils::setValPCConf(JailDir + listJails->currentItem()->text(0) + "/usr/local/etc/warden.conf", "PCBSD_METAPKGSET", comboPackageSet->currentText());
+   pcbsd::Utils::setValPCConf(JailDir + listJails->currentItem()->text(0) + "/usr/local/etc/warden.conf", "PCBSD_METAPKGSET", comboPackageSet->currentText());
 
    // Update the meta-widget
    slotCurrentJailChanged();

@@ -1,6 +1,7 @@
 #include "wifiselectiondialog.h"
 #include "ui_wifiselectiondialog.h"
 #include <qtextstream.h>
+#include <pcbsd-ui.h>
 #include <QGroupBox>
 
 void wifiselectiondialog::init(QString device)

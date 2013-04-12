@@ -31,7 +31,7 @@ void wifiscanssid::scanWifi()
     textTop->setText(tr("Scanning for wireless networks...") );
             
     // Start the scan and get the output
-    ifconfout = Utils::runShellCommand("ifconfig -v " + DeviceName + " up list scan");
+    ifconfout = pcbsd::Utils::runShellCommand("ifconfig -v " + DeviceName + " up list scan");
 
     //display the info for each wifi access point
     for(int i=1; i<ifconfout.size(); i++){    //Skip the header line by starting at 1

@@ -3,7 +3,7 @@ LANGUAGE	= C++
 
 CONFIG	+= dll
 
-INCLUDEPATH	+= . config ../libpcbsd/
+INCLUDEPATH	+= . config ../libpcbsd/utils/
 
 HEADERS	+= config/packetfilter.hpp \
 	config/rcconfig.hpp \
@@ -34,7 +34,7 @@ TARGET = pc-pfmanager
 target.path = /usr/local/bin/
 DEPENDPATH += config
 
-LIBS    += -L../libpcbsd -lpcbsd
+LIBS    += -L../libpcbsd -lpcbsd-utils
 INCLUDEPATH+= ../libpcbsd/
 
 TRANSLATIONS =  i18n/PFManager_af.ts \

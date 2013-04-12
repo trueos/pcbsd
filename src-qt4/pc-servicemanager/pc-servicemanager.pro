@@ -1,9 +1,9 @@
 TEMPLATE	= app
 LANGUAGE	= C++
 
-LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd
+LIBS    += -L../libpcbsd -L/usr/local/lib -lpcbsd-utils
 
-INCLUDEPATH+= ../libpcbsd/
+INCLUDEPATH+= ../libpcbsd/utils/
 
 CONFIG	+= qt warn_on release
 

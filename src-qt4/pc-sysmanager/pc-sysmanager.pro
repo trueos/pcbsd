@@ -3,9 +3,9 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 
-INCLUDEPATH	+= /usr/local/include ../libpcbsd
+INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 HEADERS	+= pbsystemtab.h portsnapprogress.h updaterDialog.h
 

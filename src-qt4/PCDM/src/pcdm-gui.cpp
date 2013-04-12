@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <QGraphicsPixmapItem>
 #include <QStyle>
+#include <pcbsd-utils.h>
 
 #include "pcdm-gui.h"
 #include "pcdm-backend.h"
@@ -417,7 +418,7 @@ void PCDMgui::retranslateUi(){
   //The main login widget
   if(hostname.isEmpty()){
     //Find the system hostname
-    hostname = Utils::runShellCommand("hostname").join(" ").simplified();
+    hostname = pcbsd::Utils::runShellCommand("hostname").join(" ").simplified();
     loginW->displayHostName(hostname);	  
   }
   loginW->retranslateUi();

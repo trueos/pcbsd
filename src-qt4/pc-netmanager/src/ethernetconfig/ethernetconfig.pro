@@ -3,7 +3,7 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../../../libpcbsd -lpcbsd
+LIBS	+= -L../../../libpcbsd -lpcbsd-utils -lpcbsd-ui
 
 HEADERS	+= ethernetconfig.h
 
@@ -86,4 +86,4 @@ QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
 TARGET  = pc-ethernetconfig
 target.path = /usr/local/bin
 
-INCLUDEPATH+= ../../../libpcbsd/
+INCLUDEPATH+= ../../../libpcbsd/ui ../../../libpcbsd/utils

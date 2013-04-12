@@ -241,7 +241,7 @@ QString NetworkMan::getWifiParent(QString dev)
 {  
    dev.remove(0, dev.size() -1 );
    QString DevNum = dev;
-   return Utils::sysctl("net.wlan." + DevNum + ".%parent");
+   return pcbsd::Utils::sysctl("net.wlan." + DevNum + ".%parent");
 }
 
 QString NetworkMan::getNextAvailWlan()
@@ -518,9 +518,9 @@ void NetworkMan::runCommand( QString command )
 void NetworkMan::loadGlobals()
 {    
     QString tmp;
-    lineHostname->setText(Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
+    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
 
-    tmp = Utils::getConfFileValue("/etc/rc.conf", "defaultrouter=", 1);
+    tmp = pcbsd::Utils::getConfFileValue("/etc/rc.conf", "defaultrouter=", 1);
     if ( tmp.isEmpty() )
     {
        groupGateway->setChecked(false);
@@ -530,27 +530,27 @@ void NetworkMan::loadGlobals()
          lineGateway->setText(checkRoute.section(" ", 1, 1));
     } else {
         groupGateway->setChecked(true);
-        lineGateway->setText(Utils::getConfFileValue("/etc/rc.conf", "defaultrouter=", 1) );
+        lineGateway->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "defaultrouter=", 1) );
     }
 
     /* Use simple regular expressions to distinguish IPv4 and IPv6 addresses. */
-    lineDNS1->setText(Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b", 1) );
-    lineDNS2->setText(Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b", 2) );
+    lineDNS1->setText(pcbsd::Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b", 1) );
+    lineDNS2->setText(pcbsd::Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b", 2) );
     // Check if we are using custom DNS
-    tmp = Utils::getConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", 1);
+    tmp = pcbsd::Utils::getConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", 1);
     if ( tmp.isEmpty() )
        groupDNS->setChecked(false);
     else
        groupDNS->setChecked(true);
 
 
-    lineIPv6DNS1->setText(Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b.*:.*:.*\\b", 1) );
-    lineIPv6DNS2->setText(Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b.*:.*:.*\\b", 2) );
-    lineSearchDomain->setText(Utils::getConfFileValue("/etc/resolv.conf", "search ", 1) );
+    lineIPv6DNS1->setText(pcbsd::Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b.*:.*:.*\\b", 1) );
+    lineIPv6DNS2->setText(pcbsd::Utils::getConfFileValue("/etc/resolv.conf", "nameserver ", "\\b.*:.*:.*\\b", 2) );
+    lineSearchDomain->setText(pcbsd::Utils::getConfFileValue("/etc/resolv.conf", "search ", 1) );
 
     // Check for IPv6 settings
-    lineIPv6Gateway->setText(Utils::getConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", 1) );
-    tmp = Utils::getConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", 1) ;
+    lineIPv6Gateway->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", 1) );
+    tmp = pcbsd::Utils::getConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", 1) ;
     if ( tmp == "YES" )
         groupIPv6->setChecked(TRUE);
     else
@@ -581,7 +581,7 @@ QString NetworkMan::getNetmaskForIdent( QString ident )
 
 void NetworkMan::restartNetwork()
 {
-   Utils::restartNetworking();
+   pcbsd::Utils::restartNetworking();
 }
 
 
@@ -823,18 +823,18 @@ void NetworkMan::slotCheckGlobalText()
         }
     }
   
-     if ( lineDNS1->text() != "..."  && ! Utils::validateIPV4(lineDNS1->text() ) && groupDNS->isChecked()) {
+     if ( lineDNS1->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineDNS1->text() ) && groupDNS->isChecked()) {
          textGlobalError->setText(tr("Invalid DNS specified"));
 	 return;
      }
     
-    if ( lineDNS2->text() != "..."  && ! Utils::validateIPV4(lineDNS2->text() ) && groupDNS->isChecked()) {
+    if ( lineDNS2->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineDNS2->text() ) && groupDNS->isChecked()) {
          textGlobalError->setText(tr("Invalid DNS specified"));
 	 return;
      }
     
     
-     if ( lineGateway->text() != "..."  && ! Utils::validateIPV4(lineGateway->text())  && groupGateway->isChecked() ) {
+     if ( lineGateway->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineGateway->text())  && groupGateway->isChecked() ) {
          textGlobalError->setText(tr("Invalid Gateway specified"));
 	 return;
      }
@@ -868,18 +868,18 @@ void NetworkMan::slotClose()
 void NetworkMan::slotSave()
 {
     
-   if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
-      Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
-      Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
-      Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
+   if ( !lineHostname->text().isEmpty() && (lineHostname->text().toLower() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1).toLower() ) ) {
+      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
+      pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
+      pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
       QMessageBox::information(this,tr("Computer Restart Required"), tr("You must restart your computer to finish changing your hostname") );
    }
     
     
    if ( lineGateway->text() == "..." || ! groupGateway->isChecked() ) {
-     Utils::setConfFileValue("/etc/rc.conf", "defaultrouter=", "", -1);
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "defaultrouter=", "", -1);
    } else {
-     Utils::setConfFileValue("/etc/rc.conf", "defaultrouter=", "defaultrouter=\"" + lineGateway->text() + "\"", -1);  
+     pcbsd::Utils::setConfFileValue("/etc/rc.conf", "defaultrouter=", "defaultrouter=\"" + lineGateway->text() + "\"", -1);  
    }
    
    int DNSline = 1;
@@ -887,55 +887,55 @@ void NetworkMan::slotSave()
    /* Prefer IPv6 nameservers if IPv6 is enabled. */
     if ( groupIPv6->isChecked() ) {
         if ( ! lineIPv6DNS1->text().isEmpty() ) {
-            Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineIPv6DNS1->text(), DNSline);  
+            pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineIPv6DNS1->text(), DNSline);  
             DNSline++;
         }
         if ( ! lineIPv6DNS2->text().isEmpty() ) {
-            Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineIPv6DNS2->text(), DNSline);  
+            pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineIPv6DNS2->text(), DNSline);  
             DNSline++;
         }
     }
    
    if ( lineDNS1->text() == "..."  || ! groupDNS->isChecked() ) {
-     Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "", DNSline);
+     pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "", DNSline);
    } else {
-     Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineDNS1->text(), DNSline);  
+     pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineDNS1->text(), DNSline);  
      DNSline++;
    }   
    if ( lineDNS2->text() == "..." || ! groupDNS->isChecked() ) {
-     Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "", DNSline);
+     pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "", DNSline);
    } else {
-     Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineDNS2->text(), DNSline);  
+     pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "nameserver", "nameserver " + lineDNS2->text(), DNSline);  
    }   
    
    // If we have custom DNS, make sure it survives a dhclient run
    if ( lineDNS1->text() != "..." && lineDNS2->text() != "..." && groupDNS->isChecked() )
-     Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "supersede domain-name-servers " + lineDNS1->text() + ", " + lineDNS2->text() +";");  
+     pcbsd::Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "supersede domain-name-servers " + lineDNS1->text() + ", " + lineDNS2->text() +";");  
    else if ( lineDNS1->text() != "..." )
-     Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "supersede domain-name-servers " + lineDNS1->text() +";");  
+     pcbsd::Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "supersede domain-name-servers " + lineDNS1->text() +";");  
    else if ( lineDNS2->text() != "..." )
-     Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "supersede domain-name-servers " + lineDNS2->text() +";");  
+     pcbsd::Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "supersede domain-name-servers " + lineDNS2->text() +";");  
    else
-     Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "");  
+     pcbsd::Utils::setConfFileValue("/etc/dhclient.conf", "supersede domain-name-servers", "");  
     
 
    if ( lineSearchDomain->text().isEmpty() || ! groupDNS->isChecked() ) {
-     Utils::setConfFileValue("/etc/resolv.conf", "search", "", 1);
+     pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "search", "", 1);
    } else {
-     Utils::setConfFileValue("/etc/resolv.conf", "search", "search " + lineSearchDomain->text(), 1);
+     pcbsd::Utils::setConfFileValue("/etc/resolv.conf", "search", "search " + lineSearchDomain->text(), 1);
    }
 
    // Save the IPv6 stuff
     if ( groupIPv6->isChecked() ) {
-	Utils::setConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", "ipv6_activate_all_interfaces=\"YES\"", -1);
+	pcbsd::Utils::setConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", "ipv6_activate_all_interfaces=\"YES\"", -1);
         if ( ! lineIPv6Gateway->text().isEmpty() ) {
-	    Utils::setConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", "ipv6_defaultrouter=\"" + lineIPv6Gateway->text() + "\"", -1);
+	    pcbsd::Utils::setConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", "ipv6_defaultrouter=\"" + lineIPv6Gateway->text() + "\"", -1);
         } else {
-	    Utils::setConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", "", -1);
+	    pcbsd::Utils::setConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", "", -1);
         }
     } else {
-	Utils::setConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", "", -1);
-	Utils::setConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", "", -1);
+	pcbsd::Utils::setConfFileValue("/etc/rc.conf", "ipv6_activate_all_interfaces=", "", -1);
+	pcbsd::Utils::setConfFileValue("/etc/rc.conf", "ipv6_defaultrouter=", "", -1);
     }
 
     // Save the lagg preference
@@ -968,7 +968,7 @@ void NetworkMan::loadProxyConfig()
    QString tmp;
    bool ok;
 
-   tmp = Utils::getProxyURL();
+   tmp = pcbsd::Utils::getProxyURL();
    if ( tmp.isEmpty() )
       groupProxySettings->setChecked(false);
    else
@@ -976,22 +976,22 @@ void NetworkMan::loadProxyConfig()
 
    lineProxyAddress->setText(tmp);
 
-   tmp = Utils::getProxyUser();
+   tmp = pcbsd::Utils::getProxyUser();
    lineProxyUser->setText(tmp);
    if ( tmp.isEmpty() )
       checkProxyUser->setChecked(false);
    else
       checkProxyUser->setChecked(true);
 
-   lineProxyPass->setText(Utils::getProxyPass());
+   lineProxyPass->setText(pcbsd::Utils::getProxyPass());
 
-   tmp = Utils::getProxyPort();
+   tmp = pcbsd::Utils::getProxyPort();
    tmp.toInt(&ok);
    if ( ok )
       spinProxyPort->setValue(tmp.toInt(&ok));
    
 
-   tmp = Utils::getProxyType();
+   tmp = pcbsd::Utils::getProxyType();
    if ( tmp == "digest" )
       radioSOCKSProxy->setChecked(true);
    else
@@ -1005,14 +1005,14 @@ void NetworkMan::saveProxyConfig()
    QString tmp;
 
    if ( ! groupProxySettings->isChecked() ) {
-         Utils::setProxyAuth(QString());
-         Utils::setProxyAddress(QString());
+         pcbsd::Utils::setProxyAuth(QString());
+         pcbsd::Utils::setProxyAddress(QString());
    } else {
-   	Utils::setProxyAddress(lineProxyAddress->text() + ":" + tmp.setNum(spinProxyPort->value()));
+   	pcbsd::Utils::setProxyAddress(lineProxyAddress->text() + ":" + tmp.setNum(spinProxyPort->value()));
 
 	QString authLine;
 	if ( ! checkProxyUser->isChecked() || lineProxyUser->text().isEmpty() ) {
-     	  Utils::setProxyAuth(QString());
+     	  pcbsd::Utils::setProxyAuth(QString());
 	} else {
    	  if ( radioHTTPProxy->isChecked() )
 		authLine="basic:*:";
@@ -1020,7 +1020,7 @@ void NetworkMan::saveProxyConfig()
 		authLine="digest:*:";
 	  authLine += lineProxyUser->text() + ":";
 	  authLine += lineProxyPass->text() + "";
-     	  Utils::setProxyAuth(authLine);
+     	  pcbsd::Utils::setProxyAuth(authLine);
 	}
         QMessageBox::warning( this, tr("Proxy enabled"), tr("You may need to re-login for proxy settings to take effect."));
    }

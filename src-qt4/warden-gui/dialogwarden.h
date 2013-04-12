@@ -9,6 +9,7 @@
 #include "dialogEditIP.h"
 #include "wizardNewJail.h"
 #include <pcbsd-utils.h>
+#include <pcbsd-ui.h>
 #include <QMenu>
 
 class dialogWarden : public QMainWindow, private Ui::dialogWarden

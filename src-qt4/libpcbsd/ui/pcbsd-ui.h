@@ -44,6 +44,7 @@ namespace pcbsd
 
 class UI
 {
+   public:
     static QStringList quickUserInputBox( QString title, QStringList inputList );
 };
 
