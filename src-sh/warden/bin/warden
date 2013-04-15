@@ -1028,9 +1028,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          #Now check for the presence of the optional flags
          IP4="OFF"
          IP6="OFF"
-         SRC="NO"
+         SOURCE="NO"
          PORTS="NO"
-         AUTO="NO"
+         STARTUP="NO"
          VANILLA="NO"
          VERSION=
          JAILTYPE="standard"
@@ -1046,9 +1046,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
                           IP6="${1}"
                           ;;
 
-             --src) SRC="YES" ;;
+             --src) SOURCE="YES" ;;
              --ports) PORTS="YES" ;;
-             --startauto) AUTO="YES" ;;
+             --startauto) STARTUP="YES" ;;
              --vanilla) VANILLA="YES" ;;
              --portjail) JAILTYPE="portjail" ;;
              --pluginjail) JAILTYPE="pluginjail" ;; 
@@ -1099,9 +1099,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
           #
           export IP4
           export IP6
-          export SRC
+          export SOURCE 
           export PORTS
-          export AUTO
+          export STARTUP
           export JAILTYPE
           export ARCHIVE_FILE
           export VERSION
