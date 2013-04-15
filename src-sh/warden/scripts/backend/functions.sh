@@ -32,6 +32,13 @@ export NIC
 WTMP="$(grep ^WTMP: /usr/local/etc/warden.conf | cut -d' ' -f2)"
 export WTMP
 
+# FreeBSD release
+FREEBSD_RELEASE="$(grep ^FREEBSD_RELEASE: /usr/local/etc/warden.conf | cut -d' ' -f2)"
+if [ -z "${FREEBSD_RELEASE}" ] ; then
+  FREEBSD_RELEASE="$(uname -r)"
+fi
+export UNAME_r="${FREEBSD_RELEASE}"
+
 # Temp file for dialog responses
 ATMP="/tmp/.wans"
 export ATMP
@@ -109,9 +116,11 @@ downloadpluginjail() {
 
 ### Download the chroot
 downloadchroot() {
+  local CHROOT="${1}"
+
   # XXX If this is PCBSD, pbreg get /PC-BSD/Version
-  SYSVER=`uname -r | cut -f1 -d'-'`
-  FBSD_TARBALL="fbsd-release.tbz"
+  SYSVER="$(echo "$(uname -r)" | cut -f1 -d'-')"
+  FBSD_TARBALL="fbsd-release.txz"
   FBSD_TARBALL_CKSUM="${FBSD_TARBALL}.md5"
 
   # Set the mirror URL, may be overridden by setting MIRRORURL environment variable
@@ -142,18 +151,18 @@ downloadchroot() {
   # Creating ZFS dataset?
   isDirZFS "${JDIR}"
   if [ $? -eq 0 ] ; then
-    local zfsp=`getZFSRelativePath "${WORLDCHROOT}"`
+    local zfsp=`getZFSRelativePath "${CHROOT}"`
 
     # Use ZFS base for cloning
-    echo "Creating ZFS ${WORLDCHROOT} dataset..."
+    echo "Creating ZFS ${CHROOT} dataset..."
     tank=`getZFSTank "${JDIR}"`
-    isDirZFS "${WORLDCHROOT}" "1"
+    isDirZFS "${CHROOT}" "1"
     if [ $? -ne 0 ] ; then
        zfs create -o mountpoint=/${tank}${zfsp} -p ${tank}${zfsp}
        if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
     fi
 
-    tar xvpf ${FBSD_TARBALL} -C ${WORLDCHROOT} 2>/dev/null
+    tar xvpf ${FBSD_TARBALL} -C ${CHROOT} 2>/dev/null
     if [ $? -ne 0 ] ; then exit_err "Failed extracting ZFS chroot environment"; fi
 
     zfs snapshot ${tank}${zfsp}@clean
@@ -161,7 +170,7 @@ downloadchroot() {
     rm ${FBSD_TARBALL}
   else
     # Save the chroot tarball
-    mv ${FBSD_TARBALL} ${WORLDCHROOT}
+    mv ${FBSD_TARBALL} ${CHROOT}
   fi
   rm ${FBSD_TARBALL_CKSUM}
 };
@@ -694,43 +703,139 @@ in_ipv6_network()
    return ${res}
 }
 
+install_pc_extractoverlay()
+{
+  if [ -z "${1}" ] ; then
+    return 1 
+  fi 
+
+  mkdir -p ${1}/usr/local/bin
+  mkdir -p ${1}/usr/local/share/pcbsd/conf
+  mkdir -p ${1}/usr/local/share/pcbsd/distfiles
+
+  cp /usr/local/bin/pc-extractoverlay ${1}/usr/local/bin/
+  chmod 755 ${1}/usr/local/bin/pc-extractoverlay
+
+  cp /usr/local/share/pcbsd/conf/server-excludes \
+    ${1}/usr/local/share/pcbsd/conf
+  cp /usr/local/share/pcbsd/distfiles/server-overlay.txz \
+    ${1}/usr/local/share/pcbsd/distfiles
+
+  return 0
+}
+
+make_bootstrap_pkgng_file_standard()
+{
+  local jaildir="${1}"
+  local outfile="${2}"
+
+  local release="$(uname -r)"
+  local arch="$(uname -m)"
+
+  get_mirror
+  local mirror="${VAL}"
+
+cat<<__EOF__>"${outfile}"
+#!/bin/sh
+tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
+pkg add pkg.txz
+rm pkg.txz
+
+echo "packagesite: ${mirror}/packages/${release}/${arch}" >/usr/local/etc/pkg.conf
+echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
+echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+pkg install -y pcbsd-utils
+exit $?
+__EOF__
+}
+
+make_bootstrap_pkgng_file_pluginjail()
+{
+
+  local jaildir="${1}"
+  local outfile="${2}"
+
+  local release="$(uname -r)"
+  local arch="$(uname -m)"
+
+  get_mirror
+  local mirror="${VAL}"
+
+  cp /usr/local/share/warden/pluginjail-packages "${jaildir}/pluginjail-packages"
+
+cat<<__EOF__>"${outfile}"
+#!/bin/sh
+tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
+pkg add pkg.txz
+rm pkg.txz
+
+mount -t devfs devfs /dev
+
+echo "packagesite: ${mirror}/packages/${release}/${arch}" >/usr/local/etc/pkg.conf
+echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
+echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+pkg install -y pcbsd-utils
+__EOF__
+
+echo '
+i=0
+count=`wc -l /pluginjail-packages| awk "{ print $1 }"`
+for p in `cat /pluginjail-packages`
+do
+  pkg install -y ${p}
+  : $(( i += 1 ))
+done
+
+umount devfs
+exit $?
+' >> "${outfile}"
+}
+
+
 bootstrap_pkgng()
 {
-  cd ${1} 
-  SYSVER="$(uname -r)"
-  echo "Boot-strapping pkgng"
-  mkdir -p ${1}/usr/local/etc
-  cp /usr/local/etc/pkg-pubkey.cert ${1}/usr/local/etc/
-  if [ $? -ne 0 ] ; then
-     echo "Failed copying /usr/local/etc/pkg-pubkey.cert"
+  local jaildir="${1}"
+  local jailtype="${2}"
+  if [ -z "${jailtype}" ] ; then
+    jailtype="standard"
+  fi
+  local release="$(uname -r)"
+  local arch="$(uname -m)"
+
+  local ffunc="make_bootstrap_pkgng_file_standard"
+  if [ "${jailtype}" = "pluginjail" ] ; then
+    ffunc="make_bootstrap_pkgng_file_pluginjail"
   fi
 
-  echo '#!/bin/sh
-  tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
-  pkg add pkg.txz
-  rm pkg.txz
-  ARCH=$(uname -m)
-  REL=$(uname -r)
-  echo "packagesite: http://ftp.pcbsd.org/pub/mirror/packages/$REL/$ARCH" >/usr/local/etc/pkg.conf
-  echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
-  echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
-  pkg install -y pcbsd-utils
-  exit $?
-' > ${1}/bootstrap-pkgng
-  chmod 755 ${1}/bootstrap-pkgng
+  cd ${jaildir} 
+  echo "Boot-strapping pkgng"
+
+  mkdir -p ${jaildir}/usr/local/etc
+  pubcert="/usr/local/etc/pkg-pubkey.cert"
+
+  cp "${pubcert}" ${jaildir}/usr/local/etc
+  install_pc_extractoverlay "${jaildir}"
+
+  ${ffunc} "${jaildir}" "${jaildir}/bootstrap-pkgng"
+  chmod 755 "${jaildir}/bootstrap-pkgng"
 
   if [ -e "pkg.txz" ] ; then rm pkg.txz ; fi
-  get_file_from_mirrors "/packages/${SYSVER}/${ARCH}/Latest/pkg.txz" "pkg.txz"
+  get_file_from_mirrors "/packages/${release}/${arch}/Latest/pkg.txz" "pkg.txz"
   if [ $? -eq 0 ] ; then
-    chroot ${1} /bootstrap-pkgng
+    chroot ${jaildir} /bootstrap-pkgng
     if [ $? -eq 0 ] ; then
-      rm ${1}/bootstrap-pkgng
-      chroot ${1} pc-extractoverlay server --sysinit
+      rm -f "${jaildir}/bootstrap-pkgng"
+      rm -f "${jaildir}/pluginjail-packages"
+      chroot ${jaildir} pc-extractoverlay server --sysinit
       return 0
     fi
   fi
+
   echo "Failed boot-strapping PKGNG, most likely cause is internet connection failure."
-  rm ${1}/bootstrap-pkgng
+  rm -f "${jaildir}/bootstrap-pkgng"
+  rm -f "${jaildir}/pluginjail-packages"
   return 1
 }
 
@@ -745,6 +850,27 @@ ipv4_configured()
    fi
 
    ${jexec} ifconfig "${iface}" | grep -qw inet 2>/dev/null
+   return $?
+}
+
+ipv4_address_configured()
+{
+   local iface="${1}"
+   local addr="${2}"
+   local jid="${3}"
+   local jexec= 
+
+   addr="$(echo ${addr}|cut -f1 -d'/')"
+
+   if [ -n "${jid}" ] ; then
+      jexec="jexec ${jid}"
+   fi
+
+   ${jexec} ifconfig "${iface}" | \
+      grep -w inet | \
+      awk '{ print $2 }' | \
+      grep -Ew "^${addr}" >/dev/null 2>&1
+   return $?
 }
 
 ipv6_configured()
@@ -758,4 +884,87 @@ ipv6_configured()
    fi
 
    ${jexec} ifconfig "${iface}" | grep -qw inet6 2>/dev/null
+   return $?
 }
+
+ipv6_address_configured()
+{
+   local iface="${1}"
+   local addr="${2}"
+   local jid="${3}"
+   local jexec= 
+
+   addr="$(echo ${addr}|cut -f1 -d'/')"
+
+   if [ -n "${jid}" ] ; then
+      jexec="jexec ${jid}"
+   fi
+
+   ${jexec} ifconfig "${iface}" | \
+      grep -w inet6 | \
+      awk '{ print $2 }' | \
+      grep -Ew "^${addr}" >/dev/null 2>&1
+   return $?
+}
+
+get_ipfw_nat_instance()
+{
+   local iface="${1}"
+   local res=1
+
+   if [ -z "${iface}" ] ; then
+      local instance="`ipfw list|egrep '[0-9]+ nat'|awk '{ print $3 }'|tail -1`"
+      if [ -z "${instance}" ] ; then
+         instance="100"
+      else		  
+         : $(( instance += 100 )) 
+      fi
+      echo "${instance}"
+      return 0
+   fi
+
+   for ni in `ipfw list|egrep '[0-9]+ nat'|awk '{ print $3 }'`
+   do
+      ipfw nat "${ni}" show config|egrep -qw "${iface}"
+      if [ "$?" = "0" ] ; then
+         echo "${ni}"
+         res=0
+         break
+      fi
+   done
+
+   return ${res}
+}
+
+get_ipfw_nat_priority()
+{
+   local iface="${1}"
+   local res=1
+
+   if [ -z "${iface}" ] ; then
+      local priority="`ipfw list|egrep '[0-9]+ nat'|awk '{ print $1 }'|tail -1`"
+      if [ -z "${priority}" ] ; then
+         priority=2000
+      fi
+      printf "%05d\n" "${priority}"
+      return 0
+   fi
+
+   local IFS='
+'
+   for rule in `ipfw list|egrep '[0-9]+ nat'`
+   do
+      local priority="`echo "${rule}"|awk '{ print $1 }'`"
+      local ni="`echo "${rule}"|awk '{ print $3 }'`"
+
+      ipfw nat "${ni}" show config|egrep -qw "${iface}"
+      if [ "$?" = "0" ] ; then
+         echo "${priority}"
+         res=0
+         break
+      fi
+   done
+
+   return ${res}
+}
+

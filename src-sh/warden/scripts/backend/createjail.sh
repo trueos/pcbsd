@@ -22,7 +22,7 @@ setup_linux_jail()
     echo "${IP6}/${MASK6}" > ${JMETADIR}/ipv6
   fi
 
-  if [ "$STARTUP" = "YES" ] ; then
+  if [ "$AUTOSTART" = "YES" ] ; then
     touch "${JMETADIR}/autostart"
   fi
   touch "${JMETADIR}/jail-linux"
@@ -68,7 +68,7 @@ touch /etc/mtab
   rm ${JAILDIR}/.fixSH
 
   # If we are auto-starting the jail, do it now
-  if [ "$STARTUP" = "YES" ] ; then warden start ${JAILNAME} ; fi
+  if [ "$AUTOSTART" = "YES" ] ; then warden start ${JAILNAME} ; fi
 
   echo "Success! Linux jail created at ${JAILDIR}"
 }
@@ -86,25 +86,21 @@ case "${JAILTYPE}" in
   standard) ;;
 esac
 
-if [ -z "${VERSION}" -a -e "/etc/version" ] ; then VERSION=`cat /etc/version`; fi
-
 # Location of the chroot environment
 isDirZFS "${JDIR}"
 if [ $? -eq 0 ] ; then
-  if [ "${PLUGINJAIL}" = "YES" ] ; then
-    WORLDCHROOT="${JDIR}/.warden-pj-chroot-${ARCH}"
-  else
-    WORLDCHROOT="${JDIR}/.warden-chroot-${ARCH}"
-  fi
-  export WORLDCHROOT
+  WORLDCHROOT_PLUGINJAIL="${JDIR}/.warden-pj-chroot-${ARCH}"
+  WORLDCHROOT_STANDARD="${JDIR}/.warden-chroot-${ARCH}"
 else
-  if [ "${PLUGINJAIL}" = "YES" ] ; then
-    WORLDCHROOT="${JDIR}/.warden-pj-chroot-${ARCH}.tbz"
-  else
-    WORLDCHROOT="${JDIR}/.warden-chroot-${ARCH}.tbz"
-  fi
-  export WORLDCHROOT
+  WORLDCHROOT_PLUGINJAIL="${JDIR}/.warden-pj-chroot-${ARCH}.tbz"
+  WORLDCHROOT_STANDARD="${JDIR}/.warden-chroot-${ARCH}.tbz"
 fi
+if [ "${PLUGINJAIL}" = "YES" ] ; then
+  WORLDCHROOT="${WORLDCHROOT_PLUGINJAIL}"
+else
+  WORLDCHROOT="${WORLDCHROOT_STANDARD}"
+fi
+export WORLDCHROOT WORLDCHROOT_PLUGINJAIL WORLDCHROOT_STANDARD
 
 if [ "${IP4}" != "OFF" ] ; then
   get_ip_and_netmask "${IP4}"
@@ -117,7 +113,7 @@ if [ "${IP6}" != "OFF" ] ; then
   get_ip_and_netmask "${IP6}"
   IP6="${JIP}"
   MASK6="${JMASK}"
-  if [ -z "$MASK4" ] ; then MASK6="64"; fi
+  if [ -z "$MASK6" ] ; then MASK6="64"; fi
 fi
 
 # See if we are overriding the default archive file
@@ -125,15 +121,9 @@ if [ ! -z "$ARCHIVEFILE" ] ; then
    WORLDCHROOT="$ARCHIVEFILE"
 fi
 
-if [ -z "${HOST}" -o -z "$SOURCE" -o -z "${PORTS}" -o -z "${STARTUP}" ] 
-then
-  if [ -z "$HOST" ] ; then
-     echo "ERROR: Missing hostname!"
-  else
-     echo "ERROR: Missing required data!"
-  fi
-
-  exit 6
+if [ -z "$HOST" ] ; then
+   echo "ERROR: Missing hostname!"
+   exit 6
 fi
 
 JAILDIR="${JDIR}/${JAILNAME}"
@@ -167,11 +157,45 @@ done
 : $(( META_ID += 1 ))
 
 # Check if we need to download the chroot file
+
+#
+# If this is a pluginjail, we clone a regular freebsd chroot, then we
+# bootstrap packageng, install the required packages that a pluginjail
+# needs, then snapshot it. Once this is done, creating a pluginjail is
+# as easy as doing a zfs clone.
+#
 if [ "${PLUGINJAIL}" = "YES" -a ! -e "${WORLDCHROOT}" ] ; then
-  downloadpluginjail "${VERSION}"
+  if [ ! -e "${WORLDCHROOT_STANDARD}" ] ; then
+    downloadchroot "${WORLDCHROOT_STANDARD}"
+  fi
+
+  isDirZFS "${JDIR}"
+  if [ $? -eq 0 ] ; then
+    tank=`getZFSTank "$JDIR"`
+    zfsp=`getZFSRelativePath "${WORLDCHROOT_STANDARD}"`
+    clonep="/$(basename ${WORLDCHROOT_PLUGINJAIL})"
+
+    mnt=`getZFSMountpoint ${tank}`
+    pjdir="${mnt}${clonep}"
+
+    zfs clone ${tank}${zfsp}@clean ${tank}${clonep}
+    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS pluginjail clone"; fi
+
+    cp /etc/resolv.conf ${pjdir}/etc/resolv.conf
+
+    bootstrap_pkgng "${pjdir}" "pluginjail"
+
+    zfs snapshot ${tank}${clonep}@clean
+    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS pluginjail snapshot"; fi
+
+  # We're on UFS :-(
+  else
+    downloadchroot "${WORLDCHROOT_STANDARD}"
+
+  fi
 
 elif [ ! -e "${WORLDCHROOT}" -a "${LINUXJAIL}" != "YES" ] ; then
-  downloadchroot
+  downloadchroot "${WORLDCHROOT}"
 fi
 
 # If we are setting up a linux jail, lets do it now
@@ -211,6 +235,12 @@ else
    else
      tar xvf ${WORLDCHROOT} -C "${JAILDIR}" 2>/dev/null
    fi
+
+   # If this is a pluginjail on UFS :-( Do things the hard way.
+   if [ "${PLUGINJAIL}" = "YES" ] ; then
+     bootstrap_pkgng "${pjdir}" "pluginjail"
+   fi
+
    echo "Done"
 fi
 
@@ -285,10 +315,10 @@ cat<<__EOF__>"${JAILDIR}/etc/hosts"
 __EOF__
 
   if [ "${IP4}" != "OFF" ] ; then
-    echo "${IP4}			${HOST}" > "${JAILDIR}/etc/hosts"
+    echo "${IP4}			${HOST}" >> "${JAILDIR}/etc/hosts"
   fi
   if [ "${IP6}" != "OFF" ] ; then
-    echo "${IP6}			${HOST}" > "${JAILDIR}/etc/hosts"
+    echo "${IP6}			${HOST}" >> "${JAILDIR}/etc/hosts"
     sed -i '' "s|#ListenAddress ::|ListenAddress ${IP6}|g" ${JAILDIR}/etc/ssh/sshd_config
   fi
 
@@ -297,7 +327,7 @@ __EOF__
 
 fi # End of ARCHIVEFILE check
 
-if [ "$STARTUP" = "YES" ] ; then
+if [ "$AUTOSTART" = "YES" ] ; then
   touch "${JMETADIR}/autostart"
 fi
 
@@ -313,7 +343,7 @@ fi
 if [ "$VANILLA" != "YES" ] ; then
   bootstrap_pkgng "${JAILDIR}"
   if [ $? -ne 0 ] ; then
-     echo "You can manually re-try by running # warden bspkgng ${IP}"
+     echo "You can manually re-try by running # warden bspkgng ${JAILNAME}"
   fi
 fi
 
@@ -331,7 +361,7 @@ if [ "$PORTJAIL" = "YES" ] ; then mkportjail "${JAILDIR}" ; fi
 if [ "$PLUGINJAIL" = "YES" ] ; then mkpluginjail "${JAILDIR}" ; fi
 
 # If we are auto-starting the jail, do it now
-if [ "$STARTUP" = "YES" ] ; then warden start ${JAILNAME} ; fi
+if [ "$AUTOSTART" = "YES" ] ; then warden start ${JAILNAME} ; fi
 
 echo "Success!"
 echo "Jail created at ${JAILDIR}"

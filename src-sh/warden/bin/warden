@@ -91,7 +91,7 @@ Available options:
  alias-bridge-ipv6: Lets you see additional vnet bridge IPv6 addresses for this jail
 defaultrouter-ipv4: Lets you see the default IPv4 router for this jail
 defaultrouter-ipv6: Lets you see the default IPv6 router for this jail
-        flags: Lets you see additional flags to pass to the 'jail' command at startup
+	     flags: Lets you see additional flags to pass to the 'jail' command at startup
 
 Usage:
 
@@ -126,7 +126,7 @@ Available options:
  alias-bridge-ipv6: Lets you set additional vnet bridge IPv6 addresses for this jail
 defaultrouter-ipv4: Lets you set the default IPv4 router for this jail
 defaultrouter-ipv6: Lets you set the default IPv6 router for this jail
-     	     flags: Lets you set additional flags to pass to the 'jail' command at startup
+        flags: Lets you set additional flags to pass to the 'jail' command at startup
 
 Usage:
 
@@ -805,9 +805,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
     gui) require_root
 	  ${PROGDIR}/bin/warden-gui ;;
 
-    list) require_root 
-	  shift
-          ${PROGDIR}/scripts/backend/listjails.sh $* ;;
+    list) require_root
+	shift
+        ${PROGDIR}/scripts/backend/listjails.sh $* ;;
     
    start) require_root
 	  # Time to startup the jail
@@ -1036,9 +1036,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          #Now check for the presence of the optional flags
          IP4="OFF"
          IP6="OFF"
-         SOURCE="NO"
+         SRC="NO"
          PORTS="NO"
-         STARTUP="NO"
+         AUTOSTART="NO"
          VANILLA="NO"
          VERSION=
          JAILTYPE="standard"
@@ -1054,12 +1054,12 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
                           IP6="${1}"
                           ;;
 
-             --src) SOURCE="YES" ;;
+             --src) SRC="YES" ;;
              --ports) PORTS="YES" ;;
-             --startauto) STARTUP="YES" ;;
+             --startauto) AUTOSTART="YES" ;;
              --vanilla) VANILLA="YES" ;;
              --portjail) JAILTYPE="portjail" ;;
-             --pluginjail) JAILTYPE="pluginjail" ;; 
+             --pluginjail) JAILTYPE="pluginjail" ; VANILLA="YES" ;; 
              --linuxjail) JAILTYPE="linuxjail" ; shift
 			  if [ -z "$1" ] ; then exit_err "No linux setup script specified!"; fi
 			  LINUX_JAIL_SCRIPT="$1" ; export LINUX_JAIL_SCRIPT
@@ -1107,9 +1107,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
           #
           export IP4
           export IP6
-          export SOURCE 
+          export SRC
           export PORTS
-          export STARTUP
+          export AUTOSTART
           export JAILTYPE
           export ARCHIVE_FILE
           export VERSION
