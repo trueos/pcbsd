@@ -21,10 +21,28 @@ void wizardNewJail::programInit()
     connect(lineRoot, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(lineRoot2, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(lineIP, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
+    connect(lineIP6, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
+    connect(checkIPv4, SIGNAL(clicked()), this, SLOT(slotCheckChecks()));
+    connect(checkIPv6, SIGNAL(clicked()), this, SLOT(slotCheckChecks()));
     connect(lineHost, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(lineLinuxScript, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(pushLinuxScript, SIGNAL(clicked()), this, SLOT(slotSelectLinuxScript()) );
     connect(this, SIGNAL(currentIdChanged(int)), this, SLOT(slotCheckComplete()) );
+}
+
+void wizardNewJail::slotCheckChecks()
+{
+   if ( checkIPv4->isChecked() )
+      lineIP->setEnabled(true);
+   else
+      lineIP->setEnabled(false);
+
+   if ( checkIPv6->isChecked() )
+      lineIP6->setEnabled(true);
+   else
+      lineIP6->setEnabled(false);
+
+   slotCheckComplete();
 }
 
 void wizardNewJail::setHostIPUsed(QStringList uH, QStringList uIP)
@@ -35,8 +53,13 @@ void wizardNewJail::setHostIPUsed(QStringList uH, QStringList uIP)
 
 void wizardNewJail::accept()
 {
+    QString ip4, ip6;
+    if ( checkIPv4->isChecked() )
+       ip4 = lineIP->text();
+    if ( checkIPv6->isChecked() )
+       ip6 = lineIP6->text();
     
-    emit create(lineIP->text(), lineHost->text(), radioTraditionalJail->isChecked(),
+    emit create(ip4, ip6, lineHost->text(), radioTraditionalJail->isChecked(), checkPCBSDUtils->isChecked(),
                 lineRoot->text(), checkSystemSource->isChecked(), checkPortsTree->isChecked(),
                 checkAutostart->isChecked(), radioLinuxJail->isChecked(), lineLinuxScript->text());
     close();
@@ -65,7 +88,11 @@ bool wizardNewJail::validatePage()
   switch (currentId()) {
      case Page_IP:
          // Make sure items are not empty
-         if ( lineIP->text().isEmpty() ) {
+         if ( checkIPv4->isChecked() && lineIP->text().isEmpty() ) {
+            button(QWizard::NextButton)->setEnabled(false);
+            return false;
+	 }
+         if ( checkIPv6->isChecked() && lineIP6->text().isEmpty() ) {
             button(QWizard::NextButton)->setEnabled(false);
             return false;
 	 }

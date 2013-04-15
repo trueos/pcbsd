@@ -53,7 +53,7 @@ private slots:
     void slotFinishedOutput();
     void slotReadPkgsOutput();
     void slotClickedNewJail();
-    void slotCreateNewJail( const QString &, const QString &, bool, const QString &, bool, bool, bool, bool, const QString & );
+    void slotCreateNewJail( const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString & );
     void slotReadCreateOutput();
     void slotFinishedJailCreate();
     void slotReadUserAddOutput();
@@ -123,7 +123,6 @@ private:
     QProcess *deleteJailProc;
     wizardNewJail *newJailWizard;
     QProcess *createJailProc;
-    QString newIP;
     QString newHost;
     bool newSrc;
     bool newPorts;

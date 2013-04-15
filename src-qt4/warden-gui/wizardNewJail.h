@@ -24,6 +24,7 @@ private slots:
     virtual void accept();
     void slotClose();
     void slotCheckComplete();
+    void slotCheckChecks();
     void slotSelectLinuxScript();
 
 private:
@@ -32,6 +33,6 @@ private:
     enum { Page_IP, Page_Type, Page_Root, Page_Linux, Page_Opts };
 
 signals:
-     void create(const QString &, const QString &, bool, const QString &,  bool, bool, bool, bool, const QString &);
+     void create(const QString &, const QString &, const QString &, bool, bool, const QString &,  bool, bool, bool, bool, const QString &);
 } ;
 #endif // WIZARDCREATEJAIL_H

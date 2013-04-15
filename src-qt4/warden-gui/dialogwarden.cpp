@@ -42,6 +42,10 @@ void dialogWarden::programInit()
    listJails->setSelectionMode(QAbstractItemView::SingleSelection);
    listJails->setAllColumnsShowFocus(TRUE);
 
+   // Run this a single time, just to be sure we did any jail import / migration
+   // from legacy jails
+   system("warden list");
+
    // Hide the identifier column / host column
    listJails->setColumnHidden(0, true);
    listJails->setColumnWidth(1, 200);
@@ -129,7 +133,7 @@ void dialogWarden::slotCheckNic()
 
 void dialogWarden::refreshJails()
 {
-   QString jType, jIPs, jZFS;
+   QString jType, jName, jZFS;
    QStringList jD;
    QStringList mountOut;
  
@@ -165,25 +169,14 @@ void dialogWarden::refreshJails()
        jD.clear();
 
        qDebug() << "Checking:" << d[i];
-	   
-       // Check for the IP of this jail
-       QFile fileIP( JailDir + "/" + d[i] + "/ip" );
-       if ( ! fileIP.exists() )
-          continue;
-       if ( ! fileIP.open( QIODevice::ReadOnly ) )
-          continue;
-       QTextStream streamip( &fileIP );
-       QString jIP;
-       while ( !streamip.atEnd() )
-          jIP = streamip.readLine(); // line of text excluding '\n'
-       fileIP.close();
 
+       jName = d[i].replace(".meta", "").remove(0, 1);
+	   
        // Check if this jail is created on ZFS
        jZFS="NO";
        for (int z = 0; z < mountOut.size(); ++z)
-	  if ( mountOut.at(z).indexOf("on " + JailDir + "/" + jIP) != -1 && mountOut.at(z).indexOf("(zfs,") != -1 )
+	  if ( mountOut.at(z).indexOf("on " + JailDir + "/" + jName) != -1 && mountOut.at(z).indexOf("(zfs,") != -1 )
              jZFS="YES";
-
 
        // Check for the hostname of this jail
        QFile file( JailDir + "/" + d[i] + "/host" );
@@ -197,17 +190,22 @@ void dialogWarden::refreshJails()
           host = stream.readLine(); // line of text excluding '\n'
        file.close();
 	    
-       // Check for additional IPs in this jail
-       jIPs = "";
-       QFile fileip(JailDir + "/" + d[i] + "/ip-extra" );
-       if ( fileip.exists() ) {
-         if (fileip.open( QIODevice::ReadOnly ) ) {
-            QTextStream stream2( &fileip );
-            while ( !stream2.atEnd() )
-              jIPs = jIPs + stream2.readLine().simplified() + " "; // line of text excluding '\n'
-	 }
-         fileip.close();
+       // Build list of IPs for this jail
+       QString jIPs = "";
+       QStringList ipFiles;
+       ipFiles << "ipv4" << "ipv6";
+       for (int f = 0; f < ipFiles.size(); ++f) {
+         QFile fileip(JailDir + "/" + d[i] + "/" + ipFiles.at(f) );
+         if ( fileip.exists() ) {
+           if (fileip.open( QIODevice::ReadOnly ) ) {
+              QTextStream stream2( &fileip );
+              while ( !stream2.atEnd() )
+                jIPs = jIPs + stream2.readLine().simplified() + " "; // line of text excluding '\n'
+	   }
+           fileip.close();
+         }
        }
+       qDebug() << jIPs;
 
        // Check the type of jail
        jType = "Traditional";
@@ -220,14 +218,14 @@ void dialogWarden::refreshJails()
 
        // Display the jail in the tree widget now
        QStringList cols;
-       cols << jIP << jIP << host;
+       cols << jName << host;
 
        QTreeWidgetItem *curItem = new QTreeWidgetItem( listJails, cols );
        if ( ! listJails->currentItem() )
          listJails->setCurrentItem(curItem);
 
        // Save additional jail details into list
-       jD << jIP << "Pending" << jType << jIPs << "" << "" << "" << jZFS;
+       jD << jName << "Pending" << jType << jIPs << "" << "" << "" << jZFS;
        jailDetails << jD;
    
    } // end of loop
@@ -304,17 +302,22 @@ void dialogWarden::slotCheckJailDetails()
 	return;
     }
 
-    // Check for additional IPs in this jail
-    QString jIPs;
-    QFile fileip(JailDir + "/." + currentDetailsWorkingJail + ".meta/ip-extra" );
-    if ( fileip.exists() ) {
-      if (fileip.open( QIODevice::ReadOnly ) ) {
-         QTextStream stream2( &fileip );
-         while ( !stream2.atEnd() )
-           jIPs = jIPs + stream2.readLine().simplified() + " "; // line of text excluding '\n'
+    // Build list of IPs for this jail
+    QString jIPs = "";
+    QStringList ipFiles;
+    ipFiles << "ipv4" << "ipv6";
+    for (int f = 0; f < ipFiles.size(); ++f) {
+       QFile fileip(JailDir + "/." + currentDetailsWorkingJail + ".meta/" + ipFiles.at(f) );
+       if ( fileip.exists() ) {
+         if (fileip.open( QIODevice::ReadOnly ) ) {
+            QTextStream stream2( &fileip );
+            while ( !stream2.atEnd() )
+             jIPs = jIPs + stream2.readLine().simplified() + " "; // line of text excluding '\n'
+         }
          fileip.close();
-      }
+       }
     }
+    qDebug() << "Found IPS:" << jIPs;
 
     // Save the new jail IPs
     for (int i=0; i < jailDetails.count(); ++i) {
@@ -581,11 +584,11 @@ void dialogWarden::slotCheckStatusReturn()
 	    if ( exitStatus == 0) {
                 running = true;
 		(*it)->setIcon(1, QIcon(":running.png"));
-	        (*it)->setText(3, "Running");
+	        (*it)->setText(2, "Running");
 	    } else {
                 running = false;
 		(*it)->setIcon(1, QIcon(":stopped.png"));
-	        (*it)->setText(3, "Not Running");
+	        (*it)->setText(2, "Not Running");
 	    }
 
 	    // See if we can update push buttons
@@ -624,8 +627,8 @@ void dialogWarden::slotJailRightClicked()
 
     if ( listJails->currentItem()) {
           popupip = listJails->currentItem()->text(0);
-          Status = listJails->currentItem()->text(3);
-          Updates = listJails->currentItem()->text(4);
+          Status = listJails->currentItem()->text(2);
+          Updates = listJails->currentItem()->text(3);
 	  popup = new QMenu();
 	  if ( Status == "Running" )
 	      popup->addAction( tr("Stop this Jail") , this, SLOT(slotStopJail() )  );
@@ -686,7 +689,7 @@ void dialogWarden::slotStartJail()
           return;
 
 	// If jail is running, lets stop it
-        if ( listJails->currentItem()->text(3) == "Running" ) {
+        if ( listJails->currentItem()->text(2) == "Running" ) {
 	   slotStopJail();
            return;
         }
@@ -897,19 +900,19 @@ void dialogWarden::slotClickedNewJail()
       }
       newJailWizard->setHostIPUsed(uH, uI);
       
-      connect( newJailWizard, SIGNAL(create(const QString &, const QString &, bool, const QString &, bool, bool, bool, bool, const QString &)), this, SLOT(slotCreateNewJail(const QString &, const QString &, bool, const QString &, bool, bool, bool, bool, const QString &) ) );
+      connect( newJailWizard, SIGNAL(create(const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &)), this, SLOT(slotCreateNewJail(const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &) ) );
       newJailWizard->show();
 }
 
 
-void dialogWarden::slotCreateNewJail( const QString &IP, const QString &host, bool tradjail, const QString &rootpw, bool src, bool ports, bool autostart, bool linuxJail, const QString &linuxScript )
+void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, const QString &host, bool tradjail, bool PCUtils, const QString &rootpw, bool src, bool ports, bool autostart, bool linuxJail, const QString &linuxScript )
 {
     if ( tradjail || linuxJail )
       newRootPW=rootpw;
     else
       newRootPW="";
     
-    newIP=IP;
+    newHost=host;
 
     /***********************************************************************************************************************
         Now create the jail here
@@ -926,9 +929,22 @@ void dialogWarden::slotCreateNewJail( const QString &IP, const QString &host, bo
       createJailProc = new QProcess( this );
       QString program = "warden";
       QStringList args;
-      args << "create" << IP << host;
+      args << "create" << host;
 
       // Set our optional flags
+      if ( ! IP.isEmpty() ) {
+        args << "--ipv4";
+        args << IP;
+      }
+
+      if ( ! IP6.isEmpty() ) {
+        args << "--ipv6";
+        args << IP6;
+      }
+
+      if ( tradjail && ! PCUtils )
+        args << "--vanilla";
+
       if ( ! tradjail && ! linuxJail )
         args << "--portjail";
 
@@ -943,7 +959,7 @@ void dialogWarden::slotCreateNewJail( const QString &IP, const QString &host, bo
 
       if ( autostart )
 	args << "--startauto";
-      
+
       // Connect the exited signal and start the process 
       createJailProc->setProcessChannelMode(QProcess::MergedChannels);
       createJailProc->setReadChannel(QProcess::StandardOutput);
@@ -975,7 +991,7 @@ void dialogWarden::slotFinishedJailCreate()
     userAddProc = new QProcess( this );
     QString program = ProgDir + "/scripts/backend/setupusers.sh";
     QStringList args;
-    args << newIP << newRootPW;
+    args << newHost << newRootPW;
       
     // Connect the exited signal and start the process 
     userAddProc->setProcessChannelMode(QProcess::MergedChannels);
@@ -1363,14 +1379,14 @@ void dialogWarden::slotCurrentJailChanged()
    currentSnapshot = -1;
    //pushStart->setEnabled(false);
 
-   if ( listJails->currentItem()->text(3) == "Running" ) {
+   if ( listJails->currentItem()->text(2) == "Running" ) {
      //pushStart->setEnabled(true);
      pushTerminal->setEnabled(true);
      pushStart->setIcon(QIcon(":stopjail.png"));
      pushStart->setIconSize(QSize(16,16));
      pushStart->setToolTip(tr("Stop the selected jail"));
    }
-   if ( listJails->currentItem()->text(3) == "Not Running" ) {
+   if ( listJails->currentItem()->text(2) == "Not Running" ) {
      //pushStart->setEnabled(true);
      pushTerminal->setEnabled(false);
      pushStart->setIcon(QIcon(":running.png"));

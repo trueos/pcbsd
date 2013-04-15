@@ -165,7 +165,7 @@
                   <item>
                    <widget class="QLabel" name="label_7">
                     <property name="text">
-                     <string>Additional IPs:</string>
+                     <string>IPs:</string>
                     </property>
                    </widget>
                   </item>
@@ -866,11 +866,6 @@
          <column>
           <property name="text">
            <string notr="true">Jail</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string notr="true">Hostname</string>
           </property>
          </column>
          <column>
