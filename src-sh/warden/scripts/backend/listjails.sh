@@ -60,8 +60,21 @@ do
      	continue
      fi
      # This is an old style jail, lets convert it
-     cp ${i}/ip ${i}/id
      cp ${i}/ip ${i}/ipv4
+
+     # Get next unique ID
+     META_ID=0
+     for iDir in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+     do
+       if [ ! -e "${iDir}/id" ] ; then continue ; fi
+       id=`cat ${iDir}/id`
+       if [ "${id}" -gt "${META_ID}" ] ; then
+          META_ID="${id}"
+       fi
+     done
+     : $(( META_ID += 1 ))
+     echo "$META_ID" > ${i}/id
+
   fi
 
   ID="`cat ${i}/id 2>/dev/null`"
