@@ -48,8 +48,10 @@ if [ "${JAILNAME}" = "all" ] ; then
     echo "Checking for jail updates to ${HOST}"
     echo "################################################"
  
-    # Check for meta-pkg updates
-    pc-metapkgmanager --chroot ${JDIR}/${JAILNAME} checkup
+    # Check for pkgng updates
+    if [ -e "${JDIR}/${JAILNAME}/usr/local/sbin/pkg-static" ] ; then
+       chroot "${JDIR}/${JAILNAME}" pkg upgrade -n
+    fi
 
     # Check for system-updates
     chroot ${JDIR}/${JAILNAME} cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' | /bin/sh -s 'fetch'
@@ -64,8 +66,11 @@ else
 
    echo "Checking for jail updates to ${JAILNAME}..."
    echo "################################################"
-   # Check for meta-pkg updates
-   pc-metapkgmanager --chroot ${JDIR}/${JAILNAME} checkup
+
+   # Check for pkgng updates
+   if [ -e "${JDIR}/${JAILNAME}/usr/local/sbin/pkg-static" ] ; then
+      chroot "${JDIR}/${JAILNAME}" pkg upgrade -n
+   fi
 
    # Check for system-updates
    chroot ${JDIR}/${JAILNAME} cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' | /bin/sh -s 'fetch'
