@@ -86,7 +86,7 @@ case "${JAILTYPE}" in
   standard) ;;
 esac
 
-if [ -z "${VERSION}" ] ; then VERSION=`cat /etc/version`; fi
+if [ -z "${VERSION}" -a -e "/etc/version" ] ; then VERSION=`cat /etc/version`; fi
 
 # Location of the chroot environment
 isDirZFS "${JDIR}"
