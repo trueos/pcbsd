@@ -2,28 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-<<<<<<< HEAD
-    <name>QObject</name>
-    <message>
-        <source>Restarting network...</source>
-        <translation>راه اندازی مجدد شبکه ...</translation>
-    </message>
-    <message>
-        <source>Network is restarting, please wait...</source>
-        <translation>شبکه راه اندازی مجدد شد، لطفا کمی صبر کنید...</translation>
-    </message>
-    <message>
-        <source>Setting default route...</source>
-        <translation>تنظیم کردن default route...</translation>
-    </message>
-    <message>
-        <source>Running DHCP...</source>
-        <translation>راه اندازی DHCP...</translation>
-    </message>
-</context>
-<context>
-=======
->>>>>>> pcbsd/master
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>

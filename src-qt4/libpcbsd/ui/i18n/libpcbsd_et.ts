@@ -2,28 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-<<<<<<< HEAD
-    <name>QObject</name>
-    <message>
-        <source>Restarting network...</source>
-        <translation>Võrgu taaskäivitamine...</translation>
-    </message>
-    <message>
-        <source>Network is restarting, please wait...</source>
-        <translation>Võrku taaskäivitatakse, palun oota...</translation>
-    </message>
-    <message>
-        <source>Setting default route...</source>
-        <translation>Vaikimisi marsruudi seadmine...</translation>
-    </message>
-    <message>
-        <source>Running DHCP...</source>
-        <translation>DHCP jooksutamine...</translation>
-    </message>
-</context>
-<context>
-=======
->>>>>>> pcbsd/master
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>

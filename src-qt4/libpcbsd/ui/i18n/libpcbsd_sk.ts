@@ -2,32 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-<<<<<<< HEAD
-    <name>QObject</name>
-    <message>
-        <source>Restarting network...</source>
-        <translation>Reštartovanie siete...
-            </translation>
-    </message>
-    <message>
-        <source>Network is restarting, please wait...</source>
-        <translation>Sieť sa reštartuje, čakajte prosím...
-            </translation>
-    </message>
-    <message>
-        <source>Setting default route...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Running DHCP...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-</context>
-<context>
-=======
->>>>>>> pcbsd/master
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>

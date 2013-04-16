@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-pcbsd-projects
-==============
-
-Work in progress projects for PC-BSD
-=======
 pcbsd
 =====
 
@@ -27,4 +21,3 @@ src-qt4/
 src-sh/
   Shell code which builds into pcbsd-utils package. Scripts, backends and various CLI
   related utilities for TrueOS & PC-BSD. 
->>>>>>> pcbsd/master

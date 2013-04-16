@@ -53,12 +53,7 @@
     </message>
     <message>
         <source>Mounted at %1</source>
-<<<<<<< HEAD
-        <translation type="unfinished">
-            </translation>
-=======
         <translation>Haagitud asukohta %1</translation>
->>>>>>> pcbsd/master
     </message>
 </context>
 <context>

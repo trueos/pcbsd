@@ -2,28 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-<<<<<<< HEAD
-    <name>QObject</name>
-    <message>
-        <source>Restarting network...</source>
-        <translation>正在重新啟動網絡...</translation>
-    </message>
-    <message>
-        <source>Network is restarting, please wait...</source>
-        <translation>正在重新啟動網絡，請稍候...</translation>
-    </message>
-    <message>
-        <source>Setting default route...</source>
-        <translation>正在設定預設路由...</translation>
-    </message>
-    <message>
-        <source>Running DHCP...</source>
-        <translation>正在執行 DHCP...</translation>
-    </message>
-</context>
-<context>
-=======
->>>>>>> pcbsd/master
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>

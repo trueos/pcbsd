@@ -209,20 +209,6 @@
     </message>
     <message>
         <source>Downloading: %1</source>
-<<<<<<< HEAD
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation type="unfinished">
-            </translation>
-=======
         <translation>Allalaadimine: %1</translation>
     </message>
     <message>
@@ -232,7 +218,6 @@
     <message>
         <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
         <translation>Paki uuendamine ebaõnnestus! Kui see juhtub korduvalt, siis peab võib-olla uuendama käsitsi käsuga: pc-updatemanager pkgupdate</translation>
->>>>>>> pcbsd/master
     </message>
 </context>
 </TS>

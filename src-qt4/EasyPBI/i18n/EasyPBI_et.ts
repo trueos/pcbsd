@@ -761,20 +761,6 @@
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
-<<<<<<< HEAD
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Please open up the appropriate EasyPBI menu option to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
-=======
         <translation>FreeBSD pordid on puudu</translation>
     </message>
     <message>
@@ -784,7 +770,6 @@
     <message>
         <source>Please open up the appropriate EasyPBI menu option to correct this deficiency.</source>
         <translation>Tõmba FreeBSD portide puu EasyPBI menüü kaudu.</translation>
->>>>>>> pcbsd/master
     </message>
 </context>
 <context>

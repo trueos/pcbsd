@@ -2,28 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-<<<<<<< HEAD
-    <name>QObject</name>
-    <message>
-        <source>Restarting network...</source>
-        <translation>Hálózat újraindítása…</translation>
-    </message>
-    <message>
-        <source>Network is restarting, please wait...</source>
-        <translation>A hálózat újraindul. Várjon…</translation>
-    </message>
-    <message>
-        <source>Setting default route...</source>
-        <translation>Alapértelmezett útvonal beállítása…</translation>
-    </message>
-    <message>
-        <source>Running DHCP...</source>
-        <translation>DHCP futtatása…</translation>
-    </message>
-</context>
-<context>
-=======
->>>>>>> pcbsd/master
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>

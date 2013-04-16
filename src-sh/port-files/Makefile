@@ -1,9 +1,5 @@
 # New ports collection makefile for:	pcbsd-utils
-<<<<<<< HEAD
-# Date created:				01 Feb 2013
-=======
 # Date created:				04 Feb 2013
->>>>>>> pcbsd/master
 # Whom:					Kris Moore <kmoore@FreeBSD.org>
 #
 # $FreeBSD$
