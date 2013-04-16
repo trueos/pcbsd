@@ -1,0 +1,16 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-welcome
+Icon=computer
+Type=Application
+
+Categories=System;
+Name=PC-BSD Welcome
+Name[da]=PC-BSD Velkommen
+Name[en_GB]=PC-BSD Welcome
+Name[en_ZA]=PC-BSD Welcome
+Name[es]=Bienvenido PC-BSD
+Name[hr]=PC-BSD Dobrodošli
+Name[pl]=PC-BSD Wita
+Name[ru]=Добро пожаловать в PC-BSD
+Name[uk]=Ласкаво просимо до PC-BSD

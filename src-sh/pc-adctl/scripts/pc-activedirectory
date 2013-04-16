@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_activedirectory
+# REQUIRE: pc_samba pc_kinit
+# BEFORE: winbindd
+
+. /etc/rc.conf
+. /usr/local/etc/rc.activedirectory
+
+pc_activedirectory_join_enable=${pc_activedirectory_enable-"NO"}
+
+name="pc_activedirectory_join"
+rcvar="pc_activedirectory_join_enable"
+
+activedirectory_start()
+{
+	AD_init
+
+	AD_log "activedirectory_start: trying to join domain"
+	if ! AD_join_domain; then
+		return 1
+	fi
+	
+	return 0
+}
+
+activedirectory_status()
+{
+	AD_init
+
+	AD_log "activedirectory_status: checking status"
+	AD_status_domain >/dev/null
+
+	return $?
+}
+
+activedirectory_stop()
+{
+	AD_init
+
+	AD_log "activedirectory_stop: leaving domain"
+	AD_leave_domain
+
+	return 0
+}
+
+
+extra_commands="status"
+start_cmd='activedirectory_start'
+status_cmd='activedirectory_status'
+stop_cmd='activedirectory_stop'
+            
+load_rc_config $name
+run_rc_command "$1"

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# PROVIDE: pcdm
+# REQUIRE: LOGIN cleanvar moused syscons
+#
+# Add the following to /etc/rc.conf to start PCDM at boot time:
+#
+# pcdm_enable="YES"
+#
+
+. /etc/rc.subr
+
+export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+
+name="pcdm"
+rcvar=pcdm_enable
+command="/usr/local/sbin/PCDMd"
+pidfile="/var/run/PCDMd.pid"
+start_cmd="${name}_start"
+
+load_rc_config ${name}
+: ${pcdm_enable:=no} #default to not start pcdm automatically
+
+pcdm_start()
+{
+  (
+    if ! checkyesno pcdm_enable ; then
+	return 0
+    fi
+    echo "Starting PCDM."
+
+    #Start the PCDM login daemon
+    ${command} ${pcdm_flags} 
+  ) &
+
+}
+
+run_rc_command "$1"

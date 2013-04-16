@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+
+Type=Application
+Categories=System
+Name=About
+Exec=about-gui
+Icon=/usr/local/share/pcbsd/icons/about.png
+Comment=Information about PC-BSD system

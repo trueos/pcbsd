@@ -1,0 +1,146 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_nsswitch
+# REQUIRE: root
+# BEFORE: nsswitch
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+. /usr/local/etc/rc.activedirectory
+
+: ${pc_nsswitch_enable:="NO"}
+
+name="pc_nsswitch"
+rcvar="pc_nsswitch_enable"
+
+: ${PATH_NS_CONF:="/etc/nsswitch.conf"}
+: ${NSSCONF:="/usr/local/bin/pc-nssconf"}
+
+nsswitch_conf_start()
+{
+	local doconf=0
+	local conftype
+	local cmd="${NSSCONF}"
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		conftype='winbind'
+		doconf=1
+
+		AD_init
+		if AD_configured
+		then
+			return 0
+		fi
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		conftype='ldap'
+		doconf=1
+
+		ldap_init
+		if ldap_configured
+		then
+			return 0
+		fi
+	fi
+
+	if [ -f "${PATH_NS_CONF}" ]
+	then
+		cmd="${NSSCONF} -f ${PATH_NS_CONF}"
+	fi
+
+	if [ "${doconf}" = "1" ]
+	then
+		local tmp=$(mktemp /tmp/ns.XXXXXX)
+
+		${cmd} \
+			-d group -r -s "+files" -s "+${conftype}" \
+			-d passwd -r -s "+files" -s "+${conftype}" \
+			-o "${tmp}"
+
+		if [ "$?" = "0" -a -s "${tmp}" ]
+		then
+			local res=0
+			mv "${tmp}" "${PATH_NS_CONF}"
+			res=$?
+
+			chmod 644 "${PATH_NS_CONF}"
+			return ${res}
+		fi
+
+		return 1
+	fi
+
+	return 0
+}
+
+nsswitch_conf_stop()
+{
+	local doconf=0
+	local conftype
+	local cmd="${NSSCONF}"
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		conftype='winbind'
+		doconf=1
+
+		AD_init
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		conftype='ldap'
+		doconf=1
+	fi
+
+	if [ -f "${PATH_NS_CONF}" ]
+	then
+		cmd="${NSSCONF} -f ${PATH_NS_CONF}"
+	fi
+
+	if [ "${doconf}" = "1" ]
+	then
+		local tmp=$(mktemp /tmp/ns.XXXXXX)
+
+		${cmd} \
+			-d group -s "-${conftype}" \
+			-d passwd -s "-${conftype}" \
+			-o "${tmp}"
+
+		if [ "$?" = "0" -a -s "${tmp}" ]
+		then
+			local res=0
+
+			mv "${tmp}" "${PATH_NS_CONF}"
+			res=$?
+
+			chmod 644 "${PATH_NS_CONF}"
+			return ${res}
+		fi
+
+		return 1
+	fi
+
+	return 0
+}
+
+
+start_cmd='nsswitch_conf_start'
+stop_cmd='nsswitch_conf_stop'
+        
+load_rc_config $name
+
+if [ "${pc_ldap_enable}" = "YES" ]
+then
+	pc_nsswitch_enable="YES"
+
+elif [ "${pc_activedirectory_enable}" = "YES" ]
+then
+	pc_nsswitch_enable="YES"
+fi
+
+run_rc_command "$1"

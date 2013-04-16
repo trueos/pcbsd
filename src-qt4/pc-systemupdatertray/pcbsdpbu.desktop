@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-systemupdatertray
+Icon=/usr/local/share/pcbsd/icons/system-software-update.png
+Type=Application
+Categories=System;
+Name=Update Manager Tray

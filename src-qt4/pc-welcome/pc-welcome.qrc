@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="images/">
+    <file>images/appcafeicon.png</file>
+    <file>images/cpanelicon.png</file>
+    <file>images/lpreservericon.png</file>
+    <file>images/tray.png</file>
+    <file>images/updater-tray.png</file>
+    <file>images/wifi-tray.png</file>
+    <file>images/pcbsdbanner.png</file>
+  </qresource>
+</RCC>

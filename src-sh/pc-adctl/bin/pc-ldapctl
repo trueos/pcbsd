@@ -1,0 +1,87 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_ldapctl
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+
+pc_ldapctl_enable=${pc_ldap_enable-"NO"}
+
+name="pc_ldapctl"
+rcvar="pc_ldapctl_enable"
+
+ldapctl_assert()
+{
+	local args="$*"
+
+	eval ${args}
+	if [ "$?" != "0" ]
+	then
+		echo "${args} failed, exiting"
+		exit 1
+	fi
+}
+
+ldapctl_start()
+{
+	if checkyesno pc_ldap_enable 2>/dev/null
+	then
+		ldapctl_assert service pc-nsswitch start
+		ldapctl_assert service pc-pam start
+
+		service samba status
+		if [ "$?" = "0" ]
+		then
+			ldapctl_assert service samba stop
+			ldapctl_assert service pc-samba start
+			ldapctl_assert service samba start
+		else
+			ldapctl_assert service pc-samba start
+			ldapctl_assert service samba start
+		fi
+
+		ldapctl_assert service pc-ldap start
+		ldapctl_assert service pc-nssldap start
+		ldapctl_assert service pc-ldap status
+	fi
+	
+	return 0
+}
+
+ldapctl_status()
+{
+	service pc-ldap status
+	return $?
+}
+
+ldapctl_stop()
+{
+	if checkyesno pc_ldap_enable 2>/dev/null
+	then
+		service pc-nsswitch stop
+		service pc-pam stop
+		service pc-samba stop
+		service pc-nssldap stop
+		service pc-ldap stop
+
+		service samba status
+		if [ "$?" = "0" ]
+		then
+			ldapctl_assert service samba stop
+			ldapctl_assert service samba start
+		else
+			ldapctl_assert service samba start
+		fi
+	fi
+}
+
+
+start_cmd='ldapctl_start'
+status_cmd='ldapctl_status'
+stop_cmd='ldapctl_stop'
+            
+load_rc_config $name
+run_rc_command "$1"

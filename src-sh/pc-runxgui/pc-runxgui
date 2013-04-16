@@ -1,0 +1,10 @@
+#!/bin/sh
+# Author: Kris Moore
+# License: BSD
+# Comment: Script to kill X / KDM and start xgui
+########################################################
+
+echo "RUNX" > /var/.runxsetup
+
+sync
+

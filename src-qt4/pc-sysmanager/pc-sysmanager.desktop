@@ -1,0 +1,43 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su pc-sysmanager
+Icon=computer
+Type=Application
+
+
+X-KDE-RootOnly=true
+X-KDE-SubstituteUID=true
+Categories=System;
+Name=System Manager
+Name[ar]=مدير النظام
+Name[bg]=Системен мениджър
+Name[bn]=সিস্টেম ম্যানেজার
+Name[ca]=Gestió del sistema
+Name[cs]=Správce systému
+Name[da]=Håndter system
+Name[el]=Διαχειρηστής συστήματος
+Name[en_GB]=System Manager
+Name[en_ZA]=System Manager
+Name[es]=Gestor del Sistema
+Name[fa]=مدیر سیستم
+Name[fr]=Gestionnaire système
+Name[fr_CA]=Gestionnaire système
+Name[hr]=Upravitelj Sustava
+Name[hu]=Rendszerkezelő
+Name[id]=Pengelola Sistem
+Name[it]=Gestione del Sistema
+Name[ja]=システムマネージャー
+Name[lt]=Sistemos tvarkytuvė
+Name[lv]=Sist�mas mened�eris
+Name[mn]=Систем Зохицуулагч
+Name[nl]=Systeembeheerder
+Name[pl]=Menadżer systemu
+Name[pt]=Gestor do sistema
+Name[pt_BR]=Gerenciador do Sistema
+Name[ru]=Управление системой
+Name[sk]=Správca systému
+Name[sl]=Upravljanje sistema
+Name[tr]=Sistem Yönetimi
+Name[uk]=Керування системою
+Name[zh_CN]=系统管理程序
+Name[zh_TW]=系統管理員

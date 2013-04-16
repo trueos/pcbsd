@@ -1,0 +1,45 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su nvidia-settings
+Type=Application
+# Package is not contain nvidia logo icon. Use icon from theme.
+Icon=nvidia-settings
+TryExec=/usr/local/bin/nvidia-settings
+PC-TryCommand= kldstat|grep nvidia.ko
+Keywords="screen,video,monitor,display,resolution,display resolution,monitor resolution,opengl,videocard,video card,video adapter"
+Categories=Settings;System;
+Name=nVidia settings
+Name[ca]=Ajustament d'nVidia
+Name[da]=nVidia-indstillinger
+Name[en_GB]=nVidia settings
+Name[en_ZA]=nVidia settings
+Name[es]=configuraciones de nVidia
+Name[fr_CA]=nVidia settings
+Name[hr]=nVidia postavke
+Name[hu]=nVidia-beállítások
+Name[id]=Pengaturan nVidia
+Name[it]=Impostazioni nVidia
+Name[nl]=Nvidia instellingen
+Name[pl]=nVidia - ustawienia
+Name[pt_BR]=configurações nVidia
+Name[ru]=Настройка nVidia
+Name[tr]=nVidia ayarları
+Name[uk]=Налаштування nVidia
+Comment=nVidia video card settings
+Comment[ca]=Ajustaments de la tarja de vídeo nVidia
+Comment[da]=indstillinger for nVidia grafikkort
+Comment[en_GB]=nVidia video card settings
+Comment[en_ZA]=nVidia video card settings
+Comment[es]=configuración de tarjeta gráfica nVidia
+Comment[fr_CA]=Paramètres de la carte vidéo nVidia
+Comment[hr]=nVidia postavke grafičke kartice
+Comment[hu]=nVidia-videokártya beállításai
+Comment[id]=Pengaturan kartu video nVidia
+Comment[it]=Impostazioni schede video nVidia
+Comment[nl]=Nvidia video kaart instellingen
+Comment[pl]=nVidia - ustawienia karty graficznej
+Comment[pt_BR]=configurações da placa de vídeo nVidia
+Comment[ru]=Настройка видеокарт nVidia
+Comment[tr]=nVidia grafik kartı ayarları
+Comment[uk]=Налаштування відеоадаптера nVidia

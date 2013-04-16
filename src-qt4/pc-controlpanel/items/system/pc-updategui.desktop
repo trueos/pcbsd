@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=sudo pc-updategui
+Icon=/usr/local/share/pcbsd/icons/system-software-update.png
+Type=Application
+Keywords="update,upgrade,update system,upgrade system,update pcbsd,pgrade pcbsd"
+Categories=System;
+Name=Update Manager
+Name[de]=Aktualisierung Verwaltung
+Name[en_GB]=Update Manager
+Name[en_ZA]=Update Manager
+Name[es]=Gestor de Actualizaciones
+Name[hr]=Upravitelj ažuriranja
+Name[nl]=Update-beheerder
+Name[pl]=Manadżer Aktualizacji
+Name[ru]=Менеджер обновлений
+Name[tr]=Güncelleme Yöneticisi
+Name[uk]=Менеджер оновлень

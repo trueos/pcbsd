@@ -1,0 +1,913 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_pam
+# REQUIRE: root
+# REQUIRE: pc_nsswitch
+# BEFORE: NETWORK
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+. /usr/local/etc/rc.activedirectory
+
+: ${pc_pam_enable:="NO"}
+
+name="pc_pam"
+rcvar="pc_pam_enable"
+
+: ${DEFAULT_PAM_SERVICES:="gdm-autologin kde kde-np login sshd su xdm gdm sudo xscreensaver"}
+
+: ${PAMDIRS:="/etc/pam.d /usr/local/etc/pam.d"}
+: ${PAMCONF:="/usr/local/bin/pc-pamconf"}
+
+: ${pam_mkhomedir:="/usr/local/lib/pam_mkhomedir.so"}
+: ${pam_winbind:="/usr/local/lib/pam_winbind.so"}
+: ${pam_ldap:="/usr/local/lib/pam_ldap.so"}
+: ${pam_krb5:="pam_krb5.so"}
+
+#
+# The default pam facilities for the specified services is auth and session.
+#
+# This can be further and fine tuned using this format:
+# (activedirectory|ldap)_pam_${service}="${facilities}"
+#
+# eg:
+# activedirectory_pam_sshd="auth account session password"
+#
+# If you want all facilities use ALL, if you want no facilities , use NONE.
+#
+# More good stuff: 
+#
+# To specify specific placement of pam modules in pam files, you
+# can use this format:
+# 
+# (activedirectory|ldap)_pam_${service}_${facility}_index="${index}"
+#
+# eg:
+# activedirectory_pam_sshd_auth_index="2"
+#
+# This will place the pam_winbind.so module at index 2 in the auth
+# section (if it exists, otherwise, it will be placed less than 2
+# at the end, or the beginning of no modules are specified.
+#
+# (activedirectory|ldap)_pam_${service}_${facility}_before="${module}"
+#
+# eg:
+# activedirectory_pam_sshd_auth_before="pam_unix.so"
+#
+# This places pam_winbind.so right before pam_unix.so
+#
+# (activedirectory|ldap)_pam_${service}_${facility}_after="${module}"
+#
+# eg:
+# activedirectory_pam_sshd_auth_after="pam_krb5.so"
+#
+# This places pam_winbind.so right after pam_krb5.so
+#
+
+: ${activedirectory_pam_facilities:="auth session"}
+: ${activedirectory_pam_services:="${DEFAULT_PAM_SERVICES}"}
+
+: ${ldap_pam_facilities:="auth session"}
+: ${ldap_pam_services:="${DEFAULT_PAM_SERVICES}"}
+
+#
+# PC-BSD specifics
+#
+activedirectory_pam_gdm_auth_before="pam_unix.so"
+
+in_pam_services()
+{
+	local res=1
+	local service="${1}"
+	local services="${2}"
+
+	if [ "${services}" = "NONE" ]
+	then
+		return 1
+
+	elif [ "${services}" = "ALL" ]
+	then
+		return 0
+
+	else
+		for s in ${services}
+		do
+			if [ "${s}" = "${service}" ]
+			then
+				res=0
+				break
+			fi
+		done
+	fi
+
+	return ${res}
+}
+
+__getvar()
+{
+	local name="${1}"
+	local tmp="$(echo ${name}|tr '.-' _)"
+	local var=""
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		var="\$$(printf "activedirectory_pam_${tmp}")"
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		var="\$$(printf "ldap_pam_${tmp}")"
+
+	else
+		var="${tmp}"	
+	fi
+
+	echo "${var}"
+}
+
+__getval()
+{
+	local var="${1}"
+	local val="$(eval "echo ${var} 2>/dev/null")"
+
+	echo "${val}"
+}
+
+__pam_var_isset()
+{
+	local service="${1}"
+	local var
+	local val
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		local tmp="$(echo ${service}|tr '.-' _)"
+
+		var=\$$(printf "activedirectory_pam_${tmp}")
+		val=$(eval "echo ${var} 2>/dev/null")
+
+		if [ -n "${val}" ]
+		then
+			return 0
+		fi
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		local tmp="$(echo ${service}|tr '.-' _)"
+
+		var=\$$(printf "ldap_pam_${tmp}")
+		val=$(eval "echo ${var} 2>/dev/null")
+
+		if [ -n "${val}" ]
+		then
+			return 0
+		fi
+	fi
+
+	return 1
+}
+
+do_pam_var_isset()
+{
+	local service="${1}"
+	local facility="${2}"
+	local check=0
+	local var
+	local val
+
+	if [ -z "${service}" -o -z "${facility}" ]
+	then
+		return 1
+	fi
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		local tmp="$(echo ${service}|tr '.-' _)"
+
+		var=\$$(printf "activedirectory_pam_${tmp}")
+		val=$(eval "echo ${var} 2>/dev/null")
+
+		if [ -z "${val}" ]
+		then
+			val="${activedirectory_pam_facilities}"
+		fi
+
+		check=1
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		local tmp="$(echo ${service}|tr '.-' _)"
+
+		var=\$$(printf "ldap_pam_${tmp}")
+		val=$(eval "echo ${var} 2>/dev/null")
+
+		if [ -z "${val}" ]
+		then
+			val="${ldap_pam_facilities}"
+		fi
+
+		check=1
+	fi
+
+	if [ "${check}" = "1" ]
+	then
+		local s
+
+		if [ "${val}" = "NONE" ]
+		then
+			return 1
+
+		elif [ "${val}" = "ALL" ]
+		then
+			return 0
+
+		elif [ -z "${val}" ]
+		then
+			return 1
+		fi
+
+		for s in ${val}
+		do
+			if [ "${s}" = "${facility}" ]
+			then
+				return 0
+			fi
+		done
+	fi
+
+	return 1
+}
+
+get_index()
+{
+	local file="${1}"
+	local facility="${2}"
+	local index
+
+	index="$(egrep "^${facility}" "${file}" | \
+		awk '{ printf("%d %s\n", n++, $0); }' | \
+		egrep sufficient | \
+		awk '{ print $1 }' | \
+		tail -1)"
+
+	if [ -z "${index}" ]
+	then
+		index=0
+	fi
+
+	index=$(( index += 1))
+	echo "${index}"
+}
+
+get_module_index()
+{
+	local file="${1}"
+	local facility="${2}"
+	local module="${3}"
+
+	if [ -z "${file}" -o -z "${facility}" -o -z "${module}" ]
+	then
+		return 1
+	fi
+
+	egrep "^${facility}" "${file}" | \
+		awk '{ printf("%d %s\n", n++, $0); }' | \
+		egrep "${module}" | \
+		awk '{ print $1 }'
+
+	return 0
+}
+
+get_auth_index()
+{
+	get_index "${1}" "auth"
+}
+
+get_account_index()
+{
+	get_index "${1}" "account"
+}
+
+get_session_index()
+{
+	get_index "${1}" "session"
+}
+
+get_password_index()
+{
+	get_index "${1}" "password"
+}
+
+get_pam_auth()
+{
+	__getval $(__getvar "${1}_auth")
+}
+
+pam_auth_isset()
+{
+	do_pam_var_isset "${1}" "auth"
+	return $?
+}
+
+get_pam_auth_index()
+{
+	__getval $(__getvar "${1}_auth_index")
+}
+
+pam_auth_index_isset()
+{
+	__pam_var_isset "${1}_auth_index"
+	return $?
+}
+
+get_pam_auth_before()
+{
+	__getval $(__getvar "${1}_auth_before")
+}
+
+pam_auth_before_isset()
+{
+	__pam_var_isset "${1}_auth_before"
+	return $?
+}
+
+get_pam_auth_after()
+{
+	__getval $(__getvar "${1}_auth_after")
+}
+
+pam_auth_after_isset()
+{
+	__pam_var_isset "${1}_auth_after"
+	return $?
+}
+
+get_pam_account()
+{
+	__getval $(__getvar "${1}_account")
+}
+
+pam_account_isset()
+{
+	do_pam_var_isset "${1}" "account"
+	return $?
+}
+
+get_pam_account_index()
+{
+	__getval $(__getvar "${1}_account_index")
+}
+
+pam_account_index_isset()
+{
+	__pam_var_isset "${1}_account_index"
+	return $?
+}
+
+get_pam_account_before()
+{
+	__getval $(__getvar "${1}_account_before")
+}
+
+pam_account_before_isset()
+{
+	__pam_var_isset "${1}_account_before"
+	return $?
+}
+
+get_pam_account_after()
+{
+	__getval $(__getvar "${1}_account_after")
+}
+
+pam_account_after_isset()
+{
+	__pam_var_isset "${1}_account_after"
+	return $?
+}
+
+get_pam_session()
+{
+	__getval $(__getvar "${1}_session")
+}
+
+pam_session_isset()
+{
+	do_pam_var_isset "${1}" "session"
+	return $?
+}
+
+get_pam_session_index()
+{
+	__getval $(__getvar "${1}_session_index")
+}
+
+pam_session_index_isset()
+{
+	__pam_var_isset "${1}_session_index"
+	return $?
+}
+
+get_pam_session_before()
+{
+	__getval $(__getvar "${1}_session_before")
+}
+
+pam_session_before_isset()
+{
+	__pam_var_isset "${1}_session_before"
+	return $?
+}
+
+get_pam_session_after()
+{
+	__getval $(__getvar "${1}_session_after")
+}
+
+pam_session_after_isset()
+{
+	__pam_var_isset "${1}_session_after"
+	return $?
+}
+
+get_pam_password()
+{
+	__getval $(__getvar "${1}_password")
+}
+
+pam_password_isset()
+{
+	do_pam_var_isset "${1}" "password"
+	return $?
+}
+
+get_pam_password_index()
+{
+	__getval $(__getvar "${1}_password_index")
+}
+
+pam_password_index_isset()
+{
+	__pam_var_isset "${1}_password_index"
+	return $?
+}
+
+get_pam_password_before()
+{
+	__getval $(__getvar "${1}_password_before")
+}
+
+pam_password_before_isset()
+{
+	__pam_var_isset "${1}_password_before"
+	return $?
+}
+
+get_pam_password_after()
+{
+	__getval $(__getvar "${1}_password_after")
+}
+
+pam_password_after_isset()
+{
+	__pam_var_isset "${1}_password_after"
+	return $?
+}
+
+pam_service_configured()
+{
+	local pam_file="${1}"
+	local pam_str="${2}"
+
+	local str="$(echo "${pam_str}" | sed -E 's|^(([+-^])?([0-9]+)?)?||')"
+
+	local facility="$(echo "${str}" | cut -f1 -d:)"
+	local control="$(echo "${str}" | cut -f2 -d:)"
+	local module="$(echo "${str}" | cut -f3 -d:)"
+
+	egrep -q "${facility}[[:space:]]+${control}[[:space:]]${module}" "${pam_file}" 2>/dev/null
+	return $?
+}
+
+do_pam_auth_conf()
+{
+	local pam_file="${1}"
+	local s="${2}"
+	local auth="${3}"
+	local __auth
+
+	if pam_auth_isset "${s}"
+	then
+		if pam_auth_index_isset "${s}"
+		then
+			local index="$(get_pam_auth_index "${s}")"
+			__auth="-m "$(echo "${auth}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_auth_before_isset "${s}"
+		then
+			local before="$(get_pam_auth_before "${s}")"
+			local index="$(get_module_index "${pam_file}" auth "${before}")"
+
+			if [ "${index}" -gt "0" ]
+			then
+				index=$(( index -= 1 ))
+			fi
+			__auth="-m "$(echo "${auth}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_auth_after_isset "${s}"
+		then
+			local before="$(get_pam_auth_after "${s}")"
+			local index="$(get_module_index "${pam_file}" auth "${after}")"
+
+			index=$(( index += 1 ))
+			__auth="-m "$(echo "${auth}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${auth}" | egrep -q '^(+|^)' && \
+			! pam_service_configured "${pam_file}" "${auth}"
+		then
+			local index="$(get_auth_index "${pam_file}")"
+			__auth="-m "$(echo "${auth}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${auth}" | egrep -q '^-'
+		then
+			__auth="-m "${auth}""
+		fi
+	else
+		__auth=""
+	fi
+
+	echo "${__auth}"
+}
+
+do_pam_account_conf()
+{
+	local pam_file="${1}"
+	local s="${2}"
+	local account="${3}"
+	local __account
+
+	if pam_account_isset "${s}"
+	then
+		if pam_account_index_isset "${s}"
+		then
+			local index="$(get_pam_account_index "${s}")"
+			__account="-m "$(echo "${account}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_account_before_isset "${s}"
+		then
+			local before="$(get_pam_account_before "${s}")"
+			local index="$(get_module_index "${pam_file}" account "${before}")"
+
+			if [ "${index}" -gt "0" ]
+			then
+				index=$(( index -= 1 ))
+			fi
+			__auth="-m "$(echo "${account}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_account_after_isset "${s}"
+		then
+			local before="$(get_pam_account_after "${s}")"
+			local index="$(get_module_index "${pam_file}" account "${after}")"
+
+			index=$(( index += 1 ))
+			__account="-m "$(echo "${account}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${account}" | egrep -q '^(+|^)' && \
+			! pam_service_configured "${pam_file}" "${account}"
+		then
+			local index="$(get_account_index "${pam_file}")"
+			__account="-m "$(echo "${account}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${account}" | egrep -q '^-'
+		then
+			__auth="-m "${account}""
+		fi
+	else
+		__account=""
+	fi
+
+	echo "${__account}"
+}
+
+do_pam_session_conf()
+{
+	local pam_file="${1}"
+	local s="${2}"
+	local session="${3}"
+	local __session
+
+	if pam_session_isset "${s}"
+	then
+		if pam_session_index_isset "${s}"
+		then
+			local index="$(get_pam_session_index "${s}")"
+			__session="-m "$(echo "${session}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_session_before_isset "${s}"
+		then
+			local before="$(get_pam_session_before "${s}")"
+			local index="$(get_module_index "${pam_file}" session "${before}")"
+
+			if [ "${index}" -gt "0" ]
+			then
+				index=$(( index -= 1 ))
+			fi
+			__session="-m "$(echo "${session}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_session_after_isset "${s}"
+		then
+			local before="$(get_pam_session_after "${s}")"
+			local index="$(get_module_index "${pam_file}" session "${after}")"
+
+			index=$(( index += 1 ))
+			__session="-m "$(echo "${session}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${session}" | egrep -q '^(+|^)' && \
+			! pam_service_configured "${pam_file}" "${session}"
+		then
+			local index="$(get_session_index "${pam_file}")"
+			__session="-m "$(echo "${session}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${session}" | egrep -q '^-'
+		then
+			__session="-m "${session}""
+		fi
+	else
+		__session=""
+	fi
+
+	echo "${__session}"
+}
+
+do_pam_password_conf()
+{
+	local pam_file="${1}"
+	local s="${2}"
+	local password="${3}"
+	local __password
+
+	if pam_password_isset "${s}"
+	then
+		if pam_password_index_isset "${s}"
+		then
+			local index="$(get_pam_password_index "${s}")"
+			__password="-m "$(echo "${password}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_password_before_isset "${s}"
+		then
+			local before="$(get_pam_password_before "${s}")"
+			local index="$(get_module_index "${pam_file}" password "${before}")"
+
+			if [ "${index}" -gt "0" ]
+			then
+				index=$(( index -= 1 ))
+			fi
+			__password="-m "$(echo "${password}" | sed -E "s|^\+|+${index}|")""
+
+		elif pam_password_after_isset "${s}"
+		then
+			local before="$(get_pam_password_after "${s}")"
+			local index="$(get_module_index "${pam_file}" password "${after}")"
+
+			index=$(( index += 1 ))
+			__password="-m "$(echo "${password}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${password}" | egrep -q '^(+|^)' && \
+			! pam_service_configured "${pam_file}" "${password}"
+		then
+			local index="$(get_password_index "${pam_file}")"
+			__password="-m "$(echo "${password}" | sed -E "s|^\+|+${index}|")""
+
+		elif echo "${password}" | egrep -q '^-'
+		then
+			__password="-m "${password}""
+		fi
+	else
+		__password=""
+	fi
+
+	echo "${__password}"
+}
+
+do_pam_facility_conf()
+{
+}
+
+do_pam_conf()
+{
+	local auth="${1}"
+	local account="${2}"
+	local session="${3}"
+	local password="${4}"
+	local services
+
+	local fail=0
+	local tmpdirs=""
+	local pam_dir
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		services="${activedirectory_pam_services}"
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		services="${ldap_pam_services}"
+	fi
+
+	for pam_dir in ${PAMDIRS}
+	do
+		local tmpdir="$(mktemp -d /tmp/pam.XXXXXX)"
+		local pam_files="$(ls "${pam_dir}" | egrep -v README)"
+		local s
+
+		tmpdirs="${tmpdirs} ${tmpdir}:${pam_dir}"
+
+		for s in ${pam_files}
+		do
+			local pam_file="${pam_dir}/${s}"
+			local tmp_file="${tmpdir}/${s}"
+			local doconf=0
+
+			local __auth
+			local __account
+			local __session
+			local __password
+
+			if in_pam_services "${s}" "${services}"
+			then
+
+				__auth=""
+				if pam_auth_isset "${s}"
+				then
+					__auth="$(do_pam_auth_conf "${pam_file}" "${s}" "${auth}")"
+					if [ -n "${__auth}" ]
+					then
+						doconf=1
+					fi
+				fi
+
+				__account=""
+				if pam_account_isset "${s}"
+				then
+					__account="$(do_pam_account_conf "${pam_file}" "${s}" "${account}")"
+					if [ -n "${__account}" ]
+					then
+						doconf=1
+					fi
+				fi
+
+				__session=""
+				if pam_session_isset "${s}"
+				then
+					__session="$(do_pam_session_conf "${pam_file}" "${s}" "${session}")"
+					if [ -n "${__session}" ]
+					then
+						doconf=1
+					fi
+				fi
+
+				__password=""
+				if pam_password_isset "${s}"
+				then
+					__password="$(do_pam_password_conf "${pam_file}" "${s}" "${password}")"
+					if [ -n "${__password}" ]
+					then
+						doconf=1
+					fi
+				fi
+
+				if [ "${doconf}" = "1" ]
+				then
+					${PAMCONF} -f "${pam_file}" \
+					${__auth} \
+					${__account} \
+					${__session} \
+					${__password} \
+					-o "${tmp_file}"
+
+					if [ "$?" != "0" ]
+					then
+						touch "${tmp_file}.FAIL"
+					fi
+				fi
+			fi	
+		done
+	done
+
+	for d in ${tmpdirs}
+	do
+		local tmp="$(echo "${d}" | cut -f1 -d:)"
+
+		if "${tmp}/*.FAIL" >/dev/null 2>&1
+		then
+			fail=1
+			break
+		fi
+	done
+
+	if [ "${fail}" = "1" ]
+	then
+		for d in ${tmpdirs}
+		do
+			local tmp="$(echo "${d}" | cut -f1 -d:)"
+			rm -rf "${tmp}"	
+		done
+
+		return 1
+	else
+		for d in ${tmpdirs}
+		do
+			local src="$(echo "${d}" | cut -f1 -d:)"
+			local dst="$(echo "${d}" | cut -f2 -d:)"
+
+			mv ${src}/* ${dst}/
+			rm -rf "${src}"
+		done
+
+		return 0
+	fi
+
+	return 0
+}
+
+pam_start()
+{
+	local auth
+	local account
+	local session
+	local password
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		auth="+auth:sufficient:${pam_winbind}:silent:try_first_pass:krb5_auth:krb5_ccache_type=FILE"
+		account="+account:sufficient:${pam_winbind}:krb5_auth:krb5_ccache_type=FILE"
+		session="+session:required:${pam_mkhomedir}"
+		password="+password:sufficient:${pam_winbind}:try_first_pass:krb5_auth:krb5_ccache_type=FILE"
+
+		do_pam_conf "${auth}" "${account}" "${session}" "${password}"
+		return $?
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		auth="+auth:sufficient:${pam_ldap}:silent:no_warn:try_first_pass"
+		account="+account:sufficient:${pam_ldap}:ignore_authinfo_unavail"
+		session="+session:required:${pam_mkhomedir}"
+		password="+password:sufficient:${pam_ldap}:try_first_pass"
+
+		do_pam_conf "${auth}" "${account}" "${session}" "${password}"
+		return $?
+	fi
+
+	return 0
+}
+
+pam_stop()
+{
+	local auth
+	local account
+	local session
+	local password
+	local doconf=0
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		auth="-auth:sufficient:${pam_winbind}"
+		account="-account:sufficient:${pam_winbind}"
+		session="-session:required:${pam_mkhomedir}"
+		password="-password:sufficient:${pam_winbind}"
+
+		do_pam_conf "${auth}" "${account}" "${session}" "${password}"
+		return $?
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		auth='-auth:sufficient:${pam_ldap}'
+		account='-account:sufficient:${pam_ldap}'
+		session='-session:required:${pam_mkhomedir}'
+		password='-password:sufficient:${pam_ldap}'
+
+		do_pam_conf "${auth}" "${account}" "${session}" "${password}"
+		return $?
+	fi
+
+	return 0
+}
+
+
+start_cmd='pam_start'
+stop_cmd='pam_stop'
+        
+load_rc_config $name
+
+if [ "${pc_ldap_enable}" = "YES" ]
+then
+	pc_pam_enable="YES"
+
+elif [ "${pc_activedirectory_enable}" = "YES" ]
+then
+	pc_pam_enable="YES"
+fi
+
+run_rc_command "$1"

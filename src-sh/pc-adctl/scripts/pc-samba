@@ -1,0 +1,234 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_samba
+# REQUIRE: FILESYSTEMS mountlate
+# REQUIRE: pc_pam
+# BEFORE: smbd
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+. /usr/local/etc/rc.activedirectory
+
+: ${pc_samba_enable:="NO"}
+
+name="pc_samba"
+rcvar="pc_samba_enable"
+
+: ${SMB_CONF:="/usr/local/etc/smb.conf"}
+: ${SAMBACONF:="/usr/local/bin/pc-sambaconf"}
+
+
+ad_smbconf_start()
+{
+	local cmd="${SAMBACONF}"
+	if [ -f "${SMB_CONF}" ]
+	then
+		cmd="${SAMBACONF} -f ${SMB_CONF}"
+	fi
+
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		local tmp=$(mktemp /tmp/samba.XXXXXX)
+		local cmdstr
+
+		AD_init
+
+		local trusted=$(AD_get ad_allow_trusted_doms)
+		if [ -z "${trusted}" ]
+		then
+			trusted="no"
+		fi
+
+		local default=$(AD_get use_default_domain)
+		if [ -z "${default}" ]
+		then
+			default="yes"
+		fi
+
+		cp "${SMB_CONF}" "${SMB_CONF}.orig"
+		cmdstr="${cmd} \
+			-w -m '+global:security=ADS' \
+			-w -m '+global:realm=$(AD_get domainname | tr a-z A-Z)' \
+			-w -m '+global:workgroup=$(AD_get workgroup)' \
+			-w -m '+global:netbios name=$(AD_get netbiosname)' \
+			-w -m '+global:client use spnego=yes' \
+			-w -m '+global:wins server=$(AD_get dcname)' \
+			-w -m '+global:password server=$(AD_get dcname)' \
+			-w -m '+global:local master=no' \
+			-w -m '+global:domain master=no' \
+			-w -m '+global:preferred master=no' \
+			-w -m '+global:inherit acls=yes' \
+			-w -m '+global:acl compatibility=auto' \
+			-w -m '+global:acl check permissions=true' \
+			-w -m '+global:acl map full control=true' \
+			-w -m '+global:dos filemode=yes' \
+			-w -m '+global:idmap uid=10000-19999' \
+			-w -m '+global:idmap gid=10000-19999' \
+			-w -m '+global:winbind cache time=10' \
+			-w -m '+global:winbind offline logon=yes' \
+			-w -m '+global:winbind enum users=yes' \
+			-w -m '+global:winbind enum groups=yes' \
+			-w -m '+global:winbind nested groups=yes' \
+			-w -m '+global:winbind use default domain=${default}' \
+			-w -m '+global:winbind refresh tickets=yes' \
+			-w -m '+global:allow trusted domains=${trusted}' \
+			-w -m '+global:template shell=/bin/sh' \
+			-w -m '+global: template homedir=/home/%U' \
+		"	
+
+		if ! AD_UNIX_extensions
+		then
+			cmdstr="${cmdstr} \
+			-w -m '+global:idmap config $(AD_get workgroup): backend=rid' \
+			-w -m '+global:idmap config $(AD_get workgroup): range=20000-20000000' \
+			"
+		fi
+		cmdstr="${cmdstr} -o "${tmp}""
+
+		eval "${cmdstr}"
+		if [ "$?" = "0" -a -s "${tmp}" ]
+		then
+			local res=0
+			mv "${tmp}" "${SMB_CONF}"
+			res=$?
+
+			chmod 644 "${SMB_CONF}"
+			return ${res}
+		fi
+
+		return 1
+	fi
+
+	return 0
+}
+
+ldap_smbconf_start()
+{
+	local cmd="${SAMBACONF}"
+	if [ -f "${SMB_CONF}" ]
+	then
+		cmd="${SAMBACONF} -f ${SMB_CONF}"
+	fi
+
+	if checkyesno pc_ldap_enable 2>/dev/null
+	then
+		local tmp=$(mktemp /tmp/samba.XXXXXX)
+
+		ldap_init	
+
+		local ssl="off"
+		local encryption_mode=$(ldap_get encryption_mode)
+		if [ "${encryption_mode}" = "start_tls" ]
+		then
+			ssl="start tls"
+		fi
+
+		cp "${SMB_CONF}" "${SMB_CONF}.orig" >/dev/null 2>&1
+		${cmd} \
+			-w -m "+global:security=user" \
+			-w -m "+global:passdb backend=ldapsam:ldap://$(ldap_get hostname)" \
+			-w -m "+global:ldap admin dn=$(ldap_get rootbasedn)" \
+			-w -m "+global:ldap suffix=$(ldap_get basedn)" \
+			-w -m "+global:ldap user suffix=$(ldap_get usersuffix)" \
+			-w -m "+global:ldap group suffix=$(ldap_get groupsuffix)" \
+			-w -m "+global:ldap machine suffix=$(ldap_get machinesuffix)" \
+			-w -m "+global:ldap ssl=${ssl}" \
+			-w -m "+global:ldap replication sleep=1000" \
+			-w -m "+global:ldap passwd sync=yes" \
+			-w -m "+global:ldapsam:trusted=yes" \
+			-w -m "+global:idmap uid=10000-39999" \
+			-w -m "+global:idmap gid=10000-39999" \
+			-o "${tmp}"
+
+		if [ "$?" = "0" -a -s "${tmp}" ]
+		then
+			local res=0
+			local rootbindpw=$(ldap_get rootbindpw)
+
+			mv "${tmp}" "${SMB_CONF}"
+			res=$?
+
+			chmod 644 "${SMB_CONF}"
+			if [ "${res}" != "0" ]
+			then
+				return 1
+			fi
+
+			if [ -n "${rootbindpw}" ]
+			then
+				/usr/local/bin/smbpasswd -w "${rootbindpw}" >/dev/null 2>&1
+				return $?
+			fi
+
+			return 0
+		fi
+
+		return 1
+
+	fi
+
+	return 0
+}
+
+smbconf_start()
+{
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		AD_init
+		if AD_configured
+		then
+			return 0
+		fi
+
+		ad_smbconf_start
+		return $?
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		ldap_init
+		if ldap_configured
+		then
+			return 0
+		fi
+
+		ldap_smbconf_start
+		return $?
+	fi
+
+	return 0
+}
+
+smbconf_stop()
+{
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		cp "${SMB_CONF}.orig" "${SMB_CONF}"
+		return $?
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		cp "${SMB_CONF}.orig" "${SMB_CONF}"
+		return $?
+	fi
+
+	return 0
+}
+
+start_cmd='smbconf_start'
+stop_cmd='smbconf_stop'
+
+load_rc_config $name
+
+if [ "${pc_ldap_enable}" = "YES" ]
+then
+	pc_samba_enable="YES"
+
+elif [ "${pc_activedirectory_enable}" = "YES" ]
+then
+	pc_samba_enable="YES"
+fi
+
+run_rc_command "$1"

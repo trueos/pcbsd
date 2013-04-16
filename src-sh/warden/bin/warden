@@ -1,0 +1,1154 @@
+#!/bin/sh
+# Command-line interaction script for the warden
+# Author: Kris Moore
+# License: BSD
+# "The Warden" Copyright 2013 PC-BSD Software (iXsystems)
+######################################################################
+
+# Source external functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+require_root() 
+{
+  UTEST="`whoami`"
+  if [ "$UTEST" != "root" ] ; then
+     exit_err "This command must be run as root!"
+  fi
+}
+
+# Source our functions
+PROGDIR="/usr/local/share/warden"
+
+# Source our variables
+. ${PROGDIR}/scripts/backend/functions.sh
+
+title()
+{
+  echo "Warden version ${WARDENVER}
+---------------------------------"
+};
+
+
+# Function to display help information
+help_main()
+{
+  title
+  echo "Available commands
+
+Type in help <command> for information and usage about that command
+
+  help - This help file"
+
+if [ -e "${PROGDIR}/bin/warden-gui" ] ; then
+   echo "   gui - Launch the GUI menu"
+fi
+
+cat<<__EOF__
+         auto - Toggles the autostart flag for a jail
+      bspkgng - BootStrap pkgng and setup TrueOS repo
+      checkup - Check for updates to a jail
+       chroot - Launches chroot into a jail 
+       create - Creates a new jail 
+      details - Display usage details about a jail
+       delete - Deletes a jail
+       export - Exports a jail to a .wdn file
+          get - Gets options list for a jail
+       import - Imports a jail from a .wdn file
+         list - Lists the installed jails
+         pkgs - Lists the installed packages in a jail
+         pbis - Lists the installed pbi's in a jail
+          set - Sets options for a jail
+        start - Start a jail
+         stop - Stops a jail
+         type - Set the jail type (portjail|pluginjail|standard)
+    zfsmksnap - Create a ZFS snapshot of a jail 
+ zfslistclone - List clones of jail snapshots
+  zfslistsnap - List snapshots of a jail
+ zfsclonesnap - Clone a jail snapshot
+  zfscronsnap - Schedule snapshot creation via cron
+zfsrevertsnap - Revert jail to a snapshot
+   zfsrmclone - Remove a clone directory
+    zfsrmsnap - Remove snapshot of a jail
+__EOF__
+};
+
+help_get()
+{
+ title
+ echo "Help get
+
+Lets you get options for your jail
+
+Available options:
+
+              ipv4: Lets you see the IPv4 address for this jail
+              ipv6: Lets you see the IPv6 address for this jail
+        alias-ipv4: Lets you see additional IPv4 addresses for this jail
+        alias-ipv6: Lets you see additional IPv6 addresses for this jail
+       bridge-ipv4: Lets you see the vnet bridge IPv4 address for this jail
+       bridge-ipv6: Lets you see the vnet bridge IPv6 address for this jail
+ alias-bridge-ipv4: Lets you see additional vnet bridge IPv4 addresses for this jail
+ alias-bridge-ipv6: Lets you see additional vnet bridge IPv6 addresses for this jail
+defaultrouter-ipv4: Lets you see the default IPv4 router for this jail
+defaultrouter-ipv6: Lets you see the default IPv6 router for this jail
+	     flags: Lets you see additional flags to pass to the 'jail' command at startup
+
+Usage:
+
+  warden get ipv4 <Jail>
+
+  warden get flags <Jail>
+
+Example:
+
+  warden get ipv4 myjail
+
+  warden get flags myjail
+"
+};
+
+help_set()
+{
+ title
+ echo "Help set
+
+Lets you set options for your jail
+
+Available options:
+
+              ipv4: Lets you set the IPv4 address for this jail
+              ipv6: Lets you set the IPv6 address for this jail
+        alias-ipv4: Lets you set additional IPv4 addresses for this jail
+        alias-ipv6: Lets you set additional IPv6 addresses for this jail
+       bridge-ipv4: Lets you set the vnet bridge IPv4 address for this jail
+       bridge-ipv6: Lets you set the vnet bridge IPv6 address for this jail
+ alias-bridge-ipv4: Lets you set additional vnet bridge IPv4 addresses for this jail
+ alias-bridge-ipv6: Lets you set additional vnet bridge IPv6 addresses for this jail
+defaultrouter-ipv4: Lets you set the default IPv4 router for this jail
+defaultrouter-ipv6: Lets you set the default IPv6 router for this jail
+        flags: Lets you set additional flags to pass to the 'jail' command at startup
+
+Usage:
+
+  warden set ipv4 <Jail> <IP1>,<IP2>,<IP3>
+
+  warden set flags <Jail> <Flag1>,<Flag2>,<Flag3>
+
+Example:
+
+  warden set ipv4 myjail 192.168.1.50,192.168.2.10
+
+  warden set ipv6 myjail fe80::8e89:a5ff:fe52:ad19,fe80::8e89:a5ff:fe52:ad21
+
+  warden set flags myjail allow.raw_sockets=true,allow.chflags=true
+"
+};
+
+help_checkup()
+{
+ title
+ echo "Help checkup
+
+Check for updates to a jail(s)
+
+Usage:
+
+  warden checkup <Jail>
+   or
+  warden checkup all
+
+Example:
+
+  warden checkup myjail
+"
+};
+
+help_zfslistclone()
+{
+ title
+ echo "Help zfslistclone
+
+List ZFS clones of a jail
+
+Usage:
+
+  warden zfslistclone <Jail>
+
+Example:
+
+  warden zfslistclone myjail
+"
+};
+
+help_zfslistsnap()
+{
+ title
+ echo "Help zfslistsnap
+
+List ZFS snapshots of a jail
+
+Usage:
+
+  warden zfslistsnap <Jail>
+
+Example:
+
+  warden zfslistsnap myjail
+"
+};
+
+help_zfsclonesnap()
+{
+ title
+ echo "Help zfsclonesnap
+
+Clone a ZFS jail snapshot
+
+Usage:
+
+  warden zfsclonesnap <Jail> <SNAP>
+
+Example:
+
+  warden zfsclonesnap myjail 20120505-140510
+"
+};
+
+help_zfscronsnap()
+{
+ title
+ echo "Help zfscronsnap
+
+Schedule a ZFS jail snapshot
+
+Usage:
+
+  warden zfscronsnap <Jail> <action> <frequency> <daysToKeep>
+  
+  action = start / stop
+  frequency = daily / hourly
+  daysToKeep = Number of days to keep snapshots
+
+Example:
+
+  warden zfscronsnap myjail start daily 10
+
+  or
+
+  warden zfscronsnap myjail stop
+"
+};
+
+help_zfsrevertsnap()
+{
+ title
+ echo "Help zfsrevertsnap
+
+Revert ZFS snapshot of a jail
+
+Usage:
+
+  warden zfsrevertsnap <Jail> <SNAP>
+
+Example:
+
+  warden zfsrevertsnap myjail 20120505-140510
+"
+};
+
+help_zfsrmclone()
+{
+ title
+ echo "Help zfsrmclone
+
+Remove ZFS clone of a jail
+
+Usage:
+
+  warden zfsrmclone <Jail> <CLONE>
+
+Example:
+
+  warden zfsrmclone myjail 20120505-140510
+"
+};
+
+help_zfsrmsnap()
+{
+ title
+ echo "Help zfsrmsnap
+
+Remove ZFS snapshot of a jail
+
+Usage:
+
+  warden zfsrmsnap <Jail> <SNAP>
+
+Example:
+
+  warden zfsrmsnap myjail 20120505-140510
+"
+};
+
+
+help_zfsmksnap()
+{
+ title
+ echo "Help zfsmksnap
+
+Create a new ZFS snapshot of a jail
+
+Usage:
+
+  warden zfsmksnap <Jail>
+
+Example:
+
+  warden zfsmksnap myjail
+"
+};
+
+help_details()
+{
+ title
+ echo "Help details
+
+View usage details about a jail
+
+Usage:
+
+  warden details <Jail>
+
+Example:
+
+  warden details myjail
+"
+};
+
+
+help_type()
+{
+ title
+ echo "Help type
+
+Lets you set the type of jail to these options:
+
+portjail: Jail with access to your home directories and Xorg
+pluginjail: Jail that can be used to install FreeNAS plugins
+standard: Normal FreeBSD secure jail environment
+
+The flag status can be checked with 'warden list'. 
+
+Usage:
+
+  warden type <Jail> <type>
+
+Example:
+
+  warden type myjail portjail
+"
+};
+
+
+help_bspkgng()
+{
+ title
+ echo "Help bspkgng
+
+BootStraps the pkgng package system, and installs the TrueOS repository
+and utilities into a jail.
+
+Usage:
+
+  warden bspkgng <Jail>
+
+Example:
+
+  warden bspkgng myjail
+"
+};
+
+
+
+help_auto()
+{
+ title
+ echo "Help auto
+
+Toggles the autostart flag for a specified jail. If the flag is 
+enabled, then the jail will be started at system bootup automatically.
+The flag status can be checked with 'warden list'. 
+
+Usage:
+
+  warden auto <Jail>
+
+Example:
+
+  warden auto myjail
+"
+};
+
+help_pkgs()
+{
+ title
+ echo "Help pkgs
+
+Generates a listing of the installed ports in a jail.
+
+Usage:
+
+  warden pkgs <Jail>
+
+Example:
+
+  warden pkgs myjail
+"
+};
+
+help_pbis()
+{
+ title
+ echo "Help pbis
+
+Generates a listing of the installed pbi's in a jail.
+
+Usage:
+
+  warden pbis <Jail>
+
+Example:
+
+  warden pbis myjail
+"
+};
+
+help_list()
+{
+ title
+ echo "Help list
+
+Generates a quick listing of the installed jails, including the running
+status.
+
+Available Flags:
+  -v           (Verbose listing)
+
+Usage:
+
+  warden list [flags] [hosts]
+"
+};
+
+help_export()
+{
+ title
+ echo "Help export
+
+Export will backup a full copy of your jail, compressing it and 
+saving it to a .wdn file. This file can then be taken and 
+imported on another system to migrate the jail to new hardware. 
+Also a .wdn file may be imported on the same system, in order to 
+'clone' an existing jail with a new IP address. 
+
+Available Flags:
+  --dir=<DIR>  (Specify the directory you want to place the finished .wdn file)
+
+Usage:
+
+  warden export <Jail> --dir=<path>
+
+Example:
+
+  warden export myjail --dir=/tmp
+"
+};
+
+help_import()
+{
+ title
+ echo "Help import
+
+Imports a jail from a .wdn file. Can assign a new IP / Hostname to
+the imported jail on the fly using optional flags.  
+
+Available Flags:
+  --ipv4=<IP/NETMASK> (Specify a new IPv4/NETMASK address to assign to this jail)
+  --ipv6=<IP/NETMASK> (Specify a new IPv6/NETMASK address to assign to this jail)
+  --host=<HOST>       (Specify a new host name to assign to this jail)
+
+Usage:
+
+  warden import <.wdn file>
+
+Example:
+
+  warden import /home/kris/myjail.wdn
+"
+};
+
+
+
+help_chroot()
+{
+ title
+ echo "Help chroot
+
+Logs into a jail using chroot, or runs the supplied command. 
+
+Usage:
+
+  warden chroot <Jail> <optional cmd>
+
+Example:
+
+  warden chroot myjail
+"
+};
+
+
+help_start()
+{
+ title
+ echo "Help start 
+
+Starts a stopped jail
+
+Usage:
+
+  warden start <Jail>
+
+Example:
+
+  warden start myjail
+"
+};
+
+help_stop()
+{
+ title
+ echo "Help stop
+
+Stops a running jail
+
+Usage:
+  warden stop <Jail>
+
+Example:
+
+  warden stop myjail
+"
+};
+
+
+help_delete()
+{
+ title
+ echo "Help delete
+
+Stops and deletes a jail
+
+Available Flags:
+  --confirm       (Does not prompt to confirm deletion. DANGEROUS)
+
+Usage:
+
+  warden delete <Jail>
+
+Example:
+
+  warden delete myjail
+"
+};
+
+
+
+help_create()
+{
+ title
+ echo "Help create
+
+Creates a new jail, with options for system source, ports and autostarting.
+
+Available Flags:
+  -32                          (Create 32bit jail on 64bit system)
+  --ipv4 <ip/mask>             (Set primary IPv4 address for jail)
+  --ipv6 <ip/mask>             (Set primary IPv6 address for jail)
+  --src                        (Includes /usr/src system source)
+  --ports                      (Includes the ports tree)
+  --vanilla                    (Don't install PC-BSD pkgng repo and utilities)
+  --startauto                  (Start this jail at system boot)
+  --portjail                   (Make this a portjail)
+  --pluginjail                 (Make this a pluginjail)
+  --linuxjail <script>         (Make this a linux jail and use supplied script for installation)
+  --archive <tar>              (Use specified tar file for BSD jail creation)
+  --linuxarchive <tar>         (Use specified tar file for Linux jail creation)
+  --version <string>           (Use this instead of /etc/version)
+
+Usage:
+
+  warden create <JAILNAME> <flags>
+
+Example:
+
+  warden create jailbird --ipv4 192.168.0.25/24 --src --ports --startauto
+"
+};
+
+
+# Fix old style meta-data, can be removed after 9.1
+fix_old_meta
+
+# Check what the user wants to do
+case "$1" in
+
+   help) case "$2" in
+             auto) help_auto ;;
+          bspkgng) help_bspkgng ;;
+           create) help_create ;;
+           start) help_start ;;
+           stop) help_stop ;;
+           delete) help_delete ;;
+           details) help_details ;;
+           checkup) help_checkup ;;
+           chroot) help_chroot ;;
+           list) help_list ;;
+           export) help_export ;;
+           import) help_import ;;
+           pkgs) help_pkgs ;;
+           pbis) help_pbis ;;
+           type) help_type ;;
+           get) help_get ;;
+           set) help_set ;;
+           zfsmksnap) help_zfsmksnap ;;
+           zfslistsnap) help_zfslistsnap ;;
+           zfslistclone) help_zfslistclone ;;
+           zfsrevertsnap) help_zfsrevertsnap ;;
+           zfsclonesnap) help_zfsclonesnap ;;
+           zfscronsnap) help_zfscronsnap ;;
+           zfsrmsnap) help_zfsrmsnap ;;
+           zfsrmclone) help_zfsrmclone ;;
+           *) help_main ;;
+         esac  ;;
+
+
+    pkgs) JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         ${PROGDIR}/scripts/backend/listpkgs.sh "${JAILNAME}" 
+         ;;
+details) JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         ${PROGDIR}/scripts/backend/details.sh "${JAILNAME}" 
+         ;;
+    pbis) JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         ${PROGDIR}/scripts/backend/listpbis.sh "${JAILNAME}" 
+         ;;
+    get) require_root
+	 OPT="${2}"
+         JAILNAME="${3}"
+         if [ -z "${JAILNAME}" ] ; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ] ; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+	 case $OPT in
+             flags) cat "${JMETADIR}/jail-flags" 2>/dev/null | sed 's| |,|g' ;;
+              ipv4) cat "${JMETADIR}/ipv4"  2>/dev/null | sed 's| |,|g' ;;
+              ipv6) cat "${JMETADIR}/ipv6"  2>/dev/null | sed 's| |,|g' ;;
+        alias-ipv4) cat "${JMETADIR}/alias-ipv4"  2>/dev/null | sed 's| |,|g' ;;
+        alias-ipv6) cat "${JMETADIR}/alias-ipv6"  2>/dev/null | sed 's| |,|g' ;;
+       bridge-ipv4) cat "${JMETADIR}/bridge-ipv4" 2>/dev/null | sed 's| |,|g' ;;
+       bridge-ipv6) cat "${JMETADIR}/bridge-ipv6" 2>/dev/null | sed 's| |,|g' ;;
+ alias-bridge-ipv4) cat "${JMETADIR}/alias-bridge-ipv4" 2>/dev/null | sed 's| |,|g' ;;
+ alias-bridge-ipv6) cat "${JMETADIR}/alias-bridge-ipv6" 2>/dev/null | sed 's| |,|g' ;;
+defaultrouter-ipv4) cat "${JMETADIR}/defaultrouter-ipv4" 2>/dev/null | sed 's| |,|g' ;;
+defaultrouter-ipv6) cat "${JMETADIR}/defaultrouter-ipv6" 2>/dev/null | sed 's| |,|g' ;;
+              *) exit_err "Invalid option!" ;;
+         esac
+         ;;
+
+    set) require_root
+	 OPT="${2}" 
+         JAILNAME="${3}"
+         if [ -z "${JAILNAME}" ] ; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ] ; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+	 case $OPT in
+             ipv4) IP4="${4}"
+		 get_ip_and_netmask "${IP4}"
+		 IP4="${JIP}"
+  		 MASK4="${JMASK}"
+  		 if [ -z "$MASK4" ] ; then MASK4="24"; fi
+	         echo "$IP4/$MASK4" > "${JMETADIR}/ipv4"
+                 ;;
+             ipv6) IP6="${4}"
+		 get_ip_and_netmask "${IP6}"
+		 IP6="${JIP}"
+  		 MASK6="${JMASK}"
+  		 if [ -z "$MASK6" ] ; then MASK4="64"; fi
+	         echo "$IP6/$MASK6" > "${JMETADIR}/ipv6"
+                 ;;
+       alias-ipv4) EXTRAIPS="${4}"
+	         IPS=`echo $EXTRAIPS | sed 's|,| |g'`
+	         rm "${JMETADIR}/alias-ipv4" >/dev/null 2>/dev/null
+	         for _ip in $IPS
+	         do
+	            echo "$_ip" >> "${JMETADIR}/alias-ipv4"
+	         done
+                ;;
+       alias-ipv6) EXTRAIPS="${4}"
+	         IPS=`echo $EXTRAIPS | sed 's|,| |g'`
+	         rm "${JMETADIR}/alias-ipv6" >/dev/null 2>/dev/null
+	         for _ip in $IPS
+	         do
+	            echo "$_ip" >> "${JMETADIR}/alias-ipv6"
+	         done
+                ;;
+       bridge-ipv4) BIP4="${4}"
+	         echo "$BIP4" > "${JMETADIR}/bridge-ipv4"
+                 ;;
+       bridge-ipv6) BIP6="${4}"
+	         echo "$BIP6" > "${JMETADIR}/bridge-ipv6"
+                 ;;
+ alias-bridge-ipv4) EXTRAIPS="${4}"
+	         IPS=`echo $EXTRAIPS | sed 's|,| |g'`
+	         rm "${JMETADIR}/alias-bridge-ipv4" >/dev/null 2>/dev/null
+	         for _ip in $IPS
+	         do
+	            echo "$_ip" >> "${JMETADIR}/alias-bridge-ipv4"
+	         done
+                ;;
+ alias-bridge-ipv6) EXTRAIPS="${4}"
+	         IPS=`echo $EXTRAIPS | sed 's|,| |g'`
+	         rm "${JMETADIR}/alias-bridge-ipv6" >/dev/null 2>/dev/null
+	         for _ip in $IPS
+	         do
+	            echo "$_ip" >> "${JMETADIR}/alias-bridge-ipv6"
+	         done
+                ;;
+defaultrouter-ipv4) DEFAULTROUTER="${4}"
+	         echo "$DEFAULTROUTER" > "${JMETADIR}/defaultrouter-ipv4"
+                 ;;
+defaultrouter-ipv6) DEFAULTROUTER="${4}"
+	         echo "$DEFAULTROUTER" > "${JMETADIR}/defaultrouter-ipv6"
+                 ;;
+          flags) EXTRAFLAGS="${4}"
+	         echo $EXTRAFLAGS | sed 's|,| |g' > "${JMETADIR}/jail-flags"
+                ;;
+              *) exit_err "Invalid option!" ;;
+	   esac
+         ;;
+
+   type) require_root
+	 JAILNAME="${2}"
+         TYPE="${3}"
+         JAILDIR="${JDIR}/${JAILNAME}"
+
+         if [ -z "${JAILNAME}" ] ; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JAILDIR}" ] ; then exit_err "No such jail!"; fi
+
+	 set_warden_metadir
+	 if [ -e "${JMETADIR}/jail-linux" ] ; then exit_err "Cannot change type on Linux jail!"; fi
+
+	 case $TYPE in
+	   portjail)
+              rm ${JMETADIR}/jail-pluginjail > /dev/null 2>/dev/null
+              mkportjail "${JAILDIR}"
+              ;;
+	   standard)
+              rm ${JMETADIR}/jail-pluginjail > /dev/null 2>/dev/null
+              rm ${JMETADIR}/jail-portjail >/dev/null 2>/dev/null
+              ;;
+	   pluginjail)
+              mkpluginjail "${JAILDIR}"
+              ;;
+	   *) exit_err "Invalid TYPE" ;;
+         esac
+         ;;
+
+ bspkgng) require_root
+    JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+         bootstrap_pkgng "${JDIR}/${JAILNAME}"
+         ;;
+
+   auto) require_root
+	 JAILNAME="${2}"
+
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         if [ -e "${JMETADIR}/autostart" ]
+         then
+            rm "${JMETADIR}/autostart"
+            echo "Disabled autostart for ${JAILNAME}"
+         else
+            touch "${JMETADIR}/autostart"
+            echo "Enabled autostart for ${JAILNAME}"
+         fi 
+
+         ;;
+
+    gui) require_root
+	  ${PROGDIR}/bin/warden-gui ;;
+
+    list) require_root
+	shift
+        ${PROGDIR}/scripts/backend/listjails.sh $* ;;
+    
+   start) require_root
+	  # Time to startup the jail
+          JAILNAME="${2}"
+
+          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi 
+	  set_warden_metadir
+         
+          # Check if this jail is already running
+          ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
+          if [ "$?" = "0" ]; then exit_err "This jail is already running!"; fi
+ 
+          ${PROGDIR}/scripts/backend/startjail.sh "${JAILNAME}" 
+          ;;
+   stop)  require_root
+          # Time to stop the jail
+          JAILNAME="${2}"
+
+          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi 
+	  set_warden_metadir
+         
+          ${PROGDIR}/scripts/backend/stopjail.sh "${JAILNAME}" 
+          ;;
+
+ checkup) # Log a user into chroot session
+          JAILNAME="${2}"
+
+          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+          if [ ! -e "${JDIR}/${JAILNAME}" -a "${JAILNAME}" != "all" ]; then exit_err "No such jail!"; fi
+
+          ${PROGDIR}/scripts/backend/checkupdates.sh "${JAILNAME}"
+          ;;
+
+
+ chroot) # Log a user into chroot session
+          JAILNAME="${2}"
+
+          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	  set_warden_metadir
+
+          ${PROGDIR}/scripts/backend/chrootjail.sh "${JAILNAME}" "${3}"
+          ;;
+
+ import) require_root
+	 # The user wants to import a jail, lets do it!
+         IFILE="$2"
+         if [ ! -e "$IFILE" ]; then exit_err "Invalid filename: ${IFILE}"; fi
+
+         HOST=`basename "${IFILE}" | sed 's|\.wdn$||'`
+
+         IP4="OFF"
+         IP6="OFF"
+         HOST="OFF"
+         for i in "$@"
+         do
+           # Check if we have a new IPv4 address for this import
+           echo "${i}" | grep '\-\-ipv4=' >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]
+           then
+              tmp="`echo ${i} | cut -d '=' -f 2`"
+              IP4="`echo ${tmp} | cut -d '/' -f 1 -s`"
+              MASK4="`echo ${tmp} | cut -d '/' -f 2 -s`"
+
+              #Sanity check on the IP
+              if ! is_ipv4 "${IP4}" ; then
+                 exit_err "Invalid IPv4 address!"
+              fi
+
+              for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+              do
+                if [ "`cat ${i}/ipv4 2>/dev/null`" = "${IP4}/${MASK4}" ] ; then
+                  exit_err "A jail with this IPv4 address already exists!"
+                fi 
+              done 
+           fi
+
+           # Check if we have a new IPv4 address for this import
+           echo "${i}" | grep '\-\-ipv6=' >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]
+           then
+              tmp="`echo ${i} | cut -d '=' -f 2`"
+              IP6="`echo ${tmp} | cut -d '/' -f 1 -s`"
+              MASK6="`echo ${tmp} | cut -d '/' -f 2 -s`"
+
+              #Sanity check on the IP
+              if ! is_ipv6 "${IP6}" ; then
+                 exit_err "Invalid IPv6 address!"
+              fi
+
+              for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+              do
+                _ipv6=`cat ${i}/ipv6 2>/dev/null | tr a-z A-Z`
+                _nipv6="`echo ${IP6}|tr a-z A-Z`/${MASK6}"
+                
+                if [ "${_ipv6}" = "${_nipv6}" ] ; then
+                  exit_err "A jail with this IPv6 address already exists!"
+                fi 
+              done 
+           fi
+  
+           # Check if we have a new hostname for this jail
+           echo ${i} | grep '\-\-host=' >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]
+           then
+              HOST="`echo ${i} | cut -d '=' -f 2`"
+           fi
+
+         done
+
+         if [ "${IP4}" != "OFF" ] ; then
+            IP4="${IP4}/${MASK4}"
+         fi
+         if [ "${IP6}" != "OFF" ] ; then
+            IP6="${IP6}/${MASK6}"
+         fi
+
+         # Import the jail now!
+         ${PROGDIR}/scripts/backend/importjail.sh "${IFILE}" "${HOST}" "${IP4}" "${IP6}"
+        ;;
+
+ export) require_root
+         # The user wants to export a jail, lets do it!
+         JAILNAME="$2"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+
+         # Check if the user wants to place the file in their own DIR
+         DIR=""
+         for i in "$@"
+         do
+           echo ${i} | grep "\-\-dir=" >/dev/null 2>/dev/null
+           if [ "$?" = "0" ]
+           then
+              DIR="`echo ${i} | cut -d '=' -f 2`"
+              # Check if the directory exists
+              if [ ! -d "${DIR}" ]; then exit_err "No such directory ${DIR}!"; fi
+           fi
+
+         done
+
+         # Export the jail now
+         ${PROGDIR}/scripts/backend/exportjail.sh "${JAILNAME}" "${DIR}"
+
+         ;;
+
+ zfsmksnap) require_root
+         JAILNAME="$2"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfsmksnap.sh "${JAILNAME}"
+         ;;
+
+ zfslistclone) require_root
+         JAILNAME="$2"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfslistclone.sh "${JAILNAME}"
+         ;;
+
+ zfslistsnap) require_root
+         JAILNAME="$2"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfslistsnap.sh "${JAILNAME}"
+         ;;
+
+ zfsclonesnap) require_root
+         JAILNAME="$2"
+         SNAP="$3"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfsclonesnap.sh "${JAILNAME}" "${SNAP}"
+         ;;
+
+ zfscronsnap) require_root
+         JAILNAME="$2"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfscronsnap.sh "${JAILNAME}" "$3" "$4" "$5"
+         ;;
+
+
+ zfsrevertsnap) require_root
+         JAILNAME="$2"
+         SNAP="$3"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfsrevertsnap.sh "${JAILNAME}" "$SNAP"
+         ;;
+
+ zfsrmclone) require_root
+         JAILNAME="$2"
+         CLONE="$3"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfsrmclone.sh "${JAILNAME}" "${CLONE}"
+         ;;
+
+ zfsrmsnap) require_root
+         JAILNAME="$2"
+         SNAP="$3"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+         ${PROGDIR}/scripts/backend/zfsrmsnap.sh "${JAILNAME}" "${SNAP}"
+         ;;
+
+ create) require_root
+         # The user wants to create a new jail, do error checking
+         JAILNAME="$2"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+
+         HOST="$2"
+
+         #Now check for the presence of the optional flags
+         IP4="OFF"
+         IP6="OFF"
+         SRC="NO"
+         PORTS="NO"
+         AUTOSTART="NO"
+         VANILLA="NO"
+         VERSION=
+         JAILTYPE="standard"
+         ARCHIVE_FILE= 
+         while [ $# -gt 0 ]; do
+           case $1 in
+             --ipv4) shift
+			  if [ -z "$1" ] ; then exit_err "No IPv4 address specified!"; fi
+                          IP4="${1}"
+                          ;;
+             --ipv6) shift
+			  if [ -z "$1" ] ; then exit_err "No IPv6 address specified!"; fi
+                          IP6="${1}"
+                          ;;
+
+             --src) SRC="YES" ;;
+             --ports) PORTS="YES" ;;
+             --startauto) AUTOSTART="YES" ;;
+             --vanilla) VANILLA="YES" ;;
+             --portjail) JAILTYPE="portjail" ;;
+             --pluginjail) JAILTYPE="pluginjail" ; VANILLA="YES" ;; 
+             --linuxjail) JAILTYPE="linuxjail" ; shift
+			  if [ -z "$1" ] ; then exit_err "No linux setup script specified!"; fi
+			  LINUX_JAIL_SCRIPT="$1" ; export LINUX_JAIL_SCRIPT
+			  if [ -n "$LINUXARCHIVE_FILE" ] ; then 
+			     exit_err "--linuxjail and --linuxarchive are mutually exclusive!"
+			  fi
+			  ;;
+	             -32) if [ "$REALARCH" != "amd64" ] ; then
+                                exit_err "-32 can only be used on amd64 host"
+                          fi
+                          ARCH=i386
+			  export ARCH
+                          ;;
+             --archive) shift
+			  if [ -z "$1" ] ; then exit_err "No archive file specified!"; fi
+			  ARCHIVE_FILE="$1" ; export ARCHIVE_FILE
+			  if [ ! -e "$ARCHIVE_FILE" ] ; then
+			     exit_err "No such file: $ARCHIVE_FILE"
+			  fi
+			  ;;
+             --linuxarchive) JAILTYPE="linuxjail" ; shift
+			  if [ -z "$1" ] ; then exit_err "No archive file specified!"; fi
+			  LINUXARCHIVE_FILE="$1" ; export LINUXARCHIVE_FILE
+			  if [ ! -e "$LINUXARCHIVE_FILE" ] ; then
+			     exit_err "No such file: $LINUXARCHIVE_FILE"
+			  fi
+			  if [ -n "$LINUX_JAIL_SCRIPT" ] ; then 
+			     exit_err "--linuxjail and --linuxarchive are mutually exclusive!"
+			  fi
+			  ;;
+             --version) shift
+			  if [ -z "$1" ] ; then exit_err "No version string specified!"; fi
+                          VERSION="${1}"
+                          ;;
+           esac
+           shift
+         done
+
+         # Check to ensure this jail does not already exist
+         if [ -e "${JDIR}/${JAILNAME}" ]; then exit_err "A jail with this name already exists!"; fi  
+
+          #
+          # Redonkulous number of parameters that exceeds 9,
+          # export into environment
+          #
+          export IP4
+          export IP6
+          export SRC
+          export PORTS
+          export AUTOSTART
+          export JAILTYPE
+          export ARCHIVE_FILE
+          export VERSION
+          export VANILLA
+
+          # Passed all tests, create the jail now
+          ${PROGDIR}/scripts/backend/createjail.sh "${JAILNAME}"
+
+        ;;
+  delete) require_root
+          # Time to delete a jail
+          JAILNAME="${2}"
+
+          if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+          if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	  set_warden_metadir
+
+          if [ "$3" != "--confirm" ]
+          then
+            echo "Are you sure you want to delete ${JAILNAME}?"
+            echo -e "Choice: (y/n)\c"
+            read confirm
+            if [ "$confirm" != "y" ]; then exit_err "Canceled!"; fi
+          fi
+
+          # Check if this jail is running
+          ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
+          if [ "$?" = "0" ] ; then
+            ${PROGDIR}/scripts/backend/stopjail.sh "${JAILNAME}"
+          fi
+
+          # Check if this jail is STILL running
+          ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
+          if [ "$?" = "0" ] ; then exit_err "Jail still is running or has leftovers.."; fi
+
+          # Delete it now
+          ${PROGDIR}/scripts/backend/deletejail.sh "${JAILNAME}"
+        ;;
+   *) help_main ;;
+esac
+
+exit 0

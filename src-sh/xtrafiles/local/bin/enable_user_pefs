@@ -1,0 +1,60 @@
+#!/bin/sh
+# Helper script to enable encryption (PEFS) on a users home directory
+# Author: Kris Moore
+# License: BSD
+
+PEFSDBDIR="/var/db/pefs"
+
+USER="$1"
+USERPW="$2"
+
+if [ -z "$USER" -o -z "$USERPW" ] ; then
+   echo "Usage: ${0} <username> <key>"
+   exit 1
+fi
+
+USERHOMEDIR=`cat /etc/passwd | grep "^${USER}:" | cut -d ':' -f 6`
+if [ -z "$USERHOMEDIR" -o ! -d "${USERHOMEDIR}" ] ; then
+   echo "Invalid USERHOMEDIR: $USERHOMEDIR"
+   exit 1
+fi
+
+if [ "$USERHOMEDIR" != "`realpath ${USERHOMEDIR}`" ] ; then
+  echo "Warning: PEFS will not work with sym-linked home dirs.."
+  USERHOMEDIR=`realpath $USERHOMEDIR`
+fi
+
+echo "Encrypting ${USERHOMEDIR}"
+umount ${USERHOMEDIR} 2>/dev/null
+
+mv ${USERHOMEDIR} ${USERHOMEDIR}.$$
+mkdir ${USERHOMEDIR}
+chown ${USER}:${USER} ${USERHOMEDIR}
+
+pefs mount ${USERHOMEDIR} ${USERHOMEDIR}
+echo "${USERPW}" | pefs addkey -v -j - ${USERHOMEDIR}
+echo "${USERPW}" | pefs addchain -v -j - -Z ${USERHOMEDIR}
+
+mv ${USERHOMEDIR}/.pefs.db /tmp/.pefs.db.$$
+tar cvf - -C "${USERHOMEDIR}.$$" . 2>/dev/null | tar xvpf - -C "${USERHOMEDIR}" 2>/dev/null
+
+umount ${USERHOMEDIR}
+
+mv /tmp/.pefs.db.$$ ${USERHOMEDIR}/.pefs.db
+chown ${USER}:${USER} ${USERHOMEDIR}/.pefs.db
+
+pefs mount ${USERHOMEDIR} ${USERHOMEDIR}
+rm -rf "${USERHOMEDIR}.$$"
+
+
+# Make sure the DBDIR exists
+if [ ! -d "${PEFSDBDIR}" ]; then
+  mkdir -p ${PEFSDBDIR}
+fi
+
+# Save the directory to auto-mount at boot
+grep -q -e "^${USERHOMEDIR}\$" ${PEFSDBDIR}
+if [ $? -ne 0 ] ; then 
+  echo "${USERHOMEDIR}" >> ${PEFSDBDIR}/auto_mounts
+fi
+

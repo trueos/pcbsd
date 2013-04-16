@@ -1,0 +1,108 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_adctl
+
+. /etc/rc.conf
+. /usr/local/etc/rc.activedirectory
+
+pc_adctl_enable=${pc_activedirectory_enable-"NO"}
+
+name="pc_adctl"
+rcvar="pc_adctl_enable"
+
+adctl_cmd()
+{
+	local args="$*"
+
+	if [ -n "${args}" ]
+	then
+		logger -t ActiveDirectory "${args}"
+		${args}
+		return $?
+	fi
+
+	return 0
+}
+
+
+adctl_assert()
+{
+	local args="$*"
+
+	eval ${args}
+	if [ "$?" != "0" ]
+	then
+		echo "${args} failed, exiting"
+		exit 1
+	fi
+}
+
+adctl_start()
+{
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		adctl_cmd service pc-kerberos start
+		adctl_cmd service pc-nsswitch start
+		adctl_cmd service pc-pam start
+
+		service samba status
+		if [ "$?" = "0" ]
+		then
+			adctl_cmd service samba stop
+			adctl_cmd service pc-samba start
+			adctl_cmd service samba start
+		else
+			adctl_cmd service pc-samba start
+			adctl_cmd service samba start
+		fi
+
+		adctl_cmd service pc-kinit start
+		adctl_cmd service pc-kinit status
+		adctl_cmd service pc-nssldap start
+		adctl_cmd service pc-activedirectory start
+		adctl_cmd service pc-activedirectory status
+		adctl_cmd service samba restart
+	fi
+	
+	return 0
+}
+
+adctl_status()
+{
+	service pc-activedirectory status
+	return $?
+}
+
+adctl_stop()
+{
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		service pc-kerberos stop
+		service pc-nsswitch stop
+		service pc-pam stop
+		service pc-samba stop
+		service pc-kinit stop
+		adctl_cmd service pc-nssldap stop
+		service pc-activedirectory stop
+
+		service samba status
+		if [ "$?" = "0" ]
+		then
+			adctl_cmd service samba stop
+			adctl_cmd service samba start
+		else
+			adctl_cmd service samba start
+		fi
+	fi
+}
+
+
+start_cmd='adctl_start'
+status_cmd='adctl_status'
+stop_cmd='adctl_stop'
+            
+load_rc_config $name
+run_rc_command "$1"

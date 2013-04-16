@@ -1,0 +1,11 @@
+Section "Monitor"
+	Identifier	"Monitor0"
+	HorizSync	30 - 60
+	VertRefresh	50.0 - 100.0
+	Option		"DPMS"
+EndSection
+
+Section "Device"
+	Identifier	"Card0"
+	Driver		"vmware"
+EndSection

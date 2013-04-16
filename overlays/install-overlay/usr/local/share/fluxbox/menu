@@ -1,0 +1,3 @@
+[begin] (Fluxbox-0.1.14)
+	[exec]    (xterm) {xterm}
+[end]

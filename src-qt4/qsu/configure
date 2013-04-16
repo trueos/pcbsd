@@ -1,0 +1,28 @@
+#!/bin/sh
+
+BUILD=`which cmake`
+[ -z "${BUILD}" ] && BUILD=`which qmake-qt4`
+[ -z "${BUILD}" ] && BUILD=`which qmake`
+
+if [ -z "${BUILD}" ]; then
+	echo "Sorry, you need either 'cmake' or 'qmake' in your path for this to work... ABORT"
+	exit 1
+fi
+
+echo "Found: ${BUILD}"
+
+# clean up
+rm -rf build/*
+
+# move into build directory
+cd build
+
+# copy default config file (will get overriden by cmake)
+cp -f ../config.h.def config.h
+
+# bootstrap
+${BUILD} ..
+
+# build
+make
+

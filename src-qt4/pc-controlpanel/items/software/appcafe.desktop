@@ -1,0 +1,36 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=pc-softwaremanager
+GenericName[en_US]=
+GenericName=
+Icon=appcafe.png
+MimeType=
+Path=
+Keywords="software,install software,uninstall software,install pbi,uninstall pbi,update, update software,update pbi,repository"
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=System;
+Name=AppCafe
+Name[ca]=AppCafe
+Name[da]=AppCafe
+Name[en_GB]=AppCafe
+Name[en_US]=AppCafe
+Name[en_ZA]=AppCafe
+Name[es]=AppCafe
+Name[fr]=AppCafé
+Name[fr_CA]=AppCafé
+Name[hr]=AppCafe
+Name[hu]=AppCafé
+Name[id]=AppCafe
+Name[it]=AppCafe
+Name[nl]=AppCafe
+Name[pl]=AppCafe
+Name[pt_BR]=AppCafe
+Name[ru]=Кафе приложений
+Name[tr]=AppCafe
+Name[uk]=Кафе додатків
+Comment=Software Manager
+Comment[en_US]=
+Comment[fr_CA]=Gestionnaire de programmes

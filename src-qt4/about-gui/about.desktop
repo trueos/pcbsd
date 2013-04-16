@@ -1,0 +1,31 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+
+Type=Application
+Categories=System
+Exec=about-gui
+Icon=/usr/local/share/pcbsd/icons/about.png
+Comment="Information about PC-BSD system"
+Name=About
+Name[ar]=بشأن
+Name[de]=Über
+Name[en_GB]=About
+Name[en_ZA]=About
+Name[es]=Acerca de
+Name[et]=Teave
+Name[fr]=À propos de
+Name[fr_CA]=Au sujet de
+Name[hr]=O
+Name[hu]=Névjegy
+Name[it]=Circa
+Name[ja]=バージョン情報
+Name[nl]=Over
+Name[pl]=O
+Name[pt_BR]=Sobre
+Name[ru]=О программе
+Name[sv]=Om
+Name[tr]=Hakkında
+Name[uk]=Про PC-BSD
+Name[zh_CN]=关于
+Name[zh_HK]=關於
+Name[zh_TW]=關於

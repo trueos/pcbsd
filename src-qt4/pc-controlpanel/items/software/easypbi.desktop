@@ -1,0 +1,15 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=EasyPBI
+GenericName[en_US]=EasyPBI
+GenericName=EasyPBI
+Icon=easypbi.png
+MimeType=
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=System;
+Name=EasyPBI
+Comment=Simple PBI creation system

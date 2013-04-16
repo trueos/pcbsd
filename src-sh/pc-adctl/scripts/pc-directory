@@ -1,0 +1,72 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_directory
+# REQUIRE: samba
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+. /usr/local/etc/rc.activedirectory
+
+: ${pc_directory_enable:="NO"}
+
+name="pc_directory"
+rcvar="pc_directory_enable"
+
+pc_directory_start()
+{
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		if ! AD_configured
+		then
+			AD_set_configured
+		fi
+		return $?
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		if ! ldap_configured
+		then
+			ldap_set_configured
+		fi
+		return $?
+	fi
+}
+
+pc_directory_stop()
+{
+	if checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		if AD_configured
+		then
+			AD_unset_configured
+		fi
+		return $?
+
+	elif checkyesno pc_ldap_enable 2>/dev/null
+	then
+		if ldap_configured
+		then
+			ldap_unset_configured
+		fi
+		return $?
+	fi
+}
+
+start_cmd='pc_directory_start'
+stop_cmd='pc_directory_stop'
+        
+load_rc_config $name
+
+if [ "${pc_ldap_enable}" = "YES" ]
+then
+	pc_directory_enable="YES"
+
+elif [ "${pc_activedirectory_enable}" = "YES" ]
+then
+	pc_directory_enable="YES"
+fi
+
+run_rc_command "$1"

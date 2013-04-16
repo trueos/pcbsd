@@ -1,0 +1,7 @@
+#!/bin/sh
+# Bring up the default printer config application
+# License: BSD
+
+user=$1
+
+system-config-printer

@@ -1,0 +1,57 @@
+#!/bin/sh
+# Author: Kris Moore
+# License: BSD
+# Comment: Script to check for starting the display wizard and first-boot GUI
+########################################################
+#NOTE: This function should only be called when X has still not been started yet
+
+
+#Functions to start each of the appropriate utilities
+setup_xorg() {
+	/usr/local/share/pcbsd/xorg-gui/bin/rundetect.sh
+	rm -f /var/.runxsetup
+}
+
+setup_firstboot() {
+	/usr/local/bin/pc-firstgui
+        rm /var/.pcbsd-firstgui
+}
+
+setup_xvesa() {
+	echo "Using failsafe VESA 1024x768 mode..." >/dev/console
+	mv /etc/X11/xorg.conf /etc/X11/xorg.conf.preVesa.backup
+	cp /usr/local/share/pcbsd/xorg-gui/cardDetect/XF86Config.compat /etc/X11/xorg.conf
+}
+
+echo "Checking for X display setup flags"
+
+# Check if we are going to re-run the display setup wizard
+y=`kenv runwiz 2>/dev/null`
+if [ $? -eq 0 ]; then
+   if [ "$y" = "YES" ] ; then
+     touch /var/.runxsetup
+   fi
+   kenv -u runwiz
+fi
+
+xvesa="NO"
+v=`kenv xvesa 2>/dev/null`
+if [ $? -eq 0 ]; then
+   xvesa=$v
+fi
+
+# If the user wants to switch to failsafe X
+if [ ${xvesa} = "YES" ]; then
+    setup_xvesa
+fi
+
+# If the user wants to switch to run the xorg setup again
+if [ -e "/var/.runxsetup" ]; then
+    setup_xorg
+fi
+
+# Check if we need to do a first boot setup
+if [ -e "/var/.pcbsd-firstgui" ]; then
+    setup_firstboot
+fi
+

@@ -1,0 +1,398 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_nssldapconf
+# REQUIRE: root
+# BEFORE: NETWORK
+
+. /etc/rc.conf
+. /usr/local/etc/rc.ldap
+. /usr/local/etc/rc.activedirectory
+
+: ${pc_nssldapconf_enable:="NO"}
+
+name="pc_nssldapconf"
+rcvar="pc_nssldapconf_enable"
+    
+: ${NSS_LDAP_CONF:="/usr/local/etc/nss_ldap.conf"}
+: ${NSS_LDAP_SECRET:="/usr/local/etc/nss_ldap.secret"}
+: ${NSSLDAPCONF:="/usr/local/bin/pc-nssldapconf"}
+
+escape()
+{
+	[ -n "${1}" ] && printf "${1}" | sed -Ee 's|=|\\=|g'
+}
+
+get_basename()
+{
+	local domainname="${1}"
+
+	base=$(echo "${domainname}" | awk '{
+		n = split($0, parts, ".");
+		if (n > 0) {
+			base = sprintf("dc=%s", parts[1]);
+			for (i=2;i <= n;i++) {
+				base = sprintf("%s,dc=%s", base, parts[i]);
+			}
+			printf("%s", base);
+		}
+	}')
+
+	echo "${base}"
+}
+
+
+backup_nss_ldap_conf()
+{
+	local conf="${NSS_LDAP_CONF}"
+	local backup="${conf}.bak"
+
+	if [ -f "${conf}" ]
+	then
+		cp "${conf}" "${backup}"
+		return $?
+	fi
+
+	return 0
+}
+
+
+restore_nss_ldap_conf()
+{
+	local conf="${NSS_LDAP_CONF}"
+	local backup="${conf}.bak"
+
+	if [ -f "${backup}" ]
+	then
+		cp "${backup}" "${conf}"
+		return $?
+	fi
+
+	return 0
+}
+
+safe_save()
+{
+	local src="${1}"
+	local dst="${2}"
+
+	if [ ! -s "${src}" ]
+	then
+		return 1
+	fi
+
+	cp "${dst}" "${dst}.orig" >/dev/null 2>&1
+	mv "${src}" "${dst}"
+	if [ "$?" != "0" ]
+	then
+		cp "${dst}.orig" "${dst}" >/dev/null 2>&1
+		return 1
+	fi
+
+	chmod 644 "${dst}"
+	return 0
+}
+
+generate_LDAP_nss_ldap_conf()
+{
+	local tmp
+	local conf="${NSS_LDAP_CONF}"
+	local secret="${NSS_LDAP_SECRET}"
+
+	local host=$(ldap_get hostname)
+	local basedn=$(ldap_get basedn)
+	local rootbasedn=$(ldap_get rootbasedn)
+	local rootbindpw=$(ldap_get rootbindpw)
+	local anonbind=$(ldap_get anonbind)
+	local pwencryption=$(ldap_get pwencryption)
+	local usersuffix=$(ldap_get usersuffix)
+	local groupsuffix=$(ldap_get groupsuffix)
+	local passwordsuffix=$(ldap_get passwordsuffix)
+	local machinesuffix=$(ldap_get machinesuffix)
+	local encryption_mode=$(ldap_get encryption_mode)
+	local certfile=$(ldap_get tls_cacertfile)
+	local options="$(ldap_get_options)"
+
+	local cmd="${NSSLDAPCONF}"
+	if [ -f "${conf}" ]
+	then
+		cmd="${NSSLDAPCONF} -f ${conf}"
+	fi
+
+	tmp=$(mktemp /tmp/tmp.XXXXXX)
+	${cmd} \
+		-c -m "^host=${hostname}" \
+		-c -m "^base=${basedn}" \
+		-c -m "^rootbinddn=${rootbasedn}" \
+		-c -m "^pam_password=${pwencryption}" \
+		-c -t "^nss_override_attribute_value=loginShell=/bin/sh" \
+		-o "${tmp}"
+	if [ "$?" != "0" ]
+	then
+		return 1
+	fi
+	if ! safe_save "${tmp}" "${conf}"
+	then
+		return 1
+	fi
+
+	cmd="${NSSLDAPCONF} -f ${conf}"
+
+	tmp=$(mktemp /tmp/tmp.XXXXXX)
+	if [ -z "${usersuffix}" ]
+	then
+		${cmd} -c -m "^nss_base_passwd=${basedn}" -o "${tmp}"
+	else
+		${cmd} -c -m "^nss_base_passwd=${usersuffix},${basedn}" -o "${tmp}"
+	fi
+	if [ "$?" != "0" ]
+	then
+		return 1
+	fi
+	if ! safe_save "${tmp}" "${conf}"
+	then
+		return 1
+	fi
+
+	tmp=$(mktemp /tmp/tmp.XXXXXX)
+	if [ -z "${groupsuffix}" ]
+	then
+		${cmd} -c -m "^nss_base_group=${basedn}" -o "${tmp}"
+	else
+		${cmd} -c -m "^nss_base_group=${groupsuffix},${basedn}" -o "${tmp}"
+	fi
+	if [ "$?" != "0" ]
+	then
+		return 1
+	fi
+	if ! safe_save "${tmp}" "${conf}"
+	then
+		return 1
+	fi
+
+	if [ "${encryption_mode}" = "start_tls" ]
+	then
+		tmp=$(mktemp /tmp/tmp.XXXXXX)
+		${cmd} \
+			-c -m "^ssl=${encryption_mode}" \
+			-c -m "^tls_cacertfile=${certfile}" \
+			-o "${tmp}"
+		if [ "$?" != "0" ]
+		then
+			return 1
+		fi
+		if ! safe_save "${tmp}" "${conf}"
+		then
+			return 1
+		fi
+
+	elif [ "${encryption_mode}" = "on" ]
+	then
+		tmp=$(mktemp /tmp/tmp.XXXXXX)
+		${cmd} \
+			-c -m "^uri=ldaps://${hostname}" \
+			-c -m "^ssl=${encryption_mode}" \
+			-c -m "^tls_cacertfile=${certfile}" \
+			-o "${tmp}"
+		if [ "$?" != "0" ]
+		then
+			return 1
+		fi
+		if ! safe_save "${tmp}" "${conf}"
+		then
+			return 1
+		fi
+	fi
+		
+	for opt in ${options}
+	do
+		local var val tv n=0
+
+		var=$(echo "${opt}" | sed -E 's|^opt_||')
+		val=$(ldap_get ${opt})
+
+		tv=""
+		for v in ${val}
+		do
+			n=$((n + 1))
+			tv="${tv}${v}="
+		done
+
+		if [ "${n}" = "1" ]
+		then
+			tmp=$(mktemp /tmp/tmp.XXXXXX)
+
+			${cmd} -c -m "^${var}=${val}" -o "${tmp}"
+			if [ "$?" != "0" ]
+			then
+				return 1
+			fi
+			if ! safe_save "${tmp}" "${conf}"
+			then
+				return 1
+			fi
+
+		elif [ "${n}" -gt "1" ]
+		then
+			tmp=$(mktemp /tmp/tmp.XXXXXX)
+
+			tv=$(echo "${tv}"|sed -E 's|=$||')
+
+			${cmd} -c -t "^${var}=${tv}" -o "${tmp}"
+			if [ "$?" != "0" ]
+			then
+				return 1
+			fi
+			if ! safe_save "${tmp}" "${conf}"
+			then
+				return 1
+			fi
+		fi
+
+	done
+
+	if [ "${anonbind}" != "1" ]
+	then
+		printf "${rootbindpw}" > "${secret}"
+		chmod 600 "${secret}"
+	fi
+
+	ln -sf ${conf} "$(dirname ${conf})/ldap.conf"
+	if [ "${anonbind}" != "1" ]
+	then
+		ln -sf ${secret} "$(dirname ${secret})/ldap.secret"
+	fi
+}
+
+generate_AD_nss_ldap_conf()
+{
+	local tmp
+	local conf="${NSS_LDAP_CONF}"
+	local secret="${NSS_LDAP_SECRET}"
+
+	local dcname="$(AD_get dcname)"
+	local domainname="$(AD_get domainname)"
+	local adminname="$(AD_get adminname)"
+	local adminpw="$(AD_get adminpw)"
+	local base="$(get_basename "${domainname}")"
+
+	base=$(escape "${base}")
+
+	[ -z "${dcname}" -o -z "${base}" ] && return 1
+
+	local cmd="${NSSLDAPCONF}"
+	if [ -f "${conf}" ]
+	then
+		cmd="${NSSLDAPCONF} -f ${conf}"
+	fi
+
+	tmp=$(mktemp /tmp/tmp.XXXXXX)
+
+	${cmd} \
+		-c -m "^host=${dcname}" \
+		-c -m "^base=${base}" \
+		-c -m "^uri=ldap://${dcname}" \
+		-c -m "^rootbinddn=${adminname}@${domainname}" \
+		-c -m "^scope=sub" \
+		-c -m "^ssl=no" \
+		-c -m "^ldap_version=3" \
+		-c -m "^timelimit=30" \
+		-c -m "^bind_timelimit=30" \
+		-c -m "^bind_policy=soft" \
+		-c -m "^pam_ldap_attribute=uid" \
+		-c -m "^nss_base_passwd=${base}?sub" \
+		-c -m "^nss_base_shadow=${base}?sub"  \
+		-c -t "^nss_base_group=${base}?sub?=&(objectCategory=group)(gidnumber=*)" \
+		-c -t "^nss_map_objectclass=posixAccount=user" \
+		-c -t "^nss_map_objectclass=shadowAccount=user" \
+		-c -t "^nss_map_objectclass=posixGroup=group" \
+		-c -t "^nss_map_attribute=gecos=cn" \
+		-c -t "^nss_map_attribute=homeDirectory=unixHomeDirectory" \
+		-c -t "^nss_map_attribute=uniqueMember=member" \
+		-c -m "^pam_filter=objectClass=user" \
+		-c -m "^pam_member_attribute=member" \
+		-c -m "^pam_password=ad" \
+		-o "${tmp}"
+	if [ "$?" != "0" ]
+	then
+		return 1
+	fi
+	if ! safe_save "${tmp}" "${conf}"
+	then
+		return 1
+	fi
+
+	printf "${adminpw}" > "${secret}"
+	chmod 600 "${secret}"
+
+	ln -sf ${conf} "$(dirname ${conf})/ldap.conf"
+	ln -sf ${secret} "$(dirname ${secret})/ldap.secret"
+
+	return 0
+}
+
+nssldapconf_start()
+{
+	if checkyesno pc_ldap_enable 2>/dev/null
+	then
+		ldap_init
+		if ldap_configured
+		then
+			return 0
+		fi
+
+		backup_nss_ldap_conf
+		generate_LDAP_nss_ldap_conf
+		return $?
+
+	elif checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		AD_init
+		if AD_configured
+		then
+			return 0
+		fi
+
+		backup_nss_ldap_conf
+		generate_AD_nss_ldap_conf
+		return $?
+	fi
+
+	return 0
+}
+
+nssldapconf_stop()
+{
+	if  checkyesno pc_ldap_enable 2>/dev/null
+	then
+		restore_nss_ldap_conf
+		return $?
+
+	elif checkyesno pc_activedirectory_enable 2>/dev/null
+	then
+		restore_nss_ldap_conf
+		return $?
+	fi
+
+	return 0
+}
+
+extra_commands="status"
+start_cmd='nssldapconf_start'
+status_cmd=':'
+stop_cmd='nssldapconf_stop'
+            
+load_rc_config $name
+
+if [ "${pc_ldap_enable}" = "YES" ]
+then
+	pc_nssldapconf_enable="YES"
+
+elif [ "${pc_activedirectory_enable}" = "YES" ]
+then
+	pc_nssldapconf_enable="YES"
+fi
+
+run_rc_command "$1"

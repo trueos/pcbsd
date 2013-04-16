@@ -1,0 +1,34 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+PC-RequiredDE=Gnome
+PC-TryCommand=ps -aux | grep openbox_session
+Icon=obconf
+Exec=obconf %f
+
+Name=Openbox Configuration Manager
+Name[ca]=Gestor de Configuració de l'Openbox
+Name[da]=Indstillingshåndtering for Openbox
+Name[en_GB]=Openbox Configuration Manager
+Name[en_ZA]=Openbox Configuration Manager
+Name[es]=Administrador de Configuración Openbox
+Name[hr]=Openbox upravitelj postavkama
+Name[id]=Pengatur Konfigurasi Openbox
+Name[nl]=Openbox Configuratie Manager
+Name[pl]=Konfiguracja Openbox
+Name[ru]=Настройка конфигурации Openbox
+Name[uk]=Налаштування конфігурації Openbox
+Name[zh_TW]=Openbox 組態管理器
+Comment=Openbox configuration manager
+Comment[ca]=Gestor de configuració de l'Openbox
+Comment[da]=Indstillingshåndtering for Openbox
+Comment[en_GB]=Openbox configuration manager
+Comment[en_ZA]=Openbox configuration manager
+Comment[es]=Administrador de configuración Openbox
+Comment[hr]=Upravljajte Openbox postavkama
+Comment[id]=Pengatur konfigurasi Openbox
+Comment[nl]=Openbox configuratie manager
+Comment[pl]=menedżer konfiguracji Openbox
+Comment[ru]=Настройка конфигурации Openbox
+Comment[uk]=Налаштування конфігурації Openbox
+Comment[zh_TW]=管理 Openbox 組態設定

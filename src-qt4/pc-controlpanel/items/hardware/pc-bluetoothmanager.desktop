@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su pc-bluetoothmanager
+Type=Application
+Icon=bluetooth.png
+Categories=Settings;System;
+Name=Bluetooth Manager
+Comment=Application to setup pairing for Bluetooth devices

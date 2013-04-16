@@ -1,0 +1,117 @@
+#!/bin/sh
+#
+# $FreeBSD$
+#
+
+# PROVIDE: pc_kerberos
+# BEFORE: kerberos
+
+. /etc/rc.conf
+. /usr/local/etc/rc.activedirectory
+
+pc_kerberos_enable=${pc_activedirectory_enable-"NO"}
+
+name="pc_kerberos"
+rcvar="pc_kerberos_enable"
+
+: ${PATH_KRB5_CONFIG:="/etc/krb5.conf"}
+: ${KRBCONF:="/usr/local/bin/pc-krbconf"}
+
+esc()
+{
+	echo "${1}" | sed 's|\.|\\.|g'
+}
+
+generate_krb5_conf()
+{
+	AD_init
+
+	local cmd="${KRBCONF}"
+	if [ -f "${PATH_KRB5_CONFIG}" ]
+	then
+		cmd="${KRBCONF} -f ${PATH_KRB5_CONFIG}"
+	fi
+
+	local krbhost=$(AD_get krbhost)
+	local kpwdhost=$(AD_get kpwdhost)
+	local domainname=$(AD_get domainname)
+
+	AD_log "generate_krb5_conf: krbhost=${krbhost}, kpwdhost=${kpwdhost}, " \
+		"domainname=${domainname}"
+
+	local kdc="$(echo "${krbhost}" | tr A-Z a-z)"
+	local upper_realm="$(echo "${domainname}" | tr a-z A-Z)"
+	local lower_realm="$(echo "${domainname}" | tr A-Z a-z)"
+	local admin_server="${kdc}"
+	local domain="$(echo "${domainname}" | tr A-Z a-z)"
+
+	local tmp=$(mktemp /tmp/krb5.XXXXXX)
+
+	cp "${PATH_KRB5_CONFIG}" "${PATH_KRB5_CONFIG}.orig" >/dev/null 2>&1
+	${cmd} \
+		-c -m "^appdefaults.pam.forwardable=true" \
+		-c -m "^appdefaults.pam.ticket_lifetime=36000" \
+		-c -m "^appdefaults.pam.renew_lifetime=36000" \
+		\
+		-c -m "^libdefaults.dns_lookup_realm=true" \
+		-c -m "^libdefaults.dns_lookup_kdc=true" \
+		-c -m "^libdefaults.ticket_lifetime=24h" \
+		-c -m "^libdefaults.clockskew=300" \
+		-c -m "^libdefaults.forwardable=yes" \
+		-c -m "^libdefaults.default_realm=${upper_realm}" \
+		\
+		-c -m "^logging.default=SYSLOG:INFO:LOCAL7" \
+		\
+		-c -m "^realms.$(esc ${upper_realm}).kdc=${kdc}" \
+		-c -m "^realms.$(esc ${upper_realm}).admin_server=${admin_server}" \
+		-c -m "^realms.$(esc ${upper_realm}).default_domain=${domain}" \
+		-c -m "^realms.$(esc ${upper_realm}).kpasswd_server=${kpwdhost}" \
+		\
+		-c -m "^domain_realm.$(esc ${lower_realm})=${upper_realm}" \
+		-c -m "^domain_realm.$(esc .${lower_realm})=${upper_realm}" \
+		-c -m "^domain_realm.$(esc ${upper_realm})=${upper_realm}" \
+		-c -m "^domain_realm.$(esc .${upper_realm})=${upper_realm}" \
+		\
+		-o "${tmp}"
+
+	if [ "$?" = "0" -a -s "${tmp}" ]
+	then
+		local res
+
+		mv "${tmp}" "${PATH_KRB5_CONFIG}"
+		res=$?
+
+		chmod 644 "${PATH_KRB5_CONFIG}"
+		return ${res}
+	fi
+
+	for line in $(verify_krb5_conf 2>&1)
+	do
+		AD_log "generate_krb5_conf: ${line}"
+	done
+
+	return 0
+}
+
+ad_krb5conf_start()
+{
+	if AD_configured
+	then
+		return 0
+	fi
+
+	generate_krb5_conf
+	return $?
+}
+
+ad_krb5conf_stop()
+{
+	cp "${PATH_KRB5_CONFIG}.orig" "${PATH_KRB5_CONFIG}"
+	return $?
+}
+
+start_cmd='ad_krb5conf_start'
+stop_cmd='ad_krb5conf_stop'
+        
+load_rc_config $name
+run_rc_command "$1"

@@ -1,0 +1,41 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Encoding=UTF-8
+Exec=pc-su pc-runxgui
+Type=Application
+Icon=video-display
+PC-TryMessage=Schedule the display wizard to run after the next reboot?
+Keywords="screen,monitor,resolution,screen resolution,video,video adapter,video card"
+Categories=Settings;System;
+Name=Display
+Name[da]=Skærm
+Name[en_GB]=Display
+Name[en_ZA]=Display
+Name[es]=Mostrar
+Name[hr]=Zaslon
+Name[hu]=Képernyőbeállítások
+Name[id]=Tampilan
+Name[it]=Schermo
+Name[nl]=Weergeven
+Name[pl]=Wyświetlanie
+Name[pt_BR]=Tela
+Name[ru]=Дисплей
+Name[tr]=Görüntü
+Name[uk]=Дисплей
+Comment=Setup display properties
+Comment[ca]=Configura propietats de pantalla
+Comment[da]=Skærmindstillinger
+Comment[en_GB]=Setup display properties
+Comment[en_ZA]=Setup display properties
+Comment[es]=Configuración de propiedades pantalla
+Comment[hr]=Namjestite postavke zaslona
+Comment[hu]=Képernyőbeállítások kezelése
+Comment[id]=Pengaturan tampilan layar
+Comment[it]=Gestisci proprietà schermo
+Comment[nl]=Setup voor de weergave van de eigenschappen
+Comment[pl]=Ustawienia wyświetlania
+Comment[pt_BR]=Configuração das propriedades do display
+Comment[ru]=Установка свойств дисплея
+Comment[tr]=Görüntü özelliklerini ayarlayın
+Comment[uk]=Налаштування роздільної здатності дисплею, вибір драйверу відеоадаптера та ін.

@@ -1,0 +1,27 @@
+#!/bin/sh
+# Login daemon for PCDM
+# This listens for system login prompts and starts the main PCDM UI appropriately
+#------------------------------------
+
+#See if XDMCP support is enabled for logging in to this system
+if [ "`cat /usr/local/share/PCDM/pcdm.conf | grep ALLOW_REMOTE_LOGIN=TRUE`" -eq "" ]; then
+  # XDMCP is enabled
+  
+  xinit -- /usr/local/bin/PCDM-session :0 -displayfd /usr/local/share/PCDM/.xdisplay -indirect ${HOST}
+else
+  # No XDMCP support
+  
+  
+  /usr/local/bin/pc-checkxdisplay #Run PC-BSD X display check
+  
+  # Allow Auto-Login the first time PCDM starts
+  xinit /usr/local/bin/PCDM-session -AutoLogin -- :0
+  while [ 1 ]; do
+    /usr/local/bin/pc-checkxdisplay #Run PC-BSD X display check between sessions
+    
+    # Always return to PCDM after a logout (prevent root shell opening)
+    xinit /usr/local/bin/PCDM-session -- :0
+  done
+  
+fi
+	
