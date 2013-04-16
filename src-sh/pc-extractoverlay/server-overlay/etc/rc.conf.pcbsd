@@ -27,3 +27,6 @@ fscd_enable="YES"
 ntpd_enable="YES"
 ntpd_sync_on_start="YES"
 
+# Enable IPFW for Warden
+firewall_enable="YES"
+firewall_type="open"
