@@ -272,6 +272,7 @@
     </message>
     <message>
         <source>Proxy enabled</source>
+<<<<<<< HEAD
         <translation type="unfinished">
             </translation>
     </message>
@@ -279,6 +280,13 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+=======
+        <translation>Proksi sisse lülitatud</translation>
+    </message>
+    <message>
+        <source>You may need to re-login for proxy settings to take effect.</source>
+        <translation>Proksi seadete aktiveerimiseks peab võib-olla uuesti sisse logima.</translation>
+>>>>>>> pcbsd/master
     </message>
 </context>
 </TS>

@@ -81,6 +81,7 @@
     </message>
     <message>
         <source>System components...</source>
+<<<<<<< HEAD
         <translation type="unfinished">
             </translation>
     </message>
@@ -98,6 +99,21 @@
         <source>PC-BSD UI utilities:</source>
         <translation type="unfinished">
             </translation>
+=======
+        <translation>Süsteemi komponendid...</translation>
+    </message>
+    <message>
+        <source>Desktop environments...</source>
+        <translation>Töölauakeskkonnad...</translation>
+    </message>
+    <message>
+        <source>PC-BSD CLI utilities:</source>
+        <translation>PC-BSD CLI tööriistad:</translation>
+    </message>
+    <message>
+        <source>PC-BSD UI utilities:</source>
+        <translation>PC-BSD kasutajaliidese tööriistad:</translation>
+>>>>>>> pcbsd/master
     </message>
 </context>
 </TS>

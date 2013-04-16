@@ -2,6 +2,7 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+<<<<<<< HEAD
     <name>QObject</name>
     <message>
         <source>Restarting network...</source>
@@ -25,6 +26,8 @@
     </message>
 </context>
 <context>
+=======
+>>>>>>> pcbsd/master
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>
