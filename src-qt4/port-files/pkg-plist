@@ -6,6 +6,7 @@ bin/life-preserver
 bin/pc-adsldap
 bin/pc-bluetoothmanager
 bin/pc-bluetoothtray
+bin/pc-bugreport
 bin/pc-controlpanel
 bin/pbi-crashhandler-gui
 bin/pc-cupscfg
@@ -371,6 +372,7 @@ share/pcbsd/pc-controlpanel/icons/preferences-system-network-sharing.png
 share/pcbsd/pc-controlpanel/icons/system.png
 share/pcbsd/pc-controlpanel/icons/appcafe64x64.png
 share/pcbsd/pc-controlpanel/icons/hwinfo.png
+share/pcbsd/pc-controlpanel/icons/pc-bugreport.png
 share/pcbsd/pc-controlpanel/icons/preferences-desktop-user-password.png
 share/pcbsd/pc-controlpanel/icons/devices.png
 share/pcbsd/pc-controlpanel/icons/easypbi.png
@@ -2316,6 +2318,7 @@ share/icons/hicolor/64x64/mimetypes/gnome-mime-application-pbi.png
 share/EasyPBI/EasyPBIicon.png
 share/applications/about.desktop
 share/applications/pccontrol.desktop
+share/applications/pcbugreport.desktop
 share/applications/pcgdmconf.desktop
 share/applications/pcbsd-pbi.desktop
 share/applications/defaults.list
