@@ -41,9 +41,9 @@ RESOURCES += \
 
 
 desktop.path=/usr/local/share/applications/
-desktop.files=EasyPBI.desktop
+desktop.files=pcbugreport.desktop
 
-icons.path=/usr/local/share/pc-bugreport/
-icons.files=icons/pc-bugreport.png
+icons.path=/usr/local/share/pcbsd/pc-controlpanel/icons/
+icons.files=pc-bugreport.png
 
 INSTALLS += target desktop icons
