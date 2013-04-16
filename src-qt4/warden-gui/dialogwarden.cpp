@@ -1454,24 +1454,9 @@ void dialogWarden::slotPushEditIP()
    if ( ! listJails->currentItem() )
      return;
 
-   QString IPs;
-
-   for (int i=0; i < jailDetails.count(); ++i) {
-     if ( jailDetails.at(i).at(0) != listJails->currentItem()->text(0) )
-        continue;
-     IPs = jailDetails.at(i).at(3);
-     if ( jailDetails.at(i).at(1) == "Pending" )
-	return;
-     break;
-   }
-  
-
    dIP = new dialogEditIP();
    connect(dIP, SIGNAL(saved()),this, SLOT(slotMonitorJailDetails()) );
-   if ( IPs.isEmpty() )
-      dIP->programInit(listJails->currentItem()->text(0), QStringList() );
-   else
-      dIP->programInit(listJails->currentItem()->text(0), IPs.split(" ") );
+   dIP->programInit(listJails->currentItem()->text(0));
    dIP->exec();
 
 }

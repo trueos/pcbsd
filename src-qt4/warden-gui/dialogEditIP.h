@@ -14,7 +14,7 @@ public:
           setupUi(this);
         }
 
-	void programInit(QString, QStringList);
+	void programInit(QString);
 
 public slots:
 
@@ -26,11 +26,14 @@ private slots:
         void slotRemClicked();
         void slotCancelClicked();
         void slotSaveClicked();
+        void slotCheckChecks();
 
 private:
 	void displayRepos();
         void saveSettings();
-        QString wardenIP;
+        bool checkValidBlock(QString block, QString type);
+        QString jailName;
+        QString JailDir;
 
 signals:
         void saved();
