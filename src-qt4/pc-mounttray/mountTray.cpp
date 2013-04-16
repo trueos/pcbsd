@@ -6,7 +6,6 @@
 #include <QImage>
 #include <QMenu>
 #include <QTranslator>
-//#include <iostream>
 
 #include "mountTray.h"
 #include <pcbsd-hardware.h>
@@ -43,6 +42,12 @@ void MountTray::programInit()
   qDebug() << "-Performing initial device scan";
   scanInitialDevices();
   
+  //Start up the filesystem watcher
+  qDebug() << "-Starting up the disk space alert system";
+  diskWatcher = new FSWatcher();
+  connect(diskWatcher,SIGNAL(FSWarning(QString,QString)),this,SLOT(slotDisplayWarning(QString,QString)));
+  diskWatcher->start(3600000); // check every 1 hour in milliseconds
+  
   //Update the tray menu and icons
   updateMenu();
 
@@ -73,6 +78,7 @@ void MountTray::updateMenu(){
   //Add the "open media" entry to the list
   trayIconMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
   trayIconMenu->addSeparator();
+  trayIconMenu->addAction( QIcon(":icons/folder.png"), tr("Current Disk Usage"),this,SLOT(slotOpenFSDialog()) );
   trayIconMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
   //Add the "close tray" entry to the list
   trayIconMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
@@ -304,6 +310,7 @@ void MountTray::slotOpenMediaDir(){
 void MountTray::openMediaDir(QString dir){
   //Open the default file-manager to the directory listed
   if(dir.isEmpty()){ dir = MOUNTDIR; }
+  if(!dir.endsWith("/")){ dir.append("/"); } //make sure the filemanager knows it is a directory
   //Make sure we can setup user permissions
   if(USERNAME=="root"){
     qDebug() << "Cannot open filemanager with root permissions";
@@ -328,6 +335,12 @@ void MountTray::slotRescan(){
   }
 }
 
+void MountTray::slotOpenFSDialog(){
+  //Open up the Filsystem disk space monitoring dialog
+  diskDisplay = new FSDialog();
+  diskDisplay->show();
+}
+
 void MountTray::slotSingleInstance()
 {
   trayIcon->show();
@@ -336,5 +349,15 @@ void MountTray::slotSingleInstance()
 void MountTray::slotDisplayPopup(QString title, QString msg){
   //Display a popup bubble with the given message for 3 seconds
   trayIcon->contextMenu()->hide(); //close the menu list
+  disconnect(trayIcon, SIGNAL(messageClicked()),0,0); //make sure only one signal/slot connection
+  connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotOpenMediaDir()) );
   trayIcon->showMessage(title, msg , QSystemTrayIcon::NoIcon,3000 );
+}
+
+void MountTray::slotDisplayWarning(QString title, QString msg){
+  //Display a popup bubble with the given message for 5 seconds
+  trayIcon->contextMenu()->hide(); //close the menu list
+  disconnect(trayIcon, SIGNAL(messageClicked()),0,0); //make sure only one signal/slot connection
+  connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotOpenFSDialog()) );
+  trayIcon->showMessage(title, msg , QSystemTrayIcon::Warning,5000 );
 }

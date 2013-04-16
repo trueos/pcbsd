@@ -6,9 +6,18 @@ CONFIG	+= qt warn_on release
 
 LIBS    += -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
-HEADERS	+= mountTray.h menuItem.h devCheck.h
+HEADERS	+= mountTray.h \
+	menuItem.h \
+	devCheck.h \
+	fsWatcher.h \
+	fsDialog.h
 
-SOURCES	+= main.cpp mountTray.cpp menuItem.cpp devCheck.cpp
+SOURCES	+= main.cpp \
+	mountTray.cpp \
+	menuItem.cpp \
+	devCheck.cpp \
+	fsWatcher.cpp \
+	fsDialog.cpp
 
 RESOURCES += pc-mounttray.qrc
 

@@ -13,13 +13,12 @@
 
 #include "menuItem.h"
 #include "devCheck.h"
+#include "fsWatcher.h"
+#include "fsDialog.h"
 
 extern bool DEBUG_MODE;
 extern QString DEVICEDIR;
 extern QString MOUNTDIR;
-
-//class QString;
-//class QPixmap;
 
 class MountTray : public QDialog {
    Q_OBJECT
@@ -44,8 +43,10 @@ private slots:
   void slotOpenMediaDir();
   void openMediaDir(QString); 
   void slotDisplayPopup(QString,QString);
+  void slotDisplayWarning(QString,QString);
   void removeDevice(QString);
   void slotRescan();
+  void slotOpenFSDialog();
   
 private:
   DevCheck *DCheck;
@@ -57,6 +58,8 @@ private:
   QMenu* trayIconMenu;
   QList<MenuItem*> deviceList;
   QStringList oldsysdev;
+  FSWatcher *diskWatcher;
+  FSDialog *diskDisplay;
 
 
   void updateMenu();
