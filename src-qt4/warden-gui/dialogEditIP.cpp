@@ -83,6 +83,38 @@ void dialogEditIP::programInit(QString name)
      file.close();
   }
 
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-ipv4" );
+  if ( file.exists() && file.open( QIODevice::ReadOnly ) ) {
+     QTextStream stream( &file ); 
+     while ( ! file.atEnd() )
+       IPv4Alias << stream.readLine();
+     file.close();
+  }
+
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-bridge-ipv4" );
+  if ( file.exists() && file.open( QIODevice::ReadOnly ) ) {
+     QTextStream stream( &file ); 
+     while ( ! file.atEnd() )
+       IPv4AliasBridge << stream.readLine();
+     file.close();
+  }
+
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-ipv6" );
+  if ( file.exists() && file.open( QIODevice::ReadOnly ) ) {
+     QTextStream stream( &file ); 
+     while ( ! file.atEnd() )
+       IPv6Alias << stream.readLine();
+     file.close();
+  }
+
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-bridge-ipv6" );
+  if ( file.exists() && file.open( QIODevice::ReadOnly ) ) {
+     QTextStream stream( &file ); 
+     while ( ! file.atEnd() )
+       IPv6AliasBridge << stream.readLine();
+     file.close();
+  }
+
   // Our buttons / slots
   connect( checkIPv4, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
   connect( checkIPv4Bridge, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
@@ -91,12 +123,41 @@ void dialogEditIP::programInit(QString name)
   connect( checkIPv6Bridge, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
   connect( checkIPv6Router, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
 
+  connect( comboIPType, SIGNAL( currentIndexChanged(int) ), this, SLOT( slotComboIPChanged() ) );
+
   connect( pushSave, SIGNAL( clicked() ), this, SLOT( slotSaveClicked() ) );
   connect( pushCancel, SIGNAL( clicked() ), this, SLOT( slotCancelClicked() ) );
   connect( pushAdd, SIGNAL( clicked() ), this, SLOT( slotAddClicked() ) );
   connect( pushRemove, SIGNAL( clicked() ), this, SLOT( slotRemClicked() ) );
 
   slotCheckChecks();
+  slotComboIPChanged();
+}
+
+void dialogEditIP::slotComboIPChanged()
+{
+   QStringList curList;
+
+   // IPv4 Aliases
+   if ( comboIPType->currentIndex() == 0 )
+      curList = IPv4Alias;
+
+   // IPv4 Bridge Aliases
+   if ( comboIPType->currentIndex() == 1 )
+      curList = IPv4AliasBridge;
+
+   // IPv6 Aliases
+   if ( comboIPType->currentIndex() == 2 )
+      curList = IPv6Alias;
+
+   // IPv6 Bridge Aliases
+   if ( comboIPType->currentIndex() == 3 )
+      curList = IPv6AliasBridge;
+
+   listIP->clear();
+   for (int i = 0; i < curList.size(); ++i)
+          listIP->addItem(curList.at(i));
+
 }
 
 void dialogEditIP::slotCheckChecks()
@@ -161,6 +222,54 @@ void dialogEditIP::saveSettings()
   QFile file;
 
   // Start saving settings
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-ipv4" );
+  if ( ! IPv4Alias.isEmpty() ) {
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+       for (int i = 0; i < IPv4Alias.size(); ++i)
+         stream << IPv4Alias.at(i);
+       file.close();
+    }
+  } else {
+    file.remove();
+  }
+
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-bridge-ipv4" );
+  if ( ! IPv4AliasBridge.isEmpty() ) {
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+       for (int i = 0; i < IPv4AliasBridge.size(); ++i)
+         stream << IPv4AliasBridge.at(i);
+       file.close();
+    }
+  } else {
+    file.remove();
+  }
+
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-ipv6" );
+  if ( ! IPv6Alias.isEmpty() ) {
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+       for (int i = 0; i < IPv6Alias.size(); ++i)
+         stream << IPv6Alias.at(i);
+       file.close();
+    }
+  } else {
+    file.remove();
+  }
+
+  file.setFileName( JailDir + "/." + jailName + ".meta/alias-bridge-ipv6" );
+  if ( ! IPv6AliasBridge.isEmpty() ) {
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+       for (int i = 0; i < IPv6AliasBridge.size(); ++i)
+         stream << IPv6AliasBridge.at(i);
+       file.close();
+    }
+  } else {
+    file.remove();
+  }
+
   file.setFileName( JailDir + "/." + jailName + ".meta/ipv4" );
   if ( checkIPv4->isChecked() ) {
     if ( file.open( QIODevice::WriteOnly ) ) {
@@ -263,19 +372,51 @@ void dialogEditIP::saveSettings()
 
 void dialogEditIP::slotAddClicked()
 {
-	bool ok;
-	QString url = QInputDialog::getText(this, tr("Add IP"),
-					tr("IP Address:"), QLineEdit::Normal,
-					QString(), &ok);
-	if ( ok ) {
-          if ( pcbsd::Utils::validateIPV4(url) || pcbsd::Utils::validateIPV6(url) )
-	    listIP->addItem(url);
-          else
-	    QMessageBox::critical(this, tr("Warden"), \
+   bool ok;
+   QString address = QInputDialog::getText(this, tr("Add IP"),
+			tr("IP Address:"), QLineEdit::Normal,
+			QString(), &ok);
+   if ( ! ok )
+      return;
+
+   if ( ! checkValidBlock(address, "IPv4") || checkValidBlock(address, "IPv6") )
+      QMessageBox::critical(this, tr("Warden"), \
                                 tr("Please enter a valid IPV4 or IPV6 address!"), \
                                 QMessageBox::Ok, \
                                 QMessageBox::Ok);
-        }
+
+   // IPv4 Aliases
+   if ( comboIPType->currentIndex() == 0 ) {
+      if ( address.indexOf("/") == -1 ) 
+         address = address + "/24";
+      IPv4Alias << address;
+      listIP->addItem(address);
+   }
+
+   // IPv4 Bridge Aliases
+   if ( comboIPType->currentIndex() == 1 ) {
+      if ( address.indexOf("/") == -1 ) 
+         address = address + "/24";
+      IPv4AliasBridge << address;
+      listIP->addItem(address);
+   }
+
+   // IPv6 Aliases
+   if ( comboIPType->currentIndex() == 2 ) {
+      if ( address.indexOf("/") == -1 ) 
+         address = address + "/64";
+      IPv6Alias << address;
+      listIP->addItem(address);
+   }
+
+   // IPv6 Bridge Aliases
+   if ( comboIPType->currentIndex() == 3 ) {
+      if ( address.indexOf("/") == -1 ) 
+         address = address + "/64";
+      IPv6AliasBridge << address;
+      listIP->addItem(address);
+   }
+
 }
 
 bool dialogEditIP::checkValidBlock(QString block, QString type)

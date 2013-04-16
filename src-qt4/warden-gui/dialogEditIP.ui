@@ -168,7 +168,7 @@
          </attribute>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="comboIPType">
             <item>
              <property name="text">
               <string>IPv4 Aliases</string>

@@ -27,6 +27,7 @@ private slots:
         void slotCancelClicked();
         void slotSaveClicked();
         void slotCheckChecks();
+        void slotComboIPChanged();
 
 private:
 	void displayRepos();
@@ -34,6 +35,10 @@ private:
         bool checkValidBlock(QString block, QString type);
         QString jailName;
         QString JailDir;
+        QStringList IPv4Alias;
+        QStringList IPv4AliasBridge;
+        QStringList IPv6Alias;
+        QStringList IPv6AliasBridge;
 
 signals:
         void saved();
