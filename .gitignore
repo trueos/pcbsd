@@ -5,6 +5,10 @@
 *.0.9
 *.0.9.8
 
+# QT generated files
+moc_*.cpp
+qrc_*.cpp
+
 # Auto-generated Makefiles from qmake-qt4
 src-qt4/EasyPBI/Makefile
 src-qt4/Makefile
@@ -17,6 +21,7 @@ src-qt4/life-preserver/Makefile
 src-qt4/pc-adsldap/Makefile
 src-qt4/pc-bluetoothmanager/Makefile
 src-qt4/pc-bluetoothtray/Makefile
+src-qt4/pc-bugreport/Makefile
 src-qt4/pc-controlpanel/Makefile
 src-qt4/pc-crashhandler/Makefile
 src-qt4/pc-cupscfg/Makefile
@@ -47,3 +52,4 @@ src-qt4/warden-gui/Makefile
 
 # Compiled binaries
 src-qt4/warden-gui/warden-gui
+src-qt4/pc-bugreport/pc-bugreport
