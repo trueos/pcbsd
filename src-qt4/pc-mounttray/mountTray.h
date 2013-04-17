@@ -47,6 +47,7 @@ private slots:
   void removeDevice(QString);
   void slotRescan();
   void slotOpenFSDialog();
+  void slotOpenSettings();
   
 private:
   DevCheck *DCheck;
@@ -55,7 +56,7 @@ private:
   QTimer *devdTimer;  
   int numMount, numAvail;
   QSystemTrayIcon* trayIcon;
-  QMenu* trayIconMenu;
+  QMenu *trayIconMenu, *sysMenu;
   QList<MenuItem*> deviceList;
   QStringList oldsysdev;
   FSWatcher *diskWatcher;

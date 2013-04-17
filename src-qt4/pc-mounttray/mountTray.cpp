@@ -23,7 +23,20 @@ void MountTray::programInit()
   
   trayIcon = new QSystemTrayIcon(this);
   trayIconMenu = new QMenu();
-	
+  //Generate the system menu options (these don't change)
+  sysMenu = new QMenu( tr("More Options") );
+    sysMenu->setIcon( QIcon(":icons/config.png") );
+    //Add the additional options
+    sysMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
+    sysMenu->addAction( QIcon(":icons/harddrive.png"), tr("View Disk Usage"),this,SLOT(slotOpenFSDialog()) );
+    sysMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
+    //Add the setting dialog option seperately
+    sysMenu->addSeparator();
+    sysMenu->addAction( QIcon(":icons/config.png"), tr("Settings"), this, SLOT(slotOpenSettings()) );
+    //Add the Close button seperately
+    sysMenu->addSeparator();
+    sysMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
+  
   // Tie the left-click signal to open the context menu
   connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)) );
   
@@ -75,14 +88,7 @@ void MountTray::updateMenu(){
   }
   //Separate the extra options at the end
   trayIconMenu->addSeparator();
-  //Add the "open media" entry to the list
-  trayIconMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
-  trayIconMenu->addSeparator();
-  trayIconMenu->addAction( QIcon(":icons/folder.png"), tr("Current Disk Usage"),this,SLOT(slotOpenFSDialog()) );
-  trayIconMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
-  //Add the "close tray" entry to the list
-  trayIconMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
-  
+  trayIconMenu->addMenu(sysMenu);
   //Apply the menu to the Tray
   trayIcon->setContextMenu(trayIconMenu);
 
@@ -336,9 +342,14 @@ void MountTray::slotRescan(){
 }
 
 void MountTray::slotOpenFSDialog(){
-  //Open up the Filsystem disk space monitoring dialog
+  //Open up the Filesystem disk space monitoring dialog
   diskDisplay = new FSDialog();
   diskDisplay->show();
+}
+
+void MountTray::slotOpenSettings(){
+  //Open up the settings window and apply changes as necessary
+  qDebug() << "Settings window not implemented yet";
 }
 
 void MountTray::slotSingleInstance()
