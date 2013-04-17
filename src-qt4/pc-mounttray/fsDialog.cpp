@@ -10,10 +10,16 @@ FSDialog::~FSDialog(){
 void FSDialog::generateUI(){
   //Auto-generate the UI
   QVBoxLayout *vlayout = new QVBoxLayout();
-  //Filesystem display widgets
-  QScrollArea *scroll = new QScrollArea(this);
-  QVBoxLayout *sclLayout = new QVBoxLayout();
-  QWidget *wgt = new QWidget();
+  //Filesystem display widget
+  QTreeWidget *tree = new QTreeWidget(this);
+    tree->setIndentation(0);
+    //tree->setSizePolicy( QSizePolicy::MinimumExpanding, QSizePolicy::Preferred );
+    //setup the column headers
+    tree->setColumnCount(4);
+    QStringList header;
+    header << tr("Mount Point") << tr("Filesystem") << tr("Used/Total") << tr("Percent %");
+    tree->setHeaderLabels(header);
+    
     //Auto fill the scroll area
     QStringList fsList = FSWatcher::getFSmountpoints();
     //Format: mountpoint::filesystem::totalspace(K)::usedspace(K)::percentUsed
@@ -24,37 +30,43 @@ void FSDialog::generateUI(){
       int totalK = fsList[i].section("::",2,2).toInt();
       int usedK = fsList[i].section("::",3,3).toInt();
       int percent = fsList[i].section("::",4,4).toInt();
-      //qDebug() << "Dialog Item:" << name << filesystem << totalK << usedK << percent;
-      //Set the font/color for the name based upon status
-      if(percent < 75){ name.prepend("<b><FONT COLOR='#00FF00'>"); name.append("</b>"); } //green
-      else if(percent < 90){ name.prepend("<b><FONT COLOR='#FFFF00'>"); name.append("</b>"); } //yellow
-      else{ name.prepend("<b><FONT COLOR='#FF0000'>"); name.append("</b>"); } //red
-      //Create items for the data
-      QLabel *mntpnt = new QLabel(name);
-      QLabel *fstype = new QLabel(filesystem.toUpper());
-      QProgressBar *prgbar = new QProgressBar();
-        prgbar->setMaximum(totalK); prgbar->setMinimum(0);
-        prgbar->setValue(usedK);
-      QLabel *info = new QLabel( FSWatcher::intToDisplay(usedK)+"/"+FSWatcher::intToDisplay(totalK) );
+      //Create item for the data
+      QStringList text; //column text
+      text << name << filesystem.toUpper() << FSWatcher::intToDisplay(usedK)+"/"+FSWatcher::intToDisplay(totalK) << QString::number(percent)+"%";
+      QTreeWidgetItem *tmp = new QTreeWidgetItem(text);
       
-      //Now add the items to a layout
-      QHBoxLayout *tmp= new QHBoxLayout();
-      tmp->addWidget(mntpnt);
-      tmp->addWidget(fstype);
-      tmp->addWidget(prgbar);
-      tmp->addWidget(info);
-      //Add the tmp layout to the main scroll area layout
-      sclLayout->addLayout(tmp);
+      //set the item background based upon urgency
+      if(percent < 75){} //do nothing
+      else if(percent < 90){ // yellow
+      	QBrush color(QColor(237,233,12));
+      	tmp->setBackground(0,color); tmp->setBackground(1,color);
+      	tmp->setBackground(2,color); tmp->setBackground(3,color);
+      }
+      else{  //red
+        QBrush color(QColor(237,12,53));
+      	tmp->setBackground(0,color); tmp->setBackground(1,color);
+      	tmp->setBackground(2,color); tmp->setBackground(3,color);
+      }   
+      //Now add the item to the widget
+      tree->addTopLevelItem(tmp);
     }
-    wgt->setLayout(sclLayout);
-    scroll->setWidget(wgt);
-  vlayout->addWidget(scroll);
+    
+  vlayout->addWidget(tree);
+  //Make sure the widget is the smallest size possible
+  tree->resizeColumnToContents(0); tree->resizeColumnToContents(1);
+  tree->resizeColumnToContents(2); tree->resizeColumnToContents(3);
   //Now add the close button to the bottom
+  QHBoxLayout *hb = new QHBoxLayout();
+  hb->addStretch();
   QPushButton *closeButton = new QPushButton("Close");
-  vlayout->addWidget(closeButton);
+  hb->addWidget(closeButton);
+  hb->addStretch();
+  vlayout->addLayout(hb);
   connect(closeButton,SIGNAL(clicked()),this,SLOT(closeDialog()));
   //Now set the layout for the dialog
   this->setLayout(vlayout);
+  //Now resize the dialog to fit the widget appropriately
+  this->adjustSize();
 }
 
 void FSDialog::closeDialog(){

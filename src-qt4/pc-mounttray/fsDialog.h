@@ -7,10 +7,10 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QScrollArea>
-#include <QLabel>
-#include <QProgressBar>
-#include <QWidget>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QBrush>
+#include <QColor>
 
 #include "fsWatcher.h"
 
