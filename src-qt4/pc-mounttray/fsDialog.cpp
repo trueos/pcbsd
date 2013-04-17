@@ -1,6 +1,8 @@
 #include "fsDialog.h"
 
 FSDialog::FSDialog() : QDialog(){
+  this->setWindowTitle( tr("System Disk Capacity") );
+  this->setWindowIcon( QIcon(":icons/harddrive.png"));
   generateUI();
 }
 
@@ -66,7 +68,7 @@ void FSDialog::generateUI(){
   //Now set the layout for the dialog
   this->setLayout(vlayout);
   //Now resize the dialog to fit the widget appropriately
-  this->adjustSize();
+  this->adjustSize(); //still not working right -- need research on this
 }
 
 void FSDialog::closeDialog(){
