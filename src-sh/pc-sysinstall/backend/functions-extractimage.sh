@@ -54,8 +54,11 @@ start_extract_dist()
 	 fi
       fi
       echo_log "pc-sysinstall: Starting Extraction (${di})"
-      tar -xpv -C ${FSMNT} -f ${DDIR}/${di}.txz ${TAROPTS} >&1 2>&1
+      tar -xpv -C ${FSMNT} ${TAROPTS} -f ${DDIR}/${di}.txz 2>&1 | tee -a ${FSMNT}/.tar-extract.log
       if [ $? -ne 0 ]; then
+        cd /
+        echo "TAR failure occurred:" >>${LOGOUT}
+        cat ${FSMNT}/.tar-extract.log | grep "tar:" >>${LOGOUT}
         exit_err "ERROR: Failed extracting the dist file: $di"
       fi
   done

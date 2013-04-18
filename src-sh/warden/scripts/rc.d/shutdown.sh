@@ -25,13 +25,12 @@ if [ ! -d "${JDIR}" ] ; then exit 0 ; fi
 cd ${JDIR}
 for i in `ls -d .*.meta 2>/dev/null`
 do
-  if [ ! -e "${i}/ip" ] ; then continue; fi
-  jIP="`cat ${i}/ip`"
+  JAILNAME=`echo ${i}|sed 's|.meta$||'|sed 's|^.||'`
 
-  ${PROGDIR}/scripts/backend/checkstatus.sh "${jIP}" 2>/dev/null
+  ${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}" 2>/dev/null
   if [ "$?" = "0" ] ; then
-    echo "Stopping jail (${jIP})"
-    warden stop "${jIP}" "FAST"
+    echo "Stopping jail (${JAILNAME})"
+    warden stop "${JAILNAME}" "FAST"
   fi
 done
 

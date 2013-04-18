@@ -37,10 +37,10 @@ help_main()
 
 Type in help <command> for information and usage about that command
 
-  help - This help file"
+         help - This help file"
 
 if [ -e "${PROGDIR}/bin/warden-gui" ] ; then
-   echo "   gui - Launch the GUI menu"
+   echo "          gui - Launch the GUI menu"
 fi
 
 cat<<__EOF__
@@ -52,6 +52,7 @@ cat<<__EOF__
       details - Display usage details about a jail
        delete - Deletes a jail
        export - Exports a jail to a .wdn file
+	fstab - Start users \$EDITOR on jails custom fstab
           get - Gets options list for a jail
        import - Imports a jail from a .wdn file
          list - Lists the installed jails
@@ -464,6 +465,20 @@ Example:
 "
 };
 
+help_fstab()
+{
+ title
+ echo "Help fstab
+
+Runs the users \$EDITOR on the jails custom fstab file. Can be used to setup
+nullfs mounts and others for a specific jail
+
+Usage:
+
+  warden fstab [hosts]
+"
+};
+
 help_import()
 {
  title
@@ -614,6 +629,7 @@ case "$1" in
            chroot) help_chroot ;;
            list) help_list ;;
            export) help_export ;;
+           fstab) help_fstab ;;
            import) help_import ;;
            pkgs) help_pkgs ;;
            pbis) help_pbis ;;
@@ -652,6 +668,17 @@ details) JAILNAME="${2}"
 	 set_warden_metadir
 
          ${PROGDIR}/scripts/backend/listpbis.sh "${JAILNAME}" 
+         ;;
+    fstab) JAILNAME="${2}"
+         if [ -z "${JAILNAME}" ]; then exit_err "No jail specified!"; fi
+         if [ ! -e "${JDIR}/${JAILNAME}" ]; then exit_err "No such jail!"; fi
+	 set_warden_metadir
+	 if [ ! -e "${JMETADIR}/fstab" ] ; then
+	    echo "# Device	Mountpoint	FStype          Options Dump Pass" > ${JMETADIR}/fstab
+	 fi
+	 if [ -z "$EDITOR" ]; then EDITOR="vi"; fi
+	 $EDITOR ${JMETADIR}/fstab
+	 exit $?
          ;;
     get) require_root
 	 OPT="${2}"
