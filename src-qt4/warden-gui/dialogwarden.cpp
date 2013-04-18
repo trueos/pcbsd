@@ -88,7 +88,7 @@ void dialogWarden::programInit()
    connect( pushServiceGUI, SIGNAL(clicked()), this, SLOT(slotServiceGUI() ) );
    connect( pushTerminal, SIGNAL(clicked()), this, SLOT(slotTerminal() ) );
    connect( pushUserAdmin, SIGNAL(clicked()), this, SLOT(slotUserAdmin() ) );
-   connect( pushEditIP, SIGNAL(clicked()), this, SLOT(slotPushEditIP() ) );
+   connect( pushConfigure, SIGNAL(clicked()), this, SLOT(slotPushEditIP() ) );
    connect( pushUpdate, SIGNAL(clicked()), this, SLOT(slotUpdate() ) );
    connect( comboPackageSet, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeMetaDefault() ) );
    connect( pushStart, SIGNAL(clicked()), this, SLOT(slotStartJail() ) );

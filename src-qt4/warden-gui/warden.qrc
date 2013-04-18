@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>configure.png</file>
     <file>utilities-terminal.png</file>
     <file>updateavail.png</file>
     <file>restoresnap.png</file>
