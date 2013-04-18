@@ -10,14 +10,16 @@ HEADERS	+= mountTray.h \
 	menuItem.h \
 	devCheck.h \
 	fsWatcher.h \
-	fsDialog.h
+	fsDialog.h \
+	settingsDialog.h
 
 SOURCES	+= main.cpp \
 	mountTray.cpp \
 	menuItem.cpp \
 	devCheck.cpp \
 	fsWatcher.cpp \
-	fsDialog.cpp
+	fsDialog.cpp \
+	settingsDialog.cpp
 
 RESOURCES += pc-mounttray.qrc
 

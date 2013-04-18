@@ -20,10 +20,24 @@ void MountTray::programInit()
   qDebug() << "pc-mounttray: starting up";
   getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
   getDefaultFileManager(); //try to detect the default file-manager for opening the mount directory
+  loadSavedSettings();
   
   trayIcon = new QSystemTrayIcon(this);
   trayIconMenu = new QMenu();
-	
+  //Generate the system menu options (these don't change)
+  sysMenu = new QMenu( tr("More Options") );
+    sysMenu->setIcon( QIcon(":icons/config.png") );
+    //Add the additional options
+    sysMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
+    sysMenu->addAction( QIcon(":icons/harddrive.png"), tr("View Disk Usage"),this,SLOT(slotOpenFSDialog()) );
+    sysMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
+    //Add the setting dialog option seperately
+    sysMenu->addSeparator();
+    sysMenu->addAction( QIcon(":icons/config.png"), tr("Change Settings"), this, SLOT(slotOpenSettings()) );
+    //Add the Close button seperately
+    sysMenu->addSeparator();
+    sysMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
+  
   // Tie the left-click signal to open the context menu
   connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)) );
   
@@ -43,10 +57,12 @@ void MountTray::programInit()
   scanInitialDevices();
   
   //Start up the filesystem watcher
-  qDebug() << "-Starting up the disk space alert system";
   diskWatcher = new FSWatcher();
   connect(diskWatcher,SIGNAL(FSWarning(QString,QString)),this,SLOT(slotDisplayWarning(QString,QString)));
-  diskWatcher->start(3600000); // check every 1 hour in milliseconds
+  if(useDiskWatcher){ 
+    qDebug() << "-Starting up the disk space alert system";
+    diskWatcher->start(diskTimerMaxMS); 
+  }
   
   //Update the tray menu and icons
   updateMenu();
@@ -75,14 +91,7 @@ void MountTray::updateMenu(){
   }
   //Separate the extra options at the end
   trayIconMenu->addSeparator();
-  //Add the "open media" entry to the list
-  trayIconMenu->addAction( QIcon(":icons/folder.png"), tr("Open Media Directory"), this, SLOT(slotOpenMediaDir()) );
-  trayIconMenu->addSeparator();
-  trayIconMenu->addAction( QIcon(":icons/folder.png"), tr("Current Disk Usage"),this,SLOT(slotOpenFSDialog()) );
-  trayIconMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
-  //Add the "close tray" entry to the list
-  trayIconMenu->addAction( QIcon(":icons/application-exit.png"), tr("Close Tray"), this, SLOT(closeTray()) );
-  
+  trayIconMenu->addMenu(sysMenu);
   //Apply the menu to the Tray
   trayIcon->setContextMenu(trayIconMenu);
 
@@ -166,7 +175,7 @@ void MountTray::startupDevdProc(){
 }
 
 void MountTray::newDevdMessage(){	
-  devdTimer->start(1000); //wait 1.5 seconds before checking for device changes
+  devdTimer->start(1500); //wait 1.5 seconds before checking for device changes
   return;
 }
 
@@ -244,6 +253,9 @@ void MountTray::slotDevChanges(bool showPopup){
       removeDevice(diskList[i]);	    
     }
   } //end loop over cd/dvd devices
+  
+  //Run the disk space check if appropriate
+  if(useDiskWatcher && useDiskTimerDevd && showPopup){ diskWatcher->checkFS(); }
 }
 
 void MountTray::closeTray(){
@@ -333,12 +345,35 @@ void MountTray::slotRescan(){
   for(int i=0; i<deviceList.length(); i++){
     deviceList[i]->updateItem();
   }
+  //Run the disk check if appropriate
+  if(useDiskWatcher){ diskWatcher->checkFS(); }
 }
 
 void MountTray::slotOpenFSDialog(){
-  //Open up the Filsystem disk space monitoring dialog
+  //Open up the Filesystem disk space monitoring dialog
   diskDisplay = new FSDialog();
   diskDisplay->show();
+}
+
+void MountTray::slotOpenSettings(){
+  //Stop the refresh timer on the watcher
+  diskWatcher->stop();
+  //Open up the settings window and apply changes as necessary
+  SettingsDialog *sdlg = new SettingsDialog();
+  sdlg->useDiskWatcher = useDiskWatcher;
+  sdlg->useDiskAutoTimer = useDiskTimerDevd;
+  sdlg->diskRefreshMS = diskTimerMaxMS;
+  sdlg->showDialog();
+  //Now parse the output and save if necessary
+  if(sdlg->SettingsChanged){
+    useDiskWatcher = sdlg->useDiskWatcher;
+    useDiskTimerDevd = sdlg->useDiskAutoTimer;
+    diskTimerMaxMS = sdlg->diskRefreshMS;
+    qDebug() << "INFO: Saving updated settings to file";
+    saveCurrentSettings(); //update the saved settings
+  }
+  //Now restart the disk watcher if enabled
+  if(useDiskWatcher){ diskWatcher->start(diskTimerMaxMS); }
 }
 
 void MountTray::slotSingleInstance()
@@ -360,4 +395,65 @@ void MountTray::slotDisplayWarning(QString title, QString msg){
   disconnect(trayIcon, SIGNAL(messageClicked()),0,0); //make sure only one signal/slot connection
   connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotOpenFSDialog()) );
   trayIcon->showMessage(title, msg , QSystemTrayIcon::Warning,5000 );
+}
+
+void MountTray::loadSavedSettings(){
+  //The saved settings file
+  QString filename = QDir::homePath()+"/.mounttray.settings";
+  //Set the defaults
+  useDiskWatcher=TRUE; useDiskTimerDevd=TRUE;
+  diskTimerMaxMS=3600000; //1 hour refresh timer
+  //Now load the file
+  QFile file(filename);
+  if(file.exists()){
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){ 
+      qDebug() << "-Could not open settings file: using defaults";
+      return; 
+    }
+    QTextStream in(&file);
+    while(!in.atEnd()){
+      QString line = in.readLine();
+      if(!line.startsWith("#")){ //skip comment lines
+        QString var = line.section(")",0,0,QString::SectionSkipEmpty).simplified();
+        QString val = line.section(")",1,30,QString::SectionSkipEmpty).simplified();
+        if(var=="UseDiskSpaceMonitoring"){ 
+          if(val.toLower() == "true"){ useDiskWatcher = TRUE;}
+          else{ useDiskWatcher = FALSE; }
+        }else if(var=="UseDiskSpaceDevdTiming"){
+          if(val.toLower() == "true"){ useDiskTimerDevd = TRUE;}
+          else{ useDiskTimerDevd = FALSE; }	
+        }else if(var=="DiskSpaceTimingMaxMilliseconds"){
+          diskTimerMaxMS = val.toInt();	
+        }
+      }
+    }
+    file.close();
+  }else{
+    qDebug() << "-Creating new settings file with defaults";
+    saveCurrentSettings();
+  }
+}
+
+void MountTray::saveCurrentSettings(){
+  //The saved settings file
+  QString filename = QDir::homePath()+"/.mounttray.settings";
+  //Now write the current values to the file
+  QFile file(filename);
+  if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
+    qDebug() << "ERROR: Could not open file to save settings:"<<filename;
+    return;
+  }
+  QTextStream out(&file);
+  out << "#pc-mounttray saved settings file\n";
+  out << "# DO NOT EDIT: Use the settings dialog in the application instead!!\n";
+  //Save the settings
+  out << "UseDiskSpaceMonitoring)";
+  if(useDiskWatcher){ out << "true\n";}
+  else{ out << "false\n"; }
+  out << "UseDiskSpaceDevdTiming)";
+  if(useDiskTimerDevd){ out << "true\n";}
+  else{ out << "false\n"; }
+  out << "DiskSpaceTimingMaxMilliseconds)"+QString::number(diskTimerMaxMS)+"\n";
+  //Now close the file
+  file.close();
 }

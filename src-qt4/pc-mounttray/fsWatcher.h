@@ -9,6 +9,8 @@
 #include <QProcessEnvironment>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QTime>
+
 
 class FSWatcher : public QObject
 {
@@ -27,10 +29,12 @@ public:
   
 private:
   QTimer *timer;
+  QStringList oldBadDevs;
+  
   static QStringList runCMD(QString);
   static int calculatePercentage(int,int);
   
-private slots:
+public slots:
   void checkFS(); //function in a timer loop
 
 signals:

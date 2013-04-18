@@ -3,6 +3,7 @@
 FSWatcher::FSWatcher() : QObject(){
   //setup the timer
   timer = new QTimer();
+  timer->setSingleShot(TRUE);
   QObject::connect(timer, SIGNAL(timeout()), this, SLOT(checkFS()));
 }
 
@@ -10,7 +11,9 @@ FSWatcher::~FSWatcher(){
 }
 
 void FSWatcher::start(int ms){ 
-    timer->start(ms); 
+    timer->stop();
+    timer->setInterval(ms); //max time between system checks
+    timer->start(); 
     QTimer::singleShot(2000,this,SLOT(checkFS()) ); //make sure to perform a check when it starts up
 }
 
@@ -99,7 +102,7 @@ QString FSWatcher::intToDisplay(int K){
     	  
 }
 
-//====== Private Slot =======
+//====== Public Slot =======
 void FSWatcher::checkFS(){
   QStringList devList = getFSmountpoints();
   QStringList badDevs;
@@ -108,16 +111,28 @@ void FSWatcher::checkFS(){
     if(percent > 90){
       //Device greater than 90% full, warn the user
       badDevs << devList[i].section("::",0,0); //list the mountpoint
-      qDebug() << "WARNING: Device almost full:" << devList[i].section("::",0,0)+": "+QString::number(percent)+"% full";
+      qDebug() << "WARNING: Device almost full:" << devList[i].section("::",0,0)+": "+QString::number(percent)+"% full: Time: "+QTime::currentTime().toString();
     }
   }
   if(!badDevs.isEmpty()){
-    QString title = tr("Disk(s) Almost Full");
-    QString message = badDevs.join(", ");
-    emit FSWarning(title,message);
+    //check to make sure these are new "bad" devices
+    bool newFound = FALSE;
+    for(int i=0; i<badDevs.length(); i++){
+      if( oldBadDevs.indexOf(badDevs[i]) == -1){ newFound = TRUE; }	    
+    }
+    if(newFound){
+      QString title = tr("Disk(s) Almost Full");
+      QString message = badDevs.join(", ");
+      emit FSWarning(title,message);
+    }
   }
+  //Save the current badDevs as the old list
+  oldBadDevs = badDevs;
+  //Reset the timer for the next time this function is to be called
+  timer->start(); //reset the timer again
 }
 
+//===== Calculate Percentages =====
 int FSWatcher::calculatePercentage(int used, int total){
   double U = used;
   double T = total;

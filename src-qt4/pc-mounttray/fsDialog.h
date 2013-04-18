@@ -11,6 +11,7 @@
 #include <QTreeWidgetItem>
 #include <QBrush>
 #include <QColor>
+#include <QIcon>
 
 #include "fsWatcher.h"
 
