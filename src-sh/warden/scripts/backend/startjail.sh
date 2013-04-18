@@ -365,7 +365,6 @@ fi
 
 instance=`get_ipfw_nat_instance "${IFACE}"`
 if [ -z "${instance}" ] ; then
-echo "NAT IS NULL"
    priority=`get_ipfw_nat_priority`
    instance=`get_ipfw_nat_instance`
 
