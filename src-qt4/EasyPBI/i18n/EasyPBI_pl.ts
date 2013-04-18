@@ -239,13 +239,11 @@
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz i edytuj wpisy menu</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>

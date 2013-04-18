@@ -2,6 +2,40 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>FSDialog</name>
+    <message>
+        <source>System Disk Capacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mount Point</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filesystem</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Used/Total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Percent %</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FSWatcher</name>
+    <message>
+        <source>Disk(s) Almost Full</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MenuItem</name>
     <message>
         <source>Auto-mount this device</source>
@@ -96,6 +130,45 @@ Nem lehet root-jogosultságokkal megnyitni a fájlkezelőt!</translation>
     <message>
         <source>Rescanning devices attached to the system</source>
         <translation>Csatlakoztatott eszközök újrakeresése</translation>
+    </message>
+    <message>
+        <source>More Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Disk Usage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsDialog</name>
+    <message>
+        <source>Mount Tray Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Monitor disk storage space</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Perform check on device notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Maximum time between checks (minutes)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
