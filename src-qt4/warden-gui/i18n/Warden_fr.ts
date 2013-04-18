@@ -62,14 +62,6 @@
 <context>
     <name>dialogEditIP</name>
     <message>
-        <source>Repository Configuration</source>
-        <translation>Répertoire Configuration            </translation>
-    </message>
-    <message>
-        <source>Jail IP Addresses</source>
-        <translation>Jail IP Adresse            </translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>&amp;Ajouter            </translation>
     </message>
@@ -100,6 +92,134 @@
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
         <translation>S&apos;il vous plaît entrer une adresse valide IPv4 ou IPv6!</translation>
+    </message>
+    <message>
+        <source>Jail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Bridge Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Default Router</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Bridge Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Default Router</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Bridge Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Bridge Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A process within the jail has access to System V IPC primitives.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv4 address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv4 bridge address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv4 router address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv6 address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv6 bridge address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv6 router address!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -300,10 +420,6 @@
         <translation>Activer Connexions:            </translation>
     </message>
     <message>
-        <source>Additional IPs:</source>
-        <translation>Additionnel IP:  </translation>
-    </message>
-    <message>
         <source>Listening on Ports:</source>
         <translation>Ecoute sur les Ports:            </translation>
     </message>
@@ -326,10 +442,6 @@
     <message>
         <source>Loading...</source>
         <translation>Chargement...            </translation>
-    </message>
-    <message>
-        <source>(edit)</source>
-        <translation>(editer)            </translation>
     </message>
     <message>
         <source>Launch Terminal</source>
@@ -499,6 +611,14 @@
         <source>Days to keep</source>
         <translation>Jour à conserver</translation>
     </message>
+    <message>
+        <source>IPs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the jail</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dialogWorking</name>
@@ -509,14 +629,6 @@
 </context>
 <context>
     <name>wizardNewJail</name>
-    <message>
-        <source>This wizard will walk you through creating a new jail. First, enter the new IP address and hostname and click next to continue.</source>
-        <translation>Cet assistant vous guidera à travers la création d&apos;un nouveau Jail. Tout d&apos;abord, entrer la nouvelle adresse IP et nom d&apos;hôte et cliquez sur Suivant pour continuer.            </translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation>Adresse IP            </translation>
-    </message>
     <message>
         <source>Hostname</source>
         <translation>Nom d&apos;hôte            </translation>
@@ -532,10 +644,6 @@
     <message>
         <source>Jail Type</source>
         <translation>Jail Type            </translation>
-    </message>
-    <message>
-        <source>Traditional Jail (Secure, best for server applications)</source>
-        <translation>Jail traditionnel (Sécure, le meilleur pour les applications serveur) </translation>
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
@@ -608,6 +716,26 @@
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
         <translation>Veuillez prendre un moment pour définir d&apos;autres options pour ce Jail.</translation>
+    </message>
+    <message>
+        <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Traditional Jail (Secure, best for services)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PKGNG and PC-BSD utilities</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -62,14 +62,6 @@
 <context>
     <name>dialogEditIP</name>
     <message>
-        <source>Repository Configuration</source>
-        <translation>軟體庫設定</translation>
-    </message>
-    <message>
-        <source>Jail IP Addresses</source>
-        <translation>Jail IP 位址</translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>添加(&amp;A)</translation>
     </message>
@@ -100,6 +92,134 @@
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
         <translation>請輸入有效 IPV4 或 IPV6 位址！</translation>
+    </message>
+    <message>
+        <source>Jail Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Bridge Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Default Router</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Bridge Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Default Router</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Bridge Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Bridge Aliases</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>A process within the jail has access to System V IPC primitives.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv4 address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv4 bridge address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv4 router address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv6 address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv6 bridge address!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid IPv6 router address!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -300,10 +420,6 @@
         <translation>運作中連線:</translation>
     </message>
     <message>
-        <source>Additional IPs:</source>
-        <translation>額外 IP:</translation>
-    </message>
-    <message>
         <source>Listening on Ports:</source>
         <translation>監聽連接埠:</translation>
     </message>
@@ -326,10 +442,6 @@
     <message>
         <source>Loading...</source>
         <translation>正在載入...</translation>
-    </message>
-    <message>
-        <source>(edit)</source>
-        <translation>(編輯)</translation>
     </message>
     <message>
         <source>Launch Terminal</source>
@@ -499,6 +611,14 @@
         <source>Days to keep</source>
         <translation>快照的保存天數</translation>
     </message>
+    <message>
+        <source>IPs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure the jail</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dialogWorking</name>
@@ -509,14 +629,6 @@
 </context>
 <context>
     <name>wizardNewJail</name>
-    <message>
-        <source>This wizard will walk you through creating a new jail. First, enter the new IP address and hostname and click next to continue.</source>
-        <translation>本精靈會帶領您完成建立新 jail 的過程。首先，輸入新 IP 位址和主機名稱並按「下一步」繼續。</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation>IP 位址</translation>
-    </message>
     <message>
         <source>Hostname</source>
         <translation>主機名稱</translation>
@@ -532,10 +644,6 @@
     <message>
         <source>Jail Type</source>
         <translation>Jail 類型</translation>
-    </message>
-    <message>
-        <source>Traditional Jail (Secure, best for server applications)</source>
-        <translation>傳統 Jail (安全，適合伺服器應用程式)</translation>
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
@@ -608,6 +716,26 @@
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
         <translation>請花一點時間為此 jail 設定其他選項。</translation>
+    </message>
+    <message>
+        <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv4 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>IPv6 Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Traditional Jail (Secure, best for services)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PKGNG and PC-BSD utilities</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
