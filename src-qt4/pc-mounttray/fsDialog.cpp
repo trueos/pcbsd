@@ -60,7 +60,7 @@ void FSDialog::generateUI(){
   //Now add the close button to the bottom
   QHBoxLayout *hb = new QHBoxLayout();
   hb->addStretch();
-  QPushButton *closeButton = new QPushButton("Close");
+  QPushButton *closeButton = new QPushButton(QIcon(":icons/application-exit.png"),tr("Close"));
   hb->addWidget(closeButton);
   hb->addStretch();
   vlayout->addLayout(hb);

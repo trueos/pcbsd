@@ -13,5 +13,6 @@
     <file>icons/harddrive.png</file>
     <file>icons/refresh.png</file>
     <file>icons/config.png</file>
+    <file>icons/checkmark.png</file>
   </qresource>
 </RCC>

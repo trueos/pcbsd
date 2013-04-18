@@ -10,11 +10,15 @@
 #include <QPixmap>
 #include <QList>
 #include <QTimer>
+#include <QDir>
+#include <QFile>
+#include <QTextStream>
 
 #include "menuItem.h"
 #include "devCheck.h"
 #include "fsWatcher.h"
 #include "fsDialog.h"
+#include "settingsDialog.h"
 
 extern bool DEBUG_MODE;
 extern QString DEVICEDIR;
@@ -61,6 +65,9 @@ private:
   QStringList oldsysdev;
   FSWatcher *diskWatcher;
   FSDialog *diskDisplay;
+  //Saved Settings
+  bool useDiskWatcher, useDiskTimerDevd;
+  int diskTimerMaxMS; //milliseconds
 
 
   void updateMenu();
@@ -70,6 +77,8 @@ private:
   void startupDevdProc();
   void getInitialUsername();
   void getDefaultFileManager();
+  void loadSavedSettings();
+  void saveCurrentSettings();
   
 };
 

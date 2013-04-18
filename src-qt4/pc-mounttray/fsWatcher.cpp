@@ -3,6 +3,7 @@
 FSWatcher::FSWatcher() : QObject(){
   //setup the timer
   timer = new QTimer();
+  timer->setSingleShot(TRUE);
   QObject::connect(timer, SIGNAL(timeout()), this, SLOT(checkFS()));
 }
 
@@ -10,7 +11,9 @@ FSWatcher::~FSWatcher(){
 }
 
 void FSWatcher::start(int ms){ 
-    timer->start(ms); 
+    timer->stop();
+    timer->setInterval(ms); //max time between system checks
+    timer->start(); 
     QTimer::singleShot(2000,this,SLOT(checkFS()) ); //make sure to perform a check when it starts up
 }
 
@@ -99,7 +102,7 @@ QString FSWatcher::intToDisplay(int K){
     	  
 }
 
-//====== Private Slot =======
+//====== Public Slot =======
 void FSWatcher::checkFS(){
   QStringList devList = getFSmountpoints();
   QStringList badDevs;
@@ -116,8 +119,10 @@ void FSWatcher::checkFS(){
     QString message = badDevs.join(", ");
     emit FSWarning(title,message);
   }
+  timer->start(); //reset the timer again
 }
 
+//===== Calculate Percentages =====
 int FSWatcher::calculatePercentage(int used, int total){
   double U = used;
   double T = total;

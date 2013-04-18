@@ -10,6 +10,7 @@
 #include <QCoreApplication>
 #include <QDebug>
 
+
 class FSWatcher : public QObject
 {
 	Q_OBJECT
@@ -30,7 +31,7 @@ private:
   static QStringList runCMD(QString);
   static int calculatePercentage(int,int);
   
-private slots:
+public slots:
   void checkFS(); //function in a timer loop
 
 signals:

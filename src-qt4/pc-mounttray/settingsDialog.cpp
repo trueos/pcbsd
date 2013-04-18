@@ -44,7 +44,9 @@ void SettingsDialog::showDialog(){
   //apply the values to the UI
   groupDiskWatch->setChecked(useDiskWatcher);
   checkDiskAutoTimer->setChecked(useDiskAutoTimer);
-  spinDiskRefreshMin->setValue(diskRefreshMS/60000);
+  int minutes = diskRefreshMS/60000;
+  //qDebug() << "Refresh Time:"<< QString::number(diskRefreshMS)+" ms, "+QString::number(minutes)+" min";
+  spinDiskRefreshMin->setValue(minutes);
     //Apply signals/slots AFTER setting the values
     connect(groupDiskWatch, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI(bool)) );
     connect(checkDiskAutoTimer, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI(bool)) );

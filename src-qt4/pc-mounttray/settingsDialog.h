@@ -13,6 +13,7 @@
 #include <QSpinBox>
 #include <QLabel>
 #include <QIcon>
+#include <QDebug>
 
 class SettingsDialog : public QDialog{
 	Q_OBJECT
