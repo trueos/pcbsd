@@ -17,10 +17,12 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDebug>
+#include <QListWidgetItem>
 #include "pcbsd-utils.h"
 
 // Local Includes
 #include "dialogEditIP.h"
+
 
 void dialogEditIP::programInit(QString name)
 {
@@ -132,6 +134,97 @@ void dialogEditIP::programInit(QString name)
 
   slotCheckChecks();
   slotComboIPChanged();
+  loadPerms();
+}
+
+void dialogEditIP::loadPerms()
+{
+
+  // Add the allow flags to show in the GUI
+  // <flag> | <default value> | <descrip>
+  jailFlags \
+      	<< "allow.set_hostname|true|" + tr("A process within the jail has access to System V IPC primitives.") \
+      	<< "allow.sysvipc|false|" + tr("A process within the jail has access to System V IPC primitives.") \
+	<< "allow.raw_sockets|false|" + tr("The prison root is allowed to create raw sockets. Enables ping / traceroute.") \
+	<< "allow.chflags|false|" + tr("When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.") \
+	<< "allow.mount|false|" + tr("Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.") \
+	<< "allow.mount.devfs|false|" + tr("Privileged users inside the jail will be able to mount and unmount the devfs file system.") \
+	<< "allow.mount.nullfs|false|" + tr("Privileged users inside the jail will be able to mount and unmount the nullfs file system.") \
+	<< "allow.mount.procfs|false|" + tr("Privileged users inside the jail will be able to mount and unmount the procfs file system.") \
+	<< "allow.mount.zfs|false|" + tr("Privileged users inside the jail will be able to mount and unmount the zfs file system.") \
+	<< "allow.quotas|false|" + tr("The prison root may administer quotas on the jail's filesystem(s).") \
+	<< "allow.socket_af|false|" + tr("This allows access to other protocol stacks that have not had jail functionality added to them.") \
+	;
+
+  QString jDefault;
+  QString toggled;
+  QString curFlags;
+  QFile file( JailDir + "/." + jailName + ".meta/jail-flags" );
+  if ( file.exists() && file.open( QIODevice::ReadOnly ) ) {
+     QTextStream stream( &file );
+     curFlags = stream.readLine();
+     file.close();
+  }
+
+
+  for (int i = 0; i < jailFlags.size(); ++i) {
+      QListWidgetItem *myItem = new QListWidgetItem;
+      myItem->setText( jailFlags.at(i).section("|", 0, 0) );
+      jDefault = jailFlags.at(i).section("|", 1, 1);
+      myItem->setToolTip( jailFlags.at(i).section("|", 2, 2) );
+      if ( jDefault == "false" ) {
+        if ( curFlags.indexOf(jailFlags.at(i).section("|", 0,0) + "=true") != -1 )
+          myItem->setCheckState(Qt::Checked);
+        else
+          myItem->setCheckState(Qt::Unchecked);
+      } else {
+        if ( curFlags.indexOf(jailFlags.at(i).section("|", 0,0) + "=false") != -1 )
+          myItem->setCheckState(Qt::Unchecked);
+        else
+          myItem->setCheckState(Qt::Checked);
+      }
+      listPerms->addItem(myItem);
+  }
+}
+
+void dialogEditIP::savePerms()
+{
+  QStringList savePerms;
+  QString jFlag, jDefault;
+  QString lFlag, lChecked;
+
+  for ( int i=0; i < listPerms->count() ; i++) {
+    lFlag =  listPerms->item(i)->text();
+    if ( listPerms->item(i)->checkState() == Qt::Checked )
+       lChecked="true";
+    else
+       lChecked="false";
+    
+    for ( int j=0; j < jailFlags.count() ; j++) {
+       jFlag = jailFlags.at(j).section("|", 0, 0);
+       if ( jFlag != lFlag ) 
+	 continue;
+
+       jDefault = jailFlags.at(j).section("|", 1, 1);
+       if ( jDefault == "true" && lChecked == "false" )
+	  savePerms << jFlag + "=false";
+       if ( jDefault == "false" && lChecked == "true" )
+	  savePerms << jFlag + "=true";
+    }
+  }
+
+  QFile file( JailDir + "/." + jailName + ".meta/jail-flags" );
+  if ( ! savePerms.isEmpty() ) {
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+       stream << savePerms.join(" ");
+       file.close();
+    }
+  } else {
+    file.remove();
+  }
+
+
 }
 
 void dialogEditIP::slotComboIPChanged()
@@ -211,6 +304,7 @@ void dialogEditIP::slotSaveClicked()
    if ( sanityCheckSettings() )
    {
      saveSettings();
+     savePerms();
      emit saved();
      close();
    }

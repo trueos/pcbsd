@@ -31,6 +31,8 @@ private slots:
 
 private:
 	void displayRepos();
+        void loadPerms();
+        void savePerms();
         void saveSettings();
         bool checkValidBlock(QString block, QString type);
         QString jailName;
@@ -39,6 +41,7 @@ private:
         QStringList IPv4AliasBridge;
         QStringList IPv6Alias;
         QStringList IPv6AliasBridge;
+	QStringList jailFlags;
 
 signals:
         void saved();
