@@ -144,7 +144,10 @@ fi
 # Check for user-supplied mounts
 if [ -e "${JMETADIR}/fstab" ] ; then
    echo "Mounting user-supplied file-systems"
-   mount -a -F ${JMETADIR}/fstab
+   cp ${JMETADIR}/fstab /tmp/.wardenfstab.$$
+   sed -i '' "s|%%JAILDIR%%|${JAILDIR}|g" /tmp/.wardenfstab.$$
+   mount -a -F /tmp/.wardenfstab.$$
+   rm /tmp/.wardenfstab.$$
 fi
 
 IP4=
