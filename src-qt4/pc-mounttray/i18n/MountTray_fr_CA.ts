@@ -5,34 +5,34 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished"></translation>
+        <translation>Capacité du disque système</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished"></translation>
+        <translation>Point de Montage</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished"></translation>
+        <translation>Système de fichiers</translation>
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation/Totale</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished"></translation>
+        <translation>Pourcentage %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Disque(s) Presque Plein</translation>
     </message>
 </context>
 <context>
@@ -132,42 +132,42 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus d&apos;Options</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Voir Disque Usage</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier les paramètres</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Monter les paramètres du plateau</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished"></translation>
+        <translation>Surveillance de l&apos;espace de stockage sur disque</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Effectuer un contrôle sur les notifications de périphériques</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished"></translation>
+        <translation>Temps maximum entre deux contrôles (minutes)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Appliquer</translation>
     </message>
 </context>
 </TS>
