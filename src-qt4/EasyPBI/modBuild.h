@@ -69,6 +69,7 @@ public:
   bool writeSampleFreenasTweakRC();
   
   // --Static functions--
+  static bool createDir(QString);
   static bool createFile(QString,QStringList);
   static QStringList readFile(QString);
   
