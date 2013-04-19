@@ -183,7 +183,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="libpcbsd.qrc"/>
+  <include location="libpcbsd-ui.qrc"/>
  </resources>
  <connections/>
 </ui>

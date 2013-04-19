@@ -104,7 +104,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="libpcbsd.qrc">
+         <iconset resource="libpcbsd-ui.qrc">
           <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
         </property>
        </widget>
@@ -135,7 +135,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="libpcbsd.qrc">
+         <iconset resource="libpcbsd-ui.qrc">
           <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
         </property>
        </widget>
@@ -166,7 +166,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="libpcbsd.qrc">
+         <iconset resource="libpcbsd-ui.qrc">
           <normaloff>:/folder_open.png</normaloff>:/folder_open.png</iconset>
         </property>
        </widget>
@@ -295,7 +295,7 @@
   <include location="local">qmessagebox.h</include>
  </includes>
  <resources>
-  <include location="libpcbsd.qrc"/>
+  <include location="libpcbsd-ui.qrc"/>
  </resources>
  <connections>
   <connection>
