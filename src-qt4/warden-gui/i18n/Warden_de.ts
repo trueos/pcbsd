@@ -95,48 +95,39 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail-Einstellungen</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Adresse</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Brückenadresse</translation>
     </message>
     <message>
         <source>IPv4 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Standardrouter</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Adresse</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Brückenadresse</translation>
     </message>
     <message>
         <source>IPv6 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Standardrouter</translation>
     </message>
     <message>
         <source>Aliases</source>
@@ -225,33 +216,27 @@
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige IPv4-Adresse!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige IPv4-Brückenadresse!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige IPv4-Routeradresse!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige IPv6-Adresse!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige IPv4-Brückenadresse!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültige IPv4-Routeradresse!</translation>
     </message>
 </context>
 <context>
@@ -645,13 +630,11 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die Jail konfigurieren</translation>
     </message>
 </context>
 <context>
@@ -753,28 +736,23 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dieser Assistent wird Sie Schritt für Schritt durch die Erstellung einer neuen Jail führen. Geben Sie zuerst den Hostnamen und eine IP-Adresse ein. Dann auf Weiter klicken.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Adresse</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Adresse</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traditionelle Jail (Sicher, beste Wahl für Dienste)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installiere PKGNG und PC-BSD-Werkzeuge</translation>
     </message>
 </context>
 </TS>

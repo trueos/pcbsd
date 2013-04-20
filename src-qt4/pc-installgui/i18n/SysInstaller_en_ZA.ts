@@ -227,23 +227,19 @@
     </message>
     <message>
         <source>Click arrows to change system selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Click arrows to change system selection</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unable to suggest a partition for the detected disk.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The selected disk / partition is less than recommended %1MB. The installation may fail...</translation>
     </message>
 </context>
 <context>
@@ -691,13 +687,11 @@
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enter SWAP size</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Size (MB)</translation>
     </message>
 </context>
 <context>

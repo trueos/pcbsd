@@ -727,18 +727,15 @@
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Adresse  </translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail traditionnel (Sécure, meilleur pour les services)            </translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installez PKGNG et utilitaires PC-BSD            </translation>
     </message>
 </context>
 </TS>

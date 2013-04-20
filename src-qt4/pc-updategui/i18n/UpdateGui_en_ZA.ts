@@ -201,28 +201,23 @@
     </message>
     <message>
         <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starting package updates...</translation>
     </message>
     <message>
         <source>Downloading %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Downloading %1</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Downloading: %1</translation>
     </message>
     <message>
         <source>Failed package update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failed package update</translation>
     </message>
     <message>
         <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</translation>
     </message>
 </context>
 </TS>

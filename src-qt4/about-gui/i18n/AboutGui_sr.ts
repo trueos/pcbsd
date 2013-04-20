@@ -5,12 +5,11 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Engleski</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation>Verzija:            </translation>
+        <translation>Verzija:</translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
@@ -18,32 +17,31 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation>Domaćin:            </translation>
+        <translation>Domaćin:</translation>
     </message>
     <message>
         <source>????</source>
-        <translation>????            </translation>
+        <translation>????</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>FreeBSD osnova            </translation>
+        <translation>FreeBSD baza</translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation>Arhitektura:            </translation>
+        <translation>Arhitektura:</translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ident</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Hardver            </translation>
+        <translation>Uređaji</translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation>Procesor:            </translation>
+        <translation>Procesor:</translation>
     </message>
     <message>
         <source>Mem.</source>
@@ -51,11 +49,11 @@
     </message>
     <message>
         <source>Back</source>
-        <translation>Povratak</translation>
+        <translation>Nazad</translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Okruženja radne površine:</translation>
+        <translation>Grafička okruženja:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
@@ -75,8 +73,7 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Testiranje snimka %1. Može biti nestabilno!</translation>
     </message>
     <message>
         <source>X.org server version:</source>
@@ -84,23 +81,19 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komponente sisema:</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grafička okruženja...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD CLI programi:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD UI programi:</translation>
     </message>
 </context>
 </TS>
