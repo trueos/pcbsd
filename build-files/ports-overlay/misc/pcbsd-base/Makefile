@@ -14,6 +14,7 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+		beadm:${PORTSDIR}/sysutils/beadm \
 		samba36>=0:${PORTSDIR}/net/samba36 \
 		foomatic-db>=0:${PORTSDIR}/print/foomatic-db \
 		foomatic-db-engine>=0:${PORTSDIR}/print/foomatic-db-engine \
