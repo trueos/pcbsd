@@ -95,163 +95,131 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Configuration</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Adresse</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Adresse Passerelle</translation>
     </message>
     <message>
         <source>IPv4 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Défaut Routeur</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 adresse</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Adresse Passerelle</translation>
     </message>
     <message>
         <source>IPv6 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Défaut Routeur</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Alias            </translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Adresse Passerelle            </translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Adresse            </translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Adresse Passerelle            </translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permissions            </translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les autorisations suivantes peuvent être activées ou désactivées pour ce jail. Pour plus de détails survoler chaque article ou reportez-vous à la page du manuel de Jail.            </translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Un processus au sein de ce Jail a accès à V IPC primitives système.            </translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La racine de ce Jail est autorisé à créer des sockets raw. Permettre ping / traceroute.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lorsque ce paramètre est réglé, ces utilisateurs sont considérés comme des privilégiés, et peuvent manipuler les drapeaux de système de fichiers soumis à des contraintes habituelles sur kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les utilisateurs privilégiés à l&apos;intérieur de la prison seront capables de monter et démonter les types de systèmes de fichiers marqués comme jail-friendly.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les utilisateurs privilégiés à l&apos;intérieur de ce Jail seront capables de monter et démonter le système de fichiers devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les utilisateurs privilégiés à l&apos;intérieur de ce Jail seront capables de monter et démonter le système de fichiers nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les utilisateurs privilégiés à l&apos;intérieur de ce Jail seront capables de monter et démonter le système de fichiers procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les utilisateurs privilégiés à l&apos;intérieur de ce Jail seront capables de monter et démonter le système de fichiers ZFS.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La racine de ce Jail peut administrer les quotas sur le système de fichiers de ce Jai(s).</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cela permet d&apos;accéder à d&apos;autres piles de protocoles qui n&apos;ont pas eu la fonctionnalité de ce Jail supplémentaire pour eux.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide IPv4 adresse!            </translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide IPv4 passerelle addresse!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide IPv4 adresse routeur!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide IPv4 adresse!            </translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide IPv6 passerelle adresse!            </translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalide IPv6 adresse routeur!</translation>
     </message>
 </context>
 <context>
@@ -645,13 +613,11 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:            </translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurer ce Jail</translation>
     </message>
 </context>
 <context>
@@ -753,28 +719,23 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cet assistant vous guidera à travers la création d&apos;une nouveau Jail. Tout d&apos;abord, entrer le nom d&apos;hôte et une adresse IP puis cliquez sur Suivant pour continuer.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Adresse</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Adresse</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail traditionnel (Sécure, meilleur pour les services)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installez PKGNG et utilitaires PC-BSD</translation>
     </message>
 </context>
 </TS>

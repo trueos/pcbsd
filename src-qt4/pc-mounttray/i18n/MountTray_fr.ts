@@ -5,41 +5,34 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système Disque Capacité</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Point de Montage</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système de Fichier</translation>
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilisation/Total</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pourcentage %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disque(s) Presque Plein</translation>
     </message>
 </context>
 <context>
@@ -94,28 +87,28 @@
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation>Monté à 1%            </translation>
+        <translation>Monté à 1%</translation>
     </message>
 </context>
 <context>
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
-        <translation>Ouvrir le répertoire du média                       </translation>
+        <translation>Ouvrir le répertoire du média</translation>
     </message>
     <message>
         <source>Close Tray</source>
-        <translation>Fermer le plateau            </translation>
+        <translation>Fermer le plateau</translation>
     </message>
     <message>
         <source>User Detection Error</source>
-        <translation>Erreur de détection de l&apos;utilisateur            </translation>
+        <translation>Erreur de détection de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
         <translation>Impossible de déterminer l&apos;utilisateur non-administrateur, qui a démarré l&apos;application 
- Impossible d&apos;ouvrir le gestionnaire de fichiers avec les permissions administrateur                      </translation>
+Impossible d&apos;ouvrir le gestionnaire de fichiers avec les permissions administrateur</translation>
     </message>
     <message>
         <source>New Device</source>
@@ -127,7 +120,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Rescan Devices</source>
-        <translation>Réanalyser les Dispositifs           </translation>
+        <translation>Réanalyser les Dispositifs</translation>
     </message>
     <message>
         <source>Please Wait</source>
@@ -135,55 +128,46 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
-        <translation>Réanalyser les Dispositifs connectés au système            </translation>
+        <translation>Réanalyser les Dispositifs connectés au système</translation>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plus D&apos;Options</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voir Disque Usage</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Changer les Réglages</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monter des paramètres de Plateau</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Surveillance de l&apos;espace de stockage sur disque</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Effectuer un contrôle sur les notifications de périphériques</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Temps maximum entre deux contrôles (minutes)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Appliquer</translation>
     </message>
 </context>
 </TS>

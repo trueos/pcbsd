@@ -272,13 +272,11 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proxy enabled</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>You may need to re-login for proxy settings to take effect.</translation>
     </message>
 </context>
 </TS>

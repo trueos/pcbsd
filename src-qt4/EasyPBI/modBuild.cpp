@@ -430,7 +430,9 @@ bool ModBuild::loadMenu(QString ifile){
 
 bool ModBuild::writeMenu(){
   //Get the path to the file
-  QString fileName = modulePath + "/xdg-menu/" + saveMenuFile;
+  QString dir = modulePath + "/xdg-menu/";
+  createDir(dir); //make sure the xdg-menu directory exists
+  QString fileName = dir + saveMenuFile;
   //Create the XDG compliant menu entry
   QStringList contents;
   contents << "#!/usr/bin/env";
@@ -516,7 +518,9 @@ bool ModBuild::loadDesktop(QString ifile){
 
 bool ModBuild::writeDesktop(){
   //Get the path to the file
-  QString fileName = modulePath + "/xdg-desktop/" + saveDesktopFile;
+  QString dir = modulePath + "/xdg-desktop/";
+  createDir(dir); //make sure the xdg-desktop directory exists
+  QString fileName =  dir + saveDesktopFile;
   //Create the XDG compliant desktop entry
   QStringList contents;
   contents << "#!/usr/bin/env";
@@ -594,7 +598,10 @@ bool ModBuild::writeMime(){
   //Stupid check to make sure there is actually file patterns to be saved
   if(mimeStruct[2].isEmpty()){ return FALSE; }
   //Get the path to the file
-  QString fileName = modulePath + "/xdg-mime/" + saveMimeFile;
+  QString dir = modulePath + "/xdg-mime/";
+  createDir(dir); //make sure the mime directory exists
+  QString fileName = dir + saveMimeFile;
+  
   //Set a default mime-info if none given  
   if(mimeStruct[0].isEmpty()){
     mimeStruct[0] = "http://www.freedesktop.org/standards/shared-mime-info";
@@ -728,6 +735,7 @@ bool ModBuild::addResource(bool isNewWrapper, QString resourcePath){
   if(resourcePath.endsWith(".png") && !isNewWrapper){ isIcon = TRUE; }
   //Create the full path to the location within the module  
   QString newResourcePath = modulePath + "/resources/";
+  createDir(newResourcePath); //make sure the resources directory exists
   if(isNewWrapper){ 
     newResourcePath.append("bin/"); 
     //Make sure the "bin" directory exists
@@ -811,6 +819,13 @@ bool ModBuild::removeResource(QString filePath){
   }
   
   return status;
+}
+
+bool ModBuild::createDir(QString dirPath){
+  if(dirPath.endsWith("/")){ dirPath.chop(1); }
+  QDir dir(dirPath);
+  if(dir.exists()){ return TRUE; }
+  else{ return dir.mkdir(dirPath); }
 }
 
 bool ModBuild::createFile(QString fileName, QStringList contents){
