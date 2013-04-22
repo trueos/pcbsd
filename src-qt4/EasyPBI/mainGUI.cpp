@@ -21,7 +21,8 @@ MainGUI::MainGUI(QWidget *parent) :
 	// Create the config class
 	settings = new Config();
 	//Setup the Menu items
-	ui->actionExit->setIcon(Backend::icon(""));
+	ui->actionExit->setIcon(Backend::icon("close"));
+	ui->actionRefresh_Module->setIcon(Backend::icon("refresh"));
 	//Setup the pushbutton menu lists
 	menu_elOpts.addAction("binary");
 	menu_elOpts.addAction("linux");
@@ -151,6 +152,7 @@ void MainGUI::refreshGUI(QString item){
   //Stupid check to make sure that a module is actually loaded
   if( currentModule->path().isEmpty() ){ 
     ui->actionPackage_Module->setEnabled(FALSE);
+    ui->actionRefresh_Module->setEnabled(FALSE);
     if(PBI_BUILDING_NOW.isEmpty() ){ui->toolBox->setEnabled(FALSE); return; }
     else{ 
       ui->toolBox->setItemEnabled(0,FALSE);
@@ -161,6 +163,7 @@ void MainGUI::refreshGUI(QString item){
   }else{ 
     ui->toolBox->setEnabled(TRUE); 
     ui->actionPackage_Module->setEnabled(TRUE);  
+    ui->actionRefresh_Module->setEnabled(TRUE);
   }
   //Figure out the type of module that is loaded
   bool isport = radio_module_port->isChecked();
@@ -366,6 +369,23 @@ void MainGUI::on_actionPackage_Module_triggered(){
    currentModule->compressModule();
    QMessageBox::information(this,tr("Success"),tr("A copy of the current module has been successfully packaged  within the module directory.") );
 
+}
+
+void MainGUI::on_actionRefresh_Module_triggered(){
+  QString modSel = currentModule->path(); //re-load the current module
+  bool ok = currentModule->loadModule(modSel); 
+  if(ok){ 
+    qDebug() << "Loaded module:"<<modSel;	  
+    line_module->setText(modSel.replace(QDir::homePath(),"~")); 
+    if(currentModule->isLocalPBI){ radio_module_local->toggle(); }
+    else{ 
+      radio_module_port->toggle(); //Port PBI
+      if( settings->check("isportsavailable") ){ 
+        currentModule->readPortInformation(settings->value("portsdir")+"/"+currentModule->readValue("makeport"));
+      }
+    }
+    refreshGUI("all");
+  }
 }
 
 void MainGUI::on_actionFreeBSD_Ports_triggered(){
@@ -799,7 +819,6 @@ void MainGUI::slotXdgTypeChanged(){
   if(!cBins.isEmpty()){
     for(int i=0; i<cBins.length(); i++){
       menu_bins.addAction(cBins[i]);
-      //menu_binsnew.addAction(cBins[i]);
     } 
   }
   //Menu categories
@@ -840,6 +859,7 @@ void MainGUI::slotXdgFileChanged(){
     ui->line_xdg_mimepatterns->clear();
     ui->check_xdg_terminal->setChecked(FALSE);
     ui->check_xdg_nodisplay->setChecked(FALSE);
+    ui->check_requiresroot->setChecked(FALSE);
     ui->push_xdg_savechanges->setEnabled(FALSE);
     //Make sure we don't have any of the structures loaded from previously
     currentModule->loadDesktop("");
@@ -871,6 +891,9 @@ void MainGUI::slotXdgFileChanged(){
     chk = currentModule->readValue("desktopnodisplay").toLower();
     if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_nodisplay->setChecked(TRUE); }
     else{ ui->check_xdg_nodisplay->setChecked(FALSE); }
+    chk = currentModule->readValue("desktoprequiresroot").toLower();
+    if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_requiresroot->setChecked(TRUE); }
+    else{ ui->check_xdg_requiresroot->setChecked(FALSE); }
     	
   }else if(ui->radio_xdg_menu->isChecked()){
     //Load the file
@@ -895,6 +918,9 @@ void MainGUI::slotXdgFileChanged(){
     chk = currentModule->readValue("menunodisplay").toLower();
     if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_nodisplay->setChecked(TRUE); }
     else{ ui->check_xdg_nodisplay->setChecked(FALSE); }
+    chk = currentModule->readValue("menurequiresroot").toLower();
+    if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_requiresroot->setChecked(TRUE); }
+    else{ ui->check_xdg_requiresroot->setChecked(FALSE); }
     
     //Load the XDG-MIME file associations
     QString mime = currentModule->readValue("menumimetype");
@@ -973,6 +999,9 @@ void MainGUI::on_push_xdg_savechanges_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("desktopnodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("desktoprequiresroot", checked);
     //Now save the file
     ok = currentModule->writeDesktop();
     
@@ -988,6 +1017,9 @@ void MainGUI::on_push_xdg_savechanges_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("menunodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("menurequiresroot", checked);
     //Setup the mime type associations as appropriate
     checkMime();
     //Now save the file
@@ -1008,10 +1040,10 @@ void MainGUI::on_push_xdg_savenew_clicked(){
   //Now check that the filename does not already exist
   QStringList cFiles;
   if(ui->radio_xdg_desktop->isChecked() ){
-    filename = ui->line_xdg_exec->text();
+    filename = ui->line_xdg_exec->text().section("/",-1);
     cFiles = currentModule->filesAvailable("xdg-desktop").replaceInStrings(".desktop","");
   }else if(ui->radio_xdg_menu->isChecked() ){
-    filename = ui->line_xdg_exec->text();
+    filename = ui->line_xdg_exec->text().section("/",-1);
     cFiles = currentModule->filesAvailable("xdg-menu").replaceInStrings(".desktop","");
   }
   if(filename.isEmpty()){ return;}
@@ -1035,6 +1067,9 @@ void MainGUI::on_push_xdg_savenew_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("desktopnodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("desktoprequiresroot", checked);
     //Now save the file
     ok = currentModule->writeDesktop();
     
@@ -1054,6 +1089,9 @@ void MainGUI::on_push_xdg_savenew_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("menunodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("menurequiresroot", checked);
     //Now save the file
     ok = currentModule->writeMenu();    
   }

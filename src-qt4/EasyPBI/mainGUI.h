@@ -44,6 +44,7 @@ private slots:
     void on_actionLoad_Module_triggered();
     void on_actionPreferences_triggered();
     void on_actionPackage_Module_triggered();
+    void on_actionRefresh_Module_triggered();
     void on_actionFreeBSD_Ports_triggered();
     void on_actionPBI_Modules_triggered();
     void on_actionAbout_EasyPBI_triggered();
