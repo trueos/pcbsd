@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=sudo pc-pkgmanager
+Icon=computer
+Type=Application
+Categories=System;
+Name=Package Manager
