@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>FreeBSD base</translation>
+        <translation>FreeBSD baza</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Mem.</source>
-        <translation>Memorija</translation>
+        <translation>Memorija.</translation>
     </message>
     <message>
         <source>Back</source>
@@ -77,27 +77,23 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>X.org verzija poslužitelja:            </translation>
+        <translation>X.org verzija poslužitelja:</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komponente sustava:</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grafička okruženja...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD CLI programi:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD UI programi:</translation>
     </message>
 </context>
 </TS>

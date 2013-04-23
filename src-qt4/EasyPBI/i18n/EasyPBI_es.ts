@@ -777,6 +777,18 @@
         <source>Please open up the appropriate EasyPBI menu option to correct this deficiency.</source>
         <translation>Por favor abra la opcion apropiada del menu EasyPBI para corregir la deficiencia.</translation>
     </message>
+    <message>
+        <source>Application needs administrator privileges to run</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Requires Root</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Refresh Module</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>

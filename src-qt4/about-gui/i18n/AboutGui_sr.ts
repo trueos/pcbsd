@@ -41,11 +41,11 @@
     </message>
     <message>
         <source>CPU:</source>
-        <translation>Procesor:</translation>
+        <translation>Centralni procesor:</translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation>Memorija</translation>
+        <translation>Memorija.</translation>
     </message>
     <message>
         <source>Back</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Testiranje snimka %1. Može biti nestabilno!</translation>
+        <translation>Testna verzija %1. Može biti nestabilna!</translation>
     </message>
     <message>
         <source>X.org server version:</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation>Komponente sisema:</translation>
+        <translation>Komponente sistema:</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
