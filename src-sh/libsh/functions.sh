@@ -43,8 +43,10 @@ download_cache_packages()
   fi
   export PKG_CACHEDIR
 
+  PKGREL=`uname -r | cut -d '-' -f 1-2`
+
   # Where are the packages on our mirrors?
-  pkgUrl="/packages/`uname -r`/${ARCH}"
+  pkgUrl="/packages/${PKGREL}/${ARCH}"
 
   if [ ! -d "$PKG_CACHEDIR/All" ] ; then
      mkdir -p ${PKG_CACHEDIR}/All
