@@ -729,7 +729,7 @@ make_bootstrap_pkgng_file_standard()
   local jaildir="${1}"
   local outfile="${2}"
 
-  local release="$(uname -r)"
+  local release="$(uname -r | cut -d '-' -f 1-2)"
   local arch="$(uname -m)"
 
   get_mirror
@@ -756,7 +756,7 @@ make_bootstrap_pkgng_file_pluginjail()
   local jaildir="${1}"
   local outfile="${2}"
 
-  local release="$(uname -r)"
+  local release="$(uname -r | cut -d '-' -f 1-2)"
   local arch="$(uname -m)"
 
   get_mirror
@@ -801,7 +801,7 @@ bootstrap_pkgng()
   if [ -z "${jailtype}" ] ; then
     jailtype="standard"
   fi
-  local release="$(uname -r)"
+  local release="$(uname -r | cut -d '-' -f 1-2)"
   local arch="$(uname -m)"
 
   local ffunc="make_bootstrap_pkgng_file_standard"
