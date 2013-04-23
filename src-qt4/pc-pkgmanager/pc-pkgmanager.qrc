@@ -1,7 +1,5 @@
 <RCC>
   <qresource>
     <file>view-refresh.png</file>
-    <file>images/warning.png</file>
-    <file>images/current-item.png</file>
   </qresource>
 </RCC>

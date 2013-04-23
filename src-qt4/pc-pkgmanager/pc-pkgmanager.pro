@@ -2,9 +2,9 @@ TEMPLATE	= app
 LANGUAGE	= C++
 CONFIG	+= qt warn_on release
 
-LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-utils -lQtSolutions_SingleApplication-head
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
 
-INCLUDEPATH	+= ../libpcbsd/utils /usr/local/include
+INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 HEADERS	+= mainWin.h
 

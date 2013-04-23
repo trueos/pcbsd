@@ -3,8 +3,8 @@
 #include <qtextcodec.h>
 #include <qstylefactory.h>
 #include <qdesktopwidget.h>
-#include <qtsingleapplication.h>
 #include <QDebug>
+#include <pcbsd-ui.h>
 #include "mainWin.h"
 #include "../config.h"
 
