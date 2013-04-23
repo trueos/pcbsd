@@ -175,6 +175,7 @@ get_file_from_mirrors()
    _fSize="`expr ${_fSize} / 1024 2>/dev/null`"
    rm "/tmp/.fetch-size.$$" 2>/dev/null
    _time=1
+   if [ -z "$_fSize" ] ; then _fSize=0; fi
 
    ( aria2c -o ${aFile} -d ${aDir} -k 5M ${aStat} --check-certificate=false --file-allocation=none ${mirrorList} >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
    FETCH_PID=`ps -auwwwx | grep -v grep | grep "aria2c -o ${aFile}" | awk '{print $2}'`
