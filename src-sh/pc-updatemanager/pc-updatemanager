@@ -471,18 +471,6 @@ update_pkgs()
      exit_err "Invalid option $1 passed"
   fi
 
-  # Running from a GUI?
-  if [ -n "$PCFETCHGUI" ] ; then
-    # Setup EVENT_PIPE
-    EVENT_PIPE="/tmp/pkgpipe.$$"
-    export EVENT_PIPE
-    rc_halt "mkfifo $EVENT_PIPE"
-    echo "EVENT_PIPE: $EVENT_PIPE"
-
-    # Wait for QT to open the pipe file
-    sleep 5
-  fi
-
   # Lets pre-download all the packages
   download_cache_packages "pkg-static upgrade -U -n $1"
 
@@ -499,11 +487,6 @@ update_pkgs()
   fi
   if [ "$SYSTYPE" = "TRUEOS" ]; then 
     pc-extractoverlay server
-  fi
-
-  # Cleanup EVENT_PIPE
-  if [ -n "$PCFETCHGUI" ] ; then
-    rm $EVENT_PIPE
   fi
 
   if [ $result -ne 0 ] ; then
