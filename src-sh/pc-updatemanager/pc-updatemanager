@@ -484,10 +484,10 @@ update_pkgs()
   fi
 
   # Lets pre-download all the packages
-  download_cache_packages "pkg-static upgrade -L -n $1"
+  download_cache_packages "pkg-static upgrade -U -n $1"
 
   # Start the package update!
-  pkg-static upgrade -L -y ${1}
+  pkg-static upgrade -U -y ${1}
   result=$?
 
   # Lets now re-extract our overlay data to grab any adjusted port files
