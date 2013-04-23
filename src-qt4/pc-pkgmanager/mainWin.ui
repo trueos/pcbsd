@@ -1,300 +1,336 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>mainWin</class>
- <widget class="QDialog" name="mainWin">
+ <widget class="QMainWindow" name="mainWin">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
-    <height>464</height>
+    <width>757</width>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Package Manager</string>
+   <string>System Package Manager</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QStackedWidget" name="stackedTop">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <widget class="QWidget" name="ConfigPage">
-      <layout class="QGridLayout" name="gridLayout_9">
-       <item row="0" column="0">
-        <widget class="QTabWidget" name="tabUpdates">
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="systab">
-          <attribute name="title">
-           <string>Add / Remove Packages</string>
-          </attribute>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <item row="0" column="0">
-            <widget class="QGroupBox" name="groupUpdates">
-             <property name="title">
-              <string>System Packages</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_3">
-              <item row="0" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QRadioButton" name="radioBasic">
-                  <property name="text">
-                   <string>Basic</string>
-                  </property>
-                  <property name="checked">
-                   <bool>true</bool>
-                  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedTop">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="ConfigPage">
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="tabUpdates">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="systab">
+           <attribute name="title">
+            <string>Add / Remove Packages</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupUpdates">
+              <property name="title">
+               <string>System Packages</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <item row="1" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout">
+                 <item>
+                  <spacer name="spacer2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Expanding</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>223</width>
+                     <height>21</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushPkgApply">
+                   <property name="text">
+                    <string>&amp;Apply</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="0" column="0">
+                <widget class="QStackedWidget" name="stackedWidget">
+                 <property name="currentIndex">
+                  <number>0</number>
+                 </property>
+                 <widget class="QWidget" name="pageBasic">
+                  <layout class="QGridLayout" name="gridLayout_6">
+                   <item row="0" column="0">
+                    <widget class="QTreeWidget" name="treeMetaPkgs">
+                     <attribute name="headerVisible">
+                      <bool>false</bool>
+                     </attribute>
+                     <column>
+                      <property name="text">
+                       <string notr="true">1</string>
+                      </property>
+                     </column>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
-                </item>
-                <item>
-                 <widget class="QRadioButton" name="radioAdvanced">
-                  <property name="text">
-                   <string>Advanced</string>
-                  </property>
+                 <widget class="QWidget" name="pageAdv">
+                  <layout class="QGridLayout" name="gridLayout_7">
+                   <item row="0" column="0">
+                    <widget class="QListWidget" name="listWidgetAdv"/>
+                   </item>
+                  </layout>
                  </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="2" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <spacer name="spacer2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Expanding</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>223</width>
-                    <height>21</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushPkgApply">
-                  <property name="text">
-                   <string>&amp;Apply</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="0">
-               <widget class="QStackedWidget" name="stackedWidget">
-                <property name="currentIndex">
-                 <number>0</number>
-                </property>
-                <widget class="QWidget" name="pageBasic">
-                 <layout class="QGridLayout" name="gridLayout_6">
-                  <item row="0" column="0">
-                   <widget class="QTreeWidget" name="treeMetaPkgs">
-                    <attribute name="headerVisible">
-                     <bool>false</bool>
-                    </attribute>
-                   </widget>
-                  </item>
-                 </layout>
                 </widget>
-                <widget class="QWidget" name="pageAdv">
-                 <layout class="QGridLayout" name="gridLayout_7">
-                  <item row="0" column="0">
-                   <widget class="QListWidget" name="listWidgetAdv"/>
-                  </item>
-                 </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="pkgtab">
+           <attribute name="title">
+            <string>Package Updates</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupUpdatesPkgs">
+              <property name="title">
+               <string>Available Updates</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <item row="0" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="buttonRescanPkgs">
+                   <property name="text">
+                    <string>Re&amp;scan packages</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="pc-pkgmanager.qrc">
+                     <normaloff>:/view-refresh.png</normaloff>:/view-refresh.png</iconset>
+                   </property>
+                   <property name="flat">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <spacer name="spacer2_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Expanding</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>223</width>
+                     <height>21</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushUpdatePkgs">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="text">
+                    <string>&amp;Update packages</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="1" column="0">
+                <widget class="QTreeWidget" name="listViewUpdatesPkgs">
+                 <property name="indentation">
+                  <number>0</number>
+                 </property>
+                 <attribute name="headerCascadingSectionResizes">
+                  <bool>false</bool>
+                 </attribute>
+                 <attribute name="headerDefaultSectionSize">
+                  <number>160</number>
+                 </attribute>
+                 <column>
+                  <property name="text">
+                   <string>Package</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Old Version</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>New Version</string>
+                  </property>
+                 </column>
                 </widget>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
-         <widget class="QWidget" name="pkgtab">
-          <attribute name="title">
-           <string>Package Updates</string>
-          </attribute>
-          <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
-            <widget class="QGroupBox" name="groupUpdatesPkgs">
-             <property name="title">
-              <string>Available Updates</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_4">
-              <item row="0" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <item>
-                 <spacer name="horizontalSpacer_3">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="buttonRescanPkgs">
-                  <property name="text">
-                   <string>Re&amp;scan packages</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="pc-pkgmanager.qrc">
-                    <normaloff>:/view-refresh.png</normaloff>:/view-refresh.png</iconset>
-                  </property>
-                  <property name="flat">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="2" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <spacer name="spacer2_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Expanding</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>223</width>
-                    <height>21</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushUpdatePkgs">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="text">
-                   <string>&amp;Update packages</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="0">
-               <widget class="QTreeWidget" name="listViewUpdatesPkgs">
-                <property name="indentation">
-                 <number>0</number>
-                </property>
-                <attribute name="headerCascadingSectionResizes">
-                 <bool>false</bool>
-                </attribute>
-                <attribute name="headerDefaultSectionSize">
-                 <number>160</number>
-                </attribute>
-                <column>
-                 <property name="text">
-                  <string>Package</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>Old Version</string>
-                 </property>
-                </column>
-                <column>
-                 <property name="text">
-                  <string>New Version</string>
-                 </property>
-                </column>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="UpPage">
+       <layout class="QGridLayout" name="gridLayout_8">
+        <item row="0" column="0">
+         <widget class="QLabel" name="textStatus">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Installing updates</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
          </widget>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="UpPage">
-      <layout class="QGridLayout" name="gridLayout_8">
-       <item row="0" column="0">
-        <widget class="QLabel" name="textStatus">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Installing updates</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QProgressBar" name="progressUpdate">
-         <property name="value">
-          <number>24</number>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QTextEdit" name="textDisplayOut">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="html">
-          <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        </item>
+        <item row="1" column="0">
+         <widget class="QProgressBar" name="progressUpdate">
+          <property name="value">
+           <number>24</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QTextEdit" name="textDisplayOut">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="html">
+           <string notr="true">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushClose">
-       <property name="text">
-        <string>&amp;Close</string>
-       </property>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
-     </item>
-    </layout>
-   </item>
-  </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushClose">
+        <property name="text">
+         <string>&amp;Close</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>757</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_Quit"/>
+   </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="action_Basic"/>
+    <addaction name="action_Advanced"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_View"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Quit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+  <action name="action_Basic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Basic</string>
+   </property>
+  </action>
+  <action name="action_Advanced">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Advanced</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="pc-pkgmanager.qrc"/>

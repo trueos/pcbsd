@@ -36,7 +36,6 @@ void mainWin::ProgramInit(QString ch)
   connect(pushClose, SIGNAL(clicked()), this, SLOT(slotCloseClicked()));
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
-  progressUpdate->setHidden(true);
 
   QTimer::singleShot(200, this, SLOT(slotRescanPkgsClicked() ) );
   initMetaWidget();
@@ -118,8 +117,10 @@ void mainWin::slotUpdatePkgsClicked() {
   uPackages = false;
   doingUpdate=true;
 
+  // Init the pkg process
+  prepPkgProcess();
+
   // Create our runlist of package commands
-  pkgCmdList.clear();
   QStringList pCmds;
 
   if ( wDir.isEmpty() )
@@ -130,10 +131,17 @@ void mainWin::slotUpdatePkgsClicked() {
   // Setup our runList
   pkgCmdList << pCmds;
 
+  // Start the updating now
   startPkgProcess();
 
   textStatus->setText(tr("Starting package updates..."));
 
+}
+
+void mainWin::prepPkgProcess() {
+  pkgCmdList.clear();
+  textDisplayOut->clear();
+  pkgHasFailed=false;
 }
 
 void mainWin::startPkgProcess() {
@@ -182,30 +190,25 @@ void mainWin::slotReadPkgOutput() {
 
    while (uProc->canReadLine()) {
      line = uProc->readLine().simplified();
-     qDebug() << "Normal Line:" << line;
+     qDebug() << line;
+
      tmp = line;
      tmp.truncate(50);
-     if ( line.indexOf("to be downloaded") != -1 ) {
-       textStatus->setText(tr("Downloading packages..."));
-       curUpdate = 0;
-       progressUpdate->setValue(0);
-       continue;
-     }
-     if ( line.indexOf("Checking integrity") == 0 ) {
-       textStatus->setText(line);
-       uPackages = true;
-       dPackages = false;
-       curUpdate = 0;
-       progressUpdate->setValue(0);
-     }
+
+     // Flags we can parse out and not show the user
      if ( line.indexOf("FETCH: ") == 0 ) { 
 	progressUpdate->setValue(progressUpdate->value() + 1); 
 	tmp = line; 
 	tmp = tmp.remove(0, tmp.lastIndexOf("/") + 1); 
+        progressUpdate->setRange(0, 0);
+        progressUpdate->setValue(0);
+	curFileText = tr("Downloading: %1").arg(tmp); 
 	textStatus->setText(tr("Downloading: %1").arg(tmp)); 
         continue;
      } 
-     
+     if ( line.indexOf("FETCHDONE") == 0 )
+        continue;
+
      if ( line.indexOf("SIZE: ") == 0 ) {
           bool ok, ok2;
      	  line.replace("SIZE: ", "");
@@ -230,12 +233,36 @@ void mainWin::slotReadPkgOutput() {
 	      unit="KB";
             }
 
-            QString ProgressString=QString("%1" + unit + " of %2" + unit + " at %3").arg(cur).arg(tot).arg(speed);
+            QString ProgressString=QString("(%1" + unit + " of %2" + unit + " at %3)").arg(cur).arg(tot).arg(speed);
             progressUpdate->setRange(0, tot);
             progressUpdate->setValue(cur);
+	    textStatus->setText(curFileText + " " + ProgressString); 
          }
+         continue;
      }
 
+
+     // Now show output on GUI
+     textDisplayOut->insertPlainText(line + "\n");
+     textDisplayOut->moveCursor(QTextCursor::End);
+
+
+     // Any other flags to look for?
+     /////////////////////////////////////////////////////
+     if ( line.indexOf("to be downloaded") != -1 ) {
+       textStatus->setText(tr("Downloading packages..."));
+       curUpdate = 0;
+       progressUpdate->setValue(0);
+       continue;
+     }
+     if ( line.indexOf("Checking integrity") == 0 ) {
+       textStatus->setText(line);
+       uPackages = true;
+       dPackages = false;
+       curUpdate = 0;
+       progressUpdate->setValue(0);
+     }
+     
      if ( uPackages ) {
        if ( line.indexOf("Upgrading") == 0 ) {
          textStatus->setText(line);
@@ -248,45 +275,10 @@ void mainWin::slotReadPkgOutput() {
    } // end of while
 }
 
-// Function to read output of pipefile
-void mainWin::slotReadEventPipe(int fd) {
-  QString tmp, fname, cur, tot;
-  bool ok, ok2;
-  char buff[4028];
-  int totread = read(fd, buff, 4020);
-  buff[totread]='\0';
-  QString line = buff;
-  line = line.simplified();
-  //qDebug() << "Found line:" << line;
-  
-  if ( line.indexOf("INFO_FETCH") != -1  && dPackages ) {
-     tmp = line;
-     fname = tmp.section(":", 4, 4);
-     fname.remove(0, fname.lastIndexOf('/') + 1);
-     fname  = fname.section('"', 0, 0);
-     cur = tmp.section(":", 5, 5);
-     cur = cur.remove(',');
-     cur = cur.section(" ", 1, 1);
-     cur = cur.simplified();
-     tot = tmp.section(":", 6, 6);
-     tot = tot.simplified();
-     tot = tot.remove(',');
-     tot = tot.section("}", 0, 0);
-
-     textStatus->setText(tr("Downloading %1").arg(fname));
-     tot.toInt(&ok);
-     cur.toInt(&ok2);
-     if ( ok && ok2 )
-     { 
-       progressUpdate->setRange(0, tot.toInt(&ok2));
-       progressUpdate->setValue(cur.toInt(&ok2));
-     }
-     
-     //qDebug() << "File:" << fname << "cur" << cur << "tot" << tot;
-  }
-}
-
 void mainWin::slotPkgDone() {
+
+  if ( uProc->exitCode() != 0 )
+    pkgHasFailed=true;
 
   // Run the next command on the stack if necessary
   if (  pkgCmdList.size() > 1 ) {
@@ -302,8 +294,17 @@ void mainWin::slotPkgDone() {
      streamTrig << "INSTALLFINISHED: ";
   }
 
-  if ( uProc->exitCode() != 0 )
-    QMessageBox::warning(this, tr("Failed pkgng command!"), tr("The package changes failed!"));
+  if ( pkgHasFailed ) {
+    if ( QMessageBox::Save == QMessageBox::warning(this, tr("Failed pkgng command!"), tr("The package commands failed. Do you wish to save the output to a log file?"), QMessageBox::Save | QMessageBox::Discard, QMessageBox::Save) ) {
+       QFile file( "/tmp/pkg-output.log" );
+       if ( file.open( QIODevice::WriteOnly ) ) {
+         QTextStream stream( &file );
+         stream << textDisplayOut->toPlainText();
+         file.close();
+       }
+    }
+  } else
+    QMessageBox::warning(this, tr("Finished!"), tr("Package changes complete!" ));
 
   stackedTop->setCurrentIndex(0);
 
@@ -511,8 +512,10 @@ void mainWin::saveMetaPkgs()
 
 void mainWin::startMetaChanges()
 {
- // Create our runlist of package commands
-  pkgCmdList.clear();
+
+  // Init the pkg process
+  prepPkgProcess();
+  // Create our runlist of package commands
   QStringList pCmds;
 
   if ( ! delPkgs.isEmpty() ) {

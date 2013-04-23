@@ -21,12 +21,12 @@
 const QString PATCHTMPDIR_DEFAULT( PREFIX + "/tmp" );
 #define SYSTRIGGER "/tmp/.sysupdatetraytrigger"
 
-class mainWin : public QDialog, private Ui::mainWin
+class mainWin : public QMainWindow, private Ui::mainWin
 {
         Q_OBJECT
 
 public:
-        mainWin() : QDialog()
+        mainWin() : QMainWindow()
         {
           setupUi(this);
         }
@@ -43,7 +43,6 @@ private slots:
     // Generic pkgng handlers
     void slotReadPkgOutput();
     void slotPkgDone();
-    void slotReadEventPipe(int fd);
 
     // Meta-Packages
     void slotFinishLoadingMetaPkgs();
@@ -60,8 +59,10 @@ private slots:
 
 private:
     // Generic pkg process handlers
+    void prepPkgProcess();
     void startPkgProcess();
     QList<QStringList> pkgCmdList;
+    bool pkgHasFailed;
 
     // Updates
     void doUpdates();
@@ -101,15 +102,11 @@ private:
 
     QList<QStringList> metaPkgList;
     QStringList tmpMetaPkgList;
-    QProcess *addMetaProc;
-    QProcess *delMetaProc;
-    QProcess *getMetaProc;
-    QProgressDialog *delprogress;
-    QProgressDialog *addprogress;
     QString addPkgs;
     QString delPkgs;
     QString pkgSource;
-    QString Arch;
+    QString curFileText;
+    QProcess *getMetaProc;
     QString chrootArg1;
     QString chrootArg2;
     bool canceled;
