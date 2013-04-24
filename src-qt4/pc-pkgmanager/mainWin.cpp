@@ -183,6 +183,10 @@ void mainWin::slotUpdatePkgsClicked() {
 
 }
 
+QString mainWin::getConflictDetailText() {
+  return QString();
+}
+
 void mainWin::prepPkgProcess() {
   pkgCmdList.clear();
   textDisplayOut->clear();
@@ -253,14 +257,14 @@ void mainWin::slotReadPkgOutput() {
 	QString ans;
 	tmp = line; 
      	tmp.replace("PKGREPLY: ", "");
-        if ( QMessageBox::Yes == QMessageBox::warning(this, tr("Package Conflicts"),
-          tr("The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?") + "\n" + ConflictList,
-          QMessageBox::Yes|QMessageBox::No,
-          QMessageBox::Yes) ) {
-
+        QMessageBox msgBox;
+ 	msgBox.setText(tr("The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?") + "\n" + ConflictList);
+        msgBox.setStandardButtons(QMessageBox::Yes|QMessageBox::No);
+   	msgBox.setDetailedText(getConflictDetailText());
+        msgBox.setDefaultButton(QMessageBox::No);
+        if ( msgBox.exec() == QMessageBox::Yes) {
 	  // We will try to fix conflicts
 	  ans="yes";
-	   
         } else {
 	  // We will fail :(
           QMessageBox::warning(this, tr("Package Conflicts"),
@@ -276,6 +280,7 @@ void mainWin::slotReadPkgOutput() {
            streamTrig << ans;
 	   pkgTrig.close();
 	}
+	continue;
      }
 
      if ( line.indexOf("FETCH: ") == 0 ) { 

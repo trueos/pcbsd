@@ -66,6 +66,7 @@ private:
     void startPkgProcess();
     QList<QStringList> pkgCmdList;
     bool pkgHasFailed;
+    QString getConflictDetailText();
 
     // Updates
     void doUpdates();
