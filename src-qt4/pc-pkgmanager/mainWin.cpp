@@ -26,7 +26,6 @@
 void mainWin::ProgramInit(QString ch)
 {
   // Set any warden directories
-  doingUpdate=false;
   lastError="";
   wDir = ch;
 
@@ -52,8 +51,6 @@ void mainWin::slotApplyClicked() {
 }
 
 void mainWin::checkMPKGUpdates() {
-  if ( doingUpdate )
-     return;
 
   QString line, tmp, name, pkgname, pkgover, pkgnver;
   QStringList up, listPkgs;
@@ -115,7 +112,6 @@ void mainWin::slotCloseClicked() {
 void mainWin::slotUpdatePkgsClicked() {
   dPackages = false;
   uPackages = false;
-  doingUpdate=true;
 
   // Init the pkg process
   prepPkgProcess();

@@ -73,7 +73,6 @@ private:
     int totUpdate;
     bool dPackages;
     bool uPackages;
-    bool doingUpdate;
     QProcess *uProc;
     QList<QStringList> listUpdates;
     QString wDir, wIP;
