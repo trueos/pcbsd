@@ -196,6 +196,43 @@ void mainWin::slotReadPkgOutput() {
      tmp.truncate(50);
 
      // Flags we can parse out and not show the user
+
+     // Check if we have crashed into a conflict and ask the user what to do
+     if ( line.indexOf("PKGCONFLICTS: ") == 0 ) {
+	tmp = line; 
+     	tmp.replace("PKGCONFLICTS: ", "");
+        ConflictList = tmp;
+        continue;
+     }
+     if ( line.indexOf("PKGREPLY: ") == 0 ) {
+	QString ans;
+	tmp = line; 
+     	tmp.replace("PKGREPLY: ", "");
+        if ( QMessageBox::Yes == QMessageBox::warning(this, tr("Package Conflicts"),
+          tr("The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?") + "\n" + ConflictList,
+          QMessageBox::Yes|QMessageBox::No,
+          QMessageBox::Yes) ) {
+
+	  // We will try to fix conflicts
+	  ans="yes";
+	   
+        } else {
+	  // We will fail :(
+          QMessageBox::warning(this, tr("Package Conflicts"),
+          tr("You may need to manually fix the conflicts before trying again."),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+	  ans="no";
+        }
+
+        QFile pkgTrig( tmp );
+        if ( pkgTrig.open( QIODevice::WriteOnly ) ) {
+           QTextStream streamTrig( &pkgTrig );
+           streamTrig << ans;
+	   pkgTrig.close();
+	}
+     }
+
      if ( line.indexOf("FETCH: ") == 0 ) { 
 	progressUpdate->setValue(progressUpdate->value() + 1); 
 	tmp = line; 
@@ -295,14 +332,13 @@ void mainWin::slotPkgDone() {
   }
 
   if ( pkgHasFailed ) {
-    if ( QMessageBox::Save == QMessageBox::warning(this, tr("Failed pkgng command!"), tr("The package commands failed. Do you wish to save the output to a log file?"), QMessageBox::Save | QMessageBox::Discard, QMessageBox::Save) ) {
-       QFile file( "/tmp/pkg-output.log" );
-       if ( file.open( QIODevice::WriteOnly ) ) {
-         QTextStream stream( &file );
-         stream << textDisplayOut->toPlainText();
-         file.close();
-       }
+    QFile file( "/tmp/pkg-output.log" );
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+       stream << textDisplayOut->toPlainText();
+       file.close();
     }
+    QMessageBox::warning(this, tr("Failed!"), tr("The package commands failed. A copy of the output was saved to /tmp/pkg-output.log"));
   } else
     QMessageBox::warning(this, tr("Finished!"), tr("Package changes complete!" ));
 

@@ -109,6 +109,7 @@ private:
     QProcess *getMetaProc;
     QString chrootArg1;
     QString chrootArg2;
+    QString ConflictList;
     bool canceled;
     QMenu *popup;
     dialogInfo *dIB;

@@ -481,3 +481,66 @@ check_ip()
 
   return 0
 };
+
+check_pkg_conflicts()
+{
+  # Lets test if we have any conflicts
+  pkg-static ${1} 2>/tmp/.pkgConflicts.$$ >/tmp/.pkgConflicts.$$
+  if [ $? -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+ 
+  # Found conflicts, suprise suprise, yet another reason I hate packages
+  # Lets start building a list of the old packages we can prompt to remove
+
+  # Nice ugly sed line, sure this can be neater
+  cat /tmp/.pkgConflicts.$$ | grep 'WARNING: locally installed' \
+	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' | sort | uniq \
+	> /tmp/.pkgConflicts.$$.2
+  while read line
+  do
+    cList="$line $cList"
+  done < /tmp/.pkgConflicts.$$.2
+  rm /tmp/.pkgConflicts.$$.2 
+  rm /tmp/.pkgConflicts.$$
+
+  if [ "$GUI_FETCH_PARSING" != "YES" -a "$PBI_FETCH_PARSING" != "YES" -a -z "$PCFETCHGUI" ] ; then
+        echo "The following packages will conflict with your pkg command:"
+        echo "-------------------------------------"
+        echo "$cList" | more
+	echo "Do you wish to remove them automatically?"
+	echo -e "Default yes: (y/n)\c"
+        read tmp
+	if [ "$tmp" != "y" -a "$tmp" != "Y" ] ; then return 1 ; fi
+  else
+	echo "PKGCONFLICTS: $cList"
+	echo "PKGREPLY: /tmp/pkgans.$$"
+	while : 
+        do
+	  if [ -e "/tmp/pkgans.$$" ] ; then
+	    ans=`cat /tmp/pkgans.$$`
+            if [ "$ans" = "yes" ] ; then 
+	       break
+            else
+               return 1
+            fi
+          fi 
+	  sleep 3
+	done
+  fi
+
+  # Lets auto-resolve these bad-boys
+  # Right now the logic is pretty simple, you conflict, you die
+  for bPkg in $cList
+  do
+     # Nuked!
+     echo "Removing conflicting package: $bPkg"
+     pkg delete -q -y -f ${bPkg}
+  done
+
+  # Lets test if we still have any conflicts
+  pkg-static ${1} 2>/dev/null >/dev/null
+  if [ $? -eq 0 ] ; then return 0; fi
+
+  # Crapola, we still have conflicts, lets warn and bail
+  echo "ERROR: pkg ${1} is still reporting conflicts... Resolve these manually and try again"
+  return 1
+}
