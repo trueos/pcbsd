@@ -74,29 +74,17 @@ add_metapkgs() {
 	  sh ${MPDIR}/${_apkg}/pre-install.sh >/dev/null 2>/dev/null
 	fi
 
-        # Running from a GUI?
-  	if [ -n "$PCFETCHGUI" ] ; then
-    	  # Setup EVENT_PIPE
-    	  EVENT_PIPE="/tmp/pkgpipe.$$"
-    	  export EVENT_PIPE
-    	  mkfifo $EVENT_PIPE
-    	  echo "EVENT_PIPE: $EVENT_PIPE"
-
-    	  # Wait for QT to open the pipe file
-    	  sleep 5
-
-  	fi
-
         # Lets pre-download all packages
         download_cache_packages "pkg-static install -U -n $pkgName"
 
-        # Time to run pkgng and let it install packages!
-	pkg install -yLf "$pkgName"
-
-	# Cleanup EVENT_PIPE
-  	if [ -n "$PCFETCHGUI" ] ; then
-    	  rm $EVENT_PIPE
+	# Lets check for any conflicts doing this install
+	check_pkg_conflicts "install -U -F -y $pkgName"
+	if [ $? -ne 0 ] ; then
+     		exit 1
   	fi
+
+        # Time to run pkgng and let it install packages!
+	pkg install -yUf "$pkgName"
 
 	# Make sure the program appears fully installed now, if not set error
 	stat_metapkg ${_apkg}
