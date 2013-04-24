@@ -474,6 +474,11 @@ update_pkgs()
   # Lets pre-download all the packages
   download_cache_packages "pkg-static upgrade -U -n $1"
 
+  check_pkg_conflicts "upgrade -U -F -y $1"
+  if [ $? -ne 0 ] ; then
+     exit 1
+  fi
+
   # Start the package update!
   pkg-static upgrade -U -y ${1}
   result=$?
