@@ -54,8 +54,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>600</width>
-         <height>474</height>
+         <width>276</width>
+         <height>149</height>
         </rect>
        </property>
        <attribute name="icon">
@@ -1681,8 +1681,6 @@
     <property name="title">
      <string>System</string>
     </property>
-    <addaction name="actionGet_Ports"/>
-    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">

@@ -38,7 +38,6 @@ private slots:
     void slotSingleInstance();
     void refreshGUI(QString);
     //menubar functions
-    void on_actionGet_Ports_triggered();
     void on_actionExit_triggered();
     void on_actionNew_Module_triggered();
     void on_actionLoad_Module_triggered();
@@ -59,12 +58,14 @@ private slots:
     void on_push_addportafter_clicked();
     void on_push_rmportafter_clicked();
     void on_push_config_save_clicked();
+    void slotOptionChanged(QString tmp="");
     //resources functions
     void slotResourceChanged();
     void on_push_resources_add_clicked();
     void on_push_resources_remove_clicked();
     void on_push_resources_mkwrapper_clicked();
     void slotResourceScriptSaved();
+    void slotResourceScriptChanged();
     //XDG functions
     void slotXdgTypeChanged();
     void slotXdgFileChanged();
@@ -74,11 +75,13 @@ private slots:
     void on_push_xdg_savechanges_clicked();
     void on_push_xdg_savenew_clicked();
     void on_push_xdg_clearentry_clicked();
+    void slotXDGOptionChanged(QString tmp="");
     //Scripts functions
     void slotScriptChanged(int);
     void on_push_scripts_create_clicked();
     void on_push_scripts_remove_clicked();
     void on_push_scripts_save_clicked();
+    void slotScriptModified();
     //External-Links functions
     void on_push_el_add_clicked();
     void on_push_el_remove_clicked();

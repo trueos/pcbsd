@@ -5,7 +5,6 @@
 #include "newModuleDialog.h"
 #include "preferencesDialog.h"
 #include "aboutDialog.h"
-#include "portsDialog.h"
 
 MainGUI::MainGUI(QWidget *parent) :
     QMainWindow(parent),
@@ -91,6 +90,31 @@ MainGUI::MainGUI(QWidget *parent) :
       SetupDefaults(); //load program defaults
       refreshGUI("all"); //make items visible/invisible as necessary
       
+      //Connect "option changed" signals to the respective slot
+      // PBI tab
+      connect(ui->line_progname,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progauthor,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progversion,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progweb,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progdir,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_makeport,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->edit_makeopts,SIGNAL(textChanged()),this,SLOT(slotOptionChanged()) );
+      connect(ui->check_requiresroot, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
+      // Rwsources tab
+      connect(ui->text_resources_script,SIGNAL(textChanged()),this,SLOT(slotResourceScriptChanged()) );
+      // XDG tab
+      connect(ui->line_xdg_name,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->line_xdg_mimepatterns,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->line_xdg_exec,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->line_xdg_menu,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->check_xdg_nodisplay,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
+      connect(ui->check_xdg_requiresroot,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
+      connect(ui->check_xdg_terminal,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
+      connect(ui->list_xdg_icon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      // Scripts tab
+      connect(ui->text_scripts_edit,SIGNAL(textChanged()),this,SLOT(slotScriptModified()) );
+        
 }
 
 MainGUI::~MainGUI()
@@ -226,6 +250,7 @@ void MainGUI::refreshGUI(QString item){
         menu_addOpt.addAction(opts[i]);
       }
     }
+    ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
   }
   // -----RESOURCES--------
   if( doall || doeditor || (item == "resources")){
@@ -277,6 +302,7 @@ void MainGUI::refreshGUI(QString item){
       ui->text_scripts_edit->setVisible(FALSE);
     }
     if(currentIndex == 0){ ui->push_scripts_create->setVisible(FALSE); }
+    ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
     
   }
   //------EXTERNAL-LINKS------
@@ -345,10 +371,6 @@ void MainGUI::refreshGUI(QString item){
    MENU OPTIONS
   -----------------------------------
 */
-void MainGUI::on_actionGet_Ports_triggered(){
-  portsDialog dlg(this,settings->value("progdir")+"/ports",settings->value("su_cmd") );
-  dlg.exec();
-}
 
 void MainGUI::on_actionExit_triggered(){
   qDebug() << "Close EasyPBI requested";
@@ -527,6 +549,7 @@ void MainGUI::on_push_change_makeport_clicked(){
   }
   //Save the port info to the GUI
   ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_change_progdir_clicked(){
@@ -535,6 +558,7 @@ void MainGUI::on_push_change_progdir_clicked(){
   if(dirSel.isEmpty()){return;} //action cancelled or closed	
   //Save the port info to the GUI
   ui->line_progdir->setText(dirSel);
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::slotAddMakeOption(QAction* act){
@@ -585,6 +609,7 @@ void MainGUI::slotAddMakeOption(QAction* act){
   }
   //Now put the new options list back onto the GUI
   ui->edit_makeopts->setPlainText(curr.join("\n"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_addportbefore_clicked(){
@@ -603,6 +628,7 @@ void MainGUI::on_push_addportbefore_clicked(){
   //Save the port info to the GUI
   if(ui->list_portbefore->count() == 1 && ui->list_portbefore->currentText().isEmpty() ){ ui->list_portbefore->clear(); }
   ui->list_portbefore->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_rmportbefore_clicked(){
@@ -610,6 +636,7 @@ void MainGUI::on_push_rmportbefore_clicked(){
   if(index != -1){
     ui->list_portbefore->removeItem(index);
   }
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_addportafter_clicked(){
@@ -628,6 +655,7 @@ void MainGUI::on_push_addportafter_clicked(){
   //Save the port info to the GUI
   if(ui->list_portafter->count() == 1 && ui->list_portafter->currentText().isEmpty() ){ ui->list_portafter->clear(); }
   ui->list_portafter->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_rmportafter_clicked(){
@@ -635,6 +663,7 @@ void MainGUI::on_push_rmportafter_clicked(){
   if(index != -1){
     ui->list_portafter->removeItem(index);
   }
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_config_save_clicked(){
@@ -679,6 +708,12 @@ void MainGUI::on_push_config_save_clicked(){
     refreshGUI("pbiconf");
   }
 }
+
+void MainGUI::slotOptionChanged(QString tmp){
+  tmp.clear(); //just to remove compiler warning about unused variable
+  ui->push_config_save->setEnabled(TRUE);	
+}
+
 /*------------------------------------------------
    RESOURCE EDITOR OPTIONS
   -------------------------------------------------
@@ -716,7 +751,8 @@ void MainGUI::slotResourceChanged(){
       ui->label_resources_description->setVisible(FALSE);
       ui->label_resources_icon->setVisible(FALSE);
     }
-  }	  
+  }
+  ui->push_resources_savewrapper->setEnabled(FALSE);
   
 }
 
@@ -771,6 +807,11 @@ void MainGUI::slotResourceScriptSaved(){
   QStringList contents = ui->text_resources_script->toPlainText().split("\n");
   //overwrite the resource with the new contents
   ModBuild::createFile(filePath,contents);
+  ui->push_resources_savewrapper->setEnabled(FALSE);
+}
+
+void MainGUI::slotResourceScriptChanged(){
+  ui->push_resources_savewrapper->setEnabled(TRUE);	
 }
 /*------------------------------------------------
    XDG EDITOR OPTIONS
@@ -861,6 +902,7 @@ void MainGUI::slotXdgFileChanged(){
     ui->check_xdg_nodisplay->setChecked(FALSE);
     ui->check_requiresroot->setChecked(FALSE);
     ui->push_xdg_savechanges->setEnabled(FALSE);
+    ui->push_xdg_savenew->setEnabled(FALSE);
     //Make sure we don't have any of the structures loaded from previously
     currentModule->loadDesktop("");
     currentModule->loadMenu("");
@@ -868,7 +910,6 @@ void MainGUI::slotXdgFileChanged(){
     //Now return
     return; 
   }
-  ui->push_xdg_savechanges->setEnabled(TRUE);
   //Now setup the UI as appropriate
   if(ui->radio_xdg_desktop->isChecked()){
     //Load the file
@@ -944,6 +985,8 @@ void MainGUI::slotXdgFileChanged(){
   }else{
     //do nothing, unknown radio button selected (or none)
   }
+  ui->push_xdg_savechanges->setEnabled(FALSE);
+  ui->push_xdg_savenew->setEnabled(FALSE);
 }
 
 void MainGUI::slotAddMenuCat(QAction* act){
@@ -1151,6 +1194,12 @@ void MainGUI::checkMime(){
     }
 }
 
+void MainGUI::slotXDGOptionChanged(QString tmp){
+  tmp.clear(); //remove warning about unused variables
+  ui->push_xdg_savechanges->setEnabled(TRUE);
+  ui->push_xdg_savenew->setEnabled(TRUE);
+}
+
 /*------------------------------------------------
    SCRIPTS EDITOR OPTIONS
   -------------------------------------------------
@@ -1167,6 +1216,7 @@ void MainGUI::on_push_scripts_create_clicked(){
   ui->push_scripts_save->setVisible(TRUE);
   ui->text_scripts_edit->setVisible(TRUE);
   ui->text_scripts_edit->clear();
+  ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
 }
 
 void MainGUI::on_push_scripts_remove_clicked(){
@@ -1192,6 +1242,10 @@ void MainGUI::on_push_scripts_save_clicked(){
   }
   //Now refresh the UI
   refreshGUI("scripts");
+}
+
+void MainGUI::slotScriptModified(){
+  ui->push_scripts_save->setEnabled(TRUE);	
 }
 /*------------------------------------------------
    EXTERNAL-LINKS EDITOR OPTIONS
