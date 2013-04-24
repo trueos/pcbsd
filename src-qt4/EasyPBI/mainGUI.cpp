@@ -151,11 +151,11 @@ void MainGUI::SetupDefaults(){
     //Pop up a warning box if some external resources are not available
     bool chkOK = (settings->check("isMakeportAvailable") && settings->check("iscreateAvailable") && settings->check("isSUavailable") );
     if( !chkOK ){
-	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI preferences to correct this deficiency.") );
+	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
     //Pop up a warning about a missing ports tree
     if( !settings->check("isPortsAvailable") ){
-	QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the appropriate EasyPBI menu option to correct this deficiency.") );
+	QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
     //Set a couple more internal flags
     PBI_BUILDING_NOW.clear();

@@ -293,10 +293,12 @@ void PreferencesDialog::on_push_resetutils_clicked(){
 
 // ======  Ports Tab ======
 void PreferencesDialog::on_list_portsDirectories_currentIndexChanged(int index){
+  index = 0; //Remove compiler warning about unused variable
   updateGUI();	
 }
 
 void PreferencesDialog::on_line_otherPortsDir_textChanged(QString text){
+  text.clear(); //Remove compiler warning about unused variable
   updateGUI();	
 }
 void PreferencesDialog::on_tool_otherPortsDir_clicked(){

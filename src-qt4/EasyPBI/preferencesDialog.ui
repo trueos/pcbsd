@@ -560,7 +560,7 @@
              <item row="0" column="0">
               <widget class="QLabel" name="label">
                <property name="text">
-                <string>Module Dir</string>
+                <string>Modules</string>
                </property>
               </widget>
              </item>
@@ -588,7 +588,7 @@
              <item row="1" column="0">
               <widget class="QLabel" name="label_2">
                <property name="text">
-                <string>Resources Dir</string>
+                <string>Resources</string>
                </property>
               </widget>
              </item>
@@ -616,7 +616,7 @@
              <item row="2" column="0">
               <widget class="QLabel" name="label_10">
                <property name="text">
-                <string>Icon FIle</string>
+                <string>Default Icon</string>
                </property>
               </widget>
              </item>
