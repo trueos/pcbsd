@@ -20,6 +20,7 @@
 #include <QTextStream>
 #include <pcbsd-utils.h>
 #include <pcbsd-ui.h>
+#include <QSettings>
 #include "mainWin.h"
 #include "../config.h"
 
@@ -35,8 +36,48 @@ void mainWin::ProgramInit(QString ch)
   connect(pushClose, SIGNAL(clicked()), this, SLOT(slotCloseClicked()));
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
+  connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
+  connect(action_Basic, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
+  connect(action_Advanced, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
+
+  // Setup the action group
+  viewGroup = new QActionGroup(this);
+  viewGroup->addAction(action_Basic);
+  viewGroup->addAction(action_Advanced);
+
+  treeMetaPkgs->setContextMenuPolicy(Qt::CustomContextMenu);
+  connect(treeMetaPkgs, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(slotMetaRightClick()) );
 
   QTimer::singleShot(200, this, SLOT(slotRescanPkgsClicked() ) );
+
+  QSettings settings("PC-BSD", "PackageManager");
+  QString curMode = settings.value("view/mode").toString();
+  if ( curMode == "Advanced" )
+  {
+    stackedPkgView->setCurrentIndex(1);
+    action_Basic->setChecked(false);
+    action_Advanced->setChecked(true);
+  }
+
+  initMetaWidget();
+}
+
+void mainWin::slotViewChanged()
+{
+  QString mode;
+  if ( action_Basic->isChecked() ) {
+    stackedPkgView->setCurrentIndex(0);
+    mode="Basic";
+  } else {
+    mode="Advanced";
+    stackedPkgView->setCurrentIndex(1);
+  }
+
+  // Save the mode as the default at next open
+  QSettings settings("PC-BSD", "PackageManager");
+  settings.setValue("view/mode", mode);
+
+  // Changed view, lets refresh
   initMetaWidget();
 }
 
@@ -47,6 +88,14 @@ void mainWin::slotRescanPkgsClicked()
 }
 
 void mainWin::slotApplyClicked() {
+  // Running in basic mode
+  if ( stackedPkgView->currentIndex() == 0 )
+  {
+      saveMetaPkgs();   
+  } else {
+  // Running in advanced mode
+
+  }
 
 }
 
@@ -338,7 +387,14 @@ void mainWin::slotPkgDone() {
   } else
     QMessageBox::warning(this, tr("Finished!"), tr("Package changes complete!" ));
 
+  // Clear out the old commands
+  pkgCmdList.clear();
+
+  // Switch back to our main display
   stackedTop->setCurrentIndex(0);
+
+  // Re-init the meta-widget
+  initMetaWidget();
 
 }
 
@@ -350,11 +406,16 @@ void mainWin::initMetaWidget()
 {
   qDebug() << "Starting metaWidget...";
 
-  populateMetaPkgs();
+  // Running in basic mode
+  if ( stackedPkgView->currentIndex() == 0 )
+  {
+    populateMetaPkgs();
+    // Connect our slots
+  } else {
+  // Running in advanced mode
 
-  // Connect our slots
-  treeMetaPkgs->setContextMenuPolicy(Qt::CustomContextMenu);
-  connect(treeMetaPkgs, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(slotMetaRightClick()) );
+  }
+
 
 
 }

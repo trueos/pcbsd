@@ -38,7 +38,6 @@ public slots:
     void slotSingleInstance();
 
 private slots:
-    void slotCloseClicked();
     
     // Generic pkgng handlers
     void slotReadPkgOutput();
@@ -56,6 +55,10 @@ private slots:
     void slotDeskPkgsChanged(QTreeWidgetItem *aItem, int __unused);
     void slotMetaRightClick();
     void slotMetaViewPkgs();
+
+    // UI Stuff
+    void slotViewChanged();
+    void slotCloseClicked();
 
 private:
     // Generic pkg process handlers
@@ -112,6 +115,7 @@ private:
     bool canceled;
     QMenu *popup;
     dialogInfo *dIB;
+    QActionGroup *viewGroup;
 
 signals:
 
