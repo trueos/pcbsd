@@ -159,7 +159,12 @@ get_file_from_mirrors()
    local aFile=`basename $_lf`
 
    # Server status flag
-   local aStatFile=${HOME}/.pcbsd-aria-stat
+   if [ `id -u` = "0" ] ; then
+      aStatFile=/root/.pcbsd-aria-stat
+   else
+      aStatFile=${HOME}/.pcbsd-aria-stat
+   fi
+
    if [ -e "$aStatFile" ] ; then
      local aStat="--server-stat-of=$aStatFile --server-stat-if=$aStatFile --uri-selector=adaptive --server-stat-timeout=864000"
    else
