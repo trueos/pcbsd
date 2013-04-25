@@ -426,7 +426,7 @@ void mainWin::slotPkgDone() {
 }
 
 /*****************************************
-Code for meta-package (Basic Mode)
+Code for package stuff
 ******************************************/
 
 void mainWin::initMetaWidget()
@@ -459,15 +459,98 @@ void mainWin::populateNGPkgs()
   getNGProc = new QProcess();
   qDebug() << "Searching for pkgs...";
   connect( getNGProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotGetNGPackageDataOutput()) );
-  connect( getNGProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishLoadingNGPkgs()) );
+  connect( getNGProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotGetNGInstalledPkgs()) );
   getNGProc->setProcessChannelMode(QProcess::MergedChannels);
   if ( wDir.isEmpty() )
-    getNGProc->start(QString("pkg"), QStringList() << "rquery" "-a" "%n:::%v:::%o:::%m:::%sb");
+    getNGProc->start(QString("pkg"), QStringList() << "rquery" << "-a" << "%o:::%n-%v:::%c:::%sh");
   else
-    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" "rquery" "-a" "%n:::%v:::%o:::%m:::%sb");
+    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" << "rquery" << "-a" << "%o:::%n-%v:::%c:::%sh");
 
 }
 
+void mainWin::slotGetNGPackageDataOutput()
+{
+   while (getNGProc->canReadLine())
+     tmpPkgList << getNGProc->readLine().simplified();
+}
+
+void mainWin::slotGetNGInstalledDataOutput()
+{
+   while (getNGProc->canReadLine())
+     pkgList << getNGProc->readLine().simplified();
+}
+
+void mainWin::slotGetNGInstalledPkgs() {
+
+  getNGProc = new QProcess();
+  qDebug() << "Searching for installed pkgs...";
+  connect( getNGProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotGetNGInstalledDataOutput()) );
+  connect( getNGProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishLoadingNGPkgs()) );
+  getNGProc->setProcessChannelMode(QProcess::MergedChannels);
+  if ( wDir.isEmpty() )
+    getNGProc->start(QString("pkg"), QStringList() << "info" << "-aq" );
+  else
+    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" "info" "-aq");
+
+}
+
+void mainWin::slotFinishLoadingNGPkgs()
+{
+  treeNGPkgs->clear();
+
+  addNGItems();
+
+  pushPkgApply->setEnabled(false);
+
+  connect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotEnableApply()));
+}
+
+void mainWin::slotEnableApply()
+{
+  pushPkgApply->setEnabled(true);
+}
+
+void mainWin::addNGItems()
+{
+   QString curCat, cat, name, pkgname, desc, size;
+
+   // We like to add alphabetically
+   tmpPkgList.sort();
+
+   QTreeWidgetItem *catItem;
+
+   // Lets start adding packages to the tree widget
+   for (int i = 0; i < tmpPkgList.size(); ++i) {
+	name = cat = tmpPkgList.at(i).section(":::", 0,0);
+	cat=cat.section("/", 0, 0);
+	name=name.section("/", 1, 1);
+	pkgname = tmpPkgList.at(i).section(":::", 1,1);
+	desc = tmpPkgList.at(i).section(":::", 2,2);
+	size = tmpPkgList.at(i).section(":::", 3,3);
+
+	// Check if we need to add a top-level category
+	if ( cat != curCat )
+        {
+	   qDebug() << "Adding cat: " + cat;
+           catItem = new QTreeWidgetItem(QStringList() << cat);
+           treeNGPkgs->addTopLevelItem(catItem);
+           curCat = cat;
+        }
+ 
+	// Now lets create the item and attach to the category
+        QTreeWidgetItem *pkgItem = new QTreeWidgetItem();
+        pkgItem->setText(0, name + " (" + pkgname + ") - " + size );
+        pkgItem->setToolTip(0, desc);
+
+        if ( pkgList.indexOf(pkgname) != -1 )
+          pkgItem->setCheckState(0, Qt::Checked);
+        else
+          pkgItem->setCheckState(0, Qt::Unchecked);
+  
+        catItem->addChild(pkgItem);
+   }
+
+}
 
 // Display found meta-pkg data
 void mainWin::populateMetaPkgs()
@@ -487,7 +570,7 @@ void mainWin::populateMetaPkgs()
   connect( getMetaProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotGetPackageDataOutput()) );
   connect( getMetaProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishLoadingMetaPkgs()) );
   getMetaProc->setProcessChannelMode(QProcess::MergedChannels);
-  getMetaProc->start(QString("pc-metapkgmanager"), QStringList() << chrootArg1 << chrootArg2 << "list");
+  getMetaProc->start(QString("pc-metapkgmanager"), QStringList() << "list");
 
 }
 
@@ -501,6 +584,8 @@ void mainWin::slotFinishLoadingMetaPkgs()
   treeMetaPkgs->clear();
 
   addTreeItems(QString()); 
+
+  pushPkgApply->setEnabled(false);
 
   connect(treeMetaPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotDeskPkgsChanged(QTreeWidgetItem *, int)));
 }

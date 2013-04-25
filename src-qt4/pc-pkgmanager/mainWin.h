@@ -60,6 +60,13 @@ private slots:
     void slotViewChanged();
     void slotCloseClicked();
 
+    // NG Packages
+    void slotGetNGPackageDataOutput();
+    void slotFinishLoadingNGPkgs();
+    void slotGetNGInstalledDataOutput();
+    void slotGetNGInstalledPkgs();
+    void slotEnableApply();
+
 private:
     // Generic pkg process handlers
     void prepPkgProcess();
@@ -112,6 +119,7 @@ private:
 
     // NG Packages
     void populateNGPkgs();
+    void addNGItems();
     QStringList tmpPkgList;
     QStringList pkgList;
     QProcess *getNGProc;
