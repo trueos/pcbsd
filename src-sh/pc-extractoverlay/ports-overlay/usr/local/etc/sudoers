@@ -110,3 +110,4 @@ root ALL=(ALL) ALL
 %wheel ALL = NOPASSWD: /usr/local/bin/pc-mounttray
 %wheel ALL = NOPASSWD: /usr/local/bin/pc-soundconfig
 %wheel ALL = NOPASSWD: /usr/local/bin/pc-updatemanager
+%wheel ALL = NOPASSWD: /usr/local/bin/pc-pkgmanager
