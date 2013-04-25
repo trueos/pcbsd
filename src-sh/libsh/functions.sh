@@ -54,7 +54,17 @@ download_cache_packages()
 
   for i in $pkgList
   do
-    if [ -e "${PKG_CACHEDIR}/All/${i}" ] ; then rm ${PKG_CACHEDIR}/All/${i} ; fi
+    # Does the package already exist?
+    if [ -e "${PKG_CACHEDIR}/All/${i}" ] ; then 
+	# For now just remove the cached file
+	# Once bapt gives us a working rquery string, we can add a check here to skip
+	# re-downloading already valid files
+	#pName=`echo $i | sed 's|.txz$||g'`
+	# Check the sizes
+	#eSize=`pkg rquery "%sb" $pName`
+	#dSize=`ls -al `
+	rm ${PKG_CACHEDIR}/All/${i} ; 
+    fi
     get_file_from_mirrors "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}"
     if [ $? -ne 0 ] ; then
       exit_err "Failed downloading: /${pkgUrl}/All/${i}"
