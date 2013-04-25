@@ -67,8 +67,8 @@ private slots:
     void slotTerminal();
     void slotUserAdmin();
     void slotPushEditIP();
+    void slotPushPackage();
     void slotUpdate();
-    void slotChangeMetaDefault();
     void slotShowDialogCloseButton();
     void slotServiceGUI();
 

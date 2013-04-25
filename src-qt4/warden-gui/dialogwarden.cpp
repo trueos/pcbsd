@@ -89,8 +89,8 @@ void dialogWarden::programInit()
    connect( pushTerminal, SIGNAL(clicked()), this, SLOT(slotTerminal() ) );
    connect( pushUserAdmin, SIGNAL(clicked()), this, SLOT(slotUserAdmin() ) );
    connect( pushConfigure, SIGNAL(clicked()), this, SLOT(slotPushEditIP() ) );
+   connect( pushPackageManager, SIGNAL(clicked()), this, SLOT(slotPushPackage() ) );
    connect( pushUpdate, SIGNAL(clicked()), this, SLOT(slotUpdate() ) );
-   connect( comboPackageSet, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeMetaDefault() ) );
    connect( pushStart, SIGNAL(clicked()), this, SLOT(slotStartJail() ) );
 
    // Snapshot / Clone support
@@ -137,8 +137,6 @@ void dialogWarden::refreshJails()
    QStringList jD;
    QStringList mountOut;
  
-   if ( widgetPackages->layout() == 0 )
-     delete widgetPackages->layout();
    update();
     
    listJails->clear();
@@ -1117,11 +1115,6 @@ void dialogWarden::refreshJailDetailsView()
 
    QString tmp;
 
-   // Load the meta-pkg set
-   QString dMeta = "trueos";
-   comboPackageSet->clear();
-   comboPackageSet->addItem(dMeta);
-
    // Load the details for this jail
    for (int i=0; i < jailDetails.count(); ++i) {
      if ( jailDetails.at(i).at(0) != listJails->currentItem()->text(0) )
@@ -1405,21 +1398,6 @@ void dialogWarden::slotCurrentJailChanged()
 
    refreshJailDetailsView();
 
-   // Stop any metaWidget activity
-   if ( widgetPackages->layout() != 0 )
-     pkgWidget->stop();
-
-   pkgWidget = new metaWidget();
-   pkgWidget->init(QString("/usr/jails/" + listJails->currentItem()->text(0)));
-   if ( ! comboPackageSet->currentText().isEmpty() )
-      pkgWidget->setPackageSet(comboPackageSet->currentText());
-   QVBoxLayout *mWLayout = new QVBoxLayout();
-   mWLayout->addWidget(pkgWidget);
-   if ( widgetPackages->layout() != 0 )
-     delete widgetPackages->layout();
-   update();
-   widgetPackages->setLayout(mWLayout);
-
 }
 
 void dialogWarden::slotUserAdmin()
@@ -1461,6 +1439,16 @@ void dialogWarden::slotPushEditIP()
 
 }
 
+void dialogWarden::slotPushPackage()
+{
+   
+   if ( ! listJails->currentItem() )
+     return;
+   QString cmd = "pc-pkgmanager -chroot usr/jails/" + listJails->currentItem()->text(0) + " &"; 
+   system(cmd.toLatin1());
+}
+
+
 void dialogWarden::slotUpdate()
 {
    
@@ -1468,29 +1456,6 @@ void dialogWarden::slotUpdate()
      return;
    QString cmd = "pc-updategui -warden /usr/jails/" + listJails->currentItem()->text(0) + " " + listJails->currentItem()->text(0) + " &"; 
    system(cmd.toLatin1());
-}
-
-void dialogWarden::slotChangeMetaDefault()
-{
-   if ( ! listJails->currentItem() )
-      return;
-   if ( ! listJails->currentItem()->text(0).isEmpty() )
-      return;
-   if ( comboPackageSet->currentIndex() == -1 )
-      return;   
-   if ( comboPackageSet->currentText().isEmpty())
-      return;   
-
-   // We can return if we just changed to what is already set
-   QString dMeta = pcbsd::Utils::getValFromPCConf(JailDir + listJails->currentItem()->text(0) + "/usr/local/etc/warden.conf", "PCBSD_METAPKGSET");
-   if ( dMeta == comboPackageSet->currentText() )
-      return;
-
-   // Update now
-   pcbsd::Utils::setValPCConf(JailDir + listJails->currentItem()->text(0) + "/usr/local/etc/warden.conf", "PCBSD_METAPKGSET", comboPackageSet->currentText());
-
-   // Update the meta-widget
-   slotCurrentJailChanged();
 }
 
 void dialogWarden::slotAddClone()
