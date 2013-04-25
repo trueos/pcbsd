@@ -102,7 +102,6 @@ private:
     void checkAllChildrenPkgs(QString parent);
     void uncheckAllChildrenPkgs(QString parent);
     QString getLineFromCommandOutput( QString cmd );
-
     QList<QStringList> metaPkgList;
     QStringList tmpMetaPkgList;
     QString addPkgs;
@@ -110,6 +109,14 @@ private:
     QString pkgSource;
     QString curFileText;
     QProcess *getMetaProc;
+
+    // NG Packages
+    void populateNGPkgs();
+    QStringList tmpPkgList;
+    QStringList pkgList;
+    QProcess *getNGProc;
+
+
     QString chrootArg1;
     QString chrootArg2;
     QString ConflictList;

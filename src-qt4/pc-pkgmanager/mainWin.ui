@@ -89,7 +89,11 @@
                  <widget class="QWidget" name="pageAdv">
                   <layout class="QGridLayout" name="gridLayout_7">
                    <item row="0" column="0">
-                    <widget class="QListWidget" name="listWidgetAdv"/>
+                    <widget class="QTreeWidget" name="treeNGPkgs">
+                     <attribute name="headerVisible">
+                      <bool>false</bool>
+                     </attribute>
+                    </widget>
                    </item>
                   </layout>
                  </widget>

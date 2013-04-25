@@ -184,7 +184,29 @@ void mainWin::slotUpdatePkgsClicked() {
 }
 
 QString mainWin::getConflictDetailText() {
-  return QString();
+
+  QStringList ConList = ConflictList.split(" ");
+  QStringList tmpDeps;
+  QString retText;
+
+  for (int i = 0; i < ConList.size(); ++i) {
+    QProcess p;
+    tmpDeps.clear();
+
+    if ( wDir.isEmpty() )
+      p.start("pkg", QStringList() << "rquery" << "%rn-%rv" << ConList.at(i));
+    else
+      p.start("chroot", QStringList() << wDir << "pkg" "rquery" << "%rn-%rv" << ConList.at(i) );
+
+    if(p.waitForFinished()) {
+      while (p.canReadLine()) {
+        tmpDeps << p.readLine().simplified();
+      }
+    }
+    retText+= ConList.at(i) + " " + tr("required by:") + "\n" + tmpDeps.join(" ");
+  }
+
+  return retText;
 }
 
 void mainWin::prepPkgProcess() {
@@ -417,11 +439,32 @@ void mainWin::initMetaWidget()
     populateMetaPkgs();
     // Connect our slots
   } else {
-  // Running in advanced mode
-
+    // Running in advanced mode
+    populateNGPkgs();
   }
+}
 
+void mainWin::populateNGPkgs()
+{
+  pushPkgApply->setEnabled(false);
+  treeNGPkgs->clear();
+  tmpPkgList.clear();
+  new QTreeWidgetItem(treeNGPkgs, QStringList() << tr("Loading... Please wait...") );
 
+  if ( ! pkgList.isEmpty() )
+  	disconnect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), 0, 0);
+  pkgList.clear();
+
+  // Start the process to get meta-pkg info
+  getNGProc = new QProcess();
+  qDebug() << "Searching for pkgs...";
+  connect( getNGProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotGetNGPackageDataOutput()) );
+  connect( getNGProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishLoadingNGPkgs()) );
+  getNGProc->setProcessChannelMode(QProcess::MergedChannels);
+  if ( wDir.isEmpty() )
+    getNGProc->start(QString("pkg"), QStringList() << "rquery" "-a" "%n:::%v:::%o:::%m:::%sb");
+  else
+    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" "rquery" "-a" "%n:::%v:::%o:::%m:::%sb");
 
 }
 
