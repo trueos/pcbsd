@@ -682,7 +682,32 @@ void mainWin::applyNGChanges()
 // Time to start doing our NG changes!
 void mainWin::slotStartNGChanges()
 {
+  // Init the pkg process
+  prepPkgProcess();
 
+  // Create our runlist of package commands
+  QStringList pCmds;
+  
+  if ( ! pkgRemoveList.isEmpty() ) {
+    if ( wDir.isEmpty() )
+      pCmds << "pkg" << "delete" << "-R" << "-y" << pkgRemoveList.join(" ");
+    else
+      pCmds << "chroot" << "wDir" << "pkg" << "delete" << "-R" << "-y" << pkgRemoveList.join(" ");
+    pkgCmdList << pCmds;
+  }
+         
+  pCmds.clear();
+
+  if ( ! pkgAddList.isEmpty() ) {
+    if ( wDir.isEmpty() )
+      pCmds << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+    else
+      pCmds << "chroot" << "wDir" << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+    pkgCmdList << pCmds;
+  }
+
+  // Lets kick it off now
+  startPkgProcess();
 }
 
 // Display found meta-pkg data
