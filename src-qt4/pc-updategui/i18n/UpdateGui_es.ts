@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation>A ocurrido un error desconocido!</translation>
+        <translation>Ha ocurrido un error desconocido!</translation>
     </message>
     <message>
         <source>System Updates</source>
@@ -133,7 +133,7 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation>Volver a bu&amp;scar actualizaciones            </translation>
+        <translation>Volver a bu&amp;scar actualizaciones</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
@@ -217,8 +217,7 @@
     </message>
     <message>
         <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La actualización del paquete falló! Si esto persiste, podría necesitar ejecutar manualmente: pc-updatemanager pkgupdate</translation>
     </message>
 </context>
 </TS>

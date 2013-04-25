@@ -596,10 +596,6 @@
         <translation>Mõndasid väliseid ressursse ei leitud, seega lülitati välja EasyPBI teenused, mis neid ressursse kasutasid.</translation>
     </message>
     <message>
-        <source>Please open up the EasyPBI preferences to correct this deficiency.</source>
-        <translation>Ava EasyPBI sätted, et see puudus kõrvaldada</translation>
-    </message>
-    <message>
         <source>Success</source>
         <translation>Õnnestus</translation>
     </message>
@@ -768,10 +764,6 @@
         <translation>FreeBSD portide puu on süsteemist puudu.</translation>
     </message>
     <message>
-        <source>Please open up the appropriate EasyPBI menu option to correct this deficiency.</source>
-        <translation>Tõmba FreeBSD portide puu EasyPBI menüü kaudu.</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation type="unfinished">
             </translation>
@@ -785,6 +777,10 @@
         <source>Refresh Module</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Please open up the EasyPBI settings to correct this deficiency.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -875,10 +871,6 @@
     <message>
         <source>EasyPBI Preferences</source>
         <translation>EasyPBI sätted</translation>
-    </message>
-    <message>
-        <source>PBI Settings</source>
-        <translation>PBI sätted</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
@@ -973,20 +965,12 @@
         <translation>Kohalikud rajad</translation>
     </message>
     <message>
-        <source>Module Dir</source>
-        <translation>Mooduli kaust</translation>
-    </message>
-    <message>
         <source>Default directory for all PBI modules to be created</source>
         <translation>Kaust, kuhu vaikimisi kõik PBI-moodulid luuakse</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
         <translation>Vali kohalik kaust PBI-moodulite jaoks.</translation>
-    </message>
-    <message>
-        <source>Icon Dir</source>
-        <translation>Ikoonide kaust</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
@@ -997,20 +981,12 @@
         <translation>Vali kohalik kaust</translation>
     </message>
     <message>
-        <source>Icon FIle</source>
-        <translation>Ikoonifail</translation>
-    </message>
-    <message>
         <source>Default PNG icon to use for PBI modules.</source>
         <translation>PNG-ikoon, mida vaikimisi PBI-moodulitel kasutada</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
         <translation>Vali vaikimisi kasutatav PNG-ikoon</translation>
-    </message>
-    <message>
-        <source>Detected Utilities</source>
-        <translation>Leitud tööriistad</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
@@ -1047,18 +1023,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Täisrada programmile, mis lubab graafiliselt kasutajat vahetada (pc-su, gksu, kdesu, qsu, vms)</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Dir</source>
-        <translation>FreeBSD portide kaust</translation>
-    </message>
-    <message>
-        <source>Location of the FreeBSD ports tree on the local system.</source>
-        <translation>FreeBSD portide puu asukoht kohalikus süsteemis</translation>
-    </message>
-    <message>
-        <source>Select the FreeBSD ports tree directory.</source>
-        <translation>Vali FreeBSD portide puu</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -1128,6 +1092,98 @@
         <source>Select FreeBSD Ports Directory</source>
         <translation>Vali FreeBSD portide kaust</translation>
     </message>
+    <message>
+        <source>FreeBSD Ports</source>
+        <translation type="unfinished">FreeBSD pordid</translation>
+    </message>
+    <message>
+        <source>Ports Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Dir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished">Olek</translation>
+    </message>
+    <message>
+        <source>PBI Builds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Search Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resources</source>
+        <translation type="unfinished">Ressursid</translation>
+    </message>
+    <message>
+        <source>Default Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current User (~/EasyPBI/ports)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Users (/usr/ports)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nonexistent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation type="unfinished">Õnnestus</translation>
+    </message>
+    <message>
+        <source>The FreeBSD ports tree has been successfully updated</source>
+        <translation type="unfinished">FreeBSD portide puu uuendati edukalt</translation>
+    </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished">Tõrge</translation>
+    </message>
+    <message>
+        <source>The FreeBSD ports tree has failed to update.</source>
+        <translation type="unfinished">FreeBSD portide puud ei õnnestunud uuendada.</translation>
+    </message>
+    <message>
+        <source>Last Message: %1</source>
+        <translation type="unfinished">Viimane sõnum: %1</translation>
+    </message>
+    <message>
+        <source>Requesting Root Access</source>
+        <translation type="unfinished">Küsitakse juurkasutaja ligipääsu</translation>
+    </message>
 </context>
 <context>
     <name>aboutDialog</name>
@@ -1158,117 +1214,6 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>Kontrolli, et EasyPBI kompileerimine tehti õigesti</translation>
-    </message>
-</context>
-<context>
-    <name>portsDialog</name>
-    <message>
-        <source>EasyPBI: Get FreeBSD Ports</source>
-        <translation>EasyPBI: tõmba FreeBSD porte</translation>
-    </message>
-    <message>
-        <source>User Ports Tree</source>
-        <translation>Kasutaja portide puu</translation>
-    </message>
-    <message>
-        <source>Get Ports</source>
-        <translation>Tõmba porte</translation>
-    </message>
-    <message>
-        <source>System Ports Tree</source>
-        <translation>Süsteemi portide puu</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Olek</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sulge</translation>
-    </message>
-    <message>
-        <source>Update Local Ports</source>
-        <translation>Uuenda kohalikke porte</translation>
-    </message>
-    <message>
-        <source>The local ports tree was last updated on %1</source>
-        <translation>Kohalik portide puu uuendati viimati %1</translation>
-    </message>
-    <message>
-        <source>Fetch Local Ports</source>
-        <translation>Tõmba kohalikud pordid</translation>
-    </message>
-    <message>
-        <source>The local ports tree does not exist at %1</source>
-        <translation>Kohalikku portide puud ei leitud asukohast %1</translation>
-    </message>
-    <message>
-        <source>Update System Ports</source>
-        <translation>Uuenda süsteemi porte</translation>
-    </message>
-    <message>
-        <source>The system ports tree was last updated on %1</source>
-        <translation>Süsteemi portide puud uuendati viimati %1            </translation>
-    </message>
-    <message>
-        <source>Fetch System Ports</source>
-        <translation>Tõmba süsteemi pordid</translation>
-    </message>
-    <message>
-        <source>The system ports tree does not exist at %1</source>
-        <translation>Süsteemi portide puud ei leitud asukohast %1</translation>
-    </message>
-    <message>
-        <source>Downloading the FreeBSD ports tree...</source>
-        <translation>FreeBSD portide puud laaditakse alla...</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Küsitakse juurkasutaja ligipääsu</translation>
-    </message>
-    <message>
-        <source>Download Failed</source>
-        <translation>Allalaadimine ebaõnnestus</translation>
-    </message>
-    <message>
-        <source>Downloading the FreeBSD ports tree failed. Please check your internet connection and try again.</source>
-        <translation>FreeBSD portide puu allalaadimine ebaõnnestus. Kontrolli internetiühendust ja proovi uuesti.</translation>
-    </message>
-    <message>
-        <source>Saving Failed</source>
-        <translation>Salvestamine ebaõnnestus</translation>
-    </message>
-    <message>
-        <source>Saving the FreeBSD ports tree file failed. Please try again.</source>
-        <translation>FreeBSD portide puu faili allalaadimine ebaõnnestus. Palun proovi uuesti.</translation>
-    </message>
-    <message>
-        <source>Removing the old ports tree from the EasyPBI directory.</source>
-        <translation>Vana portide puu eemaldatakse EasyPBI kaustast.</translation>
-    </message>
-    <message>
-        <source>Extracting the ports tree into the EasyPBI directory. (This may take a while)</source>
-        <translation>Portide puud pakitakse lahti EasyPBI kausta (see võib aega võtta).</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Õnnestus</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>FreeBSD portide puu uuendati edukalt</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Tõrge</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>FreeBSD portide puud ei õnnestunud uuendada.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Viimane sõnum: %1</translation>
     </message>
 </context>
 </TS>

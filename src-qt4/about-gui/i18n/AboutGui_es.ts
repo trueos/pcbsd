@@ -29,11 +29,11 @@
     </message>
     <message>
         <source>Arch:</source>
-        <translation>Arch:</translation>
+        <translation>Archit.:</translation>
     </message>
     <message>
         <source>ident</source>
-        <translation>ident            </translation>
+        <translation>ident</translation>
     </message>
     <message>
         <source>Hardware</source>
@@ -85,8 +85,7 @@
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entornos de escritorio...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -94,8 +93,7 @@
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilidades PC-BSD con GUI:</translation>
     </message>
 </context>
 </TS>

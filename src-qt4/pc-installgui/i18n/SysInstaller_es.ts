@@ -223,34 +223,30 @@
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation>No se puede detectar ninguna unidad de disco! La instalación se cerrara.</translation>
+        <translation>No se puede detectar ninguna unidad de disco! La instalación se cerrará.</translation>
     </message>
     <message>
         <source>Click arrows to change system selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Use las flechas para cambiar la selección de sistema.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Imposible sugerir una partición para el disco detectado.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Se ha detectado que usted está corriendo una versión de 32 bits. Si su sistema soporta 64 bits (la mayoría de los sistemas después del 2005), debería en realidad estar corriendo la versión de 64 bits.</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El disco / partición seleccionado es menor que lo recomendado %1MB. La instalación podría fallar...</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation>Esta pantalla le permite seleccionar el lenguaje en el que desea realizar la instalación.         </translation>
+        <translation>Esta pantalla le permite seleccionar el lenguaje en el que desea realizar la instalación.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
@@ -691,13 +687,11 @@
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ingrese el tamaño de SWAP</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tamaño (MB)</translation>
     </message>
 </context>
 <context>
@@ -792,11 +786,11 @@
     </message>
     <message>
         <source>Install ports tree (/usr/ports)</source>
-        <translation>Instale los puertos de árbol (/usr/ports)</translation>
+        <translation>Instale el árbol de los puertos (/usr/ports)</translation>
     </message>
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
-        <translation>Este asistente le guiará en la configuración de su nuevo servidor. Haga clic en &quot;Siguiente&quot; para comenzar.</translation>
+        <translation>Este asistente le guiará en la configuración de su nuevo servidor. Haga clic en Siguiente para comenzar. </translation>
     </message>
 </context>
 </TS>
