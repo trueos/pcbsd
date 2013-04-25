@@ -91,10 +91,10 @@ void mainWin::slotApplyClicked() {
   // Running in basic mode
   if ( stackedPkgView->currentIndex() == 0 )
   {
-      saveMetaPkgs();   
+     saveMetaPkgs();   
   } else {
-  // Running in advanced mode
-
+     // Running in advanced mode
+     applyNGChanges();
   }
 
 }
@@ -454,6 +454,7 @@ void mainWin::populateNGPkgs()
   if ( ! pkgList.isEmpty() )
   	disconnect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), 0, 0);
   pkgList.clear();
+  selPkgList.clear();
 
   // Start the process to get meta-pkg info
   getNGProc = new QProcess();
@@ -481,6 +482,35 @@ void mainWin::slotGetNGInstalledDataOutput()
 }
 
 void mainWin::slotGetNGInstalledPkgs() {
+
+  qDebug() << "Building dependancy lists...";
+  QProcess p;
+  pkgDepList.clear();
+  if ( wDir.isEmpty() )
+    p.start("pkg", QStringList() << "rquery" << "-a" << "%n-%v:::%dn-%dv");
+  else
+    p.start("chroot", QStringList() << wDir << "pkg" "rquery" << "-a" << "%n-%v:::%dn-%dv" );
+  while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
+      p.waitForFinished(200);
+      QCoreApplication::processEvents();
+  }
+  while (p.canReadLine()) {
+    pkgDepList << p.readLine().simplified();
+  }
+
+  qDebug() << "Building reverse dependancy lists...";
+  pkgRDepList.clear();
+  if ( wDir.isEmpty() )
+    p.start("pkg", QStringList() << "rquery" << "-a" << "%n-%v:::%rn-%rv");
+  else
+    p.start("chroot", QStringList() << wDir << "pkg" "rquery" << "-a" << "%n-%v:::%rn-%rv" );
+  while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
+      p.waitForFinished(200);
+      QCoreApplication::processEvents();
+  }
+  while (p.canReadLine()) {
+    pkgRDepList << p.readLine().simplified();
+  }
 
   getNGProc = new QProcess();
   qDebug() << "Searching for installed pkgs...";
@@ -542,13 +572,116 @@ void mainWin::addNGItems()
         pkgItem->setText(0, name + " (" + pkgname + ") - " + size );
         pkgItem->setToolTip(0, desc);
 
-        if ( pkgList.indexOf(pkgname) != -1 )
+        if ( pkgList.indexOf(pkgname) != -1 ) {
           pkgItem->setCheckState(0, Qt::Checked);
-        else
+	  selPkgList << pkgname;
+        } else
           pkgItem->setCheckState(0, Qt::Unchecked);
   
         catItem->addChild(pkgItem);
    }
+
+}
+
+// Lets prompt user, and do it!
+void mainWin::applyNGChanges()
+{
+   QString tmp;
+   QStringList curPkgChecked;
+   QStringList newPkgs;
+   QStringList rmPkgs;
+
+   QTreeWidgetItemIterator it(treeNGPkgs);
+   while (*it) {
+         if ((*it)->checkState(0) == Qt::Checked) {
+	   tmp = (*it)->text(0).section("(", 1, 1).section(")", 0, 0);
+	   curPkgChecked << tmp;
+	   if (pkgList.indexOf(tmp) == -1 ) 
+	      newPkgs << tmp;
+	 }
+         ++it;
+   }
+
+   for ( int i=0; i < pkgList.size(); ++i)
+      // Has this package been unchecked?
+      if (curPkgChecked.indexOf(pkgList.at(i)) == -1 )  {
+	 // Make sure this is a package in the repo
+	 // This filters out any custom packages the user may have loaded which may not exist in our repo
+	 QRegExp rx("*" + pkgList.at(i) + "*");
+         rx.setPatternSyntax(QRegExp::Wildcard);
+	 if ( tmpPkgList.indexOf(rx) != -1 )
+	   rmPkgs << pkgList.at(i);
+      }
+
+   if ( rmPkgs.isEmpty() && newPkgs.isEmpty() ) {
+      QMessageBox::warning(this, tr("No changes"),
+        tr("No changes to make!"),
+        QMessageBox::Ok,
+        QMessageBox::Ok);
+      return;
+   }
+
+   qDebug() << "Added packages" << newPkgs;
+   qDebug() << "Removed packages" << rmPkgs;
+   pkgRemoveList = rmPkgs;
+   pkgAddList = newPkgs;
+
+   QString confirmText;
+
+   // Lets start creating our confirmation text
+   if ( ! rmPkgs.isEmpty() ) {
+      confirmText+=tr("The following packages will be removed:") + "\n"; 
+      confirmText+= "------------------------------------------\n";
+      confirmText+=rmPkgs.join("\n"); 
+      confirmText+= "\n\n" + tr("The following packages that require the above packages will also removed:") + "\n"; 
+      confirmText+= "------------------------------------------\n";
+      for ( int i=0; i < rmPkgs.size(); ++i) {
+	 QRegExp rx(rmPkgs.at(i) + ":::*");
+         rx.setPatternSyntax(QRegExp::Wildcard);
+         QStringList rDeps = pkgRDepList.filter(rx);
+         for ( int r=0; r < rDeps.size(); ++r) {
+             QString pName = rDeps.at(r).section(":::", 1, 1); 
+	     // Is this package installed?
+	     if ( pkgList.indexOf(pName) != -1 )
+               confirmText+= pName + " ";
+         }
+      }
+   }
+
+   if ( ! newPkgs.isEmpty() ) {
+      if ( ! rmPkgs.isEmpty() )
+        confirmText+= "\n\n";
+      confirmText+=tr("The following packages will be installed:") + "\n"; 
+      confirmText+= "------------------------------------------\n";
+      confirmText+=newPkgs.join("\n"); 
+      confirmText+= "\n\n" + tr("The following dependances will also be installed:") + "\n"; 
+      confirmText+= "------------------------------------------\n";
+      for ( int i=0; i < newPkgs.size(); ++i) {
+	 QRegExp rx(newPkgs.at(i) + ":::*");
+         rx.setPatternSyntax(QRegExp::Wildcard);
+         QStringList aDeps = pkgDepList.filter(rx);
+         for ( int r=0; r < aDeps.size(); ++r) {
+             QString pName = aDeps.at(r).section(":::", 1, 1); 
+	     // Is this package installed?
+	     if ( pkgList.indexOf(pName) == -1 )
+               confirmText+= pName + " ";
+         }
+      }
+   }
+
+   // Launch our AddPartitionDialog to add a new device
+   askUserConfirm = new dialogConfirm();
+   connect(askUserConfirm, SIGNAL(ok()),this, SLOT(slotStartNGChanges()) );
+   askUserConfirm->programInit(tr("Confirm package changes"));
+   askUserConfirm->setInfoText(QString(confirmText));
+   askUserConfirm->exec();
+
+}
+
+
+// Time to start doing our NG changes!
+void mainWin::slotStartNGChanges()
+{
 
 }
 

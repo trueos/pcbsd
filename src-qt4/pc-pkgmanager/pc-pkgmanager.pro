@@ -6,11 +6,11 @@ LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lQtSolutions_Si
 
 INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
-HEADERS	+= mainWin.h
+HEADERS	+= mainWin.h dialogConfirm.h
 
-SOURCES	+= main.cpp mainWin.cpp
+SOURCES	+= main.cpp mainWin.cpp dialogConfirm.cpp
 
-FORMS	= mainWin.ui
+FORMS	= mainWin.ui dialogConfirm.ui
 
 RESOURCES = pc-pkgmanager.qrc 
 

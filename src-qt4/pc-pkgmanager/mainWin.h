@@ -14,6 +14,7 @@
 
 #include <pcbsd-utils.h>
 #include <pcbsd-ui.h>
+#include "dialogConfirm.h"
 #include "ui_mainWin.h"
 #include "../config.h"
 
@@ -66,6 +67,7 @@ private slots:
     void slotGetNGInstalledDataOutput();
     void slotGetNGInstalledPkgs();
     void slotEnableApply();
+    void slotStartNGChanges();
 
 private:
     // Generic pkg process handlers
@@ -120,9 +122,16 @@ private:
     // NG Packages
     void populateNGPkgs();
     void addNGItems();
+    void applyNGChanges();
     QStringList tmpPkgList;
     QStringList pkgList;
+    QStringList pkgDepList;
+    QStringList pkgRDepList;
+    QStringList selPkgList;
+    QStringList pkgRemoveList;
+    QStringList pkgAddList;
     QProcess *getNGProc;
+    dialogConfirm *askUserConfirm;
 
 
     QString chrootArg1;
