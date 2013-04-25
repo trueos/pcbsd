@@ -54,9 +54,18 @@ void mainWin::ProgramInit(QString ch)
   QString curMode = settings.value("view/mode").toString();
   if ( curMode == "Advanced" )
   {
-    stackedPkgView->setCurrentIndex(1);
-    action_Basic->setChecked(false);
-    action_Advanced->setChecked(true);
+     stackedPkgView->setCurrentIndex(1);
+     action_Basic->setChecked(false);
+     action_Advanced->setChecked(true);
+  }
+
+  // If we are running on a chroot, only do advanced mode
+  if ( !wDir.isEmpty() )
+  {
+     stackedPkgView->setCurrentIndex(1);
+     action_Advanced->setChecked(true);
+     menu_View->setEnabled(false);
+     menu_View->setVisible(false);
   }
 
   initMetaWidget();
@@ -489,7 +498,7 @@ void mainWin::slotGetNGInstalledPkgs() {
   if ( wDir.isEmpty() )
     p.start("pkg", QStringList() << "rquery" << "-a" << "%n-%v:::%dn-%dv");
   else
-    p.start("chroot", QStringList() << wDir << "pkg" "rquery" << "-a" << "%n-%v:::%dn-%dv" );
+    p.start("chroot", QStringList() << wDir << "pkg" << "rquery" << "-a" << "%n-%v:::%dn-%dv" );
   while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
       p.waitForFinished(200);
       QCoreApplication::processEvents();
@@ -503,7 +512,7 @@ void mainWin::slotGetNGInstalledPkgs() {
   if ( wDir.isEmpty() )
     p.start("pkg", QStringList() << "rquery" << "-a" << "%n-%v:::%rn-%rv");
   else
-    p.start("chroot", QStringList() << wDir << "pkg" "rquery" << "-a" << "%n-%v:::%rn-%rv" );
+    p.start("chroot", QStringList() << wDir << "pkg" << "rquery" << "-a" << "%n-%v:::%rn-%rv" );
   while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
       p.waitForFinished(200);
       QCoreApplication::processEvents();
@@ -520,7 +529,7 @@ void mainWin::slotGetNGInstalledPkgs() {
   if ( wDir.isEmpty() )
     getNGProc->start(QString("pkg"), QStringList() << "info" << "-aq" );
   else
-    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" "info" "-aq");
+    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" << "info" << "-aq");
 
 }
 
@@ -692,7 +701,7 @@ void mainWin::slotStartNGChanges()
     if ( wDir.isEmpty() )
       pCmds << "pkg" << "delete" << "-R" << "-y" << pkgRemoveList.join(" ");
     else
-      pCmds << "chroot" << "wDir" << "pkg" << "delete" << "-R" << "-y" << pkgRemoveList.join(" ");
+      pCmds << "chroot" << wDir << "pkg" << "delete" << "-R" << "-y" << pkgRemoveList.join(" ");
     pkgCmdList << pCmds;
   }
          
@@ -702,7 +711,7 @@ void mainWin::slotStartNGChanges()
     if ( wDir.isEmpty() )
       pCmds << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
     else
-      pCmds << "chroot" << "wDir" << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+      pCmds << "chroot" << wDir << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
     pkgCmdList << pCmds;
   }
 
