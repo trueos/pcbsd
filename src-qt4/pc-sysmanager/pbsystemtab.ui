@@ -564,16 +564,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>System Packages</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QWidget" name="widgetMetaPkgs" native="true"/>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
        <string>Tasks</string>

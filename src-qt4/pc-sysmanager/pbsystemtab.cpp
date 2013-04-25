@@ -69,14 +69,7 @@ void PBSystemTab::ProgramInit()
     connect(radioSelectMirror, SIGNAL( clicked() ), this, SLOT( slotCheckMirrorRadio() ) );
     connect(radioCustomMirror, SIGNAL( clicked() ), this, SLOT( slotCheckMirrorRadio() ) );
 
-    // Use the metaWidget from libpcbsd
-    pkgWidget = new metaWidget();
-    pkgWidget->init(QString());
-    QVBoxLayout *mWLayout = new QVBoxLayout();
-    mWLayout->addWidget(pkgWidget);
-    widgetMetaPkgs->setLayout(mWLayout);
 }
-
 
 void PBSystemTab::loadMirrorConfig()
 {
