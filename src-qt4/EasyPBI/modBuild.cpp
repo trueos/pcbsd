@@ -12,10 +12,10 @@ ModBuild::ModBuild(){
     //mkStruct=[ makeport, portbefore, portafter, makeoptions]
   serverStruct <<"NO"<<"00"<<"00"<<"NO";
     //serverStruct=[ needroot, buildkey, priority, noTMPFS]
-  menuStruct << ""<<""<<""<<""<<""<<""<<""<<"";
-    //menuStruct=[ name, genericname, exec, icon, nodisplay, terminal, categories, mimetype]
-  desktopStruct << ""<<""<<""<<""<<""<<""<<"";
-    //desktopStruct=[ name, genericname, exec, icon, nodisplay, terminal, mimetype]
+  menuStruct << ""<<""<<""<<""<<""<<""<<""<<""<<"";
+    //menuStruct=[ name, genericname, exec, icon, nodisplay, terminal, categories, mimetype, requiresroot]
+  desktopStruct << ""<<""<<""<<""<<""<<""<<""<<"";
+    //desktopStruct=[ name, genericname, exec, icon, nodisplay, terminal, mimetype, requiresroot]
   mimeStruct << "" << "" << "";
     //mimeStruct=[ info, type, patterns] (patterns is a " "-delimited list)
   portStruct << "" << "" << "" << "" << "" << "" << "FALSE";
@@ -380,8 +380,8 @@ bool ModBuild::writePBIconf(){
 bool ModBuild::loadMenu(QString ifile){
   //Reset the structure
   menuStruct.clear();
-  menuStruct << ""<<""<<""<<""<<""<<""<<""<<"";  
-  //[ name, genericname, exec, icon, nodisplay, terminal, categories, mimetype]
+  menuStruct << ""<<""<<""<<""<<""<<""<<""<<""<<"";  
+  //[ name, genericname, exec, icon, nodisplay, terminal, categories, mimetype, requiresroot]
 	
   if(ifile.isEmpty()){ return TRUE; } //Also allow this to be a "reset" function for the currently loaded file
   //Check if the file exists
@@ -403,6 +403,8 @@ bool ModBuild::loadMenu(QString ifile){
           menuStruct[1] = line.section("=",1,3,QString::SectionSkipEmpty);
         }else if(line.startsWith("Exec=")){
           QString exec = line.section("=",1,3,QString::SectionSkipEmpty);
+          if(exec.simplified().startsWith("pc-su ")){ menuStruct[8] = "true"; }		  
+          else{ menuStruct[8] = "false"; }
           menuStruct[2] = getFilenameFromPath(exec);
         }else if(line.startsWith("Icon=")){
           QString icon = line.section("=",1,3,QString::SectionSkipEmpty);
@@ -441,7 +443,11 @@ bool ModBuild::writeMenu(){
   contents << "Type=Application";
   contents << "Name="+menuStruct[0];
   contents << "GenericName="+menuStruct[1];
-  contents << "Exec=%%PBI_EXEDIR%%/"+getFilenameFromPath(menuStruct[2]);
+  if(menuStruct[8].toLower()=="yes" || menuStruct[8].toLower()=="true"){
+    contents << "Exec=pc-su %%PBI_EXEDIR%%/"+getFilenameFromPath(menuStruct[2]);
+  }else{
+    contents << "Exec=%%PBI_EXEDIR%%/"+getFilenameFromPath(menuStruct[2]);
+  }
   contents << "Path=%%PBI_APPDIR%%";
   contents << "Icon=%%PBI_APPDIR%%/"+getFilenameFromPath(menuStruct[3]);
   contents << "StartupNotify=true";
@@ -470,8 +476,8 @@ bool ModBuild::removeMenu(){
 bool ModBuild::loadDesktop(QString ifile){
   //Reset the structure
   desktopStruct.clear();
-  desktopStruct << ""<<""<<""<<""<<""<<""<<"";
-    //[ name, genericname, exec, icon, nodisplay, terminal, mimetypes]
+  desktopStruct << ""<<""<<""<<""<<""<<""<<""<<"";
+    //[ name, genericname, exec, icon, nodisplay, terminal, mimetypes, requiresroot]
 	
   if(ifile.isEmpty()){ return TRUE; } //Also allow this to be a "reset" function for the currently loaded file
   //Check if the file exists
@@ -493,6 +499,8 @@ bool ModBuild::loadDesktop(QString ifile){
           desktopStruct[1] = line.section("=",1,3,QString::SectionSkipEmpty);
         }else if(line.startsWith("Exec=")){
           QString exec = line.section("=",1,3,QString::SectionSkipEmpty);
+          if(exec.simplified().startsWith("pc-su ")){ desktopStruct[7] = "true"; }		  
+          else{ desktopStruct[7] = "false"; }
           desktopStruct[2] = getFilenameFromPath(exec);
         }else if(line.startsWith("Icon=")){
           QString icon = line.section("=",1,3,QString::SectionSkipEmpty);
@@ -529,7 +537,11 @@ bool ModBuild::writeDesktop(){
   contents << "Type=Application";
   contents << "Name="+desktopStruct[0];
   contents << "GenericName="+desktopStruct[1];
-  contents << "Exec=%%PBI_EXEDIR%%/"+getFilenameFromPath(desktopStruct[2]);
+  if(desktopStruct[7].toLower()=="yes" || desktopStruct[7].toLower()=="true"){
+    contents << "Exec=pc-su %%PBI_EXEDIR%%/"+getFilenameFromPath(desktopStruct[2]);
+  }else{
+    contents << "Exec=%%PBI_EXEDIR%%/"+getFilenameFromPath(desktopStruct[2]);
+  }
   contents << "Path=%%PBI_APPDIR%%";
   contents << "Icon=%%PBI_APPDIR%%/"+getFilenameFromPath(desktopStruct[3]);
   contents << "StartupNotify=true";
@@ -930,8 +942,8 @@ QString ModBuild::readValue(QString variable){
 //progStruct=[ name, website, author, icon, version, packageDir]
 //mkStruct=[ makeport, portbefore, portafter, makeoptions]
 //serverStruct=[ needroot, buildkey, priority, noTMPFS]
-//menuStruct=[ name, genericname, exec, icon, nodisplay, terminal, categories, mimetype]
-//desktopStruct=[ name, genericname, exec, icon, nodisplay, terminal, mimetype]
+//menuStruct=[ name, genericname, exec, icon, nodisplay, terminal, categories, mimetype, requiresroot]
+//desktopStruct=[ name, genericname, exec, icon, nodisplay, terminal, mimetype, requiresroot]
 //mimeStruct=[ info, type, patterns] (patterns is a " "-delimited list)
 //portStruct=[ name, author, website, options, binaries, menu-category, isGraphical ]	
   QString val;
@@ -958,6 +970,7 @@ QString ModBuild::readValue(QString variable){
   else if(var=="menuterminal"){ val = menuStruct[5]; }
   else if(var=="menucategories"){ val = menuStruct[6]; }
   else if(var=="menumimetype"){ val = menuStruct[7]; }
+  else if(var=="menurequiresroot"){ val = menuStruct[8]; }
   else if(var=="desktopname"){ val = desktopStruct[0]; }
   else if(var=="desktopgenericname"){ val = desktopStruct[1]; }
   else if(var=="desktopexec"){ val = desktopStruct[2]; }
@@ -965,6 +978,7 @@ QString ModBuild::readValue(QString variable){
   else if(var=="desktopnodisplay"){ val = desktopStruct[4]; }
   else if(var=="desktopterminal"){ val = desktopStruct[5]; }
   else if(var=="desktopmimetype"){ val = desktopStruct[6]; }
+  else if(var=="desktoprequiresroot"){ val = desktopStruct[7]; }
   else if(var=="mimeinfo"){ val = mimeStruct[0]; }
   else if(var=="mimetype"){ val = mimeStruct[1]; }
   else if(var=="mimepatterns"){ val = mimeStruct[2]; }
@@ -1011,6 +1025,7 @@ bool ModBuild::writeValue(QString variable, QString value){
   else if(var=="menuterminal"){ menuStruct[5] = value; }
   else if(var=="menucategories"){ menuStruct[6] = value; }
   else if(var=="menumimetype"){ menuStruct[7] = value; }
+  else if(var=="menurequiresroot"){ menuStruct[8] = value; }
   else if(var=="desktopname"){ desktopStruct[0] = value; }
   else if(var=="desktopgenericname"){ desktopStruct[1] = value; }
   else if(var=="desktopexec"){ desktopStruct[2] = value; }
@@ -1018,6 +1033,7 @@ bool ModBuild::writeValue(QString variable, QString value){
   else if(var=="desktopnodisplay"){ desktopStruct[4] = value; }
   else if(var=="desktopterminal"){ desktopStruct[5] = value; }
   else if(var=="desktopmimetype"){ desktopStruct[6] = value; }
+  else if(var=="desktoprequiresroot"){ desktopStruct[7] = value; }
   else if(var=="mimeinfo"){ mimeStruct[0] = value; }
   else if(var=="mimetype"){ mimeStruct[1] = value; }
   else if(var=="mimepatterns"){ mimeStruct[2] = value; }

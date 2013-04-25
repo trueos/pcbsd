@@ -7,6 +7,7 @@
 #include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDateTime>
 #include "ui_preferencesDialog.h"
 #include "backend.h"
 #include "config.h"
@@ -26,6 +27,7 @@ public:
 
 private slots:
     void resetGUI();
+    void updateGUI();
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
     // PBI Settings Tab
@@ -45,11 +47,23 @@ private slots:
     void on_push_pbicreate_clicked();
     void on_push_makeport_clicked();
     void on_push_resetutils_clicked();
-    void on_push_portsdir_clicked();
+    //Ports Tab
+    void on_list_portsDirectories_currentIndexChanged(int);
+    void on_line_otherPortsDir_textChanged(QString);
+    void on_tool_otherPortsDir_clicked();
+    void on_push_fetchPorts_clicked();
+    void on_push_updatePorts_clicked();
+    void updateStatusBar();
+    void processFinished(int,QProcess::ExitStatus);
+    
 
 private:
     Ui::PreferencesDialog *ui;
     Config *settings;
+    QProcess *process;
+    
+    QString getLastPortsUpdate(QString);
+    void fetchPorts(QString, bool);
 
 };
 

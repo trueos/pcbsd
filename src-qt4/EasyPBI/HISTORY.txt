@@ -29,3 +29,7 @@ EasyPBI version 2.0 is released!
 This version includes a complete re-write of the program, with a newly streamlined UI and many functionality improvements.
 Special Thanks to Jennifer Rosenburg for the new logo and icons!
 New features: Packaging a local directory as a PBI, allow building 32-bit PBI's on a 64-bit system, advanced scripting support for PBI modules, complete XDG desktop/menu/mime support for modules, and switch to full optionsNG for PBI build options.
+
+APR 24, 2013:
+EasyPBI version 2.1 is tagged!
+Changes include: Combine the FreeBSD ports dialog into the EasyPBI Settings dialog, use portsnap for all FreeBSD ports fetching and updating, added the ability to flag xdg entries as requiring root, make all the "save" buttons dynamically enabled as appropriate. 

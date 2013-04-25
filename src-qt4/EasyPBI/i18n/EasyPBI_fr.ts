@@ -596,10 +596,6 @@
         <translation>Certaines ressources externes n&apos;ont pu être trouvée, les services de EasyPBI qui utilisent ces ressources ont été désactivés.            </translation>
     </message>
     <message>
-        <source>Please open up the EasyPBI preferences to correct this deficiency.</source>
-        <translation>S&apos;il vous plaît ouvrez les préférences EasyPBI pour corriger cette lacune.            </translation>
-    </message>
-    <message>
         <source>Success</source>
         <translation>Succès            </translation>
     </message>
@@ -768,8 +764,23 @@
         <translation>L&apos;arbre des ports FreeBSD est absent de votre système.            </translation>
     </message>
     <message>
-        <source>Please open up the appropriate EasyPBI menu option to correct this deficiency.</source>
-        <translation>S&apos;il vous plaît ouvrir l&apos;option de menu  EasyPBI appropriée pour corriger cette lacune.            </translation>
+        <source>Application needs administrator privileges to run</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Requires Root</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Refresh Module</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please open up the EasyPBI settings to correct this deficiency.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -860,10 +871,6 @@
     <message>
         <source>EasyPBI Preferences</source>
         <translation>Préférences EasyPBI</translation>
-    </message>
-    <message>
-        <source>PBI Settings</source>
-        <translation>Réglages PBI            </translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
@@ -958,20 +965,12 @@
         <translation>Chemins Locaux      </translation>
     </message>
     <message>
-        <source>Module Dir</source>
-        <translation>Module Dir            </translation>
-    </message>
-    <message>
         <source>Default directory for all PBI modules to be created</source>
         <translation>Répertoire par défaut pour tous les modules PBI à créer            </translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
         <translation>Sélectionnez un répertoire local pour les modules PBI.            </translation>
-    </message>
-    <message>
-        <source>Icon Dir</source>
-        <translation>Icône Dir            </translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
@@ -982,20 +981,12 @@
         <translation>Sélectionner le répertoire Local            </translation>
     </message>
     <message>
-        <source>Icon FIle</source>
-        <translation>Ficher Icône            </translation>
-    </message>
-    <message>
         <source>Default PNG icon to use for PBI modules.</source>
         <translation>Icône PNG par défaut à utiliser pour les modules PBI.            </translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
         <translation>Parcourir le système local par défaut pour une icône PNG.            </translation>
-    </message>
-    <message>
-        <source>Detected Utilities</source>
-        <translation>Utilitaires détectés            </translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
@@ -1032,18 +1023,6 @@
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
         <translation>Chemin d&apos;accès complet à l&apos;interface graphique &quot;switch user&quot; utilitaire (pc-su, gksu, kdesu, qsu, etc..)            </translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Dir</source>
-        <translation>Ports FreeBSD Dir            </translation>
-    </message>
-    <message>
-        <source>Location of the FreeBSD ports tree on the local system.</source>
-        <translation>Emplacement de l&apos;arbre des ports FreeBSD sur le système local.            </translation>
-    </message>
-    <message>
-        <source>Select the FreeBSD ports tree directory.</source>
-        <translation>Sélectionner le répertoire de l&apos;arbre des ports FreeBSD.             </translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -1113,6 +1092,98 @@
         <source>Select FreeBSD Ports Directory</source>
         <translation>Sélectionner le répertoire des Ports FreeBSD             </translation>
     </message>
+    <message>
+        <source>FreeBSD Ports</source>
+        <translation type="unfinished">FreeBSD Ports            </translation>
+    </message>
+    <message>
+        <source>Ports Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Dir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished">Statut            </translation>
+    </message>
+    <message>
+        <source>PBI Builds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>External Utilities</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default Search Paths</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Resources</source>
+        <translation type="unfinished">Ressources</translation>
+    </message>
+    <message>
+        <source>Default Icon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current User (~/EasyPBI/ports)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All Users (/usr/ports)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Other</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Nonexistent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation type="unfinished">Succès            </translation>
+    </message>
+    <message>
+        <source>The FreeBSD ports tree has been successfully updated</source>
+        <translation type="unfinished">L&apos;arbre des ports FreeBSD a été mis à jour            </translation>
+    </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished">Échec            </translation>
+    </message>
+    <message>
+        <source>The FreeBSD ports tree has failed to update.</source>
+        <translation type="unfinished">L&apos;arbre des ports FreeBSD n&apos;a pas réussi la mise à jour.</translation>
+    </message>
+    <message>
+        <source>Last Message: %1</source>
+        <translation type="unfinished">Dernier message:%1            </translation>
+    </message>
+    <message>
+        <source>Requesting Root Access</source>
+        <translation type="unfinished">Demande d&apos;accès Root            </translation>
+    </message>
 </context>
 <context>
     <name>aboutDialog</name>
@@ -1143,117 +1214,6 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>S&apos;il vous plaît vérifiez que votre compilation EasyPBI a été effectuée correctement            </translation>
-    </message>
-</context>
-<context>
-    <name>portsDialog</name>
-    <message>
-        <source>EasyPBI: Get FreeBSD Ports</source>
-        <translation>EasyPBI: Obtenir les Ports FreeBSD            </translation>
-    </message>
-    <message>
-        <source>User Ports Tree</source>
-        <translation>Utilisateur Arborescence des Ports            </translation>
-    </message>
-    <message>
-        <source>Get Ports</source>
-        <translation>Obtenez les Ports            </translation>
-    </message>
-    <message>
-        <source>System Ports Tree</source>
-        <translation>Système d&apos;arborescence des ports</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Statut            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Fermer            </translation>
-    </message>
-    <message>
-        <source>Update Local Ports</source>
-        <translation>Mettre à jour les ports locaux            </translation>
-    </message>
-    <message>
-        <source>The local ports tree was last updated on %1</source>
-        <translation>Les Ports locaux ont été mis à jour sur %1            </translation>
-    </message>
-    <message>
-        <source>Fetch Local Ports</source>
-        <translation>Récupérer Ports locaux            </translation>
-    </message>
-    <message>
-        <source>The local ports tree does not exist at %1</source>
-        <translation>Les portés local n&apos;existe pas à %1            </translation>
-    </message>
-    <message>
-        <source>Update System Ports</source>
-        <translation>Mise à jour du système de Ports            </translation>
-    </message>
-    <message>
-        <source>The system ports tree was last updated on %1</source>
-        <translation>L&apos;arborescence du système des ports a été mis à jour le %1            </translation>
-    </message>
-    <message>
-        <source>Fetch System Ports</source>
-        <translation>Récupérer le système de Ports             </translation>
-    </message>
-    <message>
-        <source>The system ports tree does not exist at %1</source>
-        <translation>L&apos;arborescence du système des ports n&apos;existe pas à %1            </translation>
-    </message>
-    <message>
-        <source>Downloading the FreeBSD ports tree...</source>
-        <translation>Téléchargement de l&apos;arbre des ports FreeBSD ...            </translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Demande d&apos;accès Root            </translation>
-    </message>
-    <message>
-        <source>Download Failed</source>
-        <translation>.Échec du téléchargement</translation>
-    </message>
-    <message>
-        <source>Downloading the FreeBSD ports tree failed. Please check your internet connection and try again.</source>
-        <translation>Téléchargement de l&apos;ensemble des ports de FreeBSD a échoué. Veuillez vérifier votre connexion Internet et essayer à nouveau.</translation>
-    </message>
-    <message>
-        <source>Saving Failed</source>
-        <translation>Échec de sauvegarde</translation>
-    </message>
-    <message>
-        <source>Saving the FreeBSD ports tree file failed. Please try again.</source>
-        <translation>Sauvegarde du fichier de l&apos;ensemble des ports FreeBSD a échoué. Veuillez essayez de nouveau.</translation>
-    </message>
-    <message>
-        <source>Removing the old ports tree from the EasyPBI directory.</source>
-        <translation>Retrait de l&apos;ancien arbre des ports à partir du répertoire EasyPBI.       </translation>
-    </message>
-    <message>
-        <source>Extracting the ports tree into the EasyPBI directory. (This may take a while)</source>
-        <translation>Extraire l&apos;arbre des ports dans le répertoire EasyPBI. (Cela peut prendre un certain temps)            </translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Succès            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>L&apos;arbre des ports FreeBSD a été mis à jour            </translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Échec            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>L&apos;arbre des ports FreeBSD n&apos;a pas réussi la mise à jour.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Dernier message:%1            </translation>
     </message>
 </context>
 </TS>

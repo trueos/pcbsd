@@ -95,18 +95,15 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування тюрми</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адреса IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address</source>

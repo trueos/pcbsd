@@ -19,8 +19,7 @@ SOURCES += main.cpp\
 	newModuleDialog.cpp \
 	config.cpp \
 	preferencesDialog.cpp \
-	aboutDialog.cpp \
-	portsDialog.cpp
+	aboutDialog.cpp
 
 HEADERS  += mainGUI.h \
             modBuild.h \
@@ -28,14 +27,12 @@ HEADERS  += mainGUI.h \
 	    newModuleDialog.h \
 	    config.h \
 	    preferencesDialog.h \
-	    aboutDialog.h \
-	    portsDialog.h
+	    aboutDialog.h 
 
 FORMS    += mainGUI.ui \
 	    newModuleDialog.ui \
 	    preferencesDialog.ui \
-	    aboutDialog.ui \
-	    portsDialog.ui
+	    aboutDialog.ui 
 
 RESOURCES+= EasyPBI.qrc
 

@@ -5,7 +5,6 @@
 #include "newModuleDialog.h"
 #include "preferencesDialog.h"
 #include "aboutDialog.h"
-#include "portsDialog.h"
 
 MainGUI::MainGUI(QWidget *parent) :
     QMainWindow(parent),
@@ -21,7 +20,8 @@ MainGUI::MainGUI(QWidget *parent) :
 	// Create the config class
 	settings = new Config();
 	//Setup the Menu items
-	ui->actionExit->setIcon(Backend::icon(""));
+	ui->actionExit->setIcon(Backend::icon("close"));
+	ui->actionRefresh_Module->setIcon(Backend::icon("refresh"));
 	//Setup the pushbutton menu lists
 	menu_elOpts.addAction("binary");
 	menu_elOpts.addAction("linux");
@@ -90,6 +90,31 @@ MainGUI::MainGUI(QWidget *parent) :
       SetupDefaults(); //load program defaults
       refreshGUI("all"); //make items visible/invisible as necessary
       
+      //Connect "option changed" signals to the respective slot
+      // PBI tab
+      connect(ui->line_progname,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progauthor,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progversion,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progweb,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_progdir,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_makeport,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->edit_makeopts,SIGNAL(textChanged()),this,SLOT(slotOptionChanged()) );
+      connect(ui->check_requiresroot, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
+      // Rwsources tab
+      connect(ui->text_resources_script,SIGNAL(textChanged()),this,SLOT(slotResourceScriptChanged()) );
+      // XDG tab
+      connect(ui->line_xdg_name,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->line_xdg_mimepatterns,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->line_xdg_exec,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->line_xdg_menu,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      connect(ui->check_xdg_nodisplay,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
+      connect(ui->check_xdg_requiresroot,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
+      connect(ui->check_xdg_terminal,SIGNAL(clicked()),this,SLOT(slotXDGOptionChanged()) );
+      connect(ui->list_xdg_icon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
+      // Scripts tab
+      connect(ui->text_scripts_edit,SIGNAL(textChanged()),this,SLOT(slotScriptModified()) );
+        
 }
 
 MainGUI::~MainGUI()
@@ -126,11 +151,11 @@ void MainGUI::SetupDefaults(){
     //Pop up a warning box if some external resources are not available
     bool chkOK = (settings->check("isMakeportAvailable") && settings->check("iscreateAvailable") && settings->check("isSUavailable") );
     if( !chkOK ){
-	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI preferences to correct this deficiency.") );
+	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
     //Pop up a warning about a missing ports tree
     if( !settings->check("isPortsAvailable") ){
-	QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the appropriate EasyPBI menu option to correct this deficiency.") );
+	QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
     //Set a couple more internal flags
     PBI_BUILDING_NOW.clear();
@@ -151,6 +176,7 @@ void MainGUI::refreshGUI(QString item){
   //Stupid check to make sure that a module is actually loaded
   if( currentModule->path().isEmpty() ){ 
     ui->actionPackage_Module->setEnabled(FALSE);
+    ui->actionRefresh_Module->setEnabled(FALSE);
     if(PBI_BUILDING_NOW.isEmpty() ){ui->toolBox->setEnabled(FALSE); return; }
     else{ 
       ui->toolBox->setItemEnabled(0,FALSE);
@@ -161,6 +187,7 @@ void MainGUI::refreshGUI(QString item){
   }else{ 
     ui->toolBox->setEnabled(TRUE); 
     ui->actionPackage_Module->setEnabled(TRUE);  
+    ui->actionRefresh_Module->setEnabled(TRUE);
   }
   //Figure out the type of module that is loaded
   bool isport = radio_module_port->isChecked();
@@ -223,6 +250,7 @@ void MainGUI::refreshGUI(QString item){
         menu_addOpt.addAction(opts[i]);
       }
     }
+    ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
   }
   // -----RESOURCES--------
   if( doall || doeditor || (item == "resources")){
@@ -274,6 +302,7 @@ void MainGUI::refreshGUI(QString item){
       ui->text_scripts_edit->setVisible(FALSE);
     }
     if(currentIndex == 0){ ui->push_scripts_create->setVisible(FALSE); }
+    ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
     
   }
   //------EXTERNAL-LINKS------
@@ -342,10 +371,6 @@ void MainGUI::refreshGUI(QString item){
    MENU OPTIONS
   -----------------------------------
 */
-void MainGUI::on_actionGet_Ports_triggered(){
-  portsDialog dlg(this,settings->value("progdir")+"/ports",settings->value("su_cmd") );
-  dlg.exec();
-}
 
 void MainGUI::on_actionExit_triggered(){
   qDebug() << "Close EasyPBI requested";
@@ -366,6 +391,23 @@ void MainGUI::on_actionPackage_Module_triggered(){
    currentModule->compressModule();
    QMessageBox::information(this,tr("Success"),tr("A copy of the current module has been successfully packaged  within the module directory.") );
 
+}
+
+void MainGUI::on_actionRefresh_Module_triggered(){
+  QString modSel = currentModule->path(); //re-load the current module
+  bool ok = currentModule->loadModule(modSel); 
+  if(ok){ 
+    qDebug() << "Loaded module:"<<modSel;	  
+    line_module->setText(modSel.replace(QDir::homePath(),"~")); 
+    if(currentModule->isLocalPBI){ radio_module_local->toggle(); }
+    else{ 
+      radio_module_port->toggle(); //Port PBI
+      if( settings->check("isportsavailable") ){ 
+        currentModule->readPortInformation(settings->value("portsdir")+"/"+currentModule->readValue("makeport"));
+      }
+    }
+    refreshGUI("all");
+  }
 }
 
 void MainGUI::on_actionFreeBSD_Ports_triggered(){
@@ -507,6 +549,7 @@ void MainGUI::on_push_change_makeport_clicked(){
   }
   //Save the port info to the GUI
   ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_change_progdir_clicked(){
@@ -515,6 +558,7 @@ void MainGUI::on_push_change_progdir_clicked(){
   if(dirSel.isEmpty()){return;} //action cancelled or closed	
   //Save the port info to the GUI
   ui->line_progdir->setText(dirSel);
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::slotAddMakeOption(QAction* act){
@@ -565,6 +609,7 @@ void MainGUI::slotAddMakeOption(QAction* act){
   }
   //Now put the new options list back onto the GUI
   ui->edit_makeopts->setPlainText(curr.join("\n"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_addportbefore_clicked(){
@@ -583,6 +628,7 @@ void MainGUI::on_push_addportbefore_clicked(){
   //Save the port info to the GUI
   if(ui->list_portbefore->count() == 1 && ui->list_portbefore->currentText().isEmpty() ){ ui->list_portbefore->clear(); }
   ui->list_portbefore->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_rmportbefore_clicked(){
@@ -590,6 +636,7 @@ void MainGUI::on_push_rmportbefore_clicked(){
   if(index != -1){
     ui->list_portbefore->removeItem(index);
   }
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_addportafter_clicked(){
@@ -608,6 +655,7 @@ void MainGUI::on_push_addportafter_clicked(){
   //Save the port info to the GUI
   if(ui->list_portafter->count() == 1 && ui->list_portafter->currentText().isEmpty() ){ ui->list_portafter->clear(); }
   ui->list_portafter->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_rmportafter_clicked(){
@@ -615,6 +663,7 @@ void MainGUI::on_push_rmportafter_clicked(){
   if(index != -1){
     ui->list_portafter->removeItem(index);
   }
+  ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_config_save_clicked(){
@@ -659,6 +708,12 @@ void MainGUI::on_push_config_save_clicked(){
     refreshGUI("pbiconf");
   }
 }
+
+void MainGUI::slotOptionChanged(QString tmp){
+  tmp.clear(); //just to remove compiler warning about unused variable
+  ui->push_config_save->setEnabled(TRUE);	
+}
+
 /*------------------------------------------------
    RESOURCE EDITOR OPTIONS
   -------------------------------------------------
@@ -696,7 +751,8 @@ void MainGUI::slotResourceChanged(){
       ui->label_resources_description->setVisible(FALSE);
       ui->label_resources_icon->setVisible(FALSE);
     }
-  }	  
+  }
+  ui->push_resources_savewrapper->setEnabled(FALSE);
   
 }
 
@@ -751,6 +807,11 @@ void MainGUI::slotResourceScriptSaved(){
   QStringList contents = ui->text_resources_script->toPlainText().split("\n");
   //overwrite the resource with the new contents
   ModBuild::createFile(filePath,contents);
+  ui->push_resources_savewrapper->setEnabled(FALSE);
+}
+
+void MainGUI::slotResourceScriptChanged(){
+  ui->push_resources_savewrapper->setEnabled(TRUE);	
 }
 /*------------------------------------------------
    XDG EDITOR OPTIONS
@@ -799,7 +860,6 @@ void MainGUI::slotXdgTypeChanged(){
   if(!cBins.isEmpty()){
     for(int i=0; i<cBins.length(); i++){
       menu_bins.addAction(cBins[i]);
-      //menu_binsnew.addAction(cBins[i]);
     } 
   }
   //Menu categories
@@ -840,7 +900,9 @@ void MainGUI::slotXdgFileChanged(){
     ui->line_xdg_mimepatterns->clear();
     ui->check_xdg_terminal->setChecked(FALSE);
     ui->check_xdg_nodisplay->setChecked(FALSE);
+    ui->check_requiresroot->setChecked(FALSE);
     ui->push_xdg_savechanges->setEnabled(FALSE);
+    ui->push_xdg_savenew->setEnabled(FALSE);
     //Make sure we don't have any of the structures loaded from previously
     currentModule->loadDesktop("");
     currentModule->loadMenu("");
@@ -848,7 +910,6 @@ void MainGUI::slotXdgFileChanged(){
     //Now return
     return; 
   }
-  ui->push_xdg_savechanges->setEnabled(TRUE);
   //Now setup the UI as appropriate
   if(ui->radio_xdg_desktop->isChecked()){
     //Load the file
@@ -871,6 +932,9 @@ void MainGUI::slotXdgFileChanged(){
     chk = currentModule->readValue("desktopnodisplay").toLower();
     if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_nodisplay->setChecked(TRUE); }
     else{ ui->check_xdg_nodisplay->setChecked(FALSE); }
+    chk = currentModule->readValue("desktoprequiresroot").toLower();
+    if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_requiresroot->setChecked(TRUE); }
+    else{ ui->check_xdg_requiresroot->setChecked(FALSE); }
     	
   }else if(ui->radio_xdg_menu->isChecked()){
     //Load the file
@@ -895,6 +959,9 @@ void MainGUI::slotXdgFileChanged(){
     chk = currentModule->readValue("menunodisplay").toLower();
     if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_nodisplay->setChecked(TRUE); }
     else{ ui->check_xdg_nodisplay->setChecked(FALSE); }
+    chk = currentModule->readValue("menurequiresroot").toLower();
+    if( (chk == "true") || (chk=="yes") ){ ui->check_xdg_requiresroot->setChecked(TRUE); }
+    else{ ui->check_xdg_requiresroot->setChecked(FALSE); }
     
     //Load the XDG-MIME file associations
     QString mime = currentModule->readValue("menumimetype");
@@ -918,6 +985,8 @@ void MainGUI::slotXdgFileChanged(){
   }else{
     //do nothing, unknown radio button selected (or none)
   }
+  ui->push_xdg_savechanges->setEnabled(FALSE);
+  ui->push_xdg_savenew->setEnabled(FALSE);
 }
 
 void MainGUI::slotAddMenuCat(QAction* act){
@@ -973,6 +1042,9 @@ void MainGUI::on_push_xdg_savechanges_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("desktopnodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("desktoprequiresroot", checked);
     //Now save the file
     ok = currentModule->writeDesktop();
     
@@ -988,6 +1060,9 @@ void MainGUI::on_push_xdg_savechanges_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("menunodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("menurequiresroot", checked);
     //Setup the mime type associations as appropriate
     checkMime();
     //Now save the file
@@ -1008,10 +1083,10 @@ void MainGUI::on_push_xdg_savenew_clicked(){
   //Now check that the filename does not already exist
   QStringList cFiles;
   if(ui->radio_xdg_desktop->isChecked() ){
-    filename = ui->line_xdg_exec->text();
+    filename = ui->line_xdg_exec->text().section("/",-1);
     cFiles = currentModule->filesAvailable("xdg-desktop").replaceInStrings(".desktop","");
   }else if(ui->radio_xdg_menu->isChecked() ){
-    filename = ui->line_xdg_exec->text();
+    filename = ui->line_xdg_exec->text().section("/",-1);
     cFiles = currentModule->filesAvailable("xdg-menu").replaceInStrings(".desktop","");
   }
   if(filename.isEmpty()){ return;}
@@ -1035,6 +1110,9 @@ void MainGUI::on_push_xdg_savenew_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("desktopnodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("desktoprequiresroot", checked);
     //Now save the file
     ok = currentModule->writeDesktop();
     
@@ -1054,6 +1132,9 @@ void MainGUI::on_push_xdg_savenew_clicked(){
     checked = "false";
     if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
     currentModule->writeValue("menunodisplay",checked);
+    checked = "false";
+    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
+    currentModule->writeValue("menurequiresroot", checked);
     //Now save the file
     ok = currentModule->writeMenu();    
   }
@@ -1113,6 +1194,12 @@ void MainGUI::checkMime(){
     }
 }
 
+void MainGUI::slotXDGOptionChanged(QString tmp){
+  tmp.clear(); //remove warning about unused variables
+  ui->push_xdg_savechanges->setEnabled(TRUE);
+  ui->push_xdg_savenew->setEnabled(TRUE);
+}
+
 /*------------------------------------------------
    SCRIPTS EDITOR OPTIONS
   -------------------------------------------------
@@ -1129,6 +1216,7 @@ void MainGUI::on_push_scripts_create_clicked(){
   ui->push_scripts_save->setVisible(TRUE);
   ui->text_scripts_edit->setVisible(TRUE);
   ui->text_scripts_edit->clear();
+  ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
 }
 
 void MainGUI::on_push_scripts_remove_clicked(){
@@ -1154,6 +1242,10 @@ void MainGUI::on_push_scripts_save_clicked(){
   }
   //Now refresh the UI
   refreshGUI("scripts");
+}
+
+void MainGUI::slotScriptModified(){
+  ui->push_scripts_save->setEnabled(TRUE);	
 }
 /*------------------------------------------------
    EXTERNAL-LINKS EDITOR OPTIONS
