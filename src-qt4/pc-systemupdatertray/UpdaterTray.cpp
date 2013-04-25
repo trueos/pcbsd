@@ -25,6 +25,7 @@ const QString PATCHTMPDIR_DEFAULT( PREFIX + "/tmp" );
 /* The Update STATUS Flags */
 #define SYSTEM_UP2DATE 0
 #define SYSTEM_UPDATE_AVAIL 1
+#define PACKAGE_UPDATE_AVAIL 1
 #define SYSTEM_CHECKING4UPDATES 4
 #define SYSTEM_UPDATING 5
 #define CHECK_FAILED 6
@@ -339,6 +340,7 @@ void UpdaterTray::slotStartUpdateCheck()
   }
 
   bool haveUp = false;
+  bool haveNGUp = false;
   bool haveUpWarden = false;
   
   // Check for PC-BSD updates
@@ -371,7 +373,7 @@ void UpdaterTray::slotStartUpdateCheck()
   while (m.canReadLine()) {
     line = m.readLine().simplified();
     if ( line.indexOf("To start the upgrade") == 0 ) {
-      haveUp = true;
+      haveNGUp = true;
       break;
     } 
   }
@@ -422,6 +424,8 @@ void UpdaterTray::slotStartUpdateCheck()
     programstatus = SYSTEM_RESTART_NEEDED;
   } else if ( haveUp ) {
     programstatus = SYSTEM_UPDATE_AVAIL;
+  } else if ( haveNGUp ) {
+    programstatus = PACKAGE_UPDATE_AVAIL;
   } else {
     // We have no updates available, indicate that now.
     programstatus = SYSTEM_UP2DATE;
@@ -458,6 +462,9 @@ void UpdaterTray::contextMenuRefresh() {
   // If the program is checking updates right now
   if ( programstatus == SYSTEM_CHECKING4UPDATES ) 
      Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/working.png");
+
+  if ( programstatus == PACKAGE_UPDATE_AVAIL ) 
+     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/pbiupdates.png");
 
   // If the program shows system updates available
   if ( programstatus == SYSTEM_UPDATE_AVAIL || wardenstatus == WARDEN_UPDATE_AVAIL ) 
@@ -520,7 +527,7 @@ void UpdaterTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
      return;
 
    if(reason == QSystemTrayIcon::Trigger) {
-       if ( (programstatus != SYSTEM_UPDATE_AVAIL) && (pbistatus == PBI_UPDATES_AVAIL) )
+       if ( (programstatus != SYSTEM_UPDATE_AVAIL && programstatus != PACKAGE_UPDATE_AVAIL) && (pbistatus == PBI_UPDATES_AVAIL) )
        {
             slotOpenSoftwareManagerInstalled();
 	    return;
@@ -529,6 +536,10 @@ void UpdaterTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
        {
 	   if ( programstatus == SYSTEM_UPDATE_AVAIL ) {
               slotOpenUpdateManager();
+	      return;
+	   }
+	   if ( programstatus == PACKAGE_UPDATE_AVAIL ) {
+              slotOpenPackageManager();
 	      return;
 	   }
 	   if ( wardenstatus == WARDEN_UPDATE_AVAIL ) {
@@ -544,6 +555,11 @@ void UpdaterTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
 void UpdaterTray::slotOpenJailManager(void)
 {   
    system ("(pc-su warden gui) &"); 
+}
+
+void UpdaterTray::slotOpenPackageManager(void)
+{   
+   system ("(sudo pc-pkgmanager) &"); 
 }
 
 void UpdaterTray::slotOpenUpdateManager(void)
@@ -598,6 +614,14 @@ void UpdaterTray::displayTooltip() {
       if ( !shownPopup && popAction->isChecked() ) {
 	shownPopup=true;
         QTimer::singleShot(15000, this, SLOT(slotShowSysUpdatePopup()));
+      }
+   }
+
+   if (programstatus == PACKAGE_UPDATE_AVAIL) {
+      tooltipStr += "<br>" + tr("Package updates available");
+      if ( !shownPopup && popAction->isChecked() ) {
+	shownPopup=true;
+        QTimer::singleShot(15000, this, SLOT(slotShowPkgUpdatePopup()));
       }
    }
 
@@ -723,6 +747,13 @@ void UpdaterTray::slotPopulatePBIList()
   	}
 
 	contextMenuRefresh();
+}
+
+void UpdaterTray::slotShowPkgUpdatePopup()
+{
+        disconnect(trayIcon, SIGNAL(messageClicked()), 0, 0 );
+	trayIcon->showMessage(tr("System Updates Available"), tr("Important package updates are available. Click here to install them!"), QSystemTrayIcon::Critical);
+        connect( trayIcon, SIGNAL(messageClicked()), this, SLOT(slotOpenPackageManager()) );
 }
 
 

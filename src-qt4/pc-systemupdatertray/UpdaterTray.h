@@ -37,6 +37,7 @@ private slots:
    void slotOpenConfigDlg();
    void slotOpenJailManager();
    void slotOpenUpdateManager();
+   void slotOpenPackageManager();
    void slotOpenSoftwareManager();
    void slotOpenSoftwareManagerInstalled();
    void slotPBICheckUpdate();
@@ -55,6 +56,7 @@ private slots:
    void slotShowJailUpdatePopup();
    void slotShowPBIUpdatePopup();
    void slotChangePopup();
+   void slotShowPkgUpdatePopup();
    
 protected:
    
