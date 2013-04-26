@@ -112,10 +112,6 @@
         <translation>Specifica un mirror personalizzato</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Pacchetti di sistema</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Altre opzioni</translation>
     </message>

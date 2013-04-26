@@ -112,10 +112,6 @@
         <translation>Podaj własny serwer lustrzany</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Pakiety Systemowe</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Inne opcje</translation>
     </message>

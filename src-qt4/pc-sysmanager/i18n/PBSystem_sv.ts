@@ -112,10 +112,6 @@
         <translation>Specificera en custom Spegel</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>System Paket</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Andra Alternativ</translation>
     </message>

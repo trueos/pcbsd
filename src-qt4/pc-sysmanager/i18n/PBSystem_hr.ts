@@ -112,10 +112,6 @@
         <translation>Navedite vlastito zrcalo</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Sistemski paketi</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Druge opcije</translation>
     </message>

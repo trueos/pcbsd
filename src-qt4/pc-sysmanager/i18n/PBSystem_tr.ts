@@ -112,10 +112,6 @@
         <translation>Özel bir yansı tanımlayın</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Sistem Paketleri</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Diğer Seçenekler</translation>
     </message>

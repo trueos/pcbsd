@@ -400,10 +400,6 @@
         <translation>ツール</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>パッケージ</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>&lt;- Jail を選択してください</translation>
     </message>
@@ -466,10 +462,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>アップデートを確認</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation>パッケージセット:</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -652,6 +644,10 @@
         <source>Configure the jail</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -112,10 +112,6 @@
         <translation type="unfinished">Určete vlastní Mirror</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Systémové balíčky</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Další možnosti</translation>
     </message>

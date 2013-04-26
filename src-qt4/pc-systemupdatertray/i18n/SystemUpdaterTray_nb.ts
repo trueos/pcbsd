@@ -115,5 +115,13 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Package updates available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Important package updates are available. Click here to install them!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

@@ -112,10 +112,6 @@
         <translation>任意指定一組鏡像</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>系統安裝包</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>其他選項</translation>
     </message>

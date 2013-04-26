@@ -112,10 +112,6 @@
         <translation>Udpeg dit eget spejl</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Systempakker</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Andre valg</translation>
     </message>

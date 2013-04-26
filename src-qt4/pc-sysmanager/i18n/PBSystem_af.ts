@@ -127,11 +127,6 @@
             </translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation type="unfinished">
             </translation>

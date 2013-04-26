@@ -112,10 +112,6 @@
         <translation>مشخص کردن یک Mirror سفارشی</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>بسته های سیستم</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>گزینه های دیگر</translation>
     </message>

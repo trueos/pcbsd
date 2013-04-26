@@ -466,10 +466,6 @@
 أدوات</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>الحزم</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>الرجاء اختيار سجن</translation>
     </message>
@@ -538,11 +534,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>تحقق من وجود تحديثات</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -746,6 +737,10 @@
         <source>Configure the jail</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

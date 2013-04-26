@@ -112,10 +112,6 @@
         <translation>Especificar um Espelho personalizado</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Pacotes do sistema</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Outras Opções</translation>
     </message>

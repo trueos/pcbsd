@@ -112,10 +112,6 @@
         <translation>指定自訂鏡像站</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>系統套件</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>其他選項</translation>
     </message>

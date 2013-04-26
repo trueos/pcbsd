@@ -112,10 +112,6 @@
         <translation>Посочване на персонален огледален сървър</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Системни пакети</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Други опции            </translation>
     </message>

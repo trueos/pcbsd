@@ -112,10 +112,6 @@
         <translation>Вказати власне дзеркало</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Системні пакунки</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Інші налаштування</translation>
     </message>

@@ -412,10 +412,6 @@
         <translation>Verktyg</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>Paket</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>&lt;- Var god välj ett jail</translation>
     </message>
@@ -482,10 +478,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>Sök efter uppdateringar</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation>Paket set:</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -652,6 +644,10 @@
         <source>Configure the jail</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

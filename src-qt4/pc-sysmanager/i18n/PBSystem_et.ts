@@ -112,10 +112,6 @@
         <translation>Vali kohandatud peegelsait</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Süsteemi paketid</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Muud valikud</translation>
     </message>

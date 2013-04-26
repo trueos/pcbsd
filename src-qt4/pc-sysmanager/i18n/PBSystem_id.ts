@@ -112,10 +112,6 @@
         <translation>Tentukan Sendiri Mirror-nya</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Paket-paket Sistem</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Pilihan Lainnya</translation>
     </message>

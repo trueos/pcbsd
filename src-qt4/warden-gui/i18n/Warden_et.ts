@@ -412,10 +412,6 @@
         <translation>Tööriistad</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>Paketid</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>&lt;- Palun vali vangla</translation>
     </message>
@@ -482,10 +478,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>Kontrolli uuendusi</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation>Paketikomplekt:</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -652,6 +644,10 @@
         <source>Configure the jail</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

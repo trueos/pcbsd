@@ -112,10 +112,6 @@
         <translation>Egyéni tükörkiszolgáló megadása</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Rendszercsomagok</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Egyéb beállítások</translation>
     </message>

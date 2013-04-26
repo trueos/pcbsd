@@ -64,10 +64,6 @@
         <translation>&amp;Sauvegarder           </translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Système de paquets            </translation>
-    </message>
-    <message>
         <source>Tasks</source>
         <translation>Tâches            </translation>
     </message>

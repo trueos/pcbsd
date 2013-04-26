@@ -112,10 +112,6 @@
         <translation>Укажите своё зеркало</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Системные пакеты</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Другие опции</translation>
     </message>

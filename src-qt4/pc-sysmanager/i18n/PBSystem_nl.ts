@@ -112,10 +112,6 @@
         <translation>Geef een eigen spiegelserver op</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Systeempakketten</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Andere opties</translation>
     </message>

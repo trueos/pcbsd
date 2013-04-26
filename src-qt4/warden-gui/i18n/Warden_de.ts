@@ -156,13 +156,11 @@
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berechtigungen</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Für diese Jail können die folgenden Berechtigungen aktiviert oder deaktiviert werden. Für weitere Details die Maus über das jeweilige Element gehen oder die Jail-Manpage zu Rate ziehen.</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
@@ -393,10 +391,6 @@
         <translation>Werkzeuge</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>Pakete</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>&lt;- Bitte wählen Sie eine Jail aus</translation>
     </message>
@@ -463,10 +457,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>Auf Aktualisierungen überprüfen</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation>Paket-Set:</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -635,6 +625,10 @@
     <message>
         <source>Configure the jail</source>
         <translation>Die Jail konfigurieren</translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

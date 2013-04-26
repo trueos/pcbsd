@@ -112,10 +112,6 @@
         <translation>Konfiguriere ein benutzerdefinierten Spiegelserver</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Systempakete</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Andere Optionen</translation>
     </message>

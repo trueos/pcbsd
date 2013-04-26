@@ -112,10 +112,6 @@
         <translation>Specify a custom Mirror</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>System Packages</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Other Options</translation>
     </message>

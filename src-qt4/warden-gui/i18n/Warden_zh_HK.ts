@@ -412,10 +412,6 @@
         <translation>工具</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>套件</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>&lt;- 請選取 jail</translation>
     </message>
@@ -482,10 +478,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>檢查有否更新</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation>套件集：</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -652,6 +644,10 @@
         <source>Configure the jail</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

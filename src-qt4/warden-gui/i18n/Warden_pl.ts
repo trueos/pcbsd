@@ -412,10 +412,6 @@
         <translation>Narzędzia</translation>
     </message>
     <message>
-        <source>Packages</source>
-        <translation>Pakiety</translation>
-    </message>
-    <message>
         <source>&lt;- Please select a jail</source>
         <translation>&lt;- Proszę wybrać Celę</translation>
     </message>
@@ -482,10 +478,6 @@
     <message>
         <source>Check for Updates</source>
         <translation>Sprawdź dostępność aktualizacji</translation>
-    </message>
-    <message>
-        <source>Package Set:</source>
-        <translation>Zbiór pakietów:</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -652,6 +644,10 @@
         <source>Configure the jail</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -765,22 +765,19 @@
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendung benötigt Adminstrator-Rechte zur Ausführung</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erfordert Root</translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Module aktualisieren</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte öffnen Sie die EasyPBI-Einstellungen, um diesen Mangel zu beheben.</translation>
     </message>
 </context>
 <context>
@@ -1095,47 +1092,49 @@
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">FreeBSD-Ports</translation>
+        <translation>FreeBSD-Ports</translation>
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Portbaum</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Letzte Aktualisierung</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Create Dir</source>
-        <translation type="unfinished"></translation>
+        <translation>Erstelle Verzeichnis</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierung</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Status</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation>Externe Werkzeuge</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard Suchpfade</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished"></translation>
+        <translation>Module</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -1143,47 +1142,47 @@
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Standard Symbol</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktueller Benutzer (~/EasyPBI/ports)</translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished"></translation>
+        <translation>Alle Benutzer (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Andere</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished"></translation>
+        <translation>Nichtexistent</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Erfolgreich</translation>
+        <translation>Erfolgreich</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">Der FreeBSD-Portbaum wurde erfolgreich auf den neusten Stand gebracht.  </translation>
+        <translation>Der FreeBSD-Portbaum wurde erfolgreich auf den neusten Stand gebracht.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">Fehlgeschlagen</translation>
+        <translation>Fehlgeschlagen</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">Die Aktualisierung des FreeBSD-Portbaums ist fehlgeschlagen.</translation>
+        <translation>Die Aktualisierung des FreeBSD-Portbaums ist fehlgeschlagen.</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">Letzte Meldung: %1</translation>
+        <translation>Letzte Meldung: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">Erfordert Root-Zugriff</translation>
+        <translation>Erfordert Root-Zugriff</translation>
     </message>
 </context>
 <context>

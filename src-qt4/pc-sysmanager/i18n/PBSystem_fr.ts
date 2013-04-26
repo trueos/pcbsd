@@ -112,10 +112,6 @@
         <translation>Indiquer un miroir personnalisé</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>Paquets-système</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Autres options</translation>
     </message>

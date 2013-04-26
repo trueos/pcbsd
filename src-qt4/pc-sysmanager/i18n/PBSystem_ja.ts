@@ -108,10 +108,6 @@
         <translation>任意のミラーを指定する</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>システムパッケージ</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>その他のオプション</translation>
     </message>

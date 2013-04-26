@@ -112,10 +112,6 @@
         <translation>指定一个自定义镜像</translation>
     </message>
     <message>
-        <source>System Packages</source>
-        <translation>系统包</translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>其他选项</translation>
     </message>
