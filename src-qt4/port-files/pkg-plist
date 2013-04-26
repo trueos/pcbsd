@@ -422,6 +422,7 @@ share/pcbsd/pc-controlpanel/items/software/easypbi.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-bpm.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-dbsd-tools.desktop
 share/pcbsd/pc-controlpanel/items/software/appcafe.desktop
+share/pcbsd/pc-controlpanel/items/software/pc-pkgmanager.desktop
 share/pcbsd/pc-controlpanel/items/de/gnome-appearance-properties.desktop
 share/pcbsd/pc-controlpanel/items/de/gnome-window-properties.desktop
 share/pcbsd/pc-controlpanel/items/de/gnome-screensaver.desktop
