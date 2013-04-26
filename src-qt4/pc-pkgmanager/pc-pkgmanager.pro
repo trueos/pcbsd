@@ -86,6 +86,6 @@ dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/s
 desktop.path=/usr/local/share/applications/ 
 desktop.files=pc-pkgmanager.desktop
 
-INSTALLS += target dotrans
+INSTALLS += target dotrans desktop
 
 QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
