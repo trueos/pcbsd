@@ -590,12 +590,12 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pbi-manager/module-examples
 @dirrm share/pbi-manager/icons
 @dirrm share/pbi-manager
-@dirrm share/warden/bin
+@dirrmtry share/warden/bin
 @dirrm share/warden/scripts/backend
 @dirrm share/warden/scripts/rc.d
 @dirrm share/warden/scripts
-@dirrm share/warden/tmp
-@dirrm share/warden/export
+@dirrmtry share/warden/tmp
+@dirrmtry share/warden/export
 @dirrm share/warden/linux-installs
 @dirrm share/warden
 @dirrm share/pc-sysinstall/backend

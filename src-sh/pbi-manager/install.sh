@@ -89,6 +89,8 @@ ${LB}/sbin/pbi_info >/dev/null 2>/dev/null
 cp ${DIR}/rc.d/pbid ${LB}/etc/rc.d/pbid
 cp ${DIR}/etc/pbi.conf ${LB}/etc/pbi.conf
 
+if [ ! -d "/usr/pbi" ] ; then mkdir /usr/pbi ; fi
+
 # Create the wrapper binary
 cd ${DIR}/wrapper
 if [ `uname -m` = "amd64" ] ; then
