@@ -545,6 +545,8 @@ sbin/pbi_patch
 sbin/pbid
 etc/pbi.conf
 etc/rc.d/pbid
+share/pbi-manager/.pbi-wrapper-i386
+share/pbi-manager/.pbi-wrapper-amd64
 share/pbi-manager/module-examples/gimp/xdg-menu/gimp.desktop
 share/pbi-manager/module-examples/gimp/xdg-mime/gimp-xdg.png
 share/pbi-manager/module-examples/gimp/xdg-mime/gimp-xdg.xml
