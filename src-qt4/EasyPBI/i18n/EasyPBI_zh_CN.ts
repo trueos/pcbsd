@@ -1080,132 +1080,107 @@
     </message>
     <message>
         <source>Use Package Caching</source>
-        <translation type="unfinished">使用包裹缓存</translation>
+        <translation>使用软件包(package)缓存</translation>
     </message>
     <message>
         <source>Package Caching Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包(package)缓存选项</translation>
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>被略过的软件包(package)</translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>下列软件包(package)在 PBI 构建期间会被略过。</translation>
     </message>
     <message>
         <source>Add a currently cached package to be ignored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从缓存软件包中添加一个要被略过的软件包。</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加</translation>
     </message>
     <message>
         <source>Remove the selected package from the ignore list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从要被略过的软件包列表中移除选择的软件包。</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>移除</translation>
     </message>
     <message>
         <source>Delete all packages currently in the cache.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从当前缓存中移除所有软件包。</translation>
     </message>
     <message>
         <source>Clear Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>清空缓存</translation>
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>本地路径</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建 PBI 模块的默认目录</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>为 PBI 模块选择一个本地目录。</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加图标或文件到一个模块时默认打开的目录</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择一个本地目录。</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 模块使用的默认图标。</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>浏览本地系统选择一个默认的 PNG 图标。</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI 重新扫描系统中可用的工具。</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自动检测</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;pbi_makeport&quot; 程序的全路经</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>浏览系统中的二进制文件。</translation>
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;pbi_create&quot; 程序的全路径</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>切换用户的工具</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;切换用户&quot; 图形化工具(pc-su, gksu, kdesu, qsu, 等等)的全路径</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -1217,214 +1192,174 @@
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Signature Files (*)</translation>
     </message>
     <message>
         <source>Select the Package to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择要略过的软件包</translation>
     </message>
     <message>
         <source>Package Files (*.txz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package Files (*.txz)</translation>
     </message>
     <message>
         <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>是否确定清空 PBI 软件包缓存？</translation>
     </message>
     <message>
         <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>将会缓存目录中的所有文件和目录。下一次开始 PBI 构建，要从源码重建所有的软件包。</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择模块的默认目录</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择查找图标文件的默认目录</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择默认的图标文件</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG Images (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择切换用户的图形界面工具</translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择 &apos;pbi_create&apos; 文件的位置</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择 &apos;pbi_makeport&apos; 文件的位置</translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确定要自动地检测工具的路径？</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>这会清除所有外部工具的路径设置。</translation>
     </message>
     <message>
         <source>Select FreeBSD Ports Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择 FreeBSD Ports 目录</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Ports</translation>
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ports Tree</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>上次更新</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>文本标签</translation>
     </message>
     <message>
         <source>Create Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建目录</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>状态</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builds</translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>外部工具</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>默认搜索路径</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modules</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">源</translation>
+        <translation>资源</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>默认图标</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>当前用户 (~/EasyPBI/ports)</translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>所有用户 (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>其他</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nonexistent</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新 FreeBSD ports tree 成功</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新 FreeBSD ports tree 失败。</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最后的消息: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>需要 root 权限访问</translation>
     </message>
 </context>
 <context>
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">关于简易PBI            </translation>
+        <translation>关于 EasyPBI</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>License</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>开发历史</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI version %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
@@ -1432,13 +1367,11 @@
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>不能打开资源文件: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>请检查 EasyPBI 是否正确地编译</translation>
     </message>
 </context>
 </TS>

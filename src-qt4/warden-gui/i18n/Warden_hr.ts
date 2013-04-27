@@ -715,7 +715,8 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
