@@ -1316,6 +1316,7 @@ init_vars() {
         # Where is pbi-manager installed?
         PROGBASE=/usr/local
 	SYS_LOCALBASE=/usr/local
+	PBI_SHARE_DIR="${PROGBASE}/share/pbi-manager"
 	if [ -z "${PBI_APPDIR}" -o "`basename $0`" = "pbi_makeport_chroot" ] ; then
 		PBI_APPDIR="/usr/pbi"
         fi
@@ -3754,7 +3755,7 @@ mk_path_wrappers() {
 	fi
 
 	# Copy the wrapper binary
-	PBI_WRAPPERFILE="${PBI_APPDIR}/.pbiwrapper-$ARCH"
+	PBI_WRAPPERFILE="${PBI_SHARE_DIR}/.pbiwrapper-$ARCH"
 	cp ${PBI_WRAPPERFILE} ${dir}/${fbin}
 	chmod 755 ${dir}/${fbin}
 
@@ -6828,8 +6829,8 @@ chroot_extract() {
 	cp /etc/resolv.conf ${PBI_CHROOTDIR}/etc/resolv.conf
 
 	# Copy our binary wrapper
-	PBI_WRAPPERFILE="${PBI_APPDIR}/.pbiwrapper-$ARCH"
-	mkdir ${PBI_CHROOTDIR}${PBI_APPDIR} 2>/dev/null
+	PBI_WRAPPERFILE="${PBI_SHARE_DIR}/.pbiwrapper-$ARCH"
+	mkdir ${PBI_CHROOTDIR}${PBI_SHARE_DIR} 2>/dev/null
 	cp ${PBI_WRAPPERFILE} ${PBI_CHROOTDIR}${PBI_WRAPPERFILE}
 
 	# If we have a custom PBI_MAKECONF include it

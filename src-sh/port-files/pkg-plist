@@ -545,8 +545,8 @@ sbin/pbi_patch
 sbin/pbid
 etc/pbi.conf
 etc/rc.d/pbid
-share/pbi-manager/.pbi-wrapper-i386
-share/pbi-manager/.pbi-wrapper-amd64
+share/pbi-manager/.pbiwrapper-i386
+share/pbi-manager/.pbiwrapper-amd64
 share/pbi-manager/module-examples/gimp/xdg-menu/gimp.desktop
 share/pbi-manager/module-examples/gimp/xdg-mime/gimp-xdg.png
 share/pbi-manager/module-examples/gimp/xdg-mime/gimp-xdg.xml
@@ -703,8 +703,6 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/conf
 @dirrm share/pcbsd/distfiles
 @dirrm share/pcbsd
-@unexec rm /usr/pbi/.pbiwrapper-amd64 >/dev/null 2>/dev/null
-@unexec rm /usr/pbi/.pbiwrapper-i386 >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/.hashdir >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/share/applications >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/share/desktop-directories >/dev/null 2>/dev/null

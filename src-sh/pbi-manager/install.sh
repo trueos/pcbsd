@@ -102,10 +102,9 @@ if [ `uname -m` = "amd64" ] ; then
   make install
   chown root:wheel /usr/pbi/.pbiwrapper 
   chmod 644 /usr/pbi/.pbiwrapper
-  cp /usr/pbi/.pbiwrapper ${LB}/share/pbi-manager/.pbi-wrapper-i386
-  mv /usr/pbi/.pbiwrapper /usr/pbi/.pbiwrapper-i386
+  mv /usr/pbi/.pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-i386
 else
-  touch ${LB}/share/pbi-manager/.pbi-wrapper-i386
+  touch ${LB}/share/pbi-manager/.pbiwrapper-i386
 fi
 
 # Build system arch wrapper
@@ -118,5 +117,4 @@ make DEFINES=""
 make install DEFINES=""
 chown root:wheel /usr/pbi/.pbiwrapper 
 chmod 644 /usr/pbi/.pbiwrapper
-cp /usr/pbi/.pbiwrapper ${LB}/share/pbi-manager/.pbi-wrapper-`uname -m`
-mv /usr/pbi/.pbiwrapper /usr/pbi/.pbiwrapper-`uname -m`
+mv /usr/pbi/.pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
