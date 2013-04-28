@@ -1121,8 +1121,7 @@
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erstellte PBIs</translation>
     </message>
     <message>
         <source>External Utilities</source>

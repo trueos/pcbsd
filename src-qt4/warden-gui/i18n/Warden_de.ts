@@ -131,28 +131,23 @@
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aliasse</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Aliasse</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Brückenaliasse</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Aliasse</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Brückenaliasse</translation>
     </message>
     <message>
         <source>Permissions</source>
@@ -184,23 +179,19 @@
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berechtigte Benutzer dürfen in der Jail das devfs-Dateisystem ein- und aushängen.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berechtigte Benutzer dürfen in der Jail das nullfs-Dateisystem ein- und aushängen.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berechtigte Benutzer dürfen in der Jail das procfs-Dateisystem ein- und aushängen.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berechtigte Benutzer dürfen in der Jail das zfs-Dateisystem ein- und aushängen.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
@@ -628,8 +619,7 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketverwalter</translation>
     </message>
 </context>
 <context>
