@@ -6,3 +6,4 @@ Icon=computer
 Type=Application
 Categories=System;
 Name=Package Manager
+Name[de]=Paketverwalter
