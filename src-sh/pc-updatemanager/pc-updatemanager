@@ -182,7 +182,7 @@ parse_mu_update_line()
    local sysUpNVer=`echo $line | cut -d ':' -f 3`
 
    # Is this an update for our version?
-   if [ `uname -r` != "$sysUpOVer" ] ; then return; fi
+   if [ "$SYSVER" != "$sysUpOVer" ] ; then return; fi
 
    if [ $PATCHFOUND -eq 0 ] ; then
       echo ""
