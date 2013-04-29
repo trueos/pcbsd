@@ -193,7 +193,7 @@ get_file_from_mirrors()
    if [ -z "$_fSize" ] ; then _fSize=0; fi
 
    ( aria2c -o ${aFile} -d ${aDir} -k 5M ${aStat} --check-certificate=false --file-allocation=none ${mirrorList} >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
-   FETCH_PID=`ps -auwwwx | grep -v grep | grep "aria2c -o ${aFile}" | awk '{print $2}'`
+   FETCH_PID=$!
    while : 
    do
       if [ -e "${_lf}" ] ; then
@@ -206,10 +206,11 @@ get_file_from_mirrors()
       fi
 
       # Make sure download isn't finished
-      ps -p $FETCH_PID >/dev/null 2>/dev/null
-      if [ "$?" != "0" ] ; then break ; fi
-      sleep 2
-      _time=`expr $_time + 2`
+      jobs -l >/tmp/.jobProcess.$$
+      cat /tmp/.jobProcess.$$ | awk '{print $3}' | grep -q ${FETCH_PID}
+      if [ "$?" != "0" ] ; then rm /tmp/.jobProcess.$$ ; break ; fi
+      sleep 1
+      _time=`expr $_time + 1`
    done
 
    _err="`cat ${_eFile}`"
