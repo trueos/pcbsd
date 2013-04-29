@@ -49,30 +49,19 @@ private slots:
     void slotListDoubleClicked(QListWidgetItem *);
     void slotCloseClicked();
 
-    // Package updates
-    void slotRescanPkgsClicked();
-    void slotUpdatePkgsClicked();
-    void slotReadPkgUpdateOutput();
-    void slotUpdatePkgDone();
-    void slotReadEventPipe(int fd);
-
 private:
     void doUpdates();
     bool sanityCheck();
     void checkFBSDUpdates();
-    void checkMPKGUpdates();
     void checkPCUpdates();
     int curUpdate;
     int curUpdateIndex;
     int totUpdate;
-    bool dPackages;
-    bool uPackages;
     bool doingUpdate;
     QProcess *uProc;
     QList<QStringList> listUpdates;
     QString wDir, wIP;
     QString lastError;
-    QSocketNotifier *eSock;
 
 signals:
 
