@@ -441,6 +441,7 @@ Code for package stuff
 void mainWin::initMetaWidget()
 {
   qDebug() << "Starting metaWidget...";
+  groupInfo->setVisible(false);
 
   // Running in basic mode
   if ( stackedPkgView->currentIndex() == 0 )
@@ -460,8 +461,10 @@ void mainWin::populateNGPkgs()
   tmpPkgList.clear();
   new QTreeWidgetItem(treeNGPkgs, QStringList() << tr("Loading... Please wait...") );
 
-  if ( ! pkgList.isEmpty() )
+  if ( ! pkgList.isEmpty() ) {
   	disconnect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), 0, 0);
+  	disconnect(treeNGPkgs, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), 0, 0);
+  }
   pkgList.clear();
   selPkgList.clear();
 
@@ -542,6 +545,80 @@ void mainWin::slotFinishLoadingNGPkgs()
   pushPkgApply->setEnabled(false);
 
   connect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotEnableApply()));
+  connect(treeNGPkgs, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotNGItemChanged()));
+}
+
+void mainWin::slotNGItemChanged()
+{
+  if ( ! treeNGPkgs->currentItem() ) {
+     groupInfo->setVisible(false);
+     return;
+  }
+  QString desc, size, maint, weburl;
+
+  QTreeWidgetItem *cItem = treeNGPkgs->currentItem();
+  QString pName = cItem->text(0).section("(", 1, 1).section(")", 0, 0);
+  if ( pName.isEmpty() ) {
+     groupInfo->setVisible(false);
+     return;
+  }
+  qDebug() << "Checking: " + pName;
+
+  QRegExp rx("*:::" + pName + ":::*");
+  rx.setPatternSyntax(QRegExp::Wildcard);
+  int pAt = tmpPkgList.indexOf(rx);
+  if (pAt == -1 ) {
+     qDebug() << "Unable to find package: " + pName;
+     groupInfo->setVisible(false);
+     return;
+  }
+
+  desc = tmpPkgList.at(pAt).section(":::", 2,2);
+  size = tmpPkgList.at(pAt).section(":::", 3,3);
+  maint = tmpPkgList.at(pAt).section(":::", 4,4);
+  weburl = tmpPkgList.at(pAt).section(":::", 5,5);
+  labelPkgNameVer->setText(pName);
+  labelSize->setText(size);
+  labelWeb->setText(weburl);
+  textDesc->setText(desc);
+  textOptions->clear();
+
+  QCoreApplication::processEvents();
+
+  // Display the depends
+  QString depTxt;
+  QRegExp rxd( pName + ":::*");
+  rxd.setPatternSyntax(QRegExp::Wildcard);
+  QStringList aDeps = pkgDepList.filter(rxd);
+  for ( int r=0; r < aDeps.size(); ++r) {
+      QString dName = aDeps.at(r).section(":::", 1, 1);
+      // Is this package installed?
+      if ( pkgList.indexOf(dName) != -1 )
+         depTxt+= dName + " (Installed)\n";
+      else
+         depTxt+= dName + "\n";
+  }
+
+  textDeps->setText(depTxt);
+
+  groupInfo->setVisible(true);
+
+  getNGInfo = new QProcess();
+  qDebug() << "Getting Info for " + pName;
+  connect( getNGInfo, SIGNAL(readyReadStandardOutput()), this, SLOT(slotNGReadInfo()) );
+  getNGInfo->setProcessChannelMode(QProcess::MergedChannels);
+  if ( wDir.isEmpty() )
+    getNGInfo->start(QString("pkg"), QStringList() << "rquery" << "%Ok=%Ov" << pName );
+  else
+    getNGInfo->start(QString("chroot"), QStringList() << wDir << "pkg" << "rquery" << "%Ok=%Ov" << pName);
+}
+
+void mainWin::slotNGReadInfo()
+{
+  while (getNGInfo->canReadLine())
+     textOptions->append(getNGInfo->readLine().simplified() );
+
+  textOptions->moveCursor(QTextCursor::Start);
 }
 
 void mainWin::slotEnableApply()

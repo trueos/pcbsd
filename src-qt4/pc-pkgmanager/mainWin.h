@@ -68,6 +68,8 @@ private slots:
     void slotGetNGInstalledPkgs();
     void slotEnableApply();
     void slotStartNGChanges();
+    void slotNGItemChanged();
+    void slotNGReadInfo();
 
 private:
     // Generic pkg process handlers
@@ -131,6 +133,7 @@ private:
     QStringList pkgRemoveList;
     QStringList pkgAddList;
     QProcess *getNGProc;
+    QProcess *getNGInfo;
     dialogConfirm *askUserConfirm;
 
 
