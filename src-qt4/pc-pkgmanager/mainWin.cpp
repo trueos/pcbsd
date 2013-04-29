@@ -472,9 +472,9 @@ void mainWin::populateNGPkgs()
   connect( getNGProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotGetNGInstalledPkgs()) );
   getNGProc->setProcessChannelMode(QProcess::MergedChannels);
   if ( wDir.isEmpty() )
-    getNGProc->start(QString("pkg"), QStringList() << "rquery" << "-a" << "%o:::%n-%v:::%c:::%sh");
+    getNGProc->start(QString("pkg"), QStringList() << "rquery" << "-a" << "%o:::%n-%v:::%c:::%sh:::%m:::%w");
   else
-    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" << "rquery" << "-a" << "%o:::%n-%v:::%c:::%sh");
+    getNGProc->start(QString("chroot"), QStringList() << wDir << "pkg" << "rquery" << "-a" << "%o:::%n-%v:::%c:::%sh:::%m:::%w");
 
 }
 
@@ -551,7 +551,7 @@ void mainWin::slotEnableApply()
 
 void mainWin::addNGItems()
 {
-   QString curCat, cat, name, pkgname, desc, size;
+   QString curCat, cat, name, pkgname, desc, size, maint, weburl;
 
    // We like to add alphabetically
    tmpPkgList.sort();
@@ -566,6 +566,8 @@ void mainWin::addNGItems()
 	pkgname = tmpPkgList.at(i).section(":::", 1,1);
 	desc = tmpPkgList.at(i).section(":::", 2,2);
 	size = tmpPkgList.at(i).section(":::", 3,3);
+	maint = tmpPkgList.at(i).section(":::", 4,4);
+	weburl = tmpPkgList.at(i).section(":::", 5,5);
 
 	// Check if we need to add a top-level category
 	if ( cat != curCat )
