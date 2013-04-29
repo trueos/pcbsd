@@ -37,7 +37,7 @@ DHCPPORT="net/isc-dhcp42-server"
 PXEWORLD="/usr/home/thinclient"
 WORLDPORTS="x11/xorg graphics/xv"
 export WORLDPORTS
-SYSVER="`uname -r`"
+SYSVER="`uname -r | cut -d '-' -f 1-2`"
 
 # Start by sourcing /etc/profile
 # This grabs any HTTP_ / FTP_ PROXY variables
