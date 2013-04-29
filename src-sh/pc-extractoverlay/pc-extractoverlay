@@ -109,7 +109,7 @@ post_extract_setup()
   grep -q "ARCH" /usr/local/etc/pkg.conf
   if [ $? -eq 0 ] ; then
     ARCH=`uname -m`
-    FBSDVER=`uname -r`
+    FBSDVER=`uname -r | cut -d '-' -f 1-2`
     sed -i '' "s|VERSION|$FBSDVER|g" /usr/local/etc/pkg.conf
     if [ $? -ne 0 ] ; then
        echo "WARNING: Failed setting VERSION in pkg.conf"
