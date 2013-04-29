@@ -22,7 +22,7 @@ SKEY="${PROGDIR}/conf/security.key" ; export SKEY
 DOWNLOADDIR="/usr/local/tmp"
 
 # Get the system version we are checking for updates to
-SYSVER="`uname -r`" ; export SYSVER
+SYSVER="`uname -r | cut -d '-' -f 1-2`" ; export SYSVER
 
 # Get the system type
 SYSTYPE="`pbreg get /PC-BSD/SysType`" ; export SYSTYPE
@@ -384,8 +384,7 @@ start_major_fbsd_update() {
 
   # Set the new pkg.conf file to the new repo
   local arch=`uname -m`
-  echo "packagesite: http://getmirror.pcbsd.org/packages/$rel/$arch" >/usr/local/etc/pkg.conf
-  echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+  echo "packagesite: http://ftp.pcbsd.org/pub/mirror/packages/$rel/$arch" >/usr/local/etc/pkg.conf
   echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
   echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
 
@@ -512,15 +511,11 @@ if [ "`id -u`" = "0" ] ; then
 fi
 
 case $1 in
-  	   check) get_mirror
-                  MIRRORURL="$VAL"
- 		  get_update_file
+  	   check) get_update_file
                   do_check ;;
 	pkgcheck) checkup_pkgs ;;
        pkgupdate) update_pkgs "$2" ;;
- 	 install) get_mirror
-                  MIRRORURL="$VAL"
- 		  get_update_file
+ 	 install) get_update_file
                   do_install "${2}" ;;
 	*) show_usage ;;
 esac
