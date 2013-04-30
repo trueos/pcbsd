@@ -128,10 +128,6 @@
         <translation>An unknown error occured!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>System Updates</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>Re&amp;scan for Updates</translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>&amp;Install selected updates</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Package Updates</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>Re&amp;scan packages</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>&amp;Update packages</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Package</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Old Version</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>New Version</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Close</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Package updates available!</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>System updates available!</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>System Updates (%1)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Checking for updates</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Package Updates (%1)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Available updates</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>No available updates</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>Downloading packages...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>Starting package updates...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>Downloading %1</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Downloading: %1</translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>Failed package update</translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</translation>
     </message>
 </context>
 </TS>

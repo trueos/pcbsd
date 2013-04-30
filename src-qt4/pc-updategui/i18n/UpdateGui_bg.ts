@@ -128,10 +128,6 @@
         <translation>Възникна непозната грешка!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>Системни Обновления</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>&amp;Сканирай за Обновления</translation>
     </message>
@@ -140,91 +136,12 @@
         <translation>&amp;Инсталирай маркираните обновления</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Пакет Обновления</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>&amp;Сканирай за пакети</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>&amp;Обнови пакетите</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Пакет</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Стара Версия</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>Нова Версия</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Затвори</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Налични са обновления за пакетите!</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>Налични са системни обновления!</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>Системни Обновления (%1)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Проверява за обновления</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Пвакетни обновления (%1)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Налични обновления</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 </TS>

@@ -128,10 +128,6 @@
         <translation>Er is een onbekende fout opgetreden.</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>Systeemupdates</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>Opnieuw zoeken naar updates</translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>Gekozen updates installeren</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Pakketupdates</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>Pakketten opnieuw doorzoeken</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>Pakketten bijwerken</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Pakket</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Oude versie</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>Nieuwe versie</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>Sluiten</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Er zijn pakketupdates beschikbaar.</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>Er zijn systeemupdates beschikbaar.</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>Systeemupdates (%1)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Bezig met controleren op updates</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Pakketupdates (%1)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Beschikbare updates</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>Geen updates beschikbaar</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>Pakketten aan het binnenhalen...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>Pakketupdates zijn begonnen...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>%1 aan het binnenhalen</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Aan het binnenhalen: %1</translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>Pakket bijwerken mislukt</translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>Het bijwerken van het pakket is mislukt. Indien dit zo blijft, dan zou u mogelijk handmatig &apos;pc-updatemanager pkgupdate&apos; moeten uitvoeren.</translation>
     </message>
 </context>
 </TS>

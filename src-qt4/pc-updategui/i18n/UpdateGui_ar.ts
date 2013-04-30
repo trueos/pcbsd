@@ -129,11 +129,6 @@
             </translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation type="unfinished">
             </translation>
@@ -144,102 +139,12 @@
             </translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
         <translation type="unfinished">
             </translation>
     </message>

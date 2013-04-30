@@ -128,10 +128,6 @@
         <translation>Esines tundmatu viga!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>Süsteemi uuendused</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>&amp;Otsi uuendusi</translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>&amp;Paigalda valitud uuendused</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Pakkide uuendused</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>Otsi p&amp;akkide uuendusi</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>&amp;Uuenda pakid</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Pakk</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Vana versioon</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>Uus versioon</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Sulge</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Pakkide uuendused on saadaval!</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>Süsteemi uuendused on saadaval!</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>Süsteemi uuendused (%1)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Uuenduste otsimine</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Pakkide uuendused (%1)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Saadaval uuendused</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>Uuendusi ei ole</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>Pakkide allalaadimine...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>Algab pakkide uuendamine...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>Allalaadimine: %1</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Allalaadimine: %1</translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>Paki uuendamine ebaõnnestus</translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>Paki uuendamine ebaõnnestus! Kui see juhtub korduvalt, siis peab võib-olla uuendama käsitsi käsuga: pc-updatemanager pkgupdate</translation>
     </message>
 </context>
 </TS>

@@ -128,10 +128,6 @@
         <translation>Сталася невідома помилка!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>Оновлення системи</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>Перевірити наявність оновленнь</translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>Встановити обрані оновлення</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Оновлення пакунків</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>Пересканувати пакунки</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>Оновити пакунки</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Пакунок</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Наявна версія</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>Нова версія</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Наявні оновлення пакунків!</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>Наявні оновлення системи!</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>Оновлення системи (%1)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Пошук оновленнь</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Оновлення пакунку (%1)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Наявні оновлення</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>Наразі немає доступних оновленнь</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>Завантаження пакунків...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>Запуск оновлення пакунків...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>Завантаження %1</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Завантаження: %1</translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>Оновлення пакунку не вдалося</translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>Оновлення пакунків не вдалося! Спробуйте вручну запустити &apos;pc-updatemanager pkgupdate&apos;</translation>
     </message>
 </context>
 </TS>

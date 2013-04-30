@@ -613,8 +613,7 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gestionnaire de Paquets            </translation>
     </message>
 </context>
 <context>

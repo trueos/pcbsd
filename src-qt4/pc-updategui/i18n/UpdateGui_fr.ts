@@ -128,10 +128,6 @@
         <translation>Une erreur inconnue s&apos;est produite!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>Mises à jour du système            </translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>Re&amp;balayage pour les mises à jour            </translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>&amp;installer les mises à jour sélectionnées            </translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Mises à jour de paquets            </translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>Re&amp;balayage des paquets            </translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>&amp;Mise à jour des paquets            </translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Paquet            </translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Ancienne Version        </translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>Nouvelle Version            </translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Fermer            </translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Mises à jour de paquets disponibles!            </translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>Mises à jour système disponible!            </translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>Mises à jour système (%1)            </translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Vérification des mises à jour            </translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Mises à jour de paquets (%1)            </translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Mises à jour disponibles            </translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>Aucune mise à jour disponible            </translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>Téléchargement des paquets...            </translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>Débuter la mise à jour des paquets...            </translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>Téléchargement %1            </translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Téléchargement: %1            </translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>La mise à jour des paquets a échoué            </translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>La mise à jour des paquets a échoué! Si le problème persiste, vous devrez peut-être exécuter manuellement: pc-updatemanager pkgupdate            </translation>
     </message>
 </context>
 </TS>

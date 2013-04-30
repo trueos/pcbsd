@@ -128,10 +128,6 @@
         <translation>原因不明のエラーが発生しました。</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>システムのアップデート</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>アップデートの有無を再確認(&amp;S)</translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>選択したアップデートをインストール(&amp;I)</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>パッケージのアップデート</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>パッケージの再確認(&amp;S)</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>パッケージをアップデートする(&amp;U)</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>パッケージ</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>旧バージョン</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>新バージョン</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>パッケージのアップデートがあります。</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>システムのアップデートがあります</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>アップデートを確認しています</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>アップデートがあります</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>アップデートはありません</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>パッケージをダウンロードしています...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>パッケージのアップデートを開始します...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>%1 をダウンロードしています</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>ダウンロード中: %1</translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>パッケージのアップデートに失敗しました</translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>パッケージのアップデートに失敗しました! もし、このアップデートを再度試みる場合には、手動で &quot;pc-updatemanager pkgupdate&quot; コマンドを実行してください。</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation type="unfinished">システムのアップデート(%1)</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation type="unfinished">パッケージのアップデート(%1)</translation>
     </message>
 </context>
 </TS>

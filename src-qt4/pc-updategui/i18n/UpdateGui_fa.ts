@@ -128,10 +128,6 @@
         <translation>یک خطای ناشناخته رخ داده است!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>به روز رسانی سیستم</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>جستجوی مجدد برای بروزرسانی</translation>
     </message>
@@ -140,87 +136,12 @@
         <translation>&amp;نصب بروزرسانی های انتخاب شده</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>بروزرسانی بسته</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>دوباره&amp;جستجوی بسته ها</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>&amp;بروزرسانی بسته ها</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>بسته</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>نسخه قدیمی</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>نسخه جدید</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;بستن</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>بروزرسانی  موجود بسته!</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>بروزرسانی موجود برای سیستم!</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>بروزرسانی سیستم (1٪)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>چک کردن برای بروزرسانی</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>بروزرسانی بسته(1٪)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>بروزرسانی موجود</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>هیچ بروزرسانی موجود نیست</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>دانلود کردن بسته...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>راه اندازي به روزرساني بسته...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>دانلود %1</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 </TS>

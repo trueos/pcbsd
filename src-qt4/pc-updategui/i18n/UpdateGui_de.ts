@@ -128,10 +128,6 @@
         <translation>Ein unbekannter Fehler ist aufgetreten!</translation>
     </message>
     <message>
-        <source>System Updates</source>
-        <translation>Systemaktualisierungen</translation>
-    </message>
-    <message>
         <source>Re&amp;scan for Updates</source>
         <translation>Erneut nach Aktualisierungen &amp;suchen</translation>
     </message>
@@ -140,84 +136,12 @@
         <translation>Ausgewählte Aktualisierungen &amp;installieren</translation>
     </message>
     <message>
-        <source>Package Updates</source>
-        <translation>Paket-Aktualisierungen</translation>
-    </message>
-    <message>
-        <source>Re&amp;scan packages</source>
-        <translation>Erneut nach Paketen &amp;suchen</translation>
-    </message>
-    <message>
-        <source>&amp;Update packages</source>
-        <translation>Pakete akt&amp;ualisieren</translation>
-    </message>
-    <message>
-        <source>Package</source>
-        <translation>Paket</translation>
-    </message>
-    <message>
-        <source>Old Version</source>
-        <translation>Alte Version</translation>
-    </message>
-    <message>
-        <source>New Version</source>
-        <translation>Neue Version</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <source>Package updates available!</source>
-        <translation>Aktualisierste Pakete verfügbar!</translation>
-    </message>
-    <message>
         <source>System updates available!</source>
         <translation>Systemaktualisierungen verfügbar!</translation>
-    </message>
-    <message>
-        <source>System Updates (%1)</source>
-        <translation>Systemaktualisierungen (%1)</translation>
-    </message>
-    <message>
-        <source>Checking for updates</source>
-        <translation>Prüfe auf Aktualisierungen</translation>
-    </message>
-    <message>
-        <source>Package Updates (%1)</source>
-        <translation>Paketaktualisierungen (%1)</translation>
-    </message>
-    <message>
-        <source>Available updates</source>
-        <translation>Verfügbare Aktualisierungen</translation>
-    </message>
-    <message>
-        <source>No available updates</source>
-        <translation>Keine Aktualisierungen verfügbar</translation>
-    </message>
-    <message>
-        <source>Downloading packages...</source>
-        <translation>Pakete herunterladen...</translation>
-    </message>
-    <message>
-        <source>Starting package updates...</source>
-        <translation>Beginne mit der Aktualisierung der Pakete...</translation>
-    </message>
-    <message>
-        <source>Downloading %1</source>
-        <translation>Herunterladen %1</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Herunterladen: %1</translation>
-    </message>
-    <message>
-        <source>Failed package update</source>
-        <translation>Aktualisierung der Pakete fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
-        <translation>Die Aktualisierung der Pakete ist fehlgeschlagen! Wenn dies andauernd auftritt, müssen Sie folgenden Befehl manuell ausführen: pc-updatemanager pkgupdate</translation>
     </message>
 </context>
 </TS>
