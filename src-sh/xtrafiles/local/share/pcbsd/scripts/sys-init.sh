@@ -53,6 +53,9 @@ if [ "$1" = "desktop" ] ;then
   pbreg set /PC-BSD/SysType PCBSD
   touch /etc/defaults/pcbsd
 
+  # Enable showing the PC-BSD 4th screen
+  echo "pcbsd_load=\"YES\"" >> /boot/loader.conf
+
   # Init the desktop
   /usr/local/bin/pc-extractoverlay desktop --sysinit
 
