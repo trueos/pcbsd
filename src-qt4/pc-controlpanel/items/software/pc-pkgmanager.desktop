@@ -7,3 +7,5 @@ Type=Application
 Categories=System;
 Name=Package Manager
 Name[de]=Paketverwalter
+Name[fr]=Gestionnaire de Paquets
+Name[fr_CA]=Gestionnaire de Paquet
