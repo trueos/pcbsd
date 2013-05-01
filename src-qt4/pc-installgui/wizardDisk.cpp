@@ -461,9 +461,8 @@ void wizardDisk::generateDiskLayout()
 	 fsType= "ZFS";
        }
 
-       // Add the main zfs pool with standard partitions including a /swap on ZFS
        // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
-       fileSystem << targetDisk << targetSlice << "/,/swap(volsize=2G|org.freebsd:swap=on|checksum=off),/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
+       fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
        //qDebug() << "Auto-Gen FS:" <<  fileSystem;
        sysFinalDiskLayout << fileSystem;
        fileSystem.clear();

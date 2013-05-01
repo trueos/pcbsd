@@ -231,7 +231,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   if ( Arch == "amd64" ) {
     // Add the main zfs pool with standard partitions
     fsType= "ZFS";
-    fileSystem << targetDisk << targetSlice << "/,/swap(volsize=2G|org.freebsd:swap=on|checksum=off),/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << "";
+    fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << "";
     //qDebug() << "Auto-Gen FS:" <<  fileSystem;
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
