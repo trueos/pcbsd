@@ -30,6 +30,7 @@ share/warden/scripts/rc.d/startup.sh
 share/warden/scripts/rc.d/shutdown.sh
 share/warden/scripts/backend/checkupdates.sh
 share/warden/scripts/backend/createjail.sh
+share/warden/scripts/backend/createtemplate.sh
 share/warden/scripts/backend/zfslistsnap.sh
 share/warden/scripts/backend/zfsrevertsnap.sh
 share/warden/scripts/backend/zfsrmclone.sh

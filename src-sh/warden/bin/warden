@@ -62,6 +62,7 @@ cat<<__EOF__
         start - Start a jail
          stop - Stops a jail
          type - Set the jail type (portjail|pluginjail|standard)
+     template - Manage jail templates
     zfsmksnap - Create a ZFS snapshot of a jail 
  zfslistclone - List clones of jail snapshots
   zfslistsnap - List snapshots of a jail
@@ -323,6 +324,42 @@ Usage:
 Example:
 
   warden details myjail
+"
+};
+
+help_template()
+{
+ title
+ echo "Help template
+
+Manage the jail templates used to create new FreeBSD jails
+
+Required subcommands:
+
+  create - Create a new jail template
+  delete - Delete a jail template
+    list - List jail templates on system
+
+Flags:
+
+  create:
+     -fbsd <version>   - FreeBSD Version, 9.1-RELEASE, 9.0-RELEASE, etc
+     -trueos <version> - TrueOS Version, 9-TRUEOS, 10-TRUEOS, etc
+     -arch <arch type> - System architecture, i386/amd64
+     -tar <file>       - Use tar archive as template contents (Ignores -arch / -fbsd)
+     -nick <nickname>  - Template nickname for creating jails / deleting templates
+
+Usage:
+
+  warden template create <flags>
+   or
+  warden template delete <template nickname>
+   or
+  warden template list
+
+Example:
+
+  warden template create -fbsd 9.1-RELEASE -arch amd64 -nick 91amd64
 "
 };
 
@@ -633,6 +670,7 @@ case "$1" in
            import) help_import ;;
            pkgs) help_pkgs ;;
            pbis) help_pbis ;;
+           template) help_template ;;
            type) help_type ;;
            get) help_get ;;
            set) help_set ;;
@@ -679,6 +717,15 @@ details) JAILNAME="${2}"
 	 if [ -z "$EDITOR" ]; then EDITOR="vi"; fi
 	 $EDITOR ${JMETADIR}/fstab
 	 exit $?
+         ;;
+template) require_root
+         OPT="$2"
+         case $OPT in
+	    create) shift ; shift; ${PROGDIR}/scripts/backend/createtemplate.sh $* ;;
+	    delete) delete_template $3 ;;
+	      list) list_templates ;;
+	         *) help_template ; exit 1 ;;
+	 esac
          ;;
     get) require_root
 	 OPT="${2}"
