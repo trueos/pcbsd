@@ -12,7 +12,7 @@ DISTFILES=	# none
 MAINTAINER=	kris@pcbsd.org
 COMMENT=	The meta-port trueos-meta-squid
 
-RUN_DEPENDS=	squid>=0:${PORTSDIR}/www/squid31
+RUN_DEPENDS=	squid>=0:${PORTSDIR}/www/squid32
 
 NO_BUILD=	yes
 
