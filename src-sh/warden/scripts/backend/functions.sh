@@ -968,3 +968,37 @@ get_ipfw_nat_priority()
    return ${res}
 }
 
+list_templates()
+{
+   echo "Jail Templates:"
+   echo "------------------------------" 
+   isDirZFS "${JDIR}"
+   if [ $? -eq 0 ] ; then
+     for i in `ls -d ${JDIR}/.warden-template* 2>/dev/null`
+     do 
+        NICK=`echo "$i" | sed "s|${JDIR}/.warden-template-||g"`
+        file "$i/bin/sh" 2>/dev/null | grep -q "64-bit"
+        if [ $? -eq 0 ] ; then
+           ARCH="amd64"
+        else
+           ARCH="i386"
+        fi
+        VER=`file "$i/bin/sh" | cut -d ',' -f 5 | awk '{print $3}'`
+        if [ -e "$i/etc/rc.delay" ] ; then
+           TYPE="TrueOS"
+        else
+           TYPE="FreeBSD"
+        fi
+        echo -e "${NICK}	- $TYPE $VER ($ARCH)"
+     done
+   else
+     # UFS, no details for U!
+     ls ${JDIR}/.warden-template*.tbz | sed "s|${JDIR}/.warden-template-||g" | sed "s|.tbz||g"
+   fi
+}
+
+delete_template()
+{
+  
+
+}
