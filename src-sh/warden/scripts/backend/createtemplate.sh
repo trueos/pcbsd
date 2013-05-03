@@ -32,8 +32,11 @@ download_template_files() {
      do
        fetch -o "${JDIR}/.download/$f" "ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/$f"
        if [ $? -ne 0 ] ; then
-         exit_err "Failed downloading: ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/
-$f"
+	 echo "Trying ftp-archive..."
+         fetch -o "${JDIR}/.download/$f" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/$f"
+         if [ $? -ne 0 ] ; then
+           exit_err "Failed downloading: FreeBSD ${FBSDVER}"
+	 fi
        fi
      done
   fi
