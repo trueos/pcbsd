@@ -32,21 +32,21 @@ download_template_files() {
      # Check if we are on REAL old versions of FreeBSD
      if [ "$oldFBSD" = "YES" ] ; then
 	 # Get the .inf list file
-         fetch -o "${JDIR}/.download/base.inf" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/base/base.inf"
+         fetch -o "${JDIR}/.download/${oldStr}.inf" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/${oldStr}/${oldStr}.inf"
 	 if [ $? -ne 0 ] ; then
-           exit_err "Failed downloading: FreeBSD ${FBSDVER} - base.inf"
+           exit_err "Failed downloading: FreeBSD ${FBSDVER} - ${oldStr}.inf"
 	 fi
 	 # Now read in the list of files to fetch
 	 while read line
 	 do
 	    echo "$line" | grep -q '^cksum'
 	    if [ $? -ne 0 ] ; then continue ; fi
-	    fName=`echo $line | cut -d " " -f 1 | sed 's|cksum|base|g'`
-            fetch -o "${JDIR}/.download/$fName" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/base/$fName"
+	    fName=`echo $line | cut -d " " -f 1 | sed "s|cksum|$oldStr|g"`
+            fetch -o "${JDIR}/.download/$fName" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/${oldStr}/$fName"
 	    if [ $? -ne 0 ] ; then
               exit_err "Failed downloading: FreeBSD ${FBSDVER} - $fName"
 	    fi
-	 done < ${JDIR}/.download/base.inf
+	 done < ${JDIR}/.download/${oldStr}.inf
 	 return
      fi
 
@@ -87,7 +87,7 @@ create_template()
       if [ $? -ne 0 ] ; then exit_err "Failed extracting: $FBSDTAR"; fi
     elif [ "$oldFBSD" = "YES" ] ; then
       cd ${JDIR}/.download/
-      cat base.?? | tar --unlink -xpzf - -C ${TDIR} #2>/dev/null
+      cat ${oldStr}.?? | tar --unlink -xpzf - -C ${TDIR} #2>/dev/null
       cd ${JDIR}
     else
       # Extract the dist files
@@ -114,7 +114,7 @@ create_template()
       mkdir ${JDIR}/.templatedir
       cd ${JDIR}/.download/
       echo "Extrating FreeBSD..."
-      cat base.?? | tar --unlink -xpzf - -C ${JDIR}/.templatedir 2>/dev/null
+      cat ${oldStr}.?? | tar --unlink -xpzf - -C ${JDIR}/.templatedir 2>/dev/null
       cd ${JDIR}
       echo "Creating template archive..."
       tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
@@ -138,6 +138,7 @@ create_template()
     fi
   fi
 
+  rm -rf ${JDIR}/.download
   echo "Created jail template: $TNICK"
   exit 0
 };
@@ -207,7 +208,15 @@ fi
 # Check if we are on REAL old versions of FreeBSD
 if [ -n "$FBSDVER" ] ; then
   mV=`echo $FBSDVER | cut -d '.' -f 1`
-  if [ $mV -lt 9 ] ; then oldFBSD="YES"; fi
+  if [ $mV -lt 9 ] ; then 
+     oldFBSD="YES"
+     oldStr="base"
+  fi
+  if [ $mV -lt 5 ] ; then 
+     # VERY VERY old!
+     oldFBSD="YES"
+     oldStr="bin"
+  fi
 fi
 
 

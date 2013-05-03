@@ -976,6 +976,7 @@ list_templates()
    if [ $? -eq 0 ] ; then
      for i in `ls -d ${JDIR}/.warden-template* 2>/dev/null`
      do 
+	if [ ! -e "$i/bin/sh" ] ; then continue ; fi
         NICK=`echo "$i" | sed "s|${JDIR}/.warden-template-||g"`
         file "$i/bin/sh" 2>/dev/null | grep -q "64-bit"
         if [ $? -eq 0 ] ; then
@@ -989,7 +990,7 @@ list_templates()
         else
            TYPE="FreeBSD"
         fi
-        echo -e "${NICK}	- $TYPE $VER ($ARCH)"
+        echo -e "${NICK} - $TYPE $VER ($ARCH)"
      done
    else
      # UFS, no details for U!
