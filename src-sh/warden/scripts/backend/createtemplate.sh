@@ -28,6 +28,28 @@ download_template_files() {
        fi
      done
   else
+     
+     # Check if we are on REAL old versions of FreeBSD
+     if [ "$oldFBSD" = "YES" ] ; then
+	 # Get the .inf list file
+         fetch -o "${JDIR}/.download/base.inf" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/base/base.inf"
+	 if [ $? -ne 0 ] ; then
+           exit_err "Failed downloading: FreeBSD ${FBSDVER} - base.inf"
+	 fi
+	 # Now read in the list of files to fetch
+	 while read line
+	 do
+	    echo "$line" | grep -q '^cksum'
+	    if [ $? -ne 0 ] ; then continue ; fi
+	    fName=`echo $line | cut -d " " -f 1 | sed 's|cksum|base|g'`
+            fetch -o "${JDIR}/.download/$fName" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/base/$fName"
+	    if [ $? -ne 0 ] ; then
+              exit_err "Failed downloading: FreeBSD ${FBSDVER} - $fName"
+	    fi
+	 done < ${JDIR}/.download/base.inf
+	 return
+     fi
+
      for f in $DFILES
      do
        fetch -o "${JDIR}/.download/$f" "ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/$f"
@@ -61,8 +83,12 @@ create_template()
 
     # Using a supplied tar file?
     if [ -n "$FBSDTAR" ] ; then
-        tar xvpf $FBSDTAR -C ${TDIR} 2>/dev/null
-        if [ $? -ne 0 ] ; then exit_err "Failed extracting: $FBSDTAR"; fi
+      tar xvpf $FBSDTAR -C ${TDIR} 2>/dev/null
+      if [ $? -ne 0 ] ; then exit_err "Failed extracting: $FBSDTAR"; fi
+    elif [ "$oldFBSD" = "YES" ] ; then
+      cd ${JDIR}/.download/
+      cat base.?? | tar --unlink -xpzf - -C ${TDIR} #2>/dev/null
+      cd ${JDIR}
     else
       # Extract the dist files
       for f in $DFILES
@@ -80,13 +106,22 @@ create_template()
     if [ -d "${JDIR}/.templatedir" ]; then
        rm -rf ${JDIR}/.templatedir
     fi
-    mkdir ${JDIR}/.templatedir
 
     if [ -n "$FBSDTAR" ] ; then
       # User-supplied tar file 
       cp $FBSDTAR ${TDIR}
+    elif [ "$oldFBSD" = "YES" ] ; then
+      mkdir ${JDIR}/.templatedir
+      cd ${JDIR}/.download/
+      echo "Extrating FreeBSD..."
+      cat base.?? | tar --unlink -xpzf - -C ${JDIR}/.templatedir 2>/dev/null
+      cd ${JDIR}
+      echo "Creating template archive..."
+      tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
+      rm -rf ${JDIR}/.templatedir
     else
       # Extract the dist files
+      mkdir ${JDIR}/.templatedir
       for f in $DFILES
       do
         tar xvpf ${JDIR}/.download/$f -C ${JDIR}/.templatedir 2>/dev/null
@@ -168,6 +203,13 @@ DFILES="base.txz doc.txz games.txz"
 if [ "$FBSDARCH" = "amd64" ] ; then
   DFILES="$DFILES lib32.txz"
 fi
+
+# Check if we are on REAL old versions of FreeBSD
+if [ -n "$FBSDVER" ] ; then
+  mV=`echo $FBSDVER | cut -d '.' -f 1`
+  if [ $mV -lt 9 ] ; then oldFBSD="YES"; fi
+fi
+
 
 # If not using a tarball, lets download our files
 if [ -z "$FBSDTAR" ] ; then
