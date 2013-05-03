@@ -86,21 +86,53 @@ case "${JAILTYPE}" in
   standard) ;;
 esac
 
-# Location of the chroot environment
-isDirZFS "${JDIR}"
-if [ $? -eq 0 ] ; then
-  WORLDCHROOT_PLUGINJAIL="${JDIR}/.warden-pj-chroot-${ARCH}"
-  WORLDCHROOT_STANDARD="${JDIR}/.warden-chroot-${ARCH}"
-else
-  WORLDCHROOT_PLUGINJAIL="${JDIR}/.warden-pj-chroot-${ARCH}.tbz"
-  WORLDCHROOT_STANDARD="${JDIR}/.warden-chroot-${ARCH}.tbz"
+# See if we need to create a default template
+# If using a ARCHIVEFILE we can skip this step
+if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
+  DEFTEMPLATE="`uname -r | cut -d '-' -f 1-2`-${ARCH}"
+
+  # If on a plugin jail, lets change the nickname
+  if [ "${PLUGINJAIL}" = "YES"  ] ; then
+    DEFTEMPLATE="${DEFTEMPLATE}-pluginjail"
+  fi
+
+  # See if we need to create a new template for this system
+  isDirZFS "${JDIR}"
+  if [ $? -eq 0 ] ; then
+     TDIR="${JDIR}/.warden-template-$DEFTEMPLATE"
+  else
+     TDIR="${JDIR}/.warden-template-$DEFTEMPLATE.tbz"
+  fi
+  if [ ! -e "$TDIR" ] ; then
+      FLAGS="-arch $ARCH -nick $DEFTEMPLATE"
+
+      uname -r 2>&1 | grep -q "TRUEOS"
+      if [ $? -eq 0 ] ; then
+         FLAGS="-trueos `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
+      else
+         FLAGS="-fbsd `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
+      fi
+
+      if [ "${PLUGINJAIL}" = "YES" ] ; then
+         FLAGS="$FLAGS -pluginjail"
+      fi
+      ${PROGDIR}/scripts/backend/createtemplate.sh ${FLAGS}
+      if [ $? -ne 0 ] ; then
+        exit_err "Failed create default template"
+      fi
+  fi
+  WORLDCHROOT="${TDIR}"
+elif [ -z "$ARCHIVEFILE" ] ; then
+  # Set WORLDCHROOT to the dir we will clone / file to extract
+  WORLDCHROOT="${JDIR}/.warden-template-$TEMPLATE"
+  isDirZFS "${JDIR}"
+  if [ $? -ne 0 ] ; then
+    WORLDCHROOT="${WORLDCHROOT}.tbz"
+  fi
+else 
+   # See if we are overriding the default archive file
+   WORLDCHROOT="$ARCHIVEFILE"
 fi
-if [ "${PLUGINJAIL}" = "YES" ] ; then
-  WORLDCHROOT="${WORLDCHROOT_PLUGINJAIL}"
-else
-  WORLDCHROOT="${WORLDCHROOT_STANDARD}"
-fi
-export WORLDCHROOT WORLDCHROOT_PLUGINJAIL WORLDCHROOT_STANDARD
 
 if [ "${IP4}" != "OFF" ] ; then
   get_ip_and_netmask "${IP4}"
@@ -114,11 +146,6 @@ if [ "${IP6}" != "OFF" ] ; then
   IP6="${JIP}"
   MASK6="${JMASK}"
   if [ -z "$MASK6" ] ; then MASK6="64"; fi
-fi
-
-# See if we are overriding the default archive file
-if [ ! -z "$ARCHIVEFILE" ] ; then
-   WORLDCHROOT="$ARCHIVEFILE"
 fi
 
 if [ -z "$HOST" ] ; then
@@ -156,48 +183,6 @@ do
 done
 : $(( META_ID += 1 ))
 
-# Check if we need to download the chroot file
-
-#
-# If this is a pluginjail, we clone a regular freebsd chroot, then we
-# bootstrap packageng, install the required packages that a pluginjail
-# needs, then snapshot it. Once this is done, creating a pluginjail is
-# as easy as doing a zfs clone.
-#
-if [ "${PLUGINJAIL}" = "YES" -a ! -e "${WORLDCHROOT}" -a -z "$TEMPLATE" ] ; then
-  if [ ! -e "${WORLDCHROOT_STANDARD}" ] ; then
-    downloadchroot "${WORLDCHROOT_STANDARD}"
-  fi
-
-  isDirZFS "${JDIR}"
-  if [ $? -eq 0 ] ; then
-    tank=`getZFSTank "$JDIR"`
-    zfsp=`getZFSRelativePath "${WORLDCHROOT_STANDARD}"`
-    clonep="/$(basename ${WORLDCHROOT_PLUGINJAIL})"
-
-    mnt=`getZFSMountpoint ${tank}`
-    pjdir="${mnt}${clonep}"
-
-    zfs clone ${tank}${zfsp}@clean ${tank}${clonep}
-    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS pluginjail clone"; fi
-
-    cp /etc/resolv.conf ${pjdir}/etc/resolv.conf
-
-    bootstrap_pkgng "${pjdir}" "pluginjail"
-
-    zfs snapshot ${tank}${clonep}@clean
-    if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS pluginjail snapshot"; fi
-
-  # We're on UFS :-(
-  else
-    downloadchroot "${WORLDCHROOT_STANDARD}"
-
-  fi
-
-elif [ ! -e "${WORLDCHROOT}" -a "${LINUXJAIL}" != "YES" -a -z "$TEMPLATE" ] ; then
-  downloadchroot "${WORLDCHROOT}"
-fi
-
 # If we are setting up a linux jail, lets do it now
 if [ "$LINUXJAIL" = "YES" ] ; then
    isDirZFS "${JDIR}"
@@ -217,16 +202,6 @@ if [ "$LINUXJAIL" = "YES" ] ; then
 fi
 
 echo "Building new Jail... Please wait..."
-
-# Are we using a jail template to build / clone?
-if [ -n "$TEMPLATE" ] ; then
-   # Reset WORLDCHROOT to the dir we will clone / file to extract
-   WORLDCHROOT="${JDIR}/.warden-template-$TEMPLATE"
-   isDirZFS "${JDIR}"
-   if [ $? -ne 0 ] ; then
-     WORLDCHROOT="${WORLDCHROOT}.tbz"
-   fi
-fi
 
 isDirZFS "${JDIR}"
 if [ $? -eq 0 ] ; then

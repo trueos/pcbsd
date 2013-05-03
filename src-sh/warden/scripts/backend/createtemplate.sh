@@ -99,6 +99,12 @@ create_template()
       done
     fi
 
+    # Creating a plugin jail?
+    if [ "$TPLUGJAIL" = "YES" ] ; then
+      cp /etc/resolv.conf ${TDIR}/etc/resolv.conf
+      bootstrap_pkgng "${TDIR}" "pluginjail"
+    fi
+
     zfs snapshot ${tank}${zfsp}@clean
     if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
   else
@@ -116,6 +122,13 @@ create_template()
       echo "Extrating FreeBSD..."
       cat ${oldStr}.?? | tar --unlink -xpzf - -C ${JDIR}/.templatedir 2>/dev/null
       cd ${JDIR}
+
+      # Creating a plugin jail?
+      if [ "$TPLUGJAIL" = "YES" ] ; then
+        cp /etc/resolv.conf ${JDIR}/.templatedir/etc/resolv.conf
+        bootstrap_pkgng "${JDIR}/.templatedir/" "pluginjail"
+      fi
+
       echo "Creating template archive..."
       tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
       rm -rf ${JDIR}/.templatedir
@@ -131,6 +144,12 @@ create_template()
         fi
         rm ${JDIR}/.download/${f}
       done
+
+      # Creating a plugin jail?
+      if [ "$TPLUGJAIL" = "YES" ] ; then
+        cp /etc/resolv.conf ${JDIR}/.templatedir/etc/resolv.conf
+        bootstrap_pkgng "${JDIR}/.templatedir/" "pluginjail"
+      fi
 
       echo "Creating template archive..."
       tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
@@ -167,6 +186,9 @@ while [ $# -gt 0 ]; do
     -nick) shift
            if [ -z "$1" ] ; then exit_err "No nickname specified"; fi
            TNICK="${1}"
+	   ;;
+ -pluginjail) shift
+           TPLUGJAIL="YES"
 	   ;;
 	*) exit_err "Invalid option: $1" ;;
    esac
@@ -228,3 +250,4 @@ fi
 # Create the template now
 create_template
 
+exit 0
