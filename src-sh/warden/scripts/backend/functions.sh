@@ -995,10 +995,26 @@ list_templates()
      # UFS, no details for U!
      ls ${JDIR}/.warden-template*.tbz | sed "s|${JDIR}/.warden-template-||g" | sed "s|.tbz||g"
    fi
+   exit 0
 }
 
 delete_template()
 {
-  
+   tDir="${JDIR}/.warden-template-${1}"
+   isDirZFS "${JDIR}"
+   if [ $? -eq 0 ] ; then
+     isDirZFS "${tDir}" "1"
+     if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${tDir}" ; fi
+     tank=`getZFSTank "$tDir"`
+     rp=`getZFSRelativePath "$tDir"`
+     zfs destroy -r $tank${rp}
+     rmdir ${tDir}
+   else
+     if [ ! -e "${tDir}.tbz" ] ; then
+       exit_err "No such template: ${1}"
+     fi
+     rm ${tDir}.tbz
+   fi
 
+   exit 0
 }
