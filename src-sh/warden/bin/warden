@@ -636,6 +636,7 @@ Available Flags:
   --archive <tar>              (Use specified tar file for BSD jail creation)
   --linuxarchive <tar>         (Use specified tar file for Linux jail creation)
   --version <string>           (Use this instead of /etc/version)
+  --template <string>          (Specify a jail template to build with)
 
 Usage:
 
@@ -1168,6 +1169,19 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 			  if [ -z "$1" ] ; then exit_err "No version string specified!"; fi
                           VERSION="${1}"
                           ;;
+             --template) shift
+			  if [ -z "$1" ] ; then exit_err "No template string specified!"; fi
+			  isDirZFS "${JDIR}"
+			  if [ $? -eq 0 ] ; then
+  			     TDIR="${JDIR}/.warden-template-$1"
+		  	  else
+  			     TDIR="${JDIR}/.warden-template-$1.tbz"
+			  fi
+			  if [ ! -e "$TDIR" ] ; then
+			     exit_err "Invalid template specified: $1"
+			  fi
+                          TEMPLATE="${1}"
+                          ;;
            esac
            shift
          done
@@ -1188,6 +1202,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
           export ARCHIVE_FILE
           export VERSION
           export VANILLA
+          export TEMPLATE
 
           # Passed all tests, create the jail now
           ${PROGDIR}/scripts/backend/createjail.sh "${JAILNAME}"

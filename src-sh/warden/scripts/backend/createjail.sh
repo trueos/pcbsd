@@ -164,7 +164,7 @@ done
 # needs, then snapshot it. Once this is done, creating a pluginjail is
 # as easy as doing a zfs clone.
 #
-if [ "${PLUGINJAIL}" = "YES" -a ! -e "${WORLDCHROOT}" ] ; then
+if [ "${PLUGINJAIL}" = "YES" -a ! -e "${WORLDCHROOT}" -a -z "$TEMPLATE" ] ; then
   if [ ! -e "${WORLDCHROOT_STANDARD}" ] ; then
     downloadchroot "${WORLDCHROOT_STANDARD}"
   fi
@@ -194,7 +194,7 @@ if [ "${PLUGINJAIL}" = "YES" -a ! -e "${WORLDCHROOT}" ] ; then
 
   fi
 
-elif [ ! -e "${WORLDCHROOT}" -a "${LINUXJAIL}" != "YES" ] ; then
+elif [ ! -e "${WORLDCHROOT}" -a "${LINUXJAIL}" != "YES" -a -z "$TEMPLATE" ] ; then
   downloadchroot "${WORLDCHROOT}"
 fi
 
@@ -217,6 +217,16 @@ if [ "$LINUXJAIL" = "YES" ] ; then
 fi
 
 echo "Building new Jail... Please wait..."
+
+# Are we using a jail template to build / clone?
+if [ -n "$TEMPLATE" ] ; then
+   # Reset WORLDCHROOT to the dir we will clone / file to extract
+   WORLDCHROOT="${JDIR}/.warden-template-$TEMPLATE"
+   isDirZFS "${JDIR}"
+   if [ $? -ne 0 ] ; then
+     WORLDCHROOT="${WORLDCHROOT}.tbz"
+   fi
+fi
 
 isDirZFS "${JDIR}"
 if [ $? -eq 0 ] ; then
@@ -339,8 +349,8 @@ if [ -e "/etc/localtime" ] ; then
    cp /etc/localtime ${JAILDIR}/etc/localtime
 fi
 
-# Setup PC-BSD PKGNG repo / utilities
-if [ "$VANILLA" != "YES" ] ; then
+# Setup TrueOS PKGNG repo / utilities only if on TRUEOS
+if [ "$VANILLA" != "YES" -a -e "${JAILDIR}/etc/rc.delay" ] ; then
   bootstrap_pkgng "${JAILDIR}"
   if [ $? -ne 0 ] ; then
      echo "You can manually re-try by running # warden bspkgng ${JAILNAME}"
