@@ -13,75 +13,93 @@
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation>Pogledaj i promeni trenutni PBI modul</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation>PBI podešavanja</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation>Glavna podešavanja za PBI</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation>Informacije o programu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation>Zvanično ime ciljnog programa</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Ime</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation>Verzija programa koji se pakuje</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Verzija</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation>URL glavne strane za dati program</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Website</source>
-        <translation>Internet strana</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation>Autor programa (ili ko država FreeBSD Port)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation>Simbol za program (PNG slika postoji)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation>Simbol</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation>Opcije za pravljenje</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation>Lokalni direktorijum upakovati u PBI (mora da sadrži sve šta je potrebno da može program da radi)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation>Direktorijum za pakovanje</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation>Izaberite direktorijum koji hoćete da zapakujete u PBI</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select</source>
@@ -89,7 +107,8 @@
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation>Glavni FreeBSD Port</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>

@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Build Information</source>
-        <translation>Erstellungsinformationen</translation>
+        <translation>Erstellungsinformationen     </translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
