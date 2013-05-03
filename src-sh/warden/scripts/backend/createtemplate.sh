@@ -87,7 +87,7 @@ create_template()
       if [ $? -ne 0 ] ; then exit_err "Failed extracting: $FBSDTAR"; fi
     elif [ "$oldFBSD" = "YES" ] ; then
       cd ${JDIR}/.download/
-      cat ${oldStr}.?? | tar --unlink -xpzf - -C ${TDIR} #2>/dev/null
+      cat ${oldStr}.?? | tar --unlink -xpzf - -C ${TDIR} 2>/dev/null
       cd ${JDIR}
     else
       # Extract the dist files
