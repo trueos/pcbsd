@@ -1017,9 +1017,6 @@ void Installer::startConfigGen()
   if ( wheelCurItem != wFREEBSD && wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
     // Doing PC-BSD Install
 
-    // First mount /dev inside chroot
-    cfgList << "runExtCommand=mount -t devfs devfs ${FSMNT}/dev";
-
     QString lang;
     if ( comboLanguage->currentIndex() != 0 )
       lang = languages.at(comboLanguage->currentIndex());
@@ -1035,8 +1032,6 @@ void Installer::startConfigGen()
     cfgList << "runCommand=touch /var/.pcbsd-firstboot";
     cfgList << "runCommand=touch /var/.pcbsd-firstgui";
 
-    // Unmount our /dev
-    cfgList << "runExtCommand=umount -f ${FSMNT}/dev";
   } else if ( wheelCurItem == wPCSERVER || wheelCurItem == 12 ) {
     // Doing TrueOS Install
     cfgList+=getUsersCfgSettings();
@@ -1052,15 +1047,10 @@ void Installer::startConfigGen()
     // Doing FreeBSD Install
     cfgList+=getUsersCfgSettings();
 
-    // First mount /dev inside chroot
-    cfgList << "runExtCommand=mount -t devfs devfs ${FSMNT}/dev";
-
     // Enable SSH?
     if ( fSSH )
       cfgList << "runCommand=echo 'sshd_enable=\"YES\"' >>/etc/rc.conf";
 
-    // Unmount our /dev
-    cfgList << "runExtCommand=umount -f ${FSMNT}/dev";
   }
 
   // Run newaliases to fix mail errors
