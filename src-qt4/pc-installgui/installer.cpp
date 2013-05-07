@@ -1504,7 +1504,7 @@ void Installer::slotReadInstallerOutput()
 
 	// If we are installing a package, show details to user
 	if ( tmp.indexOf("Installing") == 0 )
-          labelInstallStatus2->setText(tmp.section(" ", 0, 1));
+          labelInstallStatus2->setText(tmp.section("...", 0, 0));
      }
 
   } // end of while loop
