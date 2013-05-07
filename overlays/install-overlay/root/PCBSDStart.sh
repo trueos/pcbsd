@@ -30,6 +30,9 @@ if [ ! -d "/tmp/zfs" ] ; then
   fi
 fi
 
+# Enable the debug version of pc-sysinstall
+/root/debugpcsysinstall.sh
+
 # Check if we are booting in LIVE or INSTALL mode
 if [ -e "/usr/pcbsd-live" ]; then
 
