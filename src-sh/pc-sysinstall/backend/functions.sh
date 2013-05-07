@@ -121,6 +121,10 @@ rc_nohalt()
     exit_err "Error: missing argument in rc_nohalt()"
   fi
 
+  # Fixes some panics we saw
+  sync
+  sleep 0.01
+
   echo "Running: ${CMD}" >>${LOGOUT}
   ${CMD} >>${LOGOUT} 2>>${LOGOUT}
 
@@ -135,6 +139,10 @@ rc_halt()
   then
     exit_err "Error: missing argument in rc_halt()"
   fi
+
+  # Fixes some panics we saw
+  sync
+  sleep 0.01
 
   echo "Running: ${CMD}" >>${LOGOUT}
   eval ${CMD} >>${LOGOUT} 2>>${LOGOUT}
