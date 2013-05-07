@@ -395,7 +395,7 @@ bootstrap_pkgng()
     usb|dvd|local) PKGPTH="${PKGTMPDIR}/Latest/pkg.${PKGEXT}" ;;
           *) PKGPTH="${PKGTMPDIR}/pkg.${PKGEXT}" ;;
   esac
-  rc_halt "pkg -c ${FSMNT} add ${PKGPTH}" ; run_chroot_cmd "pkg2ng"
+  rc_halt "pkg -c ${FSMNT} add ${PKGPTH}"
 }
 
 get_package_location()

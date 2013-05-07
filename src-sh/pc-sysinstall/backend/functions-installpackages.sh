@@ -166,7 +166,7 @@ install_packages()
     if ! run_chroot_cmd "${PKGINFO} -e ${PKGNAME}" >/dev/null 2>/dev/null
     then
       echo_log "Installing package: ${PKGNAME}"
-      rc_nohalt "${PKGADD} ${PKGPTH}"
+      ${PKGADD} ${PKGPTH} | tee -a ${LOGOUT}
     fi
 
     if [ "${INSTALLMEDIUM}" = "ftp" ] ; then
