@@ -8,10 +8,10 @@
 #include <QDebug>
 #include <QProcess>
 #include <QByteArray>
+#include <QFile>
 #include <QWidget>
 
-#define PCSYSINSTALL    QString("/usr/local/sbin/pc-sysinstall")
-#define PCSYSINSTALLDIR QString("/usr/local/share/pc-sysinstall")
+
 #define PCSYSINSTALLCFG QString("/tmp/sys-install.cfg")
 #define TMPLANGFILE QString("/tmp/.SysInstallLang")
 
@@ -33,7 +33,13 @@ namespace Scripts {
 class Process : public QProcess {
 public:
     Process(const QStringList &args) {
+        QString PCSYSINSTALL;
         setReadChannel(QProcess::StandardOutput);
+        // If we are using a debug copy of pc-sysinstall, we can execute that instead of default
+        if ( QFile::exists("/root/pc-sysinstall/pc-sysinstall") )
+          PCSYSINSTALL = "/root/pc-sysinstall/pc-sysinstall";
+        else
+          PCSYSINSTALL = "/usr/local/sbin/pc-sysinstall";
         start(PCSYSINSTALL, args);
     }
 };
@@ -59,6 +65,9 @@ public:
     static QList<QStringList> getPackageData(bool &found, QString pkgset);
     //static QList<QStringList> slices();
 
+private:
+  QString PCSYSINSTALL;
+  QString PCSYSINSTALLDIR;
 };
 
 

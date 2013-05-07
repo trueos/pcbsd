@@ -1283,6 +1283,12 @@ void Installer::startInstall()
   QProcess::execute("killall", QStringList() << "hald");
 
   // Start our process to begin the install
+  QString PCSYSINSTALL;
+  if ( QFile::exists("/root/pc-sysinstall/pc-sysinstall") )  
+     PCSYSINSTALL = "/root/pc-sysinstall/pc-sysinstall";
+  else  
+     PCSYSINSTALL = "/usr/local/sbin/pc-sysinstall";
+
   QString program = PCSYSINSTALL;
   QStringList arguments;
   arguments << "-c" << PCSYSINSTALLCFG;

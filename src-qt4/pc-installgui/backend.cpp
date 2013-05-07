@@ -50,6 +50,11 @@ int Backend::addMBRPart(QString Disk, int size, QString &output)
 void Backend::setupSSHKeys(QString Host, QString User, QString Port)
 {
   QString line;
+  QString PCSYSINSTALL;
+  if ( QFile::exists("/root/pc-sysinstall/pc-sysinstall") )  
+     PCSYSINSTALL = "/root/pc-sysinstall/pc-sysinstall";
+  else  
+     PCSYSINSTALL = "/usr/local/sbin/pc-sysinstall";
 
   QProcess p;
   QString prog = "xterm";
