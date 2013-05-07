@@ -178,6 +178,8 @@ install_packages()
   echo_log "Package installation complete!"
 
   # Cleanup after ourselves
+  echo_log "Cleaning up: ${FSMNT}${PKGTMPDIR}"
+  sleep 10 
   rc_halt "cd ${HERE}"
   if [ "${INSTALLMEDIUM}" = "ftp" ] ; then
     rc_halt "rm -rf ${FSMNT}${PKGTMPDIR}" >/dev/null 2>/dev/null
