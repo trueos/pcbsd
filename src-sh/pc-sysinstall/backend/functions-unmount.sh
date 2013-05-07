@@ -34,6 +34,8 @@ umount_all_dir()
   _umntdirs=`mount | sort -r | grep "on $_udir" | cut -d ' ' -f 3`
   for _ud in $_umntdirs
   do
+    echo_log "Unmounting: ${_ud}"
+    sleep 5
     umount -f ${_ud} 
   done
 }
@@ -92,6 +94,7 @@ unmount_all_filesystems()
     # Check if we've found "/", and unmount that last
     if [ "$PARTMNT" != "/" -a "${PARTMNT}" != "none" -a "${PARTFS}" != "ZFS" ]
     then
+      echo_log "Unmounting: ${PARTDEV}${EXT}"
       rc_halt "umount -f ${PARTDEV}${EXT}"
 
       # Re-check if we are missing a label for this device and create it again if so
@@ -125,6 +128,7 @@ unmount_all_filesystems()
 
   # Last lets the /mnt partition
   #########################################################
+  echo_log "Unmounting: ${FSMNT}"
   rc_nohalt "umount -f ${FSMNT}"
 
    # If are using a ZFS on "/" set it to legacy
@@ -139,8 +143,14 @@ unmount_all_filesystems()
     ${ROOTRELABEL}
   fi
 
-  # Unmount our CDMNT
-  rc_nohalt "umount -f ${CDMNT}" >/dev/null 2>/dev/null
+  # Check if we need to unmount a media
+  case $INSTALLMEDIUM in
+     dvd|usb) echo_log "Unmounting DVD/USB media: ${CDMNT}"
+              sleep 5
+              rc_nohalt "umount -f ${CDMNT}" >/dev/null 2>/dev/null
+              ;;
+           *) ;;
+  esac
 
   # Check if we need to run any gmirror syncing
   ls ${MIRRORCFGDIR}/* >/dev/null 2>/dev/null

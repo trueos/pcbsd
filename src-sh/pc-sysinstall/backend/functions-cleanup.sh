@@ -111,6 +111,8 @@ zfs_cleanup_unmount()
         # Some ZFS like /swap aren't mounted, and dont need unmounting
         mount | grep -q "${FSMNT}${ZMNT}"
 	if [ $? -eq 0 ] ; then
+          echo_log "ZFS Unmount: ${ZPOOLNAME}${ZMNT}"
+          sleep 5
           rc_halt "zfs unmount ${ZPOOLNAME}${ZMNT}"
           rc_halt "zfs set mountpoint=${ZMNT} ${ZPOOLNAME}${ZMNT}"
         fi
