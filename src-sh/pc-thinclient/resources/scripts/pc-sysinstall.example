@@ -23,8 +23,8 @@ commitDiskLabel
 installType=FreeBSD
 installMedium=local
 localPath=/installarchive
-packageType=tar
-installFile=fbsd-release.txz
+packageType=dist
+distFiles=base games doc kernel lib32
 
 # Set the root pass
 rootPass=root

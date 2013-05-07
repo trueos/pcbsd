@@ -33,7 +33,7 @@
 
 # Set some universal variables
 PROGDIR="/usr/local/share/pcbsd/pc-thinclient"
-DHCPPORT="net/isc-dhcp42-server"
+DHCPPORT="isc-dhcp41-server"
 PXEWORLD="/usr/home/thinclient"
 WORLDPORTS="x11/xorg graphics/xv"
 export WORLDPORTS
@@ -291,13 +291,8 @@ check_dhcpd() {
 	which dhcpd >/dev/null 2>/dev/null
 	if [ "$?" = "0" ] ; then return; fi
 
-	if [ ! -d "/usr/ports/$DHCPPORT" ] ; then
-		exit_err "Missing /usr/ports/$DHCPPORT, please fetch the FreeBSD ports tree or install dhcp-server."
-	fi
-
 	echo "Installing $DHCPPORT"
-	cd /usr/ports/${DHCPPORT}
-	make install
+        pkg install -y ${DHCPPORT}
 	if [ "$?" != "0" ] ; then exit_err "Failed installing ${DHCPPORT}"; fi
 }
 
