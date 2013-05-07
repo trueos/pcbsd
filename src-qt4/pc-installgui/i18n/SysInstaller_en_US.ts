@@ -204,10 +204,10 @@
         <location filename="../installer.cpp" line="533"/>
         <location filename="../installer.cpp" line="553"/>
         <location filename="../installer.cpp" line="792"/>
-        <location filename="../installer.cpp" line="1315"/>
-        <location filename="../installer.cpp" line="1343"/>
-        <location filename="../installer.cpp" line="1625"/>
-        <location filename="../installer.cpp" line="1680"/>
+        <location filename="../installer.cpp" line="1305"/>
+        <location filename="../installer.cpp" line="1333"/>
+        <location filename="../installer.cpp" line="1615"/>
+        <location filename="../installer.cpp" line="1670"/>
         <source>PC-BSD Installer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -273,54 +273,54 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1312"/>
+        <location filename="../installer.cpp" line="1302"/>
         <source>Failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1317"/>
+        <location filename="../installer.cpp" line="1307"/>
         <source>The installer has encountered an error and has been halted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1318"/>
+        <location filename="../installer.cpp" line="1308"/>
         <source>Do you want to generate an error report?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1345"/>
+        <location filename="../installer.cpp" line="1335"/>
         <source>Restart the system now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1373"/>
+        <location filename="../installer.cpp" line="1363"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1445"/>
-        <location filename="../installer.cpp" line="1487"/>
+        <location filename="../installer.cpp" line="1435"/>
+        <location filename="../installer.cpp" line="1477"/>
         <source>Extracting system...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1447"/>
-        <location filename="../installer.cpp" line="1489"/>
+        <location filename="../installer.cpp" line="1437"/>
+        <location filename="../installer.cpp" line="1479"/>
         <source>Installing system... This may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1466"/>
+        <location filename="../installer.cpp" line="1456"/>
         <source>Installing packages... This may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1626"/>
+        <location filename="../installer.cpp" line="1616"/>
         <source>Are you sure you want to abort this installation?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1681"/>
+        <location filename="../installer.cpp" line="1671"/>
         <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
         <translation type="unfinished"></translation>
     </message>

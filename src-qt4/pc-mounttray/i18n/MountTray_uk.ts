@@ -17,33 +17,29 @@
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Використано/Всього</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відсоток %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Диск(и) майже заповнено</translation>
     </message>
 </context>
 <context>
     <name>MenuItem</name>
     <message>
         <source>Auto-mount this device</source>
-        <translation>Автоматично змонтувати цей пристрій</translation>
+        <translation>Автоматично монтувати цей пристрій</translation>
     </message>
     <message>
         <source>Eject</source>
@@ -136,51 +132,42 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Більше налаштувань</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дивитися використання диску</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Змінити налаштування</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування системного трею</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Монітор місця дискового накопичувача</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевіряти наявність пристроїв</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Максимальний інтервал між перевірками (хвилини)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Застосувати</translation>
     </message>
 </context>
 </TS>

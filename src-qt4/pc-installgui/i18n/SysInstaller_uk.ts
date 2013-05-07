@@ -231,17 +231,15 @@
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation>Неможливо обрати розділ диску для  пристрою.</translation>
+        <translation>Неможливо обрати розділ диску для пристрою.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Виявлено, що ви використовуєте 32-бітну версію. Якщо ваша система 64-бітна (більшість систем, зроблених після 2005 року), ви дійсно маєте використовувати 64-бітну версію.</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обраний диск/розділ менший рекомендованих %1Мб. Встановлення може не вдатися...</translation>
     </message>
 </context>
 <context>
@@ -318,7 +316,7 @@
     </message>
     <message>
         <source>Video driver:</source>
-        <translation>Відео драйвер:</translation>
+        <translation>Відеодрайвер:</translation>
     </message>
     <message>
         <source>Video resolution:</source>

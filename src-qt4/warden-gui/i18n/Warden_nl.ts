@@ -95,83 +95,67 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instellingen voor Gevangenis</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-adres</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-brugadres</translation>
     </message>
     <message>
         <source>IPv4 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-standaardrouter</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-adres</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-brugadres</translation>
     </message>
     <message>
         <source>IPv6 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-standaardrouter</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aliassen</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-aliassen</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-brugaliassen</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-aliassen</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-brugaliassen</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rechten</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>De volgende rechten kunnen worden in- of uitgeschakeld voor deze gevangenis. Laat de muispijl rusten op een element voor meer bijzonderheden, of gebruik de handleidingpagina van Gevangenis (manpage).</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>

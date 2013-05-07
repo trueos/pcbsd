@@ -97,13 +97,11 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketopwaarderingen beschikbaar</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Er zijn belangrijke pakketopwaarderingen beschikbaar. Klik hier om ze te installeren.</translation>
     </message>
 </context>
 </TS>

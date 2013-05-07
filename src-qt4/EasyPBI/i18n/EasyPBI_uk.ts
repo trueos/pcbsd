@@ -349,8 +349,7 @@
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Файли, що будуть посилатися на локальну систему</translation>
     </message>
     <message>
         <source>Current Entries</source>
@@ -362,23 +361,19 @@
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Посилання на</translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Тип файлу</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вилучити обране посилання</translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вилучити елемент</translation>
     </message>
     <message>
         <source>Add Entry</source>

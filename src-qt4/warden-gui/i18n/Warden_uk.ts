@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation>Налаштування тюрми</translation>
+        <translation>Налаштування В&apos;язниці</translation>
     </message>
     <message>
         <source>IPv4</source>
@@ -107,148 +107,119 @@
     </message>
     <message>
         <source>IPv4 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адреса IPv4 мосту</translation>
     </message>
     <message>
         <source>IPv4 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Основний IPv4 маршрутизатор</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адреса IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Адреса IPv6 мосту</translation>
     </message>
     <message>
         <source>IPv6 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Основний IPv6 маршрутизатор</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аліаси</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аліаси IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аліаси IPv4 мосту</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аліаси IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Аліаси IPv6 мосту</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дозволи</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наступні дозволи можуть бути увімкненими або вимкненими для цієї В&apos;язниці. Для підказки наведіть вказівником на елемент, або зверніться до відповідної man-сторінки.</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процес у В&apos;язниці має доступ до примітивів System V IPC.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Root В&apos;язниці може створювати raw-сокети. Дозволено ping / traceroute.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Коли цей параметр увімкнено, привілейовані користувачі можуть маніпулювати атрибутами (системних) файлів у відповідно до обмежень kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Привілейовані користувачі у В&apos;язниці можуть монтувати та відмонтовувати файлові системи, помічені як jail-friendly.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привілейовані користувачі у В&apos;язниці можуть монтувати та відмонтовувати файлову систему devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привілейовані користувачі у В&apos;язниці можуть монтувати та відмонтовувати файлову систему nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привілейовані користувачі у В&apos;язниці можуть монтувати та відмонтовувати файлову систему procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Привілейовані користувачі у В&apos;язниці можуть монтувати та відмонтовувати файлову систему zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Root В&apos;язниці може керувати квотами на файлових системах.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Це дозволяє отримати доступ до інших стеків протоколу, що не були додані до функціоналу В&apos;язниці.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірна IPv4 адреса!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірна IPv4 адреса мосту!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірна IPv4 адреса маршрутизатора!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірна IPv6 адреса!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірна IPv6 адреса мосту!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірна IPv6 адреса маршрутизатора!</translation>
     </message>
 </context>
 <context>
@@ -570,7 +541,7 @@
     </message>
     <message>
         <source>Mounted on: </source>
-        <translation>Змонтовано на: </translation>
+        <translation>Змонтовано в: </translation>
     </message>
     <message>
         <source>Snapshot not mounted</source>
@@ -598,15 +569,15 @@
     </message>
     <message>
         <source>Cloning snapshot... Please wait...</source>
-        <translation>Клонування знімку... Будьласка зачекайте...</translation>
+        <translation>Клонування знімку... Будь ласка, зачекайте...</translation>
     </message>
     <message>
         <source>Removing clone... Please wait...</source>
-        <translation>Видалення клону.... Будьласка зачекайте...</translation>
+        <translation>Видалення клону... Будь ласка, зачекайте...</translation>
     </message>
     <message>
         <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>Будь- які новіші знімки та змонтовані клони буде втрачено. Тюрма буде перезапущена!</translation>
+        <translation>Будь-які новіші знімки та змонтовані клони буде втрачено і В&apos;язниця буде перезавантажена!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -634,18 +605,15 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">IP-адреси:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштувати В&apos;язницю</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Менеджер пакунків</translation>
     </message>
 </context>
 <context>
@@ -747,28 +715,23 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цей майстер допоможе вам створити нову В&apos;язницю. Перш за все, введіть назву системи та IP-адресу, потім натисніть &apos;Далі&apos; щоб продовжити.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 адреса</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 адреса</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Традиційна В&apos;язниця (захищена, найкраща для служб)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити PKGNG та утиліти PC-BSD</translation>
     </message>
 </context>
 </TS>
