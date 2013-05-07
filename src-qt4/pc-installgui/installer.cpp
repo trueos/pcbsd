@@ -1510,9 +1510,9 @@ void Installer::slotReadInstallerOutput()
 	   continue;
         }
 
-	// Got this far, increment the pkg-sub count
-        progressBarInstall->setValue(progressBarInstall->value() + 1); 
-        labelInstallStatus2->setText(tmp);
+	// If we are installing a package, show details to user
+	if ( tmp.indexOf("Installing") == 0 )
+          labelInstallStatus2->setText(tmp);
      }
 
   } // end of while loop
