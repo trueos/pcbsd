@@ -174,8 +174,7 @@
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Innerhalb der Jail sind berechtigte Benutzer in der Lage Dateisystem ein- und auszuhängen, welche als jail-freundlich eingestuft sind.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>

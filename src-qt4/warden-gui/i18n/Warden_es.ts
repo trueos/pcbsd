@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Jail Directory</source>
-        <translation>Enjaular Directorio</translation>
+        <translation>Directorio de la jaula</translation>
     </message>
     <message>
         <source>Temp Directory</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Select Jail Directory</source>
-        <translation>Seleccionar Directorio Enjaulado</translation>
+        <translation>Seleccionar Directorio de la Jaula</translation>
     </message>
     <message>
         <source>Select Temp Directory</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Jail Network Interface</source>
-        <translation>Enjaular Interfaz de Red</translation>
+        <translation>Interfaz de Red de la jaula</translation>
     </message>
 </context>
 <context>
@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>IP Address:</source>
-        <translation>Dirección IP:</translation>
+        <translation>Número IP:</translation>
     </message>
     <message>
         <source>Warden</source>
@@ -91,167 +91,135 @@
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
-        <translation>¡Por favor, ingrese una dirección IPV4 o IPV6 válida!</translation>
+        <translation>¡Por favor, ingrese un número IPV4 o IPV6 válido!</translation>
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuración de Jaula</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv4 del Bridge</translation>
     </message>
     <message>
         <source>IPv4 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv4 del Router</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6 del Bridge</translation>
     </message>
     <message>
         <source>IPv6 Default Router</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6 del Router por Defecto</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias IPv4 del Bridge</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias IPv6 del Bridge</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permisos</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Los siguientes permisos pueden ser activados o desactivados para esta jaula. Para más detalles mueva el puntero sobre cada ítem o refiérase al manual de las jaulas.</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Un proceso dentro de la jaula tiene acceso a primitivas IPC de System V.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El usuario root de la prisión tiene permitido crear sockets en bruto (raw sockets). Permite usar ping / traceroute.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cuando este parámetro está activo, dichos usuarios son tratados como privilegiados y pueden manipular flags del systema de archivos, sujetas a las restricciones usuales en kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuarios privilegiados dentro de la jaula podrán montar y desmontar sistemas de archivos marcados como apto-para-jaula.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuarios privilegiados dentro de la jaula podrán montar y desmontar el sistema de archivos devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuarios privilegiados dentro de la jaula podrán montar y desmontar el sistema de archivos nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuarios privilegiados dentro de la jaula podrán montar y desmontar el sistema de archivos procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuarios privilegiados dentro de la jaula podrán montar y desmontar el sistema de archivos zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El usuario root de la prisión puede administrar las cuotas en el(los) sistema(s) de archivos de las jaulas.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esto permite el acceso a otras pilas de protocolos a los cuales no se les ha agregado funcionalidad para las jaulas.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv4 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv4 del bridge inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número de IPv4 del router inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6 del bridge inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6 del router inválido!</translation>
     </message>
 </context>
 <context>
@@ -262,11 +230,11 @@
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>Usted tiene la opción de cambiar la dirección IP / nombre de host de Jail importada. Las referencias internas a la antigua IP / nombre de host es posible que tenga que ser cambiada después de la importación.</translation>
+        <translation>Usted tiene la opción de cambiar el IP / nombre de Host de jaula importada. Es posible que referencias internas al antiguo IP / nombre de Host tengan que ser cambiadas manualmente después de importar.</translation>
     </message>
     <message>
         <source>Change IP Address</source>
-        <translation>Cambiar Dirección IP</translation>
+        <translation>Cambiar Número IP</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
@@ -301,7 +269,7 @@
     </message>
     <message>
         <source>Jails</source>
-        <translation>Jails</translation>
+        <translation>Jaulas</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -313,7 +281,7 @@
     </message>
     <message>
         <source>New Jail</source>
-        <translation>Nuevo Jail</translation>
+        <translation>Nueva Jaula</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -325,11 +293,11 @@
     </message>
     <message>
         <source>Import Jail</source>
-        <translation>Importar Jail</translation>
+        <translation>Importar Jaula</translation>
     </message>
     <message>
         <source>Stop this Jail</source>
-        <translation>Detener Jail</translation>
+        <translation>Detener Jaula</translation>
     </message>
     <message>
         <source>Toggle Autostart</source>
@@ -337,71 +305,71 @@
     </message>
     <message>
         <source>Export jail to .wdn file</source>
-        <translation>Exportar archivo Jail a *.wdm</translation>
+        <translation>Exportar jaula a un archivo .wdm</translation>
     </message>
     <message>
         <source>Delete Jail</source>
-        <translation>Eliminar Jail</translation>
+        <translation>Eliminar Jaula</translation>
     </message>
     <message>
         <source>Start this Jail</source>
-        <translation>Iniciar este Jail</translation>
+        <translation>Iniciar esta Jaula</translation>
     </message>
     <message>
         <source>Stopping Jail</source>
-        <translation>Deteniendo Jail </translation>
+        <translation>Deteniendo Jaula</translation>
     </message>
     <message>
         <source>Stopping Jail:</source>
-        <translation>Deteniendo Jail:</translation>
+        <translation>Deteniendo Jaula:</translation>
     </message>
     <message>
         <source>Starting Jail</source>
-        <translation>Iniciando Jail</translation>
+        <translation>Iniciando Jaula</translation>
     </message>
     <message>
         <source>Starting Jail:</source>
-        <translation>Iniciando Jail:</translation>
+        <translation>Iniciando Jaula:</translation>
     </message>
     <message>
         <source>Choose a directory to save the finished .wdn file:</source>
-        <translation>Elija un directorio para guardar el archivo de *.wdn terminada:</translation>
+        <translation>Seleccione un directorio para guardar el archivo final .wdn:</translation>
     </message>
     <message>
         <source>Exporting Jail</source>
-        <translation>Exportando Jail</translation>
+        <translation>Exportando Jaula</translation>
     </message>
     <message>
         <source>Exporting Jail:</source>
-        <translation>Exportando Jail:</translation>
+        <translation>Exportando Jaula:</translation>
     </message>
     <message>
         <source>Deleting Jail</source>
-        <translation>Eliminando Jail</translation>
+        <translation>Eliminando Jaula</translation>
     </message>
     <message>
         <source>Deleting Jail:</source>
-        <translation>Eliminando Jail:</translation>
+        <translation>Eliminando Jaula:</translation>
     </message>
     <message>
         <source>Select warden jail package</source>
-        <translation>Seleccione paquete Jail Warden</translation>
+        <translation>Seleccione el paquete jaula de warden</translation>
     </message>
     <message>
         <source>Installed Jails</source>
-        <translation>Instalando Jails</translation>
+        <translation>Instalando Jaulas</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation>Agregar un nuevo Jail</translation>
+        <translation>Agregar una nueva Jaula</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation>Eliminar Jail seleccionan</translation>
+        <translation>Eliminar la Jaula seleccionada</translation>
     </message>
     <message>
         <source>Working on Jail</source>
-        <translation>Trabajando en Jail</translation>
+        <translation>Trabajando en la Jaula</translation>
     </message>
     <message>
         <source>Info</source>
@@ -413,11 +381,11 @@
     </message>
     <message>
         <source>&lt;- Please select a jail</source>
-        <translation>&lt;- Por favor, seleccione un Jail</translation>
+        <translation>&lt;- Por favor, seleccione una Jaula</translation>
     </message>
     <message>
         <source>Working on jail:</source>
-        <translation>Trabajando en Jail:</translation>
+        <translation>Trabajando en la Jaula:</translation>
     </message>
     <message>
         <source>Warden</source>
@@ -425,15 +393,15 @@
     </message>
     <message>
         <source>Are you sure you want to delete the jail</source>
-        <translation>Está seguro que desea eliminar este Jail</translation>
+        <translation>Está seguro que desea eliminar esta Jaula</translation>
     </message>
     <message>
         <source>Jail Information</source>
-        <translation>Información de Jail</translation>
+        <translation>Información de la Jaula</translation>
     </message>
     <message>
         <source>Jail Type:</source>
-        <translation>Tipo de Jail:</translation>
+        <translation>Tipo de Jaula:</translation>
     </message>
     <message>
         <source>Size on Disk:</source>
@@ -449,15 +417,15 @@
     </message>
     <message>
         <source>Listening on Ports:</source>
-        <translation>Escuchando Puertos:</translation>
+        <translation>Escuchando en Puertos:</translation>
     </message>
     <message>
         <source>Jail Management</source>
-        <translation>Administrador de Jail</translation>
+        <translation>Administración de Jaulas</translation>
     </message>
     <message>
         <source>User Administrator</source>
-        <translation>Usuario Administrador</translation>
+        <translation>Administrador de Usuarios</translation>
     </message>
     <message>
         <source>Utilities</source>
@@ -465,7 +433,7 @@
     </message>
     <message>
         <source>Export Jail</source>
-        <translation>Exportar Jail</translation>
+        <translation>Exportar Jaula</translation>
     </message>
     <message>
         <source>Loading...</source>
@@ -473,7 +441,7 @@
     </message>
     <message>
         <source>Launch Terminal</source>
-        <translation>Lanzar Terminal</translation>
+        <translation>Ejecutar Terminal</translation>
     </message>
     <message>
         <source>Check for Updates</source>
@@ -485,59 +453,59 @@
     </message>
     <message>
         <source>No jail selected!</source>
-        <translation>¡Jail no seleccionado!</translation>
+        <translation>¡Jaula no seleccionada!</translation>
     </message>
     <message>
         <source>Snapshots</source>
-        <translation>Snapshots</translation>
+        <translation>Instantáneas</translation>
     </message>
     <message>
         <source>Start the selected jail</source>
-        <translation>Iniciar Jail seleccionado</translation>
+        <translation>Iniciar la Jaula seleccionada</translation>
     </message>
     <message>
         <source>Stop the selected jail</source>
-        <translation>Detener Jail seleccionado </translation>
+        <translation>Detener la Jaula seleccionada</translation>
     </message>
     <message>
         <source>Restore existing snapshot</source>
-        <translation>Restaurar Snapshot existente</translation>
+        <translation>Restaurar instantánea existente</translation>
     </message>
     <message>
         <source>Delete the snapshot</source>
-        <translation>Eliminar Snapshot</translation>
+        <translation>Eliminar instantánea</translation>
     </message>
     <message>
         <source>Loading snapshots...</source>
-        <translation>Cargando Snapshots...</translation>
+        <translation>Cargando Instantáneas...</translation>
     </message>
     <message>
         <source>For snapshot support you must be using ZFS</source>
-        <translation>Para el soporte de Snapshot debe utilizar ZFS</translation>
+        <translation>Para soportar instantáneas debe utilizar ZFS</translation>
     </message>
     <message>
         <source>No snapshots available. You may create one below.</source>
-        <translation>No hay Snapshots disponibles. Usted puede crear uno abajo.</translation>
+        <translation>No hay instantáneas disponibles. Puede crear uno abajo.</translation>
     </message>
     <message>
         <source>Creating new snapshot... Please wait...</source>
-        <translation>Creando nuevo Snapshot... Por favor, espere ...</translation>
+        <translation>Creando nueva instantánea... Por favor espere ...</translation>
     </message>
     <message>
         <source>Reverting snapshot... Please wait...</source>
-        <translation>Anulando Snapshot... Por favor, espere ...</translation>
+        <translation>Revirtiendo instantánea... Por favor espere ...</translation>
     </message>
     <message>
         <source>Are you sure you want to revert to the snapshot:</source>
-        <translation>Está usted seguro que quiere volver al Snapshot anterior:</translation>
+        <translation>Está seguro que quiere revertir a la instantánea anterior:</translation>
     </message>
     <message>
         <source>Removing snapshot... Please wait...</source>
-        <translation>Quitando Snapshot... Por favor, espere ...</translation>
+        <translation>Quitando instantánea... Por favor espere...</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the snapshot:</source>
-        <translation>Está seguro que desea eliminar este Snapshot:</translation>
+        <translation>Está seguro que desea eliminar esta instantánea:</translation>
     </message>
     <message>
         <source>Updates available!</source>
@@ -545,7 +513,7 @@
     </message>
     <message>
         <source>Start update manager</source>
-        <translation>Iniciar el administrador de actualización</translation>
+        <translation>Iniciar el administrador de actualizaciones</translation>
     </message>
     <message>
         <source>Service Manager</source>
@@ -553,15 +521,15 @@
     </message>
     <message>
         <source>Create a new snapshot</source>
-        <translation>Crear un nuevo Snapshot</translation>
+        <translation>Crear una nueva instantánea</translation>
     </message>
     <message>
         <source>Mount the snapshot</source>
-        <translation>Montar el Snapshot</translation>
+        <translation>Montar la instantánea</translation>
     </message>
     <message>
         <source>Unmount the snapshot</source>
-        <translation>Desmontar el Snapshot</translation>
+        <translation>Desmontar la instantánea</translation>
     </message>
     <message>
         <source>(Cloned)</source>
@@ -577,7 +545,7 @@
     </message>
     <message>
         <source>Snapshot not mounted</source>
-        <translation>Snapshot no montado</translation>
+        <translation>Instantánea no montada</translation>
     </message>
     <message>
         <source>R&amp;estore</source>
@@ -601,7 +569,7 @@
     </message>
     <message>
         <source>Cloning snapshot... Please wait...</source>
-        <translation>Clonando Snapshot... Por favor, espere ...</translation>
+        <translation>Clonando instantánea... Por favor espere...</translation>
     </message>
     <message>
         <source>Removing clone... Please wait...</source>
@@ -609,15 +577,15 @@
     </message>
     <message>
         <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>¡Los Snapshots y clones nuevos montados se perderán, y Jail se reiniciará!</translation>
+        <translation>¡Las instantáneas y clones montados nuevos se perderán, y la Jaula se reiniciará!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
-        <translation>Revirtiendo Snapshot</translation>
+        <translation>Revirtiendo instantánea</translation>
     </message>
     <message>
         <source>Reverting to snapshot:</source>
-        <translation>Volviendo al Snapshot:</translation>
+        <translation>Revirtiendo a la instantánea:</translation>
     </message>
     <message>
         <source>No valid network interface specified! Select one now?</source>
@@ -637,18 +605,15 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurar la jaula</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Administrador de Paquetes</translation>
     </message>
 </context>
 <context>
@@ -670,19 +635,19 @@
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation>Por favor, seleccione el tipo de Jail que desea crear.</translation>
+        <translation>Por favor, seleccione el tipo de jaula que desea crear. </translation>
     </message>
     <message>
         <source>Jail Type</source>
-        <translation>Tipo de Jail</translation>
+        <translation>Tipo de Jaula</translation>
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
-        <translation>Puertos Jail (no segura, permite ejecutar X aplicaciones)</translation>
+        <translation>Jaula Puertos (no segura, permite ejecutar aplicaciones en X)</translation>
     </message>
     <message>
         <source>Next enter the root password for this jail. </source>
-        <translation>A continuación, escriba la contraseña de root para este Jail.</translation>
+        <translation>A continuación, escriba la contraseña de root para esta jaula. </translation>
     </message>
     <message>
         <source>Root Password</source>
@@ -694,7 +659,7 @@
     </message>
     <message>
         <source>Jail Options</source>
-        <translation>Opciones de Jail</translation>
+        <translation>Opciones de Jaula</translation>
     </message>
     <message>
         <source>Include system source</source>
@@ -714,11 +679,11 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Jail de Linux (ejecuta Linux dentro de un Jail)</translation>
+        <translation>Jaula Linux (ejecuta Linux dentro de una jaula)</translation>
     </message>
     <message>
         <source>Please select the Linux install script to use for this jail.</source>
-        <translation>Por favor, seleccione la secuencia de comandos de instalación de Linux para este Jail.</translation>
+        <translation>Por favor, seleccione la secuencia de comandos de instalación de Linux para esta jaula.</translation>
     </message>
     <message>
         <source>Select Script</source>
@@ -726,7 +691,7 @@
     </message>
     <message>
         <source>Linux install files (*)</source>
-        <translation>Instalar archivos Linux (**)</translation>
+        <translation>Instalar archivos de Linux (*)</translation>
     </message>
     <message>
         <source>Hostname already used!</source>
@@ -734,44 +699,39 @@
     </message>
     <message>
         <source>IP already used!</source>
-        <translation>¡IP ya se utiliza!    </translation>
+        <translation>¡Número IP ya utilizado!</translation>
     </message>
     <message>
         <source>Invalid IP address!</source>
-        <translation>¡Dirección IP no válida!</translation>
+        <translation>¡Número IP inválido!</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation>Por favor, tómese un momento y configure otras opciones para este Jail. Tenga en cuenta que incluir esta opción requiere que el código fuente del sistema esté presente en /usr/src.            </translation>
+        <translation>Por favor, tómese un momento y configure otras opciones para esta jaula. Tenga en cuenta que incluir el código fuente del sistema requiere que éste esté presente en /usr/src. </translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
-        <translation>Por favor, tómese un momento y configure otras opciones para este Jail.            </translation>
+        <translation>Por favor, tómese un momento y configure otras opciones para esta jaula.</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Este asistente lo guiará en la creación de una nueva jaula. Primero ingrese el nombre del host y el número de IP, luego pulse Siguiente para continuar.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv4</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Número IPv6</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jaula Tradicional (segura, mejor para servicios)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalar PKGNG y las utilidades PC-BSD</translation>
     </message>
 </context>
 </TS>

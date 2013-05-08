@@ -605,7 +605,7 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">IP-адреси:</translation>
+        <translation>IP-адреси:</translation>
     </message>
     <message>
         <source>Configure the jail</source>

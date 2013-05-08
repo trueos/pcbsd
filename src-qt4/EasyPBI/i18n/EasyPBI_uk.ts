@@ -456,51 +456,43 @@
     </message>
     <message>
         <source>Build PBI</source>
-        <translation type="unfinished">Зібрати PBI</translation>
+        <translation>Зібрати PBI</translation>
     </message>
     <message>
         <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додатково: Зібрати 32-бітний модуль замість звичайного 64-бітного</translation>
     </message>
     <message>
         <source>Build 32-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зібрати 32-біт</translation>
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скасувати поточний процес збирання</translation>
     </message>
     <message>
         <source>Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скасувати збирання</translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти протокол поточного збирання на диск (дуже корисно під час звернення з проханням про допомогу при невдалому збиранні)</translation>
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">Зберегти протокол збирання</translation>
+        <translation>Зберегти протокол збирання</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Інформація</translation>
     </message>
     <message>
         <source>toolBar</source>
@@ -509,455 +501,378 @@
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити редактор налаштувань EasyPBI</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отримати порти FreeBSD</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отримати/оновити дерево портів FreeBSD</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Новий</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Натисніть для створення нового PBI модуля</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантажити</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Натисніть для завантаження існуючого модуля</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Підсумок</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ліцензія</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Історія</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порти FreeBSD</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити www.freshports.org для додаткової інформації про порт</translation>
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Модулі PBI</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити Вікі сторінку для PBI розробників</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">Упакувати модуль</translation>
+        <translation>Упакувати модуль</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Стиснути поточний модуль для розповсюдження</translation>
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">Про EasyPBI</translation>
+        <translation>Про EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Переглянути додаткову інформацію про EasyPBI</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Жодного модуля не завантажено</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порт FreeBSD</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальні джерела</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скрипти встановлення</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка прав доступу</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Під час створення локального дерева каталогів EasyPBI трапилася помилка. Будь ласка, перевірте права доступу до вашого домашнього каталогу та перезапустіть EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ресурси недоступні</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Деякі зовнішні ресурси неможливо знайти, тому служби EasyPBI, які використовують ці ресурси, було деактивовано.</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Успіх</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Копію поточного модуля було успішно упаковано в каталозі модуля.</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Помилка прав доступу</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможливо створити PBI модуль. Будь ласка, перевірте права доступу до каталогу та спробуйте ще.</translation>
     </message>
     <message>
         <source>Select Module</source>
-        <translation type="unfinished">Вибрати модуль</translation>
+        <translation>Обрати модуль</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Немає портів FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>На вашій системі не вдалося знайти дерево портів FreeBSD. Ви можете отримати дерево портів через меню EasyPBI або вручну в налаштуваннях EasyPBI вказати шлях до дерева портів, якщо воно розташоване в нестандартному місці.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Вибрати порт</translation>
+        <translation>Обрати порт</translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Невірний порт</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обраний каталог не є вірним портом FreeBSD. Будь ласка, оберіть каталог порту, який містить відповідні Makefile та distinfo.</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo files.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обраний каталог не є вірним портом FreeBSD. Будь ласка, оберіть каталог порту, який містить відповідні файли Makefile та distinfo.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка EasyPBI</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не вдається зберегти файл налаштувань PBI. Будь ласка, перевірте права доступу до файлу, та спробуйте ще.</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати ресурси</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Новий пакувальний скрипт</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможливо видалити елемент XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірте права доступу до файлу та спробуйте ще</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможливо зберегти зміни в елементі XDG.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка збереження файлу</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможливо зберегти скрипт</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка, перевірте права доступу до файлу та спробуйте ще</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Помилка</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">Невірні налаштування PBI</translation>
+        <translation>Невірні налаштування PBI</translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">Ви впевнені, що бажаєте почати збирання PBI?</translation>
+        <translation>Ви впевнені, що бажаєте почати збирання PBI?</translation>
     </message>
     <message>
         <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">Це потребує активного інтернет з&apos;єднання та прав root (адміністратора). Час збирання PBI залежить від системних ресурсів та портів, які треба скомпілювати.</translation>
+        <translation>Це потребує робочого інтернет-з&apos;єднання та прав root (адміністратора). Час збирання PBI залежить від системних ресурсів та портів, які треба скомпілювати.</translation>
     </message>
     <message>
         <source>PBI Builder (Working)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI збирач (виконується)</translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">Зберегти протокол</translation>
+        <translation>Зберегти протокол</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">Файли протоколів</translation>
+        <translation>Файли протоколів</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
-        <translation type="unfinished">Збирання PBI успішне</translation>
+        <translation>Збирання PBI успішне</translation>
     </message>
     <message>
         <source>The PBI finished building successfully</source>
-        <translation type="unfinished">PBI збирання успішно завершено</translation>
+        <translation>PBI збирання успішно завершено</translation>
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">PBI збирання не успішне</translation>
+        <translation>PBI збирання не успішне</translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">PBI не вдалося зібрати.</translation>
+        <translation>PBI не вдалося зібрати.</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">Будь ласка, перевірте журнал збирання, щоб знайти причину збою і відповідно змініть налаштування модуля</translation>
+        <translation>Будь ласка, перевірте журнал збирання, щоб знайти причину збою і відповідно змініть налаштування модуля</translation>
     </message>
     <message>
         <source>PBI Builder (Finished)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI збирач (завершено)</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Почати створення нового елементу XDG</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Категорія</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перелік через пробіл автоматичних файлових асоціацій (наприклад: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати каталог пакунку</translation>
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відсутні порти FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>На вашій системі відсутнє дерево портів FreeBSD.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск застосування потребує прав адміністратора</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Потребує root&apos;а</translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити модуль</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка, відкрийте налаштування EasyPBI щоб виправити цей недолік.</translation>
     </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створити новий модуль</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порт FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порт FreeBSD, який ви бажаєте зібрати як PBI</translation>
     </message>
     <message>
         <source>Select a port from the local FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати порт з локального дерева портів FreeBSD</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати</translation>
     </message>
     <message>
         <source>Local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальний каталог для пакування як PBI</translation>
     </message>
     <message>
         <source>Select a local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати локальний каталог для пакування як PBI</translation>
     </message>
     <message>
         <source>Local Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальний каталог</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Іконка PNG для PBI (потім можна буде змінити)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати локальний файл PNG (рекомендований розмір 64х64 пікселів)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл іконки</translation>
     </message>
     <message>
         <source>Create a PBI from an existing FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створити PBI модуль з існуючого порту FreeBSD</translation>
     </message>
     <message>
         <source>Package a local directory as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Упакувати локальний каталог як PBI</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Локальні вихідні коди</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Відсутні порти FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>На вашій системі не вдалося знайти дерево портів FreeBSD. Ви можете отримати дерево портів через меню EasyPBI або вручну в налаштуваннях EasyPBI вказати шлях до дерева портів, якщо воно розташоване в нестандартному місці.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Вибрати порт</translation>
+        <translation>Вибрати порт</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати каталог пакунку</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати PNG іконку</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
