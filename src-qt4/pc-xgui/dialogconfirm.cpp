@@ -73,6 +73,8 @@ void dialogConfirm::ProgramInit(QString txt, bool ac, bool yesno)
 
 void dialogConfirm::slotYes()
 {
+    system("rm /var/.runxsetup 2>/dev/null");
+    system("sync");
     exit(0);
 }
 
