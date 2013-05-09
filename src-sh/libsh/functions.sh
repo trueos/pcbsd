@@ -67,9 +67,11 @@ download_cache_packages()
     fi
     get_file_from_mirrors "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}"
     if [ $? -ne 0 ] ; then
-      exit_err "Failed downloading: /${pkgUrl}/All/${i}"
+      echo "Failed downloading: /${pkgUrl}/All/${i}"
+      return 1
     fi
   done
+  return 0
 }
 
 get_mirror() {
