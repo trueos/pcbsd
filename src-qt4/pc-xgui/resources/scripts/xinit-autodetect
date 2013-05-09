@@ -1,5 +1,8 @@
 #!/bin/sh 
 
+# Source our functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
 # Set all our path variables
 PATH="/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/usr/local/bin:/usr/local/sbin"
 export PATH
@@ -25,7 +28,10 @@ if [ "$?" = "0" ] ; then
   exit 0
 fi
 /usr/local/bin/pc-xgui
-if [ "$?" = "1" ] ; then
+if [ "$?" = "0" ] ; then
+ # Run the firstboot script immediately
+ run_firstboot
+else
  echo "Canceled" > ${XGUITMP}/.canceled
 fi
 kill -9 ${PID}
