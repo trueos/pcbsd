@@ -1,5 +1,8 @@
 #!/bin/sh 
 
+# Source our functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
 if [ -e "/root/.xprofile" ]
 then
 . /root/.xprofile
@@ -15,8 +18,10 @@ touch ${XGUITMP}/.xstartupsuccess
 /usr/local/bin/startfluxbox &
 PID=$!
 /usr/local/bin/pc-xgui -test
-if [ "${?}" = "0" ]
-then
+if [ "${?}" = "0" ]; then
  echo "selected" > ${XGUITMP}/.selected
+
+  # Run the firstboot script immediately
+ run_firstboot
 fi
 kill -9 ${PID}
