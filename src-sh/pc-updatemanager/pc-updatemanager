@@ -359,8 +359,17 @@ start_pcbsd_patch() {
   rc_halt "rm ${DOWNLOADDIR}/${FILENAME}"
 }
 
+rollback_update()
+{
+  cp /usr/local/etc/pkg.conf.preUpgrade /usr/local/etc/pkg.conf
+  if [ "$PKGROLLBACK" = "YES" ] ; then
+
+  fi
+}
+
 start_major_fbsd_update() {
   local rel=`echo $1 | sed 's|fbsd-||g'`
+  PKGROLLBACK="NO"
 
   # Lets backup the old pkg.conf file
   cp /usr/local/etc/pkg.conf /usr/local/etc/pkg.conf.preUpgrade
@@ -371,36 +380,52 @@ start_major_fbsd_update() {
   echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
   echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
 
+  # Lets backup old pkgng
+  oPkg=`pkg info pkg | awk '{print $1}'`
+  pkg create -o /usr/local/tmp/ ${oPkg}
+  if [ -e "/usr/local/tmp/oldPkg.txz" ] ; then rm /usr/local/tmp/oldPkg.txz; fi
+  mv /usr/local/tmp/${oPkg}.txz /usr/local/tmp/oldPkg.txz
+
+  # Lets download the new pkgng for this release
+  if [ -e "/usr/local/tmp/pkg.txz" ] ; then rm /usr/local/tmp/pkg.txz; fi
+  pc-pkg getfile -o /usr/local/tmp/pkg.txz /packages/$rel/$arch/Latest/pkg.txz
+  if [ $? -ne 0 ] ; then
+     rollback_update
+     exit_err "Failed downloading pkgng update..."
+  fi
+
+  # Lets install pkgng update
+  PKGROLLBACK="YES"
+  echo "Installing pkgng update..."
+  pkg-static add /usr/local/tmp/pkg.txz
+
   # Lets pre-download all packages
-  download_cache_packages "pkg upgrade -f"
+  download_cache_packages "pkg-static upgrade -fn"
+  if [ $? -ne 0 ] ; then
+     rollback_update
+     exit_err "Failed downloading packages for update..."
+  fi
 
   # Download update files from freebsd-update
   freebsd-update --non-interactive -r "$rel" upgrade
   if [ $? -ne 0 ] ; then
-     cp /usr/local/etc/pkg.conf.preUpgrade /usr/local/etc/pkg.conf
+     rollback_update
      exit_err "Failed running \"freebsd-update -r $rel upgrade\"..."
   fi
 
   # Now install freebsd-update files
   freebsd-update --non-interactive install
   if [ $? -ne 0 ] ; then
-     cp /usr/local/etc/pkg.conf.preUpgrade /usr/local/etc/pkg.conf
+     rollback_update
      exit_err "Failed running \"freebsd-update install\"..."
   fi
 
   # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
   pc-updatemanager pkgupdate -f
 
-  # Now re-extract overlay files again to grab any new changes from a port we just updated
-  if [ "$SYSTYPE" = "PCBSD" ]; then 
-    pc-extractoverlay desktop
-  fi
-  if [ "$SYSTYPE" = "TRUEOS" ]; then 
-    pc-extractoverlay server
-  fi
-
   echo "Major update finished!" 
   echo "Please reboot the system for changes to take effect." 
+  exit 0
 }
 
 do_install() {
