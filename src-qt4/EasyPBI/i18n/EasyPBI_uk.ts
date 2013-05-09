@@ -377,8 +377,7 @@
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати елемент</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
@@ -387,8 +386,7 @@
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автоматично визначені виконувані файли для цього PBI</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
@@ -412,47 +410,39 @@
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Збирач PBI</translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Використовувати поточний модуль для збирання PBI</translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Збирання модуля</translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показує модуль, який використовується для збирання PBI</translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наразі жодного PBI не збирається</translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">Каталог виводу</translation>
+        <translation>Каталог збереження</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Каталог для розміщення завершених PBI</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показувати будь-які повідомлення процесу збирання PBI</translation>
     </message>
     <message>
         <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Почати збирання PBI починаючи з поточного модуля (потрібні права доступу root&apos;а)</translation>
     </message>
     <message>
         <source>Build PBI</source>
@@ -876,66 +866,54 @@
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Іконка PNG (*.png)</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування EasyPBI</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Каталог PBI</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальний каталог, куди будуть зберігатися зібрані PBI.</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Огляд локальної системи для вибору каталогу PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Накладати цифровий підпис на PBI проти несанкціонованого розповсюдження</translation>
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цифровий підпис PBI</translation>
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл підпису</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальний файл, який містить ключ OpenSSL</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати файл з ключем OpenSSL</translation>
     </message>
     <message>
         <source>Use system memory to speed up PBI build processes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Використовувати системну пам&apos;ять для пришвидшення процесу збирання PBI</translation>
     </message>
     <message>
         <source>Use TMPFS</source>
@@ -943,8 +921,7 @@
     </message>
     <message>
         <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Значно пришвидшить процес збирання PBI шляхом запобігання компіляції вже попередньо скомпільованих портів.</translation>
     </message>
     <message>
         <source>Use Package Caching</source>
@@ -952,132 +929,107 @@
     </message>
     <message>
         <source>Package Caching Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметри кешу пакунків</translation>
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ігнорувати пакунки</translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перелік пакунків, які завжди ігноруватимуться під час збирання PBI.</translation>
     </message>
     <message>
         <source>Add a currently cached package to be ignored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати в ігноровані щойно кешований пакунок.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>Remove the selected package from the ignore list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вилучити вибраний пакунок із переліку ігнорованих.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вилучити</translation>
     </message>
     <message>
         <source>Delete all packages currently in the cache.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вилучити всі пакунки, які зараз є в кеші.</translation>
     </message>
     <message>
         <source>Clear Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Очистити кеш</translation>
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локальні шляхи</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Типовий каталог для всіх новостворених PBI модулів</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати локальний каталог для PBI модулів.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Типовий каталог, який відкриватиметься під час додавання іконок/файлів до модуля</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати локальний каталог.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Типова іконка PNG для PBI модулів.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Вибрати типову іконку PNG.</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дозволити EasyPBI пересканувати систему на наявні утиліти.</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автовизначення</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повний шлях до виконуваного файлу &quot;pbi_makeport&quot;</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Вибрати виконуваний файл.</translation>
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повний шлях до виконуваного файлу &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Утиліта зміни користувача</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повний шлях до утиліти &quot;зміна користувача&quot; (pc-su, gksu, kdesu, qsu, і т.д.)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">Вибрати каталог виводу PBI</translation>
+        <translation>Вибрати каталог збереження PBI</translation>
     </message>
     <message>
         <source>Select Digital Signature File</source>
@@ -1085,93 +1037,75 @@
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файли підписів (*)</translation>
     </message>
     <message>
         <source>Select the Package to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати пакети для ігнорування</translation>
     </message>
     <message>
         <source>Package Files (*.txz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файли пакетів (*.txz)</translation>
     </message>
     <message>
         <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви дійсно бажаєте очистити кеш PBI пакетів?</translation>
     </message>
     <message>
         <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Це спричинить вилучення всіх файлів та каталогів з каталогу кешу. Наступного разу, як ви запустите збирання PBI, почнеться компіляція всіх пакетів з вихідних кодів.</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати типовий каталог для модулів</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати типовий каталог для пошуку файлів іконок</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати файл типової іконки</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Малюнки PNG (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати графічну утиліту зміни користувача</translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вказати розміщення файлу &apos;pbi_create&apos;</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вказати розміщення файлу &apos;pbi_makeport&apos;</translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви впевнені, що бажаєте повернутися до автоматично визначених шляхів розміщення утиліт?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Це спричинить видалення будь-яких налаштувань шляхів до зовнішніх утиліт.</translation>
     </message>
     <message>
         <source>Select FreeBSD Ports Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вибрати каталог портів FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порти FreeBSD</translation>
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дерево портів</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Останнє оновлення</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1180,38 +1114,31 @@
     </message>
     <message>
         <source>Create Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створити каталог</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Статус</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зібрані PBI</translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зовнішні утиліти</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Типові шляхи пошуку</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Модулі</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -1219,58 +1146,47 @@
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Типова іконка</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Поточний користувач (~/EasyPBI/ports)</translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Всі користувачі (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Інш.</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неіснуючий</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Успішно</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дерево портів FreeBSD було успішно оновлено</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невдача</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дерево портів FreeBSD оновити не вдалося.</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Останнє повідомлення: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запит прав доступу root&apos;а</translation>
     </message>
 </context>
 <context>
@@ -1281,32 +1197,27 @@
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ліцензія</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Історія розробки</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI версії %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">Створення PBI швидко і легко.</translation>
+        <translation>Швидке й легке створення PBI.</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможливо відкрити файл ресурсу: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка, перевірте правильність вашої EasyPBI компіляції</translation>
     </message>
 </context>
 </TS>
