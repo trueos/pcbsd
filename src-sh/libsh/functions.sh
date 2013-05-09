@@ -560,3 +560,50 @@ check_pkg_conflicts()
   echo "ERROR: pkg ${1} is still reporting conflicts... Resolve these manually and try again"
   return 1
 }
+
+# Run the first boot wizard
+# Should be called from a .xinitrc script, after fluxbox is already running
+run_firstboot()
+{
+  # Is the trigger file set?
+  if [ ! -e "/var/.pcbsd-firstgui" ] ; then return; fi
+
+  # Set all our path variables
+  PATH="/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/usr/local/bin:/usr/local/sbin"
+  HOME="/root"
+  export PATH HOME
+
+  # Unset the PROGDIR variable
+  PROGDIR=""
+  export PROGDIR
+
+  if [ -e "/root/.xprofile" ] ; then . /root/.xprofile ; fi
+
+  # Figure out which intro video to play
+  res=`xdpyinfo | grep dimensions: | awk "{print $2}"`
+  h=`echo $res | cut -d "x" -f 1`
+  w=`echo $res | cut -d "x" -f 2`
+  h=`expr 100 \* $h`
+  ratio=`expr $h \/ $w | cut -c 1-2`
+  case $ratio in
+    13) mov="PCBSD9_4-3_UXGA.flv";;
+    16) mov="PCBSD9_16-10_WUXGA.flv";;
+    17) mov="PCBSD9_16-9_1080p.flv";;
+     *) mov="PCBSD9_4-3_UXGA.flv";;
+  esac
+
+  # Play the video now
+  mplayer -fs -nomouseinput -zoom /usr/local/share/pcbsd/movies/$mov
+
+  # Setting a language
+  if [ -e "/etc/pcbsd-lang" ] ; then
+    LANG=`cat /etc/pcbsd-lang`
+    export LANG
+  fi
+
+  # Start first-boot wizard
+  /usr/local/bin/pc-firstboot
+  if [ $? -eq 0 ] ; then
+    rm /var/.pcbsd-firstgui
+  fi
+}
