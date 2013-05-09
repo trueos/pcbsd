@@ -110,7 +110,9 @@ bool RcConfig::isEnabled ( const QString& service ) const
     const QString sregex = service + "_enable=\"[a-zA-Z]+\"\\s*";
     const QRegExp regex(sregex);
     qstr_vector_cit found;
-    bool enabled = false;
+
+    // PF is enabled by default in /etc/rc.conf.pcbsd
+    bool enabled = true;
     
     found = findLine(regex);
     if ( found != _lines.end() )
