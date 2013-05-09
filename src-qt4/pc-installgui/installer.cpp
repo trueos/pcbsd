@@ -1657,13 +1657,15 @@ void Installer::checkSpaceWarning()
   else
      targetSize=50000;
 
+  int tGB = targetSize / 1000;
+
   qDebug() << totalSize << targetSize;
 
   // Lets print a nice handy warning for users with possible
   // low disk space issues
   if ( totalSize < targetSize ) {
   QMessageBox::warning(this, tr("PC-BSD Installer"),
-      QString(tr("The selected disk / partition is less than recommended %1MB. The installation may fail...")).arg(targetSize),
+      QString(tr("The selected disk / partition is less than recommended %1GB. The installation may fail...")).arg(tGB),
       QMessageBox::Ok,
       QMessageBox::Ok);
       haveWarnedSpace = true;      
