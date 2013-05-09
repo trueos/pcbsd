@@ -1,6 +1,6 @@
 FILES=pc-activedirectory.conf pc-ldap.conf
 
-FILESMODE=0444
+FILESMODE=0400
 FILESDIR=/usr/local/etc/
 NO_OBJ=
 
