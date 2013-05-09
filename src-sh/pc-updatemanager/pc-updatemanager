@@ -362,31 +362,31 @@ start_pcbsd_patch() {
 start_major_fbsd_update() {
   local rel=`echo $1 | sed 's|fbsd-||g'`
 
-  # Download update files from freebsd-update
-  freebsd-update --non-interactive -r "$rel" upgrade
-  if [ $? -ne 0 ] ; then
-     exit_err "Failed running \"freebsd-update -r $rel upgrade\"..."
-  fi
-
-  # Now install files
-  freebsd-update --non-interactive install
-  if [ $? -ne 0 ] ; then
-     exit_err "Failed running \"freebsd-update install\"..."
-  fi
-
-  # Now re-extract overlay files to ensure we do file fixing / massaging 
-  if [ "$SYSTYPE" = "PCBSD" ]; then 
-    pc-extractoverlay desktop
-  fi
-  if [ "$SYSTYPE" = "TRUEOS" ]; then 
-    pc-extractoverlay server
-  fi
+  # Lets backup the old pkg.conf file
+  cp /usr/local/etc/pkg.conf /usr/local/etc/pkg.conf.preUpgrade
 
   # Set the new pkg.conf file to the new repo
   local arch=`uname -m`
   echo "packagesite: http://ftp.pcbsd.org/pub/mirror/packages/$rel/$arch" >/usr/local/etc/pkg.conf
   echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
   echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+
+  # Lets pre-download all packages
+  download_cache_packages "pkg upgrade -f"
+
+  # Download update files from freebsd-update
+  freebsd-update --non-interactive -r "$rel" upgrade
+  if [ $? -ne 0 ] ; then
+     cp /usr/local/etc/pkg.conf.preUpgrade /usr/local/etc/pkg.conf
+     exit_err "Failed running \"freebsd-update -r $rel upgrade\"..."
+  fi
+
+  # Now install freebsd-update files
+  freebsd-update --non-interactive install
+  if [ $? -ne 0 ] ; then
+     cp /usr/local/etc/pkg.conf.preUpgrade /usr/local/etc/pkg.conf
+     exit_err "Failed running \"freebsd-update install\"..."
+  fi
 
   # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
   pc-updatemanager pkgupdate -f
