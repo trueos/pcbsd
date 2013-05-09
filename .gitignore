@@ -35,6 +35,7 @@ src-qt4/pc-netmanager/src/NetworkManager/Makefile
 src-qt4/pc-netmanager/src/NetworkTray/Makefile
 src-qt4/pc-netmanager/src/ethernetconfig/Makefile
 src-qt4/pc-netmanager/src/wificonfig/Makefile
+src-qt4/pc-pkgmanager/Makefile
 src-qt4/pc-pbigui/Makefile
 src-qt4/pc-pfmanager/Makefile
 src-qt4/pc-servicemanager/Makefile
@@ -53,3 +54,7 @@ src-qt4/warden-gui/Makefile
 # Compiled binaries
 src-qt4/warden-gui/warden-gui
 src-qt4/pc-bugreport/pc-bugreport
+src-qt4/pc-pkgmanager/pc-pkgmanager
+src-qt4/pc-systemupdatertray/pc-systemupdatertray
+src-qt4/pc-updategui/pc-updategui
+src-sh/pc-fbsdupdatecheck/pc-fbsdupdatecheck
