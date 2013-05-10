@@ -61,6 +61,8 @@ do
      fi
      # This is an old style jail, lets convert it
      cp ${i}/ip ${i}/ipv4
+     oIP=`cat ${i}/ipv4`
+     echo "${oIP}/24" > ${i}/ipv4
 
      # Get next unique ID
      META_ID=0
