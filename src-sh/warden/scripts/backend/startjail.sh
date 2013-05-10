@@ -155,9 +155,9 @@ if [ -e "${JMETADIR}/ipv4" ] ; then
   IP4=`cat "${JMETADIR}/ipv4"`
 
   # Check if somebody snuck in a IP without / on it
-  echo $IPV4 | grep -q '/' 
+  echo $IP4 | grep -q '/' 
   if [ $? -ne 0 ] ; then
-     IPV4="${IPV4}/24"
+     IP4="${IP4}/24"
   fi
 fi
 
@@ -173,9 +173,9 @@ IP6=
 if [ -e "${JMETADIR}/ipv6" ] ; then
   IP6=`cat "${JMETADIR}/ipv6"`
   # Check if somebody snuck in a IP without / on it
-  echo $IPV6 | grep -q '/' 
+  echo $IP6 | grep -q '/' 
   if [ $? -ne 0 ] ; then
-     IPV6="${IPV6}/64"
+     IP6="${IP6}/64"
   fi
 fi
 
@@ -280,6 +280,7 @@ ifconfig ${EPAIRB} vnet ${JID}
 
 # Configure the IPv4 addresses
 if [ -n "${IP4}" ] ; then
+   echo "Setting IP4 address: ${IP4}"
    jexec ${JID} ifconfig ${EPAIRB} inet "${IP4}"
 fi
 for ip4 in ${IPS4}
@@ -296,6 +297,7 @@ done
 
 # Configure the IPv6 addresses
 if [ -n "${IP6}" ] ; then
+   echo "Setting IP6 address: ${IP6}"
    jexec ${JID} ifconfig ${EPAIRB} inet6 "${IP4}"
 fi
 for ip6 in ${IPS6}
