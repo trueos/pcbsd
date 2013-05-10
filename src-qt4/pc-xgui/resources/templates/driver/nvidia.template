@@ -8,6 +8,7 @@
 #    Option         "PixmapCacheSize" "70000"
 #    Option         "OnDemandVBlankInterrupts" "true"
 #    Option         "XAANoOffscreenPixmaps" "true"
+    Option         "RegistryDwords" "EnableBrightnessControl=1" 
     Option         "NoLogo" "True"
     Driver         "nvidia"
     VendorName     "nVidia Corporation"
