@@ -207,7 +207,7 @@
         <location filename="../installer.cpp" line="1303"/>
         <location filename="../installer.cpp" line="1331"/>
         <location filename="../installer.cpp" line="1610"/>
-        <location filename="../installer.cpp" line="1665"/>
+        <location filename="../installer.cpp" line="1667"/>
         <source>PC-BSD Installer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -320,8 +320,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1666"/>
-        <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
+        <location filename="../installer.cpp" line="1668"/>
+        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -238,8 +238,8 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Kasutad 32-bitist versiooni. Kui arvuti on 64-bitine (enamik süsteeme alates 2005. aastast), siis peaks kasutama 64-bitist versiooni.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation>Valitud ketas/partitsioon on väiksem kui soovitatud %1 MB. Paigaldamine võib ebaõnnestuda...</translation>
+        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
+        <translation type="unfinished">Valitud ketas/partitsioon on väiksem kui soovitatud %1 MB. Paigaldamine võib ebaõnnestuda... {1G?}</translation>
     </message>
 </context>
 <context>

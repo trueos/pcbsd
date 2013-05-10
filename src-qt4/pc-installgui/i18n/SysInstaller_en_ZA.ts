@@ -238,8 +238,8 @@
         <translation>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation>The selected disk / partition is less than recommended %1MB. The installation may fail...</translation>
+        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
+        <translation type="unfinished">The selected disk / partition is less than recommended %1MB. The installation may fail... {1G?}</translation>
     </message>
 </context>
 <context>

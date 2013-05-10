@@ -238,8 +238,8 @@
         <translation>U draait de 32-bitsversie. Indien uw systeem geschikt is voor 64-bit (wat geldt voor de meeste computers gemaakt na 2005), dan kunt u echt beter de 64-bitsversie draaien.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation>De gekozen schijf/partitie heeft minder dan de aanbevolen %1MB beschikbaar. De installatie zou kunnen mislukken...</translation>
+        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
+        <translation type="unfinished">De gekozen schijf/partitie heeft minder dan de aanbevolen %1MB beschikbaar. De installatie zou kunnen mislukken... {1G?}</translation>
     </message>
 </context>
 <context>

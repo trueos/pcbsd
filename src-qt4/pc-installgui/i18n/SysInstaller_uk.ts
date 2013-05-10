@@ -238,8 +238,8 @@
         <translation>Виявлено, що ви використовуєте 32-бітну версію. Якщо ваша система 64-бітна (більшість систем, зроблених після 2005 року), ви дійсно маєте використовувати 64-бітну версію.</translation>
     </message>
     <message>
-        <source>The selected disk / partition is less than recommended %1MB. The installation may fail...</source>
-        <translation>Обраний диск/розділ менший рекомендованих %1Мб. Встановлення може не вдатися...</translation>
+        <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
+        <translation type="unfinished">Обраний диск/розділ менший рекомендованих %1Мб. Встановлення може не вдатися... {1G?}</translation>
     </message>
 </context>
 <context>
