@@ -1,173 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS>
-    <context>
-        <name>FSDialog</name>
-        <message>
-            <source>System Disk Capacity</source>
-            <translation>Capacité du disque système</translation>
-        </message>
-        <message>
-            <source>Mount Point</source>
-            <translation>Point de Montage</translation>
-        </message>
-        <message>
-            <source>Filesystem</source>
-            <translation>Système de fichiers</translation>
-        </message>
-        <message>
-            <source>Used/Total</source>
-            <translation>Utilisation/Totale</translation>
-        </message>
-        <message>
-            <source>Percent %</source>
-            <translation>Pourcentage %</translation>
-        </message>
-        <message>
-            <source>Close</source>
-            <translation>Fermer</translation>
-        </message>
-    </context>
-    <context>
-        <name>FSWatcher</name>
-        <message>
-            <source>Disk(s) Almost Full</source>
-            <translation>Disque(s) Presque Plein</translation>
-        </message>
-    </context>
-    <context>
-        <name>MenuItem</name>
-        <message>
-            <source>Auto-mount this device</source>
-            <translation>Auto-monter ce périphérique</translation>
-        </message>
-        <message>
-            <source>Eject</source>
-            <translation>Éjecter</translation>
-        </message>
-        <message>
-            <source>Mount</source>
-            <translation>Monter</translation>
-        </message>
-        <message>
-            <source>Success</source>
-            <translation>Succès</translation>
-        </message>
-        <message>
-            <source>%1 mounted at %2</source>
-            <translation>1% monter à 2%</translation>
-        </message>
-        <message>
-            <source>Error mounting %1 at %2</source>
-            <translation>Erreur de montage de 1% à 2%</translation>
-        </message>
-        <message>
-            <source>Error mounting %1</source>
-            <translation>Erreur de montage de 1% </translation>
-        </message>
-        <message>
-            <source>Could not create mount point at %1</source>
-            <translation>Impossible de créer le point de montage à 1%</translation>
-        </message>
-        <message>
-            <source>%1 has been successfully unmounted.</source>
-            <translation>1% a été démonté avec succès.</translation>
-        </message>
-        <message>
-            <source>It is now safe to remove the device</source>
-            <translation>Il est maintenant sûr de retirer le périphérique</translation>
-        </message>
-        <message>
-            <source>Error: %1 could not be unmounted</source>
-            <translation>Erreur: 1% n'a pas pu être démonté</translation>
-        </message>
-        <message>
-            <source>%1 of disk space available</source>
-            <translation>1% d'espace disque disponible</translation>
-        </message>
-        <message>
-            <source>Mounted at %1</source>
-            <translation>Monté à 1%</translation>
-        </message>
-    </context>
-    <context>
-        <name>MountTray</name>
-        <message>
-            <source>Open Media Directory</source>
-            <translation>Ouvrir le répertoire du média                       </translation>
-        </message>
-        <message>
-            <source>Close Tray</source>
-            <translation>Fermer le plateau            </translation>
-        </message>
-        <message>
-            <source>User Detection Error</source>
-            <translation>Erreur de détection de l'utilisateur            </translation>
-        </message>
-        <message>
-            <source>Unable to determine the non-root user who started the application 
+<TS version="2.0">
+<context>
+    <name>FSDialog</name>
+    <message>
+        <source>System Disk Capacity</source>
+        <translation>Capacité du disque système</translation>
+    </message>
+    <message>
+        <source>Mount Point</source>
+        <translation>Point de Montage</translation>
+    </message>
+    <message>
+        <source>Filesystem</source>
+        <translation>Système de fichiers</translation>
+    </message>
+    <message>
+        <source>Used/Total</source>
+        <translation>Utilisation/Totale</translation>
+    </message>
+    <message>
+        <source>Percent %</source>
+        <translation>Pourcentage %</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fermer</translation>
+    </message>
+</context>
+<context>
+    <name>FSWatcher</name>
+    <message>
+        <source>Disk(s) Almost Full</source>
+        <translation>Disque(s) Presque Plein</translation>
+    </message>
+</context>
+<context>
+    <name>MenuItem</name>
+    <message>
+        <source>Auto-mount this device</source>
+        <translation>Auto-monter ce périphérique</translation>
+    </message>
+    <message>
+        <source>Eject</source>
+        <translation>Éjecter</translation>
+    </message>
+    <message>
+        <source>Mount</source>
+        <translation>Monter</translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation>Succès</translation>
+    </message>
+    <message>
+        <source>%1 mounted at %2</source>
+        <translation>1% monter à 2%</translation>
+    </message>
+    <message>
+        <source>Error mounting %1 at %2</source>
+        <translation>Erreur de montage de 1% à 2%</translation>
+    </message>
+    <message>
+        <source>Error mounting %1</source>
+        <translation>Erreur de montage de 1% </translation>
+    </message>
+    <message>
+        <source>Could not create mount point at %1</source>
+        <translation>Impossible de créer le point de montage à 1%</translation>
+    </message>
+    <message>
+        <source>%1 has been successfully unmounted.</source>
+        <translation>1% a été démonté avec succès.</translation>
+    </message>
+    <message>
+        <source>It is now safe to remove the device</source>
+        <translation>Il est maintenant sûr de retirer le périphérique</translation>
+    </message>
+    <message>
+        <source>Error: %1 could not be unmounted</source>
+        <translation>Erreur: 1% n&apos;a pas pu être démonté</translation>
+    </message>
+    <message>
+        <source>%1 of disk space available</source>
+        <translation>1% d&apos;espace disque disponible</translation>
+    </message>
+    <message>
+        <source>Mounted at %1</source>
+        <translation>Monté à 1%</translation>
+    </message>
+</context>
+<context>
+    <name>MountTray</name>
+    <message>
+        <source>Open Media Directory</source>
+        <translation>Ouvrir le répertoire du média                       </translation>
+    </message>
+    <message>
+        <source>Close Tray</source>
+        <translation>Fermer le plateau            </translation>
+    </message>
+    <message>
+        <source>User Detection Error</source>
+        <translation>Erreur de détection de l&apos;utilisateur            </translation>
+    </message>
+    <message>
+        <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
-            <translation>Impossible de déterminer l'utilisateur non-administrateur, qui a démarré l'application 
- Impossible d'ouvrir le gestionnaire de fichiers avec les permissions administrateur                       </translation>
-        </message>
-        <message>
-            <source>New Device</source>
-            <translation>Nouveau Périphérique</translation>
-        </message>
-        <message>
-            <source>%1 can now be accessed</source>
-            <translation>1% est maintenant accessible</translation>
-        </message>
-        <message>
-            <source>Rescan Devices</source>
-            <translation>Réanalyser les Dispositifs           </translation>
-        </message>
-        <message>
-            <source>Please Wait</source>
-            <translation>Attendez s'il vous plaît</translation>
-        </message>
-        <message>
-            <source>Rescanning devices attached to the system</source>
-            <translation>Réanalyser les Dispositifs connectés au système            </translation>
-        </message>
-        <message>
-            <source>More Options</source>
-            <translation>Plus d'Options</translation>
-        </message>
-        <message>
-            <source>View Disk Usage</source>
-            <translation>Voir Disque Usage</translation>
-        </message>
-        <message>
-            <source>Change Settings</source>
-            <translation>Modifier les paramètres</translation>
-        </message>
-    </context>
-    <context>
-        <name>SettingsDialog</name>
-        <message>
-            <source>Mount Tray Settings</source>
-            <translation>Monter les paramètres du plateau</translation>
-        </message>
-        <message>
-            <source>Monitor disk storage space</source>
-            <translation>Surveillance de l'espace de stockage sur disque</translation>
-        </message>
-        <message>
-            <source>Perform check on device notifications</source>
-            <translation>Effectuer un contrôle sur les notifications de périphériques</translation>
-        </message>
-        <message>
-            <source>Maximum time between checks (minutes)</source>
-            <translation>Temps maximum entre deux contrôles (minutes)</translation>
-        </message>
-        <message>
-            <source>Cancel</source>
-            <translation>Annuler</translation>
-        </message>
-        <message>
-            <source>Apply</source>
-            <translation>Appliquer</translation>
-        </message>
-    </context>
+        <translation>Impossible de déterminer l&apos;utilisateur non-administrateur, qui a démarré l&apos;application 
+ Impossible d&apos;ouvrir le gestionnaire de fichiers avec les permissions administrateur                       </translation>
+    </message>
+    <message>
+        <source>New Device</source>
+        <translation>Nouveau Périphérique</translation>
+    </message>
+    <message>
+        <source>%1 can now be accessed</source>
+        <translation>1% est maintenant accessible</translation>
+    </message>
+    <message>
+        <source>Rescan Devices</source>
+        <translation>Réanalyser les Dispositifs           </translation>
+    </message>
+    <message>
+        <source>Please Wait</source>
+        <translation>Attendez s&apos;il vous plaît</translation>
+    </message>
+    <message>
+        <source>Rescanning devices attached to the system</source>
+        <translation>Réanalyser les Dispositifs connectés au système            </translation>
+    </message>
+    <message>
+        <source>More Options</source>
+        <translation>Plus d&apos;Options</translation>
+    </message>
+    <message>
+        <source>View Disk Usage</source>
+        <translation>Voir Disque Usage</translation>
+    </message>
+    <message>
+        <source>Change Settings</source>
+        <translation>Modifier les paramètres</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsDialog</name>
+    <message>
+        <source>Mount Tray Settings</source>
+        <translation>Monter les paramètres du plateau</translation>
+    </message>
+    <message>
+        <source>Monitor disk storage space</source>
+        <translation>Surveillance de l&apos;espace de stockage sur disque</translation>
+    </message>
+    <message>
+        <source>Perform check on device notifications</source>
+        <translation>Effectuer un contrôle sur les notifications de périphériques</translation>
+    </message>
+    <message>
+        <source>Maximum time between checks (minutes)</source>
+        <translation>Temps maximum entre deux contrôles (minutes)</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Appliquer</translation>
+    </message>
+</context>
 </TS>
