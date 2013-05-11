@@ -1137,7 +1137,7 @@
         </message>
         <message>
             <source>Resources</source>
-            <translation type="unfinished">Resourcen</translation>
+            <translation>Ressourcen</translation>
         </message>
         <message>
             <source>Default Icon</source>
