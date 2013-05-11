@@ -1,7 +1,10 @@
 [Desktop Entry]
-Name=Default: PC-BSD
 
 X-KDE-PluginInfo-Name=Default-PCBSD
 X-KDE-PluginInfo-Author=iXsystems
 X-KDE-PluginInfo-Email=info@pcbsd.org
 X-KDE-PluginInfo-License=BSD
+Name=Default: PC-BSD
+Name[de]=Voreinstellung: PC-BSD
+Name[fr]=Par défaut: PC-BSD
+Name[fr_CA]=Par défaut: PC-BSD
