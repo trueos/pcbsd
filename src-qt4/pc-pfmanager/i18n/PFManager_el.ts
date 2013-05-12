@@ -1,237 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
-<context>
-    <name>AddDlg</name>
-    <message>
-        <source>Add a port</source>
-        <translation>Προσθέστε πύλη            </translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Πρόσθεση</translation>
-    </message>
-    <message>
-        <source>Service:</source>
-        <translation>Υπηρεσία:</translation>
-    </message>
-    <message>
-        <source>Policy:</source>
-        <translation>Πολιτική:</translation>
-    </message>
-    <message>
-        <source>Protocol:</source>
-        <translation>Πρωτόκολλο:            </translation>
-    </message>
-    <message>
-        <source>Block</source>
-        <translation type="unfinished">Block            </translation>
-    </message>
-    <message>
-        <source>Allow</source>
-        <translation type="unfinished">
+<TS>
+    <context>
+        <name>AddDlg</name>
+        <message>
+            <source>Add a port</source>
+            <translation>Προσθέστε πύλη            </translation>
+        </message>
+        <message>
+            <source>Add</source>
+            <translation>Πρόσθεση</translation>
+        </message>
+        <message>
+            <source>Service:</source>
+            <translation>Υπηρεσία:</translation>
+        </message>
+        <message>
+            <source>Policy:</source>
+            <translation>Πολιτική:</translation>
+        </message>
+        <message>
+            <source>Protocol:</source>
+            <translation>Πρωτόκολλο:            </translation>
+        </message>
+        <message>
+            <source>Block</source>
+            <translation type="unfinished">Block            </translation>
+        </message>
+        <message>
+            <source>Allow</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Interface:</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Interface:</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Port:</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Port:</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Direction:</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Direction:</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Ok</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Ok</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
-<context>
-    <name>MainDialog</name>
-    <message>
-        <source>Firewall Manager</source>
-        <translation type="unfinished">
+        </message>
+    </context>
+    <context>
+        <name>MainDialog</name>
+        <message>
+            <source>Firewall Manager</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>General</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>General</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>General settings</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>General settings</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Enable Firewall on startup</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Enable Firewall on startup</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Firewall</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Firewall</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Start</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Restart</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Stop</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Configuration</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Configuration</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Restore default configuration</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Restore default configuration</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Exceptions</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Exceptions</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Add entry</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Service</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Service</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Port</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Policy</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Policy</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Interface</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Edit entry</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Edit entry</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Delete entry</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Delete entry</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
-<context>
-    <name>PFAddDlg</name>
-    <message>
-        <source>incoming</source>
-        <translation type="unfinished">
+        </message>
+    </context>
+    <context>
+        <name>PFAddDlg</name>
+        <message>
+            <source>incoming</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>outgoing</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>outgoing</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>TCP</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>TCP</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>UDP</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>UDP</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
-<context>
-    <name>PFManagerDlg</name>
-    <message>
-        <source>Question</source>
-        <translation type="unfinished">
+        </message>
+    </context>
+    <context>
+        <name>PFManagerDlg</name>
+        <message>
+            <source>Question</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Restored.</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Restored.</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Config file successfuly restored.</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Config file successfuly restored.</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>This will turn off the firewall completely.
+        </message>
+        <message>
+            <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation type="unfinished">
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Success</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Restarted successfuly!</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Restarted successfuly!</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Failure</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Failed to restart!</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Failed to restart!</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
-<context>
-    <name>RcConfig</name>
-    <message>
-        <source>Error opening the specified rc.conf file.</source>
-        <translation type="unfinished">
+        </message>
+    </context>
+    <context>
+        <name>RcConfig</name>
+        <message>
+            <source>Error opening the specified rc.conf file.</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
-<context>
-    <name>services</name>
-    <message>
-        <source>Unknown</source>
-        <translation type="unfinished">
+        </message>
+    </context>
+    <context>
+        <name>services</name>
+        <message>
+            <source>Unknown</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
+        </message>
+    </context>
 </TS>
