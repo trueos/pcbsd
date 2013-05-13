@@ -5,11 +5,11 @@
         <name>MainGUI</name>
         <message>
             <source>EasyPBI</source>
-            <translation type="unfinished">EasyPBI</translation>
+            <translation>EasyPBI</translation>
         </message>
         <message>
             <source>Module Editor</source>
-            <translation type="unfinished">模块编辑器</translation>
+            <translation>模块编辑器</translation>
         </message>
         <message>
             <source>View and edit the current PBI module</source>
@@ -65,7 +65,7 @@
         </message>
         <message>
             <source>Icon</source>
-            <translation type="unfinished">图标</translation>
+            <translation>图标</translation>
         </message>
         <message>
             <source>Build Information</source>
@@ -93,85 +93,71 @@
         </message>
         <message>
             <source>FreeBSD port to be packaged as a PBI</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD接口被封装为PBI</translation>
         </message>
         <message>
             <source>Select a FreeBSD port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择一个FreeBSD接口</translation>
         </message>
         <message>
             <source>Change Port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更换接口</translation>
         </message>
         <message>
             <source>Port Build Options</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>接口构建选项  </translation>
         </message>
         <message>
             <source>Special configuration options for any ports that need to be built.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>任意接口需要构建的特殊配置选项</translation>
         </message>
         <message>
             <source>Build options available for main FreeBSD port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>主FreeBSD接口可用构建选项 </translation>
         </message>
         <message>
             <source>Make Port Before</source>
-            <translation type="unfinished">编译Port前</translation>
+            <translation>编译Port前</translation>
         </message>
         <message>
             <source>Additional FreeBSD ports to be built before the main program</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>构建主程序前需要额外构建的FreeBSD接口</translation>
         </message>
         <message>
             <source>Add additional FreeBSD port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>添加额外的FreeBSD接口</translation>
         </message>
         <message>
             <source>Remove additional FreeBSD port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>移除额外的FreeBSD接口 </translation>
         </message>
         <message>
             <source>Make Port After</source>
-            <translation type="unfinished">编译Port后</translation>
+            <translation>编译Port后</translation>
         </message>
         <message>
             <source>Additional FreeBSD ports to be built after the main program</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>构建主程序后需要额外构建的FreeBSD接口</translation>
         </message>
         <message>
             <source>Require administrator permissions to install this PBI</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>安装此PBI需要管理员权限</translation>
         </message>
         <message>
             <source>Requires Root Permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>需要Root权限 </translation>
         </message>
         <message>
             <source>Save the current settings to the PBI configuration file</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存当前PBI配置文件的设置       </translation>
         </message>
         <message>
             <source>Save Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存配置 </translation>
         </message>
         <message>
             <source>Resources</source>
-            <translation type="unfinished">源</translation>
+            <translation>源</translation>
         </message>
         <message>
             <source>Additional files to be included in the PBI</source>
@@ -179,7 +165,7 @@
         </message>
         <message>
             <source>Current Resources</source>
-            <translation type="unfinished">当前源</translation>
+            <translation>当前源</translation>
         </message>
         <message>
             <source>Current files to be included in the PBI</source>
@@ -203,18 +189,15 @@
         </message>
         <message>
             <source>Create a custom wrapper script for a program binary</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>为二级制程序生成一个本地wrapper脚本</translation>
         </message>
         <message>
             <source>Wrapper Script</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>wrapper脚本 </translation>
         </message>
         <message>
             <source>Save the wrapper script</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存wrapper脚本</translation>
         </message>
         <message>
             <source>Save Script</source>
@@ -234,8 +217,7 @@
         </message>
         <message>
             <source>Set any desktop/menu entries, and any MIME types</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>设置任意桌面或者菜单条目和一些MINE类</translation>
         </message>
         <message>
             <source>Create and edit desktop entries</source>
@@ -271,223 +253,207 @@
         </message>
         <message>
             <source>Visible name for the item</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>条目可见名 </translation>
         </message>
         <message>
             <source>Executable</source>
-            <translation type="unfinished">可执行的</translation>
+            <translation>可执行的</translation>
         </message>
         <message>
             <source>Binary to be run when the item is activated</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>当条目激活运行二进制程序</translation>
         </message>
         <message>
             <source>Auto-detected binaries for the PBI</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PBI自动探测软件</translation>
         </message>
         <message>
             <source>Visible icon to use for the item</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>条目可见图标</translation>
         </message>
         <message>
             <source>Menu category for the item to be located.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>定位条目的菜单策略</translation>
         </message>
         <message>
             <source>Possible Menu categories</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>可能的菜单种类</translation>
         </message>
         <message>
             <source>Start the application in a terminal session</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>在终端运行程序 </translation>
         </message>
         <message>
             <source>Open in Terminal</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>在终端打开   </translation>
         </message>
         <message>
             <source>Flag this item to not be displayed at all</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>标记永不显示条目</translation>
         </message>
         <message>
             <source>Make Invisible</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>使可见    </translation>
         </message>
         <message>
             <source>MIME Patterns</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MINE类    </translation>
         </message>
         <message>
             <source>Save the item as currently shown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>保存当前显示条目</translation>
         </message>
         <message>
             <source>Create a new item with the current settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>用当前设置生成一个新条目</translation>
         </message>
         <message>
             <source>Scripts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>脚本   </translation>
         </message>
         <message>
             <source>Additional installation/build scripts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>添加另外的应用或者构建脚本 </translation>
         </message>
         <message>
             <source>Choose a script that you wish to create or edit</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择一个你想创建或编辑的脚本</translation>
         </message>
         <message>
             <source>Create the selected script</source>
-            <translation type="unfinished">
+            <translation>创建选定的脚本
             </translation>
         </message>
         <message>
             <source>Create</source>
-            <translation type="unfinished">
+            <translation>创建
             </translation>
         </message>
         <message>
             <source>Delete the selected script from the PBI module</source>
-            <translation type="unfinished">
+            <translation>从PBI模块中删除选定的脚本
             </translation>
         </message>
         <message>
             <source>Save the current text as the selected script</source>
-            <translation type="unfinished">
+            <translation>将当前的文本保存为选定的脚本
             </translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
+            <translation>保存
             </translation>
         </message>
         <message>
             <source>Contents for the selected script</source>
-            <translation type="unfinished">
+            <translation>选定脚本的内容
             </translation>
         </message>
         <message>
             <source>External-Links</source>
-            <translation type="unfinished">外部链接</translation>
+            <translation>外部链接</translation>
         </message>
         <message>
             <source>FIles to be linked into the local system</source>
-            <translation type="unfinished">
+            <translation>链接到本地系统的文件
             </translation>
         </message>
         <message>
             <source>Current Entries</source>
-            <translation type="unfinished">
+            <translation>当前条目
             </translation>
         </message>
         <message>
             <source>File</source>
-            <translation type="unfinished">文件</translation>
+            <translation>文件</translation>
         </message>
         <message>
             <source>Link To</source>
-            <translation type="unfinished">
+            <translation>链接到
             </translation>
         </message>
         <message>
             <source>File Type</source>
-            <translation type="unfinished">
+            <translation>文件类型
             </translation>
         </message>
         <message>
             <source>Remove currently selected link</source>
-            <translation type="unfinished">
+            <translation>移除当前选定的链接
             </translation>
         </message>
         <message>
             <source>Remove Entry</source>
-            <translation type="unfinished">
+            <translation>移除条目
             </translation>
         </message>
         <message>
             <source>Add Entry</source>
-            <translation type="unfinished">
+            <translation>添加条目
             </translation>
         </message>
         <message>
             <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-            <translation type="unfinished">
+            <translation>符号链接到本地系统的PBI文件（PBI目录下的相对路径）
             </translation>
         </message>
         <message>
             <source>Auto-detected binaries for this PBI</source>
-            <translation type="unfinished">
+            <translation>自动检测此PBI的二进制文件
             </translation>
         </message>
         <message>
             <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-            <translation type="unfinished">
+            <translation>要创建链接的位置（相对于本地路径，通常是/usr/local/）
             </translation>
         </message>
         <message>
             <source>Flags to determine the file type</source>
-            <translation type="unfinished">
+            <translation>用来决定此文件类型的标识
             </translation>
         </message>
         <message>
             <source>Available flags for the new link</source>
-            <translation type="unfinished">
+            <translation>新链接的可用标识
             </translation>
         </message>
         <message>
             <source>Save this link to the PBI module</source>
-            <translation type="unfinished">
+            <translation>保存到此PBI模块的链接
             </translation>
         </message>
         <message>
             <source>PBI Builder</source>
-            <translation type="unfinished">
+            <translation>PBI创建器
             </translation>
         </message>
         <message>
             <source>Use the current module to build a PBI</source>
-            <translation type="unfinished">
+            <translation>使用当前模块来编译一个PBI
             </translation>
         </message>
         <message>
             <source>Module Building</source>
-            <translation type="unfinished">
+            <translation>模块正在编译中
             </translation>
         </message>
         <message>
             <source>Shows the module that is currently being used to build a PBI</source>
-            <translation type="unfinished">
+            <translation>显示编译PBI所正在使用的模块
             </translation>
         </message>
         <message>
             <source>No PBI currently being built</source>
-            <translation type="unfinished">
+            <translation>无正在编译的PBI
             </translation>
         </message>
         <message>
             <source>Output Directory</source>
-            <translation type="unfinished">输出目录            </translation>
+            <translation>输出目录            </translation>
         </message>
         <message>
             <source>Location for the finished PBI to be located</source>
-            <translation type="unfinished">
+            <translation>放置完成的PBI的位置
             </translation>
         </message>
         <message>

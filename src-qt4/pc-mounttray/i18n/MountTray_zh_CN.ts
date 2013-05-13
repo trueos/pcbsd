@@ -5,32 +5,32 @@
         <name>FSDialog</name>
         <message>
             <source>System Disk Capacity</source>
-            <translation type="unfinished">
+            <translation>系统磁盘容量
             </translation>
         </message>
         <message>
             <source>Mount Point</source>
-            <translation type="unfinished">
+            <translation>挂载点
             </translation>
         </message>
         <message>
             <source>Filesystem</source>
-            <translation type="unfinished">
+            <translation>文件系统
             </translation>
         </message>
         <message>
             <source>Used/Total</source>
-            <translation type="unfinished">
+            <translation>已用/总共
             </translation>
         </message>
         <message>
             <source>Percent %</source>
-            <translation type="unfinished">
+            <translation>百分比%
             </translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
+            <translation>关闭
             </translation>
         </message>
     </context>
@@ -38,7 +38,7 @@
         <name>FSWatcher</name>
         <message>
             <source>Disk(s) Almost Full</source>
-            <translation type="unfinished">
+            <translation>磁盘已满
             </translation>
         </message>
     </context>
@@ -94,7 +94,7 @@
         </message>
         <message>
             <source>Mounted at %1</source>
-            <translation type="unfinished">
+            <translation>挂载于%1
             </translation>
         </message>
     </context>
@@ -140,17 +140,17 @@ Can not open the file manager with root permissions</source>
         </message>
         <message>
             <source>More Options</source>
-            <translation type="unfinished">
+            <translation>更多选项
             </translation>
         </message>
         <message>
             <source>View Disk Usage</source>
-            <translation type="unfinished">
+            <translation>查看磁盘使用情况
             </translation>
         </message>
         <message>
             <source>Change Settings</source>
-            <translation type="unfinished">
+            <translation>更改设置
             </translation>
         </message>
     </context>
@@ -158,32 +158,32 @@ Can not open the file manager with root permissions</source>
         <name>SettingsDialog</name>
         <message>
             <source>Mount Tray Settings</source>
-            <translation type="unfinished">
+            <translation>挂载托盘设置
             </translation>
         </message>
         <message>
             <source>Monitor disk storage space</source>
-            <translation type="unfinished">
+            <translation>监测磁盘存储空间
             </translation>
         </message>
         <message>
             <source>Perform check on device notifications</source>
-            <translation type="unfinished">
+            <translation>对设备提示做检测
             </translation>
         </message>
         <message>
             <source>Maximum time between checks (minutes)</source>
-            <translation type="unfinished">
+            <translation>检测的最大间隔（分钟）
             </translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
+            <translation>撤消
             </translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
+            <translation>应用
             </translation>
         </message>
     </context>

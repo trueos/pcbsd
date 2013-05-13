@@ -95,162 +95,162 @@
         </message>
         <message>
             <source>Jail Configuration</source>
-            <translation type="unfinished">
+            <translation>Jail配置
             </translation>
         </message>
         <message>
             <source>IPv4</source>
-            <translation type="unfinished">
+            <translation>IPv4
             </translation>
         </message>
         <message>
             <source>IPv4 Address</source>
-            <translation type="unfinished">
+            <translation>IPv4地址
             </translation>
         </message>
         <message>
             <source>IPv4 Bridge Address</source>
-            <translation type="unfinished">
+            <translation>IPv4桥接地址
             </translation>
         </message>
         <message>
             <source>IPv4 Default Router</source>
-            <translation type="unfinished">
+            <translation>IPv4默认路由
             </translation>
         </message>
         <message>
             <source>IPv6</source>
-            <translation type="unfinished">
+            <translation>IPv6
             </translation>
         </message>
         <message>
             <source>IPv6 Address</source>
-            <translation type="unfinished">
+            <translation>IPv6地址
             </translation>
         </message>
         <message>
             <source>IPv6 Bridge Address</source>
-            <translation type="unfinished">
+            <translation>IPv6桥接地址
             </translation>
         </message>
         <message>
             <source>IPv6 Default Router</source>
-            <translation type="unfinished">
+            <translation>IPv6默认路由
             </translation>
         </message>
         <message>
             <source>Aliases</source>
-            <translation type="unfinished">
+            <translation>别名
             </translation>
         </message>
         <message>
             <source>IPv4 Aliases</source>
-            <translation type="unfinished">
+            <translation>IPv4别名
             </translation>
         </message>
         <message>
             <source>IPv4 Bridge Aliases</source>
-            <translation type="unfinished">
+            <translation>IPv4桥接别名
             </translation>
         </message>
         <message>
             <source>IPv6 Aliases</source>
-            <translation type="unfinished">
+            <translation>IPv6别名
             </translation>
         </message>
         <message>
             <source>IPv6 Bridge Aliases</source>
-            <translation type="unfinished">
+            <translation>IPv6桥接别名
             </translation>
         </message>
         <message>
             <source>Permissions</source>
-            <translation type="unfinished">
+            <translation>权限
             </translation>
         </message>
         <message>
             <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-            <translation type="unfinished">
+            <translation>以下是此jail可以启用或禁用的权限。可通过在每个条目上悬念鼠标或查看jail的manpage以了解更多信息。
             </translation>
         </message>
         <message>
             <source>A process within the jail has access to System V IPC primitives.</source>
-            <translation type="unfinished">
+            <translation>jail内有一进程有System V的进程间通信元。
             </translation>
         </message>
         <message>
             <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-            <translation type="unfinished">
+            <translation>狱根用户允许创建原始套接字。启用ping / traceroute。
             </translation>
         </message>
         <message>
             <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-            <translation type="unfinished">
+            <translation>当参数设定好，此类用户被视为高权限用户，可以在不违反kern.securelevel的常用限制情况下控制系统文件的标识。
             </translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-            <translation type="unfinished">
+            <translation>jail内的高权限用户可以挂载和卸载对jail友好的文件系统类型。
             </translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-            <translation type="unfinished">
+            <translation>jail内的高权限用户可以挂载或卸载devfs文件系统。
             </translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-            <translation type="unfinished">
+            <translation>jail内的高权限用户可以挂载和卸载nullfs文件系统。
             </translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-            <translation type="unfinished">
+            <translation>Jail内的高权限用户可以挂载和卸载procfs文件系统。
             </translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-            <translation type="unfinished">
+            <translation>Jail内的高权限用户可以挂载和卸载zfs文件系统。
             </translation>
         </message>
         <message>
             <source>The prison root may administer quotas on the jail's filesystem(s).</source>
-            <translation type="unfinished">
+            <translation>狱根用户可以管理jail文件系统的配额。
             </translation>
         </message>
         <message>
             <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-            <translation type="unfinished">
+            <translation>此动作允许访问那些还没将jail功能添加上去的协议栈
             </translation>
         </message>
         <message>
             <source>Invalid IPv4 address!</source>
-            <translation type="unfinished">
+            <translation>无效的IPv4地址！
             </translation>
         </message>
         <message>
             <source>Invalid IPv4 bridge address!</source>
-            <translation type="unfinished">
+            <translation>无效的IPv4桥接地址！
             </translation>
         </message>
         <message>
             <source>Invalid IPv4 router address!</source>
-            <translation type="unfinished">
+            <translation>无效的IPv4路由地址！
             </translation>
         </message>
         <message>
             <source>Invalid IPv6 address!</source>
-            <translation type="unfinished">
+            <translation>无效的IPv6地址！
             </translation>
         </message>
         <message>
             <source>Invalid IPv6 bridge address!</source>
-            <translation type="unfinished">
+            <translation>无效的IPv6桥接地址！
             </translation>
         </message>
         <message>
             <source>Invalid IPv6 router address!</source>
-            <translation type="unfinished">
+            <translation>无效的IPv6路由地址！
             </translation>
         </message>
     </context>
@@ -637,17 +637,17 @@
         </message>
         <message>
             <source>IPs:</source>
-            <translation type="unfinished">
+            <translation>IP：
             </translation>
         </message>
         <message>
             <source>Configure the jail</source>
-            <translation type="unfinished">
+            <translation>配置此jail
             </translation>
         </message>
         <message>
             <source>Package Manager</source>
-            <translation type="unfinished">
+            <translation>软件管理器
             </translation>
         </message>
     </context>
@@ -750,27 +750,27 @@
         </message>
         <message>
             <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-            <translation type="unfinished">
+            <translation>此向导会引导你创建一个新的jail。首先，输入主机名和IP地址，然后点击下一步。
             </translation>
         </message>
         <message>
             <source>IPv4 Address</source>
-            <translation type="unfinished">
+            <translation>IPv4地址
             </translation>
         </message>
         <message>
             <source>IPv6 Address</source>
-            <translation type="unfinished">
+            <translation>IPv6地址
             </translation>
         </message>
         <message>
             <source>Traditional Jail (Secure, best for services)</source>
-            <translation type="unfinished">
+            <translation>传统的Jail（安全，适用于服务）
             </translation>
         </message>
         <message>
             <source>Install PKGNG and PC-BSD utilities</source>
-            <translation type="unfinished">
+            <translation>安装PKGNG和PC-BSD工具
             </translation>
         </message>
     </context>

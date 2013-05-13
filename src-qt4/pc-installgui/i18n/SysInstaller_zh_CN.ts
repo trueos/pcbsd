@@ -224,27 +224,27 @@
         </message>
         <message>
             <source>Unable to detect any disk drives! The install will now exit.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>无法检测到任何磁盘！即将退出安装程序。
+         </translation>
         </message>
         <message>
             <source>Click arrows to change system selection</source>
-            <translation type="unfinished">
+            <translation>点击箭头以更改系统选择
             </translation>
         </message>
         <message>
             <source>Unable to suggest a partition for the detected disk.</source>
-            <translation type="unfinished">
+            <translation>无法为检测到的磁盘提供分区使用建议。
             </translation>
         </message>
         <message>
             <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-            <translation type="unfinished">
+            <translation>检测到你在运行32位版本。如果您的系统支持64位（2005年后生产的大多数系统都支持），您真应该运行64位版本。
             </translation>
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">
+            <translation>选定的磁盘/分区小于推荐的%1GB。安装可能会失败……
              {1G?}</translation>
         </message>
     </context>
@@ -694,12 +694,12 @@
         </message>
         <message>
             <source>Enter SWAP size</source>
-            <translation type="unfinished">
+            <translation>输入交换分区容量
             </translation>
         </message>
         <message>
             <source>Size (MB)</source>
-            <translation type="unfinished">
+            <translation>容量（MB）
             </translation>
         </message>
     </context>

@@ -97,12 +97,12 @@
         </message>
         <message>
             <source>Package updates available</source>
-            <translation type="unfinished">
+            <translation>有可用的软件升级
             </translation>
         </message>
         <message>
             <source>Important package updates are available. Click here to install them!</source>
-            <translation type="unfinished">
+            <translation>有可用的重要软件升级。点击此处安装！
             </translation>
         </message>
     </context>

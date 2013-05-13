@@ -129,22 +129,22 @@
         </message>
         <message>
             <source>Re&amp;scan for Updates</source>
-            <translation type="unfinished">
+            <translation>重新检测更新(&amp;S)
             </translation>
         </message>
         <message>
             <source>&amp;Install selected updates</source>
-            <translation type="unfinished">
+            <translation>安装选定的更新(&amp;I)
             </translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
+            <translation>关闭(&amp;C)
             </translation>
         </message>
         <message>
             <source>System updates available!</source>
-            <translation type="unfinished">
+            <translation>有可用的系统更新！
             </translation>
         </message>
     </context>
