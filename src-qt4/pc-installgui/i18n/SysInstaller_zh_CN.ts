@@ -221,6 +221,7 @@
         <source>Extracting system...</source>
         <translation>正在解压系统……
             </translation>
+<<<<<<< HEAD
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
@@ -245,6 +246,32 @@
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
         <translation type="unfinished">
+=======
+        </message>
+        <message>
+            <source>Unable to detect any disk drives! The install will now exit.</source>
+            <translation>无法检测到任何磁盘！即将退出安装程序。
+         </translation>
+        </message>
+        <message>
+            <source>Click arrows to change system selection</source>
+            <translation>点击箭头以更改系统选择
+            </translation>
+        </message>
+        <message>
+            <source>Unable to suggest a partition for the detected disk.</source>
+            <translation>无法为检测到的磁盘提供分区使用建议。
+            </translation>
+        </message>
+        <message>
+            <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
+            <translation>检测到你在运行32位版本。如果您的系统支持64位（2005年后生产的大多数系统都支持），您真应该运行64位版本。
+            </translation>
+        </message>
+        <message>
+            <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
+            <translation>选定的磁盘/分区小于推荐的%1GB。安装可能会失败……
+>>>>>>> a60eab6ace9bb570b4929a926ff0f016420b2dbe
              {1G?}</translation>
     </message>
 </context>
@@ -675,6 +702,7 @@
         <source>ZFS (64bit systems with more than 2GB RAM)</source>
         <translation>ZFS（64位，内存大于2G的系统）
             </translation>
+<<<<<<< HEAD
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
@@ -700,6 +728,33 @@
     <message>
         <source>Size (MB)</source>
         <translation type="unfinished">
+=======
+        </message>
+        <message>
+            <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
+            <translation>注意：是否启用ZFS镜像/raidz只能在做全盘安装时选择            </translation>
+        </message>
+        <message>
+            <source>Please select 2 or 4 additional drives for raidz1</source>
+            <translation>请为raidz1选择2到4个额外硬盘</translation>
+        </message>
+        <message>
+            <source>Please select 3, 5, or 9 additional drives for raidz2</source>
+            <translation>请外raidz2选择3、5或者9个额外硬盘</translation>
+        </message>
+        <message>
+            <source>Please select 4, 6, or 10 additional drives for raidz3</source>
+            <translation>请为raidz3选择4、6或者10个额外硬盘</translation>
+        </message>
+        <message>
+            <source>Enter SWAP size</source>
+            <translation>输入交换分区容量
+            </translation>
+        </message>
+        <message>
+            <source>Size (MB)</source>
+            <translation>容量（MB）
+>>>>>>> a60eab6ace9bb570b4929a926ff0f016420b2dbe
             </translation>
     </message>
 </context>
