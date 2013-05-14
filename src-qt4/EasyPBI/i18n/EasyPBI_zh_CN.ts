@@ -458,421 +458,418 @@
         </message>
         <message>
             <source>Displays any output from a PBI build process</source>
-            <translation type="unfinished">
+            <translation>显示PBI编译过程中的所有输出
             </translation>
         </message>
         <message>
             <source>Start building a PBI from the current module (requires root permissions)</source>
-            <translation type="unfinished">
+            <translation>从当前模块中开始编译PBI（需要根用户权限）
             </translation>
         </message>
         <message>
             <source>Build PBI</source>
-            <translation type="unfinished">创建PBI
+            <translation>创建PBI
             </translation>
         </message>
         <message>
             <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-            <translation type="unfinished">
+            <translation>可选：创建一个32位，而非64位的PBI
             </translation>
         </message>
         <message>
             <source>Build 32-bit</source>
-            <translation type="unfinished">
+            <translation>编译32位
             </translation>
         </message>
         <message>
             <source>Cancel the currently running build process</source>
-            <translation type="unfinished">
+            <translation>撤消当前的编译进程
             </translation>
         </message>
         <message>
             <source>Cancel Build</source>
-            <translation type="unfinished">
+            <translation>撤消编译
             </translation>
         </message>
         <message>
             <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-            <translation type="unfinished">
+            <translation>将当前的编译日志保存到磁盘（在编译失败时非常有帮助）
             </translation>
         </message>
         <message>
             <source>Save Build Log</source>
-            <translation type="unfinished">保存创建日志</translation>
+            <translation>保存编译日志</translation>
         </message>
         <message>
             <source>System</source>
-            <translation type="unfinished">
+            <translation>系统
             </translation>
         </message>
         <message>
             <source>Options</source>
-            <translation type="unfinished">
+            <translation>选项
             </translation>
         </message>
         <message>
             <source>Information</source>
-            <translation type="unfinished">
+            <translation>信息
             </translation>
         </message>
         <message>
             <source>toolBar</source>
-            <translation type="unfinished">
+            <translation>工具栏
             </translation>
         </message>
         <message>
             <source>EasyPBI Settings</source>
-            <translation type="unfinished">
+            <translation>EasyPBI设置
             </translation>
         </message>
         <message>
             <source>Open up the EasyPBI settings editor</source>
-            <translation type="unfinished">
+            <translation>打开EasyPBI设置编辑器
             </translation>
         </message>
         <message>
             <source>Get FreeBSD Ports</source>
-            <translation type="unfinished">
+            <translation>获取FreeBSD Ports
             </translation>
         </message>
         <message>
             <source>Fetch/update the FreeBSD ports tree</source>
-            <translation type="unfinished">
+            <translation>获取/更新FreeBSD ports树
             </translation>
         </message>
         <message>
             <source>New</source>
-            <translation type="unfinished">
+            <translation>新建
             </translation>
         </message>
         <message>
             <source>Click to create a new PBI module</source>
-            <translation type="unfinished">
+            <translation>点击创建新的PBI模块
             </translation>
         </message>
         <message>
             <source>Load</source>
-            <translation type="unfinished">
+            <translation>载入
             </translation>
         </message>
         <message>
             <source>Click to load an existing module</source>
-            <translation type="unfinished">
+            <translation>点击载入已存在模块
             </translation>
         </message>
         <message>
             <source>Summary</source>
-            <translation type="unfinished">
+            <translation>总结
             </translation>
         </message>
         <message>
             <source>License</source>
-            <translation type="unfinished">
+            <translation>许可证
             </translation>
         </message>
         <message>
             <source>History</source>
-            <translation type="unfinished">
+            <translation>历史
             </translation>
         </message>
         <message>
             <source>FreeBSD Ports</source>
-            <translation type="unfinished">
+            <translation>FreeBSD Ports
             </translation>
         </message>
         <message>
             <source>Open up freshports.org for additional port information</source>
-            <translation type="unfinished">
+            <translation>打开freshports.org以获取更多关于port的信息
             </translation>
         </message>
         <message>
             <source>PBI Modules</source>
-            <translation type="unfinished">
+            <translation>PBI模块
             </translation>
         </message>
         <message>
             <source>Open up the PC-BSD Wiki page for PBI developers</source>
-            <translation type="unfinished">
+            <translation>打开PBI开发者的PC-BSD维基页面
             </translation>
         </message>
         <message>
             <source>Close EasyPBI</source>
-            <translation type="unfinished">
+            <translation>关闭EasyPBI
             </translation>
         </message>
         <message>
             <source>Package Module</source>
-            <translation type="unfinished">包裹模块</translation>
+            <translation>包裹模块</translation>
         </message>
         <message>
             <source>Compress the current module for distribution</source>
-            <translation type="unfinished">
+            <translation>压缩当前模块以便分发
             </translation>
         </message>
         <message>
             <source>About EasyPBI</source>
-            <translation type="unfinished">关于简易PBI            </translation>
+            <translation>关于简易PBI            </translation>
         </message>
         <message>
             <source>View additional information about EasyPBI</source>
-            <translation type="unfinished">
+            <translation>查看关于EasyPBI的更多信息
             </translation>
         </message>
         <message>
             <source>No Module Loaded</source>
-            <translation type="unfinished">
+            <translation>没有已载入的模块
             </translation>
         </message>
         <message>
             <source>FreeBSD Port</source>
-            <translation type="unfinished">
+            <translation>FreeBSD Port
             </translation>
         </message>
         <message>
             <source>Local Sources</source>
-            <translation type="unfinished">
+            <translation>本地资源
             </translation>
         </message>
         <message>
             <source>Installation Scripts</source>
-            <translation type="unfinished">
+            <translation>安装脚本
             </translation>
         </message>
         <message>
             <source>Permissions Error</source>
-            <translation type="unfinished">
+            <translation>权限错误
             </translation>
         </message>
         <message>
             <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-            <translation type="unfinished">
+            <translation>在创建本地EasyPBI目录结构时出错。请检查您家目录的权限并重启EasyPBI。
             </translation>
         </message>
         <message>
             <source>Resources Unavailable</source>
-            <translation type="unfinished">
+            <translation>资源不可用
             </translation>
         </message>
         <message>
             <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-            <translation type="unfinished">
+            <translation>有些外部资源无法找到，因此使用这些资源的EasyPBI服务被禁用。
             </translation>
         </message>
         <message>
             <source>Success</source>
-            <translation type="unfinished">
+            <translation>成功
             </translation>
         </message>
         <message>
             <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-            <translation type="unfinished">
+            <translation>一份当前模块的拷贝已成功在当前模块目录内打包。
             </translation>
         </message>
         <message>
             <source>EasyPBI: Permissions Error</source>
-            <translation type="unfinished">
+            <translation>EasyPBI：权限错误
             </translation>
         </message>
         <message>
             <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-            <translation type="unfinished">
+            <translation>无法创建PBI模块。请检查目录权限并重试。
             </translation>
         </message>
         <message>
             <source>Select Module</source>
-            <translation type="unfinished">选择模块</translation>
+            <translation>选择模块</translation>
         </message>
         <message>
             <source>EasyPBI: No FreeBSD Ports</source>
-            <translation type="unfinished">
+            <translation>EasyPBI：没有发现FreeBSD Ports
             </translation>
         </message>
         <message>
             <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-            <translation type="unfinished">
+            <translation>没有在您的系统中发现FreeBSD Ports树。您可以通过EasyPBI菜单获取ports树，如果ports位于非标准安装位置，请在EasyPBI设置中手动设置其路径。
             </translation>
         </message>
         <message>
             <source>Select Port</source>
-            <translation type="unfinished">选择Port</translation>
+            <translation>选择Port</translation>
         </message>
         <message>
             <source>EasyPBI: Invalid Port</source>
-            <translation type="unfinished">
+            <translation>EasyPBI：无效的Port
             </translation>
         </message>
         <message>
             <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-            <translation type="unfinished">
+            <translation>选定的目录并不是一个有效的FreeBSD Port。请选择一个包含相应Makefile和distinfo的port目录。
             </translation>
         </message>
         <message>
             <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo files.</source>
-            <translation type="unfinished">
+            <translation>选定的目录并不是一个有效的FreeBSD port。请选择一个包含相应Makefile和distinfo文件的port目录。
             </translation>
         </message>
         <message>
             <source>EasyPBI Error</source>
-            <translation type="unfinished">
+            <translation>EasyPBI错误
             </translation>
         </message>
         <message>
             <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-            <translation type="unfinished">
+            <translation>无法保存PBI配置文件。请检查文件权限并重试。
             </translation>
         </message>
         <message>
             <source>Select Resources</source>
-            <translation type="unfinished">
+            <translation>选择资源
             </translation>
         </message>
         <message>
             <source>New Wrapper Script</source>
-            <translation type="unfinished">
+            <translation>新的封装脚本
             </translation>
         </message>
         <message>
             <source>Filename</source>
-            <translation type="unfinished">
+            <translation>文件名
             </translation>
         </message>
         <message>
             <source>Could not remove the XDG entry.</source>
-            <translation type="unfinished">
+            <translation>无法删除XDG条目
             </translation>
         </message>
         <message>
             <source>Check the file permissions and try again</source>
-            <translation type="unfinished">
+            <translation>请检查文件权限并重试
             </translation>
         </message>
         <message>
             <source>Could not save the changes to the XDG entry.</source>
-            <translation type="unfinished">
+            <translation>无法将变更保存到XDG条目。
             </translation>
         </message>
         <message>
             <source>Error Saving File</source>
-            <translation type="unfinished">
+            <translation>保存文件时发生错误
             </translation>
         </message>
         <message>
             <source>Could not save the script</source>
-            <translation type="unfinished">
+            <translation>无法保存脚本
             </translation>
         </message>
         <message>
             <source>Please check the file permissions and try again</source>
-            <translation type="unfinished">
+            <translation>请检查文件权限并重试
             </translation>
         </message>
         <message>
             <source>Error</source>
-            <translation type="unfinished">错误</translation>
+            <translation>错误</translation>
         </message>
         <message>
             <source>Invalid PBI Settings</source>
-            <translation type="unfinished">PBI设定无效</translation>
+            <translation>无效的PBI设定</translation>
         </message>
         <message>
             <source>Are you sure you wish to start the PBI build?</source>
-            <translation type="unfinished">确定要开始编译PBI？</translation>
+            <translation>确定要开始编译PBI？</translation>
         </message>
         <message>
             <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-            <translation type="unfinished">此动作需要互联网连接和根用户权限。编译PBI所需时间会因系统参数及需要编译的ports不同而不同。</translation>
+            <translation>此动作需要互联网连接和根用户权限。编译PBI所需时间会因系统参数及需要编译的ports不同而不同。</translation>
         </message>
         <message>
             <source>PBI Builder (Working)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PBI Builder (正在工作中)</translation>
         </message>
         <message>
             <source>Save Log</source>
-            <translation type="unfinished">保存日志</translation>
+            <translation>保存日志</translation>
         </message>
         <message>
             <source>Log Files</source>
-            <translation type="unfinished">日志文件</translation>
+            <translation>日志文件</translation>
         </message>
         <message>
             <source>PBI Build Success</source>
-            <translation type="unfinished">PBI编译成功</translation>
+            <translation>PBI编译成功</translation>
         </message>
         <message>
             <source>The PBI finished building successfully</source>
-            <translation type="unfinished">PBI成功完成编译</translation>
+            <translation>PBI成功完成编译</translation>
         </message>
         <message>
             <source>PBI Build Failure</source>
-            <translation type="unfinished">PBI编译失败</translation>
+            <translation>PBI编译失败</translation>
         </message>
         <message>
             <source>The PBI failed to build.</source>
-            <translation type="unfinished">PBI编译失败。</translation>
+            <translation>PBI编译失败。</translation>
         </message>
         <message>
             <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-            <translation type="unfinished">请检查编译日志查找失败原因并对模块做相应调整</translation>
+            <translation>请检查编译日志查找失败原因并对模块做相应调整</translation>
         </message>
         <message>
             <source>PBI Builder (Finished)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PBI Builder (已完成)</translation>
         </message>
         <message>
             <source>Begin creating a new XDG entry</source>
-            <translation type="unfinished">
+            <translation>开始创建一个新XDG条目
             </translation>
         </message>
         <message>
             <source>Category</source>
-            <translation type="unfinished">
+            <translation>类别
             </translation>
         </message>
         <message>
             <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-            <translation type="unfinished">
+            <translation>以空格分隔的自动文件关联（如：*.junk *.JUNK *.test *.TEST）
             </translation>
         </message>
         <message>
             <source>Add</source>
-            <translation type="unfinished">
+            <translation>添加
             </translation>
         </message>
         <message>
             <source>Select Package Directory</source>
-            <translation type="unfinished">
+            <translation>选择软件目录
             </translation>
         </message>
         <message>
             <source>FreeBSD Ports Missing</source>
-            <translation type="unfinished">
+            <translation>FreeBSD Ports缺失
             </translation>
         </message>
         <message>
             <source>The FreeBSD ports tree is missing from your system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>您的系统缺失FreeBSD ports树。</translation>
         </message>
         <message>
             <source>Application needs administrator privileges to run</source>
-            <translation type="unfinished">
+            <translation>程序需要管理员权限运行
             </translation>
         </message>
         <message>
             <source>Requires Root</source>
-            <translation type="unfinished">
+            <translation>需要根用户
             </translation>
         </message>
         <message>
             <source>Refresh Module</source>
-            <translation type="unfinished">
+            <translation>刷新模块
             </translation>
         </message>
         <message>
             <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-            <translation type="unfinished">
+            <translation>请打开EasyPBI设置来更正此缺陷。
             </translation>
         </message>
     </context>
@@ -880,101 +877,98 @@
         <name>NewModuleDialog</name>
         <message>
             <source>Create a new Module</source>
-            <translation type="unfinished">
+            <translation>创建一个新模块
             </translation>
         </message>
         <message>
             <source>FreeBSD Port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD Port</translation>
         </message>
         <message>
             <source>FreeBSD port that you wish to build as a PBI</source>
-            <translation type="unfinished">
+            <translation>您要编译成PBI的FreeBSD port
             </translation>
         </message>
         <message>
             <source>Select a port from the local FreeBSD ports tree</source>
-            <translation type="unfinished">
+            <translation>从本地FreeBSD ports树中选择一个port
             </translation>
         </message>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
+            <translation>选择
             </translation>
         </message>
         <message>
             <source>Local directory to be packaged as a PBI</source>
-            <translation type="unfinished">
+            <translation>要打包成PBI的本地目录
             </translation>
         </message>
         <message>
             <source>Select a local directory to be packaged as a PBI</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择要打包成PBI的本地目录</translation>
         </message>
         <message>
             <source>Local Directory</source>
-            <translation type="unfinished">
+            <translation>本地目录
             </translation>
         </message>
         <message>
             <source>PNG icon file to use for the PBI (can be changed later)</source>
-            <translation type="unfinished">
+            <translation>PBI要使用的PNG图标文件（稍后可更改）
             </translation>
         </message>
         <message>
             <source>Select a local PNG file (64x64 pixel size recommended)</source>
-            <translation type="unfinished">
+            <translation>选择一个本地PNG文件（推荐64x64像素）
             </translation>
         </message>
         <message>
             <source>Icon File</source>
-            <translation type="unfinished">
+            <translation>图标文件
             </translation>
         </message>
         <message>
             <source>Create a PBI from an existing FreeBSD port</source>
-            <translation type="unfinished">
+            <translation>从已存在的FreeBSD port中创建PBI
             </translation>
         </message>
         <message>
             <source>Package a local directory as a PBI</source>
-            <translation type="unfinished">
+            <translation>将一个本地目录打包成PBI
             </translation>
         </message>
         <message>
             <source>Local Sources</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>本地资源</translation>
         </message>
         <message>
             <source>EasyPBI: No FreeBSD Ports</source>
-            <translation type="unfinished">
+            <translation>EasyPBI：没有FreeBSD Ports
             </translation>
         </message>
         <message>
             <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-            <translation type="unfinished">
+            <translation>您的系统中没有发现FreeBSD Ports树。您可以通过EasyPBI菜单获取，如果安装在非标准位置，请在EasyPBI设定中指定其路径。
             </translation>
         </message>
         <message>
             <source>Select Port</source>
-            <translation type="unfinished">选择Port</translation>
+            <translation>选择Port</translation>
         </message>
         <message>
             <source>Select Package Directory</source>
-            <translation type="unfinished">
+            <translation>选择软件目录
             </translation>
         </message>
         <message>
             <source>Select PNG Icon</source>
-            <translation type="unfinished">
+            <translation>选择PNG图标
             </translation>
         </message>
         <message>
             <source>PNG icon (*.png)</source>
-            <translation type="unfinished">
+            <translation>PNG图标（*.png）
             </translation>
         </message>
     </context>
@@ -982,66 +976,66 @@
         <name>PreferencesDialog</name>
         <message>
             <source>EasyPBI Preferences</source>
-            <translation type="unfinished">
+            <translation>EasyPBI设定
             </translation>
         </message>
         <message>
             <source>PBI Output Dir</source>
-            <translation type="unfinished">
+            <translation>PBI输出目录
             </translation>
         </message>
         <message>
             <source>Local directory for built PBI's to be placed.</source>
-            <translation type="unfinished">
+            <translation>存储编译完成的PBI的本地目录。
             </translation>
         </message>
         <message>
             <source>Browse local system to select a PBI output directory</source>
-            <translation type="unfinished">
+            <translation>浏览本地系统并选择一个PBI输出目录
             </translation>
         </message>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
+            <translation>选择
             </translation>
         </message>
         <message>
             <source>Digitally sign any PBI's that are created for tamper-evident distribution</source>
-            <translation type="unfinished">
+            <translation>创建的PBI都经过了数字签名以防分发遭破坏
             </translation>
         </message>
         <message>
             <source>Digitally Sign PBI</source>
-            <translation type="unfinished">
+            <translation>对PBI做数字签名
             </translation>
         </message>
         <message>
             <source>Signature File</source>
-            <translation type="unfinished">
+            <translation>签名文件
             </translation>
         </message>
         <message>
             <source>Local file that contains the openssl key</source>
-            <translation type="unfinished">
+            <translation>包含openssl匙的本地文件
             </translation>
         </message>
         <message>
             <source>Browse for the openssl key file</source>
-            <translation type="unfinished">
+            <translation>浏览查找openssl匙文件
             </translation>
         </message>
         <message>
             <source>Use system memory to speed up PBI build processes.</source>
-            <translation type="unfinished">
+            <translation>使用系统内在来加快PBI编译。
             </translation>
         </message>
         <message>
             <source>Use TMPFS</source>
-            <translation type="unfinished">使用TMPFS            </translation>
+            <translation>使用TMPFS            </translation>
         </message>
         <message>
             <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-            <translation type="unfinished">
+            <translation>防止已编译的ports被重新编译可以极大的加快PBI编译速度。
             </translation>
         </message>
         <message>
@@ -1150,11 +1144,11 @@
         </message>
         <message>
             <source>Select PBI Output Directory</source>
-            <translation type="unfinished">选择PBI输出目录</translation>
+            <translation>选择PBI输出目录</translation>
         </message>
         <message>
             <source>Select Digital Signature File</source>
-            <translation type="unfinished">选择数字签名文件</translation>
+            <translation>选择数字签名文件</translation>
         </message>
         <message>
             <source>Signature Files (*)</source>
@@ -1329,7 +1323,7 @@
         </message>
         <message>
             <source>Create PBI's quickly and easily.</source>
-            <translation type="unfinished">轻而易举的创建PBI。</translation>
+            <translation>轻而易举的创建PBI。</translation>
         </message>
         <message>
             <source>Unable to open resource file: %1</source>

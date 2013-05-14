@@ -239,7 +239,7 @@ Cliquez sur Terminer pour redémarrer l'ordinateur. Après le redémarrage, vous
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">Le disque sélectionné / partition est inférieure à 1MB% qui est recommandés. L'installation peut échouer... {1G?}</translation>
+            <translation>Le disque sélectionné / partition est inférieure à 1MB% qui est recommandés. L'installation peut échouer... {1G?}</translation>
         </message>
     </context>
     <context>
