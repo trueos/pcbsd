@@ -1,177 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
-<context>
-    <name>btmaingui</name>
-    <message>
-        <source>BlueTooth Manager</source>
-        <translation>BlueTooth Manager
+<TS>
+    <context>
+        <name>btmaingui</name>
+        <message>
+            <source>BlueTooth Manager</source>
+            <translation>BlueTooth Manager
             </translation>
-    </message>
-    <message>
-        <source>Current Settings</source>
-        <translation>Aktuálne Nastavenie
+        </message>
+        <message>
+            <source>Current Settings</source>
+            <translation>Aktuálne Nastavenie
             </translation>
-    </message>
-    <message>
-        <source>Computer/Device ID</source>
-        <translation>Počítač/Zariadenie ID
+        </message>
+        <message>
+            <source>Computer/Device ID</source>
+            <translation>Počítač/Zariadenie ID
             </translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>Zmeniť
+        </message>
+        <message>
+            <source>Change</source>
+            <translation>Zmeniť
             </translation>
-    </message>
-    <message>
-        <source>Devices Connected:</source>
-        <translation>Pripojené Zariadenia
+        </message>
+        <message>
+            <source>Devices Connected:</source>
+            <translation>Pripojené Zariadenia
             </translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>Odpojte Zariadenie
+        </message>
+        <message>
+            <source>Disconnect Device</source>
+            <translation>Odpojte Zariadenie
             </translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Start Tray Application</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>Reštartovanie Služby
+        </message>
+        <message>
+            <source>Restart Service</source>
+            <translation>Reštartovanie Služby
             </translation>
-    </message>
-    <message>
-        <source>New Devices</source>
-        <translation>Nové Zariadenia
+        </message>
+        <message>
+            <source>New Devices</source>
+            <translation>Nové Zariadenia
             </translation>
-    </message>
-    <message>
-        <source>Scan</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Scan</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>Pridať Zariadenie
+        </message>
+        <message>
+            <source>Add Device</source>
+            <translation>Pridať Zariadenie
             </translation>
-    </message>
-    <message>
-        <source>Saved Devices</source>
-        <translation>Uložené Zariadenia
+        </message>
+        <message>
+            <source>Saved Devices</source>
+            <translation>Uložené Zariadenia
             </translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Initiate Pairing</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Konfigurovať
+        </message>
+        <message>
+            <source>Configure</source>
+            <translation>Konfigurovať
             </translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>Odobrať Zariadenie
+        </message>
+        <message>
+            <source>Remove Device</source>
+            <translation>Odobrať Zariadenie
             </translation>
-    </message>
-    <message>
-        <source>Searching for discoverable Bluetooth devices</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Searching for discoverable Bluetooth devices</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>No new Bluetooth devices discovered! Please put your device into &quot;discovery&quot; mode and rescan.</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>No new Bluetooth devices discovered! Please put your device into &quot;discovery&quot; mode and rescan.</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Reading saved Bluetooth devices. Please wait.</source>
-        <translation>Načiítava uložené Bluetooth zariadenia. Čakajte prosím.
+        </message>
+        <message>
+            <source>Reading saved Bluetooth devices. Please wait.</source>
+            <translation>Načiítava uložené Bluetooth zariadenia. Čakajte prosím.
             </translation>
-    </message>
-    <message>
-        <source>This program must be run with root permissions to view/edit saved configurations</source>
-        <translation>Pre ukážku/zmenu uložených nastavení musí byť program spustený s oprávneniami správcu. 
+        </message>
+        <message>
+            <source>This program must be run with root permissions to view/edit saved configurations</source>
+            <translation>Pre ukážku/zmenu uložených nastavení musí byť program spustený s oprávneniami správcu. 
             </translation>
-    </message>
-    <message>
-        <source>No saved configurations found</source>
-        <translation>Nenašli sa žiadne uložené nastavenia.
+        </message>
+        <message>
+            <source>No saved configurations found</source>
+            <translation>Nenašli sa žiadne uložené nastavenia.
             </translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Varovanie
+        </message>
+        <message>
+            <source>Warning</source>
+            <translation>Varovanie
             </translation>
-    </message>
-    <message>
-        <source>No device has been selected. Please choose a device first.</source>
-        <translation>Nevybrali ste žiadne zariadenie. Prosím najprv zvoľte zariadenie.
+        </message>
+        <message>
+            <source>No device has been selected. Please choose a device first.</source>
+            <translation>Nevybrali ste žiadne zariadenie. Prosím najprv zvoľte zariadenie.
             </translation>
-    </message>
-    <message>
-        <source>Invalid Permissions</source>
-        <translation>Neplatné Oprávnenia
+        </message>
+        <message>
+            <source>Invalid Permissions</source>
+            <translation>Neplatné Oprávnenia
             </translation>
-    </message>
-    <message>
-        <source>This program must be run with root permissions to save device settings</source>
-        <translation>Pre uloženie nastavení zariadenia musí byť program spustený s oprávneniami správcu.
+        </message>
+        <message>
+            <source>This program must be run with root permissions to save device settings</source>
+            <translation>Pre uloženie nastavení zariadenia musí byť program spustený s oprávneniami správcu.
             </translation>
-    </message>
-    <message>
-        <source>PIN Code (Examples: 0000, 1234, or none)</source>
-        <translation>PIN kód (Napríklad: 0000, 1234, alebo žiadne)
+        </message>
+        <message>
+            <source>PIN Code (Examples: 0000, 1234, or none)</source>
+            <translation>PIN kód (Napríklad: 0000, 1234, alebo žiadne)
             </translation>
-    </message>
-    <message>
-        <source>Link Key (Leave blank for automatic)</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Link Key (Leave blank for automatic)</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Device Configuration</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Device Configuration</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Invalid Pin length: Defaulting to none</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Invalid Pin length: Defaulting to none</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Pairing Error</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Pairing Error</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Could not pair to this device. Please verify your device configuration before trying again.</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Could not pair to this device. Please verify your device configuration before trying again.</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>New Bluetooth Computer name</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>New Bluetooth Computer name</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>New Bluetooth Name</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>New Bluetooth Name</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Invalid Name</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Invalid Name</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Device name must not contain symbols</source>
-        <translation type="unfinished">
+        </message>
+        <message>
+            <source>Device name must not contain symbols</source>
+            <translation type="unfinished">
             </translation>
-    </message>
-</context>
+        </message>
+    </context>
 </TS>
