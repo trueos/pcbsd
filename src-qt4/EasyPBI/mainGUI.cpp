@@ -122,6 +122,35 @@ MainGUI::~MainGUI()
   qDebug() << "Shutting down EasyPBI normally";
 }
 
+void PBM::checkGroupOperator()
+{
+   QString loginName = getlogin();
+   QStringList gNames;
+   if ( loginName == "root" )
+     return;
+
+   QString tmp;
+   QFile iFile("/etc/group");
+   if ( ! iFile.open(QIODevice::ReadOnly | QIODevice::Text))
+     return;
+                
+   while ( !iFile.atEnd() ) {
+     tmp = iFile.readLine().simplified();
+     if ( tmp.indexOf("operator") == 0 ) {
+	gNames = tmp.section(":", 3, 3).split(",");
+	break;
+     }
+   }
+   iFile.close();
+        
+   for ( int i = 0; i < gNames.size(); ++i )
+      if ( gNames.at(i).indexOf(loginName) == 0 )
+	    return;
+
+   QMessageBox::information( this, tr("Error!"), tr("Installing applications has been disabled for this user. Please add the user to the operator group or restart as root.") );
+   close();  
+}
+
 void MainGUI::slotSingleInstance(){
   this->showNormal();
   this->activateWindow();

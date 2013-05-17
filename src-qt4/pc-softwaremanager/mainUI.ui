@@ -25,7 +25,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -145,7 +145,7 @@
         <item>
          <widget class="QGroupBox" name="group_install_showinfo">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -156,7 +156,7 @@
           <property name="checkable">
            <bool>true</bool>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <layout class="QVBoxLayout" name="verticalLayout_17">
            <item>
             <widget class="QGroupBox" name="group_install_info">
              <property name="title">
@@ -165,67 +165,47 @@
              <property name="flat">
               <bool>true</bool>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_15">
-              <item>
-               <widget class="QLabel" name="label_install_icon">
-                <property name="maximumSize">
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="1" column="2" rowspan="2">
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
                  <size>
-                  <width>64</width>
-                  <height>64</height>
+                  <width>40</width>
+                  <height>20</height>
                  </size>
                 </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
-                </property>
-                <property name="scaledContents">
-                 <bool>true</bool>
-                </property>
-               </widget>
+               </spacer>
               </item>
-              <item>
+              <item row="1" column="1" rowspan="2">
                <layout class="QFormLayout" name="formLayout">
                 <property name="fieldGrowthPolicy">
                  <enum>QFormLayout::ExpandingFieldsGrow</enum>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QLabel" name="label_install_app">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                    <underline>true</underline>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string notr="true">Application</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
                  <widget class="QLabel" name="label">
                   <property name="text">
                    <string>Version:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
                  <widget class="QLabel" name="label_install_version">
                   <property name="text">
                    <string notr="true">x.xx.x</string>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="0">
+                <item row="1" column="0">
                  <widget class="QLabel" name="label_3">
                   <property name="text">
                    <string>Author:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="1">
+                <item row="1" column="1">
                  <widget class="QLabel" name="label_install_author">
                   <property name="text">
                    <string notr="true">&lt;a href=&quot;http://www.pcbsd.org&quot;&gt;PC_BSD&lt;/a&gt;</string>
@@ -238,50 +218,74 @@
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="0">
+                <item row="2" column="0">
                  <widget class="QLabel" name="label_4">
                   <property name="text">
                    <string>License:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="1">
+                <item row="2" column="1">
                  <widget class="QLabel" name="label_install_license">
                   <property name="text">
                    <string notr="true">BSD</string>
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="0">
+                <item row="3" column="0">
                  <widget class="QLabel" name="label_2">
                   <property name="text">
                    <string>Shortcuts:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="1">
+                <item row="3" column="1">
                  <widget class="QLabel" name="label_install_shortcuts">
                   <property name="text">
                    <string notr="true">Desktop, Menu</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_13">
+                <item>
+                 <widget class="QLabel" name="label_install_icon">
+                  <property name="maximumSize">
                    <size>
-                    <width>40</width>
-                    <height>20</height>
+                    <width>64</width>
+                    <height>64</height>
                    </size>
                   </property>
-                 </spacer>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
+                  </property>
+                  <property name="scaledContents">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
-              <item>
+              <item row="0" column="0" colspan="3">
+               <widget class="QLabel" name="label_install_app">
+                <property name="font">
+                 <font>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                  <underline>true</underline>
+                 </font>
+                </property>
+                <property name="text">
+                 <string notr="true">Application</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3" rowspan="3">
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
                  <widget class="QToolButton" name="tool_install_gotobrowserpage">
@@ -508,8 +512,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>446</width>
-                    <height>61</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -559,8 +563,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>440</width>
-                    <height>301</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -584,8 +588,8 @@ QScrollBar{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>462</width>
-                 <height>430</height>
+                 <width>96</width>
+                 <height>26</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -950,8 +954,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>446</width>
-                    <height>61</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
@@ -1011,8 +1015,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>446</width>
-                    <height>172</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
@@ -1049,8 +1053,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>446</width>
-                    <height>171</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
