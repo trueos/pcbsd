@@ -30,6 +30,11 @@ if [ ! -d "/tmp/zfs" ] ; then
   fi
 fi
 
+# Check if we have FreeBSD dist files on this media
+if [ ! -d "/dist-fbsd" ] ; then
+   touch /tmp/no-fbsd-release
+fi
+
 # Enable the debug version of pc-sysinstall
 /root/debugpcsysinstall.sh
 
