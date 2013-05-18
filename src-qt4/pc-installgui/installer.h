@@ -17,6 +17,7 @@
 #include "wizardFreeBSD.h"
 #include "wizardDisk.h"
 
+#define wFREEBSD 1
 #define wPCSERVER 2
 #define wKDE 3
 #define wLXDE 4

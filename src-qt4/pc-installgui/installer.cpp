@@ -573,8 +573,13 @@ void Installer::moveDesktopWheel(bool direction)
   // Make sure we aren't scrolling too far
   if ( direction && wheelCurItem >= wheelIcons.size() )
     return;
-  if ( ! direction && wheelCurItem <= 2 )
-    return;
+  if ( hasFreeBSDOnMedia ) {
+    if ( ! direction && wheelCurItem <= 1 )
+      return;
+  } else {
+    if ( ! direction && wheelCurItem <= 2 )
+      return;
+  }
 
 
   int tItem, tPixel, cPixel;
@@ -673,8 +678,15 @@ void Installer::changeMetaPkgSelection()
 
 void Installer::initDesktopSelector()
 {
+    QString fbsdIcon;
+
+    if ( hasFreeBSDOnMedia )
+       fbsdIcon = ":modules/images/freebsd.png";
+    else
+       fbsdIcon = "";
+
     // Init the desktop selector
-    wheelIcons << "" << ":/modules/images/pcbsd-server.png" << ":/PCBSD/images/kde.png" << ":/PCBSD/images/lxde.png" << ":/PCBSD/images/gnome.png" << ":/PCBSD/images/xfce.png";
+    wheelIcons << fbsdIcon << ":/modules/images/pcbsd-server.png" << ":/PCBSD/images/kde.png" << ":/PCBSD/images/lxde.png" << ":/PCBSD/images/gnome.png" << ":/PCBSD/images/xfce.png";
     wheelName << "FreeBSD Server" << "TrueOS" << "KDE" << "LXDE" << "GNOME" << "XFCE"; 
     wheelDesc << tr("FreeBSD is an advanced operating system for modern server, desktop, and embedded computer platforms. FreeBSD's code base has undergone over thirty years of continuous development, improvement, and optimization.") \
     << tr("TrueOS is a console based server running FreeBSD. It includes command-line versions of The Warden jail management, PBI manager, ZFS boot environments (beadm), and other helpful utilities for system administrators.")  \
@@ -762,7 +774,7 @@ void Installer::slotNext()
    }
 
    // Start the FreeBSD wizard
-   if ( installStackWidget->currentIndex() == 1 && (wheelCurItem == wPCSERVER || wheelCurItem == 12) ) {
+   if ( installStackWidget->currentIndex() == 1 && (wheelCurItem == wFREEBSD || wheelCurItem == wPCSERVER || wheelCurItem == 12) ) {
      bool tOS;
      if ( wheelCurItem == wPCSERVER || wheelCurItem == 12 )
        tOS = true;
@@ -891,7 +903,7 @@ QStringList Installer::getGlobalCfgSettings()
      distFiles+=" lib32";
 
   // If we are doing a PC-BSD install
-  if ( wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
+  if ( wheelCurItem != wPCSERVER && wheelCurItem != 12 && wheelCurItem != wFREEBSD ) {
     tmpList << "installType=PCBSD";
     tmpList << "packageType=dist";
   } else {
@@ -909,7 +921,7 @@ QStringList Installer::getGlobalCfgSettings()
 
   
   // Networking setup
-  if ( wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
+  if ( wheelCurItem != wFREEBSD && wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
     // PC-BSD network setup
     tmpList << "netSaveDev=AUTO-DHCP-SLAAC";
   } else {
@@ -1014,7 +1026,7 @@ void Installer::startConfigGen()
 
   cfgList+= "";
 
-  if ( wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
+  if ( wheelCurItem != wFREEBSD && wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
     // Doing PC-BSD Install
 
     QString lang;
@@ -1043,7 +1055,15 @@ void Installer::startConfigGen()
     // Setup the TrueOS server
     cfgList << "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server";
 
-  } 
+  } else { // End of PC-BSD specific setup
+    // Doing FreeBSD Install
+    cfgList+=getUsersCfgSettings();
+
+    // Enable SSH?
+    if ( fSSH )
+      cfgList << "runCommand=echo 'sshd_enable=\"YES\"' >>/etc/rc.conf";
+
+  }
 
   // Run newaliases to fix mail errors
   cfgList << "runCommand=newaliases";
@@ -1537,6 +1557,9 @@ void Installer::slotPushVirtKeyboard()
 // Return the configuration for desktop packages
 QStringList Installer::getDeskPkgCfg()
 {
+   if ( wheelCurItem == wFREEBSD )
+      return QStringList();
+
    QStringList cfgList, pkgList;
    QString line;
 
