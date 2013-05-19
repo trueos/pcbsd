@@ -1,214 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
-<context>
-    <name>Installer</name>
-    <message>
-        <source>Switch between US layout and user selected layout</source>
-        <translation>Basculer entre la disposition clavier US et la disposition sélectionnée par l&apos;utilisateur       </translation>
-    </message>
-    <message>
-        <source>Ab&amp;ort</source>
-        <translation>Ab&amp;andonner            </translation>
-    </message>
-    <message>
-        <source>&amp;Back</source>
-        <translation>&amp;Précédent</translation>
-    </message>
-    <message>
-        <source>&amp;Next</source>
-        <translation>&amp;Suivant            </translation>
-    </message>
-    <message>
-        <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Bienvenue sur PC-BSD! Veuillez sélectionner votre langue et cliquer sur suivant pour continuer.     </translation>
-    </message>
-    <message>
-        <source>&amp;Customize</source>
-        <translation>&amp;Personnaliser            </translation>
-    </message>
-    <message>
-        <source>Summary</source>
-        <translation>Résumé          </translation>
-    </message>
-    <message>
-        <source>Disk Selection</source>
-        <translation>Sélection du Disque            </translation>
-    </message>
-    <message>
-        <source>Installation</source>
-        <translation>Installation            </translation>
-    </message>
-    <message>
-        <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Votre système est en cours d&apos;installation ! Cette opération peut prendre du temps, selon les options que vous avez choisi et la vitesse du système. Vous serez averti lorsque l&apos;installation sera terminée.           </translation>
-    </message>
-    <message>
-        <source>Installing to file-system mounted at /mnt</source>
-        <translation>Installation du système de fichiers monté dans /mnt            </translation>
-    </message>
-    <message>
-        <source>The disk will be setup with the following configuration:</source>
-        <translation>Le disque sera configuré avec les paramètres suivants :</translation>
-    </message>
-    <message>
-        <source>Disk:</source>
-        <translation>Disque:            </translation>
-    </message>
-    <message>
-        <source>Mirroring:</source>
-        <translation>Mettre en miroir:            </translation>
-    </message>
-    <message>
-        <source>Partition:</source>
-        <translation>Partition:            </translation>
-    </message>
-    <message>
-        <source>FileSystem:</source>
-        <translation>Système de fichiers:            </translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation>Taille:       </translation>
-    </message>
-    <message>
-        <source>Mount:</source>
-        <translation>Point de montage:      </translation>
-    </message>
-    <message>
-        <source>Custom Package Selection</source>
-        <translation>Sélection de paquets personnalisés            </translation>
-    </message>
-    <message>
-        <source>The following meta-pkgs will be installed:</source>
-        <translation>Les meta-pkgs suivants seront installés:            </translation>
-    </message>
-    <message>
-        <source>PC-BSD Installer</source>
-        <translation>Installeur PC-BSD    </translation>
-    </message>
-    <message>
-        <source>You currently have a custom package set configured. Continue changing to a default set?</source>
-        <translation>Vous avez actuellement un ensemble de paquets sur mesure configuré. Continuer le passage à un ensemble par défaut?</translation>
-    </message>
-    <message>
-        <source>KDE is a full-featured desktop environment, which includes support for 3D desktop effects, multiple desktops, and a variety of built-in tools and utilities for both new and power-desktop users.&lt;br&gt;&lt;br&gt;* Recommended for higher-end systems with 2GB of RAM or more *</source>
-        <translation>KDE est un environnement de bureau complet, incluant le support des effets de bureaux en 3D, les bureaux multiples et toute une variété d&apos;outils intégrés et d&apos;utilitaires aussi bien destinés aux nouveaux utilisateurs qu&apos;aux plus expérimentés.&lt;br&gt;&lt;br&gt;* Recommandé pour les systèmes disposant d&apos;au moins 2GB de RAM *         </translation>
-    </message>
-    <message>
-        <source>LXDE is a lightweight desktop, minimalist in nature, with support for multiple-desktops, a system tray, application menu and more.&lt;br&gt;&lt;br&gt;* Recommended for netbooks, or lower-end systems * </source>
-        <translation>LXDE est un bureau léger, minimaliste de nature, avec le soutien de plusieurs ordinateurs de bureau, un plateau système complet, menu d&apos;application et plus encore.&lt;br&gt;&lt;br&gt;* Recommandé pour les netbook et les systèmes anciens ou bas de gamme *            </translation>
-    </message>
-    <message>
-        <source>GNOME is a full-featured desktop environment, complete with a large number of integrated utilities and tools for desktop users.</source>
-        <translation>GNOME est un environnement de bureau complet, incorporant une large gamme d&apos;utilitaires intégrés et d&apos;outils pour les utilisateurs.</translation>
-    </message>
-    <message>
-        <source>XFCE is a light and modular desktop, with a number of features to enhance customizing the desktop to your liking.</source>
-        <translation>XFCE est un bureau léger complet et modulaire, avec un nombre de caractéristiques visant à améliorer la personnalisation de l&apos;ordinateur de bureau à votre convenance.            </translation>
-    </message>
-    <message>
-        <source>Start the installation now?</source>
-        <translation>Démarrer l&apos;installation maintenant?            </translation>
-    </message>
-    <message>
-        <source>Are you sure you want to abort this installation?</source>
-        <translation>Etes-vous sûr de vouloir abandonner cette installation?            </translation>
-    </message>
-    <message>
-        <source>Failed!</source>
-        <translation>Échoué!       </translation>
-    </message>
-    <message>
-        <source>The installer has encountered an error and has been halted.</source>
-        <translation>L&apos;installeur a rencontré une erreur et s&apos;est arrêté.</translation>
-    </message>
-    <message>
-        <source>Do you want to generate an error report?</source>
-        <translation>Voulez-vous générer un rapport d&apos;erreur?            </translation>
-    </message>
-    <message>
-        <source>Restart the system now?</source>
-        <translation>Redémarrer le système maintenant?            </translation>
-    </message>
-    <message>
-        <source>Installing system... This may take a while...</source>
-        <translation>Installation du système... Cela va prendre un peu de temps...       </translation>
-    </message>
-    <message>
-        <source>Options:</source>
-        <translation>Options:            </translation>
-    </message>
-    <message>
-        <source>&amp;Finish</source>
-        <translation>&amp;Terminé            </translation>
-    </message>
-    <message>
-        <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation>ZFS Ensembles de données:&lt;br&gt;</translation>
-    </message>
-    <message>
-        <source>FreeBSD is an advanced operating system for modern server, desktop, and embedded computer platforms. FreeBSD&apos;s code base has undergone over thirty years of continuous development, improvement, and optimization.</source>
-        <translation>FreeBSD est un système d&apos;exploitation avancé pour serveur moderne, ordinateur de bureau, et les plates-formes informatiques embarqués. La base de code de FreeBSD a subi plus de trente années de développement, d&apos;amélioration continue et de l&apos;optimisation.            </translation>
-    </message>
-    <message>
-        <source>Display hardware compatibility diagnostic</source>
-        <translation>Afficher la compatibilité du matériel pour diagnostic</translation>
-    </message>
-    <message>
-        <source>TrueOS is a console based server running FreeBSD. It includes command-line versions of The Warden jail management, PBI manager, ZFS boot environments (beadm), and other helpful utilities for system administrators.</source>
-        <translation>TrueOS est un serveur de console basée sur FreeBSD. Il inclut la versions en ligne de commande ainsi que Warden pour la gestion de Jail, gestionnaire de PBI, les environnements d&apos;initialisation ZFS (beadm) et d&apos;autres utilitaires utiles pour les administrateurs systèmes.</translation>
-    </message>
-    <message>
-        <source>System Selection</source>
-        <translation>Sélection du système</translation>
-    </message>
-    <message>
-        <source>Installing packages... This may take a while...</source>
-        <translation>Installation des paquets... Cela peut prendre un certain temps...</translation>
-    </message>
-    <message>
-        <source>Change the installation language</source>
-        <translation>Changer la langue d&apos;installation</translation>
-    </message>
-    <message>
-        <source>Cycle through system choices</source>
-        <translation>Passer en revue les choix de systèmes</translation>
-    </message>
-    <message>
-        <source>Customize the selected system</source>
-        <translation>Personnaliser le système sélectionné</translation>
-    </message>
-    <message>
-        <source>Customize the disk selection or layout</source>
-        <translation>Personnaliser la sélection de disque ou de la disposition</translation>
-    </message>
-    <message>
-        <source>Display help for the current screen</source>
-        <translation>Afficher l&apos;aide pour l&apos;écran actuel</translation>
-    </message>
-    <message>
-        <source>Launch the on-screen keyboard</source>
-        <translation>Lancement du clavier à l&apos;écran</translation>
-    </message>
-    <message>
-        <source>Cancel the installation</source>
-        <translation>Annuler l&apos;installation</translation>
-    </message>
-    <message>
-        <source>TrueOS Package Selection</source>
-        <translation>Sélection de paquets TrueOS</translation>
-    </message>
-    <message>
-        <source>FreeBSD Package Selection</source>
-        <translation>Sélection de paquets FreeBSD</translation>
-    </message>
-    <message>
-        <source>PC-BSD Package Selection</source>
-        <translation>Sélection de paquets PC-BSD</translation>
-    </message>
-    <message>
-        <source>Your system is now installed!
+<TS>
+    <context>
+        <name>Installer</name>
+        <message>
+            <source>Switch between US layout and user selected layout</source>
+            <translation>Basculer entre la disposition clavier US et la disposition sélectionnée par l'utilisateur       </translation>
+        </message>
+        <message>
+            <source>Ab&amp;ort</source>
+            <translation>Ab&amp;andonner            </translation>
+        </message>
+        <message>
+            <source>&amp;Back</source>
+            <translation>&amp;Précédent</translation>
+        </message>
+        <message>
+            <source>&amp;Next</source>
+            <translation>&amp;Suivant            </translation>
+        </message>
+        <message>
+            <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
+            <translation>Bienvenue sur PC-BSD! Veuillez sélectionner votre langue et cliquer sur suivant pour continuer.     </translation>
+        </message>
+        <message>
+            <source>&amp;Customize</source>
+            <translation>&amp;Personnaliser            </translation>
+        </message>
+        <message>
+            <source>Summary</source>
+            <translation>Résumé          </translation>
+        </message>
+        <message>
+            <source>Disk Selection</source>
+            <translation>Sélection du Disque            </translation>
+        </message>
+        <message>
+            <source>Installation</source>
+            <translation>Installation            </translation>
+        </message>
+        <message>
+            <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
+            <translation>Votre système est en cours d'installation ! Cette opération peut prendre du temps, selon les options que vous avez choisi et la vitesse du système. Vous serez averti lorsque l'installation sera terminée.           </translation>
+        </message>
+        <message>
+            <source>Installing to file-system mounted at /mnt</source>
+            <translation>Installation du système de fichiers monté dans /mnt            </translation>
+        </message>
+        <message>
+            <source>The disk will be setup with the following configuration:</source>
+            <translation>Le disque sera configuré avec les paramètres suivants :</translation>
+        </message>
+        <message>
+            <source>Disk:</source>
+            <translation>Disque:            </translation>
+        </message>
+        <message>
+            <source>Mirroring:</source>
+            <translation>Mettre en miroir:            </translation>
+        </message>
+        <message>
+            <source>Partition:</source>
+            <translation>Partition:            </translation>
+        </message>
+        <message>
+            <source>FileSystem:</source>
+            <translation>Système de fichiers:            </translation>
+        </message>
+        <message>
+            <source>Size:</source>
+            <translation>Taille:       </translation>
+        </message>
+        <message>
+            <source>Mount:</source>
+            <translation>Point de montage:      </translation>
+        </message>
+        <message>
+            <source>Custom Package Selection</source>
+            <translation>Sélection de paquets personnalisés            </translation>
+        </message>
+        <message>
+            <source>The following meta-pkgs will be installed:</source>
+            <translation>Les meta-pkgs suivants seront installés:            </translation>
+        </message>
+        <message>
+            <source>PC-BSD Installer</source>
+            <translation>Installeur PC-BSD    </translation>
+        </message>
+        <message>
+            <source>You currently have a custom package set configured. Continue changing to a default set?</source>
+            <translation>Vous avez actuellement un ensemble de paquets sur mesure configuré. Continuer le passage à un ensemble par défaut?</translation>
+        </message>
+        <message>
+            <source>KDE is a full-featured desktop environment, which includes support for 3D desktop effects, multiple desktops, and a variety of built-in tools and utilities for both new and power-desktop users.&lt;br&gt;&lt;br&gt;* Recommended for higher-end systems with 2GB of RAM or more *</source>
+            <translation>KDE est un environnement de bureau complet, incluant le support des effets de bureaux en 3D, les bureaux multiples et toute une variété d'outils intégrés et d'utilitaires aussi bien destinés aux nouveaux utilisateurs qu'aux plus expérimentés.&lt;br&gt;&lt;br&gt;* Recommandé pour les systèmes disposant d'au moins 2GB de RAM *         </translation>
+        </message>
+        <message>
+            <source>LXDE is a lightweight desktop, minimalist in nature, with support for multiple-desktops, a system tray, application menu and more.&lt;br&gt;&lt;br&gt;* Recommended for netbooks, or lower-end systems * </source>
+            <translation>LXDE est un bureau léger, minimaliste de nature, avec le soutien de plusieurs ordinateurs de bureau, un plateau système complet, menu d'application et plus encore.&lt;br&gt;&lt;br&gt;* Recommandé pour les netbook et les systèmes anciens ou bas de gamme *            </translation>
+        </message>
+        <message>
+            <source>GNOME is a full-featured desktop environment, complete with a large number of integrated utilities and tools for desktop users.</source>
+            <translation>GNOME est un environnement de bureau complet, incorporant une large gamme d'utilitaires intégrés et d'outils pour les utilisateurs.</translation>
+        </message>
+        <message>
+            <source>XFCE is a light and modular desktop, with a number of features to enhance customizing the desktop to your liking.</source>
+            <translation>XFCE est un bureau léger complet et modulaire, avec un nombre de caractéristiques visant à améliorer la personnalisation de l'ordinateur de bureau à votre convenance.            </translation>
+        </message>
+        <message>
+            <source>Start the installation now?</source>
+            <translation>Démarrer l'installation maintenant?            </translation>
+        </message>
+        <message>
+            <source>Are you sure you want to abort this installation?</source>
+            <translation>Etes-vous sûr de vouloir abandonner cette installation?            </translation>
+        </message>
+        <message>
+            <source>Failed!</source>
+            <translation>Échoué!       </translation>
+        </message>
+        <message>
+            <source>The installer has encountered an error and has been halted.</source>
+            <translation>L'installeur a rencontré une erreur et s'est arrêté.</translation>
+        </message>
+        <message>
+            <source>Do you want to generate an error report?</source>
+            <translation>Voulez-vous générer un rapport d'erreur?            </translation>
+        </message>
+        <message>
+            <source>Restart the system now?</source>
+            <translation>Redémarrer le système maintenant?            </translation>
+        </message>
+        <message>
+            <source>Installing system... This may take a while...</source>
+            <translation>Installation du système... Cela va prendre un peu de temps...       </translation>
+        </message>
+        <message>
+            <source>Options:</source>
+            <translation>Options:            </translation>
+        </message>
+        <message>
+            <source>&amp;Finish</source>
+            <translation>&amp;Terminé            </translation>
+        </message>
+        <message>
+            <source>ZFS Datasets:&lt;br&gt;</source>
+            <translation>ZFS Ensembles de données:&lt;br&gt;</translation>
+        </message>
+        <message>
+            <source>FreeBSD is an advanced operating system for modern server, desktop, and embedded computer platforms. FreeBSD's code base has undergone over thirty years of continuous development, improvement, and optimization.</source>
+            <translation>FreeBSD est un système d'exploitation avancé pour serveur moderne, ordinateur de bureau, et les plates-formes informatiques embarqués. La base de code de FreeBSD a subi plus de trente années de développement, d'amélioration continue et de l'optimisation.            </translation>
+        </message>
+        <message>
+            <source>Display hardware compatibility diagnostic</source>
+            <translation>Afficher la compatibilité du matériel pour diagnostic</translation>
+        </message>
+        <message>
+            <source>TrueOS is a console based server running FreeBSD. It includes command-line versions of The Warden jail management, PBI manager, ZFS boot environments (beadm), and other helpful utilities for system administrators.</source>
+            <translation>TrueOS est un serveur de console basée sur FreeBSD. Il inclut la versions en ligne de commande ainsi que Warden pour la gestion de Jail, gestionnaire de PBI, les environnements d'initialisation ZFS (beadm) et d'autres utilitaires utiles pour les administrateurs systèmes.</translation>
+        </message>
+        <message>
+            <source>System Selection</source>
+            <translation>Sélection du système</translation>
+        </message>
+        <message>
+            <source>Installing packages... This may take a while...</source>
+            <translation>Installation des paquets... Cela peut prendre un certain temps...</translation>
+        </message>
+        <message>
+            <source>Change the installation language</source>
+            <translation>Changer la langue d'installation</translation>
+        </message>
+        <message>
+            <source>Cycle through system choices</source>
+            <translation>Passer en revue les choix de systèmes</translation>
+        </message>
+        <message>
+            <source>Customize the selected system</source>
+            <translation>Personnaliser le système sélectionné</translation>
+        </message>
+        <message>
+            <source>Customize the disk selection or layout</source>
+            <translation>Personnaliser la sélection de disque ou de la disposition</translation>
+        </message>
+        <message>
+            <source>Display help for the current screen</source>
+            <translation>Afficher l'aide pour l'écran actuel</translation>
+        </message>
+        <message>
+            <source>Launch the on-screen keyboard</source>
+            <translation>Lancement du clavier à l'écran</translation>
+        </message>
+        <message>
+            <source>Cancel the installation</source>
+            <translation>Annuler l'installation</translation>
+        </message>
+        <message>
+            <source>TrueOS Package Selection</source>
+            <translation>Sélection de paquets TrueOS</translation>
+        </message>
+        <message>
+            <source>FreeBSD Package Selection</source>
+            <translation>Sélection de paquets FreeBSD</translation>
+        </message>
+        <message>
+            <source>PC-BSD Package Selection</source>
+            <translation>Sélection de paquets PC-BSD</translation>
+        </message>
+        <message>
+            <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
             <translation>Votre système est maintenant installé!
 Cliquez sur Terminer pour redémarrer l'ordinateur. Après le redémarrage, vous pouvez éjecter le média d'installation.</translation>
