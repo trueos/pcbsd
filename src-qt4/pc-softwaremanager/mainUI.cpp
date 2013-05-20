@@ -400,7 +400,7 @@ void MainUI::slotActionRemove(){
   QStringList checkedID = getCheckedItems();
   if(!checkedID.isEmpty()){
     //Verify that the user really wants to remove these apps
-    if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify PBI Removal"), tr("Are you sure you wish to remove these applications?")+"\n\n"+checkedID.join(", "),QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel) ){
+    if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify PBI Removal"), tr("Are you sure you wish to remove these applications?")+"\n\n"+checkedID.join("\n"),QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel) ){
       PBI->removePBI(checkedID);
     }
   }

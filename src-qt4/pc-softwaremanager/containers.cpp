@@ -44,7 +44,7 @@ void InstalledPBI::setStatus(PBISTATUS stat, QString addinfo){
   else if(stat == REMOVING){ statusString = QObject::tr("Removing..."); }
   else if(stat == UPDATING){ 
     if(addinfo.isEmpty()){ statusString = QObject::tr("Updating..."); }
-    else{ statusString = QString(QObject::tr("Updating Downloading: %1 ")).arg(addinfo); }
+    else{ statusString = QString(QObject::tr("Update Downloading: %1 ")).arg(addinfo); }
   }
   else if(stat == PENDINGDOWNLOAD){ statusString = QObject::tr("Pending Download"); }
   else if(stat == PENDINGINSTALL){ statusString = QObject::tr("Pending Install"); }
