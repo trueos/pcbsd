@@ -61,7 +61,7 @@
         </message>
         <message>
             <source>Icon that will be used for the program (PNG resources available)</source>
-            <translation>Icône qui sera utilisée pour le programme (ressources disponibles PNG)            </translation>
+            <translation>Icône qui sera utilisée pour le programme (ressources disponibles PNG)</translation>
         </message>
         <message>
             <source>Icon</source>

@@ -9,7 +9,7 @@
         </message>
         <message>
             <source>Module Editor</source>
-            <translation type="unfinished">Modul Editor</translation>
+            <translation>Modul Editor</translation>
         </message>
         <message>
             <source>View and edit the current PBI module</source>
@@ -69,7 +69,7 @@
         </message>
         <message>
             <source>Build Information</source>
-            <translation>Erstellungsinformationen     </translation>
+            <translation>Erstellungsinformationen</translation>
         </message>
         <message>
             <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
@@ -117,7 +117,7 @@
         </message>
         <message>
             <source>Make Port Before</source>
-            <translation type="unfinished">Erstelle Port vor</translation>
+            <translation>Erstelle Port vor</translation>
         </message>
         <message>
             <source>Additional FreeBSD ports to be built before the main program</source>
@@ -133,7 +133,7 @@
         </message>
         <message>
             <source>Make Port After</source>
-            <translation type="unfinished">Erstelle Port nach</translation>
+            <translation>Erstelle Port nach</translation>
         </message>
         <message>
             <source>Additional FreeBSD ports to be built after the main program</source>

@@ -13,7 +13,7 @@
         </message>
         <message>
             <source>View and edit the current PBI module</source>
-            <translation>Vidite i podesite trenutni PBI modul</translation>
+            <translation>Vidi i podesi trenutni PBI modul</translation>
         </message>
         <message>
             <source>PBI Configuration</source>
@@ -29,7 +29,7 @@
         </message>
         <message>
             <source>Official name of the target program</source>
-            <translation>Zvanično ime programa</translation>
+            <translation>Zvanični naziv ciljnog programa</translation>
         </message>
         <message>
             <source>Name</source>
@@ -37,7 +37,7 @@
         </message>
         <message>
             <source>Version of the program to be packaged</source>
-            <translation>Verzija programa koji se pakuje</translation>
+            <translation>Verzija programa koji će se pakovati</translation>
         </message>
         <message>
             <source>Version</source>
@@ -53,7 +53,7 @@
         </message>
         <message>
             <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-            <translation>Autor programa (ili FreeBSD port maintainer)</translation>
+            <translation>Autor programa (ili održavalac FreeBSD porta)</translation>
         </message>
         <message>
             <source>Author</source>
@@ -61,23 +61,19 @@
         </message>
         <message>
             <source>Icon that will be used for the program (PNG resources available)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikona koja će se koristiti za program (PNG resursi na raspolaganju)</translation>
         </message>
         <message>
             <source>Icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikona</translation>
         </message>
         <message>
             <source>Build Information</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Izgradite informacije</translation>
         </message>
         <message>
             <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lokalni direktorijum koje treba da se pakuje u PBI (mora da sadrži sve što je potrebno za rad programa)</translation>
         </message>
         <message>
             <source>Package Directory</source>
