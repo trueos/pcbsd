@@ -64,7 +64,7 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   connect(pushUserIcon,SIGNAL(triggered(QAction*)), this, SLOT(slotUserActivated(QAction*)));
   connect(userIcon,SIGNAL(triggered(QAction*)), this, SLOT(slotUserActivated(QAction*)));
   connect(listUsers,SIGNAL(activated(int)),this,SLOT(slotChooseUser(int)));
-  connect(listUserBig,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(slotUserClicked(QListWidgetItem*)) );
+  connect(listUserBig,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(slotUserSelected()) );
   connect(listUserBig,SIGNAL(currentRowChanged(int)),this,SLOT(slotUserHighlighted(int)) );
   allowPasswordView(allowPWVisible); //setup signal/slots for pushViewPassword
   //Set this layout for the loginWidget
@@ -133,9 +133,9 @@ void LoginWidget::slotUserActivated(QAction* act){
     }
 }
 
-void LoginWidget::slotUserClicked(QListWidgetItem* item){
+/*void LoginWidget::slotUserClicked(QListWidgetItem* item){
   slotUserSelected();	
-}
+}*/
 
 void LoginWidget::slotUserHighlighted(int row){
   emit UserChanged(idL[row]);	

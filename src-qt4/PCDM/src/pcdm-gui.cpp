@@ -25,7 +25,8 @@ PCDMgui::PCDMgui() : QMainWindow()
     //Create the GUI based upon the current Theme
     createGUIfromTheme();
     //Now make sure that the login widget has keyboard focus
-    loginW->resetFocus(); 
+    loginW->resetFocus();
+    this->setObjectName("PCDM-background");
 }
 
 PCDMgui::~PCDMgui()
@@ -62,7 +63,7 @@ void PCDMgui::createGUIfromTheme(){
     tmpIcon = currentTheme->itemIcon("background");
     if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
     //use "border-image" instead of "background-image" to stretch rather than tile the image
-    QString bgstyle = "PCDMgui {border-image: url(BGIMAGE) stretch;}"; 
+    QString bgstyle = "QMainWindow#PCDM-background {border-image: url(BGIMAGE) stretch;}"; 
     bgstyle.replace("BGIMAGE", tmpIcon);
     style.append(bgstyle);
   }
@@ -382,7 +383,7 @@ void PCDMgui::slotChangeKeyboardLayout(){
   QStringList kModels = Backend::keyModels();
   QStringList kLayouts = Backend::keyLayouts();
   //Startup the GUI
-  wKey = new widgetKeyboard(this);
+  wKey = new widgetKeyboard();
   wKey->programInit(kModels, kLayouts);
   wKey->setWindowModality(Qt::ApplicationModal);
   wKey->show();
