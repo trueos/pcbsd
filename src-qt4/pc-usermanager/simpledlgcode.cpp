@@ -173,7 +173,10 @@ void SimpleDlgCode::removeUser()
                                        tr("Delete the home directory for ") + username + " (" + home + ")?" ,
                                        QMessageBox::Yes | QMessageBox::No,
                                        QMessageBox::No);
-    if(answer == QMessageBox::Yes) user->setDeleteHome(true);
+    if(answer == QMessageBox::Yes) 
+      user->setDeleteHome(true);
+    else
+      user->setDeleteHome(false);
     back->deleteUser(username);
 }
 
