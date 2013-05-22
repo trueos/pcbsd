@@ -239,7 +239,7 @@
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">Обраний диск/розділ менший рекомендованих %1Мб. Встановлення може не вдатися... {1G?}</translation>
+            <translation>Обраний диск/розділ менший рекомендованих %1Гб. Встановлення може не вдатися...</translation>
         </message>
     </context>
     <context>
