@@ -30,6 +30,7 @@ if [ -z "${1}" ] ; then
    echo "Missing arg 1 - Config nickname"
    exit 1
 fi
+NICK=`echo "$1" | sed 's| |_|g'`
 
 # Set the location of pc-sysinstall config
 SYSCFG="/tmp/sys-install.cfg"
@@ -38,7 +39,7 @@ if [ ! -d "${MNTDIR}" ] ; then
    mkdir -p ${MNTDIR}
 fi
 SAVECFGDIR="${MNTDIR}/pc-sys/"
-SAVECFGFILE="${SAVECFGDIR}/${1}.cfg"
+SAVECFGFILE="${SAVECFGDIR}/${NICK}.cfg"
 
 saved=1
 
