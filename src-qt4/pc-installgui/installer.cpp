@@ -1,4 +1,5 @@
 #include <QCloseEvent>
+#include <QDir>
 #include <QProcess>
 #include <QTimer>
 #include <QTranslator>
@@ -1280,6 +1281,12 @@ bool Installer::checkDiskRequirements()
 // Function which begins the backend install, and connects slots to monitor it
 void Installer::startInstall()
 {
+  QString cfgFile;
+  if (customCfgFile.isEmpty() )
+    cfgFile = PCSYSINSTALLCFG;
+  else
+    cfgFile = customCfgFile;
+
   // Disable the back / next buttons until we are finished
   nextButton->setEnabled(false);
   backButton->setEnabled(false);
@@ -1307,7 +1314,7 @@ void Installer::startInstall()
 
   QString program = PCSYSINSTALL;
   QStringList arguments;
-  arguments << "-c" << PCSYSINSTALLCFG;
+  arguments << "-c" << cfgFile;
 
   installProc = new QProcess();
   installProc->setProcessChannelMode(QProcess::MergedChannels);
@@ -1756,5 +1763,74 @@ void Installer::slotSaveConfigUSB()
 
 void Installer::slotLoadConfigUSB()
 {
+  int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
+           tr("This will load any installation configuration files your MSDOSFS/FAT32 formatted USB stick. Continue?"),
+           QMessageBox::No | QMessageBox::Yes,
+           QMessageBox::No);
+  switch (ret) {
+  case QMessageBox::Yes:
+      break;
+  case QMessageBox::No: // :)
+      return;
+      break;
+  }
 
+  // Prompt to insert USB stick
+  QMessageBox::information(this, tr("PC-BSD Installer"),
+          tr("Please insert the USB stick now, and click OK to continue."),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+
+  // Now lets try to load the config files
+  qDebug() << "Running: /root/get-from-usb.sh";
+  QProcess m;
+  m.start(QString("/root/get-from-usb.sh"), QStringList());
+  while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
+     m.waitForFinished(200);
+     QCoreApplication::processEvents();
+  }
+
+  if ( m.exitCode() != 0 ) {
+     QMessageBox::critical(this, tr("PC-BSD Installer"),
+          tr("Failed loading saved config files from the USB media. Is the device working and formatted MSDOSFS/FAT32?"),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+     return;
+
+  } else {
+     QMessageBox::information(this, tr("PC-BSD Installer"),
+          tr("Configurations loaded! You may now safely remove the USB media."),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+  }
+
+  
+  // Yay! Now lets prompt the user as to which config to use
+  QDir cDir;
+  cDir.setPath("/tmp/pc-sys");
+  QStringList cfgs = cDir.entryList(QDir::Files);
+
+  bool ok;
+  QString cfgFile = QInputDialog::getItem(this, tr("PC-BSD Installer"),
+                                       tr("Config File:"), cfgs, 0, false, &ok);
+  if (!ok || cfgFile.isEmpty())
+    return;
+  
+  ret = QMessageBox::question(this, tr("PC-BSD Installer"),
+           tr("Start the install using this config file?") + "\n" + cfgFile,
+           QMessageBox::No | QMessageBox::Yes,
+           QMessageBox::No);
+  switch (ret) {
+  case QMessageBox::Yes:
+      break;
+  case QMessageBox::No: // :)
+      return;
+      break;
+  }
+
+  // Time to start the installation with our custom config file
+  qDebug() << cfgFile;
+  customCfgFile = cfgFile;
+  installStackWidget->setCurrentIndex(3);
+  startInstall();
 }

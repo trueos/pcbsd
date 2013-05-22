@@ -59,7 +59,7 @@ private slots:
     // Keyboard selector
     void slotPushKeyLayout();
 
-    // Options related to USB config files 
+    // Slots related to USB config files 
     void slotSaveConfigUSB();
     void slotLoadConfigUSB();
 
@@ -171,6 +171,9 @@ private:
     // Disk setup wizard
     wizardDisk *wDisk;
     QTranslator *translator;
+
+    // Custom CFG file to install with
+    QString customCfgFile;
 
 protected:
     void closeEvent(QCloseEvent *event);
