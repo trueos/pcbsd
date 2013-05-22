@@ -59,6 +59,10 @@ private slots:
     // Keyboard selector
     void slotPushKeyLayout();
 
+    // Options related to USB config files 
+    void slotSaveConfigUSB();
+    void slotLoadConfigUSB();
+
     // Desktop selector slots
     void slotDesktopLeftClicked();
     void slotDesktopRightClicked();

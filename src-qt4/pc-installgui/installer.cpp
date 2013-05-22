@@ -2,6 +2,7 @@
 #include <QProcess>
 #include <QTimer>
 #include <QTranslator>
+#include <QInputDialog>
 #include <QGraphicsPixmapItem>
 
 #include "backend.h"
@@ -22,6 +23,9 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(pushTouchKeyboard, SIGNAL(clicked()), this, SLOT(slotPushVirtKeyboard()));
     connect(pushChangeKeyLayout, SIGNAL(clicked()), this, SLOT(slotPushKeyLayout()));
     connect(pushHardware, SIGNAL(clicked()), this, SLOT(slotCheckHardware()));
+    connect(pushLoadConfig, SIGNAL(clicked()), this, SLOT(slotLoadConfigUSB()));
+    connect(pushSaveConfig, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
+    connect(pushSaveConfig2, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
 
     abortButton->setText(tr("&Cancel"));
     backButton->setText(tr("&Back"));
@@ -1695,4 +1699,62 @@ void Installer::checkSpaceWarning()
   }
 
   return;
+}
+
+void Installer::slotSaveConfigUSB()
+{
+  int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
+           tr("This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?"),
+           QMessageBox::No | QMessageBox::Yes,
+           QMessageBox::No);
+  switch (ret) {
+  case QMessageBox::Yes:
+      break;
+  case QMessageBox::No: // :)
+      return;
+      break;
+  }
+
+  // Prompt to insert USB stick
+  QMessageBox::information(this, tr("PC-BSD Installer"),
+          tr("Please insert a USB stick now, and click OK to continue."),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+
+  // While USB is settling, this is a good time to ask for the config nickname
+  bool ok;
+  QString cfgName = QInputDialog::getText(this, tr("PC-BSD Installer"),
+                 tr("Please enter the nickname you want to save this configuration as."), 
+                 QLineEdit::Normal,
+                 QString("default"), &ok);
+  if (!ok || cfgName.isEmpty())
+     return;
+
+  // Now lets try to save the media
+  qDebug() << "Running: /root/save-to-usb.sh" << cfgName;
+  QProcess m;
+  m.start(QString("/root/save-to-usb.sh"), QStringList() << cfgName);
+  while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
+     m.waitForFinished(200);
+     QCoreApplication::processEvents();
+  }
+
+  if ( m.exitCode() != 0 ) {
+     QMessageBox::critical(this, tr("PC-BSD Installer"),
+          tr("Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?"),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+
+  } else {
+     QMessageBox::information(this, tr("PC-BSD Installer"),
+          tr("Configuration saved! You may now safely remove the USB media."),
+          QMessageBox::Ok,
+          QMessageBox::Ok);
+  }
+  
+}
+
+void Installer::slotLoadConfigUSB()
+{
+
 }

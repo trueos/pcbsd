@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="/modules">
+    <file>images/configure.png</file>
+    <file>images/usb.png</file>
     <file>images/ok.png</file>
     <file>images/failed.png</file>
     <file>images/system-config-sound.png</file>
