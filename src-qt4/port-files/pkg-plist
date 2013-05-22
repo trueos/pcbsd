@@ -419,6 +419,7 @@ share/pcbsd/pc-controlpanel/items/system/pc-checkhw.desktop
 share/pcbsd/pc-controlpanel/items/network/pfmanager.desktop
 share/pcbsd/pc-controlpanel/items/network/pbi-tork.desktop
 share/pcbsd/pc-controlpanel/items/network/pcnetwork.desktop
+share/pcbsd/pc-controlpanel/items/tools/pcbugreport.desktop
 share/pcbsd/pc-controlpanel/items/tools/pbi-luckybackup.desktop
 share/pcbsd/pc-controlpanel/items/tools/pbi-kbackup.desktop
 share/pcbsd/pc-controlpanel/items/tools/warden.desktop
