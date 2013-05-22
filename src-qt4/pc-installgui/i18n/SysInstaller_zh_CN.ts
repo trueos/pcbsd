@@ -244,8 +244,8 @@
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-        </message>
+        <translation type="unfinished"></translation>
+    </message>
         <message>
             <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
             <translation>注意：是否启用ZFS镜像/raidz只能在做全盘安装时选择            </translation>
