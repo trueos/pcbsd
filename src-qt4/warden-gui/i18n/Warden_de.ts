@@ -159,13 +159,11 @@
         </message>
         <message>
             <source>A process within the jail has access to System V IPC primitives.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Prozesse innerhalb einer Jail haben Zugriff auf die System V IPC-Grundfunktionen.</translation>
         </message>
         <message>
             <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Der eingesperrte root Benutzer ist fähig Raw Sockets zu erzeugen. Ermöglicht ping / traceroute.</translation>
         </message>
         <message>
             <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
@@ -194,8 +192,7 @@
         </message>
         <message>
             <source>The prison root may administer quotas on the jail's filesystem(s).</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Der eingesperrte root Benutzer darf das Quota des Jail-Dateisystems administrieren.</translation>
         </message>
         <message>
             <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>

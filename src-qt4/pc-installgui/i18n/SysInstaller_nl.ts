@@ -239,7 +239,7 @@
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">De gekozen schijf/partitie heeft minder dan de aanbevolen %1MB beschikbaar. De installatie zou kunnen mislukken... {1G?}</translation>
+            <translation>De gekozen schijf of partitie heeft minder dan de aanbevolen %1GB beschikbaar. De installatie zou kunnen mislukken...</translation>
         </message>
     </context>
     <context>
