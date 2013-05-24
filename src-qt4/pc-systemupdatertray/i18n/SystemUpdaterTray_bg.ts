@@ -65,48 +65,39 @@
         </message>
         <message>
             <source>Restart Required</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Изисква Рестарт</translation>
         </message>
         <message>
             <source>Please restart your computer to complete the pending updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Моля Рестартирай компютъра, за да завършат чакащите обновявания</translation>
         </message>
         <message>
             <source>System restart required to finish updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Системата изисква Рестарт, за да завърши обновлението</translation>
         </message>
         <message>
             <source>Start the Warden</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Стартирай Warden</translation>
         </message>
         <message>
             <source>Jail updates available</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Налични са Jail обновления</translation>
         </message>
         <message>
             <source>Jail Updates Available</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Налични са Jail Обновления</translation>
         </message>
         <message>
             <source>Important jail updates are available. Click here to launch the Warden!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Налични са важни Jail обновления. Натисни тук за да стартираш Warden!</translation>
         </message>
         <message>
             <source>Display notifications</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Покажи известия</translation>
         </message>
         <message>
             <source>Package updates available</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Налични са пакетни обновления</translation>
         </message>
         <message>
             <source>Important package updates are available. Click here to install them!</source>
