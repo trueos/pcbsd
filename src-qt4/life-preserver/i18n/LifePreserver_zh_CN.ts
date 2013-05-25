@@ -402,7 +402,7 @@ p, li { white-space: pre-wrap; }
         </message>
         <message>
             <source>Editing exclude list</source>
-            <translation>编辑包含列表</translation>
+            <translation>编辑排除列表</translation>
         </message>
         <message>
             <source>Editing include list</source>

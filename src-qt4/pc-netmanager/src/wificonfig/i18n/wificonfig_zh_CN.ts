@@ -5,11 +5,11 @@
         <name>dialogWPAPersonal</name>
         <message>
             <source>WPA Personal Config</source>
-            <translation>WPA个人配置WAP（Wi-Fi网络安全存取 Wi-Fi Protected Access）</translation>
+            <translation>WPA个人配置</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation>关闭</translation>
+            <translation>关闭(&amp;C)</translation>
         </message>
         <message>
             <source>Alt+C</source>
@@ -119,7 +119,7 @@
         </message>
         <message>
             <source>Use hardware defau&amp;lt MAC address</source>
-            <translation>使用硬件缺省MAC地址</translation>
+            <translation>使用硬件缺省MAC地址(&amp;l)</translation>
         </message>
         <message>
             <source>Alt+L</source>
@@ -143,19 +143,19 @@
         </message>
         <message>
             <source>Gateway:</source>
-            <translation>网关:</translation>
+            <translation>网关：</translation>
         </message>
         <message>
             <source>IPv6:</source>
-            <translation>IPv6:</translation>
+            <translation>IPv6：</translation>
         </message>
         <message>
             <source>Status:</source>
-            <translation>状态:</translation>
+            <translation>状态：</translation>
         </message>
         <message>
             <source>Media:</source>
-            <translation>介质:</translation>
+            <translation>介质：</translation>
         </message>
         <message>
             <source>Traffic info</source>
@@ -163,19 +163,19 @@
         </message>
         <message>
             <source>Packets:</source>
-            <translation>数据包:</translation>
+            <translation>数据包：</translation>
         </message>
         <message>
             <source>Errors:</source>
-            <translation>错误:</translation>
+            <translation>错误：</translation>
         </message>
         <message>
             <source>In:</source>
-            <translation>流入:</translation>
+            <translation>流入：</translation>
         </message>
         <message>
             <source>Out:</source>
-            <translation>流出:</translation>
+            <translation>流出：</translation>
         </message>
         <message>
             <source>Close</source>
@@ -221,7 +221,7 @@
         </message>
         <message>
             <source>) Fields must be between 0-255.</source>
-            <translation>)字段值必须介于0-255之间.</translation>
+            <translation>)字段值必须介于0-255之间。</translation>
         </message>
         <message>
             <source>Netmask is out of range! (</source>
@@ -229,7 +229,7 @@
         </message>
         <message>
             <source>Remove</source>
-            <translation>移走</translation>
+            <translation>移除</translation>
         </message>
         <message>
             <source>Error</source>
@@ -238,8 +238,8 @@
         <message>
             <source>You already have a wireless network with this SSID! Please remove it first.
 </source>
-            <translation>您的SSID已经拥有一个无线网络，请先删除已建网络。
-SSID（Service Set Identifier）服务设定识别器</translation>
+            <translation>您的SSID已经拥有一个无线网络！请先删除已建网络。
+</translation>
         </message>
         <message>
             <source>Edit</source>

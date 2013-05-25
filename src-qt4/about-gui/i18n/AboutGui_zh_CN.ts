@@ -33,7 +33,7 @@
         </message>
         <message>
             <source>ident</source>
-            <translation>ident</translation>
+            <translation>内核标识：</translation>
         </message>
         <message>
             <source>Hardware</source>
@@ -45,11 +45,11 @@
         </message>
         <message>
             <source>Mem.</source>
-            <translation>内存</translation>
+            <translation>内存：</translation>
         </message>
         <message>
             <source>Back</source>
-            <translation>支援</translation>
+            <translation>返回</translation>
         </message>
         <message>
             <source>Desktop environments:</source>
