@@ -33,7 +33,7 @@
         </message>
         <message>
             <source>Disk Selection</source>
-            <translation>选择硬盘或分区</translation>
+            <translation>选择磁盘</translation>
         </message>
         <message>
             <source>Installation</source>
@@ -45,7 +45,7 @@
         </message>
         <message>
             <source>Installing to file-system mounted at /mnt</source>
-            <translation>安装文件系统挂载点 /mnt</translation>
+            <translation>正在向挂载点 /mnt安装文件系统</translation>
         </message>
         <message>
             <source>The disk will be setup with the following configuration:</source>
@@ -77,11 +77,11 @@
         </message>
         <message>
             <source>Custom Package Selection</source>
-            <translation>选择软件包</translation>
+            <translation>定制软件包的选择</translation>
         </message>
         <message>
             <source>The following meta-pkgs will be installed:</source>
-            <translation>以下meta-pkg将被安装:</translation>
+            <translation>以下meta-pkg将被安装：</translation>
         </message>
         <message>
             <source>PC-BSD Installer</source>
@@ -89,7 +89,7 @@
         </message>
         <message>
             <source>You currently have a custom package set configured. Continue changing to a default set?</source>
-            <translation>你自定义包已配置。变回默认设置吗？</translation>
+            <translation>现在自定义的软件套件已配置。变回默认设置吗？</translation>
         </message>
         <message>
             <source>KDE is a full-featured desktop environment, which includes support for 3D desktop effects, multiple desktops, and a variety of built-in tools and utilities for both new and power-desktop users.&lt;br&gt;&lt;br&gt;* Recommended for higher-end systems with 2GB of RAM or more *</source>
@@ -117,7 +117,7 @@
         </message>
         <message>
             <source>Failed!</source>
-            <translation>失败!</translation>
+            <translation>失败！</translation>
         </message>
         <message>
             <source>The installer has encountered an error and has been halted.</source>
@@ -129,7 +129,7 @@
         </message>
         <message>
             <source>Restart the system now?</source>
-            <translation>立即重启?</translation>
+            <translation>立即重启？</translation>
         </message>
         <message>
             <source>Installing system... This may take a while...</source>
@@ -153,7 +153,7 @@
         </message>
         <message>
             <source>Display hardware compatibility diagnostic</source>
-            <translation>显示硬件兼容性分析报告            </translation>
+            <translation>显示硬件兼容性分析诊断</translation>
         </message>
         <message>
             <source>TrueOS is a console based server running FreeBSD. It includes command-line versions of The Warden jail management, PBI manager, ZFS boot environments (beadm), and other helpful utilities for system administrators.</source>
@@ -165,7 +165,7 @@
         </message>
         <message>
             <source>Installing packages... This may take a while...</source>
-            <translation>正在安装软件包...请稍候...            </translation>
+            <translation>正在安装软件包...可能需要一些时间...            </translation>
         </message>
         <message>
             <source>Change the installation language</source>

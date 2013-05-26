@@ -217,7 +217,7 @@
         </message>
         <message>
             <source>IP Address is out of range! (</source>
-            <translation>IP地址超出范围! (</translation>
+            <translation>IP地址超出范围！ (</translation>
         </message>
         <message>
             <source>) Fields must be between 0-255.</source>
@@ -401,7 +401,7 @@
         </message>
         <message>
             <source>No SSID!</source>
-            <translation>没有SSID</translation>
+            <translation>没有SSID！</translation>
         </message>
         <message>
             <source>Error: You must select a wireless network to connect!

@@ -9,7 +9,7 @@
         </message>
         <message>
             <source>Run at startup</source>
-            <translation>启动时运行</translation>
+            <translation>开机时运行</translation>
         </message>
         <message>
             <source>PC-BSD Update Manager</source>

@@ -93,7 +93,7 @@
         </message>
         <message>
             <source>Invalid Permissions</source>
-            <translation>权限无效</translation>
+            <translation>无效的权限</translation>
         </message>
         <message>
             <source>This program must be run with root permissions to save device settings</source>

@@ -17,43 +17,43 @@
         </message>
         <message>
             <source>IP:</source>
-            <translation>IP:</translation>
+            <translation>IP地址：</translation>
         </message>
         <message>
             <source>IPv6:</source>
-            <translation>IPv6:</translation>
+            <translation>IPv6地址：</translation>
         </message>
         <message>
             <source>Mac/Ether:</source>
-            <translation>Mac地址:</translation>
+            <translation>Mac/以太地址：</translation>
         </message>
         <message>
             <source>Media:</source>
-            <translation>网络介质:</translation>
+            <translation>介质：</translation>
         </message>
         <message>
             <source>Status:</source>
-            <translation>状态:</translation>
+            <translation>状态：</translation>
         </message>
         <message>
             <source>No connection detected.&lt;br&gt; Check your cable connection and try again!</source>
-            <translation>无法检测到网络连接.&lt;br&gt;请检查网线后再重试!</translation>
+            <translation>无法检测到网络连接。&lt;br&gt;请检查网线后再重试！</translation>
         </message>
         <message>
             <source>SSID:</source>
-            <translation>SSID:</translation>
+            <translation>SSID：</translation>
         </message>
         <message>
             <source>Connection Strength:</source>
-            <translation>信号强度:</translation>
+            <translation>连接强度：</translation>
         </message>
         <message>
             <source>Connection Speed:</source>
-            <translation>连接速度:</translation>
+            <translation>连接速度：</translation>
         </message>
         <message>
             <source>No wireless connection detected.&lt;br&gt; Double-click to start the wireless configuration wizard.</source>
-            <translation>无法检测到无线网络.&lt;br&gt;要启动无线配置向导，请双击.</translation>
+            <translation>无法检测到无线网络。&lt;br&gt;请双击以启动无线配置向导。</translation>
         </message>
         <message>
             <source>Unknown Wireless Device</source>
@@ -65,7 +65,7 @@
         </message>
         <message>
             <source>Unknown</source>
-            <translation>未知设备            </translation>
+            <translation>未知            </translation>
         </message>
         <message>
             <source>Close the Network Monitor</source>

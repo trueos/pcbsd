@@ -49,19 +49,19 @@
         </message>
         <message>
             <source>Installing applications has been disabled for this user. Please add the user to the operator group or restart as root.</source>
-            <translation>想使用已安装的程序，请添加加到有权限操作的用户组中并且以root身份重新启动机器</translation>
+            <translation>已禁用此用户安装程序。请将用户添加加到操作组中并且以根用户重新启动机器。</translation>
         </message>
         <message>
             <source>You currently have PBIs downloading! Exit anyway?</source>
-            <translation>正在下载PBIs!强制退出?</translation>
+            <translation>正在下载PBI！强制退出？</translation>
         </message>
         <message>
             <source>Confirm</source>
-            <translation>确定</translation>
+            <translation>确认</translation>
         </message>
         <message>
             <source>Select Repository</source>
-            <translation>选择仓库</translation>
+            <translation>选择软件仓库</translation>
         </message>
         <message>
             <source>Cancel this download?</source>
@@ -69,27 +69,27 @@
         </message>
         <message>
             <source>Remove this application?</source>
-            <translation>卸载程序?</translation>
+            <translation>卸载程序？</translation>
         </message>
         <message>
             <source>Please wait, removing:</source>
-            <translation>卸载中，请稍后:</translation>
+            <translation>卸载中，请稍后：</translation>
         </message>
         <message>
             <source>This program must be run as root!</source>
-            <translation>请以root权限运行!</translation>
+            <translation>请以根用户运行此程序！</translation>
         </message>
         <message>
             <source>Please wait.. Loading repositories...</source>
-            <translation>请稍后……加载仓库中……</translation>
+            <translation>请稍后……加载软件仓库中……</translation>
         </message>
         <message>
             <source>Install Software?</source>
-            <translation>安装程序?</translation>
+            <translation>安装程序？</translation>
         </message>
         <message>
             <source>Do you want to download and install</source>
-            <translation>你希望下载并安装吗?</translation>
+            <translation>你希望下载并安装吗？</translation>
         </message>
         <message>
             <source>&amp;OK</source>
@@ -97,11 +97,11 @@
         </message>
         <message>
             <source>No PBIs for category:</source>
-            <translation>无PBIs格式:</translation>
+            <translation>以类型中无PBI：</translation>
         </message>
         <message>
             <source>Invalid PBI selected:</source>
-            <translation>可用的PBI:</translation>
+            <translation>选定的PBI无效：</translation>
         </message>
         <message>
             <source>Installed</source>
@@ -117,27 +117,27 @@
         </message>
         <message>
             <source>Version:</source>
-            <translation>版本:</translation>
+            <translation>版本：</translation>
         </message>
         <message>
             <source>Requires Root:</source>
-            <translation>需要root权限：</translation>
+            <translation>需要根用户权限：</translation>
         </message>
         <message>
             <source>Platform:</source>
-            <translation>平台:</translation>
+            <translation>平台：</translation>
         </message>
         <message>
             <source>License:</source>
-            <translation>许可:</translation>
+            <translation>许可证：</translation>
         </message>
         <message>
             <source>Application Categories</source>
-            <translation>应用种类</translation>
+            <translation>应用类别</translation>
         </message>
         <message>
             <source>No applications found!</source>
-            <translation>没有发现应用!</translation>
+            <translation>没有发现应用！</translation>
         </message>
         <message>
             <source>Latest Releases</source>
@@ -145,11 +145,11 @@
         </message>
         <message>
             <source>Add Repository</source>
-            <translation>增加仓库</translation>
+            <translation>增加软件仓库</translation>
         </message>
         <message>
             <source>Configure Repository</source>
-            <translation>配置仓库</translation>
+            <translation>配置软件仓库</translation>
         </message>
         <message>
             <source>Checking for Updates...</source>
@@ -157,7 +157,7 @@
         </message>
         <message>
             <source>Pending Upgrade</source>
-            <translation>升级中</translation>
+            <translation>等待升级</translation>
         </message>
         <message>
             <source>Update Manager</source>
@@ -165,7 +165,7 @@
         </message>
         <message>
             <source>No software selected to update!</source>
-            <translation>无可用更新!</translation>
+            <translation>未选中任何要更新的软件！</translation>
         </message>
         <message>
             <source>Starting Download</source>
@@ -189,7 +189,7 @@
         </message>
         <message>
             <source>View details</source>
-            <translation>浏览详情</translation>
+            <translation>查看详情</translation>
         </message>
         <message>
             <source>Install Desktop Icons</source>
@@ -221,7 +221,7 @@
         </message>
         <message>
             <source>Missing meta-files for RepoID:</source>
-            <translation>丢失RepoID宏定义文件:</translation>
+            <translation>缺失的RepoID元数据文件：</translation>
         </message>
         <message>
             <source>This is normally due to the internet connection being offline or mis-configured.</source>
@@ -229,7 +229,7 @@
         </message>
         <message>
             <source>Pending</source>
-            <translation>未确定</translation>
+            <translation>等待</translation>
         </message>
         <message>
             <source>Download starting...</source>
@@ -241,11 +241,11 @@
         </message>
         <message>
             <source>Invalid warden directory:</source>
-            <translation>无效的监控说明</translation>
+            <translation>无效的warden目录：</translation>
         </message>
         <message>
             <source>AppCafe - Warden</source>
-            <translation>应用沙龙监控</translation>
+            <translation>AppCafe - Warden</translation>
         </message>
         <message>
             <source>Type:</source>
@@ -257,7 +257,7 @@
         </message>
         <message>
             <source>Best Matches</source>
-            <translation>最符合的</translation>
+            <translation>最匹配的</translation>
         </message>
         <message>
             <source>Other Matches</source>
@@ -273,7 +273,7 @@
         </message>
         <message>
             <source>&amp;Repositories</source>
-            <translation>仓库(&amp;R)</translation>
+            <translation>软件仓库(&amp;R)</translation>
         </message>
         <message>
             <source>Install Menu Icons (All Users)</source>
@@ -361,11 +361,11 @@
         </message>
         <message>
             <source>Install PATH links</source>
-            <translation>安装路径的链接</translation>
+            <translation>安装PATH链接</translation>
         </message>
         <message>
             <source>Install PATH links (All Users)</source>
-            <translation>安装路径的链接（所有用户）</translation>
+            <translation>安装PATH链接（所有用户）</translation>
         </message>
         <message>
             <source>Update &amp;All</source>

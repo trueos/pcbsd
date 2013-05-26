@@ -9,7 +9,7 @@
         </message>
         <message>
             <source>&amp;OK</source>
-            <translation>&amp;确定</translation>
+            <translation>确定(&amp;O)</translation>
         </message>
         <message>
             <source>Alt+O</source>
@@ -17,7 +17,7 @@
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation>&amp;应用</translation>
+            <translation>应用(&amp;A)</translation>
         </message>
         <message>
             <source>Alt+A</source>
@@ -25,7 +25,7 @@
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation>&amp;关闭</translation>
+            <translation>关闭(&amp;C)</translation>
         </message>
         <message>
             <source>Alt+C</source>
@@ -33,7 +33,7 @@
         </message>
         <message>
             <source>Disable this networ&amp;k device</source>
-            <translation>禁用此网络&amp;设备</translation>
+            <translation>禁用此网络设备(&amp;K)</translation>
         </message>
         <message>
             <source>Alt+K</source>
@@ -41,7 +41,7 @@
         </message>
         <message>
             <source>&amp;General</source>
-            <translation>&amp;通用</translation>
+            <translation>通用(&amp;G)</translation>
         </message>
         <message>
             <source>Alt+Y</source>
@@ -57,11 +57,11 @@
         </message>
         <message>
             <source>Netmask:</source>
-            <translation>网络掩码:</translation>
+            <translation>网络掩码：</translation>
         </message>
         <message>
             <source>IP:</source>
-            <translation>IP:</translation>
+            <translation>IP地址：</translation>
         </message>
         <message>
             <source>999\.999\.999\.999; </source>
@@ -73,7 +73,7 @@
         </message>
         <message>
             <source>Use hardware defau&amp;lt MAC address</source>
-            <translation>使用硬件缺省MAC地址</translation>
+            <translation>使用硬件缺省MAC地址(&amp;L)</translation>
         </message>
         <message>
             <source>Alt+L</source>
@@ -93,11 +93,11 @@
         </message>
         <message>
             <source>Obtain IPv6 address automaticall&amp;y</source>
-            <translation>自动获取IPv6地址</translation>
+            <translation>自动获取IPv6地址(&amp;Y)</translation>
         </message>
         <message>
             <source>I&amp;nfo</source>
-            <translation>&amp;信息</translation>
+            <translation>信息(&amp;N)</translation>
         </message>
         <message>
             <source>Configuration info</source>
@@ -105,23 +105,23 @@
         </message>
         <message>
             <source>Gateway:</source>
-            <translation>网关:</translation>
+            <translation>网关：</translation>
         </message>
         <message>
             <source>IPv6:</source>
-            <translation>IPv6:</translation>
+            <translation>IPv6地址：</translation>
         </message>
         <message>
             <source>Mac:</source>
-            <translation>Mac:</translation>
+            <translation>Mac：</translation>
         </message>
         <message>
             <source>Media:</source>
-            <translation>介质:</translation>
+            <translation>介质：</translation>
         </message>
         <message>
             <source>Status:</source>
-            <translation>状态:</translation>
+            <translation>状态：</translation>
         </message>
         <message>
             <source>Traffic info</source>
@@ -129,11 +129,11 @@
         </message>
         <message>
             <source>Packets:</source>
-            <translation>数据包:</translation>
+            <translation>数据包：</translation>
         </message>
         <message>
             <source>Errors:</source>
-            <translation>错误:</translation>
+            <translation>错误：</translation>
         </message>
         <message>
             <source>In:</source>
@@ -141,16 +141,16 @@
         </message>
         <message>
             <source>Out:</source>
-            <translation>流出:</translation>
+            <translation>流出：</translation>
         </message>
         <message>
             <source>Missing Fields</source>
-            <translation>数据段不完整</translation>
+            <translation>缺失字段</translation>
         </message>
         <message>
             <source>You must enter an IP and Netmask to continue!
 </source>
-            <translation>请输入IP和网络掩码后继续!
+            <translation>请输入IP和网络掩码后继续！
 </translation>
         </message>
         <message>
@@ -179,7 +179,7 @@
         </message>
         <message>
             <source>Configure &amp;WPA</source>
-            <translation>配置WPA(&amp;)</translation>
+            <translation>配置WPA(&amp;W)</translation>
         </message>
     </context>
 </TS>

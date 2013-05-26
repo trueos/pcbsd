@@ -5,11 +5,11 @@
         <name>sndDialog</name>
         <message>
             <source>Sound Configuration</source>
-            <translation>声音设置    </translation>
+            <translation>声音配置  </translation>
         </message>
         <message>
             <source>Below you may change the default sound device, and test sound playback</source>
-            <translation>接下来你可以更改默认的声音设备，测试声音重放</translation>
+            <translation>你可以在下面更改默认的声音设备并测试声音重放</translation>
         </message>
         <message>
             <source>&amp;Test sound</source>
@@ -25,7 +25,7 @@
         </message>
         <message>
             <source>No sound devices detected!</source>
-            <translation>没有声音设备被探测到！</translation>
+            <translation>没有检测到声音设备！</translation>
         </message>
     </context>
 </TS>

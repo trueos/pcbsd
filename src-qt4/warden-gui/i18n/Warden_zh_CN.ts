@@ -25,23 +25,23 @@
         </message>
         <message>
             <source>Jail Network Interface</source>
-            <translation>网络监测接口</translation>
+            <translation>Jail网络接口</translation>
         </message>
         <message>
             <source>Jail Directory</source>
-            <translation>监测磁盘</translation>
+            <translation>Jail目录</translation>
         </message>
         <message>
             <source>Temp Directory</source>
-            <translation>临时磁盘</translation>
+            <translation>临时目录</translation>
         </message>
         <message>
             <source>Select Jail Directory</source>
-            <translation>选择监测磁盘</translation>
+            <translation>选择Jail目录</translation>
         </message>
         <message>
             <source>Select Temp Directory</source>
-            <translation>选择临时磁盘</translation>
+            <translation>选择临时目录</translation>
         </message>
     </context>
     <context>
@@ -83,7 +83,7 @@
         </message>
         <message>
             <source>IP Address:</source>
-            <translation>IP地址</translation>
+            <translation>IP地址：</translation>
         </message>
         <message>
             <source>Warden</source>
@@ -91,7 +91,7 @@
         </message>
         <message>
             <source>Please enter a valid IPV4 or IPV6 address!</source>
-            <translation>请输入一个合法的IPv4或IPv6地址</translation>
+            <translation>请输入一个合法的IPv4或IPv6地址！</translation>
         </message>
         <message>
             <source>Jail Configuration</source>
@@ -258,15 +258,15 @@
         <name>dialogImport</name>
         <message>
             <source>Import Jail</source>
-            <translation>输出监测</translation>
+            <translation>输出Jail</translation>
         </message>
         <message>
             <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-            <translation>你可以选择改变输出监测的IP/主机名。任何对IP/主机名的内部引用输出后需要改变。</translation>
+            <translation>你可以选择改变已导入的Jail的IP/主机名。任何对IP/主机名的内部引用在导入后也要做相应改变。</translation>
         </message>
         <message>
             <source>Change IP Address</source>
-            <translation>改变IP地址</translation>
+            <translation>更改IP地址</translation>
         </message>
         <message>
             <source>999\.999\.999\.999; </source>
@@ -278,11 +278,11 @@
         </message>
         <message>
             <source>Change Hostname</source>
-            <translation>改变主机名</translation>
+            <translation>更改主机名</translation>
         </message>
         <message>
             <source>&amp;Ok</source>
-            <translation>OK(&amp;O)</translation>
+            <translation>确定(&amp;O)</translation>
         </message>
         <message>
             <source>&amp;Cancel</source>
@@ -305,7 +305,7 @@
         </message>
         <message>
             <source>E&amp;xit</source>
-            <translation>退出(&amp;E)</translation>
+            <translation>退出(&amp;X)</translation>
         </message>
         <message>
             <source>Exit</source>
@@ -325,11 +325,11 @@
         </message>
         <message>
             <source>Import Jail</source>
-            <translation>输出监测</translation>
+            <translation>导入Jail</translation>
         </message>
         <message>
             <source>Stop this Jail</source>
-            <translation>停用jail</translation>
+            <translation>停用此Jail</translation>
         </message>
         <message>
             <source>Toggle Autostart</source>
@@ -349,15 +349,15 @@
         </message>
         <message>
             <source>Stopping Jail</source>
-            <translation>停止监测</translation>
+            <translation>停止Jail</translation>
         </message>
         <message>
             <source>Stopping Jail:</source>
-            <translation>正在停止Jail</translation>
+            <translation>正在停止Jail：</translation>
         </message>
         <message>
             <source>Starting Jail</source>
-            <translation>开启jail</translation>
+            <translation>正在开启Jail</translation>
         </message>
         <message>
             <source>Starting Jail:</source>
@@ -369,7 +369,7 @@
         </message>
         <message>
             <source>Exporting Jail</source>
-            <translation>输出jail</translation>
+            <translation>导出Jail</translation>
         </message>
         <message>
             <source>Exporting Jail:</source>
@@ -425,7 +425,7 @@
         </message>
         <message>
             <source>Are you sure you want to delete the jail</source>
-            <translation>确认删除jail？</translation>
+            <translation>确认删除jail</translation>
         </message>
         <message>
             <source>Jail Information</source>
@@ -481,7 +481,7 @@
         </message>
         <message>
             <source>Start at boot:</source>
-            <translation>在启动时启动：</translation>
+            <translation>在开机时启动：</translation>
         </message>
         <message>
             <source>No jail selected!</source>
@@ -670,7 +670,7 @@
         </message>
         <message>
             <source>Please select the type of jail you want to create. </source>
-            <translation>选择想生成的jail。</translation>
+            <translation>选择想要生成jail的类型。</translation>
         </message>
         <message>
             <source>Jail Type</source>
@@ -682,15 +682,15 @@
         </message>
         <message>
             <source>Next enter the root password for this jail. </source>
-            <translation>输入root密码</translation>
+            <translation>下一步输入root密码。</translation>
         </message>
         <message>
             <source>Root Password</source>
-            <translation>root密码</translation>
+            <translation>根用户密码</translation>
         </message>
         <message>
             <source>Root Password (Confirm)</source>
-            <translation>root密码(重复)</translation>
+            <translation>根用户密码(重复)</translation>
         </message>
         <message>
             <source>Jail Options</source>
@@ -702,11 +702,11 @@
         </message>
         <message>
             <source>Include ports tree</source>
-            <translation>包含port目录</translation>
+            <translation>包含port树</translation>
         </message>
         <message>
             <source>Start jail at system bootup</source>
-            <translation>jail开机启动</translation>
+            <translation>开机时启动jail</translation>
         </message>
         <message>
             <source>New Jail Wizard</source>

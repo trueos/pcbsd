@@ -84,7 +84,7 @@ Keep these settings?</source>
             <source>The settings you have specified will now be tested.
 If your screen does not appear, please wait and you will be returned to this screen.</source>
             <translation>现在开始测试你指定的设置。
-如果你的显示屏没有显示，请稍候，你将返回此画面。</translation>
+如果你的显示屏没有显示，请稍候，你将返回到此画面。</translation>
         </message>
         <message>
             <source>Video Card:</source>
