@@ -317,6 +317,9 @@
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
                  <widget class="QToolButton" name="tool_install_update">
+                  <property name="toolTip">
+                   <string>Update the application to the most recent version</string>
+                  </property>
                   <property name="text">
                    <string>Update Application</string>
                   </property>
@@ -331,6 +334,9 @@
                 </item>
                 <item>
                  <widget class="QToolButton" name="tool_install_remove">
+                  <property name="toolTip">
+                   <string>Remove this application</string>
+                  </property>
                   <property name="text">
                    <string>Uninstall</string>
                   </property>
@@ -538,8 +544,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>68</width>
-                    <height>16</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -589,8 +595,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>47</width>
-                    <height>16</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -614,8 +620,8 @@ QScrollBar{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>69</width>
-                 <height>16</height>
+                 <width>96</width>
+                 <height>26</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -980,8 +986,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>446</width>
-                    <height>61</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
@@ -1041,8 +1047,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>53</width>
-                    <height>16</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
@@ -1079,8 +1085,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>53</width>
-                    <height>16</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
