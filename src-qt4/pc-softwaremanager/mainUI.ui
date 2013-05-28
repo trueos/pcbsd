@@ -271,20 +271,6 @@
                 </item>
                </layout>
               </item>
-              <item row="0" column="0" colspan="3">
-               <widget class="QLabel" name="label_install_app">
-                <property name="font">
-                 <font>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                  <underline>true</underline>
-                 </font>
-                </property>
-                <property name="text">
-                 <string notr="true">Application</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="3" rowspan="3">
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
@@ -317,9 +303,6 @@
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
                   </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Minimum</enum>
-                  </property>
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
@@ -327,6 +310,49 @@
                    </size>
                   </property>
                  </spacer>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="0" colspan="3">
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QToolButton" name="tool_install_update">
+                  <property name="text">
+                   <string>Update Application</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="SoftwareManager.qrc">
+                    <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
+                  </property>
+                  <property name="toolButtonStyle">
+                   <enum>Qt::ToolButtonIconOnly</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QToolButton" name="tool_install_remove">
+                  <property name="text">
+                   <string>Uninstall</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="SoftwareManager.qrc">
+                    <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_install_app">
+                  <property name="font">
+                   <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                    <underline>true</underline>
+                   </font>
+                  </property>
+                  <property name="text">
+                   <string notr="true">Application</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
@@ -512,8 +538,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>68</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -563,8 +589,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>47</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -588,8 +614,8 @@ QScrollBar{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>96</width>
-                 <height>26</height>
+                 <width>69</width>
+                 <height>16</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -954,8 +980,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>446</width>
+                    <height>61</height>
                    </rect>
                   </property>
                  </widget>
@@ -1015,8 +1041,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>53</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1053,8 +1079,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>53</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>

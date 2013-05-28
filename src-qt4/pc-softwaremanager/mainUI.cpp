@@ -156,6 +156,7 @@ void MainUI::initializeInstalledTab(){
     ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
     //Now setup any defaults for the installed tab
     ui->tool_install_gotobrowserpage->setEnabled(FALSE); //disable it until the browser is ready
+    ui->tree_install_apps->setIconSize(QSize(22,22));
     slotRefreshInstallTab();
 }
 
@@ -255,7 +256,7 @@ void MainUI::on_group_install_showinfo_toggled(bool show){
 
 void MainUI::on_tool_install_gotobrowserpage_clicked(){
   //When you want to open up the browser page for an application
-  QString appID = ui->tree_install_apps->currentItem()->text(0).toLower();
+  QString appID = Extras::nameToID( ui->tree_install_apps->currentItem()->text(0) );
   slotGoToApp(appID);
 }
 
@@ -318,6 +319,10 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   ui->label_install_version->setText(vals[4]);
   ui->label_install_shortcuts->setText(shortcuts);
   ui->check_install_autoupdate->setChecked(autoupdate);
+  //Make the upgrade button invisible if no upgrade available
+  if(PBI->upgradeAvailable(appID).isEmpty()){ ui->tool_install_update->setVisible(FALSE); }
+  else{ ui->tool_install_update->setVisible(TRUE); }
+  
 }
 
 void MainUI::on_check_install_autoupdate_clicked(){
@@ -331,6 +336,29 @@ void MainUI::on_check_install_autoupdate_clicked(){
   bool enabled = ui->check_install_autoupdate->isChecked();
   //Now have the backend make the change
   PBI->enableAutoUpdate(appID, enabled);
+}
+
+void MainUI::on_tool_install_update_clicked(){
+  //Get the current item
+  QString appID;
+  if(ui->tree_install_apps->topLevelItemCount() > 0){
+    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
+  }
+  if(appID.isEmpty()){return;}
+  PBI->upgradePBI(QStringList() << appID);
+}
+
+void MainUI::on_tool_install_remove_clicked(){
+  //Get the current item
+  QString appID;
+  if(ui->tree_install_apps->topLevelItemCount() > 0){
+    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
+  }
+  if(appID.isEmpty()){return;}
+  //Verify removal
+  if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify PBI Removal"), tr("Are you sure you wish to remove this application?")+"\n\n"+appID,QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel) ){
+    PBI->removePBI(QStringList() << appID);
+  }
 }
 
 // === SELECTED PBI ACTIONS ===
@@ -678,6 +706,8 @@ void MainUI::slotShowSimilarApps(QStringList apps){
     ui->group_bapp_similar->setVisible(TRUE);
     if(ui->group_bapp_similar->isChecked()){ ui->scroll_bapp_similar->setVisible(TRUE); }
     else{ ui->scroll_bapp_similar->setVisible(FALSE); }
+    //Now make sure the app page has the proper layout dimensions
+    ui->page_app->updateGeometry();
   }
 }
 
