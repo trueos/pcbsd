@@ -80,6 +80,23 @@ void NetworkMan::Init()
     connect(lineGateway, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineIPv6Gateway, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
     connect(lineHostname, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+    connect(lineSearchDomain, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+
+    
+    connect(lineProxyAddress, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+    connect(lineProxyUser, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+    connect(lineProxyPass, SIGNAL(textChanged(const QString &)), this, SLOT(slotCheckGlobalText()) );
+    connect(checkProxyUser, SIGNAL(clicked()), this, SLOT(slotCheckGlobalText()) );
+    connect(radioHTTPProxy, SIGNAL(clicked()), this, SLOT(slotCheckGlobalText()) );
+    connect(radioSOCKSProxy, SIGNAL(clicked()), this, SLOT(slotCheckGlobalText()) );
+    connect(spinProxyPort, SIGNAL(valueChanged(int)), this, SLOT(slotCheckGlobalText()) );
+
+    connect(groupDNS, SIGNAL(clicked(bool)), this, SLOT(slotCheckGlobalText()) );
+    connect(groupGateway, SIGNAL(clicked(bool)), this, SLOT(slotCheckGlobalText()) );
+    connect(groupIPv6, SIGNAL(clicked(bool)), this, SLOT(slotCheckGlobalText()) );
+    connect(groupIPv6, SIGNAL(clicked(bool)), this, SLOT(slotCheckGlobalText()) );
+    connect(checkLagg, SIGNAL(clicked(bool)), this, SLOT(slotCheckGlobalText()) );
+    connect(groupProxySettings, SIGNAL(clicked(bool)), this, SLOT(slotCheckGlobalText()) );
 
     connect(PublicDNS1, SIGNAL(clicked()), this, SLOT(slotPublicDNS1Clicked()) );
     connect(PublicDNS2, SIGNAL(clicked()), this, SLOT(slotPublicDNS2Clicked()) );
