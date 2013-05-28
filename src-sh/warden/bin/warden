@@ -118,17 +118,19 @@ Lets you set options for your jail
 
 Available options:
 
-              ipv4: Lets you set the IPv4 address for this jail
-              ipv6: Lets you set the IPv6 address for this jail
-        alias-ipv4: Lets you set additional IPv4 addresses for this jail
-        alias-ipv6: Lets you set additional IPv6 addresses for this jail
-       bridge-ipv4: Lets you set the vnet bridge IPv4 address for this jail
-       bridge-ipv6: Lets you set the vnet bridge IPv6 address for this jail
- alias-bridge-ipv4: Lets you set additional vnet bridge IPv4 addresses for this jail
- alias-bridge-ipv6: Lets you set additional vnet bridge IPv6 addresses for this jail
-defaultrouter-ipv4: Lets you set the default IPv4 router for this jail
-defaultrouter-ipv6: Lets you set the default IPv6 router for this jail
-        flags: Lets you set additional flags to pass to the 'jail' command at startup
+              ipv4: Set the IPv4 address for this jail
+              ipv6: Set the IPv6 address for this jail
+        alias-ipv4: Set additional IPv4 addresses for this jail
+        alias-ipv6: Set additional IPv6 addresses for this jail
+       bridge-ipv4: Set the vnet bridge IPv4 address for this jail
+       bridge-ipv6: Set the vnet bridge IPv6 address for this jail
+ alias-bridge-ipv4: Set additional vnet bridge IPv4 for this jail
+ alias-bridge-ipv6: Set additional vnet bridge IPv6 for this jail
+defaultrouter-ipv4: Set the default vnet IPv4 router for this jail
+defaultrouter-ipv6: Set the default vnet IPv6 router for this jail
+             flags: Set additional flags to pass to the 'jail' command 
+       vnet-enable: Enables vnet support for the jail
+      vnet-disable: Disables vnet support for this jail
 
 Usage:
 
@@ -143,6 +145,8 @@ Example:
   warden set ipv6 myjail fe80::8e89:a5ff:fe52:ad19,fe80::8e89:a5ff:fe52:ad21
 
   warden set flags myjail allow.raw_sockets=true,allow.chflags=true
+
+  warden set vnet-enable myjail
 "
 };
 
@@ -819,7 +823,9 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
                  ;;
           flags) EXTRAFLAGS="${4}"
 	         echo $EXTRAFLAGS | sed 's|,| |g' > "${JMETADIR}/jail-flags"
-                ;;
+		 ;;
+    vnet-enable) touch "${JMETADIR}/vnet" ;;
+    vnet-disable) rm "${JMETADIR}/vnet" 2>/dev/null ;;
               *) exit_err "Invalid option!" ;;
 	   esac
          ;;

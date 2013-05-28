@@ -38,6 +38,28 @@ fi
 
 HOST="`cat ${JMETADIR}/host`"
 
+# Check if we need to enable vnet
+VIMAGEENABLE="NO"
+if [ -e "${JMETADIR}/vnet" ] ; then
+  VIMAGEENABLE="YES"
+fi
+
+IFACE=
+DEFAULT=0
+  
+# Make sure jail uses special interface if specified
+if [ -e "${JMETADIR}/iface" ] ; then
+  IFACE=`cat "${JMETADIR}/iface"`
+fi
+if [ -z "${IFACE}" ] ; then
+   IFACE=`get_default_interface`
+   DEFAULT=1
+fi
+if [ -z "${IFACE}" ] ; then
+  echo "ERROR: no interface specified and a default doesn't exist!"
+  exit 6
+fi
+
 # End of error checking, now shutdown this jail
 ##################################################################
 
@@ -51,7 +73,51 @@ echo -e ".\c"
 # Check if we need umount x mnts
 if [ -e "${JMETADIR}/jail-portjail" ] ; then umountjailxfs ${JAILNAME} ; fi
 
-jail_interfaces_down "${JID}"
+if [ "$VIMAGEENABLE" = "YES" ] ; then
+  jail_interfaces_down "${JID}"
+else
+  # Get list of IP4s for this jail
+  if [ -e "${JMETADIR}/ipv4" ] ; then
+    IP4S="`cat ${JMETADIR}/ipv4 | cut -d '/' -f 1`"
+  fi
+  if [ -e "${JMETADIR}/alias-ipv4" ] ; then
+    while read line
+    do
+      IP4S="${IP4S} `echo $line | cut -d '/' -f 1`"
+    done < ${JMETADIR}/alias-ipv4
+  fi
+
+  # Get list of IP6s for this jail
+  if [ -e "${JMETADIR}/ipv6" ] ; then
+    IP6S="`cat ${JMETADIR}/ipv6 | cut -d '/' -f 1`"
+  fi
+  if [ -e "${JMETADIR}/alias-ipv6" ] ; then
+    while read line
+    do
+      IP6S="${IP6S} `echo $line | cut -d '/' -f 1`"
+    done < ${JMETADIR}/alias-ipv6
+  fi
+ 
+ 
+  # Check if we need to remove the IP aliases from this jail
+  for _ip in $IP4S
+  do 
+    # See if active alias
+    ifconfig $IFACE | grep -q "${_ip}"
+    if [ $? -ne 0 ] ; then continue ; fi
+
+    ifconfig $IFACE inet -alias ${_ip}
+  done
+
+  for _ip in $IP6S
+  do 
+    # See if active alias
+    ifconfig $IFACE | grep -q "${_ip}"
+    if [ $? -ne 0 ] ; then continue ; fi
+
+    ifconfig $IFACE inet6 ${_ip} delete
+  done
+fi
 
 if [ -e "${JMETADIR}/jail-linux" ] ; then LINUXJAIL="YES" ; fi
 
