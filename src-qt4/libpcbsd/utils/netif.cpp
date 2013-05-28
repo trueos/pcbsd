@@ -401,8 +401,10 @@ QString NetworkInterface::getFirstWiredDevice()
   QStringList ifs = getInterfaces();
   for ( QStringList::Iterator it = ifs.begin(); it != ifs.end(); ++it )
   {
+     // List of devices to exclude not real ethernet
      QString tmpDev = *it;
      if (tmpDev.indexOf("lo0") == -1
+         && tmpDev.indexOf("lagg") == -1
          && tmpDev.indexOf("lo1") == -1
          && tmpDev.indexOf("lo2") == -1
          && tmpDev.indexOf("lo3") == -1
@@ -410,8 +412,11 @@ QString NetworkInterface::getFirstWiredDevice()
          && tmpDev.indexOf("plip") == -1
          && tmpDev.indexOf("pfsync") == -1
          && tmpDev.indexOf("pflog") == -1
-         && tmpDev.indexOf("wlan") == -1
-         && tmpDev.indexOf("tun") == -1)
+         && tmpDev.indexOf("ipfw") == -1
+         && tmpDev.indexOf("tun") == -1
+         && tmpDev.indexOf("usbus") == -1
+         && tmpDev.indexOf("vboxnet") == -1
+         && tmpDev.indexOf("wlan") == -1 )
      {
         NetworkInterface ifr(tmpDev);
         if (! ifr.isWireless()) {
