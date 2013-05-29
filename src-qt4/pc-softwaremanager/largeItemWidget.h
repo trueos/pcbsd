@@ -48,7 +48,7 @@ class LargeItemWidget : public QWidget{
     
   public:
     LargeItemWidget(QString appID, QString name, QString description, QString icon) : QWidget(){
-      QGridLayout *layout = new QGridLayout;
+
       //Create the toolbutton
       QToolButton *button = new QToolButton();
         button->setIconSize(QSize(34,34));
@@ -61,15 +61,20 @@ class LargeItemWidget : public QWidget{
       QLabel *appDesc = new QLabel(description);
         appDesc->setWordWrap(TRUE);
       //Add the items to the widget
+      QGridLayout *layout = new QGridLayout;
       layout->addWidget(button,0,0,2,1);
       layout->addWidget(appName,0,1);
       layout->addWidget(appDesc,1,1);
       this->setLayout(layout);
+      
       //Save the app identifier
       uniqueAppID=appID;
-      connect(button,SIGNAL(triggered(QAction*)), this, SLOT(sendSignal()) );
+      connect(button,SIGNAL(clicked()), this, SLOT(sendSignal()) );
     }
     virtual ~LargeItemWidget(){}
+    
+  protected:
+    void mousePressEvent(QMouseEvent *ev){ sendSignal(); }  
  
   	  
 };
