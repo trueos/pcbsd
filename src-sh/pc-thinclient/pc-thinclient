@@ -356,7 +356,7 @@ check_dhcpd() {
 
 # Function to display what information to add to external DHCP server
 ignore_dhcpd() {
-	echo "Add the following information to your extneral DHCP Server"
+	echo "Add the following information to your external DHCP Server"
         echo "Will display here when this works"
 }
 
