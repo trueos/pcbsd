@@ -354,6 +354,11 @@ check_dhcpd() {
 	if [ "$?" != "0" ] ; then exit_err "Failed installing ${DHCPPORT}"; fi
 }
 
+# Display what information to add to external DHCP server
+ignore_dchpd() {
+	echo "Add the following information to your extneral DHCP Server"
+        echo "Will display here when this works"
+        
 # Function which checks and sets up the thinclient as an install server
 check_installdirs() {
 	if [ -e "${PXEWORLD}/installscripts/pc-sysinstall.example" ]; then
