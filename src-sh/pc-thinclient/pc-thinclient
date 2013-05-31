@@ -148,6 +148,62 @@ rpcbind : ALL : deny|' /etc/hosts.allow
 	done
 }
 
+# Start configuring the base system without DHCP
+ignore_dhcpd() {
+	echo "Setting up system for PXE booting..."
+
+	# Setup the new pxeboot user with a default password
+	cat /etc/passwd | grep pxeboot >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "thinclient" | pw useradd -n "pxeboot" -h 0 -s /bin/tcsh -d ${PXEWORLD}/mnt/xorg-config -c "pxeboot"
+		chown -R pxeboot:pxeboot ${PXEWORLD}/mnt/xorg-config
+	fi
+
+portmap_enable=\"YES\"
+nfs_server_enable=\"YES\"
+inetd_enable=\"YES\"
+
+	# Add some entries for /etc/exports
+	cat /etc/exports 2>/dev/null | grep "$PXEWORLD" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+	  	echo "$PXEWORLD -maproot=nobody -ro -network 192.168.2 -mask 255.255.255" >>/etc/exports
+	fi
+
+	# Setup tftp
+	cat /etc/inetd.conf | grep "$PXEWORLD" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "tftp   dgram   udp     wait    root    /usr/libexec/tftpd      tftpd -l -s ${PXEWORLD}" >> /etc/inetd.conf
+	fi
+
+	# Add a bulk of IPs to /etc/hosts this fixes bugs with RPC timeouts
+	# when mounting NFS
+	grep -q 'thinclient100' /etc/hosts
+	if [ $? -ne 0 ] ; then
+		i="100"
+		while
+		z="1"
+		do
+			if [ "${i}" = "200" ]; then break; fi
+			echo "192.168.2.${i}  thinclient${i}" >>/etc/hosts
+			i="`expr ${i} + 1`"
+		done
+	fi
+
+	# Start the services
+	cmds="/etc/rc.d/nfsd /etc/rc.d/inetd"
+	for _sC in $cmds
+	do
+		echo -e "Starting ${_sC}...\c"
+		${_sC} restart >/dev/null 2>/dev/null
+		if [ "$?" != "0" ] ; then
+			echo -e "FAILED! Please run try running it manually."
+		else
+			echo -e "OK"
+		fi
+	done
+}
+
+
 # Check if we need to install custom config
 check_installconfig() {
 	if [ -e "${PXEWORLD}/etc/scripts/tcslogin.sh" ] ; then return ; fi
