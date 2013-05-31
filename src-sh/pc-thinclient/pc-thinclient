@@ -159,6 +159,23 @@ check_configsystem_ignore_dhcp() {
 		chown -R pxeboot:pxeboot ${PXEWORLD}/mnt/xorg-config
 	fi
 
+	# Ask for the NIC we want to run on
+	while
+	z=1
+	do
+		echo "What NIC do you wish to listen on? (I.E. re0)"
+		echo -e "nic) \c"
+		read NIC 
+
+		ifconfig $NIC >/dev/null 2>/dev/null
+		if [ $? -ne 0 -o -z "$NIC" ] ; then
+			echo "Invalid nic entered, please try again!"
+			sleep 1
+		else
+			break
+		fi
+	done
+
 portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
 inetd_enable=\"YES\"
