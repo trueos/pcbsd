@@ -455,3 +455,4 @@ fi
 echo " "
 echo "Your system is now setup to do PXE booting!"
 exit 0
+fi
