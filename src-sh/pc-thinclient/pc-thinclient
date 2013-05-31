@@ -458,7 +458,10 @@ else
   echo "/usr/home/thinclient/installscripts/unattended.cfg"
 fi
 
-echo " "
-echo "Your system is now setup to do PXE booting!"
-exit 0
+if [ "$DHCPTYPE" = "internal" ] ; then
+  echo " "
+  echo "Your system is now setup to do PXE booting!"
+  exit 0
+else
+  echo "You will need to modify your dhcp server before you can begin using PXE boot"
 fi
