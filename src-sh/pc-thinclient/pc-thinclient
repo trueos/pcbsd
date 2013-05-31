@@ -434,8 +434,12 @@ fi
 # Install the thinclient configuration files
 check_installconfig
 
-# Tweak the base system to enable the thinclient
-check_configsystem
+if [ "$DHCPTYPE" = "internal" ] ; then
+  # Tweak the base system to enable the thinclient
+  check_configsystem
+else
+  # Tweak the base system to enable the thinclient without dhcpd
+  check_configsystem_ignore_dhcp
 
 if [ "$SYSTYPE" = "desktop" ] ; then
   echo ""
