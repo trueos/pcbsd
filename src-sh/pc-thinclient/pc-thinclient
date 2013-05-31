@@ -180,6 +180,15 @@ portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
 inetd_enable=\"YES\"
 
+	# Add firewall exception
+        if [ -e "/etc/pf.conf" ] ; then
+	  cat /etc/pf.conf | grep "pass in on ${NIC} all" >/dev/null 2>/dev/null
+	  if [ "$?" != "0" ] ; then
+  		# Setup the firewall exclusion for this NIC
+  		echo "pass in on ${NIC} all" >> /etc/pf.conf
+	  fi
+     	fi
+
 	# Add some entries for /etc/exports
 	cat /etc/exports 2>/dev/null | grep "$PXEWORLD" >/dev/null 2>/dev/null
 	if [ "$?" != "0" ] ; then
@@ -190,6 +199,14 @@ inetd_enable=\"YES\"
 	cat /etc/inetd.conf | grep "$PXEWORLD" >/dev/null 2>/dev/null
 	if [ "$?" != "0" ] ; then
 		echo "tftp   dgram   udp     wait    root    /usr/libexec/tftpd      tftpd -l -s ${PXEWORLD}" >> /etc/inetd.conf
+	fi
+	
+	# Setup rcpbind entries
+	cat /etc/hosts.allow 2>/dev/null | grep "192.168.2.0" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		sed  -i '' 's|rpcbind : ALL : deny|rpcbind : 192.168.2.0/255.255.255.0 : allow\
+portmap : 192.168.2.0/255.255.255.0 : allow\
+rpcbind : ALL : deny|' /etc/hosts.allow
 	fi
 
 	# Add a bulk of IPs to /etc/hosts this fixes bugs with RPC timeouts
