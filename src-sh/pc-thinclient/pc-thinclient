@@ -358,7 +358,8 @@ check_dhcpd() {
 ignore_dchpd() {
 	echo "Add the following information to your extneral DHCP Server"
         echo "Will display here when this works"
-        
+}
+
 # Function which checks and sets up the thinclient as an install server
 check_installdirs() {
 	if [ -e "${PXEWORLD}/installscripts/pc-sysinstall.example" ]; then
