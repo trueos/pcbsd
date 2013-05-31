@@ -175,6 +175,16 @@ check_configsystem_ignore_dhcp() {
 			break
 		fi
 	done
+	
+		# Ask for the network id of the local subnet
+	while
+	z=1
+	do
+		echo "What is the network id for your local subnet? (I.E. 192.168.2.0)"
+		echo -e "netid) \c"
+		read netid 
+
+	done
 
 portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
