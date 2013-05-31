@@ -392,11 +392,12 @@ if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
 	exit 0
 fi
 
-echo "Do you wish to install a dhcp server?  If you wish to use an external server"
-echo "please make sure it supports adding next server and bootfile name options."
-echo -e "(i/e) \c"
+echo "Do you wish to install the dhcpd server port or use an external server?"
+echo "If you wish to use an external server please make sure it supports adding" 
+echo "next server and bootfile name options."
+echo -e "(d/e) \c"
 read tmp
-if [ "$tmp" = "I" -o "$tmp" = "i" ] ; then
+if [ "$tmp" = "D" -o "$tmp" = "d" ] ; then
    DHCPTYPE="internal"
 else
    DHCPTYPE="external"
