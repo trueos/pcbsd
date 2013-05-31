@@ -3,6 +3,7 @@
 
 do_installwiz() {
 
+  installChoices=""
   for i in `ls /installscripts`
   do
      installChoices="$installChoices $i $i"
