@@ -440,6 +440,7 @@ if [ "$DHCPTYPE" = "internal" ] ; then
 else
   # Tweak the base system to enable the thinclient without dhcpd
   check_configsystem_ignore_dhcp
+fi
 
 if [ "$SYSTYPE" = "desktop" ] ; then
   echo ""
