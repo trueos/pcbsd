@@ -354,8 +354,13 @@ else
    SYSTYPE="desktop"
 fi
 
-# Start by installing dhcpd
-check_dhcpd
+
+if [ "$DHCPTYPE" = "internal" ] ; then
+  # Start by installing dhcpd
+  check_dhcpd
+else
+  # Install without dhcpd
+  ignore_dhcpd
 
 # Start by setting up a new buildworld
 check_world
