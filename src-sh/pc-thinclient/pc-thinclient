@@ -354,8 +354,8 @@ check_dhcpd() {
 	if [ "$?" != "0" ] ; then exit_err "Failed installing ${DHCPPORT}"; fi
 }
 
-# Display what information to add to external DHCP server
-ignore_dchpd() {
+# Function to display what information to add to external DHCP server
+ignore_dhcpd() {
 	echo "Add the following information to your extneral DHCP Server"
         echo "Will display here when this works"
 }
