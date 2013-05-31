@@ -149,7 +149,7 @@ rpcbind : ALL : deny|' /etc/hosts.allow
 }
 
 # Start configuring the base system without DHCP
-ignore_dhcpd() {
+check_configsystem_ignore_dhcp() {
 	echo "Setting up system for PXE booting..."
 
 	# Setup the new pxeboot user with a default password
