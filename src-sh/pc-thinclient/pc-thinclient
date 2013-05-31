@@ -27,6 +27,8 @@
 #        Name: pc-thinclient
 # Description: Helper script to build / install the necessary bits to turn
 #              a PC-BSD system into a thin-client server 
+#
+# Modified for external dhcp server support by Joe Maloney
 
 # Source our functions
 . /usr/local/share/pcbsd/scripts/functions.sh
@@ -333,6 +335,15 @@ read tmp
 if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
 	exit 0
 fi
+
+echo "Do you wish to install a dhcp server?  If not and you wish to use an external server"
+echo "please make sure it supports adding next server and bootfile name options.
+echo -e "Continue? (Y/N) \c"
+read tmp
+if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
+	exit 0
+fi
+
 
 echo "Do you wish to make this a remote X desktop server or install server?"
 echo -e "(r/i) \c"
