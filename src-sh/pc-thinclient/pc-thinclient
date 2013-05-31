@@ -337,7 +337,7 @@ if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
 fi
 
 echo "Do you wish to install a dhcp server?  If not and you wish to use an external server"
-echo "please make sure it supports adding next server and bootfile name options.
+echo "please make sure it supports adding next server and bootfile name options."
 echo -e "Continue? (Y/N) \c"
 read tmp
 if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
