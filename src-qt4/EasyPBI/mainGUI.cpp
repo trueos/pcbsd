@@ -1414,7 +1414,10 @@ void MainGUI::on_push_build_start_clicked(){
   //Setup Process connections
   p = new QProcess(this);
   p->setProcessChannelMode(QProcess::MergedChannels);
-  p->setProcessEnvironment( QProcessEnvironment::systemEnvironment() );
+  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+  env.remove("LD_LIBRARY_PATH");
+  p->setProcessEnvironment( env );
+  p->setWorkingDirectory(QDir::homePath());
   connect(p,SIGNAL(readyReadStandardOutput()),this,SLOT(slotUpdatePBIBuild()) );
   connect(p,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotPBIbuildFinished(int,QProcess::ExitStatus)) );
   connect(p,SIGNAL(error(QProcess::ProcessError)),this,SLOT(slotBuildError(QProcess::ProcessError)) );
