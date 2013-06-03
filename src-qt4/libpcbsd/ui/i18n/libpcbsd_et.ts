@@ -16,7 +16,7 @@
         <name>dialogMetaProgress</name>
         <message>
             <source>System-Packages</source>
-            <translation>Süsteemi paketid</translation>
+            <translation>Süsteemi pakid</translation>
         </message>
         <message>
             <source>Total Progress</source>
@@ -28,13 +28,13 @@
         </message>
         <message>
             <source>Meta-Package Changes</source>
-            <translation>Metapakettide muutmine</translation>
+            <translation>Metapakkide muutmine</translation>
         </message>
         <message>
             <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
-            <translation>Hoiatus: pakettide muudetakse!
-Kui nüüd katkestada, siis võivad paketid katki minna. Katkestada ikkagi?</translation>
+            <translation>Hoiatus: pakke muudetakse!
+Kui nüüd katkestada, siis võivad pakid katki minna. Katkestada ikkagi?</translation>
         </message>
     </context>
     <context>
@@ -116,7 +116,7 @@ Kui nüüd katkestada, siis võivad paketid katki minna. Katkestada ikkagi?</tra
         </message>
         <message>
             <source>Performing system-package changes.</source>
-            <translation>Teostatakse süsteemi pakettide muudatusi.</translation>
+            <translation>Teostatakse süsteemi pakkide muudatusi.</translation>
         </message>
         <message>
             <source>System Packages</source>

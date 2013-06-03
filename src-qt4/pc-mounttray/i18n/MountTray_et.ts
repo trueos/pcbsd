@@ -5,41 +5,34 @@
         <name>FSDialog</name>
         <message>
             <source>System Disk Capacity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Süsteemi ketta maht</translation>
         </message>
         <message>
             <source>Mount Point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Haakepunkt</translation>
         </message>
         <message>
             <source>Filesystem</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Failisüsteem</translation>
         </message>
         <message>
             <source>Used/Total</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kasutatud/kokku</translation>
         </message>
         <message>
             <source>Percent %</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Protsenti %</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sulge</translation>
         </message>
     </context>
     <context>
         <name>FSWatcher</name>
         <message>
             <source>Disk(s) Almost Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ketas (kettad) peaaegu täis</translation>
         </message>
     </context>
     <context>
@@ -139,51 +132,42 @@ Failihaldurit ei saa juurkasutaja õigustega avada</translation>
         </message>
         <message>
             <source>More Options</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Veel valikuid</translation>
         </message>
         <message>
             <source>View Disk Usage</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vaata ketta kasutust</translation>
         </message>
         <message>
             <source>Change Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Muuda sätteid</translation>
         </message>
     </context>
     <context>
         <name>SettingsDialog</name>
         <message>
             <source>Mount Tray Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Süsteemisalve sätted</translation>
         </message>
         <message>
             <source>Monitor disk storage space</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jälgi kettaruumi kasutust</translation>
         </message>
         <message>
             <source>Perform check on device notifications</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kontrolli seadme teavituste ajal</translation>
         </message>
         <message>
             <source>Maximum time between checks (minutes)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Suurim lubatud aeg kontrollide vahel (minutites)</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Katkesta</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rakenda</translation>
         </message>
     </context>
 </TS>

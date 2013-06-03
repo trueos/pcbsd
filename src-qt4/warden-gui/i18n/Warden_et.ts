@@ -95,78 +95,63 @@
         </message>
         <message>
             <source>Jail Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vanglate seadistus</translation>
         </message>
         <message>
             <source>IPv4</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv4</translation>
         </message>
         <message>
             <source>IPv4 Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv4-aadress</translation>
         </message>
         <message>
             <source>IPv4 Bridge Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv4 silla aadress</translation>
         </message>
         <message>
             <source>IPv4 Default Router</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv4 vaikimisi ruuter</translation>
         </message>
         <message>
             <source>IPv6</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6</translation>
         </message>
         <message>
             <source>IPv6 Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6-aadress</translation>
         </message>
         <message>
             <source>IPv6 Bridge Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6 silla aadress</translation>
         </message>
         <message>
             <source>IPv6 Default Router</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6 vaikimisi ruuter</translation>
         </message>
         <message>
             <source>Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aliased</translation>
         </message>
         <message>
             <source>IPv4 Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv4 aliased</translation>
         </message>
         <message>
             <source>IPv4 Bridge Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv4 silla aliased</translation>
         </message>
         <message>
             <source>IPv6 Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6 aliased</translation>
         </message>
         <message>
             <source>IPv6 Bridge Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6 silla aliased</translation>
         </message>
         <message>
             <source>Permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Load</translation>
         </message>
         <message>
             <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>

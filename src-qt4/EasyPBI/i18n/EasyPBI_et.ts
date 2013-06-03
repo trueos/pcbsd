@@ -765,23 +765,19 @@
         </message>
         <message>
             <source>Application needs administrator privileges to run</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rakendus vajab käivitamiseks administraatori õigusi</translation>
         </message>
         <message>
             <source>Requires Root</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vajalik juurkasutaja</translation>
         </message>
         <message>
             <source>Refresh Module</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Värskenda moodulit</translation>
         </message>
         <message>
             <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ava EasyPBI sätted, et see viga parandada.</translation>
         </message>
     </context>
     <context>
@@ -1095,17 +1091,15 @@
         </message>
         <message>
             <source>FreeBSD Ports</source>
-            <translation type="unfinished">FreeBSD pordid</translation>
+            <translation>FreeBSD pordid</translation>
         </message>
         <message>
             <source>Ports Tree</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Portide puu</translation>
         </message>
         <message>
             <source>Last Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viimane värskendus</translation>
         </message>
         <message>
             <source>TextLabel</source>
@@ -1114,90 +1108,79 @@
         </message>
         <message>
             <source>Create Dir</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Loo kaust</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Värskenda</translation>
         </message>
         <message>
             <source>Status</source>
-            <translation type="unfinished">Olek</translation>
+            <translation>Olek</translation>
         </message>
         <message>
             <source>PBI Builds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ehitatud PBI-d</translation>
         </message>
         <message>
             <source>External Utilities</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Välised tööriistad</translation>
         </message>
         <message>
             <source>Default Search Paths</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vaikimisi otsingurajad</translation>
         </message>
         <message>
             <source>Modules</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Moodulid</translation>
         </message>
         <message>
             <source>Resources</source>
-            <translation type="unfinished">Ressursid</translation>
+            <translation>Ressursid</translation>
         </message>
         <message>
             <source>Default Icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vaikimisi ikoon</translation>
         </message>
         <message>
             <source>Current User (~/EasyPBI/ports)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Praegune kasutaja (~/EasyPBI/ports)</translation>
         </message>
         <message>
             <source>All Users (/usr/ports)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kõik kasutajad (/usr/ports)</translation>
         </message>
         <message>
             <source>Other</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Muu</translation>
         </message>
         <message>
             <source>Nonexistent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Puudub</translation>
         </message>
         <message>
             <source>Success</source>
-            <translation type="unfinished">Õnnestus</translation>
+            <translation>Õnnestus</translation>
         </message>
         <message>
             <source>The FreeBSD ports tree has been successfully updated</source>
-            <translation type="unfinished">FreeBSD portide puu uuendati edukalt</translation>
+            <translation>FreeBSD portide puu uuendati edukalt</translation>
         </message>
         <message>
             <source>Failure</source>
-            <translation type="unfinished">Tõrge</translation>
+            <translation>Tõrge</translation>
         </message>
         <message>
             <source>The FreeBSD ports tree has failed to update.</source>
-            <translation type="unfinished">FreeBSD portide puud ei õnnestunud uuendada.</translation>
+            <translation>FreeBSD portide puud ei õnnestunud uuendada.</translation>
         </message>
         <message>
             <source>Last Message: %1</source>
-            <translation type="unfinished">Viimane sõnum: %1</translation>
+            <translation>Viimane sõnum: %1</translation>
         </message>
         <message>
             <source>Requesting Root Access</source>
-            <translation type="unfinished">Küsitakse juurkasutaja ligipääsu</translation>
+            <translation>Nõutud on juurkasutaja ligipääs</translation>
         </message>
     </context>
     <context>

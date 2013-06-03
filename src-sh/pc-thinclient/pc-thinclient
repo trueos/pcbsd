@@ -184,7 +184,10 @@ check_installconfig() {
 	chroot ${PXEWORLD} tar cvf conf/base/etc.cpio.gz --format cpio --gzip etc 2>/dev/null
 	chroot ${PXEWORLD} tar cvf conf/base/var.cpio.gz --exclude var/db/pkg --format cpio --gzip var 2>/dev/null
 	chroot ${PXEWORLD} tar cvf conf/base/root.cpio.gz --format cpio --gzip root 2>/dev/null
-	
+
+        # Fix the ZFS zpool.cache
+	rmdir ${PXEWORLD}/boot/zfs 2>/dev/null
+	ln -fs /tmp ${PXEWORLD}/boot/zfs
 }
 
 # Check if we need to build the world environment

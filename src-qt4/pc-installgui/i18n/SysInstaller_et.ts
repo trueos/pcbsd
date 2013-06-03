@@ -239,7 +239,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">Valitud ketas/partitsioon on väiksem kui soovitatud %1 MB. Paigaldamine võib ebaõnnestuda... {1G?}</translation>
+            <translation>Valitud ketas/partitsioon on väiksem kui soovitatud %1 GB. Paigaldamine võib ebaõnnestuda...</translation>
         </message>
     </context>
     <context>
