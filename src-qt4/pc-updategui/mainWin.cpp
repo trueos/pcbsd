@@ -25,6 +25,7 @@
 void mainWin::ProgramInit(QString ch, QString ip)
 {
   // Set any warden directories
+  groupDetails->setVisible(false);
   doingUpdate=false;
   lastError="";
   wDir = ch;
@@ -75,6 +76,24 @@ void mainWin::slotListClicked(){
     pushInstallUpdates->setEnabled(false);
   else
     pushInstallUpdates->setEnabled(true);
+
+
+  // See if we have description text to update
+  groupDetails->setVisible(false);
+  textDesc->setText(QString());
+  if ( ! listViewUpdates->currentItem() )
+     return;
+
+  int myRow = listViewUpdates->currentRow();
+
+  if ( listUpdates.at(myRow).at(1) == "FBSDUPDATE" ) {
+    groupDetails->setVisible(true);
+
+    QString desc;
+    for (int p=2; p < listUpdates.at(myRow).count(); p++)
+      desc += listUpdates.at(myRow).at(p) + "<br>";
+    textDesc->setText(desc);
+  }
 }
 
 bool mainWin::sanityCheck()
@@ -380,9 +399,9 @@ void mainWin::slotDisplayUpdates()
       for (int p=2; p < listUpdates.at(z).count(); p++)
 	fileNameList += listUpdates.at(z).at(p) + "<br>";
 
-      QListWidgetItem *item = new QListWidgetItem(tr("FreeBSD Security Update"));
+      QListWidgetItem *item = new QListWidgetItem(tr("Base System Updates"));
       item->setCheckState(Qt::Unchecked);
-      item->setToolTip(tr("The following files need updating:") + "<hr>" + fileNameList);
+      item->setToolTip(fileNameList);
       
       listViewUpdates->addItem(item);
     }
@@ -504,8 +523,8 @@ void mainWin::checkPCUpdates() {
 }
 
 void mainWin::checkFBSDUpdates() {
-  QString line;
-  QStringList up, listPkgs;
+  QString line, toPatchVer, tmp;
+  QStringList up, listDesc, listPkgs;
 
   // Now check if there are freebsd-updates to install
   QProcess f;
@@ -524,8 +543,13 @@ void mainWin::checkFBSDUpdates() {
   while (f.canReadLine()) {
     line = f.readLine().simplified();
     qDebug() << line;
-    if ( line.indexOf("The following files will be updated ") == 0) {
+    if ( line.indexOf("The following files will be ") == 0) {
+       toPatchVer= line.remove(0, line.lastIndexOf(" "));
+       toPatchVer=toPatchVer.section("-", 2,2);
+       toPatchVer=toPatchVer.section(":", 0,0);
+       toPatchVer=toPatchVer.section("p", 1,1);
        fUp = true;
+       listPkgs << " " << tr("The following files will be updated:");
        continue;
     }
 
@@ -538,9 +562,45 @@ void mainWin::checkFBSDUpdates() {
 
   // Are there freebsd updates to install?
   if ( fUp ) {
+    QString mySysVer;
+    QString myPatchVer;
+
+    // Lets try and fetch the desc file
+    QProcess::execute("fetch -o /tmp/.fbsdupdesc http://fbsd-update.pcbsd.org/updates.desc");
+
+    // Get the current system ver
+    QProcess p;
+    p.start(QString("uname"), QStringList() << "-r");
+    while(p.state() == QProcess::Starting || p.state() == QProcess::Running)
+       QCoreApplication::processEvents();
+    tmp = p.readLine().simplified();
+    mySysVer = tmp;
+    myPatchVer = tmp;
+    mySysVer = mySysVer.section("-", 0, 1);
+    mySysVer = mySysVer.section("-", 0, 1);
+    myPatchVer = myPatchVer.section("-", 2, 2);
+    myPatchVer = myPatchVer.section(":", 0, 0);
+    myPatchVer = myPatchVer.section("p", 1, 1);
+
+    QFile file("/tmp/.fbsdupdesc");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+	listDesc << tr("Update Details:");
+      while (!file.atEnd()) {
+         line = file.readLine();
+         tmp = line;
+	 if ( tmp.section(":::", 0, 0) != mySysVer ) 
+	    continue;
+	 if ( tmp.section(":::", 1, 1) <= myPatchVer )
+	    continue;
+	 if ( tmp.section(":::", 1, 1) > toPatchVer )
+	    continue;
+	 listDesc << tmp.section(":::", 2, 2);
+      }
+    }
+
     up.clear();
     up << "FreeBSD Security Updates" << "FBSDUPDATE";
-    up.append(listPkgs);
+    up.append(listDesc + listPkgs);
     listUpdates.append(up);
   }
 
