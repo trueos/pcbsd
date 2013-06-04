@@ -60,8 +60,7 @@
         </message>
         <message>
             <source>Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Όνομα</translation>
         </message>
         <message>
             <source>Username</source>

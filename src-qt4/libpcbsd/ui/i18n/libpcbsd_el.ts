@@ -5,8 +5,7 @@
         <name>dialogInfoBox</name>
         <message>
             <source>Dialog</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Διάλογος            </translation>
         </message>
         <message>
             <source>&amp;Close</source>
@@ -18,8 +17,7 @@
         <name>dialogMetaProgress</name>
         <message>
             <source>System-Packages</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Πακέτα συστήματος</translation>
         </message>
         <message>
             <source>Total Progress</source>

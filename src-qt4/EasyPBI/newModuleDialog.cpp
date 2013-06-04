@@ -1,5 +1,6 @@
 #include "newModuleDialog.h"
 #include "ui_newModuleDialog.h"
+#include <QDir>
 #include <QDebug>
 
 NewModuleDialog::NewModuleDialog(QWidget *parent, QString portsDir) :
@@ -34,12 +35,12 @@ void NewModuleDialog::on_buttonBox_accepted(){
     moduleData = ui->line_port->text();
   }else if(ui->radio_local->isChecked() ){
     moduleType="local";
-    moduleData = ui->line_sources->text();
+    moduleData = ui->line_sources->text().replace("~",QDir::homePath());
   }else{
     moduleType.clear(); moduleData.clear();
   }
-  moduleIcon = ui->line_icon->text();
-  if(moduleIcon.isEmpty()){ moduleIcon = ui->line_icon->placeholderText(); }
+  moduleIcon = ui->line_icon->text().replace("~",QDir::homePath());
+  if(moduleIcon.isEmpty()){ moduleIcon = ui->line_icon->placeholderText().replace("~",QDir::homePath()); }
   //Now close the UI
   this->close();
 }
@@ -85,7 +86,7 @@ void NewModuleDialog::on_push_sources_clicked(){
   QString Sel = QFileDialog::getExistingDirectory(this, tr("Select Package Directory"), QDir::homePath());
   if(Sel.isEmpty()){return;} //action cancelled or closed	
   else{
-    ui->line_sources->setText(Sel);
+    ui->line_sources->setText(Sel.replace(QDir::homePath(),"~"));
   }
 }
 
@@ -99,5 +100,5 @@ void NewModuleDialog::on_push_icon_clicked(){
 }
 
 void NewModuleDialog::setDefaultIconFile(QString icon){
-  ui->line_icon->setPlaceholderText(icon);
+  ui->line_icon->setPlaceholderText(icon.replace(QDir::homePath(),"~"));
 }
