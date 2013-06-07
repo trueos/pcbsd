@@ -1,599 +1,437 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0">
-<context>
-    <name>ConfigDialog</name>
-    <message>
-        <source>AppCafe Configuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Post-Install Actions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create Desktop Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create Menu Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Register File Associations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create Path Links</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Keep Downloaded Files</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Download Dir</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Download Directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="unfinished">...</translation>
-    </message>
-    <message>
-        <source>Repository Mirrors</source>
-        <translation type="unfinished">Yazılım Depo Yansıları</translation>
-    </message>
-    <message>
-        <source>Move Up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Move Down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add PBI Repository</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repository File (*.rpo)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repo Successfully Added</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Repo Failure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This repo could not be added.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Verify Removal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This repo could not be removed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>New Mirror URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mirror Change Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Select Download Directory</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MainUI</name>
-    <message>
-        <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
-    </message>
-    <message>
-        <source>Installed</source>
-        <translation type="unfinished">Kuruldu</translation>
-    </message>
-    <message>
-        <source>Program Name</source>
-        <translation type="unfinished">Program Adı</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation type="unfinished">Durum</translation>
-    </message>
-    <message>
-        <source>Toggle All</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Actions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show Application Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version:</source>
-        <translation type="unfinished">Sürüm:</translation>
-    </message>
-    <message>
-        <source>Author:</source>
-        <translation type="unfinished">Yazar:</translation>
-    </message>
-    <message>
-        <source>License:</source>
-        <translation type="unfinished">Lisans:</translation>
-    </message>
-    <message>
-        <source>Shortcuts:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Browser Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto-Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update the application to the most recent version</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update Application</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove this application</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Uninstall</source>
-        <translation type="unfinished">Kaldır</translation>
-    </message>
-    <message>
-        <source>Browse For Apps</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Home</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Category</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search Here</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished">Ara</translation>
-    </message>
-    <message>
-        <source>View Recent Additions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Browse By Category</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation type="unfinished">Boyut:</translation>
-    </message>
-    <message>
-        <source>Application Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Platform:</source>
-        <translation type="unfinished">Platform:</translation>
-    </message>
-    <message>
-        <source>Type:</source>
-        <translation type="unfinished">Tip:</translation>
-    </message>
-    <message>
-        <source>Show Similar Applications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Best Matches</source>
-        <translation type="unfinished">En iyi eşleşmeler</translation>
-    </message>
-    <message>
-        <source>Other Results</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Çıkış</translation>
-    </message>
-    <message>
-        <source>Repositories</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error!</source>
-        <translation type="unfinished">Hata!</translation>
-    </message>
-    <message>
-        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>AppCafe Processes Running</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import PBI File List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>PBI List (*.pbilist)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>There was an error importing the PBI list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please make sure that the file has not been corrupted and try again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Export PBI File List</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Export Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>There was an error exporting the PBI list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Please make sure that you have the proper directory permissions and try again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Upgrade</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Desktop Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Menu Icons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Add (All Users)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Path Links</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>File Associations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel Actions</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Verify PBI Removal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove this application?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="unfinished">Bilinmiyor</translation>
-    </message>
-    <message>
-        <source>Install Now!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Downgrade</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Searching the application database. Please Wait....</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No Search Results Found for the term: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>PBIBackend</name>
-    <message>
-        <source>Downloading</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installing</source>
-        <translation type="unfinished">Kuruluyor</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Updating</source>
-        <translation type="unfinished">Güncelleme</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Removal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No applications to install from this list.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Results:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unavailable Apps: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Currently Installed: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Import Results</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to install these applications?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 Download Error:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The PBI could not be downloaded, please try again later</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 Update Error:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 Installation Error:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 Removal Error:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 PBI Error:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unknown</source>
-        <translation type="unfinished">Bilinmiyor</translation>
-    </message>
-</context>
-<context>
-    <name>ProcessManager</name>
-    <message>
-        <source>%1 at %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unknown Error</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>Downloading...</source>
-        <translation type="unfinished">İndiriliyor...</translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Installing...</source>
-        <translation type="unfinished">Kuruluyor...</translation>
-    </message>
-    <message>
-        <source>Removing...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Updating...</source>
-        <translation type="unfinished">Güncelleniyor...</translation>
-    </message>
-    <message>
-        <source>Update Downloading: %1 </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Removal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Update Available!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version %1 Available</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
+<TS>
+    <context>
+        <name>PBM</name>
+        <message>
+            <source>You currently have PBIs downloading! Exit anyway?</source>
+            <translation>Şuan PBI dosyaları indiriyorsunuz! Yine de çıkmak istiyor musunuz?</translation>
+        </message>
+        <message>
+            <source>Cancel this download?</source>
+            <translation>İndirme işlemi iptal edilsin mi?</translation>
+        </message>
+        <message>
+            <source>Remove this application?</source>
+            <translation>Bu uygulama kaldırılsın mi?</translation>
+        </message>
+        <message>
+            <source>Error!</source>
+            <translation>Hata!</translation>
+        </message>
+        <message>
+            <source>This program must be run as root!</source>
+            <translation>Bu uygulama, root yetkileri ile çalıştırılıdır!</translation>
+        </message>
+        <message>
+            <source>...</source>
+            <translation>...</translation>
+        </message>
+        <message>
+            <source>Program Name</source>
+            <translation>Program Adı</translation>
+        </message>
+        <message>
+            <source>Status</source>
+            <translation>Durum</translation>
+        </message>
+        <message>
+            <source>Update</source>
+            <translation>Güncelle</translation>
+        </message>
+        <message>
+            <source>&amp;Remove</source>
+            <translation>&amp;Kaldır</translation>
+        </message>
+        <message>
+            <source>Checking for Updates...</source>
+            <translation>Güncellemeler Kontrol Ediliyor...</translation>
+        </message>
+        <message>
+            <source>Pending Upgrade</source>
+            <translation>Terfi Beklemede</translation>
+        </message>
+        <message>
+            <source>Update Manager</source>
+            <translation>Güncelleme Yöneticisi</translation>
+        </message>
+        <message>
+            <source>No software selected to update!</source>
+            <translation>Güncellemek için hiçbir yazılım seçilmedi!</translation>
+        </message>
+        <message>
+            <source>Starting Download</source>
+            <translation>İndirme Başlıyor</translation>
+        </message>
+        <message>
+            <source>Download failed... Attempting to re-download...</source>
+            <translation>İndirme başarısızlıkla sonuçlandı... Yeniden indirmeye çalışılıyor...</translation>
+        </message>
+        <message>
+            <source>Installing...</source>
+            <translation>Kuruluyor...</translation>
+        </message>
+        <message>
+            <source>Online Update</source>
+            <translation>Çevrimiçi Güncelleme</translation>
+        </message>
+        <message>
+            <source>Uninstall</source>
+            <translation>Kaldır</translation>
+        </message>
+        <message>
+            <source>Retry Download</source>
+            <translation>Yeniden İndirmeyi Dene</translation>
+        </message>
+        <message>
+            <source>Pending Download...</source>
+            <translation>İndirme İşlemi Bekletiliyor...</translation>
+        </message>
+        <message>
+            <source>Install Software?</source>
+            <translation>Yazılımı Kur?</translation>
+        </message>
+        <message>
+            <source>Cancel Download</source>
+            <translation>İndirmeyi İptal Et</translation>
+        </message>
+        <message>
+            <source>AppCafe</source>
+            <translation>AppCafe</translation>
+        </message>
+        <message>
+            <source>Browse</source>
+            <translation>Bak</translation>
+        </message>
+        <message>
+            <source>Search</source>
+            <translation>Ara</translation>
+        </message>
+        <message>
+            <source>&amp;Installed</source>
+            <translation>&amp;Kuruldu</translation>
+        </message>
+        <message>
+            <source>&amp;File</source>
+            <translation>&amp;Dosya</translation>
+        </message>
+        <message>
+            <source>&amp;Quit</source>
+            <translation>&amp;Çıkış</translation>
+        </message>
+        <message>
+            <source>Confirm</source>
+            <translation>Onayla</translation>
+        </message>
+        <message>
+            <source>Please wait, removing:</source>
+            <translation>Kaldırılıyor, lütfen bekleyiniz:</translation>
+        </message>
+        <message>
+            <source>Please wait.. Loading repositories...</source>
+            <translation>Lütfen bekleyin... Yazılım deposu bilgilerine ulaşılıyor...</translation>
+        </message>
+        <message>
+            <source>Do you want to download and install</source>
+            <translation>İndirip kurmak ister misiniz</translation>
+        </message>
+        <message>
+            <source>&amp;OK</source>
+            <translation>&amp;Tamam</translation>
+        </message>
+        <message>
+            <source>&amp;Cancel</source>
+            <translation>&amp;İptal</translation>
+        </message>
+        <message>
+            <source>No PBIs for category:</source>
+            <translation>Bu kategori için PBI bulunmuyor:</translation>
+        </message>
+        <message>
+            <source>Invalid PBI selected:</source>
+            <translation>Geçersiz PBI seçimi:</translation>
+        </message>
+        <message>
+            <source>Installed</source>
+            <translation>Kuruldu</translation>
+        </message>
+        <message>
+            <source>Download</source>
+            <translation>İndir</translation>
+        </message>
+        <message>
+            <source>Version:</source>
+            <translation>Sürüm:</translation>
+        </message>
+        <message>
+            <source>Platform:</source>
+            <translation>Platform:</translation>
+        </message>
+        <message>
+            <source>License:</source>
+            <translation>Lisans:</translation>
+        </message>
+        <message>
+            <source>No applications found!</source>
+            <translation>Uygulama bulunamadı!</translation>
+        </message>
+        <message>
+            <source>An error occurred while installing</source>
+            <translation>Yüklenirken bir hata oluştu</translation>
+        </message>
+        <message>
+            <source>View details</source>
+            <translation>Ayrıntıları Göster</translation>
+        </message>
+        <message>
+            <source>Automatic Updating</source>
+            <translation>Otomatik Güncelleme</translation>
+        </message>
+        <message>
+            <source>&amp;Repositories</source>
+            <translation>Yazılım &amp;Depoları</translation>
+        </message>
+        <message>
+            <source>Application Categories</source>
+            <translation>Uygulama Kategorileri</translation>
+        </message>
+        <message>
+            <source>Latest Releases</source>
+            <translation>En Son Sürümler</translation>
+        </message>
+        <message>
+            <source>Configure Repository</source>
+            <translation>Yazılım Deposu Yapılandır</translation>
+        </message>
+        <message>
+            <source>Install Desktop Icons</source>
+            <translation>Masaüstü Simgelerini Kur</translation>
+        </message>
+        <message>
+            <source>Install Menu Icons</source>
+            <translation>Menü İkonlarını Kur</translation>
+        </message>
+        <message>
+            <source>Install Menu Icons (All Users)</source>
+            <translation>Menü İkonlarını Kur (Tüm Kullanıcılar İçin)</translation>
+        </message>
+        <message>
+            <source>Select Repository</source>
+            <translation>Yazılım Deposu Seçin</translation>
+        </message>
+        <message>
+            <source>Add Repository</source>
+            <translation>Yazılım Deposu Ekle</translation>
+        </message>
+        <message>
+            <source>Requires Root:</source>
+            <translation>Root yetkileri gerekiyor:</translation>
+        </message>
+        <message>
+            <source>Installing applications has been disabled for this user. Please add the user to the operator group or restart as root.</source>
+            <translation>Kurulan uygulamalar bu kullanıcı tarafından çalıştırılamaz. Kullanıcıyı operator grubuna ekleyin veya root olarak yeniden başlatın.</translation>
+        </message>
+        <message>
+            <source>Warning!</source>
+            <translation>Uyarı!</translation>
+        </message>
+        <message>
+            <source>Missing meta-files for RepoID:</source>
+            <translation>Şu RepoID için meta dosyalar bulunamıyor:</translation>
+        </message>
+        <message>
+            <source>This is normally due to the internet connection being offline or mis-configured.</source>
+            <translation>Bunu nedeni ya internet bağlantınız hatalı yapılandırılmış ya da bağlatının kesik olmasıdır.</translation>
+        </message>
+        <message>
+            <source>Pending</source>
+            <translation>Bekleniyor</translation>
+        </message>
+        <message>
+            <source>Download starting...</source>
+            <translation>İndirme başlıyor...</translation>
+        </message>
+        <message>
+            <source>Please check your network connection or mirror settings. </source>
+            <translation>Lütfen yansı veya ağ bağlantısı ayarlarınızı kontrol edin. </translation>
+        </message>
+        <message>
+            <source>Invalid warden directory:</source>
+            <translation>Geçersiz warden dizini:</translation>
+        </message>
+        <message>
+            <source>AppCafe - Warden</source>
+            <translation>Appcafe - Warden</translation>
+        </message>
+        <message>
+            <source>Type:</source>
+            <translation>Tip:</translation>
+        </message>
+        <message>
+            <source>Size:</source>
+            <translation>Boyut:</translation>
+        </message>
+        <message>
+            <source>Best Matches</source>
+            <translation>En iyi eşleşmeler</translation>
+        </message>
+        <message>
+            <source>Other Matches</source>
+            <translation>Diğer eşleşmeler</translation>
+        </message>
+        <message>
+            <source>Preferences</source>
+            <translation>Tercihler</translation>
+        </message>
+        <message>
+            <source>Application name</source>
+            <translation>Uygulamanın adı</translation>
+        </message>
+        <message>
+            <source>TextLabel</source>
+            <translation>MetinEtiketi</translation>
+        </message>
+        <message>
+            <source>1.20.19</source>
+            <translation>1.20.19</translation>
+        </message>
+        <message>
+            <source>New version available:</source>
+            <translation>Yeni sürümü hazır:</translation>
+        </message>
+        <message>
+            <source>1.20.20</source>
+            <translation>1.20.20</translation>
+        </message>
+        <message>
+            <source>More...</source>
+            <translation>Daha...</translation>
+        </message>
+        <message>
+            <source>Author:</source>
+            <translation>Yazar:</translation>
+        </message>
+        <message>
+            <source>BSD</source>
+            <translation>BSD</translation>
+        </message>
+        <message>
+            <source>Cancel</source>
+            <translation>İptal</translation>
+        </message>
+        <message>
+            <source>Unknown</source>
+            <translation>Bilinmiyor</translation>
+        </message>
+        <message>
+            <source>Installed: </source>
+            <translation>Kurulu olan: </translation>
+        </message>
+        <message>
+            <source>Available: </source>
+            <translation>Var olan: </translation>
+        </message>
+        <message>
+            <source>Updating</source>
+            <translation>Güncelleme</translation>
+        </message>
+        <message>
+            <source>Updating...</source>
+            <translation>Güncelleniyor...</translation>
+        </message>
+        <message>
+            <source>Downloading: %1MB of %2MB (%3 %) at %4</source>
+            <translation>İndiriliyor: %2MB 'ın %1MB 'ı (% %3) %4 ile</translation>
+        </message>
+        <message>
+            <source>%1MB of %2MB at %3</source>
+            <translation>%2MB 'ın %1MB 'i %3 ile</translation>
+        </message>
+        <message>
+            <source>Downloading...</source>
+            <translation>İndiriliyor...</translation>
+        </message>
+        <message>
+            <source>Installing</source>
+            <translation>Kuruluyor</translation>
+        </message>
+        <message>
+            <source>Finalizing installation...</source>
+            <translation>Kurulum sonlanıyor...</translation>
+        </message>
+        <message>
+            <source>Install PATH links</source>
+            <translation>PATH bağlantılarını Kur      </translation>
+        </message>
+        <message>
+            <source>Install PATH links (All Users)</source>
+            <translation>PATH bağlantılarını Kur(Tüm Kullanıcılar)</translation>
+        </message>
+        <message>
+            <source>Update &amp;All</source>
+            <translation>&amp;Hepsini Güncelle</translation>
+        </message>
+    </context>
+    <context>
+        <name>dialogPreferences</name>
+        <message>
+            <source>Preferences</source>
+            <translation>Tercihler</translation>
+        </message>
+        <message>
+            <source>AppCafe Preferences</source>
+            <translation>AppCafe Tercihleri</translation>
+        </message>
+        <message>
+            <source>Create menu icons at install</source>
+            <translation>Kurulum sırasında menu ikonlarını oluştur</translation>
+        </message>
+        <message>
+            <source>Create desktop icons at install</source>
+            <translation>Kurulum sırasında masaüstü ikonlarını oluştur</translation>
+        </message>
+        <message>
+            <source>&amp;Ok</source>
+            <translation>&amp;Tamam</translation>
+        </message>
+        <message>
+            <source>&amp;Cancel</source>
+            <translation>&amp;İptal</translation>
+        </message>
+    </context>
+    <context>
+        <name>softwareConfigWidget</name>
+        <message>
+            <source>&amp;Save</source>
+            <translation>&amp;Kaydet</translation>
+        </message>
+        <message>
+            <source>&amp;Cancel</source>
+            <translation>&amp;İptal</translation>
+        </message>
+        <message>
+            <source>Repository Configuration</source>
+            <translation>Yazılım Deposu Yapılandırması</translation>
+        </message>
+        <message>
+            <source>Repository Mirrors</source>
+            <translation>Yazılım Depo Yansıları</translation>
+        </message>
+        <message>
+            <source>&amp;Add</source>
+            <translation>&amp;Ekle</translation>
+        </message>
+        <message>
+            <source>&amp;Remove</source>
+            <translation>&amp;Kaldır</translation>
+        </message>
+        <message>
+            <source>Add Mirror</source>
+            <translation>Yansı Ekle</translation>
+        </message>
+        <message>
+            <source>Mirror URL:</source>
+            <translation>Yansı URL:</translation>
+        </message>
+    </context>
 </TS>
