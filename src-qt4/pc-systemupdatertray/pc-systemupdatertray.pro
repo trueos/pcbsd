@@ -61,6 +61,7 @@ TRANSLATIONS =  i18n/SystemUpdaterTray_af.ts \
 		i18n/SystemUpdaterTray_pt_BR.ts \
 		i18n/SystemUpdaterTray_ro.ts \
 		i18n/SystemUpdaterTray_ru.ts \
+		i18n/SystemUpdaterTray_sa.ts \
 		i18n/SystemUpdaterTray_sk.ts \
 		i18n/SystemUpdaterTray_sl.ts \
 		i18n/SystemUpdaterTray_sr.ts \

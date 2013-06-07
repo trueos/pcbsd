@@ -130,6 +130,7 @@ share/lifePreserver/i18n/LifePreserver_sw.qm
 share/lifePreserver/i18n/LifePreserver_sv.qm
 share/lifePreserver/i18n/LifePreserver_sr.qm
 share/lifePreserver/i18n/LifePreserver_sl.qm
+share/lifePreserver/i18n/LifePreserver_sa.qm
 share/lifePreserver/i18n/LifePreserver_sk.qm
 share/lifePreserver/i18n/LifePreserver_ru.qm
 share/lifePreserver/i18n/LifePreserver_ro.qm
@@ -205,6 +206,7 @@ share/warden/i18n/Warden_sw.qm
 share/warden/i18n/Warden_sv.qm
 share/warden/i18n/Warden_sr.qm
 share/warden/i18n/Warden_sl.qm
+share/warden/i18n/Warden_sa.qm
 share/warden/i18n/Warden_sk.qm
 share/warden/i18n/Warden_ru.qm
 share/warden/i18n/Warden_ro.qm
@@ -493,6 +495,7 @@ share/pcbsd/i18n/libpcbsd_sw.qm
 share/pcbsd/i18n/libpcbsd_sv.qm
 share/pcbsd/i18n/libpcbsd_sr.qm
 share/pcbsd/i18n/libpcbsd_sl.qm
+share/pcbsd/i18n/libpcbsd_sa.qm
 share/pcbsd/i18n/libpcbsd_sk.qm
 share/pcbsd/i18n/libpcbsd_ru.qm
 share/pcbsd/i18n/libpcbsd_ro.qm
@@ -557,6 +560,7 @@ share/pcbsd/i18n/AboutGui_sw.qm
 share/pcbsd/i18n/AboutGui_sv.qm
 share/pcbsd/i18n/AboutGui_sr.qm
 share/pcbsd/i18n/AboutGui_sl.qm
+share/pcbsd/i18n/AboutGui_sa.qm
 share/pcbsd/i18n/AboutGui_sk.qm
 share/pcbsd/i18n/AboutGui_ru.qm
 share/pcbsd/i18n/AboutGui_ro.qm
@@ -653,6 +657,7 @@ share/pcbsd/i18n/PackageManager_pt.qm
 share/pcbsd/i18n/PackageManager_pt_BR.qm
 share/pcbsd/i18n/PackageManager_ro.qm
 share/pcbsd/i18n/PackageManager_ru.qm
+share/pcbsd/i18n/PackageManager_sa.qm
 share/pcbsd/i18n/PackageManager_sk.qm
 share/pcbsd/i18n/PackageManager_sl.qm
 share/pcbsd/i18n/PackageManager_sr.qm
@@ -683,6 +688,7 @@ share/pcbsd/i18n/PCADSLDAP_sw.qm
 share/pcbsd/i18n/PCADSLDAP_sv.qm
 share/pcbsd/i18n/PCADSLDAP_sr.qm
 share/pcbsd/i18n/PCADSLDAP_sl.qm
+share/pcbsd/i18n/PCADSLDAP_sa.qm
 share/pcbsd/i18n/PCADSLDAP_sk.qm
 share/pcbsd/i18n/PCADSLDAP_ru.qm
 share/pcbsd/i18n/PCADSLDAP_ro.qm
@@ -745,6 +751,7 @@ share/pcbsd/i18n/pc-bluetoothmanager_sw.qm
 share/pcbsd/i18n/pc-bluetoothmanager_sv.qm
 share/pcbsd/i18n/pc-bluetoothmanager_sr.qm
 share/pcbsd/i18n/pc-bluetoothmanager_sl.qm
+share/pcbsd/i18n/pc-bluetoothmanager_sa.qm
 share/pcbsd/i18n/pc-bluetoothmanager_sk.qm
 share/pcbsd/i18n/pc-bluetoothmanager_ru.qm
 share/pcbsd/i18n/pc-bluetoothmanager_ro.qm
@@ -807,6 +814,7 @@ share/pcbsd/i18n/pc-bluetoothtray_sw.qm
 share/pcbsd/i18n/pc-bluetoothtray_sv.qm
 share/pcbsd/i18n/pc-bluetoothtray_sr.qm
 share/pcbsd/i18n/pc-bluetoothtray_sl.qm
+share/pcbsd/i18n/pc-bluetoothtray_sa.qm
 share/pcbsd/i18n/pc-bluetoothtray_sk.qm
 share/pcbsd/i18n/pc-bluetoothtray_ru.qm
 share/pcbsd/i18n/pc-bluetoothtray_ro.qm
@@ -869,6 +877,7 @@ share/pcbsd/i18n/pc-controlpanel_sw.qm
 share/pcbsd/i18n/pc-controlpanel_sv.qm
 share/pcbsd/i18n/pc-controlpanel_sr.qm
 share/pcbsd/i18n/pc-controlpanel_sl.qm
+share/pcbsd/i18n/pc-controlpanel_sa.qm
 share/pcbsd/i18n/pc-controlpanel_sk.qm
 share/pcbsd/i18n/pc-controlpanel_ru.qm
 share/pcbsd/i18n/pc-controlpanel_ro.qm
@@ -933,6 +942,7 @@ share/pcbsd/i18n/CrashHandler_sw.qm
 share/pcbsd/i18n/CrashHandler_sv.qm
 share/pcbsd/i18n/CrashHandler_sr.qm
 share/pcbsd/i18n/CrashHandler_sl.qm
+share/pcbsd/i18n/CrashHandler_sa.qm
 share/pcbsd/i18n/CrashHandler_sk.qm
 share/pcbsd/i18n/CrashHandler_ru.qm
 share/pcbsd/i18n/CrashHandler_ro.qm
@@ -998,6 +1008,7 @@ share/pcbsd/i18n/FirstBoot_sw.qm
 share/pcbsd/i18n/FirstBoot_sv.qm
 share/pcbsd/i18n/FirstBoot_sr.qm
 share/pcbsd/i18n/FirstBoot_sl.qm
+share/pcbsd/i18n/FirstBoot_sa.qm
 share/pcbsd/i18n/FirstBoot_sk.qm
 share/pcbsd/i18n/FirstBoot_ru.qm
 share/pcbsd/i18n/FirstBoot_ro.qm
@@ -1064,6 +1075,7 @@ share/pcbsd/i18n/pc-gdmconf_sw.qm
 share/pcbsd/i18n/pc-gdmconf_sv.qm
 share/pcbsd/i18n/pc-gdmconf_sr.qm
 share/pcbsd/i18n/pc-gdmconf_sl.qm
+share/pcbsd/i18n/pc-gdmconf_sa.qm
 share/pcbsd/i18n/pc-gdmconf_sk.qm
 share/pcbsd/i18n/pc-gdmconf_ru.qm
 share/pcbsd/i18n/pc-gdmconf_ro.qm
@@ -1128,6 +1140,7 @@ share/pcbsd/i18n/MountTray_sw.qm
 share/pcbsd/i18n/MountTray_sv.qm
 share/pcbsd/i18n/MountTray_sr.qm
 share/pcbsd/i18n/MountTray_sl.qm
+share/pcbsd/i18n/MountTray_sa.qm
 share/pcbsd/i18n/MountTray_sk.qm
 share/pcbsd/i18n/MountTray_ru.qm
 share/pcbsd/i18n/MountTray_ro.qm
@@ -1190,6 +1203,7 @@ share/pcbsd/i18n/NetworkManager_sw.qm
 share/pcbsd/i18n/NetworkManager_sv.qm
 share/pcbsd/i18n/NetworkManager_sr.qm
 share/pcbsd/i18n/NetworkManager_sl.qm
+share/pcbsd/i18n/NetworkManager_sa.qm
 share/pcbsd/i18n/NetworkManager_sk.qm
 share/pcbsd/i18n/NetworkManager_ru.qm
 share/pcbsd/i18n/NetworkManager_ro.qm
@@ -1254,6 +1268,7 @@ share/pcbsd/i18n/wificonfig_sw.qm
 share/pcbsd/i18n/wificonfig_sv.qm
 share/pcbsd/i18n/wificonfig_sr.qm
 share/pcbsd/i18n/wificonfig_sl.qm
+share/pcbsd/i18n/wificonfig_sa.qm
 share/pcbsd/i18n/wificonfig_sk.qm
 share/pcbsd/i18n/wificonfig_ru.qm
 share/pcbsd/i18n/wificonfig_ro.qm
@@ -1318,6 +1333,7 @@ share/pcbsd/i18n/ethernetconfig_sw.qm
 share/pcbsd/i18n/ethernetconfig_sv.qm
 share/pcbsd/i18n/ethernetconfig_sr.qm
 share/pcbsd/i18n/ethernetconfig_sl.qm
+share/pcbsd/i18n/ethernetconfig_sa.qm
 share/pcbsd/i18n/ethernetconfig_sk.qm
 share/pcbsd/i18n/ethernetconfig_ru.qm
 share/pcbsd/i18n/ethernetconfig_ro.qm
@@ -1381,6 +1397,7 @@ share/pcbsd/i18n/NetworkTray_sw.qm
 share/pcbsd/i18n/NetworkTray_sv.qm
 share/pcbsd/i18n/NetworkTray_sr.qm
 share/pcbsd/i18n/NetworkTray_sl.qm
+share/pcbsd/i18n/NetworkTray_sa.qm
 share/pcbsd/i18n/NetworkTray_sk.qm
 share/pcbsd/i18n/NetworkTray_ru.qm
 share/pcbsd/i18n/NetworkTray_ro.qm
@@ -1445,6 +1462,7 @@ share/pcbsd/i18n/PBI_sw.qm
 share/pcbsd/i18n/PBI_sv.qm
 share/pcbsd/i18n/PBI_sr.qm
 share/pcbsd/i18n/PBI_sl.qm
+share/pcbsd/i18n/PBI_sa.qm
 share/pcbsd/i18n/PBI_sk.qm
 share/pcbsd/i18n/PBI_ru.qm
 share/pcbsd/i18n/PBI_ro.qm
@@ -1505,6 +1523,7 @@ share/pcbsd/i18n/PFManager_sw.qm
 share/pcbsd/i18n/PFManager_sv.qm
 share/pcbsd/i18n/PFManager_sr.qm
 share/pcbsd/i18n/PFManager_sl.qm
+share/pcbsd/i18n/PFManager_sa.qm
 share/pcbsd/i18n/PFManager_sk.qm
 share/pcbsd/i18n/PFManager_ru.qm
 share/pcbsd/i18n/PFManager_ro.qm
@@ -1569,6 +1588,7 @@ share/pcbsd/i18n/ServiceManager_sw.qm
 share/pcbsd/i18n/ServiceManager_sv.qm
 share/pcbsd/i18n/ServiceManager_sr.qm
 share/pcbsd/i18n/ServiceManager_sl.qm
+share/pcbsd/i18n/ServiceManager_sa.qm
 share/pcbsd/i18n/ServiceManager_sk.qm
 share/pcbsd/i18n/ServiceManager_ru.qm
 share/pcbsd/i18n/ServiceManager_ro.qm
@@ -1633,6 +1653,7 @@ share/pcbsd/i18n/SoftwareManager_sw.qm
 share/pcbsd/i18n/SoftwareManager_sv.qm
 share/pcbsd/i18n/SoftwareManager_sr.qm
 share/pcbsd/i18n/SoftwareManager_sl.qm
+share/pcbsd/i18n/SoftwareManager_sa.qm
 share/pcbsd/i18n/SoftwareManager_sk.qm
 share/pcbsd/i18n/SoftwareManager_ru.qm
 share/pcbsd/i18n/SoftwareManager_ro.qm
@@ -1697,6 +1718,7 @@ share/pcbsd/i18n/SoundConfig_sw.qm
 share/pcbsd/i18n/SoundConfig_sv.qm
 share/pcbsd/i18n/SoundConfig_sr.qm
 share/pcbsd/i18n/SoundConfig_sl.qm
+share/pcbsd/i18n/SoundConfig_sa.qm
 share/pcbsd/i18n/SoundConfig_sk.qm
 share/pcbsd/i18n/SoundConfig_ru.qm
 share/pcbsd/i18n/SoundConfig_ro.qm
@@ -1759,6 +1781,7 @@ share/pcbsd/i18n/SysInstaller_sw.qm
 share/pcbsd/i18n/SysInstaller_sv.qm
 share/pcbsd/i18n/SysInstaller_sr.qm
 share/pcbsd/i18n/SysInstaller_sl.qm
+share/pcbsd/i18n/SysInstaller_sa.qm
 share/pcbsd/i18n/SysInstaller_sk.qm
 share/pcbsd/i18n/SysInstaller_ru.qm
 share/pcbsd/i18n/SysInstaller_ro.qm
@@ -1825,6 +1848,7 @@ share/pcbsd/i18n/PBSystem_sw.qm
 share/pcbsd/i18n/PBSystem_sv.qm
 share/pcbsd/i18n/PBSystem_sr.qm
 share/pcbsd/i18n/PBSystem_sl.qm
+share/pcbsd/i18n/PBSystem_sa.qm
 share/pcbsd/i18n/PBSystem_sk.qm
 share/pcbsd/i18n/PBSystem_ru.qm
 share/pcbsd/i18n/PBSystem_ro.qm
@@ -1889,6 +1913,7 @@ share/pcbsd/i18n/SystemUpdaterTray_sw.qm
 share/pcbsd/i18n/SystemUpdaterTray_sv.qm
 share/pcbsd/i18n/SystemUpdaterTray_sr.qm
 share/pcbsd/i18n/SystemUpdaterTray_sl.qm
+share/pcbsd/i18n/SystemUpdaterTray_sa.qm
 share/pcbsd/i18n/SystemUpdaterTray_sk.qm
 share/pcbsd/i18n/SystemUpdaterTray_ru.qm
 share/pcbsd/i18n/SystemUpdaterTray_ro.qm
@@ -1953,6 +1978,7 @@ share/pcbsd/i18n/UpdateGui_sw.qm
 share/pcbsd/i18n/UpdateGui_sv.qm
 share/pcbsd/i18n/UpdateGui_sr.qm
 share/pcbsd/i18n/UpdateGui_sl.qm
+share/pcbsd/i18n/UpdateGui_sa.qm
 share/pcbsd/i18n/UpdateGui_sk.qm
 share/pcbsd/i18n/UpdateGui_ru.qm
 share/pcbsd/i18n/UpdateGui_ro.qm
@@ -2015,6 +2041,7 @@ share/pcbsd/i18n/pcbsdusermanager_sw.qm
 share/pcbsd/i18n/pcbsdusermanager_sv.qm
 share/pcbsd/i18n/pcbsdusermanager_sr.qm
 share/pcbsd/i18n/pcbsdusermanager_sl.qm
+share/pcbsd/i18n/pcbsdusermanager_sa.qm
 share/pcbsd/i18n/pcbsdusermanager_sk.qm
 share/pcbsd/i18n/pcbsdusermanager_ru.qm
 share/pcbsd/i18n/pcbsdusermanager_ro.qm
@@ -2079,6 +2106,7 @@ share/pcbsd/i18n/PCWelcome_sw.qm
 share/pcbsd/i18n/PCWelcome_sv.qm
 share/pcbsd/i18n/PCWelcome_sr.qm
 share/pcbsd/i18n/PCWelcome_sl.qm
+share/pcbsd/i18n/PCWelcome_sa.qm
 share/pcbsd/i18n/PCWelcome_sk.qm
 share/pcbsd/i18n/PCWelcome_ru.qm
 share/pcbsd/i18n/PCWelcome_ro.qm
@@ -2141,6 +2169,7 @@ share/pcbsd/i18n/XGUISource_sw.qm
 share/pcbsd/i18n/XGUISource_sv.qm
 share/pcbsd/i18n/XGUISource_sr.qm
 share/pcbsd/i18n/XGUISource_sl.qm
+share/pcbsd/i18n/XGUISource_sa.qm
 share/pcbsd/i18n/XGUISource_sk.qm
 share/pcbsd/i18n/XGUISource_ru.qm
 share/pcbsd/i18n/XGUISource_ro.qm
@@ -2205,6 +2234,7 @@ share/EasyPBI/i18n/EasyPBI_sw.qm
 share/EasyPBI/i18n/EasyPBI_sv.qm
 share/EasyPBI/i18n/EasyPBI_sr.qm
 share/EasyPBI/i18n/EasyPBI_sl.qm
+share/EasyPBI/i18n/EasyPBI_sa.qm
 share/EasyPBI/i18n/EasyPBI_sk.qm
 share/EasyPBI/i18n/EasyPBI_ru.qm
 share/EasyPBI/i18n/EasyPBI_ro.qm
@@ -2357,6 +2387,7 @@ share/PCDM/i18n/PCDM_pt.qm
 share/PCDM/i18n/PCDM_pt_BR.qm
 share/PCDM/i18n/PCDM_ro.qm
 share/PCDM/i18n/PCDM_ru.qm
+share/PCDM/i18n/PCDM_sa.qm
 share/PCDM/i18n/PCDM_sk.qm
 share/PCDM/i18n/PCDM_sl.qm
 share/PCDM/i18n/PCDM_sr.qm

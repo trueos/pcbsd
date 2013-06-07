@@ -76,6 +76,7 @@ TRANSLATIONS =  i18n/AboutGui_af.ts \
 		i18n/AboutGui_pt_BR.ts \
 		i18n/AboutGui_ro.ts \
 		i18n/AboutGui_ru.ts \
+		i18n/AboutGui_sa.ts \
 		i18n/AboutGui_sk.ts \
 		i18n/AboutGui_sl.ts \
 		i18n/AboutGui_sr.ts \

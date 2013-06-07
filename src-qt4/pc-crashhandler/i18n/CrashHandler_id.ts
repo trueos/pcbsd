@@ -65,10 +65,6 @@
         <translation>Alt+T</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Simpan file...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Tulis ulang file?</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;Tidak</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -69,6 +69,7 @@ TRANSLATIONS =  i18n/NetworkManager_af.ts \
 		i18n/NetworkManager_pt_BR.ts \
 		i18n/NetworkManager_ro.ts \
 		i18n/NetworkManager_ru.ts \
+		i18n/NetworkManager_sa.ts \
 		i18n/NetworkManager_sk.ts \
 		i18n/NetworkManager_sl.ts \
 		i18n/NetworkManager_sr.ts \

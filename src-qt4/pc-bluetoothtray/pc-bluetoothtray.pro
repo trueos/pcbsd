@@ -66,6 +66,7 @@ TRANSLATIONS =  i18n/pc-bluetoothtray_af.ts \
                 i18n/pc-bluetoothtray_pt_BR.ts \
                 i18n/pc-bluetoothtray_ro.ts \
                 i18n/pc-bluetoothtray_ru.ts \
+                i18n/pc-bluetoothtray_sa.ts \
                 i18n/pc-bluetoothtray_sk.ts \
                 i18n/pc-bluetoothtray_sl.ts \
                 i18n/pc-bluetoothtray_sr.ts \

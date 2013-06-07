@@ -72,6 +72,7 @@ TRANSLATIONS =  i18n/Warden_af.ts \
                 i18n/Warden_pt_BR.ts \
                 i18n/Warden_ro.ts \
                 i18n/Warden_ru.ts \
+                i18n/Warden_sa.ts \
                 i18n/Warden_sk.ts \
                 i18n/Warden_sl.ts \
                 i18n/Warden_sr.ts \

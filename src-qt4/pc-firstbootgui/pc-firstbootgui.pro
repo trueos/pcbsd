@@ -70,6 +70,7 @@ TRANSLATIONS =  i18n/FirstBoot_af.ts \
 		i18n/FirstBoot_pt_BR.ts \
 		i18n/FirstBoot_ro.ts \
 		i18n/FirstBoot_ru.ts \
+		i18n/FirstBoot_sa.ts \
 		i18n/FirstBoot_sk.ts \
 		i18n/FirstBoot_sl.ts \
 		i18n/FirstBoot_sr.ts \

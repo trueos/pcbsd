@@ -73,6 +73,7 @@ TRANSLATIONS =  i18n/pc-gdmconf_af.ts \
                 i18n/pc-gdmconf_pt_BR.ts \
                 i18n/pc-gdmconf_ro.ts \
                 i18n/pc-gdmconf_ru.ts \
+                i18n/pc-gdmconf_sa.ts \
                 i18n/pc-gdmconf_sk.ts \
                 i18n/pc-gdmconf_sl.ts \
                 i18n/pc-gdmconf_sr.ts \

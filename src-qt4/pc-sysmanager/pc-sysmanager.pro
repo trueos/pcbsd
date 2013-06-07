@@ -66,6 +66,7 @@ TRANSLATIONS =  i18n/PBSystem_af.ts \
 		i18n/PBSystem_pt_BR.ts \
 		i18n/PBSystem_ro.ts \
 		i18n/PBSystem_ru.ts \
+		i18n/PBSystem_sa.ts \
 		i18n/PBSystem_sk.ts \
 		i18n/PBSystem_sl.ts \
 		i18n/PBSystem_sr.ts \

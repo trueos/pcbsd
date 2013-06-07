@@ -81,6 +81,7 @@ TRANSLATIONS =  i18n/PCDM_af.ts \
 		i18n/PCDM_pt_BR.ts \
 		i18n/PCDM_ro.ts \
 		i18n/PCDM_ru.ts \
+		i18n/PCDM_sa.ts \
 		i18n/PCDM_sk.ts \
 		i18n/PCDM_sl.ts \
 		i18n/PCDM_sr.ts \

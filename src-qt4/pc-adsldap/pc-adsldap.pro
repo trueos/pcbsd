@@ -64,6 +64,7 @@ TRANSLATIONS =  i18n/PCADSLDAP_af.ts \
 		i18n/PCADSLDAP_pt_BR.ts \
 		i18n/PCADSLDAP_ro.ts \
 		i18n/PCADSLDAP_ru.ts \
+		i18n/PCADSLDAP_sa.ts \
 		i18n/PCADSLDAP_sk.ts \
 		i18n/PCADSLDAP_sl.ts \
 		i18n/PCADSLDAP_sr.ts \

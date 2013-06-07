@@ -63,6 +63,7 @@ TRANSLATIONS =  i18n/UpdateGui_af.ts \
 		i18n/UpdateGui_pt_BR.ts \
 		i18n/UpdateGui_ro.ts \
 		i18n/UpdateGui_ru.ts \
+		i18n/UpdateGui_sa.ts \
 		i18n/UpdateGui_sk.ts \
 		i18n/UpdateGui_sl.ts \
 		i18n/UpdateGui_sr.ts \

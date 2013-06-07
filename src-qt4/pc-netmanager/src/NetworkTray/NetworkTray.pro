@@ -57,6 +57,7 @@ TRANSLATIONS =  i18n/NetworkTray_af.ts \
 		i18n/NetworkTray_pt_BR.ts \
 		i18n/NetworkTray_ro.ts \
 		i18n/NetworkTray_ru.ts \
+		i18n/NetworkTray_sa.ts \
 		i18n/NetworkTray_sk.ts \
 		i18n/NetworkTray_sl.ts \
 		i18n/NetworkTray_sr.ts \

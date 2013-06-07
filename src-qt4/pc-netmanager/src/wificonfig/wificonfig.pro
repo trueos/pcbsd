@@ -59,6 +59,7 @@ TRANSLATIONS =  i18n/wificonfig_af.ts \
 		i18n/wificonfig_pt_BR.ts \
 		i18n/wificonfig_ro.ts \
 		i18n/wificonfig_ru.ts \
+		i18n/wificonfig_sa.ts \
 		i18n/wificonfig_sk.ts \
 		i18n/wificonfig_sl.ts \
 		i18n/wificonfig_sr.ts \

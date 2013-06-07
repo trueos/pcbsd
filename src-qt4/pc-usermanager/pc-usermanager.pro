@@ -86,6 +86,7 @@ TRANSLATIONS =  i18n/pcbsdusermanager_af.ts \
 		i18n/pcbsdusermanager_pt_BR.ts \
 		i18n/pcbsdusermanager_ro.ts \
 		i18n/pcbsdusermanager_ru.ts \
+		i18n/pcbsdusermanager_sa.ts \
 		i18n/pcbsdusermanager_sk.ts \
 		i18n/pcbsdusermanager_sl.ts \
 		i18n/pcbsdusermanager_sr.ts \

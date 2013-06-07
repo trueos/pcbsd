@@ -117,6 +117,7 @@ TRANSLATIONS =  i18n/LifePreserver_af.ts \
 		i18n/LifePreserver_pt_BR.ts \
 		i18n/LifePreserver_ro.ts \
 		i18n/LifePreserver_ru.ts \
+		i18n/LifePreserver_sa.ts \
 		i18n/LifePreserver_sk.ts \
 		i18n/LifePreserver_sl.ts \
 		i18n/LifePreserver_sr.ts \
