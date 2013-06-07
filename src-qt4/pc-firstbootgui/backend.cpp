@@ -102,7 +102,7 @@ QStringList Backend::languages()
     QString code, desc, line;
 
     QFile mFile;
-    mFile.setFileName("/usr/share/pc-sysinstall/conf/avail-langs");
+    mFile.setFileName("/usr/local/share/pc-sysinstall/conf/avail-langs");
     if ( ! mFile.open(QIODevice::ReadOnly | QIODevice::Text))
        return QStringList();
 
