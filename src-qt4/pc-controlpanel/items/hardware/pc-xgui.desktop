@@ -82,6 +82,7 @@ PC-TryMessage=Schedule the display wizard to run after the next reboot?
 PC-TryMessage[ar]=إعادة تشغيل برنامج العرض بعد إطلاق إعادة التمهيد التالي؟
 PC-TryMessage[bs]=Hoćete li kod sledečeg starta koristiti asistenta za podešavanje ekrana?
 PC-TryMessage[de]=Soll der Bildschirmassistent nach dem nächsten Neustart aufgerufen werden?
+PC-TryMessage[el]=Προγραμματίστε τον Οδηγό Οθόνης για να τρέξει μετά την επόμενη Επανεκκίνηση;
 PC-TryMessage[en_GB]=Schedule the display wizard to run after the next reboot?
 PC-TryMessage[en_ZA]=Schedule the display wizard to run after the next reboot?
 PC-TryMessage[es]=¿Desea ejecutar el configurador de pantalla al siguiente inicio?
