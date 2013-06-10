@@ -428,6 +428,9 @@ void mainWin::slotPkgDone() {
 
   // Switch back to our main display
   stackedTop->setCurrentIndex(0);
+ 
+  // Re-scan for updates
+  slotRescanPkgsClicked();
 
   // Re-init the meta-widget
   initMetaWidget();
