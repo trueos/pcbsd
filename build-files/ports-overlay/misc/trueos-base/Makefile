@@ -36,6 +36,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		python:${PORTSDIR}/lang/python \
 		screen:${PORTSDIR}/sysutils/screen \
 		nano:${PORTSDIR}/editors/nano \
+		mosh:${PORTSDIR}/net/mosh \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats
 
 NO_BUILD=	yes
