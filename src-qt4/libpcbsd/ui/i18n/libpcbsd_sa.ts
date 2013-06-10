@@ -5,7 +5,7 @@
         <name>dialogInfoBox</name>
         <message>
             <source>Dialog</source>
-            <translation type="unfinished">
+            <translation>संवादपेटिका
             </translation>
         </message>
         <message>
@@ -18,7 +18,7 @@
         <name>dialogMetaProgress</name>
         <message>
             <source>System-Packages</source>
-            <translation type="unfinished">
+            <translation>संविधा-तन्त्रांशसंपुटनानि
             </translation>
         </message>
         <message>

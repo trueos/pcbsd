@@ -5,12 +5,12 @@
         <name>QObject</name>
         <message>
             <source>Keep these display settings?</source>
-            <translation type="unfinished">
+            <translation>प्रदर्शक-विकल्पानि सृजेय?
             </translation>
         </message>
         <message>
             <source>The previous attempt failed, please check your settings and try again.</source>
-            <translation type="unfinished">
+            <translation>पूर्वप्रयत्नानि विफलम् अभवन्, विकल्पानि दृश्तुम् पुनः प्रयासम् कुरु।
             </translation>
         </message>
         <message>
