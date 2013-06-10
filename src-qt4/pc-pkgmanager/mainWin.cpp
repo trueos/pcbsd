@@ -382,7 +382,7 @@ void mainWin::slotReadPkgOutput() {
      }
      
      if ( uPackages ) {
-       if ( line.indexOf("Upgrading") == 0 ) {
+       if ( line.indexOf("Upgrading") == 0 || line.indexOf("Reinstalling") == 0 ) {
          textStatus->setText(line);
          curUpdate++;
          progressUpdate->setValue(curUpdate);
