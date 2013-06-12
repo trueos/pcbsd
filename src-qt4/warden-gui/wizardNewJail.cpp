@@ -43,7 +43,6 @@ void wizardNewJail::loadTemplates()
       m.waitForFinished(200);
       QCoreApplication::processEvents();
    }
-   // Get output of mount now
    int i = 0;
    QString tmp;
    while (m.canReadLine()) {
@@ -146,12 +145,20 @@ bool wizardNewJail::validatePage()
 	    }
 
          // Check if we have a good IPV4 or IPV6 address
-	 if ( ! pcbsd::Utils::validateIPV4(lineIP->text()) && ! pcbsd::Utils::validateIPV6(lineIP->text()) ) {
+	 if ( checkIPv4->isChecked() && ! pcbsd::Utils::validateIPV4(lineIP->text())) {
            button(QWizard::NextButton)->setEnabled(false);
            lineIP->setPalette(badPal);
            labelMessage->setText(tr("Invalid IP address!"));
            return false;
          }
+
+	 if ( checkIPv6->isChecked() && ! pcbsd::Utils::validateIPV6(lineIP6->text()) ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           lineIP6->setPalette(badPal);
+           labelMessage->setText(tr("Invalid IPv6 address!"));
+           return false;
+         }
+
 
          // Got to the end, must be good!
          lineIP->setPalette(goodPal);
