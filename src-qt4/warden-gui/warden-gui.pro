@@ -6,9 +6,24 @@ CONFIG	+= qt warn_on release
 LIBS    +=-L../libpcbsd -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
 INCLUDEPATH+= ../libpcbsd/ui ../libpcbsd/utils /usr/local/include
 
-HEADERS += dialogwarden.h dialogconfig.h dialogimport.h dialogworking.h dialogdisplayoutput.h wizardNewJail.h dialogEditIP.h
+HEADERS += dialogwarden.h \
+	dialogconfig.h \
+	dialogimport.h \
+	dialogworking.h \
+	dialogdisplayoutput.h \
+	wizardNewJail.h \
+	dialogEditIP.h \
+	dialogTemplates.h
 
-SOURCES	+= main.cpp dialogwarden.cpp dialogconfig.cpp dialogimport.cpp dialogworking.cpp dialogdisplayoutput.cpp wizardNewJail.cpp dialogEditIP.cpp
+SOURCES	+= main.cpp \
+	dialogwarden.cpp \
+	dialogconfig.cpp \
+	dialogimport.cpp \
+	dialogworking.cpp \
+	dialogdisplayoutput.cpp \
+	wizardNewJail.cpp \
+	dialogEditIP.cpp \
+	dialogTemplates.cpp
 
 FORMS	= dialogwarden.ui \
 	dialogconfig.ui \
@@ -16,7 +31,8 @@ FORMS	= dialogwarden.ui \
 	dialogdisplayoutput.ui \
 	dialogimport.ui \
 	dialogworking.ui \
-	wizardNewJail.ui
+	wizardNewJail.ui \
+	dialogTemplates.ui
 
 TARGET	= warden-gui
 

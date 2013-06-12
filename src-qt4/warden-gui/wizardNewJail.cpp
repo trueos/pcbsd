@@ -35,7 +35,7 @@ void wizardNewJail::programInit()
 void wizardNewJail::loadTemplates()
 {
    comboTemplate->clear();
-   comboTemplate->addItem(tr("Use host Version + Architecture (default)"));
+   comboTemplate->addItem(tr("Use system version (default)"));
    // Load any available templates
    QProcess m;
    m.start(QString("warden"), QStringList() << "template" << "list");

@@ -1019,6 +1019,8 @@
     <addaction name="fileCreate_JailAction"/>
     <addaction name="fileImport_JailAction"/>
     <addaction name="separator"/>
+    <addaction name="actionTemplate_Manager"/>
+    <addaction name="separator"/>
     <addaction name="fileExitAction"/>
    </widget>
    <widget class="QMenu" name="Jails">
@@ -1089,6 +1091,11 @@
    </property>
    <property name="name" stdset="0">
     <string notr="true">fileImport_JailAction</string>
+   </property>
+  </action>
+  <action name="actionTemplate_Manager">
+   <property name="text">
+    <string>Template Manager</string>
    </property>
   </action>
  </widget>
@@ -1181,6 +1188,22 @@
     <hint type="destinationlabel">
      <x>20</x>
      <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionTemplate_Manager</sender>
+   <signal>activated()</signal>
+   <receiver>dialogWarden</receiver>
+   <slot>slotTemplateOpen()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>333</y>
     </hint>
    </hints>
   </connection>

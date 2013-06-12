@@ -5,6 +5,7 @@
 #define WARDENDIR QString("/usr/local/share/warden")
 
 #include "ui_dialogwarden.h"
+#include "dialogTemplates.h"
 #include "dialogimport.h"
 #include "dialogEditIP.h"
 #include "wizardNewJail.h"
@@ -87,6 +88,8 @@ private slots:
     void slotRemoveClone();
     void slotCronSnapshotChanged();
 
+    void slotTemplateOpen();
+
 private:
     void refreshJailDetailsView();
     void runCommand( QString command );
@@ -99,6 +102,7 @@ private:
     QString TMPDIR;
     QString JailDir;
     dialogConfig *configDialog;
+    dialogTemplates *tempDialog;
     QString currentStatusWorkingJail;
     QString currentDetailsWorkingJail;
     QString currentUpdateWorkingJail;

@@ -24,6 +24,7 @@
 #include "dialogconfig.h"
 #include "dialogdisplayoutput.h"
 #include "dialogimport.h"
+#include "dialogTemplates.h"
 #include "wizardNewJail.h"
 #include "pcbsd-utils.h"
 
@@ -1681,4 +1682,11 @@ void dialogWarden::slotSingleInstance()
   this->showNormal();
   this->activateWindow();
   this->raise();
+}
+
+void dialogWarden::slotTemplateOpen()
+{
+   tempDialog = new dialogTemplates();
+   tempDialog->programInit();
+   tempDialog->exec();
 }
