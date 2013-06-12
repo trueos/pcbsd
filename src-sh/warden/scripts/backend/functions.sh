@@ -1019,6 +1019,7 @@ delete_template()
      fi
      rm ${tDir}.tbz
    fi
+   echo "DONE"
 
    exit 0
 }
