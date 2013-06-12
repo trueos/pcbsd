@@ -28,10 +28,16 @@ void dialogEditIP::programInit(QString name)
 {
   JailDir = pcbsd::Utils::getValFromPCConf("/usr/local/etc/warden.conf", "JDIR");
   jailName = name;
+  QFile file;
   QString tmp;
 
+  // Is VNET enabled?
+  file.setFileName( JailDir + "/." + jailName + ".meta/vnet" );
+  if ( file.exists() )
+    checkVNET->setChecked(true);
+
   // Lets start loading IP addresses
-  QFile file( JailDir + "/." + jailName + ".meta/ipv4" );
+  file.setFileName( JailDir + "/." + jailName + ".meta/ipv4" );
   if ( file.exists() && file.open( QIODevice::ReadOnly ) ) {
      QTextStream stream( &file ); tmp=""; tmp = stream.readLine();
      lineIP->setText(tmp);
@@ -118,6 +124,7 @@ void dialogEditIP::programInit(QString name)
   }
 
   // Our buttons / slots
+  connect( checkVNET, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
   connect( checkIPv4, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
   connect( checkIPv4Bridge, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
   connect( checkIPv4Router, SIGNAL( clicked() ), this, SLOT( slotCheckChecks() ) );
@@ -262,6 +269,28 @@ void dialogEditIP::slotCheckChecks()
   lineIP6Bridge->setEnabled(checkIPv6Bridge->isChecked());
   lineIP6Router->setEnabled(checkIPv6Router->isChecked());
 
+  // Enable / disable VNET only options
+  if ( checkVNET->isChecked() )
+  {
+    lineIPBridge->setEnabled(checkIPv4Bridge->isChecked());
+    lineIPRouter->setEnabled(checkIPv4Router->isChecked());
+    lineIP6Bridge->setEnabled(checkIPv6Bridge->isChecked());
+    lineIP6Router->setEnabled(checkIPv6Router->isChecked());
+    checkIPv4Bridge->setEnabled(true);
+    checkIPv4Router->setEnabled(true);
+    checkIPv6Bridge->setEnabled(true);
+    checkIPv6Router->setEnabled(true);
+  } else {
+    lineIPBridge->setEnabled(false);
+    lineIPRouter->setEnabled(false);
+    lineIP6Bridge->setEnabled(false);
+    lineIP6Router->setEnabled(false);
+    checkIPv4Bridge->setEnabled(false);
+    checkIPv4Router->setEnabled(false);
+    checkIPv6Bridge->setEnabled(false);
+    checkIPv6Router->setEnabled(false);
+  }
+
 }
 
 void dialogEditIP::slotCancelClicked()
@@ -316,6 +345,17 @@ void dialogEditIP::saveSettings()
   QFile file;
 
   // Start saving settings
+  file.setFileName( JailDir + "/." + jailName + ".meta/vnet" );
+  if ( checkVNET->isChecked() ) {
+    if ( file.open( QIODevice::WriteOnly ) ) {
+       QTextStream stream( &file );
+         stream << "";
+       file.close();
+    }
+  } else {
+    file.remove();
+  }
+
   file.setFileName( JailDir + "/." + jailName + ".meta/alias-ipv4" );
   if ( ! IPv4Alias.isEmpty() ) {
     if ( file.open( QIODevice::WriteOnly ) ) {
