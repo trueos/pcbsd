@@ -53,7 +53,7 @@ private slots:
     void slotFinishedOutput();
     void slotReadPkgsOutput();
     void slotClickedNewJail();
-    void slotCreateNewJail( const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString & );
+    void slotCreateNewJail( const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &, const QString &);
     void slotReadCreateOutput();
     void slotFinishedJailCreate();
     void slotReadUserAddOutput();

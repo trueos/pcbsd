@@ -898,12 +898,12 @@ void dialogWarden::slotClickedNewJail()
       }
       newJailWizard->setHostIPUsed(uH, uI);
       
-      connect( newJailWizard, SIGNAL(create(const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &)), this, SLOT(slotCreateNewJail(const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &) ) );
+      connect( newJailWizard, SIGNAL(create(const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &, const QString &)), this, SLOT(slotCreateNewJail(const QString &, const QString &, const QString &, bool, bool, const QString &, bool, bool, bool, bool, const QString &, const QString &) ) );
       newJailWizard->show();
 }
 
 
-void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, const QString &host, bool tradjail, bool PCUtils, const QString &rootpw, bool src, bool ports, bool autostart, bool linuxJail, const QString &linuxScript )
+void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, const QString &host, bool tradjail, bool PCUtils, const QString &rootpw, bool src, bool ports, bool autostart, bool linuxJail, const QString &linuxScript, const QString &tplate )
 {
     if ( tradjail || linuxJail )
       newRootPW=rootpw;
@@ -939,6 +939,9 @@ void dialogWarden::slotCreateNewJail( const QString &IP, const QString &IP6, con
         args << "--ipv6";
         args << IP6;
       }
+
+      if ( ! linuxJail && ! tplate.isEmpty() )
+        args << "--template" << tplate.section(" ", 0, 0);
 
       if ( tradjail && ! PCUtils )
         args << "--vanilla";
