@@ -1008,7 +1008,10 @@ delete_template()
      if [ $? -ne 0 ] ; then printerror "Not a ZFS volume: ${tDir}" ; fi
      tank=`getZFSTank "$tDir"`
      rp=`getZFSRelativePath "$tDir"`
-     zfs destroy -r $tank${rp}
+     zfs destroy -r $tank${rp} 
+     if [ $? -ne 0 ] ; then
+       exit_err "Could not remove template, perhaps you have jails still using it?"
+     fi
      rmdir ${tDir}
    else
      if [ ! -e "${tDir}.tbz" ] ; then
