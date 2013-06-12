@@ -5,8 +5,7 @@
         <name>Installer</name>
         <message>
             <source>Switch between US layout and user selected layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Εναλλαγή μεταξύ της διάταξης των ΗΠΑ και της διάταξης που επέλεξε ο χρήστης.</translation>
         </message>
         <message>
             <source>&amp;Back</source>
