@@ -65,10 +65,6 @@
         <translation>Alt+C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>ফাইলে সংরক্ষণ করো...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>ফাইল প্রতিস্থাপন করা হবে?</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation>না (&amp;N)</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

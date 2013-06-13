@@ -81,13 +81,11 @@
         </message>
         <message>
             <source>System components...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Εξαρτήματα του συστήματος ...</translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Περιβάλλοντα Desktop</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>

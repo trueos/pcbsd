@@ -63,10 +63,6 @@
         <translation>Alt+C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Сохранить файл...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Перезаписать файл?</translation>
     </message>
@@ -81,6 +77,14 @@
     <message>
         <source>&amp;No</source>
         <translation>Нет [&amp;N]</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

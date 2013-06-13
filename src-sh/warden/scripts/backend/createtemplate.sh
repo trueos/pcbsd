@@ -163,38 +163,6 @@ create_template()
 };
 
 
-# Read our flags
-while [ $# -gt 0 ]; do
-   case $1 in
-    -fbsd) shift
-           if [ -z "$1" ] ; then exit_err "No FreeBSD version specified"; fi
-           FBSDVER="${1}"
-           ;;
-  -trueos) shift
-           if [ -z "$1" ] ; then exit_err "No TrueOS version specified"; fi
-           TRUEOSVER="${1}"
-           ;;
-    -arch) shift
-           if [ -z "$1" ] ; then exit_err "No FreeBSD architecture specified"; fi
-           FBSDARCH="${1}"
-           ;;
-    -tar) shift
-           if [ -z "$1" ] ; then exit_err "No tar file specified"; fi
-           if [ ! -e "$1" ] ; then exit_err "Could not find tar file: $1"; fi
-           FBSDTAR="${1}"
-           ;;
-    -nick) shift
-           if [ -z "$1" ] ; then exit_err "No nickname specified"; fi
-           TNICK="${1}"
-	   ;;
- -pluginjail) shift
-           TPLUGJAIL="YES"
-	   ;;
-	*) exit_err "Invalid option: $1" ;;
-   esac
-   shift
-done
-
 if [ -z "$TNICK" ] ; then exit_err "No nickname specified, use -nick <nickname>"; fi
 if [ -z "$FBSDTAR" ] ; then 
   if [ -z "$FBSDVER" -a -z "${TRUEOSVER}" ] ; then exit_err "Need either -fbsd or -trueos specified!"; fi

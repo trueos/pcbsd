@@ -65,10 +65,6 @@
         <translation>Alt+F</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Guardar ficheiro...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Sobrepor o ficheiro?</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;Não</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

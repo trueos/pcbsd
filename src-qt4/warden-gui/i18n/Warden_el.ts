@@ -5,13 +5,11 @@
         <name>dialogConfig</name>
         <message>
             <source>Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Διαμόρφωση</translation>
         </message>
         <message>
             <source>&amp;Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Αποθήκευση</translation>
         </message>
         <message>
             <source>Alt+S</source>
@@ -20,13 +18,11 @@
         </message>
         <message>
             <source>&amp;Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Ακύρωση</translation>
         </message>
         <message>
             <source>Alt+C</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+C</translation>
         </message>
         <message>
             <source>Jail Network Interface</source>

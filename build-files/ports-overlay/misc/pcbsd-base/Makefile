@@ -123,7 +123,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		pl-aspell>=0:${PORTSDIR}/polish/aspell \
 		ru-aspell>=0:${PORTSDIR}/russian/aspell \
 		uk-aspell>=0:${PORTSDIR}/ukrainian/aspell \
-		vi-aspell>=0:${PORTSDIR}/vietnamese/aspell
+		vi-aspell>=0:${PORTSDIR}/vietnamese/aspell \
+		mosh:${PORTSDIR}/net/mosh
 
 NO_BUILD=	yes
 

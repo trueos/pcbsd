@@ -73,6 +73,7 @@ TRANSLATIONS =  i18n/MountTray_af.ts \
 		i18n/MountTray_pt_BR.ts \
 		i18n/MountTray_ro.ts \
 		i18n/MountTray_ru.ts \
+		i18n/MountTray_sa.ts \
 		i18n/MountTray_sk.ts \
 		i18n/MountTray_sl.ts \
 		i18n/MountTray_sr.ts \

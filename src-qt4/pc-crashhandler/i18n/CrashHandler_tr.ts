@@ -64,10 +64,6 @@
         <translation>Alt+C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Dosyayı kaydet...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Dosyanın Üstüne Yazılsın mı?</translation>
     </message>
@@ -82,6 +78,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;Hayır</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

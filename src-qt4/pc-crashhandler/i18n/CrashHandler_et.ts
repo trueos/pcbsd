@@ -65,10 +65,6 @@
         <translation>Alt+V</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Salvesta nimega...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Kirjutan üle Faili?</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;Ei</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

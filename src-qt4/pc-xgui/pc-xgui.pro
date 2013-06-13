@@ -58,6 +58,7 @@ TRANSLATIONS =  i18n/XGUISource_af.ts \
 		i18n/XGUISource_pt_BR.ts \
 		i18n/XGUISource_ro.ts \
 		i18n/XGUISource_ru.ts \
+		i18n/XGUISource_sa.ts \
 		i18n/XGUISource_sk.ts \
 		i18n/XGUISource_sl.ts \
 		i18n/XGUISource_sr.ts \

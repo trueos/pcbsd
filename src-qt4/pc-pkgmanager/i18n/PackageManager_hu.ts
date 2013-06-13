@@ -2,282 +2,291 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="hu_HU">
 <context>
+    <name>dialogConfirm</name>
+    <message>
+        <location filename="../dialogConfirm.ui" line="14"/>
+        <source>Confirm Package Changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogConfirm.ui" line="20"/>
+        <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogConfirm.ui" line="48"/>
+        <source>&amp;Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../dialogConfirm.ui" line="55"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>mainWin</name>
     <message>
-        <location filename="../mainWin.ui" line="14"/>
-        <location filename="../mainWin.cpp" line="157"/>
-        <source>Update Manager</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.ui" line="26"/>
-        <source>Preparing to check for updates... Please Wait...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.ui" line="50"/>
-        <location filename="../mainWin.cpp" line="358"/>
-        <source>System Updates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.ui" line="56"/>
-        <location filename="../mainWin.ui" line="140"/>
-        <location filename="../mainWin.cpp" line="367"/>
+        <location filename="../mainWin.ui" line="217"/>
         <source>Available Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="64"/>
-        <source>Select / Deselect All</source>
+        <location filename="../mainWin.ui" line="14"/>
+        <source>System Package Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="84"/>
-        <source>Re&amp;scan for Updates</source>
+        <location filename="../mainWin.ui" line="32"/>
+        <source>Add / Remove Packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="105"/>
-        <source>&amp;Install selected updates</source>
+        <location filename="../mainWin.ui" line="38"/>
+        <source>System Packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="134"/>
-        <location filename="../mainWin.cpp" line="570"/>
+        <location filename="../mainWin.ui" line="91"/>
+        <source>Package Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="101"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="116"/>
+        <source>10 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="129"/>
+        <source>My Package 1.0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="136"/>
+        <source>http://www.pcbsd.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="150"/>
+        <source>Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="160"/>
+        <source>Dependances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="198"/>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="211"/>
+        <location filename="../mainWin.cpp" line="153"/>
         <source>Package Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="161"/>
+        <location filename="../mainWin.ui" line="238"/>
         <source>Re&amp;scan packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="182"/>
+        <location filename="../mainWin.ui" line="275"/>
         <source>&amp;Update packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="217"/>
+        <location filename="../mainWin.ui" line="294"/>
         <source>Package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="222"/>
+        <location filename="../mainWin.ui" line="299"/>
         <source>Old Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="227"/>
+        <location filename="../mainWin.ui" line="304"/>
         <source>New Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="257"/>
+        <location filename="../mainWin.ui" line="329"/>
+        <source>Installing updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.ui" line="382"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="33"/>
-        <source>Updates for Jail:</source>
+        <location filename="../mainWin.ui" line="401"/>
+        <source>&amp;File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="107"/>
-        <source>Update Conflict</source>
+        <location filename="../mainWin.ui" line="407"/>
+        <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="107"/>
-        <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
+        <location filename="../mainWin.ui" line="418"/>
+        <source>&amp;Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="147"/>
-        <location filename="../mainWin.cpp" line="149"/>
-        <source>Update Failed!</source>
+        <location filename="../mainWin.ui" line="429"/>
+        <source>&amp;Basic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="147"/>
-        <location filename="../mainWin.cpp" line="149"/>
-        <source>Failed to install:</source>
+        <location filename="../mainWin.ui" line="437"/>
+        <source>&amp;Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="147"/>
-        <source>An unknown error occured!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="153"/>
-        <source>Update Ready</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="153"/>
-        <source>Please reboot to start the update to PC-BSD version &quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="153"/>
-        <source>This process may take a while, please do NOT interrupt the process.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="172"/>
-        <source>Updating:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="174"/>
-        <source>Starting Update: %1 (%2 of %3)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="244"/>
-        <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="262"/>
-        <source>Updating: %1 (%2 of %3)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="328"/>
-        <source>Checking for updates... Please Wait...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="349"/>
-        <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="357"/>
-        <source>Your system is fully updated!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="360"/>
-        <source>Package updates available!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="366"/>
-        <source>System updates available!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="369"/>
-        <source>System Updates (%1)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="374"/>
-        <source>System Upgrade: %1 (%2)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="377"/>
-        <source>PC-BSD Version:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="377"/>
-        <source>This update must be installed by itself.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="377"/>
-        <source>Creating a backup of your data first is recommended.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="382"/>
-        <source>Patch: %1 (%2)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="386"/>
-        <source>This is a patch for your version of PC-BSD</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="386"/>
-        <source>Patch Size:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="395"/>
-        <source>FreeBSD Security Update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="397"/>
-        <source>The following files need updating:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="410"/>
-        <source>System Package Updates</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="412"/>
-        <source>The following package updates are available:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="535"/>
+        <location filename="../mainWin.cpp" line="120"/>
         <source>Checking for updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="567"/>
+        <location filename="../mainWin.cpp" line="150"/>
         <source>Package Updates (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="568"/>
+        <location filename="../mainWin.cpp" line="151"/>
         <source>Available updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="571"/>
+        <location filename="../mainWin.cpp" line="154"/>
         <source>No available updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="659"/>
+        <location filename="../mainWin.cpp" line="191"/>
         <source>Starting package updates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="674"/>
+        <location filename="../mainWin.cpp" line="215"/>
+        <source>required by:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="292"/>
+        <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="301"/>
+        <source>Package Conflicts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="302"/>
+        <source>You may need to manually fix the conflicts before trying again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="371"/>
         <source>Downloading packages...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="690"/>
+        <location filename="../mainWin.cpp" line="422"/>
+        <source>Failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="422"/>
+        <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="424"/>
+        <source>Finished!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="424"/>
+        <source>Package changes complete!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="462"/>
+        <location filename="../mainWin.cpp" line="807"/>
+        <source>Loading... Please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="705"/>
+        <source>No changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="706"/>
+        <source>No changes to make!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="721"/>
+        <source>The following packages will be removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="724"/>
+        <source>The following packages that require the above packages will also removed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="742"/>
+        <source>The following packages will be installed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="745"/>
+        <source>The following dependances will also be installed:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="763"/>
+        <source>Confirm package changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="1030"/>
+        <source>No Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="1031"/>
+        <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="1246"/>
+        <source>View Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="1276"/>
+        <source>Package Listing for:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainWin.cpp" line="323"/>
+        <location filename="../mainWin.cpp" line="324"/>
         <source>Downloading: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="761"/>
-        <source>Downloading %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="783"/>
-        <source>Failed package update</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.cpp" line="783"/>
-        <source>The package update failed! If this persists, you may need to manually run: pc-updatemanager pkgupdate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

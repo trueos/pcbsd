@@ -70,6 +70,7 @@ TRANSLATIONS =  i18n/pc-bluetoothmanager_af.ts \
                 i18n/pc-bluetoothmanager_pt_BR.ts \
                 i18n/pc-bluetoothmanager_ro.ts \
                 i18n/pc-bluetoothmanager_ru.ts \
+                i18n/pc-bluetoothmanager_sa.ts \
                 i18n/pc-bluetoothmanager_sk.ts \
                 i18n/pc-bluetoothmanager_sl.ts \
                 i18n/pc-bluetoothmanager_sr.ts \

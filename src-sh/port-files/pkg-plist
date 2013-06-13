@@ -715,4 +715,6 @@ share/pbi-manager/pcbsd.rpo
 @unexec rmdir /usr/pbi/etc/xdg/menus >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/etc/xdg >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/etc >/dev/null 2>/dev/null
+@unexec rm /usr/pbi/.pbiwrapper-amd64 >/dev/null 2>/dev/null
+@unexec rm /usr/pbi/.pbiwrapper-i386 >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi >/dev/null 2>/dev/null

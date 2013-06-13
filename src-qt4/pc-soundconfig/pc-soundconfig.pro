@@ -64,6 +64,7 @@ TRANSLATIONS =  i18n/SoundConfig_af.ts \
 		i18n/SoundConfig_pt_BR.ts \
 		i18n/SoundConfig_ro.ts \
 		i18n/SoundConfig_ru.ts \
+		i18n/SoundConfig_sa.ts \
 		i18n/SoundConfig_sk.ts \
 		i18n/SoundConfig_sl.ts \
 		i18n/SoundConfig_sr.ts \

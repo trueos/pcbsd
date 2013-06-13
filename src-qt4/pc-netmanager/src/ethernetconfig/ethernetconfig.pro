@@ -59,6 +59,7 @@ TRANSLATIONS =  i18n/ethernetconfig_af.ts \
 		i18n/ethernetconfig_pt_BR.ts \
 		i18n/ethernetconfig_ro.ts \
 		i18n/ethernetconfig_ru.ts \
+		i18n/ethernetconfig_sa.ts \
 		i18n/ethernetconfig_sk.ts \
 		i18n/ethernetconfig_sl.ts \
 		i18n/ethernetconfig_sr.ts \

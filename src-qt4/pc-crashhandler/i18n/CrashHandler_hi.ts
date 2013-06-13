@@ -65,10 +65,6 @@
         <translation>आल्ट +सी</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>फाइल की सुरक्षा करना</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>फाइल में बदलाव करना</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation> नहीं </translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

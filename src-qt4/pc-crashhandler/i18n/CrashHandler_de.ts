@@ -63,10 +63,6 @@
         <translation>Alt+C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Datei speichern ...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Datei überschreiben?</translation>
     </message>
@@ -81,6 +77,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;Nein</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

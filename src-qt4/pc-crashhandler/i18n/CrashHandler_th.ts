@@ -63,10 +63,6 @@
         <translation>Alt+C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>บันทึกไฟล์...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>แทนที่ไฟล์(ไฟล์จะหาย)</translation>
     </message>
@@ -81,6 +77,14 @@
     <message>
         <source>File already exists, would you like to overwrite it?</source>
         <translation type="unfinished">ชื่อไฟล์ซ้ำคุณต้องการเขียนทับหรือไม่</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

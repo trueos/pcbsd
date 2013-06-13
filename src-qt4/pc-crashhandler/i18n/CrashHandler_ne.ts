@@ -65,10 +65,6 @@
         <translation>अल्ट् + C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>बाचात गर्नुपर्ने फाइल...... </translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation> फाइल  तेस्यै माथि खापने कि ?</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;हुँदैन</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

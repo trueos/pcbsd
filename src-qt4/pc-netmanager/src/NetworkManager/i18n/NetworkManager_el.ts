@@ -5,13 +5,11 @@
         <name>DNSList</name>
         <message>
             <source>Public DNS servers</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Δημόσιοι διακομιστές DNS</translation>
         </message>
         <message>
             <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Μπορείτε να επιλέξετε εναν από τους δημόσιους διακομιστές DNS, αντί του διακομιστή DNS από τον ISP σας</translation>
         </message>
         <message>
             <source>IP address</source>

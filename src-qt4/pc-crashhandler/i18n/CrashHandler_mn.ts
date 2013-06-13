@@ -65,10 +65,6 @@
         <translation>Alt+Х</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>Хадгалах файл</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>Дарж хадгалах уу?</translation>
     </message>
@@ -83,6 +79,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;Үгүй</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

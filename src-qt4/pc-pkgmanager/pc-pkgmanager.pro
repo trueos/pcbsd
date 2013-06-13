@@ -63,6 +63,7 @@ TRANSLATIONS =  i18n/PackageManager_af.ts \
 		i18n/PackageManager_pt_BR.ts \
 		i18n/PackageManager_ro.ts \
 		i18n/PackageManager_ru.ts \
+		i18n/PackageManager_sa.ts \
 		i18n/PackageManager_sk.ts \
 		i18n/PackageManager_sl.ts \
 		i18n/PackageManager_sr.ts \

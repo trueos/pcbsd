@@ -53,6 +53,7 @@ TRANSLATIONS = 	i18n/ServiceManager_af.ts \
 		i18n/ServiceManager_pt_BR.ts \
 		i18n/ServiceManager_ro.ts \
 		i18n/ServiceManager_ru.ts \
+		i18n/ServiceManager_sa.ts \
 		i18n/ServiceManager_sk.ts \
 		i18n/ServiceManager_sl.ts \
 		i18n/ServiceManager_sr.ts \

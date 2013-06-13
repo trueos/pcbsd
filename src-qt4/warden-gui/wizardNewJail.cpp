@@ -12,6 +12,7 @@
 #include "wizardNewJail.h"
 #include "pcbsd-utils.h"
 #include <QDebug>
+#include <QProcess>
 #include <QFileDialog>
 
 
@@ -28,6 +29,29 @@ void wizardNewJail::programInit()
     connect(lineLinuxScript, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(pushLinuxScript, SIGNAL(clicked()), this, SLOT(slotSelectLinuxScript()) );
     connect(this, SIGNAL(currentIdChanged(int)), this, SLOT(slotCheckComplete()) );
+    loadTemplates();
+}
+
+void wizardNewJail::loadTemplates()
+{
+   comboTemplate->clear();
+   comboTemplate->addItem(tr("Use system version (default)"));
+   // Load any available templates
+   QProcess m;
+   m.start(QString("warden"), QStringList() << "template" << "list");
+   while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
+      m.waitForFinished(200);
+      QCoreApplication::processEvents();
+   }
+   int i = 0;
+   QString tmp;
+   while (m.canReadLine()) {
+     i++;
+     tmp = m.readLine().simplified();
+     // Skip first two header lines
+     if ( i > 2)
+       comboTemplate->addItem(tmp);
+   }
 }
 
 void wizardNewJail::slotCheckChecks()
@@ -53,15 +77,18 @@ void wizardNewJail::setHostIPUsed(QStringList uH, QStringList uIP)
 
 void wizardNewJail::accept()
 {
-    QString ip4, ip6;
+    QString ip4, ip6, tplate;
     if ( checkIPv4->isChecked() )
        ip4 = lineIP->text();
     if ( checkIPv6->isChecked() )
        ip6 = lineIP6->text();
+
+    if ( comboTemplate->currentIndex() != 0 )
+    tplate = comboTemplate->currentText().section(" ", 0, 0);
     
     emit create(ip4, ip6, lineHost->text(), radioTraditionalJail->isChecked(), checkPCBSDUtils->isChecked(),
                 lineRoot->text(), checkSystemSource->isChecked(), checkPortsTree->isChecked(),
-                checkAutostart->isChecked(), radioLinuxJail->isChecked(), lineLinuxScript->text());
+                checkAutostart->isChecked(), radioLinuxJail->isChecked(), lineLinuxScript->text(), tplate);
     close();
     
 }
@@ -118,12 +145,20 @@ bool wizardNewJail::validatePage()
 	    }
 
          // Check if we have a good IPV4 or IPV6 address
-	 if ( ! pcbsd::Utils::validateIPV4(lineIP->text()) && ! pcbsd::Utils::validateIPV6(lineIP->text()) ) {
+	 if ( checkIPv4->isChecked() && ! pcbsd::Utils::validateIPV4(lineIP->text())) {
            button(QWizard::NextButton)->setEnabled(false);
            lineIP->setPalette(badPal);
            labelMessage->setText(tr("Invalid IP address!"));
            return false;
          }
+
+	 if ( checkIPv6->isChecked() && ! pcbsd::Utils::validateIPV6(lineIP6->text()) ) {
+           button(QWizard::NextButton)->setEnabled(false);
+           lineIP6->setPalette(badPal);
+           labelMessage->setText(tr("Invalid IPv6 address!"));
+           return false;
+         }
+
 
          // Got to the end, must be good!
          lineIP->setPalette(goodPal);

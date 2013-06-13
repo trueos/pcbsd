@@ -63,10 +63,6 @@
         <translation>Alt+C</translation>
     </message>
     <message>
-        <source>Save file...</source>
-        <translation>保存文件...</translation>
-    </message>
-    <message>
         <source>Overwrite File?</source>
         <translation>覆盖文件?</translation>
     </message>
@@ -81,6 +77,14 @@
     <message>
         <source>&amp;No</source>
         <translation>&amp;不</translation>
+    </message>
+    <message>
+        <source>Save File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic Text (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

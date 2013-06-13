@@ -83,6 +83,7 @@ TRANSLATIONS =  i18n/PFManager_af.ts \
 		i18n/PFManager_pt_BR.ts \
 		i18n/PFManager_ro.ts \
 		i18n/PFManager_ru.ts \
+		i18n/PFManager_sa.ts \
 		i18n/PFManager_sk.ts \
 		i18n/PFManager_sl.ts \
 		i18n/PFManager_sr.ts \

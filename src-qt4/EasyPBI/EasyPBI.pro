@@ -84,6 +84,7 @@ TRANSLATIONS =  i18n/EasyPBI_af.ts \
                 i18n/EasyPBI_pt_BR.ts \
                 i18n/EasyPBI_ro.ts \
                 i18n/EasyPBI_ru.ts \
+                i18n/EasyPBI_sa.ts \
                 i18n/EasyPBI_sk.ts \
                 i18n/EasyPBI_sl.ts \
                 i18n/EasyPBI_sr.ts \

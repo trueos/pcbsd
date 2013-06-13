@@ -25,7 +25,7 @@ const QString PATCHTMPDIR_DEFAULT( PREFIX + "/tmp" );
 /* The Update STATUS Flags */
 #define SYSTEM_UP2DATE 0
 #define SYSTEM_UPDATE_AVAIL 1
-#define PACKAGE_UPDATE_AVAIL 1
+#define PACKAGE_UPDATE_AVAIL 2
 #define SYSTEM_CHECKING4UPDATES 4
 #define SYSTEM_UPDATING 5
 #define CHECK_FAILED 6
@@ -111,6 +111,8 @@ void UpdaterTray::programInit()
   trayIconMenu->setIcon(contextIcon);
   trayIconMenu->addSeparator();
   trayIconMenu->addAction( tr("Start the Update Manager"), this, SLOT(slotOpenUpdateManager()));
+  trayIconMenu->addAction( tr("Start the Package Manager"), this, SLOT(slotOpenPackageManager()));
+  trayIconMenu->addSeparator();
   trayIconMenu->addAction( tr("Start the AppCafe"), this, SLOT(slotOpenSoftwareManager()));
   trayIconMenu->addAction( tr("Start the Warden"), this, SLOT(slotOpenJailManager()));
   trayIconMenu->addSeparator();
@@ -752,7 +754,7 @@ void UpdaterTray::slotPopulatePBIList()
 void UpdaterTray::slotShowPkgUpdatePopup()
 {
         disconnect(trayIcon, SIGNAL(messageClicked()), 0, 0 );
-	trayIcon->showMessage(tr("System Updates Available"), tr("Important package updates are available. Click here to install them!"), QSystemTrayIcon::Critical);
+	trayIcon->showMessage(tr("Package Updates Available"), tr("Important package updates are available. Click here to install them!"), QSystemTrayIcon::Critical);
         connect( trayIcon, SIGNAL(messageClicked()), this, SLOT(slotOpenPackageManager()) );
 }
 
