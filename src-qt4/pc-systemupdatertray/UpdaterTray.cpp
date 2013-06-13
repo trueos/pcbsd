@@ -561,7 +561,7 @@ void UpdaterTray::slotOpenJailManager(void)
 
 void UpdaterTray::slotOpenPackageManager(void)
 {   
-   system ("(sudo pc-pkgmanager) &"); 
+   system ("(pc-su pc-pkgmanager) &"); 
 }
 
 void UpdaterTray::slotOpenUpdateManager(void)
