@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Encoding=UTF-8
-Exec=sudo pc-pkgmanager
+Exec=pc-su pc-pkgmanager
 Icon=computer
 Type=Application
 Categories=System;
