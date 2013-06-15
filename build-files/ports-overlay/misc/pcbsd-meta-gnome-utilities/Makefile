@@ -12,8 +12,7 @@ DISTFILES=	# none
 MAINTAINER=	kris@pcbsd.org
 COMMENT=	The meta-port pcbsd-meta-gnome-utilities
 
-RUN_DEPENDS=	contacts>=0:${PORTSDIR}/deskutils/contacts \
-		gnome-blog>=0:${PORTSDIR}/deskutils/gnome-blog \
+RUN_DEPENDS=	gnome-blog>=0:${PORTSDIR}/deskutils/gnome-blog \
 		gnome-utils>=0:${PORTSDIR}/deskutils/gnome-utils \
 		gnochm>=0:${PORTSDIR}/deskutils/gnochm \
 		conduit>=0:${PORTSDIR}/deskutils/conduit \

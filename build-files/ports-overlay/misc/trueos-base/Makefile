@@ -37,7 +37,8 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		screen:${PORTSDIR}/sysutils/screen \
 		nano:${PORTSDIR}/editors/nano \
 		mosh:${PORTSDIR}/net/mosh \
-		zfs-stats:${PORTSDIR}/sysutils/zfs-stats
+		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2
 
 NO_BUILD=	yes
 

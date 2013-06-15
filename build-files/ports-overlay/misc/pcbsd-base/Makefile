@@ -124,7 +124,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		ru-aspell>=0:${PORTSDIR}/russian/aspell \
 		uk-aspell>=0:${PORTSDIR}/ukrainian/aspell \
 		vi-aspell>=0:${PORTSDIR}/vietnamese/aspell \
-		mosh:${PORTSDIR}/net/mosh
+		mosh:${PORTSDIR}/net/mosh \
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2
 
 NO_BUILD=	yes
 
