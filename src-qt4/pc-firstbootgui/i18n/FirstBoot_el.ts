@@ -9,18 +9,15 @@
         </message>
         <message>
             <source>&amp;Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Πίσω</translation>
         </message>
         <message>
             <source>&amp;Next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Μπροστά</translation>
         </message>
         <message>
             <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Καλώς ήλθατε στο νέο σας PC-BSD σύστημα! Μπορείτε να αλλάξετε την γλώσσα σας παραπάνω. Μετά κάντε κλικ στο κουμπί &quot;Μπροστά&quot; για να ξεκινήσετε την εγκατάσταση.</translation>
         </message>
         <message>
             <source>System Timezone</source>
