@@ -7443,6 +7443,9 @@ getZFSTank() {
 # Source our shared PCBSD functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
+# Set the default umask
+umask 022
+
 # Main program operation
 ##############################################################
 init_vars
