@@ -1,0 +1,179 @@
+#!/bin/sh
+#
+# Copyright 2013 iXsystems (Kris Moore)
+# All rights reserved
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted providing that the following conditions
+# are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+# IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+# OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+# HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+# STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+# IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+# Script to detect TrueOS / PC-BSD disk installations and create grub
+# entries for them
+
+display_loaderopts()
+{
+  # Optional ARG1, set to a ZFS dataset to mount and read values from
+  if [ -n "$1" ] ; then
+     fMnt="/mnt.$$"
+     mkdir $fMnt
+     mount -t zfs  ${1} $fMnt >/dev/null 
+     if [ $? -ne 0 ] ; then
+        echo "Failed to mount ${1}" >&2
+        return
+     fi
+  else
+     fMnt=""
+  fi
+  
+  # Create our placeholder to save _load entries to parse
+  touch /tmp/.lRObjs.$$
+  touch /tmp/.lSysCtls.$$
+
+  # Loader files, in order of which to read them
+  lFiles="${fMnt}/boot/device.hints ${fMnt}/boot/loader.conf.local ${fMnt}/boot/loader.conf ${fMnt}/boot/loader.conf.pcbsd"
+  for f in $lFiles
+  do
+     if [ ! -e "$f" ] ; then continue ; fi
+
+     # Lets parse any of the _load= lines
+     grep "_load=" ${f} | grep -v "^#" >/tmp/.lObjs.$$
+     while read line
+     do
+       loadVal="`echo $line | cut -d '=' -f 1`"
+       # Is this value already set in a higher priority file?
+       grep -q "^${loadVal}" /tmp/.lRObjs.$$
+       if [ $? -eq 0 ];then continue; fi
+
+       # Save this value for later
+       echo "$line" >> /tmp/.lRObjs.$$
+       haveObjs=1
+
+     done < /tmp/.lObjs.$$
+     rm /tmp/.lObjs.$$
+
+     # Lets look for any sysctls to set
+     grep "." ${f} | grep "=" | grep -v "^#" | grep -v "_load" >/tmp/.sObjs.$$
+     while read line
+     do
+       loadVal="`echo $line | cut -d '=' -f 1`"
+       # Is this value already set in a higher priority file?
+       grep -q "^${loadVal}" /tmp/.lSysCtls.$$
+       if [ $? -eq 0 ];then continue; fi
+
+       # Save this value for later
+       echo "$line" >> /tmp/.lSysCtls.$$
+       haveSysCtls=1
+
+     done < /tmp/.sObjs.$$
+     rm /tmp/.sObjs.$$
+  done
+
+  # Now lets echo out the modules to load
+  if [ "$haveObjs" = "1" ] ; then
+    while read line
+    do
+      echo "$line" | grep -q '"YES"'
+      if [ $? -ne 0 ] ; then continue ; fi
+      module="`echo $line | cut -d '=' -f 1 | sed 's|_load||g'`"
+      # Try to locate module now
+      if [ -e "${fMnt}/boot/kernel/${module}.ko" ] ; then
+        mPath="kernel"
+      elif [ -e "${fMnt}/boot/modules/${module}.ko" ] ; then
+        mPath="modules"
+      else
+        echo "Unable to locate module ${module}" >&2
+      fi
+      echo "  kfreebsd_module_elf ${loadPrefix}/@/boot/${mPath}/${module}.ko"
+    done < /tmp/.lRObjs.$$
+  fi
+
+  # Any sysctls to set?
+  if [ "$haveSysCtls" = "1" ] ; then
+    while read line
+    do
+      # Strip out the vfs.root.mountfrom, we set that elsewhere
+      echo "$line" | grep -q "vfs.root.mountfrom"
+      if [ $? -eq 0 ] ; then continue ; fi
+
+      val="`echo $line | sed 's|"||g'`"
+      echo "  set kFreeBSD.${val}"
+    done < /tmp/.lSysCtls.$$
+  fi
+
+  rm /tmp/.lRObjs.$$
+  rm /tmp/.lSysCtls.$$
+  if [ -n "$1" ] ; then
+     umount /mnt.$$ >/dev/null
+     rmdir /mnt.$$ >/dev/null
+  fi
+}
+
+detect_beadm()
+{
+   which -s beadm
+   if [ $? -ne 0 ] ; then return 0; fi
+   if [ -e "/etc/defaults/pcbsd" ] ; then
+      NICK="PC-BSD"
+   else
+      NICK="TrueOS"
+   fi
+
+   # Get list of beadm datasets
+   for b in `beadm list 2>/dev/null| grep -v "Created" | cut -d ' ' -f 1`
+   do
+      # Got a beadm snapshot, lets get the complete dataset name
+      cdataset=`beadm list -a | grep "/ROOT/${b}" | awk '{print $1}'`
+      ztank=`echo $cdataset | cut -d '/' -f 1`
+      shortdataset="/`echo $cdataset | cut -d '/' -f 2-5`"
+
+      # Lets echo the main guts of the BE loader
+      cat << EOF
+# Start TrueOS BE
+menuentry "$NICK - Boot Environment ($b)" {
+  insmod zfs
+  search -s -l $ztank
+  kfreebsd ${shortdataset}/@/boot/kernel/kernel
+  kfreebsd_module ${shortdataset}/@/boot/zfs/zpool.cache type=/boot/zfs/zpool.cache
+  set kFreeBSD.vfs.root.mountfrom=zfs:$cdataset
+EOF
+      
+      # Now lets look for options in loader.conf to load
+      loadPrefix="${shortdataset}"
+      # If this is the current mounted dataset, we can skip mounting it
+      mount | grep -q "$cdataset on / ("
+      if [ $? -eq 0 ] ; then
+        display_loaderopts
+      else
+        display_loaderopts $cdataset
+      fi
+
+      # Lastly lets close the section
+      cat << EOF
+}
+# End TrueOS BE
+
+EOF
+   done
+
+}
+
+# Detect our types of disk layouts
+detect_beadm
+
