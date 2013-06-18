@@ -26,12 +26,9 @@ void wizardDisk::programInit()
   connect(pushRemoveMount, SIGNAL(clicked()), this, SLOT(slotRemoveFS()));
   connect(pushAddMount, SIGNAL(clicked()), this, SLOT(slotAddFS()));
   connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(slotCheckComplete()));
-  connect(lineEncPW,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckComplete()));
-  connect(lineEncPW2,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckComplete()));
   connect(comboDisk,SIGNAL(currentIndexChanged(int)),this,SLOT(slotCheckComplete()));
   connect(comboDisk,SIGNAL(currentIndexChanged(int)),this,SLOT(slotChangedDisk()));
   connect(comboPartition,SIGNAL(currentIndexChanged(int)),this,SLOT(slotCheckComplete()));
-  connect(groupEncryption,SIGNAL(toggled(bool)),this,SLOT(slotCheckComplete()));
   connect(treeMounts,SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)),this,SLOT(slotTreeDiskChanged()));
   treeMounts->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(treeMounts,SIGNAL(customContextMenuRequested(const QPoint &)),this,SLOT(slotTreeMountsRightClick()));
@@ -43,27 +40,6 @@ void wizardDisk::programInit()
   connect(listZFSDisks,SIGNAL(itemClicked(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
   connect(listZFSDisks,SIGNAL(itemActivated(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
   connect(listZFSDisks,SIGNAL(itemChanged(QListWidgetItem *)),this,SLOT(slotCheckComplete()));
-
-  // Get the system arch type
-  QProcess m;
-  m.start(QString("uname"), QStringList() << "-m");
-  while(m.state() == QProcess::Starting || m.state() == QProcess::Running) {
-     m.waitForFinished(200);
-     QCoreApplication::processEvents();
-  }
-  // Get output
-  QString Arch = m.readLine().simplified();
-
-  // Set the suggested FileSystem
-  systemMemory = Scripts::Backend::systemMemory();
-  if ( systemMemory > 2028 && Arch != "i386" )
-    radioZFS->setChecked(true);
-  else
-    radioUFS->setChecked(true);
-  
-  // If less than 768 MB, disable ZFS completely
-  if ( systemMemory < 768 )
-    radioZFS->setEnabled(false);
 
 }
 
@@ -128,7 +104,7 @@ void wizardDisk::accept()
   if ( radioExpert->isChecked() )
     emit saved(sysFinalDiskLayout, false, false);
   else
-    emit saved(sysFinalDiskLayout, checkMBR->isChecked(), useGPT);
+    emit saved(sysFinalDiskLayout, true, useGPT);
   close();
 }
 
@@ -145,29 +121,16 @@ int wizardDisk::nextId() const
 	break;
      case Page_BasicDisk:
        if (radioBasic->isChecked())
-         return Page_BasicEnc;
-       return Page_FS;
-       break;
-     case Page_FS:
-       if (radioZFS->isChecked() ) {
-         // Only enable ZFS mirror / raidz when doing full disk install
-         if (comboPartition->currentIndex() != 0 )
-	   groupZFSOpts->setEnabled(false);
-	 else
-	   groupZFSOpts->setEnabled(true);
+         return Page_Confirmation;
+       if (comboPartition->currentIndex() != 0 ) {
+	 groupZFSOpts->setEnabled(false);
+         return Page_Mounts;
+       } else {
+         groupZFSOpts->setEnabled(true);
          return Page_ZFS;
        }
-       return Page_Mounts;
        break;
      case Page_ZFS:
-       // If we are using ZFS raidz / mirror, skip encryption
-       if ( groupZFSOpts->isChecked() )
-          return Page_Mounts;
-       return Page_BasicEnc;
-       break;
-     case Page_BasicEnc:
-       if (radioBasic->isChecked())
-         return Page_Confirmation;
        return Page_Mounts;
        break;
      case Page_Mounts:
@@ -186,7 +149,7 @@ int wizardDisk::nextId() const
 bool wizardDisk::validatePage()
 {
   // Generate suggested disk layout and show disk tree
-  if ( prevID == Page_FS && currentId() == Page_Mounts) {
+  if ( prevID == Page_BasicDisk && currentId() == Page_Mounts) {
     generateDiskLayout();
     populateDiskTree();
   }
@@ -197,18 +160,12 @@ bool wizardDisk::validatePage()
     populateDiskTree();
   } 
 
-  // Generate suggested disk layout and show disk tree
-  if ( prevID == Page_BasicEnc && currentId() == Page_Mounts) {
-    generateDiskLayout();
-    populateDiskTree();
-  }
-
   // Show the other disks available
-  if ( prevID == Page_FS && currentId() == Page_ZFS)
+  if ( prevID == Page_BasicDisk && currentId() == Page_ZFS)
      populateZFSDisks();
 
   // Basic mode, generate a disk layout and show summary
-  if ( prevID == Page_BasicEnc && currentId() == Page_Confirmation) {
+  if ( prevID == Page_BasicDisk && currentId() == Page_Confirmation) {
     generateDiskLayout();
     generateConfirmationText();
   }
@@ -247,13 +204,6 @@ bool wizardDisk::validatePage()
 	 //}
 	
          // if we get this far, all the fields are filled in
-         button(QWizard::NextButton)->setEnabled(true);
-         return true;
-     case Page_BasicEnc:
-         if ( groupEncryption->isChecked() && (lineEncPW->text() != lineEncPW2->text() || lineEncPW->text().isEmpty()) ) {
-           button(QWizard::NextButton)->setEnabled(false);
-           return false;
-         }
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_ZFS:
@@ -356,17 +306,13 @@ void wizardDisk::slotCheckComplete()
 void wizardDisk::generateDiskLayout()
 {
   QString targetType, tmp;
-  int targetLoc, totalSize = 0, mntsize;
+  int targetLoc, totalSize = 0;
   QString targetDisk, targetSlice, tmpPass, fsType, target;
 
   // Clear out the original disk layout
   sysFinalDiskLayout.clear();
   QStringList fileSystem;
   qDebug() << "Generating disk layout";
-
-  // If doing ZFS advanced setup, disable encryption
-  if ( groupZFSOpts->isChecked() )
-    groupEncryption->setChecked(false);
 
   if ( comboPartition->currentIndex() == 0) {
     targetType = "DRIVE";
@@ -390,83 +336,13 @@ void wizardDisk::generateDiskLayout()
   totalSize = getDiskSliceSize();
   if ( totalSize != -1 )
   {
-     // We got a valid size for this disk / slice, lets generate the layout now
-     mntsize = 2048;
+     fsType= "ZFS";
 
-     // This is set automatically if in basic mode
-     if ( radioUFS->isChecked() ) {
-
-       fsType="UFS+SUJ";
-
-       fileSystem << targetDisk << targetSlice << "/" << fsType << tmp.setNum(mntsize) << "" << "";
-       totalSize = totalSize - mntsize;
-       //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-       sysFinalDiskLayout << fileSystem;
-       fileSystem.clear();
-      
-
-       // Figure out the swap size, try for 2xPhysMem first, fallback to 256 if not enough space
-       mntsize = systemMemory * 2;
-       if ( totalSize - mntsize < 3000 )
-          mntsize = 256;
-
-       // Cap the swap size to 2GB
-       if ( mntsize > 2000 )
-          mntsize = 2000;
-
-       fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(mntsize) << "" << "";
-       totalSize = totalSize - mntsize;
-       //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-       sysFinalDiskLayout << fileSystem;
-       fileSystem.clear();
-
-       // If less than 3GB, skip /var and leave on /
-       if ( totalSize > 3000 ) {
-         // Figure out the default size for /var if we are on FreeBSD / PC-BSD
-         mntsize = 2048;
-         fileSystem << targetDisk << targetSlice << "/var" << fsType << tmp.setNum(mntsize) << "" << "";
-         totalSize = totalSize - mntsize;
-         //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-         sysFinalDiskLayout << fileSystem;
-         fileSystem.clear();
-       }
-
-       // See if using encryption for this partition
-       if ( groupEncryption->isChecked() ) {
-	 fsType+= ".eli";
-	 tmpPass=lineEncPW->text();
-       }
-
-       // Now use the rest of the disk / slice for /usr
-       fileSystem << targetDisk << targetSlice << "/usr" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
-       sysFinalDiskLayout << fileSystem;
-       fileSystem.clear();
-
-     } else {
-	// Using ZFS
-
-       // If encryption is enabled, we need a ufs /boot partition
-       if ( groupEncryption->isChecked() ) {
-         totalSize = totalSize - 2048;
-         fileSystem << targetDisk << targetSlice << "/boot" << "UFS+SUJ" << tmp.setNum(2048) << "" << "";
-         sysFinalDiskLayout << fileSystem;
-         fileSystem.clear();
-       }
-
-       // See if using encryption for this partition
-       if ( groupEncryption->isChecked() ) {
-	 fsType= "ZFS.eli";
-	 tmpPass=lineEncPW->text();
-       } else {
-	 fsType= "ZFS";
-       }
-
-       // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
-       fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
-       //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-       sysFinalDiskLayout << fileSystem;
-       fileSystem.clear();
-     }
+     // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
+    fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
+     //qDebug() << "Auto-Gen FS:" <<  fileSystem;
+     sysFinalDiskLayout << fileSystem;
+     fileSystem.clear();
   }
   
   qDebug() << "AutoLayout:" <<  sysFinalDiskLayout;
@@ -476,59 +352,27 @@ void wizardDisk::populateDiskTree()
 {
   QStringList tmpList, zMnts;
   QString tmp, opts;
-  int usedSpace = 0;
-  bool ok;
-
-  // If doing ZFS advanced setup, disable encryption
-  if ( groupZFSOpts->isChecked() )
-    groupEncryption->setChecked(false);
 
   treeMounts->clear();
-  if (radioUFS->isChecked()) {
-    treeMounts->setHeaderLabels(QStringList() << "ID" << tr("Mount") << tr("Size") << tr("Type") << "Pass" );
-    treeMounts->header()->setSectionHidden(4, true);
-    treeMounts->setColumnCount(5);
-    labelFreeSpace->setVisible(true);
-    lineFreeMB->setVisible(true);
-    pushSizeMount->setVisible(true);
-  } else {
-    treeMounts->setHeaderLabels(QStringList() << "ID" << tr("ZFS Mounts") << tr("ZFS Options") );
-    treeMounts->setColumnCount(3);
-    labelFreeSpace->setVisible(false);
-    lineFreeMB->setVisible(false);
-    pushSizeMount->setVisible(false);
-  }
+  treeMounts->setHeaderLabels(QStringList() << "ID" << tr("ZFS Mounts") << tr("ZFS Options") );
+  treeMounts->setColumnCount(3);
+  labelFreeSpace->setVisible(false);
+  lineFreeMB->setVisible(false);
+  pushSizeMount->setVisible(false);
 
   treeMounts->header()->setSectionHidden(0, true);
   treeMounts->header()->setDefaultSectionSize(150);
 
-  if (radioUFS->isChecked()) {
-    for (int i=0; i < sysFinalDiskLayout.count(); ++i) {
-      // Start adding the disk items to our tree widget
-      new QTreeWidgetItem(treeMounts, QStringList() << tmp.setNum(i) << sysFinalDiskLayout.at(i).at(2) << sysFinalDiskLayout.at(i).at(4) << sysFinalDiskLayout.at(i).at(3) << sysFinalDiskLayout.at(i).at(6));
-      usedSpace = usedSpace +  sysFinalDiskLayout.at(i).at(4).toInt(&ok);
-    }
-    
-    // Now lets show how much is free to play with
-    lineFreeMB->setText(QString().setNum(getDiskSliceSize() - usedSpace));
 
-  } else {
-    // Show ZFS stuff
+  zMnts = sysFinalDiskLayout.at(0).at(2).split(",");
 
-    // If using encryption, skip the /boot UFS partition
-    if ( groupEncryption->isChecked())
-      zMnts = sysFinalDiskLayout.at(1).at(2).split(",");
-    else
-      zMnts = sysFinalDiskLayout.at(0).at(2).split(",");
-
-    // Now loop through ZFS mounts
-    for (int i=0; i < zMnts.count(); ++i) {
-      tmpList.clear();
-      opts = zMnts.at(i).section("(", 1, 1).section(")", 0, 0); 
-      tmpList << tmp.setNum(i+1) << zMnts.at(i).split("(").at(0) << opts ;
-      QTreeWidgetItem *mItem = new QTreeWidgetItem(treeMounts, tmpList);
-      mItem->setToolTip(2, opts);
-    }
+  // Now loop through ZFS mounts
+  for (int i=0; i < zMnts.count(); ++i) {
+    tmpList.clear();
+    opts = zMnts.at(i).section("(", 1, 1).section(")", 0, 0); 
+    tmpList << tmp.setNum(i+1) << zMnts.at(i).split("(").at(0) << opts ;
+    QTreeWidgetItem *mItem = new QTreeWidgetItem(treeMounts, tmpList);
+    mItem->setToolTip(2, opts);
   }
 
   treeMounts->setCurrentItem(treeMounts->findItems("0", Qt::MatchFixedString).at(0));
@@ -639,15 +483,6 @@ void wizardDisk::slotRemoveFS()
   QTreeWidgetItem *rmItem = treeMounts->currentItem();
   treeMounts->setCurrentItem(treeMounts->findItems("0", Qt::MatchFixedString).at(0));
 
-  // If editing UFS, lets adjust the available size
-  if (radioUFS->isChecked()) {
-    bool ok;
-    QString tmp;
-    int fSize = rmItem->text(2).toInt(&ok);
-    int newAvailSize = lineFreeMB->text().toInt(&ok) + fSize; 
-    lineFreeMB->setText(tmp.setNum(newAvailSize));
-  }
-
   delete rmItem;
 }
 
@@ -663,13 +498,6 @@ void wizardDisk::slotAddFS()
 
   // Sanity checks
   ////////////////////////////////////////
-  if (nMount == "/boot" && radioZFS->isChecked() && groupEncryption->isChecked() ) {
-      QMessageBox::critical(this, tr("Invalid Mount"),
-              tr("Cannot create /boot dataset on ZFS with encryption enabled!"),
-              QMessageBox::Ok,
-              QMessageBox::Ok);
-      return;
-  }
   if ( nMount.indexOf("/") != 0 ) {
       QMessageBox::critical(this, tr("Invalid Mount"),
               tr("Mount point should start with '/'"),
@@ -687,19 +515,7 @@ void wizardDisk::slotAddFS()
       return;
   }
 
-  if  ( radioUFS->isChecked() ) {
-    // Doing UFS mount, lets get a size from the user
-    addingMount = nMount;
-    int availSize = lineFreeMB->text().toInt(&ok); 
-    rFS = new dialogFSSize();
-    rFS->programInit(QString(tr("Specify a size for the mount") + " " + addingMount), 100, availSize, 100);
-    rFS->setWindowModality(Qt::ApplicationModal);
-    connect(rFS, SIGNAL(saved(int)), this, SLOT(slotSaveFSResize(int)));
-    rFS->show();
-    rFS->raise();
-  } else {
-    new QTreeWidgetItem(treeMounts, QStringList() << tmp.setNum(mItems.size() + 1) << nMount );
-  }
+  new QTreeWidgetItem(treeMounts, QStringList() << tmp.setNum(mItems.size() + 1) << nMount );
 }
 
 void wizardDisk::slotSaveFSResize(int newSize)
@@ -755,63 +571,48 @@ void wizardDisk::slotTreeMountsRightClick()
   popup->setTitle(tr("Editing:") + " " + treeMounts->currentItem()->text(1));
   popup->addSeparator();
 
-  if  ( radioUFS->isChecked() ) {
-    // No options to change for / or /boot
-    if ( treeMounts->currentItem()->text(1) == "/" )
-      return;
-    if ( treeMounts->currentItem()->text(1) == "/boot" )
-      return;
-
-    if ( treeMounts->currentItem()->text(3).indexOf(".eli") != -1 )
-      popup->addAction( tr("Disable Encryption"), this, SLOT(slotUEnc()));
-    else
-      popup->addAction( tr("Enable Encryption"), this, SLOT(slotUEnc()));
-
-    // End of UFS options
-  } else {
-    // No options to change for /swap
-    if ( treeMounts->currentItem()->text(1) == "/swap" ) {
-      popup->addAction( "Change size", this, SLOT(slotZSwapSize()));
-      popup->exec( QCursor::pos() );
-      return;
-    }
-
-    // Create atime sub-menu
-    popupAT = popup->addMenu("atime");
-    popupAT->addAction( "on", this, SLOT(slotZATON()));
-    popupAT->addAction( "off", this, SLOT(slotZATOFF()));
-
-    // Create canmount sub-menu
-    popupCM = popup->addMenu("canmount");
-    popupCM->addAction( "on", this, SLOT(slotZCMON()));
-    popupCM->addAction( "off", this, SLOT(slotZCMOFF()));
-    popupCM->addAction( "noauto", this, SLOT(slotZCMNOAUTO()));
-
-    // Create Checksum sub-menu
-    popupCH = popup->addMenu("checksum");
-    popupCH->addAction( "on", this, SLOT(slotZChkON()));
-    popupCH->addAction( "off", this, SLOT(slotZChkOFF()));
-
-    // Create compression sub-menu
-    popupCmp = popup->addMenu("compression");
-    popupCmp->addAction( "off", this, SLOT(slotZCmpOFF()));
-    popupCmp->addAction( "lzjb", this, SLOT(slotZCmpLZJB()));
-    popupCmp->addAction( "gzip", this, SLOT(slotZCmpGZIP()));
-    popupCmp->addAction( "zle", this, SLOT(slotZCmpZLE()));
-
-    // Create dedup sub-menu
-    // dedup is disabled for now, until such time as it is safe in all cases
-    //popupDD = popup->addMenu("dedup");
-    //popupDD->addAction( "off", this, SLOT(slotZDDOFF()));
-    //popupDD->addAction( "on", this, SLOT(slotZDDON()));
-    //popupDD->addAction( "verify", this, SLOT(slotZDDVERIFY()));
-
-    // Create exec sub-menu
-    popupNE = popup->addMenu("exec");
-    popupNE->addAction( "on", this, SLOT(slotZEXON()));
-    popupNE->addAction( "off", this, SLOT(slotZEXOFF()));
-
+  // No options to change for /swap
+  if ( treeMounts->currentItem()->text(1) == "/swap" ) {
+    popup->addAction( "Change size", this, SLOT(slotZSwapSize()));
+    popup->exec( QCursor::pos() );
+    return;
   }
+
+  // Create atime sub-menu
+  popupAT = popup->addMenu("atime");
+  popupAT->addAction( "on", this, SLOT(slotZATON()));
+  popupAT->addAction( "off", this, SLOT(slotZATOFF()));
+
+  // Create canmount sub-menu
+  popupCM = popup->addMenu("canmount");
+  popupCM->addAction( "on", this, SLOT(slotZCMON()));
+  popupCM->addAction( "off", this, SLOT(slotZCMOFF()));
+  popupCM->addAction( "noauto", this, SLOT(slotZCMNOAUTO()));
+
+  // Create Checksum sub-menu
+  popupCH = popup->addMenu("checksum");
+  popupCH->addAction( "on", this, SLOT(slotZChkON()));
+  popupCH->addAction( "off", this, SLOT(slotZChkOFF()));
+
+  // Create compression sub-menu
+  popupCmp = popup->addMenu("compression");
+  popupCmp->addAction( "off", this, SLOT(slotZCmpOFF()));
+  popupCmp->addAction( "lzjb", this, SLOT(slotZCmpLZJB()));
+  popupCmp->addAction( "gzip", this, SLOT(slotZCmpGZIP()));
+  popupCmp->addAction( "zle", this, SLOT(slotZCmpZLE()));
+
+  // Create dedup sub-menu
+  // dedup is disabled for now, until such time as it is safe in all cases
+  //popupDD = popup->addMenu("dedup");
+  //popupDD->addAction( "off", this, SLOT(slotZDDOFF()));
+  //popupDD->addAction( "on", this, SLOT(slotZDDON()));
+  //popupDD->addAction( "verify", this, SLOT(slotZDDVERIFY()));
+
+  // Create exec sub-menu
+  popupNE = popup->addMenu("exec");
+  popupNE->addAction( "on", this, SLOT(slotZEXON()));
+  popupNE->addAction( "off", this, SLOT(slotZEXOFF()));
+
   popup->exec( QCursor::pos() );
 
 }
@@ -954,10 +755,6 @@ void wizardDisk::generateCustomDiskLayout()
   int targetLoc;
   QString targetDisk, targetSlice, tmpPass, fsType, target;
 
-  // If doing ZFS advanced setup, disable encryption
-  if ( groupZFSOpts->isChecked() )
-    groupEncryption->setChecked(false);
-       
   // Clear out the original disk layout
   sysFinalDiskLayout.clear();
   QStringList fileSystem;
@@ -981,62 +778,36 @@ void wizardDisk::generateCustomDiskLayout()
     targetLoc = 2;
   }
 
-  if (radioUFS->isChecked() )
-  {
-    // Start building the UFS file-systems
-    QList<QTreeWidgetItem *> mItems = treeMounts->findItems("*", Qt::MatchWildcard);
-    for ( int i = 0; i < mItems.size(); ++i) {
-      fileSystem.clear();
-      fsType=mItems.at(i)->text(3);
-      if ( fsType.indexOf(".eli") != -1 && mItems.at(i)->text(1) != "SWAP" )
-        tmpPass=mItems.at(i)->text(4);
-      else
-        tmpPass="";
+  // Start building the ZFS file-systems
+  QStringList zMnts;
+  fsType = "ZFS";
+  int zpoolSize = getDiskSliceSize();
 
-      fileSystem << targetDisk << targetSlice << mItems.at(i)->text(1) << fsType << mItems.at(i)->text(2) << "" << tmpPass;
-      sysFinalDiskLayout << fileSystem;
-    }
-  } else {
-    // Start building the ZFS file-systems
-    QStringList zMnts;
-    QString fsType = "ZFS";
-    int zpoolSize = getDiskSliceSize();
-
-    // Check if we need a UFS /boot for encryption
-    if ( groupEncryption->isChecked()) {
-      fileSystem << targetDisk << targetSlice << "/boot" << "UFS+SUJ" << "2048" << "" << "";
-      sysFinalDiskLayout << fileSystem;
-      zpoolSize = zpoolSize - 2048;
-      fsType="ZFS.eli";
-      tmpPass=lineEncPW->text();
-    }
-
-    // Get the zfs mounts
-    QList<QTreeWidgetItem *> mItems = treeMounts->findItems("*", Qt::MatchWildcard);
-    for ( int i = 0; i < mItems.size(); ++i) {
-      if ( mItems.at(i)->text(2).isEmpty() )
-        zMnts << mItems.at(i)->text(1);
-      else
-        zMnts << mItems.at(i)->text(1) + "(" + mItems.at(i)->text(2) + ")";
-    }
-
-    // If we have any additional ZFS mirror / raidz devices set it up now
-    QString zOpts, zDisk;
-    if ( groupZFSOpts->isChecked() ) {
-       zOpts = comboZFSMode->currentText() + ":";
-       for ( int i = 0; i < listZFSDisks->count(); ++i )
-          if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
-             zDisk = listZFSDisks->item(i)->text();
-             zDisk.truncate(zDisk.indexOf(" -"));
-	     zOpts = zOpts + " " + zDisk;
-          }
-    }
-
-    // Save the final disk layout
-    fileSystem.clear();
-    fileSystem << targetDisk << targetSlice << zMnts.join(",") << fsType << tmp.setNum(zpoolSize) << zOpts << tmpPass;
-    sysFinalDiskLayout << fileSystem;
+  // Get the zfs mounts
+  QList<QTreeWidgetItem *> mItems = treeMounts->findItems("*", Qt::MatchWildcard);
+  for ( int i = 0; i < mItems.size(); ++i) {
+    if ( mItems.at(i)->text(2).isEmpty() )
+      zMnts << mItems.at(i)->text(1);
+    else
+      zMnts << mItems.at(i)->text(1) + "(" + mItems.at(i)->text(2) + ")";
   }
+
+  // If we have any additional ZFS mirror / raidz devices set it up now
+  QString zOpts, zDisk;
+  if ( groupZFSOpts->isChecked() ) {
+     zOpts = comboZFSMode->currentText() + ":";
+     for ( int i = 0; i < listZFSDisks->count(); ++i )
+        if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
+           zDisk = listZFSDisks->item(i)->text();
+           zDisk.truncate(zDisk.indexOf(" -"));
+           zOpts = zOpts + " " + zDisk;
+        }
+  }
+
+  // Save the final disk layout
+  fileSystem.clear();
+  fileSystem << targetDisk << targetSlice << zMnts.join(",") << fsType << tmp.setNum(zpoolSize) << zOpts << tmpPass;
+  sysFinalDiskLayout << fileSystem;
 
   qDebug() <<"AutoLayout:" << sysFinalDiskLayout;
 }
@@ -1218,45 +989,3 @@ void wizardDisk::slotTerminal()
   system("xterm &");
 }
 
-void wizardDisk::slotUEnc()
-{
-  if ( ! treeMounts->currentItem() )
-    return;
-
-  if ( treeMounts->currentItem()->text(3).indexOf(".eli") != -1 )
-    treeMounts->currentItem()->setText(3, treeMounts->currentItem()->text(3).replace(".eli", "") );
-  else {
-    bool ok;
-
-    // If on /swap, we don't need password
-    if ( treeMounts->currentItem()->text(1) == "SWAP" ) {
-      treeMounts->currentItem()->setText(3, treeMounts->currentItem()->text(3) + ".eli" );
-      return;
-    }
-
-    QString text = QInputDialog::getText(this, tr("Please enter the password for this partition:"),
-                                         tr("Password:"), QLineEdit::Password,
-                                         QString(), &ok);
-    if (!ok || text.isEmpty())
-      return;
-
-    QString text2 = QInputDialog::getText(this, tr("Please confirm the password for this partition:"),
-                                         tr("Confirm Password:"), QLineEdit::Password,
-                                         QString(), &ok);
-    if (!ok || text.isEmpty())
-      return;
-
-    if ( text != text2 ) {
-      QMessageBox::critical(this, tr("Password Mismatch"),
-              tr("The passwords entered do not match!"),
-              QMessageBox::Ok,
-              QMessageBox::Ok);
-      return; 
-    }
-
-    // Save the password
-    treeMounts->currentItem()->setText(3, treeMounts->currentItem()->text(3) + ".eli" );
-    treeMounts->currentItem()->setText(4, text);
-  }
-
-}

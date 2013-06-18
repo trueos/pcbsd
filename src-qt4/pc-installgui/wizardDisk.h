@@ -55,7 +55,6 @@ private slots:
     void slotZATOFF();
     void slotZEXON();
     void slotZEXOFF();
-    void slotUEnc();
     void slotZSwapSize();
 
 private:
@@ -84,7 +83,7 @@ private:
     QMenu *popupCH;
     QMenu *popupNE;
     dialogFSSize *rFS;
-    enum { Page_Intro, Page_BasicDisk, Page_FS, Page_ZFS, Page_BasicEnc, Page_Mounts, Page_Expert, Page_Confirmation };
+    enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_Mounts, Page_Expert, Page_Confirmation };
 
 signals:
     void saved(QList<QStringList>, bool, bool);
