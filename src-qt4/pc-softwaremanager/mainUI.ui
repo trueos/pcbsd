@@ -190,7 +190,7 @@ spacing: 1px;
             <widget class="QGroupBox" name="group_install_info">
              <property name="styleSheet">
               <string notr="true">QGroupBox{ 
-background: rgba( 235,232,230,100); 
+background: rgba( 245,242,240,150); 
 border: 1px solid grey;
 border-radius: 5px;
 }</string>
@@ -623,8 +623,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>445</width>
-                    <height>61</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -674,8 +674,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>439</width>
-                    <height>279</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -699,8 +699,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>461</width>
-                 <height>408</height>
+                 <width>96</width>
+                 <height>26</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -1137,8 +1137,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>445</width>
-                    <height>161</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
@@ -1175,8 +1175,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>445</width>
-                    <height>160</height>
+                    <width>96</width>
+                    <height>26</height>
                    </rect>
                   </property>
                  </widget>
