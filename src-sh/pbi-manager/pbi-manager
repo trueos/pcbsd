@@ -6794,7 +6794,7 @@ chroot_extract() {
 	[ -e "${PBI_WORLDCHROOT}/COPYRIGHT" ] || mk_chroot_file
 
 	# Set the chroot path
-	PBI_CHROOTDIR="${PBI_PROGDIRPATH}.chroot"
+	PBI_CHROOTDIR="${PBI_PROGDIRPATH}.chroot.$$"
 	export PBI_CHROOTDIR
 	
 	# See if there is old chroot to clean first
