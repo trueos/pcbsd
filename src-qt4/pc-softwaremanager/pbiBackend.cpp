@@ -1252,9 +1252,25 @@ void PBIBackend::slotProcessError(int ID, QString err){
    QStringList apps = APPHASH.keys();
    for(int i=0; i<apps.length(); i++){
      if(APPHASH[apps[i]].latestVersion.isEmpty()){
-       APPHASH.remove(apps[i]);	     
+       //Make sure there is not a backup version we can use instead
+       if(APPHASH[apps[i]].backupVersion.isEmpty()){
+         APPHASH.remove(apps[i]);	     
+       }else{
+         //Move over the backup to the latest
+	 APPHASH[apps[i]].latestVersion=  APPHASH[apps[i]].backupVersion;
+       	 APPHASH[apps[i]].latestDatetime= APPHASH[apps[i]].backupDatetime;
+       	 APPHASH[apps[i]].latestArch=     APPHASH[apps[i]].backupArch;  
+       	 APPHASH[apps[i]].latestSizeK=    APPHASH[apps[i]].backupSizeK;
+       	 APPHASH[apps[i]].latestFilename= APPHASH[apps[i]].backupFilename;
+	 //Now clear the backup
+	 APPHASH[apps[i]].backupVersion.clear();
+       	 APPHASH[apps[i]].backupDatetime.clear();
+       	 APPHASH[apps[i]].backupArch.clear(); 
+       	 APPHASH[apps[i]].backupSizeK.clear();
+       	 APPHASH[apps[i]].backupFilename.clear();
+       }
      }else{
-       //Also remove this category from the list
+       //Category being used, remove this category from the list
        int catID = catsAvail.indexOf( Extras::nameToID(APPHASH[apps[i]].category) );
        if(catID != -1){ catsAvail.removeAt(catID); }
      }
