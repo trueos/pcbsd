@@ -47,7 +47,8 @@
    wardenMode=FALSE;
    //Default User Preferences
    settingsFile = QDir::homePath()+"/.appcafeprefs";
-   baseDlDir = "/tmp/";
+   baseDlDir = QDir::homePath()+"/Downloads/";
+   if(!QFile::exists(baseDlDir)){ baseDlDir = QDir::homePath()+"/"; }
    keepDownloads = FALSE;
    autoXDG.clear(); autoXDG << "desktop" << "menu" << "mime" << "paths";
    currentRepoNum = "001"; //first repo by default

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>510</width>
-    <height>575</height>
+    <width>509</width>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -95,8 +95,11 @@
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
               <widget class="QToolButton" name="tool_install_toggleall">
+               <property name="statusTip">
+                <string>Check/Uncheck all applications</string>
+               </property>
                <property name="text">
-                <string>Toggle All</string>
+                <string>All</string>
                </property>
                <property name="icon">
                 <iconset resource="SoftwareManager.qrc">
@@ -122,6 +125,9 @@
              </item>
              <item>
               <widget class="QToolButton" name="tool_install_performaction">
+               <property name="statusTip">
+                <string>Perform actions on checked applications</string>
+               </property>
                <property name="text">
                 <string>Actions</string>
                </property>
@@ -150,15 +156,45 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="statusTip">
+           <string/>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox::indicator:unchecked{
+image: url(:icons/arrow-up.png);
+}
+QGroupBox::indicator:checked{
+image: url(:icons/arrow-down.png);
+}
+QGroupBox::title{
+spacing: 1px;
+}</string>
+          </property>
           <property name="title">
-           <string>Show Application Details</string>
+           <string>Application Details</string>
           </property>
           <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
            <bool>true</bool>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_17">
            <item>
             <widget class="QGroupBox" name="group_install_info">
+             <property name="styleSheet">
+              <string notr="true">QGroupBox{ 
+background: rgba( 235,232,230,100); 
+border: 1px solid grey;
+border-radius: 5px;
+}</string>
+             </property>
              <property name="title">
               <string/>
              </property>
@@ -274,9 +310,82 @@
               <item row="0" column="3" rowspan="3">
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_6">
+                  <item>
+                   <spacer name="horizontalSpacer_7">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="tool_install_remove">
+                    <property name="toolTip">
+                     <string>Remove the selected application</string>
+                    </property>
+                    <property name="statusTip">
+                     <string>Remove the selected application</string>
+                    </property>
+                    <property name="text">
+                     <string>Uninstall</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="SoftwareManager.qrc">
+                      <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="tool_install_update">
+                    <property name="toolTip">
+                     <string>Update the application to the most recent version</string>
+                    </property>
+                    <property name="statusTip">
+                     <string>Update the selected application</string>
+                    </property>
+                    <property name="text">
+                     <string>Update Application</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="SoftwareManager.qrc">
+                      <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonIconOnly</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeType">
+                   <enum>QSizePolicy::MinimumExpanding</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
                  <widget class="QToolButton" name="tool_install_gotobrowserpage">
+                  <property name="statusTip">
+                   <string>Open the browser page for the selected application</string>
+                  </property>
                   <property name="text">
-                   <string>Open Browser Page</string>
+                   <string>Open Browser</string>
                   </property>
                   <property name="icon">
                    <iconset resource="SoftwareManager.qrc">
@@ -289,6 +398,9 @@
                 </item>
                 <item>
                  <widget class="QCheckBox" name="check_install_autoupdate">
+                  <property name="statusTip">
+                   <string>Automatically update the selected application when an update is available</string>
+                  </property>
                   <property name="text">
                    <string>Auto-Update</string>
                   </property>
@@ -298,54 +410,10 @@
                   </property>
                  </widget>
                 </item>
-                <item>
-                 <spacer name="verticalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                </layout>
               </item>
               <item row="0" column="0" colspan="3">
                <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QToolButton" name="tool_install_update">
-                  <property name="toolTip">
-                   <string>Update the application to the most recent version</string>
-                  </property>
-                  <property name="text">
-                   <string>Update Application</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="SoftwareManager.qrc">
-                    <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
-                  </property>
-                  <property name="toolButtonStyle">
-                   <enum>Qt::ToolButtonIconOnly</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QToolButton" name="tool_install_remove">
-                  <property name="toolTip">
-                   <string>Remove this application</string>
-                  </property>
-                  <property name="text">
-                   <string>Uninstall</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="SoftwareManager.qrc">
-                    <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
-                  </property>
-                 </widget>
-                </item>
                 <item>
                  <widget class="QLabel" name="label_install_app">
                   <property name="font">
@@ -500,6 +568,17 @@ QScrollBar{
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QGroupBox::indicator:unchecked{
+image: url(:icons/arrow-up.png);
+}
+QGroupBox::indicator:checked{
+image: url(:icons/arrow-down.png);
+}
+QGroupBox::title{
+spacing: 1px;
+}</string>
+              </property>
               <property name="title">
                <string>View Recent Additions</string>
               </property>
@@ -544,8 +623,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>445</width>
+                    <height>61</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -595,8 +674,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>439</width>
+                    <height>279</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -620,8 +699,8 @@ QScrollBar{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>96</width>
-                 <height>26</height>
+                 <width>461</width>
+                 <height>408</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -966,8 +1045,19 @@ QScrollBar{
             </item>
             <item>
              <widget class="QGroupBox" name="group_bapp_similar">
+              <property name="styleSheet">
+               <string notr="true">QGroupBox::indicator:unchecked{
+image: url(:icons/arrow-up.png);
+}
+QGroupBox::indicator:checked{
+image: url(:icons/arrow-down.png);
+}
+QGroupBox::title{
+spacing: 1px;
+}</string>
+              </property>
               <property name="title">
-               <string>Show Similar Applications</string>
+               <string>Similar Applications</string>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -986,8 +1076,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>445</width>
+                    <height>61</height>
                    </rect>
                   </property>
                  </widget>
@@ -1047,8 +1137,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>445</width>
+                    <height>161</height>
                    </rect>
                   </property>
                  </widget>
@@ -1085,8 +1175,8 @@ QScrollBar{
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>445</width>
+                    <height>160</height>
                    </rect>
                   </property>
                  </widget>
@@ -1110,7 +1200,7 @@ QScrollBar{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>510</width>
+     <width>509</width>
      <height>20</height>
     </rect>
    </property>
