@@ -1830,7 +1830,7 @@ void Installer::slotLoadConfigUSB()
 
   // Time to start the installation with our custom config file
   qDebug() << cfgFile;
-  customCfgFile = cfgFile;
+  customCfgFile = "/tmp/pc-sys/" + cfgFile;
   installStackWidget->setCurrentIndex(3);
   startInstall();
 }
