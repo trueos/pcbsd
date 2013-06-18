@@ -648,6 +648,7 @@ init_apm_full_disk()
 init_gpt_full_disk()
 {
   _intDISK=$1
+  _intBOOT=$2
  
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
@@ -664,8 +665,13 @@ init_gpt_full_disk()
   rc_halt "gpart create -s GPT ${_intDISK}"
   rc_halt "gpart add -b 34 -s 128 -t freebsd-boot ${_intDISK}"
   
-  echo_log "Stamping boot sector on ${_intDISK}"
-  rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
+  if [ "${_intBOOT}" = "GRUB" ] ; then
+    # Doing a GRUB stamp? Lets save it for post-install
+    echo "${_intDISK}" >> ${TMPDIR}/.grub-install
+  else
+    echo_log "Stamping boot sector on ${_intDISK}"
+    rc_halt "gpart bootcode -b /boot/pmbr ${_intDISK}"
+  fi
 
 }
 
@@ -705,6 +711,9 @@ init_mbr_full_disk()
   if [ "$_intBOOT" = "bsd" ] ; then
     echo_log "Stamping boot0 on ${_intDISK}"
     rc_halt "gpart bootcode -b /boot/boot0 ${_intDISK}"
+  elif [ "$_intBOOT" = "GRUB" ] ; then
+    # Doing a GRUB stamp? Lets save it for post-install
+    echo "${_intDISK}" >> ${TMPDIR}/.grub-install
   else
     echo_log "Stamping boot1 on ${_intDISK}"
     rc_halt "gpart bootcode -b /boot/boot1 ${_intDISK}"
@@ -726,7 +735,7 @@ run_gpart_full()
     init_mbr_full_disk "$DISK" "$BOOT"
     slice=`echo "${DISK}:1:mbr" | sed 's|/|-|g'`
   else
-    init_gpt_full_disk "$DISK"
+    init_gpt_full_disk "$DISK" "$BOOT"
     slice=`echo "${DISK}:1:gpt" | sed 's|/|-|g'`
   fi
 
@@ -836,10 +845,12 @@ run_gpart_slice()
 
   sleep 1
 
-  if [ "${BMANAGER}" = "bsd" ]
-  then
+  if [ "${BMANAGER}" = "bsd" ]; then
     echo_log "Stamping boot sector on ${DISK}"
     rc_halt "gpart bootcode -b /boot/boot0 ${DISK}"
+  elif [ "${BMANAGER}" = "GRUB" ] ; then
+    # Doing a GRUB stamp? Lets save it for post-install
+    echo "${DISK}" >> ${TMPDIR}/.grub-install
   fi
 
   # Set the slice to the format we'll be using for gpart later
@@ -889,10 +900,12 @@ run_gpart_free()
 
   sleep 1
 
-  if [ "${BMANAGER}" = "bsd" ]
-  then
+  if [ "${BMANAGER}" = "bsd" ]; then
     echo_log "Stamping boot sector on ${DISK}"
     rc_halt "gpart bootcode -b /boot/boot0 ${DISK}"
+  elif [ "${BMANAGER}" = "GRUB" ] ; then
+    # Doing a GRUB stamp? Lets save it for post-install
+    echo "${DISK}" >> ${TMPDIR}/.grub-install
   fi
 
   slice=`echo "${DISK}:${SLICENUM}:mbr" | sed 's|/|-|g'`

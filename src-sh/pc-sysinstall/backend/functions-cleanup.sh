@@ -383,6 +383,34 @@ set_root_pw()
 
 };
 
+# Script which stamps grub on the specified disks
+setup_grub() 
+{
+  # Mount devfs
+  rc_halt "mount -t devfs devfs ${FSMNT}/dev"
+
+  # Read through our list and stamp grub for each device
+  while read line
+  do
+    # Make sure we have a /dev in front of the disk name
+    echo $line | grep -q '/dev/'
+    if [ $? -eq 0 ] ; then
+      gDisk="$line"
+    else
+      gDisk="/dev/$line"
+    fi
+
+    # Stamp GRUB now
+    rc_halt "chroot ${FSMNT} grub-install --force $gDisk"
+  done < ${TMPDIR}/.grub-install
+
+  # Make sure we re-create the default grub.cfg
+  rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+
+  # Sleep and cleanup
+  sleep 5
+  rc_halt "umount ${FSMNT}/dev"
+};
 
 run_final_cleanup()
 {
@@ -410,4 +438,8 @@ run_final_cleanup()
 
   # Generate the fstab for the installed system
   setup_fstab
+
+  # Check if we need to setup GRUB
+  if [ -e "${TMPDIR}/.grub-install" ] ; then setup_grub; fi
+
 };

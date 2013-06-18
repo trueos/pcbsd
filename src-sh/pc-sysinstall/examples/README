@@ -161,10 +161,10 @@ than the drive being mirrored.
 Allows the setting of the mirror balance method to be used, if not
 specified this defaults to "round-robin"
 
-# bootManager=(none, bsd)
+# bootManager=(none, bsd, GRUB)
 
 Setting this option will instruct pc-sysinstall to install the BSD boot Manager,
-or leave it empty
+GRUB boot-manager, or leave it empty
 
 # image=(/path/to/image/file) (/mountpoint)
 
