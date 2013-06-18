@@ -329,9 +329,9 @@ void MountTray::openMediaDir(QString dir){
     return;
   }
   //Open the default file manager to the given directory as that user
-  qDebug() << "Opening the file manager with user permissions";
+  qDebug() << "Opening the media directory with user permissions";
   QString cmd = "su -m "+USERNAME+" -c \'"+FILEMAN+" "+dir+"\' &";
-  //qDebug() << cmd;
+  if(DEBUG_MODE){ qDebug() << " -cmd:" << cmd; }
   system( cmd.toUtf8() ); 
 }
 
