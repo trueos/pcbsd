@@ -154,7 +154,6 @@ void Installer::initInstall()
     // Load the disks
     loadDiskInfo();
     
-
     // Init the desktop wheel
     initDesktopSelector();
 }
@@ -481,7 +480,7 @@ void Installer::slotDiskCustomizeClicked()
 void Installer::slotDesktopCustomizeClicked()
 {
   desks = new desktopSelection();
-  if ( wheelCurItem != wPCSERVER && wheelCurItem != 11 && wheelCurItem != 12)
+  if ( radioDesktop->isChecked() )
      desks->programInit(listDeskPkgs,selectedPkgs);
   else
      desks->programInit(listServerPkgs,selectedPkgs);
@@ -495,24 +494,12 @@ void Installer::slotSaveMetaChanges(QStringList sPkgs)
 {
   selectedPkgs = sPkgs;
 
-  // Only add +10 if we are not already on the custom screen
-  if ( wheelCurItem < 10 )
-    wheelCurItem= wheelCurItem + 10;
-
-  switch (wheelCurItem) {
-    case 12:
-        groupDeskSummary->setTitle(tr("TrueOS Package Selection"));
-        break;
-    case 11:
-        groupDeskSummary->setTitle(tr("FreeBSD Package Selection"));
-        break;
-    default:
-        groupDeskSummary->setTitle(tr("PC-BSD Package Selection"));
-        break;
-  }
+  if ( radioDesktop->isChecked() )
+     groupDeskSummary->setTitle(tr("PC-BSD Package Selection"));
+  else
+     groupDeskSummary->setTitle(tr("TrueOS Package Selection"));
 
   textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
-  graphicsViewOS->setScene(customScene);
 }
 
 void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bool GPT)
@@ -532,199 +519,62 @@ void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bo
   startConfigGen();
 }
 
-void Installer::slotDesktopLeftClicked()
+void Installer::slotChangedMetaPkgSelection()
 {
-  if ( wheelCurItem >= 10 ) {
-    int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
-                              tr("You currently have a custom package set configured. Continue changing to a default set?"),
-                              QMessageBox::No | QMessageBox::Yes,
-                              QMessageBox::No);
-    switch (ret) {
-    case QMessageBox::Yes:
-        break;
-    case QMessageBox::No: // :)
-        return;
-        break;
-    }
-    wheelCurItem = wheelCurItem - 10;
-    graphicsViewOS->setScene(defaultScene);
-  }
-  moveDesktopWheel(false);
-}
 
-void Installer::slotDesktopRightClicked()
-{
-  if ( wheelCurItem >= 10 ) {
-    int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
-                              tr("You currently have a custom package set configured. Continue changing to a default set?"),
-                              QMessageBox::No | QMessageBox::Yes,
-                              QMessageBox::No);
-    switch (ret) {
-    case QMessageBox::Yes:
-        break;
-    case QMessageBox::No: // :)
-        return;
-        break;
-    }
-    wheelCurItem = wheelCurItem - 10;
-    graphicsViewOS->setScene(defaultScene);
-  }
-  moveDesktopWheel(true);
-}
-
-void Installer::moveDesktopWheel(bool direction)
-{
-  qDebug() << wheelCurItem << direction;
-  // Make sure we aren't scrolling too far
-  if ( direction && wheelCurItem >= wheelIcons.size() )
-    return;
-  if ( hasFreeBSDOnMedia ) {
-    if ( ! direction && wheelCurItem <= 1 )
-      return;
-  } else {
-    if ( ! direction && wheelCurItem <= 2 )
-      return;
-  }
-
-
-  int tItem, tPixel, cPixel;
-  cPixel=96 + ((wheelCurItem-1) * 64) + (wheelCurItem * 32);
-
-  // Right
-  if ( direction ) {
-    tItem=wheelCurItem + 1;
-    tPixel=96 + ((tItem-1) * 64) + (tItem * 32);
-  } else {
-  // Left
-    tItem=wheelCurItem - 1;
-    tPixel=96 + ((tItem-1) * 64) + (tItem * 32);
-  } 
-
-  if ( direction ) {
-    while ( cPixel < tPixel ) {
-      cPixel++;
-      graphicsViewOS->centerOn(cPixel,0);
-      graphicsViewOS->show();
-      QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents, 22);
-      
-    }
-  } else {
-    while ( cPixel > tPixel ) {
-      cPixel--;
-      graphicsViewOS->centerOn(cPixel,0);
-      graphicsViewOS->show();
-      QCoreApplication::processEvents(QEventLoop::ExcludeUserInputEvents, 22);
-    }
-  }
-  
-  wheelCurItem=tItem;
-
-  groupDeskSummary->setTitle(wheelName.at(tItem-1));
-  textDeskSummary->setText(wheelDesc.at(tItem-1));
-
-  // No custom packages for FreeBSD vanilla
-  if ( wheelCurItem == 1 ) 
-    pushDeskCustomize->setEnabled(false);
-  else
-    pushDeskCustomize->setEnabled(true);
-  
-  changeMetaPkgSelection();
-}
-
-void Installer::changeMetaPkgSelection()
-{
+  selectedPkgs.clear();
 
   // Set the default desktop meta-pkgs based upon the selection
-  // 1 = FreeBSD
-  switch (wheelCurItem)
+  if ( radioDesktop->isChecked() )
   {
-    case wKDE:
-      selectedPkgs.clear();
       selectedPkgs << "KDE" << "KDE-Accessibility" << "KDE-Artwork" << "KDE-Education" << "KDE-Games" << "KDE-Graphics" << "KDE-Multimedia" << "KDE-Network" << "KDE-PIM";
+
+      // Include i18n stuff?
       if ( comboLanguage->currentIndex() != 0 ) 
 	 selectedPkgs << "KDE-L10N";
-      break;
-    case wLXDE:
-      selectedPkgs.clear();
-      selectedPkgs << "LXDE";
-      break;
-    case wGNOME:
-      selectedPkgs.clear();
-      selectedPkgs << "GNOME" << "GNOME-Accessibility" << "GNOME-Games" << "GNOME-Net" << "GNOME-Utilities";
-      break;
-    case wXFCE:
-      selectedPkgs.clear();
-      selectedPkgs << "XFCE" << "XFCE-Plugins";
-      break;
-    default:
-      selectedPkgs.clear();
-      return;
+
+      // Check if we are using NVIDIA driver and include it automatically
+      QFile file("/etc/X11/xorg.conf");
+      if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+          
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+           QString line = in.readLine();
+           if ( line.indexOf("nvidia") != -1 ) {
+	     selectedPkgs << "NVIDIA";
+             break;
+           }
+        }     
+        file.close();
+      } // Done with NVIDIA check
+
+      // Are we on VirtualBox?
+      QFile filev("/var/log/Xorg.0.log");
+      if (filev.open(QIODevice::ReadOnly | QIODevice::Text)) {
+          
+        QTextStream in(&file);
+        while (!in.atEnd()) {
+           QString line = in.readLine();
+           if ( line.indexOf("VirtualBox") != -1 ) {
+	     selectedPkgs << "VirtualBoxGuest";
+             break;
+           }
+        }     
+        file.close();
+      } // End of virtualbox check
   }
 
-  // Check if we are using NVIDIA driver and include it automatically
-  QFile file("/etc/X11/xorg.conf");
-  if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-      return;
-          
-  QTextStream in(&file);
-  while (!in.atEnd()) {
-      QString line = in.readLine();
-      if ( line.indexOf("nvidia") != -1 ) {
-	selectedPkgs << "NVIDIA";
-        break;
-      }
-  }     
-  file.close();
-  // Done with NVIDIA check
-
+  slotSaveMetaChanges(selectedPkgs);
   qDebug() << selectedPkgs;
 
 }
 
 void Installer::initDesktopSelector()
 {
-    QString fbsdIcon;
-
-    if ( hasFreeBSDOnMedia )
-       fbsdIcon = ":modules/images/freebsd.png";
-    else
-       fbsdIcon = "";
-
-    // Init the desktop selector
-    wheelIcons << fbsdIcon << ":/modules/images/pcbsd-server.png" << ":/PCBSD/images/kde.png" << ":/PCBSD/images/lxde.png" << ":/PCBSD/images/gnome.png" << ":/PCBSD/images/xfce.png";
-    wheelName << "FreeBSD Server" << "TrueOS" << "KDE" << "LXDE" << "GNOME" << "XFCE"; 
-    wheelDesc << tr("FreeBSD is an advanced operating system for modern server, desktop, and embedded computer platforms. FreeBSD's code base has undergone over thirty years of continuous development, improvement, and optimization.") \
-    << tr("TrueOS is a console based server running FreeBSD. It includes command-line versions of The Warden jail management, PBI manager, ZFS boot environments (beadm), and other helpful utilities for system administrators.")  \
-    << tr("KDE is a full-featured desktop environment, which includes support for 3D desktop effects, multiple desktops, and a variety of built-in tools and utilities for both new and power-desktop users.<br><br>* Recommended for higher-end systems with 2GB of RAM or more *") \
-    << tr("LXDE is a lightweight desktop, minimalist in nature, with support for multiple-desktops, a system tray, application menu and more.<br><br>* Recommended for netbooks, or lower-end systems * ") \
-    << tr("GNOME is a full-featured desktop environment, complete with a large number of integrated utilities and tools for desktop users.") \
-    << tr("XFCE is a light and modular desktop, with a number of features to enhance customizing the desktop to your liking."); 
-
-    int xOff=96;
-    defaultScene = new QGraphicsScene(0,0,(96 + 96 + (wheelIcons.size()*64) + (wheelIcons.size()*32) ),64);
-    for ( int i = 0; i < wheelIcons.size(); ++i) {
-      defaultScene->addPixmap(QPixmap(wheelIcons.at(i)))->setOffset(xOff,0);
-      xOff = xOff +96;
-    }
-    graphicsViewOS->setScene(defaultScene);
-
-    // If less than 2GB memory, default to LXDE, otherwise KDE
-    if ( systemMemory > 2048 )  {
-      wheelCurItem=2;
-    } else {
-      wheelCurItem=3;
-    }
-    graphicsViewOS->centerOn(191,0);
-    graphicsViewOS->show();
-    moveDesktopWheel(true);
-
-    customScene = new QGraphicsScene(0,0,220,64);
-    customScene->addText(tr("Custom Package Selection"));
-
-    // Connect our slots
-    connect(pushDeskRight,SIGNAL(clicked()), this, SLOT(slotDesktopRightClicked()));
-    connect(pushDeskLeft,SIGNAL(clicked()), this, SLOT(slotDesktopLeftClicked()));
     connect(pushDeskCustomize,SIGNAL(clicked()), this, SLOT(slotDesktopCustomizeClicked()));
+    connect(radioDesktop,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
+    connect(radioServer,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
+    slotChangedMetaPkgSelection();
 }
 
 void Installer::proceed(bool forward)
@@ -778,13 +628,10 @@ void Installer::slotNext()
      return;
    }
 
-   // Start the FreeBSD wizard
-   if ( installStackWidget->currentIndex() == 1 && (wheelCurItem == wFREEBSD || wheelCurItem == wPCSERVER || wheelCurItem == 12) ) {
+   // Start the TrueOS wizard
+   if ( radioServer->isChecked() ) { 
      bool tOS;
-     if ( wheelCurItem == wPCSERVER || wheelCurItem == 12 )
-       tOS = true;
-     else
-       tOS = false;
+     tOS = true;
 
      wFBSD = new wizardFreeBSD();
      wFBSD->setWindowModality(Qt::ApplicationModal);
@@ -907,14 +754,9 @@ QStringList Installer::getGlobalCfgSettings()
   if ( Arch == "amd64" )
      distFiles+=" lib32";
 
-  // If we are doing a PC-BSD install
-  if ( wheelCurItem != wPCSERVER && wheelCurItem != 12 && wheelCurItem != wFREEBSD ) {
-    tmpList << "installType=PCBSD";
-    tmpList << "packageType=dist";
-  } else {
-    tmpList << "installType=FreeBSD";
-    tmpList << "packageType=dist";
-  }
+  // System type we are installing
+  tmpList << "installType=PCBSD";
+  tmpList << "packageType=dist";
 
   // Set the distFiles being used
   tmpList << "distFiles=" + distFiles;
@@ -926,7 +768,7 @@ QStringList Installer::getGlobalCfgSettings()
 
   
   // Networking setup
-  if ( wheelCurItem != wFREEBSD && wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
+  if ( radioDesktop->isChecked() ) {
     // PC-BSD network setup
     tmpList << "netSaveDev=AUTO-DHCP-SLAAC";
   } else {
@@ -1031,7 +873,7 @@ void Installer::startConfigGen()
 
   cfgList+= "";
 
-  if ( wheelCurItem != wFREEBSD && wheelCurItem != wPCSERVER && wheelCurItem != 12 ) {
+  if ( radioDesktop->isChecked() ) {
     // Doing PC-BSD Install
 
     QString lang;
@@ -1049,7 +891,7 @@ void Installer::startConfigGen()
     cfgList << "runCommand=touch /var/.pcbsd-firstboot";
     cfgList << "runCommand=touch /var/.pcbsd-firstgui";
 
-  } else if ( wheelCurItem == wPCSERVER || wheelCurItem == 12 ) {
+  } else {
     // Doing TrueOS Install
     cfgList+=getUsersCfgSettings();
 
@@ -1060,15 +902,7 @@ void Installer::startConfigGen()
     // Setup the TrueOS server
     cfgList << "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server";
 
-  } else { // End of PC-BSD specific setup
-    // Doing FreeBSD Install
-    cfgList+=getUsersCfgSettings();
-
-    // Enable SSH?
-    if ( fSSH )
-      cfgList << "runCommand=echo 'sshd_enable=\"YES\"' >>/etc/rc.conf";
-
-  }
+  } 
 
   // Run newaliases to fix mail errors
   cfgList << "runCommand=newaliases";
@@ -1141,7 +975,7 @@ QStringList Installer::getDiskCfgSettings()
 
     // Are we loading a boot-loader?
     if ( loadMBR )
-      tmpList << "bootManager=bsd";
+      tmpList << "bootManager=GRUB";
     else
       tmpList << "bootManager=none";
 
@@ -1568,15 +1402,12 @@ void Installer::slotPushVirtKeyboard()
 // Return the configuration for desktop packages
 QStringList Installer::getDeskPkgCfg()
 {
-   if ( wheelCurItem == wFREEBSD )
-      return QStringList();
-
    QStringList cfgList, pkgList;
    QString line;
 
    QList<QStringList> curList;
 
-   if ( wheelCurItem != wPCSERVER && wheelCurItem != 11 && wheelCurItem != 12) {
+   if ( radioDesktop->isChecked() ) {
      curList = listDeskPkgs;
      pkgList << "pcbsd-base";
    } else {
@@ -1686,7 +1517,7 @@ void Installer::checkSpaceWarning()
 
   //qDebug() << totalSize;
 
-  if ( installStackWidget->currentIndex() == 1 && (wheelCurItem == wPCSERVER || wheelCurItem == 12) )
+  if ( radioServer->isChecked() )
      targetSize=20000;
   else
      targetSize=50000;

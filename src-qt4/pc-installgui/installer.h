@@ -64,10 +64,9 @@ private slots:
     void slotLoadConfigUSB();
 
     // Desktop selector slots
-    void slotDesktopLeftClicked();
-    void slotDesktopRightClicked();
     void slotDesktopCustomizeClicked();
     void slotSaveMetaChanges(QStringList);
+    void slotChangedMetaPkgSelection();
     void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList);
 
 
@@ -96,13 +95,7 @@ private:
 
     // Desktop packages
     void initDesktopSelector();
-    void moveDesktopWheel(bool direction);
-    void changeMetaPkgSelection();
     QStringList getDeskPkgCfg();
-    QStringList wheelIcons;
-    QStringList wheelName;
-    QStringList wheelDesc;
-    int wheelCurItem;
     bool availDesktopPackageData;
     bool availServerPackageData;
     QList<QStringList> listDeskPkgs; // QStringList for our available desktop pkgs
