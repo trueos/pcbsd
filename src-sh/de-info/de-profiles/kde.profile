@@ -10,9 +10,10 @@ DE_FILEMAN="dolphin %s"
 
 active() {
 
- if [ -n "$KDE_SESSION_UID" ] ; then
+ if [ -n "$KDE_SESSION_UID" ] || [ "${XDG_CURRENT_DESKTOP}" == "KDE" ] ; then
     DE_ACTIVE=1
  fi
+
 }
 
 
