@@ -1,0 +1,753 @@
+#!/bin/sh -e
+
+# Copyright (c) 2012 Slawomir Wojciech Wojtczak (vermaden). All rights reserved.
+# Copyright (c) 2012 Bryan Drewery (bdrewery). All rights reserved.
+# Copyright (c) 2012 Mike Clarke (rawthey). All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that following conditions are met:
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS 'AS IS' AND ANY
+# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+# THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+unset LC_ALL
+unset LANG
+PATH=${PATH}:/bin:/usr/bin:/sbin:/usr/sbin
+
+if [ $( uname -r | cut -d '.' -f1 ) -lt 8 ]
+then
+  echo "ERROR: beadm works on FreeBSD 8.0 or later"
+  exit 1
+fi
+
+__usage() {
+  local NAME=${0##*/}
+  echo "usage:"
+  echo "  ${NAME} activate <beName>"
+  echo "  ${NAME} create [-e nonActiveBe | -e beName@snapshot] <beName>"
+  echo "  ${NAME} create <beName@snapshot>"
+  echo "  ${NAME} destroy [-F] <beName | beName@snapshot>"
+  echo "  ${NAME} list [-a] [-s] [-D] [-H]"
+  echo "  ${NAME} rename <origBeName> <newBeName>"
+  echo "  ${NAME} mount <beName> [mountpoint]"
+  echo "  ${NAME} { umount | unmount } [-f] <beName>"
+  exit 1
+}
+
+# check if boot environment exists
+__be_exist() { # 1=DATASET
+  if ! zfs list -H -o name ${1} 1> /dev/null 2> /dev/null
+  then
+    echo "ERROR: Boot environment '${1##*/}' does not exist"
+    exit 1
+  fi
+}
+
+# check if argument is a snapshot
+__be_snapshot() { # 1=DATASET/SNAPSHOT
+  echo "${1}" | grep -q "@" 2> /dev/null
+}
+
+# check if boot environment is mounted
+__be_mounted() { # 1=BE
+  mount 2> /dev/null | grep -q -E "^${1} " 2> /dev/null
+}
+
+# check if boot environment is a clone
+__be_clone() { # 1=DATASET
+  if zfs list ${1} 1> /dev/null 2> /dev/null
+  then
+    local ORIGIN="$( zfs list -H -o origin ${1} )"
+    if [ "${ORIGIN}" = "-" ]
+    then
+      # boot environment is not a clone
+      return 1
+    else
+      # boot environment is a clone
+      return 0
+    fi
+  else
+    # boot environment does not exist
+    return 2
+  fi
+}
+
+# create new boot environment
+__be_new() { # 1=SOURCE 2=TARGET
+  local SOURCE=$( echo ${1} | cut -d '@' -f 1 )
+  if __be_snapshot ${1}
+  then
+    # create boot environment from snapshot
+    local SNAPSHOT=$( echo ${1} | cut -d '@' -f 2 )
+    zfs list -r -H -t filesystem -o name ${SOURCE} \
+      | while read FS
+        do
+          if ! zfs list -H -o name ${FS}@${SNAPSHOT} 1> /dev/null 2> /dev/null
+          then
+            echo "ERROR: Child snapshot '${FS}@${SNAPSHOT}' does not exist"
+            exit 1
+          fi
+        done
+  else
+    # create boot environment from other boot environment
+    if zfs list -H -o name ${1}@${2##*/} 1> /dev/null 2> /dev/null
+    then
+      echo "ERROR: Snapshot '${1}@${2##*/}' already exists"
+      exit 1
+    fi
+    # snapshot format
+    FMT=$( date "+%Y-%m-%d-%H:%M:%S" )
+    if ! zfs snapshot -r ${1}@${FMT} 1> /dev/null 2> /dev/null
+    then
+      echo "ERROR: Cannot create snapshot '${1}@${FMT}'"
+      exit 1
+    fi
+  fi
+  # clone properties of source boot environment
+  zfs list -H -o name -r ${SOURCE} \
+    | while read FS
+      do
+        local OPTS=""
+        while read NAME PROPERTY VALUE
+        do
+          local OPTS="-o ${PROPERTY}=${VALUE} ${OPTS}"
+        done << EOF
+$( zfs get -o name,property,value -s local,received -H all ${FS} | awk '!/[\t ]canmount[\t ]/' )
+EOF
+        DATASET=$( echo ${FS} | awk '{print $1}' | sed -E s/"^${POOL}\/ROOT\/${SOURCE##*/}"/"${POOL}\/ROOT\/${2##*/}"/g )
+        if [ "${OPTS}" = "-o = " ]
+        then
+          local OPTS=""
+        fi
+        if __be_snapshot ${1}
+        then
+          zfs clone -o canmount=off ${OPTS} ${FS}@${1##*@} ${DATASET}
+        else
+          zfs clone -o canmount=off ${OPTS} ${FS}@${FMT} ${DATASET}
+        fi
+      done
+}
+
+ROOTFS=$( mount | awk '/ \/mnt / {print $1}' )
+
+if echo ${ROOTFS} | grep -q -m 1 -E "^/dev/"
+then
+  echo "ERROR: This system does not boot from ZFS pool"
+  exit 1
+fi
+
+POOL=$( echo ${ROOTFS} | awk -F '/' '{print $1}' )
+
+if ! zfs list ${POOL}/ROOT 1> /dev/null 2> /dev/null
+then
+  echo "ERROR: This system is not configured for boot environments"
+  exit 1
+fi
+
+BOOTFS=$( zpool list -H -o bootfs ${POOL} )
+
+if [ -z "${BOOTFS}" -o "${BOOTFS}" = "-" ]
+then
+ echo "ERROR: ZFS boot pool '${POOL}' has unset 'bootfs' property"
+ exit 1
+fi
+
+case ${1} in
+
+  (list) # --------------------------------------------------------------------
+    OPTION_a=0
+    OPTION_D=0
+    OPTION_s=0
+    shift
+    while getopts "aDHs" OPT
+    do
+      case ${OPT} in
+        (a) OPTION_a=1 ;;
+        (D) OPTION_D=1 ;;
+        (H) OPTION_H=1 ;;
+        (s) OPTION_s=1
+            OPTION_a=1 ;;
+        (*) __usage    ;;
+      esac
+    done
+    awk -v POOL="${POOL}" \
+        -v ROOTFS="${ROOTFS}" \
+        -v BOOTFS="${BOOTFS}" \
+        -v OPTION_a="${OPTION_a}" \
+        -v OPTION_D="${OPTION_D}" \
+        -v OPTION_H="${OPTION_H}" \
+        -v OPTION_s="${OPTION_s}" \
+     'function __normalize(VALUE) {
+        if(VALUE == "-" || VALUE == 0)
+          return 0
+        else
+          return substr(VALUE, 1, length(VALUE) - 1) * MULTIPLIER[substr(VALUE, length(VALUE))]
+      }
+      function __show_units(VALUE) {
+             if(VALUE < 1024)                {                               UNIT = "K"; }
+        else if(VALUE < 1048576)             { VALUE /= 1024;                UNIT = "M"; }
+        else if(VALUE < 1073741824)          { VALUE /= 1048576;             UNIT = "G"; }
+        else if(VALUE < 1099511627776)       { VALUE /= 1073741824;          UNIT = "T"; }
+        else if(VALUE < 1125899906842624)    { VALUE /= 1099511627776;       UNIT = "P"; }
+        else if(VALUE < 1152921504606846976) { VALUE /= 1125899906842624;    UNIT = "E"; }
+        else                                 { VALUE /= 1152921504606846976; UNIT = "Z"; }
+        return sprintf("%.1f%s", VALUE, UNIT)
+      }
+      function __get_bename(BENAME) {
+        sub(BENAME_BEGINS_WITH "\/", "", BENAME)
+        sub("/.*", "", BENAME)
+        return BENAME
+      }
+      function __convert_date(DATE) {
+        CMD_DATE = "date -j -f \"%a %b %d %H:%M %Y\" \"" DATE "\" +\"%Y-%m-%d %H:%M\""
+        CMD_DATE | getline NEW
+        close(CMD_DATE)
+        return NEW
+      }
+      BEGIN {
+        BENAME_BEGINS_WITH = POOL "/ROOT"
+        MULTIPLIER["K"] = 1
+        MULTIPLIER["M"] = 1024
+        MULTIPLIER["G"] = 1048576
+        MULTIPLIER["T"] = 1073741824
+        MULTIPLIER["P"] = 1099511627776
+        MULTIPLIER["E"] = 1125899906842624
+        MULTIPLIER["Z"] = 1152921504606846976
+        MOUNTPOINT_LENGTH = 10
+        FSNAME_LENGTH = 2
+        if(OPTION_a == 1)
+          FSNAME_LENGTH = 19
+        CMD_MOUNT="mount"
+        while(CMD_MOUNT | getline)
+          if($1 ~ "^" BENAME_BEGINS_WITH)
+            MOUNTS[$1] = $3
+        close(CMD_MOUNT)
+        FS = "\\t"
+        CMD_ZFS_LIST = "zfs list -H -t all -s creation -o name,used,usedds,usedbysnapshots,usedrefreserv,refer,creation,origin -r "
+        while(CMD_ZFS_LIST BENAME_BEGINS_WITH | getline) {
+          if($1 != BENAME_BEGINS_WITH) {
+            FSNAME = $1
+            FSNAMES[length(FSNAMES) + 1] = FSNAME
+            USED              = __normalize($2)
+            USEDBYDATASET     = __normalize($3)
+            USEDBYSNAPSHOTS   = __normalize($4)
+            USEDREFRESERV     = __normalize($5)
+            REFER[FSNAME]     = __normalize($6)
+            CREATIONS[FSNAME] = $7
+            ORIGINS[FSNAME]   = $8
+            if(FSNAME ~ /@/)
+              SPACES[FSNAME] = USED
+            else {
+              SPACES[FSNAME] = USEDBYDATASET + USEDREFRESERV
+              if(OPTION_D != 1)
+                SPACES[FSNAME] += USEDBYSNAPSHOTS
+              BE = " " __get_bename(FSNAME) " "
+              if(index(BELIST, BE) == 0)
+                BELIST = BELIST " " BE
+              MOUNTPOINT = MOUNTS[FSNAME]
+              if(MOUNTPOINT) {
+                if((OPTION_a == 0 && FSNAME == (BENAME_BEGINS_WITH "/" __get_bename(FSNAME))) || (OPTION_a == 1)) {
+                  LM = length(MOUNTPOINT)
+                  if(LM > MOUNTPOINT_LENGTH)
+                    MOUNTPOINT_LENGTH = LM
+                }
+              }
+              else
+                MOUNTPOINT = "-"
+            }
+            if(OPTION_a == 1)
+              LF = length(FSNAME)
+            else if(FSNAME !~ /@/)
+              LF = length(__get_bename(FSNAME))
+            if(LF > FSNAME_LENGTH)
+              FSNAME_LENGTH = LF
+          }
+        }
+        close(CMD_ZFS_LIST)
+        split(BELIST, BENAMES, " ")
+        if(OPTION_a == 1) {
+          BE_HEAD = "BE/Dataset/Snapshot"
+          printf "%-" FSNAME_LENGTH + 2 "s %-6s %-" MOUNTPOINT_LENGTH "s %6s %s\n", BE_HEAD, "Active", "Mountpoint", "Space", "Created"
+        }
+        else if(OPTION_H == 1)
+          BE_HEAD = ""
+        else {
+          BE_HEAD = "BE"
+          printf "%-" FSNAME_LENGTH "s %-6s %-" MOUNTPOINT_LENGTH "s %6s %s\n", BE_HEAD, "Active", "Mountpoint", "Space", "Created"
+        }
+        if(OPTION_s != 1)
+          SNAPSHOT_FILTER = "(/[^@]*)?$"
+        for(I = 1; I <= length(BENAMES); I++) {
+          BENAME = BENAMES[I]
+          if(OPTION_a == 1) {
+            printf "\n"
+            print BENAME
+            for(J = 1; J <= length(FSNAMES); J++) {
+              FSNAME = FSNAMES[J]
+              if(FSNAME ~ "^" BENAME_BEGINS_WITH "/" BENAME SNAPSHOT_FILTER) {
+                ACTIVE = ""
+                if(FSNAME == ROOTFS)
+                  ACTIVE = ACTIVE "N"
+                if(FSNAME == BOOTFS)
+                  ACTIVE = ACTIVE "R"
+                if(! ACTIVE)
+                  ACTIVE = "-"
+                MOUNTPOINT = MOUNTS[FSNAME]
+                if(! MOUNTPOINT)
+                  MOUNTPOINT = "-"
+                printf "  %-" FSNAME_LENGTH "s %-6s %-" MOUNTPOINT_LENGTH "s %6s %s\n", FSNAME, ACTIVE, MOUNTPOINT, __show_units(SPACES[FSNAME]), __convert_date(CREATIONS[FSNAME])
+                ORIGIN = ORIGINS[FSNAME]
+                ORIGIN_DISPLAY = ORIGIN
+                sub(BENAME_BEGINS_WITH "/", "", ORIGIN_DISPLAY)
+                if(ORIGIN != "-") {
+                  if(OPTION_D == 1)
+                    SPACE = REFER[ORIGIN]
+                  else
+                    SPACE = SPACES[ORIGIN]
+                  printf  "  %-" FSNAME_LENGTH "s %-6s %-" MOUNTPOINT_LENGTH "s %6s %s\n", "  " ORIGIN_DISPLAY, "-", "-", __show_units(SPACE), __convert_date(CREATIONS[ORIGIN])
+                }
+              }
+            }
+          }
+          else {
+            SPACE = 0
+            ACTIVE = ""
+            NAME = BENAME_BEGINS_WITH "/" BENAME
+            if(NAME == ROOTFS)
+              ACTIVE = ACTIVE "N"
+            if(NAME == BOOTFS)
+              ACTIVE = ACTIVE "R"
+            if(! ACTIVE)
+              ACTIVE = "-"
+            for(J = 1; J <= length(FSNAMES); J++) {
+              FSNAME = FSNAMES[J]
+              if(FSNAME ~ "^" BENAME_BEGINS_WITH "/" BENAME "(/[^@]*)?$") {
+                if((BENAME_BEGINS_WITH "/" BENAME) == FSNAME) {
+                  MOUNTPOINT = MOUNTS[FSNAME]
+                  if(! MOUNTPOINT)
+                    MOUNTPOINT = "-"
+                  CREATION = __convert_date(CREATIONS[FSNAME])
+                }
+                ORIGIN = ORIGINS[FSNAME]
+                if(ORIGIN == "-")
+                  SPACE += SPACES[FSNAME]
+                else {
+                  if(OPTION_D == 1)
+                    SPACE += REFER[FSNAME]
+                  else
+                    SPACE += SPACES[FSNAME] + SPACES[ORIGIN]
+                }
+              }
+            }
+            if(OPTION_H == 1)
+              printf "%s\t%s\t%s\t%s\t%s\n", BENAME, ACTIVE, MOUNTPOINT, __show_units(SPACE), CREATION
+            else
+              printf "%-" FSNAME_LENGTH "s %-6s %-" MOUNTPOINT_LENGTH "s %6s %s\n", BENAME, ACTIVE, MOUNTPOINT, __show_units(SPACE), CREATION
+          }
+        }
+      }'
+    ;;
+
+  (create) # ------------------------------------------------------------------
+    case ${#} in
+      (4)
+        if ! [ ${2} = "-e" ]
+        then
+          __usage
+        fi
+        # check if argument for -e option is full path dataset
+        # argument for -e option must be 'beName' or 'beName@snapshot'
+        if echo ${3} | grep -q "/" 2> /dev/null
+        then
+          __usage
+        fi
+        __be_exist ${POOL}/ROOT/${3}
+        if zfs list -H -o name ${POOL}/ROOT/${4} 1> /dev/null 2> /dev/null
+        then
+          echo "ERROR: Boot environment '${4}' already exists"
+          exit 1
+        fi
+        __be_new ${POOL}/ROOT/${3} ${POOL}/ROOT/${4}
+        ;;
+      (2)
+        if __be_snapshot ${2}
+        then
+          if ! zfs snapshot -r ${POOL}/ROOT/${2} 1> /dev/null 2> /dev/null
+          then
+            echo "ERROR: Cannot create '${2}' recursive snapshot"
+            exit 1
+          fi
+        else
+          __be_new ${ROOTFS} ${POOL}/ROOT/${2}
+        fi
+        ;;
+      (*)
+        __usage
+        ;;
+    esac
+    echo "Created successfully"
+    ;;
+
+  (activate) # ----------------------------------------------------------------
+    if [ ${#} -ne 2 ]
+    then
+      __usage
+    fi
+    __be_exist ${POOL}/ROOT/${2}
+    if [ "${BOOTFS}" = "${POOL}/ROOT/${2}" ]
+    then
+      echo "Already activated"
+      exit 0
+    else
+      if __be_mounted ${POOL}/ROOT/${2}
+      then
+        MNT=$( mount | grep -E "^${POOL}/ROOT/${2} " | awk '{print $3}' )
+        if [ "${MNT}" != "/" ]
+        then
+          # boot environment is not current root and its mounted
+          echo "ERROR: Boot environment '${2}' is mounted at '${MNT}'"
+          echo "ERROR: Cannot activate manually mounted boot environment"
+          exit 1
+        fi
+      fi
+      # do not change root (/) mounted boot environment mountpoint
+      if [ "${ROOTFS}" != "${POOL}/ROOT/${2}" ]
+      then
+        TMPMNT=$( mktemp -d -t BE-${2} )
+        if ! mkdir -p ${TMPMNT} 2> /dev/null
+        then
+          echo "ERROR: Cannot create '${TMPMNT}' directory"
+          exit 1
+        fi
+        MOUNT=0
+        while read FS MNT TYPE OPTS DUMP FSCK;
+        do
+          if [ "${FS}" = "${POOL}/ROOT/${2}" ]
+          then
+            MOUNT=${MNT}
+            break
+          fi
+        done << EOF
+$( mount -p )
+EOF
+        if [ ${MOUNT} -eq 0 ]
+        then
+          zfs set canmount=noauto ${POOL}/ROOT/${2}
+          zfs set mountpoint=${TMPMNT} ${POOL}/ROOT/${2}
+          zfs mount ${POOL}/ROOT/${2}
+        else
+          TMPMNT=${MOUNT}
+        fi
+        cp /boot/zfs/zpool.cache ${TMPMNT}/boot/zfs/zpool.cache
+        LOADER_CONFIGS=${TMPMNT}/boot/loader.conf
+        if [ -f ${TMPMNT}/boot/loader.conf.local ]
+        then
+          LOADER_CONFIGS="${LOADER_CONFIGS} ${TMPMNT}/boot/loader.conf.local"
+        fi
+        sed -i '' -E s/"^vfs.root.mountfrom=.*$"/"vfs.root.mountfrom=\"zfs:${POOL}\/ROOT\/${2##*/}\""/g ${LOADER_CONFIGS}
+        if [ ${MOUNT} -eq 0 ]
+        then
+          zfs umount ${POOL}/ROOT/${2}
+          zfs set mountpoint=legacy ${POOL}/ROOT/${2}
+        fi
+      fi
+      if ! zpool set bootfs=${POOL}/ROOT/${2} ${POOL} 1> /dev/null 2> /dev/null
+      then
+        echo "ERROR: Failed to activate '${2}' boot environment"
+        exit 1
+      fi
+    fi
+    # execute ZFS LIST only once
+    ZFS_LIST=$( zfs list -H -o name -r ${POOL}/ROOT )
+    # disable automatic mount on all inactive boot environments
+    echo "${ZFS_LIST}" \
+      | grep -v "^${POOL}/ROOT/${2}$" \
+      | grep -v "^${POOL}/ROOT/${2}/" \
+      | while read NAME
+        do
+          zfs set canmount=noauto ${NAME}
+        done
+    # enable automatic mount for active boot environment and promote it
+    echo "${ZFS_LIST}" \
+      | grep -E "^${POOL}/ROOT/${2}(/|$)" \
+      | while read NAME
+        do
+          zfs set canmount=on ${NAME}
+          while __be_clone ${NAME}
+          do
+            zfs promote ${NAME}
+          done
+        done
+    echo "Activated successfully"
+    ;;
+
+  (destroy) # -----------------------------------------------------------------
+    if [ "${2}" != "-F" ]
+    then
+      DESTROY=${2}
+    else
+      DESTROY=${3}
+    fi
+    __be_exist ${POOL}/ROOT/${DESTROY}
+    case ${#} in
+      (2)
+        echo "Are you sure you want to destroy '${2}'?"
+        echo -n "This action cannot be undone (y/[n]): "
+        read CHOICE
+        ;;
+      (3)
+        if [ "${2}" != "-F" ]
+        then
+          __usage
+        fi
+        CHOICE=Y
+        ;;
+      (*)
+        __usage
+        ;;
+    esac
+    if [ "${BOOTFS}" = "${POOL}/ROOT/${DESTROY}" ]
+    then
+      echo "ERROR: Cannot destroy active boot environment"
+      exit 1
+    fi
+    case ${CHOICE} in
+      (Y|y|[Yy][Ee][Ss])
+        # destroy snapshot or boot environment
+        if __be_snapshot ${POOL}/ROOT/${DESTROY}
+        then
+          # destroy desired snapshot
+          if ! zfs destroy -r ${POOL}/ROOT/${DESTROY} 1> /dev/null 2> /dev/null
+          then
+            echo "ERROR: Snapshot '${2}' is origin for other boot environment"
+            exit 1
+          fi
+        else
+          if __be_clone ${POOL}/ROOT/${DESTROY}
+          then
+            # promote clones dependent on snapshots used by destroyed boot environment
+            zfs list -H -t all -o name,origin \
+              | while read NAME ORIGIN
+                do
+                  if echo "${ORIGIN}" | grep -q -E "${POOL}/ROOT/${DESTROY}(/.*@|@)" 2> /dev/null
+                  then
+                    zfs promote ${NAME}
+                  fi
+                done
+            # get origins used by destroyed boot environment
+            ORIGIN_SNAPSHOTS=$( zfs list -H -t all -o origin -r ${POOL}/ROOT/${DESTROY} | grep -v '^-$' | awk -F "@" '{print $2}' | sort -u )
+          fi
+          # check if boot environment was created from existing snapshot
+          ORIGIN=$( zfs list -H -o origin ${POOL}/ROOT/${DESTROY} )
+          CREATION=$( zfs list -H -o creation ${POOL}/ROOT/${DESTROY} )
+          CREATION=$( date -j -f "%a %b %d %H:%M %Y" "${CREATION}" +"%Y-%m-%d-%H:%M" )
+          SNAPSHOT_NAME=$( echo "${ORIGIN}" | cut -d '@' -f 2 | sed -E 's/:[0-9]{2}$//g' )
+          if [ "${2}" = "-F" ]
+          then
+            CHOICE=1
+          elif [ "${SNAPSHOT_NAME}" != "${CREATION}" ]
+          then
+            ORIGIN=$( basename ${ORIGIN} )
+            echo "Boot environment '${DESTROY}' was created from existing snapshot"
+            echo -n "Destroy '${ORIGIN}' snapshot? (y/[n]): "
+            read CHOICE
+            case ${CHOICE} in
+              (Y|y|[Yy][Ee][Ss])
+                CHOICE=1
+                ;;
+              (*)
+                CHOICE=0
+                echo "Origin snapshot '${ORIGIN}' will be preserved"
+                ;;
+            esac
+          else
+            CHOICE=1
+          fi
+          # destroy boot environment
+          zfs destroy -r ${POOL}/ROOT/${DESTROY}
+          # check if boot environment is a clone
+          if __be_clone ${POOL}/ROOT/${DESTROY}
+          then
+            # promote datasets dependent on origins used by destroyed boot environment
+            ALL_ORIGINS=$( zfs list -H -t all -o name,origin )
+            echo "${ORIGIN_SNAPSHOTS}" \
+              | while read S
+                do
+                  echo "${ALL_ORIGINS}" \
+                    | grep "${S}" \
+                    | awk '{print $1}' \
+                    | while read I
+                      do
+                        zfs promote ${I}
+                      done
+                done
+          fi
+          # destroy origins used by destroyed boot environment
+          SNAPSHOTS=$( zfs list -H -t snapshot -o name )
+          echo "${ORIGIN_SNAPSHOTS}" \
+            | while read S
+              do
+                echo "${SNAPSHOTS}" \
+                  | grep "@${S}$" \
+                  | while read I
+                    do
+                      if [ ${CHOICE} -eq 1 ]
+                      then
+                        zfs destroy ${I}
+                      fi
+                    done
+              done
+        fi
+        echo "Destroyed successfully"
+        ;;
+      (*)
+        echo "Boot environment '${DESTROY}' has not been destroyed"
+        ;;
+    esac
+    ;;
+
+  (rename) # ------------------------------------------------------------------
+    if [ ${#} -ne 3 ]
+    then
+      __usage
+    fi
+    __be_exist ${POOL}/ROOT/${2}
+    if [ "${BOOTFS}" = "${POOL}/ROOT/${2}" ]
+    then
+      echo "ERROR: Renaming active boot environment is not supported"
+      exit 1
+    fi
+    if zfs list -H -o name ${POOL}/ROOT/${3} 2> /dev/null
+    then
+      echo "ERROR: Boot environment '${3}' already exists"
+      exit 1
+    fi
+    zfs rename ${POOL}/ROOT/${2} ${POOL}/ROOT/${3}
+    echo "Renamed successfully"
+    ;;
+
+  (mount) # ------------------------------------------------------------
+    if [ ${#} -eq 2 ]
+    then
+      TARGET=$( mktemp -d -t BE-${2} )
+    elif [ ${#} -eq 3 ]
+    then
+      TARGET=${3}
+    else
+      __usage
+    fi
+    __be_exist "${POOL}/ROOT/${2}"
+    if __be_mounted "${POOL}/ROOT/${2}"
+    then
+      MNT=$( mount | grep -E "^${POOL}/ROOT/${2} " | awk '{print $3}' )
+      echo "Boot environment '${2}' is already mounted at '${MNT}'"
+      exit 1
+    fi
+    if ! mkdir -p ${TARGET} 2> /dev/null
+    then
+      echo "ERROR: Cannot create '${TARGET}' mountpoint"
+      exit 1
+    fi
+    if ! mount -t zfs ${POOL}/ROOT/${2} ${TARGET}
+    then
+      echo "ERROR: Cannot mount '${2}' at '${TARGET}' mountpoint"
+      exit 1
+    fi
+    PREFIX=$( echo ${POOL}/ROOT/${2}/ | sed 's/\//\\\//g' )
+    zfs list -H -o name,mountpoint -r ${POOL}/ROOT/${2} \
+      | grep -v -E "[[:space:]](legacy|none)$" \
+      | sort -n \
+      | grep -E "^${POOL}/ROOT/${2}/" \
+      | while read FS MOUNTPOINT
+        do
+          if [ "{FS}" != "${POOL}/ROOT/${2}" ]
+          then
+            INHERIT=$( zfs get -H -o source mountpoint ${FS} )
+            if [ "${INHERIT}" = "local" ]
+            then
+              case ${MOUNTPOINT} in
+                (legacy|none)
+                  continue
+                  ;;
+                (*)
+                  MOUNTPOINT="/$( echo "${FS}" | sed s/"${PREFIX}"//g )"
+                  ;;
+              esac
+            fi
+          fi
+          if ! mkdir -p ${TARGET}${MOUNTPOINT} 1> /dev/null 2> /dev/null
+          then
+            echo "ERROR: Cannot create '${TARGET}${MOUNTPOINT}' mountpoint"
+            exit 1
+          fi
+          if ! mount -t zfs ${FS} ${TARGET}${MOUNTPOINT} 1> /dev/null 2> /dev/null
+          then
+            echo "ERROR: Cannot mount '${FS}' at '${TARGET}${MOUNTPOINT}' mountpoint"
+            exit 1
+          fi
+        done
+    echo "Mounted successfully on '${TARGET}'"
+    ;;
+
+  (umount|unmount) # ----------------------------------------------------------
+    if [ ${#} -eq 2 ]
+    then
+      # we need this empty section for argument checking
+      :
+    elif [ ${#} -eq 3 -a "${2}" = "-f" ]
+    then
+      OPTS="-f"
+      shift
+    else
+      __usage
+    fi
+    __be_exist "${POOL}/ROOT/${2}"
+    if ! __be_mounted "${POOL}/ROOT/${2}"
+    then
+      echo "Boot environment '${2}' is not mounted"
+      exit 1
+    fi
+    MOUNT=$( mount )
+    MOUNTPOINT=$( echo "${MOUNT}" | grep -m 1 "^${POOL}/ROOT/${2} on " | awk '{print $3}' )
+    echo "${MOUNT}" \
+      | awk '{print $1}' \
+      | grep -E "^${POOL}/ROOT/${2}(/|$)" \
+      | sort -n -r \
+      | while read FS
+        do
+          if ! umount ${OPTS} ${FS} 1> /dev/null 2> /dev/null
+          then
+            echo "ERROR: Cannot umount '${FS}' dataset"
+            exit 1
+          fi
+        done
+    echo "Unmounted successfully"
+    # only delete the temporary mountpoint directory
+    if echo "${MOUNTPOINT}" | grep -q -E "/BE-${2}\.[a-zA-Z0-9]{8}" 1> /dev/null 2> /dev/null
+    then
+      # delete only when it is an empty directory
+      if [ $( find ${MOUNTPOINT} | head | wc -l | bc ) -eq 1 ]
+      then
+        rm -r ${MOUNTPOINT}
+      fi
+    fi
+    ;;
+
+  (*) # -----------------------------------------------------------------------
+    __usage
+    ;;
+
+esac
