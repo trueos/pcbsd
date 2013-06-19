@@ -19,7 +19,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		xdg-desktop-icon:${PORTSDIR}/devel/xdg-utils \
 		bsdstats>=0:${PORTSDIR}/sysutils/bsdstats \
 		unrar:${PORTSDIR}/archivers/unrar \
-		beadm:${PORTSDIR}/sysutils/beadm \
+		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		pefs:${PORTSDIR}/sysutils/pefs-kmod \
 		sudo:${PORTSDIR}/security/sudo \
 		bash:${PORTSDIR}/shells/bash \
