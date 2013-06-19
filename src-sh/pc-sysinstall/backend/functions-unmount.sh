@@ -228,6 +228,12 @@ setup_grub()
   # Mount devfs
   rc_halt "mount -t devfs devfs ${FSMNT}/dev"
 
+  # Check for a custom beadm.install to copy before we run grub
+  if [ -e "/root/beadm.install" ] ; then
+     rc_halt "cp /root/beadm.install ${FSMNT}/root/beadm.install"
+     rc_halt "chmod 755 ${FSMNT}/root/beadm.install"
+  fi
+
   # Make sure to copy zpool.cache first
   rc_nohalt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
 
@@ -253,6 +259,9 @@ setup_grub()
   rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
 
   # Sleep and cleanup
+  if [ -e "${FSMNT}/root/beadm.install" ] ; then
+     rc_halt "rm ${FSMNT}/root/beadm.install"
+  fi
   sleep 5
   rc_halt "umount ${FSMNT}/dev"
 };
