@@ -552,15 +552,15 @@ void Installer::slotChangedMetaPkgSelection()
       QFile filev("/var/log/Xorg.0.log");
       if (filev.open(QIODevice::ReadOnly | QIODevice::Text)) {
           
-        QTextStream in(&file);
-        while (!in.atEnd()) {
-           QString line = in.readLine();
+        QTextStream inv(&filev);
+        while (!inv.atEnd()) {
+           QString line = inv.readLine();
            if ( line.indexOf("VirtualBox") != -1 ) {
 	     selectedPkgs << "VirtualBoxGuest";
              break;
            }
         }     
-        file.close();
+        filev.close();
       } // End of virtualbox check
   }
 
@@ -629,7 +629,7 @@ void Installer::slotNext()
    }
 
    // Start the TrueOS wizard
-   if ( radioServer->isChecked() ) { 
+   if ( radioServer->isChecked() && installStackWidget->currentIndex() == 1 ) { 
      bool tOS;
      tOS = true;
 
