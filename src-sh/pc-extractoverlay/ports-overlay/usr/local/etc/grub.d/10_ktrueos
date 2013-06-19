@@ -47,7 +47,7 @@ display_loaderopts()
   touch /tmp/.lSysCtls.$$
 
   # Loader files, in order of which to read them
-  lFiles="${fMnt}/boot/device.hints ${fMnt}/boot/loader.conf.local ${fMnt}/boot/loader.conf ${fMnt}/boot/loader.conf.pcbsd"
+  lFiles="${fMnt}/boot/device.hints ${fMnt}/boot/loader.conf.local ${fMnt}/boot/loader.conf ${fMnt}/boot/loader.conf.trueos ${fMnt}/boot/loader.conf.pcbsd"
   for f in $lFiles
   do
      if [ ! -e "$f" ] ; then continue ; fi
