@@ -30,7 +30,6 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		svn:${PORTSDIR}/devel/subversion \
 		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
 		debootstrap:${PORTSDIR}/sysutils/debootstrap \
-		fscadm:${PORTSDIR}/sysutils/fsc \
 		smartd:${PORTSDIR}/sysutils/smartmontools \
 		jailme:${PORTSDIR}/sysutils/jailme \
 		python:${PORTSDIR}/lang/python \
