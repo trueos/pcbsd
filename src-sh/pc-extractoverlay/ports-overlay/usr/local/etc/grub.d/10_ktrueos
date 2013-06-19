@@ -129,6 +129,18 @@ detect_beadm()
 {
    which -s beadm
    if [ $? -ne 0 ] ; then return 0; fi
+
+   # Check if we are running from the installer and use its beadm
+   if [ -e "/root/beadm.install" ] ; then
+      BEADM="/root/beadm.install"
+   else
+      BEADM="`which beadm`"
+   fi
+
+   ${BEADM} list >/dev/null 2>/dev/null
+   if [ $? -ne 0 ] ; then return 0; fi
+
+
    if [ -e "/etc/defaults/pcbsd" ] ; then
       NICK="PC-BSD"
    else
@@ -136,10 +148,10 @@ detect_beadm()
    fi
 
    # Get list of beadm datasets
-   for b in `beadm list 2>/dev/null| grep -v "Created" | cut -d ' ' -f 1`
+   for b in `${BEADM} list 2>/dev/null| grep -v "Created" | cut -d ' ' -f 1`
    do
       # Got a beadm snapshot, lets get the complete dataset name
-      cdataset=`beadm list -a | grep "/ROOT/${b}" | awk '{print $1}'`
+      cdataset=`${BEADM} list -a | grep "/ROOT/${b}" | awk '{print $1}'`
       ztank=`echo $cdataset | cut -d '/' -f 1`
       shortdataset="/`echo $cdataset | cut -d '/' -f 2-5`"
 
@@ -157,7 +169,7 @@ EOF
       # Now lets look for options in loader.conf to load
       loadPrefix="${shortdataset}"
       # If this is the current mounted dataset, we can skip mounting it
-      mount | grep -q "$cdataset on / ("
+      mount | grep -q -e "$cdataset on / (" -e "$cdataset on /mnt ("
       if [ $? -eq 0 ] ; then
         display_loaderopts
       else
