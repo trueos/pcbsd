@@ -389,6 +389,9 @@ setup_grub()
   # Mount devfs
   rc_halt "mount -t devfs devfs ${FSMNT}/dev"
 
+  # Make sure to copy zpool.cache first
+  rc_halt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
+
   # Read through our list and stamp grub for each device
   while read line
   do
