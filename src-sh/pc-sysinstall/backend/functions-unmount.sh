@@ -66,6 +66,9 @@ unmount_all_filesystems()
   cp ${LOGOUT} ${FSMNT}/root/pc-sysinstall.log
   cd /
 
+  # Check if we need to setup GRUB
+  if [ -e "${TMPDIR}/.grub-install" ] ; then setup_grub; fi
+
   # Start by unmounting any ZFS partitions
   zfs_cleanup_unmount
 
@@ -217,4 +220,39 @@ unmount_all_filesystems_failure()
   # Unmount our CDMNT
   umount ${CDMNT} >/dev/null 2>/dev/null
 
+};
+
+# Script which stamps grub on the specified disks
+setup_grub() 
+{
+  # Mount devfs
+  rc_halt "mount -t devfs devfs ${FSMNT}/dev"
+
+  # Make sure to copy zpool.cache first
+  rc_nohalt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
+
+  # Copy the hostid so that our zfs cache works
+  rc_nohalt "cp /etc/hostid ${FSMNT}/etc/hostid"
+
+  # Read through our list and stamp grub for each device
+  while read line
+  do
+    # Make sure we have a /dev in front of the disk name
+    echo $line | grep -q '/dev/'
+    if [ $? -eq 0 ] ; then
+      gDisk="$line"
+    else
+      gDisk="/dev/$line"
+    fi
+
+    # Stamp GRUB now
+    rc_halt "chroot ${FSMNT} grub-install --force $gDisk"
+  done < ${TMPDIR}/.grub-install
+
+  # Make sure we re-create the default grub.cfg
+  rc_halt "chroot ${FSMNT} grub-mkconfig -o /boot/grub/grub.cfg"
+
+  # Sleep and cleanup
+  sleep 5
+  rc_halt "umount ${FSMNT}/dev"
 };
