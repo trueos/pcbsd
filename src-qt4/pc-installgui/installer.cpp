@@ -755,7 +755,11 @@ QStringList Installer::getGlobalCfgSettings()
      distFiles+=" lib32";
 
   // System type we are installing
-  tmpList << "installType=PCBSD";
+  if ( radioDesktop->isChecked() )
+    tmpList << "installType=PCBSD";
+  else
+    tmpList << "installType=FreeBSD";
+
   tmpList << "packageType=dist";
 
   // Set the distFiles being used
