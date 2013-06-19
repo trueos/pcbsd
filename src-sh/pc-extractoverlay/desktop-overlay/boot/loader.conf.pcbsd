@@ -10,16 +10,10 @@ legal.intel_iwi.license_ack=1
 # Load additional sata device support
 siis_load="YES"
 sdhci_load="YES"
-
-# Load geom support
-geom_journal_load="YES"
-geom_mirror_load="YES"
-geom_eli_load="YES"
-
-# Enable hardware crypto
-aesni_load="YES"
+zlib_load="YES"
 
 # Load File-System Support
+opensolaris_load="YES"
 zfs_load="YES"
 tmpfs_load="YES"
 
@@ -35,16 +29,6 @@ machdep.disable_mtrrs=1
 # Show keystokes for passphrases
 kern.geom.eli.visible_passphrase=2 
 
-# Enable the graphical boot-loader
-autoboot_delay="03"
-graphics_enable="YES"
-beastie_theme="/boot/themes/default/theme.conf"
-
-# Load splash screen
-#splash_pcx_load="YES"
-#bitmap_load="YES"
-#bitmap_name="/boot/loading-screen.pcx"
-
 # Speed up boot
 kern.cam.scsi_delay="500"
 
@@ -54,7 +38,12 @@ kern.hz=100
 # Placeholder for future ZFS TRIM support in 9.2/10
 # vfs.zfs.trim_disable=0
 
-# Enable IPFW/dummynet for Warden
-dummynet_load="YES"
-ipfw_nat_load="YES"
-ipdivert_load="YES"
+# Load geom support
+crypto_load="YES"
+geom_journal_load="YES"
+geom_mirror_load="YES"
+geom_eli_load="YES"
+
+# Enable hardware crypto
+aesni_load="YES"
+
