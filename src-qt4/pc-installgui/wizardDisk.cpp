@@ -794,7 +794,7 @@ void wizardDisk::generateCustomDiskLayout()
 
   // If we have any additional ZFS mirror / raidz devices set it up now
   QString zOpts, zDisk;
-  if ( groupZFSOpts->isChecked() ) {
+  if ( groupZFSOpts->isChecked() && comboPartition->currentIndex() == 0 ) {
      zOpts = comboZFSMode->currentText() + ":";
      for ( int i = 0; i < listZFSDisks->count(); ++i )
         if ( listZFSDisks->item(i)->checkState() == Qt::Checked ) {
