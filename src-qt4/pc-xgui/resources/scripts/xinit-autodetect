@@ -18,20 +18,26 @@ if [ -e "/etc/pcbsd-lang" ] ; then
    export LANG
 fi
  
+# We started up, let the backend script know
 touch ${XGUITMP}/.xstartupsuccess
+
+# Start our fluxbox WM
 /usr/local/bin/startfluxbox &
 PID=$!
+
+# Ask user if they like the auto-detected resolution
 /usr/local/bin/pc-xgui -firstprompt
-if [ "$?" = "0" ] ; then
-  echo "Canceled" > ${XGUITMP}/.canceled
+if [ $? -eq 0 ] ; then
+  # The user liked this res? Lets run the other stuff now
+  touch ${XGUITMP}/.selected
+  run_firstboot
   kill -9 ${PID}
   exit 0
 fi
+
+# The user wants to setup a manual resolution
 /usr/local/bin/pc-xgui
-if [ "$?" = "0" ] ; then
- # Run the firstboot script immediately
- run_firstboot
-else
+if [ $? -ne 0 ] ; then
  echo "Canceled" > ${XGUITMP}/.canceled
 fi
 kill -9 ${PID}

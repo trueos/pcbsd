@@ -18,8 +18,8 @@ touch ${XGUITMP}/.xstartupsuccess
 /usr/local/bin/startfluxbox &
 PID=$!
 /usr/local/bin/pc-xgui -test
-if [ "${?}" = "0" ]; then
- echo "selected" > ${XGUITMP}/.selected
+if [ $? -eq 0 ]; then
+  touch ${XGUITMP}/.selected
 
   # Run the firstboot script immediately
  run_firstboot
