@@ -8,7 +8,6 @@ legal.intel_ipw.license_ack=1
 legal.intel_iwi.license_ack=1
 
 # Load additional sata device support
-siis_load="YES"
 sdhci_load="YES"
 zlib_load="YES"
 
