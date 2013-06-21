@@ -21,38 +21,31 @@
         </message>
         <message>
             <source>System Timezone</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Σύστημα Χρονικών Ζωνών</translation>
         </message>
         <message>
             <source>Where are you located? Please select the timezone for your location.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Που βρίσκεστε; Επιλέξτε την χρονική ζώνη με βάση το πού βρίσκεστε.</translation>
         </message>
         <message>
             <source>Root Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Κωδικός Υπερχρήστη</translation>
         </message>
         <message>
             <source>Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Κωδικός</translation>
         </message>
         <message>
             <source>Password (Repeat)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Κωδικός (Ξαναγράψτε το)</translation>
         </message>
         <message>
             <source>The system or &quot;root&quot; password allows you to make changes to your operating system, and should be kept from non-trusted users. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ο κωδικός του συστήματος ή του &quot;Υπερχρήστη&quot; σας επιτρέπει να κάνετε αλλαγές στο λειτουργικό σας σύστημα και θα πρέπει να φυλαχτεί από μη αξιόπιστους χρήστες.</translation>
         </message>
         <message>
             <source>Create a User</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Δημιουργήστε ένα χρήστη</translation>
         </message>
         <message>
             <source>Name</source>
@@ -60,76 +53,62 @@
         </message>
         <message>
             <source>Username</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Όνομα Χρήστη</translation>
         </message>
         <message>
             <source>Now you may create a desktop user for this system. After you login, additional users can easily be created in the Control Panel. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Τώρα μπορείτε να δημιουργήσετε έναν χρήστη για αυτό το σύστημα. Αφού συνδεθείτε, επιπλέον χρήστες μπορούν εύκολα να δημιουργηθούν μέσω του Πίνακα Ελέγχου.</translation>
         </message>
         <message>
             <source>Connect to a Wireless Network</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Συνδεθείτε σε ένα ασύρματο δίκτυο.</translation>
         </message>
         <message>
             <source>&amp;Rescan</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Επανάληψη Σάρωσης</translation>
         </message>
         <message>
             <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Τα παρακάτω ασύρματα δίκτυα βρέθηκαν. Κάντε κλικ σε αυτό που θέλετε να συνδεθείτε. Αν θέλετε να παραλείψετε αυτό το βήμα, κάντε κλικ στο Next/Επόμενο παρακάτω.</translation>
         </message>
         <message>
             <source>Setup is now complete! Press Finish to login to your new desktop.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Η εγκατάσταση έχει τώρα ολοκληρωθεί! Πατήστε το κουμπί Finish/Τέλος ώστε να συνδεθείτε στην επιφάνεια εργασίας σας.</translation>
         </message>
         <message>
             <source>&amp;Finish</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Τέλος</translation>
         </message>
         <message>
             <source>Change the installation language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Αλλάξτε την γλώσσα εγκατάστασης.</translation>
         </message>
         <message>
             <source>Set the system timezone</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ρυθμίστε τη ζώνη ώρας του συστήματος</translation>
         </message>
         <message>
             <source>Display help for the current screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Προβολή βοήθειας για την τρέχουσα οθόνη</translation>
         </message>
         <message>
             <source>Launch the on-screen keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Χρησιμοποιείστε το πληκτρολόγιο επί της οθόνης</translation>
         </message>
     </context>
     <context>
         <name>QObject</name>
         <message>
             <source>This screen allows you to select the system language you wish to use.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Αυτή η οθόνη σας επιτρέπει να επιλέξετε τη γλώσσα του συστήματος που θέλετε να χρησιμοποιήσετε.</translation>
         </message>
         <message>
             <source>This screen lets you pick the default timezone for your computer.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Αυτή η οθόνη σας επιτρέπει να επιλέξετε την προεπιλεγμένη ζώνη ώρας για τον υπολογιστή σας.</translation>
         </message>
         <message>
             <source>On this screen please enter the root password you wish to use. This password is used for full system access, and should be something secure.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Σε αυτή την οθόνη παρακαλώ να πληκτρολογήσετε τον κωδικό του Υπερχρήστη που θέλετε να χρησιμοποιήσετε. Αυτός ο κωδικός χρησιμοποιείτε για πλήρη πρόσβαση στο σύστημα και θα πρέπει να είναι κάτι ασφαλής. </translation>
         </message>
         <message>
             <source>On this screen you will need to create a user to log into your desktop. Additional users may be created in the Control Panel.</source>
