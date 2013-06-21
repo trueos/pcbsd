@@ -20,5 +20,7 @@
 ./etc/timezone
 ./etc/wall_cmos_clock
 ./root
-./usr/local/etc
+./usr/local/etc/pkg.conf
+./usr/local/etc/pkg-pubkey.cert
+./usr/local/etc/pcbsd.conf
 ./var/run/fail2ban
