@@ -105,6 +105,14 @@ setup_zfs_mirror_parts()
 {
   _nZFS=""
 
+  # Check if the target disk is using GRUB
+  grep -q "/dev/$2" ${TMPDIR}/.grub-install 2>/dev/null
+  if [ $? -eq 0 ] ; then
+     _tBL="GRUB"
+  else
+     _tBL="bsd"
+  fi
+
   ZTYPE="`echo ${1} | awk '{print $1}'`"
 
   # Using mirroring, setup boot partitions on each disk
@@ -119,9 +127,13 @@ setup_zfs_mirror_parts()
     is_disk "$_zvars" >/dev/null 2>/dev/null
     if [ $? -eq 0 ] ; then
       echo "Setting up ZFS disk $_zvars" >>${LOGOUT}
-      init_gpt_full_disk "$_zvars" >/dev/null 2>/dev/null
+      init_gpt_full_disk "$_zvars" "$_tBL" >/dev/null 2>/dev/null
       rc_halt "gpart add -a 4k -t freebsd-zfs ${_zvars}" >/dev/null 2>/dev/null
-      rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}" >/dev/null 2>/dev/null
+
+      # If we are not using GRUB we need to add pmbr / gptzfsboot
+      if [ "$_tBL" != "GRUB" ] ; then
+        rc_halt "gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ${_zvars}" >/dev/null 2>/dev/null
+      fi
       _nZFS="$_nZFS ${_zvars}p2"	
     else
       _nZFS="$_nZFS ${_zvars}"	
