@@ -25,7 +25,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -167,10 +167,10 @@
           </property>
           <property name="styleSheet">
            <string notr="true">QGroupBox::indicator:unchecked{
-image: url(:icons/arrow-up.png);
+image: url(:icons/arrow-down.png);
 }
 QGroupBox::indicator:checked{
-image: url(:icons/arrow-down.png);
+image: url(:icons/arrow-up.png);
 }
 QGroupBox::title{
 spacing: 1px;
@@ -364,6 +364,13 @@ border-radius: 5px;
                  </layout>
                 </item>
                 <item>
+                 <widget class="Line" name="line_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <spacer name="verticalSpacer">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -540,17 +547,30 @@ QGroupBox{
 font-weight: bold;
 }
 QToolButton{
-  background-color: rgba(190,190,190,80);
+  background-color: rgba(145,142,140,80);
+ border: 1px solid grey;
+ border-radius: 5px;
+}
+QToolButton:hover{
+ background-color: rgba(145,142,140,80);
+ border: 1px solid rgba(140,140,250,230);
+ border-radius: 5px;
 }
 QTextEdit{
  background-color: rgba(190,190,190,30);
+border: 1px solid grey;
+border-radius: 5px;
 }
 QScrollBar{
  background-color: rgba(190,190,190,80);
  border: 2px solid rgba(190,190,190,200);
  border-radius: 5px;
 }
-</string>
+QScrollArea{ 
+  background-color: rgba(190,190,190,30);
+ border: 1px solid grey;
+ border-radius: 5px;
+}</string>
           </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -570,10 +590,10 @@ QScrollBar{
               </property>
               <property name="styleSheet">
                <string notr="true">QGroupBox::indicator:unchecked{
-image: url(:icons/arrow-up.png);
+image: url(:icons/arrow-down.png);
 }
 QGroupBox::indicator:checked{
-image: url(:icons/arrow-down.png);
+image: url(:icons/arrow-up.png);
 }
 QGroupBox::title{
 spacing: 1px;
@@ -623,8 +643,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>447</width>
+                    <height>61</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -674,8 +694,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>441</width>
+                    <height>283</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -699,8 +719,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>96</width>
-                 <height>26</height>
+                 <width>463</width>
+                 <height>410</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -805,36 +825,56 @@ spacing: 1px;
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_11">
                 <item>
-                 <widget class="QToolButton" name="tool_bapp_download">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string notr="true">Install Now!</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="SoftwareManager.qrc">
-                    <normaloff>:/icons/app_download.png</normaloff>:/icons/app_download.png</iconset>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>48</width>
-                    <height>48</height>
-                   </size>
-                  </property>
-                  <property name="toolButtonStyle">
-                   <enum>Qt::ToolButtonTextUnderIcon</enum>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8">
+                  <item>
+                   <spacer name="horizontalSpacer_8">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::MinimumExpanding</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>0</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="tool_bapp_download">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string notr="true">Install Now!</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="SoftwareManager.qrc">
+                      <normaloff>:/icons/app_download.png</normaloff>:/icons/app_download.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>48</width>
+                      <height>48</height>
+                     </size>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextUnderIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                 <item>
                  <layout class="QFormLayout" name="formLayout_5">
@@ -1047,10 +1087,10 @@ spacing: 1px;
              <widget class="QGroupBox" name="group_bapp_similar">
               <property name="styleSheet">
                <string notr="true">QGroupBox::indicator:unchecked{
-image: url(:icons/arrow-up.png);
+image: url(:icons/arrow-down.png);
 }
 QGroupBox::indicator:checked{
-image: url(:icons/arrow-down.png);
+image: url(:icons/arrow-up.png);
 }
 QGroupBox::title{
 spacing: 1px;
@@ -1065,6 +1105,9 @@ spacing: 1px;
               <layout class="QVBoxLayout" name="verticalLayout_8">
                <item>
                 <widget class="QScrollArea" name="scroll_bapp_similar">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
                  <property name="verticalScrollBarPolicy">
                   <enum>Qt::ScrollBarAlwaysOff</enum>
                  </property>
@@ -1076,7 +1119,7 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>445</width>
+                    <width>447</width>
                     <height>61</height>
                    </rect>
                   </property>
@@ -1137,8 +1180,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>70</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1175,8 +1218,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>96</width>
-                    <height>26</height>
+                    <width>70</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
