@@ -62,12 +62,13 @@ start_gmirror_sync()
 # Unmounts all our mounted file-systems
 unmount_all_filesystems()
 {
-  # Copy the logfile to disk before we unmount
-  cp ${LOGOUT} ${FSMNT}/root/pc-sysinstall.log
   cd /
 
   # Check if we need to setup GRUB
   if [ -e "${TMPDIR}/.grub-install" ] ; then setup_grub; fi
+
+  # Copy the logfile to disk before we unmount
+  cp ${LOGOUT} ${FSMNT}/root/pc-sysinstall.log
 
   # Start by unmounting any ZFS partitions
   zfs_cleanup_unmount
