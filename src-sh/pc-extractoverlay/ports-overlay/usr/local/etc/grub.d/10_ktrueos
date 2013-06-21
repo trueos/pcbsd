@@ -100,7 +100,7 @@ display_loaderopts()
       else
         echo "Unable to locate module ${module}" >&2
       fi
-      echo "  kfreebsd_module_elf ${loadPrefix}/@/boot/${mPath}/${module}.ko"
+      echo "    kfreebsd_module_elf ${loadPrefix}/@/boot/${mPath}/${module}.ko"
     done < /tmp/.lRObjs.$$
   fi
 
@@ -113,7 +113,7 @@ display_loaderopts()
       if [ $? -eq 0 ] ; then continue ; fi
 
       val="`echo $line | sed 's|"||g'`"
-      echo "  set kFreeBSD.${val}"
+      echo "    set kFreeBSD.${val}"
     done < /tmp/.lSysCtls.$$
   fi
 
@@ -158,15 +158,16 @@ detect_beadm()
       ztank=`echo $cdataset | cut -d '/' -f 1`
       shortdataset="/`echo $cdataset | cut -d '/' -f 2-5`"
 
-      # Lets echo the main guts of the BE loader
-      cat << EOF
-# Start TrueOS BE
-menuentry "$NICK ($b) - $cdatadate $cdatatime" {
-  insmod zfs
-  search -s -l $ztank
-  kfreebsd ${shortdataset}/@/boot/kernel/kernel
-  kfreebsd_module ${shortdataset}/@/boot/zfs/zpool.cache type=/boot/zfs/zpool.cache
-  set kFreeBSD.vfs.root.mountfrom=zfs:$cdataset
+      # First part of this dataset
+      cat > /tmp/.grubdataset.$$.1 << EOF
+    insmod zfs
+    search -s -l $ztank
+EOF
+
+      # Second part of loader to save
+      cat > /tmp/.grubdataset.$$.2 << EOF
+    kfreebsd_module ${shortdataset}/@/boot/zfs/zpool.cache type=/boot/zfs/zpool.cache
+    set kFreeBSD.vfs.root.mountfrom=zfs:$cdataset
 EOF
       
       # Now lets look for options in loader.conf to load
@@ -174,12 +175,82 @@ EOF
       # If this is the current mounted dataset, we can skip mounting it
       mount | grep -q -e "$cdataset on / (" -e "$cdataset on /mnt ("
       if [ $? -eq 0 ] ; then
-        display_loaderopts
+        display_loaderopts >>/tmp/.grubdataset.$$.2
       else
-        display_loaderopts $cdataset
+        display_loaderopts $cdataset >> /tmp/.grubdataset.$$.2
       fi
 
-      # Lastly lets close the section
+      # Lets start a submenu for each BE
+cat << EOF
+# Start TrueOS BE Submenu
+submenu "${NICK} ($b) - ${cdatadate} ${cdatatime}" {
+EOF
+  
+  # Lets do the default entry first
+  #################################
+  cat << EOF
+  menuentry "Normal Bootup" {
+EOF
+  # Get the dataset guts
+  cat /tmp/.grubdataset.$$.1
+  echo "    kfreebsd ${shortdataset}/@/boot/kernel/kernel"
+  cat /tmp/.grubdataset.$$.2
+
+  # Set any options
+  cat << EOF
+  }
+EOF
+
+  # Next lets do single user mode
+  #################################
+  cat << EOF
+  menuentry "Single User Mode" {
+EOF
+  # Get the dataset guts
+  cat /tmp/.grubdataset.$$.1
+  echo "    kfreebsd ${shortdataset}/@/boot/kernel/kernel -s"
+  cat /tmp/.grubdataset.$$.2
+
+  # Set any options
+  cat << EOF
+  }
+EOF
+
+  # Next lets do verbose mode
+  #################################
+  cat << EOF
+  menuentry "Verbose Mode" {
+EOF
+  # Get the dataset guts
+  cat /tmp/.grubdataset.$$.1
+  echo "    kfreebsd ${shortdataset}/@/boot/kernel/kernel -v"
+  cat /tmp/.grubdataset.$$.2
+
+  # Set any options
+  cat << EOF
+  }
+EOF
+
+  if [ -e "/etc/defaults/pcbsd" ] ; then
+    # Next lets do display wizard
+    #################################
+    cat << EOF
+  menuentry "Run the Display Wizard" {
+EOF
+    # Get the dataset guts
+    cat /tmp/.grubdataset.$$.1
+    echo "    kfreebsd ${shortdataset}/@/boot/kernel/kernel"
+    cat /tmp/.grubdataset.$$.2
+
+    # Set any options
+    cat << EOF
+    set kFreeBSD.runwiz=YES
+  }
+EOF
+  fi
+
+
+      # Lastly lets close the submenu section
       cat << EOF
 }
 # End TrueOS BE
@@ -187,6 +258,11 @@ EOF
 EOF
    done
 
+   # Cleanup after ourselves
+   if [ -e "/tmp/.grubdataset.$$.1" ] ; then
+     rm /tmp/.grubdataset.$$.1
+     rm /tmp/.grubdataset.$$.2
+   fi
 }
 
 # Detect our types of disk layouts
