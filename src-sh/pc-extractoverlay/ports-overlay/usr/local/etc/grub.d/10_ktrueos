@@ -151,14 +151,17 @@ detect_beadm()
    for b in `${BEADM} list 2>/dev/null| grep -v "Created" | cut -d ' ' -f 1`
    do
       # Got a beadm snapshot, lets get the complete dataset name
-      cdataset=`${BEADM} list -a | grep "/ROOT/${b}" | awk '{print $1}'`
+      beLine=`${BEADM} list -a | grep "/ROOT/${b}"`
+      cdataset=`echo $beLine | awk '{print $1}'`
+      cdatadate=`echo $beLine | awk '{print $5}'`
+      cdatatime=`echo $beLine | awk '{print $6}'`
       ztank=`echo $cdataset | cut -d '/' -f 1`
       shortdataset="/`echo $cdataset | cut -d '/' -f 2-5`"
 
       # Lets echo the main guts of the BE loader
       cat << EOF
 # Start TrueOS BE
-menuentry "$NICK - Boot Environment ($b)" {
+menuentry "$NICK ($b) - $cdatadate $cdatatime" {
   insmod zfs
   search -s -l $ztank
   kfreebsd ${shortdataset}/@/boot/kernel/kernel
