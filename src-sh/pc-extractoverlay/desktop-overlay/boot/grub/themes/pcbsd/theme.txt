@@ -24,10 +24,10 @@
 #general settings
 title-text: "PC-BSD Bootloader"
 title-font: "DejaVu Sans Bold 14"
-title-color: "#fff"
+title-color: "#000"
 message-font: "DejaVu Sans Regular 12"
-message-color: "#fff"
-message-bg-color: "#fff"
+message-color: "#000"
+message-bg-color: "#000"
 terminal-box: "terminal_box_*.png"
 terminal-font: "DejaVu Sans Regular 12"
 desktop-image: "background.png"
@@ -41,7 +41,7 @@ desktop-image: "background.png"
 	text = "@KEYMAP_MIDDLE@"
 	align = "center"
 	font = "DejaVu Sans Regular 10"
-	color = "#FFF"
+	color = "#000"
 }
 
 #boot menu
@@ -51,9 +51,9 @@ desktop-image: "background.png"
 	top = 20%
 	height = 50%	
 	item_font = "DejaVu Sans Regular 12"
-	item_color = "#FFF"
+	item_color = "#000"
 	selected_item_font = "DejaVu Sans Bold 14"
-	selected_item_color= "#FFF"
+	selected_item_color= "#2621CC"
 	selected_item_pixmap_style = "blob_*.png"
 	icon_height = 25
 	icon_width = 25
@@ -76,8 +76,8 @@ desktop-image: "background.png"
 	width = 70%
 	font = "DejaVu Sans Regular 12"
 	text_color = "#000"
-	fg_color = "#fff"
-	bg_color = "#6ac"
-	border_color = "#fff"
+	fg_color = "#6ac"
+	bg_color = "#fff"
+	border_color = "#000"
 	text = "@TIMEOUT_NOTIFICATION_LONG@"
 }
