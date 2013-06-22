@@ -5,7 +5,7 @@
         <name>FSDialog</name>
         <message>
             <source>System Disk Capacity</source>
-            <translation type="unfinished">Місткість (Розмір, об'єм) системного диску</translation>
+            <translation>Об'єм системного диску</translation>
         </message>
         <message>
             <source>Mount Point</source>

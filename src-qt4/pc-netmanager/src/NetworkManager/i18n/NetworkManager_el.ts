@@ -13,8 +13,7 @@
         </message>
         <message>
             <source>IP address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Διεύθυνση IP</translation>
         </message>
         <message>
             <source>Provider</source>
@@ -23,8 +22,7 @@
         </message>
         <message>
             <source>Location</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Τοποθεσία</translation>
         </message>
     </context>
     <context>
