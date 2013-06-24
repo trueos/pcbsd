@@ -81,23 +81,19 @@
         </message>
         <message>
             <source>System components...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>システムコンポーネントの一覧...</translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>デスクトップ環境...</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD CLI ユーティリティー:</translation>
         </message>
         <message>
             <source>PC-BSD UI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD UI ユーティリティー:</translation>
         </message>
     </context>
 </TS>

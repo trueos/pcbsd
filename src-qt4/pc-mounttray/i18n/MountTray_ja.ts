@@ -5,23 +5,19 @@
         <name>FSDialog</name>
         <message>
             <source>System Disk Capacity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>システムのディスク容量</translation>
         </message>
         <message>
             <source>Mount Point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>マウントポイント</translation>
         </message>
         <message>
             <source>Filesystem</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ファイルシステム</translation>
         </message>
         <message>
             <source>Used/Total</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>使用済み/合計</translation>
         </message>
         <message>
             <source>Percent %</source>
@@ -30,16 +26,14 @@
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>閉じる</translation>
         </message>
     </context>
     <context>
         <name>FSWatcher</name>
         <message>
             <source>Disk(s) Almost Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ディスクは既にいっぱいです。</translation>
         </message>
     </context>
     <context>
@@ -94,8 +88,7 @@
         </message>
         <message>
             <source>Mounted at %1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>%1 にマウントしました</translation>
         </message>
     </context>
     <context>
@@ -145,26 +138,22 @@ root 権限付きでファイルマネージャーを開くことはできませ
         </message>
         <message>
             <source>View Disk Usage</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ディスクの使用状況を確認する</translation>
         </message>
         <message>
             <source>Change Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>設定を変更する</translation>
         </message>
     </context>
     <context>
         <name>SettingsDialog</name>
         <message>
             <source>Mount Tray Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>マウントトレイの設定</translation>
         </message>
         <message>
             <source>Monitor disk storage space</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ディスクの残り容量を監視する</translation>
         </message>
         <message>
             <source>Perform check on device notifications</source>
@@ -178,13 +167,11 @@ root 権限付きでファイルマネージャーを開くことはできませ
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>キャンセル</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>適用</translation>
         </message>
     </context>
 </TS>

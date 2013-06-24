@@ -99,13 +99,11 @@
         </message>
         <message>
             <source>Package updates available</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>パッケージのアップデートがあります</translation>
         </message>
         <message>
             <source>Important package updates are available. Click here to install them!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>重要なパッケージのアップデートがあります。ここをクリックしてインストールしてください!</translation>
         </message>
     </context>
 </TS>
