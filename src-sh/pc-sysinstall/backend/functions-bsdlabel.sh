@@ -106,7 +106,7 @@ setup_zfs_mirror_parts()
   _nZFS=""
 
   # Check if the target disk is using GRUB
-  grep -q "/dev/$3" ${TMPDIR}/.grub-install 2>/dev/null
+  grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
   if [ $? -eq 0 ] ; then
      _tBL="GRUB"
   else
