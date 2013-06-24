@@ -24,6 +24,8 @@ RUN_DEPENDS=	kdelibs>=0:${PORTSDIR}/x11/kdelibs4 \
 		gtk-qt-engine>=0:${PORTSDIR}/x11-themes/gtk-qt4-engine \
 		kdebindings>=0:${PORTSDIR}/devel/kdebindings4 \
 		lineakd>=0:${PORTSDIR}/sysutils/lineakd \
+		plasma-scriptengine-python>=0:${PORTSDIR}/x11/plasma-scriptengine-python \
+		plasma-scriptengine-ruby>=0:${PORTSDIR}/x11/plasma-scriptengine-ruby \
 		plasma-applet-daisy>=0:${PORTSDIR}/deskutils/plasma-applet-daisy \
 		plasma-applet-panelspacer>=0:${PORTSDIR}/deskutils/plasma-applet-panelspacer \
 		plasma-applet-simpleweatherforecast>=0:${PORTSDIR}/deskutils/plasma-applet-simpleweatherforecast \
