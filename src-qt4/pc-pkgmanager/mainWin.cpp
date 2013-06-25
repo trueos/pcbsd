@@ -48,8 +48,6 @@ void mainWin::ProgramInit(QString ch)
   treeMetaPkgs->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(treeMetaPkgs, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(slotMetaRightClick()) );
 
-  QTimer::singleShot(200, this, SLOT(slotRescanPkgsClicked() ) );
-
   QSettings settings("PC-BSD", "PackageManager");
   QString curMode = settings.value("view/mode").toString();
   if ( curMode == "Advanced" )
@@ -429,9 +427,6 @@ void mainWin::slotPkgDone() {
   // Switch back to our main display
   stackedTop->setCurrentIndex(0);
  
-  // Re-scan for updates
-  slotRescanPkgsClicked();
-
   // Re-init the meta-widget
   initMetaWidget();
 
@@ -549,6 +544,9 @@ void mainWin::slotFinishLoadingNGPkgs()
 
   connect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotEnableApply()));
   connect(treeNGPkgs, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotNGItemChanged()));
+
+  // Now we can look for updates safely
+  slotRescanPkgsClicked();
 }
 
 void mainWin::slotNGItemChanged()
@@ -636,7 +634,7 @@ void mainWin::addNGItems()
    // We like to add alphabetically
    tmpPkgList.sort();
 
-   QTreeWidgetItem *catItem;
+   QTreeWidgetItem *catItem = new QTreeWidgetItem;
 
    // Lets start adding packages to the tree widget
    for (int i = 0; i < tmpPkgList.size(); ++i) {
@@ -837,6 +835,9 @@ void mainWin::slotFinishLoadingMetaPkgs()
   pushPkgApply->setEnabled(false);
 
   connect(treeMetaPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotDeskPkgsChanged(QTreeWidgetItem *, int)));
+
+  // Now we can look for updates safely
+  slotRescanPkgsClicked();
 }
 
 void mainWin::addTreeItems(QString parent)
