@@ -67,6 +67,8 @@ IGNDIR="${DBDIR}/ignored"
 show_usage() {
         echo "$0 - Usage
 ----
+  branches 		- List available system branches
+  chbranch <tag> 	- Change to new system branch
   check 		- Check for system updates
   install <tag>,<tag2> 	- Install system updates
   pkgcheck 		- Check for updates to packages
@@ -145,6 +147,70 @@ get_update_file() {
 
 }
 
+do_branch() {
+  up="$1"
+
+  # Setup our variable to catch if we have a bad branch
+  BRANCHFOUND="0" 
+
+  while read line
+  do
+     echo $line | grep -q "^BRANCHES:"
+     if [ $? -eq 0 ] ; then
+	for i in `echo $line | cut -d ':' -f 2 | sed 's|,| |g'`
+	do
+  	  if [ "$i" != "$up" ] ; then continue ;fi
+  	  if [ "`uname -r | cut -d '-' -f 1-2`" = "$up" ] ; then 
+	     echo "You are already on this branch!"
+             BRANCHFOUND="1"
+	     continue;
+	  fi
+          start_major_fbsd_update "fbsd-$up"
+          BRANCHFOUND="1"
+	  break
+	done
+     fi
+  done < ${PATCHTMPFILE}
+
+  # If no patches
+  if [ "${BRANCHFOUND}" = "0" ]; then 
+     # No available updates
+     echo "Unknown branch ${1}"
+  fi
+
+  rm ${PATCHTMPFILE}
+
+};
+
+list_branches() {
+  # Setup our variable, we have no branches so far
+  BRANCHFOUND="0" 
+
+  while read line
+  do
+     echo $line | grep -q "^BRANCHES:"
+     if [ $? -eq 0 ] ; then
+	echo "Available branches:"
+        echo "----------------------------------"
+	echo $line | cut -d ':' -f 2 | sed 's|,|\
+|g'
+	echo ""
+	echo "To change branches run: ${0} chbranch <branch>"
+        BRANCHFOUND="1"
+        continue
+     fi
+  done < ${PATCHTMPFILE}
+
+  # If no patches
+  if [ "${BRANCHFOUND}" = "0" ]; then 
+     # No available updates
+     echo "No branches currently available!"
+  fi
+
+  rm ${PATCHTMPFILE}
+
+};
+
 do_check() {
   # Setup our variable, we have no patches so far
   PATCHFOUND="0" 
@@ -189,7 +255,7 @@ parse_mu_update_line()
       echo "The following updates are available:"
       echo "------------------------------------"
    fi
-   echo "NAME: FreeBSD System Update to ${sysUpNVer}" 
+   echo "NAME: System Update to ${sysUpNVer}" 
    echo "TYPE: SYSUPDATE" 
    echo "TAG: fbsd-${sysUpNVer}"
    echo "VERSION: ${sysUpNVer}" 
@@ -446,12 +512,6 @@ do_install() {
             start_pkg_updates
             continue
           else
-  	    echo $up | grep -q "^release-" 
-	    if [ $? -eq 0 ] ; then 
-	      start_major_update "$up"
-              continue
-            fi 
-
 	    # Doing regular pcbsd patch
 	    start_pcbsd_patch "${up}"
             continue
@@ -538,6 +598,10 @@ fi
 case $1 in
   	   check) get_update_file
                   do_check ;;
+        branches) get_update_file
+                  list_branches ;;
+        chbranch) get_update_file
+                  do_branch "${2}" ;;
 	pkgcheck) checkup_pkgs ;;
        pkgupdate) update_pkgs "$2" ;;
  	 install) get_update_file
