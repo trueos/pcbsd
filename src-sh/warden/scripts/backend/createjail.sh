@@ -116,7 +116,7 @@ if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
       if [ "${PLUGINJAIL}" = "YES" ] ; then
          FLAGS="$FLAGS -pluginjail"
       fi
-      ${PROGDIR}/scripts/backend/createtemplate.sh ${FLAGS}
+      warden template create ${FLAGS}
       if [ $? -ne 0 ] ; then
         exit_err "Failed create default template"
       fi
