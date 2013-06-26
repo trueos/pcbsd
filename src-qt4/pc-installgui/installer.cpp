@@ -548,7 +548,7 @@ void Installer::slotChangedMetaPkgSelection()
         file.close();
       } // Done with NVIDIA check
 
-      // Are we on VirtualBox?
+      // Are we on VirtualBox or VMware?
       QFile filev("/var/log/Xorg.0.log");
       if (filev.open(QIODevice::ReadOnly | QIODevice::Text)) {
           
@@ -559,9 +559,13 @@ void Installer::slotChangedMetaPkgSelection()
 	     selectedPkgs << "VirtualBoxGuest";
              break;
            }
+           if ( line.indexOf("VMware") != -1 ) {
+	     selectedPkgs << "VMwareGuest";
+             break;
+           }
         }     
         filev.close();
-      } // End of virtualbox check
+      } // End of VM checks
   }
 
   slotSaveMetaChanges(selectedPkgs);
