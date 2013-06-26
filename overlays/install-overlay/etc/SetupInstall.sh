@@ -4,35 +4,13 @@
 # Setup the /memfs memory device
 echo "Mounting /memfs"
 
-# Do a check of available memory 
-sysMem=`/sbin/sysctl hw.realmem | /bin/cut -d ' ' -f 2`
-minSize=`/bin/expr 500 \* 1024 \* 1024`
-if [ $sysMem -lt $minSize ] ; then
-  MDSIZE="2"
-  echo "Creating ${MDSIZE}MB ramdisk..."
-  /sbin/mdmfs -S -s ${MDSIZE}M -O space md2 /memfs
+MDSIZE="2"
+echo "Creating ${MDSIZE}MB ramdisk..."
+/sbin/mdmfs -S -s ${MDSIZE}M -O space md2 /memfs
 
-  echo "Mounting /usr"
-  MDDEVICE="`/sbin/mdconfig -a -t vnode -o readonly -f /uzip/usr.uzip`.uzip"
-  /sbin/mount -r /dev/$MDDEVICE /usr
-
-else
-  # Copy uzip to memory which lets us run faster
-  MDSIZE="`/bin/du -m /uzip/usr.uzip | /bin/cut -f 1`"
-  MDSIZE="`/bin/expr ${MDSIZE} + 10`"
-  echo "Creating ${MDSIZE}MB ramdisk..."
-  /sbin/mdmfs -S -s ${MDSIZE}M -O space md2 /memfs
-
-  echo "Copying setup image into memory... Please Wait..."
-  /bin/cp /uzip/usr.uzip /memfs/
-
-  # Mount the  "usr" directory
-  echo "Mounting /usr"
-  MDDEVICE="`/sbin/mdconfig -a -t vnode -o readonly -f /memfs/usr.uzip`.uzip"
-  /sbin/mount -r /dev/$MDDEVICE /usr
-
-  # End of loading if we have > 512MB ram
-fi
+echo "Mounting /usr"
+MDDEVICE="`/sbin/mdconfig -a -t vnode -o readonly -f /uzip/usr.uzip`.uzip"
+/sbin/mount -r /dev/$MDDEVICE /usr
 
 PATH="${PATH}:/usr/bin"
 export PATH

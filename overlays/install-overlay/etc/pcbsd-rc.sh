@@ -30,21 +30,6 @@ then
 else
   # Installation medium ONLY
 
-  # Run integrity checks
-  /etc/IntegrityCheck.sh
-  if [ "$?" != "0" ]
-  then
-   echo "One or more integrity checks failed. This can indicate a corrupt 
-installation medium. Please reburn your CD and check the md5 of your ISO 
-against the md5 displayed on the PC-BSD site. To reboot press ENTER. 
-To continue at your own peril type 'continue': "
-   read integrityResponse
-   if [ "$integrityResponse" != "continue" ]
-   then
-    /sbin/reboot
-   fi
-  fi
-  
   # We are running a regular Install
   sh /etc/SetupInstall.sh
 fi
