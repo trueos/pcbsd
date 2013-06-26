@@ -158,6 +158,18 @@ share/pcbsd/metaset/trueos/VirtualBox/pkg-parent
 share/pcbsd/metaset/trueos/VirtualBox/ports-list
 share/pcbsd/metaset/trueos/VirtualBox/pkg-desc
 share/pcbsd/metaset/trueos/VirtualBox/pkg-icon.png
+share/pcbsd/metaset/trueos/VirtualBoxGuest/pkg-parent
+share/pcbsd/metaset/trueos/VirtualBoxGuest/ports-list
+share/pcbsd/metaset/trueos/VirtualBoxGuest/pkg-desc
+share/pcbsd/metaset/trueos/VirtualBoxGuest/pkg-icon.png
+share/pcbsd/metaset/trueos/VirtualBoxGuest/post-install.sh
+share/pcbsd/metaset/trueos/VirtualBoxGuest/post-remove.sh
+share/pcbsd/metaset/trueos/VMwareGuest/pkg-parent
+share/pcbsd/metaset/trueos/VMwareGuest/ports-list
+share/pcbsd/metaset/trueos/VMwareGuest/pkg-desc
+share/pcbsd/metaset/trueos/VMwareGuest/pkg-icon.png
+share/pcbsd/metaset/trueos/VMwareGuest/post-install.sh
+share/pcbsd/metaset/trueos/VMwareGuest/post-remove.sh
 share/pcbsd/metaset/trueos/MySQL/pkg-desc
 share/pcbsd/metaset/trueos/MySQL/pkg-icon.png
 share/pcbsd/metaset/trueos/MySQL/ports-list
@@ -617,6 +629,8 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/metaset/trueos/ownCloud
 @dirrm share/pcbsd/metaset/trueos/NGINX
 @dirrm share/pcbsd/metaset/trueos/VirtualBox
+@dirrm share/pcbsd/metaset/trueos/VirtualBoxGuest
+@dirrm share/pcbsd/metaset/trueos/VMwareGuest
 @dirrm share/pcbsd/metaset/trueos/MySQL
 @dirrm share/pcbsd/metaset/trueos/Languages
 @dirrm share/pcbsd/metaset/trueos/Database-Servers
