@@ -77,7 +77,7 @@ bool XProcess::startXSession(){
     cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
   }
   //  - Add the DE startup command to the end
-  cmd.append(xcmd);
+  cmd.append("dbus-launch --exit-with-session "+xcmd);
   //  - Finish up the command formatting
   cmd.append("\"");
   
