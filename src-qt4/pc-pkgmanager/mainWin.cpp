@@ -265,6 +265,8 @@ void mainWin::startPkgProcess() {
 
 void mainWin::slotReadPkgOutput() {
    QString line, tmp, cur, tot, fname;
+   int curItem, totItem;
+   bool ok;
 
    while (uProc->canReadLine()) {
      line = uProc->readLine().simplified();
@@ -377,13 +379,28 @@ void mainWin::slotReadPkgOutput() {
        dPackages = false;
        curUpdate = 0;
        progressUpdate->setValue(0);
+       progressUpdate->setRange(0, 0);
+       progressUpdate->setValue(0);
+       continue;
      }
      
      if ( uPackages ) {
-       if ( line.indexOf("Upgrading") == 0 || line.indexOf("Reinstalling") == 0 ) {
-         textStatus->setText(line);
-         curUpdate++;
-         progressUpdate->setValue(curUpdate);
+       if ( line.indexOf("[") == 0 ) {
+	 tmp=line.section("]", 1, 1);
+         textStatus->setText(tmp);
+         tmp=line.section("/", 0, 0).replace("[", "");
+	 tmp.toInt(&ok);
+	 if (ok)  {
+	   curItem=tmp.toInt(&ok);
+           tmp=line.section("/", 1, 1).section("]", 0, 0);
+	   tmp.toInt(&ok);
+	   if (ok)  {
+	     totItem=tmp.toInt(&ok);
+             progressUpdate->setRange(0, totItem);
+             progressUpdate->setValue(curItem);
+	   }
+
+         }
        }
        continue;
      }
