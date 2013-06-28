@@ -247,6 +247,21 @@ EOF
     set kFreeBSD.runwiz=YES
   }
 EOF
+    # Now for vesa mode
+    #################################
+    cat << EOF
+  menuentry "Run X in vesa mode" {
+EOF
+    # Get the dataset guts
+    cat /tmp/.grubdataset.$$.1
+    echo "    kfreebsd ${shortdataset}/@/boot/kernel/kernel"
+    cat /tmp/.grubdataset.$$.2
+
+    # Set any options
+    cat << EOF
+    set kFreeBSD.xvesa=YES
+  }
+EOF
   fi
 
 
