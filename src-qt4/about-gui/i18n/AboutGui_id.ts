@@ -5,88 +5,71 @@
         <name>MainWindow</name>
         <message>
             <source>About</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tentang</translation>
         </message>
         <message>
             <source>Version:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Versi:</translation>
         </message>
         <message>
             <source>&lt;Unknown&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&lt;Unknown&gt;</translation>
         </message>
         <message>
             <source>Host:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Host:</translation>
         </message>
         <message>
             <source>????</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>????</translation>
         </message>
         <message>
             <source>FreeBSD base</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Basis FreeBSD</translation>
         </message>
         <message>
             <source>Arch:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lengkungan:</translation>
         </message>
         <message>
             <source>ident</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Identifikasi</translation>
         </message>
         <message>
             <source>Hardware</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Perangkat Keras</translation>
         </message>
         <message>
             <source>CPU:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>CPU:</translation>
         </message>
         <message>
             <source>Mem.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Memori.</translation>
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kembali</translation>
         </message>
         <message>
             <source>Desktop environments:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tampilan Desktop:</translation>
         </message>
         <message>
             <source>(Please wait...)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Mohon tunggu...)</translation>
         </message>
         <message>
             <source>Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nama</translation>
         </message>
         <message>
             <source>Version</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Versi</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tutup</translation>
         </message>
         <message>
             <source>Testing snapshot %1. May be unstable!</source>
