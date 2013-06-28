@@ -245,7 +245,7 @@ then
   mkdir -p "${JAILDIR}/usr/src"
   cd ${JAILDIR}
   SYSVER="$(uname -r | cut -d '-' -f 1-2)"
-  get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/src.txz" "src.txz"
+  get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/src.txz" "src.txz" "iso"
   if [ $? -ne 0 ] ; then
     echo "Error while downloading the freebsd world."
   else

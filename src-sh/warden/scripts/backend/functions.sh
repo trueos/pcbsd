@@ -822,7 +822,7 @@ bootstrap_pkgng()
   chmod 755 "${jaildir}/bootstrap-pkgng"
 
   if [ -e "pkg.txz" ] ; then rm pkg.txz ; fi
-  get_file_from_mirrors "/packages/${release}/${arch}/Latest/pkg.txz" "pkg.txz"
+  get_file_from_mirrors "/${release}/${arch}/Latest/pkg.txz" "pkg.txz" "pkg"
   if [ $? -eq 0 ] ; then
     chroot ${jaildir} /bootstrap-pkgng
     if [ $? -eq 0 ] ; then

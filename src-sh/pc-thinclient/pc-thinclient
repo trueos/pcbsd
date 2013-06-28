@@ -269,7 +269,7 @@ check_world() {
   do
     echo "Downloading ${MIRRORURL}/${SYSVER}/${ARCH}/dist/${i} ..."
     
-    get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/${i}" "$i"
+    get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/${i}" "$i" "iso"
     [ $? -ne 0 ] && exit_err "Error while downloading the freebsd world."
   done
 

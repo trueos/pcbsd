@@ -5501,8 +5501,12 @@ pbi_update_dl() {
 	# Start download from repos mirror(s) in order
 	for _cMirror in $_mirrorList
 	do
-		if [ "$_cMirror" = "PCBSDCDN" ] ; then
-			get_file_from_mirrors "${_uFile}" "$_dl_loc"
+		if [ "$_cMirror" = "PCBSDCDN" -o "$_cMirror" = "http://pbi.cdn.pcbsd.org" ] ; then
+
+			# Strip the /PBI from the mirror URL
+			_uFile="`echo ${_uFile} | sed 's|^/PBI||g'`"
+			
+			get_file_from_mirrors "${_uFile}" "$_dl_loc" "pbi"
 			if [ "$?" != "0" ]  ; then 
 				rm "${_dl_loc}" >/dev/null 2>/dev/null
 				echo "Download Failed: ${_furl}"
@@ -6948,7 +6952,7 @@ mk_chroot_file() {
           for i in $dFiles
           do
             echo "Downloading /${SYSVER}/${ARCH}/dist/${i} ..."
-            get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/${i}" "${i}"
+            get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/${i}" "${i}" "iso"
             [ $? -ne 0 ] && exit_err "Error while downloading the freebsd world."
           done
 

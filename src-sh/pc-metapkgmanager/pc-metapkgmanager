@@ -335,7 +335,7 @@ get_file_dl()
       dlOut="`basename $2`"
       dlPath="$2"
    fi
-   get_file_from_mirrors "$dlPath" "$dlOut"
+   get_file_from_mirrors "$dlPath" "$dlOut" "iso"
    exit $?
 }
 

@@ -46,7 +46,7 @@ download_cache_packages()
   PKGREL=`uname -r | cut -d '-' -f 1-2`
 
   # Where are the packages on our mirrors?
-  pkgUrl="/packages/${PKGREL}/${ARCH}"
+  pkgUrl="/${PKGREL}/${ARCH}"
 
   if [ ! -d "$PKG_CACHEDIR/All" ] ; then
      mkdir -p ${PKG_CACHEDIR}/All
@@ -65,7 +65,7 @@ download_cache_packages()
 	#dSize=`ls -al `
 	rm ${PKG_CACHEDIR}/All/${i} ; 
     fi
-    get_file_from_mirrors "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}"
+    get_file_from_mirrors "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}" "pkg"
     if [ $? -ne 0 ] ; then
       echo "Failed downloading: /${pkgUrl}/All/${i}"
       return 1
@@ -125,23 +125,42 @@ get_aria_mirror_list()
   if [ -z $1 ] ; then
      exit_err "Need to supply file to grab from mirrors..."
   fi
+  if [ -z $2 ] ; then
+     exit_err "Need to supply which mirror to fetch from..."
+  fi
+
+  case $2 in
+    pkg) mirrorTag="PKG_MIRROR" 
+         mirrorFile="/usr/local/share/pcbsd/conf/pkg-mirror"
+         ;;
+    pbi) mirrorTag="PBI_MIRROR" 
+         mirrorFile="/usr/local/share/pcbsd/conf/pbi-mirror"
+         ;;
+    iso) mirrorTag="ISO_MIRROR" 
+         mirrorFile="/usr/local/share/pcbsd/conf/iso-mirror"
+         ;;
+  update) mirrorTag="UPDATE_MIRROR" 
+         mirrorFile="/usr/local/share/pcbsd/conf/update-mirror"
+         ;;
+    *) exit_err "Bad mirror type!" ;;
+  esac
 
   # Set the mirror URL
-  local VAL="`cat ${PCBSD_ETCCONF} 2>/dev/null | grep 'PCBSD_MIRROR: ' | sed 's|PCBSD_MIRROR: ||g'`"
+  local VAL=`cat ${PCBSD_ETCCONF} 2>/dev/null | grep "^${mirrorTag}:" | sed "s|^${mirrorTag}: ||g"`
   if [ -n "$VAL" ] ; then
      echo "${VAL}${1}"
      return
   fi
 
-  if [ ! -e "/usr/local/share/pcbsd/conf/pcbsd-mirrors" ] ; then
-     exit_err "Missing mirror list: /usr/local/share/pcbsd/conf/pcbsd-mirrors"
+  if [ ! -e "${mirrorFile}" ] ; then
+     exit_err "Missing mirror list: ${mirrorFile}"
   fi
 
   # Build the mirror list
   while read line
   do
     VAL="$VAL ${line}${1}"
-  done < /usr/local/share/pcbsd/conf/pcbsd-mirrors
+  done < ${mirrorFile}
   echo ${VAL}
 }
 
@@ -152,6 +171,12 @@ get_file_from_mirrors()
 {
    _rf="${1}"
    _lf="${2}"
+   _mtype="${3}"
+
+   case $_mtype in
+      iso|pbi|pkg|update) ;;
+      *) exit_err "Fixme! Missing mirror type in get_file_from_mirrors" ;;
+   esac
 
    # Get any proxy information
    . /etc/profile
@@ -175,7 +200,7 @@ get_file_from_mirrors()
    touch $aStatFile
 
    # Get mirror list
-   local mirrorList="$(get_aria_mirror_list $1)"
+   local mirrorList="$(get_aria_mirror_list ${_rf} ${_mtype})"
    
    # Running from a non GUI?
    if [ "$GUI_FETCH_PARSING" != "YES" -a "$PBI_FETCH_PARSING" != "YES" -a -z "$PCFETCHGUI" ] ; then
