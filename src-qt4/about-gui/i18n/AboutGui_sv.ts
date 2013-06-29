@@ -81,23 +81,23 @@
         </message>
         <message>
             <source>System components...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Systemkomponenter...
+</translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Skrivbordsmiljöer...
+</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD CLI-verktyg:
+</translation>
         </message>
         <message>
             <source>PC-BSD UI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD UI-verktyg:
+</translation>
         </message>
     </context>
 </TS>

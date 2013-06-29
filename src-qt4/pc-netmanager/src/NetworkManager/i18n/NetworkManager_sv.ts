@@ -13,7 +13,7 @@
         </message>
         <message>
             <source>IP address</source>
-            <translation>IP-Adress</translation>
+            <translation>IP-adress</translation>
         </message>
         <message>
             <source>Provider</source>
@@ -72,7 +72,7 @@
         </message>
         <message>
             <source>MAC Address:</source>
-            <translation>MAC-Adress:</translation>
+            <translation>MAC-adress:</translation>
         </message>
         <message>
             <source>&amp;Configure</source>
@@ -152,11 +152,11 @@
         </message>
         <message>
             <source>Server Address</source>
-            <translation>Server Adress</translation>
+            <translation>Serveradress</translation>
         </message>
         <message>
             <source>Port Number</source>
-            <translation>Port Nummer</translation>
+            <translation>Portnummer</translation>
         </message>
         <message>
             <source>Proxy Type</source>
@@ -268,17 +268,17 @@
         </message>
         <message>
             <source>Invalid Gateway specified</source>
-            <translation>Ogiltig Gateway            </translation>
+            <translation>Ogiltig Gateway</translation>
         </message>
         <message>
             <source>Proxy enabled</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Proxy aktiverad
+</translation>
         </message>
         <message>
             <source>You may need to re-login for proxy settings to take effect.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Du kan behöva logga ut och in igen för att proxyinställningarna skall träda i kraft.
+</translation>
         </message>
     </context>
 </TS>
