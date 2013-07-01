@@ -106,12 +106,7 @@ if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
   if [ ! -e "$TDIR" ] ; then
       FLAGS="-arch $ARCH -nick $DEFTEMPLATE"
 
-      uname -r 2>&1 | grep -q "TRUEOS"
-      if [ $? -eq 0 ] ; then
-         FLAGS="-trueos `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
-      else
-         FLAGS="-fbsd `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
-      fi
+      FLAGS="-trueos `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
 
       if [ "${PLUGINJAIL}" = "YES" ] ; then
          FLAGS="$FLAGS -pluginjail"

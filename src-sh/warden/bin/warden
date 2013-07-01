@@ -348,7 +348,7 @@ Flags:
 
   create:
      -fbsd <version>   - FreeBSD Version, 9.1-RELEASE, 9.0-RELEASE, etc
-     -trueos <version> - TrueOS Version, 9-TRUEOS, 10-TRUEOS, etc
+     -trueos <version> - TrueOS Version, 9.1-RELEASE, 9-STABLE, etc
      -arch <arch type> - System architecture, i386/amd64
      -tar <file>       - Use tar archive as template contents (Ignores -arch / -fbsd)
      -nick <nickname>  - Template nickname for creating jails / deleting templates
