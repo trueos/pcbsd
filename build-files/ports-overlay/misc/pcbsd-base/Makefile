@@ -48,6 +48,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		pinentry-qt4:${PORTSDIR}/security/pinentry-qt4 \
 		cups-smb-backend>=0:${PORTSDIR}/print/cups-smb-backend \
 		cups-pdf>=0:${PORTSDIR}/print/cups-pdf \
+		cups-bjnp>=0:${PORTSDIR}/print/cups-bjnp \
 		splix>=0:${PORTSDIR}/print/splix \
 		fusefs-ntfs>=0:${PORTSDIR}/sysutils/fusefs-ntfs \
 		fusefs-exfat>=0:${PORTSDIR}/sysutils/fusefs-exfat \
