@@ -442,7 +442,7 @@ start_major_fbsd_update() {
 
   # Set the new pkg.conf file to the new repo
   local arch=`uname -m`
-  echo "packagesite: http://ftp.pcbsd.org/pub/mirror/packages/$rel/$arch" >/usr/local/etc/pkg.conf
+  echo "packagesite: http://pkg.cdn.pcbsd.org/$rel/$arch" >/usr/local/etc/pkg.conf
   echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
   echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
 

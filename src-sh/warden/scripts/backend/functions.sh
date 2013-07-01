@@ -741,8 +741,7 @@ tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
 pkg add pkg.txz
 rm pkg.txz
 
-echo "packagesite: ${mirror}/packages/${release}/${arch}" >/usr/local/etc/pkg.conf
-echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+echo "packagesite: http://pkg.cdn.pcbsd.org/${release}/${arch}" >/usr/local/etc/pkg.conf
 echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
 echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
 pkg install -y pcbsd-utils
@@ -772,8 +771,7 @@ rm pkg.txz
 
 mount -t devfs devfs /dev
 
-echo "packagesite: ${mirror}/packages/${release}/${arch}" >/usr/local/etc/pkg.conf
-echo "HTTP_MIRROR: http" >>/usr/local/etc/pkg.conf
+echo "packagesite: http://pkg.cdn.pcbsd.org/${release}/${arch}" >/usr/local/etc/pkg.conf
 echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
 echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
 pkg install -y pcbsd-utils
