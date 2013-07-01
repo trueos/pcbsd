@@ -17,16 +17,16 @@ BACKGROUND_IMAGE=background.jpg  	# will stretch to fill the screen
 
 HEADER_IMAGE=banner.png 	# Image to be displayed as a window header
   HEADER_IMAGE_SIZE=400x83		# Size for the image (in pixels)
-  HEADER_DISABLE=FALSE			# Flag to remove the header image entirely
+  HEADER_DISABLE=TRUE			# Flag to remove the header image entirely
   
 USER_IMAGE=default-user.png  		# Image for the user selection widget
-  USER_IMAGE_SIZE=48x48  		  # Size for the image (in pixels)
+  USER_IMAGE_SIZE=32x32  		  # Size for the image (in pixels)
   
 PASSWORD_IMAGE=password.png  	# Default image for the password entry box
-  PASSWORD_IMAGE_SIZE=32x32		  # Size for the image (in pixels)
+  PASSWORD_IMAGE_SIZE=20x20		  # Size for the image (in pixels)
   
 LOGIN_IMAGE=login.png  		# Image contained in the login button
-  LOGIN_IMAGE_SIZE=64x64		  # Size for the image (in pixels)
+  LOGIN_IMAGE_SIZE=32x32		  # Size for the image (in pixels)
 
 DESKTOP_IMAGE=default-desktop.png	# Default Image for the DE selection if none found
   DESKTOP_IMAGE_SIZE=48x48		  	# Size for the image (in pixels)
@@ -42,19 +42,19 @@ VKEYBOARD_IMAGE=virtualkeyboard.png		# Image for the virtual keyboard item
 
 # TOOLBAR SETTINGS
 TOOLBAR_LOCATION=bottom 	# [bottom | top | left | right]
-TOOLBAR_IMAGE_SIZE=32x32     # Set the default size for all images in the toolbar
-TOOLBAR_STYLE=icononly 	 	# [icononly | textonly | textbesideicon | textundericon]
+TOOLBAR_IMAGE_SIZE=24x24     # Set the default size for all images in the toolbar
+TOOLBAR_STYLE=textbesideicon 	 	# [icononly | textonly | textbesideicon | textundericon]
 
 # ADD WINDOW ITEMS ON A GRID LAYOUT [row,column]
 # Note: [0,0]=upper left corner, grid automatically expands to fit all items 
-HEADER_LOCATION=[0,0-2]
-LOGIN_LOCATION=[2,1]
-DESKTOP_LOCATION=[4,1]
+HEADER_LOCATION=[0,0]
+LOGIN_LOCATION=[1,1]
+DESKTOP_LOCATION=[3,1]
 
 #Add optional spacers to help format the display
 # FORMAT: "ADDSPACER=<orientation>::[row,column]" 	#<orientation> = [horizontal | vertical]
-ADDSPACER=vertical::[1,1]
-ADDSPACER=vertical::[3,1]
+ADDSPACER=vertical::[0,1]
+ADDSPACER=vertical::[2,1]
 ADDSPACER=horizontal::[2,0]
 ADDSPACER=horizontal::[2,2]
   
@@ -77,16 +77,21 @@ APP_STYLESHEET_START
 QToolBar{ background-color: rgba(253,253,255,100); }
 QWindow{ background-color: white; color: black; }
 QListWidget{
-	font-size: 21px;
+	font-size: 20px;
 	color: black;
 	background: rgba(253,253,253,180);
 	border: 1px solid grey;
 	border-radius: 5px;
 }
+QComboBox{
+	font-size: 13px;
+	color: black;
+	background: rgba(253,253,253,180);
+}
 QToolButton{ background-color: transparent; border: none; }
 QToolButton:hover{ background-color: transparent; border: 1px solid grey; border-radius: 5px; }
 QGroupBox{ 
-	background-color: rgba(253,253,255,150); 
+	background-color: rgba(253,253,255,245); 
 	border: 1px solid grey; 
 	border-radius: 5px;
 	padding: 10px;
