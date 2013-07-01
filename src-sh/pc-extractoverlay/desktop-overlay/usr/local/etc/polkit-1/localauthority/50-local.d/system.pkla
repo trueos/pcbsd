@@ -1,0 +1,13 @@
+[Restart]
+Identity=unix-group:operator
+Action=org.freedesktop.consolekit.system.restart
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
+
+[Shutdown]
+Identity=unix-group:operator
+Action=org.freedesktop.consolekit.system.stop
+ResultAny=yes
+ResultInactive=yes
+ResultActive=yes
