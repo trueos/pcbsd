@@ -1,5 +1,5 @@
 # Created by: sem@FreeBSD.org
-# $FreeBSD$
+# $FreeBSD: sysutils/grub2/Makefile 316596 2013-04-26 10:44:28Z ak $
 
 PORTNAME=	grub2
 PORTVERSION=	2.00
@@ -22,8 +22,7 @@ USE_AUTOTOOLS=	automake aclocal autoconf
 ACLOCAL_ARGS=	-Im4
 GNU_CONFIGURE=	yes
 USE_GMAKE=	yes
-USES=		bison
-USE_GETTEXT=	yes
+USES=		bison gettext
 ONLY_FOR_ARCHS=	i386 amd64
 INFO=		grub grub-dev
 
@@ -31,7 +30,7 @@ CONFIGURE_ARGS=	--disable-werror --localedir=${PREFIX}/share/locale
 CONFIGURE_ENV=	CPP="${CC} -E" \
 		LEX=${LOCALBASE}/bin/flex
 
-OPTIONS_DEFINE=	MKFONT FUSE ZFS
+OPTIONS_DEFINE=	MKFONT FUSE
 MKFONT_DESC=	Build grub-mkfont (require freetype2)
 FUSE_DESC=	Build grub-mount (require FUSE)
 ZFS_DESC=	ZFS support (requires system sources for libzfs.h)
@@ -73,19 +72,20 @@ FUSE=		"@comment "
 
 PLIST_SUB+=	FUSE=${FUSE}
 
-.if ${PORT_OPTIONS:MZFS}
-CPATH=	${SRC_BASE}/sys/cddl/compat/opensolaris:${SRC_BASE}/cddl/compat/opensolaris/include:${SRC_BASE}/cddl/compat/opensolaris/lib/libumem:${SRC_BASE}/cddl/contrib/opensolaris/lib/libnvpair:${SRC_BASE}/cddl/contrib/opensolaris/lib/libuutil/common:${SRC_BASE}/cddl/contrib/opensolaris/lib/libzfs/common:${SRC_BASE}/cddl/contrib/opensolaris/lib/libzpool/common:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common/fs/zfs:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common/sys:${SRC_BASE}/sys/cddl/contrib/opensolaris/common/zfs:${SRC_BASE}/cddl/contrib/opensolaris/head:${SRC_BASE}/cddl/lib/libumem
-CFLAGS+=	-DB_FALSE=0 -DB_TRUE=1
-CONFIGURE_ENV+=	CPATH=${CPATH}
-MAKE_ENV+=	CPATH=${CPATH}
-.endif
+# XXX this appears not to be needed or even cause breakage
+#.if ${PORT_OPTIONS:MZFS}
+#CPATH=	${SRC_BASE}/sys/cddl/compat/opensolaris:${SRC_BASE}/cddl/compat/opensolaris/include:${SRC_BASE}/cddl/compat/opensolaris/lib/libumem:${SRC_BASE}/cddl/contrib/opensolaris/lib/libnvpair:${SRC_BASE}/cddl/contrib/opensolaris/lib/libuutil/common:${SRC_BASE}/cddl/contrib/opensolaris/lib/libzfs/common:${SRC_BASE}/cddl/contrib/opensolaris/lib/libzpool/common:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common/fs/zfs:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common/sys:${SRC_BASE}/sys/cddl/contrib/opensolaris/common/zfs:${SRC_BASE}/cddl/contrib/opensolaris/head:${SRC_BASE}/cddl/lib/libumem
+#CFLAGS+=	-DB_FALSE=0 -DB_TRUE=1
+#CONFIGURE_ENV+=	CPATH=${CPATH}
+#MAKE_ENV+=	CPATH=${CPATH}
+#.endif
 
 post-patch:
 	@${LN} -s ${LOCALBASE}/lib/X11/fonts/dejavu/DejaVuSans.ttf ${WRKSRC}
 	@${TOUCH} -t 200001010000 ${WRKSRC}/Makefile.util.def
 
 post-configure:
-	@${LN} -sf /usr/include/machine /usr/include/sys /usr/include/x86 ${WRKSRC}/grub-core
+	@${LN} -sfh /usr/include/machine /usr/include/sys /usr/include/x86 ${WRKSRC}/grub-core
 
 post-install:
 	@${CAT} ${PKGMESSAGE}
