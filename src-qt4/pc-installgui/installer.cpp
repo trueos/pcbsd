@@ -1603,7 +1603,7 @@ void Installer::slotSaveConfigUSB()
 void Installer::slotLoadConfigUSB()
 {
   int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
-           tr("This will load any installation configuration files your MSDOSFS/FAT32 formatted USB stick. Continue?"),
+           tr("This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?"),
            QMessageBox::No | QMessageBox::Yes,
            QMessageBox::No);
   switch (ret) {
@@ -1631,14 +1631,14 @@ void Installer::slotLoadConfigUSB()
 
   if ( m.exitCode() != 0 ) {
      QMessageBox::critical(this, tr("PC-BSD Installer"),
-          tr("Failed loading saved config files from the USB media. Is the device working and formatted MSDOSFS/FAT32?"),
+          tr("Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?"),
           QMessageBox::Ok,
           QMessageBox::Ok);
      return;
 
   } else {
      QMessageBox::information(this, tr("PC-BSD Installer"),
-          tr("Configurations loaded! You may now safely remove the USB media."),
+          tr("Configuration loaded! You may now safely remove the USB media."),
           QMessageBox::Ok,
           QMessageBox::Ok);
   }
