@@ -1,6 +1,6 @@
 From
 
-	http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-boot/grub/files/grub-2.00-zfs-feature-flag-support.patch
+	http://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo-x86/sys-boot/grub/files/grub-2.00-zfs-feature-flag-support-r1.patch
 
 ZFS Feature Flag Support
 
@@ -12,14 +12,24 @@ https://github.com/maxximino/grub2/commit/58344034e40218b20500fa2936eb4d7d019e1e
 https://github.com/maxximino/grub2/commit/f98cb078abab2c14bb0766b5a0ceb055683dab81
 https://github.com/maxximino/grub2/commit/f12806f43a969a654dee7bb89b2e8fd5c42f0e2e
 
-A minor change was made to account for d8a0feb6 from upstream. This change
-prevents a compile time failure that is caused by a change in the callback
-interface used by mzap_interate().
+A change was made to account for d8a0feb6 from upstream. This change prevents a
+compile time failure that is caused by a change in the callback interface used
+by mzap_interate(). Modifications to nvlist_find_value() were reverted to
+resolve Gentoo bug #462740. This eliminated the need for the new nvpair_type()
+and nvpair_value() functions. They have been removed to silence a compiler
+warning and reduce the size of the patch. Further adjustments were made to
+silence the following warnings:
+
+/var/tmp/portage/sys-boot/grub-2.00-r2/work/grub-2.00/grub-core/fs/zfs/zfs_lz4.c:77:5:
+warning: "__STDC_VERSION__" is not defined [-Wundef]
+/var/tmp/portage/sys-boot/grub-2.00-r2/work/grub-2.00/grub-core/fs/zfs/zfs.c:4079:3:
+warning: passing argument 4 of 'mzap_iterate' from incompatible pointer type
+[enabled by default]
 
 The initial feature flag support patches were written by Delphix while the LZ4
 support was written by Saso Kiselkov. The work porting this to GRUB2 was done
 by Massimo Maggi, while the adaption to Gentoo's GRUB2 package was done by
-Richard Yao. 
+Richard Yao.
 
 diff --git a/Makefile.util.def b/Makefile.util.def
 index b80187c..1bf3038 100644
@@ -46,7 +56,7 @@ index 39e77a4..1550b90 100644
    common = fs/zfs/zfs_fletcher.c;
  };
 diff --git a/grub-core/fs/zfs/zfs.c b/grub-core/fs/zfs/zfs.c
-index ba0554a..de31e6c 100644
+index ba0554a..811e3df 100644
 --- grub-core/fs/zfs/zfs.c
 +++ grub-core/fs/zfs/zfs.c
 @@ -2,6 +2,7 @@
@@ -85,7 +95,7 @@ index ba0554a..de31e6c 100644
 +	"org.illumos:lz4_compress",NULL
 +};
 +
-+static int
++static int NESTED_FUNC_ATTR
 +check_feature(const char *name, grub_uint64_t val);
 +static int
 +check_mos_features(dnode_phys_t *mosmdn_phys,grub_zfs_endian_t endian,struct grub_zfs_data* data );
@@ -119,7 +129,7 @@ index ba0554a..de31e6c 100644
      endian = GRUB_ZFS_BIG_ENDIAN;
  
    if (endian == GRUB_ZFS_UNKNOWN_ENDIAN)
-@@ -764,6 +777,155 @@ fill_vdev_info (struct grub_zfs_data *data,
+@@ -764,6 +777,99 @@ fill_vdev_info (struct grub_zfs_data *data,
  }
  
  /*
@@ -214,68 +224,12 @@ index ba0554a..de31e6c 100644
 +
 +	return (0);
 +}
-+/*
-+ * This function retrieves the value of the nvpair in the form of enumerated
-+ * type data_type_t.
-+ */
-+static int
-+nvpair_type(const char *nvp)
-+{
-+	int name_len, type;
-+
-+	/* skip over encode/decode size */
-+	nvp += 4 * 2;
-+
-+	/* skip over name_len */
-+	name_len = grub_be_to_cpu32 (grub_get_unaligned32 (nvp));
-+	nvp += 4;
-+
-+	/* skip over name */
-+	nvp = nvp + ((name_len + 3) & ~3); /* align */
-+
-+	type = grub_be_to_cpu32 (grub_get_unaligned32 (nvp));
-+
-+	return (type);
-+}
-+static int
-+nvpair_value(const char *nvp,char **val,
-+		   grub_size_t *size_out, grub_size_t *nelm_out)
-+{
-+	int name_len,nelm,encode_size;
-+
-+	/* skip over encode/decode size */
-+	encode_size = grub_be_to_cpu32 (grub_get_unaligned32(nvp));
-+	nvp += 8;
-+
-+	/* skip over name_len */
-+	name_len = grub_be_to_cpu32 (grub_get_unaligned32 (nvp));
-+	nvp += 4;
-+
-+	/* skip over name */
-+	nvp = nvp + ((name_len + 3) & ~3); /* align */
-+	
-+	/* skip over type */
-+	nvp += 4;
-+	nelm = grub_be_to_cpu32 (grub_get_unaligned32 (nvp));
-+	nvp +=4;
-+	if (nelm < 1)
-+	{
-+	  grub_error (GRUB_ERR_BAD_FS, "empty nvpair");
-+	  return 0;
-+	}
-+	  *val = (char *) nvp;
-+	  *size_out = encode_size;
-+	  if (nelm_out)
-+	    *nelm_out = nelm;
-+	    
-+	return 1;
-+}
 +
 +/*
   * Check the disk label information and retrieve needed vdev name-value pairs.
   *
   */
-@@ -773,7 +935,7 @@ check_pool_label (struct grub_zfs_data *data,
+@@ -773,7 +879,7 @@ check_pool_label (struct grub_zfs_data *data,
  		  int *inserted)
  {
    grub_uint64_t pool_state, txg = 0;
@@ -284,7 +238,7 @@ index ba0554a..de31e6c 100644
  #if 0
    char *nv;
  #endif
-@@ -837,13 +999,13 @@ check_pool_label (struct grub_zfs_data *data,
+@@ -837,13 +943,13 @@ check_pool_label (struct grub_zfs_data *data,
      }
    grub_dprintf ("zfs", "check 8 passed\n");
  
@@ -300,7 +254,7 @@ index ba0554a..de31e6c 100644
      }
    grub_dprintf ("zfs", "check 9 passed\n");
  
-@@ -893,7 +1055,30 @@ check_pool_label (struct grub_zfs_data *data,
+@@ -893,7 +999,30 @@ check_pool_label (struct grub_zfs_data *data,
      grub_free (nv);
    }
    grub_dprintf ("zfs", "check 10 passed\n");
@@ -332,7 +286,7 @@ index ba0554a..de31e6c 100644
    grub_free (nvlist);
  
    return GRUB_ERR_NONE;
-@@ -3034,34 +3219,14 @@ dnode_get_fullpath (const char *fullpath, struct subvolume *subvol,
+@@ -3034,27 +3163,6 @@ dnode_get_fullpath (const char *fullpath, struct subvolume *subvol,
    return err;
  }
  
@@ -360,85 +314,7 @@ index ba0554a..de31e6c 100644
  static int
  nvlist_find_value (const char *nvlist_in, const char *name,
  		   int valtype, char **val,
- 		   grub_size_t *size_out, grub_size_t *nelm_out)
- {
--  int name_len, type, encode_size;
--  const char *nvpair, *nvp_name, *nvlist = nvlist_in;
-+  int name_len, type ;
-+  const char *nvpair=NULL,*nvlist=nvlist_in;
-+  char *nvp_name;
- 
-   /* Verify if the 1st and 2nd byte in the nvlist are valid. */
-   /* NOTE: independently of what endianness header announces all 
-@@ -3074,62 +3239,18 @@ nvlist_find_value (const char *nvlist_in, const char *name,
-       return 0;
-     }
- 
--  /* skip the header, nvl_version, and nvl_nvflag */
--  nvlist = nvlist + 4 * 3;
-   /*
-    * Loop thru the nvpair list
-    * The XDR representation of an integer is in big-endian byte order.
-    */
--  while ((encode_size = grub_be_to_cpu32 (grub_get_unaligned32 (nvlist))))
-+  while ((nvpair=nvlist_next_nvpair(nvlist,nvpair)))
-     {
--      int nelm;
--
--      if (nvlist + 4 * 4 >= nvlist_in + VDEV_PHYS_SIZE)
--	{
--	  grub_dprintf ("zfs", "nvlist overflow\n");
--	  grub_error (GRUB_ERR_BAD_FS, "incorrect nvlist");
--	  return 0;
--	}
--
--      nvpair = nvlist + 4 * 2;	/* skip the encode/decode size */
--
--      name_len = grub_be_to_cpu32 (grub_get_unaligned32 (nvpair));
--      nvpair += 4;
--
--      nvp_name = nvpair;
--      nvpair = nvpair + ((name_len + 3) & ~3);	/* align */
--
--      if (nvpair + 8 >= nvlist_in + VDEV_PHYS_SIZE
--	  || encode_size < 0
--	  || nvpair + 8 + encode_size > nvlist_in + VDEV_PHYS_SIZE)
-+      nvpair_name(nvpair,&nvp_name,&name_len);
-+      type = nvpair_type(nvpair);
-+      if ((grub_strncmp (nvp_name, name, grub_strlen(name)) == 0) && type == valtype)
- 	{
--	  grub_dprintf ("zfs", "nvlist overflow\n");
--	  grub_error (GRUB_ERR_BAD_FS, "incorrect nvlist");
--	  return 0;
-+	  return nvpair_value(nvpair,val,size_out,nelm_out);
- 	}
--
--      type = grub_be_to_cpu32 (grub_get_unaligned32 (nvpair));
--      nvpair += 4;
--
--      nelm = grub_be_to_cpu32 (grub_get_unaligned32 (nvpair));
--      if (nelm < 1)
--	{
--	  grub_error (GRUB_ERR_BAD_FS, "empty nvpair");
--	  return 0;
--	}
--
--      nvpair += 4;
--
--      if ((grub_strncmp (nvp_name, name, name_len) == 0) && type == valtype)
--	{
--	  *val = (char *) nvpair;
--	  *size_out = encode_size;
--	  if (nelm_out)
--	    *nelm_out = nelm;
--	  return 1;
--	}
--
--      nvlist += encode_size;	/* goto the next nvpair */
-     }
-   return 0;
- }
-@@ -3386,6 +3507,10 @@ zfs_mount (grub_device_t dev)
+@@ -3386,6 +3494,10 @@ zfs_mount (grub_device_t dev)
        return NULL;
      }
  
@@ -449,11 +325,11 @@ index ba0554a..de31e6c 100644
    /* Got the MOS. Save it at the memory addr MOS. */
    grub_memmove (&(data->mos.dn), &((objset_phys_t *) osp)->os_meta_dnode,
  		DNODE_SIZE);
-@@ -3910,6 +4035,64 @@ grub_zfs_dir (grub_device_t device, const char *path,
+@@ -3910,6 +4022,64 @@ grub_zfs_dir (grub_device_t device, const char *path,
    return grub_errno;
  }
  
-+static int
++static int NESTED_FUNC_ATTR
 +check_feature(const char *name, grub_uint64_t val)
 +{
 +  int i;
@@ -516,7 +392,7 @@ index ba0554a..de31e6c 100644
  grub_zfs_embed (grub_device_t device __attribute__ ((unused)),
 diff --git a/grub-core/fs/zfs/zfs_lz4.c b/grub-core/fs/zfs/zfs_lz4.c
 new file mode 100644
-index 0000000..f199434
+index 0000000..ff85a77
 --- /dev/null
 +++ grub-core/fs/zfs/zfs_lz4.c
 @@ -0,0 +1,321 @@
@@ -596,7 +472,7 @@ index 0000000..f199434
 + * Compiler Options
 + */
 +
-+#if __STDC_VERSION__ >= 199901L	/* C99 */
++#if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L	/* C99 */
 +/* "restrict" is a known keyword */
 +#else
 +/* Disable restrict */
