@@ -19,6 +19,7 @@
 #include "pcdm-xprocess.h"
 
 #define TMPLANGFILE QString("/tmp/.PCDMLang")
+#define TMPAUTOLOGINFILE QString("/tmp/.PCDMAutoLogin")
 
 //Make sure that prefix is set
 //#ifndef prefix
@@ -35,7 +36,7 @@ int main(int argc, char *argv[])
   //qDebug() << "Backend Checks Finished:" << QString::number(clock.elapsed())+" ms";
   //Check for the flag to try and auto-login
   bool ALtriggered = FALSE;
-  if(QString(argv[1]) == "-AutoLogin"){ ALtriggered=TRUE; }
+  if(QFile::exists(TMPAUTOLOGINFILE)){ ALtriggered=TRUE; QFile::remove(TMPAUTOLOGINFILE); }
   
   QString changeLang; 
   // Load the configuration file
