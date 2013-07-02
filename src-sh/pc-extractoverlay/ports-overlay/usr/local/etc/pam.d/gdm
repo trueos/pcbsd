@@ -8,7 +8,7 @@
 # auth
 #auth		sufficient	pam_krb5.so		no_warn try_first_pass
 #auth		sufficient	pam_ssh.so		no_warn try_first_pass
-auth		sufficient	/usr/local/lib/pam_pefs.so try_first_pass delkeys
+auth		sufficient	pam_pefs.so 		try_first_pass delkeys
 auth		required	pam_unix.so		no_warn try_first_pass
 auth		optional	/usr/local/lib/pam_gnome_keyring.so
 
@@ -19,6 +19,6 @@ account		required	pam_unix.so
 
 # session
 #session 	optional	pam_ssh.so
-session		optional	/usr/local/lib/pam_pefs.so delkeys
+session		optional	pam_pefs.so delkeys
 session		required	pam_permit.so
 session		optional	/usr/local/lib/pam_gnome_keyring.so	auto_start

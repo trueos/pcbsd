@@ -90,7 +90,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		linux_dvbwrapper-kmod>=0:${PORTSDIR}/multimedia/linux_dvbwrapper-kmod \
 		xvkbd:${PORTSDIR}/x11/xvkbd \
 		volman>=0:${PORTSDIR}/sysutils/volman \
-		pefs-kmod>=0:${PORTSDIR}/sysutils/pefs-kmod \
 		mplayer:${PORTSDIR}/multimedia/mplayer \
 		readline>=0:${PORTSDIR}/devel/readline \
 		fribidi>=0:${PORTSDIR}/converters/fribidi \

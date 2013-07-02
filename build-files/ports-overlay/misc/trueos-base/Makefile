@@ -20,7 +20,6 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		bsdstats>=0:${PORTSDIR}/sysutils/bsdstats \
 		unrar:${PORTSDIR}/archivers/unrar \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
-		pefs:${PORTSDIR}/sysutils/pefs-kmod \
 		sudo:${PORTSDIR}/security/sudo \
 		bash:${PORTSDIR}/shells/bash \
 		zsh:${PORTSDIR}/shells/zsh \
