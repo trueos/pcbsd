@@ -5,6 +5,12 @@
 
 PEFSDBDIR="/var/db/pefs"
 
+# Check if we can safely enable PEFS on this system
+if [ ! -e "/boot/kernel/pefs.ko" ] ; then
+   echo "Error: Requires PEFS in base system!"
+   exit 1
+fi
+
 USER="$1"
 USERPW="$2"
 
@@ -20,7 +26,12 @@ if [ -z "$USERHOMEDIR" -o ! -d "${USERHOMEDIR}" ] ; then
 fi
 
 if [ "$USERHOMEDIR" != "`realpath ${USERHOMEDIR}`" ] ; then
-  echo "Warning: PEFS will not work with sym-linked home dirs.."
+  NEWDIR=`realpath $USERHOMEDIR`
+  echo "Updating sym-linked home dir ${USERHOMEDIR} -> ${NEWDIR}"
+  OLDLINE=`cat /etc/master.passwd | grep "^${USER}:" | cut -d ':' -f 4-`
+  NEWLINE=`echo $OLDLINE | sed "s|:${USERHOMEDIR}:|:${NEWDIR}:|g"`
+  sed -i '.bak' "s|${OLDLINE}|${NEWLINE}|g" /etc/master.passwd
+  pwd_mkdb -p /etc/master.passwd
   USERHOMEDIR=`realpath $USERHOMEDIR`
 fi
 
@@ -58,3 +69,6 @@ if [ $? -ne 0 ] ; then
   echo "${USERHOMEDIR}" >> ${PEFSDBDIR}/auto_mounts
 fi
 
+# Copy /etc/pam.d/ template files
+cp /usr/local/share/pcbsd/pefs/other /etc/pam.d/other
+cp /usr/local/share/pcbsd/pefs/system /etc/pam.d/system
