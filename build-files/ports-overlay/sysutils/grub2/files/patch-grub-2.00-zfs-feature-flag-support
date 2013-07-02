@@ -395,7 +395,7 @@ new file mode 100644
 index 0000000..ff85a77
 --- /dev/null
 +++ grub-core/fs/zfs/zfs_lz4.c
-@@ -0,0 +1,321 @@
+@@ -0,0 +1,317 @@
 +/*
 + * LZ4 - Fast LZ compression algorithm
 + * Header File
@@ -455,11 +455,7 @@ index 0000000..ff85a77
 + * Little Endian or Big Endian?
 + * Note: overwrite the below #define if you know your architecture endianess.
 + */
-+#if (defined(__BIG_ENDIAN__) || defined(__BIG_ENDIAN) || \
-+	defined(_BIG_ENDIAN) || defined(_ARCH_PPC) || defined(__PPC__) || \
-+	defined(__PPC) || defined(PPC) || defined(__powerpc__) || \
-+	defined(__powerpc) || defined(powerpc) || \
-+	((defined(__BYTE_ORDER__)&&(__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__))))
++#if BYTE_ORDER == BIG_ENDIAN
 +#define	LZ4_BIG_ENDIAN	1
 +#else
 +	/*
