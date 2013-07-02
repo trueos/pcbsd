@@ -12,6 +12,8 @@
 #include <QSplashScreen>
 #include <QTime>
 #include <QDebug>
+#include <QX11Info>
+//#include <X11/Xlib.h>
 
 #include "pcdm-gui.h"
 #include "pcdm-backend.h"
@@ -26,9 +28,7 @@
 //#define prefix "/usr/local/"
 //#endif
 
-int main(int argc, char *argv[])
-{
-  int returnCode = 0;
+int runSingleSession(int argc, char *argv[]){
   //QTime clock;
   //clock.start();
   Backend::checkLocalDirs();  // Create and fill "/usr/local/share/PCDM" if needed
@@ -116,12 +116,35 @@ int main(int argc, char *argv[])
     
     //qDebug() << "Showing GUI:" << QString::number(clock.elapsed())+" ms";
     w.show();
-    returnCode = a.exec();
+    a.exec();
 
   }  // end of PCDM GUI running
   
   //Wait for the desktop session to finish before exiting
   desktop.waitForSessionClosed();
   
-  return returnCode;
+  //Clean up Code
+  delete &desktop;
+  delete &a;
+  delete &splash;
+  //XSetCloseDownMode(QX11Info::display(), DestroyAll);
+  //XCLoseDisplay(QX11Info::display());
+  
+  
+  return 0;
+}
+
+int main(int argc, char *argv[])
+{
+ bool neverquit = TRUE;
+ bool runonce = FALSE;
+ if(argc==2){ if( QString(argv[1]) == "--once"){ runonce = TRUE; } }
+  
+ while(neverquit){
+  if(runonce){ neverquit = FALSE; }
+  qDebug() << " -- PCDM Session Starting...";
+  int retCode = runSingleSession(argc,argv);
+  if(retCode != 0){ neverquit=FALSE; }
+ }
+ return 0;
 }

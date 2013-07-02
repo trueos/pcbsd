@@ -3,7 +3,7 @@ TARGET = PCDM-session
 target.path=/usr/local/bin
 TEMPLATE = app
 
-LIBS += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lpam
+LIBS += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lpam -lX11
 INCLUDEPATH += ../libpcbsd/utils /usr/local/include
 
 SOURCES += src/main.cpp \
@@ -119,7 +119,7 @@ theme.extra=cp -r themes /usr/local/share/PCDM/.
 
 conf=pcdm.conf
 conf.path=/usr/local/share/PCDM
-conf.extra=cp pcdm.conf /usr/local/share/PCDM/pcdm.conf.sample
+conf.extra=cp pcdm.conf /usr/local/share/PCDM/pcdm.conf
 
 INSTALLS += dotrans scripts rcd cleanthemes theme conf target
 
