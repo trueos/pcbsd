@@ -157,11 +157,13 @@ void PBSystemTab::CheckPBVer()
 
 
 void PBSystemTab::ReadUname()
-{
-    QString uname = GetUname->readLine().simplified().trimmed();
+{    
     if (GetUname->canReadLine() )
-	labelBASEVer->setText( uname );
-    Version= uname.left(uname.indexOf(" "));
+    {
+        QString uname = GetUname->readLine().simplified();
+        labelBASEVer->setText( uname );
+        Version= uname.section(" ",0,0);
+    }
 }
 
 
