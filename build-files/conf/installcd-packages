@@ -40,8 +40,6 @@ qt4-gui-\*.txz
 qt4-iconengines-\*.txz
 qt4-imageformats-\*.txz
 qt4-inputmethods-\*.txz
-zh-ttfm-\*.txz
-zh-mingunittf-\*.txz
 nvidia-driver-\*.txz
 xwd-\*.txz
 xvkbd-\*.txz
