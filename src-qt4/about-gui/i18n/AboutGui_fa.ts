@@ -55,7 +55,7 @@
         </message>
         <message>
             <source>Desktop environments:</source>
-            <translation>محیط‌های میزکار:         </translation>
+            <translation>محیط‌های میزکار:</translation>
         </message>
         <message>
             <source>(Please wait...)</source>
@@ -83,23 +83,21 @@
         </message>
         <message>
             <source>System components...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+            اجزای سیستم</translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>محیط‌های میزکار</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ابزارهای خط فرمان PC-BSD:</translation>
         </message>
         <message>
             <source>PC-BSD UI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>
+            ابزارهای رابط کاربری PC-BSD:</translation>
         </message>
     </context>
 </TS>

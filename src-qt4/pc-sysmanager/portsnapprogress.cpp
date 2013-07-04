@@ -60,10 +60,10 @@ void PortsnapProgress::startSource(QString pcVer)
 
     QString branch;
     // Figure out which to download
-    if ( pcVer.indexOf(".") != -1 )
+    if ( pcVer.indexOf("STABLE") )
+       branch = "/stable/" + pcVer.section(".", 0, 0); 
+    else if ( pcVer.indexOf(".") != -1 )
        branch = "/releng/" + pcVer.section("-", 0, 0); 
-    else if ( pcVer.indexOf("STABLE") )
-       branch = "/stable/" + pcVer.section("-", 0, 0); 
     else
        branch = "/head";
 
