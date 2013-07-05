@@ -110,7 +110,7 @@ private:
     QProcess *p;
 
     void SetupDefaults();
-    bool isValidPort(QString);
+    bool isValidPort(QString, bool allowOverride = FALSE);
     void checkMime();
 
 };
