@@ -5348,12 +5348,23 @@ pbi_add_fetch_remote() {
 	_rVer="current"
 	if [ -n "$PBI_ADD_ALTVER" ] ; then _rVer=$PBI_ADD_ALTVER ; fi
 
-
 	check_pbi_update "$_rtar" "nodisplay" \
 	 "$_rtar" "$_rVer" \
 	 "$FBSDMAJOR" "$_rArch" "${PBI_ADDREPO_ID}"
 	if [ "$?" != "0" ] ; then 
-		exit_err "Could not find \"$_rtar\" in any indexes" 
+		# If we are on amd64, do a fallback check to i386 for this PBI
+		# This catches apps like wine / skype and others
+		if [ "$_rArch" = "amd64" ] ; then
+			_rArch="i386"
+			check_pbi_update "$_rtar" "nodisplay" \
+	 		"$_rtar" "$_rVer" \
+	 		"$FBSDMAJOR" "$_rArch" "${PBI_ADDREPO_ID}"
+			if [ "$?" != "0" ] ; then 
+				exit_err "Could not find \"$_rtar\" in any indexes" 
+			fi
+		else
+			exit_err "Could not find \"$_rtar\" in any indexes" 
+		fi
 	fi
 
 	# We've gotten this far, now download the updated PBI
