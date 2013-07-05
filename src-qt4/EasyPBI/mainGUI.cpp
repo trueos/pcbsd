@@ -162,10 +162,16 @@ void MainGUI::SetupDefaults(){
     PBI_BUILD_TERMINATED=FALSE;
 }
 
-bool MainGUI::isValidPort(QString pPath){
+bool MainGUI::isValidPort(QString pPath, bool allowOverride){
   bool ok = FALSE;
   if( QFile::exists(pPath) && QFile::exists(pPath+"/Makefile") && QFile::exists(pPath+"/distinfo") ){
     ok = TRUE;
+  }
+  //Display a warning message
+  if(allowOverride){
+    ok = (QMessageBox::Apply == QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected does not appear to be a valid FreeBSD port. \n\n Do you wish to continue using it anyway?"), QMessageBox::Apply | QMessageBox::Cancel, QMessageBox::Cancel) ); 
+  }else{
+    QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo."));
   }
   return ok;
 }
@@ -544,7 +550,6 @@ void MainGUI::on_push_change_makeport_clicked(){
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Check if the port is valid
   if( !isValidPort(portSel) ){
-    QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo."));
     return;
   }
   //Save the port info to the GUI
@@ -621,8 +626,7 @@ void MainGUI::on_push_addportbefore_clicked(){
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Check if the port is valid
-  if( !isValidPort(portSel) ){
-    QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo files."));
+  if( !isValidPort(portSel,TRUE) ){
     return;
   }
   //Save the port info to the GUI
@@ -648,8 +652,7 @@ void MainGUI::on_push_addportafter_clicked(){
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Check if the port is valid
-  if( !isValidPort(portSel) ){
-    QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo files."));
+  if( !isValidPort(portSel,TRUE) ){
     return;
   }
   //Save the port info to the GUI
@@ -1233,9 +1236,11 @@ void MainGUI::on_push_scripts_save_clicked(){
   //Get the current file text
   QStringList contents = ui->text_scripts_edit->toPlainText().split("\n");
   //get the current file
-  QString filename = currentModule->path() + "/scripts/"+ui->list_scripts_file->currentText();
+  QString dir = currentModule->path() + "/scripts/";
+  bool ok = ModBuild::createDir(dir); //make sure the scripts directory exists
+  QString filename = ui->list_scripts_file->currentText();
   //Save the file
-  bool ok = ModBuild::createFile(filename,contents);
+  ok = ModBuild::createFile(dir+filename,contents);
   //display a warning if error
   if(!ok){
     QMessageBox::warning(this,tr("Error Saving File"), tr("Could not save the script")+"\n"+tr("Please check the file permissions and try again") );
