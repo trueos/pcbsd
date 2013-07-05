@@ -117,7 +117,7 @@
         </message>
         <message>
             <source>AD and LDAP Configuration</source>
-            <translation>AD och LDAP konfiguration            </translation>
+            <translation>AD och LDAP-konfiguration</translation>
         </message>
     </context>
 </TS>

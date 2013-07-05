@@ -210,7 +210,8 @@
         <message>
             <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-            <translation>Ditt system är nu installerat!Klicka på slutför för att starta om. Efter omstarten kan du ta ut din installationsmedia.</translation>
+            <translation>Ditt system är nu installerat!
+ Klicka på slutför för att starta om. Efter omstarten kan du ta ut ditt installationsmedia.</translation>
         </message>
         <message>
             <source>&amp;Cancel</source>
@@ -218,33 +219,27 @@
         </message>
         <message>
             <source>Extracting system...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Extraherar systemet...</translation>
         </message>
         <message>
             <source>Unable to detect any disk drives! The install will now exit.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kan ej hitta några diskenheter! Installeraren kommer nu att avslutas.</translation>
         </message>
         <message>
             <source>Click arrows to change system selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klicka på pilarna för att ändra systemval</translation>
         </message>
         <message>
             <source>Unable to suggest a partition for the detected disk.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kan ej föreslå en partition för den upptäckta diskenheten</translation>
         </message>
         <message>
             <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Du använder 32-bitarsversionen. Om ditt system är 64-bitarskapabelt (de flesta system tillverkade efter 2005 är detta), borde du använda 64-bitarsversionen</translation>
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">
-             {1G?}</translation>
+            <translation>Den valda enheten / partitionen är mindre än den rekommenderade storleken %1GB. Installationen kanske misslyckas...</translation>
         </message>
     </context>
     <context>
@@ -259,15 +254,15 @@
         </message>
         <message>
             <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-            <translation>Detta fönster kommer visa valda diskalternativ. Klicka på anpassa för att byta disk, filsystem m.m.</translation>
+            <translation>Detta fönster kommer visa valda enhetsalternativ. Klicka på anpassa för att byta enhet, filsystem m.m.</translation>
         </message>
         <message>
             <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-            <translation>Ditt system installeras nu! Gå och hämta en kopp kaffe och slappna av, installationen kommer notifiera dig när den är klar.</translation>
+            <translation>Ditt system installeras nu! Gå och hämta en kopp kaffe och slappna av, installeraren kommer att meddela dig när den är klar.</translation>
         </message>
         <message>
             <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-            <translation>Systemet är nu färdiginstallerat! Klicka på Slutför för att starta om och kom ihåg att ta ut eventuell installationsmedia före du startar om.</translation>
+            <translation>Systemet är nu färdiginstallerat! Klicka på Slutför för att starta om och kom ihåg att ta ut eventuell installationsmedia innan du startar om.</translation>
         </message>
     </context>
     <context>
@@ -278,11 +273,11 @@
         </message>
         <message>
             <source>Available System Packages</source>
-            <translation>Tillgängliga Systempaket</translation>
+            <translation>Tillgängliga systempaket</translation>
         </message>
         <message>
             <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-            <translation>Vänligen välj de program du vill ska installeras. Minst en skrivbordsmiljö måste väljas, och ändringar kan göras efter installationen.</translation>
+            <translation>Välj de program du vill ska installeras. Minst en skrivbordsmiljö måste väljas, och ändringar kan göras efter installationen.</translation>
         </message>
         <message>
             <source>&amp;Save</source>
@@ -294,11 +289,11 @@
         </message>
         <message>
             <source>No Desktop</source>
-            <translation>Inget skrivbord</translation>
+            <translation>Ingen skrivbordsmiljö</translation>
         </message>
         <message>
             <source>No desktops have been selected! Please choose at least one desktop to continue.</source>
-            <translation>Inget skrivbord har valts! Välj minst ett skrivbord för att fortsätta.</translation>
+            <translation>Ingen skrivbordsmiljö har valts! Välj minst en skrivbordsmiljö för att fortsätta.</translation>
         </message>
         <message>
             <source>View Packages</source>
@@ -313,7 +308,7 @@
         <name>dialogCheckHardware</name>
         <message>
             <source>Detected hardware devices</source>
-            <translation>Hitta hårdvaruenheter</translation>
+            <translation>Funna hårdvaruenheter</translation>
         </message>
         <message>
             <source>&amp;Close</source>
@@ -321,11 +316,11 @@
         </message>
         <message>
             <source>Video driver:</source>
-            <translation>Video drivrutin:</translation>
+            <translation>Grafikdrivrutin:</translation>
         </message>
         <message>
             <source>Video resolution:</source>
-            <translation>Vide upplösning:</translation>
+            <translation>Grafikupplösning:</translation>
         </message>
         <message>
             <source>No ethernet detected</source>
@@ -333,7 +328,7 @@
         </message>
         <message>
             <source>Ethernet device:</source>
-            <translation>Ethernet enhet:</translation>
+            <translation>Ethernet-enhet:</translation>
         </message>
         <message>
             <source>No wifi detected</source>
@@ -341,7 +336,7 @@
         </message>
         <message>
             <source>Wifi device:</source>
-            <translation>Wifi enhet:</translation>
+            <translation>Wifi-enhet:</translation>
         </message>
         <message>
             <source>No sound detected</source>
@@ -393,7 +388,7 @@
         </message>
         <message>
             <source>Key Layout</source>
-            <translation>Tangentlayout</translation>
+            <translation>Tangentbordslayout</translation>
         </message>
         <message>
             <source>Variant</source>
@@ -405,11 +400,11 @@
         </message>
         <message>
             <source>( you may type into the space below to test your selected settings. )</source>
-            <translation>( du kan skriva i utrymmet nedan för att testa dina valda inställningar. )</translation>
+            <translation>( du kan skriva i rutan nedan för att testa dina valda inställningar. )</translation>
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation>&amp;Använd</translation>
+            <translation>&amp;Tillämpa</translation>
         </message>
         <message>
             <source>&amp;Close</source>
@@ -420,19 +415,19 @@
         <name>wizardDisk</name>
         <message>
             <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-            <translation>Denna guide kommer guida dig genom diskinstallationen. Vad god välj installationsläget du önskar använda.</translation>
+            <translation>Denna guide kommer guida dig genom enhetsinstallationen. Vad god välj vilken installationstyp du önskar använda.</translation>
         </message>
         <message>
             <source>Setup Mode</source>
-            <translation>Installationsläge</translation>
+            <translation>Installationstyp</translation>
         </message>
         <message>
             <source>Basic (New to BSD or disk partitioning)</source>
-            <translation>Basic (Nybörjare med BSD eller disk partitionering)</translation>
+            <translation>Basic (Nybörjare på BSD eller disk-partitionering)</translation>
         </message>
         <message>
             <source>Advanced (Experienced with file-systems)</source>
-            <translation>Avancerat (Erfaren med filsystem)</translation>
+            <translation>Avancerat (Jag har erfarenhet av olika filsystem)</translation>
         </message>
         <message>
             <source>FreeBSD Experts (CLI manual mode)</source>
@@ -440,11 +435,11 @@
         </message>
         <message>
             <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-            <translation>Vad god välj disk eller partition du vill installera på. Notera att BSD endast kan installeras på en hel disk eller en primär partition större än 10GB.</translation>
+            <translation>Vad god välj enhet eller partition du vill installera till. Notera att BSD endast kan installeras på en hel disk eller en primär partition större än 10GB.</translation>
         </message>
         <message>
             <source>Selected Disk</source>
-            <translation>Vald disk</translation>
+            <translation>Vald enhet</translation>
         </message>
         <message>
             <source>Selected Partition</source>
@@ -456,7 +451,7 @@
         </message>
         <message>
             <source>Do you wish to Encrypt your private data? You will need to enter a password at each system bootup.</source>
-            <translation>Vill du krypterad privat data? Du kommer behöva ange lösenordet vid varje uppstart.</translation>
+            <translation>Vill du kryptera privat data? Du kommer att behöva ange ett lösenord vid varje uppstart.</translation>
         </message>
         <message>
             <source>Encrypt user data</source>
@@ -472,7 +467,7 @@
         </message>
         <message>
             <source>Please select the type of filesystem you want to use for this installation.</source>
-            <translation>Vad god välj typ av filsystem du vill använda för denna installationen.</translation>
+            <translation>Välj vilken typ av filsystem du vill använda för denna installation.</translation>
         </message>
         <message>
             <source>Filesystem</source>
@@ -480,11 +475,11 @@
         </message>
         <message>
             <source>Install bootable MBR</source>
-            <translation>Installera bootable MBR</translation>
+            <translation>Installera startbar MBR</translation>
         </message>
         <message>
             <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-            <translation>Nedanför kan du ändra filsystemets monteringsställen. För de flesta användare fungerar standard bäst.</translation>
+            <translation>Här nedan kan du ändra filsystemets monteringspunkter. För de flesta användare fungerar standardvalen bäst.</translation>
         </message>
         <message>
             <source>Free Space (MB)</source>
@@ -496,7 +491,7 @@
         </message>
         <message>
             <source>Resize</source>
-            <translation>Ändra</translation>
+            <translation>Ändra storlek</translation>
         </message>
         <message>
             <source>&amp;Remove</source>
@@ -504,7 +499,7 @@
         </message>
         <message>
             <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-            <translation>Du har varlt Expertläge. I detta läge har du möjlighet att starta ett terminalfönster och använda kommandoraden för att manuellt partitionera din disk. När du är klar, kom ihåg att montera dina filsystem till /mnt för att starta installationen.</translation>
+            <translation>Du har valt Expertläget. I detta läge har du möjlighet att starta ett terminalfönster och använda kommandoraden för att manuellt partitionera din disk. När du är klar, kom ihåg att montera dina filsystem till /mnt för att starta installationen.</translation>
         </message>
         <message>
             <source>&amp;Launch terminal</source>
@@ -512,7 +507,7 @@
         </message>
         <message>
             <source>Please check the disk summary below and click finish to save your settings. </source>
-            <translation>Vad god kontrollera disksummeringen nedan och klicka på fortsätt för att spara inställningarna.</translation>
+            <translation>Vad god kontrollera enhetssummeringen nedan och klicka på fortsätt för att spara inställningarna.</translation>
         </message>
         <message>
             <source>Use entire disk</source>
@@ -532,51 +527,51 @@
         </message>
         <message>
             <source>ZFS Mounts</source>
-            <translation>ZFS monteringar</translation>
+            <translation>ZFS-monteringar</translation>
         </message>
         <message>
             <source>ZFS Options</source>
-            <translation>ZFS alternativ</translation>
+            <translation>ZFS-alternativ</translation>
         </message>
         <message>
             <source>Resizing</source>
-            <translation>Storleksändring</translation>
+            <translation>Ändrar storlek</translation>
         </message>
         <message>
             <source>Remove mount-point</source>
-            <translation>Ta bort monteringsmål</translation>
+            <translation>Ta bort monteringspunkt</translation>
         </message>
         <message>
             <source>Are you sure you want to remove this mount point?</source>
-            <translation>Är du säker på att du vill ta bort detta monteringsmål?</translation>
+            <translation>Är du säker på att du vill ta bort denna monteringspunkt?</translation>
         </message>
         <message>
             <source>Enter mount-point</source>
-            <translation>Ange monteringsmål</translation>
+            <translation>Ange monteringspunkt</translation>
         </message>
         <message>
             <source>Please enter the new mount-point:</source>
-            <translation>Vad god ange nytt monteringsmål:</translation>
+            <translation>Vad god ange ny monteringspunkt:</translation>
         </message>
         <message>
             <source>Specify a size for the mount</source>
-            <translation>Ange storlek för montering</translation>
+            <translation>Ange storlek för monteringen</translation>
         </message>
         <message>
             <source>Editing:</source>
-            <translation>Ändrar:</translation>
+            <translation>Redigerar:</translation>
         </message>
         <message>
             <source>Installing to file-system mounted at /mnt</source>
-            <translation>Installerar till filsystem monterat på /mnt</translation>
+            <translation>Installerar till filsystemet monterat i /mnt</translation>
         </message>
         <message>
             <source>The disk will be setup with the following configuration:</source>
-            <translation>Disken kommer att ställas in med följande konfiguration:</translation>
+            <translation>Enheten kommer att ställas in med följande konfiguration:</translation>
         </message>
         <message>
             <source>Disk:</source>
-            <translation>Disk:</translation>
+            <translation>Enhet:</translation>
         </message>
         <message>
             <source>Mirroring:</source>
@@ -608,7 +603,7 @@
         </message>
         <message>
             <source>Please enter the password for this partition:</source>
-            <translation>Vad god ange lösenord för denna partition:</translation>
+            <translation>Vad god ange lösenordet för denna partition:</translation>
         </message>
         <message>
             <source>Password:</source>
@@ -620,7 +615,7 @@
         </message>
         <message>
             <source>Confirm Password:</source>
-            <translation>Bekräfta lösenord:</translation>
+            <translation>Bekräfta lösenordet:</translation>
         </message>
         <message>
             <source>Password Mismatch</source>
@@ -628,19 +623,19 @@
         </message>
         <message>
             <source>The passwords entered do not match!</source>
-            <translation>Inskrivna lösenord matchade inte!</translation>
+            <translation>Inmatade lösenord matchade inte!</translation>
         </message>
         <message>
             <source>Enable ZFS mirror/raidz mode</source>
-            <translation>Aktivera ZFS spegling/raidz läge</translation>
+            <translation>Aktivera ZFS speglings-/raidz-läge</translation>
         </message>
         <message>
             <source>ZFS Virtual Device Mode</source>
-            <translation>ZFS Virtual Device läge</translation>
+            <translation>ZFS Virtuellt enhetsläge</translation>
         </message>
         <message>
             <source>Please select at least 1 other drive for mirroring</source>
-            <translation>Vad god välj minst en till disk för spegling</translation>
+            <translation>Vad god välj minst 1 ytterligare enhet för spegling</translation>
         </message>
         <message>
             <source>Options:</source>
@@ -648,7 +643,7 @@
         </message>
         <message>
             <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-            <translation>Om detta är en single disk ZFS installation kan du fortsätta, annars var god välj speglings / raidläge och diskar nedan.</translation>
+            <translation>Om detta är en single disk ZFS installation kan du fortsätta, annars var god välj speglings / raidläge och enheter nedan.</translation>
         </message>
         <message>
             <source>ZFS Datasets:&lt;br&gt;</source>
@@ -664,48 +659,46 @@
         </message>
         <message>
             <source>Mount point should start with '/'</source>
-            <translation>Monteringsmål ska starta med '/'</translation>
+            <translation>Monteringspunkt ska starta med '/'</translation>
         </message>
         <message>
             <source>UFS (32bit and systems with less than 2GB of RAM)</source>
-            <translation>UFS (32bit och system med mindre än 2GB ram)</translation>
+            <translation>UFS (32-bit och system med mindre än 2GB RAM)</translation>
         </message>
         <message>
             <source>ZFS (64bit systems with more than 2GB RAM)</source>
-            <translation>ZFS (64bit system med mer än 2GB ram)            </translation>
+            <translation>ZFS (64-bit system med mer än 2GB RAM)</translation>
         </message>
         <message>
             <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-            <translation>Notera: ZFS spegling/raidz kan endast aktiveras när man gör en full-disk installation            </translation>
+            <translation>Notera: ZFS spegling/raidz kan bara aktiveras när man gör en full-disk installation</translation>
         </message>
         <message>
             <source>Please select 2 or 4 additional drives for raidz1</source>
-            <translation>Vad god välj ytterligare 2 eller 4 diskar för raidz1</translation>
+            <translation>Vad god välj ytterligare 2 alt. 4 diskar för raidz1</translation>
         </message>
         <message>
             <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-            <translation>Vad god välj ytterligare 3, 5 eller 9 diskar för raidz2            </translation>
+            <translation>Vad god välj ytterligare 3, 5 alt. 9 diskar för raidz2</translation>
         </message>
         <message>
             <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-            <translation>Vad god välj ytterligare 4, 5 eller 10 diskar för raidz3            </translation>
+            <translation>Vad god välj ytterligare 4, 5 alt. 10 diskar för raidz3</translation>
         </message>
         <message>
             <source>Enter SWAP size</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Välj storlek på SWAP</translation>
         </message>
         <message>
             <source>Size (MB)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Storlek (MB)</translation>
         </message>
     </context>
     <context>
         <name>wizardFreeBSD</name>
         <message>
             <source>Please enter the root password for this server</source>
-            <translation>Vad god ange root lösenordet för denna servern</translation>
+            <translation>Vad god ange rootlösenordet för denna servern</translation>
         </message>
         <message>
             <source>Password</source>
@@ -729,15 +722,15 @@
         </message>
         <message>
             <source>Default shell</source>
-            <translation>Standard shell</translation>
+            <translation>Standard-shell</translation>
         </message>
         <message>
             <source>Please enter a system hostname and remote login preference.</source>
-            <translation>Vad god ange systemets hostname och fjärrlogin inställningar.</translation>
+            <translation>Vad god ange systemets värdnamn (hostname) och inställningar för fjärranslutning.</translation>
         </message>
         <message>
             <source>Hostname</source>
-            <translation>Hostname</translation>
+            <translation>Värdnamn</translation>
         </message>
         <message>
             <source>Enable remote SSH login</source>
@@ -745,7 +738,7 @@
         </message>
         <message>
             <source>Please select a network device to configure for this system.</source>
-            <translation>Vad god ange en nätverksenhet att konfiguera för detta system.</translation>
+            <translation>Välj en nätverksenhet att konfiguera för detta system.</translation>
         </message>
         <message>
             <source>Network Interface</source>
@@ -769,7 +762,7 @@
         </message>
         <message>
             <source>IPv6 Address</source>
-            <translation>IPv6 Adress</translation>
+            <translation>IPv6-adress</translation>
         </message>
         <message>
             <source>IPv6 Gateway</source>
@@ -785,7 +778,7 @@
         </message>
         <message>
             <source>Please select any optional features to install.</source>
-            <translation>Vad god välj frivilliga funktioner att installera.</translation>
+            <translation>Välj ytterligare valfria funktioner som du vill installera.</translation>
         </message>
         <message>
             <source>Install system sources (/usr/src)</source>
@@ -793,11 +786,11 @@
         </message>
         <message>
             <source>Install ports tree (/usr/ports)</source>
-            <translation>Installera ports trädet (/usr/ports)</translation>
+            <translation>Installera ports-trädet (/usr/ports)</translation>
         </message>
         <message>
             <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
-            <translation>Denna guide kommer guida dig genom installationen av din nya server. Klicka på nästa för att börja.</translation>
+            <translation>Denna guide kommer att ta dig genom installationen av din nya server. Klicka på nästa för att börja.</translation>
         </message>
     </context>
 </TS>

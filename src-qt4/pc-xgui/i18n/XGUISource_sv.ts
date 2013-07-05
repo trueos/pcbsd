@@ -5,7 +5,7 @@
         <name>QObject</name>
         <message>
             <source>Keep these display settings?</source>
-            <translation>Behåll nuvarande skärm inställningar?            </translation>
+            <translation>Behåll nuvarande skärminställningar?</translation>
         </message>
         <message>
             <source>The previous attempt failed, please check your settings and try again.</source>
@@ -15,7 +15,7 @@
             <source>Your display has been configured.
 Keep these settings?</source>
             <translation>Din skärm har konfigurerats.
-Behåll inställningarna?           </translation>
+Behåll inställningarna?</translation>
         </message>
     </context>
     <context>

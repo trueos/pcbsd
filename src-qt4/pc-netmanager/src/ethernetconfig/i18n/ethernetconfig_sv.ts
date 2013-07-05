@@ -179,7 +179,7 @@
         </message>
         <message>
             <source>Configure &amp;WPA</source>
-            <translation>Konfigurera &amp;WPA            </translation>
+            <translation>Konfigurera &amp;WPA</translation>
         </message>
     </context>
 </TS>

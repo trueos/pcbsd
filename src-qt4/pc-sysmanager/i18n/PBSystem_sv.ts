@@ -149,15 +149,15 @@
         </message>
         <message>
             <source>System Tasks</source>
-            <translation>System Uppgifter</translation>
+            <translation>Systemuppgifter</translation>
         </message>
         <message>
             <source>Fetch P&amp;orts Tree</source>
-            <translation>Hämta P&amp;orts Trädet</translation>
+            <translation>Hämta P&amp;ortsträdet</translation>
         </message>
         <message>
             <source>Use auto-detected mirrors</source>
-            <translation>Använd auto-detekterade mirrors            </translation>
+            <translation>Använd automatiskt hittade speglingar</translation>
         </message>
     </context>
     <context>
@@ -196,7 +196,7 @@
         </message>
         <message>
             <source>Downloading FreeBSD sources...</source>
-            <translation>Laddar ner FreeBSD source...            </translation>
+            <translation>Laddar ner FreeBSD sources...</translation>
         </message>
     </context>
     <context>

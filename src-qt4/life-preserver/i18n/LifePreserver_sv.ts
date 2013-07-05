@@ -413,7 +413,7 @@ p, li { white-space: pre-wrap; }
         </message>
         <message>
             <source>Note: Please use full path names (paths with symbolic links will automatically be adjusted). Wildcards such as * are supported.</source>
-            <translation>Notera: Vänligen ange fullasökvägar (symboliskalänkar kommer automatiskt att justeras).Wildscards som * stödjs.</translation>
+            <translation>Notera: Vänligen ange fulla sökvägar (symboliska länkar kommer automatiskt att justeras). Wildcards som * stödjs.</translation>
         </message>
     </context>
 </TS>

@@ -393,7 +393,7 @@
         </message>
         <message>
             <source>Add a new Jail</source>
-            <translation>Lägg till nytt Jail            </translation>
+            <translation>Lägg till nytt Jail</translation>
         </message>
         <message>
             <source>Remove the selected Jail</source>
@@ -633,7 +633,7 @@
         </message>
         <message>
             <source>Days to keep</source>
-            <translation>Dagar att spara            </translation>
+            <translation>Dagar att spara</translation>
         </message>
         <message>
             <source>IPs:</source>
@@ -742,7 +742,7 @@
         </message>
         <message>
             <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-            <translation>Vad god ställ in eventuella andra inställningar för detta jail. Notera att om du valde alternativet system source krävs det att dom är närvarande i /usr/src.            </translation>
+            <translation>Vad god ställ in eventuella andra inställningar för detta jail. Notera att om du valde alternativet system source krävs det att dom är närvarande i /usr/src. </translation>
         </message>
         <message>
             <source>Please take a moment and set any other options for this jail.</source>

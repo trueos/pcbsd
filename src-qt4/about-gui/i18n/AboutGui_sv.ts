@@ -9,23 +9,23 @@
         </message>
         <message>
             <source>Version:</source>
-            <translation>Version            </translation>
+            <translation>Version:</translation>
         </message>
         <message>
             <source>&lt;Unknown&gt;</source>
-            <translation>&lt;Okänd&gt;            </translation>
+            <translation>&lt;Okänd&gt;</translation>
         </message>
         <message>
             <source>Host:</source>
-            <translation>Värd:            </translation>
+            <translation>Värd:</translation>
         </message>
         <message>
             <source>????</source>
-            <translation>????            </translation>
+            <translation>????</translation>
         </message>
         <message>
             <source>FreeBSD base</source>
-            <translation>FreeBSD bas</translation>
+            <translation>FreeBSD (bassystemet)</translation>
         </message>
         <message>
             <source>Arch:</source>
@@ -53,7 +53,7 @@
         </message>
         <message>
             <source>Desktop environments:</source>
-            <translation>Skrivbordsmiljöer:            </translation>
+            <translation>Skrivbordsmiljöer:</translation>
         </message>
         <message>
             <source>(Please wait...)</source>
@@ -81,23 +81,19 @@
         </message>
         <message>
             <source>System components...</source>
-            <translation>Systemkomponenter...
-</translation>
+            <translation>Systemkomponenter...</translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation>Skrivbordsmiljöer...
-</translation>
+            <translation>Skrivbordsmiljöer...</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>
-            <translation>PC-BSD CLI-verktyg:
-</translation>
+            <translation>PC-BSD CLI-verktyg:</translation>
         </message>
         <message>
             <source>PC-BSD UI utilities:</source>
-            <translation>PC-BSD UI-verktyg:
-</translation>
+            <translation>PC-BSD UI-verktyg:</translation>
         </message>
     </context>
 </TS>

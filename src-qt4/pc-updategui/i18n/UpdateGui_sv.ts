@@ -5,15 +5,15 @@
         <name>mainWin</name>
         <message>
             <source>Update Manager</source>
-            <translation>Uppdaterings Hanterare</translation>
+            <translation>Uppdateringshanterare</translation>
         </message>
         <message>
             <source>Preparing to check for updates... Please Wait...</source>
-            <translation>Förbereder för att kontrollera efter uppdateringar... Vargod Vänta...</translation>
+            <translation>Förbereder sökning efter uppdateringar... Var god vänta...</translation>
         </message>
         <message>
             <source>Available Updates</source>
-            <translation>Tillgängliga Uppdateringar</translation>
+            <translation>Tillgängliga uppdateringar</translation>
         </message>
         <message>
             <source>Select / Deselect All</source>
@@ -21,7 +21,7 @@
         </message>
         <message>
             <source>Update Conflict</source>
-            <translation>Konflikt vid Uppdatering</translation>
+            <translation>Konflikt vid uppdatering</translation>
         </message>
         <message>
             <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
@@ -33,11 +33,11 @@
         </message>
         <message>
             <source>Failed to install:</source>
-            <translation>Misslyckades med att installera:</translation>
+            <translation>Installation misslyckades:</translation>
         </message>
         <message>
             <source>Update Ready</source>
-            <translation>Uppdatering Klar</translation>
+            <translation>Uppdatering klar</translation>
         </message>
         <message>
             <source>Please reboot to start the update to PC-BSD version &quot;</source>
@@ -45,7 +45,7 @@
         </message>
         <message>
             <source>This process may take a while, please do NOT interrupt the process.</source>
-            <translation>Den här uppgiften kan ta ett tag, vänligen avbryt INTE den.</translation>
+            <translation>Denna process kan ta ett tag, vänligen avbryt INTE processen.</translation>
         </message>
         <message>
             <source>Updating:</source>
@@ -53,11 +53,11 @@
         </message>
         <message>
             <source>Checking for updates... Please Wait...</source>
-            <translation>Kollar efter uppdateringar... Vargod Vänta...</translation>
+            <translation>Letar efter uppdateringar... Var god vänta...</translation>
         </message>
         <message>
             <source>Your system is fully updated!</source>
-            <translation>Dit system är helt uppdaterat!</translation>
+            <translation>Systemet uppdaterat!</translation>
         </message>
         <message>
             <source>PC-BSD Version:</source>
@@ -69,7 +69,7 @@
         </message>
         <message>
             <source>Creating a backup of your data first is recommended.</source>
-            <translation>Att göra en backup av dina data först är rekommenderat.</translation>
+            <translation>Att först ta en backup av all din data är att rekommendera.</translation>
         </message>
         <message>
             <source>This is a patch for your version of PC-BSD</source>
@@ -77,11 +77,11 @@
         </message>
         <message>
             <source>Patch Size:</source>
-            <translation>Patch Storlek:</translation>
+            <translation>Patch-storlek:</translation>
         </message>
         <message>
             <source>FreeBSD Security Update</source>
-            <translation>FreeBSD Säkerhetsuppdatering</translation>
+            <translation>FreeBSD säkerhetsuppdatering</translation>
         </message>
         <message>
             <source>The following files need updating:</source>
@@ -89,11 +89,11 @@
         </message>
         <message>
             <source>System Package Updates</source>
-            <translation>System Pakets Uppdateringar</translation>
+            <translation>Systemets paketuppdateringar</translation>
         </message>
         <message>
             <source>The following package updates are available:</source>
-            <translation>Följande paket uppdateringar är tillgängliga:</translation>
+            <translation>Följande paketuppdateringar är tillgängliga:</translation>
         </message>
         <message>
             <source>Updates for Jail:</source>
@@ -101,7 +101,7 @@
         </message>
         <message>
             <source>Starting Update: %1 (%2 of %3)</source>
-            <translation>Startar Uppdateringen: %1 (%2 of %3)</translation>
+            <translation>Startar uppdateringen: %1 (%2 av %3)</translation>
         </message>
         <message>
             <source>Downloading: %1 (Update %2 of %3)</source>
@@ -129,23 +129,19 @@
         </message>
         <message>
             <source>Re&amp;scan for Updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Re&amp;scan efter uppdateringar</translation>
         </message>
         <message>
             <source>&amp;Install selected updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Installera markerade uppdateringar</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Stäng</translation>
         </message>
         <message>
             <source>System updates available!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Systemuppdateringar tillgängliga!</translation>
         </message>
     </context>
 </TS>

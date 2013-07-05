@@ -13,7 +13,7 @@
         </message>
         <message>
             <source>PC-BSD Update Manager</source>
-            <translation>PC-BSD Update Manager</translation>
+            <translation>PC-BSD Uppdateringshanterare</translation>
         </message>
         <message>
             <source>Checking for updates...</source>
@@ -21,23 +21,23 @@
         </message>
         <message>
             <source>Failed to contact the update server!</source>
-            <translation>Kunde inte ansluta till uppdaterings servern!</translation>
+            <translation>Kunde inte ansluta till uppdateringsservern!</translation>
         </message>
         <message>
             <source>Your system is fully updated</source>
-            <translation>Ditt system är uppdaterat</translation>
+            <translation>Systemet är uppdaterat</translation>
         </message>
         <message>
             <source>System updates available</source>
-            <translation>System uppdateringar finns tillgängliga</translation>
+            <translation>Systemuppdateringar finns tillgängliga</translation>
         </message>
         <message>
             <source>PBI updates available</source>
-            <translation>PBI uppdateringar finns tillgängliga</translation>
+            <translation>PBI-uppdateringar finns tillgängliga</translation>
         </message>
         <message>
             <source>Start the AppCafe</source>
-            <translation>Starta programmet AppCafe</translation>
+            <translation>Starta AppCafe</translation>
         </message>
         <message>
             <source>Quit</source>
@@ -45,27 +45,27 @@
         </message>
         <message>
             <source>System Updates Available</source>
-            <translation>System uppdateringar finns tillgängliga</translation>
+            <translation>Systemuppdateringar finns tillgängliga</translation>
         </message>
         <message>
             <source>Software Updates Available</source>
-            <translation>Program uppdateringar finns tillgängliga</translation>
+            <translation>Programuppdateringar finns tillgängliga</translation>
         </message>
         <message>
             <source>Start the Update Manager</source>
-            <translation>Starta Update Manager</translation>
+            <translation>Starta uppdateringshanteraren</translation>
         </message>
         <message>
             <source>Important system updates are available. Click here to install them!</source>
-            <translation>Viktiga system uppdateringar finns tillgängliga. Klicka här för att installer dem!</translation>
+            <translation>Viktiga systemuppdateringar finns tillgängliga. Klicka här för att installera dem!</translation>
         </message>
         <message>
             <source>Software updates are available. Click here to install them!</source>
-            <translation>Program uppdateringar finns tillgängliga. Klicka här för att installera dem!</translation>
+            <translation>Programuppdateringar finns tillgängliga. Klicka här för att installera dem!</translation>
         </message>
         <message>
             <source>Restart Required</source>
-            <translation>Omstart Krävs</translation>
+            <translation>Omstart krävs</translation>
         </message>
         <message>
             <source>Please restart your computer to complete the pending updates</source>
@@ -81,15 +81,15 @@
         </message>
         <message>
             <source>Jail updates available</source>
-            <translation>Jail uppdateringar finns tillgängliga</translation>
+            <translation>Jail-uppdateringar finns tillgängliga</translation>
         </message>
         <message>
             <source>Jail Updates Available</source>
-            <translation>Jail uppdateringar finns tillgängliga</translation>
+            <translation>Jail-uppdateringar finns tillgängliga</translation>
         </message>
         <message>
             <source>Important jail updates are available. Click here to launch the Warden!</source>
-            <translation>Viktiga Jail uppdateringar finns tillgängliga. Klicka här för att starta Warden!</translation>
+            <translation>Viktiga Jail-uppdateringar finns tillgängliga. Klicka här för att starta Warden!</translation>
         </message>
         <message>
             <source>Display notifications</source>
@@ -97,13 +97,11 @@
         </message>
         <message>
             <source>Package updates available</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Paketuppdateringar tillgängliga</translation>
         </message>
         <message>
             <source>Important package updates are available. Click here to install them!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Viktiga paketuppdateringar tillgängliga. Klicka här för att installera dem!</translation>
         </message>
     </context>
 </TS>

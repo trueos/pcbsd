@@ -5,11 +5,11 @@
         <name>DNSList</name>
         <message>
             <source>Public DNS servers</source>
-            <translation>Publika DNS servrar</translation>
+            <translation>Publika DNS-servrar</translation>
         </message>
         <message>
             <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-            <translation>Du kan välja en av de publika DNS servrarna istället för DNS serverarna från din ISP</translation>
+            <translation>Här kan du kan välja en av de publika DNS-servrarna som finns tillgängliga om du inte vill använda DNS-servrarna som din internetleverantör tillhandahåller</translation>
         </message>
         <message>
             <source>IP address</source>
@@ -128,7 +128,7 @@
         </message>
         <message>
             <source>Search Domain:</source>
-            <translation>Sök Domän:</translation>
+            <translation>Sök i domänen:</translation>
         </message>
         <message>
             <source>Enable IPv6 support</source>
@@ -136,11 +136,11 @@
         </message>
         <message>
             <source>Misc</source>
-            <translation>Misc</translation>
+            <translation>Diverse</translation>
         </message>
         <message>
             <source>Enable wireless / wired failover via lagg0 interface</source>
-            <translation>Aktivera trådlös / trådad failover via lagg0 interfacet</translation>
+            <translation>Aktivera trådlös / trådad failover via lagg0-gränssnittet</translation>
         </message>
         <message>
             <source>Proxy</source>
@@ -176,7 +176,7 @@
         </message>
         <message>
             <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-            <translation>Notera: Den här proxy konfigurationen är för PC-BSD specifika verktyg och hjälpprogram. Internet medvetna program kan fortfarande använda deras egna proxy konfigurationer, som måste konfigureras manuellt.</translation>
+            <translation>Notera: Den här proxy konfigurationen är för PC-BSD-specifika verktyg och program. Internetanslutna program kan fortfarande använda sina egna proxyinställningar, dessa måste dock konfigureras manuellt.</translation>
         </message>
         <message>
             <source>&amp;Save</source>
@@ -244,15 +244,15 @@
         </message>
         <message>
             <source>System Hostname</source>
-            <translation>Systemets Hostname</translation>
+            <translation>Systemets värdnamn</translation>
         </message>
         <message>
             <source>Enable Custom DNS</source>
-            <translation>Aktivera egen DNS            </translation>
+            <translation>Aktivera anpassad DNS</translation>
         </message>
         <message>
             <source>Enable Custom Gateway</source>
-            <translation>Aktivera egen gateway</translation>
+            <translation>Aktivera anpassad gateway</translation>
         </message>
         <message>
             <source>Invalid IPv6 DNS specified</source>
@@ -272,13 +272,11 @@
         </message>
         <message>
             <source>Proxy enabled</source>
-            <translation>Proxy aktiverad
-</translation>
+            <translation>Proxy aktiverad</translation>
         </message>
         <message>
             <source>You may need to re-login for proxy settings to take effect.</source>
-            <translation>Du kan behöva logga ut och in igen för att proxyinställningarna skall träda i kraft.
-</translation>
+            <translation>Du kan behöva logga ut och in igen för att proxyinställningarna skall träda i kraft.</translation>
         </message>
     </context>
 </TS>

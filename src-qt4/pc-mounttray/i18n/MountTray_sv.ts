@@ -5,56 +5,49 @@
         <name>FSDialog</name>
         <message>
             <source>System Disk Capacity</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Systemdiskens kapacitet</translation>
         </message>
         <message>
             <source>Mount Point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Monteringspunkt</translation>
         </message>
         <message>
             <source>Filesystem</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Filsystem</translation>
         </message>
         <message>
             <source>Used/Total</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Använt/Totalt</translation>
         </message>
         <message>
             <source>Percent %</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Procent %</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stäng</translation>
         </message>
     </context>
     <context>
         <name>FSWatcher</name>
         <message>
             <source>Disk(s) Almost Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Disken/Diskarna är nästan fulla</translation>
         </message>
     </context>
     <context>
         <name>MenuItem</name>
         <message>
             <source>Auto-mount this device</source>
-            <translation>Auto montera denna enhet            </translation>
+            <translation>Montera denna enhet automatiskt</translation>
         </message>
         <message>
             <source>Eject</source>
-            <translation>Mata ut            </translation>
+            <translation>Mata ut</translation>
         </message>
         <message>
             <source>Mount</source>
-            <translation>Montera            </translation>
+            <translation>Montera</translation>
         </message>
         <message>
             <source>Success</source>
@@ -66,7 +59,7 @@
         </message>
         <message>
             <source>Error mounting %1 at %2</source>
-            <translation>Fel vid montering av %1 till %2            </translation>
+            <translation>Fel vid montering av %1 vid %2</translation>
         </message>
         <message>
             <source>Error mounting %1</source>
@@ -94,8 +87,7 @@
         </message>
         <message>
             <source>Mounted at %1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Monterad vid %1</translation>
         </message>
     </context>
     <context>
@@ -140,51 +132,42 @@ Kan inte öppna filhanteraren med root rättigheter</translation>
         </message>
         <message>
             <source>More Options</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fler alternativ</translation>
         </message>
         <message>
             <source>View Disk Usage</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Visa diskanvändning</translation>
         </message>
         <message>
             <source>Change Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ändra inställningar</translation>
         </message>
     </context>
     <context>
         <name>SettingsDialog</name>
         <message>
             <source>Mount Tray Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Inställningar för monteringsfältet</translation>
         </message>
         <message>
             <source>Monitor disk storage space</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Övervaka disklagringsutrymmet</translation>
         </message>
         <message>
             <source>Perform check on device notifications</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Utför en kontroll vid enhetsaviseringar</translation>
         </message>
         <message>
             <source>Maximum time between checks (minutes)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Maximal tid mellan kontroller (minuter)</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Avbryt</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Verkställ</translation>
         </message>
     </context>
 </TS>

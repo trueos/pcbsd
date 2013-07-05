@@ -9,7 +9,7 @@
         </message>
         <message>
             <source>Module Editor</source>
-            <translation type="unfinished">Modul editor</translation>
+            <translation>Moduleditor</translation>
         </message>
         <message>
             <source>View and edit the current PBI module</source>
@@ -142,7 +142,7 @@
         </message>
         <message>
             <source>Make Port Before</source>
-            <translation type="unfinished">Bygg Port före</translation>
+            <translation>Bygg port innan</translation>
         </message>
         <message>
             <source>Additional FreeBSD ports to be built before the main program</source>
@@ -161,7 +161,7 @@
         </message>
         <message>
             <source>Make Port After</source>
-            <translation type="unfinished">Bygg Port efter</translation>
+            <translation>Bygg port efter</translation>
         </message>
         <message>
             <source>Additional FreeBSD ports to be built after the main program</source>
@@ -313,7 +313,7 @@
         </message>
         <message>
             <source>Executable</source>
-            <translation type="unfinished">Executable</translation>
+            <translation>Exekverbar</translation>
         </message>
         <message>
             <source>Binary to be run when the item is activated</source>
@@ -436,7 +436,7 @@
         </message>
         <message>
             <source>File</source>
-            <translation type="unfinished">Fil            </translation>
+            <translation>Fil</translation>
         </message>
         <message>
             <source>Link To</source>
@@ -568,7 +568,7 @@
         </message>
         <message>
             <source>Save Build Log</source>
-            <translation type="unfinished">Spara build loggen</translation>
+            <translation>Spara build-loggen</translation>
         </message>
         <message>
             <source>System</source>
@@ -672,7 +672,7 @@
         </message>
         <message>
             <source>Package Module</source>
-            <translation type="unfinished">Paketera modul</translation>
+            <translation>Paketmodul</translation>
         </message>
         <message>
             <source>Compress the current module for distribution</source>
@@ -681,7 +681,7 @@
         </message>
         <message>
             <source>About EasyPBI</source>
-            <translation type="unfinished">Om EasyPBI            </translation>
+            <translation>Om EasyPBI</translation>
         </message>
         <message>
             <source>View additional information about EasyPBI</source>
@@ -764,7 +764,7 @@
         </message>
         <message>
             <source>Select Port</source>
-            <translation type="unfinished">Välj Port            </translation>
+            <translation>Välj Port</translation>
         </message>
         <message>
             <source>EasyPBI: Invalid Port</source>
@@ -1030,7 +1030,7 @@
         </message>
         <message>
             <source>Select Port</source>
-            <translation type="unfinished">Välj Port            </translation>
+            <translation>Välj Port</translation>
         </message>
         <message>
             <source>Select Package Directory</source>
@@ -1116,7 +1116,7 @@
         </message>
         <message>
             <source>Use Package Caching</source>
-            <translation type="unfinished">Använd paketcaching</translation>
+            <translation>Använd Package Caching</translation>
         </message>
         <message>
             <source>Package Caching Options</source>
@@ -1445,7 +1445,7 @@
         <name>aboutDialog</name>
         <message>
             <source>About EasyPBI</source>
-            <translation type="unfinished">Om EasyPBI            </translation>
+            <translation>Om EasyPBI</translation>
         </message>
         <message>
             <source>License</source>

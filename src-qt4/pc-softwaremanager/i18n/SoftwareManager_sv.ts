@@ -361,7 +361,7 @@
         </message>
         <message>
             <source>Install PATH links</source>
-            <translation>Installera PATH länkar            </translation>
+            <translation>Installera PATH-länkar</translation>
         </message>
         <message>
             <source>Install PATH links (All Users)</source>
