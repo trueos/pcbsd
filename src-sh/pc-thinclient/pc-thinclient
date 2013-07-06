@@ -185,6 +185,17 @@ check_configsystem_ignore_dhcp() {
 		read netid 
 
 	done
+	
+	        # Ask for the network mask of the local subnet
+        while
+        z=1
+        do
+                echo "What is the network mask for your local subnet? (I.E. 255.255.255.0)"
+                echo -e "netmaskid) \c"
+                read netmaskid
+        break
+        done
+
 
 portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
