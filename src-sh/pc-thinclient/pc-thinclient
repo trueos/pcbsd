@@ -210,11 +210,8 @@ inetd_enable=\"YES\"
 	  fi
      	fi
 
-	# Add some entries for /etc/exports
-	cat /etc/exports 2>/dev/null | grep "$PXEWORLD" >/dev/null 2>/dev/null
-	if [ "$?" != "0" ] ; then
-	  	echo "$PXEWORLD -maproot=nobody -ro -network 192.168.2 -mask 255.255.255" >>/etc/exports
-	fi
+	# Add some entries for /etc/exports based on manual user input
+	echo "-maproot=nobody -ro -network $netid -mask $netmaskid" >> /root/hosts.allow
 
 	# Setup tftp
 	cat /etc/inetd.conf | grep "$PXEWORLD" >/dev/null 2>/dev/null
