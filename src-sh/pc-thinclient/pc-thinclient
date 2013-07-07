@@ -533,9 +533,9 @@ if [ "$DHCPTYPE" = "internal" ] ; then
 else
   echo "You will need to modify the following options in your dhcp server:"
   echo ""
-  echo "filename "boot/pxeboot"
+  echo "filename boot/pxeboot"
   echo "next-server $ipaddr"
-  echo "option root-path PXEWORLD"
+  echo "option root-path $PXEWORLD"
   echo ""
   echo "Then you can begin to use PXE Boot."
   exit 0
