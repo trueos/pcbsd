@@ -220,7 +220,7 @@ inetd_enable=\"YES\"
      	fi
 
 	# Add some entries for /etc/exports based on manual user input
-	echo "-maproot=nobody -ro -network $netid -mask $netmaskid" >> /etc/exports
+	echo "$PXEWORLD -maproot=nobody -ro -network $netid -mask $netmaskid" >> /etc/exports
 
 	# Setup tftp
 	cat /etc/inetd.conf | grep "$PXEWORLD" >/dev/null 2>/dev/null
