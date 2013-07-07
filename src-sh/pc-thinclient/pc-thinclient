@@ -211,7 +211,7 @@ check_configsystem_ignore_dhcp() {
 		echo "# pc-thinclient configuration
 portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
-inetd_enable=\"YES\"
+inetd_enable=\"YES\" >> /etc/rc.conf
 	fi
 	
 	# Add firewall exception
