@@ -212,7 +212,8 @@ check_configsystem_ignore_dhcp() {
 portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
 inetd_enable=\"YES\"
-
+	fi
+	
 	# Add firewall exception
         if [ -e "/etc/pf.conf" ] ; then
 	  cat /etc/pf.conf | grep "pass in on ${NIC} all" >/dev/null 2>/dev/null
