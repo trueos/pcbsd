@@ -237,20 +237,6 @@ inetd_enable=\"YES\"" >> /etc/rc.conf
 portmap : $netid/$netmaskid : allow\\
 rpcbind : ALL : deny|" /etc/hosts.allow
 
-	# Add a bulk of IPs to /etc/hosts this fixes bugs with RPC timeouts
-	# when mounting NFS
-	grep -q 'thinclient100' /etc/hosts
-	if [ $? -ne 0 ] ; then
-		i="100"
-		while
-		z="1"
-		do
-			if [ "${i}" = "200" ]; then break; fi
-			echo "192.168.2.${i}  thinclient${i}" >>/etc/hosts
-			i="`expr ${i} + 1`"
-		done
-	fi
-
 	# Start the services
 	cmds="/etc/rc.d/nfsd /etc/rc.d/inetd"
 	for _sC in $cmds
