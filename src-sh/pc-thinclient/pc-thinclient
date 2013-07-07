@@ -535,7 +535,7 @@ else
   echo ""
   echo "filename "boot/pxeboot"
   echo "next-server $ipaddr"
-  echo "option root-path "/usr/home/thinclient"
+  echo "option root-path PXEWORLD"
   echo ""
   echo "Then you can begin to use PXE Boot."
   exit 0
