@@ -176,6 +176,15 @@ check_configsystem_ignore_dhcp() {
 		fi
 	done
 	
+	# Ask for the IP Address to be used on the NIC for PXE booting
+	while
+	z=1
+	do
+		echo "What IP address will pc-thinclient be listening on? (I.E. 192.168.2.2)"
+		echo -e "ipaddr) \c"
+		read ipaddr
+	
+	done
 		# Ask for the network id of the local subnet
 	while
 	z=1
