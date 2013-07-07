@@ -220,12 +220,9 @@ inetd_enable=\"YES\"
 	fi
 	
 	# Setup rcpbind entries
-	cat /etc/hosts.allow 2>/dev/null | grep "192.168.2.0" >/dev/null 2>/dev/null
-	if [ "$?" != "0" ] ; then
-		sed  -i '' 's|rpcbind : ALL : deny|rpcbind : 192.168.2.0/255.255.255.0 : allow\
-portmap : 192.168.2.0/255.255.255.0 : allow\
-rpcbind : ALL : deny|' /etc/hosts.allow
-	fi
+        sed -i -e "s|rpcbind : ALL : deny|rpcbind : $netid/$netmaskid : allow\\
+portmap : $netid/$netmaskid : allow\\
+rpcbind : ALL : deny|" /root/hosts.allow
 
 	# Add a bulk of IPs to /etc/hosts this fixes bugs with RPC timeouts
 	# when mounting NFS
