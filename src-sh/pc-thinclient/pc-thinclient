@@ -523,14 +523,17 @@ else
 fi
 
 if [ "$DHCPTYPE" = "internal" ] ; then
-  echo " "
+  echo ""
   echo "Your system is now setup to do PXE booting!"
   exit 0
 else
-  echo "You will need to modify the following options for your dhcp server before you can begin using PXE boot"
+  echo "You will need to modify the following options in your dhcp server:"
+  echo ""
   echo "filename "boot/pxeboot"
   echo "next-server $ipaddr"
   echo "option root-path "/usr/home/thinclient"
+  echo ""
+  echo "Then you can begin to use PXE Boot."
   exit 0
 fi
 fi
