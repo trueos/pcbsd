@@ -183,7 +183,7 @@ check_configsystem_ignore_dhcp() {
 		echo "What IP address will pc-thinclient be listening on? (I.E. 192.168.2.2)"
 		echo -e "ipaddr) \c"
 		read ipaddr
-	
+	break
 	done
 		# Ask for the network id of the local subnet
 	while
@@ -192,7 +192,7 @@ check_configsystem_ignore_dhcp() {
 		echo "What is the network id for your local subnet? (I.E. 192.168.2.0)"
 		echo -e "netid) \c"
 		read netid 
-
+	break
 	done
 	
 	        # Ask for the network mask of the local subnet
