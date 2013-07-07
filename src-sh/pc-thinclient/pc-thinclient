@@ -205,7 +205,10 @@ check_configsystem_ignore_dhcp() {
         break
         done
 
-
+	# Save the rc.conf glue
+	cat /etc/rc.conf | grep "# pc-thinclient" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "# pc-thinclient configuration
 portmap_enable=\"YES\"
 nfs_server_enable=\"YES\"
 inetd_enable=\"YES\"
