@@ -125,6 +125,9 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		uk-aspell>=0:${PORTSDIR}/ukrainian/aspell \
 		vi-aspell>=0:${PORTSDIR}/vietnamese/aspell \
 		mosh:${PORTSDIR}/net/mosh \
+		virtualbox-ose>=0:${PORTSDIR}/emulators/virtualbox-ose \
+		virtualbox-ose-kmod>=0:${PORTSDIR}/emulators/virtualbox-ose-kmod \
+		virtualbox-ose-additions>=0:${PORTSDIR}/emulators/virtualbox-ose-additions \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2
 
 NO_BUILD=	yes
