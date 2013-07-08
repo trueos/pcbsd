@@ -69,17 +69,6 @@ MainWnd::MainWnd(QWidget *parent) :
     setupDEChooser();
     fillGroups();
 
-    mDirWatcher.addPath(PBI_INSTALLED_DIRECTORY);
-    mDirWatcher.addPath(SOFTWARE_DIR);
-    mDirWatcher.addPath(SYSTEM_DIR);
-    mDirWatcher.addPath(HARDWARE_DIR);
-    mDirWatcher.addPath(NETWORKING_DIR);
-    mDirWatcher.addPath(TOOLS_DIR);
-    mDirWatcher.addPath(DE_DIR);
-
-    QObject::connect(&mDirWatcher, SIGNAL(directoryChanged(const QString &)),
-                     this, SLOT(onDirectoryChanged(const QString &)));
-
 }
 
 ///////////////////////////////////////////////////////////////////////////////
