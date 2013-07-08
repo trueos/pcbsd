@@ -1321,8 +1321,8 @@ init_vars() {
 		PBI_APPDIR="/usr/pbi"
         fi
 	# Set the FreeBSD Major & Release
-  	FBSDREL=`uname -r`
-	FBSDMAJOR=`echo $FBSDREL | cut -c 1`
+  	FBSDREL=`uname -r | cut -d "-" -f 1-2`
+	FBSDMAJOR=`echo $FBSDREL | cut -d "-" -f 1`
 
 	PBI_WORLDCHROOT="${PBI_APPDIR}/.pbi-world-$ARCH"
 	if [ `id -u` = "0" ] ; then 
