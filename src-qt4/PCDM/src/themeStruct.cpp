@@ -98,7 +98,8 @@ void ThemeStruct::loadThemeFile(QString filePath){
 	    if(y.indexOf("-") == -1){ items[index].y1 = y.toInt(); items[index].y2 = -1;}
 	    else{ items[index].y1 = y.section("-",0,0).toInt(); items[index].y2 = y.section("-",1,1).toInt(); }
 	}else if(itemCat == "ORIENTATION"){
-	    items[index].isVertical = (val.toLower() == "vertical"); 	
+	    items[index].isVertical = (val.toLower() == "vertical"); 
+	    if(val.toLower()=="simple"){ items[index].value = "simple"; }
 	}else if(itemCat == "DISABLE"){
 	    items[index].enabled = (val.toLower() != "true");
 	}

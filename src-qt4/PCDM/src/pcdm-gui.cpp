@@ -71,6 +71,9 @@ void PCDMgui::createGUIfromTheme(){
   style.append(" "+ currentTheme->styleSheet() );
   this->setStyleSheet( style.simplified() );
 
+  //Check for whether the desktop switcher is on the toolbar or not
+  simpleDESwitcher = (currentTheme->itemValue("desktop") == "simple");
+  
   //get the default translation directory
   translationDir = QApplication::applicationDirPath() + "/i18n/";
   //Fill the translator
@@ -129,6 +132,17 @@ void PCDMgui::createGUIfromTheme(){
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     toolbar->addWidget(spacer);
     
+    if(simpleDESwitcher){
+      //Create the simple DE Switcher
+      sdeSwitcher = new QComboBox(this); 
+      toolbar->addWidget(sdeSwitcher);
+      //Add an additional spacer
+      QWidget* spacer2 = new QWidget();
+      spacer2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+      toolbar->addWidget(spacer2);
+      
+    }
+    
     //----System Shutdown/Restart
     tmpIcon = currentTheme->itemIcon("system");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/system.png"; }
@@ -186,23 +200,24 @@ void PCDMgui::createGUIfromTheme(){
     connect(loginW,SIGNAL(UserChanged(QString)), this, SLOT(slotUserChanged(QString)) );
     
     //----Desktop Environment Switcher
-    //Create the switcher
-    deSwitcher = new FancySwitcher(this, !currentTheme->itemIsVertical("desktop") );
-    QSize deSize = currentTheme->itemIconSize("desktop");
-    deSwitcher->setIconSize(deSize.height());
-    tmpIcon = currentTheme->itemIcon("nextde");
-    if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("forward", tmpIcon); }
-    tmpIcon = currentTheme->itemIcon("previousde");
-    if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("back", tmpIcon); }
-    //Figure out if we need to smooth out the animation
-    deSwitcher->setNumberAnimationFrames("4"); 
-    //NOTE: A transparent widget background slows the full animation to a crawl with a stretched background image
+    if(!simpleDESwitcher){
+      //Create the switcher
+      deSwitcher = new FancySwitcher(this, !currentTheme->itemIsVertical("desktop") );
+      QSize deSize = currentTheme->itemIconSize("desktop");
+      deSwitcher->setIconSize(deSize.height());
+      tmpIcon = currentTheme->itemIcon("nextde");
+      if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("forward", tmpIcon); }
+      tmpIcon = currentTheme->itemIcon("previousde");
+      if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("back", tmpIcon); }
+      //Figure out if we need to smooth out the animation
+      deSwitcher->setNumberAnimationFrames("4"); 
+      //NOTE: A transparent widget background slows the full animation to a crawl with a stretched background image
 
-    grid->addWidget( deSwitcher, currentTheme->itemLocation("desktop","row"), \
+      grid->addWidget( deSwitcher, currentTheme->itemLocation("desktop","row"), \
                       currentTheme->itemLocation("desktop","col"), \
                       currentTheme->itemLocation("desktop","rowspan"), \
                       currentTheme->itemLocation("desktop","colspan"), Qt::AlignCenter);
-
+    }
     //----WINDOW SPACERS
     QStringList spacers = currentTheme->getSpacers();
     for(int i=0; i<spacers.length(); i++){
@@ -230,11 +245,16 @@ void PCDMgui::createGUIfromTheme(){
 void PCDMgui::slotStartLogin(QString displayname, QString password){
   //Get user inputs
   QString username = Backend::getUsernameFromDisplayname(displayname);
-  QString binary = Backend::getDesktopBinary(deSwitcher->currentItem());
+  QString binary;
+  if(simpleDESwitcher){
+    binary = Backend::getDesktopBinary(sdeSwitcher->currentText());
+  }else{
+    binary = Backend::getDesktopBinary(deSwitcher->currentItem());
+  }
   QString homedir = Backend::getUserHomeDir(username);
   //Disable user input while confirming login
   loginW->setEnabled(FALSE);
-  deSwitcher->setEnabled(FALSE);
+  if(!simpleDESwitcher){ deSwitcher->setEnabled(FALSE); }
   toolbar->setEnabled(FALSE);
   //Try to login
   emit xLoginAttempt(username, password, homedir, binary);
@@ -243,7 +263,10 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
 }
 
 void PCDMgui::slotLoginSuccess(){
-  saveLastLogin( loginW->currentUsername(), deSwitcher->currentItem() );
+  QString de;
+  if(simpleDESwitcher){ de = sdeSwitcher->currentText(); }
+  else{ de = deSwitcher->currentItem(); }
+  saveLastLogin( loginW->currentUsername(), de );
   slotClosePCDM(); //now start to close down the PCDM GUI
 }
 
@@ -260,7 +283,7 @@ void PCDMgui::slotLoginFailure(){
 	
   //Re-Enable user input
   loginW->setEnabled(TRUE);
-  deSwitcher->setEnabled(TRUE);
+  if(!simpleDESwitcher){ deSwitcher->setEnabled(TRUE); }
   toolbar->setEnabled(TRUE);
 }
 
@@ -276,9 +299,11 @@ void PCDMgui::slotUserChanged(QString newuser){
 
 void PCDMgui::slotUserSelected(QString newuser){
   if(newuser.isEmpty()){
-    deSwitcher->setVisible(FALSE);
+    if(simpleDESwitcher){ sdeSwitcher->setVisible(FALSE); }
+    else{ deSwitcher->setVisible(FALSE); }
   }else{
-    deSwitcher->setVisible(TRUE);
+    if(simpleDESwitcher){ sdeSwitcher->setVisible(TRUE); }
+    else{ deSwitcher->setVisible(TRUE); }
     //Try to load the user's last DE
     loadLastDE(newuser);
     //Try to load the custom user icon
@@ -424,16 +449,29 @@ void PCDMgui::retranslateUi(){
   }
   loginW->retranslateUi();
   //The desktop switcher
-  deSwitcher->removeAllItems();
-  QStringList deList = Backend::getAvailableDesktops();
-  for(int i=0; i<deList.length(); i++){
-    QString deIcon = Backend::getDesktopIcon(deList[i]);
-    if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
-    if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
-    deSwitcher->addItem( deList[i], deIcon, Backend::getDesktopComment(deList[i]) );
-  }
+  if(simpleDESwitcher){ sdeSwitcher->clear(); }
+  else{ deSwitcher->removeAllItems(); }
+  
+    //Get the new desktop list (translated)
+    QStringList deList = Backend::getAvailableDesktops();
+    for(int i=0; i<deList.length(); i++){
+      QString deIcon = Backend::getDesktopIcon(deList[i]);
+      if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
+      if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
+      //Now add the item back to the widget
+      if(simpleDESwitcher){ sdeSwitcher->addItem(QIcon(deIcon), deList[i]); }
+      else{ deSwitcher->addItem( deList[i], deIcon, Backend::getDesktopComment(deList[i]) ); }
+    }
     //Set the switcher to the last used desktop environment
-    if( !lastDE.isEmpty() ){ deSwitcher->setCurrentItem(lastDE); }
+    if( !lastDE.isEmpty() ){ 
+      if(simpleDESwitcher){ 
+	int index = deList.indexOf(lastDE);
+	if(index != -1){ sdeSwitcher->setCurrentIndex(index); }
+	else{ sdeSwitcher->setCurrentIndex(0); }
+      }else{ 
+	deSwitcher->setCurrentItem(lastDE); 
+      }
+    }
 
 }
 

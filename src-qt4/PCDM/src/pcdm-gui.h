@@ -65,8 +65,10 @@ private:
     QAction *virtkeyboardButton, *localeButton, *keyboardButton;
     QToolButton *systemButton;
     QMenu* systemMenu;
-    FancySwitcher* deSwitcher;
-
+    FancySwitcher* deSwitcher; // full switcher
+    QComboBox* sdeSwitcher; //simple switcher
+    bool simpleDESwitcher;
+    
     QProcess* vkbd;
     ThemeStruct* currentTheme;
 
