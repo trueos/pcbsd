@@ -723,6 +723,7 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/scripts
 @dirrm share/pcbsd/conf
 @dirrm share/pcbsd/distfiles
+@dirrm share/pcbsd/pefs
 @dirrm share/pcbsd
 @unexec rmdir /usr/pbi/.hashdir >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/share/applications >/dev/null 2>/dev/null
