@@ -287,7 +287,7 @@ if sleep$verbose --interruptible ${1} ; then
   if keystatus --shift; then
     set timeout=-1
   else
-    set timeout=${2}
+    set timeout=0
   fi
 fi
 EOF
