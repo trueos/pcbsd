@@ -6952,7 +6952,7 @@ mk_chroot_file() {
 	  cd "$PBI_APPDIR"
 
   	  # Get the system version we are checking for updates to
-  	  SYSVER="`uname -r`" ; export SYSVER
+  	  SYSVER="`uname -r | cut -d '-' -f 1-2`" ; export SYSVER
 
           local dFiles="base.txz doc.txz games.txz src.txz"
           if [ "$ARCH" = "amd64" ] ; then
