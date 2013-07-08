@@ -50,74 +50,14 @@ void PBSystemTab::ProgramInit()
     //Load boot screen data
     loadBootData();
 
-    // Load the mirror configuration
-    loadMirrorConfig();
-  
     // Connect our various buttons
     connect(buttonGenerate, SIGNAL(clicked()), this, SLOT(startGenerateSheet()) );
     connect(showBootCheck, SIGNAL(clicked()), this, SIGNAL(changed()));
     connect(splashSelect, SIGNAL(activated(int)), this, SIGNAL(changed()));
-    connect(pushRefreshList, SIGNAL( clicked() ), this, SLOT( slotUpdateMirrorList() ) );
-    connect(pushMirrorSave, SIGNAL( clicked() ), this, SLOT( slotMirrorSave() ) );
     connect(pushMiscSave, SIGNAL( clicked() ), this, SLOT( slotMiscSave() ) );
 
     connect(fetchSourceBut, SIGNAL( clicked() ), this, SLOT( fetchSourcePressed() ) );
     connect(fetchPortsBut, SIGNAL( clicked() ), this, SLOT( fetchPortsPressed() ) );
-
-    // Connect the mirror radio buttons, so we can enable disable objects based on status
-    connect(radioAutoMirror, SIGNAL( clicked() ), this, SLOT( slotCheckMirrorRadio() ) );
-    connect(radioSelectMirror, SIGNAL( clicked() ), this, SLOT( slotCheckMirrorRadio() ) );
-    connect(radioCustomMirror, SIGNAL( clicked() ), this, SLOT( slotCheckMirrorRadio() ) );
-
-}
-
-void PBSystemTab::loadMirrorConfig()
-{
-
-  QSettings settings("PCBSD");
-  QString tmp;
-
-  // Get the current mirror
-  currentMirror = pcbsd::Utils::getMasterMirror();
-
-  // Load our array of mirrors
-  comboMirrorList->clear();
-  bool foundMirror = false;
-  bool usingMirrorList = false;
-  QString MirrorName, MirrorURL;
-
-  int size = settings.beginReadArray("/PC-BSD/SoftwareManager/mirrorList");
-  for (int i = 0; i < size; ++i) {
-     foundMirror = true;
-     settings.setArrayIndex(i);
-     MirrorName = settings.value("MirrorName").toString();
-     MirrorURL = settings.value("MirrorURL").toString();
-     comboMirrorList->addItem( MirrorName );
-     mirrorNames[i] = MirrorName;
-     mirrorURLs[i] = MirrorURL;
-     if ( currentMirror == MirrorURL ) {
-       comboMirrorList->setCurrentIndex(i);
-       radioSelectMirror->setChecked(true);
-       usingMirrorList = true;
-     }
-  }
-                
-  settings.endArray();
-
-  // If our mirror list is empty, start a refresh of it now
-  if (!foundMirror)
-     slotUpdateMirrorList();
-  
-  // Check if we found a mirror in the PC-BSD list, otherwise default to custom mirror
-  if (!usingMirrorList) {
-      if ( currentMirror.isEmpty() )
-        radioAutoMirror->setChecked(true);
-      else
-        radioCustomMirror->setChecked(true);
-      lineCustomMirror->setText(currentMirror);
-  }
-
-  slotCheckMirrorRadio();
 }
 
 void PBSystemTab::CheckUname()
@@ -343,7 +283,7 @@ void PBSystemTab::loadBootData()
     QDir screens = QDir(PREFIX + "/share/pcbsd/splash-screens/");
     if (! screens.exists())
     {
-        QMessageBox::critical( 0, tr("Refresh Mirrors"), PREFIX + "/share/pcbsd/splash-screens/ " + tr("doesn't exist!"), QMessageBox::Ok );
+        QMessageBox::critical( 0, tr("File not found!"), PREFIX + "/share/pcbsd/splash-screens/ " + tr("doesn't exist!"), QMessageBox::Ok );
 	return;
     }
     screens.setFilter(QDir::Files);
@@ -420,130 +360,9 @@ void PBSystemTab::loadBootData()
 		checkForceIbus->setChecked(FALSE);
 }
 
-void PBSystemTab::slotUpdateMirrorList() {
-  // Fetch from here http://updates.pcbsd.org/mirror-list.php
-  QString URL, LFILE;
-  URL= "http://updates.pcbsd.org/mirror-list.php";
-
-  mirrorJob = new QNetworkAccessManager(this);
-  mirrorJobBuf.clear();
-
-  QNetworkRequest netRequest;
-  netRequest.setUrl(QUrl(URL));
-  mirrorReply = mirrorJob->get(netRequest);
-   
-  connect(mirrorJob, SIGNAL(finished(QNetworkReply *)), this, SLOT(slotRefreshMirrorDone() ) );
-  connect(mirrorReply, SIGNAL(readyRead()), this, SLOT(slotGetMirrorData() ) );
-}
-
-void PBSystemTab::slotGetMirrorData() {
-        //while (mirrorReply->canReadLine() )
-        //        mirrorJobBuf << mirrorReply->readLine().simplified();
-
-        mirrorJobBuf = mirrorJobBuf + mirrorReply->readAll();
-}
-
-void PBSystemTab::slotRefreshMirrorDone() {
-   QString MirrorName, MirrorURL, tmp;
-
-
-   if (mirrorReply->error() != QNetworkReply::NoError)
-   {
-      QMessageBox::critical( 0, tr("Refresh Mirrors"), tr("Error fetching mirror list! Check your internet connection, or try again later."), QMessageBox::Ok );
-        return;
-   }
-
-   QStringList mirrorList;
-   mirrorList = mirrorJobBuf.split("\n");
-   qDebug() << "Avail Mirrors:" << mirrorList;
-   // Clear the combo box  
-   comboMirrorList->clear();
-   int i = 0;
-
-   QString line;
-   for ( int z = 0; z < mirrorList.size(); z++ ) {
-     line = mirrorList.at(z);
-
-     tmp = line;
-     tmp.truncate(line.indexOf("=") -1 );
-     MirrorName = tmp;
-     MirrorURL = line.remove(0, line.indexOf("=") + 1);
-     mirrorNames[i] = MirrorName;
-     mirrorURLs[i] = MirrorURL.simplified();
-     comboMirrorList->addItem( MirrorName );
-
-     if ( currentMirror == MirrorURL )
-        comboMirrorList->setCurrentIndex(i);
-
-     i++;
-   }
-
-   // Close the array
-   mirrorNames[i] = "";
-   mirrorURLs[i] = "";
-
-   QSettings settings("PCBSD");
-   settings.beginWriteArray("/PC-BSD/SoftwareManager/mirrorList");
-   i = 0;
-   while ( !mirrorNames[i].isEmpty() )
-   {
-      settings.setArrayIndex(i);
-      settings.setValue("MirrorName", mirrorNames[i]);
-      settings.setValue("MirrorURL", mirrorURLs[i].simplified());
-      i++;
-   }
-
-   settings.endArray(); 
-}
-
-
-void PBSystemTab::slotCheckMirrorRadio() {
-
-    comboMirrorList->setEnabled(false);
-    pushRefreshList->setEnabled(false);
-    lineCustomMirror->setEnabled(false);
-    if( radioSelectMirror->isChecked() )
-    {
-      comboMirrorList->setEnabled(true);
-      pushRefreshList->setEnabled(true);
-    }
-    if( radioCustomMirror->isChecked() )
-      lineCustomMirror->setEnabled(true);
-}
-
 void PBSystemTab::slotMiscSave() {
     miscSavePressed();
     saveKernScreen();
-}
-
-void PBSystemTab::slotMirrorSave() {
-    saveMirrorConfig();
-}
-
-void PBSystemTab::saveMirrorConfig() {
-    if( ! sanityCheckSettings() )
-	return;
-
-
-    if ( ! radioSelectMirror->isChecked() ) {
-       pcbsd::Utils::setMasterMirror(lineCustomMirror->text());
-    } else if (radioAutoMirror->isChecked() ) {
-       pcbsd::Utils::setMasterMirror("");
-    } else {
-       // Check if we have a mirror selected and save it
-       QString curMirror;
-       int i = 0;
-       while ( !mirrorNames[i].isEmpty() )
-       {
-          if ( comboMirrorList->currentText() == mirrorNames[i]) {
-            curMirror = mirrorURLs[i];
-	    break;
-	  }
-          i++;
-       }
-	
-       pcbsd::Utils::setMasterMirror(curMirror);
-    }
 }
 
 void PBSystemTab::slotClose() {
@@ -552,15 +371,6 @@ void PBSystemTab::slotClose() {
 
 bool PBSystemTab::sanityCheckSettings()
 {
-  if (radioCustomMirror->isChecked() ) {
-    if( lineCustomMirror->text().indexOf("http://") != 0 && lineCustomMirror->text().indexOf("ftp://") != 0 )
-    {
-      tabWidget->setCurrentIndex(1);
-      QMessageBox::critical( 0, tr("Config Error"), tr("Error: Your custom mirror needs to begin with ftp:// or http://"), QMessageBox::Ok );
-      return false;
-    }
-  }
-
   return true;
 }
 

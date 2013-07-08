@@ -65,11 +65,6 @@ private slots:
     void customSplashPressed();
     void showSplashChecked( int newState );
     void loadBootData();
-    void slotUpdateMirrorList();
-    void slotGetMirrorData();
-    void slotRefreshMirrorDone();
-    void slotCheckMirrorRadio();
-    void slotMirrorSave();
     void slotMiscSave();
     void slotClose();
     
@@ -92,12 +87,9 @@ private:
     void CreateSheetFile();
     void showRebootRequired();
     void LoadKernSettings();
-    void loadMirrorConfig();
     QString getLineFromCommandOutput(QString cmd);
-    void saveMirrorConfig();
     bool sanityCheckSettings();
 
-    QString currentMirror;
     QString mirrorNames[900];
     QString mirrorURLs[900];
     QString mirrorJobBuf;
@@ -140,7 +132,6 @@ private:
     QProcess *getFreeSpaceProc;
     QString SysUpdateName[500];
     QString SysUpdateIgnore[500];
-    QString SysUpdateMirror[500];
     QString SysUpdatePatchFile[500];
     QString SysUpdateDate[500];
     QString SysUpdateMD5[500];
