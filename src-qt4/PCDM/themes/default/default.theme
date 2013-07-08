@@ -29,8 +29,9 @@ LOGIN_IMAGE=login.png  		# Image contained in the login button
   LOGIN_IMAGE_SIZE=32x32		  # Size for the image (in pixels)
 
 DESKTOP_IMAGE=default-desktop.png	# Default Image for the DE selection if none found
+  DESKTOP_ORIENTATION=simple			# [horizontal | vertical | simple]
+  #Additional DESKTOP settings if not set to "simple"
   DESKTOP_IMAGE_SIZE=48x48		  	# Size for the image (in pixels)
-  DESKTOP_ORIENTATION=horizontal		# [horizontal | vertical | simple]
   NEXTDE_IMAGE=nextDE.png			# Next DE selection (right/down)
   PREVIOUSDE_IMAGE=previousDE.png		# Previous DE selection (left/up)
   
@@ -39,6 +40,7 @@ SYSTEM_IMAGE=system.png  	# Image for the System box (shutdown/reboot options)
 LOCALE_IMAGE=localechange.png  	# Image for language selection
 KEYBOARD_IMAGE=keyboardlayout.png  	# Image for keyboard layout selection
 VKEYBOARD_IMAGE=virtualkeyboard.png		# Image for the virtual keyboard item
+  VKEYBOARD_DISABLE=TRUE
 
 # TOOLBAR SETTINGS
 TOOLBAR_LOCATION=bottom 	# [bottom | top | left | right]

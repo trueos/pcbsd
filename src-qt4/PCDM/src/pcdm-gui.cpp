@@ -14,7 +14,8 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=FALSE;
+bool DEBUG_MODE=TRUE;
+QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
 {
@@ -59,6 +60,7 @@ void PCDMgui::createGUIfromTheme(){
   QString style;
   QString tmpIcon; //used for checking image files before loading them
   //Set the background image
+  if(DEBUG_MODE){ qDebug() << "Setting Background Image"; }
   if( currentTheme->itemIsEnabled("background") ){
     tmpIcon = currentTheme->itemIcon("background");
     if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
@@ -75,12 +77,14 @@ void PCDMgui::createGUIfromTheme(){
   simpleDESwitcher = (currentTheme->itemValue("desktop") == "simple");
   
   //get the default translation directory
+  if(DEBUG_MODE){ qDebug() << "Load Translations"; }
   translationDir = QApplication::applicationDirPath() + "/i18n/";
   //Fill the translator
   m_translator = new QTranslator();
   //Create the Toolbar
   toolbar = new QToolBar();
   //Add the Toolbar to the window
+  if(DEBUG_MODE){ qDebug() << "Create Toolbar"; }
     //use the theme location   
     QString tarea = currentTheme->itemValue("toolbar");
     if(tarea == "left"){
@@ -107,13 +111,19 @@ void PCDMgui::createGUIfromTheme(){
     toolbar->setFocusPolicy( Qt::NoFocus );
   //Populate the Toolbar with items (starts at leftmost/topmost)
     //----Virtual Keyboard
-    tmpIcon = currentTheme->itemIcon("vkeyboard");
-    if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/input-keyboard.png"; }
-    virtkeyboardButton = new QAction( QIcon(tmpIcon),tr("Virtual Keyboard"),this );
-    toolbar->addAction(virtkeyboardButton);
-    connect( virtkeyboardButton, SIGNAL(triggered()), this, SLOT(slotPushVirtKeyboard()) );
+    if(currentTheme->itemIsEnabled("vkeyboard") ){
+      if(DEBUG_MODE){ qDebug() << " - Create Virtual Keyboard Button"; }
+      tmpIcon = currentTheme->itemIcon("vkeyboard");
+      if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/input-keyboard.png"; }
+      virtkeyboardButton = new QAction( QIcon(tmpIcon),tr("Virtual Keyboard"),this );
+      toolbar->addAction(virtkeyboardButton);
+      connect( virtkeyboardButton, SIGNAL(triggered()), this, SLOT(slotPushVirtKeyboard()) );
+    }else{
+      virtkeyboardButton = new QAction(this);
+    }
 
     //----Locale Switcher
+    if(DEBUG_MODE){ qDebug() << " - Create Locale Button"; }
     tmpIcon = currentTheme->itemIcon("locale");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/language.png"; }
     localeButton = new QAction( QIcon(tmpIcon),tr("Locale"),this );
@@ -121,6 +131,7 @@ void PCDMgui::createGUIfromTheme(){
     connect( localeButton, SIGNAL(triggered()), this, SLOT(slotChangeLocale()) );
     
     //----Keyboard Layout Switcher
+    if(DEBUG_MODE){ qDebug() << " - Create Keyboard Layout Button"; }
     tmpIcon = currentTheme->itemIcon("keyboard");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/keyboard.png"; }
     keyboardButton = new QAction( QIcon(tmpIcon),tr("Keyboard Layout"),this );
@@ -133,6 +144,7 @@ void PCDMgui::createGUIfromTheme(){
     toolbar->addWidget(spacer);
     
     if(simpleDESwitcher){
+      if(DEBUG_MODE){ qDebug() << " - Create Simple DE Switcher"; }
       //Create the simple DE Switcher
       sdeSwitcher = new QComboBox(this); 
       toolbar->addWidget(sdeSwitcher);
@@ -144,6 +156,7 @@ void PCDMgui::createGUIfromTheme(){
     }
     
     //----System Shutdown/Restart
+    if(DEBUG_MODE){ qDebug() << " - Create System Button"; }
     tmpIcon = currentTheme->itemIcon("system");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/system.png"; }
     QAction* act = new QAction( QIcon(tmpIcon),tr("System"),this );
@@ -156,10 +169,12 @@ void PCDMgui::createGUIfromTheme(){
     
   //Create the grid layout
   QGridLayout* grid = new QGridLayout;
+  if(DEBUG_MODE){ qDebug() << "Fill Desktop Area"; }
   //Populate the grid with items
     //----Header Image
     QLabel* header = new QLabel; 
     if( currentTheme->itemIsEnabled("header") ){
+      if(DEBUG_MODE){ qDebug() << " - Create Header"; }
       tmpIcon = currentTheme->itemIcon("header");
       if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/banner.png"; }
       QPixmap tmp( tmpIcon );
@@ -171,6 +186,7 @@ void PCDMgui::createGUIfromTheme(){
     }
     
     //Username/Password/Login widget
+    if(DEBUG_MODE){ qDebug() << " - Create Login Widget"; }
     loginW = new LoginWidget;
     loginW->setUsernames(Backend::getSystemUsers()); //add in the detected users
     if(!lastUser.isEmpty()){ //set the previously used user
@@ -201,6 +217,7 @@ void PCDMgui::createGUIfromTheme(){
     
     //----Desktop Environment Switcher
     if(!simpleDESwitcher){
+      if(DEBUG_MODE){ qDebug() << " - Create DE Switcher"; }
       //Create the switcher
       deSwitcher = new FancySwitcher(this, !currentTheme->itemIsVertical("desktop") );
       QSize deSize = currentTheme->itemIconSize("desktop");
@@ -238,7 +255,9 @@ void PCDMgui::createGUIfromTheme(){
     this->setCentralWidget(widget);
     
   //Now translate the UI and set all the text
+  if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
   retranslateUi();
+  if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
 
 }
 
@@ -417,15 +436,20 @@ void PCDMgui::slotChangeKeyboardLayout(){
 
 // Start xvkbd
 void PCDMgui::slotPushVirtKeyboard(){
-   system("killall -9 xvkbd; xvkbd -compact &");
+   QString cmd = "killall -9 "+VIRTUALKBDBIN.section(" ",0,0).section("/",-1)+"; "+VIRTUALKBDBIN+" &";
+   qDebug() << "Starting Virtual Keyboard:";
+   qDebug() << " - CMD: "+cmd;
+   system( cmd.toUtf8() );
    loginW->resetFocus("password");
 }
 
 void PCDMgui::retranslateUi(){
   //All the text-setting for the main interface needs to be done here
   //virtual keyboard button
-  virtkeyboardButton->setToolTip(tr("Virtual Keyboard"));
-  virtkeyboardButton->setText(tr("Virtual Keyboard"));
+  //if(currentTheme->itemIsEnabled("vkeyboard")){
+    virtkeyboardButton->setToolTip(tr("Virtual Keyboard"));
+    virtkeyboardButton->setText(tr("Virtual Keyboard"));
+  //}
   //locale switcher button
   localeButton->setToolTip(tr("Change locale"));
   localeButton->setText(tr("Locale"));
