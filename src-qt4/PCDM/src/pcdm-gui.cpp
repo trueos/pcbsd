@@ -14,7 +14,8 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=FALSE;
+bool DEBUG_MODE=TRUE;
+QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
 {
@@ -59,6 +60,7 @@ void PCDMgui::createGUIfromTheme(){
   QString style;
   QString tmpIcon; //used for checking image files before loading them
   //Set the background image
+  if(DEBUG_MODE){ qDebug() << "Setting Background Image"; }
   if( currentTheme->itemIsEnabled("background") ){
     tmpIcon = currentTheme->itemIcon("background");
     if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
@@ -71,13 +73,18 @@ void PCDMgui::createGUIfromTheme(){
   style.append(" "+ currentTheme->styleSheet() );
   this->setStyleSheet( style.simplified() );
 
+  //Check for whether the desktop switcher is on the toolbar or not
+  simpleDESwitcher = (currentTheme->itemValue("desktop") == "simple");
+  
   //get the default translation directory
+  if(DEBUG_MODE){ qDebug() << "Load Translations"; }
   translationDir = QApplication::applicationDirPath() + "/i18n/";
   //Fill the translator
   m_translator = new QTranslator();
   //Create the Toolbar
   toolbar = new QToolBar();
   //Add the Toolbar to the window
+  if(DEBUG_MODE){ qDebug() << "Create Toolbar"; }
     //use the theme location   
     QString tarea = currentTheme->itemValue("toolbar");
     if(tarea == "left"){
@@ -104,13 +111,19 @@ void PCDMgui::createGUIfromTheme(){
     toolbar->setFocusPolicy( Qt::NoFocus );
   //Populate the Toolbar with items (starts at leftmost/topmost)
     //----Virtual Keyboard
-    tmpIcon = currentTheme->itemIcon("vkeyboard");
-    if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/input-keyboard.png"; }
-    virtkeyboardButton = new QAction( QIcon(tmpIcon),tr("Virtual Keyboard"),this );
-    toolbar->addAction(virtkeyboardButton);
-    connect( virtkeyboardButton, SIGNAL(triggered()), this, SLOT(slotPushVirtKeyboard()) );
+    if(currentTheme->itemIsEnabled("vkeyboard") ){
+      if(DEBUG_MODE){ qDebug() << " - Create Virtual Keyboard Button"; }
+      tmpIcon = currentTheme->itemIcon("vkeyboard");
+      if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/input-keyboard.png"; }
+      virtkeyboardButton = new QAction( QIcon(tmpIcon),tr("Virtual Keyboard"),this );
+      toolbar->addAction(virtkeyboardButton);
+      connect( virtkeyboardButton, SIGNAL(triggered()), this, SLOT(slotPushVirtKeyboard()) );
+    }else{
+      virtkeyboardButton = new QAction(this);
+    }
 
     //----Locale Switcher
+    if(DEBUG_MODE){ qDebug() << " - Create Locale Button"; }
     tmpIcon = currentTheme->itemIcon("locale");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/language.png"; }
     localeButton = new QAction( QIcon(tmpIcon),tr("Locale"),this );
@@ -118,6 +131,7 @@ void PCDMgui::createGUIfromTheme(){
     connect( localeButton, SIGNAL(triggered()), this, SLOT(slotChangeLocale()) );
     
     //----Keyboard Layout Switcher
+    if(DEBUG_MODE){ qDebug() << " - Create Keyboard Layout Button"; }
     tmpIcon = currentTheme->itemIcon("keyboard");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/keyboard.png"; }
     keyboardButton = new QAction( QIcon(tmpIcon),tr("Keyboard Layout"),this );
@@ -129,7 +143,20 @@ void PCDMgui::createGUIfromTheme(){
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     toolbar->addWidget(spacer);
     
+    if(simpleDESwitcher){
+      if(DEBUG_MODE){ qDebug() << " - Create Simple DE Switcher"; }
+      //Create the simple DE Switcher
+      sdeSwitcher = new QComboBox(this); 
+      toolbar->addWidget(sdeSwitcher);
+      //Add an additional spacer
+      QWidget* spacer2 = new QWidget();
+      spacer2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+      toolbar->addWidget(spacer2);
+      
+    }
+    
     //----System Shutdown/Restart
+    if(DEBUG_MODE){ qDebug() << " - Create System Button"; }
     tmpIcon = currentTheme->itemIcon("system");
     if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/system.png"; }
     QAction* act = new QAction( QIcon(tmpIcon),tr("System"),this );
@@ -142,10 +169,12 @@ void PCDMgui::createGUIfromTheme(){
     
   //Create the grid layout
   QGridLayout* grid = new QGridLayout;
+  if(DEBUG_MODE){ qDebug() << "Fill Desktop Area"; }
   //Populate the grid with items
     //----Header Image
     QLabel* header = new QLabel; 
     if( currentTheme->itemIsEnabled("header") ){
+      if(DEBUG_MODE){ qDebug() << " - Create Header"; }
       tmpIcon = currentTheme->itemIcon("header");
       if(!QFile::exists(tmpIcon) || tmpIcon.isEmpty() ){ tmpIcon=":/images/banner.png"; }
       QPixmap tmp( tmpIcon );
@@ -157,6 +186,7 @@ void PCDMgui::createGUIfromTheme(){
     }
     
     //Username/Password/Login widget
+    if(DEBUG_MODE){ qDebug() << " - Create Login Widget"; }
     loginW = new LoginWidget;
     loginW->setUsernames(Backend::getSystemUsers()); //add in the detected users
     if(!lastUser.isEmpty()){ //set the previously used user
@@ -186,23 +216,25 @@ void PCDMgui::createGUIfromTheme(){
     connect(loginW,SIGNAL(UserChanged(QString)), this, SLOT(slotUserChanged(QString)) );
     
     //----Desktop Environment Switcher
-    //Create the switcher
-    deSwitcher = new FancySwitcher(this, !currentTheme->itemIsVertical("desktop") );
-    QSize deSize = currentTheme->itemIconSize("desktop");
-    deSwitcher->setIconSize(deSize.height());
-    tmpIcon = currentTheme->itemIcon("nextde");
-    if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("forward", tmpIcon); }
-    tmpIcon = currentTheme->itemIcon("previousde");
-    if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("back", tmpIcon); }
-    //Figure out if we need to smooth out the animation
-    deSwitcher->setNumberAnimationFrames("4"); 
-    //NOTE: A transparent widget background slows the full animation to a crawl with a stretched background image
+    if(!simpleDESwitcher){
+      if(DEBUG_MODE){ qDebug() << " - Create DE Switcher"; }
+      //Create the switcher
+      deSwitcher = new FancySwitcher(this, !currentTheme->itemIsVertical("desktop") );
+      QSize deSize = currentTheme->itemIconSize("desktop");
+      deSwitcher->setIconSize(deSize.height());
+      tmpIcon = currentTheme->itemIcon("nextde");
+      if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("forward", tmpIcon); }
+      tmpIcon = currentTheme->itemIcon("previousde");
+      if( !tmpIcon.isEmpty() && QFile::exists(tmpIcon) ){ deSwitcher->changeButtonIcon("back", tmpIcon); }
+      //Figure out if we need to smooth out the animation
+      deSwitcher->setNumberAnimationFrames("4"); 
+      //NOTE: A transparent widget background slows the full animation to a crawl with a stretched background image
 
-    grid->addWidget( deSwitcher, currentTheme->itemLocation("desktop","row"), \
+      grid->addWidget( deSwitcher, currentTheme->itemLocation("desktop","row"), \
                       currentTheme->itemLocation("desktop","col"), \
                       currentTheme->itemLocation("desktop","rowspan"), \
                       currentTheme->itemLocation("desktop","colspan"), Qt::AlignCenter);
-
+    }
     //----WINDOW SPACERS
     QStringList spacers = currentTheme->getSpacers();
     for(int i=0; i<spacers.length(); i++){
@@ -223,18 +255,25 @@ void PCDMgui::createGUIfromTheme(){
     this->setCentralWidget(widget);
     
   //Now translate the UI and set all the text
+  if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
   retranslateUi();
+  if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
 
 }
 
 void PCDMgui::slotStartLogin(QString displayname, QString password){
   //Get user inputs
   QString username = Backend::getUsernameFromDisplayname(displayname);
-  QString binary = Backend::getDesktopBinary(deSwitcher->currentItem());
+  QString binary;
+  if(simpleDESwitcher){
+    binary = Backend::getDesktopBinary(sdeSwitcher->currentText());
+  }else{
+    binary = Backend::getDesktopBinary(deSwitcher->currentItem());
+  }
   QString homedir = Backend::getUserHomeDir(username);
   //Disable user input while confirming login
   loginW->setEnabled(FALSE);
-  deSwitcher->setEnabled(FALSE);
+  if(!simpleDESwitcher){ deSwitcher->setEnabled(FALSE); }
   toolbar->setEnabled(FALSE);
   //Try to login
   emit xLoginAttempt(username, password, homedir, binary);
@@ -243,7 +282,10 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
 }
 
 void PCDMgui::slotLoginSuccess(){
-  saveLastLogin( loginW->currentUsername(), deSwitcher->currentItem() );
+  QString de;
+  if(simpleDESwitcher){ de = sdeSwitcher->currentText(); }
+  else{ de = deSwitcher->currentItem(); }
+  saveLastLogin( loginW->currentUsername(), de );
   slotClosePCDM(); //now start to close down the PCDM GUI
 }
 
@@ -260,7 +302,7 @@ void PCDMgui::slotLoginFailure(){
 	
   //Re-Enable user input
   loginW->setEnabled(TRUE);
-  deSwitcher->setEnabled(TRUE);
+  if(!simpleDESwitcher){ deSwitcher->setEnabled(TRUE); }
   toolbar->setEnabled(TRUE);
 }
 
@@ -276,9 +318,11 @@ void PCDMgui::slotUserChanged(QString newuser){
 
 void PCDMgui::slotUserSelected(QString newuser){
   if(newuser.isEmpty()){
-    deSwitcher->setVisible(FALSE);
+    if(simpleDESwitcher){ sdeSwitcher->setVisible(FALSE); }
+    else{ deSwitcher->setVisible(FALSE); }
   }else{
-    deSwitcher->setVisible(TRUE);
+    if(simpleDESwitcher){ sdeSwitcher->setVisible(TRUE); }
+    else{ deSwitcher->setVisible(TRUE); }
     //Try to load the user's last DE
     loadLastDE(newuser);
     //Try to load the custom user icon
@@ -392,15 +436,20 @@ void PCDMgui::slotChangeKeyboardLayout(){
 
 // Start xvkbd
 void PCDMgui::slotPushVirtKeyboard(){
-   system("killall -9 xvkbd; xvkbd -compact &");
+   QString cmd = "killall -9 "+VIRTUALKBDBIN.section(" ",0,0).section("/",-1)+"; "+VIRTUALKBDBIN+" &";
+   qDebug() << "Starting Virtual Keyboard:";
+   qDebug() << " - CMD: "+cmd;
+   system( cmd.toUtf8() );
    loginW->resetFocus("password");
 }
 
 void PCDMgui::retranslateUi(){
   //All the text-setting for the main interface needs to be done here
   //virtual keyboard button
-  virtkeyboardButton->setToolTip(tr("Virtual Keyboard"));
-  virtkeyboardButton->setText(tr("Virtual Keyboard"));
+  //if(currentTheme->itemIsEnabled("vkeyboard")){
+    virtkeyboardButton->setToolTip(tr("Virtual Keyboard"));
+    virtkeyboardButton->setText(tr("Virtual Keyboard"));
+  //}
   //locale switcher button
   localeButton->setToolTip(tr("Change locale"));
   localeButton->setText(tr("Locale"));
@@ -424,16 +473,29 @@ void PCDMgui::retranslateUi(){
   }
   loginW->retranslateUi();
   //The desktop switcher
-  deSwitcher->removeAllItems();
-  QStringList deList = Backend::getAvailableDesktops();
-  for(int i=0; i<deList.length(); i++){
-    QString deIcon = Backend::getDesktopIcon(deList[i]);
-    if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
-    if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
-    deSwitcher->addItem( deList[i], deIcon, Backend::getDesktopComment(deList[i]) );
-  }
+  if(simpleDESwitcher){ sdeSwitcher->clear(); }
+  else{ deSwitcher->removeAllItems(); }
+  
+    //Get the new desktop list (translated)
+    QStringList deList = Backend::getAvailableDesktops();
+    for(int i=0; i<deList.length(); i++){
+      QString deIcon = Backend::getDesktopIcon(deList[i]);
+      if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
+      if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
+      //Now add the item back to the widget
+      if(simpleDESwitcher){ sdeSwitcher->addItem(QIcon(deIcon), deList[i]); }
+      else{ deSwitcher->addItem( deList[i], deIcon, Backend::getDesktopComment(deList[i]) ); }
+    }
     //Set the switcher to the last used desktop environment
-    if( !lastDE.isEmpty() ){ deSwitcher->setCurrentItem(lastDE); }
+    if( !lastDE.isEmpty() ){ 
+      if(simpleDESwitcher){ 
+	int index = deList.indexOf(lastDE);
+	if(index != -1){ sdeSwitcher->setCurrentIndex(index); }
+	else{ sdeSwitcher->setCurrentIndex(0); }
+      }else{ 
+	deSwitcher->setCurrentItem(lastDE); 
+      }
+    }
 
 }
 
