@@ -594,12 +594,14 @@ void wizardDisk::slotTreeMountsRightClick()
   popupCH->addAction( "on", this, SLOT(slotZChkON()));
   popupCH->addAction( "off", this, SLOT(slotZChkOFF()));
 
-  // Create compression sub-menu
-  popupCmp = popup->addMenu("compression");
-  popupCmp->addAction( "off", this, SLOT(slotZCmpOFF()));
-  popupCmp->addAction( "lzjb", this, SLOT(slotZCmpLZJB()));
-  popupCmp->addAction( "gzip", this, SLOT(slotZCmpGZIP()));
-  popupCmp->addAction( "zle", this, SLOT(slotZCmpZLE()));
+  // Create compression sub-menu for non '/' devices
+  if ( treeMounts->currentItem()->text(1) != "/" ) {
+    popupCmp = popup->addMenu("compression");
+    popupCmp->addAction( "off", this, SLOT(slotZCmpOFF()));
+    popupCmp->addAction( "lzjb", this, SLOT(slotZCmpLZJB()));
+    popupCmp->addAction( "gzip", this, SLOT(slotZCmpGZIP()));
+    popupCmp->addAction( "zle", this, SLOT(slotZCmpZLE()));
+  }
 
   // Create dedup sub-menu
   // dedup is disabled for now, until such time as it is safe in all cases
