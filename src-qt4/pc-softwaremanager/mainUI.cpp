@@ -210,41 +210,46 @@ void MainUI::slotRefreshInstallTab(){
   for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
     cList << ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
   }
-   //Now make adjustments as necessary
-  for(int i=0; i<installList.length(); i++){
-    //Detemine what action should be done with this item location
-    int todo = 0; //0=insert new item, 1=update current item, 2=remove current item
-    if(i < cList.length()){
-      if(installList[i] == cList[i]){ todo=1; }
-      else if( installList.contains(cList[i]) && !cList.contains(installList[i]) ){ todo=0; } //new item to be inserted here
-      else if( !installList.contains(cList[i]) ){ todo=2; } //current item in this location should be removed
+  //Quick finish if no items installed
+  if(installList.isEmpty()){
+    ui->tree_install_apps->clear();
+  }else{
+    //Now make adjustments as necessary
+    for(int i=0; i<installList.length(); i++){
+      //Detemine what action should be done with this item location
+      int todo = 0; //0=insert new item, 1=update current item, 2=remove current item
+      if(i < cList.length()){
+        if(installList[i] == cList[i]){ todo=1; }
+        else if( installList.contains(cList[i]) && !cList.contains(installList[i]) ){ todo=0; } //new item to be inserted here
+        else if( !installList.contains(cList[i]) ){ todo=2; } //current item in this location should be removed
+      }
+      //Now perform the action on this location
+      if(todo==0){ 
+        //insert new item
+        QTreeWidgetItem *item = new QTreeWidgetItem; //create the item
+        item->setWhatsThis(0,installList[i]);
+        //Now format the display
+        formatInstalledItemDisplay(item);
+        //Now insert this item onto the list
+        ui->tree_install_apps->insertTopLevelItem(i,item);
+        cList.insert(i,installList[i]); //reflect this inclusion into the current list
+      }else if(todo==1){
+        //Update current item
+        formatInstalledItemDisplay( ui->tree_install_apps->topLevelItem(i) );
+      }else{
+        //Remove current item
+        ui->tree_install_apps->takeTopLevelItem(i);
+        cList.removeAt(i); //reflect the change to the current list
+        i--; //Re-check the item that should be in this location
+      }
     }
-    //Now perform the action on this location
-    if(todo==0){ 
-      //insert new item
-      QTreeWidgetItem *item = new QTreeWidgetItem; //create the item
-      item->setWhatsThis(0,installList[i]);
-      //Now format the display
-      formatInstalledItemDisplay(item);
-      //Now insert this item onto the list
-      ui->tree_install_apps->insertTopLevelItem(i,item);
-      cList.insert(i,installList[i]); //reflect this inclusion into the current list
-    }else if(todo==1){
-      //Update current item
-      formatInstalledItemDisplay( ui->tree_install_apps->topLevelItem(i) );
-    }else{
-      //Remove current item
-      ui->tree_install_apps->takeTopLevelItem(i);
-      cList.removeAt(i); //reflect the change to the current list
-      i--; //Re-check the item that should be in this location
+    //Now makesure that there are no extra items at the end
+    int il = installList.length();
+    while(il < cList.length()){
+      ui->tree_install_apps->takeTopLevelItem(il);
+      cList.removeAt(il); //reflect the change to the current list 
     }
-  }
-  //Now makesure that there are no extra items at the end
-  int il = installList.length();
-  while(il < cList.length()){
-   ui->tree_install_apps->takeTopLevelItem(il);
-   cList.removeAt(il); //reflect the change to the current list 
-  }
+  } //end of empty list check
   
   //Make sure that there is an item selected
   if(ui->tree_install_apps->topLevelItemCount() > 0 ){
@@ -256,7 +261,6 @@ void MainUI::slotRefreshInstallTab(){
       ui->tree_install_apps->resizeColumnToContents(i);
     } 
   }
-  
   on_tree_install_apps_itemSelectionChanged(); //Update the info boxes
   slotDisplayStats();
 }
