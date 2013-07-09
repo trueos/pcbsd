@@ -14,7 +14,7 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=TRUE;
+bool DEBUG_MODE=FALSE;
 QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
@@ -147,6 +147,7 @@ void PCDMgui::createGUIfromTheme(){
       if(DEBUG_MODE){ qDebug() << " - Create Simple DE Switcher"; }
       //Create the simple DE Switcher
       sdeSwitcher = new QComboBox(this); 
+      sdeSwitcher->setFocusPolicy( Qt::NoFocus );
       toolbar->addWidget(sdeSwitcher);
       //Add an additional spacer
       QWidget* spacer2 = new QWidget();
