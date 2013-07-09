@@ -313,7 +313,7 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   QStringList vals; 
   vals << "name" << "icon" << "author" << "website" << "version" << "license";
   QStringList bools;
-  bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons";
+  bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons" << "requiresroot";
   vals = PBI->PBIInfo(appID,vals);
   bools = PBI->PBIInfo(appID,bools);
   //Make sure the info lists are not empty
@@ -326,7 +326,8 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   //Now set the info on the UI
   bool desktopSC = (bools[1] == "true"); // XDG desktop entries available
   bool menuSC= (bools[2] == "true"); 	 // XDG menu entries available
-  bool autoupdate = (bools[0] == "true");  
+  bool autoupdate = (bools[0] == "true"); //auto-update enabled
+  bool rootonly = (bools[3] == "true"); //requires root
   //Create the shortcuts string
   QString shortcuts;
     if(desktopSC && menuSC){ shortcuts = tr("Desktop/Menu"); }
@@ -347,9 +348,33 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   ui->label_install_version->setText(vals[4]);
   ui->label_install_shortcuts->setText(shortcuts);
   ui->check_install_autoupdate->setChecked(autoupdate);
-  //Make the upgrade button invisible if no upgrade available
-  if(PBI->upgradeAvailable(appID).isEmpty()){ ui->tool_install_update->setVisible(FALSE); }
-  else{ ui->tool_install_update->setVisible(TRUE); }
+  
+  //Adjust the quick action buttons as necessary
+  if(!PBI->currentAppStatus(appID).isEmpty()){
+    //Actions pending/working only show cancel button
+    ui->tool_install_cancel->setVisible(TRUE);
+    ui->tool_install_remove->setVisible(FALSE);
+    ui->tool_install_update->setVisible(FALSE);
+  }else{
+    //Nothing pending
+    ui->tool_install_cancel->setVisible(FALSE);
+    if( !PBI->isInstalled(appID).isEmpty() ){ 
+      //Remove Button
+      ui->tool_install_remove->setVisible(TRUE);
+      if(rootonly){ ui->tool_install_remove->setIcon(QIcon(":icons/remove-root.png")); }
+      else{ ui->tool_install_remove->setIcon(QIcon(":icons/remove.png")); }
+      //Upgrade button
+      if(PBI->upgradeAvailable(appID).isEmpty()){ ui->tool_install_update->setVisible(FALSE); }
+      else{
+        ui->tool_install_update->setVisible(TRUE); 
+        if(rootonly){ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small-root.png")); }
+        else{ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small.png")); }
+      }
+    }else{ 
+      ui->tool_install_remove->setVisible(FALSE); 
+      ui->tool_install_update->setVisible(FALSE); 
+    }   
+  }
   
 }
 
@@ -387,6 +412,17 @@ void MainUI::on_tool_install_remove_clicked(){
   if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify PBI Removal"), tr("Are you sure you wish to remove this application?")+"\n\n"+appID,QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel) ){
     PBI->removePBI(QStringList() << appID);
   }
+}
+
+void MainUI::on_tool_install_cancel_clicked(){
+  //Get the current item
+  QString appID;
+  if(ui->tree_install_apps->topLevelItemCount() > 0){
+    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
+  }
+  if(appID.isEmpty()){return;}
+  PBI->cancelActions(QStringList() << appID);
+  
 }
 
 // === SELECTED PBI ACTIONS ===

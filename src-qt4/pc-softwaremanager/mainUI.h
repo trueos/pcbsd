@@ -62,6 +62,7 @@ private slots:
   void on_check_install_autoupdate_clicked();
   void on_tool_install_update_clicked();
   void on_tool_install_remove_clicked();
+  void on_tool_install_cancel_clicked();
   void slotActionAddDesktop();
   void slotActionRemoveDesktop();
   void slotActionAddPath();

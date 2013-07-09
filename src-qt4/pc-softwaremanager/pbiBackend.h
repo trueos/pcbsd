@@ -50,7 +50,6 @@ public:
 	void cancelActions(QStringList pbiID); //cancel any pending/current operations
 	void upgradePBI(QStringList pbiID); //start upgrade process for list of PBI's
 	void removePBI(QStringList pbiID); //start the removal process
-	void stopUpdate(QStringList pbiID); //stop upgrade/downgrade/removal process
 	void installApp(QStringList appID); //[install/upgrade/downgrade] application from the repo (as appropriate)
 	void addDesktopIcons(QStringList pbiID, bool allusers); // add XDG desktop icons
 	void addMenuIcons(QStringList pbiID, bool allusers); // add XDG menu icons
