@@ -78,7 +78,7 @@ void PCDMgui::createGUIfromTheme(){
   
   //get the default translation directory
   if(DEBUG_MODE){ qDebug() << "Load Translations"; }
-  translationDir = QApplication::applicationDirPath() + "/i18n/";
+  translationDir = "/usr/local/share/PCDM/i18n/";
   //Fill the translator
   m_translator = new QTranslator();
   //Create the Toolbar
@@ -414,7 +414,7 @@ void PCDMgui::slotLocaleChanged(QString langCode){
   }
 
   if(m_translator->load(translationFile)){
-    Backend::log("Install the new translator");
+    Backend::log("Install the new translator: "+translationFile);
     QCoreApplication::installTranslator(m_translator);	  
   }
   //Re-draw the interface

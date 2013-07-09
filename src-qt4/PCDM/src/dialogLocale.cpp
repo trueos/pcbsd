@@ -70,8 +70,8 @@ void widgetLocale::slotApply()
 
 QStringList widgetLocale::getLanguages(){
   //Detect all the available localizations
-  QString str = QCoreApplication::applicationDirPath();
-  QDir dir(str+"/i18n");
+  QString str = "/usr/local/share/PCDM/i18n";
+  QDir dir(str);
   QStringList stL = dir.entryList(QDir::Files);
   stL = stL.filter(".qm");  
   //Get the localization codes from the filenames
