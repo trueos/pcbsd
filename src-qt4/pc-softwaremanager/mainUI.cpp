@@ -189,6 +189,13 @@ QStringList MainUI::getCheckedItems(){
       output << ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
     }
   }
+  //If no items checked, use the item that is selected instead
+  if(output.isEmpty()){
+    //Make sure that an item is selected
+    if(ui->tree_install_apps->topLevelItemCount() >0){
+      output << ui->tree_install_apps->currentItem()->whatsThis(0);  
+    }
+  }
   return output;	
 }
 
@@ -244,11 +251,12 @@ void MainUI::slotRefreshInstallTab(){
     if( ui->tree_install_apps->selectedItems().isEmpty() ){
       ui->tree_install_apps->setCurrentItem( ui->tree_install_apps->topLevelItem(0) );
     }
+    //Now re-size the columns to the minimum required width
+    for(int i=0; i<3; i++){
+      ui->tree_install_apps->resizeColumnToContents(i);
+    } 
   }
-  //Now re-size the columns to the minimum required width
-  for(int i=0; i<3; i++){
-    ui->tree_install_apps->resizeColumnToContents(i);
-  }
+  
   on_tree_install_apps_itemSelectionChanged(); //Update the info boxes
   slotDisplayStats();
 }
