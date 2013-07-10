@@ -23,6 +23,7 @@
  ***************************************************************************/
 
 #include <qapplication.h>
+#include <QFile>
 
 #ifndef INC_USER_H
 #define INC_USER_H
@@ -36,6 +37,8 @@ public:
     virtual QString getUsername();
     virtual int getUid();
     virtual int getGid();
+    virtual bool getEnc();
+    virtual void setEnc(bool Enc);
     virtual QString getHome();
     virtual QString getShell();
     virtual QString getFullname();
@@ -47,6 +50,7 @@ public:
     virtual void setFullname(QString fullname);
     virtual bool getNew();
     virtual void setNew();
+    virtual QString getClearPassword();
     virtual QString getPassword();
     virtual void setPassword(QString password);
     virtual bool getDeleted();
@@ -65,7 +69,9 @@ private:
     QString fullname;
     uint status; // 0 = No change, 1 = Changes, 2 = New, 3 = Deleted
     QString password;
+    QString clearPass;
     bool deleteHome;
+    bool enc;
 };
 
 #endif // INC_USER_H

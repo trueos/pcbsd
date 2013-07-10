@@ -101,6 +101,11 @@ void SimpleDlgCode::getUserDetails(const QString& username)
     
     //Do not allow the removal of the currently logged in user
     removeUserBut->setEnabled(getenv("USER") != user->getUsername());
+
+    if ( user->getEnc() )
+      changePasswordBut->setEnabled(false);
+    else
+      changePasswordBut->setEnabled(true);
     
     systemChange = false;
 }

@@ -139,6 +139,11 @@ void mainDlgCode::getUserDetails(const QString &username)
     enableEdits(user->getUid() != 0);
     //Do not allow the removal of the currently logged in user
     if (getenv("USER") == username) deleteButton->setEnabled(false);
+
+    if ( user->getEnc() )
+      passwordButton->setEnabled(false);
+    else
+      passwordButton->setEnabled(true);
     
     QString uid = QString::number(user->getUid());
     if (uid == "-1") { uid = tr("New User"); }
