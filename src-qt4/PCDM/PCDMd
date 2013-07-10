@@ -4,11 +4,11 @@
 #------------------------------------
 
 #See if XDMCP support is enabled for logging in to this system
-if [ -f /usr/local/share/PCDM/pcdm.conf .and. -z "`grep ALLOW_REMOTE_LOGIN=TRUE /usr/local/share/PCDM/pcdm.conf`"]; 
+if [ -f /usr/local/share/PCDM/pcdm.conf .and. -z "`grep ALLOW_REMOTE_LOGIN=TRUE /usr/local/share/PCDM/pcdm.conf`" ]; 
 then
   # XDMCP is enabled
   echo "Starting PCDM XDMCP Server"
-  while [ 1 ]; do
+  while [ ! -e /var/run/nologin ]; do
     xinit /usr/local/bin/PCDM-session --once -- /usr/local/bin/X :0 -displayfd /usr/local/share/PCDM/.xdisplay -indirect ${HOST}
   done
 else
@@ -17,7 +17,7 @@ else
   # Allow Auto-Login the first time PCDM starts
   touch /tmp/.PCDMAUTOLOGINFILE
   # Now start the X Server
-  while [ 1 ]; do
+  while [ ! -e /var/run/nologin ]; do
     /usr/local/bin/pc-checkxdisplay
     xinit /usr/local/bin/PCDM-session --once -- :0  
   done

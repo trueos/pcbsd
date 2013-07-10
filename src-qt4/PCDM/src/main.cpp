@@ -53,6 +53,7 @@ int runSingleSession(int argc, char *argv[]){
     splash.setPixmap( QPixmap(Config::splashscreen()) ); //load the splashscreen file
   }
   splash.show();
+  QCoreApplication::processEvents(); //Process the splash screen event immediately
   //qDebug() << "SplashScreen Started:" << QString::number(clock.elapsed())+" ms";
   //Initialize the xprocess
   XProcess desktop;
@@ -122,7 +123,7 @@ int runSingleSession(int argc, char *argv[]){
   //Wait for the desktop session to finish before exiting
   desktop.waitForSessionClosed();
   splash.show(); //show the splash screen again
-  splash.showMessage(QObject::tr("System Shutting Down"));
+  splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
   //check for shutdown process
   if(QFile::exists("/var/run/nologin")){
     //Pause for a few seconds to prevent starting a new session during a shutdown
@@ -157,10 +158,6 @@ int main(int argc, char *argv[])
   qDebug() << " -- PCDM Session Starting...";
   int retCode = runSingleSession(argc,argv);
   if(retCode != 0){ neverquit=FALSE; }
-  if( (retCode < 0) && QFile::exists("/var/run/nologin") ){ 
-    //Shutdown Process got hung up somewhere: force it now
-    //system("shutdown -p now");
-  }
  }
  return 0;
 }
