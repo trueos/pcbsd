@@ -117,11 +117,23 @@ int runSingleSession(int argc, char *argv[]){
     //qDebug() << "Showing GUI:" << QString::number(clock.elapsed())+" ms";
     w.show();
     a.exec();
-
   }  // end of PCDM GUI running
-  
+  int retcode = 0;
   //Wait for the desktop session to finish before exiting
   desktop.waitForSessionClosed();
+  splash.show(); //show the splash screen again
+  splash.showMessage(QObject::tr("System Shutting Down"));
+  //check for shutdown process
+  if(QFile::exists("/var/run/nologin")){
+    //Pause for a few seconds to prevent starting a new session during a shutdown
+    QTime wTime = QTime::currentTime().addSecs(30);
+    while( QTime::currentTime() < wTime ){ 
+      //Keep processing events during the wait (for splashscreen)
+      QCoreApplication::processEvents(QEventLoop::AllEvents, 100); 
+    }
+    //set the return code for a shutdown
+    retcode = -1; //make sure it does not start a new session
+  }
   
   //Clean up Code
   delete &desktop;
@@ -131,13 +143,13 @@ int runSingleSession(int argc, char *argv[]){
   //XCLoseDisplay(QX11Info::display());
   
   
-  return 0;
+  return retcode;
 }
 
 int main(int argc, char *argv[])
 {
  bool neverquit = TRUE;
- bool runonce = FALSE;
+ bool runonce = TRUE; //looping is currently not working yet - needs to restart X each time?
  if(argc==2){ if( QString(argv[1]) == "--once"){ runonce = TRUE; } }
   
  while(neverquit){
@@ -145,6 +157,10 @@ int main(int argc, char *argv[])
   qDebug() << " -- PCDM Session Starting...";
   int retCode = runSingleSession(argc,argv);
   if(retCode != 0){ neverquit=FALSE; }
+  if( (retCode < 0) && QFile::exists("/var/run/nologin") ){ 
+    //Shutdown Process got hung up somewhere: force it now
+    //system("shutdown -p now");
+  }
  }
  return 0;
 }

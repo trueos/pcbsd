@@ -44,7 +44,7 @@ VKEYBOARD_IMAGE=virtualkeyboard.png		# Image for the virtual keyboard item
 
 # TOOLBAR SETTINGS
 TOOLBAR_LOCATION=bottom 	# [bottom | top | left | right]
-TOOLBAR_IMAGE_SIZE=32x32     # Set the default size for all images in the toolbar
+TOOLBAR_IMAGE_SIZE=28x28     # Set the default size for all images in the toolbar
 TOOLBAR_STYLE=textbesideicon 	 	# [icononly | textonly | textbesideicon | textundericon]
 
 # ADD WINDOW ITEMS ON A GRID LAYOUT [row,column]
