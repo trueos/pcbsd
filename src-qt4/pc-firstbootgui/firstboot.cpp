@@ -422,6 +422,10 @@ void Installer::saveSettings()
   QString flashCmd = "su -m " + lineUsername->text() + " -c \"flashpluginctl on\"";
   system(flashCmd.toLatin1());
   
+  // Encrypt the users home-directory?
+  if ( checkEnc->isChecked() )
+    system("enable_user_pefs " + lineUsername->text().toLatin1() + " " + linePW->text().toLatin1());
+
 }
 
 void Installer::slotKeyLayoutUpdated(QString mod, QString lay, QString var)

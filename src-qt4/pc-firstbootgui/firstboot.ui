@@ -30,7 +30,7 @@
        <string notr="true">background-image: url(:/modules/images/backgroundimage.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="Page_Welcome">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -771,15 +771,15 @@ background: transparent;</string>
            </layout>
           </item>
           <item>
-           <widget class="QLabel" name="label_18">
-            <property name="styleSheet">
-             <string notr="true">background: transparent;</string>
+           <widget class="QCheckBox" name="checkEnc">
+            <property name="toolTip">
+             <string>Will encrypt users home-directory</string>
+            </property>
+            <property name="statusTip">
+             <string>Will encrypt users home-directory</string>
             </property>
             <property name="text">
-             <string>Now you may create a desktop user for this system. After you login, additional users can easily be created in the Control Panel. </string>
-            </property>
-            <property name="wordWrap">
-             <bool>true</bool>
+             <string>Encrypt user files</string>
             </property>
            </widget>
           </item>
