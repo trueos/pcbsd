@@ -236,7 +236,11 @@ setup_grub()
   fi
 
   # Make sure to copy zpool.cache first
-  rc_nohalt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
+  if [ ! -d "${FSMNT}/boot/zfs/" ] ; then 
+     rc_halt "mkdir ${FSMNT}/boot/zfs"
+  fi
+  rc_halt "cp /boot/zfs/zpool.cache ${FSMNT}/boot/zfs/"
+  rc_halt "ln -s ../zfs ${FSMNT}/boot/kernel/zfs"
 
   # Copy the hostid so that our zfs cache works
   rc_nohalt "cp /etc/hostid ${FSMNT}/etc/hostid"
