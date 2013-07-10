@@ -32,7 +32,7 @@ fi
 echo "Encrypting ${USERHOMEDIR}"
 #umount ${USERHOMEDIR} 2>/dev/null
 
-cp -R ${USERHOMEDIR} ${USERHOMEDIR}.$$
+tar cvf /usr/home/.USER.$$ -C ${USERHOMEDIR} . 2>/dev/null
 rm -rf ${USERHOMEDIR}/*
 chown ${USER}:${USER} ${USERHOMEDIR}
 
@@ -41,7 +41,8 @@ echo "${USERPW}" | pefs addkey -v -j - ${USERHOMEDIR}
 echo "${USERPW}" | pefs addchain -v -j - -Z ${USERHOMEDIR}
 
 mv ${USERHOMEDIR}/.pefs.db /tmp/.pefs.db.$$
-tar cvf - -C "${USERHOMEDIR}.$$" . 2>/dev/null | tar xvpf - -C "${USERHOMEDIR}" 2>/dev/null
+tar xvf /usr/home/.USER.$$ -C ${USERHOMEDIR} 2>/dev/null
+sync
 chown -R ${USER}:${USER} ${USERHOMEDIR}
 
 umount ${USERHOMEDIR}
@@ -50,8 +51,7 @@ mv /tmp/.pefs.db.$$ ${USERHOMEDIR}/.pefs.db
 chown ${USER}:${USER} ${USERHOMEDIR}/.pefs.db
 
 pefs mount ${USERHOMEDIR} ${USERHOMEDIR}
-rm -rf "${USERHOMEDIR}.$$"
-
+rm /usr/home/.USER.$$ 
 
 # Make sure the DBDIR exists
 if [ ! -d "${PEFSDBDIR}" ]; then
