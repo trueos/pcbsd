@@ -53,6 +53,7 @@ int runSingleSession(int argc, char *argv[]){
     splash.setPixmap( QPixmap(Config::splashscreen()) ); //load the splashscreen file
   }
   splash.show();
+  QCoreApplication::processEvents(); //Process the splash screen event immediately
   //qDebug() << "SplashScreen Started:" << QString::number(clock.elapsed())+" ms";
   //Initialize the xprocess
   XProcess desktop;
@@ -117,11 +118,23 @@ int runSingleSession(int argc, char *argv[]){
     //qDebug() << "Showing GUI:" << QString::number(clock.elapsed())+" ms";
     w.show();
     a.exec();
-
   }  // end of PCDM GUI running
-  
+  int retcode = 0;
   //Wait for the desktop session to finish before exiting
   desktop.waitForSessionClosed();
+  splash.show(); //show the splash screen again
+  splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
+  //check for shutdown process
+  if(QFile::exists("/var/run/nologin")){
+    //Pause for a few seconds to prevent starting a new session during a shutdown
+    QTime wTime = QTime::currentTime().addSecs(30);
+    while( QTime::currentTime() < wTime ){ 
+      //Keep processing events during the wait (for splashscreen)
+      QCoreApplication::processEvents(QEventLoop::AllEvents, 100); 
+    }
+    //set the return code for a shutdown
+    retcode = -1; //make sure it does not start a new session
+  }
   
   //Clean up Code
   delete &desktop;
@@ -131,13 +144,13 @@ int runSingleSession(int argc, char *argv[]){
   //XCLoseDisplay(QX11Info::display());
   
   
-  return 0;
+  return retcode;
 }
 
 int main(int argc, char *argv[])
 {
  bool neverquit = TRUE;
- bool runonce = FALSE;
+ bool runonce = TRUE; //looping is currently not working yet - needs to restart X each time?
  if(argc==2){ if( QString(argv[1]) == "--once"){ runonce = TRUE; } }
   
  while(neverquit){

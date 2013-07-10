@@ -148,6 +148,7 @@ void PCDMgui::createGUIfromTheme(){
       //Create the simple DE Switcher
       sdeSwitcher = new QComboBox(this); 
       sdeSwitcher->setFocusPolicy( Qt::NoFocus );
+      sdeSwitcher->setIconSize(currentTheme->itemIconSize("toolbar"));
       toolbar->addWidget(sdeSwitcher);
       //Add an additional spacer
       QWidget* spacer2 = new QWidget();
@@ -344,6 +345,7 @@ void PCDMgui::slotShutdownComputer(){
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Shutting down computer");
     system("shutdown -p now");
+    close();
   }
 }
 
@@ -359,6 +361,7 @@ void PCDMgui::slotRestartComputer(){
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Restarting computer");
     system("shutdown -r now");
+    close();
   }
 }
 
