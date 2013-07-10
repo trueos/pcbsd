@@ -158,6 +158,11 @@ bool PBIBackend::safeToQuit(){
 }
 // ===== Local/Repo Interaction Functions =====
 QString PBIBackend::isInstalled(QString appID){
+  //check if the pbiID was given (quick)
+  if(PBIHASH.contains(appID)){
+    if(PBIHASH[appID].path.isEmpty()){ return ""; }
+    else{ return appID; }
+  }
   //Returns pbiID of the installed application
   QString output;
   if(!APPHASH.contains(appID)){
@@ -166,7 +171,7 @@ QString PBIBackend::isInstalled(QString appID){
   }
   QStringList pbiID = PBIHASH.keys(); //get list of installed PBI's
   for(int i=0; i<pbiID.length();i++){
-    QString pbi = Extras::nameToID(PBIHASH[pbiID[i]].name);
+    QString pbi = Extras::nameToID(PBIHASH[pbiID[i]].metaID);
     if( (pbi == appID) && !PBIHASH[pbiID[i]].path.isEmpty() ){
       output = pbiID[i];
       break;
@@ -178,7 +183,7 @@ QString PBIBackend::isInstalled(QString appID){
 QString PBIBackend::upgradeAvailable(QString pbiID){
   QString output;
   if(!PBIHASH.contains(pbiID)){return output;}
-  QString appID = Extras::nameToID(PBIHASH[pbiID].name);
+  QString appID = Extras::nameToID(PBIHASH[pbiID].metaID);
   if(APPHASH.contains(appID)){
     if(APPHASH[appID].latestVersion != PBIHASH[pbiID].version){output = APPHASH[appID].latestVersion;}  
   }
@@ -246,10 +251,6 @@ void PBIBackend::removePBI(QStringList pbiID){
   }
   //Now check/start the remove process
   QTimer::singleShot(0,this,SLOT(checkProcesses()) );
-}
-
-void PBIBackend::stopUpdate(QStringList pbiID){
-  qDebug() << "Stop Update requested for:" << pbiID;
 }
 
 void PBIBackend::installApp(QStringList appID){
@@ -521,10 +522,41 @@ QStringList PBIBackend::AppInfo( QString appID, QStringList infoList){
 }
 
 QString PBIBackend::currentAppStatus( QString appID ){
-  //Determine if the app is currently in a pending state
-  if(!APPHASH.contains(appID)){ return ""; }
   QString output;
-  QStringList pbilist = PBIHASH.keys();
+  int status = -999;
+  //pbiID given (quicker)
+  if(PBIHASH.contains(appID)){ status = PBIHASH[appID].status; }
+  else{
+    //appID given
+    if(!APPHASH.contains(appID)){ return ""; }
+    QStringList pbilist = PBIHASH.keys();
+    for(int i=0; i<pbilist.length(); i++){
+      if(PBIHASH[pbilist[i]].metaID == appID){ status = PBIHASH[pbilist[i]].status; }
+    }
+  }
+  //Determine if the app is currently in a pending state
+  switch (status){
+        case InstalledPBI::DOWNLOADING:
+          output = tr("Downloading"); break;
+        case InstalledPBI::INSTALLING:
+          output = tr("Installing"); break;
+        case InstalledPBI::REMOVING:
+          output = tr("Removing"); break;
+        case InstalledPBI::UPDATING:
+          output = tr("Updating"); break;
+        case InstalledPBI::PENDINGDOWNLOAD:
+          output = tr("Pending Download"); break;
+        case InstalledPBI::PENDINGINSTALL:
+          output = tr("Pending Install"); break;
+        case InstalledPBI::PENDINGREMOVAL:
+          output = tr("Pending Removal"); break;
+        case InstalledPBI::PENDINGUPDATE:
+          output = tr("Pending Update"); break;
+        default: //do nothing for the rest
+          output.clear();
+  }
+  return output;
+  /*
   for(int i=0; i<pbilist.length(); i++){
     if(PBIHASH[pbilist[i]].metaID == appID){
       switch (PBIHASH[pbilist[i]].status){
@@ -550,7 +582,7 @@ QString PBIBackend::currentAppStatus( QString appID ){
       if(!output.isEmpty()){ break; } //break out of the loop
     }
   }
-  return output;
+  return output;*/
 }
 
 // === Configuration Management ===

@@ -32,6 +32,8 @@
     <file>icons/app_download.png</file>
     <file>icons/app_needroot.png</file>
     <file>icons/app_upgrade.png</file>
+    <file>icons/app_upgrade_small.png</file>
+    <file>icons/app_upgrade_small-root.png</file>
     <file>icons/xdg_desktop.png</file>
     <file>icons/xdg_menu.png</file>
     <file>icons/xdg_mime.png</file>
