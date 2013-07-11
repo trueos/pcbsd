@@ -104,6 +104,7 @@ private:
     desktopSelection *desks;
     QGraphicsScene *defaultScene;
     QGraphicsScene *customScene;
+    bool customPkgsSet;
     
     // Encryption bits
     QString autoEncPass;

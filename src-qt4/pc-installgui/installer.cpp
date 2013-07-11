@@ -485,6 +485,7 @@ void Installer::slotDesktopCustomizeClicked()
   else
      desks->programInit(listServerPkgs,selectedPkgs);
   desks->setWindowModality(Qt::ApplicationModal);
+  customPkgsSet = true;
   connect(desks, SIGNAL(saved(QStringList)), this, SLOT(slotSaveMetaChanges(QStringList)));
   desks->show();
   desks->raise();
@@ -527,7 +528,7 @@ void Installer::slotChangedMetaPkgSelection()
   // Set the default desktop meta-pkgs based upon the selection
   if ( radioDesktop->isChecked() )
   {
-      selectedPkgs << "KDE" << "KDE-Accessibility" << "KDE-Artwork" << "KDE-Education" << "KDE-Games" << "KDE-Graphics" << "KDE-Multimedia" << "KDE-Network" << "KDE-PIM";
+      selectedPkgs << "KDE" << "KDE-Accessibility" << "KDE-Artwork" << "KDE-Graphics" << "KDE-Multimedia" << "KDE-Network" << "KDE-PIM";
 
       // Include i18n stuff?
       if ( comboLanguage->currentIndex() != 0 ) 
@@ -575,6 +576,8 @@ void Installer::slotChangedMetaPkgSelection()
 
 void Installer::initDesktopSelector()
 {
+    // Using default pkg sets for now
+    customPkgsSet = false;
     connect(pushDeskCustomize,SIGNAL(clicked()), this, SLOT(slotDesktopCustomizeClicked()));
     connect(radioDesktop,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
     connect(radioServer,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
@@ -625,6 +628,11 @@ void Installer::slotSaveFBSDSettings(QString rootPW, QString name, QString userN
 void Installer::slotNext()
 {
    QString tmp;
+
+   // Update package selection in case user changed language, etc
+   if ( installStackWidget->currentIndex() == 0 && hasPkgsOnMedia && !customPkgsSet) {
+     slotChangedMetaPkgSelection();
+   }
 
    // If no pkgs on media
    if ( installStackWidget->currentIndex() == 0 && ! hasPkgsOnMedia) {

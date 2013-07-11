@@ -34,7 +34,7 @@ pefs_start()
 	while read pefsmnt
 	do
 		# Make sure pefs is not already mounted
-		mount | grep -q -e "${pefsmnt} on" -e "pefs" 
+		mount | grep -q -e " on ${pefsmnt} (pefs"
 		if [ $? -eq 0 ] ; then continue ; fi
 		source=`echo "$pefsmnt" | cut -d ' ' -f 1`
 		target=`echo "$pefsmnt" | cut -d ' ' -f 2`

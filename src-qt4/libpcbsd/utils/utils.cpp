@@ -147,13 +147,13 @@ QString Utils::getValFromSHFile(QString envFile, QString envVal)
         // Strip any ""
 	line.replace(envVal + "=", "");
 
-	if ( line.indexOf('"') == 0 )
+	if ( line.indexOf('"') == 0 ) {
 	   line = line.section('"', 1, 1);
-	else
-	   line = line.section(' ', 1, 1);
+	   line = line.section('"', 0, 0);
+	}
 
         confFile.close();
-	return line;
+	return line.simplified();
      }
   }
   confFile.close();
