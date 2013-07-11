@@ -20,18 +20,18 @@ HEADER_IMAGE=banner.png 	# Image to be displayed as a window header
   HEADER_DISABLE=TRUE			# Flag to remove the header image entirely
   
 USER_IMAGE=default-user.png  		# Image for the user selection widget
-  USER_IMAGE_SIZE=32x32  		  # Size for the image (in pixels)
+  USER_IMAGE_SIZE=30x30  		  # Size for the image (in pixels)
   
 PASSWORD_IMAGE=password.png  	# Default image for the password entry box
-  PASSWORD_IMAGE_SIZE=20x20		  # Size for the image (in pixels)
+  PASSWORD_IMAGE_SIZE=30x30		  # Size for the image (in pixels)
   
 LOGIN_IMAGE=login.png  		# Image contained in the login button
-  LOGIN_IMAGE_SIZE=32x32		  # Size for the image (in pixels)
+  LOGIN_IMAGE_SIZE=35x35		  # Size for the image (in pixels)
 
 DESKTOP_IMAGE=default-desktop.png	# Default Image for the DE selection if none found
   DESKTOP_ORIENTATION=simple			# [horizontal | vertical | simple]
+  DESKTOP_IMAGE_SIZE=30x30		  	# Size for the image (in pixels)
   #Additional DESKTOP settings if not set to "simple"
-  DESKTOP_IMAGE_SIZE=48x48		  	# Size for the image (in pixels)
   NEXTDE_IMAGE=nextDE.png			# Next DE selection (right/down)
   PREVIOUSDE_IMAGE=previousDE.png		# Previous DE selection (left/up)
   
@@ -103,12 +103,6 @@ QGroupBox::title{
 	border: 1px solid grey;
 	border-radius: 5px;
 	subcontrol-position: top center;
-}
-QLabel{ 
-	background-color: rgba(253,253,255,150); 
-	color: black; 
-	border:1px solid grey;
-	border-radius: 5px;
 }
 QGraphicsView{ 
 	background: rgba(253,253,253,180); 

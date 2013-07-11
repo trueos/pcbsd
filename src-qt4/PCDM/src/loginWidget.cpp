@@ -47,6 +47,9 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
 	QAction* tmp3 = new QAction(this);
 	pushUserIcon->setDefaultAction( tmp3 );
 	pushUserIcon->setFocusPolicy(Qt::NoFocus);
+  listDE = new QComboBox;
+  deIcon = new QLabel;
+	
   //Add the items to the grid
     //user not yet selected widgets
       hlayout1->addWidget(userIcon);
@@ -55,7 +58,10 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
     //User selected widgets
       flayout->addRow(pushUserIcon, listUsers);
       flayout->addRow(pushViewPassword, linePassword);
+      flayout->addRow(deIcon,listDE);
+    vlayout->addSpacing(15);
     vlayout->addLayout(flayout);
+    vlayout->addSpacing(20);
       hlayout2->addWidget(pushLogin);
     vlayout->addLayout(hlayout2);
     
@@ -66,6 +72,7 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   connect(listUsers,SIGNAL(activated(int)),this,SLOT(slotChooseUser(int)));
   connect(listUserBig,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(slotUserSelected()) );
   connect(listUserBig,SIGNAL(currentRowChanged(int)),this,SLOT(slotUserHighlighted(int)) );
+  connect(listDE,SIGNAL(currentIndexChanged(int)),this,SLOT(slotDesktopChanged(int)) );
   allowPasswordView(allowPWVisible); //setup signal/slots for pushViewPassword
   //Set this layout for the loginWidget
   this->setLayout(vlayout);
@@ -88,6 +95,8 @@ void LoginWidget::updateWidget(){
     linePassword->setVisible(TRUE);
     pushLogin->setVisible(TRUE);
     pushViewPassword->setVisible(TRUE);
+    if( listDE->count() < 1 ){ listDE->setVisible(FALSE); deIcon->setVisible(FALSE); }
+    else{ listDE->setVisible(TRUE); deIcon->setVisible(TRUE); }
   }else{
     userIcon->setVisible(TRUE);
     listUserBig->setVisible(TRUE);
@@ -95,7 +104,9 @@ void LoginWidget::updateWidget(){
     listUsers->setVisible(FALSE);
     linePassword->setVisible(FALSE);
     pushLogin->setVisible(FALSE);
-    pushViewPassword->setVisible(FALSE);    
+    pushViewPassword->setVisible(FALSE); 
+    listDE->setVisible(FALSE);
+    deIcon->setVisible(FALSE);
   }
   if(pwVisible){
     linePassword->setEchoMode(QLineEdit::Normal);	  
@@ -184,6 +195,16 @@ void LoginWidget::slotChangePWView(){
   updateWidget();
 }
 
+void LoginWidget::slotDesktopChanged(int index){
+  if(index == -1){
+    deIcon->setPixmap(QPixmap(""));
+    deIcon->setToolTip("");
+  }else{
+    deIcon->setPixmap( QPixmap(desktopIcons[index]).scaled(desktopIconSize) );
+    deIcon->setToolTip(desktopInfo[index]);
+  }
+}
+
 //-----------------------------
 //     PUBLIC FUNCTIONS
 //-----------------------------
@@ -197,6 +218,11 @@ QString LoginWidget::currentPassword(){
   return pw;
 }
 
+QString LoginWidget::currentDE(){
+  QString de = listDE->currentText();
+  return de;
+}
+
 void LoginWidget::setCurrentUser(QString id){
   int index = idL.indexOf(id);
   if(index == -1){
@@ -206,6 +232,16 @@ void LoginWidget::setCurrentUser(QString id){
     listUserBig->setCurrentRow(index);
     emit UserChanged(id);
   }
+}
+
+void LoginWidget::setCurrentDE(QString de){
+  for(int i=0; i<listDE->count(); i++){
+    if( listDE->itemText(i) == de ){
+      listDE->setCurrentIndex(i);
+      break;
+    }
+  }
+  updateWidget();
 }
 
 void LoginWidget::setUsernames(QStringList uList){
@@ -223,6 +259,16 @@ void LoginWidget::setUsernames(QStringList uList){
   if(uList.length() == 1){
     qDebug() << "Single User System Detected";
     slotUserSelected();	 
+  }
+}
+
+void LoginWidget::setDesktops(QStringList text, QStringList icon, QStringList info){
+  if((text.length() != icon.length()) && (text.length() != info.length()) ){ qDebug() << "LoginWidget: Unequal text/icon desktop lists"; return; }
+  listDE->clear();
+  desktopIcons = icon; //save for later
+  desktopInfo = info; //save for later
+  for(int i=0; i<text.length(); i++){
+    listDE->addItem(text[i]);
   }
 }
 
@@ -246,6 +292,10 @@ void LoginWidget::changeButtonIcon(QString button, QString iconFile, QSize iconS
   }else{ 
     qDebug() << "LoginWidget: Cannot change the icon for button" << button << " - valid buttons are \"display\", \"login\", and \"pwview\""; 
   }
+}
+
+void LoginWidget::setDesktopIconSize(QSize iconsize){
+  desktopIconSize = iconsize;
 }
 
 void LoginWidget::changeStyleSheet(QString item, QString style){
@@ -277,6 +327,7 @@ void LoginWidget::retranslateUi(){
   listUsers->setToolTip(tr("Available users"));
   listUserBig->setToolTip(tr("Available users"));
   linePassword->setToolTip(tr("Login password for the selected user"));
+  listDE->setToolTip(tr("Available desktop environments"));
   //Setup the computer/host name display
   if( hostName.isEmpty() ){
     this->setTitle("");

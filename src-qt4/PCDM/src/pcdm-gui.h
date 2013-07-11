@@ -66,7 +66,6 @@ private:
     QToolButton *systemButton;
     QMenu* systemMenu;
     FancySwitcher* deSwitcher; // full switcher
-    QComboBox* sdeSwitcher; //simple switcher
     bool simpleDESwitcher;
     
     QProcess* vkbd;
