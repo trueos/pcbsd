@@ -40,7 +40,7 @@ int runSingleSession(int argc, char *argv[]){
   
   QString changeLang; 
   // Load the configuration file
-  QString confFile = "/usr/local/share/PCDM/pcdm.conf";
+  QString confFile = "/usr/local/etc/pcdm.conf";
   if(!QFile::exists(confFile)){ confFile = ":samples/pcdm.conf"; }
   Config::loadConfigFile(confFile);
   //qDebug() << "Config File Loaded:" << QString::number(clock.elapsed())+" ms";

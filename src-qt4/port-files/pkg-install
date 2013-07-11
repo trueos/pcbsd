@@ -1,0 +1,16 @@
+#!/bin/sh
+# Post-install setup
+
+PREFIX=${PKG_PREFIX-/usr/local}
+
+if [ "$2" != "POST-INSTALL" ] ; then
+   exit 0
+fi
+
+# Check if we need to copy pcdm.conf
+if [ ! -e "${PREFIX}/etc/pcdm.conf" ] ; then
+        cp ${PREFIX}/etc/pcdm.conf.dist ${PREFIX}/etc/pcdm.conf
+	chmod 600 ${PREFIX}/etc/pcdm.conf
+fi
+
+exit 0
