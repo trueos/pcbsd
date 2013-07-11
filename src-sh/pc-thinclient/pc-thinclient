@@ -27,6 +27,8 @@
 #        Name: pc-thinclient
 # Description: Helper script to build / install the necessary bits to turn
 #              a PC-BSD system into a thin-client server 
+#
+# Modified for external dhcp server support by Joe Maloney
 
 # Source our functions
 . /usr/local/share/pcbsd/scripts/functions.sh
@@ -145,6 +147,110 @@ rpcbind : ALL : deny|' /etc/hosts.allow
 		fi
 	done
 }
+
+# Start configuring the base system without DHCP
+check_configsystem_ignore_dhcp() {
+	echo "Setting up system for PXE booting..."
+
+	# Setup the new pxeboot user with a default password
+	cat /etc/passwd | grep pxeboot >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "thinclient" | pw useradd -n "pxeboot" -h 0 -s /bin/tcsh -d ${PXEWORLD}/mnt/xorg-config -c "pxeboot"
+		chown -R pxeboot:pxeboot ${PXEWORLD}/mnt/xorg-config
+	fi
+
+	# Ask for the NIC we want to run on
+	while
+	z=1
+	do
+		echo "What NIC do you wish to listen on? (I.E. re0)"
+		echo -e "nic) \c"
+		read NIC 
+
+		ifconfig $NIC >/dev/null 2>/dev/null
+		if [ $? -ne 0 -o -z "$NIC" ] ; then
+			echo "Invalid nic entered, please try again!"
+			sleep 1
+		else
+			break
+		fi
+	done
+	
+	# Ask for the IP Address to be used on the NIC for PXE booting
+	while
+	z=1
+	do
+		echo "What IP address will pc-thinclient be listening on? (I.E. 192.168.2.2)"
+		echo -e "ipaddr) \c"
+		read ipaddr
+	break
+	done
+		# Ask for the network id of the local subnet
+	while
+	z=1
+	do
+		echo "What is the network id for your local subnet? (I.E. 192.168.2.0)"
+		echo -e "netid) \c"
+		read netid 
+	break
+	done
+	
+	        # Ask for the network mask of the local subnet
+        while
+        z=1
+        do
+                echo "What is the network mask for your local subnet? (I.E. 255.255.255.0)"
+                echo -e "netmaskid) \c"
+                read netmaskid
+        break
+        done
+
+	# Save the rc.conf glue
+	cat /etc/rc.conf | grep "# pc-thinclient" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "# pc-thinclient configuration
+portmap_enable=\"YES\"
+nfs_server_enable=\"YES\"
+inetd_enable=\"YES\"" >> /etc/rc.conf
+	fi
+	
+	# Add firewall exception
+        if [ -e "/etc/pf.conf" ] ; then
+	  cat /etc/pf.conf | grep "pass in on ${NIC} all" >/dev/null 2>/dev/null
+	  if [ "$?" != "0" ] ; then
+  		# Setup the firewall exclusion for this NIC
+  		echo "pass in on ${NIC} all" >> /etc/pf.conf
+	  fi
+     	fi
+
+	# Add some entries for /etc/exports based on manual user input
+	echo "$PXEWORLD -maproot=nobody -ro -network $netid -mask $netmaskid" >> /etc/exports
+
+	# Setup tftp
+	cat /etc/inetd.conf | grep "$PXEWORLD" >/dev/null 2>/dev/null
+	if [ "$?" != "0" ] ; then
+		echo "tftp   dgram   udp     wait    root    /usr/libexec/tftpd      tftpd -l -s ${PXEWORLD}" >> /etc/inetd.conf
+	fi
+	
+	# Setup rcpbind entries
+        sed -i -e "s|rpcbind : ALL : deny|rpcbind : $netid/$netmaskid : allow\\
+portmap : $netid/$netmaskid : allow\\
+rpcbind : ALL : deny|" /etc/hosts.allow
+
+	# Start the services
+	cmds="/etc/rc.d/nfsd /etc/rc.d/inetd"
+	for _sC in $cmds
+	do
+		echo -e "Starting ${_sC}...\c"
+		${_sC} restart >/dev/null 2>/dev/null
+		if [ "$?" != "0" ] ; then
+			echo -e "FAILED! Please run try running it manually."
+		else
+			echo -e "OK"
+		fi
+	done
+}
+
 
 # Check if we need to install custom config
 check_installconfig() {
@@ -299,6 +405,12 @@ check_dhcpd() {
 	if [ "$?" != "0" ] ; then exit_err "Failed installing ${DHCPPORT}"; fi
 }
 
+# Function to display what information to add to external DHCP server
+ignore_dhcpd() {
+	echo "Add the following information to your external DHCP Server"
+        echo "Will display here when this works"
+}
+
 # Function which checks and sets up the thinclient as an install server
 check_installdirs() {
 	if [ -e "${PXEWORLD}/installscripts/pc-sysinstall.example" ]; then
@@ -337,6 +449,17 @@ if [ "$tmp" != "Y" -a "$tmp" != "y" ] ; then
 	exit 0
 fi
 
+echo "Do you wish to install the dhcpd server port or use an external server?"
+echo "If you wish to use an external server please make sure it supports adding" 
+echo "next server and bootfile name options."
+echo -e "(d/e) \c"
+read tmp
+if [ "$tmp" = "D" -o "$tmp" = "d" ] ; then
+   DHCPTYPE="internal"
+else
+   DHCPTYPE="external"
+fi
+
 echo "Do you wish to make this a remote X desktop server or install server?"
 echo -e "(r/i) \c"
 read tmp
@@ -346,8 +469,13 @@ else
    SYSTYPE="desktop"
 fi
 
-# Start by installing dhcpd
-check_dhcpd
+
+if [ "$DHCPTYPE" = "internal" ] ; then
+  # Start by installing dhcpd
+  check_dhcpd
+else
+  # Install without dhcpd
+  ignore_dhcpd
 
 # Start by setting up a new buildworld
 check_world
@@ -363,8 +491,13 @@ fi
 # Install the thinclient configuration files
 check_installconfig
 
-# Tweak the base system to enable the thinclient
-check_configsystem
+if [ "$DHCPTYPE" = "internal" ] ; then
+  # Tweak the base system to enable the thinclient
+  check_configsystem
+else
+  # Tweak the base system to enable the thinclient without dhcpd
+  check_configsystem_ignore_dhcp
+fi
 
 if [ "$SYSTYPE" = "desktop" ] ; then
   echo ""
@@ -382,6 +515,18 @@ else
   echo "/usr/home/thinclient/installscripts/unattended.cfg"
 fi
 
-echo " "
-echo "Your system is now setup to do PXE booting!"
-exit 0
+if [ "$DHCPTYPE" = "internal" ] ; then
+  echo ""
+  echo "Your system is now setup to do PXE booting!"
+  exit 0
+else
+  echo "You will need to modify the following options in your dhcp server:"
+  echo ""
+  echo "filename boot/pxeboot"
+  echo "next-server $ipaddr"
+  echo "option root-path $PXEWORLD"
+  echo ""
+  echo "Then you can begin to use PXE Boot."
+  exit 0
+fi
+fi
