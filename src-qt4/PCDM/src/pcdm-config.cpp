@@ -19,7 +19,7 @@ void Config::loadDefaults(){
   confStruct << "/usr/local/share/pixmaps";		// [2] Images directory for *.desktop icons
   confStruct << "FALSE";				// [3] Auto-login enabled
   confStruct << "no-username";				// [4] Auto-login username
-  confStruct << "no-desktop";				// [5] Auto-login desktop environment
+  confStruct << "no-desktop";				// [5] Auto-login desktop environment (legacy)
   confStruct << "no-password";				// [6] Auto-login password
   confStruct << "/usr/local/share/PCDM/images/default-splash.png"; // [7] Splash Screen File
   confStruct << "TRUE";					// [8] Password view button enabled
@@ -49,7 +49,7 @@ void Config::readConfigFile(QString filePath){
       else if(var=="DE_STARTUP_IMAGE_DIR"){ confStruct[2] = val; }
       else if(var=="ENABLE_AUTO_LOGIN"){ confStruct[3] = val; }
       else if(var=="AUTO_LOGIN_USER"){ confStruct[4] = val; }
-      else if(var=="AUTO_LOGIN_DESKTOP"){ confStruct[5] = val; }
+      //else if(var=="AUTO_LOGIN_DESKTOP"){ confStruct[5] = val; } //legacy option
       else if(var=="AUTO_LOGIN_PASSWORD"){ confStruct[6] = val; }
       else if(var=="SPLASHSCREEN_FILE"){ confStruct[7] = val; }
       else if(var=="ENABLE_VIEW_PASSWORD_BUTTON"){ confStruct[8] = val; }
