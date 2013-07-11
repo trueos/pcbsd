@@ -33,10 +33,10 @@ class XProcess : public QProcess
         void waitForSessionClosed();
   
   public slots:
-        void loginToXSession(QString, QString, QString, QString); //user, pwd, homedir, cmd
+        void loginToXSession(QString, QString, QString, QString); //user, pwd, homedir, desktop
   	
   private:
-	QString xuser, xcmd, xhome, xpwd;
+	QString xuser, xcmd, xhome, xpwd, xde;
   	bool startXSession();
 	
 	// PAM stuff and simplification functions

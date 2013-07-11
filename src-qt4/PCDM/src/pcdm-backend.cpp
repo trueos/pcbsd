@@ -13,7 +13,7 @@
 
 QStringList displaynameList,usernameList,homedirList,instXNameList,instXBinList,instXCommentList,instXIconList;
 QString logFile;
-QString saveX,saveUsername;
+QString saveX,saveUsername, lastUser, lastDE;
 
 QStringList Backend::getAvailableDesktops(){  
   if(instXNameList.isEmpty()){ loadXSessionsData(); }
@@ -68,27 +68,6 @@ QString Backend::getALUsername(){
   return ruser;
 }
 
-QString Backend::getALDesktopCmd(){
-   // Make sure the desired desktop is valid
-  QString rdesktop = Config::autoLoginDesktop();
-  if(!QFile::exists(rdesktop)){ //requested file does not exist
-    log("Invalid Auto-Login desktop requested - skipping....");
-    return "";
-  }
-  QStringList result = readXSessionsFile(rdesktop,"");
-  if(result.isEmpty()){  //requested file is not a valid xsessions file
-    log("Invalid Auto-Login desktop requested - skipping....");
-    return "";  	  
-  }
-  if(!result[0].startsWith("/")){ result[0] = "/usr/local/bin/"+result[0]; }
-  rdesktop = result[0]; //(absolute path) executable
-  if(!QFile::exists(rdesktop)){  //requested desktop is not currently installed
-    log("Invalid Auto-Login desktop requested - skipping....");
-    return "";    	  
-  }
-  return rdesktop;
-}
-
 QString Backend::getALPassword(){
   QString rpassword = Config::autoLoginPassword();
   return rpassword;
@@ -98,6 +77,12 @@ QString Backend::getUsernameFromDisplayname(QString dspname){
   int i = displaynameList.indexOf(dspname);
   return usernameList[i];
 }
+
+QString Backend::getDisplayNameFromUsername(QString username){
+  int i = usernameList.indexOf(username);
+  return displaynameList[i];  
+}
+
 QString Backend::getUserHomeDir(QString username){
   int i = usernameList.indexOf(username);
   if( i == -1 ){ i = displaynameList.indexOf(username); }
@@ -233,9 +218,31 @@ void Backend::checkLocalDirs(){
   if(!mainDir.exists()){ mainDir.mkdir(base); }
   if(!mainDir.exists("themes")){ mainDir.mkdir("themes"); }
   //Check for sample files
-  if(!mainDir.exists("pcdm.conf.sample")){ QFile::copy(":samples/pcdm.conf",base+"/pcdm.conf.sample"); }
-  //if(!mainDir.exists("pcdm.theme.sample")){ QFile::copy(":samples/themes/default/default.theme",base+"/pcdm.theme.sample"); }
+  if(!mainDir.exists("pcdm.conf.sample")){ QFile::copy(":samples/pcdm.conf",base+"/pcdm.conf.sample"); } 
+}
+
+QString Backend::getLastUser(){
+  //Load the file if necessary
+  if(lastUser.isEmpty()){
+    readSystemLastLogin();  
+  }
+  //return the value
+  return lastUser;
+}
+
+QString Backend::getLastDE(QString user){
+  if(lastDE.isEmpty()){
+    readSystemLastLogin();
+  }
+  QString de = readUserLastDesktop(user);
+  if(de.isEmpty()){ return lastDE; }
+  else{ return de; }
   
+}
+
+void Backend::saveLoginInfo(QString user, QString desktop){
+  writeSystemLastLogin(user,desktop); //save the system file (/usr/local/share/PCDM/.lastlogin)
+  writeUserLastDesktop(user,desktop); //save the user file (~/.lastlogin)
 }
 
 //****** PRIVATE FUNCTIONS ******
@@ -358,4 +365,64 @@ void Backend::readSystemUsers(){
     }
   }
   
+}
+
+void Backend::readSystemLastLogin(){
+    if(!QFile::exists("/usr/local/share/PCDM/.lastlogin")){
+      lastUser.clear();
+      Backend::log("PCDM: No previous login data found");
+    }else{
+      //Load the previous login data
+      QFile file("/usr/local/share/PCDM/.lastlogin");
+      if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        Backend::log("PCDM: Unable to open previous login data file");    
+      }else{
+        QTextStream in(&file);
+        lastUser= in.readLine();
+	lastDE= in.readLine();
+        file.close();
+      }
+    }  
+}
+
+void Backend::writeSystemLastLogin(QString user, QString desktop){
+  QFile file1("/usr/local/share/PCDM/.lastlogin");
+  if(!file1.open(QIODevice::Truncate | QIODevice::WriteOnly | QIODevice::Text)){
+    Backend::log("PCDM: Unable to save last login data to system directory");	  
+  }else{
+    QTextStream out(&file1);
+    out << user << "\n" << desktop;
+    file1.close();
+  }
+
+}
+
+QString Backend::readUserLastDesktop(QString user){
+  QString desktop;
+  QString LLpath = Backend::getUserHomeDir(user) + "/.lastlogin";
+  if(!QFile::exists(LLpath)){
+    Backend::log("PCDM: No previous user login data found for user: "+user);
+  }else{
+    //Load the previous login data
+    QFile file(LLpath);
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+      Backend::log("PCDM: Unable to open previous user login file: "+user);    
+    }else{
+      QTextStream in(&file);
+      desktop = in.readLine();
+      file.close();
+    }
+  }
+  return desktop;
+}
+
+void Backend::writeUserLastDesktop(QString user, QString desktop){
+  QFile file2( Backend::getUserHomeDir(user) + "/.lastlogin" );
+  if(!file2.open(QIODevice::Truncate | QIODevice::WriteOnly | QIODevice::Text)){
+    Backend::log("PCDM: Unable to save last login data for user:"+user);	  
+  }else{
+    QTextStream out(&file2);
+    out << desktop;
+    file2.close();
+  }
 }

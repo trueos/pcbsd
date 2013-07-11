@@ -29,12 +29,13 @@ XProcess::~XProcess(){
   this->close();
 }
 
-void XProcess::loginToXSession(QString username, QString password, QString homedir, QString cmd){
+void XProcess::loginToXSession(QString username, QString password, QString homedir, QString desktop){
   //Setup the variables
   xuser = username;
   xpwd = password;
   xhome = homedir;
-  xcmd = cmd;
+  xcmd = Backend::getDesktopBinary(desktop);
+  xde = desktop;
   //Now start the login process
   startXSession();
 }
@@ -58,7 +59,7 @@ void XProcess::waitForSessionClosed(){
 
 bool XProcess::startXSession(){
   //Check that the necessary info to start the session is available
-  if( xuser.isEmpty() || xcmd.isEmpty() || xhome.isEmpty() ){
+  if( xuser.isEmpty() || xcmd.isEmpty() || xhome.isEmpty() || xde.isEmpty() ){
     emit InvalidLogin();  //Make sure the GUI knows that it was a failure
     return FALSE;
   }
@@ -69,6 +70,9 @@ bool XProcess::startXSession(){
   //Startup the PAM session
   if( !pam_startSession() ){ pam_shutdown(); return FALSE; }
   pam_session_open = TRUE; //flag that pam has an open session
+  
+  //Save the current user/desktop as the last login
+  Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
   
   // Configure the DE startup command
   QString cmd = "su "+xuser+" -c \""; //switch user command to start process properly
@@ -99,7 +103,7 @@ bool XProcess::startXSession(){
   environ.insert("LANG",langCode); //Set the proper localized language
   environ.insert("MAIL","/var/mail/"+xuser); //Set the mail variable
   environ.insert("GROUP",xuser); //Set the proper group id
-  environ.insert("SHLVL","1"); //Set the proper shell level
+  environ.insert("SHLVL","0"); //Set the proper shell level
   this->setProcessEnvironment(environ);
   this->setWorkingDirectory(xhome); //set the current directory to the user's home directory
   //Log the DE startup outputs as well
