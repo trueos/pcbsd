@@ -66,10 +66,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		gutenprint-cups>=0:${PORTSDIR}/print/gutenprint-cups \
 		gutenprint-foomatic>=0:${PORTSDIR}/print/gutenprint-foomatic \
 		system-config-printer:${PORTSDIR}/print/system-config-printer \
-		gdm:${PORTSDIR}/x11/gdm \
-		gnome-session:${PORTSDIR}/x11/gnome-session \
-		gnome-power-manager:${PORTSDIR}/sysutils/gnome-power-manager \
-		libgnomeui>=0:${PORTSDIR}/x11-toolkits/libgnomeui \
 		mc:${PORTSDIR}/misc/mc \
 		at-spi>=0:${PORTSDIR}/accessibility/at-spi \
 		metacity:${PORTSDIR}/x11-wm/metacity \
