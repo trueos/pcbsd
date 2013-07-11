@@ -206,6 +206,11 @@ void UserManagerBackend::changePassword(QString username, QString password)
     emit usersChanged();
 }
 
+void UserManagerBackend::setEnc(QString username, bool nEnc)
+{
+    userList[username].setEnc(nEnc);
+}
+
 int UserManagerBackend::validateFullname(QString fullname) {
     int result = 0;
     
@@ -356,8 +361,11 @@ bool UserManagerBackend::commit()
 		   args << chroot << "pw";
                 args << "usermod";
                 args << userIt->getUsername();
-                args << "-d";
-                args << userIt->getHome();
+		// Only change home-dir on non-encrypted users
+                if ( ! userIt->getEnc() ) {
+                  args << "-d";
+                  args << userIt->getHome();
+		}
                 args << "-s";
                 args << userIt->getShell();
                 args << "-c";
@@ -369,6 +377,13 @@ bool UserManagerBackend::commit()
                 
                 if (userIt->getPassword() != "")
                 {
+		    // Refuse to continue if we are trying to change PW
+		    // On an encrypted users homedir
+                    if ( userIt->getEnc() ) {
+                      qDebug() << "Cannot change encrypted password: " << userIt->getUsername();
+                      break;
+ 		    }
+                    qDebug() << "Changing password: " << userIt->getUsername();
 		    args.clear();
 		    if ( ! chroot.isEmpty() )
 		       args << chroot << "chpass";
@@ -385,11 +400,13 @@ bool UserManagerBackend::commit()
                 //Add User
                 qDebug() << "Adding user " << userIt->getUsername();
 		// Create the new home-directory
-		if ( chroot.isEmpty() )
+		if ( chroot.isEmpty() ) {
 		   system("/usr/local/share/pcbsd/scripts/mkzfsdir.sh " + userIt->getHome().toLatin1() );
-		else {
+		   system("pw groupadd " + userIt->getUsername().toLatin1() );
+		} else {
 		   system("mkdir -p " + chroot.toLatin1() + "/" + userIt->getHome().toLatin1() + " 2>/dev/null" );
 		   system("chroot " + chroot.toLatin1() + " ln -s /usr/home /home 2>/dev/null" );
+		   system("chroot " + chroot.toLatin1() + " pw groupadd " + userIt->getUsername().toLatin1() );
 		}
 
 		if ( ! chroot.isEmpty() )
@@ -398,6 +415,7 @@ bool UserManagerBackend::commit()
                 args << userIt->getUsername();
                 args << "-c";
                 args << userIt->getFullname();
+		args << "-m";
                 args << "-d";
                 args << userIt->getHome();
                 args << "-s";
@@ -406,10 +424,12 @@ bool UserManagerBackend::commit()
                 {
                     args << "-g";
                     args << QString::number(userIt->getGid());
+		} else {
+                    args << "-g";
+                    args << userIt->getUsername();
                 }
                 args << "-G";
                 args << "operator";
-		args << "-m";
 		if ( ! chroot.isEmpty() )
 		   QProcess::execute("chroot", args);
 		else
@@ -438,10 +458,20 @@ bool UserManagerBackend::commit()
 		else
 		   system("chroot " + chroot.toLatin1() + " chown -R " + userIt->getUsername().toLatin1() +":" + userIt->getUsername().toLatin1() + " "  + userIt->getHome().toLatin1() );
 
+		// Are we enabling encryption?
+		if ( userIt->getEnc() ) {
+		   system("enable_user_pefs " + userIt->getUsername().toLatin1() + " " + userIt->getClearPassword().toLatin1() );
+		}
+
                 break;
             case 3:
                 //Delete User
                 qDebug() << "Deleting user " << userIt->getUsername();
+
+                if(userIt->getEnc()) {
+		  // Unmount PEFS
+	  	  system("umount " + userIt->getHome().toLatin1() );
+		}
 		if ( ! chroot.isEmpty() )
 		   args << chroot << "pw";
                 args << "userdel";

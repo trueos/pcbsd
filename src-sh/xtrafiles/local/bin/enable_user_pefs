@@ -25,6 +25,11 @@ if [ -z "$USERHOMEDIR" -o ! -d "${USERHOMEDIR}" ] ; then
    exit 1
 fi
 
+if [ "${USERHOMEDIR}" = "/" ] ; then
+   echo "Invalid HOMEDIR = / "
+   exit 1
+fi
+
 if [ "$USERHOMEDIR" != "`realpath ${USERHOMEDIR}`" ] ; then
   NEWDIR=`realpath $USERHOMEDIR`
   echo "Updating sym-linked home dir ${USERHOMEDIR} -> ${NEWDIR}"
@@ -36,10 +41,11 @@ if [ "$USERHOMEDIR" != "`realpath ${USERHOMEDIR}`" ] ; then
 fi
 
 echo "Encrypting ${USERHOMEDIR}"
-umount ${USERHOMEDIR} 2>/dev/null
 
-mv ${USERHOMEDIR} ${USERHOMEDIR}.$$
-mkdir ${USERHOMEDIR}
+mkdir ${USERHOMEDIR}.$$
+tar cvf - -C "${USERHOMEDIR}" . 2>/dev/null | tar xvpf - -C "${USERHOMEDIR}.$$" 2>/dev/null
+rm -rf ${USERHOMEDIR}/* 2>/dev/null
+rm -rf ${USERHOMEDIR}/.* 2>/dev/null
 chown ${USER}:${USER} ${USERHOMEDIR}
 
 pefs mount ${USERHOMEDIR} ${USERHOMEDIR}

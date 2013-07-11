@@ -34,6 +34,7 @@ User::User() {
     home = "Not set";
     shell = "Not set";
     fullname = "Not set";
+    enc = false;
     status = 0;
     password = "";
     deleteHome = false;
@@ -44,6 +45,10 @@ User::User(QString username, int uid, int gid, QString home, QString shell, QStr
     this->uid = uid;
     this->gid = gid;
     this->home = home;
+    if ( QFile::exists(home + "/.pefs.db"))
+      this->enc = true; 
+    else
+      this->enc = false; 
     this->shell = shell;
     this->fullname = fullname;
     status = 0;
@@ -56,10 +61,12 @@ User::User(QString username, QString home, QString shell, QString fullname, QStr
     this->home = home;
     this->shell = shell;
     this->fullname = fullname;
+    this->enc = false;
     status = 0;
     if (isNew) { status = 2; }
     this->uid = uid;
     this->gid = gid;
+    this->clearPass = password;
     
     setPassword(password);
 }
@@ -78,6 +85,14 @@ int User::getUid() {
 
 int User::getGid() {
     return gid;
+}
+
+bool User::getEnc() {
+    return enc;
+}
+
+void User::setEnc(bool Enc) {
+    this->enc = Enc;
 }
 
 QString User::getHome() {
@@ -136,6 +151,11 @@ void User::setPassword(QString password)
 QString User::getPassword()
 {
     return password;
+}
+
+QString User::getClearPassword()
+{
+    return clearPass;
 }
 
 bool User::getDeleted()

@@ -53,6 +53,7 @@ public:
     int validateUsername(QString username); //0 = OK, 1 = Empty, 2 = Invalid input, 3 = Username already in use
     int validateGroupname(QString groupname); //0 = OK, 1 = Empty, 2 = Invalid input, 3 Groupname already in use
     void changePassword(QString username, QString password);
+    void setEnc(QString username, bool nEnc);
     void deleteGroup(QString groupname);
     void addGroup(QString groupname);
     void addUserToGroup(QString user, QString group);

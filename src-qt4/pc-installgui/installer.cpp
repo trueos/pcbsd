@@ -886,7 +886,7 @@ void Installer::startConfigGen()
 
     QString lang;
     if ( comboLanguage->currentIndex() != 0 )
-      lang = languages.at(comboLanguage->currentIndex());
+      lang = languages.at(comboLanguage->currentIndex()).section("(",1,1).section(")",0,0);
     else
       lang="en_US";
 

@@ -118,8 +118,8 @@ theme.path=/usr/local/share/PCDM
 theme.extra=cp -r themes /usr/local/share/PCDM/.
 
 conf=pcdm.conf
-conf.path=/usr/local/share/PCDM
-conf.extra=cp pcdm.conf /usr/local/share/PCDM/pcdm.conf
+conf.path=/usr/local/etc
+conf.extra=cp pcdm.conf /usr/local/etc/pcdm.conf.dist && chmod 600 /usr/local/etc/pcdm.conf.dist
 
 INSTALLS += dotrans scripts rcd cleanthemes theme conf target
 
