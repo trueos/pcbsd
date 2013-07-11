@@ -38,11 +38,14 @@ class LoginWidget : public QGroupBox
 	//Get the currently selected items
 	QString currentUsername();
 	QString currentPassword();
+	QString currentDE();
 	void setCurrentUser(QString);
+	void setCurrentDE(QString);
 	void setUsernames(QStringList);
+	void setDesktops(QStringList, QStringList, QStringList);
         void displayHostName(QString);
-	//Manually set the "back" (up/left) and "forward" (down/right) button icons
 	void changeButtonIcon(QString button, QString iconFile, QSize iconSize);
+	void setDesktopIconSize(QSize);
 	//Change the style sheet for all widget items (see QtStyle options for more)
 	void changeStyleSheet(QString item, QString style);
         
@@ -53,14 +56,17 @@ class LoginWidget : public QGroupBox
   
   private:
   	QComboBox* listUsers;
+	QComboBox* listDE;
   	QListWidget* listUserBig;
   	QLineEdit* linePassword;
 	QToolButton* pushLogin;
 	QToolButton* pushViewPassword;
 	QToolButton *pushUserIcon, *userIcon;
+	QLabel* deIcon;
 	
 
-	QStringList idL;
+	QStringList idL, desktopIcons, desktopInfo;
+	QSize desktopIconSize;
         QString hostName;
 	bool userSelected, pwVisible, allowPWVisible;
 
@@ -75,6 +81,7 @@ class LoginWidget : public QGroupBox
   	void slotTryLogin();
   	void slotChooseUser(int);
   	void slotChangePWView();
+	void slotDesktopChanged(int);
 	
   signals:
 	//Emits these signals whenever a login request is detected
