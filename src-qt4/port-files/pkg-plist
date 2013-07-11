@@ -2338,7 +2338,7 @@ share/pcbsd/splash-screens/loading-screen-nl.pcx
 share/pcbsd/splash-screens/loading-screen-da.pcx
 share/pcbsd/splash-screens/loading-screen-tr.pcx
 share/pcbsd/splash-screens/loading-screen-mn.pcx
-share/PCDM/pcdm.conf
+etc/pcdm.conf.dist
 share/PCDM/i18n/PCDM_af.qm
 share/PCDM/i18n/PCDM_ar.qm
 share/PCDM/i18n/PCDM_az.qm
