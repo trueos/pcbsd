@@ -12,6 +12,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QProcess>
+#include <QFile>
 
 #include "pcdm-config.h"
 #include "pcbsd-utils.h"
@@ -34,6 +35,7 @@ public:
     static QString getDesktopBinary(QString);
     static QStringList getSystemUsers();
     static QString getUsernameFromDisplayname(QString);
+    static QString getDisplayNameFromUsername(QString);
     static QStringList keyModels();
     static QStringList keyLayouts();
     static QStringList keyVariants(const QString &layout, QStringList &savedKeyVariants);
@@ -48,11 +50,18 @@ public:
     static QString getALDesktopCmd();
     static QString getALPassword();
     
+    static QString getLastUser();
+    static QString getLastDE(QString);
+    static void saveLoginInfo(QString, QString);
+    
 private:	
     static void loadXSessionsData();
     static QStringList readXSessionsFile(QString, QString);
     static void readSystemUsers();
- 
+    static void readSystemLastLogin();
+    static void writeSystemLastLogin(QString, QString);
+    static QString readUserLastDesktop(QString);
+    static void writeUserLastDesktop(QString, QString);
     
 };
 

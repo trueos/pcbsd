@@ -72,7 +72,7 @@ private:
     ThemeStruct* currentTheme;
 
     QTranslator* m_translator;
-    QString translationDir, lastUser, lastDE;
+    QString translationDir;
     
     QString hostname;
     //Functions

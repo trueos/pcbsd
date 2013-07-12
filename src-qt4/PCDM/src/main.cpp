@@ -41,7 +41,11 @@ int runSingleSession(int argc, char *argv[]){
   QString changeLang; 
   // Load the configuration file
   QString confFile = "/usr/local/etc/pcdm.conf";
-  if(!QFile::exists(confFile)){ confFile = ":samples/pcdm.conf"; }
+  if(!QFile::exists(confFile)){ 
+    qDebug() << "PCDM: Configuration file missing:"<<confFile<<"\n  - Using default configuration";
+    confFile = ":samples/pcdm.conf"; 
+  }
+  
   Config::loadConfigFile(confFile);
   //qDebug() << "Config File Loaded:" << QString::number(clock.elapsed())+" ms";
   // Startup the main application
@@ -60,17 +64,16 @@ int runSingleSession(int argc, char *argv[]){
   
   //*** STARTUP THE PROGRAM ***
   bool goodAL = FALSE; //Flag for whether the autologin was successful
-  
   // Start the autologin procedure if applicable
   if( ALtriggered && Config::useAutoLogin() ){
     //Setup the Auto Login
     QString user = Backend::getALUsername();
-    QString dcmd = Backend::getALDesktopCmd();
     QString pwd = Backend::getALPassword();
-    if( user.isEmpty() || dcmd.isEmpty() ){
+    QString dsk = Backend::getLastDE(user);
+    if( user.isEmpty() || dsk.isEmpty() ){
 	 goodAL=FALSE;   
     }else{
-	desktop.loginToXSession(user,pwd, Backend::getUserHomeDir(user), dcmd);
+	desktop.loginToXSession(user,pwd, Backend::getUserHomeDir(user), dsk);
 	splash.close();
 	if(desktop.isRunning()){
 	  goodAL=TRUE; //flag this as a good login to skip the GUI

@@ -19,8 +19,6 @@ QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
 {
-    lastUser.clear();
-    lastDE.clear();
     //Load the Theme
     loadTheme();
     //Create the GUI based upon the current Theme
@@ -51,8 +49,6 @@ void PCDMgui::loadTheme(){
       currentTheme->importItem( invalid[i] , defaultTheme->exportItem(invalid[i]) );
     }
   }
-  //Load the data from the last successful login
-  loadLastUser();
   
 }
 
@@ -177,9 +173,9 @@ void PCDMgui::createGUIfromTheme(){
     if(DEBUG_MODE){ qDebug() << " - Create Login Widget"; }
     loginW = new LoginWidget;
     loginW->setUsernames(Backend::getSystemUsers()); //add in the detected users
+    QString lastUser = Backend::getLastUser();
     if(!lastUser.isEmpty()){ //set the previously used user
     	loginW->setCurrentUser(lastUser); 
-    	loadLastDE(lastUser); //make sure the DE switcher reflects the last user choice
     } 
     //Set Icons from theme
     tmpIcon = currentTheme->itemIcon("login");
@@ -247,9 +243,6 @@ void PCDMgui::createGUIfromTheme(){
   //Now translate the UI and set all the text
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
   retranslateUi();
-  if(simpleDESwitcher && !lastUser.isEmpty()){
-    
-  }
   if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
 
 }
@@ -257,11 +250,11 @@ void PCDMgui::createGUIfromTheme(){
 void PCDMgui::slotStartLogin(QString displayname, QString password){
   //Get user inputs
   QString username = Backend::getUsernameFromDisplayname(displayname);
-  QString binary;
+  QString desktop;
   if(simpleDESwitcher){
-    binary = Backend::getDesktopBinary(loginW->currentDE());
+    desktop = loginW->currentDE();
   }else{
-    binary = Backend::getDesktopBinary(deSwitcher->currentItem());
+    desktop = deSwitcher->currentItem();
   }
   QString homedir = Backend::getUserHomeDir(username);
   //Disable user input while confirming login
@@ -269,16 +262,16 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   if(!simpleDESwitcher){ deSwitcher->setEnabled(FALSE); }
   toolbar->setEnabled(FALSE);
   //Try to login
-  emit xLoginAttempt(username, password, homedir, binary);
+  emit xLoginAttempt(username, password, homedir, desktop);
   //Return signals are connected to the slotLogin[Success/Failure] functions
   
 }
 
 void PCDMgui::slotLoginSuccess(){
-  QString de;
+  /*QString de;
   if(simpleDESwitcher){ de = loginW->currentDE(); }
   else{ de = deSwitcher->currentItem(); }
-  saveLastLogin( loginW->currentUsername(), de );
+  saveLastLogin( loginW->currentUsername(), de );*/
   slotClosePCDM(); //now start to close down the PCDM GUI
 }
 
@@ -315,8 +308,6 @@ void PCDMgui::slotUserSelected(QString newuser){
     if(!simpleDESwitcher){ deSwitcher->setVisible(FALSE); }
   }else{
     if(!simpleDESwitcher){ deSwitcher->setVisible(TRUE); }
-    //Try to load the user's last DE
-    loadLastDE(newuser);
     //Try to load the custom user icon
     slotUserChanged(newuser);
   }
@@ -471,6 +462,7 @@ void PCDMgui::retranslateUi(){
   
     //Get the new desktop list (translated)
     QStringList deList = Backend::getAvailableDesktops();
+    QString lastDE = Backend::getLastDE(loginW->currentUsername());
     //Now fill the switcher
     if(!simpleDESwitcher){
       deSwitcher->removeAllItems();
@@ -496,63 +488,8 @@ void PCDMgui::retranslateUi(){
       }
       loginW->setDesktops(deList, deIcons, deInfo);
       //Set the switcher to the last used desktop environment
-      if( !lastDE.isEmpty() ){ loginW->setCurrentDE(lastDE); }
+      loginW->setCurrentDE(lastDE);
     }
 
-}
-
-void PCDMgui::loadLastUser(){
-  lastUser.clear();
-  if(!QFile::exists("/usr/local/share/PCDM/.lastlogin")){
-    Backend::log("PCDM: No previous login data found");
-  }else{
-    //Load the previous login data
-    QFile file("/usr/local/share/PCDM/.lastlogin");
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-      Backend::log("PCDM: Unable to open previous login data file");    
-    }else{
-      QTextStream in(&file);
-      lastUser= in.readLine();
-      file.close();
-    }
-  }
-}
-
-void PCDMgui::loadLastDE(QString user){
-  lastDE.clear();
-  QString LLpath = Backend::getUserHomeDir(user) + "/.lastlogin";
-  if(!QFile::exists(LLpath)){
-    Backend::log("PCDM: No previous user login data found for user: "+user);
-  }else{
-    //Load the previous login data
-    QFile file(LLpath);
-    if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-      Backend::log("PCDM: Unable to open previous user login file: "+user);    
-    }else{
-      QTextStream in(&file);
-      lastDE= in.readLine();
-      file.close();
-    }
-  }
-
-}
-
-void PCDMgui::saveLastLogin(QString USER, QString DE){
-  QFile file1("/usr/local/share/PCDM/.lastlogin");
-  if(!file1.open(QIODevice::Truncate | QIODevice::WriteOnly | QIODevice::Text)){
-    Backend::log("PCDM: Unable to save last login data");	  
-  }else{
-    QTextStream out(&file1);
-    out << USER;
-    file1.close();
-  }
-  QFile file2( Backend::getUserHomeDir(USER) + "/.lastlogin" );
-  if(!file2.open(QIODevice::Truncate | QIODevice::WriteOnly | QIODevice::Text)){
-    Backend::log("PCDM: Unable to save last login data for user:"+USER);	  
-  }else{
-    QTextStream out(&file2);
-    out << DE;
-    file2.close();
-  }
 }
 

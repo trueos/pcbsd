@@ -21,7 +21,7 @@ p, li { white-space: pre-wrap; }
         </message>
         <message>
             <source>If you are new to PC-BSD, please take a few moments to read through the following getting started pages for a quick introduction of your new Operating System. </source>
-            <translation>Si c'est la première fois que vous utilisez PC-BSD, veuillez prendre quelques instants pour lire les pages suivantes, qui vont vous présenter rapidement votre nouveau Système d'Exploitation. </translation>
+            <translation>Si c'est la première fois que vous utilisez PC-BSD, veuillez prendre quelques instants pour lire les pages suivantes, qui vont vous présenter rapidement votre nouveau Système d'Exploitation.</translation>
         </message>
         <message>
             <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;

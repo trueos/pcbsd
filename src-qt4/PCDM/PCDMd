@@ -17,7 +17,7 @@ else
   # No XDMCP Enabled
 
   # Allow Auto-Login the first time PCDM starts
-  touch /tmp/.PCDMAUTOLOGINFILE
+  touch /tmp/.PCDMAutoLogin
   # Now start the X Server
   while [ ! -e /var/run/nologin ]; do
     /usr/local/bin/pc-checkxdisplay
