@@ -1322,7 +1322,7 @@ init_vars() {
         fi
 	# Set the FreeBSD Major & Release
   	FBSDREL=`uname -r | cut -d "-" -f 1-2`
-	FBSDMAJOR=`echo $FBSDREL | cut -d "-" -f 1`
+	FBSDMAJOR=`echo $FBSDREL | cut -d "-" -f 1 | cut -d '.' -f 1`
 
 	PBI_WORLDCHROOT="${PBI_APPDIR}/.pbi-world-$ARCH"
 	if [ `id -u` = "0" ] ; then 
