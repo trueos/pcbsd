@@ -7,6 +7,11 @@ if [ "$2" != "POST-INSTALL" ] ; then
 fi
 
 # Enable loading the vboxguest binary driver
+grep '^drm_load="YES"' /boot/loader.conf >/dev/null 2>/dev/null
+if [ $? -ne 0 ] ; then
+        echo 'drm_load="YES"' >>/boot/loader.conf
+fi
+# Enable loading the vboxguest binary driver
 grep '^vboxguest_load="YES"' /boot/loader.conf >/dev/null 2>/dev/null
 if [ $? -ne 0 ] ; then
         echo 'vboxguest_load="YES"' >>/boot/loader.conf
