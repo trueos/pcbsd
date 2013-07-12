@@ -33,6 +33,7 @@ RUN_DEPENDS=	kdelibs>=0:${PORTSDIR}/x11/kdelibs4 \
 		kde4-style-qtcurve>=0:${PORTSDIR}/x11-themes/qtcurve-kde4 \
 		lirc>=0:${PORTSDIR}/comms/lirc \
 		k3b>=0:${PORTSDIR}/sysutils/k3b-kde4 \
+		virtuoso>=0:${PORTSDIR}/databases/virtuoso \
 		djbfft>=0:${PORTSDIR}/math/djbfft
 
 NO_BUILD=	yes
