@@ -92,6 +92,11 @@ void MainWindow::initUI()
     if ( xdmcp == "TRUE" )
       ui->EnableXDCMP->setChecked(true);
 
+    ui->checkShowPW->setChecked(false);
+    QString showpw = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ENABLE_VIEW_PASSWORD_BUTTON");
+    if ( showpw == "TRUE" )
+      ui->checkShowPW->setChecked(true);
+
     ui->SaveButton->setEnabled(false);
 }
 
@@ -160,6 +165,11 @@ void MainWindow::on_SaveButton_clicked()
     else
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_REMOTE_LOGIN", "ALLOW_REMOTE_LOGIN=FALSE", -1);
 
+    if ( ui->checkShowPW->isChecked() )
+       pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ENABLE_VIEW_PASSWORD_BUTTON", "ENABLE_VIEW_PASSWORD_BUTTON=TRUE", -1);
+    else
+       pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ENABLE_VIEW_PASSWORD_BUTTON", "ENABLE_VIEW_PASSWORD_BUTTON=FALSE", -1);
+
     // Lastly make sure we set perms
     system("chmod 600 " + DM_CONFIG_FILE.toLatin1());
     ui->SaveButton->setEnabled(false);
@@ -174,6 +184,13 @@ void MainWindow::on_AutoLoginEnabledCB_clicked(bool checked)
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_EnableXDCMP_clicked(bool checked)
+{
+  Q_UNUSED(checked);
+  ui->SaveButton->setEnabled(true);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_checkShowPW_clicked(bool checked)
 {
   Q_UNUSED(checked);
   ui->SaveButton->setEnabled(true);
