@@ -23,61 +23,37 @@
  *   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
  *   OTHER DEALINGS IN THE SOFTWARE.                                       *
  ***************************************************************************/
-#ifndef _APPCAFE_CONFIG_DIALOG_H
-#define _APPCAFE_CONFIG_DIALOG_H
+#ifndef _APPCAFE_ERROR_DIALOG_H
+#define _APPCAFE_ERROR_DIALOG_H
 
 #include <QDialog>
-#include <QWidget>
 #include <QString>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QInputDialog>
-
-#include "pbiDBAccess.h"
+#include <QStringList>
 
 namespace Ui {
-    class ConfigDialog;
+    class ErrorDialog;
 }
 
-class ConfigDialog : public QDialog{
-	Q_OBJECT
-	
+class ErrorDialog : public QDialog{
+  Q_OBJECT
+
 public:
-	explicit ConfigDialog(QWidget* parent = 0);
-	virtual ~ConfigDialog();
-	
-	void setupDone(); //make sure the public variables below are set before running this
-	
-	//Data setup/retrieval variables
-	bool applyChanges;
-	QStringList xdgOpts;
-	bool keepDownloads;
-	QString downloadDir;
-	PBIDBAccess *DB;
-	
+  ErrorDialog(QWidget* parent = 0);
+  ~ErrorDialog();
+  
+  void setDLGTitle(QString);
+  void setDLGMessage(QString);
+  void setDLGLog(QStringList);
+  
 private:
-	Ui::ConfigDialog *ui;
-	QString repoID;
-	
+  Ui::ErrorDialog *ui;
+  
 private slots:
-	//Repo Tab
-	void refreshRepoTab();
-	void on_combo_repo_currentIndexChanged();
-	void on_tool_repo_add_clicked();
-	void on_tool_repo_remove_clicked();
-	void on_tool_repomirror_add_clicked();
-	void on_tool_repomirror_remove_clicked();
-	void on_tool_repomirror_up_clicked();
-	void on_tool_repomirror_down_clicked();
-	
-	//Config Tab
-	void on_group_download_toggled(bool);
-	void on_tool_getDownloadDir_clicked();
-	
-	//ButtonBox
-	void on_buttonBox_accepted();
-	void on_buttonBox_rejected();
-	
+  void updateUI(); 
+  void on_buttonBox_accepted();
+  void on_buttonBox_rejected();
+
 };
 
 #endif
+

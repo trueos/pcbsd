@@ -23,61 +23,50 @@
  *   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
  *   OTHER DEALINGS IN THE SOFTWARE.                                       *
  ***************************************************************************/
-#ifndef _APPCAFE_CONFIG_DIALOG_H
-#define _APPCAFE_CONFIG_DIALOG_H
+#include "ErrorDialog.h"
+#include "ui_ErrorDialog.h"
 
-#include <QDialog>
-#include <QWidget>
-#include <QString>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QInputDialog>
-
-#include "pbiDBAccess.h"
-
-namespace Ui {
-    class ConfigDialog;
+ErrorDialog::ErrorDialog(QWidget* parent) : QDialog(parent), ui(new Ui::ErrorDialog){
+  ui->setupUi(this);
+  connect(ui->checkBox, SIGNAL(stateChanged(int)), this, SLOT(updateUI()) );
 }
 
-class ConfigDialog : public QDialog{
-	Q_OBJECT
-	
-public:
-	explicit ConfigDialog(QWidget* parent = 0);
-	virtual ~ConfigDialog();
-	
-	void setupDone(); //make sure the public variables below are set before running this
-	
-	//Data setup/retrieval variables
-	bool applyChanges;
-	QStringList xdgOpts;
-	bool keepDownloads;
-	QString downloadDir;
-	PBIDBAccess *DB;
-	
-private:
-	Ui::ConfigDialog *ui;
-	QString repoID;
-	
-private slots:
-	//Repo Tab
-	void refreshRepoTab();
-	void on_combo_repo_currentIndexChanged();
-	void on_tool_repo_add_clicked();
-	void on_tool_repo_remove_clicked();
-	void on_tool_repomirror_add_clicked();
-	void on_tool_repomirror_remove_clicked();
-	void on_tool_repomirror_up_clicked();
-	void on_tool_repomirror_down_clicked();
-	
-	//Config Tab
-	void on_group_download_toggled(bool);
-	void on_tool_getDownloadDir_clicked();
-	
-	//ButtonBox
-	void on_buttonBox_accepted();
-	void on_buttonBox_rejected();
-	
-};
+ErrorDialog::~ErrorDialog(){
+  delete ui;
+}
 
-#endif
+void ErrorDialog::setDLGTitle(QString title){
+  this->setWindowTitle(title);
+  updateUI();
+}
+
+void ErrorDialog::setDLGMessage(QString message){
+  ui->label->setText(message);
+  updateUI();
+}
+
+void ErrorDialog::setDLGLog(QStringList log){
+  ui->textEdit->clear();
+  ui->textEdit->setText(log.join("\n"));
+  updateUI();
+}
+
+
+void ErrorDialog::updateUI(){
+  if(ui->textEdit->toPlainText().isEmpty()){
+    ui->checkBox->setVisible(FALSE);
+    ui->textEdit->setVisible(FALSE);
+  }else{
+    ui->checkBox->setVisible(TRUE);
+    if(ui->checkBox->isChecked()){ui->textEdit->setVisible(TRUE);}
+    else{ui->textEdit->setVisible(FALSE);}
+  }
+}
+
+void ErrorDialog::on_buttonBox_accepted(){
+  this->close();  
+}
+
+void ErrorDialog::on_buttonBox_rejected(){
+  this->close();  
+}

@@ -72,7 +72,7 @@ void MainUI::ProgramInit()
      connect(PBI,SIGNAL(NoRepoAvailable()),this,SLOT(slotDisableBrowser()) );
      connect(PBI,SIGNAL(SearchComplete(QStringList,QStringList)),this,SLOT(slotShowSearchResults(QStringList, QStringList)) );
      connect(PBI,SIGNAL(SimilarFound(QStringList)),this,SLOT(slotShowSimilarApps(QStringList)) );
-     connect(PBI,SIGNAL(Error(QString,QString)),this,SLOT(slotDisplayError(QString,QString)) );
+     connect(PBI,SIGNAL(Error(QString,QString,QStringList)),this,SLOT(slotDisplayError(QString,QString,QStringList)) );
      PBI->start();
 
    //Make sure we start on the installed tab
@@ -892,8 +892,13 @@ void MainUI::clearScrollArea(QScrollArea* area){
   area->widget()->setContentsMargins(0,0,0,0);
 }
 
-void MainUI::slotDisplayError(QString title,QString err){
-  QMessageBox::warning(this,title,err);
+void MainUI::slotDisplayError(QString title,QString message,QStringList log){
+  ErrorDialog *dlg = new ErrorDialog(this);
+  dlg->setDLGTitle(title);
+  dlg->setDLGMessage(message);
+  dlg->setDLGLog(log);
+  dlg->exec();
+  //QMessageBox::warning(this,title,message+"\n\n"+log.join("\n"));
 }
 
 void MainUI::slotDisplayStats(){

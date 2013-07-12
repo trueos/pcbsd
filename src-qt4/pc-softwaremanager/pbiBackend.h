@@ -125,7 +125,7 @@ private slots:
 	void checkProcesses();
 	void slotProcessFinished(int);
 	void slotProcessMessage(int, QString);
-	void slotProcessError(int, QString);
+	void slotProcessError(int, QStringList);
 
 	// Database watcher
 	void slotSyncToDatabase(bool localChanges=TRUE);
@@ -145,7 +145,7 @@ signals:
 	void LocalPBIChanges();
 	void PBIStatusChange(QString pbiID);
 	//Process Signals
-	void Error(QString title, QString message);
+	void Error(QString title, QString message, QStringList log);
 	//Search results
 	void SearchComplete(QStringList, QStringList);// "best" and "rest" results lists
 	void SimilarFound(QStringList);

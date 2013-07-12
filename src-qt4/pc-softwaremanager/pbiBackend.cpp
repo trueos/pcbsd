@@ -37,7 +37,7 @@
    PMAN = new ProcessManager();
    connect(PMAN, SIGNAL(ProcessFinished(int)),this,SLOT(slotProcessFinished(int)) );
    connect(PMAN, SIGNAL(ProcessMessage(int, QString)),this,SLOT(slotProcessMessage(int, QString)) );
-   connect(PMAN, SIGNAL(ProcessError(int,QString)),this,SLOT(slotProcessError(int,QString)) );
+   connect(PMAN, SIGNAL(ProcessError(int,QStringList)),this,SLOT(slotProcessError(int,QStringList)) );
    PENDINGREMOVAL.clear(); PENDINGDL.clear(); PENDINGINSTALL.clear(); PENDINGUPDATE.clear(); PENDINGOTHER.clear();
    sDownload=FALSE; sInstall=FALSE; sUpdate=FALSE; sRemove=FALSE;
    //setup the base paths
@@ -556,33 +556,6 @@ QString PBIBackend::currentAppStatus( QString appID ){
           output.clear();
   }
   return output;
-  /*
-  for(int i=0; i<pbilist.length(); i++){
-    if(PBIHASH[pbilist[i]].metaID == appID){
-      switch (PBIHASH[pbilist[i]].status){
-        case InstalledPBI::DOWNLOADING:
-          output = tr("Downloading"); break;
-        case InstalledPBI::INSTALLING:
-          output = tr("Installing"); break;
-        case InstalledPBI::REMOVING:
-          output = tr("Removing"); break;
-        case InstalledPBI::UPDATING:
-          output = tr("Updating"); break;
-        case InstalledPBI::PENDINGDOWNLOAD:
-          output = tr("Pending Download"); break;
-        case InstalledPBI::PENDINGINSTALL:
-          output = tr("Pending Install"); break;
-        case InstalledPBI::PENDINGREMOVAL:
-          output = tr("Pending Removal"); break;
-        case InstalledPBI::PENDINGUPDATE:
-          output = tr("Pending Update"); break;
-        default: //do nothing for the rest
-          output.clear();
-      }
-      if(!output.isEmpty()){ break; } //break out of the loop
-    }
-  }
-  return output;*/
 }
 
 // === Configuration Management ===
@@ -942,6 +915,13 @@ bool PBIBackend::loadSettings(){
  void PBIBackend::slotProcessFinished(int ID){
    bool resync = FALSE;
    if(ID == ProcessManager::UPDATE){
+     if(!isInstalled(cUpdate).isEmpty()){
+       //Error completing the update - old version still installed
+       QString title = QString(tr("%1 Update Error:")).arg(PBIHASH[cUpdate].name);
+       QString err = tr("The PBI could not be updated, please try again later");
+       QStringList log = PMAN->getProcessLog(ProcessManager::UPDATE);
+       emit Error(title,err,log);
+     }
      cUpdate.clear(); //remove that it is finished
      sUpdate=FALSE;
      resync=TRUE;
@@ -968,10 +948,11 @@ bool PBIBackend::loadSettings(){
          qDebug() << "Download Error:" << cDownload << PBIHASH[cDownload].downloadfile;
          QString title = QString(tr("%1 Download Error:")).arg(PBIHASH[cDownload].name);
          QString err = tr("The PBI could not be downloaded, please try again later");
-         emit Error(title,err);
+	 QStringList log = PMAN->getProcessLog(ProcessManager::DOWNLOAD);
+         emit Error(title,err,log);
        }else{
          //Now Check to see if an alternate version needs to be removed
-         QString otherID = isInstalled( Extras::nameToID(PBIHASH[cDownload].name) );
+         QString otherID = isInstalled( PBIHASH[cDownload].metaID );
          QString cmd;
          if(!otherID.isEmpty()){
            cmd = generateRemoveCMD(otherID);
@@ -1002,40 +983,46 @@ void PBIBackend::slotProcessMessage(int ID, QString dlinfo){
    }	
 }
 
-void PBIBackend::slotProcessError(int ID, QString err){
+void PBIBackend::slotProcessError(int ID, QStringList log){
    QString title;
    QString name;
+   QString message;
    if(ID == ProcessManager::UPDATE){
      if(!sUpdate){ //not stopped manually
        if(PBIHASH.contains(cUpdate)){name = PBIHASH[cUpdate].name; }
        title = QString(tr("%1 Update Error:")).arg(name); 
+       message = tr("The update process experienced an error and could not be completed");
      }
    }
    else if(ID == ProcessManager::INSTALL){ 
      if(!sInstall){ //not stopped manually
        if(APPHASH.contains(cInstall)){name = APPHASH[cInstall].name; }
        title = QString(tr("%1 Installation Error:")).arg(name);
+       message = tr("The installation process experienced an error and could not be completed");
      }
    }
    else if(ID == ProcessManager::REMOVE){ 
      if(!sRemove){ //not stopped manually
        if(PBIHASH.contains(cRemove)){name = PBIHASH[cRemove].name; }
        title = QString(tr("%1 Removal Error:")).arg(name);
+       message = tr("The removal process experienced an error and could not be completed");
      }
    }
    else if(ID == ProcessManager::DOWNLOAD){ 
      if(!sDownload){ //not stopped manually
        if(APPHASH.contains(cDownload)){name = APPHASH[cDownload].name; }
        title = QString(tr("%1 Download Error:")).arg(name);
+       message = tr("The download process experienced an error and could not be completed");
      }
    }
    else if(ID == ProcessManager::OTHER){ 
      if(PBIHASH.contains(cOther)){name = PBIHASH[cOther].name; }
      title = QString(tr("%1 PBI Error:")).arg(name); 
+     message = tr("The process experienced an error and could not be completed");
    }
-   if(!title.isEmpty() && !err.isEmpty()){
-     qDebug() << "Process Error:" << title << err;
-     emit Error(title,err); //send error signal
+   if(!title.isEmpty() && !message.isEmpty()){
+     qDebug() << "Process Error:" << title << log;
+     emit Error(title,message,log); //send error signal
    }
    slotProcessFinished(ID); //clean up
 }
