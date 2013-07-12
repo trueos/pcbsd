@@ -7,7 +7,7 @@ PCDMCONF="/usr/local/etc/pcdm.conf"
 
 #See if XDMCP support is enabled for logging in to this system
 XDMCP=`grep "^ALLOW_REMOTE_LOGIN=" ${PCDMCONF} 2>/dev/null | cut -d '=' -f 2`
-if [ "XDMCP" = "TRUE" ]; then
+if [ "$XDMCP" = "TRUE" ]; then
   # XDMCP is enabled
   echo "Starting PCDM XDMCP Server"
   while [ ! -e /var/run/nologin ]; do
