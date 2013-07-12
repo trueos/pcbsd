@@ -5,47 +5,47 @@
         <name>AddDlg</name>
         <message>
             <source>Add a port</source>
-            <translation>Ajouter un port          </translation>
+            <translation>Ajouter un port</translation>
         </message>
         <message>
             <source>Add</source>
-            <translation>Ajouter            </translation>
+            <translation>Ajouter</translation>
         </message>
         <message>
             <source>Service:</source>
-            <translation>Service:            </translation>
+            <translation>Service:</translation>
         </message>
         <message>
             <source>Port:</source>
-            <translation>Port:            </translation>
+            <translation>Port:</translation>
         </message>
         <message>
             <source>Policy:</source>
-            <translation>Politique:            </translation>
+            <translation>Politique:</translation>
         </message>
         <message>
             <source>Allow</source>
-            <translation>Ouvrir         </translation>
+            <translation>Ouvrir</translation>
         </message>
         <message>
             <source>Block</source>
-            <translation>Bloquer          </translation>
+            <translation>Bloquer</translation>
         </message>
         <message>
             <source>Direction:</source>
-            <translation>Direction:            </translation>
+            <translation>Direction:</translation>
         </message>
         <message>
             <source>Protocol:</source>
-            <translation>Protocole:            </translation>
+            <translation>Protocole:</translation>
         </message>
         <message>
             <source>Interface:</source>
-            <translation>Interface:            </translation>
+            <translation>Interface:</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation>Ok            </translation>
+            <translation>Ok</translation>
         </message>
         <message>
             <source>Cancel</source>
@@ -56,39 +56,39 @@
         <name>MainDialog</name>
         <message>
             <source>Firewall Manager</source>
-            <translation>Gestionnaire de Pare-Feu             </translation>
+            <translation>Gestionnaire de Pare-Feu</translation>
         </message>
         <message>
             <source>General</source>
-            <translation>Général          </translation>
+            <translation>Général</translation>
         </message>
         <message>
             <source>Configuration</source>
-            <translation>Configuration            </translation>
+            <translation>Configuration</translation>
         </message>
         <message>
             <source>Restore default configuration</source>
-            <translation>Restaurer la configuration par défaut             </translation>
+            <translation>Restaurer la configuration par défaut</translation>
         </message>
         <message>
             <source>Firewall</source>
-            <translation>Pare-feu            </translation>
+            <translation>Pare-feu</translation>
         </message>
         <message>
             <source>Start</source>
-            <translation>Démarrer           </translation>
+            <translation>Démarrer</translation>
         </message>
         <message>
             <source>Stop</source>
-            <translation>Arrêter            </translation>
+            <translation>Arrêter</translation>
         </message>
         <message>
             <source>Restart</source>
-            <translation>Redémarrer            </translation>
+            <translation>Redémarrer</translation>
         </message>
         <message>
             <source>General settings</source>
-            <translation>Configurations générales         </translation>
+            <translation>Configurations générales</translation>
         </message>
         <message>
             <source>Enable Firewall on startup</source>
@@ -96,31 +96,31 @@
         </message>
         <message>
             <source>Exceptions</source>
-            <translation>Exceptions            </translation>
+            <translation>Exceptions</translation>
         </message>
         <message>
             <source>Add entry</source>
-            <translation>Ajouter une entrée            </translation>
+            <translation>Ajouter une entrée</translation>
         </message>
         <message>
             <source>Edit entry</source>
-            <translation>Éditer l'entrée            </translation>
+            <translation>Éditer l'entrée</translation>
         </message>
         <message>
             <source>Delete entry</source>
-            <translation>Supprimer l'entrée            </translation>
+            <translation>Supprimer l'entrée</translation>
         </message>
         <message>
             <source>Service</source>
-            <translation>Service            </translation>
+            <translation>Service</translation>
         </message>
         <message>
             <source>Port</source>
-            <translation>Port            </translation>
+            <translation>Port</translation>
         </message>
         <message>
             <source>Policy</source>
-            <translation>Politique            </translation>
+            <translation>Politique</translation>
         </message>
         <message>
             <source>Interface</source>
@@ -135,15 +135,15 @@
         </message>
         <message>
             <source>outgoing</source>
-            <translation>sortant            </translation>
+            <translation>sortant</translation>
         </message>
         <message>
             <source>TCP</source>
-            <translation>TCP            </translation>
+            <translation>TCP</translation>
         </message>
         <message>
             <source>UDP</source>
-            <translation>UDP            </translation>
+            <translation>UDP</translation>
         </message>
     </context>
     <context>
@@ -151,15 +151,15 @@
         <message>
             <source>This will turn off the firewall completely.
 Are you sure?</source>
-            <translation>Cela désactivera le pare-feu complètement.\NEtes-vous sûr?            </translation>
+            <translation>Cela désactivera le pare-feu complètement.\NEtes-vous sûr?</translation>
         </message>
         <message>
             <source>Question</source>
-            <translation>Question            </translation>
+            <translation>Question</translation>
         </message>
         <message>
             <source>Restored.</source>
-            <translation>Restauré.           </translation>
+            <translation>Restauré.</translation>
         </message>
         <message>
             <source>Config file successfuly restored.</source>
@@ -167,19 +167,19 @@ Are you sure?</source>
         </message>
         <message>
             <source>Success</source>
-            <translation>Succès            </translation>
+            <translation>Succès</translation>
         </message>
         <message>
             <source>Restarted successfuly!</source>
-            <translation>Redémarrage réussi !          </translation>
+            <translation>Redémarrage réussi!</translation>
         </message>
         <message>
             <source>Failure</source>
-            <translation>Échec            </translation>
+            <translation>Échec</translation>
         </message>
         <message>
             <source>Failed to restart!</source>
-            <translation>Le redémarrage a échoué !            </translation>
+            <translation>Le redémarrage a échoué !</translation>
         </message>
     </context>
     <context>
@@ -193,7 +193,7 @@ Are you sure?</source>
         <name>services</name>
         <message>
             <source>Unknown</source>
-            <translation>Inconnu            </translation>
+            <translation>Inconnu</translation>
         </message>
     </context>
 </TS>
