@@ -26,6 +26,7 @@
 #include "extras.h"
 #include "largeItemWidget.h"
 #include "smallItemWidget.h"
+#include "ErrorDialog.h"
 
 namespace Ui {
     class MainUI;
@@ -97,7 +98,7 @@ private slots:
   void on_group_br_home_newapps_toggled(bool);
   void on_group_bapp_similar_toggled(bool);
   //OTHER
-  void slotDisplayError(QString,QString);
+  void slotDisplayError(QString,QString,QStringList);
 
 private:
   Ui::MainUI *ui;

@@ -77,15 +77,19 @@ void ProcessManager::goToDirectory(ProcessID ID, QString dir){
 void ProcessManager::startProcess(ProcessID ID, QString cmd){
   if( ID == UPDATE ){
     qDebug() << "Update Process Started:" << cmd;
+    upLog.clear(); //clear the log for action
     upProc->start(cmd);	  
   }else if( ID == REMOVE ){
     qDebug() << "Removal Process Started:" << cmd;
+    remLog.clear();
     remProc->start(cmd);	   	  
   }else if( ID == DOWNLOAD ){
     qDebug() << "Download Process Started:" << cmd;
+    dlLog.clear();
     dlProc->start(cmd);	   	  
   }else if( ID == INSTALL ){
     qDebug() << "Install Process Started:" << cmd;
+    inLog.clear();
     inProc->start(cmd);	   	  
   }else if( ID == OTHER ){
     qDebug() << "Other Process Started:" << cmd;
@@ -112,6 +116,13 @@ void ProcessManager::stopProcess(ProcessID ID){
   }	
 }
 
+QStringList ProcessManager::getProcessLog(ProcessID ID){
+  if( ID == UPDATE ){ return upLog; }
+  else if( ID == REMOVE ){ return remLog; }
+  else if( ID == DOWNLOAD ){ return dlLog; }
+  else if( ID == INSTALL ){ return inLog; }
+  else{ return QStringList(); }
+}
 
 // =========================
 // ===== PRIVATE SLOTS =====
@@ -173,20 +184,20 @@ QString ProcessManager::parseDlLine(QString line){
 
 // == UPDATE PROCESS ==
 void ProcessManager::slotUpProcMessage(){
-    while( upProc->canReadLine() ){
+  while( upProc->canReadLine() ){
     QString line = upProc->readLine().simplified();
+    if(line.isEmpty()){ continue; }
     QString dl = parseDlLine(line);
     if(!dl.isEmpty()){ emit ProcessMessage(UPDATE,dl); }
+    else{ upLog << line; } //not a download line - add to the log
   }
 }
 
 void ProcessManager::slotUpProcFinished(){
   if(upProc->exitStatus() != QProcess::NormalExit){
-    QString msg = upProc->readAllStandardError();
-    if(msg.isEmpty()){ msg = upProc->readAllStandardOutput(); }
-    if(msg.isEmpty()){ msg = tr("Unknown Error"); }
-    qDebug() << "Update Process Error:"<<msg;
-    emit ProcessError(UPDATE, msg);
+    //Emit the command log
+    qDebug() << "Update Process Error Log:\n"<<upLog.join("\n");
+    emit ProcessError(UPDATE, upLog);
   }else{
     qDebug() << "Update Process Finished";
     emit ProcessFinished(UPDATE);	  
@@ -195,17 +206,19 @@ void ProcessManager::slotUpProcFinished(){
 
 // == REMOVE PROCESS ==
 void ProcessManager::slotRemProcMessage(){
-  QString msg = remProc->readAllStandardOutput();
-  emit ProcessMessage(REMOVE,msg);
+  while( remProc->canReadLine() ){
+    QString line = remProc->readLine().simplified();
+    if(!line.isEmpty()){ 
+      remLog << line; 
+      emit ProcessMessage(REMOVE,line);
+    }
+  }
 }
 
 void ProcessManager::slotRemProcFinished(){
   if(remProc->exitStatus() != QProcess::NormalExit){
-    QString msg = remProc->readAllStandardError();
-    if(msg.isEmpty()){ msg = remProc->readAllStandardOutput(); }
-    if(msg.isEmpty()){ msg = tr("Unknown Error"); }
-    qDebug() << "Removal Process Error:"<<msg;
-    emit ProcessError(REMOVE, msg);
+    qDebug() << "Removal Process Error Log:\n"<<remLog.join("\n");
+    emit ProcessError(REMOVE, remLog);
   }else{
     qDebug() << "Removal Process Finished";
     emit ProcessFinished(REMOVE);	  
@@ -216,18 +229,17 @@ void ProcessManager::slotRemProcFinished(){
 void ProcessManager::slotDlProcMessage(){
   while( dlProc->canReadLine() ){
     QString line = dlProc->readLine().simplified();
+    if(line.isEmpty()){ continue; }
     QString dl = parseDlLine(line);
     if(!dl.isEmpty()){ emit ProcessMessage(DOWNLOAD,dl); }
+    else{ dlLog << line; } //not a download line - add to the log
   }
 }
 
 void ProcessManager::slotDlProcFinished(){
   if(dlProc->exitStatus() != QProcess::NormalExit){
-    QString msg = dlProc->readAllStandardError();
-    if(msg.isEmpty()){ msg = dlProc->readAllStandardOutput(); }
-    if(msg.isEmpty()){ msg = tr("Unknown Error"); }
-    qDebug() << "Download Process Error:"<<msg;
-    emit ProcessError(DOWNLOAD, msg);
+    qDebug() << "Download Process Error Log:\n"<<dlLog.join("\n");
+    emit ProcessError(DOWNLOAD, dlLog);
   }else{
     qDebug() << "Download Process Finished";
     emit ProcessFinished(DOWNLOAD);	  
@@ -236,17 +248,19 @@ void ProcessManager::slotDlProcFinished(){
 
 // == INSTALL PROCESS ==
 void ProcessManager::slotInProcMessage(){
-  QString msg = inProc->readAllStandardOutput();
-  emit ProcessMessage(INSTALL,msg);
+  while( inProc->canReadLine() ){
+    QString line = inProc->readLine().simplified();
+    if(!line.isEmpty()){ 
+      inLog << line; 
+      emit ProcessMessage(INSTALL,line);
+    }
+  }
 }
 
 void ProcessManager::slotInProcFinished(){
   if(inProc->exitStatus() != QProcess::NormalExit){
-    QString msg = inProc->readAllStandardError();
-    if(msg.isEmpty()){ msg = inProc->readAllStandardOutput(); }
-    if(msg.isEmpty()){ msg = tr("Unknown Error"); }
-    qDebug() << "Install Process Error:"<<msg;
-    emit ProcessError(INSTALL, msg);
+    qDebug() << "Install Process Error Log:\n"<<inLog.join("\n");
+    emit ProcessError(INSTALL, inLog);
   }else{
     qDebug() << "Install Process Finished";
     emit ProcessFinished(INSTALL);	  
@@ -265,7 +279,7 @@ void ProcessManager::slotOtProcFinished(){
     if(msg.isEmpty()){ msg = otProc->readAllStandardOutput(); }
     if(msg.isEmpty()){ msg = tr("Unknown Error"); }
     qDebug() << "Other Process Error:"<<msg;
-    emit ProcessError(OTHER, msg);
+    emit ProcessError(OTHER, QStringList(msg));
   }else{
     qDebug() << "Other Process Finished";
     emit ProcessFinished(OTHER);	  

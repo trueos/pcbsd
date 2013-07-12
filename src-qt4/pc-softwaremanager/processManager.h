@@ -4,6 +4,7 @@
 #include <QProcess>
 #include <QProcessEnvironment>
 #include <QString>
+#include <QStringList>
 #include <QObject>
 #include <QDebug>
 
@@ -22,14 +23,16 @@ public:
 	
 	void startProcess(ProcessID, QString);
 	void stopProcess(ProcessID);
+	QStringList getProcessLog(ProcessID);
 	
 signals:
 	void ProcessFinished(int ID);
 	void ProcessMessage(int ID,QString);
-	void ProcessError(int ID,QString);
+	void ProcessError(int ID,QStringList);
 	
 private:
 	QProcess *upProc, *remProc, *dlProc, *inProc, *otProc;
+	QStringList upLog, remLog, dlLog, inLog;
 	
 private slots:
 	QString parseDlLine(QString);

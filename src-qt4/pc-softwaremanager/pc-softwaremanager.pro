@@ -15,7 +15,8 @@ HEADERS	+= mainUI.h \
     	  extras.h \
     	  pbiDBAccess.h \
     	  processManager.h \
-    	  configDialog.h
+    	  configDialog.h \
+	  ErrorDialog.h
 
 SOURCES	+= main.cpp \
          mainUI.cpp \
@@ -23,12 +24,14 @@ SOURCES	+= main.cpp \
          containers.cpp \
          pbiDBAccess.cpp \
          processManager.cpp \
-         configDialog.cpp
+         configDialog.cpp \
+	 ErrorDialog.cpp
 
 RESOURCES += SoftwareManager.qrc
 
 FORMS	= mainUI.ui \
-	configDialog.ui
+	configDialog.ui \
+	ErrorDialog.ui
 
 TARGET  = pc-softwaremanager
 target.path = /usr/local/bin/
