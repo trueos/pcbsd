@@ -5,230 +5,187 @@
         <name>FancySwitcher</name>
         <message>
             <source>Alt+Left</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Alt+Стрілка вліво</translation>
         </message>
         <message>
             <source>Alt+Right</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Alt+Стрілка вправо</translation>
         </message>
         <message>
             <source>Alt+Up</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Alt+Стрілка вгору</translation>
         </message>
         <message>
             <source>Alt+Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">Alt+Стрілка вниз</translation>
         </message>
     </context>
     <context>
         <name>LoginWidget</name>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Обрати</translation>
         </message>
         <message>
             <source>Select an alternate user and clear the password field</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Орати іншого користувача та очистити поле введення паролю</translation>
         </message>
         <message>
             <source>Select this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Обрати користувача</translation>
         </message>
         <message>
             <source>Login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Увійти</translation>
         </message>
         <message>
             <source>Login to the system with the current user and password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Увійти до системи з поточним користувачем та паролем</translation>
         </message>
         <message>
             <source>Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Пароль</translation>
         </message>
         <message>
             <source>Hold to view the currently entered password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Натисніть щоб розмаскувати символи паролю</translation>
         </message>
         <message>
             <source>Login password for the selected user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Увійти у систему обраним користувачем</translation>
         </message>
         <message>
             <source>Available users</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Наявні користувачі</translation>
         </message>
         <message>
             <source>Login to %1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Вхід до %1</translation>
         </message>
     </context>
     <context>
         <name>PCDMgui</name>
         <message>
             <source>Virtual Keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Віртуальна клавіатура</translation>
         </message>
         <message>
             <source>Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Локаль</translation>
         </message>
         <message>
             <source>Change locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Змінити локаль</translation>
         </message>
         <message>
             <source>Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Розкладка клавіатури</translation>
         </message>
         <message>
             <source>Change Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Зміна розкладки клавіатури</translation>
         </message>
         <message>
             <source>System</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Система</translation>
         </message>
         <message>
             <source>Tip: Make sure that caps-lock is turned off.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Підказка: Перевірте чи увімкнено 'Caps-lock'.</translation>
         </message>
         <message>
             <source>Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Перезавантажити</translation>
         </message>
         <message>
             <source>Shut Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Вимкнути</translation>
         </message>
         <message>
             <source>Close PCDM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Вийти з PCDM</translation>
         </message>
         <message>
             <source>Shutdown the computer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Вимкнути комп'ютер</translation>
         </message>
         <message>
             <source>Invalid Username/Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ім'я користувача / пароль введені невірно</translation>
         </message>
         <message>
             <source>Username/Password combination is invalid, please try again.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Комбінація ім'я користувача / пароль введена невірно. Будьласка спробуйте ще.</translation>
         </message>
         <message>
             <source>System Shutdown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Вимкнення системи</translation>
         </message>
         <message>
             <source>You are about to shut down the system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ви збираєтесь вимкнути комп'ютер.</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ви впевнені?</translation>
         </message>
         <message>
             <source>System Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Перезапуск системи</translation>
         </message>
         <message>
             <source>You are about to restart the system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ви збираєтесь перезавантажити комп'ютер.</translation>
         </message>
     </context>
     <context>
         <name>widgetKeyboard</name>
         <message>
             <source>Keyboard Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Налаштування клавіатури</translation>
         </message>
         <message>
             <source>Key Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Розкладка</translation>
         </message>
         <message>
             <source>Variant</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Варіант</translation>
         </message>
         <message>
             <source>Keyboard Model</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Модель</translation>
         </message>
         <message>
             <source>( you may type into the space below to test your selected settings. )</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>( ви можете надрукувати що-небуть нижче щоб протестувати обрані налаштування )</translation>
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Прийняти</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Закрити</translation>
         </message>
     </context>
     <context>
         <name>widgetLocale</name>
         <message>
             <source>Select Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Обрати локаль</translation>
         </message>
         <message>
             <source>Current Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Поточна локаль</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Прийняти</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Відміна</translation>
         </message>
     </context>
 </TS>
