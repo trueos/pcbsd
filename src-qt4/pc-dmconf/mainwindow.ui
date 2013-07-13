@@ -93,9 +93,9 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QCheckBox" name="EnableXDCMP">
+         <widget class="QCheckBox" name="EnableVNC">
           <property name="text">
-           <string>Enable XDMCP</string>
+           <string>Enable Remote Desktop (VNC)</string>
           </property>
          </widget>
         </item>

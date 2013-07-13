@@ -52,7 +52,7 @@ public slots:
     void slotSingleInstance();
 
 private slots:
-    void on_EnableXDCMP_clicked(bool checked);
+    void on_EnableVNC_clicked(bool checked);
     void on_AutoLoginEnabledCB_clicked(bool checked);
     void on_SaveButton_clicked();
     void on_UsersList_currentIndexChanged(int item);

@@ -87,10 +87,10 @@ void MainWindow::initUI()
       ui->UsersList->setEnabled(false);
     }
 
-    ui->EnableXDCMP->setChecked(false);
-    QString xdmcp = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ALLOW_REMOTE_LOGIN");
-    if ( xdmcp == "TRUE" )
-      ui->EnableXDCMP->setChecked(true);
+    ui->EnableVNC->setChecked(false);
+    QString vnc = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ALLOW_REMOTE_LOGIN");
+    if ( vnc == "TRUE" )
+      ui->EnableVNC->setChecked(true);
 
     ui->checkShowPW->setChecked(false);
     QString showpw = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "ENABLE_VIEW_PASSWORD_BUTTON");
@@ -141,10 +141,10 @@ void MainWindow::getUsers()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_SaveButton_clicked()
 {
+    bool ok;
     system("touch " + DM_CONFIG_FILE.toLatin1());
     if ( ui->AutoLoginEnabledCB->isChecked() ) {
        // First ask for password
-       bool ok;
        QString pw = QInputDialog::getText(this, tr("Password Request"),
                         tr("Please enter the login password for this user"), 
                         QLineEdit::Password, "", &ok);
@@ -160,10 +160,28 @@ void MainWindow::on_SaveButton_clicked()
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_PASSWORD", "", -1);
     }
 
-    if ( ui->EnableXDCMP->isChecked() )
+    if ( ui->EnableVNC->isChecked() ) {
+       // First ask for password
+       QString pw = QInputDialog::getText(this, tr("Password Request"),
+                        tr("Please enter the remote login password"), 
+                        QLineEdit::Password, "", &ok);
+       if ( ! ok )
+          return;
+
+       QFile file("/usr/local/etc/vncpass");
+       if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+          return;
+
+       QTextStream out(&file);
+       out << pw;
+       file.close();
+       system("chmod 600 /usr/local/etc/vncpass");
+
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_REMOTE_LOGIN", "ALLOW_REMOTE_LOGIN=TRUE", -1);
-    else
+    } else {
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ALLOW_REMOTE_LOGIN", "ALLOW_REMOTE_LOGIN=FALSE", -1);
+       system("rm /usr/local/etc/vncpass 2>/dev/null");
+    }
 
     if ( ui->checkShowPW->isChecked() )
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ENABLE_VIEW_PASSWORD_BUTTON", "ENABLE_VIEW_PASSWORD_BUTTON=TRUE", -1);
@@ -183,7 +201,7 @@ void MainWindow::on_AutoLoginEnabledCB_clicked(bool checked)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_EnableXDCMP_clicked(bool checked)
+void MainWindow::on_EnableVNC_clicked(bool checked)
 {
   Q_UNUSED(checked);
   ui->SaveButton->setEnabled(true);
