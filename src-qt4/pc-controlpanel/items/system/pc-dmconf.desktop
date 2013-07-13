@@ -11,3 +11,6 @@ TerminalOptions=
 Type=Application
 Categories=System;Settings;
 Name=Login Manager Settings
+Name[fr]=Paramètres du Gestionnaire de connexion
+Name[fr_CA]=Paramètres du Gestionnaire de connexion
+Name[uk]=Налаштування входу до системи
