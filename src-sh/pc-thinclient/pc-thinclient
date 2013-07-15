@@ -94,6 +94,7 @@ ifconfig_${NIC}=\"192.168.2.2\"" >> /etc/rc.conf
 	  if [ "$?" != "0" ] ; then
   		# Setup the firewall exclusion for this NIC
   		echo "pass in on ${NIC} all" >> /etc/pf.conf
+		/etc/rc.d/pf restart
 	  fi
      	fi
 
