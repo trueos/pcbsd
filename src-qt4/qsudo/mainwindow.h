@@ -22,6 +22,8 @@ private slots:
     void slotButtonClicked(QAbstractButton *myBut);
     void slotReturnPressed();
     void slotProcDone();
+    void slotPrintStdErr();
+    void slotPrintStdOut();
 
 private:
     void startSudo();

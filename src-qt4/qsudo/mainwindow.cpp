@@ -47,7 +47,6 @@ void MainWindow::testPass()
   while(tP->state() == QProcess::Starting || tP->state() == QProcess::Running ) {
      tP->waitForFinished(500);
      QCoreApplication::processEvents();
-     qDebug() << "Waiting...";
   }
   if ( tP->exitCode() != 0 )
   {
@@ -75,10 +74,24 @@ void MainWindow::startSudo()
   sudoProc->start(program, arguments);
   sudoProc->write(passwordLineEdit->text().toLatin1() + "\n");
   connect( sudoProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotProcDone() ) );
+  connect( sudoProc, SIGNAL(readyReadStandardError()), this, SLOT(slotPrintStdErr() ) );
+  connect( sudoProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotPrintStdOut() ) );
   while(sudoProc->state() == QProcess::Starting ) {
      sudoProc->waitForFinished(500);
      QCoreApplication::processEvents();
   }
+}
+
+void MainWindow::slotPrintStdErr()
+{
+  QTextStream cout(stderr); 
+  cout << sudoProc->readAllStandardError();
+}
+
+void MainWindow::slotPrintStdOut()
+{
+  QTextStream cout(stdout); 
+  cout << sudoProc->readAllStandardOutput();
 }
 
 void MainWindow::slotProcDone()
