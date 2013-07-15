@@ -298,6 +298,17 @@ check_installconfig() {
 
 # Check if we need to build the world environment
 check_worldports() {
+	mkdir ${PXEWORLD}/usr/local/etc 2>/dev/null
+	cp /etc/resolv.conf ${PXEWORLD}/etc/
+	cp /usr/local/etc/pkg.conf ${PXEWORLD}/usr/local/etc/
+	cp /usr/local/etc/pkg-pubkey.cert ${PXEWORLD}/usr/local/etc/
+
+	# Start by adding pcbsd-utils
+	pkg -c ${PXEWORLD} install -y pcbsd-utils
+
+ 	# If we are not doing a desktop we can stop here
+	if [ "$SYSTYPE" != "desktop" ] ; then return; fi
+
 	if [ -e "${PXEWORLD}/usr/local/bin/xv" ] ; then return ; fi
 
 	if [ ! -d "${PXEWORLD}/usr/ports/x11/xorg" -a ! -d "/usr/ports/x11/xorg" ] ; then
@@ -477,10 +488,10 @@ fi
 # Start by setting up a new buildworld
 check_world
 
-if [ "$SYSTYPE" = "desktop" ] ; then
-  # Build the ports inside the world environment
-  check_worldports
-else
+# Build the ports inside the world environment
+check_worldports
+
+if [ "$SYSTYPE" != "desktop" ] ; then
   # Setup the installation directories
   check_installdirs
 fi

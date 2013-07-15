@@ -14,11 +14,11 @@ do_installwiz() {
   case $ANS in
        back) return ;;
 	*) echo "Ready to begin installation using command:"
-	   echo "pc-sysinstall -c /installscripts/${ANS}" 
+	   echo "/usr/local/sbin/pc-sysinstall -c /installscripts/${ANS}" 
 	   echo -e "Continue? (y/n) \c"
 	   read tmp
 	   if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
-	      pc-sysinstall -c /installscripts/${ANS}
+	      /usr/local/sbin/pc-sysinstall -c /installscripts/${ANS}
 	   fi
 	   ;;
   esac
