@@ -1,6 +1,7 @@
 #include <qtranslator.h>
 #include <qlocale.h>
 #include <QApplication>
+#include <QDebug>
 #include <QFile>
 #include "mainwindow.h"
 #include "../config.h"
@@ -8,6 +9,11 @@
 int main(int argc, char *argv[])
 {   
     QApplication a(argc, argv);
+
+    if ( qApp->argc() <= 1 ) {
+       qDebug() << "Error: Need to specify argument to run!";
+       exit(1);
+    }
 
     QTranslator translator;
     QLocale mylocale;
