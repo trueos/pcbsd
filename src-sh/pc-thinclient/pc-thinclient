@@ -306,6 +306,9 @@ check_worldports() {
 
 	# Start by adding pcbsd-utils
 	pkg -c ${PXEWORLD} install -y pcbsd-utils
+	
+	# Remove old pc-sysinstall so we use new one in /usr/local/sbin
+	rm ${PXEWORLD}/usr/sbin/pc-sysinstall 2>/dev/null
 
  	# If we are not doing a desktop we can stop here
 	if [ "$SYSTYPE" != "desktop" ] ; then return; fi
