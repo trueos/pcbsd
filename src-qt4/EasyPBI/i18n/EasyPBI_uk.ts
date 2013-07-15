@@ -349,7 +349,7 @@
         </message>
         <message>
             <source>FIles to be linked into the local system</source>
-            <translation type="unfinished">Файли, що будуть посилатися на локальну систему</translation>
+            <translation>Файли, що будуть посилатися на локальну систему</translation>
         </message>
         <message>
             <source>Current Entries</source>
@@ -361,7 +361,7 @@
         </message>
         <message>
             <source>Link To</source>
-            <translation type="unfinished">Посилання на</translation>
+            <translation>Посилання на</translation>
         </message>
         <message>
             <source>File Type</source>

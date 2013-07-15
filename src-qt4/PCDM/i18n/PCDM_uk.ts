@@ -5,19 +5,19 @@
         <name>FancySwitcher</name>
         <message>
             <source>Alt+Left</source>
-            <translation type="unfinished">Alt+Стрілка вліво</translation>
+            <translation>Alt+Стрілка вліво</translation>
         </message>
         <message>
             <source>Alt+Right</source>
-            <translation type="unfinished">Alt+Стрілка вправо</translation>
+            <translation>Alt+Стрілка вправо</translation>
         </message>
         <message>
             <source>Alt+Up</source>
-            <translation type="unfinished">Alt+Стрілка вгору</translation>
+            <translation>Alt+Стрілка вгору</translation>
         </message>
         <message>
             <source>Alt+Down</source>
-            <translation type="unfinished">Alt+Стрілка вниз</translation>
+            <translation>Alt+Стрілка вниз</translation>
         </message>
     </context>
     <context>
