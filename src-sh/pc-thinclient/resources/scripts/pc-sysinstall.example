@@ -31,10 +31,10 @@ distFiles=base games doc kernel lib32
 rootPass=root
 
 # Setup our users
-userName=kris
-userComment=Kris Moore
-userPass=kris
+userName=pcbsd
+userComment=PC-BSD Test User
+userPass=pcbsd
 userShell=/bin/csh
-userHome=/home/kris
+userHome=/home/pcbsd
 userGroups=wheel,operator
 commitUser
