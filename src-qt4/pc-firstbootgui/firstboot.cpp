@@ -414,7 +414,7 @@ void Installer::saveSettings()
       stream << linePW->text();
     ufile.close();
   }
-  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator\"";
+  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator,vboxusers\"";
   system("cat " + ufile.fileName().toLatin1() + userCmd.toLatin1());
   ufile.remove();
 
