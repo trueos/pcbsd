@@ -352,10 +352,6 @@ check_world() {
   # Default pcbsd.conf file
   PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
-  # Set the mirror URL
-  get_mirror
-  MIRRORURL="$VAL"
-
   # Set the system arch type
   if [ "$SYSTYPE" = "desktop" ] ; then
     # If building remote X server, we don't need to run amd64
@@ -373,7 +369,7 @@ check_world() {
   echo "Fetching FreeBSD environment. This may take a while..."
   for i in $dFiles
   do
-    echo "Downloading ${MIRRORURL}/${SYSVER}/${ARCH}/dist/${i} ..."
+    echo "Downloading ${SYSVER}/${ARCH}/dist/${i} ..."
     
     get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/${i}" "$i" "iso"
     [ $? -ne 0 ] && exit_err "Error while downloading the freebsd world."
