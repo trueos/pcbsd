@@ -2,7 +2,7 @@
 Encoding=UTF-8
 # The names/descriptions should really be better
 Exec=/usr/local/bin/startlxde
-TryExec=/usr/local/bin/startlxde
+TryExec=/usr/local/bin/lxsession
 Icon=/usr/local/share/pixmaps/lxde.png
 Type=Application
 Name=LXDE
