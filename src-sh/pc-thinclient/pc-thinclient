@@ -476,6 +476,7 @@ if [ "$DHCPTYPE" = "internal" ] ; then
 else
   # Install without dhcpd
   ignore_dhcpd
+fi
 
 # Start by setting up a new buildworld
 check_world
@@ -528,5 +529,4 @@ else
   echo ""
   echo "Then you can begin to use PXE Boot."
   exit 0
-fi
 fi
