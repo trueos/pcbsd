@@ -74,8 +74,8 @@ fi
 # sux requires xterm to ask for the password.
 # xdg-su is basically like this script, except worse :)
 # su-to-root is a debian/ubuntu official method (although gksu is available).
-gnome_sus="pc-su qsu su-to-root gnomesu gksu kdesu beesu xdg-su sux";
-kde_sus="pc-su qsu su-to-root kdesu gnomesu gksu beesu xdg-su sux";
+gnome_sus="pc-su qsudo su-to-root gnomesu gksu kdesu beesu xdg-su sux";
+kde_sus="pc-su qsudo su-to-root kdesu gnomesu gksu beesu xdg-su sux";
 other_sus="$gnome_sus";
 
 
@@ -151,7 +151,7 @@ elif [ "$found_su" = "su-to-root" ]; then
 elif [ "$found_su" = "pc-su" ]; then
 	full_cmd="$found_su '$EXEC_BIN $final_args_quoted'";
 
-elif [ "$found_su" = "qsu" ]; then
+elif [ "$found_su" = "qsudo" ]; then
 	full_cmd="$found_su '$EXEC_BIN $final_args_quoted'";
 
 else  # gnomesu, kdesu, xdg-su
