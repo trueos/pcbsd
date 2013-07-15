@@ -525,20 +525,6 @@ void mainWin::slotGetNGInstalledPkgs() {
     pkgDepList << p.readLine().simplified();
   }
 
-  qDebug() << "Building reverse dependancy lists...";
-  pkgRDepList.clear();
-  if ( wDir.isEmpty() )
-    p.start("pkg", QStringList() << "rquery" << "-a" << "%n-%v:::%rn-%rv");
-  else
-    p.start("chroot", QStringList() << wDir << "pkg" << "rquery" << "-a" << "%n-%v:::%rn-%rv" );
-  while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
-      p.waitForFinished(200);
-      QCoreApplication::processEvents();
-  }
-  while (p.canReadLine()) {
-    pkgRDepList << p.readLine().simplified();
-  }
-
   getNGProc = new QProcess();
   qDebug() << "Searching for installed pkgs...";
   connect( getNGProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotGetNGInstalledDataOutput()) );
@@ -742,6 +728,23 @@ void mainWin::applyNGChanges()
       confirmText+= "\n\n" + tr("The following packages that require the above packages will also removed:") + "\n"; 
       confirmText+= "------------------------------------------\n";
       for ( int i=0; i < rmPkgs.size(); ++i) {
+	
+	 // Get rdeps for this pkg
+         qDebug() << "Building reverse dependancy lists...";
+         pkgRDepList.clear();
+	 QProcess p;
+         if ( wDir.isEmpty() )
+           p.start("pkg", QStringList() << "rquery" << "%n-%v:::%rn-%rv" << rmPkgs.at(i));
+         else
+           p.start("chroot", QStringList() << wDir << "pkg" << "rquery" << "%n-%v:::%rn-%rv" << rmPkgs.at(i) );
+         while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
+           p.waitForFinished(200);
+           QCoreApplication::processEvents();
+         }
+         while (p.canReadLine()) {
+           pkgRDepList << p.readLine().simplified();
+         }
+
 	 QRegExp rx(rmPkgs.at(i) + ":::*");
          rx.setPatternSyntax(QRegExp::Wildcard);
          QStringList rDeps = pkgRDepList.filter(rx);
