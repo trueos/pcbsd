@@ -29,7 +29,7 @@ SUBDIRS+= libpcbsd \
 	 pc-welcome \
 	 pc-xgui \
 	 warden-gui \
-	 qsu \
+	 qsudo \
          EasyPBI \ 
          PCDM
 
