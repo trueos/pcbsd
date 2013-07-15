@@ -315,46 +315,30 @@ check_worldports() {
 
 	if [ -e "${PXEWORLD}/usr/local/bin/xv" ] ; then return ; fi
 
-	if [ ! -d "${PXEWORLD}/usr/ports/x11/xorg" -a ! -d "/usr/ports/x11/xorg" ] ; then
-		exit_err "Missing /usr/ports/x11/xorg, please checkout ports tree to continue"
-	fi 
+	# Install Xorg
+	pkg -c ${PXEWORLD} install -y xorg
 
-	if [ ! -d "${PXEWORLD}/usr/ports/x11/xorg" ] ; then
-		rm -rf "${PXEWORLD}/usr/ports"
-		echo "Copying /usr/ports -> ${PXEWORLD}/usr/ports"
-		cp -r /usr/ports ${PXEWORLD}/usr/ports
+	# Need to install / use GDM on the base system
+	if [ ! -e "/usr/local/sbin/gdm" ] ; then
+	  	pkg install -y gdm
 	fi
 
-	# Building ports inside world
-	mount -t devfs devfs ${PXEWORLD}/dev
-	cp /etc/resolv.conf ${PXEWORLD}/etc/resolv.conf
-	echo "BATCH=yes" >> ${PXEWORLD}/etc/make.conf
-	echo '#!/bin/sh
-
-/etc/rc.d/ldconfig start
-chmod 777 /tmp
-MACHINE=i386 ; export MACHINE
-UNAME_p=i386 ; export UNAME_p
-UNAME_m=i386 ; export UNAME_m
-
-for p in $WORLDPORTS
-do
-	cd /usr/ports/$p
-	make install
-	if [ "$?" != "0" ] ; then
-		exit 1
+	# Disable PCDM since it doesn't do XDMCP
+	grep -q '^pcdm_enable="NO"' /etc/rc.conf
+	if [ $? -ne 0 ] ; then
+       	 	echo 'pcdm_enable="NO"' >> /etc/rc.conf
 	fi
-done
-' > ${PXEWORLD}/.mkports.sh
 
-	chmod 755 ${PXEWORLD}/.mkports.sh
-	chroot ${PXEWORLD} /.mkports.sh
-	if [ "$?" != "0" ] ; then
-		exit_err "Failed building thinclient world ports!"
+	# Enable GDM for its XDMCP support
+	grep -q '^gdm_enable="YES"' /etc/rc.conf
+	if [ $? -ne 0 ] ; then
+       	 	echo 'gdm_enable="YES"' >> /etc/rc.conf
 	fi
-	rm ${PXEWORLD}/.mkports.sh
-	umount ${PXEWORLD}/dev
 
+	# Copy GDM pam & rc files
+	cp ${PROGDIR}/resources/gdm/gdm-pam /usr/local/etc/pam.d/gdm
+	cp ${PROGDIR}/resources/gdm/gdm-rc /usr/local/etc/rc.d/gdm
+	cp ${PROGDIR}/resources/gdm/custom.conf /usr/local/etc/gdm/custom.conf
 }
 
 # Check if we need to build the world environment
@@ -368,12 +352,7 @@ check_world() {
   PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
   # Set the system arch type
-  if [ "$SYSTYPE" = "desktop" ] ; then
-    # If building remote X server, we don't need to run amd64
-    ARCH="i386"
-  else
-    ARCH="`uname -m`"
-  fi
+  ARCH="`uname -m`"
 
   local dFiles="base.txz doc.txz kernel.txz games.txz"
   if [ "$ARCH" = "amd64" ] ; then
@@ -513,9 +492,8 @@ fi
 
 if [ "$SYSTYPE" = "desktop" ] ; then
   echo ""
-  echo "You will now need to enable remote desktop."
-  echo "This can be done via the PC-BSD Control Panel -> GDM Configuration"
-  echo "or by manually editing /usr/local/etc/gdm/custom.conf"
+  echo "You will need to reboot the system for the login manager changes"
+  echo "to take effect."
 else
   echo ""
   echo "To perform system installations, place your custom pc-sysinstall scripts in:"

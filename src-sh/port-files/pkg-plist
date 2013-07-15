@@ -497,6 +497,9 @@ share/pcbsd/pc-xdgutil/desktop-dirs/pcbsd-science.directory
 share/pcbsd/pc-xdgutil/desktop-dirs/pcbsd-utilities-peripherals.directory
 share/pcbsd/pc-xdgutil/desktop-dirs/pcbsd-games-kids.directory
 share/pcbsd/pc-xdgutil/desktop-dirs/pcbsd-editors.directory
+share/pcbsd/pc-thinclient/resources/gdm/gdm-rc
+share/pcbsd/pc-thinclient/resources/gdm/gdm-pam
+share/pcbsd/pc-thinclient/resources/gdm/custom.conf
 share/pcbsd/pc-thinclient/resources/scripts/pc-sysinstall.example
 share/pcbsd/pc-thinclient/resources/scripts/wallpaper.png
 share/pcbsd/pc-thinclient/resources/scripts/tcsinstall.sh
@@ -714,6 +717,7 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/pc-thinclient/resources/etc
 @dirrm share/pcbsd/pc-thinclient/resources/scripts/cardDetect
 @dirrm share/pcbsd/pc-thinclient/resources/scripts
+@dirrm share/pcbsd/pc-thinclient/resources/gdm
 @dirrm share/pcbsd/pc-thinclient/resources
 @dirrm share/pcbsd/pc-thinclient
 @dirrm share/pcbsd/de-profiles
