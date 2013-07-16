@@ -149,7 +149,6 @@ bool XProcess::startXSession(){
   environ.insert("MAIL","/var/mail/"+xuser); //Set the mail variable
   environ.insert("GROUP",xuser); //Set the proper group id
   environ.insert("SHLVL","0"); //Set the proper shell level
-  environ.insert("DISPLAY",":0"); //Set the proper shell level
   environ.insert("HOME",xhome); //Set the users home directory
   this->setProcessEnvironment(environ);
   this->setWorkingDirectory(xhome); //set the current directory to the user's home directory
@@ -238,6 +237,7 @@ void XProcess::startDesktop(){
   setenv("MAIL",QString("/var/mail/"+xuser).toUtf8(),1);
   setenv("GROUP",xuser.toUtf8(),1);
   setenv("HOME",xhome.toUtf8(),1);
+  setenv("SHELL",pw->pw_shell,1);
   setenv("SHLVL","0",1);
   chdir(xhome.toUtf8()); //move to home dir
    
