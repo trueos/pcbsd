@@ -230,8 +230,7 @@
         </message>
         <message>
             <source>Unable to suggest a partition for the detected disk.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nie udało się zasugerować układu partycji dla wykrytego dysku.</translation>
         </message>
         <message>
             <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
@@ -239,8 +238,7 @@
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">
-             {1G?}</translation>
+            <translation>Wybrany dysk / partycja jest mniejsza niż sugerowane %1GB. Instalacja może się nie udać...</translation>
         </message>
     </context>
     <context>
@@ -688,13 +686,11 @@
         </message>
         <message>
             <source>Enter SWAP size</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Podaj wielkość partycji SWAP</translation>
         </message>
         <message>
             <source>Size (MB)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rozmiar (MB)</translation>
         </message>
     </context>
     <context>

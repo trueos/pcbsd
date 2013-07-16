@@ -189,53 +189,43 @@
         </message>
         <message>
             <source>Create a custom wrapper script for a program binary</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stwórz własny wrapper script dla pliku wykonywalnego programu</translation>
         </message>
         <message>
             <source>Wrapper Script</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wrapper Script</translation>
         </message>
         <message>
             <source>Save the wrapper script</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zapisz wrapper script</translation>
         </message>
         <message>
             <source>Save Script</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zapisz skrypt</translation>
         </message>
         <message>
             <source>Resource Icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ikona zasobów</translation>
         </message>
         <message>
             <source>Resource Description</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Opis zasobów</translation>
         </message>
         <message>
             <source>XDG Entries</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wpisy XDG</translation>
         </message>
         <message>
             <source>Set any desktop/menu entries, and any MIME types</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ustaw dowolne wpisy pulpitu/menu, i dowolne typy MIME</translation>
         </message>
         <message>
             <source>Create and edit desktop entries</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Stwórz i edytuj wpisy pulpitu</translation>
         </message>
         <message>
             <source>Desktop</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pulpit</translation>
         </message>
         <message>
             <source>Create and edit menu entries</source>

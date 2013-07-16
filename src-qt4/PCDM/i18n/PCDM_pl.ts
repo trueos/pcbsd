@@ -5,230 +5,187 @@
         <name>FancySwitcher</name>
         <message>
             <source>Alt+Left</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Lewo</translation>
         </message>
         <message>
             <source>Alt+Right</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Prawo</translation>
         </message>
         <message>
             <source>Alt+Up</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Góra</translation>
         </message>
         <message>
             <source>Alt+Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Dół</translation>
         </message>
     </context>
     <context>
         <name>LoginWidget</name>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wybierz</translation>
         </message>
         <message>
             <source>Select an alternate user and clear the password field</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wybierz kolejnego użytkownika i wyczyść pole hasła</translation>
         </message>
         <message>
             <source>Select this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wybierz tego użytkownika</translation>
         </message>
         <message>
             <source>Login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Login</translation>
         </message>
         <message>
             <source>Login to the system with the current user and password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Loguj się  do systemu z aktualnym użytkownikem i hasłem</translation>
         </message>
         <message>
             <source>Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hasło</translation>
         </message>
         <message>
             <source>Hold to view the currently entered password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Przytrzymaj aby zobaczyć aktualnie wprowadzone hasło</translation>
         </message>
         <message>
             <source>Login password for the selected user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hasło logowania dla wybranego użytkownika</translation>
         </message>
         <message>
             <source>Available users</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dostępni użytkownicy</translation>
         </message>
         <message>
             <source>Login to %1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Logowanie do %1</translation>
         </message>
     </context>
     <context>
         <name>PCDMgui</name>
         <message>
             <source>Virtual Keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wirtualna klawiatura</translation>
         </message>
         <message>
             <source>Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lokalizacja</translation>
         </message>
         <message>
             <source>Change locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zmień lokalizację</translation>
         </message>
         <message>
             <source>Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Układ klawiatury</translation>
         </message>
         <message>
             <source>Change Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zmień układ klawiatury</translation>
         </message>
         <message>
             <source>System</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>System</translation>
         </message>
         <message>
             <source>Tip: Make sure that caps-lock is turned off.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sugestia: Miej pewność że CAPSLOCK nie jest włączony</translation>
         </message>
         <message>
             <source>Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Restart</translation>
         </message>
         <message>
             <source>Shut Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wyłącz</translation>
         </message>
         <message>
             <source>Close PCDM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamknij PCDM</translation>
         </message>
         <message>
             <source>Shutdown the computer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wyłącz komputer</translation>
         </message>
         <message>
             <source>Invalid Username/Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Niepoprawna nazwa użytkownika/hasło</translation>
         </message>
         <message>
             <source>Username/Password combination is invalid, please try again.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kombinacja nazwy użytkownika/hasła jest niepoprawna, spróbuj jeszcze raz</translation>
         </message>
         <message>
             <source>System Shutdown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wyłączenie systemu</translation>
         </message>
         <message>
             <source>You are about to shut down the system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamierzasz wyłączyć system.</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Jesteś pewny?</translation>
         </message>
         <message>
             <source>System Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Restart Systemu</translation>
         </message>
         <message>
             <source>You are about to restart the system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamierzasz restartować system.</translation>
         </message>
     </context>
     <context>
         <name>widgetKeyboard</name>
         <message>
             <source>Keyboard Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ustawienia klawiatury</translation>
         </message>
         <message>
             <source>Key Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Układ klawiszy</translation>
         </message>
         <message>
             <source>Variant</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wariant</translation>
         </message>
         <message>
             <source>Keyboard Model</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Model klawiatury</translation>
         </message>
         <message>
             <source>( you may type into the space below to test your selected settings. )</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>( możesz pisać w oknie poniżej aby sprawdzic wybrane ustawienia )</translation>
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Zatwierdź</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Zamknij</translation>
         </message>
     </context>
     <context>
         <name>widgetLocale</name>
         <message>
             <source>Select Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wybierz lokalizację</translation>
         </message>
         <message>
             <source>Current Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Obecna lokalizacja</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zatwierdź</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Anuluj</translation>
         </message>
     </context>
 </TS>

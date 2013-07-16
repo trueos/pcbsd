@@ -95,103 +95,83 @@
         </message>
         <message>
             <source>Jail Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Konfiguracja Celi</translation>
         </message>
         <message>
             <source>IPv4</source>
-            <translation type="unfinished">
-            </translation>
+            <translation type="unfinished">IPv4</translation>
         </message>
         <message>
             <source>IPv4 Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Adres IPv4</translation>
         </message>
         <message>
             <source>IPv4 Bridge Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Adres mostu IPv4</translation>
         </message>
         <message>
             <source>IPv4 Default Router</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Domyślny router IPv4</translation>
         </message>
         <message>
             <source>IPv6</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6</translation>
         </message>
         <message>
             <source>IPv6 Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Adres IPv6</translation>
         </message>
         <message>
             <source>IPv6 Bridge Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Adres mostu IPv6</translation>
         </message>
         <message>
             <source>IPv6 Default Router</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Domyślny router IPv6</translation>
         </message>
         <message>
             <source>Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aliasy</translation>
         </message>
         <message>
             <source>IPv4 Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aliasy IPv4</translation>
         </message>
         <message>
             <source>IPv4 Bridge Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aliasy mostu IPv4</translation>
         </message>
         <message>
             <source>IPv6 Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aliasy IPv6</translation>
         </message>
         <message>
             <source>IPv6 Bridge Aliases</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Aliasy mostu IPv6</translation>
         </message>
         <message>
             <source>Permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uprawnienia</translation>
         </message>
         <message>
             <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Następujące uprawnienia będą włączone lub wyłączone dla tej celi. Więcej szczegółów po podniesieniu każdej z nich lub w instrukcji dla Celi.</translation>
         </message>
         <message>
             <source>A process within the jail has access to System V IPC primitives.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Proces w celi ma dostęp do System V IPC primitives.</translation>
         </message>
         <message>
             <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>użytkownik root w celi może tworzyć surowe gniazda. umożliwia ping / traceroute.</translation>
         </message>
         <message>
             <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kiedy ten parametr jest ustawiony, tacy użytkownicy są traktowani jako uprzywilejowani i mogą manipulować flagami systemowymi plików do ograniczeń z kern.securelevel.</translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Uprzywilejowani użytkownicy z celi mogą montowaći odmontowywać systemy plików typów oznaczonych jako jail-friendly.</translation>
         </message>
         <message>
             <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>

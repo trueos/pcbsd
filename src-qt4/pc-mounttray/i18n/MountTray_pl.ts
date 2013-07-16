@@ -9,36 +9,30 @@
         </message>
         <message>
             <source>Mount Point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Punkt montowania</translation>
         </message>
         <message>
             <source>Filesystem</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>System plików</translation>
         </message>
         <message>
             <source>Used/Total</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Używane/Całość</translation>
         </message>
         <message>
             <source>Percent %</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Procent %</translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zamknij</translation>
         </message>
     </context>
     <context>
         <name>FSWatcher</name>
         <message>
             <source>Disk(s) Almost Full</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dysk(i) prawie pełny</translation>
         </message>
     </context>
     <context>
@@ -138,51 +132,42 @@ Nie można włączyć menadżera plików z prawami administratora</translation>
         </message>
         <message>
             <source>More Options</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Więcej opcji</translation>
         </message>
         <message>
             <source>View Disk Usage</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Pokaż wykorzystanie dysku</translation>
         </message>
         <message>
             <source>Change Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zmień ustawienia</translation>
         </message>
     </context>
     <context>
         <name>SettingsDialog</name>
         <message>
             <source>Mount Tray Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ustawienia tacki montowania</translation>
         </message>
         <message>
             <source>Monitor disk storage space</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Monitor wykorzystania przestrzeni dyskowej</translation>
         </message>
         <message>
             <source>Perform check on device notifications</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Przeprować test przy komunikacie urządzenia</translation>
         </message>
         <message>
             <source>Maximum time between checks (minutes)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Maksymalny czas między sprawdzeniami (minuty)</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Anuluj</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Zatwierdź</translation>
         </message>
     </context>
 </TS>

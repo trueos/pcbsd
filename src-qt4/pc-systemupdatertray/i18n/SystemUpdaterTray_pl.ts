@@ -97,13 +97,11 @@
         </message>
         <message>
             <source>Package updates available</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dostępne aktualizacje pakietów</translation>
         </message>
         <message>
             <source>Important package updates are available. Click here to install them!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ważne aktualizacje pakietów są dostępne. Kliknij tutaj aby je zainstalować!</translation>
         </message>
     </context>
 </TS>
