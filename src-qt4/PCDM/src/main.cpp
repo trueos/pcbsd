@@ -108,9 +108,16 @@ int runSingleSession(int argc, char *argv[]){
     PCDMgui w;
     //qDebug() << "Main GUI Created:" << QString::number(clock.elapsed())+" ms";
     splash.finish(&w); //close the splash when the GUI starts up
+
+    // Set full-screen dimensions
+    QRect dimensions = QApplication::desktop()->screenGeometry();
+    int wid = dimensions.width();     // returns desktop width
+    int hig = dimensions.height();    // returns desktop height
+    w.setGeometry(0, 0, wid, hig);
+
     //Set the proper size on the Application
-      w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
-      w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
+    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
+    w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
     //Setup the signals/slots to startup the desktop session
     QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString)) );
