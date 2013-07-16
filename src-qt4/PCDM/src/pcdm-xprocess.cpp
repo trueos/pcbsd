@@ -1,8 +1,15 @@
 /* PCDM Login Manager:
 *  Written by Ken Moore (ken@pcbsd.org) 2012/2013
+*  Modified by Kris Moore (kris@pcbsd.org) 2013
 *  Copyright(c) 2013 by the PC-BSD Project
 *  Available under the 3-clause BSD license
 */
+
+#include <sys/types.h>
+#include <unistd.h>
+#include <pwd.h>
+#include <login_cap.h>
+#include <QMessageBox>
 
 /*
 Sub-classed QProcess for starting an XSession Process
@@ -66,33 +73,71 @@ bool XProcess::startXSession(){
   
   //Check for PAM username/password validity
   if( !pam_checkPW() ){ emit InvalidLogin(); pam_shutdown(); return FALSE; }
+
+
+  //Save the current user/desktop as the last login
+  Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
+
+  // Get the users uid/gid information
+  struct passwd *pw;
+  int uid;
+  char *ok;
+
+  if (!(pw = getpwnam(xuser.toLatin1()))) {
+      uid = strtol(xuser.toLatin1(), &ok, 10);
+      if (!(pw = getpwuid(uid))) {
+    	  emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+          return FALSE;
+      }
+  }
+
+  // Get the environment before we drop priv
+  QProcessEnvironment environ = QProcessEnvironment::systemEnvironment(); //current environment
+
+  QWidget *wid = new QWidget();
+  if (setgid(pw->pw_gid) < 0) {
+      qDebug() << "setgid() failed!";
+      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+      return FALSE;
+  }
+
+  // Lets drop to user privs
+  if (setuid(pw->pw_uid) < 0) {
+      qDebug() << "setuid() failed!";
+      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+      return FALSE;
+  }
+
+  /*
+  struct login_cap *lc;
+  lc = login_getclass(pw->pw_class);
+  if (setusercontext(NULL, pw, pw->pw_uid, LOGIN_SETALL)) {
+  QMessageBox::warning(wid, "My Application", "setusercfailed", QMessageBox::Ok, QMessageBox::Ok);
+        emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+        return FALSE;
+  }
+  */
+
   //Startup the PAM session
   if( !pam_startSession() ){ pam_shutdown(); return FALSE; }
   pam_session_open = TRUE; //flag that pam has an open session
   
-  //Save the current user/desktop as the last login
-  Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
-  
- QString cmd;
+  QString cmd;
   // Configure the DE startup command
-  cmd = "su "+xuser+" -c \""; //switch user command to start QProcess properly
   //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
-    cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
+    //cmd.append(". "+xhome+"/.xprofile; ");  //make sure to start it in parallel
   }
   //  - Add the DE startup command to the end
-  cmd.append("dbus-launch --exit-with-session "+xcmd);
+  //cmd.append("dbus-launch --exit-with-session "+xcmd);
+  cmd.append(xcmd);
   //cmd.append("; kill -l KILL"); //to clean up the session afterwards
   // Get the current locale code
   QLocale mylocale;
   QString langCode = mylocale.name();
   
-  //  - Finish up the command formatting
-  cmd.append("\"");
-  
   //Backend::log("Startup command: "+cmd);
   // Setup the process environment
-  QProcessEnvironment environ = QProcessEnvironment::systemEnvironment(); //current environment
 
   // Setup any specialized environment variables
   // USER, HOME, and SHELL are set by the "su" login
@@ -106,14 +151,17 @@ bool XProcess::startXSession(){
   environ.insert("MAIL","/var/mail/"+xuser); //Set the mail variable
   environ.insert("GROUP",xuser); //Set the proper group id
   environ.insert("SHLVL","0"); //Set the proper shell level
+  environ.insert("DISPLAY",":0"); //Set the proper shell level
+  environ.insert("HOME",xhome); //Set the users home directory
   this->setProcessEnvironment(environ);
   this->setWorkingDirectory(xhome); //set the current directory to the user's home directory
   //Log the DE startup outputs as well
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
+  this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
   // Startup the process
+  QMessageBox::warning(wid, "My Application", "CMD: " + cmd, QMessageBox::Ok, QMessageBox::Ok);
   this->start(cmd);
   return TRUE;
- 
 }
 
 void XProcess::slotCleanup(int exitCode, QProcess::ExitStatus status){
@@ -131,40 +179,67 @@ void XProcess::startDesktop(){
   //Save the current user/desktop as the last login
   Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
   
+  // Get the users uid/gid information
+  struct passwd *pw;
+  int uid;
+  char *ok;
+
+  if (!(pw = getpwnam(xuser.toLatin1()))) {
+      uid = strtol(xuser.toLatin1(), &ok, 10);
+      if (!(pw = getpwuid(uid))) {
+    	  emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+          return;
+      }
+  }
+
+  if (setgid(pw->pw_gid) < 0) {
+      qDebug() << "setgid() failed!";
+      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+      return;
+  }
+
+  // Lets drop to user privs
+  if (setuid(pw->pw_uid) < 0) {
+      qDebug() << "setuid() failed!";
+      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+      return;
+  }
+
   QString cmd;
   // Configure the DE startup command
-  cmd = "su "+xuser+" -c \""; //switch user command to start QProcess properly
   //  - Setup to run the user's <home-dir>/.xprofile startup script
-  if(QFile::exists(xhome+"/.xprofile")){
-    cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
-  }
+  //if(QFile::exists(xhome+"/.xprofile")){
+  //  cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
+  //}
   //  - Add the DE startup command to the end
   cmd.append("dbus-launch --exit-with-session "+xcmd);
-  //cmd.append("; kill -l KILL"); //to clean up the session afterwards
+
   // Get the current locale code
   QLocale mylocale;
   QString langCode = mylocale.name();
   
   //Alternate way of starting a process using c library functions
  
-     //setup the environment variables
-     setenv("LOGNAME",xuser.toUtf8(),1);
-     setenv("USERNAME",xuser.toUtf8(),1);
-     QString pth = QString(getenv("PATH"))+":"+xhome+"/bin";
-     setenv("PATH",pth.toUtf8(),1);
-     if(langCode.toLower()=="c"){}
-     else if(QString(getenv("MM_CHARSET")).isEmpty() ){ langCode.append("."+QString(getenv("MM_CHARSET"))); }
-     else{ langCode.append(".UTF-8"); }
-     setenv("LANG",langCode.toUtf8(),1);
-     setenv("MAIL",QString("/var/mail/"+xuser).toUtf8(),1);
-     setenv("GROUP",xuser.toUtf8(),1);
-     setenv("SHLVL","0",1);
-     chdir(xhome.toUtf8()); //move to home dir
-     
-     //Now start the process
-     qDebug() << "Start the desktop";
-     system(cmd.toUtf8());
+  //setup the environment variables
+  setenv("LOGNAME",xuser.toUtf8(),1);
+  setenv("USERNAME",xuser.toUtf8(),1);
+  QString pth = QString(getenv("PATH"))+":"+xhome+"/bin";
+  setenv("PATH",pth.toUtf8(),1);
+  if(langCode.toLower()=="c"){}
+  else if(QString(getenv("MM_CHARSET")).isEmpty() ){ langCode.append("."+QString(getenv("MM_CHARSET"))); }
+  else{ langCode.append(".UTF-8"); }
+  setenv("LANG",langCode.toUtf8(),1);
+  setenv("MAIL",QString("/var/mail/"+xuser).toUtf8(),1);
+  setenv("GROUP",xuser.toUtf8(),1);
+  setenv("HOME",xhome.toUtf8(),1);
+  setenv("SHLVL","0",1);
+  chdir(xhome.toUtf8()); //move to home dir
+   
+  //Now start the process
+  qDebug() << "Start the desktop";
+  system(cmd.toLatin1());
 }
+
   
 void XProcess::setupDesktop(QString user, QString pwd, QString desktop){
   //Setup internal variables

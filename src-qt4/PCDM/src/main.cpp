@@ -31,13 +31,13 @@
 //#define prefix "/usr/local/"
 //#endif
 
-bool USECLIBS=false;
+bool USECLIBS=true;
 
 int runSingleSession(int argc, char *argv[]){
   //QTime clock;
   //clock.start();
   Backend::checkLocalDirs();  // Create and fill "/usr/local/share/PCDM" if needed
-  Backend::openLogFile("/usr/local/share/PCDM/PCDM.log");  
+  Backend::openLogFile("/var/log/PCDM.log");  
   //qDebug() << "Backend Checks Finished:" << QString::number(clock.elapsed())+" ms";
   //Check for the flag to try and auto-login
   bool ALtriggered = FALSE;
