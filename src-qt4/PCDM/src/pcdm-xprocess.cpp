@@ -244,7 +244,8 @@ void XProcess::startDesktop(){
   //Now start the process
   qDebug() << "Start the desktop";
   system(cmd.toLatin1());
-  system("logout");
+  pam_close_session(pamh, 0);
+  pam_end(pamh, PAM_SUCCESS);
 }
 
   
