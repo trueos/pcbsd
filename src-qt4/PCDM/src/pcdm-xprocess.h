@@ -31,11 +31,18 @@ class XProcess : public QProcess
 	~XProcess();
 	bool isRunning();
         void waitForSessionClosed();
+	
+	void startDesktop(); 
+	
   
   public slots:
-        void loginToXSession(QString, QString, QString, QString); //user, pwd, homedir, desktop
-  	
+        void loginToXSession(QString, QString, QString); //user, pwd, desktop
+  	void checkPW(QString,QString); //user, pwd
+	void setupDesktop(QString,QString,QString); //user, pwd, desktop
+	
   private:
+        int fstatus; //fork status
+        pid_t fpid;  //fork pid
 	QString xuser, xcmd, xhome, xpwd, xde;
   	bool startXSession();
 	
@@ -52,6 +59,7 @@ class XProcess : public QProcess
   	void slotCleanup(int, QProcess::ExitStatus);
 
   signals:
+	void ValidLogin();
   	void InvalidLogin();
 
 };

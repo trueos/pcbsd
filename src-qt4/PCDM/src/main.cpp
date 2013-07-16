@@ -13,7 +13,10 @@
 #include <QTime>
 #include <QDebug>
 #include <QX11Info>
-//#include <X11/Xlib.h>
+
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
 #include "pcdm-gui.h"
 #include "pcdm-backend.h"
@@ -27,6 +30,8 @@
 //#ifndef prefix
 //#define prefix "/usr/local/"
 //#endif
+
+bool USECLIBS=false;
 
 int runSingleSession(int argc, char *argv[]){
   //QTime clock;
@@ -73,7 +78,7 @@ int runSingleSession(int argc, char *argv[]){
     if( user.isEmpty() || dsk.isEmpty() ){
 	 goodAL=FALSE;   
     }else{
-	desktop.loginToXSession(user,pwd, Backend::getUserHomeDir(user), dsk);
+	desktop.loginToXSession(user,pwd, dsk);
 	splash.close();
 	if(desktop.isRunning()){
 	  goodAL=TRUE; //flag this as a good login to skip the GUI
@@ -120,10 +125,12 @@ int runSingleSession(int argc, char *argv[]){
     w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
     //Setup the signals/slots to startup the desktop session
-    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString)) );
+    if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
+    else{ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString)) ); }
     //Setup the signals/slots for return information for the GUI
     QObject::connect( &desktop, SIGNAL(InvalidLogin()), &w, SLOT(slotLoginFailure()) );
     QObject::connect( &desktop, SIGNAL(started()), &w, SLOT(slotLoginSuccess()) );
+    QObject::connect( &desktop, SIGNAL(ValidLogin()), &w, SLOT(slotLoginSuccess()) );
     
     //qDebug() << "Showing GUI:" << QString::number(clock.elapsed())+" ms";
     w.show();
@@ -131,7 +138,8 @@ int runSingleSession(int argc, char *argv[]){
   }  // end of PCDM GUI running
   int retcode = 0;
   //Wait for the desktop session to finish before exiting
-  desktop.waitForSessionClosed();
+  if(USECLIBS){ desktop.startDesktop(); }
+  else{ desktop.waitForSessionClosed(); }
   splash.show(); //show the splash screen again
   splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
   //check for shutdown process
@@ -150,8 +158,6 @@ int runSingleSession(int argc, char *argv[]){
   delete &desktop;
   delete &a;
   delete &splash;
-  //XSetCloseDownMode(QX11Info::display(), DestroyAll);
-  //XCLoseDisplay(QX11Info::display());
   
   
   return retcode;
@@ -160,14 +166,36 @@ int runSingleSession(int argc, char *argv[]){
 int main(int argc, char *argv[])
 {
  bool neverquit = TRUE;
- bool runonce = TRUE; //looping is currently not working yet - needs to restart X each time?
+ bool runonce = FALSE;
  if(argc==2){ if( QString(argv[1]) == "--once"){ runonce = TRUE; } }
   
  while(neverquit){
   if(runonce){ neverquit = FALSE; }
   qDebug() << " -- PCDM Session Starting...";
-  int retCode = runSingleSession(argc,argv);
-  if(retCode != 0){ neverquit=FALSE; }
+  int sid = -1;
+  int pid = fork();
+  if(pid < 0){
+    qDebug() << "Error: Could not fork the PCDM session";
+    return -1;
+  }else if( pid ==0 ){
+    //New Child Process
+    sid = setsid(); //start a session
+    qDebug() << "-- Session ID:" << sid;
+    int retCode = runSingleSession(argc,argv);
+    qDebug() << "-- PCDM Session Ended --";
+    //check for special exit code
+    if(retCode != 0){ neverquit=FALSE; }
+    //Now kill the shild process (whole session)
+    qDebug() << "Exiting child process";
+    exit(3);
+  }else{ 
+    //Parent (calling) process
+    int status;
+    sleep(2);
+    waitpid(sid,&status,0); //wait for the child (session) to finish
+  }
+  qDebug() << "-- PCDM Session Ended --";
+  if(QFile::exists("/var/run/nologin")){ neverquit = FALSE; } 
  }
  return 0;
 }

@@ -14,7 +14,7 @@
 #include "pcdm-backend.h"
 #include "fancySwitcher.h"
 
-bool DEBUG_MODE=FALSE;
+bool DEBUG_MODE=TRUE;
 QString VIRTUALKBDBIN="/usr/local/bin/xvkbd -compact";
 
 PCDMgui::PCDMgui() : QMainWindow()
@@ -256,13 +256,12 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   }else{
     desktop = deSwitcher->currentItem();
   }
-  QString homedir = Backend::getUserHomeDir(username);
   //Disable user input while confirming login
   loginW->setEnabled(FALSE);
   if(!simpleDESwitcher){ deSwitcher->setEnabled(FALSE); }
   toolbar->setEnabled(FALSE);
   //Try to login
-  emit xLoginAttempt(username, password, homedir, desktop);
+  emit xLoginAttempt(username, password, desktop);
   //Return signals are connected to the slotLogin[Success/Failure] functions
   
 }

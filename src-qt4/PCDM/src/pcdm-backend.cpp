@@ -75,7 +75,10 @@ QString Backend::getALPassword(){
 
 QString Backend::getUsernameFromDisplayname(QString dspname){
   int i = displaynameList.indexOf(dspname);
-  return usernameList[i];
+  if(i == -1){ i = usernameList.indexOf(dspname); }
+  
+  if(i == -1){ return ""; }
+  else{ return usernameList[i]; }
 }
 
 QString Backend::getDisplayNameFromUsername(QString username){

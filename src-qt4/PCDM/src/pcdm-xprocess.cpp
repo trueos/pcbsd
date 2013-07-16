@@ -29,11 +29,11 @@ XProcess::~XProcess(){
   this->close();
 }
 
-void XProcess::loginToXSession(QString username, QString password, QString homedir, QString desktop){
+void XProcess::loginToXSession(QString username, QString password, QString desktop){
   //Setup the variables
   xuser = username;
   xpwd = password;
-  xhome = homedir;
+  xhome = Backend::getUserHomeDir(xuser);
   xcmd = Backend::getDesktopBinary(desktop);
   xde = desktop;
   //Now start the login process
@@ -48,9 +48,8 @@ bool XProcess::isRunning(){
 void XProcess::waitForSessionClosed(){
   // CAUTION!! 
   // This function will pause the calling program to wait for the session to end!
-  if( isRunning() ){
-    this->waitForFinished(-1);
-  }
+  if( isRunning() ){ this->waitForFinished(-1); }
+
 }
 
 /*
@@ -74,21 +73,24 @@ bool XProcess::startXSession(){
   //Save the current user/desktop as the last login
   Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
   
+ QString cmd;
   // Configure the DE startup command
-  QString cmd = "su "+xuser+" -c \""; //switch user command to start process properly
+  cmd = "su "+xuser+" -c \""; //switch user command to start QProcess properly
   //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
     cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
   }
   //  - Add the DE startup command to the end
   cmd.append("dbus-launch --exit-with-session "+xcmd);
+  //cmd.append("; kill -l KILL"); //to clean up the session afterwards
+  // Get the current locale code
+  QLocale mylocale;
+  QString langCode = mylocale.name();
+  
   //  - Finish up the command formatting
   cmd.append("\"");
   
   //Backend::log("Startup command: "+cmd);
-  // Get the current locale code
-  QLocale mylocale;
-  QString langCode = mylocale.name();
   // Setup the process environment
   QProcessEnvironment environ = QProcessEnvironment::systemEnvironment(); //current environment
 
@@ -111,10 +113,85 @@ bool XProcess::startXSession(){
   // Startup the process
   this->start(cmd);
   return TRUE;
+ 
 }
 
 void XProcess::slotCleanup(int exitCode, QProcess::ExitStatus status){
   pam_shutdown(); //make sure that PAM shuts down properly	
+}
+
+//Start the desktop in the current process with C functions
+void XProcess::startDesktop(){
+  //Check for PAM username/password validity
+  if( !pam_checkPW() ){ qDebug() << "Invalid username/password"; pam_shutdown(); return; }
+  //Startup the PAM session
+  if( !pam_startSession() ){ qDebug() << "Unable to open PAM session"; pam_shutdown(); return; }
+  pam_session_open = TRUE; //flag that pam has an open session
+  
+  //Save the current user/desktop as the last login
+  Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
+  
+  QString cmd;
+  // Configure the DE startup command
+  cmd = "su "+xuser+" -c \""; //switch user command to start QProcess properly
+  //  - Setup to run the user's <home-dir>/.xprofile startup script
+  if(QFile::exists(xhome+"/.xprofile")){
+    cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
+  }
+  //  - Add the DE startup command to the end
+  cmd.append("dbus-launch --exit-with-session "+xcmd);
+  //cmd.append("; kill -l KILL"); //to clean up the session afterwards
+  // Get the current locale code
+  QLocale mylocale;
+  QString langCode = mylocale.name();
+  
+  //Alternate way of starting a process using c library functions
+ 
+     //setup the environment variables
+     setenv("LOGNAME",xuser.toUtf8(),1);
+     setenv("USERNAME",xuser.toUtf8(),1);
+     QString pth = QString(getenv("PATH"))+":"+xhome+"/bin";
+     setenv("PATH",pth.toUtf8(),1);
+     if(langCode.toLower()=="c"){}
+     else if(QString(getenv("MM_CHARSET")).isEmpty() ){ langCode.append("."+QString(getenv("MM_CHARSET"))); }
+     else{ langCode.append(".UTF-8"); }
+     setenv("LANG",langCode.toUtf8(),1);
+     setenv("MAIL",QString("/var/mail/"+xuser).toUtf8(),1);
+     setenv("GROUP",xuser.toUtf8(),1);
+     setenv("SHLVL","0",1);
+     chdir(xhome.toUtf8()); //move to home dir
+     
+     //Now start the process
+     qDebug() << "Start the desktop";
+     system(cmd.toUtf8());
+}
+  
+void XProcess::setupDesktop(QString user, QString pwd, QString desktop){
+  //Setup internal variables
+  xuser = Backend::getUsernameFromDisplayname(user);
+  xpwd = pwd;
+  xhome = Backend::getUserHomeDir(xuser);
+  xcmd = Backend::getDesktopBinary(desktop);
+  xde = desktop;
+  //Also check password  validity
+  bool ok = pam_checkPW();
+  pam_shutdown();
+  if(ok){ emit ValidLogin(); }
+  else{ emit InvalidLogin(); }
+}
+  
+  
+
+//Stand-alone function to check a username/password combination for validity
+void XProcess::checkPW(QString user, QString pwd){
+  xuser = Backend::getUsernameFromDisplayname(user); 
+  xpwd = pwd;
+  bool ok = pam_checkPW();
+  pam_shutdown();
+  xuser.clear();
+  xpwd.clear();
+  if(ok){ emit ValidLogin(); }
+  else{ emit InvalidLogin(); }
 }
 
 /*
