@@ -101,22 +101,20 @@ bool XProcess::startXSession(){
       return FALSE;
   }
 
+  // Setup our other groups
+  if (initgroups(xuser.toLatin1(), pw->pw_gid) < 0) {
+      qDebug() << "initgroups() failed!";
+      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+      setgid(0);
+      return FALSE;
+  }
+
   // Lets drop to user privs
   if (setuid(pw->pw_uid) < 0) {
       qDebug() << "setuid() failed!";
       emit InvalidLogin();  //Make sure the GUI knows that it was a failure
       return FALSE;
   }
-
-  /*
-  struct login_cap *lc;
-  lc = login_getclass(pw->pw_class);
-  if (setusercontext(NULL, pw, pw->pw_uid, LOGIN_SETALL)) {
-  QMessageBox::warning(wid, "My Application", "setusercfailed", QMessageBox::Ok, QMessageBox::Ok);
-        emit InvalidLogin();  //Make sure the GUI knows that it was a failure
-        return FALSE;
-  }
-  */
 
   //Startup the PAM session
   if( !pam_startSession() ){ pam_shutdown(); return FALSE; }
@@ -198,6 +196,14 @@ void XProcess::startDesktop(){
       return;
   }
 
+  // Setup our other groups
+  if (initgroups(xuser.toLatin1(), pw->pw_gid) < 0) {
+      qDebug() << "initgroups() failed!";
+      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
+      setgid(0);
+      return;
+  } 
+
   // Lets drop to user privs
   if (setuid(pw->pw_uid) < 0) {
       qDebug() << "setuid() failed!";
@@ -208,9 +214,9 @@ void XProcess::startDesktop(){
   QString cmd;
   // Configure the DE startup command
   //  - Setup to run the user's <home-dir>/.xprofile startup script
-  //if(QFile::exists(xhome+"/.xprofile")){
-  //  cmd.append("(/bin/sh "+xhome+"/.xprofile) &; ");  //make sure to start it in parallel
-  //}
+  if(QFile::exists(xhome+"/.xprofile")){
+    cmd.append(". "+xhome+"/.xprofile; ");  //make sure to start it in parallel
+  }
   //  - Add the DE startup command to the end
   cmd.append("dbus-launch --exit-with-session "+xcmd);
 
@@ -238,6 +244,7 @@ void XProcess::startDesktop(){
   //Now start the process
   qDebug() << "Start the desktop";
   system(cmd.toLatin1());
+  system("logout");
 }
 
   
