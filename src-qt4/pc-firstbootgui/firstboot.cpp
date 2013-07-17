@@ -137,6 +137,8 @@ void Installer::slotCheckUser()
      return;
   if ( lineUsername->text().isEmpty() )
      return;
+  if ( lineUsername->text().contains(" ") )
+     return;
   else if( getpwnam(lineUsername->text().toUtf8()) != NULL )
      return;
   if ( linePW->text().isEmpty() )
