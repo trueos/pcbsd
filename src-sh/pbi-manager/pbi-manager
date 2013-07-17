@@ -5227,6 +5227,7 @@ check_pbi_update() {
 	_urepo="${7}"
 	_omdate="${8}"
 
+	_uprog="`echo ${_uprog} | tr -d ' '`"
 	appname="`echo ${_uprog} | tr '[:lower:]' '[:upper:]'`"
 
 	PBI_UPNVER=""
@@ -5281,16 +5282,16 @@ check_pbi_update() {
 	# See if this update is newer than the installed date
 	if [ -n "$_omdate" ] ; then
 		nDay=`echo $PBI_UPMDATE | cut -d ' ' -f 1`
-		nHour=`echo $PBI_UPMDATE | cut -d ' ' -f 2`
-		oDay=`echo $_omdate | cut -d ' ' -f 1`
-		oHour=`echo $_omdate | cut -d ' ' -f 2`
-
+	 	nHour=`echo $PBI_UPMDATE | cut -d ' ' -f 2`
+	 	oDay=`echo $_omdate | cut -d ' ' -f 1`
+	 	oHour=`echo $_omdate | cut -d ' ' -f 2`
+         
 		# Make sure we have all legit numbers
-		if [ $(is_num "$nDay") -a $(is_num "$nHour") \
-			-a $(is_num "$oDay") -a $(is_num "$oHour") ] ; then
-			if [ $oDay -gt $nDay ] ; then return 1 ; fi
-			if [ "$oDay" = "$nDay" -a $oHour -gt $nHour ] ; then return 1 ; fi
-		fi
+	 	if [ $(is_num "$nDay") -a $(is_num "$nHour") \
+	 		-a $(is_num "$oDay") -a $(is_num "$oHour") ] ; then
+	 		if [ $oDay -gt $nDay ] ; then return 1 ; fi
+	 		if [ "$oDay" = "$nDay" -a $oHour -gt $nHour ] ; then return 1 ; fi
+	 	fi
 	fi
 
 	if [ "$PBI_UPNVER" != "$PBI_PROGVERSION" ] ; then
