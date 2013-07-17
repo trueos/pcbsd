@@ -915,6 +915,9 @@ bool PBIBackend::loadSettings(){
  void PBIBackend::slotProcessFinished(int ID){
    bool resync = FALSE;
    if(ID == ProcessManager::UPDATE){
+     //Update the PBIHASH for installed versions
+     slotSyncToDatabase(TRUE);
+     //Check that the old version is no longer installed
      if(!isInstalled(cUpdate).isEmpty()){
        //Error completing the update - old version still installed
        QString title = QString(tr("%1 Update Error:")).arg(PBIHASH[cUpdate].name);
