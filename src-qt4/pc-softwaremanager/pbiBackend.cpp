@@ -917,14 +917,6 @@ bool PBIBackend::loadSettings(){
    if(ID == ProcessManager::UPDATE){
      //Update the PBIHASH for installed versions
      slotSyncToDatabase(TRUE);
-     //Check that the old version is no longer installed
-     if(!isInstalled(cUpdate).isEmpty()){
-       //Error completing the update - old version still installed
-       QString title = QString(tr("%1 Update Error:")).arg(PBIHASH[cUpdate].name);
-       QString err = tr("The PBI could not be updated, please try again later");
-       QStringList log = PMAN->getProcessLog(ProcessManager::UPDATE);
-       emit Error(title,err,log);
-     }
      cUpdate.clear(); //remove that it is finished
      sUpdate=FALSE;
      resync=TRUE;

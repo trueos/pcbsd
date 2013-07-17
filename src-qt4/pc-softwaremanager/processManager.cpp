@@ -194,7 +194,7 @@ void ProcessManager::slotUpProcMessage(){
 }
 
 void ProcessManager::slotUpProcFinished(){
-  if(upProc->exitStatus() != QProcess::NormalExit){
+  if(upProc->exitStatus() != QProcess::NormalExit || upProc->exitCode() != 0){
     //Emit the command log
     qDebug() << "Update Process Error Log:\n"<<upLog.join("\n");
     emit ProcessError(UPDATE, upLog);
