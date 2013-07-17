@@ -1,16 +1,22 @@
 [Desktop Entry]
 Encoding=UTF-8
 Version=1.0
-Name=Oracle VM VirtualBox
-GenericName=Virtual Machine
 Type=Application
 Exec=pc-su VirtualBox
 TryExec=VirtualBox
 Icon=VBox
 Categories=Emulator;System;
+Name=Oracle VM VirtualBox
+Name[fr]=Oracle VM VirtualBox
+Name[fr_CA]=Oracle VM VirtualBox
+GenericName=Virtual Machine
+GenericName[fr]=Machine Virtuelle
+GenericName[fr_CA]=Machine Virtuelle
 Comment=Run several virtual systems on a single host computer
 Comment[de]=Windows und andere Betriebssysteme unter FreeBSD ausführen
+Comment[fr]=Exécuter plusieurs systèmes virtuels sur un seul ordinateur hôte
+Comment[fr_CA]=Exécuter plusieurs systèmes virtuels sur un seul ordinateur hôte
 Comment[it]=Esegui più macchine virtuali su un singolo computer
+Comment[ko]=가상 머신
 Comment[pl]=Uruchamianie wielu systemów wirtualnych na jednym komputerze gospodarza
 Comment[sv]=Kör flera virtuella system på en enda värddator
-Comment[ko]=가상 머신
