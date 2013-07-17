@@ -153,6 +153,7 @@ int main(int argc, char **argv)
     int i=1;
     while(i < argc){
       targv[i] = argv[i];
+      //printf( "Arg: %s \n", targv[i]);
       i++;
     }
     targv[i] = '\0';
