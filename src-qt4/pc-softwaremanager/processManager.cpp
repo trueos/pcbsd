@@ -187,6 +187,8 @@ void ProcessManager::slotUpProcMessage(){
   while( upProc->canReadLine() ){
     QString line = upProc->readLine().simplified();
     if(line.isEmpty()){ continue; }
+    // Change status back to "Updating..."
+    emit ProcessMessage(UPDATE,QString());
     QString dl = parseDlLine(line);
     if(!dl.isEmpty()){ emit ProcessMessage(UPDATE,dl); }
     else{ upLog << line; } //not a download line - add to the log

@@ -74,7 +74,7 @@ class LargeItemWidget : public QWidget{
     virtual ~LargeItemWidget(){}
     
   protected:
-    void mousePressEvent(QMouseEvent *ev){ sendSignal(); }  
+    void mousePressEvent(QMouseEvent *ev){ Q_UNUSED(ev); sendSignal(); }  
  
   	  
 };

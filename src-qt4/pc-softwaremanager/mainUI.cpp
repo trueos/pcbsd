@@ -130,7 +130,7 @@ void MainUI::on_actionAppCafe_Settings_triggered(){
 void MainUI::initializeInstalledTab(){
   //Setup the action menu for installed applications
   actionMenu = new QMenu();
-    actionMenu->addAction( QIcon(":icons/view-refresh.png"), tr("Upgrade"), this, SLOT(slotActionUpdate()) );
+    actionMenu->addAction( QIcon(":icons/view-refresh.png"), tr("Update"), this, SLOT(slotActionUpdate()) );
     actionMenu->addSeparator();
     QMenu *dmenu = actionMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
       dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
@@ -363,7 +363,7 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
       ui->tool_install_remove->setVisible(TRUE);
       if(rootonly){ ui->tool_install_remove->setIcon(QIcon(":icons/remove-root.png")); }
       else{ ui->tool_install_remove->setIcon(QIcon(":icons/remove.png")); }
-      //Upgrade button
+      //Update
       if(PBI->upgradeAvailable(appID).isEmpty()){ ui->tool_install_update->setVisible(FALSE); }
       else{
         ui->tool_install_update->setVisible(TRUE); 
@@ -697,8 +697,8 @@ void MainUI::slotGoToApp(QString appID){
     ui->tool_bapp_download->setText(tr("Install Now!"));
     ico = ":icons/app_download.png";
     ui->tool_bapp_download->setEnabled(TRUE);
-  }else if(useLatest){ //Upgrade available
-    ui->tool_bapp_download->setText(tr("Upgrade"));
+  }else if(useLatest){ //Update available
+    ui->tool_bapp_download->setText(tr("Update"));
     ico = ":icons/app_upgrade.png";
     ui->tool_bapp_download->setEnabled(TRUE);
   }else if(!nobackup){  //Downgrade available
