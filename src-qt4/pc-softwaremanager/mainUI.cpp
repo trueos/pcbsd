@@ -270,6 +270,30 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
     if(itemID == pbiID){
       QString stat = PBI->PBIInfo(pbiID,QStringList()<<"status").join("");
       ui->tree_install_apps->topLevelItem(i)->setText(2,stat);
+      // See if we need to update the download progress bar
+      QString appID;
+      if(ui->tree_install_apps->topLevelItemCount() > 0){
+         appID = ui->tree_install_apps->currentItem()->whatsThis(0);
+      }
+      if ( appID == pbiID && stat.contains("Downloading:")) {
+	QString done, tot, display, speed; 
+	bool ok, ok2;
+	display = stat.section(" ", 2, 3);
+	done = stat.section(" ", 2, 2).section("/", 0, 0).section(".", 0, 0);
+	tot = stat.section(" ", 2, 2).section("/", 1, 1).section(".", 0, 0);
+	speed = stat.section(" ", 6, 7);
+	done.toInt(&ok);
+	tot.toInt(&ok2);
+	//qDebug() << done << tot << speed;
+	if ( !ok || !ok2)
+	  return;
+	ui->progressStatus->setVisible(true);
+	ui->progressStatus->setRange(0, tot.toInt(&ok));
+	ui->progressStatus->setValue(done.toInt(&ok));
+	ui->labelDL->setVisible(true);
+	ui->labelDL->setText(display + " @ " + speed);
+      }
+      return; // Found our match, we can return now
     }
   }
 }
@@ -309,6 +333,11 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   }else{
     ui->group_install_info->setVisible( ui->group_install_showinfo->isChecked() );	  
   }
+
+  // Hide the progress bar, it will re-appear when we need it
+  ui->progressStatus->setVisible(false);
+  ui->labelDL->setVisible(false);
+
   //Get the PBI info for that item
   QStringList vals; 
   vals << "name" << "icon" << "author" << "website" << "version" << "license";

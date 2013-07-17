@@ -202,19 +202,6 @@ border-radius: 5px;
               <bool>true</bool>
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
-              <item row="1" column="2" rowspan="2">
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
               <item row="1" column="1" rowspan="2">
                <layout class="QFormLayout" name="formLayout">
                 <property name="fieldGrowthPolicy">
@@ -453,6 +440,33 @@ border-radius: 5px;
                  </widget>
                 </item>
                </layout>
+              </item>
+              <item row="1" column="2" rowspan="2">
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="3" column="0" colspan="3">
+               <widget class="QProgressBar" name="progressStatus">
+                <property name="value">
+                 <number>24</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLabel" name="labelDL">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
@@ -1136,8 +1150,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>447</width>
-                    <height>61</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                  </widget>
@@ -1261,7 +1275,7 @@ spacing: 1px;
      <x>0</x>
      <y>0</y>
      <width>509</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
