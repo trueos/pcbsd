@@ -2544,8 +2544,7 @@ patch_merge_bsdiffs()
 		sha1="`sha256 -q ${PBI_PATCHWRKDIR}/${_tFile}`"
 		sha2="`cat ${PBI_EXTRACTDIR}/${_tFile}.sha256`"
 		if [ "$sha1" != "$sha2" ] ; then
-			echo "Warning: Checksum failed for ${_tFile}, skipping."
-			continue
+			exit_err "Error: Checksum failed for ${_tFile}, you may need to re-install this PBI."
 		fi
 
 		_fPerm=`stat -f %Op "${PBI_PATCHWRKDIR}/${_tFile}"  | cut -c 3-6`
@@ -5333,6 +5332,7 @@ do_pbi_update() {
 			rm "${PBI_DBAPPDIR}/${PBI_UPDATEAPP}/.updating"
 		fi
 		start_pbi_updateapp "single"
+		exit $?
 	fi
 }
 
@@ -5404,7 +5404,7 @@ start_pbi_updateapp() {
 	fi
 	if [ -z "${PBI_REPO}" ]; then
 		rm "${PBI_DBAPPDIR}/${PBI_UPDATEAPP}/.updating"
-		return
+		return 1
 	else
 		local _repoID=`ls ${PBI_DBREPODIR}/*.${PBI_REPO} | cut -d '.' -f 1 | sed "s|${PBI_DBREPODIR}/||g"`
 	fi
