@@ -204,7 +204,7 @@ get_file_from_mirrors()
    
    # Running from a non GUI?
    if [ "$GUI_FETCH_PARSING" != "YES" -a "$PBI_FETCH_PARSING" != "YES" -a -z "$PCFETCHGUI" ] ; then
-      aria2c -k 5M ${aStat} --check-certificate=false --file-allocation=none -d "${aDir}" -o "${aFile}" ${mirrorList}
+      aria2c ${aStat} --check-certificate=false --file-allocation=none -d "${aDir}" -o "${aFile}" ${mirrorList}
       return $?
    fi
 
@@ -219,11 +219,12 @@ get_file_from_mirrors()
    _time=1
    if [ -z "$_fSize" ] ; then _fSize=0; fi
 
-   ( aria2c -o ${aFile} -d ${aDir} -k 5M ${aStat} --check-certificate=false --file-allocation=none ${mirrorList} >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
+   ( aria2c -o ${aFile} -d ${aDir} ${aStat} --check-certificate=false --file-allocation=none ${mirrorList} >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
    FETCH_PID=$!
    while : 
    do
       if [ -e "${_lf}" ] ; then
+         sync
          _dSize=`du -k ${_lf} | tr -d '\t' | cut -d '/' -f 1`
          if [ $(is_num "$_dSize") ] ; then
             if [ ${_fSize} -lt ${_dSize} ] ; then _dSize="$_fSize" ; fi
