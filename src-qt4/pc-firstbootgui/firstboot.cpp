@@ -6,6 +6,9 @@
 #include <pcbsd-netif.h>
 #include <pcbsd-utils.h>
 
+#include <sys/types.h>
+#include <pwd.h>
+
 #include "backend.h"
 #include "ui_firstboot.h"
 #include "firstboot.h"
@@ -133,6 +136,8 @@ void Installer::slotCheckUser()
   if ( lineName->text().isEmpty() )
      return;
   if ( lineUsername->text().isEmpty() )
+     return;
+  else if( getpwnam(lineUsername->text().toUtf8()) != NULL )
      return;
   if ( linePW->text().isEmpty() )
      return;
