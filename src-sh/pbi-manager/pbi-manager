@@ -5517,7 +5517,8 @@ pbi_update_dl() {
 
 			# Strip the /PBI from the mirror URL
 			_uFile="`echo ${_uFile} | sed 's|^/PBI||g'`"
-			
+		  	if [ -e "$_dl_loc" ] ; then rm "$_dl_loc" ; fi	
+
 			get_file_from_mirrors "${_uFile}" "$_dl_loc" "pbi"
 			if [ "$?" != "0" ]  ; then 
 				rm "${_dl_loc}" >/dev/null 2>/dev/null
@@ -5526,6 +5527,7 @@ pbi_update_dl() {
 			fi
 		else
 			_furl="`echo $_cMirror | sed 's/\/*$//'`${_uFile}"
+		  	if [ -e "$_dl_loc" ] ; then rm "${_dl_loc}" ; fi	
 
 			echo "Downloading ${_furl}"
 			pbi_get_file "$_furl" "$_dl_loc"
