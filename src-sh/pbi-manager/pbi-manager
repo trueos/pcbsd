@@ -5537,6 +5537,8 @@ pbi_update_dl() {
 				continue
 			fi
 		fi
+		sync
+		sleep 1
 		_upcsum=`sha256 -q "$_dl_loc"`
 		if [ "$_CKSUM" != "OFF" -a "$_upcsum" != "$PBI_UPCSUM" ] ; then
 			rm "${_dl_loc}" >/dev/null 2>/dev/null
