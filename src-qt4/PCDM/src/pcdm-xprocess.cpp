@@ -6,6 +6,7 @@
 */
 
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <pwd.h>
 #include <login_cap.h>
@@ -175,6 +176,22 @@ void XProcess::startDesktop(){
   
   //Save the current user/desktop as the last login
   Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
+
+  // We will now fork off, so the child can drop root perms and do its thing
+  int pid = fork();
+  if(pid < 0){
+    Backend::log("Error: Could not fork for user permissions");
+    return;
+  }else if( pid !=0 ){
+    //Parent (calling) process
+    int status;
+    sleep(2);
+    waitpid(pid,&status,0); //wait for the child (session) to finish
+
+    // Child is all done, lets close down the pam session and cleanup
+    pam_shutdown();
+    exit(0);
+  }
   
   // Get the users uid/gid information
   struct passwd *pw;
@@ -242,10 +259,7 @@ void XProcess::startDesktop(){
   chdir(xhome.toUtf8()); //move to home dir
    
   //Now start the process
-  qDebug() << "Start the desktop";
   system(cmd.toLatin1());
-  pam_close_session(pamh, 0);
-  pam_end(pamh, PAM_SUCCESS);
 }
 
   
