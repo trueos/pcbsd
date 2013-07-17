@@ -5438,7 +5438,7 @@ start_pbi_updateapp() {
 		pbi_patch "$PBI_UPDLFILE" #>/dev/null 2>/dev/null
 		if [ "$?" != "0" ] ; then
 			# Patching failed, we'll grab a fresh copy next
-			echo "Failed to patch with ${PBI_UPDLFILE}"
+			echo "Failed to patch with ${_pFile}"
 			echo "Will try full file update"
 		else
 			echo "Patch successful!"
