@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=pc-su pc-gdmconf
+TryExec=pc-gdmconf
+Keywords="gdm,login,login window,auto login,autologin,xdmcp,remote login,login timout"
+Icon=/usr/local/share/pcbsd/icons/pc-dmconf.png
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=System;Settings;
+Name=GDM Manager

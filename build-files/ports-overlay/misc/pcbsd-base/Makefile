@@ -125,6 +125,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		virtualbox-ose-kmod>=0:${PORTSDIR}/emulators/virtualbox-ose-kmod \
 		virtualbox-ose-additions>=0:${PORTSDIR}/emulators/virtualbox-ose-additions \
 		x11vnc>=0:${PORTSDIR}/net/x11vnc \
+		gdm>=0:${PORTSDIR}/x11/gdm \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2
 
 NO_BUILD=	yes

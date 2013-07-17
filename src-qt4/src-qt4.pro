@@ -11,7 +11,7 @@ SUBDIRS+= libpcbsd \
 	 pc-crashhandler \
 	 pc-cupscfg \
 	 pc-firstbootgui \
-	 pc-dmconf \
+	 pc-gdmconf \
 	 pc-mounttray \
 	 pc-netmanager \
 	 pc-pbigui \
