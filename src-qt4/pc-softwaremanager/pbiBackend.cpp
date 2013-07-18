@@ -1191,7 +1191,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
          app.localIcon=localIcon; app.author=info[3]; app.website=info[4];
          app.license=info[5]; app.appType=info[6]; app.tags=info[7].toLower().split(","); 
          app.description=info[8];
-         if(info[9]=="true"){ app.requiresroot=TRUE; }
+         if(info[9]=="YES"){ app.requiresroot=TRUE; }
          else{ app.requiresroot=FALSE; }
          //Fix the website if needed
          if(app.website.endsWith("/")){ app.website.chop(1); }
