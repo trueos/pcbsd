@@ -271,7 +271,7 @@ void PBIBackend::installApp(QStringList appID){
       dlfile = APPHASH[appID[i]].latestFilename;
       if(QFile::exists(dlDir+dlfile)){ //If the file was downloaded previously just use it
         needDownload=FALSE; 
-        cmd = generateInstallCMD(dlfile);
+        cmd = generateInstallCMD(appID[i], dlfile);
       }else{ 
         cmd = generateDownloadCMD(appID[i], version); //need to download the file first 
       } 
@@ -283,7 +283,7 @@ void PBIBackend::installApp(QStringList appID){
       else{ 
         if(QFile::exists(dlDir+dlfile)){ //If the file was downloaded previously just use it
           needDownload=FALSE; 
-          cmd = generateInstallCMD(dlfile);
+          cmd = generateInstallCMD(appID[i], dlfile);
         }else{ 
           cmd = generateDownloadCMD(appID[i], version); //need to download the file first 
         } 
@@ -797,8 +797,9 @@ bool PBIBackend::loadSettings(){
    return output;
  }
  
- QString PBIBackend::generateInstallCMD(QString filename){
+ QString PBIBackend::generateInstallCMD(QString appID, QString filename){
    QString output = "pbi_add --licagree "+filename;
+   output = addRootCMD(output, PBIHASH[appID].rootInstall);
    return output;
  }
  
@@ -973,7 +974,7 @@ bool PBIBackend::loadSettings(){
            PENDINGINSTALL << otherID+":::"+cmd; //make sure it happens before the install, so put it in the same queue
          }
          //Now add the installation of this PBI to the queue
-         cmd = generateInstallCMD(PBIHASH[cDownload].downloadfile);
+         cmd = generateInstallCMD(cDownload, PBIHASH[cDownload].downloadfile);
          PENDINGINSTALL << cDownload+":::"+cmd;
        }
      }
@@ -1210,7 +1211,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
          app.localIcon=localIcon; app.author=info[3]; app.website=info[4];
          app.license=info[5]; app.appType=info[6]; app.tags=info[7].toLower().split(","); 
          app.description=info[8];
-         if(info[9]=="YES"){ app.requiresroot=TRUE; }
+         if(info[9]=="true"){ app.requiresroot=TRUE; }
          else{ app.requiresroot=FALSE; }
          //Fix the website if needed
          if(app.website.endsWith("/")){ app.website.chop(1); }
