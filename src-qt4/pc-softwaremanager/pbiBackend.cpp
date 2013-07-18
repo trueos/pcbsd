@@ -204,8 +204,8 @@ void PBIBackend::cancelActions(QStringList pbiID){
       //Now cancel any current operations for this pbiID
       if(cDownload==pbiID[i]){ sDownload=TRUE; PMAN->stopProcess(ProcessManager::DOWNLOAD); }
       if(cUpdate==pbiID[i]){ sUpdate=TRUE; PMAN->stopProcess(ProcessManager::UPDATE); }
-      if(cRemove==pbiID[i]){ sRemove=TRUE; PMAN->stopProcess(ProcessManager::REMOVE); }
-      if(cInstall==pbiID[i]){ sInstall=TRUE; }// PMAN->stopProcess(ProcessManager::INSTALL); }
+      if(cRemove==pbiID[i]){ sRemove=TRUE; }
+      if(cInstall==pbiID[i]){ sInstall=TRUE; }
       //Ignore OTHER process - those commands are pretty much instant
     }
   }
