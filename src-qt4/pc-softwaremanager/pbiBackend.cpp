@@ -205,7 +205,7 @@ void PBIBackend::cancelActions(QStringList pbiID){
       if(cDownload==pbiID[i]){ sDownload=TRUE; PMAN->stopProcess(ProcessManager::DOWNLOAD); }
       if(cUpdate==pbiID[i]){ sUpdate=TRUE; PMAN->stopProcess(ProcessManager::UPDATE); }
       if(cRemove==pbiID[i]){ sRemove=TRUE; PMAN->stopProcess(ProcessManager::REMOVE); }
-      if(cInstall==pbiID[i]){ sInstall=TRUE; PMAN->stopProcess(ProcessManager::INSTALL); }
+      if(cInstall==pbiID[i]){ sInstall=TRUE; }// PMAN->stopProcess(ProcessManager::INSTALL); }
       //Ignore OTHER process - those commands are pretty much instant
     }
   }
@@ -921,11 +921,23 @@ bool PBIBackend::loadSettings(){
      sUpdate=FALSE;
      resync=TRUE;
    }else if(ID == ProcessManager::REMOVE){
+     if(sRemove){
+       //Removal Cancelled: Re-install the PBI
+       QString metaid = PBIHASH[cRemove].metaID; //get the metaID
+       slotSyncToDatabase(TRUE);
+       sleep(1);
+       installApp(QStringList() << PBIHASH[cRemove].metaID);
+     }
      sRemove=FALSE;
      cRemove.clear(); //remove that it is finished	   
    }else if(ID == ProcessManager::INSTALL){
      //Add XDG commands to the queue
-     if(!sInstall){  // do not continue on if it was cancelled
+     if(sInstall){
+       //Installation Cancelled: remove the PBI now that the install is complete
+       QString cmd = generateRemoveCMD(cInstall);
+       PENDINGREMOVAL << cInstall+":::"+cmd;
+     }else{  
+       // Installation NOT canceled
        qDebug() << "Installation Finished:" << cInstall;
        if(!keepDownloads){ QFile::remove(dlDir+PBIHASH[cInstall].downloadfile); }
        //Generate XDG commands
@@ -938,7 +950,14 @@ bool PBIBackend::loadSettings(){
    }else if(ID == ProcessManager::DOWNLOAD){
      //Make sure the download was successful
      //qDebug() << "dlDir:" << dlDir << "file:" << PBIHASH[cDownload].downloadfile;
-     if(!sDownload){  // do not continue on if it was cancelled
+     if(sDownload){
+       //Download Cancelled: remove the (partially) downloaded file
+       QString fPath = dlDir+PBIHASH[cDownload].downloadfile;
+       if(QFile::exists(fPath)){
+	 QFile::remove(fPath);
+       }
+     }else{
+       //Download not cancelled
        if(!QFile::exists(dlDir+PBIHASH[cDownload].downloadfile)){
          qDebug() << "Download Error:" << cDownload << PBIHASH[cDownload].downloadfile;
          QString title = QString(tr("%1 Download Error:")).arg(PBIHASH[cDownload].name);
