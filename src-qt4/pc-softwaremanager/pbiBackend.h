@@ -115,7 +115,7 @@ private:
 	QString generateAutoUpdateCMD(QString pbiID, bool enable);
 	QString generateXDGCMD(QString pbiID, QStringList actions, bool allusers = FALSE);
 	QString generateDownloadCMD(QString appID, QString version="");
-	QString generateInstallCMD(QString pbiID);
+	QString generateInstallCMD(QString appID, QString pbiID);
 	QStringList removePbiCMD(QString pbiID, QStringList list);
 	
 private slots:
