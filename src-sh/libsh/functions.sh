@@ -43,10 +43,15 @@ download_cache_packages()
   fi
   export PKG_CACHEDIR
 
+  # Where are the packages on our mirrors?
+  cat /usr/local/etc/pkg.conf | grep -q "^packagesite:"
+  if [ $? -ne 0 ] ; then
+     exit_err "Failed getting packagesite:"
+  fi
+  pkgUrl="`grep '^packagesite:' /usr/local/etc/pkg.conf | awk '{print $2}'`"
+
   PKGREL=`uname -r | cut -d '-' -f 1-2`
 
-  # Where are the packages on our mirrors?
-  pkgUrl="/${PKGREL}/${ARCH}"
 
   if [ ! -d "$PKG_CACHEDIR/All" ] ; then
      mkdir -p ${PKG_CACHEDIR}/All
@@ -65,9 +70,9 @@ download_cache_packages()
 	#dSize=`ls -al `
 	rm ${PKG_CACHEDIR}/All/${i} ; 
     fi
-    get_file_from_mirrors "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}" "pkg"
+    get_file "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}"
     if [ $? -ne 0 ] ; then
-      echo "Failed downloading: /${pkgUrl}/All/${i}"
+      echo "Failed downloading: ${pkgUrl}/All/${i}"
       return 1
     fi
   done
@@ -280,6 +285,7 @@ get_file() {
 		_fSize="`expr ${_fSize} / 1024 2>/dev/null`"
 		rm "/tmp/.fetch-size.$$" 2>/dev/null
 		_time=1
+   		if [ -z "$_fSize" ] ; then _fSize=0; fi
 
 		( fetch -r -o "${_lf}" "${_rf}" >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
 		FETCH_PID=`ps -auwwwx | grep -v grep | grep "fetch -r -o ${_lf}" | awk '{print $2}'`
@@ -630,7 +636,7 @@ run_firstboot()
   fi
 
   # Start first-boot wizard
-  /usr/local/bin/pc-firstboot
+  /usr/local/bin/pc-firstboot >/var/log/pc-firstbootwiz 2>/var/log/pc-firstbootwiz
   if [ $? -eq 0 ] ; then
     rm /var/.pcbsd-firstgui
   fi

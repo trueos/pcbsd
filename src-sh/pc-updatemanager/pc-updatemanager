@@ -454,7 +454,7 @@ start_major_fbsd_update() {
 
   # Lets download the new pkgng for this release
   if [ -e "/usr/local/tmp/pkg.txz" ] ; then rm /usr/local/tmp/pkg.txz; fi
-  pc-pkg getfile -o /usr/local/tmp/pkg.txz /packages/$rel/$arch/Latest/pkg.txz
+  get_file_from_mirrors "/packages/$rel/$arch/Latest/pkg.txz" "/usr/local/tmp/pkg.txz" "pkg"
   if [ $? -ne 0 ] ; then
      rollback_update
      exit_err "Failed downloading pkgng update..."
@@ -487,6 +487,7 @@ start_major_fbsd_update() {
   fi
 
   # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
+  SKIP_CACHE_PKGS="YES" ; export SKIP_CACHE_PKGS
   pc-updatemanager pkgupdate -f
 
   echo "Major update finished!" 
@@ -555,8 +556,11 @@ update_pkgs()
      exit_err "Invalid option $1 passed"
   fi
 
-  # Lets pre-download all the packages
-  download_cache_packages "pkg-static upgrade -U -n $1"
+  # If we aren't instructed to skip the package cache process
+  if [ -z "$SKIP_CACHE_PKGS" ] ; then
+    # Lets pre-download all the packages
+    download_cache_packages "pkg-static upgrade -U -n $1"
+  fi
 
   check_pkg_conflicts "upgrade -U -F -y $1"
   if [ $? -ne 0 ] ; then
