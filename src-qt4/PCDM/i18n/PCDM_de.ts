@@ -5,41 +5,34 @@
         <name>FancySwitcher</name>
         <message>
             <source>Alt+Left</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Links</translation>
         </message>
         <message>
             <source>Alt+Right</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Rechts</translation>
         </message>
         <message>
             <source>Alt+Up</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Hoch</translation>
         </message>
         <message>
             <source>Alt+Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Runter</translation>
         </message>
     </context>
     <context>
         <name>LoginWidget</name>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Auswahl</translation>
         </message>
         <message>
             <source>Select an alternate user and clear the password field</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Einen alternativen Benutzer auswählen und das Passwortfeld leeren</translation>
         </message>
         <message>
             <source>Select this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Diesen Benutzer auswählen</translation>
         </message>
         <message>
             <source>Login</source>
@@ -68,8 +61,7 @@
         </message>
         <message>
             <source>Available users</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Verfügbare Benutzer</translation>
         </message>
         <message>
             <source>Login to %1</source>
@@ -81,8 +73,7 @@
         <name>PCDMgui</name>
         <message>
             <source>Virtual Keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Virtuelle Tastatur</translation>
         </message>
         <message>
             <source>Locale</source>
@@ -96,13 +87,11 @@
         </message>
         <message>
             <source>Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tastaturbelegung</translation>
         </message>
         <message>
             <source>Change Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tastaturbelegung ändern      </translation>
         </message>
         <message>
             <source>System</source>
@@ -116,33 +105,27 @@
         </message>
         <message>
             <source>Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Neustart</translation>
         </message>
         <message>
             <source>Shut Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Herunterfahren</translation>
         </message>
         <message>
             <source>Close PCDM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PCDM beenden</translation>
         </message>
         <message>
             <source>Shutdown the computer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Rechner herunterfahren</translation>
         </message>
         <message>
             <source>Invalid Username/Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ungültiger Benutzername/Passwort</translation>
         </message>
         <message>
             <source>Username/Password combination is invalid, please try again.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Benutzername und Passwortkombination sind ungültig. Bitte erneut versuchen.</translation>
         </message>
         <message>
             <source>System Shutdown</source>
@@ -156,8 +139,7 @@
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sind Sie sicher?</translation>
         </message>
         <message>
             <source>System Restart</source>
