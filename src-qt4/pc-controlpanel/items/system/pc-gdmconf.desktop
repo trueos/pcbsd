@@ -12,3 +12,7 @@ TerminalOptions=
 Type=Application
 Categories=System;Settings;
 Name=GDM Manager
+Name[fr]=Gestionnaire GDM
+Name[fr_CA]=Gestionnaire GDM
+Name[uk]=Налаштування GDM
+Name[zh_CN]=GDM管理器
