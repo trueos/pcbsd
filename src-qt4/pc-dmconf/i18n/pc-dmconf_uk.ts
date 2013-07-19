@@ -1,52 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="uk_UA">
-<context>
-    <name>MainWindow</name>
-    <message>
-        <location filename="../mainwindow.ui" line="14"/>
-        <source>Login Manager Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="29"/>
-        <source>Auto login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="35"/>
-        <source>Enable auto login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="42"/>
-        <source>Auto login user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="92"/>
-        <source>Remote login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="98"/>
-        <source>Enable XDMCP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="137"/>
-        <source>Save</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="143"/>
-        <source>Password Request</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="144"/>
-        <source>Please enter the login password for this user</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
+<TS>
+    <context>
+        <name>MainWindow</name>
+        <message>
+            <source>Login Manager Settings</source>
+            <translation>Налаштування входу до системи</translation>
+        </message>
+        <message>
+            <source>Auto login</source>
+            <translation>Автоматичний вхід</translation>
+        </message>
+        <message>
+            <source>Enable auto login</source>
+            <translation>Увімкнути автоматичний вхід</translation>
+        </message>
+        <message>
+            <source>Auto login user</source>
+            <translation>Користувач для автоматичного входу</translation>
+        </message>
+        <message>
+            <source>Remote login</source>
+            <translation>Віддалений вхід</translation>
+        </message>
+        <message>
+            <source>Enable XDMCP</source>
+            <translation>Увімкнути XDMCP</translation>
+        </message>
+        <message>
+            <source>Save</source>
+            <translation>Зберегти</translation>
+        </message>
+        <message>
+            <source>Password Request</source>
+            <translation>Запит паролю</translation>
+        </message>
+        <message>
+            <source>Please enter the login password for this user</source>
+            <translation>Будьласка введіть пароль для цього користувача</translation>
+        </message>
+    </context>
 </TS>

@@ -5,99 +5,81 @@
         <name>FancySwitcher</name>
         <message>
             <source>Alt+Left</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Left</translation>
         </message>
         <message>
             <source>Alt+Right</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Right</translation>
         </message>
         <message>
             <source>Alt+Up</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Up</translation>
         </message>
         <message>
             <source>Alt+Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Down</translation>
         </message>
     </context>
     <context>
         <name>LoginWidget</name>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择</translation>
         </message>
         <message>
             <source>Select an alternate user and clear the password field</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择其它用户并清空密码区域</translation>
         </message>
         <message>
             <source>Select this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选择此用户</translation>
         </message>
         <message>
             <source>Login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>登陆</translation>
         </message>
         <message>
             <source>Login to the system with the current user and password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>以当前的用户名和密码登陆系统</translation>
         </message>
         <message>
             <source>Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>密码</translation>
         </message>
         <message>
             <source>Hold to view the currently entered password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>按住显示当前输入的密码</translation>
         </message>
         <message>
             <source>Login password for the selected user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>选定用户的登陆密码</translation>
         </message>
         <message>
             <source>Available users</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>可选的用户</translation>
         </message>
         <message>
             <source>Login to %1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>登陆到%1</translation>
         </message>
     </context>
     <context>
         <name>PCDMgui</name>
         <message>
             <source>Virtual Keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>虚拟键盘</translation>
         </message>
         <message>
             <source>Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Locale</translation>
         </message>
         <message>
             <source>Change locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>更改locale</translation>
         </message>
         <message>
             <source>Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>键盘布局</translation>
         </message>
         <message>
             <source>Change Keyboard Layout</source>
