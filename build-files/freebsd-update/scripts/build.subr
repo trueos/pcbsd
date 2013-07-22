@@ -414,7 +414,9 @@ applypatches () {
 # Note that the RELEASE= line is modified by src/release/Makefile
 # at release time.
 patchnewvers () {
-	sed -i "" -E "s,^(BRANCH=.*)\",\1$2\","			\
+	# KPM 7-22-2013 - If we already have -p2 or something set, lets overwrite it
+	oVer="`grep ^BRANCH= ${WORKDIR}/${1}/usr/src/sys/conf/newvers.sh | cut -d '"' -f 2 | cut -d '-' -f 1`"
+	sed -i "" -E "s,^(BRANCH=.*)\",BRANCH=\"${oVer}${2}\","			\
 	    ${WORKDIR}/$1/usr/src/sys/conf/newvers.sh
 	sed -i "" -E 's,^(RELEASE=).*,\1"${REVISION}-${BRANCH}",'	\
 	    ${WORKDIR}/$1/usr/src/sys/conf/newvers.sh
