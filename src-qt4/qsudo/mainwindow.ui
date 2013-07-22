@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Reqesting System Permissions</string>
+   <string>Requesting System Permissions</string>
   </property>
   <property name="windowIcon">
    <iconset resource="qsudo.qrc">
