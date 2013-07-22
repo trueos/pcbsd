@@ -5,13 +5,11 @@
         <name>MainWindow</name>
         <message>
             <source>Reqesting System Permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Reqesting System Permissions</translation>
         </message>
         <message>
             <source>Please enter your user password to run this command with system permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Please enter your user password to run this command with system permissions</translation>
         </message>
     </context>
 </TS>

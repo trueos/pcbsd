@@ -5,48 +5,39 @@
         <name>MainWindow</name>
         <message>
             <source>Login Manager Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Login Manager Settings</translation>
         </message>
         <message>
             <source>Auto login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Auto login</translation>
         </message>
         <message>
             <source>Enable auto login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enable auto login</translation>
         </message>
         <message>
             <source>Auto login user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Auto login user</translation>
         </message>
         <message>
             <source>Remote login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Remote login</translation>
         </message>
         <message>
             <source>Enable XDMCP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Enable XDMCP</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Save</translation>
         </message>
         <message>
             <source>Password Request</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Password Request</translation>
         </message>
         <message>
             <source>Please enter the login password for this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Please enter the login password for this user</translation>
         </message>
     </context>
 </TS>

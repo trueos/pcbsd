@@ -10,8 +10,7 @@
         </message>
         <message>
             <source>Please enter your user password to run this command with system permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Пожалуйста, введите Ваш пароль, чтобы запустить эту команду с правами cистемы</translation>
         </message>
     </context>
 </TS>

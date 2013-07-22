@@ -227,23 +227,19 @@
         </message>
         <message>
             <source>Click arrows to change system selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Нажмите стрелки для изменения выбора системы</translation>
         </message>
         <message>
             <source>Unable to suggest a partition for the detected disk.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Невозможно предложить раздел для обнаруженного диска.</translation>
         </message>
         <message>
             <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Обнаружено, что Вы запустили 32-х битную версию. Если Ваша система способна 64 бита  (большинство систем сделанных после 2005 года), Вы на самом деле должны были запустить 64-х битной версию</translation>
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">
-             {1G?}</translation>
+            <translation>Выбранный диск / раздел меньше, чем рекомендуется %1GB. Установка может быть неудачной...</translation>
         </message>
     </context>
     <context>
@@ -691,13 +687,11 @@
         </message>
         <message>
             <source>Enter SWAP size</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Введите размер SWAP            </translation>
         </message>
         <message>
             <source>Size (MB)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Размер (МБ)</translation>
         </message>
     </context>
     <context>

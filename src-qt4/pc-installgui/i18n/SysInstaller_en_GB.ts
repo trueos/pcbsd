@@ -239,7 +239,7 @@
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">The selected disk / partition is less than recommended %1MB. The installation may fail... {1G?}</translation>
+            <translation>The selected disk / partition is less than recommended %1GB. The installation may fail...</translation>
         </message>
     </context>
     <context>

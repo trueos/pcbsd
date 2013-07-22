@@ -272,13 +272,11 @@
         </message>
         <message>
             <source>Proxy enabled</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Включить прокси</translation>
         </message>
         <message>
             <source>You may need to re-login for proxy settings to take effect.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Возможно, Вам придется заново войти что-бы настройки прокси-сервера вступили в силу.</translation>
         </message>
     </context>
 </TS>

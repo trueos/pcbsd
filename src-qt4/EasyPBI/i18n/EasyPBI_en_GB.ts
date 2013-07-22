@@ -765,23 +765,19 @@
         </message>
         <message>
             <source>Application needs administrator privileges to run</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Application needs administrator privileges to run</translation>
         </message>
         <message>
             <source>Requires Root</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Requires Root</translation>
         </message>
         <message>
             <source>Refresh Module</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Refresh Module</translation>
         </message>
         <message>
             <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Please open up the EasyPBI settings to correct this deficiency.</translation>
         </message>
     </context>
     <context>
@@ -1095,109 +1091,95 @@
         </message>
         <message>
             <source>FreeBSD Ports</source>
-            <translation type="unfinished">FreeBSD Ports</translation>
+            <translation>FreeBSD Ports</translation>
         </message>
         <message>
             <source>Ports Tree</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ports Tree</translation>
         </message>
         <message>
             <source>Last Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Last Update</translation>
         </message>
         <message>
             <source>TextLabel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>TextLabel</translation>
         </message>
         <message>
             <source>Create Dir</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Create Dir</translation>
         </message>
         <message>
             <source>Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Update</translation>
         </message>
         <message>
             <source>Status</source>
-            <translation type="unfinished">Status</translation>
+            <translation>Status</translation>
         </message>
         <message>
             <source>PBI Builds</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PBI Builds</translation>
         </message>
         <message>
             <source>External Utilities</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>External Utilities</translation>
         </message>
         <message>
             <source>Default Search Paths</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Default Search Paths</translation>
         </message>
         <message>
             <source>Modules</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Modules</translation>
         </message>
         <message>
             <source>Resources</source>
-            <translation type="unfinished">Resources</translation>
+            <translation>Resources</translation>
         </message>
         <message>
             <source>Default Icon</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Default Icon</translation>
         </message>
         <message>
             <source>Current User (~/EasyPBI/ports)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Current User (~/EasyPBI/ports)</translation>
         </message>
         <message>
             <source>All Users (/usr/ports)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>All Users (/usr/ports)</translation>
         </message>
         <message>
             <source>Other</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Other</translation>
         </message>
         <message>
             <source>Nonexistent</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nonexistent</translation>
         </message>
         <message>
             <source>Success</source>
-            <translation type="unfinished">Success</translation>
+            <translation>Success</translation>
         </message>
         <message>
             <source>The FreeBSD ports tree has been successfully updated</source>
-            <translation type="unfinished">The FreeBSD ports tree has been successfully updated</translation>
+            <translation>The FreeBSD ports tree has been successfully updated</translation>
         </message>
         <message>
             <source>Failure</source>
-            <translation type="unfinished">Failure</translation>
+            <translation>Failure</translation>
         </message>
         <message>
             <source>The FreeBSD ports tree has failed to update.</source>
-            <translation type="unfinished">The FreeBSD ports tree has failed to update.</translation>
+            <translation>The FreeBSD ports tree has failed to update.</translation>
         </message>
         <message>
             <source>Last Message: %1</source>
-            <translation type="unfinished">Last Message: %1</translation>
+            <translation>Last Message: %1</translation>
         </message>
         <message>
             <source>Requesting Root Access</source>
-            <translation type="unfinished">Requesting Root Access</translation>
+            <translation>Requesting Root Access</translation>
         </message>
     </context>
     <context>
