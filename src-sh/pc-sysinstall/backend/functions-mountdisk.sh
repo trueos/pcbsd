@@ -91,6 +91,39 @@ mount_partition()
       else
         ZNAME="${ZMNT}"
         ZMKMNT="${ZMNT}"
+
+	# Lets check if we are missing any parent dataset
+	chkDir=`dirname $ZMNT`
+	mkParents=""
+	while
+	z=0
+	do
+		# Are we at the base dataset?
+		if [ "$chkDir" = "/" ]; then break ; fi
+
+		# Do we have this dataset?
+		zfs list | grep -q "^${ZPOOLNAME}${chkDir} "
+		if [ $? -eq 0 ]; then break ; fi
+
+		# Save this dataset to create
+		mkParents="$chkDir $mkParents"
+		
+		# Get the next dir to check
+		chkDir=`dirname $chkDir`
+	done
+
+	# Any ZFS parent datasets to create?
+	if [ -n "$mkParents" ] ; then
+		for p in $mkParents
+		do
+			# Since the user didn't explictly specify this dataset
+			# we assume they don't really want it mounted
+        		echo_log "zfs create -o canmount=off -p ${ZPOOLNAME}${p}"
+        		rc_halt "zfs create -o canmount=off -p ${ZPOOLNAME}${p}"
+		done
+	fi
+
+	# Create the target ZFS dataset now
         echo_log "zfs create $zcopt -p ${ZPOOLNAME}${ZNAME}"
         rc_halt "zfs create $zcopt -p ${ZPOOLNAME}${ZNAME}"
       fi
