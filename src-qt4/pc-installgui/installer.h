@@ -47,7 +47,7 @@ private slots:
 
     // Disk slots
     void slotDiskCustomizeClicked();
-    void slotSaveDiskChanges(QList<QStringList>, bool, bool);
+    void slotSaveDiskChanges(QList<QStringList>, bool, bool, QString);
 
     // Slots for the installation
     void slotInstallProcFinished( int exitCode, QProcess::ExitStatus status);
@@ -168,6 +168,9 @@ private:
 
     // Custom CFG file to install with
     QString customCfgFile;
+
+    // Zpool custom name
+    QString zpoolName;
 
 protected:
     void closeEvent(QCloseEvent *event);

@@ -88,6 +88,12 @@ export INSTALLMEDIUM="${VAL}"
 get_value_from_cfg packageType
 export PACKAGETYPE="${VAL}"
 
+# See if the user wants a custom zpool starting name
+get_value_from_cfg zpoolName
+if [ -n "$VAL" ] ; then
+  export ZPOOLCUSTOMNAME="${VAL}"
+fi
+
 # Check if we are doing any networking setup
 start_networking
 

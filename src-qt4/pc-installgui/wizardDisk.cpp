@@ -26,6 +26,8 @@ void wizardDisk::programInit()
   connect(pushRemoveMount, SIGNAL(clicked()), this, SLOT(slotRemoveFS()));
   connect(pushAddMount, SIGNAL(clicked()), this, SLOT(slotAddFS()));
   connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(slotCheckComplete()));
+  connect(lineZpoolName,SIGNAL(textChanged ( const QString & )),this,SLOT(slotCheckComplete()));
+  connect(groupZFSPool,SIGNAL( clicked(bool)),this,SLOT(slotCheckComplete()));
   connect(comboDisk,SIGNAL(currentIndexChanged(int)),this,SLOT(slotCheckComplete()));
   connect(comboDisk,SIGNAL(currentIndexChanged(int)),this,SLOT(slotChangedDisk()));
   connect(comboPartition,SIGNAL(currentIndexChanged(int)),this,SLOT(slotCheckComplete()));
@@ -94,6 +96,7 @@ void wizardDisk::slotClose()
 void wizardDisk::accept()
 {
   bool useGPT = false;
+  QString zpoolName;
   if (comboPartition->currentIndex() == 0 )
     useGPT = checkGPT->isChecked();
 
@@ -101,10 +104,13 @@ void wizardDisk::accept()
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
     useGPT = true;
 
+  if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )
+     zpoolName = lineZpoolName->text();
+
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, false, false);
+    emit saved(sysFinalDiskLayout, false, false, zpoolName);
   else
-    emit saved(sysFinalDiskLayout, true, useGPT);
+    emit saved(sysFinalDiskLayout, true, useGPT, zpoolName);
   close();
 }
 
@@ -114,10 +120,14 @@ int wizardDisk::nextId() const
      case Page_Intro:
        if (radioExpert->isChecked())
          return Page_Expert;
-       if (radioBasic->isChecked())
+       if (radioBasic->isChecked()) {
 	 checkGPT->setVisible(false);
-       if (radioAdvanced->isChecked())
+	 groupZFSPool->setVisible(false);
+       }
+       if (radioAdvanced->isChecked()) {
 	 checkGPT->setVisible(true);
+	 groupZFSPool->setVisible(true);
+       }
 	break;
      case Page_BasicDisk:
        if (radioBasic->isChecked())
@@ -194,6 +204,25 @@ bool wizardDisk::validatePage()
 	   checkGPT->setVisible(true);
 	 else
 	   checkGPT->setVisible(false);
+
+	 // Doing a Advanced install
+	 if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )
+	 {
+	    if ( lineZpoolName->text().isEmpty() ) {
+              button(QWizard::NextButton)->setEnabled(false);
+              return false;
+	    }
+	    if ( lineZpoolName->text().contains(" ") ) {
+              button(QWizard::NextButton)->setEnabled(false);
+              return false;
+	    }
+	    QRegExp *re = new QRegExp("^[-'a-zA-Z]*$"); 
+	    if (! re->exactMatch(lineZpoolName->text()) ) {
+              button(QWizard::NextButton)->setEnabled(false);
+              return false;
+	    }
+
+	 }
 
          // Comment out this disk space check
 	 // We will warn the user right before install if the selected

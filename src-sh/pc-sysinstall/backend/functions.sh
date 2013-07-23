@@ -268,7 +268,11 @@ get_zpool_name()
   DEVICE="$1"
 
   # Set the base name we use for zpools
-  BASENAME="tank"
+  if [ -n "$ZPOOLCUSTOMNAME" ] ; then
+    BASENAME="$ZPOOLCUSTOMNAME"
+  else
+    BASENAME="tank"
+  fi
 
   if [ ! -d "${TMPDIR}/.zpools" ] ; then
     mkdir -p ${TMPDIR}/.zpools
@@ -284,7 +288,12 @@ get_zpool_name()
     # Is it used in another zpool?
     while :
     do
-      NEWNAME="${BASENAME}${NUM}"
+      # If on the 0 device, drop the 0 alltogether
+      if [ "$NUM" = "0" ] ; then
+        NEWNAME="${BASENAME}"
+      else
+        NEWNAME="${BASENAME}${NUM}"
+      fi
       zpool list | grep -qw "${NEWNAME}"
       local chk1=$?
       zpool import | grep -qw "${NEWNAME}"

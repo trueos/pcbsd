@@ -472,7 +472,7 @@ void Installer::slotDiskCustomizeClicked()
   wDisk = new wizardDisk();
   wDisk->programInit();
   wDisk->setWindowModality(Qt::ApplicationModal);
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, bool, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, bool, bool)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, bool, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, bool, bool, QString)));
   wDisk->show();
   wDisk->raise();
 }
@@ -503,8 +503,11 @@ void Installer::slotSaveMetaChanges(QStringList sPkgs)
   textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bool GPT)
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bool GPT, QString zName)
 {
+
+  zpoolName = zName; 
+
   // Save the new disk layout
   loadMBR = MBR;
   loadGPT = GPT;
@@ -782,6 +785,9 @@ QStringList Installer::getGlobalCfgSettings()
   if ( ! fHost.isEmpty() )
     tmpList << "hostname=" + fHost;
 
+  // Using a custom zpool name?
+  if ( ! zpoolName.isEmpty() )
+    tmpList << "zpoolName=" + zpoolName;
   
   // Networking setup
   if ( radioDesktop->isChecked() ) {
