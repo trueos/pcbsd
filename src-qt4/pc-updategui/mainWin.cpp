@@ -336,6 +336,7 @@ void mainWin::slotRescanUpdates()
 {
   if ( doingUpdate )
      return;
+  groupDetails->setVisible(false);
   groupUpdates->setEnabled(false);
   listUpdates.clear();
   textLabel->setText(tr("Checking for updates... Please Wait..."));
