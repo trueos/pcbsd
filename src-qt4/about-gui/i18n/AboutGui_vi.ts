@@ -5,13 +5,11 @@
         <name>MainWindow</name>
         <message>
             <source>About</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>về</translation>
         </message>
         <message>
             <source>Version:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phiên bản</translation>
         </message>
         <message>
             <source>&lt;Unknown&gt;</source>
@@ -20,103 +18,83 @@
         </message>
         <message>
             <source>Host:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Máy chủ:</translation>
         </message>
         <message>
             <source>????</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD            </translation>
         </message>
         <message>
             <source>FreeBSD base</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arch            </translation>
         </message>
         <message>
             <source>Arch:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kiến trúc:            </translation>
         </message>
         <message>
             <source>ident</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>thụt đầu dòng            </translation>
         </message>
         <message>
             <source>Hardware</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phần cứng            </translation>
         </message>
         <message>
             <source>CPU:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>của CPU            </translation>
         </message>
         <message>
             <source>Mem.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mem Cách.            </translation>
         </message>
         <message>
             <source>Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lưng            </translation>
         </message>
         <message>
             <source>Desktop environments:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Môi trường máy tính để bàn:</translation>
         </message>
         <message>
             <source>(Please wait...)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Xin chờ ...)</translation>
         </message>
         <message>
             <source>Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên            </translation>
         </message>
         <message>
             <source>Version</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phiên bản            </translation>
         </message>
         <message>
             <source>Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đóng</translation>
         </message>
         <message>
             <source>Testing snapshot %1. May be unstable!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kiểm tra ảnh chụp %1. Có thể không ổn định!</translation>
         </message>
         <message>
             <source>X.org server version:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>X.org phiên bản server:</translation>
         </message>
         <message>
             <source>System components...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống các thành phần...            </translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Môi trường Desktop...</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD CLI Các tiện ích:            </translation>
         </message>
         <message>
             <source>PC-BSD UI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD UI  Các tiện ích:            </translation>
         </message>
     </context>
 </TS>

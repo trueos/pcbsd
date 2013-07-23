@@ -5,307 +5,248 @@
         <name>Installer</name>
         <message>
             <source>Switch between US layout and user selected layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chuyển đổi betweens Mỹ bố trí và người dùng bố trí được lựa chọn     </translation>
         </message>
         <message>
             <source>Ab&amp;ort</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hủ&amp;y</translation>
         </message>
         <message>
             <source>&amp;Back</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;lại</translation>
         </message>
         <message>
             <source>&amp;Next</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Tiếp</translation>
         </message>
         <message>
             <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chào mừng bạn đến PC-BSD! Vui lòng chọn ngôn ngữ của bạn và bấm vào kế tiếp để tiếp tục.</translation>
         </message>
         <message>
             <source>&amp;Customize</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Tùy biến</translation>
         </message>
         <message>
             <source>Summary</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tóm tắt</translation>
         </message>
         <message>
             <source>Disk Selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Trên đĩa tuyển chọn</translation>
         </message>
         <message>
             <source>Installation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>cài đặt</translation>
         </message>
         <message>
             <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống của bạn đang được cài đặt! Này có thể mất thời gian, tùy thuộc vào tùy chọn bạn chọn và tốc độ của hệ thống. Bạn sẽ được thông báo khi quá trình cài đặt hoàn tất.    </translation>
         </message>
         <message>
             <source>Installing to file-system mounted at /mnt</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lắp đặt trên hệ thống tập tin được gắn vào /mnt </translation>
         </message>
         <message>
             <source>The disk will be setup with the following configuration:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đĩa này sẽ được cấu hình với các thông số sau:</translation>
         </message>
         <message>
             <source>Disk:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Trên đĩa:</translation>
         </message>
         <message>
             <source>Mirroring:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mirroring:</translation>
         </message>
         <message>
             <source>Partition:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phân vùng:</translation>
         </message>
         <message>
             <source>FileSystem:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hệ thống tập tin:</translation>
         </message>
         <message>
             <source>Size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích:</translation>
         </message>
         <message>
             <source>Mount:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gắn kết điểm:</translation>
         </message>
         <message>
             <source>Custom Package Selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tùy chọn gói</translation>
         </message>
         <message>
             <source>The following meta-pkgs will be installed:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Siêu pkgs sau đây sẽ được cài đặt:</translation>
         </message>
         <message>
             <source>PC-BSD Installer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD cài đặt</translation>
         </message>
         <message>
             <source>You currently have a custom package set configured. Continue changing to a default set?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn hiện đang có một bộ gói tùy chỉnh cấu hình. Tiếp tục thay đổi đến một thiết lập mặc định?</translation>
         </message>
         <message>
             <source>KDE is a full-featured desktop environment, which includes support for 3D desktop effects, multiple desktops, and a variety of built-in tools and utilities for both new and power-desktop users.&lt;br&gt;&lt;br&gt;* Recommended for higher-end systems with 2GB of RAM or more *</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>KDE là một môi trường tính để bàn tính năng đầy đủ, bao gồm hỗ trợ cho hiệu ứng 3D máy tính để bàn, các máy trạm, và nhiều loại công cụ tích hợp và tiện ích cho người sử dụng cả hai mới và năng lượng máy tính để bàn. &lt;br&gt;&lt;br&gt;* Đề nghị cho cao hơn hệ thống kết thúc với 2GB RAM hoặc hơn *</translation>
         </message>
         <message>
             <source>LXDE is a lightweight desktop, minimalist in nature, with support for multiple-desktops, a system tray, application menu and more.&lt;br&gt;&lt;br&gt;* Recommended for netbooks, or lower-end systems * </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>LXDE là một trọng lượng nhẹ, tối giản văn phòng bằng cách tự nhiên, vơi nhiêu văn phòng, một thanh công cụ hệ thống, các trình đơn và nhiều hơn nữa. &lt;br&gt;&lt;br&gt;* Đề nghị cho netbook hoặc các hệ thống cấp thấp *</translation>
         </message>
         <message>
             <source>GNOME is a full-featured desktop environment, complete with a large number of integrated utilities and tools for desktop users.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>GNOME là một môi trường máy tính để bàn đầy đủ tính năng, hoàn thành với một số lượng lớn tiện ích tích hợp và các công cụ cho người dùng máy tính để bàn.</translation>
         </message>
         <message>
             <source>XFCE is a light and modular desktop, with a number of features to enhance customizing the desktop to your liking.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>XFCE là một máy tính để bàn ánh sáng và mô-đun, với một số tính năng để tăng cường tùy biến màn hình desktop theo ý thích của bạn.</translation>
         </message>
         <message>
             <source>Start the installation now?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bắt đầu cài đặt?</translation>
         </message>
         <message>
             <source>Are you sure you want to abort this installation?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn có chắc chắn có muốn hủy bỏ cài đặt?</translation>
         </message>
         <message>
             <source>Failed!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>thất bại !</translation>
         </message>
         <message>
             <source>The installer has encountered an error and has been halted.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Trình cài đặt đã gặp phải một lỗi và đã được tạm dừng.</translation>
         </message>
         <message>
             <source>Do you want to generate an error report?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn có muốn tạo ra một báo cáo lỗi?</translation>
         </message>
         <message>
             <source>Restart the system now?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Khởi động lại hệ thống bây giờ?            </translation>
         </message>
         <message>
             <source>Installing system... This may take a while...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lắp đặt hệ thống ... Điều này có thể mất một thời gian ...</translation>
         </message>
         <message>
             <source>Options:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tùy chọn            </translation>
         </message>
         <message>
             <source>&amp;Finish</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;thúc</translation>
         </message>
         <message>
             <source>ZFS Datasets:&lt;br&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZFS Tập dữ liệu:&lt;br&gt;</translation>
         </message>
         <message>
             <source>FreeBSD is an advanced operating system for modern server, desktop, and embedded computer platforms. FreeBSD's code base has undergone over thirty years of continuous development, improvement, and optimization.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD là một hệ điều hành tiên tiến cho các máy chủ hiện đại, tính để bàn, và các nền tảng máy tính nhúng. Cơ sở mã FreeBSD đã trải qua hơn ba mươi năm liên tục phát triển, cải tiến, và tối ưu hóa.</translation>
         </message>
         <message>
             <source>Display hardware compatibility diagnostic</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hiển thị phần cứng khả năng tương thích chẩn đoán</translation>
         </message>
         <message>
             <source>TrueOS is a console based server running FreeBSD. It includes command-line versions of The Warden jail management, PBI manager, ZFS boot environments (beadm), and other helpful utilities for system administrators.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>TrueOS là một máy chủ dựa giao diện điều khiển chạy FreeBSD. Nó bao gồm các phiên bản dòng lệnh của Ban quản lý nhà tù Warden, PBI quản lý, môi trường khởi động ZFS (beadm), và các tiện ích hữu ích khác cho các các quản trị viên hệ thống.</translation>
         </message>
         <message>
             <source>System Selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hệ thống tuyển chọn</translation>
         </message>
         <message>
             <source>Installing packages... This may take a while...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cài đặt các gói... Điều này có thể mất một thời gian...</translation>
         </message>
         <message>
             <source>Change the installation language</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thay đổi ngôn ngữ cài đặt</translation>
         </message>
         <message>
             <source>Cycle through system choices</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chu kỳ thông qua sự lựa chọn hệ thống</translation>
         </message>
         <message>
             <source>Customize the selected system</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tùy chỉnh hệ thống được lựa chọn            </translation>
         </message>
         <message>
             <source>Customize the disk selection or layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tùy chỉnh các chọn lựa đĩa hoặc bố trí</translation>
         </message>
         <message>
             <source>Display help for the current screen</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hiển giúp cho các màn hình hiện tại</translation>
         </message>
         <message>
             <source>Launch the on-screen keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Khởi chạy bàn phím trên màn hình</translation>
         </message>
         <message>
             <source>Cancel the installation</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hủy bỏ cài đặt</translation>
         </message>
         <message>
             <source>TrueOS Package Selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>TrueOS trọn gói chọn lựa</translation>
         </message>
         <message>
             <source>FreeBSD Package Selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD trọn gói chọn lựa  </translation>
         </message>
         <message>
             <source>PC-BSD Package Selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD trọn gói chọn lựa</translation>
         </message>
         <message>
             <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>của bạn hệ thống sẽ bây giờ được cài đặt! 
+</translation>
         </message>
         <message>
             <source>&amp;Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Hủy bỏ</translation>
         </message>
         <message>
             <source>Extracting system...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ chiết xuất...  </translation>
         </message>
         <message>
             <source>Unable to detect any disk drives! The install will now exit.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không phát hiện được bất kỳ ổ đĩa! Bây giờ sẽ thoát khỏi cài đặt.</translation>
         </message>
         <message>
             <source>Click arrows to change system selection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nhấp vào mũi tên để thay đổi lựa chọn Hệ</translation>
         </message>
         <message>
             <source>Unable to suggest a partition for the detected disk.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không thể Đề nghị một phân vùng cho đĩa được phát hiện.</translation>
         </message>
         <message>
             <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đó là phát hiện bạn đang chạy 32bit. Nếu hệ thống của bạn là 64bit thể (hầu hết các hệ thống được thực hiện hiệu quả năm 2005), bạn thực sự shoulds sử dụng phiên bản 64-bit của</translation>
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">
-             {1G?}</translation>
+            <translation>Đĩa / phân vùng chọn ít hơn nên là %1GB. Các cài đặt có thể thất bại ...</translation>
         </message>
     </context>
     <context>
         <name>QObject</name>
         <message>
             <source>This screen allows you to select the language you wish to perform the install with.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Màn hình này cho phép bạn chọn ngôn ngữ mà bạn muốn thực hiện cài đặt với.</translation>
         </message>
         <message>
             <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
