@@ -5,239 +5,196 @@
         <name>AddDlg</name>
         <message>
             <source>Add a port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thêm một cổng            </translation>
         </message>
         <message>
             <source>Add</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thêm    </translation>
         </message>
         <message>
             <source>Service:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sịch vụ: </translation>
         </message>
         <message>
             <source>Policy:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chính sách:</translation>
         </message>
         <message>
             <source>Protocol:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giao thức:        </translation>
         </message>
         <message>
             <source>Block</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chặn      </translation>
         </message>
         <message>
             <source>Allow</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cho phép       </translation>
         </message>
         <message>
             <source>Interface:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giao diện:</translation>
         </message>
         <message>
             <source>Port:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cổng:      </translation>
         </message>
         <message>
             <source>Direction:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hướng:</translation>
         </message>
         <message>
             <source>Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Huỷ      </translation>
         </message>
     </context>
     <context>
         <name>MainDialog</name>
         <message>
             <source>Firewall Manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tường lửa quản lý </translation>
         </message>
         <message>
             <source>General</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chung  </translation>
         </message>
         <message>
             <source>General settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cài đặt chung</translation>
         </message>
         <message>
             <source>Enable Firewall on startup</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt tường lửa khi khởi động</translation>
         </message>
         <message>
             <source>Firewall</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tường lửa</translation>
         </message>
         <message>
             <source>Start</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bắt đầu </translation>
         </message>
         <message>
             <source>Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>khởi động lại</translation>
         </message>
         <message>
             <source>Stop</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thôi   </translation>
         </message>
         <message>
             <source>Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cấu hình    </translation>
         </message>
         <message>
             <source>Restore default configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Khôi phục lại cấu hình mặc định</translation>
         </message>
         <message>
             <source>Exceptions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Trường hợp ngoại lệ  </translation>
         </message>
         <message>
             <source>Add entry</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thêm phần   </translation>
         </message>
         <message>
             <source>Service</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vụ       </translation>
         </message>
         <message>
             <source>Port</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cổng    </translation>
         </message>
         <message>
             <source>Policy</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chính sách </translation>
         </message>
         <message>
             <source>Interface</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giao diện</translation>
         </message>
         <message>
             <source>Edit entry</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chỉnh sửa nhập cảnh  </translation>
         </message>
         <message>
             <source>Delete entry</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xóa nhập cảnh</translation>
         </message>
     </context>
     <context>
         <name>PFAddDlg</name>
         <message>
             <source>incoming</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mới vào ở    </translation>
         </message>
         <message>
             <source>outgoing</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>sự đi ra ngoài    </translation>
         </message>
         <message>
             <source>TCP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>TCP       </translation>
         </message>
         <message>
             <source>UDP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UDP     </translation>
         </message>
     </context>
     <context>
         <name>PFManagerDlg</name>
         <message>
             <source>Question</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Câu hỏi    </translation>
         </message>
         <message>
             <source>Restored.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phục hồi.   </translation>
         </message>
         <message>
             <source>Config file successfuly restored.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tập tin cấu hình successfuly phục hồi.  </translation>
         </message>
         <message>
             <source>This will turn off the firewall completely.
 Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Điều này sẽ tắt tường lửa hoàn toàn không. 
+Bạn có chắc chắn?       </translation>
         </message>
         <message>
             <source>Success</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thành công        </translation>
         </message>
         <message>
             <source>Restarted successfuly!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Khởi động lại successfuly!</translation>
         </message>
         <message>
             <source>Failure</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thất bại  </translation>
         </message>
         <message>
             <source>Failed to restart!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không thể khởi động lại!  </translation>
         </message>
     </context>
     <context>
         <name>RcConfig</name>
         <message>
             <source>Error opening the specified rc.conf file.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lỗi mở tập tin rc.conf định.   </translation>
         </message>
     </context>
     <context>
         <name>services</name>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chưa biết      </translation>
         </message>
     </context>
 </TS>
