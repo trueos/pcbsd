@@ -5,48 +5,39 @@
         <name>MainWindow</name>
         <message>
             <source>Login Manager Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đăng nhập Settings Manager</translation>
         </message>
         <message>
             <source>Auto login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giao tế tự động hóa</translation>
         </message>
         <message>
             <source>Enable auto login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt tự động đăng nhập  </translation>
         </message>
         <message>
             <source>Auto login user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Người dùng đăng nhập tự động</translation>
         </message>
         <message>
             <source>Remote login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>đăng nhập từ xa</translation>
         </message>
         <message>
             <source>Enable XDMCP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt XDMCP</translation>
         </message>
         <message>
             <source>Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>lưu    </translation>
         </message>
         <message>
             <source>Password Request</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Yêu cầu mật khẩu       </translation>
         </message>
         <message>
             <source>Please enter the login password for this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng nhập mật khẩu đăng nhập cho người dùng này      </translation>
         </message>
     </context>
 </TS>

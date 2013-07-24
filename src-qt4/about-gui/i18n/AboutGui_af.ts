@@ -17,8 +17,7 @@
         </message>
         <message>
             <source>Host:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Host:            </translation>
         </message>
         <message>
             <source>????</source>
@@ -45,13 +44,11 @@
         </message>
         <message>
             <source>CPU:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>CPU:            </translation>
         </message>
         <message>
             <source>Mem.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mem.            </translation>
         </message>
         <message>
             <source>Back</source>

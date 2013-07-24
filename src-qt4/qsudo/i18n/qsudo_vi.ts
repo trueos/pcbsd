@@ -5,13 +5,11 @@
         <name>MainWindow</name>
         <message>
             <source>Reqesting System Permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Reqesting hệ thống Quyền</translation>
         </message>
         <message>
             <source>Please enter your user password to run this command with system permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng nhập mật khẩu của bạn để chạy lệnh này với các điều khoản hệ thống</translation>
         </message>
     </context>
 </TS>

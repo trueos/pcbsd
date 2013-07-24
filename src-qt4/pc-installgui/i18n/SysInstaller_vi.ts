@@ -250,677 +250,547 @@
         </message>
         <message>
             <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Màn hình này cho phép bạn chọn kiểu hệ thống mà bạn muốn cài đặt. Nhấp Tùy chỉnh các sẽ cho phép bạn thay đổi các gói lựa chọn cho hệ thống của bạn.</translation>
         </message>
         <message>
             <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Màn hình này sẽ hiển thị các tùy chọn đĩa hiện được chọn. Nhấp vào tùy chỉnh sẽ cho phép bạn thay đổi các đĩa mục tiêu, hệ thống tập tin, và nhiều hơn nữa.</translation>
         </message>
         <message>
             <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>của bạn Hệ cài đặt là bây giờ! Đi lấy một cốc cà phê và thư giãn, sẽ thông báo cho bạn cài đặt khi nó kết thúc.</translation>
         </message>
         <message>
             <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống này hiện đã hoàn thành cài đặt! Kích Finish để khởi động lại, và được an toàn để đẩy bất kỳ phương tiện truyền thông được cài đặt trước khi khởi động vào hệ thống mới.</translation>
         </message>
     </context>
     <context>
         <name>desktopSelection</name>
         <message>
             <source>System Package Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cấu hình hệ thống trọn gói</translation>
         </message>
         <message>
             <source>Available System Packages</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống trọn gói sẵn</translation>
         </message>
         <message>
             <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xin chọn phần mềm bạn muốn cài đặt. Ít nhất một phải được lựa chọn máy tính để bàn, và trao đổi có thể trở thành xứ cài đặt hiệu quả.</translation>
         </message>
         <message>
             <source>&amp;Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;tiết kiệm            </translation>
         </message>
         <message>
             <source>&amp;Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;hủy bỏ            </translation>
         </message>
         <message>
             <source>No Desktop</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>không có Desktop</translation>
         </message>
         <message>
             <source>No desktops have been selected! Please choose at least one desktop to continue.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không có máy tính để bàn đã được chọn! Xin chọn ít nhất một máy tính để bàn để tiếp tục.</translation>
         </message>
         <message>
             <source>View Packages</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>xem trọn gói</translation>
         </message>
         <message>
             <source>Package Listing for:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gói Liệt kê cho:</translation>
         </message>
     </context>
     <context>
         <name>dialogCheckHardware</name>
         <message>
             <source>Detected hardware devices</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết bị phần cứng được phát hiện</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;đóng cửa     </translation>
         </message>
         <message>
             <source>Video driver:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Trình điều khiển Video:</translation>
         </message>
         <message>
             <source>Video resolution:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Độ phân giải video:</translation>
         </message>
         <message>
             <source>No ethernet detected</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không phát hiện Ethernet</translation>
         </message>
         <message>
             <source>Ethernet device:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết bị Ethernet nào:</translation>
         </message>
         <message>
             <source>No wifi detected</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không có wifi phát hiện</translation>
         </message>
         <message>
             <source>Wifi device:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết bị wifi:</translation>
         </message>
         <message>
             <source>No sound detected</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không có âm thanh phát hiện</translation>
         </message>
         <message>
             <source>Sound device:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết bị âm thanh:</translation>
         </message>
     </context>
     <context>
         <name>dialogFSSize</name>
         <message>
             <source>Size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>kích thước:</translation>
         </message>
         <message>
             <source>MB</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>MB     </translation>
         </message>
         <message>
             <source>&amp;Ok</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Ok     </translation>
         </message>
         <message>
             <source>&amp;Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Hủy bỏ</translation>
         </message>
     </context>
     <context>
         <name>dialogHelp</name>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;đóng cửa </translation>
         </message>
     </context>
     <context>
         <name>dialogInfoBox</name>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;đóng cửa    </translation>
         </message>
     </context>
     <context>
         <name>widgetKeyboard</name>
         <message>
             <source>Keyboard Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết lập bàn phím</translation>
         </message>
         <message>
             <source>Key Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>bố trí bàn phím</translation>
         </message>
         <message>
             <source>Variant</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>biến thể</translation>
         </message>
         <message>
             <source>Keyboard Model</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>bàn phím mô hình</translation>
         </message>
         <message>
             <source>( you may type into the space below to test your selected settings. )</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>( Bạn có thể các loại vào các không gian dưới đây để kiểm tra các thiết lập được lựa chọn của bạn. )  </translation>
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Áp dụng     </translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Đóng</translation>
         </message>
     </context>
     <context>
         <name>wizardDisk</name>
         <message>
             <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wizard này sẽ hướng dẫn bạn qua quá trình thiết lập đĩa. Hãy chọn chế độ thiết lập mà bạn muốn sử dụng.</translation>
         </message>
         <message>
             <source>Setup Mode</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chế độ cài đặt</translation>
         </message>
         <message>
             <source>Basic (New to BSD or disk partitioning)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cơ bản (mới BSD hoặc phân vùng đĩa)</translation>
         </message>
         <message>
             <source>Advanced (Experienced with file-systems)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tiên tiến (Kinh nghiệm với các file hệ thống)</translation>
         </message>
         <message>
             <source>FreeBSD Experts (CLI manual mode)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD chuyên gia (CLI Hướng dẫn sử dụng chế độ)</translation>
         </message>
         <message>
             <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hãy chọn đĩa hoặc phân vùng mà bạn muốn cài đặt vào. Xin lưu ý rằng BSD chỉ có thể được cài đặt để toàn bộ đĩa, hoặc phân vùng chính lớn hơn 10GB.</translation>
         </message>
         <message>
             <source>Selected Disk</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>trên đĩa chọn</translation>
         </message>
         <message>
             <source>Selected Partition</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>phân vùng được lựa chọn</translation>
         </message>
         <message>
             <source>Partition disk with GPT</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phân vùng trên đĩa với GPT</translation>
         </message>
         <message>
             <source>Do you wish to Encrypt your private data? You will need to enter a password at each system bootup.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn có muốn để mã hóa dữ liệu cá nhân của bạn? Bạn sẽ cần phải nhập mật khẩu tại MỖI khởi động Hệ.</translation>
         </message>
         <message>
             <source>Encrypt user data</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mã hóa người dùng liệu</translation>
         </message>
         <message>
             <source>Passphrase</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>cụm từ mật khẩu</translation>
         </message>
         <message>
             <source>Passphrase (repeat)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cụm từ mật khẩu (lặp lại)</translation>
         </message>
         <message>
             <source>Please select the type of filesystem you want to use for this installation.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng chọn các loại hệ thống tập tin bạn muốn sử dụng để cài đặt này.</translation>
         </message>
         <message>
             <source>Filesystem</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hệ thống tập tin</translation>
         </message>
         <message>
             <source>Install bootable MBR</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cài đặt MBR khởi động</translation>
         </message>
         <message>
             <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dưới đây bạn có thể điều chỉnh các điểm gắn kết tập tin hệ thống. Đối với người dùng MOST giá trị mặc định sẽ làm việc tốt nhất.</translation>
         </message>
         <message>
             <source>Free Space (MB)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Miễn phí không gian (MB)</translation>
         </message>
         <message>
             <source>&amp;Add</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;gia tăng</translation>
         </message>
         <message>
             <source>Resize</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>thay đổi kích thước</translation>
         </message>
         <message>
             <source>&amp;Remove</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Hủy bỏ</translation>
         </message>
         <message>
             <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn đã được chọn chế độ Expert. Bằng cách này bạn có ble để mở một cửa sổ thiết bị đầu cuối và sử dụng các dòng lệnh để phân vùng đĩa cứng của bạn bằng tay. Khi bạn đã kết thúc, làm cho an toàn để gắn kết hệ thống tập tin của bạn vào / mnt để bắt đầu cài đặt.</translation>
         </message>
         <message>
             <source>&amp;Launch terminal</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Ra mắt thiết bị đầu cuối            </translation>
         </message>
         <message>
             <source>Please check the disk summary below and click finish to save your settings. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hãy kiểm tra các bản tóm tắt đĩa dưới đây và bấm vào kết thúc để lưu các thiết lập của bạn.</translation>
         </message>
         <message>
             <source>Use entire disk</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Sử dụng toàn bộ đĩa</translation>
         </message>
         <message>
             <source>Mount</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>cởi ngựa    </translation>
         </message>
         <message>
             <source>Size</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích   </translation>
         </message>
         <message>
             <source>Type</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>loại Ngày</translation>
         </message>
         <message>
             <source>ZFS Mounts</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZFS thú cưỡi</translation>
         </message>
         <message>
             <source>ZFS Options</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZFS Tùy chọn</translation>
         </message>
         <message>
             <source>Resizing</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>thay đổi kích thước</translation>
         </message>
         <message>
             <source>Remove mount-point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Loại bỏ điểm lắp</translation>
         </message>
         <message>
             <source>Are you sure you want to remove this mount point?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn có chắc chắn bạn muốn loại bỏ điểm gắn kết này?</translation>
         </message>
         <message>
             <source>Enter mount-point</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nhập điểm lắp</translation>
         </message>
         <message>
             <source>Please enter the new mount-point:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xin vui lòng cần nhập các điểm gắn kết mới:</translation>
         </message>
         <message>
             <source>Specify a size for the mount</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>chỉ định kích thước điểm lắp</translation>
         </message>
         <message>
             <source>Editing:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nchỉnh sửa:</translation>
         </message>
         <message>
             <source>Installing to file-system mounted at /mnt</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cài đặt vào hệ thống tập tin được gắn vào /mnt</translation>
         </message>
         <message>
             <source>The disk will be setup with the following configuration:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đĩa này sẽ được thiết lập với cấu hình sau đây:</translation>
         </message>
         <message>
             <source>Disk:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>đĩa:</translation>
         </message>
         <message>
             <source>Mirroring:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Phản ánh:</translation>
         </message>
         <message>
             <source>Partition:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>phân vùng:</translation>
         </message>
         <message>
             <source>FileSystem:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hệ thống tập tin:</translation>
         </message>
         <message>
             <source>Size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích:            </translation>
         </message>
         <message>
             <source>Mount:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gắn kết điểm:</translation>
         </message>
         <message>
             <source>Disable Encryption</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>vô hiệu mã hóa</translation>
         </message>
         <message>
             <source>Enable Encryption</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt mã hóa</translation>
         </message>
         <message>
             <source>Please enter the password for this partition:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xin nhập mật khẩu cho phân vùng này:</translation>
         </message>
         <message>
             <source>Password:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mật khẩu:</translation>
         </message>
         <message>
             <source>Please confirm the password for this partition:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng xác nhận mật khẩu cho phân vùng này:</translation>
         </message>
         <message>
             <source>Confirm Password:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xác nhận Mật khẩu:</translation>
         </message>
         <message>
             <source>Password Mismatch</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mật khẩu không tương thích</translation>
         </message>
         <message>
             <source>The passwords entered do not match!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Các mật khẩu vừa nhập không khớp!</translation>
         </message>
         <message>
             <source>Enable ZFS mirror/raidz mode</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cho phép ZFS gương/chế độ raidz</translation>
         </message>
         <message>
             <source>ZFS Virtual Device Mode</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZFS ảo thiết bị chế độ</translation>
         </message>
         <message>
             <source>Please select at least 1 other drive for mirroring</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng chọn ít nhất một đĩa khác đối với phản ánh</translation>
         </message>
         <message>
             <source>Options:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tùy chọn:</translation>
         </message>
         <message>
             <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nếu đây là một đĩa đơn ZFS cài đặt, bạn có thể tiếp tục, Nếu không thì hãy chọn đĩa gương / tấn và thời trang dưới đây.</translation>
         </message>
         <message>
             <source>ZFS Datasets:&lt;br&gt;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ZFS Tập dữ liệu:&lt;br&gt;  </translation>
         </message>
         <message>
             <source>Invalid Mount</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>lên ngựa không hợp lệ</translation>
         </message>
         <message>
             <source>Cannot create /boot dataset on ZFS with encryption enabled!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không thể tạo địa / khởi động bộ dữ liệu trên ZFS có tính năng mã hóa!</translation>
         </message>
         <message>
             <source>Mount point should start with '/'</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Điểm gắn kết nên bắt đầu với '/'</translation>
         </message>
         <message>
             <source>UFS (32bit and systems with less than 2GB of RAM)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UFS (32bit và hệ thống có ít hơn 2GB RAM)</translation>
         </message>
         <message>
             <source>ZFS (64bit systems with more than 2GB RAM)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>UFS (64bit và hệ thống có ít hơn 2GB RAM)</translation>
         </message>
         <message>
             <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lưu ý: Sử dụng ZFS gương / raidz chỉ có thể được kích hoạt khi thực hiện cài đặt toàn bộ ổ đĩa</translation>
         </message>
         <message>
             <source>Please select 2 or 4 additional drives for raidz1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng chọn 2 hoặc 4 ổ đĩa bổ sung cho các raidz1</translation>
         </message>
         <message>
             <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hãy chọn 3, 5, 9 hoặc ổ đĩa bổ sung cho các raidz2</translation>
         </message>
         <message>
             <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hãy chọn 4, 6, hoặc 10 ổ đĩa bổ sung cho các raidz3</translation>
         </message>
         <message>
             <source>Enter SWAP size</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nhập SWAP kích thước</translation>
         </message>
         <message>
             <source>Size (MB)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích (MB)</translation>
         </message>
     </context>
     <context>
         <name>wizardFreeBSD</name>
         <message>
             <source>Please enter the root password for this server</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xin vui lòng nhập vào mật khẩu gốc rễ cho máy chủ này</translation>
         </message>
         <message>
             <source>Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>mật khẩu</translation>
         </message>
         <message>
             <source>Password (Repeat)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu (Lặp lại)</translation>
         </message>
         <message>
             <source>Please create a user for this server</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xin vui lòng tạo một người dùng cho máy chủ này</translation>
         </message>
         <message>
             <source>Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên</translation>
         </message>
         <message>
             <source>Username</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên truy nhập</translation>
         </message>
         <message>
             <source>Default shell</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>vỏ mặc định</translation>
         </message>
         <message>
             <source>Please enter a system hostname and remote login preference.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hãy nhập tên máy và hệ thống từ xa lựa chọn đăng nhập.</translation>
         </message>
         <message>
             <source>Hostname</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tên máy</translation>
         </message>
         <message>
             <source>Enable remote SSH login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt điều khiển từ xa SSH đăng nhập</translation>
         </message>
         <message>
             <source>Please select a network device to configure for this system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Vui lòng chọn một thiết bị mạng để cấu hình cho hệ thống này.</translation>
         </message>
         <message>
             <source>Network Interface</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giao diện mạng</translation>
         </message>
         <message>
             <source>IP Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Địa chỉ IP</translation>
         </message>
         <message>
             <source>Netmask</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mặt nạ mạng con</translation>
         </message>
         <message>
             <source>Nameserver (DNS)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Máy chủ tên (DNS)</translation>
         </message>
         <message>
             <source>Gateway</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>cửa ngõ</translation>
         </message>
         <message>
             <source>IPv6 Address</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Địa chỉ IPv6</translation>
         </message>
         <message>
             <source>IPv6 Gateway</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6 của Gateway</translation>
         </message>
         <message>
             <source>IPv6 Nameserver</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>IPv6 Máy chủ tên</translation>
         </message>
         <message>
             <source>000.000.000.000; </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>000.000.000.000;</translation>
         </message>
         <message>
             <source>Please select any optional features to install.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Click vào các tính năng tùy chọn để cài đặt.</translation>
         </message>
         <message>
             <source>Install system sources (/usr/src)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cài đặt nguồn hệ thống (/usr/src)v</translation>
         </message>
         <message>
             <source>Install ports tree (/usr/ports)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cài đặt cổng cây (/usr/cổng)</translation>
         </message>
         <message>
             <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wizard này sẽ hướng dẫn bạn mặc dù các thiết lập của máy chủ mới của bạn. Kích Next để bắt đầu.</translation>
         </message>
     </context>
 </TS>
