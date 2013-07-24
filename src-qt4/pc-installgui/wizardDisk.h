@@ -45,6 +45,7 @@ private slots:
     void slotZDDOFF();
     void slotZDDON();
     void slotZDDVERIFY();
+    void slotZCmpON();
     void slotZCmpOFF();
     void slotZCmpLZJB();
     void slotZCmpGZIP();

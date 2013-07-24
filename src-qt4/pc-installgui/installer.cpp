@@ -367,7 +367,7 @@ QStringList Installer::getDiskSummary()
       for (int z = 0; z < mounts.size(); ++z) {
         if ( copyList.at(i).at(0) == workingDisk \
           && copyList.at(i).at(1) == workingSlice \
-          && mounts.at(z) == startPart ) {
+          && (mounts.at(z) == startPart || mounts.at(z).contains(startPart + "(") ) ) {
 
           // Check if we have any extra arguments to throw on the end
           XtraTmp="";
@@ -380,11 +380,11 @@ QStringList Installer::getDiskSummary()
           summaryList << tr("FileSystem:") + " " + copyList.at(i).at(3);
           summaryList << tr("Size:") + " " + copyList.at(i).at(4) + "MB ";
           if ( copyList.at(i).at(3) == "ZFS" ) {
-            QStringList zDS = copyList.at(i).at(2).split(",/");
+            QStringList zDS = copyList.at(i).at(2).split(",");
             QString zTMP;
             for (int ds = 0; ds < zDS.size(); ++ds) {
-              if ( zDS.at(ds) != "/" )
-                zDS.replace(ds, "/" + zDS.at(ds));
+              //if ( zDS.at(ds) != "/" )
+               // zDS.replace(ds, "/" + zDS.at(ds));
               if ( zDS.at(ds).indexOf("(") != -1 ) {
                 zTMP = zDS.at(ds);
                 zTMP.replace("(", " (");
