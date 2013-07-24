@@ -47,7 +47,7 @@ private slots:
 
     // Disk slots
     void slotDiskCustomizeClicked();
-    void slotSaveDiskChanges(QList<QStringList>, bool, bool, QString);
+    void slotSaveDiskChanges(QList<QStringList>, bool, bool, QString, bool);
 
     // Slots for the installation
     void slotInstallProcFinished( int exitCode, QProcess::ExitStatus status);
@@ -171,6 +171,9 @@ private:
 
     // Zpool custom name
     QString zpoolName;
+
+    // Force 4K mode?
+    bool force4K;
 
 protected:
     void closeEvent(QCloseEvent *event);

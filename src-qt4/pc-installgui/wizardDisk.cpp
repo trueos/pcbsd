@@ -96,6 +96,7 @@ void wizardDisk::slotClose()
 void wizardDisk::accept()
 {
   bool useGPT = false;
+  bool force4K = false;
   QString zpoolName;
   if (comboPartition->currentIndex() == 0 )
     useGPT = checkGPT->isChecked();
@@ -104,13 +105,17 @@ void wizardDisk::accept()
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
     useGPT = true;
 
+  // When doing advanced ZFS setups, check if 4K is enabled
+  if ( radioAdvanced->isChecked() && checkForce4K->isChecked() )
+    force4K = true;
+
   if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )
      zpoolName = lineZpoolName->text();
 
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, false, false, zpoolName);
+    emit saved(sysFinalDiskLayout, false, false, zpoolName, force4K);
   else
-    emit saved(sysFinalDiskLayout, true, useGPT, zpoolName);
+    emit saved(sysFinalDiskLayout, true, useGPT, zpoolName, force4K);
   close();
 }
 
@@ -122,10 +127,12 @@ int wizardDisk::nextId() const
          return Page_Expert;
        if (radioBasic->isChecked()) {
 	 checkGPT->setVisible(false);
+	 checkForce4K->setVisible(false);
 	 groupZFSPool->setVisible(false);
        }
        if (radioAdvanced->isChecked()) {
 	 checkGPT->setVisible(true);
+	 checkForce4K->setVisible(true);
 	 groupZFSPool->setVisible(true);
        }
 	break;
@@ -200,10 +207,13 @@ bool wizardDisk::validatePage()
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_BasicDisk:
-	 if ( comboPartition->currentIndex() == 0  && radioAdvanced->isChecked())
+	 if ( comboPartition->currentIndex() == 0  && radioAdvanced->isChecked()) {
 	   checkGPT->setVisible(true);
-	 else
+	   checkForce4K->setVisible(true);
+	 } else {
 	   checkGPT->setVisible(false);
+	   checkForce4K->setVisible(false);
+ 	 }
 
 	 // Doing a Advanced install
 	 if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )

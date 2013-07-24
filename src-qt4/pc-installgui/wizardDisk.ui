@@ -190,6 +190,169 @@
   </widget>
   <widget class="QWizardPage" name="Page_BasicDisk">
    <layout class="QGridLayout" name="gridLayout_11">
+    <item row="1" column="2" rowspan="8">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>17</width>
+        <height>256</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>387</width>
+        <height>18</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="7" column="1">
+     <widget class="QGroupBox" name="groupZFSPool">
+      <property name="font">
+       <font>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>ZFS pool name</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="lineZpoolName">
+         <property name="inputMask">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>32767</number>
+         </property>
+         <property name="placeholderText">
+          <string notr="true">tank</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="label_4">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>387</width>
+        <height>18</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="0" rowspan="9">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>55</width>
+          <height>55</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="sysinstaller.qrc">:/modules/images/disk.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_11">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="1">
+     <spacer name="verticalSpacer_17">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="5" column="1">
+     <widget class="QCheckBox" name="checkGPT">
+      <property name="text">
+       <string>Partition disk with GPT</string>
+      </property>
+     </widget>
+    </item>
     <item row="3" column="1">
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
@@ -240,27 +403,7 @@
       </item>
      </layout>
     </item>
-    <item row="4" column="1">
-     <spacer name="verticalSpacer_17">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="5" column="1">
-     <widget class="QCheckBox" name="checkGPT">
-      <property name="text">
-       <string>Partition disk with GPT</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
+    <item row="8" column="1">
      <spacer name="verticalSpacer_6">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -273,147 +416,11 @@
       </property>
      </spacer>
     </item>
-    <item row="0" column="1">
-     <spacer name="verticalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>387</width>
-        <height>18</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLabel" name="label_4">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </string>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0" rowspan="8">
-     <layout class="QVBoxLayout" name="verticalLayout_4">
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>55</width>
-          <height>55</height>
-         </size>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap resource="sysinstaller.qrc">:/modules/images/disk.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer_11">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item row="1" column="2" rowspan="7">
-     <spacer name="horizontalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>17</width>
-        <height>256</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="1">
-     <spacer name="verticalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>387</width>
-        <height>18</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
     <item row="6" column="1">
-     <widget class="QGroupBox" name="groupZFSPool">
-      <property name="font">
-       <font>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
+     <widget class="QCheckBox" name="checkForce4K">
+      <property name="text">
+       <string>Force ZFS 4K block size</string>
       </property>
-      <property name="title">
-       <string>ZFS pool name</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="0">
-        <widget class="QLineEdit" name="lineZpoolName">
-         <property name="inputMask">
-          <string/>
-         </property>
-         <property name="maxLength">
-          <number>32767</number>
-         </property>
-         <property name="placeholderText">
-          <string notr="true">tank</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </widget>
     </item>
    </layout>

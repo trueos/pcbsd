@@ -94,6 +94,12 @@ if [ -n "$VAL" ] ; then
   export ZPOOLCUSTOMNAME="${VAL}"
 fi
 
+# Check if we are going to force ZFS 4k sectors with gnop
+get_value_from_cfg zfsForce4k
+if [ -n "$VAL" ] ; then
+  export ZFSFORCE4K="${VAL}"
+fi
+
 # Check if we are doing any networking setup
 start_networking
 

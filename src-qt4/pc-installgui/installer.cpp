@@ -15,6 +15,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     setupUi(this);
     translator = new QTranslator();
     haveWarnedSpace=false;
+    force4K = false;
 
     connect(abortButton, SIGNAL(clicked()), this, SLOT(slotAbort()));
     connect(backButton, SIGNAL(clicked()), this, SLOT(slotBack()));
@@ -472,7 +473,7 @@ void Installer::slotDiskCustomizeClicked()
   wDisk = new wizardDisk();
   wDisk->programInit();
   wDisk->setWindowModality(Qt::ApplicationModal);
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, bool, bool, QString)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, bool, bool, QString)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, bool, bool, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, bool, bool, QString, bool)));
   wDisk->show();
   wDisk->raise();
 }
@@ -503,10 +504,11 @@ void Installer::slotSaveMetaChanges(QStringList sPkgs)
   textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bool GPT, QString zName)
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bool GPT, QString zName, bool zForce )
 {
 
   zpoolName = zName; 
+  force4K = zForce;
 
   // Save the new disk layout
   loadMBR = MBR;
@@ -788,6 +790,10 @@ QStringList Installer::getGlobalCfgSettings()
   // Using a custom zpool name?
   if ( ! zpoolName.isEmpty() )
     tmpList << "zpoolName=" + zpoolName;
+
+  // Are we force enabling ZFS 4K block sizes?
+  if ( force4K )
+    tmpList << "zfsForce4k=YES";
   
   // Networking setup
   if ( radioDesktop->isChecked() ) {
