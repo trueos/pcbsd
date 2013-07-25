@@ -6,6 +6,7 @@ Type=Application
 Keywords="hardware check compatibility"
 Categories=System;
 Name=Hardware Compatibility
+Name[af]=Hardeware Verenigbaarheid
 Name[ar]=توافق الأجهزة
 Name[bs]=Usklađenost aparata
 Name[de]=Hardware-Kompatibilitäten

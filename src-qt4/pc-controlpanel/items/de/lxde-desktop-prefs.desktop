@@ -8,6 +8,7 @@ Terminal=false
 Categories=Settings;DesktopSettings;X-LXDE-Settings;GTK;
 OnlyShowIn=LXDE;
 Name=Desktop Preferences
+Name[af]=Lessenaar Voorkeure
 Name[ar]=خصائص سطح المكتب
 Name[bg]=Настройки на работния плот
 Name[bs]=Podešavanja radne površine

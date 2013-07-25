@@ -12,6 +12,7 @@ X-DBUS-StartupType=
 X-KDE-SubstituteUID=false
 X-KDE-Username=
 Name=PC-BSD Handbook
+Name[af]=PC-BSD Handboek
 Name[ar]=دليل PC-BSD
 Name[bg]=PC-BSD Наръчник
 Name[bs]=PC-BSD uputstvo

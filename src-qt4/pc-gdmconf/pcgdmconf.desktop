@@ -11,6 +11,7 @@ TerminalOptions=
 Type=Application
 Categories=System;Settings;
 Name=GDM configuration
+Name[af]=GDM Opset
 Name[ar]=تهيئة مدير غنوم GDM
 Name[bg]=GDM конфигурация
 Name[bs]=GDM podešavanja

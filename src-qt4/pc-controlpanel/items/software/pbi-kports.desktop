@@ -9,6 +9,7 @@ Path=%PBI_PREFIX%
 
 
 Name=Kports
+Name[af]=Kports
 Name[ar]=Kports
 Name[bg]=Kports
 Name[bs]=Kports
@@ -41,6 +42,7 @@ Name[zh_CN]=Kports
 Name[zh_HK]=Kports
 Name[zh_TW]=Kports
 GenericName=Kports
+GenericName[af]=Kports
 GenericName[ar]=Kports
 GenericName[bg]=Kports
 GenericName[bs]=Kports

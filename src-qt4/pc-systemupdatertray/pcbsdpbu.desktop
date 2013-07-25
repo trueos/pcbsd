@@ -5,6 +5,7 @@ Icon=/usr/local/share/pcbsd/icons/system-software-update.png
 Type=Application
 Categories=System;
 Name=Update Manager Tray
+Name[af]=Werk Bestuurder Skinkbord
 Name[ar]=علبة مدير التحديث
 Name[bg]=Лента на мениджъра на актуализации
 Name[bs]=Update Manager Tray

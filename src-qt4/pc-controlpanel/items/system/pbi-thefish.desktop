@@ -6,6 +6,7 @@ Exec=pc-su %PBI_PREFIX%/bin/thefish
 Icon=%PBI_PREFIX%/thefish.png
 
 Name=The fish
+Name[af]=The fish
 Name[ar]=السمكة
 Name[bg]=The fish
 Name[bs]=The fish
@@ -43,6 +44,7 @@ Name[zh_CN]=The fish
 Name[zh_HK]=The fish
 Name[zh_TW]=The fish
 Comment=The fish: rc.conf editor
+Comment[af]=The fish: rc.conf redakteur
 Comment[ar]=The fish :محرر rc.conf
 Comment[bs]=The fish: rc.conf editor
 Comment[ca]=The fish: editor de l'arxiu rc.conf

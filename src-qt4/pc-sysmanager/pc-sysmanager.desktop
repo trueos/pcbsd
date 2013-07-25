@@ -9,6 +9,7 @@ X-KDE-RootOnly=true
 X-KDE-SubstituteUID=true
 Categories=System;
 Name=System Manager
+Name[af]=Stelsel Bestuurder
 Name[ar]=مدير النظام
 Name[bg]=Системен мениджър
 Name[bn]=সিস্টেম ম্যানেজার

@@ -12,6 +12,7 @@ TerminalOptions=
 Type=Application
 Categories=System;
 Name=AppCafe
+Name[af]=AppCafe
 Name[ar]=AppCafe
 Name[bg]=AppCafe
 Name[bs]=AppCafe

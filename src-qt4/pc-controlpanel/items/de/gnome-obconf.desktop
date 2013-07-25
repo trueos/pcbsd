@@ -7,6 +7,7 @@ Icon=obconf
 Exec=obconf %f
 
 Name=Openbox Configuration Manager
+Name[af]=Openbox Opset Bestuurder
 Name[ar]=مدير إعداد Openbox
 Name[bg]=Конфигурационен мениджър на Openbox
 Name[bs]=Upravljanje Openbox podešavanja
@@ -43,6 +44,7 @@ Name[zh_CN]=Openbox配置管理器
 Name[zh_HK]=Openbox 設定管理員
 Name[zh_TW]=Openbox設定管理程式
 Comment=Openbox configuration manager
+Comment[af]=Openbox opset bestuurder
 Comment[ar]=مدير إعداد Openbox
 Comment[bg]=Конфигурационен мениджър на Openbox
 Comment[bs]=Upravljanje Openbox podešavanja

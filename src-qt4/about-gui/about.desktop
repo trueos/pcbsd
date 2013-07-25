@@ -7,6 +7,7 @@ Exec=about-gui
 Icon=/usr/local/share/pcbsd/icons/about.png
 Comment="Information about PC-BSD system"
 Name=About
+Name[af]=Oor
 Name[ar]=بشأن
 Name[bs]=O
 Name[de]=Über

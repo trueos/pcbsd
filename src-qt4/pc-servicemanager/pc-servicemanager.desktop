@@ -9,6 +9,7 @@ X-KDE-RootOnly=true
 X-KDE-SubstituteUID=true
 Categories=System;Settings;Qt;
 Name=Service Manager
+Name[af]=Diens Bestuurder
 Name[ar]=مدير الخدمات
 Name[bg]=Мениджър услуги
 Name[bs]=Upravljač servisa

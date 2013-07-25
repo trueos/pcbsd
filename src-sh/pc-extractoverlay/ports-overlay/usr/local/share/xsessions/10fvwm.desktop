@@ -4,6 +4,7 @@ TryExec=fvwm
 Exec=fvwm
 Icon=/usr/local/share/pixmaps/fvwm.png
 Name=FVWM
+Name[af]=FVWM
 Name[ar]=FVWM
 Name[bg]=FVWM
 Name[bs]=FVWM

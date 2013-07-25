@@ -10,6 +10,7 @@ X-KDE-SubstituteUID=true
 
 Categories=System;
 Name=User Manager
+Name[af]=Gebruiker Bestuurder
 Name[ar]=إدارة المستخدمين
 Name[bg]=Потребителски Настройки
 Name[bs]=Uređivanje korisnika
@@ -51,6 +52,7 @@ Name[zh_CN]=帐户管理程序
 Name[zh_HK]=用戶管理員
 Name[zh_TW]=使用者管理
 Comment=Manage users and groups
+Comment[af]=Bestuur gebruikers en groepe
 Comment[ar]=إدارة المستخدمين والمجموعات
 Comment[bg]=Управление на потребители и групи
 Comment[bs]=Uređivanje korisnika i grupa
