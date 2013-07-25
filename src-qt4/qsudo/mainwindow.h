@@ -28,6 +28,7 @@ private slots:
 private:
     void startSudo();
     void testPass();
+    bool checkUserGroup();
     QProcess *sudoProc;
     int tries;
 

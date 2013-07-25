@@ -11,6 +11,7 @@
 *****************************************************************************/
 #include <QDebug>
 #include <QDir>
+#include <QMessageBox>
 #include <QString>
 #include <QProcess>
 #include <QTextStream>
@@ -20,6 +21,14 @@
 
 void MainWindow::ProgramInit()
 {
+  if( ! checkUserGroup() ) {
+    QMessageBox::critical(this, tr("Access Denied"),
+                                tr("This user does not have administrator permissions on this system!"),
+                                QMessageBox::Ok,
+                                QMessageBox::Ok);
+    exit(1);
+  }
+
   tries=3;
   connect(buttonBox, SIGNAL(clicked(QAbstractButton *)), this, SLOT(slotButtonClicked(QAbstractButton *)));
   connect(passwordLineEdit, SIGNAL(returnPressed()), this, SLOT(slotReturnPressed()));
@@ -40,6 +49,7 @@ void MainWindow::testPass()
   arguments << "true";
 
   QProcess *tP = new QProcess(this);
+  tP->setProcessChannelMode(QProcess::MergedChannels);
   tP->start(program, arguments);
   tP->write(passwordLineEdit->text().toLatin1() + "\n");
   tP->write(passwordLineEdit->text().toLatin1() + "\n");
@@ -105,3 +115,36 @@ void MainWindow::slotButtonClicked(QAbstractButton *myBut)
      testPass();
   close();
 }
+
+bool MainWindow::checkUserGroup()
+{
+   QString loginName = getlogin();
+   QString groupName = "wheel"; // group to check
+   QStringList gNames;
+   if ( loginName == "root" )
+     return true;
+    
+   QString tmp;
+   QFile iFile("/etc/group");
+   if ( ! iFile.open(QIODevice::ReadOnly | QIODevice::Text))
+     return true; //or FALSE?
+ 
+   while ( !iFile.atEnd() ) {
+     tmp = iFile.readLine().simplified();
+     if ( tmp.indexOf(groupName) == 0 ) {
+        gNames = tmp.section(":", 3, 3).split(",");
+        break;
+     }
+   }
+   iFile.close();
+
+   if ( gNames.isEmpty() )
+      return false;
+
+   for ( int i = 0; i < gNames.size(); ++i )
+      if ( gNames.at(i).indexOf(loginName) == 0 )
+            return true;
+
+   return false;
+}
+
