@@ -5,178 +5,143 @@
         <name>mainWin</name>
         <message>
             <source>Update Manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật đốc            </translation>
         </message>
         <message>
             <source>Preparing to check for updates... Please Wait...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chuẩn bị để kiểm tra các bản cập nhật... Vui lòng đợi...            </translation>
         </message>
         <message>
             <source>Available Updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật có sẵn            </translation>
         </message>
         <message>
             <source>Select / Deselect All</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chọn số / Bỏ chọn Tất cả       </translation>
         </message>
         <message>
             <source>Update Conflict</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật xung đột            </translation>
         </message>
         <message>
             <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nhiều hơn một cập nhật độc lập đã được lựa chọn! Xin vui lòng bỏ chọn tất cả các bản cập nhật khác và thử lại.            </translation>
         </message>
         <message>
             <source>Update Failed!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật thất bại!     </translation>
         </message>
         <message>
             <source>Failed to install:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thất bại trong việc cài đặt:            </translation>
         </message>
         <message>
             <source>Update Ready</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật sẵn sàng            </translation>
         </message>
         <message>
             <source>Please reboot to start the update to PC-BSD version &quot;</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Xin vui lòng khởi động lại để bắt đầu cập nhật lên phiên bản PC-BSD &quot; </translation>
         </message>
         <message>
             <source>This process may take a while, please do NOT interrupt the process.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quá trình này có thể mất một thời gian, xin vui lòng không làm gián đoạn quá trình này.            </translation>
         </message>
         <message>
             <source>Updating:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật:</translation>
         </message>
         <message>
             <source>Checking for updates... Please Wait...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kiểm tra các bản cập nhật .. Vui lòng đợi...</translation>
         </message>
         <message>
             <source>Your system is fully updated!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống của bạn là cập nhật đầy đủ! </translation>
         </message>
         <message>
             <source>PC-BSD Version:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD Phiên bản:            </translation>
         </message>
         <message>
             <source>This update must be installed by itself.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bản cập nhật này phải được cài đặt chính nó.</translation>
         </message>
         <message>
             <source>Creating a backup of your data first is recommended.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tạo ra một bản sao lưu dữ liệu của bạn đầu tiên được khuyến khích.</translation>
         </message>
         <message>
             <source>This is a patch for your version of PC-BSD</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đây là một bản vá cho phiên bản của PC-BSD            </translation>
         </message>
         <message>
             <source>Patch Size:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bản vá Kích thước</translation>
         </message>
         <message>
             <source>FreeBSD Security Update</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>FreeBSD cập nhật bảo mật</translation>
         </message>
         <message>
             <source>The following files need updating:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Các tập tin sau đây cần phải cập nhật:            </translation>
         </message>
         <message>
             <source>System Package Updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống thông tin cập nhật trọn gói            </translation>
         </message>
         <message>
             <source>The following package updates are available:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Các bản cập nhật gói sau:</translation>
         </message>
         <message>
             <source>Updates for Jail:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật cho các Jail:    </translation>
         </message>
         <message>
             <source>Starting Update: %1 (%2 of %3)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bắt đầu Cập nhật:%1 (%2 %3)</translation>
         </message>
         <message>
             <source>Downloading: %1 (Update %2 of %3)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nâng cấp hệ thống: %1 (%2)</translation>
         </message>
         <message>
             <source>Updating: %1 (%2 of %3)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cập nhật:%1 (%2 %3)</translation>
         </message>
         <message>
             <source>System Upgrade: %1 (%2)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nâng cấp hệ thống: %1 (%2)</translation>
         </message>
         <message>
             <source>Patch: %1 (%2)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bản vá lỗi: %1 (%2)</translation>
         </message>
         <message>
             <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Một nâng cấp hệ thống phòng để cài đặt. Xin vui lòng khởi động lại để bắt đầu!     </translation>
         </message>
         <message>
             <source>An unknown error occured!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Một lỗi không xác định!     </translation>
         </message>
         <message>
             <source>Re&amp;scan for Updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quét lại cho các cập nhật            </translation>
         </message>
         <message>
             <source>&amp;Install selected updates</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;cài đặt bản cập nhật lựa chọn  </translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Đóng      </translation>
         </message>
         <message>
             <source>System updates available!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống thông tin cập nhật có sẵn! </translation>
         </message>
     </context>
 </TS>

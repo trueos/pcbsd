@@ -5,230 +5,187 @@
         <name>FancySwitcher</name>
         <message>
             <source>Alt+Left</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Left</translation>
         </message>
         <message>
             <source>Alt+Right</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Right</translation>
         </message>
         <message>
             <source>Alt+Up</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Up</translation>
         </message>
         <message>
             <source>Alt+Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Alt+Down</translation>
         </message>
     </context>
     <context>
         <name>LoginWidget</name>
         <message>
             <source>Select</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chọn</translation>
         </message>
         <message>
             <source>Select an alternate user and clear the password field</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chọn một người dùng khác nhau và rõ ràng các lĩnh vực mật khẩu</translation>
         </message>
         <message>
             <source>Select this user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chọn người dùng này</translation>
         </message>
         <message>
             <source>Login</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>đăng nhập</translation>
         </message>
         <message>
             <source>Login to the system with the current user and password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đăng nhập vào hệ thống với người dùng hiện tại và mật khẩu</translation>
         </message>
         <message>
             <source>Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu</translation>
         </message>
         <message>
             <source>Hold to view the currently entered password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Giữ để xem mật khẩu hiện đang vào</translation>
         </message>
         <message>
             <source>Login password for the selected user</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đăng nhập mật khẩu cho người sử dụng được lựa chọn</translation>
         </message>
         <message>
             <source>Available users</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Người sử dụng có sẵn</translation>
         </message>
         <message>
             <source>Login to %1</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>đăng nhập vào %1</translation>
         </message>
     </context>
     <context>
         <name>PCDMgui</name>
         <message>
             <source>Virtual Keyboard</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bàn phím ảo</translation>
         </message>
         <message>
             <source>Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Miền địa </translation>
         </message>
         <message>
             <source>Change locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thay đổi miền địa</translation>
         </message>
         <message>
             <source>Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bố trí bàn phím</translation>
         </message>
         <message>
             <source>Change Keyboard Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thay đổi Bàn phím</translation>
         </message>
         <message>
             <source>System</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hệ thống</translation>
         </message>
         <message>
             <source>Tip: Make sure that caps-lock is turned off.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mẹo: Hãy chắc chắn rằng mũ khóa đã được tắt.</translation>
         </message>
         <message>
             <source>Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Khởi động lại</translation>
         </message>
         <message>
             <source>Shut Down</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ngưng hoạt động</translation>
         </message>
         <message>
             <source>Close PCDM</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Dóng PCDM            </translation>
         </message>
         <message>
             <source>Shutdown the computer</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tắt máy tính            </translation>
         </message>
         <message>
             <source>Invalid Username/Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không hợp lệ Tên đăng nhập/Mật khẩu</translation>
         </message>
         <message>
             <source>Username/Password combination is invalid, please try again.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên đăng nhập/mật khẩu kết hợp không hợp lệ, hãy thử lại.            </translation>
         </message>
         <message>
             <source>System Shutdown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>hệ thống tắt máy            </translation>
         </message>
         <message>
             <source>You are about to shut down the system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn muốn tắt hệ thống.</translation>
         </message>
         <message>
             <source>Are you sure?</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn có chắc chắn?</translation>
         </message>
         <message>
             <source>System Restart</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Khởi động lại hệ thống</translation>
         </message>
         <message>
             <source>You are about to restart the system.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạn muốn khởi động lại hệ thống.</translation>
         </message>
     </context>
     <context>
         <name>widgetKeyboard</name>
         <message>
             <source>Keyboard Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết lập bàn phím   </translation>
         </message>
         <message>
             <source>Key Layout</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>bố trí phím            </translation>
         </message>
         <message>
             <source>Variant</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Biến thể</translation>
         </message>
         <message>
             <source>Keyboard Model</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bàn phím mô hình</translation>
         </message>
         <message>
             <source>( you may type into the space below to test your selected settings. )</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>(Bạn có thể gõ vào không gian dưới đây để thử nghiệm các thiết lập được lựa chọn của bạn.)            </translation>
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Áp dụng            </translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Đóng</translation>
         </message>
     </context>
     <context>
         <name>widgetLocale</name>
         <message>
             <source>Select Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chọn ngôn</translation>
         </message>
         <message>
             <source>Current Locale</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ngôn hiện tại</translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>áp dụng            </translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hủy bỏ </translation>
         </message>
     </context>
 </TS>

@@ -9,7 +9,7 @@
         </message>
         <message>
             <source>Start the Network Manager</source>
-            <translation type="unfinished">Laai die Netwerk Bestuurder</translation>
+            <translation>Begin die Netwerk Bestuurder</translation>
         </message>
         <message>
             <source>Restart the Network</source>
@@ -57,92 +57,75 @@
         </message>
         <message>
             <source>Unknown Wireless Device</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Onbekende draadlose toestel            </translation>
         </message>
         <message>
             <source>Device Name:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Toestel Naam            </translation>
         </message>
         <message>
             <source>Unknown</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Onbekende            </translation>
         </message>
         <message>
             <source>Close the Network Monitor</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Maak die Netwerk Aansoek</translation>
         </message>
         <message>
             <source>Click here to configure wireless connections</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Klik hier om draadlose konneksies te stel            </translation>
         </message>
         <message>
             <source>No Wireless Network Connection</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Geen draadlose netwerk verband            </translation>
         </message>
         <message>
             <source>Connecting to </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>verbinding te            </translation>
         </message>
         <message>
             <source>Please Wait</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wag asseblief            </translation>
         </message>
     </context>
     <context>
         <name>netKey</name>
         <message>
             <source>Please Enter Network Key</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Voer Netwerk Sleutel</translation>
         </message>
         <message>
             <source>SSID</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>SSID            </translation>
         </message>
         <message>
             <source>Network Key</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Netwerk Sleutel</translation>
         </message>
         <message>
             <source>Network Key (Repeat)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Netwerk Sleutel (Herhaal)            </translation>
         </message>
         <message>
             <source>Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Toepassing</translation>
         </message>
         <message>
             <source>Cancel</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kanselleer            </translation>
         </message>
         <message>
             <source>Network Key Error</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Netwerk Sleutel Fout            </translation>
         </message>
         <message>
             <source>Error: The entered network keys do not match!
 </source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Fout: Die aangegaan netwerk sleutels stem nie ooreen nie</translation>
         </message>
         <message>
             <source>Show network key as text</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Wys netwerk sleutel as teks            </translation>
         </message>
     </context>
 </TS>
