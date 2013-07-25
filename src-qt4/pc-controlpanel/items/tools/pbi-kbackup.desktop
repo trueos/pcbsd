@@ -8,6 +8,7 @@ Terminal=false
 Categories=System;KDE;X-SuSE-Backup;X-MandrivaLinux-System-Archiving-Backup;
 
 Name=KBackup (Backup Program)
+Name[af]=KBackup (Friends-Aansoek)
 Name[ar]=KBackup (برنامج النسخ الاحتياطي)
 Name[bg]=KBackup (програма за резервни копия)
 Name[bs]=KBackup (Program za osiguranje)
@@ -46,6 +47,7 @@ Name[zh_CN]=KBackup (备份程序)
 Name[zh_HK]=KBackup (備份程式)
 Name[zh_TW]=KBackup(備份程式)
 Comment=Backup your data with an easy to use user interface
+Comment[af]=Friends jou data met 'n maklike koppelvlak te gebruik
 Comment[ar]=انسخ بياناتك احتياطيًا من خلال واجهة مستخدم بسيطة
 Comment[bg]=Резервно копие на вашите данни с лесен за използване потребителски интерфейс
 Comment[bs]=Osigurajte Vaše podatke sa okruženjem koji je jednostavan za korišćenje

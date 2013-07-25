@@ -296,8 +296,7 @@
         </message>
         <message>
             <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-            <translation type="unfinished">
-             {1G?}</translation>
+            <translation>Die gekose skyf / partisie is minder as% aanbeveel 1GB. Die installasie het dalk misluk ..</translation>
         </message>
     </context>
     <context>

@@ -51,6 +51,7 @@ Keywords[zh_TW]=網路,DNS,路由,介面
 
 Categories=System;
 Name=System Network Configuration
+Name[af]=Stelsel Netwerk Opset
 Name[ar]=ضبط نظام الشبكة
 Name[bg]=Конфигурация на мрежа
 Name[bn]=নেটওয়ার্ক মানসমূহ
@@ -107,6 +108,7 @@ Name[zh_CN]=系统网络配置
 Name[zh_HK]=系統網絡配置
 Name[zh_TW]=系統網路組態設定
 Comment=Configure Network Settings
+Comment[af]=Instel Netwerk Opset
 Comment[ar]=اعداد خيارات الشبكة
 Comment[bg]=Конфигуриране на мрежовите настройки
 Comment[bn]=নেটওয়ার্ক মানসমূহ কনফিগার করে

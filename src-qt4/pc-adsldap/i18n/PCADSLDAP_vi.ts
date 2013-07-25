@@ -5,148 +5,119 @@
         <name>pcADSLDAP</name>
         <message>
             <source>Active Directory</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>thư mục hoạt động</translation>
         </message>
         <message>
             <source>Enable Active Directory</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt thư mục hoạt động</translation>
         </message>
         <message>
             <source>Domain Name (DNS/Realm-Name)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên miền (DNS / Cõi-Tên)</translation>
         </message>
         <message>
             <source>NetBIOS Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tên NetBIOS</translation>
         </message>
         <message>
             <source>Workgroup Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên nhóm làm việc</translation>
         </message>
         <message>
             <source>Allow Trusted Domains</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên miền cho phép Trusted</translation>
         </message>
         <message>
             <source>Administrator Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên quản trị viên</translation>
         </message>
         <message>
             <source>Administrator Password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu quản trị viên</translation>
         </message>
         <message>
             <source>Administrator Password (Confirm)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu quản trị (Xác nhận)</translation>
         </message>
         <message>
             <source>LDAP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>LDAP</translation>
         </message>
         <message>
             <source>Enable LDAP</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Kích hoạt LDAP</translation>
         </message>
         <message>
             <source>Hostname</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>tên máy</translation>
         </message>
         <message>
             <source>Base DN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Căn cứ DN</translation>
         </message>
         <message>
             <source>Allow Anon Binding</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cho phép Anon Binding</translation>
         </message>
         <message>
             <source>Root bind DN</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Gốc ràng buộc DN</translation>
         </message>
         <message>
             <source>Root bind password</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu root ràng buộc</translation>
         </message>
         <message>
             <source>Password Encryption</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu mã hóa</translation>
         </message>
         <message>
             <source>User Suffix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Người sử dụng Suffix</translation>
         </message>
         <message>
             <source>Group Suffix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Nhóm Suffix</translation>
         </message>
         <message>
             <source>Password Suffix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật khẩu Suffix</translation>
         </message>
         <message>
             <source>Machine Suffix</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Máy Suffix    </translation>
         </message>
         <message>
             <source>Encryption Mode</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chế độ mã hóa</translation>
         </message>
         <message>
             <source>Self Signed Certificate</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tự Chứng chỉ đã Ký</translation>
         </message>
         <message>
             <source>Auxiliary Parameters</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Các thông số phụ trợ</translation>
         </message>
         <message>
             <source>&amp;Save</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Lưu</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Đóng</translation>
         </message>
         <message>
             <source>Active Directory Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bạ Cấu hình hoạt động</translation>
         </message>
         <message>
             <source>The Active Directory passwords specified do not match!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Các mật khẩu thư mục hoạt động chỉ định không phù hợp! </translation>
         </message>
         <message>
             <source>AD and LDAP Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>AD và cấu hình LDAP</translation>
         </message>
     </context>
 </TS>

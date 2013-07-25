@@ -21,8 +21,7 @@
         </message>
         <message>
             <source>????</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>????            </translation>
         </message>
         <message>
             <source>FreeBSD base</source>
@@ -30,13 +29,11 @@
         </message>
         <message>
             <source>Arch:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Arch:            </translation>
         </message>
         <message>
             <source>ident</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Ident            </translation>
         </message>
         <message>
             <source>Hardware</source>
@@ -56,8 +53,7 @@
         </message>
         <message>
             <source>Desktop environments:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lessenaar omgewings:            </translation>
         </message>
         <message>
             <source>(Please wait...)</source>
@@ -85,23 +81,19 @@
         </message>
         <message>
             <source>System components...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Komponente van die sisteem ...            </translation>
         </message>
         <message>
             <source>Desktop environments...</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Lessenaar omgewings ...</translation>
         </message>
         <message>
             <source>PC-BSD CLI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD CLI nut:            </translation>
         </message>
         <message>
             <source>PC-BSD UI utilities:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>PC-BSD UI nut:            </translation>
         </message>
     </context>
 </TS>

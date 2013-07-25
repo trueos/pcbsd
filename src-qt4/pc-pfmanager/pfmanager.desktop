@@ -9,6 +9,7 @@ X-KDE-RootOnly=true
 X-KDE-SubstituteUID=true
 Categories=System;
 Name=Firewall Manager
+Name[af]=Fuur Muur Bestuurder
 Name[ar]=مدير الجدار الناري
 Name[bg]=Мениджър на Защитна стена
 Name[bn]=ফায়ারওয়াল

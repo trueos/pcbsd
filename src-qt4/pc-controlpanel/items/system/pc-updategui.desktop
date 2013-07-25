@@ -6,6 +6,7 @@ Type=Application
 Keywords="update,upgrade,update system,upgrade system,update pcbsd,pgrade pcbsd"
 Categories=System;
 Name=Update Manager
+Name[af]=Werk Bestuurder
 Name[ar]=مدير التحديث
 Name[bg]=Мениджър на актуализациите
 Name[bs]=Upravljač obnavljanja

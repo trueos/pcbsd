@@ -12,6 +12,7 @@ TerminalOptions=
 Type=Application
 Categories=System;
 Name=Warden
+Name[af]=Warden
 Name[ar]=المراقب
 Name[bg]=Warden
 Name[bs]=Warden

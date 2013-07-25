@@ -6,6 +6,7 @@ Exec=%PBI_PREFIX%/bin/tork
 Icon=%PBI_PREFIX%/tork.png
 
 Name=Tork
+Name[af]=Tork
 Name[ar]=تورك
 Name[bg]=Tork
 Name[bs]=Tork
@@ -43,6 +44,7 @@ Name[zh_CN]=Tork
 Name[zh_HK]=Tork
 Name[zh_TW]=Tork
 Comment=Powerful anonymity and network services manager for KDE desktop
+Comment[af]=Kragtige anonimiteit en netwerk dienste bestuurder vir KDE lessenaar
 Comment[ar]=مدير السرية وعدم الكشف عن الهوية وخدمات الشبكة لسطح مكتب KDE
 Comment[bg]=Мениджър на мрежовите услуги за KDE Desktop
 Comment[bs]=Moćan upravljač anonimnim i mrežnim servisima za KDE okruženje

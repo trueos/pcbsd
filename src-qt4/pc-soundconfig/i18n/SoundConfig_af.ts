@@ -5,33 +5,27 @@
         <name>sndDialog</name>
         <message>
             <source>Sound Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>klank opset</translation>
         </message>
         <message>
             <source>Below you may change the default sound device, and test sound playback</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Hier kan jy die standaard klank toestel verander, en toets klank speel            </translation>
         </message>
         <message>
             <source>&amp;Test sound</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>$Test sound            </translation>
         </message>
         <message>
             <source>&amp;Apply</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Toepassing</translation>
         </message>
         <message>
             <source>&amp;Close</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>&amp;Sluit            </translation>
         </message>
         <message>
             <source>No sound devices detected!</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Geen klank toestelle bespeur!            </translation>
         </message>
     </context>
 </TS>

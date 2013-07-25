@@ -8,6 +8,7 @@ Terminal=false
 Categories=Settings;DesktopSettings;X-LXDE-Settings;GTK;
 OnlyShowIn=LXDE;
 Name=Preferred Applications
+Name[af]=Voorkeur Aansoeke
 Name[ar]=التطبيقات المفضلة
 Name[bg]=Предпочитани програми
 Name[bs]=Omiljeni programi

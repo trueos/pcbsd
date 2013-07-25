@@ -8,6 +8,7 @@ StartupNotify=true
 X-Desktop-File-Install-Version=0.15
 Categories=GTK;HardwareSettings;Settings;System;
 Name=Scanner
+Name[af]=Skandeerder
 Name[ar]=ماسح الضوئي
 Name[bs]=Skener
 Name[de]=Scanner

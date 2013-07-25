@@ -4,6 +4,7 @@ TryExec=fvwm-crystal
 Exec=fvwm-crystal
 Icon=/usr/local/share/pixmaps/fvwm-crystal.png
 Name=FVWM-Crystal
+Name[af]=FVWM-Crystal
 Name[ar]=FVWM-Crystal
 Name[bg]=FVWM-Crystal
 Name[bs]=FVWM-Crystal

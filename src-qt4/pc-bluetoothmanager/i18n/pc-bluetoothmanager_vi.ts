@@ -5,173 +5,139 @@
         <name>btmaingui</name>
         <message>
             <source>BlueTooth Manager</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bluetooth quản lý</translation>
         </message>
         <message>
             <source>Current Settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết lập hiện tại</translation>
         </message>
         <message>
             <source>Computer/Device ID</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Máy tính/thiết bị ID</translation>
         </message>
         <message>
             <source>Change</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>thay đổi</translation>
         </message>
         <message>
             <source>Devices Connected:</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Các thiết bị kết nối:            </translation>
         </message>
         <message>
             <source>Disconnect Device</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ngắt kết nối thiết bị            </translation>
         </message>
         <message>
             <source>Start Tray Application</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bắt đầu ứng dụng Tray            </translation>
         </message>
         <message>
             <source>Restart Service</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>khởi động lại dịch vụ            </translation>
         </message>
         <message>
             <source>New Devices</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết bị mới    </translation>
         </message>
         <message>
             <source>Scan</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>quét</translation>
         </message>
         <message>
             <source>Add Device</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thêm thiết bị            </translation>
         </message>
         <message>
             <source>Saved Devices</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Thiết bị lưu</translation>
         </message>
         <message>
             <source>Initiate Pairing</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bắt đầu Ghép            </translation>
         </message>
         <message>
             <source>Configure</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cấu hình            </translation>
         </message>
         <message>
             <source>Remove Device</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Loại bỏ thiết bị</translation>
         </message>
         <message>
             <source>Searching for discoverable Bluetooth devices</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tìm kiếm các thiết bị Bluetooth có thể phát hiện            </translation>
         </message>
         <message>
             <source>No new Bluetooth devices discovered! Please put your device into &quot;discovery&quot; mode and rescan.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không có các thiết bị Bluetooth mới được phát hiện! Xin vui lòng đặt thiết bị của bạn vào &quot;khám phá&quot; chế độ và quét lại.  </translation>
         </message>
         <message>
             <source>Reading saved Bluetooth devices. Please wait.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Đọc lưu các thiết bị Bluetooth. Xin vui lòng chờ đợi.</translation>
         </message>
         <message>
             <source>This program must be run with root permissions to view/edit saved configurations</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chương trình này phải được chạy với quyền root để xem/chỉnh sửa cấu hình lưu            </translation>
         </message>
         <message>
             <source>No saved configurations found</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không cấu hình được lưu tìm thấy</translation>
         </message>
         <message>
             <source>Warning</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cảnh báo  </translation>
         </message>
         <message>
             <source>No device has been selected. Please choose a device first.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không có thiết bị đã được lựa chọn. Hãy chọn một thiết bị đầu tiên.</translation>
         </message>
         <message>
             <source>Invalid Permissions</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Quyền Sử không hợp lệ            </translation>
         </message>
         <message>
             <source>This program must be run with root permissions to save device settings</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chương trình này phải được chạy với quyền truy cập root để lưu các thiết lập thiết bị  </translation>
         </message>
         <message>
             <source>PIN Code (Examples: 0000, 1234, or none)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mật mã cá nhân (ví dụ: 0000, 1234, hoặc không có)</translation>
         </message>
         <message>
             <source>Link Key (Leave blank for automatic)</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Liên kết khóa (Để trống để tự động)            </translation>
         </message>
         <message>
             <source>Device Configuration</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Cấu hình thiết bị   </translation>
         </message>
         <message>
             <source>Invalid Pin length: Defaulting to none</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Chiều dài Pin không hợp lệ: mặc định để không</translation>
         </message>
         <message>
             <source>Pairing Error</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>ghép nối Lỗi    </translation>
         </message>
         <message>
             <source>Could not pair to this device. Please verify your device configuration before trying again.</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Không thể ghép vào thiết bị này. Xin vui lòng kiểm tra cấu hình thiết bị của bạn trước khi thử lại.            </translation>
         </message>
         <message>
             <source>New Bluetooth Computer name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Mới Bluetooth tên máy tính</translation>
         </message>
         <message>
             <source>New Bluetooth Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Bluetooth mới Tên            </translation>
         </message>
         <message>
             <source>Invalid Name</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên không hợp lệ</translation>
         </message>
         <message>
             <source>Device name must not contain symbols</source>
-            <translation type="unfinished">
-            </translation>
+            <translation>Tên thiết bị không được chứa ký hiệu            </translation>
         </message>
     </context>
 </TS>

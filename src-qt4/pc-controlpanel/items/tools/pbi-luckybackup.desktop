@@ -6,6 +6,7 @@ Exec=%PBI_PREFIX%/bin/luckybackup
 Icon=%PBI_PREFIX%/luckybackup.png
 
 Name=Lucky backup
+Name[af]=Sterkte Friends
 Name[ar]=النسخ الاحتياطي المحظوظ
 Name[bg]=Lucky Архив
 Name[bs]=Lucky backup
@@ -43,6 +44,7 @@ Name[zh_CN]=Luck backup
 Name[zh_HK]=Lucky 備份
 Name[zh_TW]=Lucky backup
 Comment=Backup tool
+Comment[af]=Friends hulpmiddel
 Comment[ar]=أداة النسخ الاحتياطي
 Comment[bs]=Program za osiguranje
 Comment[ca]=Eina de còpies de seguretat

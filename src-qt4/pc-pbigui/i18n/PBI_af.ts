@@ -33,7 +33,7 @@
         </message>
         <message>
             <source>OK</source>
-            <translation type="unfinished">Regso</translation>
+            <translation>OK</translation>
         </message>
         <message>
             <source>Cancel</source>
