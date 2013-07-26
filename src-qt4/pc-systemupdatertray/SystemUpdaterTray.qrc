@@ -1,6 +1,11 @@
 <RCC>
-  <qresource>
-    <file>folder.png</file>
-    <file>sysupdater.png</file>
-  </qresource>
+    <qresource prefix="/">
+        <file>folder.png</file>
+        <file>sysupdater.png</file>
+        <file>images/pkgmanager.png</file>
+        <file>images/pkgupdates.png</file>
+        <file>images/warden.png</file>
+        <file>images/appcafe.png</file>
+        <file>images/view-refresh.png</file>
+    </qresource>
 </RCC>

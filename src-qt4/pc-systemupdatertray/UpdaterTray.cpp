@@ -110,13 +110,13 @@ void UpdaterTray::programInit()
   trayIconMenu = new QMenu(this);
   trayIconMenu->setIcon(contextIcon);
   trayIconMenu->addSeparator();
-  trayIconMenu->addAction( tr("Start the Update Manager"), this, SLOT(slotOpenUpdateManager()));
-  trayIconMenu->addAction( tr("Start the Package Manager"), this, SLOT(slotOpenPackageManager()));
+  trayIconMenu->addAction( QIcon(":/sysupdater.png"), tr("Start the Update Manager"),  this, SLOT(slotOpenUpdateManager()));
+  trayIconMenu->addAction( QIcon(":/images/pkgmanager.png"), tr("Start the Package Manager"), this, SLOT(slotOpenPackageManager()));
   trayIconMenu->addSeparator();
-  trayIconMenu->addAction( tr("Start the AppCafe"), this, SLOT(slotOpenSoftwareManager()));
-  trayIconMenu->addAction( tr("Start the Warden"), this, SLOT(slotOpenJailManager()));
+  trayIconMenu->addAction( QIcon(":/images/appcafe.png"),    tr("Start the AppCafe"), this, SLOT(slotOpenSoftwareManager()));
+  trayIconMenu->addAction( QIcon(":/images/warden.png"),     tr("Start the Warden"),  this, SLOT(slotOpenJailManager()));
   trayIconMenu->addSeparator();
-  trayIconMenu->addAction( tr("Check for updates"), this, SLOT(slotCheckAllUpdates()));
+  trayIconMenu->addAction( QIcon(":/images/view-refresh.png"),tr("Check for updates"),this, SLOT(slotCheckAllUpdates()));
   trayIconMenu->addSeparator();
   runAction = trayIconMenu->addAction( tr("Run at startup"), this, SLOT(slotChangeRunStartup()) );
   runAction->setCheckable( TRUE );
@@ -466,7 +466,7 @@ void UpdaterTray::contextMenuRefresh() {
      Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/working.png");
 
   if ( programstatus == PACKAGE_UPDATE_AVAIL ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/pbiupdates.png");
+     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/pkgupdates.png");
 
   // If the program shows system updates available
   if ( programstatus == SYSTEM_UPDATE_AVAIL || wardenstatus == WARDEN_UPDATE_AVAIL ) 
