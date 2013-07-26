@@ -6,6 +6,7 @@ Type=Application
 Keywords="active directory ldap"
 Categories=System;
 Name=Active Directory & LDAP
+Name[af]=Active Directory & LDAP
 Name[ar]=الدليل النشط و LDAP
 Name[bs]=Active Directory & LDAP
 Name[de]=Active Directory & LDAP

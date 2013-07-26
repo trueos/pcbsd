@@ -6,6 +6,7 @@ Icon=/usr/local/share/pcbsd/icons/pkgmanager.png
 Type=Application
 Categories=System;
 Name=Package Manager
+Name[af]=Pakket Bestuurder
 Name[bs]=Upravljač paketa
 Name[de]=Paketverwalter
 Name[el]=Διαχειριστής πακέτων
