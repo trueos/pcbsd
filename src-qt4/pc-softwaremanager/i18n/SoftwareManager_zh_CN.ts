@@ -1,437 +1,658 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS>
-    <context>
-        <name>PBM</name>
-        <message>
-            <source>&amp;Remove</source>
-            <translation>删除(&amp;R)</translation>
-        </message>
-        <message>
-            <source>Status</source>
-            <translation>状态</translation>
-        </message>
-        <message>
-            <source>Update</source>
-            <translation>更新</translation>
-        </message>
-        <message>
-            <source>&amp;Cancel</source>
-            <translation>取消(&amp;C)</translation>
-        </message>
-        <message>
-            <source>Browse</source>
-            <translation>浏览</translation>
-        </message>
-        <message>
-            <source>...</source>
-            <translation>...</translation>
-        </message>
-        <message>
-            <source>Search</source>
-            <translation>搜索</translation>
-        </message>
-        <message>
-            <source>&amp;Installed</source>
-            <translation>安装(&amp;I)</translation>
-        </message>
-        <message>
-            <source>&amp;File</source>
-            <translation>文件(&amp;F)</translation>
-        </message>
-        <message>
-            <source>&amp;Quit</source>
-            <translation>退出(&amp;Q)         </translation>
-        </message>
-        <message>
-            <source>Error!</source>
-            <translation>错误!</translation>
-        </message>
-        <message>
-            <source>Installing applications has been disabled for this user. Please add the user to the operator group or restart as root.</source>
-            <translation>已禁用此用户安装程序。请将用户添加加到操作组中并且以根用户重新启动机器。</translation>
-        </message>
-        <message>
-            <source>You currently have PBIs downloading! Exit anyway?</source>
-            <translation>正在下载PBI！强制退出？</translation>
-        </message>
-        <message>
-            <source>Confirm</source>
-            <translation>确认</translation>
-        </message>
-        <message>
-            <source>Select Repository</source>
-            <translation>选择软件仓库</translation>
-        </message>
-        <message>
-            <source>Cancel this download?</source>
-            <translation>取消下载？</translation>
-        </message>
-        <message>
-            <source>Remove this application?</source>
-            <translation>卸载程序？</translation>
-        </message>
-        <message>
-            <source>Please wait, removing:</source>
-            <translation>卸载中，请稍后：</translation>
-        </message>
-        <message>
-            <source>This program must be run as root!</source>
-            <translation>请以根用户运行此程序！</translation>
-        </message>
-        <message>
-            <source>Please wait.. Loading repositories...</source>
-            <translation>请稍后……加载软件仓库中……</translation>
-        </message>
-        <message>
-            <source>Install Software?</source>
-            <translation>安装程序？</translation>
-        </message>
-        <message>
-            <source>Do you want to download and install</source>
-            <translation>你希望下载并安装吗？</translation>
-        </message>
-        <message>
-            <source>&amp;OK</source>
-            <translation>确定(&amp;O)</translation>
-        </message>
-        <message>
-            <source>No PBIs for category:</source>
-            <translation>以类型中无PBI：</translation>
-        </message>
-        <message>
-            <source>Invalid PBI selected:</source>
-            <translation>选定的PBI无效：</translation>
-        </message>
-        <message>
-            <source>Installed</source>
-            <translation>已安装</translation>
-        </message>
-        <message>
-            <source>Download</source>
-            <translation>下载</translation>
-        </message>
-        <message>
-            <source>Automatic Updating</source>
-            <translation>自动更新</translation>
-        </message>
-        <message>
-            <source>Version:</source>
-            <translation>版本：</translation>
-        </message>
-        <message>
-            <source>Requires Root:</source>
-            <translation>需要根用户权限：</translation>
-        </message>
-        <message>
-            <source>Platform:</source>
-            <translation>平台：</translation>
-        </message>
-        <message>
-            <source>License:</source>
-            <translation>许可证：</translation>
-        </message>
-        <message>
-            <source>Application Categories</source>
-            <translation>应用类别</translation>
-        </message>
-        <message>
-            <source>No applications found!</source>
-            <translation>没有发现应用！</translation>
-        </message>
-        <message>
-            <source>Latest Releases</source>
-            <translation>最新发行版</translation>
-        </message>
-        <message>
-            <source>Add Repository</source>
-            <translation>增加软件仓库</translation>
-        </message>
-        <message>
-            <source>Configure Repository</source>
-            <translation>配置软件仓库</translation>
-        </message>
-        <message>
-            <source>Checking for Updates...</source>
-            <translation>检查更新中……</translation>
-        </message>
-        <message>
-            <source>Pending Upgrade</source>
-            <translation>等待升级</translation>
-        </message>
-        <message>
-            <source>Update Manager</source>
-            <translation>更新管理器</translation>
-        </message>
-        <message>
-            <source>No software selected to update!</source>
-            <translation>未选中任何要更新的软件！</translation>
-        </message>
-        <message>
-            <source>Starting Download</source>
-            <translation>开始下载</translation>
-        </message>
-        <message>
-            <source>Download failed... Attempting to re-download...</source>
-            <translation>下载失败……尝试重新下载中……</translation>
-        </message>
-        <message>
-            <source>Installing...</source>
-            <translation>安装中……</translation>
-        </message>
-        <message>
-            <source>Online Update</source>
-            <translation>在线更新</translation>
-        </message>
-        <message>
-            <source>An error occurred while installing</source>
-            <translation>安装过程中出现了一个错误</translation>
-        </message>
-        <message>
-            <source>View details</source>
-            <translation>查看详情</translation>
-        </message>
-        <message>
-            <source>Install Desktop Icons</source>
-            <translation>添加桌面图标</translation>
-        </message>
-        <message>
-            <source>Install Menu Icons</source>
-            <translation>添加菜单图标</translation>
-        </message>
-        <message>
-            <source>Uninstall</source>
-            <translation>卸载</translation>
-        </message>
-        <message>
-            <source>Cancel Download</source>
-            <translation>取消下载</translation>
-        </message>
-        <message>
-            <source>Retry Download</source>
-            <translation>重试下载</translation>
-        </message>
-        <message>
-            <source>Pending Download...</source>
-            <translation>下载中……</translation>
-        </message>
-        <message>
-            <source>Warning!</source>
-            <translation>警告！</translation>
-        </message>
-        <message>
-            <source>Missing meta-files for RepoID:</source>
-            <translation>缺失的RepoID元数据文件：</translation>
-        </message>
-        <message>
-            <source>This is normally due to the internet connection being offline or mis-configured.</source>
-            <translation>通常情况下是因为网络失去连接或者错误配置。</translation>
-        </message>
-        <message>
-            <source>Pending</source>
-            <translation>等待</translation>
-        </message>
-        <message>
-            <source>Download starting...</source>
-            <translation>开始下载……</translation>
-        </message>
-        <message>
-            <source>Please check your network connection or mirror settings. </source>
-            <translation>查看网络连接或者镜像设置。</translation>
-        </message>
-        <message>
-            <source>Invalid warden directory:</source>
-            <translation>无效的warden目录：</translation>
-        </message>
-        <message>
-            <source>AppCafe - Warden</source>
-            <translation>AppCafe - Warden</translation>
-        </message>
-        <message>
-            <source>Type:</source>
-            <translation>类型：</translation>
-        </message>
-        <message>
-            <source>Size:</source>
-            <translation>大小：</translation>
-        </message>
-        <message>
-            <source>Best Matches</source>
-            <translation>最匹配的</translation>
-        </message>
-        <message>
-            <source>Other Matches</source>
-            <translation>其他机器</translation>
-        </message>
-        <message>
-            <source>AppCafe</source>
-            <translation>AppCafe</translation>
-        </message>
-        <message>
-            <source>Program Name</source>
-            <translation>程序名称            </translation>
-        </message>
-        <message>
-            <source>&amp;Repositories</source>
-            <translation>软件仓库(&amp;R)</translation>
-        </message>
-        <message>
-            <source>Install Menu Icons (All Users)</source>
-            <translation>安装菜单图标(为所有用户)</translation>
-        </message>
-        <message>
-            <source>Preferences</source>
-            <translation>用户偏好</translation>
-        </message>
-        <message>
-            <source>Application name</source>
-            <translation>应用名称</translation>
-        </message>
-        <message>
-            <source>TextLabel</source>
-            <translation>文本标签            </translation>
-        </message>
-        <message>
-            <source>1.20.19</source>
-            <translation>1.20.19</translation>
-        </message>
-        <message>
-            <source>New version available:</source>
-            <translation>有新的版本可用</translation>
-        </message>
-        <message>
-            <source>1.20.20</source>
-            <translation>1.20.20</translation>
-        </message>
-        <message>
-            <source>More...</source>
-            <translation>更多...</translation>
-        </message>
-        <message>
-            <source>Author:</source>
-            <translation>作者：</translation>
-        </message>
-        <message>
-            <source>BSD</source>
-            <translation>BSD</translation>
-        </message>
-        <message>
-            <source>Cancel</source>
-            <translation>取消</translation>
-        </message>
-        <message>
-            <source>Unknown</source>
-            <translation>未知</translation>
-        </message>
-        <message>
-            <source>Installed: </source>
-            <translation>已经被安装</translation>
-        </message>
-        <message>
-            <source>Available: </source>
-            <translation>可用的：</translation>
-        </message>
-        <message>
-            <source>Updating</source>
-            <translation>更新</translation>
-        </message>
-        <message>
-            <source>Updating...</source>
-            <translation>更新中...</translation>
-        </message>
-        <message>
-            <source>Downloading: %1MB of %2MB (%3 %) at %4</source>
-            <translation>下载： %2MB 的 %1MB (%3 %) 总进度 %4            </translation>
-        </message>
-        <message>
-            <source>%1MB of %2MB at %3</source>
-            <translation> %2MB的%1MB总进度%3         </translation>
-        </message>
-        <message>
-            <source>Downloading...</source>
-            <translation>下载中...</translation>
-        </message>
-        <message>
-            <source>Installing</source>
-            <translation>安装中</translation>
-        </message>
-        <message>
-            <source>Finalizing installation...</source>
-            <translation>安装完成中...</translation>
-        </message>
-        <message>
-            <source>Install PATH links</source>
-            <translation>安装PATH链接</translation>
-        </message>
-        <message>
-            <source>Install PATH links (All Users)</source>
-            <translation>安装PATH链接（所有用户）</translation>
-        </message>
-        <message>
-            <source>Update &amp;All</source>
-            <translation>更新所有(&amp;A)</translation>
-        </message>
-    </context>
-    <context>
-        <name>dialogPreferences</name>
-        <message>
-            <source>Preferences</source>
-            <translation>用户偏好</translation>
-        </message>
-        <message>
-            <source>AppCafe Preferences</source>
-            <translation>AppCafe设置</translation>
-        </message>
-        <message>
-            <source>Create menu icons at install</source>
-            <translation>安装时生成菜单图标</translation>
-        </message>
-        <message>
-            <source>Create desktop icons at install</source>
-            <translation>安装时生成桌面图标</translation>
-        </message>
-        <message>
-            <source>&amp;Ok</source>
-            <translation>确定(&amp;O)</translation>
-        </message>
-        <message>
-            <source>&amp;Cancel</source>
-            <translation>取消(&amp;C)</translation>
-        </message>
-    </context>
-    <context>
-        <name>softwareConfigWidget</name>
-        <message>
-            <source>&amp;Cancel</source>
-            <translation>取消(&amp;C)</translation>
-        </message>
-        <message>
-            <source>&amp;Remove</source>
-            <translation>删除(&amp;R)</translation>
-        </message>
-        <message>
-            <source>Repository Configuration</source>
-            <translation>仓库配置</translation>
-        </message>
-        <message>
-            <source>Repository Mirrors</source>
-            <translation>仓库镜像</translation>
-        </message>
-        <message>
-            <source>&amp;Add</source>
-            <translation>添加(&amp;A)</translation>
-        </message>
-        <message>
-            <source>&amp;Save</source>
-            <translation>保存(&amp;S)</translation>
-        </message>
-        <message>
-            <source>Add Mirror</source>
-            <translation>增加镜像</translation>
-        </message>
-        <message>
-            <source>Mirror URL:</source>
-            <translation>镜像地址:</translation>
-        </message>
-    </context>
+<TS version="2.0">
+<context>
+    <name>ConfigDialog</name>
+    <message>
+        <source>AppCafe Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Post-Install Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Desktop Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Menu Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Register File Associations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Path Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep Downloaded Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Dir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repositories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Repository Mirrors</source>
+        <translation type="unfinished">仓库镜像</translation>
+    </message>
+    <message>
+        <source>Move Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add PBI Repository</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repository File (*.rpo)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repo Successfully Added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repo Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This repo could not be added.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove this PBI repository?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This repo could not be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Mirror URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter the URL for the new repo mirror:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror Change Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The full error is displayed in the AppCafe terminal output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Download Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ErrorDialog</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Error Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainUI</name>
+    <message>
+        <source>AppCafe</source>
+        <translation type="unfinished">AppCafe</translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation type="unfinished">已安装</translation>
+    </message>
+    <message>
+        <source>Program Name</source>
+        <translation type="unfinished">程序名称            </translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished">状态</translation>
+    </message>
+    <message>
+        <source>Check/Uncheck all applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Perform actions on checked applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished">版本：</translation>
+    </message>
+    <message>
+        <source>Author:</source>
+        <translation type="unfinished">作者：</translation>
+    </message>
+    <message>
+        <source>License:</source>
+        <translation type="unfinished">许可证：</translation>
+    </message>
+    <message>
+        <source>Shortcuts:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel any actions for this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Remove the selected application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uninstall</source>
+        <translation type="unfinished">卸载</translation>
+    </message>
+    <message>
+        <source>Update the application to the most recent version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update the selected application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open the browser page for the selected application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically update the selected application when an update is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse For Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">搜索</translation>
+    </message>
+    <message>
+        <source>View Recent Additions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse By Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">大小：</translation>
+    </message>
+    <message>
+        <source>Application Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platform:</source>
+        <translation type="unfinished">平台：</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">类型：</translation>
+    </message>
+    <message>
+        <source>Similar Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Matches</source>
+        <translation type="unfinished">最匹配的</translation>
+    </message>
+    <message>
+        <source>Other Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">退出(&amp;Q)         </translation>
+    </message>
+    <message>
+        <source>Repositories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AppCafe Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error!</source>
+        <translation type="unfinished">错误!</translation>
+    </message>
+    <message>
+        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The AppCafe must be started with user permissions!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The user must also be a part of the &quot;operator&quot; group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AppCafe Processes Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import PBI File List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI List (*.pbilist)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There was an error importing the PBI list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please make sure that the file has not been corrupted and try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export PBI File List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There was an error exporting the PBI list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please make sure that you have the proper directory permissions and try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">更新</translation>
+    </message>
+    <message>
+        <source>Desktop Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add (All Users)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File Associations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop/Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify PBI Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove this application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove these applications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished">未知</translation>
+    </message>
+    <message>
+        <source>Install Now!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Searching the application database. Please Wait....</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Search Results Found for the term: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PBIBackend</name>
+    <message>
+        <source>Downloading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing</source>
+        <translation type="unfinished">安装中</translation>
+    </message>
+    <message>
+        <source>Removing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating</source>
+        <translation type="unfinished">更新</translation>
+    </message>
+    <message>
+        <source>Pending Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No applications to install from this list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Results:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unavailable Apps: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently Installed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to install these applications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Download Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The PBI could not be downloaded, please try again later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Update Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The update process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Installation Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The installation process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Removal Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The removal process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 PBI Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished">未知</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessManager</name>
+    <message>
+        <source>%1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Downloading...</source>
+        <translation type="unfinished">下载中...</translation>
+    </message>
+    <message>
+        <source>Downloading: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing...</source>
+        <translation type="unfinished">安装中……</translation>
+    </message>
+    <message>
+        <source>Removing...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating...</source>
+        <translation type="unfinished">更新中...</translation>
+    </message>
+    <message>
+        <source>Update Downloading: %1 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Available!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version %1 Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

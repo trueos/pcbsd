@@ -1,173 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS>
-    <context>
-        <name>FSDialog</name>
-        <message>
-            <source>System Disk Capacity</source>
-            <translation>Hệ thống dung lượng đĩa            </translation>
-        </message>
-        <message>
-            <source>Mount Point</source>
-            <translation>Núi điểm            </translation>
-        </message>
-        <message>
-            <source>Filesystem</source>
-            <translation>hệ thống tập tin            </translation>
-        </message>
-        <message>
-            <source>Used/Total</source>
-            <translation>Sử dụng/Tổng</translation>
-        </message>
-        <message>
-            <source>Percent %</source>
-            <translation>Phần trăm %       </translation>
-        </message>
-        <message>
-            <source>Close</source>
-            <translation>Đóng            </translation>
-        </message>
-    </context>
-    <context>
-        <name>FSWatcher</name>
-        <message>
-            <source>Disk(s) Almost Full</source>
-            <translation>đĩa gần như toàn</translation>
-        </message>
-    </context>
-    <context>
-        <name>MenuItem</name>
-        <message>
-            <source>Auto-mount this device</source>
-            <translation>Tự động gắn thiết bị này</translation>
-        </message>
-        <message>
-            <source>Eject</source>
-            <translation>* Đẩy ra            </translation>
-        </message>
-        <message>
-            <source>Mount</source>
-            <translation>bàn đập     </translation>
-        </message>
-        <message>
-            <source>Success</source>
-            <translation>thành công</translation>
-        </message>
-        <message>
-            <source>%1 mounted at %2</source>
-            <translation>%1 gắn ở %2</translation>
-        </message>
-        <message>
-            <source>Error mounting %1 at %2</source>
-            <translation>Lỗi gắn %1 tại %2</translation>
-        </message>
-        <message>
-            <source>Error mounting %1</source>
-            <translation>Lỗi gắn tại %1      </translation>
-        </message>
-        <message>
-            <source>Could not create mount point at %1</source>
-            <translation>Không có thể tạo ra điểm lắp tại 1%     </translation>
-        </message>
-        <message>
-            <source>%1 has been successfully unmounted.</source>
-            <translation>%1 đã được gỡ bỏ thành công.</translation>
-        </message>
-        <message>
-            <source>It is now safe to remove the device</source>
-            <translation>Bây giờ nó là an toàn để loại bỏ các thiết bị</translation>
-        </message>
-        <message>
-            <source>Error: %1 could not be unmounted</source>
-            <translation>Lỗi: %1 không thể được gỡ bỏ            </translation>
-        </message>
-        <message>
-            <source>%1 of disk space available</source>
-            <translation>%1 không gian đĩa có sẵn     </translation>
-        </message>
-        <message>
-            <source>Mounted at %1</source>
-            <translation>Gắn ở %1</translation>
-        </message>
-    </context>
-    <context>
-        <name>MountTray</name>
-        <message>
-            <source>Open Media Directory</source>
-            <translation>Mở truyền thông thư mục       </translation>
-        </message>
-        <message>
-            <source>Close Tray</source>
-            <translation>Đóng Tray            </translation>
-        </message>
-        <message>
-            <source>User Detection Error</source>
-            <translation>Người sử dụng phát hiện lỗi</translation>
-        </message>
-        <message>
-            <source>Unable to determine the non-root user who started the application 
+<TS version="2.0">
+<context>
+    <name>FSDialog</name>
+    <message>
+        <source>System Disk Capacity</source>
+        <translation>Hệ thống dung lượng đĩa            </translation>
+    </message>
+    <message>
+        <source>Mount Point</source>
+        <translation>Núi điểm            </translation>
+    </message>
+    <message>
+        <source>Filesystem</source>
+        <translation>hệ thống tập tin            </translation>
+    </message>
+    <message>
+        <source>Used/Total</source>
+        <translation>Sử dụng/Tổng</translation>
+    </message>
+    <message>
+        <source>Percent %</source>
+        <translation>Phần trăm %       </translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Đóng            </translation>
+    </message>
+</context>
+<context>
+    <name>FSWatcher</name>
+    <message>
+        <source>Disk(s) Almost Full</source>
+        <translation>đĩa gần như toàn</translation>
+    </message>
+</context>
+<context>
+    <name>MenuItem</name>
+    <message>
+        <source>Auto-mount this device</source>
+        <translation>Tự động gắn thiết bị này</translation>
+    </message>
+    <message>
+        <source>Eject</source>
+        <translation>* Đẩy ra            </translation>
+    </message>
+    <message>
+        <source>Mount</source>
+        <translation>bàn đập     </translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation>thành công</translation>
+    </message>
+    <message>
+        <source>%1 mounted at %2</source>
+        <translation>%1 gắn ở %2</translation>
+    </message>
+    <message>
+        <source>Error mounting %1 at %2</source>
+        <translation>Lỗi gắn %1 tại %2</translation>
+    </message>
+    <message>
+        <source>Error mounting %1</source>
+        <translation>Lỗi gắn tại %1      </translation>
+    </message>
+    <message>
+        <source>Could not create mount point at %1</source>
+        <translation>Không có thể tạo ra điểm lắp tại 1%     </translation>
+    </message>
+    <message>
+        <source>%1 has been successfully unmounted.</source>
+        <translation>%1 đã được gỡ bỏ thành công.</translation>
+    </message>
+    <message>
+        <source>It is now safe to remove the device</source>
+        <translation>Bây giờ nó là an toàn để loại bỏ các thiết bị</translation>
+    </message>
+    <message>
+        <source>Error: %1 could not be unmounted</source>
+        <translation>Lỗi: %1 không thể được gỡ bỏ            </translation>
+    </message>
+    <message>
+        <source>%1 of disk space available</source>
+        <translation>%1 không gian đĩa có sẵn     </translation>
+    </message>
+    <message>
+        <source>Mounted at %1</source>
+        <translation>Gắn ở %1</translation>
+    </message>
+</context>
+<context>
+    <name>MountTray</name>
+    <message>
+        <source>Open Media Directory</source>
+        <translation>Mở truyền thông thư mục       </translation>
+    </message>
+    <message>
+        <source>Close Tray</source>
+        <translation>Đóng Tray            </translation>
+    </message>
+    <message>
+        <source>User Detection Error</source>
+        <translation>Người sử dụng phát hiện lỗi</translation>
+    </message>
+    <message>
+        <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
-            <translation>Không thể xác định người sử dụng không root bắt đầu ứng dụng 
+        <translation>Không thể xác định người sử dụng không root bắt đầu ứng dụng 
  Không thể mở tập tin quản lý với quyền root</translation>
-        </message>
-        <message>
-            <source>New Device</source>
-            <translation>Thiết bị mới      </translation>
-        </message>
-        <message>
-            <source>%1 can now be accessed</source>
-            <translation>%1 có thể được truy cập</translation>
-        </message>
-        <message>
-            <source>Rescan Devices</source>
-            <translation>Quét lại thiết bị</translation>
-        </message>
-        <message>
-            <source>Please Wait</source>
-            <translation>Xin vui lòng Chờ</translation>
-        </message>
-        <message>
-            <source>Rescanning devices attached to the system</source>
-            <translation>Thiết bị Rescanning gắn vào hệ thống            </translation>
-        </message>
-        <message>
-            <source>More Options</source>
-            <translation>Tùy chọn Xem thêm       </translation>
-        </message>
-        <message>
-            <source>View Disk Usage</source>
-            <translation>Xem sử dụng đĩa</translation>
-        </message>
-        <message>
-            <source>Change Settings</source>
-            <translation>Thay đổi Thiết lập            </translation>
-        </message>
-    </context>
-    <context>
-        <name>SettingsDialog</name>
-        <message>
-            <source>Mount Tray Settings</source>
-            <translation>Núi Thiết lập Tray       </translation>
-        </message>
-        <message>
-            <source>Monitor disk storage space</source>
-            <translation>Không gian lưu trữ đĩa giám sát        </translation>
-        </message>
-        <message>
-            <source>Perform check on device notifications</source>
-            <translation>Thực hiện kiểm tra trên các thông báo thiết bị</translation>
-        </message>
-        <message>
-            <source>Maximum time between checks (minutes)</source>
-            <translation>Thời gian tối đa giữa kiểm tra (phút)            </translation>
-        </message>
-        <message>
-            <source>Cancel</source>
-            <translation>Hủy bỏ            </translation>
-        </message>
-        <message>
-            <source>Apply</source>
-            <translation>áp dụng</translation>
-        </message>
-    </context>
+    </message>
+    <message>
+        <source>New Device</source>
+        <translation>Thiết bị mới      </translation>
+    </message>
+    <message>
+        <source>%1 can now be accessed</source>
+        <translation>%1 có thể được truy cập</translation>
+    </message>
+    <message>
+        <source>Rescan Devices</source>
+        <translation>Quét lại thiết bị</translation>
+    </message>
+    <message>
+        <source>Please Wait</source>
+        <translation>Xin vui lòng Chờ</translation>
+    </message>
+    <message>
+        <source>Rescanning devices attached to the system</source>
+        <translation>Thiết bị Rescanning gắn vào hệ thống            </translation>
+    </message>
+    <message>
+        <source>More Options</source>
+        <translation>Tùy chọn Xem thêm       </translation>
+    </message>
+    <message>
+        <source>View Disk Usage</source>
+        <translation>Xem sử dụng đĩa</translation>
+    </message>
+    <message>
+        <source>Change Settings</source>
+        <translation>Thay đổi Thiết lập            </translation>
+    </message>
+</context>
+<context>
+    <name>SettingsDialog</name>
+    <message>
+        <source>Mount Tray Settings</source>
+        <translation>Núi Thiết lập Tray       </translation>
+    </message>
+    <message>
+        <source>Monitor disk storage space</source>
+        <translation>Không gian lưu trữ đĩa giám sát        </translation>
+    </message>
+    <message>
+        <source>Perform check on device notifications</source>
+        <translation>Thực hiện kiểm tra trên các thông báo thiết bị</translation>
+    </message>
+    <message>
+        <source>Maximum time between checks (minutes)</source>
+        <translation>Thời gian tối đa giữa kiểm tra (phút)            </translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Hủy bỏ            </translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>áp dụng</translation>
+    </message>
+</context>
 </TS>

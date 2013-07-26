@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS>
-    <context>
-        <name>MainWindow</name>
-        <message>
-            <source>Reqesting System Permissions</source>
-            <translation>Reqesting System Permissions</translation>
-        </message>
-        <message>
-            <source>Please enter your user password to run this command with system permissions</source>
-            <translation>Please enter your user password to run this command with system permissions</translation>
-        </message>
-    </context>
+<TS version="2.0">
+<context>
+    <name>MainWindow</name>
+    <message>
+        <source>Please enter your user password to run this command with system permissions</source>
+        <translation>Please enter your user password to run this command with system permissions</translation>
+    </message>
+    <message>
+        <source>Requesting System Permissions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Access Denied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This user does not have administrator permissions on this system!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid Password! Tries Left: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

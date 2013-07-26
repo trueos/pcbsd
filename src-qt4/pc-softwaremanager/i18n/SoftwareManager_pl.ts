@@ -1,437 +1,658 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS>
-    <context>
-        <name>PBM</name>
-        <message>
-            <source>You currently have PBIs downloading! Exit anyway?</source>
-            <translation>Trwa pobieranie plikow PBI. Czy na pewno chcesz wyłączyć program?</translation>
-        </message>
-        <message>
-            <source>Cancel this download?</source>
-            <translation>Przerwać pobieranie?</translation>
-        </message>
-        <message>
-            <source>Remove this application?</source>
-            <translation>Usunąć wybraną aplikację?</translation>
-        </message>
-        <message>
-            <source>Error!</source>
-            <translation>BŁĄD!</translation>
-        </message>
-        <message>
-            <source>This program must be run as root!</source>
-            <translation>Program musi być uruchamiany na prawach administratora!</translation>
-        </message>
-        <message>
-            <source>...</source>
-            <translation>...</translation>
-        </message>
-        <message>
-            <source>Program Name</source>
-            <translation>Nazwa Programu</translation>
-        </message>
-        <message>
-            <source>Status</source>
-            <translation>Stan</translation>
-        </message>
-        <message>
-            <source>Update</source>
-            <translation>Aktualizuj</translation>
-        </message>
-        <message>
-            <source>&amp;Remove</source>
-            <translation>&amp;Usuń</translation>
-        </message>
-        <message>
-            <source>Checking for Updates...</source>
-            <translation>Sprawdzanie dostępności aktualizacji...</translation>
-        </message>
-        <message>
-            <source>Pending Upgrade</source>
-            <translation>Aktualizacja rozpocznie się za chwilę</translation>
-        </message>
-        <message>
-            <source>Update Manager</source>
-            <translation>Menadżer aktualizacji</translation>
-        </message>
-        <message>
-            <source>No software selected to update!</source>
-            <translation>Nie wybrano żadnej aktualizacji!</translation>
-        </message>
-        <message>
-            <source>Starting Download</source>
-            <translation>Rozpoczęto pobieranie</translation>
-        </message>
-        <message>
-            <source>Download failed... Attempting to re-download...</source>
-            <translation>Pobieranie nie powiodło się! Proba ponownego pobierania...</translation>
-        </message>
-        <message>
-            <source>Installing...</source>
-            <translation>Instalacja...</translation>
-        </message>
-        <message>
-            <source>Online Update</source>
-            <translation>Aktualizacja Online</translation>
-        </message>
-        <message>
-            <source>Uninstall</source>
-            <translation>Deinstaluj</translation>
-        </message>
-        <message>
-            <source>Retry Download</source>
-            <translation>Powtórz pobieranie</translation>
-        </message>
-        <message>
-            <source>Pending Download...</source>
-            <translation>Pobieranie rozpocznie się za chwilę...</translation>
-        </message>
-        <message>
-            <source>Install Software?</source>
-            <translation>Instalować oprogramowanie?</translation>
-        </message>
-        <message>
-            <source>Cancel Download</source>
-            <translation>Anuluj pobieranie</translation>
-        </message>
-        <message>
-            <source>AppCafe</source>
-            <translation>AppCafe</translation>
-        </message>
-        <message>
-            <source>Browse</source>
-            <translation>Przeglądaj</translation>
-        </message>
-        <message>
-            <source>Search</source>
-            <translation>Szukaj</translation>
-        </message>
-        <message>
-            <source>&amp;Installed</source>
-            <translation>&amp;Zainstalowane</translation>
-        </message>
-        <message>
-            <source>&amp;File</source>
-            <translation>&amp;Plik</translation>
-        </message>
-        <message>
-            <source>&amp;Quit</source>
-            <translation>&amp;Wyjdź</translation>
-        </message>
-        <message>
-            <source>Confirm</source>
-            <translation>Potwierdź</translation>
-        </message>
-        <message>
-            <source>Please wait, removing:</source>
-            <translation>Proszę czekać, usuwanie:</translation>
-        </message>
-        <message>
-            <source>Please wait.. Loading repositories...</source>
-            <translation>Proszę czekać.. Ładowanie Repozytoriów</translation>
-        </message>
-        <message>
-            <source>Do you want to download and install</source>
-            <translation>Chcesz pobrać i zainstalować</translation>
-        </message>
-        <message>
-            <source>&amp;OK</source>
-            <translation>&amp;OK</translation>
-        </message>
-        <message>
-            <source>&amp;Cancel</source>
-            <translation>&amp;Anuluj</translation>
-        </message>
-        <message>
-            <source>No PBIs for category:</source>
-            <translation>Brak PBI z kategorii:</translation>
-        </message>
-        <message>
-            <source>Invalid PBI selected:</source>
-            <translation>Wybrano niepoprawne PBI:</translation>
-        </message>
-        <message>
-            <source>Installed</source>
-            <translation>Zainstalowane</translation>
-        </message>
-        <message>
-            <source>Download</source>
-            <translation>Pobierz</translation>
-        </message>
-        <message>
-            <source>Version:</source>
-            <translation>Wersja:</translation>
-        </message>
-        <message>
-            <source>Platform:</source>
-            <translation>Platforma:</translation>
-        </message>
-        <message>
-            <source>License:</source>
-            <translation>Licencja:</translation>
-        </message>
-        <message>
-            <source>No applications found!</source>
-            <translation>Nie znaleziono aplikacji!</translation>
-        </message>
-        <message>
-            <source>An error occurred while installing</source>
-            <translation>Wystąpił błąd w trakcie instalacji</translation>
-        </message>
-        <message>
-            <source>View details</source>
-            <translation>Zobacz szczegóły</translation>
-        </message>
-        <message>
-            <source>Automatic Updating</source>
-            <translation>Automatyczna Aktualizacja</translation>
-        </message>
-        <message>
-            <source>&amp;Repositories</source>
-            <translation>&amp;Repozytoria</translation>
-        </message>
-        <message>
-            <source>Application Categories</source>
-            <translation>Kategorie Aplikacji</translation>
-        </message>
-        <message>
-            <source>Latest Releases</source>
-            <translation>Ostatnie wersje</translation>
-        </message>
-        <message>
-            <source>Configure Repository</source>
-            <translation>Konfiguruj Repozytorium</translation>
-        </message>
-        <message>
-            <source>Install Desktop Icons</source>
-            <translation>Instaluj ikony pulpitu</translation>
-        </message>
-        <message>
-            <source>Install Menu Icons</source>
-            <translation>Instaluj ikony Menu</translation>
-        </message>
-        <message>
-            <source>Install Menu Icons (All Users)</source>
-            <translation>Instaluj ikony Menu (dla wszystkich użytkowników)</translation>
-        </message>
-        <message>
-            <source>Select Repository</source>
-            <translation>Wybierz Repozytorium</translation>
-        </message>
-        <message>
-            <source>Add Repository</source>
-            <translation>Dodaj Repozytorium</translation>
-        </message>
-        <message>
-            <source>Requires Root:</source>
-            <translation>Wymagany administrator:</translation>
-        </message>
-        <message>
-            <source>Installing applications has been disabled for this user. Please add the user to the operator group or restart as root.</source>
-            <translation>Instalacja aplikacji została wyłączona dla tego użytkownika. Należy dodać użytkownika do grupy operator lub ponowne uruchomienić jako root.</translation>
-        </message>
-        <message>
-            <source>Warning!</source>
-            <translation>Uwaga!</translation>
-        </message>
-        <message>
-            <source>Missing meta-files for RepoID:</source>
-            <translation>Brakujące meta-pliki dla repozytotriumID:</translation>
-        </message>
-        <message>
-            <source>This is normally due to the internet connection being offline or mis-configured.</source>
-            <translation>Jest to typowe gdy Internet nie działa lub jest źle skonfigurowany.</translation>
-        </message>
-        <message>
-            <source>Pending</source>
-            <translation>Oczekiwanie</translation>
-        </message>
-        <message>
-            <source>Download starting...</source>
-            <translation>Rozpoczęcie pobierania...</translation>
-        </message>
-        <message>
-            <source>Please check your network connection or mirror settings. </source>
-            <translation>Proszę sprawdzić połączenie internetowe lub ustawienia mirrora.</translation>
-        </message>
-        <message>
-            <source>Invalid warden directory:</source>
-            <translation>Niepoprawny katalog warden.</translation>
-        </message>
-        <message>
-            <source>AppCafe - Warden</source>
-            <translation>AppCafe - Warden</translation>
-        </message>
-        <message>
-            <source>Type:</source>
-            <translation>Typ:</translation>
-        </message>
-        <message>
-            <source>Size:</source>
-            <translation>Rozmiar:</translation>
-        </message>
-        <message>
-            <source>Best Matches</source>
-            <translation>Najlepiej pasujący</translation>
-        </message>
-        <message>
-            <source>Other Matches</source>
-            <translation>Inne dopasowania</translation>
-        </message>
-        <message>
-            <source>Preferences</source>
-            <translation>Preferencje</translation>
-        </message>
-        <message>
-            <source>Application name</source>
-            <translation>Nazwa aplikacji</translation>
-        </message>
-        <message>
-            <source>TextLabel</source>
-            <translation>TextLabel</translation>
-        </message>
-        <message>
-            <source>1.20.19</source>
-            <translation>1.20.19</translation>
-        </message>
-        <message>
-            <source>New version available:</source>
-            <translation>Dostępność nowej wersji:</translation>
-        </message>
-        <message>
-            <source>1.20.20</source>
-            <translation>1.20.20</translation>
-        </message>
-        <message>
-            <source>More...</source>
-            <translation>Więcej...</translation>
-        </message>
-        <message>
-            <source>Author:</source>
-            <translation>Autor:</translation>
-        </message>
-        <message>
-            <source>BSD</source>
-            <translation>BSD</translation>
-        </message>
-        <message>
-            <source>Cancel</source>
-            <translation>Anuluj</translation>
-        </message>
-        <message>
-            <source>Unknown</source>
-            <translation>Nieznane</translation>
-        </message>
-        <message>
-            <source>Installed: </source>
-            <translation>Zainstalowane: </translation>
-        </message>
-        <message>
-            <source>Available: </source>
-            <translation>Dostępne:  </translation>
-        </message>
-        <message>
-            <source>Updating</source>
-            <translation>Aktualizowanie</translation>
-        </message>
-        <message>
-            <source>Updating...</source>
-            <translation>Aktualizowanie...</translation>
-        </message>
-        <message>
-            <source>Downloading: %1MB of %2MB (%3 %) at %4</source>
-            <translation>Pobieranie: %1MB z %2MB (%3 %) na %4</translation>
-        </message>
-        <message>
-            <source>%1MB of %2MB at %3</source>
-            <translation>%1MB z %2MB na %3</translation>
-        </message>
-        <message>
-            <source>Downloading...</source>
-            <translation>Pobieranie...</translation>
-        </message>
-        <message>
-            <source>Installing</source>
-            <translation>Instalowanie</translation>
-        </message>
-        <message>
-            <source>Finalizing installation...</source>
-            <translation>Kończenie instalacji...</translation>
-        </message>
-        <message>
-            <source>Install PATH links</source>
-            <translation>Instalacja skrótów PATH</translation>
-        </message>
-        <message>
-            <source>Install PATH links (All Users)</source>
-            <translation>Instalacja skrótów PATH (wszyscy użytkownicy)</translation>
-        </message>
-        <message>
-            <source>Update &amp;All</source>
-            <translation>Aktualizuj &amp;Wszystko</translation>
-        </message>
-    </context>
-    <context>
-        <name>dialogPreferences</name>
-        <message>
-            <source>Preferences</source>
-            <translation>Ustawienia</translation>
-        </message>
-        <message>
-            <source>AppCafe Preferences</source>
-            <translation>AppCafe - ustawienia</translation>
-        </message>
-        <message>
-            <source>Create menu icons at install</source>
-            <translation>Utwórz ikony menu w trakcie instalacji</translation>
-        </message>
-        <message>
-            <source>Create desktop icons at install</source>
-            <translation>Utwórz ikony pulpitu w trakcie instalacji</translation>
-        </message>
-        <message>
-            <source>&amp;Ok</source>
-            <translation>&amp;Ok</translation>
-        </message>
-        <message>
-            <source>&amp;Cancel</source>
-            <translation>&amp;Anuluj</translation>
-        </message>
-    </context>
-    <context>
-        <name>softwareConfigWidget</name>
-        <message>
-            <source>&amp;Save</source>
-            <translation>&amp;Zapisz</translation>
-        </message>
-        <message>
-            <source>&amp;Cancel</source>
-            <translation>&amp;Anuluj</translation>
-        </message>
-        <message>
-            <source>Repository Configuration</source>
-            <translation>Konfiguracja Repozytoriów</translation>
-        </message>
-        <message>
-            <source>Repository Mirrors</source>
-            <translation>Serwery lustrzane repozytoriów</translation>
-        </message>
-        <message>
-            <source>&amp;Add</source>
-            <translation>&amp;Dodaj</translation>
-        </message>
-        <message>
-            <source>&amp;Remove</source>
-            <translation>&amp;Usuń</translation>
-        </message>
-        <message>
-            <source>Add Mirror</source>
-            <translation>Dodaj serwer lustrzany</translation>
-        </message>
-        <message>
-            <source>Mirror URL:</source>
-            <translation>Adres URL serwera lustrzanego:</translation>
-        </message>
-    </context>
+<TS version="2.0">
+<context>
+    <name>ConfigDialog</name>
+    <message>
+        <source>AppCafe Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Post-Install Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Desktop Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Menu Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Register File Associations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create Path Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep Downloaded Files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Dir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repositories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Repository Mirrors</source>
+        <translation type="unfinished">Serwery lustrzane repozytoriów</translation>
+    </message>
+    <message>
+        <source>Move Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Move Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add PBI Repository</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repository File (*.rpo)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repo Successfully Added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Repo Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This repo could not be added.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove this PBI repository?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This repo could not be removed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New Mirror URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter the URL for the new repo mirror:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mirror Change Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The full error is displayed in the AppCafe terminal output.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Download Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ErrorDialog</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show Error Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainUI</name>
+    <message>
+        <source>AppCafe</source>
+        <translation type="unfinished">AppCafe</translation>
+    </message>
+    <message>
+        <source>Installed</source>
+        <translation type="unfinished">Zainstalowane</translation>
+    </message>
+    <message>
+        <source>Program Name</source>
+        <translation type="unfinished">Nazwa Programu</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished">Stan</translation>
+    </message>
+    <message>
+        <source>Check/Uncheck all applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Perform actions on checked applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished">Wersja:</translation>
+    </message>
+    <message>
+        <source>Author:</source>
+        <translation type="unfinished">Autor:</translation>
+    </message>
+    <message>
+        <source>License:</source>
+        <translation type="unfinished">Licencja:</translation>
+    </message>
+    <message>
+        <source>Shortcuts:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel any actions for this application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Remove the selected application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Uninstall</source>
+        <translation type="unfinished">Deinstaluj</translation>
+    </message>
+    <message>
+        <source>Update the application to the most recent version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update the selected application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open the browser page for the selected application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatically update the selected application when an update is available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto-Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse For Apps</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Home</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished">Szukaj</translation>
+    </message>
+    <message>
+        <source>View Recent Additions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse By Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size:</source>
+        <translation type="unfinished">Rozmiar:</translation>
+    </message>
+    <message>
+        <source>Application Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Platform:</source>
+        <translation type="unfinished">Platforma:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished">Typ:</translation>
+    </message>
+    <message>
+        <source>Similar Applications</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Matches</source>
+        <translation type="unfinished">Najlepiej pasujący</translation>
+    </message>
+    <message>
+        <source>Other Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">&amp;Wyjdź</translation>
+    </message>
+    <message>
+        <source>Repositories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AppCafe Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error!</source>
+        <translation type="unfinished">BŁĄD!</translation>
+    </message>
+    <message>
+        <source>The AppCafe must be run as root when in Warden compatibility mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The AppCafe must be started with user permissions!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The user must also be a part of the &quot;operator&quot; group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>AppCafe Processes Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import PBI File List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI List (*.pbilist)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There was an error importing the PBI list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please make sure that the file has not been corrupted and try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export PBI File List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Export Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There was an error exporting the PBI list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please make sure that you have the proper directory permissions and try again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished">Aktualizuj</translation>
+    </message>
+    <message>
+        <source>Desktop Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu Icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add (All Users)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Path Links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File Associations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Actions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop/Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify PBI Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove this application?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove these applications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished">Nieznane</translation>
+    </message>
+    <message>
+        <source>Install Now!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Searching the application database. Please Wait....</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Search Results Found for the term: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PBIBackend</name>
+    <message>
+        <source>Downloading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing</source>
+        <translation type="unfinished">Instalowanie</translation>
+    </message>
+    <message>
+        <source>Removing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating</source>
+        <translation type="unfinished">Aktualizowanie</translation>
+    </message>
+    <message>
+        <source>Pending Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No applications to install from this list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Results:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unavailable Apps: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currently Installed: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to install these applications?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Download Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The PBI could not be downloaded, please try again later</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Update Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The update process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Installation Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The installation process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 Removal Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The removal process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 PBI Error:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The process experienced an error and could not be completed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished">Nieznane</translation>
+    </message>
+</context>
+<context>
+    <name>ProcessManager</name>
+    <message>
+        <source>%1 at %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Downloading...</source>
+        <translation type="unfinished">Pobieranie...</translation>
+    </message>
+    <message>
+        <source>Downloading: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing...</source>
+        <translation type="unfinished">Instalacja...</translation>
+    </message>
+    <message>
+        <source>Removing...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Updating...</source>
+        <translation type="unfinished">Aktualizowanie...</translation>
+    </message>
+    <message>
+        <source>Update Downloading: %1 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Install</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Removal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pending Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Available!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version %1 Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

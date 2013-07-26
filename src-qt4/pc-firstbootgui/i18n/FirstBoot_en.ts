@@ -66,61 +66,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../firstboot.ui" line="776"/>
         <location filename="../firstboot.ui" line="779"/>
-        <source>Now you may create a desktop user for this system. After you login, additional users can easily be created in the Control Panel. </source>
+        <source>Will encrypt users home-directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="945"/>
+        <location filename="../firstboot.ui" line="785"/>
+        <source>Encrypt user files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../firstboot.ui" line="948"/>
         <source>Connect to a Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="977"/>
+        <location filename="../firstboot.ui" line="980"/>
         <source>&amp;Rescan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="993"/>
+        <location filename="../firstboot.ui" line="996"/>
         <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1100"/>
+        <location filename="../firstboot.ui" line="1103"/>
         <source>Setup is now complete! Press Finish to login to your new desktop.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1170"/>
+        <location filename="../firstboot.ui" line="1173"/>
         <source>Display help for the current screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1196"/>
+        <location filename="../firstboot.ui" line="1199"/>
         <source>Launch the on-screen keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1222"/>
+        <location filename="../firstboot.ui" line="1225"/>
         <source>Switch between US layout and user selected layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1273"/>
-        <location filename="../firstboot.cpp" line="35"/>
+        <location filename="../firstboot.ui" line="1276"/>
+        <location filename="../firstboot.cpp" line="38"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1289"/>
-        <location filename="../firstboot.cpp" line="36"/>
+        <location filename="../firstboot.ui" line="1292"/>
+        <location filename="../firstboot.cpp" line="39"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.cpp" line="181"/>
-        <location filename="../firstboot.cpp" line="192"/>
-        <location filename="../firstboot.cpp" line="373"/>
+        <location filename="../firstboot.cpp" line="188"/>
+        <location filename="../firstboot.cpp" line="199"/>
+        <location filename="../firstboot.cpp" line="380"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>
