@@ -1,5 +1,6 @@
 <RCC>
-  <qresource>
-    <file>view-refresh.png</file>
-  </qresource>
+    <qresource prefix="/">
+        <file>view-refresh.png</file>
+        <file>pkgmanager.png</file>
+    </qresource>
 </RCC>

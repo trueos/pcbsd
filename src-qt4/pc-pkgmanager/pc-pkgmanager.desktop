@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Exec=sudo pc-pkgmanager
-Icon=computer
+Icon=/usr/local/share/pcbsd/icons/pkgmanager.png
 Type=Application
 Categories=System;
 Name=Package Manager

@@ -84,9 +84,12 @@ TRANSLATIONS =  i18n/PackageManager_af.ts \
 dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
 
+appicon.path=/usr/local/share/pcbsd/icons
+appicon.files=pkgmanager.png
+
 desktop.path=/usr/local/share/applications/ 
 desktop.files=pc-pkgmanager.desktop
 
-INSTALLS += target dotrans desktop
+INSTALLS += target dotrans appicon desktop
 
 QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib
