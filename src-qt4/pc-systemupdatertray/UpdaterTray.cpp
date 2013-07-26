@@ -104,13 +104,13 @@ void UpdaterTray::programInit()
 
   // Setup our Context Menu
   QIcon contextIcon;
-  contextIcon.addFile(PREFIX + "/share/pcbsd/pc-sysmanager/images/updated.png");
+  contextIcon.addFile(":/images/updated.png");
 
 
   trayIconMenu = new QMenu(this);
   trayIconMenu->setIcon(contextIcon);
   trayIconMenu->addSeparator();
-  trayIconMenu->addAction( QIcon(":/sysupdater.png"), tr("Start the Update Manager"),  this, SLOT(slotOpenUpdateManager()));
+  trayIconMenu->addAction( QIcon(":/images/sysupdater.png"), tr("Start the Update Manager"),  this, SLOT(slotOpenUpdateManager()));
   trayIconMenu->addAction( QIcon(":/images/pkgmanager.png"), tr("Start the Package Manager"), this, SLOT(slotOpenPackageManager()));
   trayIconMenu->addSeparator();
   trayIconMenu->addAction( QIcon(":/images/appcafe.png"),    tr("Start the AppCafe"), this, SLOT(slotOpenSoftwareManager()));
@@ -130,8 +130,7 @@ void UpdaterTray::programInit()
   // Init the tray icon
   trayIcon = new QSystemTrayIcon(this);
   trayIcon->setContextMenu(trayIconMenu);
-  QIcon Icon;
-  Icon.addFile(PREFIX + "/share/pcbsd/pc-sysmanager/images/working.png");
+  QIcon Icon(":/images/working.png");
   trayIcon->setIcon(Icon);
   trayIcon->show();
   connect( trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason) ) );
@@ -323,7 +322,7 @@ void UpdaterTray::slotStartUpdateCheck()
 
   // Set the tray icon that we are checking for updates
   QIcon Icon;
-  Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/working.png");
+  Icon.addFile(":/images/working.png");
   trayIcon->setIcon(Icon);
 
   // Set the status to checking for system updates
@@ -449,46 +448,46 @@ void UpdaterTray::contextMenuRefresh() {
 
   // If the program is completely updated!
   if ( programstatus == SYSTEM_UP2DATE ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/updated.png");
+     Icon.addFile(":/images/updated.png");
 
   // If the program couldn't get a list of updates from the server
   if ( programstatus == CHECK_FAILED ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/connecterror.png");
+     Icon.addFile(":/images/connecterror.png");
 
   // If the program has a PBI update
   if ( pbistatus == PBI_UPDATES_AVAIL ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/pbiupdates.png");
+     Icon.addFile(":/images/pbiupdates.png");
 
   /* Start checking the system - updater status now, which superceedes the PBI stuff */
 
   // If the program is checking updates right now
   if ( programstatus == SYSTEM_CHECKING4UPDATES ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/working.png");
+     Icon.addFile(":/images/working.png");
 
   if ( programstatus == PACKAGE_UPDATE_AVAIL ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/pkgupdates.png");
+     Icon.addFile(":/images/pkgupdates.png");
 
   // If the program shows system updates available
   if ( programstatus == SYSTEM_UPDATE_AVAIL || wardenstatus == WARDEN_UPDATE_AVAIL ) 
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/sysupdates.png");
+     Icon.addFile(":/images/sysupdates.png");
   
   if ( programstatus == SYSTEM_UPDATING)
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/updating.png");
+     Icon.addFile(":/images/updating.png");
 
   if ( programstatus == SYSTEM_RESTART_NEEDED)
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/restart.png");
+     Icon.addFile(":/images/restart.png");
   
   // Check if we are downloading a system update in the background
   if ( autoStatus == AUTODOWNLOAD)
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/go-down.png");
+     Icon.addFile(":/images/go-down.png");
 
   // Set the status that we are installing updates
   if ( autoStatus == AUTOINSTALLING)
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/updating.png");
+     Icon.addFile(":/images/updating.png");
 
   // Check if we are downloading a system update in the background
   if ( autoStatus == AUTOFAILED)
-     Icon.addFile(PREFIX + "/share/pcbsd/pc-systemupdatertray/images/connecterror.png");
+     Icon.addFile(":/images/connecterror.png");
 
   trayIcon->setIcon(Icon);
 
