@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished"></translation>
+        <translation>将加密用户家目录</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished"></translation>
+        <translation>加密用户文件</translation>
     </message>
 </context>
 <context>

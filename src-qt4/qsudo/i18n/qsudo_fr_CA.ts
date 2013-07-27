@@ -9,19 +9,19 @@
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Demande d&apos;autorisations du système</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Accès refusé</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished"></translation>
+        <translation>Cet utilisateur n&apos;a pas d&apos;autorisation d&apos;administrateur sur ce système!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mot de passe invalide! Tries à gauche: %1</translation>
     </message>
 </context>
 </TS>

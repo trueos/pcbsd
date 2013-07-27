@@ -133,7 +133,8 @@
     </message>
     <message>
         <source>File not found!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

@@ -37,19 +37,19 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished"></translation>
+        <translation>启用远程桌面(VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>其它</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished"></translation>
+        <translation>启用“显示”按钮</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished"></translation>
+        <translation>请输入远程登陆密码</translation>
     </message>
 </context>
 </TS>

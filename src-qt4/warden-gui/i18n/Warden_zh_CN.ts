@@ -235,27 +235,27 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>选项</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished"></translation>
+        <translation>启用VNET/VIMAGE支持</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4桥接地址(需要启用VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4默认路由(需要启用VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6桥接地址(需要启用VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6默认路由(需要启用VNET)</translation>
     </message>
 </context>
 <context>
@@ -297,35 +297,35 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail模板</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">添加一个新的Jail</translation>
+        <translation>添加一个新的Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">移除已选择的Jail</translation>
+        <translation>移除已选择的Jail</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">关闭(&amp;C)</translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished"></translation>
+        <translation>系统版本</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished"></translation>
+        <translation>你想要获取哪个版本？</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation>模板别名</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished"></translation>
+        <translation>为此模板输入别名：</translation>
     </message>
 </context>
 <context>
@@ -691,7 +691,7 @@
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>模板管理器</translation>
     </message>
 </context>
 <context>
@@ -818,16 +818,15 @@
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail版本</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>使用系统版本(默认)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">无效的IPv6地址！
-            </translation>
+        <translation>无效的IPv6地址！</translation>
     </message>
 </context>
 </TS>

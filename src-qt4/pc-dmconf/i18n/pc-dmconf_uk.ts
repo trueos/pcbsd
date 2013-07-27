@@ -37,19 +37,19 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished"></translation>
+        <translation>Увімкнути віддалену стільницю (VNC))</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Інше</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished"></translation>
+        <translation>Увімкнути кнопку &quot;Показати пароль&quot;</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished"></translation>
+        <translation>Будьласка введіть пароль для віддаленого входу</translation>
     </message>
 </context>
 </TS>

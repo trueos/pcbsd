@@ -37,19 +37,19 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktiveer remote lessenaar (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Diverse</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished"></translation>
+        <translation>In staat stel om &quot;show wagwoord&quot; knoppie</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished"></translation>
+        <translation>Voer die afgeleë login wagwoord</translation>
     </message>
 </context>
 </TS>

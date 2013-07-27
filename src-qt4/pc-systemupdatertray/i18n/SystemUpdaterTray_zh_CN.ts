@@ -107,11 +107,11 @@
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>启动包管理器</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished"></translation>
+        <translation>有可用的软件包更新</translation>
     </message>
 </context>
 </TS>

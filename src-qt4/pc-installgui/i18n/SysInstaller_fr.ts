@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>Echanger entre la disposition clavier US et la disposition sélectionnée par l&apos;utilisateur</translation>
+        <translation>Basculer entre la disposition clavier US et la disposition sélectionnée par l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -53,31 +53,31 @@
     </message>
     <message>
         <source>Disk:</source>
-        <translation>Disque :</translation>
+        <translation>Disque:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation>Mirroring :</translation>
+        <translation>Mirroring:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation>Partition :</translation>
+        <translation>Partition:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation>Système de fichiers :</translation>
+        <translation>Système de fichiers:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>Taille :</translation>
+        <translation>Taille:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation>Point de montage :</translation>
+        <translation>Point de montage:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation>Les meta-pkgs suivant seront installés :</translation>
+        <translation>Les meta-pkgs suivant seront installés:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
@@ -167,7 +167,7 @@
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
         <translation>Votre système est maintenant installé! 
- Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage, vous pouvez éjecter le média d&apos;installation.</translation>
+ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage, vous pouvez éjecter le média d&apos;installation.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -175,11 +175,11 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation>Extraction du système...            </translation>
+        <translation>Extraction du système...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation>Impossible de détecter les disques durs! L&apos;installation va maintenant se terminer.            </translation>
+        <translation>Impossible de détecter les disques durs! L&apos;installation va maintenant se terminer.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
@@ -187,7 +187,7 @@
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Détection que vous utilisez la version 32 bits. Si votre système est capable d&apos;éxécuter un système 64bit (la plupart des systèmes fabriqués après 2005), vous devriez vraiment exécuter la version 64 bits            </translation>
+        <translation>Détection que vous utilisez la version 32 bits. Si votre système est capable d&apos;éxécuter un système 64bit (la plupart des systèmes fabriqués après 2005), vous devriez vraiment exécuter la version 64 bits</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
@@ -195,67 +195,67 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger le fichier de configuration de l&apos;installation depuis une clé USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger configuration de de l&apos;USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bureau (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Serveur (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarde de la configuration sur l&apos;USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cela permettra d&apos;économiser votre configuration d&apos;installation sur une clé USB formatée MSDOSFS/FAT32. Continuer?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît insérer une clé USB maintenant, et cliquez sur OK pour continuer.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît entrer le pseudonyme que vous souhaitez enregistrer cette configuration comme.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de sauvegarde configuration de sur un support USB. Le périphérique fonctionne et MSDOSFS/FAT32 formaté?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration sauvé! Vous pouvez maintenant supprimer en toute sécurité le support USB.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cela va charger un fichier de configuration d&apos;installation MSDOSFS/FAT32 votre clé USB formatée. Continuer?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît insérez la clé USB maintenant, et cliquez sur OK pour continuer.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished"></translation>
+        <translation>Echec du chargement sauvegardé du fichier de configuration à partir du support USB. Le périphérique fonctionne et MSDOSFS/FAT32 formaté?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration chargé! Vous pouvez maintenant supprimer en toute sécurité le support USB.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier de configuration:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer l&apos;installation en utilisant ce fichier de configuration?</translation>
     </message>
 </context>
 <context>
@@ -615,19 +615,19 @@
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation>Entrez la taille SWAP             </translation>
+        <translation>Entrez la taille SWAP</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation>Taille (MO)            </translation>
+        <translation>Taille (MO)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished"></translation>
+        <translation>ZFS nom du pool</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished"></translation>
+        <translation>ZFS force de la taille des blocs 4K</translation>
     </message>
 </context>
 <context>

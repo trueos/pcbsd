@@ -207,27 +207,27 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Options</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le support VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4 Pont adresse (Nécessite VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4 Routeur par défaut (Nécessite VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6 Pont adresse (Nécessite VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>Routeur par défaut IPv6 (Nécessite VNET)</translation>
     </message>
 </context>
 <context>
@@ -269,35 +269,35 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail Modèles</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Ajouter un nouveau Jail            </translation>
+        <translation>Ajouter un nouveau Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Retirer la sélection Jail            </translation>
+        <translation>Retirer la sélection Jail</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Fermer            </translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Système Version</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished"></translation>
+        <translation>Quelle version voulez-vous chercher?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation>Modèle Pseudonyme</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez un pseudonyme pour ce modèle:</translation>
     </message>
 </context>
 <context>
@@ -660,7 +660,7 @@
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de modèles</translation>
     </message>
 </context>
 <context>
@@ -770,27 +770,27 @@
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation>IPv6 Adresse  </translation>
+        <translation>IPv6 Adresse</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation>Jail traditionnel (Sécure, meilleur pour les services)            </translation>
+        <translation>Jail traditionnel (Sécure, meilleur pour les services)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>Installez PKGNG et utilitaires PC-BSD            </translation>
+        <translation>Installez PKGNG et utilitaires PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail Version</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisez la version du système (par défaut)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">Invalide IPv6 adresse!</translation>
+        <translation>Invalide IPv6 adresse!</translation>
     </message>
 </context>
 </TS>

@@ -5,123 +5,99 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD beheer paneel            </translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sagteware en werk            </translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>stelsel bestuur            </translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hardeware            </translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>netwerk            </translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lessenaar omgewing            </translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gereedskap</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>alle            </translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE            </translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome            </translation>
     </message>
     <message>
         <source>Enlightenment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enlightenment</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>unsupported</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>unsupported            </translation>
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(huidige)            </translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie ondersteun lessenaar omgewing            </translation>
     </message>
     <message>
         <source>(All installed)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Alle geïnstalleer)            </translation>
     </message>
     <message>
         <source>(KDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(KDE)            </translation>
     </message>
     <message>
         <source>(LXDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(LXDE)            </translation>
     </message>
     <message>
         <source>(Gnome)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Gnome)</translation>
     </message>
     <message>
         <source>(Enlightenment)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Enlightenment)</translation>
     </message>
     <message>
         <source>(XFCE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(XFCE)</translation>
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lees verder ...            </translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wat doen jy wil instel?            </translation>
     </message>
 </context>
 </TS>

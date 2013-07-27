@@ -101,15 +101,15 @@
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation>Mises à jour importante des paquets est disponibles. Cliquez ici pour les installer!            </translation>
+        <translation>Mises à jour importante des paquets est disponibles. Cliquez ici pour les installer!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrez le gestionnaire de paquets</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished"></translation>
+        <translation>Mises à jour de paquets disponibles</translation>
     </message>
 </context>
 </TS>

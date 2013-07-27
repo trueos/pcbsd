@@ -121,35 +121,35 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation>Re&amp;balayage pour les mises à jour            </translation>
+        <translation>Re&amp;balayage pour les mises à jour</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation>&amp;installer les mises à jour sélectionnées            </translation>
+        <translation>&amp;installer les mises à jour sélectionnées</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Fermer            </translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation>Mises à jour système disponible!            </translation>
+        <translation>Mises à jour système disponible!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Mettre à jour les informations</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Mises à jour du système de base</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished"></translation>
+        <translation>Les fichiers suivants seront mis à jour:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mettre à jour les informations:</translation>
     </message>
 </context>
 </TS>

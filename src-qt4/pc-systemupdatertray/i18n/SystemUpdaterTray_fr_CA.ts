@@ -89,27 +89,27 @@
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation>Importante mise à jour Jail disponible. Cliquez ici pour lancer Warden !            </translation>
+        <translation>Importante mise à jour Jail disponible. Cliquez ici pour lancer Warden !</translation>
     </message>
     <message>
         <source>Display notifications</source>
-        <translation>Afficher les notifications            </translation>
+        <translation>Afficher les notifications</translation>
     </message>
     <message>
         <source>Package updates available</source>
-        <translation>Mise à jour de Paquets disponibles            </translation>
+        <translation>Mise à jour de Paquets disponibles</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation>Mises à jour de paquets importants sont disponibles. Cliquez ici pour les installer!            </translation>
+        <translation>Mises à jour de paquets importants sont disponibles. Cliquez ici pour les installer!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrez le gestionnaire de paquets</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished"></translation>
+        <translation>Mises à jour de paquets disponibles</translation>
     </message>
 </context>
 </TS>

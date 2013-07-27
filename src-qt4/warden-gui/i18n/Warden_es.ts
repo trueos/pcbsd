@@ -207,27 +207,27 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opciones</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar soporte VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>Direccion puente IPv4 (Requiere VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4 Router por defecto (Requere VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>Direccion puente IPv6 (Requiere VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6 Router por defecto (Requiere VNET)</translation>
     </message>
 </context>
 <context>
@@ -269,7 +269,7 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Plantilalla</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
@@ -285,19 +285,21 @@
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version del sistema</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished"></translation>
+        <translation>Que version quieres descargar?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -660,7 +662,8 @@
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -782,11 +785,13 @@
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>

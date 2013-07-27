@@ -208,7 +208,7 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Crypter des fichiers:</translation>
     </message>
 </context>
 <context>
@@ -542,7 +542,7 @@ Mot de passe invalide</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Crypter des fichiers:</translation>
     </message>
 </context>
 <context>

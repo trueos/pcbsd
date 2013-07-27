@@ -105,11 +105,11 @@
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Запустити менеджер пакунків</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished"></translation>
+        <translation>Наявні оновлення пакунків</translation>
     </message>
 </context>
 </TS>

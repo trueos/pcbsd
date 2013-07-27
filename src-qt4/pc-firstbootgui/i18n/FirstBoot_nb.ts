@@ -105,11 +105,13 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

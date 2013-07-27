@@ -137,19 +137,19 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Деталі</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновлення базової системи</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished"></translation>
+        <translation>Наступні файли буде оновлено:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished"></translation>
+        <translation>Деталі:</translation>
     </message>
 </context>
 </TS>

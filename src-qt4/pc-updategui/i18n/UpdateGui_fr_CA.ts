@@ -137,19 +137,19 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier les informations</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Mises à jour du système de base</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished"></translation>
+        <translation>Les fichiers suivants seront mis à jour:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished"></translation>
+        <translation>Modifier les informations:</translation>
     </message>
 </context>
 </TS>

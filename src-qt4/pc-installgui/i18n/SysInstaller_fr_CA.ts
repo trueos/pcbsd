@@ -5,11 +5,11 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>Basculer entre la disposition clavier US et la disposition sélectionnée par l&apos;utilisateur       </translation>
+        <translation>Basculer entre la disposition clavier US et la disposition sélectionnée par l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation>Ab&amp;andonner            </translation>
+        <translation>Ab&amp;andonner</translation>
     </message>
     <message>
         <source>&amp;Back</source>
@@ -17,83 +17,83 @@
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>&amp;Suivant            </translation>
+        <translation>&amp;Suivant</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Bienvenue sur PC-BSD! Veuillez sélectionner votre langue et cliquer sur suivant pour continuer.     </translation>
+        <translation>Bienvenue sur PC-BSD! Veuillez sélectionner votre langue et cliquer sur suivant pour continuer.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation>&amp;Personnaliser            </translation>
+        <translation>&amp;Personnaliser</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation>Résumé          </translation>
+        <translation>Résumé</translation>
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation>Sélection du Disque            </translation>
+        <translation>Sélection du Disque</translation>
     </message>
     <message>
         <source>Installation</source>
-        <translation>Installation            </translation>
+        <translation>Installation</translation>
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Votre système est en cours d&apos;installation ! Cette opération peut prendre du temps, selon les options que vous avez choisi et la vitesse du système. Vous serez averti lorsque l&apos;installation sera terminée.           </translation>
+        <translation>Votre système est en cours d&apos;installation ! Cette opération peut prendre du temps, selon les options que vous avez choisi et la vitesse du système. Vous serez averti lorsque l&apos;installation sera terminée.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation>Installation du système de fichiers monté dans /mnt            </translation>
+        <translation>Installation du système de fichiers monté dans /mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation>Le disque sera configuré avec les paramètres suivants :</translation>
+        <translation>Le disque sera configuré avec les paramètres suivants:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation>Disque:            </translation>
+        <translation>Disque:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation>Mettre en miroir:            </translation>
+        <translation>Mettre en miroir:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation>Partition:            </translation>
+        <translation>Partition:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation>Système de fichiers:            </translation>
+        <translation>Système de fichiers:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>Taille:       </translation>
+        <translation>Taille:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation>Point de montage:      </translation>
+        <translation>Point de montage:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation>Les meta-pkgs suivants seront installés:            </translation>
+        <translation>Les meta-pkgs suivants seront installés:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
-        <translation>Installeur PC-BSD    </translation>
+        <translation>Installeur PC-BSD</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
-        <translation>Démarrer l&apos;installation maintenant?            </translation>
+        <translation>Démarrer l&apos;installation maintenant?</translation>
     </message>
     <message>
         <source>Are you sure you want to abort this installation?</source>
-        <translation>Etes-vous sûr de vouloir abandonner cette installation?            </translation>
+        <translation>Etes-vous sûr de vouloir abandonner cette installation?</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation>Échoué!       </translation>
+        <translation>Échoué!</translation>
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
@@ -101,23 +101,23 @@
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
-        <translation>Voulez-vous générer un rapport d&apos;erreur?            </translation>
+        <translation>Voulez-vous générer un rapport d&apos;erreur?</translation>
     </message>
     <message>
         <source>Restart the system now?</source>
-        <translation>Redémarrer le système maintenant?            </translation>
+        <translation>Redémarrer le système maintenant?</translation>
     </message>
     <message>
         <source>Installing system... This may take a while...</source>
-        <translation>Installation du système... Cela va prendre un peu de temps...       </translation>
+        <translation>Installation du système... Cela va prendre un peu de temps...</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation>Options:            </translation>
+        <translation>Options:</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation>&amp;Terminé            </translation>
+        <translation>&amp;Terminé</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -171,23 +171,23 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Annuler            </translation>
+        <translation>&amp;Annuler</translation>
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation>Extraction du système...         </translation>
+        <translation>Extraction du système...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation>Impossible de détecter les disques durs! L&apos;installation va maintenant se terminer.            </translation>
+        <translation>Impossible de détecter les disques durs! L&apos;installation va maintenant se terminer.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation>Impossible de proposer une partition pour le disque détecté.            </translation>
+        <translation>Impossible de proposer une partition pour le disque détecté.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation>Détection: que vous utilisez la version 32 bits. Si votre système est en mesure d&apos;exécuter une version 64 bits (soit la plupart des systèmes fabriqués après 2005), vous devriez vraiment exécuter la version 64 bits.            </translation>
+        <translation>Détection: que vous utilisez la version 32 bits. Si votre système est en mesure d&apos;exécuter une version 64 bits (soit la plupart des systèmes fabriqués après 2005), vous devriez vraiment exécuter la version 64 bits. </translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
@@ -195,67 +195,67 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger le fichier de configuration de l&apos;installation depuis une clé USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger configuration de de l&apos;USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished"></translation>
+        <translation>Bureau (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Serveur (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarde de la configuration sur l&apos;USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cela permettra d&apos;économiser votre configuration d&apos;installation sur une clé USB formatée MSDOSFS/FAT32. Continuer?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît insérer une clé USB maintenant, et cliquez sur OK pour continuer.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît entrer le pseudonyme que vous souhaitez enregistrer cette configuration comme.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de sauvegarde configuration de sur un support USB. Le périphérique fonctionne et MSDOSFS/FAT32 formaté?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration sauvé! Vous pouvez maintenant supprimer en toute sécurité le support USB.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cela va charger un fichier de configuration d&apos;installation MSDOSFS/FAT32 votre clé USB formatée. Continuer?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît insérez la clé USB maintenant, et cliquez sur OK pour continuer.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished"></translation>
+        <translation>Echec du chargement sauvegardé du fichier de configuration à partir du support USB. Le périphérique fonctionne et MSDOSFS/FAT32 formaté?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration chargé! Vous pouvez maintenant supprimer en toute sécurité le support USB.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier de configuration:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer l&apos;installation en utilisant ce fichier de configuration?</translation>
     </message>
 </context>
 <context>
@@ -603,15 +603,15 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation>S&apos;il vous plaît sélectionner 2 ou 4 disques supplémentaires pour raidz1            </translation>
+        <translation>S&apos;il vous plaît sélectionner 2 ou 4 disques supplémentaires pour raidz1</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation>Veuillez sélectionner 3, 5 ou 9 disques supplémentaires pour raidz2            </translation>
+        <translation>Veuillez sélectionner 3, 5 ou 9 disques supplémentaires pour raidz2</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation>Veuillez sélectionner 4, 6 ou 10 disques supplémentaires pour raidz3    </translation>
+        <translation>Veuillez sélectionner 4, 6 ou 10 disques supplémentaires pour raidz3</translation>
     </message>
     <message>
         <source>Enter SWAP size</source>
@@ -623,70 +623,70 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished"></translation>
+        <translation>ZFS nom du pool</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished"></translation>
+        <translation>ZFS force de la taille des blocs 4K</translation>
     </message>
 </context>
 <context>
     <name>wizardFreeBSD</name>
     <message>
         <source>Please enter the root password for this server</source>
-        <translation>Veuillez entrer le mot de passe root pour ce serveur      </translation>
+        <translation>Veuillez entrer le mot de passe root pour ce serveur</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Mot de passe            </translation>
+        <translation>Mot de passe</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation>Mot de passe (répétition)         </translation>
+        <translation>Mot de passe (répétition)</translation>
     </message>
     <message>
         <source>Please create a user for this server</source>
-        <translation>Veuillez créer un utilisateur pour ce serveur           </translation>
+        <translation>Veuillez créer un utilisateur pour ce serveur</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nom            </translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nom d&apos;usager            </translation>
+        <translation>Nom d&apos;usager</translation>
     </message>
     <message>
         <source>Default shell</source>
-        <translation>Shell par défaut            </translation>
+        <translation>Shell par défaut</translation>
     </message>
     <message>
         <source>Please enter a system hostname and remote login preference.</source>
-        <translation>Veuillez entrer un nom d&apos;hôte du système et les préférences pour les connexions d&apos;accès distantes.       </translation>
+        <translation>Veuillez entrer un nom d&apos;hôte du système et les préférences pour les connexions d&apos;accès distantes.</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation>Nom d&apos;hôte            </translation>
+        <translation>Nom d&apos;hôte</translation>
     </message>
     <message>
         <source>Enable remote SSH login</source>
-        <translation>Activez la connexion à distance via SSH        </translation>
+        <translation>Activez la connexion à distance via SSH</translation>
     </message>
     <message>
         <source>Please select a network device to configure for this system.</source>
-        <translation>Veuillez sélectionner un périphérique réseau à configurer pour ce système.       </translation>
+        <translation>Veuillez sélectionner un périphérique réseau à configurer pour ce système.</translation>
     </message>
     <message>
         <source>Network Interface</source>
-        <translation>Interface réseau            </translation>
+        <translation>Interface réseau</translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation>Adresse IP       </translation>
+        <translation>Adresse IP</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Masque de sous-réseau            </translation>
+        <translation>Masque de sous-réseau</translation>
     </message>
     <message>
         <source>Nameserver (DNS)</source>
@@ -694,35 +694,35 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Passerelle          </translation>
+        <translation>Passerelle</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation>Adresse IPV6             </translation>
+        <translation>Adresse IPV6</translation>
     </message>
     <message>
         <source>IPv6 Gateway</source>
-        <translation>Passerelle IPv6        </translation>
+        <translation>Passerelle IPv6</translation>
     </message>
     <message>
         <source>IPv6 Nameserver</source>
-        <translation>Serveur de noms IPv6        </translation>
+        <translation>Serveur de noms IPv6</translation>
     </message>
     <message>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000;             </translation>
+        <translation>000.000.000.000;</translation>
     </message>
     <message>
         <source>Please select any optional features to install.</source>
-        <translation>S&apos;il vous plaît sélectionner toutes les fonctions optionnelles à installer.            </translation>
+        <translation>S&apos;il vous plaît sélectionner toutes les fonctions optionnelles à installer.</translation>
     </message>
     <message>
         <source>Install system sources (/usr/src)</source>
-        <translation>Installer les sources du système (/usr/src)            </translation>
+        <translation>Installer les sources du système (/usr/src)</translation>
     </message>
     <message>
         <source>Install ports tree (/usr/ports)</source>
-        <translation>Installer l&apos;arbre des ports (/usr/ports)            </translation>
+        <translation>Installer l&apos;arbre des ports (/usr/ports)</translation>
     </message>
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>

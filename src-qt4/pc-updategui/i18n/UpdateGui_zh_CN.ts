@@ -141,19 +141,19 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished"></translation>
+        <translation>更新细节</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>基础系统更新</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished"></translation>
+        <translation>以下文件将被更新：</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished"></translation>
+        <translation>更新细节：</translation>
     </message>
 </context>
 </TS>

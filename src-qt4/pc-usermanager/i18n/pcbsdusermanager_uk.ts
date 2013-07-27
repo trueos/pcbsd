@@ -208,7 +208,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Зашифрувати файли:</translation>
     </message>
 </context>
 <context>
@@ -542,7 +542,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished"></translation>
+        <translation>Зашифрувати файли:</translation>
     </message>
 </context>
 <context>

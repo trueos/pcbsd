@@ -9,19 +9,19 @@
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Versoek stelsel toestemming</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>toegang geweier</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hierdie gebruiker het nie &apos;administrateur regte op hierdie stelsel!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ongeldig wagwoord! probeer steeds links:% 1</translation>
     </message>
 </context>
 </TS>

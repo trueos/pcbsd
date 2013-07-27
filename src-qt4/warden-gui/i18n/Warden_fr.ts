@@ -195,11 +195,11 @@
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation>Invalide adresse IPv4!            </translation>
+        <translation>Invalide adresse IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation>Invalide IPv6 passerelle adresse!            </translation>
+        <translation>Invalide IPv6 passerelle adresse!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
@@ -207,164 +207,164 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Options</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le support VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4 Pont adresse (nécessite VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4 Routeur par défaut (Nécessite VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6 Pont adresse (Nécessite VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6 Routeur par défaut (Nécessite VNET)</translation>
     </message>
 </context>
 <context>
     <name>dialogImport</name>
     <message>
         <source>Import Jail</source>
-        <translation>Importer Jail            </translation>
+        <translation>Importer Jail</translation>
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>Vous avez la possibilité de changer le IP / nom d&apos;hôte du Jail importés. Toutes les références internes à l&apos;ancienne IP / nom d&apos;hôte peut encore avoir besoin d&apos;être changé après l&apos;importation.            </translation>
+        <translation>Vous avez la possibilité de changer le IP / nom d&apos;hôte du Jail importés. Toutes les références internes à l&apos;ancienne IP / nom d&apos;hôte peut encore avoir besoin d&apos;être changé après l&apos;importation.</translation>
     </message>
     <message>
         <source>Change IP Address</source>
-        <translation>Changer Adresse IP            </translation>
+        <translation>Changer Adresse IP</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation>999\.999\.999\.999;             </translation>
+        <translation>999\.999\.999\.999;</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Change Hostname</source>
-        <translation>Changer le nom d&apos;hôte            </translation>
+        <translation>Changer le nom d&apos;hôte</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Annuler            </translation>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context>
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished"></translation>
+        <translation>Modèles de Jail</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Ajouter un nouveau Jail</translation>
+        <translation>Ajouter un nouveau Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Retirer la sélection Jail</translation>
+        <translation>Retirer la sélection Jail</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Fermer            </translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version du Système</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished"></translation>
+        <translation>Quelle version voulez-vous chercher?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation>Modèle Pseudonyme</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez un pseudonyme pour ce modèle:</translation>
     </message>
 </context>
 <context>
     <name>dialogWarden</name>
     <message>
         <source>The Warden</source>
-        <translation>Le Warden            </translation>
+        <translation>Le Warden</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Dossier           </translation>
+        <translation>&amp;Dossier</translation>
     </message>
     <message>
         <source>Jails</source>
-        <translation>Jails            </translation>
+        <translation>Jails</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation>S&amp;ortir            </translation>
+        <translation>S&amp;ortir</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Sortir            </translation>
+        <translation>Sortir</translation>
     </message>
     <message>
         <source>New Jail</source>
-        <translation>Nouveau Jail            </translation>
+        <translation>Nouveau Jail</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation>Rafraîchir </translation>
+        <translation>Rafraîchir</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation>Configuration            </translation>
+        <translation>Configuration</translation>
     </message>
     <message>
         <source>Import Jail</source>
-        <translation>Importer Jail            </translation>
+        <translation>Importer Jail</translation>
     </message>
     <message>
         <source>Stop this Jail</source>
-        <translation>Arrêter ce Jail            </translation>
+        <translation>Arrêter ce Jail</translation>
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation>Toggle DémarrageAutomatique            </translation>
+        <translation>Toggle DémarrageAutomatique</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
-        <translation>Exporter jail a .wdn fichier            </translation>
+        <translation>Exporter jail a .wdn fichier</translation>
     </message>
     <message>
         <source>Delete Jail</source>
-        <translation>Supprimer Jail            </translation>
+        <translation>Supprimer Jail</translation>
     </message>
     <message>
         <source>Start this Jail</source>
-        <translation>Commencer ce Jail            </translation>
+        <translation>Commencer ce Jail</translation>
     </message>
     <message>
         <source>Stopping Jail</source>
-        <translation>Arrêter ce Jail            </translation>
+        <translation>Arrêter ce Jail</translation>
     </message>
     <message>
         <source>Stopping Jail:</source>
-        <translation>Arrêter ce Jail:               </translation>
+        <translation>Arrêter ce Jail:</translation>
     </message>
     <message>
         <source>Starting Jail</source>
@@ -400,7 +400,7 @@
     </message>
     <message>
         <source>Installed Jails</source>
-        <translation>Installer un Jails</translation>
+        <translation>Installer un Jail</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
@@ -660,7 +660,7 @@
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestionnaire de Modèle</translation>
     </message>
 </context>
 <context>
@@ -782,15 +782,15 @@
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Jail Version</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisez la version du système (par défaut)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">Invalide adresse IPv4!            </translation>
+        <translation>Invalide adresse IPv6 !            </translation>
     </message>
 </context>
 </TS>

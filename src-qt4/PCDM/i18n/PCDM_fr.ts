@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished"></translation>
+        <translation>Environnements de bureau disponibles</translation>
     </message>
 </context>
 <context>
@@ -146,7 +146,7 @@
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Arrêt du système</translation>
     </message>
 </context>
 <context>

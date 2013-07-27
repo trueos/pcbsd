@@ -9,19 +9,19 @@
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Запит системних привілеїв</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступ заборонено</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished"></translation>
+        <translation>Цей користувач не має прав адміністрування в системі!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Невірний пароль! Лишилося спроб: %1</translation>
     </message>
 </context>
 </TS>

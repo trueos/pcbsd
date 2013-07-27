@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">Módulo Editor</translation>
+        <translation>Editor de modulo</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation>Autor del programa principal (o el mantenedor del Puerto de FreeBSD)</translation>
+        <translation>Autor del programa principal (o el encargado del port de FreeBSD)</translation>
     </message>
     <message>
         <source>Author</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Build Information</source>
-        <translation>Información de compilación</translation>
+        <translation>Generar informacion</translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Package Directory</source>
-        <translation>Directorio de empaquetamiento</translation>
+        <translation>Directorio del paquete</translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
@@ -89,32 +89,31 @@
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation>Puerto Principal de FreeBSD</translation>
+        <translation>Port principal de FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation>Puerto de FreeBSD para ser empaquetado como un PBI</translation>
+        <translation>Port de FreeBSD para ser empaquetado como un PBI</translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation>Seleccionar un Puerto de FreeBSD</translation>
+        <translation>Seleccionar un Port de FreeBSD</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation>Cambiar Puerto</translation>
+        <translation>Cambiar Port</translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation>Opciones del puerto a compilar</translation>
+        <translation>Opciones del port a compilar</translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation>Opciones de configuraciones especiales para cualquier puerto que necesite ser compilado.</translation>
+        <translation>Opciones de configuraciones especiales para cualquier port que necesite ser compilado.</translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opciones de compilacion disponibles para el port principal de FreeBSD            </translation>
     </message>
     <message>
         <source>Make Port Before</source>
@@ -122,27 +121,27 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation>Puertos adicionales de FreeBSD para ser compilados antes que el programa principal</translation>
+        <translation>Ports adicionales de FreeBSD para ser compilados antes que el programa principal</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation>Agregar un puerto adicional de FreeBSD</translation>
+        <translation>Agregar un port adicional de FreeBSD</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation>Remover un puerto adicional de FreeBSD</translation>
+        <translation>Remover un port adicional de FreeBSD</translation>
     </message>
     <message>
         <source>Make Port After</source>
-        <translation>Crear Puerto Antes</translation>
+        <translation>Crear el port Antes</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>Puertos adicionales de FreeBSD para ser compilados después del programa principal</translation>
+        <translation>Ports adicionales de FreeBSD para ser compilados después del programa principal</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation>Requiere permisos de administrador para instalar este PBI</translation>
+        <translation>Se necesita permisos de administrador para instalar este PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
@@ -290,7 +289,7 @@
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation>Marcar este artículo para no ser mostrado para nada</translation>
+        <translation>Marcar este artículo para no ser mostrado</translation>
     </message>
     <message>
         <source>Make Invisible</source>

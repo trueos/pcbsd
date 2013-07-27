@@ -158,11 +158,11 @@
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation>IP-adres buite bereik is!            </translation>
+        <translation>IP-adres buite bereik is!</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>
-        <translation>Velde moet tussen 0-255            </translation>
+        <translation>Velde moet tussen 0-255.   </translation>
     </message>
     <message>
         <source>Netmask is out of range! (</source>

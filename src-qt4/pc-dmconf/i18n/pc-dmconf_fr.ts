@@ -37,19 +37,19 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer Remote Desktop (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Divers</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer le bouton &quot;Afficher le mot de passe&quot;</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît entrer le mot de passe de connexion à distance</translation>
     </message>
 </context>
 </TS>

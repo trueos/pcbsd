@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
+        <translation>Verze:
             </translation>
     </message>
     <message>

@@ -206,7 +206,8 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -541,7 +542,8 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

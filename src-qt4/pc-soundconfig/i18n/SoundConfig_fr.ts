@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>&amp;Test sound</source>
-        <translation>Son de &amp;test</translation>
+        <translation>&amp;test de Son</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>&amp;Appliquer            </translation>
+        <translation>&amp;Appliquer</translation>
     </message>
     <message>
         <source>&amp;Close</source>
