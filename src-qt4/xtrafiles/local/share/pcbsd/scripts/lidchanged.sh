@@ -10,13 +10,13 @@ stop_powerd()
 powerd_up()
 {
   stop_powerd
-  powerd -P /var/run/powerd.pid -a hiadaptive -b adaptive 2>>/root/HI
+  powerd -P /var/run/powerd.pid -a hiadaptive -b adaptive 2>/dev/null
 }
 
 powerd_down()
 {
   stop_powerd
-  powerd -P /var/run/powerd.pid -a adaptive -b min 2>>/root/HI2
+  powerd -P /var/run/powerd.pid -a adaptive -b min 2>/dev/null
 }
 
 # Type of event open/close
