@@ -47,8 +47,9 @@ export ATMP
 WARDENVER="1.3"
 export WARDENVER
 
-# Dirs to nullfs mount in X jail
-NULLFS_MOUNTS="/tmp /media /usr/home"
+# Dirs to nullfs mount in X jail / pbibox
+NULLFS_MOUNTS="/tmp /media"
+X11_MOUNTS="/usr/local/lib/X11/icons /usr/local/lib/X11/fonts /usr/local/etc/fonts"
 
 # Clone directory
 CDIR="${JDIR}/clones"
@@ -175,9 +176,15 @@ downloadchroot() {
   rm ${FBSD_TARBALL_CKSUM}
 };
 
+# Check if a directory is mounted
+isDirMounted() {
+  mount | grep -q "on $1 ("
+  return $?
+}
 
-### Mount all needed filesystems for the jail
-mountjailxfs() {
+# Mount all the FS needed for a PBI container
+mountpbibox() {
+
   for nullfs_mount in ${NULLFS_MOUNTS}; do
     if [ ! -d "${JDIR}/${1}${nullfs_mount}" ] ; then
       mkdir -p "${JDIR}/${1}${nullfs_mount}"
@@ -187,9 +194,19 @@ mountjailxfs() {
       continue
     fi
 
+    # If this is already mounted we can skip for now
+    isDirMounted "${JDIR}/${1}${nullfs_mount}" && continue
+
     echo "Mounting ${JDIR}/${1}${nullfs_mount}"
     mount_nullfs ${nullfs_mount} ${JDIR}/${1}${nullfs_mount}
   done
+
+  # Check and mount /dev
+  isDirMounted "${JDIR}/${1}/dev"
+  if [ $? -ne 0 ] ; then
+    echo "Enabling devfs"
+    mount -t devfs devfs ${JDIR}/${1}/dev
+  fi
 
   # Add support for linprocfs for ports that need linprocfs to build/run
   if [  ! -d "${JDIR}/${1}/compat/linux/proc" ]; then
@@ -199,8 +216,68 @@ mountjailxfs() {
     echo "${JDIR}/${1}/compat/linux/proc has symlink as parent, not mounting"
     return
   fi
-  echo "Enabling linprocfs support."
-  mount -t linprocfs linprocfs ${JDIR}/${1}/compat/linux/proc
+
+  # If this is already mounted we can skip for now
+  isDirMounted "${JDIR}/${1}/compat/linux/proc"
+  if [ $? -ne 0 ] ; then
+    echo "Enabling linprocfs support."
+    mount -t linprocfs linprocfs ${JDIR}/${1}/compat/linux/proc
+  fi
+
+  # Add support for linsysfs for ports that need linprocfs to build/run
+  if [  ! -d "${JDIR}/${1}/compat/linux/sys" ]; then
+    mkdir -p ${JDIR}/${1}/compat/linux/sys
+  fi
+  if is_symlinked_mountpoint ${JDIR}/${1}/compat/linux/sys; then
+    echo "${JDIR}/${1}/compat/linux/sys has symlink as parent, not mounting"
+    return
+  fi
+
+  # If this is already mounted we can skip for now
+  isDirMounted "${JDIR}/${1}/compat/linux/sys"
+  if [ $? -ne 0 ] ; then
+    echo "Enabling linsysfs support."
+    mount -t linsysfs linsysfs ${JDIR}/${1}/compat/linux/sys
+  fi
+
+  # Lastly we need to mount /usr/home/* directories
+  for i in `ls -d /usr/home/*`
+  do
+    # If this is already mounted we can skip for now
+    isDirMounted "${JDIR}/${1}${i}" && continue
+    if [ ! -d "${JDIR}/${1}${i}" ] ; then mkdir -p ${JDIR}/${1}${i} ; fi
+    echo "Mounting home: ${i}"
+    mount_nullfs ${i} ${JDIR}/${1}${i}
+  done
+
+  # If this is a portjail, we can stop now
+  if [ "$1" = "portjail" ] ; then return ; fi
+
+  # For PBIs lets mount a few extra things
+  for nullfs_mount in ${X11_MOUNTS}; do
+    if [ ! -d "${JDIR}/${1}${nullfs_mount}" ] ; then
+	continue
+    fi
+    if is_symlinked_mountpoint ${nullfs_mount}; then
+      echo "${nullfs_mount} has symlink as parent, not mounting"
+      continue
+    fi
+
+    # If this is already mounted we can skip for now
+    isDirMounted "${JDIR}/${1}${nullfs_mount}" && continue
+
+    echo "Mounting ${JDIR}/${1}${nullfs_mount}"
+    mount_nullfs ${nullfs_mount} ${JDIR}/${1}${nullfs_mount}
+  done
+  
+}
+
+### Mount all needed filesystems for the jail
+mountjailxfs() {
+ 
+   # Mount the same mount-points as pbibox 
+   mountpbibox "portjail"
+
 }
 
 ### Umount all the jail's filesystems
@@ -264,9 +341,35 @@ mkportjail() {
 
   # Make sure we remove our cleartmp rc.d script, causes issues
   [ -e "${1}/etc/rc.d/cleartmp" ] && rm ${1}/etc/rc.d/cleartmp
+
   # Flag this type
   touch ${JMETADIR}/jail-portjail
 }
+
+mkpbibox() {
+
+  if [ -z "${1}" ] ; then return ; fi
+
+  # KPM - Replace this section with a "mergeuserpw" function
+  # Need to be able to merge user accounts from /home on base system
+  # into the chroot each time we start it
+  ETCFILES="resolv.conf passwd master.passwd spwd.db pwd.db group localtime"
+  for file in ${ETCFILES}; do
+    rm ${1}/etc/${file} >/dev/null 2>&1
+    cp /etc/${file} ${1}/etc/${file}
+  done
+  
+  # Need to symlink /home
+  chroot ${1} ln -fs /usr/home /home
+
+  # Make sure we remove our cleartmp rc.d script, causes issues
+  [ -e "${1}/etc/rc.d/cleartmp" ] && rm ${1}/etc/rc.d/cleartmp
+
+  # Flag this type
+  touch ${JMETADIR}/jail-pbibox
+
+}
+
 
 mkpluginjail() {
   if [ -z "${1}" ] ; then return ; fi
@@ -732,9 +835,6 @@ make_bootstrap_pkgng_file_standard()
   local release="$(uname -r | cut -d '-' -f 1-2)"
   local arch="$(uname -m)"
 
-  get_mirror
-  local mirror="${VAL}"
-
 cat<<__EOF__>"${outfile}"
 #!/bin/sh
 tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
@@ -744,7 +844,6 @@ rm pkg.txz
 echo "packagesite: http://pkg.cdn.pcbsd.org/${release}/${arch}" >/usr/local/etc/pkg.conf
 echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
 echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
-pkg install -y pcbsd-utils
 exit $?
 __EOF__
 }

@@ -33,6 +33,7 @@ JAILS=
 while [ "$#" -gt "0" ] ; do
   case "$1" in
     -v) VERBOSE="YES" ;; 
+    -a) ALLJAILS="YES" ;; 
      *) JAILS="${JAILS} .$1.meta" ;;
   esac
   shift 
@@ -53,6 +54,11 @@ for i in ${JAILS}
 do
   AUTO="Disabled" 
   STATUS="<unknown>"
+
+  # if not doing a full listing, skip pbi boxes
+  if [ "$ALLJAILS" != "YES" -a -e "${i}/jail-pbibox" ] ; then
+     continue
+  fi
 
   if [ ! -e "${i}/id" ] ; then 
      # Check if its an old-style jail
@@ -139,7 +145,9 @@ do
   fi
  
   # Figure out the type of jail
-  if [ -e "${i}/jail-portjail" ] ; then
+  if [ -e "${i}/jail-pbibox" ] ; then
+    TYPE="pbibox"
+  elif [ -e "${i}/jail-portjail" ] ; then
     TYPE="portjail"
   elif [ -e "${i}/jail-pluginjail" ] ; then
     TYPE="pluginjail"

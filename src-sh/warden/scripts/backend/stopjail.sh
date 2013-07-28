@@ -35,6 +35,11 @@ then
   exit 5
 fi
 
+# If this a pbibox, we can just safely unmount its dirs and finish
+if [ -e "${JMETADIR}/jail-pbibox" ] ; then 
+  umountjailxfs ${JAILNAME} 
+  exit 0
+fi
 
 HOST="`cat ${JMETADIR}/host`"
 

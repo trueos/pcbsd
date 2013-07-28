@@ -80,9 +80,10 @@ HOST="${1}"
 # Everything else is passed via environmental variables
 
 case "${JAILTYPE}" in
-  portjail) PORTJAIL="YES" ;;
-  pluginjail) PLUGINJAIL="YES" ;;
+  pbibox) PBIBOX="YES" ;;
   linuxjail) LINUXJAIL="YES" ;;
+  pluginjail) PLUGINJAIL="YES" ;;
+  portjail) PORTJAIL="YES" ;;
   standard) ;;
 esac
 
@@ -331,8 +332,8 @@ fi
 mkdir -p ${JAILDIR}/usr/local/etc >/dev/null 2>/dev/null
 echo "PCBSD_METAPKGSET: warden" > ${JAILDIR}/usr/local/etc/pcbsd.conf
 
-# Copy over the pbid scripts
-checkpbiscripts "${JAILDIR}"
+# Check if making a PBI box
+if [ "$PBIBOX" = "YES" ] ; then mkpbibox "${JAILDIR}" ; fi
 
 # Check if making a portjail
 if [ "$PORTJAIL" = "YES" ] ; then mkportjail "${JAILDIR}" ; fi
