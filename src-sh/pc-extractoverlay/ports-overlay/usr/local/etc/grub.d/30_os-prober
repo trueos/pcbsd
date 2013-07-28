@@ -28,50 +28,35 @@
 
 check_ntfs_part()
 {
-   if [ "$3" = "MBR" ] ; then
-     cDisk="${1}s${2}" 
-   else
-     cDisk="${1}p${2}" 
+   local disk="$1"
+   fs_label=`grub-probe --device /dev/${disk} --target=fs_label`
+
+   # For now check if its labeled system-reserved, need to test
+   # this on vista / 8 / XP still
+   if [ "$fs_label" != "System Reserved" ] ; then return; fi
+
+   fs_uuid=`grub-probe --device /dev/${disk} --target=fs_uuid`
+   if [ -z "$fs_uuid" ] ; then
+      echo "Warning: Could not get fs_uuid for $disk"
+      return
    fi
-   # Check the partition for a boot sector
-   glabel status ${cDisk} 2>/dev/null | grep -q "System Reserved"
-   if [ $? -ne 0 ] ; then return ; fi
+
    cat << EOF
-menuentry "Microsoft Windows ($cDisk)" {
-   insmod ntfs
-   set root(hd${dNum},$2)
+menuentry "Microsoft Windows ($disk)" {
+   search --no-floppy --fs-uuid --set=root $fs_uuid
    chainloader +1
 }
 EOF
 }
 
-dFile="/tmp/.disk-probe.$$"
-dNum="0"
-
 # Start by looking for disks
-for disk in `cd /dev/ && ls ada[0-9] da[0-9] 2>/dev/null`
+for disk in `cd /dev/ && ls ada[0-9]s[0-9] da[0-9]s[0-9] ada[0-9]p[0-9] da[0-9]p[0-9] 2>/dev/null`
 do
-   if [ -e "$dFile" ] ; then rm $dFile; fi
-   gpart show $disk 2>/dev/null >${dFile}
-   pType=""
-   while read dLine
-   do
-     echo "$dLine" | grep -q '=>' 
-     if [ $? -eq 0 ] ; then
-        pType=`echo $dLine | awk '{print $5}'`
-        continue
-     fi
-     fsType=`echo $dLine | awk '{print $4}'`
-     fsPart=`echo $dLine | awk '{print $3}'`
-     case $fsType in
-          ntfs) check_ntfs_part "$disk" "$fsPart" "$pType" ;;
-             *) ;; # Unknown / unsupported FS - Add more here!
-     esac
-
-   done < $dFile
-
-   # Increment our disk counter
-   dNum="`expr $dNum + 1`"
+   
+   # Start checking for NTFS
+   fs_type=`grub-probe --device /dev/${disk} --target=fs 2>/dev/null`
+   case $fs_type in
+      ntfs) check_ntfs_part "$disk" ;;
+	*) ;; # Unknown for now, add more!
+   esac 
 done
-
-rm $dFile
