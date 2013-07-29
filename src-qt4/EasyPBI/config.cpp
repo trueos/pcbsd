@@ -278,7 +278,7 @@ void Config::setValue(QString var, QString val){
       else if(var=="sigfile"){ valueStruct[6]=""; }
       else{ qDebug() << "invalid setvalue requested:" << var; }	    
     }
-
+  checkStructures();
 }
 
 QStringList Config::list(QString var){
@@ -352,7 +352,10 @@ void Config::checkStructures(){
   if( valueStruct[3].isEmpty() ){ 
     if(detStruct[3].isEmpty()){ TFstruct[1] = FALSE; }
     else{ valueStruct[3] = detStruct[3]; TFstruct[1]=TRUE; }
+  }else if( QFile::exists(valueStruct[3]+"/COPYRIGHT") ){ 
+    TFstruct[1]=TRUE; 
   }
+  
   // -- Icon dir
   if( valueStruct[4].isEmpty() ){ valueStruct[4] = defaultSettings[7]; }
   // -- default icon file

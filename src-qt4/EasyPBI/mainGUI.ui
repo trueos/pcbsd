@@ -54,8 +54,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>276</width>
-         <height>149</height>
+         <width>600</width>
+         <height>474</height>
         </rect>
        </property>
        <attribute name="icon">
@@ -133,7 +133,7 @@
           <item>
            <widget class="QPushButton" name="push_build_start">
             <property name="statusTip">
-             <string>Start building a PBI from the current module (requires root permissions)</string>
+             <string>Start building a PBI from the current module (requires administrator privileges)</string>
             </property>
             <property name="text">
              <string>Build PBI</string>
