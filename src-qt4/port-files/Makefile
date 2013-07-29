@@ -14,7 +14,7 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 LIB_DEPENDS=	QtSolutions_SingleApplication-head.1:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication \
-		curl.6:${PORTSDIR}/ftp/curl
+		curl.7:${PORTSDIR}/ftp/curl
 
 RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils
 
