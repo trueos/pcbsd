@@ -29,38 +29,48 @@ download_template_files() {
      done
   else
      
-     # Check if we are on REAL old versions of FreeBSD
-     if [ "$oldFBSD" = "YES" ] ; then
-	 # Get the .inf list file
-         fetch -o "${JDIR}/.download/${oldStr}.inf" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/${oldStr}/${oldStr}.inf"
-	 if [ $? -ne 0 ] ; then
-           exit_err "Failed downloading: FreeBSD ${FBSDVER} - ${oldStr}.inf"
-	 fi
-	 # Now read in the list of files to fetch
-	 while read line
-	 do
-	    echo "$line" | grep -q '^cksum'
-	    if [ $? -ne 0 ] ; then continue ; fi
-	    fName=`echo $line | cut -d " " -f 1 | sed "s|cksum|$oldStr|g"`
-            fetch -o "${JDIR}/.download/$fName" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/${oldStr}/$fName"
-	    if [ $? -ne 0 ] ; then
-              exit_err "Failed downloading: FreeBSD ${FBSDVER} - $fName"
-	    fi
-	 done < ${JDIR}/.download/${oldStr}.inf
-	 return
-     fi
-
+     # Start looking for current versions of FreeBSD
+     found=0
      for f in $DFILES
      do
        fetch -o "${JDIR}/.download/$f" "ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/$f"
        if [ $? -ne 0 ] ; then
 	 echo "Trying ftp-archive..."
          fetch -o "${JDIR}/.download/$f" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/$f"
-         if [ $? -ne 0 ] ; then
-           exit_err "Failed downloading: FreeBSD ${FBSDVER}"
-	 fi
+	 if [ $? -ne 0 ] ; then found=1 ; break; fi
        fi
      done
+
+     if [ $found -eq 0 ] ; then return ; fi
+
+     found=0
+     # Check if we are on old versions of FreeBSD
+     # Get the .inf list file
+     echo "Looking for old versions of FreeBSD"
+     fetch -o "${JDIR}/.download/${oldStr}.inf" "ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/$oldStr/${oldStr}.inf"
+     if [ $? -ne 0 ] ; then
+       # Check the ftp-archive
+       echo "Looking for older versions of FreeBSD"
+       fetch -o "${JDIR}/.download/${oldStr}.inf" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/${oldStr}/${oldStr}.inf"
+       if [ $? -ne 0 ] ; then
+         exit_err "Failed downloading: FreeBSD ${FBSDVER} - ${oldStr}.inf"
+       fi
+       fDir="http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/${oldStr}"
+     else
+       fDir="ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/$oldStr"
+     fi
+
+     # Now read in the list of files to fetch
+     while read line
+     do
+        echo "$line" | grep -q '^cksum'
+        if [ $? -ne 0 ] ; then continue ; fi
+        fName=`echo $line | cut -d " " -f 1 | sed "s|cksum|$oldStr|g"`
+        fetch -o "${JDIR}/.download/$fName" "${fDir}/${fName}"
+        if [ $? -ne 0 ] ; then
+          exit_err "Failed downloading: FreeBSD ${FBSDVER}"
+        fi
+     done < ${JDIR}/.download/${oldStr}.inf
   fi
 
 }
