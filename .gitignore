@@ -554,4 +554,5 @@ src-qt4/pc-systemupdatertray/pc-systemupdatertray
 src-qt4/pc-updategui/pc-updategui
 src-qt4/pc-firstbootgui/pc-firstboot
 src-sh/pc-fbsdupdatecheck/pc-fbsdupdatecheck
+src-qt4/pc-netmanager/src/NetworkManager/pc-netmanager
 
