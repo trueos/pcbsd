@@ -3026,8 +3026,8 @@ do_pbi_add() {
 	mk_pbi_extract_dir
 	pbi_extract_archive
 	
-	pbi_add_check_gids
 	pbi_add_check_uids
+	pbi_add_check_gids
 
 	pbi_add_run_script
 	check_postinstall_script
