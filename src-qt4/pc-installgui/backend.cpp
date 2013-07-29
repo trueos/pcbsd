@@ -427,6 +427,8 @@ QList<QStringList> Backend::getPackageData(bool &found, QString pkgset)
      pkgset="pcbsd";
   QList<QStringList> metaPkgs;
   found=false;
+  bool onDisk;
+  onDisk=true; 
   QString tmp, mName, mDesc, mIcon, mParent, mDesktop, mPkgFileList;
   QStringList package;
 
@@ -470,9 +472,13 @@ QList<QStringList> Backend::getPackageData(bool &found, QString pkgset)
 	if ( tmp.indexOf("Required Packages:") == 0) {
 		// Now add this meta-pkg to the string list
 		package.clear();
-		//qDebug() << "Found Package" << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
-		package << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
-		metaPkgs.append(package);
+
+		// If this package is marked "dl-only" we won't show it
+		if ( ! QFile::exists("/usr/local/share/pcbsd/metaset/" + pkgset + "/" + mName + "/dl-only" ) ) {
+		  //qDebug() << "Found Package" << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
+		  package << mName << mDesc << mIcon << mParent << mDesktop << "NO" << mPkgFileList;
+		  metaPkgs.append(package);
+		}
 		found = true;
 		mName=""; mDesc=""; mIcon=""; mParent=""; mDesktop=""; mPkgFileList="";
 	}
