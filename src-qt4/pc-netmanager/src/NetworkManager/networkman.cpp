@@ -815,7 +815,7 @@ void NetworkMan::slotCheckGlobalText()
 {
 
    pushSave->setEnabled(false);
-   QRegExp hostnameRegExp("^(([a-z0-9][a-z0-9-]*[a-z0-9])|([a-z0-9]+))$");
+   QRegExp hostnameRegExp("^(([a-z0-9][a-z0-9-].*[a-z0-9])|([a-z0-9]+))$");
    textGlobalError->setText("");
 
     if ( groupIPv6->isChecked() ) {
