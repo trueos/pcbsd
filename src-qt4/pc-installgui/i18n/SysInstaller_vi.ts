@@ -195,83 +195,67 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nạp tập tin cài đặt cấu hình từ USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nạp cấu hình từ USB   </translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Để bàn (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Máy chủ của (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu cấu hình cho USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Điều này sẽ tiết kiệm được cài đặt cấu hình của bạn vào một ổ đĩa USB được định dạng MSDOSFS/FAT32. Tiếp tục không?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xin vui lòng chèn một thanh USB bây giờ, và nhấn OK để tiếp tục.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xin vui lòng nhập các biệt danh bạn muốn lưu cấu hình này như.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thất bại trong lưu cấu hình để USB phương tiện truyền thông. Là thiết bị làm việc và định dạng MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình được lưu! Bây giờ bạn có thể loại bỏ một cách an toàn các phương tiện truyền thông USB.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Điều này sẽ tải một file cấu hình cài đặt USB định dạng MSDOSFS/FAT32 của bạn. Tiếp tục không?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xin vui lòng chèn thanh USB bây giờ, và nhấn OK để tiếp tục.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể tải lưu tập tin cấu hình từ các phương tiện truyền thông USB. Là thiết bị làm việc và định dạng MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình nạp! Bây giờ bạn có thể loại bỏ một cách an toàn các phương tiện truyền thông USB.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tập tin cấu hình:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu cài đặt sử dụng tập tin cấu hình này?</translation>
     </message>
 </context>
 <context>
@@ -313,11 +297,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp;tiết kiệm            </translation>
+        <translation>&amp;tiết kiệm</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;hủy bỏ            </translation>
+        <translation>&amp;hủy bỏ</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -344,7 +328,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;đóng cửa     </translation>
+        <translation>&amp;đóng cửa</translation>
     </message>
     <message>
         <source>Video driver:</source>
@@ -639,13 +623,11 @@
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS tên hồ bơi</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lực lượng ZFS kích thước khối 4K</translation>
     </message>
 </context>
 <context>

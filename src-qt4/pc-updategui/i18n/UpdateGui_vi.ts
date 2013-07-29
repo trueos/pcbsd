@@ -137,23 +137,19 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật thông tin</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>căn cứ hệ thống thông tin cập nhật</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các tập tin sau đây sẽ được cập nhật:            </translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật thông tin:            </translation>
     </message>
 </context>
 </TS>

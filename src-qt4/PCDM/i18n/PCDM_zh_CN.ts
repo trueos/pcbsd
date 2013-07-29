@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
+        <translation>可用的桌面环境
             </translation>
     </message>
 </context>
@@ -88,142 +88,116 @@
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更改键盘布局</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统</translation>
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>小建议：确认大写键(caps-lock)已关闭。</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重启</translation>
     </message>
     <message>
         <source>Shut Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>关闭PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>关闭计算机</translation>
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无效的用户名/密码</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>用户名/密码组合无效，请重试。</translation>
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统关闭</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您即将要关闭系统。</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您确定？</translation>
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统重启</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您即将重启系统。</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统正在关闭</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>键盘设置</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>分支</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>键盘型号</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>（您可在以下空白处打字以测试选定的设置。）</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>应用(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择locale</translation>
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>当前locale</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消</translation>
     </message>
 </context>
 </TS>

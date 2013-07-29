@@ -64,8 +64,7 @@
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Môi trường máy tính để bàn có sẵn</translation>
     </message>
 </context>
 <context>
@@ -147,8 +146,7 @@
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống Tắt Down</translation>
     </message>
 </context>
 <context>

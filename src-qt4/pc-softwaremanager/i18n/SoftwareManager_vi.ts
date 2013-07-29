@@ -5,787 +5,654 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe cấu hình</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sau Cài đặt lập nhanh</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo biểu tượng Để bàn</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo các trình đơn biểu tượng</translation>
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đăng ký tệp hiệp hội</translation>
     </message>
     <message>
         <source>Create Path Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liên kết tạo ra đường dẫn</translation>
     </message>
     <message>
         <source>Keep Downloaded Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Giữ tập tin tải</translation>
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tải về Dir</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tải về thư mục</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hầm mỏ</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gia tăng</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
-        <translation type="unfinished">Gương Repository</translation>
+        <translation>Gương Repository</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Di chuyển lên</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chuyển xuống</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm PBI Repository</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kho lưu trữ tập tin (*.rpo)</translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repo thêm thành công</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repo này nên sẵn sàng để sử dụng trong một thời gian ngắn (tùy thuộc vào tốc độ kết nối internet của bạn).</translation>
     </message>
     <message>
         <source>Repo Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repo Failure</translation>
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Này repo không có thể được thêm vào.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng chạy lệnh &apos;%1&apos; bằng tay để xem các thông báo lỗi đầy đủ.</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xác minh diệt</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn loại bỏ kho PBI này?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Này repo không thể gỡ bỏ.</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mới Gương URL</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng nhập địa chỉ URL của mới repo gương:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thay đổi gương Lỗi</translation>
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các lỗi đầy đủ được hiển thị ở đầu ra thiết bị đầu cuối AppCafe.</translation>
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn Tải thư mục</translation>
     </message>
 </context>
 <context>
     <name>ErrorDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Show Error Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiển thị Lỗi Đăng nhập</translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe </translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">được cài đặt</translation>
+        <translation>được cài đặt</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">Tên chương trình  </translation>
+        <translation>Tên chương trình</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phiên bản</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Tình trạng</translation>
+        <translation>Tình trạng</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra/Bỏ chọn tất cả các ứng dụng</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tất cả</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thực hiện hành động trên các ứng dụng kiểm tra</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hành động</translation>
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chi tiết ứng dụng</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">Phiên bản:</translation>
+        <translation>Phiên bản:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">Tác giả:</translation>
+        <translation>Tác giả:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">Giấy phép:</translation>
+        <translation>Giấy phép:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ccác phím tắt:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ bất kỳ hành động cho ứng dụng này</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ các ứng dụng được chọn</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">Gỡ bỏ cài đặt</translation>
+        <translation>Gỡ bỏ cài đặt</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật các ứng dụng lên phiên bản mới nhất</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật các ứng dụng được chọn</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật ứng dụng</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mở trang trình duyệt cho các ứng dụng được chọn</translation>
     </message>
     <message>
         <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mở trình duyệt</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tự động cập nhật các ứng dụng được chọn khi có bản cập nhật</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tự động cập nhật</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đối với trình duyệt Ứng dụng</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhà riêng</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thể loại</translation>
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ứng dụng</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tìm kiếm tại đây</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Tìm kiếm</translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem bổ sung gần đây</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Duyệt theo Thể loại</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">kích thước:</translation>
+        <translation>kích thước:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thông tin ứng dụng</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Nền tảng:</translation>
+        <translation>Nền tảng:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">đi:</translation>
+        <translation>đi:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ứng dụng tương tự</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">Quả các trận đấu tốt nhất</translation>
+        <translation>Quả các trận đấu tốt nhất</translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kết quả khác</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tập tin</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhập khẩu PBI Danh sách</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Danh sách xuất khẩu PBI</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Thoát</translation>
+        <translation>&amp;Thoát</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kho để hàng hóa</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Lỗi! </translation>
+        <translation>Lỗi!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các AppCafe phải được chạy với quyền root khi trong chế độ tương thích Warden</translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các AppCafe phải được bắt đầu với các điều khoản sử dụng!</translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người sử dụng cũng phải là một phần của &quot;nhà điều hành&quot; nhóm</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe quá trình chạy</translation>
     </message>
     <message>
         <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các AppCafe hiện đang có hành vi bị hoãn. Bạn có muốn hủy bỏ tất cả các tiến trình đang chạy và bỏ thuốc lá không?</translation>
     </message>
     <message>
         <source>Import PBI File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhập khẩu PBI Danh sách tập tin</translation>
     </message>
     <message>
         <source>PBI List (*.pbilist)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Thành (*pbilist.)</translation>
     </message>
     <message>
         <source>Import Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lỗi nhập khẩu</translation>
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Có một lỗi khi nhập danh sách PBI</translation>
     </message>
     <message>
         <source>Please make sure that the file has not been corrupted and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xin chắc chắn các tập tin không bị hỏng và thử lại</translation>
     </message>
     <message>
         <source>Export PBI File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xuất khẩu PBI Danh sách tập tin</translation>
     </message>
     <message>
         <source>Export Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lỗi xuất khẩu</translation>
     </message>
     <message>
         <source>There was an error exporting the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Có một lỗi xuất khẩu danh sách PBI</translation>
     </message>
     <message>
         <source>Please make sure that you have the proper directory permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy chắc chắn rằng bạn có quyền truy cập thư mục thích hợp và thử lại</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Cập nhật</translation>
+        <translation>Cập nhật</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop biểu tượng</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gia tăng</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thực đơn biểu tượn</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm vào (Tất cả người dùng)</translation>
     </message>
     <message>
         <source>Path Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liên kết đường dẫn</translation>
     </message>
     <message>
         <source>File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiệp hội tập tin</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ hành động</translation>
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Để bàn/Menu</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Để bàn</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thực đơn</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>không ai trong</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xác minh PBI diệt</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn loại bỏ ứng dụng này?</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn loại bỏ các ứng dụng này?</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Chưa biết</translation>
+        <translation>Chưa biết</translation>
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt ngay!</translation>
     </message>
     <message>
         <source>Downgrade</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hạ cấp</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tìm kiếm cơ sở dữ liệu ứng dụng. Xin hãy chờ....</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kết quả tìm kiếm không tìm thấy cho thời hạn: %1</translation>
     </message>
     <message>
         <source>Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt: %1</translation>
     </message>
     <message>
         <source>Available: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Có sẵn: %2</translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tải</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished">Cài đặt</translation>
+        <translation>Cài đặt</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ</translation>
     </message>
     <message>
         <source>Updating</source>
-        <translation type="unfinished">Đang cập nhật</translation>
+        <translation>Đang cập nhật</translation>
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ Tải về</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ cài đặt</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ diệt</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ cập nhật</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có các ứng dụng cài đặt từ danh sách này.</translation>
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kết quả:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ứng dụng không có sẵn: %1</translation>
     </message>
     <message>
         <source>Currently Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt Hiện nay: %1</translation>
     </message>
     <message>
         <source>Import Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kết quả nhập khẩu</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn cài đặt các ứng dụng này?</translation>
     </message>
     <message>
         <source>%1 Download Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Lỗi Tải xuống:</translation>
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các PBI không thể được tải về, hãy thử lại sau</translation>
     </message>
     <message>
         <source>%1 Update Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Lỗi Cập nhật:</translation>
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quá trình cập nhật gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
         <source>%1 Installation Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 cài đặt Lỗi:</translation>
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quá trình cài đặt gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
         <source>%1 Removal Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 diệt Lỗi:</translation>
     </message>
     <message>
         <source>The removal process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quá trình loại bỏ gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
         <source>The download process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quá trình tải về gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 PBI Lỗi:</translation>
     </message>
     <message>
         <source>The process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quá trình gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Chưa biết</translation>
+        <translation>Chưa biết</translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>%1 at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 tại %2</translation>
     </message>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lỗi chưa biết</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Downloading...</source>
-        <translation type="unfinished">tải về...</translation>
+        <translation>tải về...</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tải về: %1</translation>
     </message>
     <message>
         <source>Installing...</source>
-        <translation type="unfinished">Cài đặt...</translation>
+        <translation>Cài đặt...</translation>
     </message>
     <message>
         <source>Removing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ...</translation>
     </message>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished">Đang cập nhật</translation>
+        <translation>Đang cập nhật</translation>
     </message>
     <message>
         <source>Update Downloading: %1 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật tải về: %1</translation>
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ Tải về</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ cài đặt</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ diệt</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khi chờ cập nhật</translation>
     </message>
     <message>
         <source>Update Available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật có sẵn!</translation>
     </message>
     <message>
         <source>Version %1 Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phiên bản %1 Có</translation>
     </message>
 </context>
 </TS>

@@ -89,28 +89,26 @@
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation>Khởi chạy bàn phím trên màn hình       </translation>
+        <translation>Khởi chạy bàn phím trên màn hình</translation>
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sẽ mã hóa người dùng gia đình thư mục</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mã hóa tập tin người dùng</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the system language you wish to use.</source>
-        <translation>Màn hình này cho phép bạn chọn ngôn ngữ hệ thống bạn muốn sử dụng.  </translation>
+        <translation>Màn hình này cho phép bạn chọn ngôn ngữ hệ thống bạn muốn sử dụng.</translation>
     </message>
     <message>
         <source>This screen lets you pick the default timezone for your computer.</source>
-        <translation>Màn hình này cho phép bạn chọn múi giờ mặc định cho máy tính của bạn.      </translation>
+        <translation>Màn hình này cho phép bạn chọn múi giờ mặc định cho máy tính của bạn.</translation>
     </message>
     <message>
         <source>On this screen please enter the root password you wish to use. This password is used for full system access, and should be something secure.</source>

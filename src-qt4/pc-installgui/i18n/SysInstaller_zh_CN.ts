@@ -167,7 +167,7 @@
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
         <translation>您的系统现已安装
-点击完成以重启。重启后您可以把安装介质弹出。            </translation>
+点击完成以重启。重启后您可以把安装介质弹出。</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -175,13 +175,11 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation>正在解压系统……
-            </translation>
+        <translation>正在解压系统……</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation>无法检测到任何磁盘！安装中止。
-            </translation>
+        <translation>无法检测到任何磁盘！安装中止。</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
@@ -330,7 +328,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">取消(&amp;C)</translation>
+        <translation>取消(&amp;C)</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -560,7 +558,7 @@
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-        <translation type="unfinished">注意：是否启用ZFS镜像/raidz只能在做全盘安装时选择            </translation>
+        <translation>注意：是否启用ZFS镜像/raidz只能在做全盘安装时选择            </translation>
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
@@ -609,15 +607,15 @@
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation type="unfinished">请为raidz1选择2到4个额外硬盘</translation>
+        <translation>请为raidz1选择2到4个额外硬盘</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation type="unfinished">请外raidz2选择3、5或者9个额外硬盘</translation>
+        <translation>请为raidz2选择3、5或者9个额外硬盘</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation type="unfinished">请为raidz3选择4、6或者10个额外硬盘</translation>
+        <translation>请为raidz3选择4、6或者10个额外硬盘</translation>
     </message>
     <message>
         <source>ZFS Mounts</source>
@@ -656,75 +654,70 @@
     </message>
     <message>
         <source>Invalid Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无效的挂载</translation>
     </message>
     <message>
         <source>Mount point should start with &apos;/&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>挂载点应以“/”开始</translation>
     </message>
     <message>
         <source>Editing:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>编辑：          </translation>
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">输入交换分区容量
-            </translation>
+        <translation>输入交换分区容量</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">容量（MB）
-            </translation>
+        <translation>容量（MB）</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">正在向挂载点 /mnt安装文件系统</translation>
+        <translation>正在向挂载点 /mnt安装文件系统</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">按照下面的配置设置磁盘：</translation>
+        <translation>按照下面的配置设置磁盘：</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">磁盘：</translation>
+        <translation>磁盘：</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">映射：</translation>
+        <translation>映射：</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">分区：</translation>
+        <translation>分区：</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">文件系统：</translation>
+        <translation>文件系统：</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">大小：</translation>
+        <translation>大小：</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation type="unfinished">ZFS数据集：&lt;br&gt;      </translation>
+        <translation>ZFS数据集：&lt;br&gt;      </translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">挂载：</translation>
+        <translation>挂载：</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished">选项:</translation>
+        <translation>选项：</translation>
     </message>
 </context>
 <context>
     <name>wizardFreeBSD</name>
     <message>
         <source>Please enter the root password for this server</source>
-        <translation>请输入当前服务器的 root 用户密码</translation>
+        <translation>请输入当前服务器的根用户密码</translation>
     </message>
     <message>
         <source>Password</source>
