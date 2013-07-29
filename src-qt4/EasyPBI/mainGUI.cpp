@@ -388,11 +388,14 @@ void MainGUI::on_actionPreferences_triggered(){
   PreferencesDialog dlg(this);
   //make the dialog modal and wait for it to close
   dlg.exec(); 
+  //Re-check for system commands
+  settings->scanForExternalUtilities();
   //Now reload the saved settings
   settings->loadSettingsFile();
   //Now refresh the GUI
   refreshGUI("all");
 }
+
 void MainGUI::on_actionPackage_Module_triggered(){
    currentModule->compressModule();
    QMessageBox::information(this,tr("Success"),tr("A copy of the current module has been successfully packaged  within the module directory.") );
