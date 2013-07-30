@@ -1,4 +1,5 @@
 compat/linux
+etc/rc.d/root
 usr/bin/gate-ftp
 usr/share/misc/commit*
 usr/share/misc/bsd-family-tree
@@ -299,6 +300,10 @@ usr/local/share/doc
 usr/local/share/gnome
 usr/local/share/gtk*
 usr/local/share/games
+usr/local/share/qt4
+usr/local/share/EasyPBI
+usr/local/share/PCDM
+usr/local/share/pcbsd/distfiles
 usr/local/share/fluxbox/styles/artwiz
 usr/local/share/fluxbox/styles/Blue
 usr/local/share/fluxbox/styles/BlueNight
