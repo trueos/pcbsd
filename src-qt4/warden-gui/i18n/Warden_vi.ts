@@ -5,984 +5,792 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lưu</translation>
     </message>
     <message>
         <source>Alt+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Hủy</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Jail Network Interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail giao diện mạng</translation>
     </message>
     <message>
         <source>Jail Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail thư mục</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Temp mục</translation>
     </message>
     <message>
         <source>Select Jail Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số Jail thư mục</translation>
     </message>
     <message>
         <source>Select Temp Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số Temp mục</translation>
     </message>
 </context>
 <context>
     <name>dialogDisplayOutput</name>
     <message>
         <source>Command Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lệnh đầu ra</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Đóng</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
 </context>
 <context>
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Thêm</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Hủy bỏ</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lưu</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Hủy</translation>
     </message>
     <message>
         <source>Add IP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thêm một IP</translation>
     </message>
     <message>
         <source>IP Address:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Địa chỉ IP:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy nhập địa chỉ IPv4 hay IPv6 hợp lệ!</translation>
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Cấu hình</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Địa chỉ IPv4</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Địa chỉ IPv6</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bí danh</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 các biệt hiệu</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 cầu các biệt hiệu</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 các biệt hiệu</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 cầu các biệt hiệu</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sự chấp nhận</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các quyền sau đây có thể được kích hoạt hay diabled cho các này jail. Để biết thêm chi tiết về di chuột qua mỗi mục hoặc tham khảo các trang hướng dẫn tù.</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Một quá trình trong vòng nhà jail có quyền truy cập vào hệ thống V IPC nguyên thủy.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gốc Jail được phép tạo ổ cắm nguyên. Cho phép ping / traceroute.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khi tham số này được thiết lập, người dùng như vậy đang được coi là đặc quyền, và có thể thao tác hệ thống tập tin cờ chịu sự ràng buộc thông thường trên kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người sử dụng đặc quyền trong nhà jail sẽ có thể gắn kết và tháo gắn kết các loại hệ thống tập tin được đánh dấu là jail thân thiện.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người sử dụng đặc quyền trong nhà jail sẽ có thể gắn kết và tháo gắn kết hệ thống tập tin devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người sử dụng đặc quyền trong nhà jail sẽ có thể gắn kết và tháo gắn kết hệ thống tập tin nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người sử dụng đặc quyền trong nhà jail sẽ có thể gắn kết và tháo gắn kết hệ thống tập tin procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người sử dụng đặc quyền trong nhà jail sẽ có thể gắn kết và tháo gắn kết hệ thống tập tin ZFS.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Căn nhà Jail có thể quản lý hạn ngạch trên hệ thống tập tin của tù (s).</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Điều này cho phép truy cập vào các ngăn xếp giao thức khác mà không có chức năng tù thêm cho họ.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Địa chỉ IPv4 không hợp lệ!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Địa chỉ không hợp lệ cầu IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 không hợp lệ địa chỉ router!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không hợp lệ địa chỉ IPv6!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Địa chỉ không hợp lệ cầu IPv6!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 không hợp lệ địa chỉ router!</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tùy chọn</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kích hoạt vnet / VIMAGE hỗ trợ</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Cầu Địa chỉ (yêu cầu vnet)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 Mặc định Router (yêu cầu vnet)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Cầu Địa chỉ (yêu cầu vnet)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Mặc định Router (yêu cầu vnet)</translation>
     </message>
 </context>
 <context>
     <name>dialogImport</name>
     <message>
         <source>Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhập khẩu Jail</translation>
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có tùy chọn để thay đổi IP / Hostname của nhà Jail nhập khẩu. Bất kỳ tài liệu tham khảo nội bộ để các IP cũ / tên máy vẫn có thể cần phải được thay đổi sau khi nhập khẩu.</translation>
     </message>
     <message>
         <source>Change IP Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thay đổi địa chỉ IP</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>999\.999\.999\.999; </translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Change Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thay đổi tên máy</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Hủy</translation>
     </message>
 </context>
 <context>
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Bản mẫu</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bổ sung một nhà Jail mới</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ các nhà Jail được lựa chọn</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Đóng</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống Phiên bản</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phiên bản làm những gì bạn muốn lấy?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiêu bản Biệt danh</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhập biệt hiệu cho mẫu này:</translation>
     </message>
 </context>
 <context>
     <name>dialogWarden</name>
     <message>
         <source>The Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các Warden</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tệp</translation>
     </message>
     <message>
         <source>Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jails</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>R&amp;a</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ra</translation>
     </message>
     <message>
         <source>New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>mới Jail</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>làm mới</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình</translation>
     </message>
     <message>
         <source>Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>nhập khẩu Jail</translation>
     </message>
     <message>
         <source>Stop this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dừng Jail này</translation>
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chuyển chế độ tự khởi động</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xuất khẩu jail vào tập tin .wdn</translation>
     </message>
     <message>
         <source>Delete Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa Jail</translation>
     </message>
     <message>
         <source>Start this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu này Jail</translation>
     </message>
     <message>
         <source>Stopping Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bừng Jail</translation>
     </message>
     <message>
         <source>Stopping Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bừng Jail:</translation>
     </message>
     <message>
         <source>Starting Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu Jail</translation>
     </message>
     <message>
         <source>Starting Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu Jail:</translation>
     </message>
     <message>
         <source>Choose a directory to save the finished .wdn file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một thư mục để lưu các tập tin thành phẩm .wdn:</translation>
     </message>
     <message>
         <source>Exporting Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xuất khẩu Jail</translation>
     </message>
     <message>
         <source>Exporting Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xuất khẩu Jail:</translation>
     </message>
     <message>
         <source>Deleting Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa Jail</translation>
     </message>
     <message>
         <source>Deleting Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa Jail:</translation>
     </message>
     <message>
         <source>Select warden jail package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số gói jail warden</translation>
     </message>
     <message>
         <source>Installed Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jails cài đặt</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm vào một nhà mới Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ các đã chọn Jail</translation>
     </message>
     <message>
         <source>Working on Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Làm việc trên Jail</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ðàn</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Công cụ</translation>
     </message>
     <message>
         <source>&lt;- Please select a jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;- Vui lòng chọn một jail</translation>
     </message>
     <message>
         <source>Working on jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Làm việc trên nhà jail:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc bạn muốn xóa jail</translation>
     </message>
     <message>
         <source>Jail Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail các thông tin</translation>
     </message>
     <message>
         <source>Jail Type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail kiểu:</translation>
     </message>
     <message>
         <source>Size on Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kích thước trên đĩa:</translation>
     </message>
     <message>
         <source>Network Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các thông tin mạng lưới</translation>
     </message>
     <message>
         <source>Active Connections:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các kết nối hoạt động:</translation>
     </message>
     <message>
         <source>Listening on Ports:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lắng nghe trên cổng:</translation>
     </message>
     <message>
         <source>Jail Management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail quản lý</translation>
     </message>
     <message>
         <source>User Administrator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Người dùng quản trị viên</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiện ích</translation>
     </message>
     <message>
         <source>Export Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xuất khẩu Jail</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang tải...</translation>
     </message>
     <message>
         <source>Launch Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khởi chạy thiết bị đầu cuối</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra các thông tin cập nhật</translation>
     </message>
     <message>
         <source>Start at boot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu khởi động:</translation>
     </message>
     <message>
         <source>No jail selected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có jail được chọn!</translation>
     </message>
     <message>
         <source>Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ảnh chụp nhanh</translation>
     </message>
     <message>
         <source>Start the selected jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu chọn jail</translation>
     </message>
     <message>
         <source>Stop the selected jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ngăn chặn các được chọn jail</translation>
     </message>
     <message>
         <source>Restore existing snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khôi phục bản chụp hiện hành</translation>
     </message>
     <message>
         <source>Delete the snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa các ảnh chụp nhanh</translation>
     </message>
     <message>
         <source>Loading snapshots...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang tải các bức ảnh chụp...</translation>
     </message>
     <message>
         <source>For snapshot support you must be using ZFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đối với hỗ trợ ảnh chụp bạn phải sử dụng ZFS</translation>
     </message>
     <message>
         <source>No snapshots available. You may create one below.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có ảnh chụp nhanh có sẵn. Bạn có thể tạo ra dưới đây.</translation>
     </message>
     <message>
         <source>Creating new snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ảnh chụp mới nhanh... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Reverting snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang hoàn nguyên ảnh chụp nhanh... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Are you sure you want to revert to the snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn trả lại snapshot:</translation>
     </message>
     <message>
         <source>Removing snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ ảnh chụp nhanh... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc bạn muốn loại bỏ các ảnh chụp nhanh:</translation>
     </message>
     <message>
         <source>Updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật có sẵn!</translation>
     </message>
     <message>
         <source>Start update manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu cập nhật quản lý</translation>
     </message>
     <message>
         <source>Service Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dịch vụ quản lý</translation>
     </message>
     <message>
         <source>Create a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ra một mới ảnh chụp nhanh</translation>
     </message>
     <message>
         <source>Mount the snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gắn kết ảnh chụp nhanh</translation>
     </message>
     <message>
         <source>Unmount the snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tháo gắn kết ảnh chụp nhanh</translation>
     </message>
     <message>
         <source>(Cloned)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Nhân bản vô tính)</translation>
     </message>
     <message>
         <source>Loading clones...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang tải nhân bản...</translation>
     </message>
     <message>
         <source>Mounted on: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gắn trên:</translation>
     </message>
     <message>
         <source>Snapshot not mounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ảnh chụp không được gắn kết</translation>
     </message>
     <message>
         <source>R&amp;estore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>k&amp;hôi phục</translation>
     </message>
     <message>
         <source>&amp;Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Và đỉnh</translation>
     </message>
     <message>
         <source>&amp;Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tháo gắn</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Thêm</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Hủy bỏ</translation>
     </message>
     <message>
         <source>Cloning snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhân bản ảnh chụp nhanh... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Removing clone... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ bản sao... Xin vui lòng chờ...</translation>
     </message>
     <message>
         <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bất kỳ ảnh chụp nhanh mới hơn và nhân bản gắn kết sẽ bị mất, và nhà tù sẽ được khởi động lại!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hoàn nguyên ảnh chụp nhanh</translation>
     </message>
     <message>
         <source>Reverting to snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hoàn nguyên ảnh chụp nhanh:</translation>
     </message>
     <message>
         <source>No valid network interface specified! Select one now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có giao diện mạng hợp lệ quy định! Chọn ngay bây giờ?</translation>
     </message>
     <message>
         <source>Scheduled Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ảnh chụp nhanh dự kiến</translation>
     </message>
     <message>
         <source>Snapshot Frequency</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tần số ảnh chụp</translation>
     </message>
     <message>
         <source>Days to keep</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ngày để giữ cho</translation>
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>cấu hình jail</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trình quản lý gói</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiêu bản Manager</translation>
     </message>
 </context>
 <context>
     <name>dialogWorking</name>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Làm việc</translation>
     </message>
 </context>
 <context>
     <name>wizardNewJail</name>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tên máy</translation>
     </message>
     <message>
         <source>Jailbird</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jailbird</translation>
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng chọn các loại jail bạn muốn tạo.</translation>
     </message>
     <message>
         <source>Jail Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail kiểu</translation>
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cổng nhà Jail (không an toàn, cho phép đang chạy các ứng dụng X)</translation>
     </message>
     <message>
         <source>Next enter the root password for this jail. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiếp theo nhập mật khẩu gốc cho nhà này jail.</translation>
     </message>
     <message>
         <source>Root Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>root Mật khẩu</translation>
     </message>
     <message>
         <source>Root Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Root Mật khẩu (Xác nhận)</translation>
     </message>
     <message>
         <source>Jail Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Tùy chọn</translation>
     </message>
     <message>
         <source>Include system source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bao gồm hệ thống mã nguồn</translation>
     </message>
     <message>
         <source>Include ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bao gồm cổng cây</translation>
     </message>
     <message>
         <source>Start jail at system bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu jail tại hệ thống khởi động</translation>
     </message>
     <message>
         <source>New Jail Wizard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thuật sĩ mới Jail</translation>
     </message>
     <message>
         <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux tù (chạy Linux trong vòng một nhà jail)</translation>
     </message>
     <message>
         <source>Please select the Linux install script to use for this jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng chọn các cài đặt kịch bản để dùng cho này jail.</translation>
     </message>
     <message>
         <source>Select Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy chọn Script</translation>
     </message>
     <message>
         <source>Linux install files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux cài đặt tập tin (*)</translation>
     </message>
     <message>
         <source>Hostname already used!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên máy đã được sử dụng!</translation>
     </message>
     <message>
         <source>IP already used!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP đã được sử dụng!</translation>
     </message>
     <message>
         <source>Invalid IP address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không hợp lệ địa chỉ IP!</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy dành một chút thời gian và thiết lập các lựa chọn khác cho nhà này Jail. Lưu ý rằng trong đó có tùy chọn nguồn hệ thống đòi hỏi rằng họ có mặt trong / usr / src.</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy dành một chút thời gian và thiết lập các lựa chọn khác cho nhà tù này.</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard này sẽ hướng dẫn bạn thông qua việc tạo ra một nhà mới Jail. Đầu tiên, nhập tên máy và bất kỳ địa chỉ IP sau đó bấm Next để tiếp tục.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 địa chỉ</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 địa chỉ</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Truyền thống Jail (Secure, tốt nhất cho các dịch vụ)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt PKGNG và các tiện ích PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Phiên bản</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sử dụng phiên bản hệ thống (mặc định)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không hợp lệ địa chỉ IPv6!</translation>
     </message>
 </context>
 </TS>

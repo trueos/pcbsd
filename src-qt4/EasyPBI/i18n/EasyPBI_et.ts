@@ -436,10 +436,6 @@
         <translation>Kuvab PBI ehitamisprotsessi väljundi</translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>Alusta PBI-mooduli ehitamist valitud moodulist (nõuab juurkasutaja õigusi)</translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>Ehita PBI</translation>
     </message>
@@ -692,10 +688,6 @@
         <translation>Kas oled kindel, et soovid PBI ehitamist alustada?</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>See nõuab aktiivset internetiühendust ja juurkasutaja õigusi. PBI ehitamiseks vajaminev aeg sõltub süsteemi jõudlusest ja portidest, mida kompileeritakse.</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI ehitaja (töötab)</translation>
     </message>
@@ -776,9 +768,17 @@
         <translation>Ava EasyPBI sätted, et see viga parandada.</translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

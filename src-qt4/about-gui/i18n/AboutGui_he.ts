@@ -15,8 +15,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;לא ידוע&gt;            </translation>
     </message>
     <message>
         <source>Host:</source>
@@ -60,7 +59,7 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
+        <translation>בחזרה
             </translation>
     </message>
     <message>
@@ -75,12 +74,12 @@
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
+        <translation>שם
             </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
+        <translation>גרסה
             </translation>
     </message>
     <message>

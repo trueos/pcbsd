@@ -13,8 +13,7 @@
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatische Anmeldung aktivieren</translation>
     </message>
     <message>
         <source>Auto login user</source>
@@ -28,8 +27,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Password Request</source>
@@ -53,8 +51,7 @@
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;Zeige Passwort&quot;-Knopf aktivieren</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>

@@ -1,0 +1,279 @@
+#!/bin/sh
+# Command-line interaction script for life-preserver
+# Author: Kris Moore
+# License: BSD
+# "Life-Preserver" Copyright 2013 PC-BSD Software (iXsystems)
+######################################################################
+
+# Source external functions
+. /usr/local/share/pcbsd/scripts/functions.sh
+
+require_root() 
+{
+  UTEST="`whoami`"
+  if [ "$UTEST" != "root" ] ; then
+     exit_err "This command must be run as root!"
+  fi
+}
+
+# Source our functions
+PROGDIR="/usr/local/share/lpreserver"
+
+# Source our local functions
+. ${PROGDIR}/backend/functions.sh
+
+title()
+{
+  echo "Life-Preserver
+---------------------------------"
+};
+
+
+# Function to display help information
+help_main()
+{
+  title
+  echo "Available commands
+
+Type in help <command> for information and usage about that command
+
+       help - This help file"
+
+if [ -e "/usr/local/bin/life-preserver" ] ; then
+   echo "        gui - Launch the GUI"
+fi
+
+cat<<__EOF__
+     mksnap - Create a ZFS snapshot of a zpool/dataset
+   listsnap - List snapshots of a zpool/dataset
+   cronsnap - Schedule snapshot creation via cron
+ revertsnap - Revert zpool/dataset to a snapshot
+     rmsnap - Remove a snapshot
+__EOF__
+};
+
+help_get()
+{
+ title
+ echo "Help set
+
+Set Life-Preserver options
+
+Usage:
+
+  lpreserver set
+
+Config options
+
+      email - Set the e-mail address to receive notifications
+		This will require that the \"mail\" command is setup for outgoing mail
+
+  emailopts - (ALL/WARN/ERROR) 
+	 	  ALL - Send mail for every snapshot, plus warnings and errors
+		 WARN - Send mail for warnings and errors (Default)
+		ERROR - Send mail for errors only
+
+  recursive - (ON/OFF) 
+		   ON - Will create / destroy snapshots recursively, for all children of
+			a target zpool/dataset. (Default)
+		  OFF - Will only create / destroy snapshots on the specified dataset.  
+
+Example:
+
+  lpreserver set email "kris@example.org,admin@example.org"
+
+  lpreserver set emailopts ALL
+"
+};
+
+help_get()
+{
+ title
+ echo "Help get
+
+Listing of Life-Preserver options set
+
+Usage:
+
+  lpreserver get
+
+Example:
+
+  lpreserver get
+"
+};
+
+
+help_listsnap()
+{
+ title
+ echo "Help listsnap
+
+List ZFS snapshots of a dataset
+
+Usage:
+
+  lpreserver listsnap <dataset>
+
+Example:
+
+  lpreserver listsnap tank0/usr/home/kris
+"
+};
+
+help_cronsnap()
+{
+ title
+ echo "Help cronsnap
+
+Schedule a ZFS snapshot
+
+Usage:
+
+  For a listing of all scheduled snapshots
+
+  # lpreserver cronsnap 
+
+  or
+
+  To start / stop snapshot scheduling
+
+  # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
+  
+  action = start / stop
+  frequency = daily / hourly / 30min / 10min / 5min
+  numToKeep = Number of snapshots to keep total
+
+Example:
+
+  lpreserver cronsnap tank1/usr/home/kris start daily 10
+
+  or
+
+  lpreserver cronsnap tank1/usr/home/kris stop
+"
+};
+
+help_revertsnap()
+{
+ title
+ echo "Help revertsnap
+
+Revert ZFS to a snapshot of a dataset
+
+Usage:
+
+  lpreserver revertsnap <dataset> <SNAP>
+
+Example:
+
+  lpreserver revertsnap tank1/usr/home/kris 20130729-140510
+"
+};
+
+help_rmsnap()
+{
+ title
+ echo "Help rmsnap
+
+Remove ZFS snapshot of a dataset
+
+Usage:
+
+  lpreserver rmsnap <dataset> <SNAP>
+
+Example:
+
+  lpreserver rmsnap tank1/usr/home/kris 20130729-140510
+
+NOTE:
+By default snapshots are recursive and will remove snapshots
+of all children datasets automatically. To change this use:
+
+# lpreserver set recursive off
+"
+};
+
+
+help_mksnap()
+{
+ title
+ echo "Help mksnap
+
+Create a new ZFS snapshot of a dataset
+
+Usage:
+
+  lupdate mksnap <dataset>
+
+Example:
+
+  lupdate mksnap tank1/usr/home/kris
+
+NOTE:
+By default snapshots are recursive and will create snapshots
+of all children datasets automatically. To change this use:
+
+# lpreserver set recursive off
+"
+};
+
+# Check what the user wants to do
+case "$1" in
+
+   help) case "$2" in
+           get) help_get ;;
+           set) help_set ;;
+           mksnap) help_mksnap ;;
+           listsnap) help_listsnap ;;
+           revertsnap) help_revertsnap ;;
+           cronsnap) help_cronsnap ;;
+           rmsnap) help_rmsnap ;;
+           *) help_main ;;
+         esac  ;;
+
+    get) require_root
+
+         ;;
+
+    set) require_root
+	 OPT="${2}" 
+
+	 case $OPT in
+      vnet-enable) touch "${JMETADIR}/vnet" ;;
+     vnet-disable) rm "${JMETADIR}/vnet" 2>/dev/null ;;
+                *) exit_err "Invalid option!" ;;
+	   esac
+         ;;
+
+   mksnap) require_root
+         DATASET="$2"
+         ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}"
+         ;;
+
+ listsnap) require_root
+         DATASET="$2"
+         ${PROGDIR}/backend/zfslistsnap.sh "${DATASET}"
+         ;;
+
+ cronsnap) require_root
+         DATASET="$2"
+         ${PROGDIR}/backend/zfscronsnap.sh "${DATASET}" "$3" "$4" "$5"
+         ;;
+
+revertsnap) require_root
+         DATASET="$2"
+         SNAP="$3"
+         ${PROGDIR}/backend/zfsrevertsnap.sh "${DATASET}" "$SNAP"
+         ;;
+
+    rmsnap) require_root
+         DATASET="$2"
+         SNAP="$3"
+         ${PROGDIR}/backend/zfsrmsnap.sh "${DATASET}" "${SNAP}"
+         ;;
+
+   *) help_main ;;
+esac
+
+exit 0

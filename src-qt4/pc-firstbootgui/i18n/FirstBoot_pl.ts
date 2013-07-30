@@ -93,13 +93,11 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zaszyfruje katalog domowy użytkownika</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szyfrowanie plików użytkownika</translation>
     </message>
 </context>
 <context>

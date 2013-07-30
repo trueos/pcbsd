@@ -5,37 +5,36 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
+        <translation>विषय में
             </translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
+        <translation>संस्करण:
             </translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;अज्ञात&gt;            </translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
+        <translation>होस्ट
             </translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
+        <translation>????
             </translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">
+        <translation>फ्री बी.एस.डी. आधार
             </translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">
+        <translation>स्थापत्य
             </translation>
     </message>
     <message>
@@ -45,67 +44,67 @@
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
+        <translation>हार्डवेयर
             </translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation type="unfinished">
+        <translation>सी.पी.यू.
             </translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation type="unfinished">
+        <translation>मेमोरी
             </translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
+        <translation>पीछे
             </translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation type="unfinished">
+        <translation>डेक्सटोप इनवार्नमेन्ट
             </translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation type="unfinished">
+        <translation>(कृपया प्रतीक्षा करें...)
             </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
+        <translation>नाम
             </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
+        <translation>संस्करण
             </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
+        <translation>बंद करें
             </translation>
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
+        <translation>सेन्पशोट %1 का परिक्षण किया जा रहा है। अस्थिर हो सकता है!
             </translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
+        <translation>X.org सर्वर संस्करण
             </translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
+        <translation>सिस्टम घटक...
             </translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
+        <translation>डेक्सटोप इनवार्नमेन्ट...
             </translation>
     </message>
     <message>

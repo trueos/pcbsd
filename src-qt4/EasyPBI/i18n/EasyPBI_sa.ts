@@ -49,11 +49,6 @@
             </translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation type="unfinished">
             </translation>
@@ -919,11 +914,6 @@
             </translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation type="unfinished">
             </translation>
@@ -969,9 +959,17 @@
             </translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
