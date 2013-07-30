@@ -36,18 +36,15 @@
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anmeldung</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mit dem aktuellen Benutzernamen und Passwort beim System anmelden</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwort</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
@@ -70,8 +67,7 @@
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verfügbare Arbeitsplatzumgebungen</translation>
     </message>
 </context>
 <context>
@@ -100,13 +96,11 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System</translation>
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tipp: Gehen Sie sicher, daß die Feststelltaste nicht aktiv ist.</translation>
     </message>
     <message>
         <source>Restart</source>
@@ -134,8 +128,7 @@
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System herunterfahren</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
@@ -148,8 +141,7 @@
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemneustart</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
@@ -161,21 +153,18 @@
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System herunterfahren</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tastatureinstellungen</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tastaturbelegung</translation>
     </message>
     <message>
         <source>Variant</source>
@@ -194,13 +183,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Anwenden</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>B&amp;eenden</translation>
     </message>
 </context>
 <context>
@@ -222,8 +209,7 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abbruch</translation>
     </message>
 </context>
 </TS>

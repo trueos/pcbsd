@@ -471,11 +471,6 @@
         <translation>PBI ビルド出力をすべて表示する</translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>PBI をビルド</translation>
     </message>
@@ -776,10 +771,6 @@
         <translation type="unfinished">PBI のビルドを開始しますか?</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">インターネット接続と root 権限が必要です。PBI のビルドにかかる時間はシステムの使用とコンパイルする ports によって変化します。</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation type="unfinished">
             </translation>
@@ -873,9 +864,17 @@
             </translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -441,10 +441,6 @@
         <translation>Показувати будь-які повідомлення процесу збирання PBI</translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>Почати збирання PBI починаючи з поточного модуля (потрібні права доступу root&apos;а)</translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>Зібрати PBI</translation>
     </message>
@@ -698,10 +694,6 @@
         <translation>Ви впевнені, що бажаєте почати збирання PBI?</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Це потребує робочого інтернет-з&apos;єднання та прав root (адміністратора). Час збирання PBI залежить від системних ресурсів та портів, які треба скомпілювати.</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI збирач (виконується)</translation>
     </message>
@@ -782,9 +774,17 @@
         <translation>Будь ласка, відкрийте налаштування EasyPBI щоб виправити цей недолік.</translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

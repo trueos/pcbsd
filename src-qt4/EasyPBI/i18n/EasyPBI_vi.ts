@@ -5,973 +5,780 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mô-đun biên tập</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem và chỉnh sửa mô-đun PBI hiện tại</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI cấu hình</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thiết lập chính của PBI</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thông tin chương trình</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên chính thức của Chương trình mục tiêu</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phiên bản của chương trình được đóng gói</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phiên bản</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL của trang web chính của chương trình mục tiêu</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Website</translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tác giả của chương trình chính (hoặc FreeBSD cảng duy trì thay thế)</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tác giả</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icon sẽ được sử dụng cho chương trình (nguồn PNG có sẵn)</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icon</translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng Thông tin</translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thư mục địa phương để được đóng gói vào một PBI (phải có tất cả mọi thứ cần thiết cho chương trình để chạy)</translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gói thư mục</translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số một thư mục được đóng gói vào một PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lựa chọn</translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chính FreeBSD Cảng</translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cảng FreeBSD để được đóng gói như một PBI</translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số một cổng FreeBSD</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thay đổi Cảng</translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng cảng Tùy chọn</translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tùy chọn cấu hình đặc biệt đối với bất kỳ cổng mà cần phải được xây dựng.</translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng tùy chọn có sẵn cho chính Cảng FreeBSD</translation>
     </message>
     <message>
         <source>Make Port Before</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trước khi làm cho Cảng</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cổng FreeBSD bổ sung được xây dựng trước khi chương trình chính</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bổ sung thêm Cảng FreeBSD</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ thêm Cảng FreeBSD</translation>
     </message>
     <message>
         <source>Make Port After</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sau khi làm cho Cảng</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cổng FreeBSD bổ sung sẽ được xây dựng sau khi chương trình chính</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cần thiết quyền truy quản trị để cài đặt này PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đòi hỏi phải gốc Quyền</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu các thiết lập hiện tại vào tập tin cấu hình PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lưu cấu hình</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tài nguyên</translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tập tin bổ sung để được bao gồm trong PBI</translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tài nguyên hiện tại</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các tập tin hiện tại để được bao gồm trong PBI</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sao chép một tập tin bổ sung trong các mô-đun PBI</translation>
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm tập tin</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa các tập tin được lựa chọn từ các mô-đun PBI</translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa các tập tin</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ra một kịch bản wrapper tùy chỉnh cho một chương trình nhị phân</translation>
     </message>
     <message>
         <source>Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trình bao bọc Tập lệnh</translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu các kịch bản wrapper</translation>
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiết kiệm Tập lệnh</translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nguồn tài nguyên Icon</translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mô tả Tài nguyên</translation>
     </message>
     <message>
         <source>XDG Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG Entries</translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đặt bất kỳ máy tính để bàn / menu mục, và bất kỳ loại MIME</translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo và thay đổi máy tính để bàn</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo và thay đổi thực đơn</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cập nhật danh sách hiện tại (hữu dụng nếu các tập tin sửa đổi gần đây bên ngoài của EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa các mục hiện tại từ các mô-đun PBI</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thông tin chi tiết nhập cảnh</translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên thể nhìn thấy cho các mặt hàng</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Có thực thi</translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhị phân để được chạy khi mặt hàng đó được kích hoạt</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhị phân tự động phát hiện cho PBI</translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icon có thể nhìn thấy sử dụng cho các mục</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thắc mắc cho các mục được đặt.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại Thực đơn càng tốt</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khởi động ứng dụng trong một phiên ga</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mở trong Terminal</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gắn cờ mặt hàng này không được hiển thị ở tất cả</translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>làm cho vô hình</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MIME Patterns</translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu các mặt hàng như hiện đang thể hiện</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ra một mục mới với các thiết lập hiện tại</translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scripts</translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bổ sung cài đặt / xây dựng kịch bản</translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một kịch bản rằng bạn muốn tạo hoặc chỉnh sửa</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ra các kịch bản được chọn</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tạo</translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xóa các kịch bản được lựa chọn từ các mô-đun PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu các văn bản hiện hành như kịch bản được chọn</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tiết kiệm</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nội dung cho kịch bản được chọn</translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bên ngoài-Liên kết</translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các tập tin được liên kết vào hệ thống địa phương</translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entries hiện tại</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tập tin</translation>
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Để liên kết</translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>loại Ngày tập tin</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ liên kết hiện đang được chọn</translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ nhập cảnh</translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm một mục</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tập tin PBI được sym được liên kết vào hệ thống địa phương (tương đối so với thư mục PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binaries tự động phát hiện cho này PBI</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vị trí các liên kết được tạo ra (liên quan đến các cơ sở địa phương: bình thường /usr/local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lá cờ để xác định loại tập tin</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cờ có sẵn cho các liên kết mới</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu liên kết này để các mô-đun PBI</translation>
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builder</translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sử dụng các mô-đun hiện tại để xây dựng một PBI</translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng mô-đun</translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cho thấy các mô-đun hiện đang được sử dụng để xây dựng một PBI</translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không PBI đang được xây dựng</translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sản lượng thư mục</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vị trí cho PBI hoàn thành được đặt</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sẽ hiển thị bất kỳ đầu ra từ một quá trình xây dựng PBI</translation>
     </message>
     <message>
         <source>Build PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng PBI</translation>
     </message>
     <message>
         <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TÙY CHỌN: Xây dựng một PBI 32-bit thay vì thường xuyên 64-bit</translation>
     </message>
     <message>
         <source>Build 32-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng 32-bit</translation>
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy quá trình xây dựng hiện đang chạy</translation>
     </message>
     <message>
         <source>Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy Xây dựng</translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu hiện tại xây dựng ghi vào đĩa (rất hữu ích khi yêu cầu giúp đỡ với một thất bại trong xây dựng)</translation>
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiết kiệm xây dựng Đăng nhập</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tùy chọn</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các thông tin</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thanh công cụ</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mở ra các các thiết lập EasyPBI biên tập</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhận FreeBSD cổng</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lấy/cập nhật các cây cổng FreeBSD</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mới</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhấn vào đây để tạo ra một mô-đun mới PBI</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tải</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhấn vào đây để tải một mô-đun hiện hành</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tóm tắt</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Giấy phép</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lịch sử</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD cổng</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mở freshports.org cho cổng thông tin bổ sung</translation>
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Modules</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mở ra các trang Wiki PC-BSD cho các PBI nhà phát triển</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>đóng EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mô-đun gói</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nén các mô-đun hiện tại để phân phối</translation>
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>về EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem thêm thông tin về EasyPBI</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mô-đun không tải</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Cảng</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các nguồn tin địa phương</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scripts cài đặt</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quyền Lỗi</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Có lỗi khi cố gắng để tạo ra các cấu trúc thư mục địa phương EasyPBI. Vui lòng kiểm tra các điều khoản cho thư mục của bạn và khởi động lại EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có sẵn nguồn tài nguyên</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Một số nguồn lực bên ngoài không thể tìm được, vì vậy các dịch vụ EasyPBI sử dụng các nguồn tài nguyên đã được ngừng hoạt động.</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thành công</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Một bản sao của các mô-đun hiện tại đã được đóng gói thành công trong thư mục module.</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Quyền Lỗi</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có thể tạo ra PBI mô-đun. Hãy kiểm tra các thư mục cho phép và thử lại.</translation>
     </message>
     <message>
         <source>Select Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số Mô-đun</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Không có cổng FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD cổng cây không thể được tìm thấy trên hệ thống của bạn. Bạn có thể lấy cây cổng thông qua trình đơn EasyPBI hoặc tự thiết lập đường dẫn đến cây Cảng trong các ưu đãi EasyPBI nếu nó được cài đặt ở một vị trí không chuẩn.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số Cảng</translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Cảng không hợp lệ</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thư mục được chọn không phải là một cổng FreeBSD hợp lệ. Vui lòng chọn một thư mục Cảng, trong đó có các Makefile và distinfo thích hợp.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI Lỗi</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các tập tin cấu hình PBI không thể được cứu. Vui lòng kiểm tra quyền truy cập tập tin của bạn trước khi thử lại.</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số Tài nguyên</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mới trình bao bọc Tập lệnh</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tên tập tin</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có thể loại bỏ các mục xdg.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra quyền truy cập tập tin và thử lại</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể lưu các thay đổi mục xdg.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lỗi tiết kiệm tập tin</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể cứu kịch bản</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng kiểm tra quyền truy cập tập tin và thử lại</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lôi</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt PBI không hợp lệ</translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn để bắt đầu PBI xây dựng?</translation>
     </message>
     <message>
         <source>PBI Builder (Working)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builder (làm việc)</translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tiết kiệm Log</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đăng nhập tập tin</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Xây dựng thành công</translation>
     </message>
     <message>
         <source>The PBI finished building successfully</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các PBI hoàn thành xây dựng thành công</translation>
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Build Không</translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các PBI thất bại trong việc xây dựng.</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng kiểm tra xây dựng log để tìm ra nguyên nhân của sự thất bại và điều chỉnh mô-đun phù hợp</translation>
     </message>
     <message>
         <source>PBI Builder (Finished)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builder (hoàn thành)</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu tạo một mục mới xdg</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thể loại</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Danh sách không gian phân cách của các hiệp hội tập tin tự động (Ví dụ:.... THI * junk * kiểm tra * JUNK *)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số gói thư mục</translation>
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD cổng Thiếu</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD cây cổng là mất tích từ hệ thống của bạn.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ứng dụng cần quyền quản trị để chạy</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>đòi hỏi phải gốc</translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mô-đun làm mới</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xin mở các thiết lập EasyPBI để sửa thiếu hụt này.</translation>
+    </message>
+    <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

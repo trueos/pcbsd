@@ -436,10 +436,6 @@
         <translation>Affiche toute sortie d&apos;un processus de construction PBI            </translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>Commencer à construire un PBI à partir du module courant (permission administrateur requis)            </translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>Construire le PBI</translation>
     </message>
@@ -692,10 +688,6 @@
         <translation>Etes-vous sûr que vous souhaitez démarrer la construction du PBI?</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Cela nécessite une connexion Internet active et la permission administrateur. Le temps nécessaire pour construire un PBI varie selon les spécifications du système et les ports à compiler.</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI Builder (Actif)            </translation>
     </message>
@@ -776,9 +768,17 @@
         <translation>S&apos;il vous plaît ouvrir les paramètres EasyPBI pour corriger cette lacune.            </translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
