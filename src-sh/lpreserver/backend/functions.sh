@@ -12,6 +12,32 @@ PROGDIR="/usr/local/share/lpreserver"
 # Location of settings 
 DBDIR="/var/db/lpreserver"
 
+#Set our Options
+setOpts() {
+  if [ -e "${DBDIR}/recursive-off" ] ; then
+    export RECURMODE="OFF"
+  else
+    export RECURMODE="ON"
+  fi
+
+  if [ -e "${DBDIR}/emaillevel" ] ; then
+    export EMAILMODE="`cat ${DBDIR}/emaillevel`"
+  fi
+
+  case $EMAILMODE in
+      ALL|WARN|ERROR) ;;
+	*) export EMAILMODE="WARN";;
+  esac
+
+  if [ -e "${DBDIR}/emails" ] ; then
+    export EMAILADDY="`cat ${DBDIR}/emails`"
+  fi
+
+
+}
+setOpts
+
+
 # Check if a directory is mounted
 isDirMounted() {
   mount | grep -q "on $1 ("
@@ -19,8 +45,13 @@ isDirMounted() {
 }
 
 mkZFSSnap() {
+  if [ "$RECURMODE" = "ON" ] ; then
+     flags="-r"
+  else
+     flags="-r"
+  fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
-  zfs snapshot ${1}@$2${zdate}
+  zfs snapshot $flags ${1}@$2${zdate}
 }
 
 listZFSSnap() {
@@ -29,7 +60,12 @@ listZFSSnap() {
 
 rmZFSSnap() {
   `zfs list -t snapshot | grep -q "^$1@$2 "` || exit_err "No such snapshot!"
-  zfs destroy ${1}@${2}
+  if [ "$RECURMODE" = "ON" ] ; then
+     flags="-r"
+  else
+     flags="-r"
+  fi
+  zfs destroy -r ${1}@${2}
   return $?
 }
 

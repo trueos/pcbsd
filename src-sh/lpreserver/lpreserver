@@ -44,10 +44,10 @@ if [ -e "/usr/local/bin/life-preserver" ] ; then
 fi
 
 cat<<__EOF__
-     mksnap - Create a ZFS snapshot of a jail 
-   listsnap - List snapshots of a dataset
+     mksnap - Create a ZFS snapshot of a zpool/dataset
+   listsnap - List snapshots of a zpool/dataset
    cronsnap - Schedule snapshot creation via cron
- revertsnap - Revert dataset to a snapshot
+ revertsnap - Revert zpool/dataset to a snapshot
      rmsnap - Remove a snapshot
 __EOF__
 };
@@ -70,8 +70,13 @@ Config options
 
   emailopts - (ALL/WARN/ERROR) 
 	 	  ALL - Send mail for every snapshot, plus warnings and errors
-		 WARN - Send mail for warnings (such as low disk space) and errors
+		 WARN - Send mail for warnings and errors (Default)
 		ERROR - Send mail for errors only
+
+  recursive - (ON/OFF) 
+		   ON - Will create / destroy snapshots recursively, for all children of
+			a target zpool/dataset. (Default)
+		  OFF - Will only create / destroy snapshots on the specified dataset.  
 
 Example:
 
@@ -180,6 +185,12 @@ Usage:
 Example:
 
   lpreserver rmsnap tank1/usr/home/kris 20130729-140510
+
+NOTE:
+By default snapshots are recursive and will remove snapshots
+of all children datasets automatically. To change this use:
+
+# lpreserver set recursive off
 "
 };
 
@@ -198,6 +209,12 @@ Usage:
 Example:
 
   lupdate mksnap tank1/usr/home/kris
+
+NOTE:
+By default snapshots are recursive and will create snapshots
+of all children datasets automatically. To change this use:
+
+# lpreserver set recursive off
 "
 };
 

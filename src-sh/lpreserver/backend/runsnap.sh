@@ -16,13 +16,11 @@ if [ -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
 fi
 
-
+# Create the snapshot now with the "auto-" tag
 mkZFSSnap "${DATASET}" "auto-"
 
+# Get our list of snaps
 snaps=$(snaplist "${DATASET}")
-
-# Do any pruning
-num=0
 
 # Reverse the list
 for tmp in $snaps
@@ -30,12 +28,14 @@ do
    rSnaps="$tmp $rSnaps"
 done
 
+# Do any pruning
+num=0
 for snap in $rSnaps
 do
    # Only remove snapshots which are auto-created, so we don't delete one the user
    # made specifically
    cur="`echo $snap | cut -d '-' -f 1`" 
-   if [ "$cur" != "auto" -a "$cur" != "auto-" ] ; then
+   if [ "$cur" != "auto" ] ; then
      continue;
    fi
 
