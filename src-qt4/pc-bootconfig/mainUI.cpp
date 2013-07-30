@@ -315,7 +315,11 @@ void mainUI::on_tool_BErem_clicked(){
   if(index != -1){
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
     if(ui->tree_BE->topLevelItemCount() == 1){
-      QMessageBox::warning(this,tr("Only Boot Environment"), tr("You cannot remove your only boot environment!") );
+      QMessageBox::warning(this,tr("Single Boot Environment"), tr("You cannot remove your only boot environment!") );
+      return;
+    }
+    if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
+      QMessageBox::warning(this,tr("Running Boot Environment"), tr("You cannot remove a boot environment that you are currently running!") );
       return;
     }
     //Verify removal
