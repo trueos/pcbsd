@@ -117,8 +117,7 @@
     </message>
     <message>
         <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File not found!</translation>
     </message>
 </context>
 <context>

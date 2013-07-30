@@ -5,28 +5,26 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
+        <translation>विषये
             </translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
+        <translation>संस्करणम्
             </translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;अज्ञातम्&gt;            </translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
+        <translation>निमन्त्रकम्:
             </translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????            </translation>
     </message>
     <message>
         <source>FreeBSD base</source>

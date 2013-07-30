@@ -436,10 +436,6 @@
         <translation>Zeigt die komplette Ausgabe des PBI-Erstellungsprozesses an</translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>Beginne mit dem Erstellen des PBI vom aktuellen Modul (erfordert root-Berechtigung)</translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>Erstelle PBI</translation>
     </message>
@@ -692,10 +688,6 @@
         <translation>Möchten Sie mit dem Erstellen des PBIs beginnen?</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Dies erfordert eine aktive Internetverbindung und root-Berechtigung. Die benötigte Zeit zum Erstellen des PBIs hängt von den System-Spezifikationen und den Ports ab.</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI-Ersteller (arbeitet)</translation>
     </message>
@@ -776,9 +768,17 @@
         <translation>Bitte öffnen Sie die EasyPBI-Einstellungen, um diesen Mangel zu beheben.</translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -440,10 +440,6 @@
         <translation>نمایش هر خروجی از فرآیند ساخت PBI</translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>شروع به ساختمانPBI از ماژول موجود(نیاز به دسترسي كاربر root دارد)</translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>ساخت PBI</translation>
     </message>
@@ -696,10 +692,6 @@
         <translation>آیا شما  برای شروع به ساخت PBIمطمئن هستید؟</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>این عمل به اتصال اینترنت و دسترسی کاربر root نیاز دارد. زمانی که برای ایجاد این PBI مورد نیاز است به سیستم شما و پورت هایی که نیاز به کامپایل شدن دارد بستگی دارد.</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI ساز (در حال کار)</translation>
     </message>
@@ -794,9 +786,17 @@
             </translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

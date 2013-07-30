@@ -105,13 +105,11 @@
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uruchom menadżera pakietów</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostępne aktualizacje pakietów</translation>
     </message>
 </context>
 </TS>

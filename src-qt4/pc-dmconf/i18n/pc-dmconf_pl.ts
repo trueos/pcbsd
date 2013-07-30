@@ -37,8 +37,7 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Włącz zdalny pulpit (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -47,13 +46,11 @@
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Włącz przycisk &quot;pokaż hasło&quot;</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prosze podać hasło do logowania zdalnego</translation>
     </message>
 </context>
 </TS>

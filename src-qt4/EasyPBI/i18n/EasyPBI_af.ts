@@ -436,10 +436,6 @@
         <translation>Vertoon &apos;n uitset van &apos;n PBI bou proses            </translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>Begin bou aan &apos;PBI van die huidige module (vereis stamtoelatings)            </translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>Bou PBI</translation>
     </message>
@@ -692,10 +688,6 @@
         <translation>Is jy seker jy wil om te begin die PBI bou?</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Dit vereis &apos;n aktiewe internet konneksie en stamtoelatings. Die tyd wat nodig is &apos;n PBI wissel afhangende van stelsel spesifikasies en hawens moet saamgestel word om te bou.    </translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI Bouwer (Werk)            </translation>
     </message>
@@ -776,9 +768,17 @@
         <translation>Let asseblief oop te maak die EasyPBI instellings hierdie tekort reg te stel.</translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

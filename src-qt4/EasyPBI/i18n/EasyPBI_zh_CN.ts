@@ -496,11 +496,6 @@
             </translation>
     </message>
     <message>
-        <source>Start building a PBI from the current module (requires root permissions)</source>
-        <translation>从当前模块中开始编译PBI（需要根用户权限）
-            </translation>
-    </message>
-    <message>
         <source>Build PBI</source>
         <translation>创建PBI
             </translation>
@@ -807,10 +802,6 @@
         <translation>确定要开始编译PBI？</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and root permissions. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>此动作需要互联网连接和根用户权限。编译PBI所需时间会因系统参数及需要编译的ports不同而不同。</translation>
-    </message>
-    <message>
         <source>PBI Builder (Working)</source>
         <translation>PBI编译器（正在工作中）
             </translation>
@@ -904,9 +895,17 @@
             </translation>
     </message>
     <message>
+        <source>Start building a PBI from the current module (requires administrator privileges)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
