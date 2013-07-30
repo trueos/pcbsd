@@ -17,6 +17,7 @@ if [ -z "${DATASET}" ]; then
 fi
 
 # Create the snapshot now with the "auto-" tag
+echo_log "Creating snapshot on ${DATASET}"
 mkZFSSnap "${DATASET}" "auto-"
 
 # Get our list of snaps
@@ -41,7 +42,7 @@ do
 
    num=`expr $num + 1`
    if [ $num -gt $KEEP ] ; then
-      echo "Pruning old snapshot: $snap"
+      echo_log "Pruning old snapshot: $snap"
       rmZFSSnap "${DATASET}" "$snap"
    fi
 done

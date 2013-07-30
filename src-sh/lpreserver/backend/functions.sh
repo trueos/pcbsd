@@ -11,6 +11,8 @@ PROGDIR="/usr/local/share/lpreserver"
 
 # Location of settings 
 DBDIR="/var/db/lpreserver"
+LOGDIR="/var/log"
+export DBDIR LOGDIR PROGDIR
 
 #Set our Options
 setOpts() {
@@ -104,3 +106,6 @@ snaplist() {
   zfs list -t snapshot | grep "^${1}@" | cut -d '@' -f 2 | awk '{print $1}'
 }
 
+echo_log() {
+   echo "`date`: $@" >> ${LOGDIR}/lpreserver.log 
+}
