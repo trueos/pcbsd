@@ -23,6 +23,9 @@ if [ "$EMAILMODE" = "ERROR" ] ; then exit 0 ; fi
 
 haveMsg=0
 
+# Remove the old du alert flag
+if [ -e "${DBDIR}/zpool-alert-du" ] ; then rm ${DBDIR}/zpool-alert-du ; fi
+
 zpool list  | grep -v "^NAME" > /tmp/.lPreserver-df.$$
 while read line
 do
@@ -31,6 +34,7 @@ do
    if [ $(is_num "$cap") ] ; then
       if [ $cap -gt $DUWARN ] ; then
  	 queue_msg "Warning! ${zpool} is currently at ${cap}% capacity!"	
+         echo "$cap" > $DBDIR/zpool-alert-du
          haveMsg=1
       fi
    fi
