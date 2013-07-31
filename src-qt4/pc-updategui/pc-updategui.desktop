@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Exec=sudo pc-updategui
-Icon=computer
+Icon=/usr/local/share/pcbsd/icons/sysupdate.png
 Type=Application
 Categories=System;
 Name=Update Manager

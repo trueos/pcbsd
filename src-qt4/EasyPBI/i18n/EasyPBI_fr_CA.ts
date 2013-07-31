@@ -769,16 +769,16 @@
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished"></translation>
+        <translation>Commencer à construire un PBI à partir du module courant (nécessite des privilèges d&apos;administrateur)</translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
+        <translation>Cela nécessite une connexion Internet active et des privilèges d&apos;administrateur. Le temps nécessaire pour construire un PBI varie en fonction des spécifications du système et des ports à compiler.</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port. 
 
  Do you wish to continue using it anyway?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

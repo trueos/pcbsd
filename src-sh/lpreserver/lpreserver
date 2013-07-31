@@ -52,7 +52,7 @@ cat<<__EOF__
 __EOF__
 };
 
-help_get()
+help_set()
 {
  title
  echo "Help set
@@ -236,15 +236,34 @@ case "$1" in
          esac  ;;
 
     get) require_root
-
+	 # Display our options	
+	 title
+	 echo "      Recursive mode: $RECURMODE"
+	 echo "E-Mail Notifications: $EMAILMODE"
+	 echo "    E-Mail Addresses: $EMAILADDY"
+	 exit 0
          ;;
 
     set) require_root
 	 OPT="${2}" 
 
 	 case $OPT in
-      vnet-enable) touch "${JMETADIR}/vnet" ;;
-     vnet-disable) rm "${JMETADIR}/vnet" 2>/dev/null ;;
+        emailopts) case $3 in
+		  ALL|WARN|ERROR) echo "E-Mail mode set to: $3" 
+			          echo "$3" > ${DBDIR}/emaillevel ;;
+		     *) exit_err "Unknown option" ;;
+		   esac
+		   ;;
+            email) echo "Setting email notification to: $3" 
+	           echo "$3" > ${DBDIR}/emails ;;
+        recursive) case $3 in
+		  OFF|Off|off)  echo "Recursive mode disabled" 
+			        touch ${DBDIR}/recursive-off ;;
+		     ON|On|on)  echo "Recursive mode enabled" 
+			        rm ${DBDIR}/recursive-off 2>/dev/null ;;
+		     *) exit_err "Unknown option" ;;
+		   esac
+		   ;;
                 *) exit_err "Invalid option!" ;;
 	   esac
          ;;

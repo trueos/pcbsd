@@ -197,6 +197,8 @@ check_for_mount()
   # Check if we found a valid root partition
   for CHECKMNT in `echo ${MNTS} | sed 's|,| |g'`
   do
+    # Remove any ZFS options
+    CHECKMNT="`echo $CHECKMNT | cut -d '(' -f 1`"
     if [ "${CHECKMNT}" = "${FINDMNT}" ] ; then
       return 0
     fi

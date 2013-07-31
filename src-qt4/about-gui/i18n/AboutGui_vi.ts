@@ -13,8 +13,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Unknown&gt;</translation>
     </message>
     <message>
         <source>Host:</source>

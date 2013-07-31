@@ -8,6 +8,8 @@
 
 int main()
 {
+	system("touch /tmp/.fbsdup-lock");
 	system("cat /usr/sbin/freebsd-update | sed 's|! -t 0|-z '1'|g' | /bin/sh -s 'fetch'");
+	system("rm /tmp/.fbsdup-lock");
 	return 0;
 }

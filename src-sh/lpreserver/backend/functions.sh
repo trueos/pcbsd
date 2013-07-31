@@ -11,6 +11,8 @@ PROGDIR="/usr/local/share/lpreserver"
 
 # Location of settings 
 DBDIR="/var/db/lpreserver"
+if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
+
 LOGDIR="/var/log"
 export DBDIR LOGDIR PROGDIR
 
