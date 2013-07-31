@@ -383,10 +383,9 @@ void UpdaterTray::slotStartUpdateCheck()
   // Now check if there are freebsd-updates to install
   /////////////////////////////////////////////
 
-  // KPM Lets skip this if pc-updategui is open, having two freebsd-updates running at same time
+  // KPM Lets skip this if pc-fbsdupdatecheck is open, having two freebsd-updates running at same time
   // Cause *bad* things to happen
-  int ret = QProcess::execute("pgrep", QStringList() << "pc-updategui");
-  if ( ret != 0 ) {
+  if ( ! QFile::exists("/tmp/.fbsdup-lock") ) {
     qDebug() << "Checking for freebsd-updates!";
 
     QProcess f;

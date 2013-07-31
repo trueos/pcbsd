@@ -168,6 +168,11 @@ void mainWin::slotUpdateLoop()
         QMessageBox::information(this, tr("Update Ready"), tr("Please reboot to start the update to PC-BSD version \"") + listUpdates.at(curUpdate).at(0) + "\". " + tr("This process may take a while, please do NOT interrupt the process.")); 
     }
 
+    // Remove the lock file
+    if ( listUpdates.at(curUpdate).at(1) == "FBSDUPDATE" ) {
+        system("rm /tmp/.fbsdup-lock");
+    }
+
     listViewUpdates->item(curUpdate)->setIcon(QIcon());
     setWindowTitle(tr("Update Manager"));
   }
@@ -176,6 +181,18 @@ void mainWin::slotUpdateLoop()
   for (int z=0; z < listViewUpdates->count(); ++z) {
     if ( listViewUpdates->item(z)->checkState() == Qt::Checked && curUpdate < z ) 
     {
+	
+      // Check for a freebsd-update lock file
+      if ( listUpdates.at(z).at(1) == "FBSDUPDATE" ) {
+  	if ( QFile::exists("/tmp/.fbsdup-lock") ) {
+          QMessageBox::critical(this, tr("Update Failed!"), tr("Could not run freebsd-update, another process is already running!")); 
+          slotUpdateFinished();
+     	  return;
+  	} 
+        // Lock out freebsd-update
+        system("touch /tmp/.fbsdup-lock");
+      }
+
       curUpdate = z;
       curUpdateIndex++;
       progressUpdate->setHidden(false);
@@ -526,6 +543,11 @@ void mainWin::checkPCUpdates() {
 void mainWin::checkFBSDUpdates() {
   QString line, toPatchVer, tmp;
   QStringList up, listDesc, listPkgs;
+
+  if ( QFile::exists("/tmp/.fbsdup-lock") ) {
+     qDebug() << "Skipping update check - freebsd-update is running elsewhere";
+     return;
+  }
 
   // Now check if there are freebsd-updates to install
   QProcess f;
