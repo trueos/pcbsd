@@ -32,7 +32,7 @@ if [ "$ACTION" = "start" ] ; then
 
   enable_cron "$DATASET" "$TIME" "$COUNT"
   echo "Snapshot frequency set: $TIME"
-  echo "Snapshot days to keep set: $COUNT"
+  echo "Snapshot # to keep set: $COUNT"
   exit 0
 fi
 
