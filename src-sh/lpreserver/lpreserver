@@ -221,9 +221,6 @@ of all children datasets automatically. To change this use:
 # Check if we need to enable the zfs monitor
 enable_watcher
 
-# Check for the database dir
-if [ -d "$DBDIR" ]; mkdir -p "$DBDIR" ; fi
-
 # Check what the user wants to do
 case "$1" in
 
@@ -239,23 +236,27 @@ case "$1" in
          esac  ;;
 
     get) require_root
-
+	 # Display our options	
+	 title
+	 echo "      Recursive mode: $RECURMODE"
+	 echo "E-Mail Notifications: $EMAILMODE"
+	 echo "    E-Mail Addresses: $EMAILADDY"
+	 exit 0
          ;;
 
     set) require_root
 	 OPT="${2}" 
 
 	 case $OPT in
-            email) case 3 in
-		  ALL|WARN|ERROR)  echo "Recursive mode disabled" 
-			        touch ${DBDIR}/recursive-off ;;
-		     ON|On|on)  echo "Recursive mode enabled" 
-			        rm ${DBDIR}/recursive-off 2>/dev/null ;;
+        emailopts) case $3 in
+		  ALL|WARN|ERROR) echo "E-Mail mode set to: $3" 
+			          echo "$3" > ${DBDIR}/emaillevel ;;
 		     *) exit_err "Unknown option" ;;
 		   esac
 		   ;;
-        emailopts) rm "${JMETADIR}/vnet" 2>/dev/null ;;
-        recursive) case 3 in
+            email) echo "Setting email notification to: $3" 
+	           echo "$3" > ${DBDIR}/emails ;;
+        recursive) case $3 in
 		  OFF|Off|off)  echo "Recursive mode disabled" 
 			        touch ${DBDIR}/recursive-off ;;
 		     ON|On|on)  echo "Recursive mode enabled" 
