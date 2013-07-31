@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>676</width>
-    <height>286</height>
+    <width>640</width>
+    <height>262</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -179,13 +179,13 @@
            <item row="3" column="1">
             <widget class="QSpinBox" name="spin_GRUBtimer">
              <property name="statusTip">
-              <string>Amount of time before the default option is started</string>
+              <string>Amount of time before the default option is started (0 deactivates automatic booting)</string>
              </property>
              <property name="suffix">
               <string> seconds</string>
              </property>
              <property name="minimum">
-              <number>-1</number>
+              <number>0</number>
              </property>
             </widget>
            </item>
@@ -199,7 +199,11 @@
            <item row="2" column="1">
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QLineEdit" name="line_GRUBfontfile"/>
+              <widget class="QLineEdit" name="line_GRUBfontfile">
+               <property name="statusTip">
+                <string>Font file for GRUB to use</string>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QToolButton" name="tool_GRUBfontfile">
@@ -220,7 +224,7 @@
            <item row="4" column="1">
             <widget class="QCheckBox" name="check_GRUBshowcountdown">
              <property name="statusTip">
-              <string>Hide the countdown timer</string>
+              <string>Display the GRUB menu during the countdown</string>
              </property>
              <property name="text">
               <string>Show Timer Countdown</string>
@@ -237,7 +241,11 @@
            <item row="1" column="1">
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QLineEdit" name="line_GRUBthemefile"/>
+              <widget class="QLineEdit" name="line_GRUBthemefile">
+               <property name="statusTip">
+                <string>Theme file for GRUB to use</string>
+               </property>
+              </widget>
              </item>
              <item>
               <widget class="QToolButton" name="tool_GRUBthemefile">
@@ -371,40 +379,6 @@
       </widget>
      </widget>
     </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_7">
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QToolButton" name="tool_close">
-        <property name="statusTip">
-         <string>Close the window</string>
-        </property>
-        <property name="text">
-         <string>Close</string>
-        </property>
-        <property name="icon">
-         <iconset resource="pc-bootconfig.qrc">
-          <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
-        </property>
-        <property name="toolButtonStyle">
-         <enum>Qt::ToolButtonTextBesideIcon</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -412,12 +386,28 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>676</width>
+     <width>640</width>
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="pc-bootconfig.qrc">
+     <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="pc-bootconfig.qrc"/>

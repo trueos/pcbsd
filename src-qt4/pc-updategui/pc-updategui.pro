@@ -84,9 +84,12 @@ TRANSLATIONS =  i18n/UpdateGui_af.ts \
 dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
 
+icon.path=/usr/local/share/pcbsd/icons/
+icon.files=sysupdate.png
+
 desktop.path=/usr/local/share/applications/ 
 desktop.files=pc-updategui.desktop
 
-INSTALLS += target dotrans
+INSTALLS += target icon desktop dotrans
 
 QMAKE_LIBDIR = /usr/local/lib/qt4 /usr/local/lib

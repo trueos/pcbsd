@@ -13,8 +13,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Ukjent&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
@@ -22,22 +21,19 @@
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">FreeBSD base</translation>
+        <translation>FreeBSD base</translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ark:            </translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ident</translation>
     </message>
     <message>
         <source>Hardware</source>
@@ -85,13 +81,11 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemkomponenter  </translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrivebordsmiljø            </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>

@@ -46,7 +46,7 @@ const SComponent DEComponents[] ={
 
 const SComponent DEComponentsNG[]={
     {"KDE", "kde-workspace"},
-    {"Gnome", "gnome-desktop"},
+    {"Gnome", "gnome2-lite"},
     {"LXDE", "lxde-meta"},
     {"XFCE", "xfce"},
     {"e17", "enlightenment"},

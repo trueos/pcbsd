@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
-    <height>455</height>
+    <width>618</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Update Manager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="pc-updategui.qrc">
+    <normaloff>:/sysupdate.png</normaloff>:/sysupdate.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="4" column="0">
