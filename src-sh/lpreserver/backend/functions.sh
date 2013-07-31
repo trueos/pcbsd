@@ -31,6 +31,12 @@ setOpts() {
     export EMAILMODE="`cat ${DBDIR}/emaillevel`"
   fi
 
+  if [ -e "${DBDIR}/duwarn" ] ; then
+    export DUWARN="`cat ${DBDIR}/duwarn`"
+  else
+    export DUWARN=85
+  fi
+
   case $EMAILMODE in
       ALL|WARN|ERROR) ;;
 	*) export EMAILMODE="WARN";;
