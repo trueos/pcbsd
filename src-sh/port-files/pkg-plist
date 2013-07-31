@@ -260,6 +260,7 @@ share/pcbsd/metaset/pcbsd/KDE-Calligra/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-Calligra/ports-list
 share/pcbsd/metaset/pcbsd/KDE-Calligra/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-Calligra/pkg-icon.png
+share/pcbsd/metaset/pcbsd/KDE-Calligra/dl-only
 share/pcbsd/metaset/pcbsd/XFCE/desktop
 share/pcbsd/metaset/pcbsd/XFCE/pkg-desc
 share/pcbsd/metaset/pcbsd/XFCE/pkg-parent
@@ -272,6 +273,7 @@ share/pcbsd/metaset/pcbsd/XBMC/pkg-icon.png
 share/pcbsd/metaset/pcbsd/XBMC/pkg-parent
 share/pcbsd/metaset/pcbsd/XBMC/ports-list
 share/pcbsd/metaset/pcbsd/XBMC/pkg-desc
+share/pcbsd/metaset/pcbsd/XBMC/dl-only
 share/pcbsd/metaset/pcbsd/Awesome/pkg-parent
 share/pcbsd/metaset/pcbsd/Awesome/ports-list
 share/pcbsd/metaset/pcbsd/Awesome/pkg-icon.png
@@ -287,6 +289,7 @@ share/pcbsd/metaset/pcbsd/KDE-Education/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-Education/ports-list
 share/pcbsd/metaset/pcbsd/KDE-Education/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-Education/pkg-icon.png
+share/pcbsd/metaset/pcbsd/KDE-Education/dl-only
 share/pcbsd/metaset/pcbsd/Openbox/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Openbox/desktop
 share/pcbsd/metaset/pcbsd/Openbox/pkg-desc
@@ -315,6 +318,7 @@ share/pcbsd/metaset/pcbsd/GNOME-Games/ports-list
 share/pcbsd/metaset/pcbsd/GNOME-Games/pkg-icon.png
 share/pcbsd/metaset/pcbsd/GNOME-Games/pkg-parent
 share/pcbsd/metaset/pcbsd/GNOME-Games/pkg-desc
+share/pcbsd/metaset/pcbsd/GNOME-Games/dl-only
 share/pcbsd/metaset/pcbsd/Compiz/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Compiz/ports-list
 share/pcbsd/metaset/pcbsd/Compiz/pkg-parent
@@ -370,6 +374,7 @@ share/pcbsd/metaset/pcbsd/KDE-Games/pkg-icon.png
 share/pcbsd/metaset/pcbsd/KDE-Games/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-Games/ports-list
 share/pcbsd/metaset/pcbsd/KDE-Games/pkg-parent
+share/pcbsd/metaset/pcbsd/KDE-Games/dl-only
 share/pcbsd/metaset/pcbsd/NVIDIA-Legacy-71/post-remove.sh
 share/pcbsd/metaset/pcbsd/NVIDIA-Legacy-71/pkg-icon.png
 share/pcbsd/metaset/pcbsd/NVIDIA-Legacy-71/ports-list
@@ -381,6 +386,7 @@ share/pcbsd/metaset/pcbsd/KDE-WebDevKit/pkg-icon.png
 share/pcbsd/metaset/pcbsd/KDE-WebDevKit/ports-list
 share/pcbsd/metaset/pcbsd/KDE-WebDevKit/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-WebDevKit/pkg-desc
+share/pcbsd/metaset/pcbsd/KDE-WebDevKit/dl-only
 share/pcbsd/metaset/pcbsd/Enlightenment-Modules/pkg-parent
 share/pcbsd/metaset/pcbsd/Enlightenment-Modules/ports-list
 share/pcbsd/metaset/pcbsd/Enlightenment-Modules/pkg-desc
@@ -418,6 +424,7 @@ share/pcbsd/metaset/pcbsd/KDE-SDK/ports-list
 share/pcbsd/metaset/pcbsd/KDE-SDK/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-SDK/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-SDK/pkg-icon.png
+share/pcbsd/metaset/pcbsd/KDE-SDK/dl-only
 share/pcbsd/metaset/pcbsd/KDE-Graphics/pkg-icon.png
 share/pcbsd/metaset/pcbsd/KDE-Graphics/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-Graphics/ports-list
@@ -433,6 +440,7 @@ share/pcbsd/metaset/pcbsd/KDE-Toys/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-Toys/ports-list
 share/pcbsd/metaset/pcbsd/KDE-Toys/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-Toys/pkg-icon.png
+share/pcbsd/metaset/pcbsd/KDE-Toys/dl-only
 share/pcbsd/metaset/pcbsd/Ratpoison/desktop
 share/pcbsd/metaset/pcbsd/Ratpoison/pkg-parent
 share/pcbsd/metaset/pcbsd/Ratpoison/pkg-icon.png
@@ -454,6 +462,7 @@ share/pcbsd/metaset/pcbsd/MythTV/pkg-desc
 share/pcbsd/metaset/pcbsd/MythTV/pkg-icon.png
 share/pcbsd/metaset/pcbsd/MythTV/post-remove.sh
 share/pcbsd/metaset/pcbsd/MythTV/post-install.sh
+share/pcbsd/metaset/pcbsd/MythTV/dl-only
 share/pcbsd/metaset/pcbsd/Misc/pkg-desc
 share/pcbsd/metaset/pcbsd/Misc/pkg-icon.png
 share/pcbsd/pc-xdgutil/applications.menu
