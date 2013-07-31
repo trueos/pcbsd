@@ -46,11 +46,63 @@ fi
 cat<<__EOF__
      mksnap - Create a ZFS snapshot of a zpool/dataset
    listsnap - List snapshots of a zpool/dataset
+   listcron - Listing of scheduled snapshots
    cronsnap - Schedule snapshot creation via cron
  revertsnap - Revert zpool/dataset to a snapshot
+  replicate - Enable / Disable ZFS replication to a remote system
      rmsnap - Remove a snapshot
 __EOF__
 };
+
+help_replicate()
+{
+ title
+ echo "Help replicate
+
+Life-Preserver replication sub-system
+
+Replication uses ZFS to send your snapshots to a remote system which also has
+a ZFS pool, such as FreeNAS or another PC-BSD system. The <hostdataset> must
+also be scheduled for snapshots for replication to occur. 
+
+Available Flags:
+	list - List replication targets
+         add - Add a new replication target
+      remove - Remove a replication target
+
+Add Options:
+
+	add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
+
+	Example 1: 
+
+	add freenas.8343 backupuser 22 tank1/usr/home/kris tankbackup/backups sync
+
+	Will schedule replication of tank1/usr/home/kris to tankbackup/backups with each snapshot
+
+	Example 2: 
+
+	add freenas.8343 backupuser 22 tank1 tankbackup/backups 22
+
+	Will schedule replication of tank1 to tankbackup/backups at 10PM, notated in 24hour time
+
+Remove Options:
+
+	remove <id>
+	
+	Remove a replication task indicated by <id>
+        Use 'replicate list' for a list of IDs. 
+
+Usage:
+
+  lpreserver replicate <subcmd> <flags>
+
+Example:
+
+  lpreserver replicate
+"
+};
+
 
 help_set()
 {
@@ -105,6 +157,18 @@ Example:
 "
 };
 
+help_listcron()
+{
+ title
+ echo "Help listcron
+
+List scheduled cron snapshots
+
+Usage:
+
+  lpreserver listcron
+"
+};
 
 help_listsnap()
 {
@@ -230,8 +294,10 @@ case "$1" in
            get) help_get ;;
            set) help_set ;;
            mksnap) help_mksnap ;;
+           listcron) help_listcron ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
+           replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            rmsnap) help_rmsnap ;;
            *) help_main ;;
@@ -277,6 +343,10 @@ case "$1" in
    mksnap) require_root
          DATASET="$2"
          ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}"
+         ;;
+
+ listcron) require_root
+         ${PROGDIR}/backend/zfslistcron.sh 
          ;;
 
  listsnap) require_root
