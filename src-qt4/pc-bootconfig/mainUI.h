@@ -72,7 +72,9 @@ private slots:
 	void on_tool_GRUBsaveentries_clicked();
 	void on_tool_GRUBresetentries_clicked();
 	//UI Buttons - other
-	void on_tool_close_clicked();
+	void on_actionClose_triggered();
+	void GRUBchangedefaults();
+	void GRUBchangeentries();
 	
 };
 #endif
