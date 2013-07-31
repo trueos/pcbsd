@@ -21,6 +21,9 @@ echo_log "Creating snapshot on ${DATASET}"
 mkZFSSnap "${DATASET}" "auto-"
 if [ $? -ne 0 ] ; then
   echo_log "ERROR: Failed creating snapshot on ${DATASET}"
+  email_msg "Snapshot ERROR" "ERROR: Failed creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
+else
+  queue_msg "Success creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
 fi
 
 # Get our list of snaps
@@ -49,6 +52,13 @@ do
       rmZFSSnap "${DATASET}" "$snap"
       if [ $? -ne 0 ] ; then
         echo_log "ERROR: Failed pruning snapshot $snap on ${DATASET}"
+        email_msg "Snapshot ERROR" "ERROR: Failed pruning snapshot $snap on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
+      else
+        queue_msg "Success pruning snapshot $snap on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
       fi
-   fi
+    fi
 done
+
+if [ "$EMAILMODE" = "ALL" ] ; then
+   email_msg "Automated Snapshot" "`echo_queue_msg`"
+fi

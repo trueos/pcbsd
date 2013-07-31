@@ -12,9 +12,12 @@ PROGDIR="/usr/local/share/lpreserver"
 # Location of settings 
 DBDIR="/var/db/lpreserver"
 if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
-
+CMDLOG="${DBDIR}/lp-lastcmdout"
 LOGDIR="/var/log"
-export DBDIR LOGDIR PROGDIR
+export DBDIR LOGDIR PROGDIR CMDLOG
+
+MSGQUEUE=""
+export MSGQUEUE
 
 #Set our Options
 setOpts() {
@@ -54,7 +57,7 @@ mkZFSSnap() {
      flags="-r"
   fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
-  zfs snapshot $flags ${1}@$2${zdate}
+  zfs snapshot $flags ${1}@$2${zdate} >${CMDLOG} 2>${CMDLOG}
   return $?
 }
 
@@ -69,7 +72,7 @@ rmZFSSnap() {
   else
      flags="-r"
   fi
-  zfs destroy -r ${1}@${2}
+  zfs destroy -r ${1}@${2} >${CMDLOG} 2>${CMDLOG}
   return $?
 }
 
@@ -123,4 +126,20 @@ snaplist() {
 
 echo_log() {
    echo "`date`: $@" >> ${LOGDIR}/lpreserver.log 
+}
+
+# E-Mail a message to the set addresses
+# 1 = subject tag
+# 2 = Message
+email_msg() {
+   if [ -z "$EMAILADDY" ] ; then return ; fi
+   echo -e "$2"  | mail -s "Life-Preserver `hostname`: $1" $EMAILADDY
+}
+
+queue_msg() {
+  MSGQUEUE="$MSGQUEUE $@" 
+}
+
+echo_queue_msg() {
+  echo -e "$MSGQUEUE"
 }
