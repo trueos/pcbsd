@@ -24,6 +24,8 @@ private slots:
     void slotProcDone();
     void slotPrintStdErr();
     void slotPrintStdOut();
+    void slotPwdTextChanged ( const QString & text );
+
 
 private:
     void startSudo();

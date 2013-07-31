@@ -16,6 +16,8 @@
 #include <QProcess>
 #include <QTextStream>
 #include <QApplication>
+#include <QDialogButtonBox>
+#include <QPushButton>
 #include "mainwindow.h"
 #include "../config.h"
 
@@ -32,11 +34,17 @@ void MainWindow::ProgramInit()
   tries=3;
   connect(buttonBox, SIGNAL(clicked(QAbstractButton *)), this, SLOT(slotButtonClicked(QAbstractButton *)));
   connect(passwordLineEdit, SIGNAL(returnPressed()), this, SLOT(slotReturnPressed()));
+  connect(passwordLineEdit, SIGNAL(textChanged(QString)), this, SLOT(slotPwdTextChanged(QString)));
+
+  QPushButton* btn= buttonBox->button(QDialogButtonBox::Ok);
+  if (btn)
+      btn->setEnabled(false);
 }
 
 void MainWindow::slotReturnPressed()
 {
-  testPass();
+    if (passwordLineEdit->text().length())
+        testPass();
 }
 
 void MainWindow::testPass()
@@ -66,6 +74,7 @@ void MainWindow::testPass()
      tries--;
      if ( tries == 0 )
        exit(1);
+     passwordLineEdit->setText("");
   } else {
      startSudo();
   }
@@ -102,6 +111,13 @@ void MainWindow::slotPrintStdOut()
 {
   QTextStream cout(stdout); 
   cout << sudoProc->readAllStandardOutput();
+}
+
+void MainWindow::slotPwdTextChanged(const QString &text)
+{
+    QPushButton* btn= buttonBox->button(QDialogButtonBox::Ok);
+    if (btn)
+        btn->setEnabled(text.length()?true:false);
 }
 
 void MainWindow::slotProcDone()
