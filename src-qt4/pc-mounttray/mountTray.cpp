@@ -159,6 +159,10 @@ void MountTray::removeDevice(QString dev){
 
 void MountTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
    if(reason == QSystemTrayIcon::Trigger) {
+     //Make sure all the items are updated
+     for(int i=0; i<deviceList.length(); i++){
+        deviceList[i]->updateItem();
+     }
      trayIcon->contextMenu()->popup(QCursor::pos());
    }
 }
