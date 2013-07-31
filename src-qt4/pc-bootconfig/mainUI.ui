@@ -396,7 +396,15 @@
     </property>
     <addaction name="actionClose"/>
    </widget>
+   <widget class="QMenu" name="menuAdvanced">
+    <property name="title">
+     <string>Emergency Services</string>
+    </property>
+    <addaction name="action_rebuildGRUBmenu"/>
+    <addaction name="action_restoreGRUBdefaults"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAdvanced"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose">
@@ -406,6 +414,24 @@
    </property>
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="action_rebuildGRUBmenu">
+   <property name="icon">
+    <iconset resource="pc-bootconfig.qrc">
+     <normaloff>:/icons/gear.png</normaloff>:/icons/gear.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rebuild GRUB Menu</string>
+   </property>
+  </action>
+  <action name="action_restoreGRUBdefaults">
+   <property name="icon">
+    <iconset resource="pc-bootconfig.qrc">
+     <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Restore GRUB Defaults</string>
    </property>
   </action>
  </widget>

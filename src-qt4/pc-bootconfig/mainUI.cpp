@@ -64,11 +64,13 @@ bool mainUI::checkName(QString newname){
   return ok;
 }
 
-void mainUI::runLongCMD(QString cmd){
+void mainUI::runLongCMD(QString cmd, QString info){
+	
+  if(info.isEmpty()){ info = tr("Performing Boot Environment Changes. Please Wait."); }
   //Initialize the Working Message Box
   QMessageBox wrkmsg(this);
     wrkmsg.setWindowTitle( tr("Working") );
-    wrkmsg.setText( tr("Performing Boot Environment Changes. Please Wait.") );
+    wrkmsg.setText( info );
     wrkmsg.setStandardButtons(0);
     wrkmsg.setWindowModality(Qt::WindowModal);
   //Show the message
@@ -429,6 +431,21 @@ void mainUI::on_tool_GRUBresetentries_clicked(){
 //UI Buttons - other
 void mainUI::on_actionClose_triggered(){
   this->close();
+}
+
+void mainUI::on_action_rebuildGRUBmenu_triggered(){
+  //Rebuild the GRUB menu
+  QString cmd = "grub-mkconfig -o /boot/grub/grub.cfg";
+  QString info = tr("Rebuilding GRUB menu system. Please wait.");
+  runLongCMD(cmd, info);
+}
+
+void mainUI::on_action_restoreGRUBdefaults_triggered(){
+  QString cmd = "cp "+file_GRUBdefaults+".old "+file_GRUBdefaults;
+  system( cmd.toUtf8() );
+  //Now refresh the UI
+  updateGRUBdefaults(); //Update the display (load the file)
+  on_tool_GRUBsaveentries_clicked(); //make sure the defaults are valid for the number of BE's
 }
 
 void mainUI::GRUBchangedefaults(){

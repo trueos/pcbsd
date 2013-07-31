@@ -1,5 +1,7 @@
 <RCC>
   <qresource>
+    <file>icons/undo.png</file>
+    <file>icons/gear.png</file>
     <file>icons/save.png</file>
     <file>icons/folder.png</file>
     <file>icons/minus.png</file>

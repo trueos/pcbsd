@@ -35,7 +35,7 @@ private:
 	//Random usage functions
 	int getSelectedBE(); //get the currently selected Boot Environment index
 	bool checkName(QString); //make sure the selected name is valid
-	void runLongCMD(QString); 
+	void runLongCMD(QString cmd , QString info = ""); 
 
 	//Boot Environment Management Functions
 	void beadmActivate(QString name);
@@ -73,6 +73,8 @@ private slots:
 	void on_tool_GRUBresetentries_clicked();
 	//UI Buttons - other
 	void on_actionClose_triggered();
+	void on_action_rebuildGRUBmenu_triggered();
+	void on_action_restoreGRUBdefaults_triggered();
 	void GRUBchangedefaults();
 	void GRUBchangeentries();
 	

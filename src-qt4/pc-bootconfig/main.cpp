@@ -32,7 +32,7 @@ int main(int argc, char ** argv)
     if (0 != geteuid())
     {
         QMessageBox msg;
-        msg.setText(w.tr("You should run this application as root"));
+        msg.setText(w.tr("This application requires administrator privileges for operation."));
         msg.exec();
         exit(2);
     }
