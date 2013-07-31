@@ -6,6 +6,7 @@ SUBDIRS+= libpcbsd \
 	 pc-adsldap \
 	 pc-bluetoothmanager \
 	 pc-bluetoothtray \
+	 pc-bootconfig \
 	 pc-bugreport \
 	 pc-controlpanel \
 	 pc-crashhandler \
