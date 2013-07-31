@@ -382,18 +382,28 @@ void UpdaterTray::slotStartUpdateCheck()
 
   // Now check if there are freebsd-updates to install
   /////////////////////////////////////////////
-  QProcess f;
-  f.start(QString("sudo"), QStringList() << "pc-fbsdupdatecheck");
-  while(f.state() == QProcess::Starting || f.state() == QProcess::Running) {
-     f.waitForFinished(200);
-     QCoreApplication::processEvents();
-  }
-  while (f.canReadLine()) {
-    line = f.readLine().simplified();
-    if ( line.indexOf("The following files will be updated ") == 0) {
-       haveUp = true;
-       break;
+
+  // KPM Lets skip this if pc-updategui is open, having two freebsd-updates running at same time
+  // Cause *bad* things to happen
+  int ret = QProcess::execute("pgrep", QStringList() << "pc-updategui");
+  if ( ret != 0 ) {
+    qDebug() << "Checking for freebsd-updates!";
+
+    QProcess f;
+    f.start(QString("sudo"), QStringList() << "pc-fbsdupdatecheck");
+    while(f.state() == QProcess::Starting || f.state() == QProcess::Running) {
+       f.waitForFinished(200);
+       QCoreApplication::processEvents();
     }
+    while (f.canReadLine()) {
+      line = f.readLine().simplified();
+      if ( line.indexOf("The following files will be updated ") == 0) {
+         haveUp = true;
+         break;
+      }
+    }
+  } else {
+    qDebug() << "pc-updategui is open, skip freebsd-update for now";
   }
   /////////////////////////////////////////////
 
