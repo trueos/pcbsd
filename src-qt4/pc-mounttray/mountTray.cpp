@@ -188,34 +188,31 @@ void MountTray::slotDevChanges(bool showPopup){
   //  and updates the available devices appropriately
   
   if(DEBUG_MODE){ qDebug() << "Checking for Device Changes:"; }
-  //oldsysdev is the old device list for the system
-  QStringList osd = oldsysdev;
+  //Get the current list of devices
   QStringList nsd = DCheck->devChildren("");
-  nsd.sort();
-  oldsysdev = nsd; //save the new list as the old list for later
-  //Now determine new/missing devices
-  nsd.sort();
-  QStringList rmList;
-  for(int i=0; i<osd.length(); i++){
-    int ni = nsd.indexOf(osd[i]); //new index
-    if( ni == -1){ //device removed
-      rmList << osd[i];
-      osd.removeAt(i);
+  //Remove all the currently managed devices
+  for(int i=0; i<deviceList.length(); i++){
+    QString dev = deviceList[i]->device;
+    int ni = nsd.indexOf(dev);
+    if(ni == -1){
+      //Device Removed
+      removeDevice(dev);
       i--;
-    }else{ //both lists have device
-      osd.removeAt(i); i--;
+    }else{
+      //Probe the device for validity if not currently mounted
+      if( !deviceList[i]->isMounted() ){
+	QString ja, jb, jc, jd; //junk variables
+        if( !DCheck->devInfo(dev,&ja,&jb,&jc,&jd) ){
+	  //no longer valid device
+	  removeDevice(dev);
+	  i--;
+	}
+      }
       nsd.removeAt(ni);
     }
   }
-  //all that is left in nsd is the new additions
-
-  //Remove any devices that have been disconnected
-  if(DEBUG_MODE){ qDebug() << " -Device Removals:" << rmList; }
-  for(int i=0; i<rmList.length(); i++){
-    removeDevice(rmList[i]);
-  }
-  //Add any devices that have been connected
-  if(DEBUG_MODE){ qDebug() << " -Device Additions:" << nsd; } 
+  //Now Iterate through all available devices and probe them for validity
+  // (This should catch devices that do not "announce" their presence by creating a new device node)
   for(int i=0; i<nsd.length(); i++){
     //Check if it is a good device
     QString dlabel, dtype, dfs, dsize; //additional output info
@@ -231,32 +228,6 @@ void MountTray::slotDevChanges(bool showPopup){
       }
     }
   }
-  //==== CD/DVD Devices ====
-  //Always check cd/dvd devices because the device node will never be added/removed
-  QStringList diskList;
-  diskList << DCheck->devChildren("cd");
-  diskList << DCheck->devChildren("acd");
-  if(DEBUG_MODE){ qDebug() << " -Checking CD/DVD devices:" << diskList; }
-  for(int i=0; i<diskList.length(); i++){
-    if( rmList.contains(diskList[i]) || nsd.contains(diskList[i]) ){
-      continue; //do not double check a device that was just checked;	    
-    }
-    //Check if it is a good device
-    QString dlabel, dtype, dfs, dsize; //additional output info
-    bool good = DCheck->devInfo(diskList[i],&dtype,&dlabel,&dfs,&dsize);
-    if(good){
-      //Now create a new entry for this device
-      addDevice(diskList[i],dlabel,dtype,dfs);  
-      //Show a message bubble
-      if(showPopup){
-        QString title = tr("New Device");
-        QString message = QString( tr("%1 can now be accessed")).arg(dlabel);
-        slotDisplayPopup(title, message);
-      }
-    }else{ //not good device
-      removeDevice(diskList[i]);	    
-    }
-  } //end loop over cd/dvd devices
   
   //Run the disk space check if appropriate
   if(useDiskWatcher && useDiskTimerDevd && showPopup){ diskWatcher->checkFS(); }
