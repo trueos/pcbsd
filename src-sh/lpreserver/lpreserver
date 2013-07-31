@@ -218,6 +218,9 @@ of all children datasets automatically. To change this use:
 "
 };
 
+# Check if we need to enable the zfs monitor
+enable_watcher
+
 # Check what the user wants to do
 case "$1" in
 

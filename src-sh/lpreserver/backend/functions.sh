@@ -35,7 +35,6 @@ setOpts() {
     export EMAILADDY="`cat ${DBDIR}/emails`"
   fi
 
-
 }
 setOpts
 
@@ -54,6 +53,7 @@ mkZFSSnap() {
   fi
   zdate=`date +%Y-%m-%d-%H-%M-%S`
   zfs snapshot $flags ${1}@$2${zdate}
+  return $?
 }
 
 listZFSSnap() {
@@ -100,6 +100,19 @@ enable_cron()
    esac 
 
    echo -e "$cLine\troot    ${cronscript} $1 $3" >> /etc/crontab
+}
+
+enable_watcher()
+{
+   cronscript="${PROGDIR}/backend/zfsmon.sh"
+
+   # Check if the zfs monitor is already enabled
+   grep -q " $cronscript" /etc/crontab
+   if [ $? -eq 0 ] ; then return; fi
+
+   cLine="*/30    *       *       *       *"
+
+   echo -e "$cLine\troot    ${cronscript}" >> /etc/crontab
 }
 
 snaplist() {

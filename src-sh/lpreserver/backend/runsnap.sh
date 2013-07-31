@@ -19,6 +19,9 @@ fi
 # Create the snapshot now with the "auto-" tag
 echo_log "Creating snapshot on ${DATASET}"
 mkZFSSnap "${DATASET}" "auto-"
+if [ $? -ne 0 ] ; then
+  echo_log "ERROR: Failed creating snapshot on ${DATASET}"
+fi
 
 # Get our list of snaps
 snaps=$(snaplist "${DATASET}")
@@ -44,5 +47,8 @@ do
    if [ $num -gt $KEEP ] ; then
       echo_log "Pruning old snapshot: $snap"
       rmZFSSnap "${DATASET}" "$snap"
+      if [ $? -ne 0 ] ; then
+        echo_log "ERROR: Failed pruning snapshot $snap on ${DATASET}"
+      fi
    fi
 done
