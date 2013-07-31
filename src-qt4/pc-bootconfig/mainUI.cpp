@@ -440,3 +440,20 @@ void mainUI::GRUBchangeentries(){
     ui->tool_GRUBsaveentries->setEnabled(true);
     ui->tool_GRUBresetentries->setEnabled(true);
 }
+
+// ===================
+// ===== PROTECTED =====
+// ===================
+void mainUI::closeEvent(QCloseEvent *event){
+  bool changes = ui->tool_GRUBsavedefaults->isEnabled() || ui->tool_GRUBsaveentries->isEnabled();
+  if(changes){
+    //Verify that they want to continue
+    QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Unsaved Changes"), tr("You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?"), QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel);
+    if(button != QMessageBox::Yes){ 
+      //Ignore close request
+      event->ignore();
+      return;
+    }
+  }
+  this->close();
+}

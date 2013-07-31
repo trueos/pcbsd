@@ -76,5 +76,8 @@ private slots:
 	void GRUBchangedefaults();
 	void GRUBchangeentries();
 	
+protected:
+	void closeEvent(QCloseEvent *event);
+	
 };
 #endif
