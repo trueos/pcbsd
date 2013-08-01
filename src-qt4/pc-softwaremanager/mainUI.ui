@@ -189,7 +189,7 @@ spacing: 1px;
            <item>
             <widget class="QGroupBox" name="group_install_info">
              <property name="styleSheet">
-              <string notr="true">QGroupBox{ 
+              <string notr="true">QGroupBox#group_install_info{ 
 background: rgba( 245,242,240,150); 
 border: 1px solid grey;
 border-radius: 5px;
@@ -446,7 +446,17 @@ border-radius: 5px;
                 <property name="title">
                  <string/>
                 </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_18">
+                 <item>
+                  <widget class="Line" name="line_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
                  <item>
                   <widget class="QLabel" name="label_install_status">
                    <property name="text">
@@ -465,8 +475,17 @@ border-radius: 5px;
                    </item>
                    <item>
                     <widget class="QLabel" name="label_install_DL">
+                     <property name="minimumSize">
+                      <size>
+                       <width>80</width>
+                       <height>0</height>
+                      </size>
+                     </property>
                      <property name="text">
                       <string notr="true">label</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
