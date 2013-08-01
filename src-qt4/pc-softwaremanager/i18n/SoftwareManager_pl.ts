@@ -5,13 +5,11 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja AppCafe</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>

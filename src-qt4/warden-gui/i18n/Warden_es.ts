@@ -269,7 +269,7 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">Plantilalla</translation>
+        <translation>Plantillas jail</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
@@ -293,13 +293,11 @@
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nick de la plantilla</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Introduzca un nick para esta plantilla:</translation>
     </message>
 </context>
 <context>
@@ -310,7 +308,7 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Archivo</translation>
+        <translation>&amp;Fichero</translation>
     </message>
     <message>
         <source>Jails</source>
@@ -334,7 +332,7 @@
     </message>
     <message>
         <source>Configuration</source>
-        <translation>Configuración </translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Import Jail</source>
@@ -346,7 +344,7 @@
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation>Activar Auto Inicio</translation>
+        <translation>Conmutar Auto Inicio</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
@@ -562,7 +560,7 @@
     </message>
     <message>
         <source>Service Manager</source>
-        <translation>Administrador de Servicios</translation>
+        <translation>Administrador de servicios</translation>
     </message>
     <message>
         <source>Create a new snapshot</source>
@@ -602,11 +600,11 @@
     </message>
     <message>
         <source>&amp;Unmount</source>
-        <translation>&amp;Desmontar </translation>
+        <translation>&amp;Desmontar</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Agregar </translation>
+        <translation>&amp;Agregar</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -634,15 +632,15 @@
     </message>
     <message>
         <source>No valid network interface specified! Select one now?</source>
-        <translation>Interfaz de red especificada no valida! Seleccionar una ahora?</translation>
+        <translation>¡Interfaz de red especificada no valida! ¿Seleccionar una ahora?</translation>
     </message>
     <message>
         <source>Scheduled Snapshots</source>
-        <translation>Instantáneas Programadas</translation>
+        <translation>Instantáneas programadas</translation>
     </message>
     <message>
         <source>Snapshot Frequency</source>
-        <translation>Frecuencia de Instantáneas</translation>
+        <translation>Frecuencia de instantáneas</translation>
     </message>
     <message>
         <source>Days to keep</source>
@@ -658,12 +656,11 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation>Administrador de Paquetes</translation>
+        <translation>Administrador de paquetes</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gestor de plantillas </translation>
     </message>
 </context>
 <context>
@@ -785,17 +782,15 @@
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versión de Jail</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usar versión del sistema (predeterminado)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">Número IPv6 inválido!</translation>
+        <translation>¡Número IPv6 inválido!</translation>
     </message>
 </context>
 </TS>

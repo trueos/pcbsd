@@ -254,7 +254,7 @@
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">Teraz nastąpi załadowanie konfiguracji instalacji ze sformatowanego jako MSDOSFS/FAT32 nośnika USB. Kontynuować?</translation>
+        <translation>Teraz nastąpi załadowanie konfiguracji instalacji ze sformatowanego jako MSDOSFS/FAT32 nośnika USB. Kontynuować?</translation>
     </message>
 </context>
 <context>

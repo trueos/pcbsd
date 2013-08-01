@@ -5,13 +5,11 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuración de AppCafe</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
@@ -20,13 +18,11 @@
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Crear iconos en el escritorio</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Crear iconos en el menú</translation>
     </message>
     <message>
         <source>Register File Associations</source>
@@ -45,23 +41,19 @@
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorio de descarga</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorio de descarga</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repositorios</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>...</source>
@@ -69,27 +61,23 @@
     </message>
     <message>
         <source>Repository Mirrors</source>
-        <translation type="unfinished">Espejos del Repositorio</translation>
+        <translation>Espejos del repositorio</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mover arriba</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mover abajo</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Añadir repositorio de PBI</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
@@ -98,8 +86,7 @@
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repositorio añadido correctamente</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
@@ -128,8 +115,7 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Seguro que desea eliminar este repositorio de PBI?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
@@ -158,45 +144,41 @@
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seleccionar directorio de descarga</translation>
     </message>
 </context>
 <context>
     <name>ErrorDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>Show Error Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mostrar registro de errores</translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">Instalado</translation>
+        <translation>Instalado</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">Nombre del Programa</translation>
+        <translation>Nombre del programa</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versión</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Estado</translation>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
@@ -205,8 +187,7 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Todo</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -215,8 +196,7 @@
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acciones</translation>
     </message>
     <message>
         <source>Application Details</source>
@@ -225,15 +205,15 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">Versión:</translation>
+        <translation>Versión:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">Autor:            </translation>
+        <translation>Autor:            </translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">Licencia:</translation>
+        <translation>Licencia:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
@@ -251,27 +231,23 @@
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Elliminar la aplicación seleccionada</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">Desinstalar</translation>
+        <translation>Desinstalar</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizar la aplicación a su versión más reciente</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizar la aplicación seleccionada</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizar aplicación</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
@@ -280,18 +256,15 @@
     </message>
     <message>
         <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir navegador</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizar automáticamente la aplicación seleccionada cuando esté disponible una actualización</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Auto-Actualizar</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -305,27 +278,23 @@
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Categoría</translation>
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicación</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buscar aquí</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Buscar </translation>
+        <translation>Buscar </translation>
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ver añadidos recientes</translation>
     </message>
     <message>
         <source>Browse By Category</source>
@@ -334,72 +303,63 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Tamaño:</translation>
+        <translation>Tamaño:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Información de la aplicación</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Plataforma:</translation>
+        <translation>Plataforma:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">Tipo:</translation>
+        <translation>Tipo:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicaciones similares</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">Mejores resultados:</translation>
+        <translation>Mejores resultados:</translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otros resultados</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichero</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurar</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importar lista de PBI</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exportar lista de PBI</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Salir</translation>
+        <translation>&amp;Quitar</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repositorios</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuración de AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">¡Error!</translation>
+        <translation>¡Error!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
@@ -413,13 +373,11 @@
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El usuario también debe formar parte del grupo &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Procesos de AppCafe ejecutándose</translation>
     </message>
     <message>
         <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
@@ -433,23 +391,19 @@
     </message>
     <message>
         <source>PBI List (*.pbilist)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista de PBI (*.pbilist)</translation>
     </message>
     <message>
         <source>Import Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error al importar</translation>
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ocurrió un error al importar la lista de PBI</translation>
     </message>
     <message>
         <source>Please make sure that the file has not been corrupted and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asegúrese de que el fichero no está corrupto y pruebe otra vez</translation>
     </message>
     <message>
         <source>Export PBI File List</source>
@@ -458,18 +412,15 @@
     </message>
     <message>
         <source>Export Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error al exportar</translation>
     </message>
     <message>
         <source>There was an error exporting the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ocurrió un error al exportar la lista de PBI</translation>
     </message>
     <message>
         <source>Please make sure that you have the proper directory permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asegúrese de que tiene los permisos de directorio apropiados y pruebe de nuevo</translation>
     </message>
     <message>
         <source>Update</source>
@@ -477,28 +428,23 @@
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iconos de escritorio</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iconos de menú</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Añadir (otros usuarios)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -512,52 +458,43 @@
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelar acciones</translation>
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Escritorio/Menú</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Escritorio</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menú</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificar eliminación de PBI</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Seguro que desea eliminar esta aplicación?</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Seguro que desea eliminar estas aplicaciones?</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Desconocido             </translation>
+        <translation>Desconocido             </translation>
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¡Instalar ahora!</translation>
     </message>
     <message>
         <source>Downgrade</source>
@@ -566,64 +503,54 @@
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buscando en la base de datos de aplicaciones. Espere...</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No se han encontrado resultados para el término: %1</translation>
     </message>
     <message>
         <source>Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalado: %</translation>
     </message>
     <message>
         <source>Available: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponible: %2</translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descargando</translation>
     </message>
     <message>
         <source>Installing</source>
-        <translation type="unfinished">Instalando            </translation>
+        <translation>Instalando            </translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminando</translation>
     </message>
     <message>
         <source>Updating</source>
-        <translation type="unfinished">Actualizando</translation>
+        <translation>Actualizando</translation>
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descarga pendiente</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalación pendiente</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminacion pendiente</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualización pendiente</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -632,8 +559,7 @@
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resultados:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
@@ -647,13 +573,11 @@
     </message>
     <message>
         <source>Import Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importar resultados</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Seguro que desea instalar estas aplicaciones?</translation>
     </message>
     <message>
         <source>%1 Download Error:</source>
@@ -662,8 +586,7 @@
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No se pudo descargar el PBI; pruebe más tarde, por favor</translation>
     </message>
     <message>
         <source>%1 Update Error:</source>
@@ -672,8 +595,7 @@
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El proceso de actualización sufrió un error y no se pudo completar</translation>
     </message>
     <message>
         <source>%1 Installation Error:</source>
@@ -682,8 +604,7 @@
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El proceso de instalación sufrió un error y no se pudo completar</translation>
     </message>
     <message>
         <source>%1 Removal Error:</source>
@@ -692,13 +613,11 @@
     </message>
     <message>
         <source>The removal process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El proceso de eliminación sufrió un error y no se pudo completar</translation>
     </message>
     <message>
         <source>The download process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El proceso de descarga sufrió un error y no se pudo completar</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>
@@ -707,50 +626,45 @@
     </message>
     <message>
         <source>The process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El proceso sufrió un error y no se pudo completar</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Desconocido             </translation>
+        <translation>Desconocido             </translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>%1 at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 en %2</translation>
     </message>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error desconocido</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Downloading...</source>
-        <translation type="unfinished">Descargando...</translation>
+        <translation>Descargando...</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descargando: %1</translation>
     </message>
     <message>
         <source>Installing...</source>
-        <translation type="unfinished">Instalando...</translation>
+        <translation>Instalando...</translation>
     </message>
     <message>
         <source>Removing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminando...</translation>
     </message>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished">Actualizando...</translation>
+        <translation>Actualizando...</translation>
     </message>
     <message>
         <source>Update Downloading: %1 </source>
@@ -759,33 +673,27 @@
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descarga pendiente</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalación pendiente</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminación pendiente</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualización pendiente</translation>
     </message>
     <message>
         <source>Update Available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¡Actualización disponible!</translation>
     </message>
     <message>
         <source>Version %1 Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versión %1 disponible</translation>
     </message>
 </context>
 </TS>
