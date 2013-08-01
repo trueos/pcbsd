@@ -32,7 +32,7 @@
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation>Disco(s) Casi Llenos</translation>
+        <translation>Disco(s) casi llenos</translation>
     </message>
 </context>
 <context>
@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Success</source>
-        <translation>Exitosamente            </translation>
+        <translation>Exitosamente</translation>
     </message>
     <message>
         <source>%1 mounted at %2</source>
@@ -94,7 +94,7 @@
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
-        <translation>Abrir Directorio de Medios</translation>
+        <translation>Abrir directorio de medios</translation>
     </message>
     <message>
         <source>Close Tray</source>
@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>User Detection Error</source>
-        <translation>Error de Detección de Usuario</translation>
+        <translation>Error de detección de usuario</translation>
     </message>
     <message>
         <source>Unable to determine the non-root user who started the application 
@@ -112,7 +112,7 @@ No se puede abrir el administrador de archivos con permisos de root</translation
     </message>
     <message>
         <source>New Device</source>
-        <translation>Nuevo Dispositivo</translation>
+        <translation>Nuevo dispositivo</translation>
     </message>
     <message>
         <source>%1 can now be accessed</source>
@@ -132,15 +132,15 @@ No se puede abrir el administrador de archivos con permisos de root</translation
     </message>
     <message>
         <source>More Options</source>
-        <translation>Más Opciones</translation>
+        <translation>Más opciones</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation>Ver Uso de Disco</translation>
+        <translation>Ver uso de disco</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation>Cambiar Opciones</translation>
+        <translation>Cambiar opciones</translation>
     </message>
 </context>
 <context>

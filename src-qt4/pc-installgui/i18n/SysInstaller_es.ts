@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>&amp;Siguiente</translation>
+        <translation>Siguie&amp;nte</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation>Seleccionar Disco</translation>
+        <translation>Seleccionar disco</translation>
     </message>
     <message>
         <source>Installation</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation>Sistema de Archivos:</translation>
+        <translation>Sistema de archivos:</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>Options:</source>
-        <translation>Opciones:  </translation>
+        <translation>Opciones:</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>Customize the selected system</source>
-        <translation>Personalice el sistema seleccionado         </translation>
+        <translation>Personalice el sistema seleccionado</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
@@ -191,87 +191,71 @@
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">El disco / partición seleccionado es menor que lo recomendado %1MB. La instalación podría fallar... {1G?}</translation>
+        <translation>El disco / partición seleccionado es menor de los %1GB recomendados. La instalación podría fallar...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cargar fichero de configuración desde dispositivo USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cargar configuración desde USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Escritorio (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servidor (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Guardar configuración en USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esto guardará su configuración de instalación en un dispositivo USB formateado con MSDOSFS/FAT32. ¿Continuar?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, inserte el dispositivo USB y pulse Aceptar para continuar.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Introduzca el nombre con el que quiera guardar esta configuración.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falló el guardado de la configuración al medio USB. ¿Está el dispositivo formateado en MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¡Configuración guardada! Ahora puede retirar el dispositivo USB con seguridad.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esto cargará un fichero configuración de instalación de un dispositivo USB formateado con MSDOSFS/FAT32. ¿Continuar?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, inserte el dispositivo USB y pulse Aceptar para continuar.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falló la carga de la configuración desde ell medio USB. ¿Está el dispositivo formateado en MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¡Configuración cargada! Ahora puede retirar el dispositivo USB con seguridad.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichero de configuración:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Iniciar la instalación usando este fichero de configuración?</translation>
     </message>
 </context>
 <context>
@@ -294,7 +278,7 @@
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation>¡El sistema terminó la instalación! De click en reiniciar, y asegúrese de extraer cualquier medio de instalación antes de iniciar su nuevo sistema.          </translation>
+        <translation>¡El sistema terminó la instalación! Pulse en reiniciar, y asegúrese de extraer cualquier medio de instalación antes de iniciar su nuevo sistema.</translation>
     </message>
 </context>
 <context>
@@ -364,7 +348,7 @@
     </message>
     <message>
         <source>No wifi detected</source>
-        <translation>Wi-Fi no detectado    </translation>
+        <translation>Wi-Fi no detectado</translation>
     </message>
     <message>
         <source>Wifi device:</source>
@@ -391,7 +375,7 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Aceptar </translation>
+        <translation>&amp;Aceptar</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -416,11 +400,11 @@
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation>Configuración del Teclado</translation>
+        <translation>Configuración del teclado</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation>Distribución de las Teclas</translation>
+        <translation>Distribución de las teclas</translation>
     </message>
     <message>
         <source>Variant</source>
@@ -447,19 +431,19 @@
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation>Este asistente te guiará a través del proceso de configuración en disco. Por favor elige el modo de configuración que deseas utilizar.</translation>
+        <translation>Este asistente te guiará a través del proceso de configuración en disco. Por favor, elija el modo de configuración que deseas utilizar.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation>Modo de Configuración</translation>
+        <translation>Modo de configuración</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation>Básico (Nuevo en BSD o partición de disco)</translation>
+        <translation>Básico (nuevo en BSD o particionado de discos)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation>Avanzado (Experimentado en sistemas de archivos)</translation>
+        <translation>Avanzado (con experiencia en sistemas de archivos)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
@@ -471,11 +455,11 @@
     </message>
     <message>
         <source>Selected Disk</source>
-        <translation>Disco Seleccionado</translation>
+        <translation>Disco seleccionado</translation>
     </message>
     <message>
         <source>Selected Partition</source>
-        <translation>Partición Seleccionada</translation>
+        <translation>Partición seleccionada</translation>
     </message>
     <message>
         <source>Partition disk with GPT</source>
@@ -483,7 +467,7 @@
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation>A continuación usted puede ajustar los puntos de montaje del sistema de archivos. Se recomienda valores predeterminados para la mayoría de los usuarios.</translation>
+        <translation>A continuación puede ajustar los puntos de montaje del sistema de archivos. Se recomienda valores predeterminados para la mayoría de los usuarios. </translation>
     </message>
     <message>
         <source>Free Space (MB)</source>
@@ -495,23 +479,23 @@
     </message>
     <message>
         <source>Resize</source>
-        <translation>Cambiar el tamaño  </translation>
+        <translation>Cambiar el tamaño</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Quitar</translation>
+        <translation>Quita&amp;r</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>Usted ha elegido el modo experto. En este modo es posible iniciar una ventana de terminal y utilizar la línea de comandos para particionar manualmente su disco. Cuando termine, asegúrese de montar sus sistemas de archivos para comenzar la instalación.</translation>
+        <translation>Ha elegido el modo experto. En este modo es posible iniciar una ventana de terminal y utilizar la línea de comandos para particionar manualmente su disco. Cuando termine, asegúrese de montar sus sistemas de archivos para comenzar la instalación. </translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>&amp;Lanzar terminal  </translation>
+        <translation>&amp;Lanzar terminal</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Por favor, compruebe el resumen del disco y haga clic en &quot;Finalizar&quot; para guardar la configuración.</translation>
+        <translation>Por favor, compruebe el resumen del disco y haga clic en &quot;Finalizar&quot; para guardar la configuración. </translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -656,7 +640,7 @@
     </message>
     <message>
         <source>Password</source>
-        <translation>Contraseña  </translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
@@ -672,11 +656,11 @@
     </message>
     <message>
         <source>Username</source>
-        <translation>Nombre de Usuario</translation>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <source>Default shell</source>
-        <translation>Shell Predeterminado</translation>
+        <translation>Shell predeterminado</translation>
     </message>
     <message>
         <source>Please enter a system hostname and remote login preference.</source>

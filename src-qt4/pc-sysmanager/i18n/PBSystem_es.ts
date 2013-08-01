@@ -5,7 +5,7 @@
     <name>PBSystemTab</name>
     <message>
         <source>PC-BSD System Configuration</source>
-        <translation>Configuración del Sistema PC-BSD</translation>
+        <translation>Configuración del sistema PC-BSD</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Base Version:</source>
-        <translation>Versión Base:</translation>
+        <translation>Versión base:</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Fetch &amp;System Source</source>
-        <translation>Conseguir Fuente del &amp;Sistema</translation>
+        <translation>Conseguir fuentes del &amp;sistema</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation>Puede generar una hoja de diagnósticos con información sobre su sistema. Esta hoja puede ser útil para los especialistas con propósitos técnicos para la resolución de problemas.</translation>
+        <translation>Puede generar una hoja de diagnósticos con información sobre su sistema. Esta hoja puede ser útil para los técnicos para la resolución de problemas.</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Other Options</source>
-        <translation>Otras Opciones</translation>
+        <translation>Otras opciones</translation>
     </message>
     <message>
         <source>Force IBUS keyboard input</source>
@@ -109,16 +109,15 @@
     </message>
     <message>
         <source>System Tasks</source>
-        <translation>Procesos del Sistema            </translation>
+        <translation>Tareas del sistema</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation>Recoger &amp;Árbol de Puertos</translation>
+        <translation>Recoger P&amp;orts Tree</translation>
     </message>
     <message>
         <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¡Fichero no encontrado!</translation>
     </message>
 </context>
 <context>
@@ -141,7 +140,7 @@
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation>¡Actualización Fallida!</translation>
+        <translation>¡Actualización fallida!</translation>
     </message>
     <message>
         <source>Unable to connect to server. Possible causes:
@@ -157,14 +156,14 @@
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>
-        <translation>Descargando fuentes FreeBSD</translation>
+        <translation>Descargando fuentes de FreeBSD...</translation>
     </message>
 </context>
 <context>
     <name>updaterStatus</name>
     <message>
         <source>Installing Updates</source>
-        <translation>Instalando Actualizaciones</translation>
+        <translation>Instalando actualizaciones</translation>
     </message>
     <message>
         <source>The system is currently installing the following updates:</source>
@@ -172,7 +171,7 @@
     </message>
     <message>
         <source>Update</source>
-        <translation>Actualizar</translation>
+        <translation>Actualización</translation>
     </message>
     <message>
         <source>Size</source>
@@ -180,7 +179,7 @@
     </message>
     <message>
         <source>Status</source>
-        <translation>Estatus</translation>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>ID</source>
@@ -188,7 +187,7 @@
     </message>
     <message>
         <source>Update Progress</source>
-        <translation>Progreso de la Actualización</translation>
+        <translation>Progreso de la actualización</translation>
     </message>
     <message>
         <source> of </source>

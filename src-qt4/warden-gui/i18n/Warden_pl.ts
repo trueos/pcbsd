@@ -99,7 +99,7 @@
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">IPv4</translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
@@ -159,93 +159,75 @@
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Użytkownicy uprzywilejowani w celi będą mogli montować i odmontownywać system plików devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uprzywijelowani użytkownicyw celi będą mogli montować i odmontowywać system pllików nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uprzywilejowani uzytkownicy w celi będą mogli montować i odmontowywać system plików procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uprzywilejowani użytkownicy w celi będą mogli montować i odmontowywać system plików zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Administrator celi może administrować przydziałem quota w systemie plików celi.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To umożliwia dostęp do innych stosów protokołów próre nie mają dodanej funkcjonalności Cel.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres mostu IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres routera IPv4!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres IPv6!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres mostu IPv6!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres routera IPv6!</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcje</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Włącz wsparcie dla VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adres mostu IPv4 (wymaga VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślny router IPv4 (wymaga VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adres mostu IPv6 (wymaga VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślny router IPv6 ( wymaga VNET )</translation>
     </message>
 </context>
 <context>
@@ -287,40 +269,35 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szablony Cel</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Dodaj nową Celę</translation>
+        <translation>Dodaj nową Celę</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Usuń wybraną Celę</translation>
+        <translation>Usuń wybraną Celę</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Zamknij</translation>
+        <translation>&amp;Zamknij</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wersja systemu</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Którą wersję chcesz pobrać?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwa szablonu</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podaj nazwę dla tego szablonu:</translation>
     </message>
 </context>
 <context>
@@ -671,23 +648,19 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>numery IP:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguruj celę</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menadżer pakietów</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menadżer szablonów</translation>
     </message>
 </context>
 <context>
@@ -789,43 +762,35 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ten kreator przeprowadzi cię przez tworzenie nowej celi. Najpierw, podaj nazwę i adres IPa następnie kliknij dalej aby kontynuować.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adres IPv4</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adres IPv6</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tradycyjna cela (bezpieczna, najlepsza dla usług)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaluj PKGNG i narzędzia PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wersja Celi</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Użyj wersji systemowej (domyślnie)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błędny adres IPv6!</translation>
     </message>
 </context>
 </TS>

@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation>Gestor de Actualizaciones de PC-BSD</translation>
+        <translation>Gestor de actualizaciones de PC-BSD</translation>
     </message>
     <message>
         <source>Checking for updates...</source>
@@ -21,23 +21,23 @@
     </message>
     <message>
         <source>Failed to contact the update server!</source>
-        <translation>Falló la conexión con el servidor de actualizaciones!</translation>
+        <translation>¡Falló la conexión con el servidor de actualizaciones!</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation>Tu sistema esta completamente actualizado</translation>
+        <translation>Su sistema esta completamente actualizado</translation>
     </message>
     <message>
         <source>System updates available</source>
-        <translation>Actualizaciones del sistema estan disponibles</translation>
+        <translation>Actualizaciones del sistema disponibles</translation>
     </message>
     <message>
         <source>PBI updates available</source>
-        <translation>Actualizaciones del PBI estan disponibles</translation>
+        <translation>Actualizaciones de PBI disponibles</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation>Iniciarl el AppCafe</translation>
+        <translation>Iniciarl AppCafe</translation>
     </message>
     <message>
         <source>Quit</source>
@@ -45,27 +45,27 @@
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation>Actualizaciones del Sistema Disponibles</translation>
+        <translation>Actualizaciones del sistema disponibles</translation>
     </message>
     <message>
         <source>Software Updates Available</source>
-        <translation>Actualizaciones de Software Disponibles</translation>
+        <translation>Actualizaciones de software disponibles</translation>
     </message>
     <message>
         <source>Start the Update Manager</source>
-        <translation>Iniciar el Gestor de Actualizaciones</translation>
+        <translation>Iniciar el gestor de actualizaciones</translation>
     </message>
     <message>
         <source>Important system updates are available. Click here to install them!</source>
-        <translation>Actualizaciones importantes del sistema disponibles.Clic para instalarlas!</translation>
+        <translation>Actualizaciones importantes del sistema disponibles. ¡Pulse para instalarlas!</translation>
     </message>
     <message>
         <source>Software updates are available. Click here to install them!</source>
-        <translation>Actualizaciones de software disponibles. Clic para instalarlas!</translation>
+        <translation>Actualizaciones de software disponibles. ¡Pulse para instalarlas!</translation>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation>Reinicio Requerido</translation>
+        <translation>Reinicio requerido</translation>
     </message>
     <message>
         <source>Please restart your computer to complete the pending updates</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation>Actualizaciones Disponibles para Jail</translation>
+        <translation>Actualizaciones disponibles para Jail</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
@@ -101,17 +101,15 @@
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation>Actualizaciones importantes de paquetes están disponibles. Pulse aquí para instalarlas!</translation>
+        <translation>Actualizaciones importantes de paquetes están disponibles. ¡Pulse aquí para instalarlas!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ejecutar del administrador de paquetes</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizaciones de paquetes disponibles</translation>
     </message>
 </context>
 </TS>

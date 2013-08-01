@@ -137,23 +137,23 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detalles de la actualización</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizaciones del sistema base</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Se actualizarán los siguientes ficheros:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detalles de la actualización:</translation>
+    </message>
+    <message>
+        <source>Could not run freebsd-update, another process is already running!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

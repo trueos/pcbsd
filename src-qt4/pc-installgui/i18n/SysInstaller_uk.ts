@@ -195,13 +195,11 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантажити конфігурацію для встановлення з пристрою USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантажити конфігурацію з USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
