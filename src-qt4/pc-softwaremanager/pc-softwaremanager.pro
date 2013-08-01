@@ -21,7 +21,6 @@ HEADERS	+= mainUI.h \
 SOURCES	+= main.cpp \
          mainUI.cpp \
          pbiBackend.cpp \
-         containers.cpp \
          pbiDBAccess.cpp \
          processManager.cpp \
          configDialog.cpp \

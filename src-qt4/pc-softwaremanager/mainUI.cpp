@@ -264,6 +264,7 @@ void MainUI::slotRefreshInstallTab(){
   on_tree_install_apps_itemSelectionChanged(); //Update the info boxes
   slotDisplayStats();
 }
+
 void MainUI::slotPBIStatusUpdate(QString pbiID){
   for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
     QString itemID = ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
@@ -275,23 +276,8 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
       if(ui->tree_install_apps->topLevelItemCount() > 0){
          appID = ui->tree_install_apps->currentItem()->whatsThis(0);
       }
-      if ( appID == pbiID && stat.contains("Downloading:")) {
-	QString done, tot, display, speed; 
-	bool ok, ok2;
-	display = stat.section(" ", 2, 3);
-	done = stat.section(" ", 2, 2).section("/", 0, 0).section(".", 0, 0);
-	tot = stat.section(" ", 2, 2).section("/", 1, 1).section(".", 0, 0);
-	speed = stat.section(" ", 6, 7);
-	done.toInt(&ok);
-	tot.toInt(&ok2);
-	//qDebug() << done << tot << speed;
-	if ( !ok || !ok2)
-	  return;
-	ui->progressStatus->setVisible(true);
-	ui->progressStatus->setRange(0, tot.toInt(&ok));
-	ui->progressStatus->setValue(done.toInt(&ok));
-	ui->labelDL->setVisible(true);
-	ui->labelDL->setText(display + " @ " + speed);
+      if ( appID == pbiID ) {
+	on_tree_install_apps_itemSelectionChanged();
       }
       return; // Found our match, we can return now
     }
@@ -333,10 +319,6 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   }else{
     ui->group_install_info->setVisible( ui->group_install_showinfo->isChecked() );	  
   }
-
-  // Hide the progress bar, it will re-appear when we need it
-  ui->progressStatus->setVisible(false);
-  ui->labelDL->setVisible(false);
 
   //Get the PBI info for that item
   QStringList vals; 
@@ -404,7 +386,38 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
       ui->tool_install_update->setVisible(FALSE); 
     }   
   }
-  
+  //Update the current status indicators
+  QString stat = PBI->currentAppStatus(appID,true); //get the raw status
+  if(stat.isEmpty() || stat == "DLSTART"  || stat == "DLDONE"){
+    //Not currently running - hide the display indicators
+    ui->group_install_appStat->setVisible(FALSE);
+  }else if(stat.startsWith("DLSTAT::")){
+    //Currently downloading - show download status indicators
+    QString percent = stat.section("::",1,1);
+    QString total = stat.section("::",2,2);
+    QString speed = stat.section("::",3,3);
+    ui->group_install_appStat->setVisible(TRUE);
+      ui->progress_install_DL->setVisible(TRUE);
+    if(total == "??"){ ui->label_install_status->setText( tr("Downloading file:") ); }
+    else{ ui->label_install_status->setText( QString(tr("Downloading %1 file:")).arg(total) ); }
+    if(percent == "??"){
+      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(0);
+    }else{
+      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(100);
+      ui->progress_install_DL->setValue( int(percent.toFloat()) );
+    }
+    if(speed == "??"){ ui->label_install_DL->setVisible(FALSE); }
+    else{
+      ui->label_install_DL->setVisible(TRUE);
+      ui->label_install_DL->setText(speed);
+    }
+  }else{
+    //Currently installing/removing/updating - show last message from process
+    ui->label_install_status->setText(stat);
+    ui->group_install_appStat->setVisible(TRUE);
+      ui->progress_install_DL->setVisible(FALSE);
+      ui->label_install_DL->setVisible(FALSE);
+  }
 }
 
 void MainUI::on_check_install_autoupdate_clicked(){

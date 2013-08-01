@@ -65,7 +65,7 @@ public:
 	QStringList PBIInfo( QString pbiID, QStringList infoList);
 	QStringList CatInfo( QString catID, QStringList infoList);
 	QStringList AppInfo( QString appID, QStringList infoList);
-	QString currentAppStatus( QString appID );
+	QString currentAppStatus( QString appID , bool rawstatus = false);
 	
 	//Configuration Management
 	void openConfigurationDialog();
@@ -98,6 +98,7 @@ private:
 	QString cDownload, cInstall, cRemove, cUpdate, cDownloadFile, cOther; //currently running command/pbi
 	bool sDownload, sInstall, sRemove, sUpdate; //flag that these processes were Stopped
 	QStringList PENDINGDL, PENDINGINSTALL, PENDINGREMOVAL, PENDINGUPDATE, PENDINGOTHER;
+	QString lDownload, lInstall, lRemove, lUpdate; //latest string output from process
 	//variables - other
 	QString baseDlDir, dlDir; // download/install directories
 	QString sysArch; //system architecture

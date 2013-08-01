@@ -71,6 +71,7 @@ void ProcessManager::goToDirectory(ProcessID ID, QString dir){
     otProc->setWorkingDirectory(dir);   	  
   }	
 }
+
 // =========================
 // ===== PUBLIC ACCESS =====
 // =========================
@@ -128,8 +129,16 @@ QStringList ProcessManager::getProcessLog(ProcessID ID){
 // ===== PRIVATE SLOTS =====
 // =========================
 QString ProcessManager::parseDlLine(QString line){
+  /*DOWNLOAD NOTIFICATION CODES:
+  Download complete: "DLDONE"
+  Download running: "DLSTAT::<percent>::<total size>::<download speed>"
+	-- A value of "??" means that it is unknown
+  Download starting: "DLSTART"
+  */
   QString out;
-  if(!line.startsWith("SIZE:")){ return out; }
+  if( line.startsWith("FETCH:") ){ return "DLSTART"; }
+  else if( line == "FETCHDONE"){ return "DLDONE"; }
+  else if(!line.startsWith("SIZE:")){ return out; }
   //qDebug() << "parse Download Line:" << line;
   //Line format: SIZE:  <KB> DOWNLOADED:  <KB> SPEED:  <KB/s> KB/s
   line = line.simplified();
@@ -148,22 +157,53 @@ QString ProcessManager::parseDlLine(QString line){
   if(spdok && spd==0){spdok=FALSE;}
   //Now format the output string
   QString stats;
+  out = "DLSTAT::";
+  //Get percent and totals
   if(totok && curok){
     bool totErr = (tot==cur); //catch for a display error where the cur is always identical to the tot
+    if(!totErr){	  
+      //Calculate the percentage
+      double percent = (cur/tot)*100;
+      percent = int(percent*10)/10.0;
+      out.append(QString::number(percent)+"::");
+      //Now list the total
+      out.append( Extras::sizeKToDisplay(QString::number(tot)) +"::" );
+    }else{
+      //Only Total/Current is known (unknown percentage since not complete yet)
+      out.append("??::"+Extras::sizeKToDisplay(QString::number(tot))+"::");
+    }	    
+  }else if(curok){
+    //Only Total/Current is known (unknown percentage since not complete yet)
+    out.append("??::"+Extras::sizeKToDisplay(QString::number(cur))+"::");
+  }else if(totok){
+    //Only Total/Current is known (unknown percentage since not complete yet)
+    out.append("??::"+Extras::sizeKToDisplay(QString::number(tot))+"::");
+  }else{
+    //Unknown Total and Current
+    out.append("??::??::");
+  }
+  //Now get the speed
+  if(spdok){
+    out.append( Extras::sizeKToDisplay(QString::number(spd))+"/s" );
+  }else{
+    out.append("??");
+  }
+  /*
     int i=0;
     QStringList lab; lab << "KB" <<"MB"<<"GB"<<"TB"<<"PB";
     while( (tot>1000) && (i<lab.length()) ){
       cur=cur/1024; tot=tot/1024; i++;
     }
-    float percent = (cur*100)/tot;
-    //round all numbers to one decimel place
-    percent = int(percent*10)/10.0;
+
     cur = int(cur*10)/10.0;
     tot = int(tot*10)/10.0;
     if(totErr){ // cur==tot 
-      stats = QString::number(tot)+" "+lab[i];
+      //Percentage unknown (since fetch is not done)
+      out.append("??::"+QString::number(tot)+" "+lab[i]+"::");
+      //stats = QString::number(tot)+" "+lab[i];
     }else{
-      stats = QString::number(cur)+"/"+QString::number(tot)+" "+lab[i]+" ("+QString::number(percent)+"%)";
+      out.append(QString::number(percent)+"::"+QString::number(tot)+" "+lab[i]+"::");
+      //stats = QString::number(cur)+"/"+QString::number(tot)+" "+lab[i]+" ("+QString::number(percent)+"%)";
     }
     // Format:  <current>/<total> <size label> (<percent>%)
   }else if(curok){
@@ -178,6 +218,7 @@ QString ProcessManager::parseDlLine(QString line){
   else if(stats.isEmpty()){ out = speed; }
   else if(speed.isEmpty()){ out = stats; }
   else{ out = QString( tr("%1 at %2") ).arg(stats,speed); }
+  */
   //qDebug() << " - Result:" << out;
   return out;
 }
@@ -187,11 +228,16 @@ void ProcessManager::slotUpProcMessage(){
   while( upProc->canReadLine() ){
     QString line = upProc->readLine().simplified();
     if(line.isEmpty()){ continue; }
-    // Change status back to "Updating..."
-    emit ProcessMessage(UPDATE,QString());
     QString dl = parseDlLine(line);
-    if(!dl.isEmpty()){ emit ProcessMessage(UPDATE,dl); }
-    else{ upLog << line; } //not a download line - add to the log
+    if(!dl.isEmpty()){ 
+      emit ProcessMessage(UPDATE,dl); //Download status
+      if( !dl.startsWith("DLSTAT::") ){
+	upLog << line; //not just a status update - add to the log (log download start/stop)    
+      }
+    }else{ 
+      emit ProcessMessage(UPDATE,line); 
+      upLog << line; //not a download line - add to the log
+    }
   }
 }
 
@@ -233,8 +279,15 @@ void ProcessManager::slotDlProcMessage(){
     QString line = dlProc->readLine().simplified();
     if(line.isEmpty()){ continue; }
     QString dl = parseDlLine(line);
-    if(!dl.isEmpty()){ emit ProcessMessage(DOWNLOAD,dl); }
-    else{ dlLog << line; } //not a download line - add to the log
+    if(!dl.isEmpty()){ 
+      emit ProcessMessage(DOWNLOAD,dl); //Download status
+      if( !dl.startsWith("DLSTAT::") ){
+	dlLog << line; //not just a status update - add to the log (log download start/stop)    
+      }
+    }else{ 
+      emit ProcessMessage(DOWNLOAD,line); 
+      dlLog << line; //not a download line - add to the log
+    }
   }
 }
 

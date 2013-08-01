@@ -441,6 +441,40 @@ border-radius: 5px;
                 </item>
                </layout>
               </item>
+              <item row="3" column="0" colspan="4">
+               <widget class="QGroupBox" name="group_install_appStat">
+                <property name="title">
+                 <string/>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_18">
+                 <item>
+                  <widget class="QLabel" name="label_install_status">
+                   <property name="text">
+                    <string notr="true">TextLabel</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <item>
+                    <widget class="QProgressBar" name="progress_install_DL">
+                     <property name="value">
+                      <number>24</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="label_install_DL">
+                     <property name="text">
+                      <string notr="true">label</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
               <item row="1" column="2" rowspan="2">
                <spacer name="horizontalSpacer_2">
                 <property name="orientation">
@@ -453,20 +487,6 @@ border-radius: 5px;
                  </size>
                 </property>
                </spacer>
-              </item>
-              <item row="3" column="0" colspan="3">
-               <widget class="QProgressBar" name="progressStatus">
-                <property name="value">
-                 <number>24</number>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="3">
-               <widget class="QLabel" name="labelDL">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
               </item>
              </layout>
             </widget>
@@ -674,8 +694,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>70</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -725,8 +745,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>49</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -750,8 +770,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>86</width>
+                 <height>16</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -1150,8 +1170,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>447</width>
+                    <height>61</height>
                    </rect>
                   </property>
                  </widget>
@@ -1211,8 +1231,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>55</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1249,8 +1269,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>55</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1275,7 +1295,7 @@ spacing: 1px;
      <x>0</x>
      <y>0</y>
      <width>509</width>
-     <height>22</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

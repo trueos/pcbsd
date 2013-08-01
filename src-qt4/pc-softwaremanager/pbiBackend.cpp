@@ -455,7 +455,7 @@ QStringList PBIBackend::PBIInfo( QString pbiID, QStringList infoList){
     else if(infoList[i]=="icon"){ output << PBIHASH[pbiID].icon; }
     else if(infoList[i]=="license"){ output << PBIHASH[pbiID].license; }
     else if(infoList[i]=="metaid"){ output << PBIHASH[pbiID].metaID; }
-    else if(infoList[i]=="status"){ output << PBIHASH[pbiID].statusString; }
+    else if(infoList[i]=="status"){ output << currentAppStatus(pbiID); }
     //Now the boolians
     else if(infoList[i]=="requiresroot"){ 
       if(PBIHASH[pbiID].rootInstall){output<<"true";}
@@ -521,29 +521,62 @@ QStringList PBIBackend::AppInfo( QString appID, QStringList infoList){
   return output;
 }
 
-QString PBIBackend::currentAppStatus( QString appID ){
+QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
   QString output;
   int status = -999;
+  QString metaID;
   //pbiID given (quicker)
-  if(PBIHASH.contains(appID)){ status = PBIHASH[appID].status; }
+  if(PBIHASH.contains(appID)){ status = PBIHASH[appID].status; metaID = PBIHASH[appID].metaID; }
   else{
     //appID given
     if(!APPHASH.contains(appID)){ return ""; }
     QStringList pbilist = PBIHASH.keys();
     for(int i=0; i<pbilist.length(); i++){
-      if(PBIHASH[pbilist[i]].metaID == appID){ status = PBIHASH[pbilist[i]].status; }
+      if(PBIHASH[pbilist[i]].metaID == appID){ status = PBIHASH[pbilist[i]].status; metaID=appID; break; }
     }
   }
-  //Determine if the app is currently in a pending state
-  switch (status){
+  //Determine if the app is currently in a pending/running state
+  if(rawstatus){ //output the raw status for active processes
+    switch (status){
+	case InstalledPBI::DOWNLOADING:
+	  output = lDownload; break;
+	case InstalledPBI::INSTALLING:
+	  output = lInstall; break;
+	case InstalledPBI::REMOVING:
+	  output = lRemove; break;
+	case InstalledPBI::UPDATING:
+	  output = lUpdate; break;
+	default:
+	  output.clear();
+    }
+  }else{
+    switch (status){
         case InstalledPBI::DOWNLOADING:
-          output = tr("Downloading"); break;
+	  if(lDownload.startsWith("DLSTAT::")){
+	    QString percent = lDownload.section("::",1,1);
+	    output = QString(tr("Downloading: %1%")).arg( percent );
+	  }else if(lDownload == "DLDONE"){
+	    output = tr("Download Finished");
+	  }else{
+            output = tr("Download Starting"); 
+	  }
+	  break;
         case InstalledPBI::INSTALLING:
           output = tr("Installing"); break;
         case InstalledPBI::REMOVING:
           output = tr("Removing"); break;
         case InstalledPBI::UPDATING:
-          output = tr("Updating"); break;
+	  if(lUpdate.startsWith("DLSTAT::")){
+	    QString percent = lUpdate.section("::",1,1);
+	    output = QString(tr("Update Downloading: %1%")).arg( percent );
+	  }else if(lUpdate == "DLDONE"){
+	    output = tr("Starting Update");
+	  }else if(lUpdate == "DLSTART"){
+	    output = tr("Starting Download");
+	  }else{
+            output = tr("Updating");
+	  }
+	  break;
         case InstalledPBI::PENDINGDOWNLOAD:
           output = tr("Pending Download"); break;
         case InstalledPBI::PENDINGINSTALL:
@@ -552,8 +585,12 @@ QString PBIBackend::currentAppStatus( QString appID ){
           output = tr("Pending Removal"); break;
         case InstalledPBI::PENDINGUPDATE:
           output = tr("Pending Update"); break;
+	case InstalledPBI::UPDATEAVAILABLE:
+	  output = QString(tr("Update Available: %1")).arg(APPHASH[metaID].latestVersion);
+	  break;
         default: //do nothing for the rest
           output.clear();
+    }
   }
   return output;
 }
@@ -916,6 +953,10 @@ bool PBIBackend::loadSettings(){
  void PBIBackend::slotProcessFinished(int ID){
    bool resync = FALSE;
    if(ID == ProcessManager::UPDATE){
+     if(sUpdate){
+       //Update stopped during installation of new version: re-install old version
+	qDebug() << "Still need to add update cancellation during install phase";
+     }
      //Update the PBIHASH for installed versions
      slotSyncToDatabase(TRUE);
      cUpdate.clear(); //remove that it is finished
@@ -988,14 +1029,22 @@ bool PBIBackend::loadSettings(){
    QTimer::singleShot(0,this,SLOT(checkProcesses()) ); //look for more processes to start
  }
  
-void PBIBackend::slotProcessMessage(int ID, QString dlinfo){
+void PBIBackend::slotProcessMessage(int ID, QString info){
    if(ID == ProcessManager::UPDATE){
-     PBIHASH[cUpdate].setStatus(InstalledPBI::UPDATING, dlinfo); 
+     //PBIHASH[cUpdate].setStatus(InstalledPBI::UPDATING, dlinfo); 
+     lUpdate = info;
      emit PBIStatusChange(cUpdate);
    }else if(ID == ProcessManager::DOWNLOAD){
-     PBIHASH[cDownload].setStatus(InstalledPBI::DOWNLOADING, dlinfo); 
+     //PBIHASH[cDownload].setStatus(InstalledPBI::DOWNLOADING, dlinfo); 
+     lDownload = info;
      emit PBIStatusChange(cDownload);
-   }	
+   }else if( ID == ProcessManager::REMOVE){
+     lRemove = info;
+     emit PBIStatusChange(cRemove);
+   }else if( ID == ProcessManager::INSTALL){
+     lInstall = info;
+     emit PBIStatusChange(cInstall);
+   }
 }
 
 void PBIBackend::slotProcessError(int ID, QStringList log){
@@ -1182,7 +1231,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
    }else if(PENDINGREMOVAL.join(" ").contains(chk)){PBIHASH[pbiID].setStatus(InstalledPBI::PENDINGREMOVAL);}
    else if(PENDINGUPDATE.join(" ").contains(chk)){PBIHASH[pbiID].setStatus(InstalledPBI::PENDINGUPDATE);}
    //else if(PENDINGOTHER.join(" ").contains(chk)){PBIHASH[pbiID].setStatus(InstalledPBI::WORKING);}
-   else if( !upgrade.isEmpty() ){PBIHASH[pbiID].setStatus(InstalledPBI::UPDATEAVAILABLE, upgrade); }
+   else if( !upgrade.isEmpty() ){PBIHASH[pbiID].setStatus(InstalledPBI::UPDATEAVAILABLE); }
    else{ PBIHASH[pbiID].setStatus(InstalledPBI::NONE); }
  }
  

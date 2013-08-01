@@ -36,14 +36,17 @@ class InstalledPBI{
 	
   public:
     enum PBISTATUS{ NONE, DOWNLOADING, INSTALLING, REMOVING, UPDATING, PENDINGDOWNLOAD, PENDINGINSTALL, PENDINGREMOVAL, PENDINGUPDATE, UPDATEAVAILABLE, WORKING };
-    QString name, version, author, website, arch, path, icon, license, mdate, metaID, statusString, downloadfile;
+    QString name, version, author, website, arch, path, icon, license, mdate, metaID, downloadfile;
     PBISTATUS status;
     bool rootInstall, autoUpdate, desktopIcons, menuIcons;
     
-    InstalledPBI();
+    InstalledPBI(){
+      rootInstall=FALSE; autoUpdate=FALSE; desktopIcons=FALSE; menuIcons=FALSE;
+      status = NONE;
+    }
     ~InstalledPBI(){}
-    void setStatus(PBISTATUS stat, QString addInfo="");
-  
+    void setStatus(PBISTATUS stat){ status = stat; }
+    
 };
 
 // Info Container for PBI Meta information on a repo
