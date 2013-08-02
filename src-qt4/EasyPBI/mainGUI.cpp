@@ -169,7 +169,7 @@ bool MainGUI::isValidPort(QString pPath, bool allowOverride){
   }
   //Display a warning message
   if(allowOverride){
-    ok = (QMessageBox::Apply == QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected does not appear to be a valid FreeBSD port. \n\n Do you wish to continue using it anyway?"), QMessageBox::Apply | QMessageBox::Cancel, QMessageBox::Cancel) ); 
+    ok = (QMessageBox::Apply == QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected does not appear to be a valid FreeBSD port.")+"\n\n"+tr("Do you wish to continue using it anyway?"), QMessageBox::Apply | QMessageBox::Cancel, QMessageBox::Cancel) ); 
   }else{
     QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo."));
   }
