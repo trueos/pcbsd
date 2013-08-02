@@ -485,13 +485,17 @@
         <source>Available: %2</source>
         <translation>Disponible: %2</translation>
     </message>
+    <message>
+        <source>Downloading file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading %1 file:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
-    <message>
-        <source>Downloading</source>
-        <translation>Téléchargement</translation>
-    </message>
     <message>
         <source>Installing</source>
         <translation>Installation</translation>
@@ -592,67 +596,56 @@
         <source>Unknown</source>
         <translation>Inconnu            </translation>
     </message>
+    <message>
+        <source>Download Canceled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading: %1%</source>
+        <translation type="unfinished">Téléchargement: %1%</translation>
+    </message>
+    <message>
+        <source>Download Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Download Starting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install Canceled (will remove)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Removal Canceled (will reinstall)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update&apos;s cannot be canceled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Downloading: %1%</source>
+        <translation type="unfinished">Mise à jour Téléchargement: %1 {1%?}</translation>
+    </message>
+    <message>
+        <source>Starting Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Starting Download</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update Available: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
-        <source>%1 at %2</source>
-        <translation>%1 a %2</translation>
-    </message>
-    <message>
         <source>Unknown Error</source>
         <translation>Erreur inconnue</translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>Downloading...</source>
-        <translation>Téléchargement...       </translation>
-    </message>
-    <message>
-        <source>Downloading: %1</source>
-        <translation>Téléchargement: %1</translation>
-    </message>
-    <message>
-        <source>Installing...</source>
-        <translation>Installation...            </translation>
-    </message>
-    <message>
-        <source>Removing...</source>
-        <translation>Suppression...</translation>
-    </message>
-    <message>
-        <source>Updating...</source>
-        <translation>Mise à jour...</translation>
-    </message>
-    <message>
-        <source>Update Downloading: %1 </source>
-        <translation>Mise à jour Téléchargement: %1</translation>
-    </message>
-    <message>
-        <source>Pending Download</source>
-        <translation>En attendant de Télécharger</translation>
-    </message>
-    <message>
-        <source>Pending Install</source>
-        <translation>En attendant d&apos;Installation</translation>
-    </message>
-    <message>
-        <source>Pending Removal</source>
-        <translation>En attente de suppression</translation>
-    </message>
-    <message>
-        <source>Pending Update</source>
-        <translation>En attente de mise à jour</translation>
-    </message>
-    <message>
-        <source>Update Available!</source>
-        <translation>Mise à jour disponible!</translation>
-    </message>
-    <message>
-        <source>Version %1 Available</source>
-        <translation>Version %1 Disponible</translation>
     </message>
 </context>
 </TS>
