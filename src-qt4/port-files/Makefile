@@ -18,6 +18,7 @@ LIB_DEPENDS=	QtSolutions_SingleApplication-head.1:${PORTSDIR}/devel/qt4-qtsoluti
 
 RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils
 
+MAKE_JOBS_UNSAFE=yes
 USE_CDRTOOLS=	yes
 USE_BZIP2=	yes
 USE_QT4=	accessible \
