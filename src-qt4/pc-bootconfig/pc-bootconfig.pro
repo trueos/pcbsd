@@ -86,4 +86,8 @@ TRANSLATIONS =  i18n/pc-bootconfig_af.ts \
 dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
 
-INSTALLS += target dotrans
+icons = pc-bootconfig.png
+icons.path=/usr/local/share/pcbsd/icons/
+icons.extra=cp pc-bootconfig.png /usr/local/share/pcbsd/icons/pc-bootconfig.png
+
+INSTALLS += target icons dotrans
