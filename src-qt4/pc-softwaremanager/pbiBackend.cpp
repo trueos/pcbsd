@@ -203,7 +203,15 @@ void PBIBackend::cancelActions(QStringList pbiID){
       PENDINGOTHER = removePbiCMD(pbiID[i],PENDINGOTHER); //doubtful that there will even be anything here
       //Now cancel any current operations for this pbiID
       if(cDownload==pbiID[i]){ sDownload=TRUE; PMAN->stopProcess(ProcessManager::DOWNLOAD); }
-      if(cUpdate==pbiID[i]){ sUpdate=TRUE; PMAN->stopProcess(ProcessManager::UPDATE); }
+      if(cUpdate==pbiID[i]){ 
+	      if( lUpdate.startsWith("DLSTAT::") || lUpdate.startsWith("DLSTART") ){
+		//In download phase of the update - just kill it
+	        PMAN->stopProcess(ProcessManager::UPDATE); 
+	      }else{
+		//In the install phase of the update
+		sUpdate=TRUE; //need to clean up after it finishes
+	      }
+      }
       if(cRemove==pbiID[i]){ sRemove=TRUE; }
       if(cInstall==pbiID[i]){ sInstall=TRUE; }
       //Ignore OTHER process - those commands are pretty much instant
@@ -262,6 +270,25 @@ void PBIBackend::installApp(QStringList appID){
     } 
     //Find out if app is installed already
     QString pbiID = isInstalled(appID[i]);
+    if(pbiID.isEmpty()){
+      //Not installed at the moment, queue up the installation
+      qDebug() << "Fresh install of appID:" << appID[i];
+      queueInstall(appID[i]);
+    }else{
+      //It is already registered as installed
+      if( APPHASH[appID[i]].latestVersion == PBIHASH[pbiID].version ){
+        //latest version already installed, revert to backup version
+	qDebug() << "Revert install of appID:" << appID[i];
+	queueInstall(appID[i], APPHASH[appID[i]].backupVersion);
+      }else{
+	//older version installed - try to update the app
+	qDebug() << "Update install of appID:" << appID[i];
+	upgradePBI(QStringList() << pbiID);
+      }
+    }
+    
+    
+    /*
     //Generate the download command 
     QString cmd, version, arch, dlfile;
     bool needDownload = TRUE;
@@ -320,6 +347,7 @@ void PBIBackend::installApp(QStringList appID){
         syncPBI(newPbiID,FALSE); //fill item with info from app database (including status)
       }
     }
+    */
   } // end of loop over items
   //Now check/start the remove process
   QTimer::singleShot(0,this,SLOT(checkProcesses()) );
@@ -552,6 +580,7 @@ QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
   }else{
     switch (status){
         case InstalledPBI::DOWNLOADING:
+	  if(sDownload){ output = tr("Download Canceled"); }
 	  if(lDownload.startsWith("DLSTAT::")){
 	    QString percent = lDownload.section("::",1,1);
 	    output = QString(tr("Downloading: %1%")).arg( percent );
@@ -562,11 +591,16 @@ QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
 	  }
 	  break;
         case InstalledPBI::INSTALLING:
-          output = tr("Installing"); break;
+	  if(sInstall){ output = tr("Install Canceled (will remove)"); }
+	  else{ output = tr("Installing"); }
+	  break;
         case InstalledPBI::REMOVING:
-          output = tr("Removing"); break;
+	  if(sRemove){ output = tr("Removal Canceled (will reinstall)"); }
+          else{ output = tr("Removing"); }
+	  break;
         case InstalledPBI::UPDATING:
-	  if(lUpdate.startsWith("DLSTAT::")){
+	  if(sUpdate){ output = tr("Update's cannot be canceled"); }
+	  else if(lUpdate.startsWith("DLSTAT::")){
 	    QString percent = lUpdate.section("::",1,1);
 	    output = QString(tr("Update Downloading: %1%")).arg( percent );
 	  }else if(lUpdate == "DLDONE"){
@@ -593,6 +627,13 @@ QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
     }
   }
   return output;
+}
+
+bool PBIBackend::isWorking(QString pbiID){
+  if( !PBIHASH.contains(pbiID) ){ return FALSE; }
+
+  bool notworking = (PBIHASH[pbiID].status == InstalledPBI::UPDATEAVAILABLE || PBIHASH[pbiID].status == InstalledPBI::NONE );
+  return !notworking;
 }
 
 // === Configuration Management ===
@@ -849,6 +890,44 @@ bool PBIBackend::loadSettings(){
    return output;
  }
  
+void PBIBackend::queueInstall(QString appID, QString version){
+  //This function assumes that the new app/version combination is not already installed on the system
+  //  and that upgrading is not an option (fresh download/install)	
+  if( !APPHASH.contains(appID) ){ return; }
+  //verify that the version is available
+  if( version.isEmpty() ){ version = APPHASH[appID].latestVersion; }
+  bool useLatest = false;
+  if( version == APPHASH[appID].latestVersion){ useLatest=true; }
+  else if( version != APPHASH[appID].backupVersion ){ return; } //invalid version
+  //Check to see if the file is already downloaded
+  QString dlFile, arch;
+  if(useLatest){ dlFile = APPHASH[appID].latestFilename; arch = APPHASH[appID].latestArch; }
+  else{ dlFile = APPHASH[appID].backupFilename; arch = APPHASH[appID].backupArch; }
+  //Generate PBI ID
+  QString newID = appID+"-"+version+"-"+arch;
+  QString oldID = isInstalled(appID); //look for existing installation of this app
+
+  //Create Commands and add them to the proper queue
+  if( QFile::exists(dlDir+dlFile) ){
+    if(!oldID.isEmpty()){
+      //Remove the old application first
+      PENDINGINSTALL << oldID+":::"+generateRemoveCMD(oldID);
+    }
+    PENDINGINSTALL << newID+":::"+generateInstallCMD(appID,dlFile);
+  }else{
+    //Generate download command
+    PENDINGDL << newID+":::"+generateDownloadCMD(appID, version);
+  }
+  //Setup the HASH entry for the new PBI
+  PBIHASH.insert(newID, InstalledPBI());
+  PBIHASH[newID].metaID = appID;
+  PBIHASH[newID].version = version;
+  PBIHASH[newID].arch = arch;
+  PBIHASH[newID].downloadfile = dlFile;
+  syncPBI(newID,FALSE);
+  
+}
+ 
  // ===============================
  // ======   PRIVATE SLOTS   ======
  // ===============================
@@ -955,23 +1034,29 @@ bool PBIBackend::loadSettings(){
    if(ID == ProcessManager::UPDATE){
      if(sUpdate){
        //Update stopped during installation of new version: re-install old version
-	qDebug() << "Still need to add update cancellation during install phase";
+	//get metaID of app
+	/*QString metaID = PBIHASH[cUpdate].metaID;
+	slotSyncToDatabase(TRUE);
+	sleep(2);
+	installApp(QStringList() << metaID); //will install backup version if available*/
      }
      //Update the PBIHASH for installed versions
-     slotSyncToDatabase(TRUE);
+     resync=TRUE;
      cUpdate.clear(); //remove that it is finished
+     lUpdate.clear();
      sUpdate=FALSE;
      resync=TRUE;
    }else if(ID == ProcessManager::REMOVE){
      if(sRemove){
        //Removal Cancelled: Re-install the PBI
-       QString metaid = PBIHASH[cRemove].metaID; //get the metaID
+       QString metaID = PBIHASH[cRemove].metaID; //get the metaID
        slotSyncToDatabase(TRUE);
-       sleep(1);
-       installApp(QStringList() << PBIHASH[cRemove].metaID);
+       sleep(2);
+       installApp(QStringList() << metaID);
      }
      sRemove=FALSE;
-     cRemove.clear(); //remove that it is finished	   
+     cRemove.clear(); //remove that it is finished	
+     lRemove.clear();
    }else if(ID == ProcessManager::INSTALL){
      //Add XDG commands to the queue
      if(sInstall){
@@ -988,6 +1073,7 @@ bool PBIBackend::loadSettings(){
      }
      sInstall = FALSE;
      cInstall.clear(); //remove that it is finished
+     lInstall.clear();
      resync=TRUE; //make sure to reload local files
    }else if(ID == ProcessManager::DOWNLOAD){
      //Make sure the download was successful
@@ -1021,6 +1107,7 @@ bool PBIBackend::loadSettings(){
      }
      sDownload = FALSE;
      cDownload.clear(); //remove that it is finished	
+     lDownload.clear();
    }else if(ID == ProcessManager::OTHER){
      cOther.clear();	   
    }

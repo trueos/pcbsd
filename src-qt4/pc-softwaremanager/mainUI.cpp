@@ -361,7 +361,7 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
   ui->check_install_autoupdate->setChecked(autoupdate);
   
   //Adjust the quick action buttons as necessary
-  if(!PBI->currentAppStatus(appID).isEmpty()){
+  if( PBI->isWorking(appID) ){
     //Actions pending/working only show cancel button
     ui->tool_install_cancel->setVisible(TRUE);
     ui->tool_install_remove->setVisible(FALSE);

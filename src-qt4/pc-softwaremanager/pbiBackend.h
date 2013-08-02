@@ -66,6 +66,7 @@ public:
 	QStringList CatInfo( QString catID, QStringList infoList);
 	QStringList AppInfo( QString appID, QStringList infoList);
 	QString currentAppStatus( QString appID , bool rawstatus = false);
+	bool isWorking(QString pbiID);
 	
 	//Configuration Management
 	void openConfigurationDialog();
@@ -118,6 +119,9 @@ private:
 	QString generateDownloadCMD(QString appID, QString version="");
 	QString generateInstallCMD(QString appID, QString pbiID);
 	QStringList removePbiCMD(QString pbiID, QStringList list);
+	
+	//Internal functions for queuing up actions
+	void queueInstall(QString appID, QString version="");
 	
 private slots:
 	void updateDlDirPath(QString);
