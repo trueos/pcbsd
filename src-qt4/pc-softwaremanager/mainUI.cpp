@@ -935,12 +935,11 @@ void MainUI::clearScrollArea(QScrollArea* area){
 }
 
 void MainUI::slotDisplayError(QString title,QString message,QStringList log){
-  ErrorDialog *dlg = new ErrorDialog(this);
-  dlg->setDLGTitle(title);
-  dlg->setDLGMessage(message);
-  dlg->setDLGLog(log);
+  QMessageBox *dlg = new QMessageBox(this);
+    dlg->setWindowTitle(title);
+    dlg->setText(message);
+    dlg->setDetailedText(log.join("\n"));
   dlg->exec();
-  //QMessageBox::warning(this,title,message+"\n\n"+log.join("\n"));
 }
 
 void MainUI::slotDisplayStats(){

@@ -26,7 +26,6 @@
 #include "extras.h"
 #include "largeItemWidget.h"
 #include "smallItemWidget.h"
-#include "ErrorDialog.h"
 
 namespace Ui {
     class MainUI;
