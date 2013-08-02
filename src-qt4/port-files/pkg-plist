@@ -413,6 +413,7 @@ share/pcbsd/pc-controlpanel/icons/bluetooth.png
 share/pcbsd/pc-controlpanel/icons/pc-controlpanel64x64.png
 share/pcbsd/pc-controlpanel/icons/pc-controlpanel.png
 share/pcbsd/pc-controlpanel/icons/cups-icon.png
+share/pcbsd/pc-controlpanel/items/system/pc-bootconfig.desktop
 share/pcbsd/pc-controlpanel/items/system/pbi-thefish.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-dmconf.desktop
 share/pcbsd/pc-controlpanel/items/system/pc-gdmconf.desktop
