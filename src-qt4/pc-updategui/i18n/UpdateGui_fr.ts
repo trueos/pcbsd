@@ -153,8 +153,7 @@
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impossible de démarrer freebsd-update, un autre processus est déjà en marche!</translation>
     </message>
 </context>
 </TS>

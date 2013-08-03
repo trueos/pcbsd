@@ -133,17 +133,6 @@
     </message>
 </context>
 <context>
-    <name>ErrorDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
-    <message>
-        <source>Show Error Log</source>
-        <translation>Afficher journal des erreurs</translation>
-    </message>
-</context>
-<context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
@@ -487,11 +476,11 @@
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargement du fichier:</translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargement de fichier %1:</translation>
     </message>
 </context>
 <context>
@@ -594,51 +583,51 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Inconnu            </translation>
+        <translation>Inconnu</translation>
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargement annulé</translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">Téléchargement: %1%</translation>
+        <translation>Téléchargement: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Téléchargement terminé</translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished"></translation>
+        <translation>Début du Téléchargement</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished"></translation>
+        <translation>Installation annulée (va être retiré)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished"></translation>
+        <translation>Retrait annulé (va être réinstaller)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
-        <translation type="unfinished"></translation>
+        <translation>La mise à jour de ne peut être annulée</translation>
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">Mise à jour Téléchargement: %1 {1%?}</translation>
+        <translation>Mise à jour Téléchargement: %1 {1%?}</translation>
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrage à jour</translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Début du téléchargement</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mise à jour disponible: %1</translation>
     </message>
 </context>
 <context>

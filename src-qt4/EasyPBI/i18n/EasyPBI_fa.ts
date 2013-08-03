@@ -796,9 +796,11 @@
             </translation>
     </message>
     <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port. 
-
- Do you wish to continue using it anyway?</source>
+        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to continue using it anyway?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

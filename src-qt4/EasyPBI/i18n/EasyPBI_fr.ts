@@ -776,9 +776,11 @@
         <translation>Cela nécessite une connexion Internet active et des privilèges d&apos;administrateur. Le temps nécessaire pour construire un PBI varie en fonction des spécifications du système et des ports à compiler.</translation>
     </message>
     <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port. 
-
- Do you wish to continue using it anyway?</source>
+        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to continue using it anyway?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

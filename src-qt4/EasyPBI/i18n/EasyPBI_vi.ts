@@ -776,9 +776,11 @@
         <translation>Điều này đòi hỏi một kết nối internet hoạt động và quyền quản trị. Thời gian cần thiết để xây dựng một PBI thay đổi tùy thuộc vào thông số kỹ thuật hệ thống và các cổng được biên soạn.</translation>
     </message>
     <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port. 
-
- Do you wish to continue using it anyway?</source>
+        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to continue using it anyway?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -133,17 +133,6 @@
     </message>
 </context>
 <context>
-    <name>ErrorDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialog</translation>
-    </message>
-    <message>
-        <source>Show Error Log</source>
-        <translation>Hiển thị Lỗi Đăng nhập</translation>
-    </message>
-</context>
-<context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
@@ -487,11 +476,11 @@
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tải về tập tin:</translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tải tập tin %1 :</translation>
     </message>
 </context>
 <context>
@@ -598,47 +587,47 @@
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished"></translation>
+        <translation>tải hủy</translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">Tải về: %1%</translation>
+        <translation>Tải về: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished"></translation>
+        <translation>tải về hoàn thành</translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu tải về</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cài đặt hủy (sẽ loại bỏ)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished"></translation>
+        <translation>Loại bỏ hủy (sẽ cài đặt lại)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
-        <translation type="unfinished"></translation>
+        <translation>Cập nhật không thể được hủy bỏ</translation>
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">Cập nhật tải về: %1 {1%?}</translation>
+        <translation>Cập nhật tải về: %1 {1%?}</translation>
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished"></translation>
+        <translation>bắt đầu cập nhật</translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished"></translation>
+        <translation>bắt đầu Tải về</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Cập nhật có sẵn: %1</translation>
     </message>
 </context>
 <context>

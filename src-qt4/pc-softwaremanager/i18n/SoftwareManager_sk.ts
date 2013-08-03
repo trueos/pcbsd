@@ -164,19 +164,6 @@
     </message>
 </context>
 <context>
-    <name>ErrorDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Show Error Log</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-</context>
-<context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
@@ -599,11 +586,13 @@
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -735,7 +724,8 @@
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
@@ -744,23 +734,28 @@
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update Downloading: %1%</source>
@@ -769,15 +764,18 @@
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
