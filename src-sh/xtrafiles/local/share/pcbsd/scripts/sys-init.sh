@@ -53,11 +53,14 @@ if [ "$1" = "desktop" ] ;then
   pbreg set /PC-BSD/SysType PCBSD
   touch /etc/defaults/pcbsd
 
-  # Enable showing the PC-BSD 4th screen
-  echo "pcbsd_boot=\"YES\"" >> /boot/loader.conf
-
   # Init the desktop
   /usr/local/bin/pc-extractoverlay desktop --sysinit
+
+  # Check if we need to load i915kms
+  kldstat | grep -q "i915kms"
+  if [ $? -eq 0 ] ; then
+     echo "i915kms_load=\"YES\"" >> /boot/loader.conf
+  fi
 
   # Need to save a language?
   if [ -n "$2" ] ; then
