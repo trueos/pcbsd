@@ -119,13 +119,13 @@ int MountTray::findDeviceInList(QString newDev){
   return -1;
 }
 
-void MountTray::addDevice(QString dev, QString label, QString type, QString filesys){
+bool MountTray::addDevice(QString dev, QString label, QString type, QString filesys){
   if(!dev.startsWith(DEVICEDIR)){ dev.prepend(DEVICEDIR); }
   
   //Check if the device is already in the list
   int tot=0;
   for(int i=0; i<deviceList.length(); i++){
-    if( deviceList[i]->device == dev ){ return; } //already exists, do nothing
+    if( deviceList[i]->device == dev ){ return false; } //already exists, do nothing
     if( deviceList[i]->getDeviceName().startsWith(label) ){ tot++; }
   }
   //See if the label is unique as well, otherwise add a number to the end to make it unique
@@ -141,6 +141,7 @@ void MountTray::addDevice(QString dev, QString label, QString type, QString file
   deviceList << tmp;
   //Update the menu
   updateMenu();
+  return true;
 }
 
 void MountTray::removeDevice(QString dev){
@@ -219,9 +220,9 @@ void MountTray::slotDevChanges(bool showPopup){
     bool good = DCheck->devInfo(nsd[i],&dtype,&dlabel,&dfs,&dsize);
     if(good){
       //Now create a new entry for this device
-      addDevice(nsd[i],dlabel,dtype,dfs);  
+      bool added = addDevice(nsd[i],dlabel,dtype,dfs);  
       //Show a message bubble
-      if(showPopup){
+      if(showPopup && added){ //make sure this is not shown for previously added devices
         QString title = tr("New Device");
         QString message = QString( tr("%1 can now be accessed")).arg(dlabel);
         slotDisplayPopup(title, message);
