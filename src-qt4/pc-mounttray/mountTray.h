@@ -73,7 +73,7 @@ private:
   void updateMenu();
   void scanInitialDevices();
   int findDeviceInList(QString);
-  void addDevice(QString,QString,QString,QString);
+  bool addDevice(QString,QString,QString,QString);
   void startupDevdProc();
   void getInitialUsername();
   void getDefaultFileManager();
