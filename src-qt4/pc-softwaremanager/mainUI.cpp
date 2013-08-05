@@ -151,6 +151,10 @@ void MainUI::initializeInstalledTab(){
     actionMenu->addAction( QIcon(":icons/remove.png"), tr("Uninstall"), this, SLOT(slotActionRemove()) );
     actionMenu->addSeparator();
     actionMenu->addAction( QIcon(":icons/dialog-cancel.png"), tr("Cancel Actions"), this, SLOT(slotActionCancel()) );
+  //Setup the binary menu for installed applications
+  appBinMenu = new QMenu();
+  ui->tool_install_icon->setMenu(appBinMenu);
+    connect(appBinMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotStartApp(QAction*)) );
     //Now setup the action button
     ui->tool_install_performaction->setMenu(actionMenu);
     ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
@@ -347,7 +351,7 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
     else{ shortcuts = tr("None"); }
   //Now display that info on the UI
   ui->label_install_app->setText(vals[0]);
-  ui->label_install_icon->setPixmap( QPixmap(vals[1]) );
+  ui->tool_install_icon->setIcon( QIcon(vals[1]) );
   if(vals[3].isEmpty()){ 
     ui->label_install_author->setText(vals[2]); 
     ui->label_install_author->setToolTip("");
@@ -417,6 +421,20 @@ void MainUI::on_tree_install_apps_itemSelectionChanged(){
     ui->group_install_appStat->setVisible(TRUE);
       ui->progress_install_DL->setVisible(FALSE);
       ui->label_install_DL->setVisible(FALSE);
+  }
+  //Get the application binaries and set the icon to start them
+  QStringList bins = PBI->pbiBinList(appID);
+  appBinMenu->clear();
+  if(bins.isEmpty()){
+    ui->tool_install_icon->setAutoRaise(false);
+  }else{
+    ui->tool_install_icon->setAutoRaise(true);
+    for(int i=0; i<bins.length(); i++){
+      QAction *act = new QAction(this);
+	    act->setText(bins[i].section("::::",0,0)); //set name
+	    act->setWhatsThis(bins[i].section("::::",1,10)); //set command string
+      appBinMenu->addAction(act);
+    }
   }
 }
 
@@ -547,6 +565,14 @@ void MainUI::slotActionCancel(){
   }
 }
 
+void MainUI::slotStartApp(QAction* act){
+  qDebug() << "Starting external application:" << act->text();
+  //Get the command from the action
+  QString desktopfile = act->whatsThis();
+  QString cmd = "xdg-open "+desktopfile;
+  //Startup the command externally
+  QProcess::startDetached(cmd);
+}
 
 // ==========================
 // ====== BROWSER TAB =======

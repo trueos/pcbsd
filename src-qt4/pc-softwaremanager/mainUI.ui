@@ -274,21 +274,37 @@ border-radius: 5px;
               <item row="1" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_13">
                 <item>
-                 <widget class="QLabel" name="label_install_icon">
+                 <widget class="QToolButton" name="tool_install_icon">
                   <property name="maximumSize">
                    <size>
                     <width>64</width>
                     <height>64</height>
                    </size>
                   </property>
+                  <property name="statusTip">
+                   <string>Start the application</string>
+                  </property>
                   <property name="text">
                    <string/>
                   </property>
-                  <property name="pixmap">
-                   <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
+                  <property name="icon">
+                   <iconset resource="SoftwareManager.qrc">
+                    <normaloff>:/icons/appcafe.png</normaloff>:/icons/appcafe.png</iconset>
                   </property>
-                  <property name="scaledContents">
+                  <property name="iconSize">
+                   <size>
+                    <width>64</width>
+                    <height>64</height>
+                   </size>
+                  </property>
+                  <property name="popupMode">
+                   <enum>QToolButton::InstantPopup</enum>
+                  </property>
+                  <property name="autoRaise">
                    <bool>true</bool>
+                  </property>
+                  <property name="arrowType">
+                   <enum>Qt::NoArrow</enum>
                   </property>
                  </widget>
                 </item>
@@ -305,7 +321,7 @@ border-radius: 5px;
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>40</width>
+                      <width>10</width>
                       <height>20</height>
                      </size>
                     </property>
@@ -713,8 +729,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>70</width>
-                    <height>16</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -764,8 +780,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>49</width>
-                    <height>16</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -789,8 +805,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>86</width>
-                 <height>16</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -1250,8 +1266,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>55</width>
-                    <height>16</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                  </widget>
@@ -1288,8 +1304,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>55</width>
-                    <height>16</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                  </widget>

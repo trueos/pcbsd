@@ -286,68 +286,6 @@ void PBIBackend::installApp(QStringList appID){
 	upgradePBI(QStringList() << pbiID);
       }
     }
-    
-    
-    /*
-    //Generate the download command 
-    QString cmd, version, arch, dlfile;
-    bool needDownload = TRUE;
-    if(pbiID.isEmpty()){ //Not installed currently
-      version = APPHASH[appID[i]].latestVersion; //install the latest version available
-      arch = APPHASH[appID[i]].latestArch;
-      dlfile = APPHASH[appID[i]].latestFilename;
-      if(QFile::exists(dlDir+dlfile)){ //If the file was downloaded previously just use it
-        needDownload=FALSE; 
-        cmd = generateInstallCMD(appID[i], dlfile);
-      }else{ 
-        cmd = generateDownloadCMD(appID[i], version); //need to download the file first 
-      } 
-    }else if( PBIHASH[pbiID].version == APPHASH[appID[i]].latestVersion ){
-      version = APPHASH[appID[i]].backupVersion; //Already latest version, revert to the backup version
-      arch = APPHASH[appID[i]].backupArch;
-      dlfile = APPHASH[appID[i]].backupFilename;
-      if(version.isEmpty()){ qDebug() << appID[i] << "already the latest version (no backup)";}
-      else{ 
-        if(QFile::exists(dlDir+dlfile)){ //If the file was downloaded previously just use it
-          needDownload=FALSE; 
-          cmd = generateInstallCMD(appID[i], dlfile);
-        }else{ 
-          cmd = generateDownloadCMD(appID[i], version); //need to download the file first 
-        } 
-      }	    
-    }else{
-      //Old version installed - run the update command instead
-      upgradePBI(QStringList() << pbiID);
-    }
-    if( cmd.isEmpty() || version.isEmpty() || arch.isEmpty() || dlfile.isEmpty() ){ continue; } //go to the next item - is invalid
-    else{
-      QString newPbiID = appID[i]+"-"+version+"-"+arch; //generate a PBI ID
-      if(PBIHASH.contains(newPbiID)){ qDebug() << newPbiID << "is either already installed or installing"; }
-      else{
-	//Now create a new entry for the item
-        PBIHASH.insert(newPbiID,InstalledPBI());
-        PBIHASH[newPbiID].metaID = appID[i]; //set this for the initial sync to work properly
-        PBIHASH[newPbiID].version = version;
-        PBIHASH[newPbiID].arch = arch;
-        PBIHASH[newPbiID].downloadfile = dlfile;	      
-      	//put the command in the queue
-      	if(needDownload){
-          PENDINGDL << newPbiID+":::"+cmd;
-        }else{ //no need to download, just install
-          //Check for if a different version needs to be removed first
-          qDebug() << "Using existing PBI:" << dlDir+dlfile;
-          if(!pbiID.isEmpty()){
-            //Remove the currently installed version first
-            QString cmd2 = generateRemoveCMD(pbiID);
-            if(!cmd2.isEmpty()){ PENDINGINSTALL << pbiID+":::"+cmd2; }
-          }
-          //Now add the install command
-          PENDINGINSTALL << newPbiID+":::"+cmd;
-        }
-        syncPBI(newPbiID,FALSE); //fill item with info from app database (including status)
-      }
-    }
-    */
   } // end of loop over items
   //Now check/start the remove process
   QTimer::singleShot(0,this,SLOT(checkProcesses()) );
@@ -634,6 +572,38 @@ bool PBIBackend::isWorking(QString pbiID){
 
   bool notworking = (PBIHASH[pbiID].status == InstalledPBI::UPDATEAVAILABLE || PBIHASH[pbiID].status == InstalledPBI::NONE );
   return !notworking;
+}
+
+QStringList PBIBackend::pbiBinList(QString pbiID){
+  QStringList output;
+  //qDebug() << "Start Search for Binaries:" << pbiID;
+  if( !PBIHASH.contains(pbiID) ){ return output; }
+  //Now prod the database to see what binaries are currently available to run 
+  QDir bDir(PBIHASH[pbiID].path+"/.xdg-menu/");  
+  if(bDir.exists()){
+    QStringList bList = bDir.entryList(QStringList() << "*.desktop");
+    for(int i =0; i<bList.length(); i++){
+      QStringList contents = Extras::readFile(bDir.absoluteFilePath(bList[i]));
+	//qDebug() << " - Check file:" << bList[i] << contents;
+      //Make sure that it is a visible entry
+      if(!contents.contains("NoDisplay=true")){
+	//qDebug() << " -- visible entry";
+	QString name;
+	//Get the locale code
+	QString loc = QLocale::system().name();
+	bool lName=false;
+	for(int j=0; j<contents.length(); j++){
+	  if(contents[j].startsWith("Name=") && !lName){ name = contents[j].section("=",1,10);  }
+	  else if(contents[j].startsWith("Name["+loc+"]=")){ name = contents[j].section("=",1,10);  lName=true; }
+	}
+	//Format the output string
+	if( !name.isEmpty() ){
+	  output << name.simplified()+"::::"+bDir.absoluteFilePath(bList[i]);
+	}
+      }
+    } //end loop over files
+  }
+  return output;
 }
 
 // === Configuration Management ===

@@ -67,6 +67,7 @@ public:
 	QStringList AppInfo( QString appID, QStringList infoList);
 	QString currentAppStatus( QString appID , bool rawstatus = false);
 	bool isWorking(QString pbiID);
+	QStringList pbiBinList(QString pbiID);
 	
 	//Configuration Management
 	void openConfigurationDialog();

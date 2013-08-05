@@ -77,6 +77,7 @@ private slots:
   void slotActionUpdate();
   void slotActionRemove();
   void slotActionCancel();
+  void slotStartApp(QAction*);
   
   //BROWSER TAB
   void slotDisableBrowser(bool shownotification = TRUE);
@@ -98,13 +99,13 @@ private slots:
   void on_group_bapp_similar_toggled(bool);
   //OTHER
   void slotDisplayError(QString,QString,QStringList);
-
+  
 private:
   Ui::MainUI *ui;
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
-  QMenu *actionMenu;
+  QMenu *actionMenu, *appBinMenu;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
   QStringList getCheckedItems();
