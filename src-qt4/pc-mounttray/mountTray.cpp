@@ -192,14 +192,14 @@ void MountTray::slotDevChanges(bool showPopup){
   //Get the current list of devices
   QStringList nsd = DCheck->devChildren("");
   //Remove all the currently managed devices
-  qDebug() << "Current Device List:" << nsd;
+  qDebug() << "Rescanning Device List:" << nsd;
   for(int i=0; i<deviceList.length(); i++){
     QString dev = deviceList[i]->device.section("/",-1);
-    qDebug() << " - Check device:" << dev;
+    if(DEBUG_MODE){ qDebug() << " - Check device:" << dev; }
     int ni = nsd.indexOf(dev);
     if(ni == -1){
       //Device Removed
-      qDebug() << " - Device no longer connected";
+      if(DEBUG_MODE){ qDebug() << " - Device no longer connected:" << dev; }
       removeDevice(dev);
       i--;
     }else{
@@ -207,7 +207,7 @@ void MountTray::slotDevChanges(bool showPopup){
       if( !deviceList[i]->isMounted() ){
 	QString ja, jb, jc, jd; //junk variables
         if( !DCheck->devInfo(dev,&ja,&jb,&jc,&jd) ){
-	  qDebug() << " - Device no longer valid";
+	  if(DBUG_MODE){ qDebug() << " - Device no longer valid:" << dev; }
 	  //no longer valid device
 	  removeDevice(dev);
 	  i--;
