@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Exec=pc-su pc-bootconfig
-TryExec=pc-bootconfig
+TryExec=/usr/local/bin/pc-bootconfig
 Keywords="grub,boot,boot loader"
 Icon=/usr/local/share/pcbsd/icons/pc-bootconfig.png
 StartupNotify=true
