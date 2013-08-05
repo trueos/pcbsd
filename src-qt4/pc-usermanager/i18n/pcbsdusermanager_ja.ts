@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">ファイルを暗号化する:</translation>
     </message>
 </context>
 <context>
@@ -543,8 +542,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを暗号化する:</translation>
     </message>
 </context>
 <context>

@@ -777,13 +777,11 @@
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le répertoire choisi ne semble pas être un port FreeBSD valide.            </translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous souhaitez continuer à l&apos;utiliser quand même?</translation>
     </message>
 </context>
 <context>

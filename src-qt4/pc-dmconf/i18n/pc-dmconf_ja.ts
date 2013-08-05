@@ -5,63 +5,51 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログインマネージャーの設定</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動ログイン</translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動ログインを有効にする</translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動ログインするユーザー</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リモートログイン</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パスワードの入力</translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リモートログインするユーザーのパスワードを入力してください</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リモートデスクトップ(VNC)を有効にする</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>その他</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>「パスワードを表示する」ボタンを有効にする</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">リモートログイン用パスワードを入力してください</translation>
     </message>
 </context>
 </TS>

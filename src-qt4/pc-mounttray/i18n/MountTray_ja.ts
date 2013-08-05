@@ -20,13 +20,12 @@
         <translation>使用済み/合計</translation>
     </message>
     <message>
-        <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Close</source>
         <translation>閉じる</translation>
+    </message>
+    <message>
+        <source>Percent %</source>
+        <translation type="unfinished">%</translation>
     </message>
 </context>
 <context>
@@ -132,17 +131,16 @@ root 権限付きでファイルマネージャーを開くことはできませ
         <translation>システムに追加されたデバイスを再認識しています</translation>
     </message>
     <message>
-        <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>View Disk Usage</source>
         <translation>ディスクの使用状況を確認する</translation>
     </message>
     <message>
         <source>Change Settings</source>
         <translation>設定を変更する</translation>
+    </message>
+    <message>
+        <source>More Options</source>
+        <translation type="unfinished">オプション</translation>
     </message>
 </context>
 <context>
@@ -157,13 +155,11 @@ root 権限付きでファイルマネージャーを開くことはできませ
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">デバイスの変更を通知する</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更チェックまでの最大時間(分)</translation>
     </message>
     <message>
         <source>Cancel</source>

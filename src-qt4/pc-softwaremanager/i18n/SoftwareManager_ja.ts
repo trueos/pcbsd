@@ -5,63 +5,51 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe の設定</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストール後の処理</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップにアイコンを作成する</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メニューにアイコンを作成する</translation>
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル拡張子を登録する</translation>
     </message>
     <message>
         <source>Create Path Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PATH の通る場所にプログラムへのリンクを作成する</translation>
     </message>
     <message>
         <source>Keep Downloaded Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードしたファイルを保持する</translation>
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードディレクトリー</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードディレクトリー</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リポジトリー</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>...</source>
@@ -73,122 +61,102 @@
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>上へ移動</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>下へ移動</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リポジトリーの追加</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リポジトリーファイル (*.rpo)</translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リポジトリーの追加に成功しました</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このリポジトリーはもうすぐ利用できるようになります(インターネット接続スピードに依存します)</translation>
     </message>
     <message>
         <source>Repo Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リポジトリーの追加に失敗</translation>
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このリポジトリーは追加できません。</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>完全なエラーメッセージを確認するには、コマンド &apos;%1&apos; を手動で実行してください。</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除の確認</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>この PBI リポジトリーを削除してもよろしいですか?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このリポジトリーは削除できません。</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいミラーの URL</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいリポジトリーミラーの URL を入力してください:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ミラーの変更に失敗しました</translation>
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>完全なエラーメッセージは AppCafe のターミナル出力に表示されています。</translation>
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードディレクトリーの選択</translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">インストール済み</translation>
+        <translation>インストール済み</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">プログラム名</translation>
+        <translation>プログラム名</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>バージョン</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">状態</translation>
+        <translation>状態</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>全アプリケーションを選択する/選択解除する</translation>
     </message>
     <message>
         <source>All</source>

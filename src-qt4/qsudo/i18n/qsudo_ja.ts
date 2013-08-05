@@ -5,28 +5,23 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システム管理者権限でコマンドを実行するためにあなたのパスワードを入力してください</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システム管理者権限のリクエスト</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アクセス拒否</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このユーザーはシステムの管理者権限を持っていません。</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パスワードが間違っています。残り試行回数: %1</translation>
     </message>
 </context>
 </TS>

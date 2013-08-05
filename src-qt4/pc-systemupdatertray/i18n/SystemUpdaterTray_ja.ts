@@ -107,13 +107,11 @@
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージマネージャーを起動する</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージのアップデートがあります</translation>
     </message>
 </context>
 </TS>

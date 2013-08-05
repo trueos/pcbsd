@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>The following package updates are available:</source>
-        <translation>以下のパッケージをアップデートできます。</translation>
+        <translation>以下のパッケージがアップデートされます:</translation>
     </message>
     <message>
         <source>Updates for Jail:</source>
@@ -137,28 +137,23 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートの詳細</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>基本システムのアップデート</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のファイルが更新されます:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートの詳細:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-update を実行できません。他のプロセスが実行しています。</translation>
     </message>
 </context>
 </TS>

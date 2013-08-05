@@ -777,13 +777,11 @@
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thư mục được lựa chọn không xuất hiện như một cổng FreeBSD hợp lệ.</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có muốn tiếp tục sử dụng nó không?</translation>
     </message>
 </context>
 <context>
