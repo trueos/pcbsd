@@ -13,8 +13,9 @@ PROGDIR="/usr/local/share/lpreserver"
 DBDIR="/var/db/lpreserver"
 if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
 CMDLOG="${DBDIR}/lp-lastcmdout"
+REPCONF="${DBDIR}/replication"
 LOGDIR="/var/log"
-export DBDIR LOGDIR PROGDIR CMDLOG
+export DBDIR LOGDIR PROGDIR CMDLOG REPCONF
 
 MSGQUEUE=""
 export MSGQUEUE
@@ -149,3 +150,40 @@ queue_msg() {
 echo_queue_msg() {
   echo -e "$MSGQUEUE"
 }
+
+add_rep_task() {
+  # add freenas.8343 backupuser 22 tank1/usr/home/kris tankbackup/backups sync
+  HOST=$1
+  USER=$2
+  PORT=$3
+  LDATA=$4
+  RDATA=$5
+  TIME=$6
+
+  case $TIME in
+     [0-9][0-9]|sync)  ;;
+     *) exit_err "Invalid time: $TIME"
+  esac
+ 
+  echo "Adding replication task for local dataset $LDATA"
+  echo "----------------------------------------------------------"
+  echo "   Remote Host: $HOST" 
+  echo "   Remote User: $USER" 
+  echo "   Remote Port: $PORT" 
+  echo "Remote Dataset: $RDATA" 
+  echo "          Time: $TIME" 
+  echo "----------------------------------------------------------"
+  echo "Don't forget to ensure that this user / dataset exists on the remote host"
+  echo "with the correct permissions!"
+
+  rem_rep_task "$LDATA"
+  echo "$LDATA:$TIME:$HOST:$USER:$PORT:$RDATA" >> ${REPCONF}
+
+}
+
+rem_rep_task() {
+  if [ ! -e "$REPCONF" ] ; then return ; fi
+  cat ${REPCONF} | grep -v "^${1}:" > ${REPCONF}.tmp
+  mv ${REPCONF}.tmp ${REPCONF}
+}
+

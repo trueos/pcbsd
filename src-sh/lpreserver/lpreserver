@@ -88,9 +88,9 @@ Add Options:
 
 Remove Options:
 
-	remove <id>
+	remove <dataset>
 	
-	Remove a replication task indicated by <id>
+	Remove a replication task indicated by <dataset>
         Use 'replicate list' for a list of IDs. 
 
 Usage:
@@ -370,7 +370,22 @@ revertsnap) require_root
          SNAP="$3"
          ${PROGDIR}/backend/zfsrmsnap.sh "${DATASET}" "${SNAP}"
          ;;
-
+ replicate) require_root
+	    shift
+	    case ${1} in
+		add) add_rep_task "$2" "$3" "$4" "$5" "$6" "$7" ;;
+		list) ;;
+		remove) cat ${REPCONF} | grep -q "^${2}:" 
+			if [ $? -eq 0 ] ; then
+			   rem_rep_task "$2"
+		  	   echo "Removed replication task for $2"
+			else
+			   exit_err "No such replication task for dataset $2"
+			fi
+                        ;;
+		*) exit_err "Invalid option!" ;;
+	    esac
+	 ;;
    *) help_main ;;
 esac
 
