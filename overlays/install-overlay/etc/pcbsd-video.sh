@@ -41,6 +41,8 @@ if [ -n "$card2" ] ; then
   sleep 1
 fi
 
+loadIntelKMS=no
+
 # Check for optimus with intel as first card
 echo "$card1" | grep -q -i -e "intel"
 if [ $? -eq 0 ] ; then
@@ -49,6 +51,7 @@ if [ $? -eq 0 ] ; then
       echo "Detected Optimus! Using intel video..."
       sleep 1
    fi
+   loadIntelKMS=yes
 fi
 
 # Check for optimus with nvidia as first card
@@ -58,9 +61,15 @@ if [ $? -eq 0 ] ; then
    if [ $? -eq 0 ] ; then
       echo "Detected Optimus! Using intel video..."
       sleep 1
+      loadIntelKMS=yes
    else
       echo "Detected NVIDIA! Loading NVIDIA driver..."
       kldload nvidia
       sleep 1
    fi
+fi
+
+# If we are running an intel chipset, load the newer KMS driver automatically
+if [ "$loadIntelKMS" = "yes" ] ; then
+   kldload i915kms
 fi
