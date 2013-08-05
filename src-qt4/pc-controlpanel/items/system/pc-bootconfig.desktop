@@ -1,6 +1,5 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Comment=Configure bootup options
 Exec=pc-su pc-bootconfig
 TryExec=pc-bootconfig
 Keywords="grub,boot,boot loader"
@@ -10,3 +9,12 @@ Terminal=false
 Type=Application
 Categories=System;Settings;
 Name=Boot Manager
+Name[fr]=Gestionnaire de démarrage
+Name[fr_CA]=Gestionnaire de démarrage
+Name[ja]=起動マネージャー
+Name[vi]=khởi động Trình quản lý
+Comment=Configure bootup options
+Comment[fr]=Configurer les options de démarrage 
+Comment[fr_CA]=Configurer les options de démarrage
+Comment[ja]=起動オプションを設定します
+Comment[vi]=Cấu hình tùy chọn khởi động hệ thống
