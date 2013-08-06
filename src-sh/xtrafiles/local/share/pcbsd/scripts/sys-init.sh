@@ -30,6 +30,16 @@ sh /usr/local/share/pcbsd/scripts/reset-firewall
 # Update ports overlay files
 /usr/local/bin/pc-extractoverlay ports
 
+# Add our notice to top of loader.conf
+mv /boot/loader.conf /boot/loader.conf.tmp
+cat <<EOF >/boot/loader.conf
+# * IMPORTANT NOTICE *
+# Run 'grub-mkconfig -o /boot/grub/grub.cfg' after making changes to this file
+###############################################################################
+EOF
+cat /boot/loader.conf.tmp >> /boot/loader.conf
+rm /boot/loader.conf.tmp
+
 ################################################
 # Do desktop specific init
 ################################################
