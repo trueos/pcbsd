@@ -260,6 +260,7 @@ share/pcbsd/metaset/pcbsd/Development-Science/ports-list
 share/pcbsd/metaset/pcbsd/Development-Science/pkg-parent
 share/pcbsd/metaset/pcbsd/Development-Science/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Development-Science/pkg-desc
+share/pcbsd/metaset/pcbsd/Development-Science/dl-only
 share/pcbsd/metaset/pcbsd/GNOME-Utilities/pkg-icon.png
 share/pcbsd/metaset/pcbsd/GNOME-Utilities/pkg-parent
 share/pcbsd/metaset/pcbsd/GNOME-Utilities/pkg-desc
@@ -339,6 +340,7 @@ share/pcbsd/metaset/pcbsd/Rekonq/pkg-desc
 share/pcbsd/metaset/pcbsd/Rekonq/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Rekonq/ports-list
 share/pcbsd/metaset/pcbsd/Rekonq/pkg-parent
+share/pcbsd/metaset/pcbsd/Rekonq/dl-only
 share/pcbsd/metaset/pcbsd/Enlightenment/ports-list
 share/pcbsd/metaset/pcbsd/Enlightenment/desktop
 share/pcbsd/metaset/pcbsd/Enlightenment/pkg-icon.png
@@ -407,6 +409,7 @@ share/pcbsd/metaset/pcbsd/Development-Embedded/pkg-parent
 share/pcbsd/metaset/pcbsd/Development-Embedded/ports-list
 share/pcbsd/metaset/pcbsd/Development-Embedded/pkg-desc
 share/pcbsd/metaset/pcbsd/Development-Embedded/pkg-icon.png
+share/pcbsd/metaset/pcbsd/Development-Embedded/dl-only
 share/pcbsd/metaset/pcbsd/Unsupported-Desktops/pkg-desc
 share/pcbsd/metaset/pcbsd/Unsupported-Desktops/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Development-Web/pkg-parent
