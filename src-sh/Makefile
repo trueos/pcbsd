@@ -21,6 +21,7 @@ CHK_DIR_EXISTS= test -d
 MKDIR         = mkdir -p
 SUBTARGETS    =  \
 		sub-libsh \
+		sub-lpreserver \
 		sub-about \
 		sub-pbreg \
 		sub-pcad \
@@ -77,6 +78,19 @@ sub-xdgutil-clean: pc-xdgutil/$(MAKEFILE) FORCE
 	cd pc-xdgutil/ && $(MAKE) -f $(MAKEFILE) clean
 sub-xdgutil-install_subtargets: pc-xdgutil/$(MAKEFILE) FORCE
 	cd pc-xdgutil/ && $(MAKE) -f $(MAKEFILE) install
+
+sub-lpreserver: lpreserver/$(MAKEFILE) FORCE
+	cd lpreserver/ && $(MAKE) -f $(MAKEFILE)
+sub-lpreserver-make_default: lpreserver/$(MAKEFILE) FORCE
+	cd lpreserver/ && $(MAKE) -f $(MAKEFILE) 
+sub-lpreserver-make_first: lpreserver/$(MAKEFILE) FORCE
+	cd lpreserver/ && $(MAKE) -f $(MAKEFILE) first
+sub-lpreserver-all: lpreserver/$(MAKEFILE) FORCE
+	cd lpreserver/ && $(MAKE) -f $(MAKEFILE) all
+sub-lpreserver-clean: lpreserver/$(MAKEFILE) FORCE
+	cd lpreserver/ && $(MAKE) -f $(MAKEFILE) clean
+sub-lpreserver-install_subtargets: lpreserver/$(MAKEFILE) FORCE
+	cd lpreserver/ && $(MAKE) -f $(MAKEFILE) install
 
 sub-libsh: libsh/$(MAKEFILE) FORCE
 	cd libsh/ && $(MAKE) -f $(MAKEFILE)
@@ -287,6 +301,7 @@ sub-pcthinclient-install_subtargets: pc-thinclient/$(MAKEFILE) FORCE
 	cd pc-thinclient/ && $(MAKE) -f $(MAKEFILE) install
 
 make_default: sub-libsh-make_default \
+	sub-lpreserver-make_default \
 	sub-pbi-make_default \
 	sub-about-make_default \
 	sub-meta-make_default \
@@ -308,6 +323,7 @@ make_default: sub-libsh-make_default \
 	FORCE
 
 make_first: sub-libsh-make_first \
+	sub-lpreserver-make_first \
 	sub-pbi-make_first \
 	sub-about-make_first \
 	sub-meta-make_first \
@@ -329,6 +345,7 @@ make_first: sub-libsh-make_first \
 	FORCE
 
 all:	sub-libsh-all \
+	sub-lpreserver-all \
 	sub-pbi-all \
 	sub-about-all \
 	sub-meta-all \
@@ -351,6 +368,7 @@ all:	sub-libsh-all \
 
 clean: sub-pbi-clean \
 	sub-libsh-clean \
+	sub-lpreserver-clean \
 	sub-about-clean \
 	sub-meta-clean \
 	sub-warden-clean \
@@ -372,6 +390,7 @@ clean: sub-pbi-clean \
 
 install_subtargets: sub-libsh-install_subtargets \
 	sub-pbi-install_subtargets \
+	sub-lpreserver-install_subtargets \
 	sub-about-install_subtargets \
 	sub-meta-install_subtargets \
 	sub-warden-install_subtargets \

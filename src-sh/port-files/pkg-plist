@@ -1,4 +1,5 @@
 bin/about
+bin/lpreserver
 bin/pc-metapkgmanager
 bin/pc-pkg
 bin/warden
@@ -23,6 +24,17 @@ bin/pc-runxgui
 bin/pc-checkxdisplay
 bin/enable_user_pefs
 sbin/pc-sysinstall
+share/lpreserver/backend/zfsmon.sh
+share/lpreserver/backend/zfsrmsnap.sh
+share/lpreserver/backend/runrep.sh
+share/lpreserver/backend/zfsrevertsnap.sh
+share/lpreserver/backend/functions.sh
+share/lpreserver/backend/zfslistsnap.sh
+share/lpreserver/backend/zfslistcron.sh
+share/lpreserver/backend/zfscronsnap.sh
+share/lpreserver/backend/backup-zfs.sh
+share/lpreserver/backend/zfsmksnap.sh
+share/lpreserver/backend/runsnap.sh
 share/warden/agent.png
 share/warden/warden.png
 share/warden/scripts/rc.d/wardenrc
@@ -738,6 +750,8 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/distfiles
 @dirrm share/pcbsd/pefs
 @dirrm share/pcbsd
+@dirrm share/lpreserver/backend
+@dirrm share/lpreserver
 @unexec rmdir /usr/pbi/.hashdir >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/share/applications >/dev/null 2>/dev/null
 @unexec rmdir /usr/pbi/share/desktop-directories >/dev/null 2>/dev/null
