@@ -62,3 +62,6 @@ done
 if [ "$EMAILMODE" = "ALL" ] ; then
    email_msg "Automated Snapshot" "`echo_queue_msg`"
 fi
+
+# Check if we need to run a replication task for this dataset
+${PROGDIR}/backend/runrep.sh ${DATASET} sync

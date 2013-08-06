@@ -374,7 +374,7 @@ revertsnap) require_root
 	    shift
 	    case ${1} in
 		add) add_rep_task "$2" "$3" "$4" "$5" "$6" "$7" ;;
-		list) ;;
+		list) list_rep_task ;;
 		remove) cat ${REPCONF} | grep -q "^${2}:" 
 			if [ $? -eq 0 ] ; then
 			   rem_rep_task "$2"
