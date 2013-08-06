@@ -10,23 +10,28 @@ PROGDIR="/usr/local/share/lpreserver"
 . ${PROGDIR}/backend/functions.sh
 
 DATASET="${1}"
+TIME="${2}"
 
 if [ -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
 fi
 
-# Lets start by building a list of props to keep
-pTag=`echo $DATASET | md5`
+check_rep_task "$DATASET" "$TIME"
+status=$?
 
-if [ "$RECURMODE" = "ON" ] ; then
-   zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " > /tmp/.propList.$$
+# No replication was needed / done
+if [ $DIDREP -eq 0 ] ; then exit 0 ; fi
+
+if [ $status -eq 0 ] ; then
+  title="Success"
 else
-   zfs get all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " > /tmp/.propList.$$
+  title="FAILED"
 fi
 
-cat /tmp/.propList.$$
-rm /tmp/.propList.$$
-
-if [ "$EMAILMODE" = "ALL" ] ; then
-   #email_msg "Automated Snapshot" "`echo_queue_msg`"
-fi
+case $EMAILMODE in
+    ALL) email_msg "Automated Replication - $title" "`echo_queue_msg`" ;;
+    *) if [ $status -ne 0 ] ; then
+          email_msg "Automated Replication - $title" "`echo_queue_msg`"
+       fi
+       ;;
+esac
