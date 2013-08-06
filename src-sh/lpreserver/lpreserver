@@ -207,12 +207,13 @@ Usage:
   # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
   
   action = start / stop
-  frequency = daily / hourly / 30min / 10min / 5min
+  frequency = daily@XX / hourly / 30min / 10min / 5min
+		    ^^ Hour to execute
   numToKeep = Number of snapshots to keep total
 
 Example:
 
-  lpreserver cronsnap tank1/usr/home/kris start daily 10
+  lpreserver cronsnap tank1/usr/home/kris start daily@22 10
 
   or
 

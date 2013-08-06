@@ -21,6 +21,15 @@ fi
 if [ "$ACTION" = "start" ] ; then
 
   TIME="${3}"
+
+  # See if the user is running daily with a hour specified
+  echo $TIME | grep -q "daily"
+  if [ $? -eq 0 ] ; then
+     hour="`echo $TIME | cut -d '@' -f 2`"
+     if [ -z "$hour" ] ; then hour="22" ; fi
+     TIME="daily"
+  fi
+
   COUNT="${4}"
   case $TIME in
   daily|hourly|30min|10min|5min) ;;
@@ -30,8 +39,8 @@ if [ "$ACTION" = "start" ] ; then
      echo "ERROR: Invalid count specified!" ; exit 5
   fi
 
-  enable_cron "$DATASET" "$TIME" "$COUNT"
-  echo "Snapshot frequency set: $TIME"
+  enable_cron "$DATASET" "$TIME" "$COUNT" "$hour"
+  echo "Snapshot frequency set: $TIME @ $hour"
   echo "Snapshot # to keep set: $COUNT"
   exit 0
 fi

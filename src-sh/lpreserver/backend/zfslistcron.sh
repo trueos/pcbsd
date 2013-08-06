@@ -18,7 +18,7 @@ do
    min=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $1}'`
    hour=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $2}'`
    time="Min: $min Hour: $hour";
-   if [ "$min" = "0" -a "$hour" = "01" ] ; then time="daily" ; fi
+   if [ "$min" = "0" -a "$hour" != '*' ] ; then time="daily@$hour" ; fi
    if [ "$min" = "0" -a "$hour" = '*' ] ; then time="hourly" ; fi
    if [ "$min" = "0,30" ] ; then time="30min" ; fi
    if [ "$min" = '*/10' ] ; then time="10min" ; fi

@@ -104,7 +104,7 @@ enable_cron()
    fi
 
    case $2 in
-       daily) cLine="0      01       *       *       *" ;;
+       daily) cLine="0       $4      *       *       *" ;;
       hourly) cLine="0       *       *       *       *" ;;
        30min) cLine="0,30    *       *       *       *" ;;
        10min) cLine="*/10    *       *       *       *" ;;
