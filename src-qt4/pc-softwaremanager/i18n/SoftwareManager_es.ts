@@ -516,6 +516,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Start the application</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>

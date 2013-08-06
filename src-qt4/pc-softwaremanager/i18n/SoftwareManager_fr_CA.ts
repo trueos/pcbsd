@@ -482,6 +482,10 @@
         <source>Downloading %1 file:</source>
         <translation>Téléchargement de fichier %1:</translation>
     </message>
+    <message>
+        <source>Start the application</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
