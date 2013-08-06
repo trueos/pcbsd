@@ -207,7 +207,7 @@ void MountTray::slotDevChanges(bool showPopup){
       if( !deviceList[i]->isMounted() ){
 	QString ja, jb, jc, jd; //junk variables
         if( !DCheck->devInfo(dev,&ja,&jb,&jc,&jd) ){
-	  if(DBUG_MODE){ qDebug() << " - Device no longer valid:" << dev; }
+	  if(DEBUG_MODE){ qDebug() << " - Device no longer valid:" << dev; }
 	  //no longer valid device
 	  removeDevice(dev);
 	  i--;
