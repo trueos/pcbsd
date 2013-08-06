@@ -105,11 +105,23 @@ bool MenuItem::isConnected(){
 
 bool MenuItem::isMounted(){
   //Check if device is mounted
+  QStringList chk = pcbsd::Utils::runShellCommand("mount");
+  bool mounted=false;
+  for(int i=0; i<chk.length(); i++){
+    mounted = chk[i].contains(device) || chk[i].contains(devLabel->text()) || chk[i].contains(devLabel->text().replace(" ","-"));
+    if(mounted){ 
+      //Save the mountpoint if it is mounted
+      mountpoint = chk[i].section(" on ",1,10).section("(",0,0).simplified();
+      break; 
+    }
+  }
+  return mounted;
+  /*
   QString chk = pcbsd::Utils::runShellCommandSearch("mount",device);  
   if(chk.isEmpty() ){ chk = pcbsd::Utils::runShellCommandSearch("mount",devLabel->text().replace(" ","-")); } 
-
   if(chk.isEmpty() ){ return FALSE; }
   else{ return TRUE; }
+  */
 }
 
 //Cleanup function
@@ -247,21 +259,17 @@ void MenuItem::mountItem(){
 
 void MenuItem::unmountItem(){
   //Unmount the device
-
+	
   //Check to see if the current mountpoint exists or if it is somewhere else
   if( !QFile::exists(mountpoint) ){
-    if( isMounted() ){  //double check that it is actually mounted
-      //mounted someplace else - find it
-      QString output = pcbsd::Utils::runShellCommandSearch("mount",device);
-      mountpoint = output.section(" on ",1,1).section(" (",0,0).replace(" ","-");
-    }else{
+    if( !isMounted() ){  //double check that it is actually mounted (and fix the mountpoint)
       //it is not mounted to begin with
       return;
     }
   }
-  
-  QString cmd1 = "umount " + mountpoint;
-  QString cmd2 = "rmdir " + mountpoint;
+  //Make sure there are no spaces in the mounpoint path
+  QString cmd1 = "umount \"" + mountpoint +"\"";
+  QString cmd2 = "rmdir \"" + mountpoint +"\"";
   qDebug() << "Unmounting device from" << mountpoint;
   //Run the commands
   QStringList output;
@@ -296,7 +304,7 @@ void MenuItem::updateSizes(){
   //this method only works if the device is currently mounted
   bool ok = FALSE;
   if(isMounted()){
-    QString cmd = "df "+mountpoint;
+    QString cmd = "df \""+mountpoint+"\"";
     QStringList output = systemCMD(cmd); //make sure we use the one with a 1K blocksize
     if(output.length() > 1){
       //parse the output (1K blocks) and save them
