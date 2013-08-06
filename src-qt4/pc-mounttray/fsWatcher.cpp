@@ -34,8 +34,8 @@ QStringList FSWatcher::getFSmountpoints(){
       //second line contains the data
       QString avail = tmp[1].section(" ",0,0,QString::SectionSkipEmpty);
       QString used = tmp[1].section(" ",1,1,QString::SectionSkipEmpty);
-      int iUsed = displayToInt(used);
-      int iTotal = displayToInt(avail) + iUsed;
+      double iUsed = floor(displayToDouble(used));
+      double iTotal = floor(displayToDouble(avail)) + iUsed;
       int percent = calculatePercentage(iUsed, iTotal);
       //qDebug() << "Percent calc: tot:"<<iTotal<<"used"<<iUsed<<"percent"<<percent;
       //format the output string and add it in
@@ -59,8 +59,8 @@ QStringList FSWatcher::getFSmountpoints(){
         QString total = dfout[i].section("  ",2,2,QString::SectionSkipEmpty).simplified();
         QString used = dfout[i].section("  ",3,3,QString::SectionSkipEmpty).simplified();
         //Calculate the percent
-        int iUsed = displayToInt(used);
-        int iTotal = displayToInt(total);
+        double iUsed = displayToDouble(used);
+        double iTotal = displayToDouble(total);
         int percent = calculatePercentage(iUsed, iTotal);
         //qDebug() << "df Item:" << dfout[i];
         //qDebug() << " - Detected:" << name << fs << iTotal << iUsed << percent;
@@ -75,28 +75,38 @@ QStringList FSWatcher::getFSmountpoints(){
   
 }
 
-int FSWatcher::displayToInt(QString entry){
+int FSWatcher::displayToDouble(QString entry){
   //split the number from the size label
   //qDebug() << "Display to Int conversion:" << entry;
   QString units = entry.right(1); //last character
   entry.chop(1); //remove the unit
   double num = entry.toDouble();
   //qDebug() << "initial number:" << num << "units:" << units;
-  if(units=="K"){} //Kilobytes (no change)
-  else if(units=="M"){ num=num*1024; } //Megabytes to K
-  else if(units=="G"){ num=num*1048576; } //Gigabytes to K
-  else{ num=0; } //smaller than a KB
+  QStringList unitL; unitL << "K" << "M" << "G" << "T" << "P" << "E" << "Z" << "Y";
+  bool ok = false;
+  for(int i=0; i< unitL.length(); i++){
+    if(units == unitL[i]){ num = num*pow(1024.0,i); ok = true; break;}
+  }
+  if(!ok){num=0; }
   //qDebug() << "number:" << num;
   return num;
 }
 
-QString FSWatcher::intToDisplay(int K){
+QString FSWatcher::doubleToDisplay(double K){
   QString num;
   //qDebug() << "Int to Display:" << K;
   double kdb = K; //using pure integers causes errors with large numbers
-  if( K > 1048576 ){ num = QString::number( int((kdb*100)/1048576)/100.0 ) +"G"; }
-  else if(K > 1024){ num = QString::number( int((kdb*100)/1024)/100.0 ) +"M"; }
-  else{ num = QString::number(K) +"K"; }
+  QStringList units; units << "K" << "M" << "G" << "T" << "P" << "E" << "Z" << "Y";
+  int i=0;
+  while( (kdb > 1000) && (i < 8) ){
+    kdb = kdb/1024;
+    i++;
+  }
+  if(i<8){
+    num = QString::number( int((kdb*100))/100.0) + units[i];
+  }else{
+    num = "??";
+  }
   //qDebug() << "Display:" << num;
   return num;
     	  
@@ -133,7 +143,7 @@ void FSWatcher::checkFS(){
 }
 
 //===== Calculate Percentages =====
-int FSWatcher::calculatePercentage(int used, int total){
+int FSWatcher::calculatePercentage(double used, double total){
   double U = used;
   double T = total;
   double result = (U/T)*100.0;

@@ -29,12 +29,12 @@ void FSDialog::generateUI(){
       //Get the data for this item
       QString name = fsList[i].section("::",0,0);
       QString filesystem = fsList[i].section("::",1,1);
-      int totalK = fsList[i].section("::",2,2).toInt();
-      int usedK = fsList[i].section("::",3,3).toInt();
+      double totalK = fsList[i].section("::",2,2).toDouble();
+      double usedK = fsList[i].section("::",3,3).toDouble();
       int percent = fsList[i].section("::",4,4).toInt();
       //Create item for the data
       QStringList text; //column text
-      text << name << filesystem.toUpper() << FSWatcher::intToDisplay(usedK)+"/"+FSWatcher::intToDisplay(totalK) << QString::number(percent)+"%";
+      text << name << filesystem.toUpper() << FSWatcher::doubleToDisplay(usedK)+"/"+FSWatcher::doubleToDisplay(totalK) << QString::number(percent)+"%";
       QTreeWidgetItem *tmp = new QTreeWidgetItem(text);
       
       //set the item background based upon urgency
