@@ -69,6 +69,10 @@ if [ "$1" = "desktop" ] ;then
   # Check if we need to load i915kms
   kldstat | grep -q "i915kms"
   if [ $? -eq 0 ] ; then
+     echo "iicbb_load=\"YES\"" >> /boot/loader.conf
+     echo "iicbus_load=\"YES\"" >> /boot/loader.conf
+     echo "iic_load=\"YES\"" >> /boot/loader.conf
+     echo "drm2_load=\"YES\"" >> /boot/loader.conf
      echo "i915kms_load=\"YES\"" >> /boot/loader.conf
   fi
 
