@@ -1373,8 +1373,10 @@ void MainGUI::on_push_build_start_clicked(){
       //Remove known "bad" packages (ones that routinely cause failures)
       QDir cDir( settings->value("cachedir") );
       QStringList filters = settings->list("skippkgs");
-      QStringList badFiles = cDir.entryList(filters, QDir::Files | QDir:: NoDotAndDotDot);
-      for(int i=0; i<badFiles.length(); i++){ cDir.remove(badFiles[i]); }
+      if(!filters.isEmpty()){
+        QStringList badFiles = cDir.entryList(filters, QDir::Files | QDir:: NoDotAndDotDot);
+        for(int i=0; i<badFiles.length(); i++){ cDir.remove(badFiles[i]); }
+      }
     }
     if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
     
@@ -1417,7 +1419,7 @@ void MainGUI::on_push_build_start_clicked(){
   ui->check_build_32->setEnabled(FALSE);
   ui->push_build_start->setEnabled(FALSE); //disable the button so they do not start more than 1 build at a time
   ui->text_build_log->clear(); //clear the display in case this is not the first run
-  ui->line_build_module->setText(currentModule->path());
+  ui->line_build_module->setText( currentModule->path().replace(QDir::homePath(), "~") );
   ui->line_build_outputdir->setText(settings->value("pbidir"));
   //Setup Process connections
   p = new QProcess(this);
@@ -1457,6 +1459,8 @@ void MainGUI::slotUpdatePBIBuild(){
   QString tmp = p->readAllStandardOutput();
   if( tmp.startsWith("\n") ){tmp.remove(0,0);} //remove newline at the beginning (too much whitespace in log)
   if( tmp.endsWith("\n") ){tmp.chop(1);} //remove newline at the end (already accounted for by appending)
+  //clear the display  if it is starting a new port compilation (prevent the log getting too large)
+  if(tmp.toLower().startsWith("compiling port: ")){ ui->text_build_log->clear(); }
   if(!tmp.isEmpty()){ ui->text_build_log->append( tmp ); }
   //qDebug() << "Update output: " << tmp;
 }

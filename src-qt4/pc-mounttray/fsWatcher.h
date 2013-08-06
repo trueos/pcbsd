@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QTime>
 
+#include <math.h>
 
 class FSWatcher : public QObject
 {
@@ -24,15 +25,15 @@ public:
   void stop();
   
   static QStringList getFSmountpoints();
-  static QString intToDisplay(int);
-  static int displayToInt(QString); 
+  static QString doubleToDisplay(double);
+  static int displayToDouble(QString); 
   
 private:
   QTimer *timer;
   QStringList oldBadDevs;
   
   static QStringList runCMD(QString);
-  static int calculatePercentage(int,int);
+  static int calculatePercentage(double,double);
   
 public slots:
   void checkFS(); //function in a timer loop
