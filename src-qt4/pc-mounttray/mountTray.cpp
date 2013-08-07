@@ -33,6 +33,7 @@ void MountTray::programInit()
     sysMenu->addAction( QIcon(":icons/refresh.png"),tr("Rescan Devices"), this, SLOT(slotRescan()) );
     //Add the setting dialog option seperately
     sysMenu->addSeparator();
+    sysMenu->addAction( QIcon(":icons/dvd.png"), tr("Load ISO File"), this, SLOT(slotOpenISO()) );
     sysMenu->addAction( QIcon(":icons/config.png"), tr("Change Settings"), this, SLOT(slotOpenSettings()) );
     //Add the Close button seperately
     sysMenu->addSeparator();
@@ -354,6 +355,18 @@ void MountTray::slotOpenSettings(){
   }
   //Now restart the disk watcher if enabled
   if(useDiskWatcher){ diskWatcher->start(diskTimerMaxMS); }
+}
+
+void MountTray::slotOpenISO(){
+  //prompt for the user to select a file
+  QString file = QFileDialog::getOpenFileName( this, tr("Select ISO File"), QDir::homePath(), tr("ISO Files (*.iso)") );
+  if(file.isEmpty()){ return; } //cancelled
+  //check for available device node number /dev/md<number>
+  int num = 1;
+  while( QFile::exists("/dev/md"+QString::number(num)) ){ num++; }
+  //add it to the device tree (will automatically get picked up by the device detection method)
+  QString cmd = "mdconfig -a -f "+file+" -u "+QString::number(num);
+  system(cmd.toUtf8());
 }
 
 void MountTray::slotSingleInstance()
