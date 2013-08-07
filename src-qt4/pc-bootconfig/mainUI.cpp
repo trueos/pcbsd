@@ -393,6 +393,9 @@ void mainUI::on_tool_GRUBsavedefaults_clicked(){
   bool ok = saveGRUBdefaults(themefile,fontfile,countdown,showcountdown);
   if(!ok){
     qDebug() << "Unable to save the GRUB defaults to file:" << file_GRUBdefaults+".new";
+  }else{
+    ui->tool_GRUBsavedefaults->setEnabled(false);
+    ui->tool_GRUBresetdefaults->setEnabled(false);    
   }
 }
 
@@ -418,8 +421,10 @@ void mainUI::on_tool_GRUBsaveentries_clicked(){
   //Get the current text
   QStringList contents = ui->text_GRUBentries->toPlainText().split("\n");
   bool ok = saveGRUBcustomentries(contents);
-  if(ok){ }//ui->tool_GRUBsaveentries->setEnabled(false); }
-  else{
+  if(ok){ 
+	  ui->tool_GRUBsaveentries->setEnabled(false);
+	  ui->tool_GRUBresetentries->setEnabled(false);
+  }else{
     qDebug() << "Error saving custom grub entries to file:" << file_GRUBentries+".new";
   }
 }
