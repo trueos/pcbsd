@@ -484,7 +484,7 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer l&apos;application</translation>
     </message>
 </context>
 <context>

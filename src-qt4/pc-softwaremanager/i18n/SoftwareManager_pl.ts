@@ -93,18 +93,15 @@
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To repozytorium nie może zostać dodane.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę uruchomić polecenie &apos;%1&apos; ręcznie aby zobaczyć pełną treść błędu.</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usunięcie weryfikacji</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
@@ -563,7 +560,8 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

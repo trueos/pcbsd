@@ -53,11 +53,11 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
-        <translation type="unfinished">リポジトリーのミラー</translation>
+        <translation>リポジトリーのミラー</translation>
     </message>
     <message>
         <source>Move Up</source>
@@ -160,8 +160,7 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>すべて</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -180,15 +179,15 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">バージョン:</translation>
+        <translation>バージョン:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">作者:</translation>
+        <translation>作者:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">ライセンス:</translation>
+        <translation>ライセンス:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
@@ -202,7 +201,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -211,22 +210,19 @@
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">アンインストール</translation>
+        <translation>アンインストール</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションを最新バージョンにアップデートする</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したアプリケーションをアップデートします</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションのアップデート</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
@@ -240,13 +236,11 @@
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したアプリケーションを自動的にアップデートします</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動アップデート</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -260,8 +254,7 @@
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>カテゴリー</translation>
     </message>
     <message>
         <source>App</source>
@@ -275,7 +268,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">検索</translation>
+        <translation>検索</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
@@ -289,29 +282,27 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">サイズ:</translation>
+        <translation>サイズ:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションの情報</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">プラットフォーム:</translation>
+        <translation>プラットフォーム:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">タイプ:</translation>
+        <translation>タイプ:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>似ているアプリケーション</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">最も近い候補</translation>
+        <translation>最も近い候補</translation>
     </message>
     <message>
         <source>Other Results</source>
@@ -320,46 +311,39 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リストのインポート</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リストのエクスポート</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">終了(&amp;Q)</translation>
+        <translation>終了(&amp;Q)</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リポジトリー</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe の設定</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">エラー!</translation>
+        <translation>エラー!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe は Warden 互換モードでは root 権限で動作させる必要があります</translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
@@ -368,8 +352,7 @@
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザーは &quot;operator&quot; グループに所属している必要があります</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -551,7 +534,8 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

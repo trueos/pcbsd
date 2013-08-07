@@ -85,364 +85,306 @@
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цей репозиторій буде повністю готовий до використання через деякий час (залежно від швидкості з&apos;єднання з мережею)</translation>
     </message>
     <message>
         <source>Repo Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка репозиторію</translation>
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цей репозиторій не може бети доданий.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будьласка запустіть консольну команду &apos;%1&apos; вручну щоб побачити повне сповіщення про помилку.</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалення</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ви певні що бажаєте видалити цей репозиторій PBI?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цей репозиторій не може бути видалений.</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нова URL адреса дзеркала</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будьласка введіть URL адресу для нового дзеркала:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка зміни дзеркала</translation>
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повний текст помилки відображено у термінальному виведенні програми AppCafe.</translation>
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати каталог для завантаженнь</translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">Встановлено</translation>
+        <translation>Встановлено</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">Назва програми</translation>
+        <translation>Назва програми</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версія</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Стан</translation>
+        <translation>Стан</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати/зняти виділення для всіх додатків</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Всі</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дії з обраними додатками</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дії</translation>
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Деталі додатку</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">Версія:</translation>
+        <translation>Версія:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">Автор:</translation>
+        <translation>Автор:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">Ліцензія:</translation>
+        <translation>Ліцензія:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ярлики:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відмінити будь-які поточні дії з цим додаткрм</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити обраний додаток</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">Видалення</translation>
+        <translation>Видалення</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити додаток до найновішої версії</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити обраний додаток</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити додаток</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити сторінку огляду для обраного додатку</translation>
     </message>
     <message>
         <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкрити огляд</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автоматично оновлювати обраний додаток за наявності нової версії</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Автооновлення</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд додатків</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Головна сторінка</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Категорія</translation>
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додаток</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Шукати тут</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Пошук</translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд останніх доданих</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд за категоріями</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Розмір:</translation>
+        <translation>Розмір:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Інформація про додаток</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Платформа:</translation>
+        <translation>Платформа:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">Тип:</translation>
+        <translation>Тип:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подібні додатки</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">Найкращі дзеркала</translation>
+        <translation>Найповніші співпадіння</translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Інші результати</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Імпортувати список PBI</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Експортувати список PBI</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">Вихід</translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Репозиторії</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Помилка!</translation>
+        <translation>Помилка!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe має бути запущена в режимі адміністратора (root) для використання в режимі сумісності з Warden</translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe має виконуватися з правами звичайного користувача!</translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>користувач має бути членом групи &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Незавершені дії AppCafe</translation>
     </message>
     <message>
         <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Деякі дії ще не завершено. Бажаєте відмінити всі поточні дії, завершити запущені процеси та вийти?</translation>
     </message>
     <message>
         <source>Import PBI File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл списку імпорту PBI</translation>
     </message>
     <message>
         <source>PBI List (*.pbilist)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Списки PBI (*.pbilist)</translation>
     </message>
     <message>
         <source>Import Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка імпорту</translation>
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сталася помилка при імпорті списку PBI</translation>
     </message>
     <message>
         <source>Please make sure that the file has not been corrupted and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будьласка впевніться що файл списку не є пошкодженим та спробуйте знову</translation>
     </message>
     <message>
         <source>Export PBI File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Експорт списку PBI</translation>
     </message>
     <message>
         <source>Export Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Помилка експорту</translation>
     </message>
     <message>
         <source>There was an error exporting the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сталася помилка експорту списку PBI</translation>
     </message>
     <message>
         <source>Please make sure that you have the proper directory permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будьласка впевніться у тому що маєте права на запис у каталог та спробуйте ще раз</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Оновити</translation>
+        <translation>Оновити</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
@@ -565,7 +507,8 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
