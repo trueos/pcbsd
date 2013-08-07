@@ -62,6 +62,7 @@ if [ "$1" = "desktop" ] ;then
   # Set running desktop
   pbreg set /PC-BSD/SysType PCBSD
   touch /etc/defaults/pcbsd
+  chflags schg /etc/defaults/pcbsd
 
   # Init the desktop
   /usr/local/bin/pc-extractoverlay desktop --sysinit
@@ -90,6 +91,7 @@ if [ "$1" = "server" ] ; then
   # Set running a server
   pbreg set /PC-BSD/SysType TRUEOS
   touch /etc/defaults/trueos
+  chflags schg /etc/defaults/trueos
 
   # Init the server
   /usr/local/bin/pc-extractoverlay server --sysinit

@@ -3,7 +3,7 @@
 Comment[en_US]=
 Comment=
 Exec=pc-su pc-gdmconf
-TryExec=pc-gdmconf
+TryExec=/usr/local/bin/pc-gdmconf
 Keywords="gdm,login,login window,auto login,autologin,xdmcp,remote login,login timout"
 Icon=/usr/local/share/pcbsd/icons/pc-dmconf.png
 StartupNotify=true
