@@ -637,6 +637,7 @@ void wizardDisk::slotTreeMountsRightClick()
   popupCmp = popup->addMenu("compression");
   popupCmp->addAction( "off", this, SLOT(slotZCmpOFF()));
   popupCmp->addAction( "on", this, SLOT(slotZCmpON()));
+  popupCmp->addAction( "lz4", this, SLOT(slotZCmpLZ4()));
   popupCmp->addAction( "lzjb", this, SLOT(slotZCmpLZJB()));
   popupCmp->addAction( "gzip", this, SLOT(slotZCmpGZIP()));
   popupCmp->addAction( "zle", this, SLOT(slotZCmpZLE()));
@@ -695,6 +696,11 @@ void wizardDisk::slotZCmpZLE()
 void wizardDisk::slotZCmpGZIP()
 {
   toggleZFSOpt(QString("compress=gzip"));
+}
+
+void wizardDisk::slotZCmpLZ4()
+{
+  toggleZFSOpt(QString("compress=lz4"));
 }
 
 void wizardDisk::slotZCmpLZJB()
