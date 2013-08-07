@@ -484,7 +484,7 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu ứng dụng</translation>
     </message>
 </context>
 <context>
