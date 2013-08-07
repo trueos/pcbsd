@@ -78,6 +78,7 @@ private slots:
   void slotActionRemove();
   void slotActionCancel();
   void slotStartApp(QAction*);
+  void slotUpdateSelectedPBI(bool statusonly=false);
   
   //BROWSER TAB
   void slotDisableBrowser(bool shownotification = TRUE);

@@ -265,7 +265,7 @@ void MainUI::slotRefreshInstallTab(){
       ui->tree_install_apps->resizeColumnToContents(i);
     } 
   }
-  on_tree_install_apps_itemSelectionChanged(); //Update the info boxes
+  slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
 }
 
@@ -281,7 +281,7 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
          appID = ui->tree_install_apps->currentItem()->whatsThis(0);
       }
       if ( appID == pbiID ) {
-	on_tree_install_apps_itemSelectionChanged();
+	slotUpdateSelectedPBI(true);; //only update status
       }
       return; // Found our match, we can return now
     }
@@ -313,129 +313,7 @@ void MainUI::on_tool_install_toggleall_clicked(){
 
 void MainUI::on_tree_install_apps_itemSelectionChanged(){
   //When an installed PBI is clicked on
-  QString appID;
-  if(ui->tree_install_apps->topLevelItemCount() > 0){
-    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
-  }
-  if(appID.isEmpty()){
-    ui->group_install_info->setVisible(FALSE);
-    return;
-  }else{
-    ui->group_install_info->setVisible( ui->group_install_showinfo->isChecked() );	  
-  }
-
-  //Get the PBI info for that item
-  QStringList vals; 
-  vals << "name" << "icon" << "author" << "website" << "version" << "license";
-  QStringList bools;
-  bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons" << "requiresroot";
-  vals = PBI->PBIInfo(appID,vals);
-  bools = PBI->PBIInfo(appID,bools);
-  //Make sure the info lists are not empty
-  if(vals.isEmpty() || bools.isEmpty()){
-    ui->group_install_info->setVisible(FALSE);
-    return; 
-  }
-  //Load a default icon if none found
-  if(vals[1].isEmpty()){ vals[1] = defaultIcon; }
-  //Now set the info on the UI
-  bool desktopSC = (bools[1] == "true"); // XDG desktop entries available
-  bool menuSC= (bools[2] == "true"); 	 // XDG menu entries available
-  bool autoupdate = (bools[0] == "true"); //auto-update enabled
-  bool rootonly = (bools[3] == "true"); //requires root
-  //Create the shortcuts string
-  QString shortcuts;
-    if(desktopSC && menuSC){ shortcuts = tr("Desktop/Menu"); }
-    else if(desktopSC){ shortcuts = tr("Desktop"); }
-    else if(menuSC){ shortcuts = tr("Menu"); }
-    else{ shortcuts = tr("None"); }
-  //Now display that info on the UI
-  ui->label_install_app->setText(vals[0]);
-  ui->tool_install_icon->setIcon( QIcon(vals[1]) );
-  if(vals[3].isEmpty()){ 
-    ui->label_install_author->setText(vals[2]); 
-    ui->label_install_author->setToolTip("");
-  }else{ 
-    ui->label_install_author->setText("<a href="+vals[3]+">"+vals[2]+"</a>"); 
-    ui->label_install_author->setToolTip(vals[3]); //show website URL as tooltip
-  }
-  ui->label_install_license->setText(vals[5]);
-  ui->label_install_version->setText(vals[4]);
-  ui->label_install_shortcuts->setText(shortcuts);
-  ui->check_install_autoupdate->setChecked(autoupdate);
-  
-  //Adjust the quick action buttons as necessary
-  if( PBI->isWorking(appID) ){
-    //Actions pending/working only show cancel button
-    ui->tool_install_cancel->setVisible(TRUE);
-    ui->tool_install_remove->setVisible(FALSE);
-    ui->tool_install_update->setVisible(FALSE);
-  }else{
-    //Nothing pending
-    ui->tool_install_cancel->setVisible(FALSE);
-    if( !PBI->isInstalled(appID).isEmpty() ){ 
-      //Remove Button
-      ui->tool_install_remove->setVisible(TRUE);
-      if(rootonly){ ui->tool_install_remove->setIcon(QIcon(":icons/remove-root.png")); }
-      else{ ui->tool_install_remove->setIcon(QIcon(":icons/remove.png")); }
-      //Update
-      if(PBI->upgradeAvailable(appID).isEmpty()){ ui->tool_install_update->setVisible(FALSE); }
-      else{
-        ui->tool_install_update->setVisible(TRUE); 
-        if(rootonly){ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small-root.png")); }
-        else{ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small.png")); }
-      }
-    }else{ 
-      ui->tool_install_remove->setVisible(FALSE); 
-      ui->tool_install_update->setVisible(FALSE); 
-    }   
-  }
-  //Update the current status indicators
-  QString stat = PBI->currentAppStatus(appID,true); //get the raw status
-  if(stat.isEmpty() || stat == "DLSTART"  || stat == "DLDONE"){
-    //Not currently running - hide the display indicators
-    ui->group_install_appStat->setVisible(FALSE);
-  }else if(stat.startsWith("DLSTAT::")){
-    //Currently downloading - show download status indicators
-    QString percent = stat.section("::",1,1);
-    QString total = stat.section("::",2,2);
-    QString speed = stat.section("::",3,3);
-    ui->group_install_appStat->setVisible(TRUE);
-      ui->progress_install_DL->setVisible(TRUE);
-    if(total == "??"){ ui->label_install_status->setText( tr("Downloading file:") ); }
-    else{ ui->label_install_status->setText( QString(tr("Downloading %1 file:")).arg(total) ); }
-    if(percent == "??"){
-      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(0);
-    }else{
-      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(100);
-      ui->progress_install_DL->setValue( int(percent.toFloat()) );
-    }
-    if(speed == "??"){ ui->label_install_DL->setVisible(FALSE); }
-    else{
-      ui->label_install_DL->setVisible(TRUE);
-      ui->label_install_DL->setText(speed);
-    }
-  }else{
-    //Currently installing/removing/updating - show last message from process
-    ui->label_install_status->setText(stat);
-    ui->group_install_appStat->setVisible(TRUE);
-      ui->progress_install_DL->setVisible(FALSE);
-      ui->label_install_DL->setVisible(FALSE);
-  }
-  //Get the application binaries and set the icon to start them
-  QStringList bins = PBI->pbiBinList(appID);
-  appBinMenu->clear();
-  if(bins.isEmpty()){
-    ui->tool_install_icon->setAutoRaise(false);
-  }else{
-    ui->tool_install_icon->setAutoRaise(true);
-    for(int i=0; i<bins.length(); i++){
-      QAction *act = new QAction(this);
-	    act->setText(bins[i].section("::::",0,0)); //set name
-	    act->setWhatsThis(bins[i].section("::::",1,10)); //set command string
-      appBinMenu->addAction(act);
-    }
-  }
+  slotUpdateSelectedPBI();
 }
 
 void MainUI::on_check_install_autoupdate_clicked(){
@@ -572,6 +450,135 @@ void MainUI::slotStartApp(QAction* act){
   QString cmd = "xdg-open "+desktopfile;
   //Startup the command externally
   QProcess::startDetached(cmd);
+}
+
+void MainUI::slotUpdateSelectedPBI(bool statusonly){
+  QString appID;
+  if(ui->tree_install_apps->topLevelItemCount() > 0){
+    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
+  }
+  if(appID.isEmpty()){
+    ui->group_install_info->setVisible(FALSE);
+    return;
+  }else{
+    ui->group_install_info->setVisible( ui->group_install_showinfo->isChecked() );	  
+  }
+  if(!statusonly){
+    //Get the PBI info for that item
+    QStringList vals; 
+    vals << "name" << "icon" << "author" << "website" << "version" << "license";
+    QStringList bools;
+    bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons" << "requiresroot";
+    vals = PBI->PBIInfo(appID,vals);
+    bools = PBI->PBIInfo(appID,bools);
+    //Make sure the info lists are not empty
+    if(vals.isEmpty() || bools.isEmpty()){
+      ui->group_install_info->setVisible(FALSE);
+      return; 
+    }
+    //Load a default icon if none found
+    if(vals[1].isEmpty()){ vals[1] = defaultIcon; }
+    //Now set the info on the UI
+    bool desktopSC = (bools[1] == "true"); // XDG desktop entries available
+    bool menuSC= (bools[2] == "true"); 	 // XDG menu entries available
+    bool autoupdate = (bools[0] == "true"); //auto-update enabled
+    bool rootonly = (bools[3] == "true"); //requires root
+    //Create the shortcuts string
+    QString shortcuts;
+      if(desktopSC && menuSC){ shortcuts = tr("Desktop/Menu"); }
+      else if(desktopSC){ shortcuts = tr("Desktop"); }
+      else if(menuSC){ shortcuts = tr("Menu"); }
+      else{ shortcuts = tr("None"); }
+    //Now display that info on the UI
+    ui->label_install_app->setText(vals[0]);
+    ui->tool_install_icon->setIcon( QIcon(vals[1]) );
+    if(vals[3].isEmpty()){ 
+      ui->label_install_author->setText(vals[2]); 
+      ui->label_install_author->setToolTip("");
+    }else{ 
+      ui->label_install_author->setText("<a href="+vals[3]+">"+vals[2]+"</a>"); 
+      ui->label_install_author->setToolTip(vals[3]); //show website URL as tooltip
+    }
+    ui->label_install_license->setText(vals[5]);
+    ui->label_install_version->setText(vals[4]);
+    ui->label_install_shortcuts->setText(shortcuts);
+    ui->check_install_autoupdate->setChecked(autoupdate);
+  
+    //Adjust the quick action buttons as necessary
+    if( PBI->isWorking(appID) ){
+      //Actions pending/working only show cancel button
+      ui->tool_install_cancel->setVisible(TRUE);
+      ui->tool_install_remove->setVisible(FALSE);
+      ui->tool_install_update->setVisible(FALSE);
+    }else{
+      //Nothing pending
+      ui->tool_install_cancel->setVisible(FALSE);
+      if( !PBI->isInstalled(appID).isEmpty() ){ 
+        //Remove Button
+        ui->tool_install_remove->setVisible(TRUE);
+        if(rootonly){ ui->tool_install_remove->setIcon(QIcon(":icons/remove-root.png")); }
+        else{ ui->tool_install_remove->setIcon(QIcon(":icons/remove.png")); }
+        //Update
+        if(PBI->upgradeAvailable(appID).isEmpty()){ ui->tool_install_update->setVisible(FALSE); }
+        else{
+          ui->tool_install_update->setVisible(TRUE); 
+          if(rootonly){ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small-root.png")); }
+          else{ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small.png")); }
+        }
+      }else{ 
+        ui->tool_install_remove->setVisible(FALSE); 
+        ui->tool_install_update->setVisible(FALSE); 
+      }   
+    }
+  }
+  //Update the current status indicators
+  QString stat = PBI->currentAppStatus(appID,true); //get the raw status
+  if(stat.isEmpty() || stat == "DLSTART"  || stat == "DLDONE"){
+    //Not currently running - hide the display indicators
+    ui->group_install_appStat->setVisible(FALSE);
+  }else if(stat.startsWith("DLSTAT::")){
+    //Currently downloading - show download status indicators
+    QString percent = stat.section("::",1,1);
+    QString total = stat.section("::",2,2);
+    QString speed = stat.section("::",3,3);
+    ui->group_install_appStat->setVisible(TRUE);
+      ui->progress_install_DL->setVisible(TRUE);
+    if(total == "??"){ ui->label_install_status->setText( tr("Downloading file:") ); }
+    else{ ui->label_install_status->setText( QString(tr("Downloading %1 file:")).arg(total) ); }
+    if(percent == "??"){
+      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(0);
+    }else{
+      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(100);
+      ui->progress_install_DL->setValue( int(percent.toFloat()) );
+    }
+    if(speed == "??"){ ui->label_install_DL->setVisible(FALSE); }
+    else{
+      ui->label_install_DL->setVisible(TRUE);
+      ui->label_install_DL->setText(speed);
+    }
+  }else{
+    //Currently installing/removing/updating - show last message from process
+    ui->label_install_status->setText(stat);
+    ui->group_install_appStat->setVisible(TRUE);
+      ui->progress_install_DL->setVisible(FALSE);
+      ui->label_install_DL->setVisible(FALSE);
+  }
+  if(!statusonly){
+    //Get the application binaries and set the icon to start them
+    QStringList bins = PBI->pbiBinList(appID);
+    appBinMenu->clear();
+    if(bins.isEmpty()){
+      ui->tool_install_icon->setAutoRaise(false);
+    }else{
+      ui->tool_install_icon->setAutoRaise(true);
+      for(int i=0; i<bins.length(); i++){
+        QAction *act = new QAction(this);
+	    act->setText(bins[i].section("::::",0,0)); //set name
+	    act->setWhatsThis(bins[i].section("::::",1,10)); //set command string
+        appBinMenu->addAction(act);
+      }
+    }
+  }
 }
 
 // ==========================
