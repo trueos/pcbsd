@@ -46,9 +46,10 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   if(devType == "USB"){ devIcon->setPixmap(QPixmap(":icons/usb.png")); }
   else if(devType == "SATA"){ devIcon->setPixmap(QPixmap(":icons/harddrive.png")); }
   else if(devType == "SD"){ devIcon->setPixmap(QPixmap(":icons/sdcard.png")); }
-  if(devType == "CD9660"){ devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
+  else if(devType == "CD9660"){ devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
+  else if(devType == "ISO"){devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
   //Start the automount procedure if necessary
-  if(checkAutomount->isChecked()){
+  if(checkAutomount->isChecked() || devType=="ISO"){
     QTimer::singleShot(500,this,SLOT( slotMountClicked() ));
   }
   //Update the Item based upon current device status
@@ -76,7 +77,8 @@ void MenuItem::updateItem(){
       devIcon->setToolTip(device+"\n"+QString(tr("Mounted at %1")).arg(mountpoint));
       pushMount->setText(tr("Eject"));
       pushMount->setIcon(QIcon(":icons/eject.png"));
-      checkAutomount->setVisible(TRUE);
+      if(devType != "ISO"){ checkAutomount->setVisible(TRUE); }
+      else{ checkAutomount->setVisible(FALSE); }
     }else{	  
       devIcon->setEnabled(FALSE); //Grey out the icon if not mounted
       devIcon->setToolTip(device);
@@ -116,12 +118,6 @@ bool MenuItem::isMounted(){
     }
   }
   return mounted;
-  /*
-  QString chk = pcbsd::Utils::runShellCommandSearch("mount",device);  
-  if(chk.isEmpty() ){ chk = pcbsd::Utils::runShellCommandSearch("mount",devLabel->text().replace(" ","-")); } 
-  if(chk.isEmpty() ){ return FALSE; }
-  else{ return TRUE; }
-  */
 }
 
 //Cleanup function
@@ -285,7 +281,11 @@ void MenuItem::unmountItem(){
     }
     ok = TRUE;
     title = QString( tr("%1 has been successfully unmounted.") ).arg(devLabel->text());
-    result = tr("It is now safe to remove the device");
+    if(devType == "ISO"){
+      result = tr("The ISO file has been completely detached from the system.");
+    }else{
+      result = tr("It is now safe to remove the device");
+    }
   }else{
     qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
     qDebug() << " - Error message:" << output;
@@ -294,8 +294,16 @@ void MenuItem::unmountItem(){
   }
   //emit the proper signals
   if(ok){
-    emit itemUnmounted(device);
     mountpoint.clear();
+    if(devType=="ISO" && device.section("/",-1).startsWith("md") ){
+      //Get the md number
+      QString num = device.section("/md",-1).simplified();
+      //also remove the MD device from the system using "mdconfig"
+      qDebug() << "Detaching Memory Disk:" << num;
+      QString cmd = "mdconfig -d -u "+num;
+      system(cmd.toUtf8());
+    }
+    emit itemUnmounted(device);
   }
   emit newMessage(title, result);
 }

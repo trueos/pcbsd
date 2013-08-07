@@ -4,8 +4,8 @@
 
 DevCheck::DevCheck(){
   //Initialize the lists of valid device types
-  validDevs << "da" << "ad" << "mmcsd" << "cd" << "acd";
-  validDevTypes << "USB" << "SATA" << "SD" << "CD9660" << "CD9660";
+  validDevs << "da" << "ad" << "mmcsd" << "cd" << "acd" << "md";
+  validDevTypes << "USB" << "SATA" << "SD" << "CD9660" << "CD9660" << "ISO";
   for(int i=0; i<validDevs.length(); i++){
     devFilter << validDevs[i]+"*";
   }
@@ -29,7 +29,7 @@ DevCheck::~DevCheck(){
 bool DevCheck::isValid(QString node){
   bool ok = FALSE;
   for(int i=0; i<validDevs.length(); i++){
-    if(node.startsWith(validDevs[i])){ 
+    if(node.startsWith(validDevs[i]) && node!="mdctl"){ 
 	ok = TRUE; 
 	break; 
     }
@@ -96,7 +96,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   //Double check for valid device types (just in case)
   QString detType;
   for(int i=0; i<validDevs.length(); i++){
-    if(node.startsWith(validDevs[i])){ 
+    if(node.startsWith(validDevs[i]) && node != "mdctl"){ 
 	detType = validDevTypes[i]; 
 	break; 
     }
@@ -106,7 +106,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
   else{type->append(detType);}
   bool isCD=FALSE;
-  if(detType == "CD9660"){ isCD=TRUE; }
+  if(detType == "CD9660" || detType == "ISO"){ isCD=TRUE; }
   
   //Read the Device Info using "file -s <device>"
   QString cmd = "file -s "+fullDev;
@@ -153,9 +153,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   if(isCD){
     if( !output.contains("ERROR:") ){
       dlabel = output.section("'",-2).remove("'").simplified();
-      //qDebug() << dlabel;
-      //while( dlabel.endsWith(" ") || dlabel.endsWith("\n") ){ dlabel.chop(1); }
-      //qDebug() << dlabel;
+      if(dlabel.contains("(")){ dlabel = dlabel.left(dlabel.indexOf("(")+1).trimmed();}
     }
   }else{
    dlabel = output.section("label: \"",1,1).section("\"",0,0).simplified(); //device name
@@ -189,12 +187,19 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   else{
     //Assign a device label
     if(isCD){
-      dlabel = "Optical_Disk";
+      if(detType == "ISO"){
+	dlabel = "ISO_File";
+      }else{
+        dlabel = "Optical_Disk";
+      }
     }else{
       dlabel = detType+"-Device"; //this is not a "detected" label
     }
   }
-  
+  //make sure that a device label does not contain "(" or ")"
+  if(dlabel.contains("(")){ dlabel.remove("(").simplified(); }
+  if(dlabel.contains(")")){ dlabel.remove(")").simplified(); }
+  dlabel = dlabel.simplified();
   //Now perform the final checks to see if it is a good device
   bool good = FALSE;
   if( isMounted ){}//Always ignore this device (local FreeBSD installation that is being used)

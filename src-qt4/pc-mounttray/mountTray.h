@@ -13,6 +13,7 @@
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
+#include <QFileDialog>
 
 #include "menuItem.h"
 #include "devCheck.h"
@@ -52,6 +53,7 @@ private slots:
   void slotRescan();
   void slotOpenFSDialog();
   void slotOpenSettings();
+  void slotOpenISO();
   
 private:
   DevCheck *DCheck;
