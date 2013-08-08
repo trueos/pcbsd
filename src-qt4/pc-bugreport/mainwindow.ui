@@ -156,8 +156,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>313</width>
-         <height>102</height>
+         <width>602</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -171,7 +171,10 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>1. You can use SEND-PR mechanism</string>
+           <string>1. Submit a bug report using FreeBSD's SEND-PR mechanism</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -188,7 +191,10 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>2. You can send email to FREE BSD bugs mail list</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -219,8 +225,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>311</width>
-         <height>118</height>
+         <width>602</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -234,7 +240,10 @@
         <item>
          <widget class="QLabel" name="label_7">
           <property name="text">
-           <string>1. You can report bug to PCBSD trac</string>
+           <string>1. Submit a bug report using using PC-BSD's trac mechanism</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -251,7 +260,10 @@
         <item>
          <widget class="QLabel" name="label_8">
           <property name="text">
-           <string>2. You can send email to PC-BSD testing mail list</string>
+           <string>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -285,8 +297,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>550</width>
-         <height>192</height>
+         <width>602</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -300,7 +312,10 @@
         <item>
          <widget class="QLabel" name="label_12">
           <property name="text">
-           <string>1. You can report a bug to xorg product in the freedesktop bugzilla </string>
+           <string>1. Submit a bug report using using freedesktop's bugzilla mechanism</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -317,7 +332,10 @@
         <item>
          <widget class="QLabel" name="label_13">
           <property name="text">
-           <string>2. Also you can compose mail to xorg mail list</string>
+           <string>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -372,7 +390,7 @@
     <item>
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>Please select desktop environment which causes issue</string>
+       <string>Please select which desktop environment causes the issue:</string>
       </property>
      </widget>
     </item>
@@ -418,8 +436,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>357</width>
-         <height>108</height>
+         <width>602</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -433,7 +451,7 @@
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>1. You may compose mail to freebsd-gnome mail list</string>
+           <string>1. Send an email to the freebsd-gnome mail list</string>
           </property>
          </widget>
         </item>
@@ -450,7 +468,7 @@
         <item>
          <widget class="QLabel" name="label_4">
           <property name="text">
-           <string>2. You may compose message to PCBSD testing mail list</string>
+           <string>2. Send an email to the PC-BSD testing mailing list</string>
           </property>
          </widget>
         </item>
@@ -494,8 +512,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>532</width>
-         <height>153</height>
+         <width>587</width>
+         <height>358</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -509,7 +527,10 @@
         <item>
          <widget class="QLabel" name="label_11">
           <property name="text">
-           <string>1. You may use KDE bug tracker</string>
+           <string>1. Submit a bug report to the KDE bug tracker</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -526,7 +547,10 @@
         <item>
          <widget class="QLabel" name="label_10">
           <property name="text">
-           <string>2. If you think that problem is FreeBSD specific please report to kde-freebsd mail list</string>
+           <string>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -543,7 +567,10 @@
         <item>
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</string>
+           <string>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -587,8 +614,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>532</width>
-         <height>153</height>
+         <width>587</width>
+         <height>358</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -602,7 +629,7 @@
         <item>
          <widget class="QLabel" name="label_16">
           <property name="text">
-           <string>1. You can report a bug to XFCE bugzilla </string>
+           <string>1. You can report a bug to XFCE bugzilla site</string>
           </property>
          </widget>
         </item>
@@ -619,7 +646,10 @@
         <item>
          <widget class="QLabel" name="label_17">
           <property name="text">
-           <string>2. If you think that problem is FreeBSD specific please report to kde-freebsd mail list</string>
+           <string>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -636,7 +666,10 @@
         <item>
          <widget class="QLabel" name="label_18">
           <property name="text">
-           <string>3.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</string>
+           <string>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -680,8 +713,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>532</width>
-         <height>108</height>
+         <width>587</width>
+         <height>342</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -695,7 +728,10 @@
         <item>
          <widget class="QLabel" name="label_20">
           <property name="text">
-           <string>1. You can report a bug to LXDE bug tracker at SourceForge</string>
+           <string>1. You can report a bug to the LXDE bug tracker at SourceForge</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -712,7 +748,10 @@
         <item>
          <widget class="QLabel" name="label_19">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</string>
+           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -756,8 +795,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>532</width>
-         <height>83</height>
+         <width>602</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -822,8 +861,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>343</width>
-         <height>63</height>
+         <width>602</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -837,7 +876,7 @@
         <item>
          <widget class="QLabel" name="label_24">
           <property name="text">
-           <string>1. You can report issues to freebsd-ports-bugs maillist</string>
+           <string>1. You can report issues to freebsd-ports-bugs mailing lists</string>
           </property>
          </widget>
         </item>
@@ -914,8 +953,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>542</width>
-         <height>108</height>
+         <width>587</width>
+         <height>336</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_23">
@@ -946,7 +985,10 @@
         <item>
          <widget class="QLabel" name="label_26">
           <property name="text">
-           <string>2.If you think that problem is PC-BSD specific please report to PCBSD pbi-bugs mail list</string>
+           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
