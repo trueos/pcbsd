@@ -11,6 +11,7 @@ PROGDIR="/usr/local/share/lpreserver"
 
 DATASET="${1}"
 KEEP="${2}"
+snapStat=0
 
 if [ -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
@@ -21,7 +22,8 @@ echo_log "Creating snapshot on ${DATASET}"
 mkZFSSnap "${DATASET}" "auto-"
 if [ $? -ne 0 ] ; then
   echo_log "ERROR: Failed creating snapshot on ${DATASET}"
-  email_msg "Snapshot ERROR" "ERROR: Failed creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
+  queue_msg "Snapshot ERROR" "ERROR: Failed creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
+  snapStat=1
 else
   queue_msg "Success creating snapshot on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
 fi
@@ -52,15 +54,22 @@ do
       rmZFSSnap "${DATASET}" "$snap"
       if [ $? -ne 0 ] ; then
         echo_log "ERROR: Failed pruning snapshot $snap on ${DATASET}"
-        email_msg "Snapshot ERROR" "ERROR: Failed pruning snapshot $snap on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
+        queue_msg "Snapshot ERROR" "ERROR: Failed pruning snapshot $snap on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
+        snapStat=1
       else
         queue_msg "Success pruning snapshot $snap on ${DATASET} @ `date`\n\r`cat $CMDLOG`"
       fi
     fi
 done
 
-if [ "$EMAILMODE" = "ALL" ] ; then
-   email_msg "Automated Snapshot" "`echo_queue_msg`"
+# If we failed at any point, sent out a notice
+if [ $snapStat -ne 0 ] ; then
+   email_msg "Automated Snapshot - FAILED" "`echo_queue_msg`"
+fi
+
+# If we are successful and user wants all notifications, send out a message
+if [ $snapStat -eq 0 -a "$EMAILMODE" = "ALL" ] ; then
+   email_msg "Automated Snapshot - Success" "`echo_queue_msg`"
 fi
 
 # Check if we need to run a replication task for this dataset

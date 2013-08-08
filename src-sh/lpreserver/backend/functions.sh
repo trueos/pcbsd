@@ -319,7 +319,7 @@ save_rep_props() {
   queue_msg "`date`: Saving dataset properties for: ${DATASET}\n"
 
   # Lets start by building a list of props to keep
-  rProp=".lp-repset`echo ${REPRDATA} | sed 's|/|#|g'`"
+  rProp=".lp-props-`echo ${REPRDATA} | sed 's|/|#|g'`"
 
   zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
 	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > $rProp"
