@@ -197,6 +197,7 @@ bool mainUI::saveGRUBdefaults(QString themefile, QString fontfile, int countdown
     out << "GRUB_HIDDEN_TIMEOUT_QUIET=true\n"; 
     out << "GRUB_HIDDEN_TIMEOUT="+ QString::number(countdown)+"\n";
   }
+  if(defaultBE >= ui->tree_BE->topLevelItemCount()){ defaultBE = 0; }
   if(defaultBE >= 0){ out << "GRUB_DEFAULT="+QString::number(defaultBE)+"\n"; }
   file.close();
   QString cmd="mv "+file_GRUBdefaults+".new "+file_GRUBdefaults;
@@ -276,6 +277,10 @@ void mainUI::updateGRUBdefaults(){
   }
   if( ui->tree_BE->topLevelItemCount() > 1){
     ui->check_GRUBshowcountdown->setVisible(false);
+    if(!G_showMenu){ 
+      G_showMenu=true; 
+      saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
+    }
   }else{
     ui->check_GRUBshowcountdown->setVisible(true);
   }
@@ -308,9 +313,13 @@ void mainUI::on_tool_BEadd_clicked(){
   QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, "", &ok); 
   if(ok && !newname.isEmpty()){
     if( checkName(newname) ){
+      if(updateGRUB && !G_showMenu){ 
+	G_showMenu=true; 
+	saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
+      }
       beadmCreate(newname);
       updateBEList();
-      if(updateGRUB){ on_tool_GRUBsavedefaults_clicked();  updateGRUBdefaults();}
+      updateGRUBdefaults();
     }
   }	
 }
@@ -339,9 +348,13 @@ void mainUI::on_tool_BEcp_clicked(){
     QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, name, &ok); 
     if(ok && !newname.isEmpty()){
       if( checkName(newname) ){
+	if(updateGRUB && !G_showMenu){ 
+	  G_showMenu=true; 
+	  saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
+        }
         beadmCopy(name,newname);
         updateBEList();
-	if(updateGRUB){ on_tool_GRUBsavedefaults_clicked();  updateGRUBdefaults();}
+	updateGRUBdefaults();
       }
     }
   }	
@@ -370,9 +383,6 @@ void mainUI::on_tool_BEmv_clicked(){
 void mainUI::on_tool_BErem_clicked(){
   int index = getSelectedBE();
   if(index != -1){
-    //Check to see if we need to reset the GRUB defaults afterwards
-    bool updateGRUB=false;
-    if( ui->tree_BE->topLevelItemCount() == 2){updateGRUB=true;} //moving from 2 to 1
     qDebug() << "BE Rem num:" << ui->tree_BE->topLevelItemCount();
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
     if(ui->tree_BE->topLevelItemCount() == 1){
@@ -385,9 +395,13 @@ void mainUI::on_tool_BErem_clicked(){
     }
     //Verify removal
     if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify BE Removal"),tr("Are you sure you want to delete the following boot environment?")+"\n\n"+name, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel) ){
+      if(index < G_defaultBE){ 
+	 G_defaultBE--; //make sure we keep the same default BE
+	 saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
+	 updateGRUBdefaults();
+      }
       beadmRemove(name);
       updateBEList();
-      if(updateGRUB){ on_tool_GRUBsavedefaults_clicked();  updateGRUBdefaults(); }
     }
   }	
 }
