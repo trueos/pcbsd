@@ -222,6 +222,10 @@ bool wizardDisk::validatePage()
               button(QWizard::NextButton)->setEnabled(false);
               return false;
 	    }
+	    if ( lineZpoolName->text() == "root" ) {
+              button(QWizard::NextButton)->setEnabled(false);
+              return false;
+	    }
 	    if ( lineZpoolName->text().contains(" ") ) {
               button(QWizard::NextButton)->setEnabled(false);
               return false;
