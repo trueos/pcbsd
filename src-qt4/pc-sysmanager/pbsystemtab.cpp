@@ -42,7 +42,7 @@ void PBSystemTab::ProgramInit()
     labelMemory->setText(pcbsd::Utils::bytesToHumanReadable(pcbsd::Utils::sysctlAsInt("hw.physmem")));
     
     // Read any kernel settings
-    LoadKernSettings();
+    //LoadKernSettings();
 
     // Read any rc.conf settings
     //loadServSettings();
@@ -52,8 +52,8 @@ void PBSystemTab::ProgramInit()
 
     // Connect our various buttons
     connect(buttonGenerate, SIGNAL(clicked()), this, SLOT(startGenerateSheet()) );
-    connect(showBootCheck, SIGNAL(clicked()), this, SIGNAL(changed()));
-    connect(splashSelect, SIGNAL(activated(int)), this, SIGNAL(changed()));
+    //connect(showBootCheck, SIGNAL(clicked()), this, SIGNAL(changed()));
+
     connect(pushMiscSave, SIGNAL( clicked() ), this, SLOT( slotMiscSave() ) );
 
     connect(fetchSourceBut, SIGNAL( clicked() ), this, SLOT( fetchSourcePressed() ) );
@@ -181,12 +181,12 @@ void PBSystemTab::showRebootRequired()
 
 
 // Read the loader.conf, and load any settings we need
-void PBSystemTab::LoadKernSettings()
+/*void PBSystemTab::LoadKernSettings()
 {
     if ( checkValue("/boot/loader.conf", "splash_pcx_load=", "YES" ) ) { showBootCheck->setChecked(true); }
     else { showBootCheck->setChecked(false); }
 }
-
+*/
 // Checks the file for a string KEY, and sees if its set to VALUE
 bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 {
@@ -212,74 +212,10 @@ void PBSystemTab::fetchPortsPressed()
     portsnapUI->show();
 }
 
-void PBSystemTab::customSplashPressed()
-{
-    QString file = QFileDialog::getOpenFileName(this, tr("Select Splash"), "/home/" + username, "*.pcx");
-    if (file == "") { return; }
-    
-    QImage image(file, "PCX");
-    
-    if (image.isNull())
-    {
-	QMessageBox::warning(this, tr("Invalid Image"), tr("The file supplied does not appear to be a valid PCX image."));
-	return;
-    }
-    if ((image.width() > 1024) || (image.height() > 768) || (image.depth() > 8))
-    {
-	QMessageBox::warning(this, tr("Invalid Image"), tr("The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth."));
-	return;
-    }
-
-    system("cp '" + file.toAscii() + "' /boot/loading-screen.pcx");
-    splashSelect->clear();
-    loadBootData();
-    splashSelect->setCurrentIndex(0);
-}
-
-
-void PBSystemTab::miscSavePressed()
-{
-    //Change registry entry
-    QSettings settings;
-    QString code = codeMap[splashSelect->currentText()];
-    settings.setValue("/PCBSD/splash-screen", code);
-    
-    //Move files about
-    system("cp " + PREFIX.toAscii() + "/share/pcbsd/splash-screens/loading-screen-" + code.toAscii() + ".pcx /boot/loading-screen.pcx");
-    system("chmod 644 /boot/loading-screen.pcx");
-    
-    if ( showBootCheck->isChecked() )
-    {
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "splash_pcx_load=", "splash_pcx_load=\"YES\"" );
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "vesa_load=", "vesa_load=\"YES\"" );
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "bitmap_load=", "bitmap_load=\"YES\"" );
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "bitmap_name=", "bitmap_name=\"/boot/loading-screen.pcx\"" );
-     } else {
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "splash_pcx_load=", "splash_pcx_load=\"NO\"" );
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "vesa_load=", "vesa_load=\"NO\"" );
-	pcbsd::Utils::setConfFileValue("/boot/loader.conf", "bitmap_load=", "bitmap_load=\"NO\"" );
-     }
-}
-
-
-void PBSystemTab::showSplashChecked(int newState)
-{
-    if (newState == 0)
-    {
-	splashSelect->setEnabled(false);
-	customBut->setEnabled(false);
-    }
-    else
-    {
-	splashSelect->setEnabled(true);
-	customBut->setEnabled(true);
-    }
-}
-
 
 void PBSystemTab::loadBootData()
 {
-    //Trawl screens directory
+    /*//Trawl screens directory
     QDir screens = QDir(PREFIX + "/share/pcbsd/splash-screens/");
     if (! screens.exists())
     {
@@ -350,10 +286,7 @@ void PBSystemTab::loadBootData()
 
 	splashSelect->setCurrentIndex(langList.indexOf(selectedLang) + indexMod);
     }
-    
-    if ( checkValue("/boot/loader.conf", "splash_pcx_load=", "YES" ) )
-        	showBootCheck->setChecked(TRUE);
-
+*/
     if ( pcbsd::Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES"))
 		checkForceIbus->setChecked(TRUE);
     else
@@ -361,7 +294,6 @@ void PBSystemTab::loadBootData()
 }
 
 void PBSystemTab::slotMiscSave() {
-    miscSavePressed();
     saveKernScreen();
 }
 
