@@ -241,14 +241,14 @@ check_rep_task() {
   # Is this a sync-task we do at the time of a snapshot?
   if [ "$2" = "sync" -a "$TIME" = "sync" ] ; then
      export DIDREP=1
-     echo_log "`date`: Starting replication SYNC task on ${DATASET}\n"
+     echo_log "`date`: Starting replication SYNC task on ${DATASET}"
      queue_msg "`date`: Starting replication SYNC task on ${DATASET}\n"
      start_rep_task "$LDATA"
      return $?
   else
      # Ready to do a scheduled replication
      export DIDREP=1
-     echo_log "`date`: Starting replication SCHEDULED task on ${DATASET}\n"
+     echo_log "`date`: Starting replication SCHEDULED task on ${DATASET}"
      queue_msg "`date`: Starting replication SCHEDULED task on ${DATASET}\n"
      start_rep_task "$LDATA"
      return $?
@@ -292,7 +292,9 @@ start_rep_task() {
      # Lets mark our new latest snapshot and unmark the last one
      zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
      zfs set backup:lpreserver=LATEST ${LDATA}@$lastSNAP
-     echo_log "`date`: Finished replication task on ${DATASET}\n"
+     echo_log "`date`: Finished replication task on ${DATASET}"
+     save_rep_props
+     zStatus=$?
   else
      # FAILED :-(
      # Lets save the output for us to look at later
@@ -302,24 +304,32 @@ start_rep_task() {
      cat ${CMDLOG} >> ${FLOG}
      echo "\nRecv log:\n" >> ${FLOG}
      cat ${CMDLOG2} >> ${FLOG}
-     echo_log "`date`: FAILED replication task on ${DATASET}: LOGFILE: $FLOG\n"
+     echo_log "`date`: FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
   fi
 
   return $zStatus
 }
 
-get_data_props() {
+save_rep_props() {
+  # If we are not doing a recursive backup / complete dataset we can skip this
+  if [ "$RECURMODE" != "ON" ] ; then return 0; fi
+  if [ "`basename $DATASET`" != "$DATASET" ] ; then return 0; fi
+
+  echo_log "`date`: Saving dataset properties for: ${DATASET}"
+  queue_msg "`date`: Saving dataset properties for: ${DATASET}\n"
 
   # Lets start by building a list of props to keep
-  pTag=`echo $DATASET | md5`
+  rProp=".lp-repset`echo ${REPRDATA} | sed 's|/|#|g'`"
 
-  if [ "$RECURMODE" = "ON" ] ; then
-     zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " > /tmp/.propList.$$
+  zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
+	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > $rProp"
+  if [ $? -eq 0 ] ; then
+    echo_log "`date`: Successful save of dataset properties for: ${DATASET}"
+    queue_msg "`date`: Successful save of dataset properties for: ${DATASET}\n"
+    return 0
   else
-     zfs get all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " > /tmp/.propList.$$
+    echo_log "`date`: Failed saving dataset properties for: ${DATASET}"
+    queue_msg "`date`: Failed saving dataset properties for: ${DATASET}\n"
+    return 1
   fi
- 
-  cat /tmp/.propList.$$
-  rm /tmp/.propList.$$
-
 }
