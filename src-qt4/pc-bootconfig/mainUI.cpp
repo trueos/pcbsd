@@ -395,13 +395,14 @@ void mainUI::on_tool_BErem_clicked(){
     }
     //Verify removal
     if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify BE Removal"),tr("Are you sure you want to delete the following boot environment?")+"\n\n"+name, QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel) ){
-      if(index < G_defaultBE){ 
-	 G_defaultBE--; //make sure we keep the same default BE
+      if(index <= G_defaultBE){ 
+	 if(index < G_defaultBE){ G_defaultBE--; }//make sure we keep the same default BE
+	 else{ G_defaultBE=0; } //Removing the default BE
 	 saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);  
-	 updateGRUBdefaults();
       }
       beadmRemove(name);
       updateBEList();
+      updateGRUBdefaults();
     }
   }	
 }
