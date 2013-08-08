@@ -98,7 +98,10 @@ display_loaderopts()
       elif [ -e "${fMnt}/boot/modules/${module}.ko" ] ; then
         mPath="modules"
       else
-        echo "Unable to locate module ${module}" >&2
+	# This isn't a module that we can see, lets set it as a variable
+	#echo "No such module $line, setting as a variable" >&2
+        echo "$line" >> /tmp/.lSysCtls.$$
+        continue
       fi
       echo "    kfreebsd_module_elf ${loadPrefix}/@/boot/${mPath}/${module}.ko"
     done < /tmp/.lRObjs.$$
