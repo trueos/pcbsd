@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>548</width>
-    <height>398</height>
+    <width>559</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -85,7 +85,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</string>
+       <string>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
