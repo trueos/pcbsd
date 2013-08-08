@@ -53,7 +53,6 @@ public:
 public slots:
     void ProgramInit();
     void saveKernScreen();
-    void miscSavePressed();
     void changeOpenTab(int tab);
 
 private slots:
@@ -62,8 +61,6 @@ private slots:
     void finishedSheet();
     void fetchSourcePressed();
     void fetchPortsPressed();
-    void customSplashPressed();
-    void showSplashChecked( int newState );
     void loadBootData();
     void slotMiscSave();
     void slotClose();
@@ -86,7 +83,7 @@ private:
     void CheckPBVer();
     void CreateSheetFile();
     void showRebootRequired();
-    void LoadKernSettings();
+    //void LoadKernSettings();
     QString getLineFromCommandOutput(QString cmd);
     bool sanityCheckSettings();
 
