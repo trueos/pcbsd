@@ -89,6 +89,10 @@
         <source>Mounted at %1</source>
         <translation>Montado en %1</translation>
     </message>
+    <message>
+        <source>The ISO file has been completely detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -141,6 +145,18 @@ No se puede abrir el administrador de archivos con permisos de root</translation
     <message>
         <source>Change Settings</source>
         <translation>Cambiar opciones</translation>
+    </message>
+    <message>
+        <source>Load ISO File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select ISO File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ISO Files (*.iso)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

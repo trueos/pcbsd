@@ -203,33 +203,27 @@
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Стільниця (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сервер (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти конфігурацію на USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ваша конфігурація встановлення буде збережена на USB диск, відформатований у FAT32. Продовжити?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка вставте USB пристрій збереження та натисніть ОК щоб продовжити.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка введіть назву конфігурації.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>

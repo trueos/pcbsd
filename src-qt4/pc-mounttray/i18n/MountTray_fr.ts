@@ -89,6 +89,10 @@
         <source>Mounted at %1</source>
         <translation>Monté à 1%</translation>
     </message>
+    <message>
+        <source>The ISO file has been completely detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -141,6 +145,18 @@ Impossible d&apos;ouvrir le gestionnaire de fichiers avec les permissions admini
     <message>
         <source>Change Settings</source>
         <translation>Changer les Réglages</translation>
+    </message>
+    <message>
+        <source>Load ISO File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select ISO File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ISO Files (*.iso)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

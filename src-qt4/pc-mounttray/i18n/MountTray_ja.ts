@@ -89,6 +89,10 @@
         <source>Mounted at %1</source>
         <translation>%1 にマウントしました</translation>
     </message>
+    <message>
+        <source>The ISO file has been completely detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -141,6 +145,18 @@ root 権限付きでファイルマネージャーを開くことはできませ
     <message>
         <source>More Options</source>
         <translation type="unfinished">オプション</translation>
+    </message>
+    <message>
+        <source>Load ISO File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select ISO File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ISO Files (*.iso)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

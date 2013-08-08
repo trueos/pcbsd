@@ -105,265 +105,226 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na pewno chcesz usunąc to repozytorium PBI?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To repozytorium nie może być usunięte.</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowy URL serwera lustrzanego</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę podać nowy URL dla nowego serwera lustrzanego repoztorium:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd zmiany serwera lustrzanego</translation>
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pełna treść błędu jest wyświetlana w oknie wyjścia terminala AppCafe.</translation>
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz katalog Pobierania</translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">Zainstalowane</translation>
+        <translation>Zainstalowane</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">Nazwa Programu</translation>
+        <translation>Nazwa Programu</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wersja</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Stan</translation>
+        <translation>Stan</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprawdz/nie sprawdzaj wszystkich aplikacji</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wszystko</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeprowadź działania dla sprawdzanych aplikacji</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Działania</translation>
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szczegóły aplikacji</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">Wersja:</translation>
+        <translation>Wersja:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">Autor:</translation>
+        <translation>Autor:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">Licencja:</translation>
+        <translation>Licencja:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skróty</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj wszystkie działania dla tej aplikacji</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń wybraną aplikację</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">Deinstaluj</translation>
+        <translation>Deinstaluj</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizuj aplikację do najnowszej możliwej wersji</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizuj wybraną aplikację</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizuj aplikację</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz stronę przeglądarki dla wybranej aplikacji</translation>
     </message>
     <message>
         <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz przeglądarkę</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatycznie aktualizuj wybraną aplikację gdy aktualizacja jest dostępna</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatyczna aktualizacja</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj za aplikacjami</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Strona główna</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria</translation>
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacja</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szukaj tutaj</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Szukaj</translation>
+        <translation>Szukaj</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj ostatnie dodania</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj wg kategorii</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Rozmiar:</translation>
+        <translation>Rozmiar:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacja o aplikacji</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Platforma:</translation>
+        <translation>Platforma:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">Typ:</translation>
+        <translation>Typ:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podobne aplikacje</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">Najlepiej pasujący</translation>
+        <translation>Najlepsze dopasowania</translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inne wyniki</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importuj listę PBI</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eksportuj listę PBI</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Wyjdź</translation>
+        <translation>&amp;Wyjdź</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repozytoria</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">BŁĄD!</translation>
+        <translation>BŁĄD!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>

@@ -754,70 +754,70 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="734"/>
+        <location filename="../wizardDisk.cpp" line="740"/>
         <source>Enter SWAP size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="735"/>
+        <location filename="../wizardDisk.cpp" line="741"/>
         <source>Size (MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="867"/>
+        <location filename="../wizardDisk.cpp" line="873"/>
         <source>Installing to file-system mounted at /mnt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="881"/>
+        <location filename="../wizardDisk.cpp" line="887"/>
         <source>The disk will be setup with the following configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="900"/>
+        <location filename="../wizardDisk.cpp" line="906"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="900"/>
+        <location filename="../wizardDisk.cpp" line="906"/>
         <source>Mirroring:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="940"/>
-        <location filename="../wizardDisk.cpp" line="980"/>
-        <location filename="../wizardDisk.cpp" line="1010"/>
+        <location filename="../wizardDisk.cpp" line="946"/>
+        <location filename="../wizardDisk.cpp" line="986"/>
+        <location filename="../wizardDisk.cpp" line="1016"/>
         <source>Partition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="941"/>
-        <location filename="../wizardDisk.cpp" line="981"/>
-        <location filename="../wizardDisk.cpp" line="1011"/>
+        <location filename="../wizardDisk.cpp" line="947"/>
+        <location filename="../wizardDisk.cpp" line="987"/>
+        <location filename="../wizardDisk.cpp" line="1017"/>
         <source>FileSystem:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="942"/>
-        <location filename="../wizardDisk.cpp" line="982"/>
-        <location filename="../wizardDisk.cpp" line="1012"/>
+        <location filename="../wizardDisk.cpp" line="948"/>
+        <location filename="../wizardDisk.cpp" line="988"/>
+        <location filename="../wizardDisk.cpp" line="1018"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="956"/>
+        <location filename="../wizardDisk.cpp" line="962"/>
         <source>ZFS Datasets:&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="958"/>
-        <location filename="../wizardDisk.cpp" line="1013"/>
+        <location filename="../wizardDisk.cpp" line="964"/>
+        <location filename="../wizardDisk.cpp" line="1019"/>
         <source>Mount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="961"/>
-        <location filename="../wizardDisk.cpp" line="1015"/>
+        <location filename="../wizardDisk.cpp" line="967"/>
+        <location filename="../wizardDisk.cpp" line="1021"/>
         <source>Options:</source>
         <translation type="unfinished"></translation>
     </message>
