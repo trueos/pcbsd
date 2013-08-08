@@ -322,6 +322,9 @@ intercept_pkg_dl()
       rm -rf "${PKG_CACHEDIR}/All"
       echo -e "Done"
    fi
+
+   # Make sure we run extract-overlay again
+   pc-extractoverlay ports >/dev/null 2>/dev/null
    
    exit $result
 }
