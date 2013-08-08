@@ -31,7 +31,10 @@ private:
 	QProcess *proc;
 	QString file_GRUBdefaults, file_GRUBentries;
 	QString dir_GRUBthemes, dir_GRUBfonts;
-
+	//GRUB default values
+        QString G_fontFile, G_themeFile;
+	int G_timer, G_defaultBE;
+	bool G_showMenu, G_goodLoad;
 	//Random usage functions
 	int getSelectedBE(); //get the currently selected Boot Environment index
 	bool checkName(QString); //make sure the selected name is valid
@@ -48,8 +51,8 @@ private:
 	QStringList beadmList();
 
 	//GRUB Configuration Management Functions
-	bool loadGRUBdefaults(QString&, QString&, int&, bool&);
-	bool saveGRUBdefaults(QString, QString, int, bool);
+	bool loadGRUBdefaults(QString&, QString&, int&, bool&, int&);
+	bool saveGRUBdefaults(QString, QString, int, bool, int defaultBE=0);
 	bool loadGRUBcustomentries(QStringList&);
 	bool saveGRUBcustomentries(QStringList);
 

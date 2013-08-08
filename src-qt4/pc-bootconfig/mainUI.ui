@@ -101,7 +101,7 @@
             <item>
              <widget class="QToolButton" name="tool_BEactivate">
               <property name="statusTip">
-               <string>Activate the selected boot environment to be used with next reboot</string>
+               <string>Activate the selected boot environment to be used as the default during bootup</string>
               </property>
               <property name="text">
                <string>...</string>
@@ -134,7 +134,7 @@
             </column>
             <column>
              <property name="text">
-              <string>Bootup</string>
+              <string>Default</string>
              </property>
             </column>
             <column>
