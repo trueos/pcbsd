@@ -316,7 +316,7 @@ QList<QStringList> Backend::hardDrives()
             dev = line.simplified();
             dev.truncate(line.indexOf(":"));
 
-            tmp = line.simplified().remove(0, line.indexOf(":") + 2);
+            tmp = line.simplified().remove(0, line.indexOf(":") + 1);
             devinfo = tmp;
 
             // Get the disk information for this dev
