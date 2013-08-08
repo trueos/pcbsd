@@ -50,9 +50,6 @@ download_cache_packages()
   fi
   pkgUrl="`grep '^packagesite:' /usr/local/etc/pkg.conf | awk '{print $2}'`"
 
-  PKGREL=`uname -r | cut -d '-' -f 1-2`
-
-
   if [ ! -d "$PKG_CACHEDIR/All" ] ; then
      mkdir -p ${PKG_CACHEDIR}/All
   fi
@@ -61,14 +58,13 @@ download_cache_packages()
   do
     # Does the package already exist?
     if [ -e "${PKG_CACHEDIR}/All/${i}" ] ; then 
-	# For now just remove the cached file
 	# Once bapt gives us a working rquery string, we can add a check here to skip
 	# re-downloading already valid files
 	#pName=`echo $i | sed 's|.txz$||g'`
 	# Check the sizes
 	#eSize=`pkg rquery "%sb" $pName`
 	#dSize=`ls -al `
-	rm ${PKG_CACHEDIR}/All/${i} ; 
+	#rm ${PKG_CACHEDIR}/All/${i} ; 
     fi
     get_file "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}"
     if [ $? -ne 0 ] ; then
