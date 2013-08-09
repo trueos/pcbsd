@@ -8,10 +8,6 @@
         <translation>Configuration du Système PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Général</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Divers</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Ecran de démarrage</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Afficher l&apos;écran de démarrage au lancement</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Personnaliser...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Image défectueuse</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Le fichier fourni n&apos;est pas une image PCX valide.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>L&apos;écran de démarrage ne peut pas dépasser 1024x768, ni avoir plus de 8-bit (256 couleurs) de profondeur.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Personnalisez</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Vous devriez également générer une fiche de diagnostic contenant des informations sur votre système. Cette fiche sera utilisée par des techniciens à des fins de dépannage.</translation>
     </message>
@@ -100,24 +64,12 @@
         <translation>Forcer le recours à la méthode de saisie IBUS.</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Sélectionner un Splash</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>n&apos;existe pas !</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Tâches système</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Récupérer l&apos;arbre des P&amp;orts</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>Fichier non trouvé!</translation>
     </message>
 </context>
 <context>

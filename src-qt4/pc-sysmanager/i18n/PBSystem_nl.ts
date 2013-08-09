@@ -8,10 +8,6 @@
         <translation>PC-BSD-systeemconfiguratie</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+S</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Algemeen</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Diversen</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Opstartscherm</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Opstartscherm tijdens opstarten &amp;tonen</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+T</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Aangepast...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Ongeldige afbeelding</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Het opgegeven bestand is geen geldige PCX-afbeelding.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>De opstartscherm-afbeelding mag niet groter zijn dan 1024x768 en geen kleurdiepte van meer dan 8-bit (256 kleuren) hebben.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Aangepast</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>U kunt diagnostische informatie genereren met informatie over uw systeem. Deze informatie kan door technici worden gebruikt om een oplossing te zoeken voor uw problemen.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>Forceer IBUS-toetsenbordinvoer</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Selecteer opstartscherm</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>bestaat niet!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Systeemtaken            </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>P&amp;orts boom ophalen            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

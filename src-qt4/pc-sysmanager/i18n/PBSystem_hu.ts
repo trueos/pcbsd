@@ -8,10 +8,6 @@
         <translation>PC–BSD rendszerkonfiguráció</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+E</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Általános</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Egyéb</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Rendszerindítási képernyő</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>&amp;Kép megjelenítése rendszerindításkor</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Egyéni…</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Érvénytelen kép</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>A megadott fájl nem tűnik érvényes PCX-képnek.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>A kép nem lehet nagyobb 1024×768 pixelnél és a színmélysége sem lehet nagyobb 8 bitnél (256 szín).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Egyéni</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Létrehozhat a rendszeréről információkat tartalmazó diagnosztikai lapot. Ezt az adatlapot hibaelhárítás céljára tudják a technikusok használni.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>iBus írásjegy-bevitel kényszerítése</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Válasszon betöltőképernyőt</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>nem létezik!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Rendszerfeladatok</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>P&amp;orts-fa letöltése</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

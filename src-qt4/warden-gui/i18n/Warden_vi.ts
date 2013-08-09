@@ -761,10 +761,6 @@
         <translation>Hãy dành một chút thời gian và thiết lập các lựa chọn khác cho nhà tù này.</translation>
     </message>
     <message>
-        <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation>Wizard này sẽ hướng dẫn bạn thông qua việc tạo ra một nhà mới Jail. Đầu tiên, nhập tên máy và bất kỳ địa chỉ IP sau đó bấm Next để tiếp tục.</translation>
-    </message>
-    <message>
         <source>IPv4 Address</source>
         <translation>IPv4 địa chỉ</translation>
     </message>
@@ -791,6 +787,10 @@
     <message>
         <source>Invalid IPv6 address!</source>
         <translation>Không hợp lệ địa chỉ IPv6!</translation>
+    </message>
+    <message>
+        <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -12,10 +12,6 @@
         <translation>PC-BSD Sistem Yapılandırması</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>Generate</source>
         <translation>Oluştur</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Çeşitli</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Önyükleme Ekranı</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Açılış ekranı resmini başlangıçta göster</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Özel...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Geçersiz Resim</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Belirtilen dosya geçerli bir PCX resim dosyası değil.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Açılış ekranı resmi 1024x768&apos;den ve 8-bit&apos;ten (256 renk) daha büyük olamaz.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Özel</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Sisteminiz hakkında bilgilerin bulunduğu, tanımlayıcı bir metin oluşturabilirsiniz. Bu metin teknisyenler tarafından sorun giderme amacıyla kullanılabilir.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>IBUS klavye girişini zorla</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Açılış Ekranı Seçin</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>bulunmuyor!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Sistem Görevleri</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Ports A&amp;ğacını İndirin</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

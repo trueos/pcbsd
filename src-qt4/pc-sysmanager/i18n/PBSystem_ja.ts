@@ -8,10 +8,6 @@
         <translation>PC-BSD システムの設定</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>PC-BSD Version:</source>
         <translation>PC-BSD のバージョン:</translation>
     </message>
@@ -34,38 +30,6 @@
     <message>
         <source>System Memory:</source>
         <translation>システムメモリー</translation>
-    </message>
-    <message>
-        <source>Boot Screen</source>
-        <translation>起動画面</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>起動時にスプラッシュイメージを表示する(&amp;H)</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>画像を変更(&amp;C)...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>無効な画像</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>指定された画像ファイルは正常な PCX 形式ではありません。</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>大きさが 1024x768 を越えるもの、または色数が 8ビット(256色) を越える画像はスプラッシュスクリーンには使用できません。</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>画像を変更</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -92,14 +56,6 @@
         <translation>その他のオプション</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>スプラッシュ画面の選択</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>存在しません。</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>システムタスク</translation>
     </message>
@@ -114,10 +70,6 @@
     <message>
         <source>Force IBUS keyboard input</source>
         <translation>キーボード入力に IBus を使用する</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>ファイルが見つかりません!</translation>
     </message>
 </context>
 <context>

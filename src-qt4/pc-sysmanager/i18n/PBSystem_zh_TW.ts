@@ -12,10 +12,6 @@
         <translation>PC-BSD系統設定</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>PC-BSD Version:</source>
         <translation>PC-BSD版本:</translation>
     </message>
@@ -44,38 +40,6 @@
         <translation>其他</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>開機畫面</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>開機時顯示開機啟動圖片(splash image)</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>變更圖片...(&amp;C)</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>無效的圖片</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>您指定的圖片不是正常的PCX格式圖片</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>開機啟動圖片需為小於1024x768，或是8-bit (256色)以內的圖片。</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>變更圖片</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>您可讓系統產生一份包含有關您的系統資料的系統診斷報告。這份報告可供技術人員解決疑難雜症時作參考。</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>強制執行IBus鍵盤輸入</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>選擇splash畫面</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>不存在!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>系統工作</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>擷取 P&amp;orts Tree</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

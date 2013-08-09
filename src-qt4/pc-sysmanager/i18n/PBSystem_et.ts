@@ -8,10 +8,6 @@
         <translation>PC-BSD süsteemi seaded</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+S</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Üldine</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Muu</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Alglaadimisekraan</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>&amp;Näita pilti alglaadimisel</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+N</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>Ko&amp;handatud</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Vigane pilt</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Fail ei paista olevat sobiv PCX-vormingus pilt.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Pilt ei saa olla suurem kui 1024x768 ega suurema kui 8-bitise värvisügavusega.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Kohandatud</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Võid ka genereerida diagnostikalehe, kus on informatsioon süsteemi kohta. Seda saavad kasutada tehnikud vigade otsimisel.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>Sunni klaviatuuri sisend IBUSi kaudu</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Vali pilt</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>ei ole olemas!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Süsteemi tegevused</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Tõmba p&amp;ortide puu</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

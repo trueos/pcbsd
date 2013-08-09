@@ -8,10 +8,6 @@
         <translation>PC-BSD ਸਿਸਟਮ ਸੰਰਚਨਾ</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>ਸਧਾਰਨ</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>ਫੁਟਕਲ</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>ਬੂਟ ਸਕਰੀਨ</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>ਬੂਟ ਸਮੇਂ ਸਵਾਗਤੀ ਸਕਰੀਨ ਵੇਖੋ(&amp;h)</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>ਪਸੰਦੀਦਾ(&amp;C)...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>ਗਲਤ ਚਿੱਤਰ</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>ਦਿੱਤੀ ਫਾਇਲ ਢੁੱਕਵੀਂ PCX ਈਮੇਜ਼ ਫਾਇਲ ਨਹੀਂ ਜਾਪਦੀ ਹੈ।</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>ਸਵਾਗਤੀ ਸਕਰੀਨ ਚਿੱਤਰ ੧੦੨੪x੭੮੬  ਤੋਂ ਵੱਧ ਜਾਂ ੮-ਬਿੱਟ (੨੫੬ ਰੰਗ) ਤੋਂ ਵੱਧ ਨਹੀਂ ਹੋ ਸਕਦਾ ਹੈ।</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>ਪਸੰਦੀਦਾ</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>ਤੁਸੀਂ ਪੜਤਾਲ ਸ਼ੀਟ ਵੀ ਤਿਆਰ ਕਰ ਸਕਦੇ ਹੋ, ਜੋ ਤੁਹਾਡੇ ਸਿਸਟਮ ਬਾਰੇ ਜਾਣਕਾਰੀ ਰੱਖਦੀ ਹੋਵੇ। ਇਹ ਸ਼ੀਟ ਤਕਨੀਕੀ ਮਾਹਿਰਾਂ ਵਲੋਂ ਸਮੱਸਿਆ-ਹੱਲ਼ ਲਈ ਵਰਤੋਂ ਵਿੱਚ ਆ ਸਕਦੀ ਹੈ।</translation>
     </message>
@@ -103,27 +67,12 @@
             </translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
         <translation type="unfinished">
             </translation>
     </message>

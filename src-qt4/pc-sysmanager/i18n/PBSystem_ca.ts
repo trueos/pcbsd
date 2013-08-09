@@ -8,10 +8,6 @@
         <translation>Configuració del sistema PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+T</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>General</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Miscel·lània</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Pantalla d&apos;arranc</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>&amp;Mostrar l&apos;imatge d&apos;esquitx durant l&apos;arranc</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+M</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Personalitzada...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Imatge incorrecta</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>El fitxer proporcionat no sembla ser una imatge PCX correcta.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>La imatge d&apos;esquitx de pantall no pot ser més gran de 1024x768, o cap més gran de 8-bits (256 colors) de profunditat.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Personalitzat</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Potser també voldreu generar una fulla de diagnòstic, amb la informació del vostre sistema. Aquesta fulla pot ser utilitzada pels tècnics per tal de resoldre problemes.</translation>
     </message>
@@ -103,27 +67,12 @@
             </translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
         <translation type="unfinished">
             </translation>
     </message>

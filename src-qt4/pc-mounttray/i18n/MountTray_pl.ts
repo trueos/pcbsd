@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Plik ISO został całkowicie odłączony od systemu.</translation>
     </message>
 </context>
 <context>
@@ -148,15 +148,15 @@ Nie można włączyć menadżera plików z prawami administratora</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished"></translation>
+        <translation>Ładuj plik ISO</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz plik ISO</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished"></translation>
+        <translation>Pliki ISO (*.iso)</translation>
     </message>
 </context>
 <context>

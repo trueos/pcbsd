@@ -12,10 +12,6 @@
         <translation>PC-BSD Configurazione di Sistema</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>Generate</source>
         <translation>Genera</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Misc</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Schermata di Avvio</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>V&amp;isualizza immagine splash all&apos;avvio</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+I</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Personalizza...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Immagine non Valida</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Il file fornito non sembra apparire come un immagine PCX valida.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>L&apos;immagine splash screen non può superare dimensioni maggiori di 1024x768, o avere profondità maggiore di 8-bit (256 colori).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Personalizzato</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Puoi anche generare una scheda diagnostica, con le informazioni del tuo sistema. Questa può essere usata dai tecnici per le problematiche più disparate.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>Forza l&apos;input tastiera IBUS            </translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Scegli Splash            </translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>non esiste!            </translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Attività di sistema</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Scarica l&apos;albero dei Ports            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

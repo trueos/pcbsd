@@ -56,26 +56,6 @@
         <translation>Divers            </translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Écran de Démarrage            </translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>A&amp;fficher l&apos;écran de démarrage au lancement</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H            </translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Personnaliser...            </translation>
-    </message>
-    <message>
-        <source>Alt+C</source>
-        <translation>Alt+C            </translation>
-    </message>
-    <message>
         <source>Other Options</source>
         <translation>Autres Options            </translation>
     </message>
@@ -84,40 +64,12 @@
         <translation>Forcer le recours à la méthode de saisie IBUS.    </translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Sélectionner un Splash            </translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Image Invalide             </translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Le fichier fourni ne semble pas être une image PCX valide.            </translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>L&apos;image de l&apos;écran de démarrage ne ​​peut pas être plus grand que 1024x768, ou supérieur à 8 bits (256 couleurs) de profondeur.</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>n&apos;existe pas !            </translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Personnalisez            </translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Tâches système            </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Récupérer l&apos;arbre des P&amp;orts          </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>Fichier non trouvé!</translation>
     </message>
 </context>
 <context>

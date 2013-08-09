@@ -8,10 +8,6 @@
         <translation>تشكيل نظام PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>عام</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>متفرقات</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>شاشة الإقلاع</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>إظهار صورة البداية في الإقلاع</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>خصص...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>صورة غير صالحة</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>الملف الموفر لا يبدو أنه صورة PCX صالحة.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>صورة شاشة البداية لن تكون أكبر من 1024x768 ، أو أكبر من العمق اللوني 8 بت (256 لونا).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>مخصص</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>يمكنك أيضا توليد ورقة التقرير، مع معلومات حول جهازك. هذه الورقة يمكن أن يستخدمها الفنيون لاستكشاف اﻷغراض.</translation>
     </message>
@@ -103,27 +67,12 @@
             </translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
         <translation type="unfinished">
             </translation>
     </message>

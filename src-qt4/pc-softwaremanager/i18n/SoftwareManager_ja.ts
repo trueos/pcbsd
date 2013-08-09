@@ -347,8 +347,7 @@
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe の起動に必要なユーザー権限が不足しています!</translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
@@ -356,62 +355,51 @@
     </message>
     <message>
         <source>AppCafe Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe は処理中です</translation>
     </message>
     <message>
         <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe は処理を停止しています。すべての処理を中止して終了しますか?</translation>
     </message>
     <message>
         <source>Import PBI File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リストをインポート</translation>
     </message>
     <message>
         <source>PBI List (*.pbilist)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リスト (*.pbilist)</translation>
     </message>
     <message>
         <source>Import Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インポートのエラー</translation>
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リストのインポートでエラーが発生しました。</translation>
     </message>
     <message>
         <source>Please make sure that the file has not been corrupted and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正常なファイルを指定してから再度インポートしてください</translation>
     </message>
     <message>
         <source>Export PBI File List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リストをエクスポート</translation>
     </message>
     <message>
         <source>Export Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エクスポートのエラー</translation>
     </message>
     <message>
         <source>There was an error exporting the PBI list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI リストのエクスポートでエラーが発生しました</translation>
     </message>
     <message>
         <source>Please make sure that you have the proper directory permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディレクトリーが書き込み可能であることを確認してから再度エクスポートしてください</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">アップデート(&amp;P)</translation>
+        <translation>アップデート</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
@@ -542,46 +530,39 @@
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished">インストール中</translation>
+        <translation>インストールしています</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除しています</translation>
     </message>
     <message>
         <source>Updating</source>
-        <translation type="unfinished">アップデート中</translation>
+        <translation>アップデートしています</translation>
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードを保留しています</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールを保留しています</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除を保留しています</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを保留しています</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションをリストからインストールできません</translation>
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>結果:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>

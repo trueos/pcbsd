@@ -8,10 +8,6 @@
         <translation>பி.சி-பி.எஸ்.டி கணினி அமைப்பு</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>பொதுவான</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>இதரனவை</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>உயிரேற்றத் திரை</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>உயிரேற்றத்தின் பொழுது முகப்பு படத்தை காண்பிக்கவும்</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>விருப்பமானவை...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>செல்லாத படம்</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>அளிக்கப்பட்ட பி.சி.எக்ஸ் படம் செல்லாததாகும்.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>1024x768 எனும் பரிமாணத்தைவிட பெரிதாகவோ, 8-பிட் (256 நிறங்கள்) ஆழத்தை விட அதிகமாகவோ, முகப்பு படம் இருக்கக்கூடாது.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>விருப்பமானவை</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation type="unfinished">
             </translation>
@@ -104,27 +68,12 @@
             </translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
         <translation type="unfinished">
             </translation>
     </message>

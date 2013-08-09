@@ -8,10 +8,6 @@
         <translation>Cầu hình hệ thống PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+T</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Chung</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>nhiều     </translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Màn hình khởi động            </translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Hiển thị màn hình lúc khởi động</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+B</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Tuỳ chỉnh...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Hình ảnh không hợp lệ</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Các tập tin cung cấp không xuất hiện như một hình ảnh PCX hợp lệ.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Hình ảnh màn hình không thể nào lớn hơn 1024x768, hoặc bất kỳ lớn hơn 8-bit (256 màu) chiều sâu.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Tuỳ chỉnh            </translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Bạn cũng có thể tạo ra tờ chẩn đoán, thông tin về hệ thống của bạn. Tờ này có thể được sử dụng bởi các kỹ thuật cho mục đích xử lý sự cố.</translation>
     </message>
@@ -100,24 +64,12 @@
         <translation>Lực lượng IBUS đầu vào bàn phím</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>chọn Splash            </translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>không tồn tại!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>hệ thống nhiệm vụ</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Lấy P &amp; Orts Tree</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>Không tìm thấy tệp!</translation>
     </message>
 </context>
 <context>

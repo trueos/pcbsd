@@ -8,10 +8,6 @@
         <translation>Configuración del sistema PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt + C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>General</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Misc</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Pantalla de inicio</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Mostrar imagen splas&amp;h al inicio</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt + H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Personalizado...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>La imagen no es válida</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>El fichero indicado no parece una imagen PCX válida.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>La imagen de inicio no puede ser mayor de 1024x768, o tener una profundidad de color de más de 8 bits (256 colores).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Personalizado</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Puede generar una hoja de diagnósticos con información sobre su sistema. Esta hoja puede ser útil para los técnicos para la resolución de problemas.</translation>
     </message>
@@ -100,24 +64,12 @@
         <translation>Forzar entrada del teclado IBUS</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Pantalla de bienvenida</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>¡no existe!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Tareas del sistema</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Recoger P&amp;orts Tree</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>¡Fichero no encontrado!</translation>
     </message>
 </context>
 <context>

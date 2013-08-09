@@ -12,10 +12,6 @@
         <translation>PC-BSD systemkonfiguration</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>Generate</source>
         <translation>Skab</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Forskelligt   </translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Opstartsbillede   </translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>&amp;Vis grafik ved start    </translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H  </translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Indstillet</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Ugyldigt billede  </translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Denne fil virker ikke til at være et gyldigt PCX billede.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Opstartsgrafikken kan ikke overstige 1024x768 eller mere end 8-bit dybde (256 farver).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Indstillet   </translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Du kan også skabe et diagnoseark med information om systemet. Arket kan bruges af teknikere til at fejlrette.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>Gennemtving IBUS tastatur inddata</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Vælg splash</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>Eksisterer ikke.</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>File not found!</source>
         <translation type="unfinished">
             </translation>
     </message>

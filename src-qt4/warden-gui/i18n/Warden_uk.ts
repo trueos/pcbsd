@@ -771,10 +771,6 @@
         <translation>Будь ласка, знайдіть час і задайте додаткові параметри для цієї В&apos;язниці.</translation>
     </message>
     <message>
-        <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation>Цей майстер допоможе вам створити нову В&apos;язницю. Перш за все, введіть назву системи та IP-адресу, потім натисніть &apos;Далі&apos; щоб продовжити.</translation>
-    </message>
-    <message>
         <source>IPv4 Address</source>
         <translation>IPv4 адреса</translation>
     </message>
@@ -803,6 +799,10 @@
     <message>
         <source>Invalid IPv6 address!</source>
         <translation type="unfinished">Невірна IPv6 адреса!</translation>
+    </message>
+    <message>
+        <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

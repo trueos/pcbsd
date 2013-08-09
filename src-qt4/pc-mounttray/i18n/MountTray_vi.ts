@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tập tin ISO đã được hoàn toàn tách rời khỏi hệ thống.</translation>
     </message>
 </context>
 <context>
@@ -148,15 +148,15 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished"></translation>
+        <translation>Nạp tập tin ISO</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished"></translation>
+        <translation>Chọn số tập tin ISO</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO Tập tin (*.iso)</translation>
     </message>
 </context>
 <context>

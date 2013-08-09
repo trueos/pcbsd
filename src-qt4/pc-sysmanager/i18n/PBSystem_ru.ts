@@ -8,10 +8,6 @@
         <translation>Конфигурирация PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Общий</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Разное</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Экран загрузки</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Показать изображение заставки при загрузке [&amp;H]</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>Пользовательские... [&amp;C]</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Некорректное изображение</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Предоставленный файл похоже не является корректным PCX изображением.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Изображение заставки не может быть более чем 1024x768, или глубиной цвета более 8-бит (256 цветов).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Пользовательские</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Вы также можете сгенерировать диагностичный лист, с информацией о вашей системе. Этот лист может быть полезен техникам для борьбы с проблемами.</translation>
     </message>
@@ -100,24 +64,12 @@
         <translation>Заставлять ввод с клавиатуры через IBUS</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Выберите приветствие</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>не существует!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Системные задачи</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Загрузить дерево портов [&amp;O]</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>Файл не найден!</translation>
     </message>
 </context>
 <context>

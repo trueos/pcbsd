@@ -8,10 +8,6 @@
         <translation>Konfigurasi Sistem PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+T</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Umum</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Lain-lain</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Layar Boot</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>&amp;Tampilkan gambar splash pada saat boot</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+T</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Kostumasi...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Gambar tidak valid</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Berkas yang tersedia bukanlah gambar PCX yang valid.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Gambar splash layar tidak bisa lebih besar dari 1024x768, atau lebih besar dari kedalaman 8-bit (256 warna)</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Kostumasi</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Anda juga dapat membuat lembar diagnosa, tentang informasi sistem Anda. Lembar ini dapat digunakan oleh teknisi untuk tujuan pemecahan masalah.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>Gunakan input keyboard IBUS</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Pilih Layar Awalan</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>tidak ada!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Sistem Task</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Ambil P&amp;orts Tree</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

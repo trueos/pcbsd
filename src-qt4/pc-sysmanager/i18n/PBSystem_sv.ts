@@ -8,10 +8,6 @@
         <translation>PC-BSD Systemkonfiguration</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+S</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Allmänt</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Diverse</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Uppstartsskärm</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Visa uppstartsskärm vid uppstart</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Anpassa...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Ogiltig bild</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Vald fil verkar inte vara en giltig PCX-bild.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Uppstartsbilden kan inte vara större än 1024x768, eller ha en färgkvalitet större än 8-bitar (256 färgers) djup.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Anpassad</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Du kan också generera ett diagnostik dokument, med information om ditt system. Det här dokumentet kan användas av tekniker för att felsökningsändamål.</translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>Tvinga IBUS tangentbords inmatning</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Välj SplashScreen</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>existerar inte!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Systemuppgifter</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Hämta P&amp;ortsträdet</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

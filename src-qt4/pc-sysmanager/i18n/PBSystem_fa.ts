@@ -12,10 +12,6 @@
         <translation>پیکربندی سیستم  PC-BSD </translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>  Alt+C</translation>
-    </message>
-    <message>
         <source>Generate</source>
         <translation>به وجود آوردن     </translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>متفرقه</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>صفحه راه انداز   </translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>نمایش تصویر splash  درزمان راه اندازی</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H </translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>و انتخابی..  </translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>تصویر نامعتبر است</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>فایل ارائه یک تصویر PCX معتبر به نظر نمی رسد.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>تصویر روی صفحه نمایشsplash  نمی تواند بزرگتر از 1024x768 و یا بیشتر از 8 بیتی (256 رنگ) باشد.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>رسم   </translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>همچنین شما می توانید یک جدول تشخیصی با اطلاعات در مورد سیستم شما، تولید کنید . این برگه را می توان توسط تکنسین های برای مقاصد عیب یابی استفاده می شود.    </translation>
     </message>
@@ -100,25 +64,12 @@
         <translation>نیروی IBUS ورودی صفحه کلید</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>انتخاب Splash</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>وجود ندارد!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>وظایف سیستم</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>دریافت شاخه Ports</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation type="unfinished">
-            </translation>
     </message>
 </context>
 <context>

@@ -8,10 +8,6 @@
         <translation>Налаштування системи PC-BSD</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+З</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Загальне</translation>
     </message>
@@ -52,38 +48,6 @@
         <translation>Різне</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Екран завантаження</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Показувати зображення при завантаженні системи</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>Власне...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Невірне зображення</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Обраний файл, схоже, не є вірним PCX зображенням.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Зображення заставки не може мати розмір більший за 1024х768 та глибину кольору більшу за 8 біт (256 кольорів).</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Власні</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Ви також можете згенерувати файл з діагностичною інформацією про вашу систему. Цей файл може бути використаний спеціалістами для визначення причин можливих неполадок.</translation>
     </message>
@@ -100,24 +64,12 @@
         <translation>Форсувати введення з клавіатури через IBUS</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Обрати заставку завантаження</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>не існує!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Системні завдання</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Завантажити дерево портів</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>Файл не знайдено!</translation>
     </message>
 </context>
 <context>

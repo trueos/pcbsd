@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier ISO a été complètement détaché du système.</translation>
     </message>
 </context>
 <context>
@@ -148,15 +148,15 @@ Impossible d&apos;ouvrir le gestionnaire de fichiers avec les permissions admini
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger le fichier ISO</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished"></translation>
+        <translation>Sélectionner le fichier ISO</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO Fichier (*.iso)</translation>
     </message>
 </context>
 <context>

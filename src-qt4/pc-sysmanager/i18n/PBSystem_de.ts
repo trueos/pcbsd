@@ -8,10 +8,6 @@
         <translation>PC-BSD System-Konfiguration</translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
-    </message>
-    <message>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -48,38 +44,6 @@
         <translation>Verschiedenes</translation>
     </message>
     <message>
-        <source>Boot Screen</source>
-        <translation>Boot Screen</translation>
-    </message>
-    <message>
-        <source>S&amp;how splash image on boot</source>
-        <translation>Zeige S&amp;plash-Image während des Bootvorgangs</translation>
-    </message>
-    <message>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <source>&amp;Custom...</source>
-        <translation>&amp;Benutzerdefiniert...</translation>
-    </message>
-    <message>
-        <source>Invalid Image</source>
-        <translation>Ungültige Bild-Datei</translation>
-    </message>
-    <message>
-        <source>The file supplied does not appear to be a valid PCX image.</source>
-        <translation>Diese Datei scheint kein gültiges PCX-Bild zu sein.</translation>
-    </message>
-    <message>
-        <source>The splash screen image cannot be any larger than 1024x768, or any greater than 8-bit (256 colours) depth.</source>
-        <translation>Das Bild für den Splash-Screen darf nicht größer als 1024x768 Pixel sein und maximal 8 Bit (256 Farben) haben.</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Benutzerdefiniert</translation>
-    </message>
-    <message>
         <source>Generate</source>
         <translation>Erzeugen</translation>
     </message>
@@ -100,24 +64,12 @@
         <translation>Erzwinge IBUS Tastatureingabe</translation>
     </message>
     <message>
-        <source>Select Splash</source>
-        <translation>Startbildschirm auswählen</translation>
-    </message>
-    <message>
-        <source>doesn&apos;t exist!</source>
-        <translation>existiert nicht!</translation>
-    </message>
-    <message>
         <source>System Tasks</source>
         <translation>Systemaufgaben</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
         <translation>Ports-Sammlung abrufen</translation>
-    </message>
-    <message>
-        <source>File not found!</source>
-        <translation>Datei nicht gefunden!</translation>
     </message>
 </context>
 <context>

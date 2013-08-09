@@ -792,11 +792,6 @@
         <translation>请花些时间设定此jail的其它选项。</translation>
     </message>
     <message>
-        <source>This wizard will walk you through creating a new jail. First, enter the hostname and any IP address then click next to continue.</source>
-        <translation>此向导会引导你创建一个新的jail。首先，输入主机名和IP地址，然后点击下一步。
-            </translation>
-    </message>
-    <message>
         <source>IPv4 Address</source>
         <translation>IPv4地址
             </translation>
@@ -827,6 +822,10 @@
     <message>
         <source>Invalid IPv6 address!</source>
         <translation>无效的IPv6地址！</translation>
+    </message>
+    <message>
+        <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
