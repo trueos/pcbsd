@@ -99,6 +99,7 @@ do_pc-pkg()
 if [ "$IN_PKG_WRAPPER" = "YES" ] ; then
   # Already running in the wrapper, pass through direct to pkg command
   /usr/sbin/pkg ${@} 
+  exit $?
 else
   do_pc-pkg $@
   exit $?
