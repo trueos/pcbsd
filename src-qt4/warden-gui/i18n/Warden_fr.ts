@@ -790,7 +790,7 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cet assistant vous guidera à travers la création d&apos;un nouveau Jail. Tout d&apos;abord, entrer un nom d&apos;hôte et IP qui n&apos;est pas en cours d&apos;utilisation sur le réseau. Si vous prévoyez d&apos;utiliser IPv6 pour accéder au Jail, cochez la case d&apos;adresse IPv6 et l&apos;entrée d&apos;une adresse IPv6 valide. Lorsque vous avez terminé, cliquez sur Suivant pour continuer.</translation>
     </message>
 </context>
 </TS>

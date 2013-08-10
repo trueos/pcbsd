@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation>Tastaturbelegung ändern      </translation>
+        <translation>Tastaturbelegung ändern</translation>
     </message>
     <message>
         <source>System</source>
@@ -132,8 +132,7 @@
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sie sind dabei, das System herunterzufahren.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
@@ -145,8 +144,7 @@
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sie sind dabei, das System neu zu starten.</translation>
     </message>
 </context>
 <context>

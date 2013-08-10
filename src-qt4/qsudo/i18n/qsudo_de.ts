@@ -5,28 +5,23 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zum Ausführen dieses Befehl mit Systemberechtigung geben Sie bitte Ihr Benutzerpasswort ein</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erfordert Systemberechtigung</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zugriff verweigert</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dieser Benuzter hat keine administrativen Rechte auf diesem System!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ungültiges Passwort! Verbleibende Versuche: %1   </translation>
     </message>
 </context>
 </TS>

@@ -210,23 +210,19 @@
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sla instellingen op USB op</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dit zal uw installatie-instellingen opslaan op een USB-staaf die geformatteerd is in MSDOSFS/FAT32. Doorgaan?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voer a.u.b. nu een USB-staaf in en klik op OK om door te gaan.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>

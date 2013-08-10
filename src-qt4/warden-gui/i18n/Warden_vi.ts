@@ -790,7 +790,7 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wizard này sẽ hướng dẫn bạn thông qua việc tạo ra một nhà tù mới. Đầu tiên, nhập địa chỉ IP và tên máy và không hiện đang sử dụng trên mạng. Nếu bạn có kế hoạch sử dụng IPv6 để truy cập vào tù, kiểm tra IPv6 hộp Address và nhập vào một địa chỉ IPv6 hợp lệ. Khi hoàn tất, nhấn Next để tiếp tục.</translation>
     </message>
 </context>
 </TS>

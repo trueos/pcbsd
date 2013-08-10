@@ -182,59 +182,44 @@
         <translation>ディスクドライブが見当たりません! インストールを終了します。</translation>
     </message>
     <message>
-        <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在32ビット版を実行しています。もし、このシステムが64ビットをサポートしているならば(2005年以降に生産されたシステムの多くが該当)、64ビット版を使用してください。</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>選択したディスク/パーティションは %1 Gバイト以下なので、インストールは失敗すると思われます...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USB メモリーから設定の読み取り</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ(PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サーバー(TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定を USB メモリーに保存</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストール設定を msdosfs/FAT32 フォーマットされた USB メモリーに保存します。よろしいですか?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USB メモリーを挿入してください。OK ボタンをクリックすると続行します。</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存する設定のニックネームを入力してください。</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
@@ -275,6 +260,10 @@
         <source>Start the install using this config file?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Unable to suggest a partition for the detected disk.</source>
+        <translation type="unfinished">このディスクではパーティションを作成できません。</translation>
     </message>
 </context>
 <context>
