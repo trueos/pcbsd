@@ -81,8 +81,7 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Componentes do sistema...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>

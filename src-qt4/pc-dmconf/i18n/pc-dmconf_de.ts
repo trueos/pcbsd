@@ -17,13 +17,11 @@
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Benutzer automatisch anmelden</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entfernte Anmeldung</translation>
     </message>
     <message>
         <source>Save</source>
@@ -31,23 +29,19 @@
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Passworteingabe            </translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte geben Sie das Anmeldepasswort für diesen Benutzer ein</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>VNC Fernsteuerung aktivieren            </translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verschiedenes</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
@@ -55,8 +49,7 @@
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte das Anmeldepasswort für den entfernten Login eingeben</translation>
     </message>
 </context>
 </TS>

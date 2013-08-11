@@ -97,8 +97,7 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizações de pacotes disponíveis</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
@@ -112,8 +111,7 @@
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizações de pacotes disponíveis</translation>
     </message>
 </context>
 </TS>

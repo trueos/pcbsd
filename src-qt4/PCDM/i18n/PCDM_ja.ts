@@ -5,31 +5,26 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Left</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Right</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Up</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Down</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>

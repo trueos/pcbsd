@@ -195,83 +195,67 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lade Installationskonfiguration von einem USB Stick</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguration von USB laden</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server (TrueOS)            </translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguration auf USB Stick speichern</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die Konfiguration wird auf einem mit MSDOSFS/FAT32 formatiertem USB Stick gespeichert. Fortfahren?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte stecken Sie den USB Stick jetzt an und klicken Sie auf OK zum Fortfahren.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte geben sie den Namen für die Konfiguration ein.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Speichern der Konfiguration fehlgeschlagen. Ist der Stick mit dem FAT32 Dateisystem formatiert?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguration gespeichert. Sie können den USB Speicher jetzt entfernen.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die Konfiguration wird von einem mit MSDOSFS/FAT32 formatiertem USB Stick geladen. Fortfahren?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte stecken sie den USB Stick jetzt an und klicken Sie auf OK zum Fortfahren.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fehler beim Speichern der Konfiguration auf dem USB Speicher. Funktioniert das Gerät und ist mit dem FAT32 Dateisystem formatiert?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguration geladen. Sie können das USB Gerät jetzt entfernen.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurationsdatei:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die Installation mit dieser Konfigurationsdatei starten?</translation>
     </message>
 </context>
 <context>
@@ -639,13 +623,11 @@
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Poolname</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4K Blockgröße für ZFS erzwingen</translation>
     </message>
 </context>
 <context>

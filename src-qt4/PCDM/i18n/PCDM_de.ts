@@ -48,13 +48,11 @@
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Halten, um das eingeebene Passwort anzuzeigen</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwort für den ausgewählten Benutzer</translation>
     </message>
     <message>
         <source>Available users</source>
@@ -62,8 +60,7 @@
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Login auf %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
@@ -78,13 +75,11 @@
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprache</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprache ändern</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -166,18 +161,15 @@
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Variante</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tastaturmodell</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Sie können in das freie Feld tippen, um die Einstellungen zu testen.)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
@@ -192,18 +184,15 @@
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprache wählen</translation>
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Derzeitige Sprache</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwenden</translation>
     </message>
     <message>
         <source>Cancel</source>

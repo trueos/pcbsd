@@ -91,8 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die ISO-Datei wurde aus dem System ausgehängt.            </translation>
     </message>
 </context>
 <context>
@@ -149,25 +148,22 @@ Kann den Dateimanager nicht mit root-Berechtigungen öffnen</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-Datei laden</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-Datei auswählen</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-Dateien (*.iso)</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation>Mount Tray-Einstellungen</translation>
+        <translation>Mount-Tray-Einstellungen</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>

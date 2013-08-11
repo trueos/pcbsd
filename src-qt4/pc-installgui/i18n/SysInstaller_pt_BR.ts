@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation>Cancelara a instalação</translation>
+        <translation>Cancelar a instalação</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
@@ -168,8 +168,8 @@
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Seu sistema está instalado!
+ Clique em Concluir para reiniciar. Após a reinicialização, você pode ejetar a mídia de instalação.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -197,18 +197,15 @@
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation type="unfinished">O disco / partição selecionado é menor que o recomendado %1GB. A instalação pode falhar...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Carregar configuração de instalação de um dispositivo USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Carregar configuração do USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
@@ -217,13 +214,11 @@
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servidor (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Salvar configuração para USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -247,8 +242,7 @@
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configuração salva! Agora você pode remover com segurança a mídia USB.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -267,18 +261,15 @@
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configuração carregada! Agora você pode remover com segurança a mídia USB.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivo de configuração:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iniciar a instalação usando este arquivo de configuração?</translation>
     </message>
 </context>
 <context>
@@ -638,13 +629,11 @@
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Digite o tamanho da SWAP</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tamanho (MB)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>

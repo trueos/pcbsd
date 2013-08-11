@@ -5,64 +5,53 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Capacidade de disco do sistema</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ponto de montagem</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema de arquivos</translation>
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usado/Total</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Porcentagem %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fechar</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Disco(s) quase cheio(s)</translation>
     </message>
 </context>
 <context>
     <name>MenuItem</name>
     <message>
         <source>Auto-mount this device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Montar este dispositivo automaticamente</translation>
     </message>
     <message>
         <source>Eject</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ejetar</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montar</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sucesso</translation>
     </message>
     <message>
         <source>%1 mounted at %2</source>
@@ -76,8 +65,7 @@
     </message>
     <message>
         <source>Error mounting %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Erro ao montar %1</translation>
     </message>
     <message>
         <source>Could not create mount point at %1</source>
@@ -86,8 +74,7 @@
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 foi desmontado com sucesso.</translation>
     </message>
     <message>
         <source>It is now safe to remove the device</source>
@@ -96,18 +83,15 @@
     </message>
     <message>
         <source>Error: %1 could not be unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Erro: %1 não pôde ser desmontado</translation>
     </message>
     <message>
         <source>%1 of disk space available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">%1 de espaço de disco disponível</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Montado em %1</translation>
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
@@ -137,13 +121,11 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>New Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo dispositivo</translation>
     </message>
     <message>
         <source>%1 can now be accessed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 pode ser acessado agora</translation>
     </message>
     <message>
         <source>Rescan Devices</source>
@@ -152,8 +134,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor aguarde</translation>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
@@ -162,33 +143,27 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mais opções</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Visualizar uso do disco</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Mudar configurações</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregar arquivo ISO</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selecionar o arquivo ISO</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivos ISO (*.iso)</translation>
     </message>
 </context>
 <context>
@@ -215,13 +190,11 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Aplicar</translation>
     </message>
 </context>
 </TS>

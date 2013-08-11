@@ -5,7 +5,7 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">EasyPBI</translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
@@ -13,13 +13,11 @@
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Visualizar e editar o módulo PBI atual</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuração do PBI</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
@@ -28,8 +26,7 @@
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Informação do programa</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
@@ -38,8 +35,7 @@
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
@@ -48,8 +44,7 @@
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
@@ -68,8 +63,7 @@
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autor</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
@@ -78,7 +72,7 @@
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">Ícone</translation>
+        <translation>Ícone</translation>
     </message>
     <message>
         <source>Build Information</source>
@@ -92,8 +86,7 @@
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Diretório do pacote</translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
@@ -102,8 +95,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar         </translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
@@ -170,13 +162,11 @@
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Requer permissões de administrador para instalar este PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Requer permissões de Root</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
@@ -185,8 +175,7 @@
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvar configuração</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -194,8 +183,7 @@
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivos adicionais a serem incluídos no PBI</translation>
     </message>
     <message>
         <source>Current Resources</source>
@@ -213,18 +201,15 @@
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Adicionar arquivo</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Apagar o arquivo selecionado do módulo PBI</translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apagar arquivo</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
@@ -283,8 +268,7 @@
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
@@ -293,13 +277,11 @@
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Apagar o item atual do módulo PBI</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -308,17 +290,15 @@
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nome visível para o item</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">Executável</translation>
+        <translation>Executável</translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Binário para ser executado quando o item for ativado</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
@@ -397,8 +377,7 @@
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar</translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
@@ -412,8 +391,7 @@
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -445,8 +423,7 @@
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Tipo de arquivo</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
@@ -455,13 +432,11 @@
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Remover entrada</translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Adicionar entrada</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
@@ -567,18 +542,15 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informação</translation>
     </message>
     <message>
         <source>toolBar</source>
@@ -587,8 +559,7 @@
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configurações do EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -607,33 +578,27 @@
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Clique para criar um novo módulo PBI</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregar</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Clique para carregar um módulo existente</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sumário</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licença</translation>
     </message>
     <message>
         <source>History</source>
@@ -662,8 +627,7 @@
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Fechar o EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
@@ -676,17 +640,15 @@
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">Sobre o EasyPBI</translation>
+        <translation>Sobre o EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ver informação adicional sobre o EasyPBI</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nenhum módulo carregado</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
@@ -715,8 +677,7 @@
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Recursos indisponíveis</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
@@ -725,8 +686,7 @@
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sucesso</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
@@ -783,8 +743,7 @@
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar recursos</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
@@ -793,8 +752,7 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nome do arquivo</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -803,8 +761,7 @@
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Verifique as permissões do arquivo e tente novamente</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
@@ -813,8 +770,7 @@
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Erro ao salvar o arquivo</translation>
     </message>
     <message>
         <source>Could not save the script</source>
@@ -823,12 +779,11 @@
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, verifique as permissões do arquivo e tente novamente</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Erro</translation>
+        <translation>Erro</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
@@ -883,8 +838,7 @@
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Categoria</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
@@ -893,13 +847,11 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Adicionar</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione o diretório do pacote</translation>
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
@@ -913,8 +865,7 @@
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">O aplicativo precisa de privilégios de administrador para executar</translation>
     </message>
     <message>
         <source>Requires Root</source>
@@ -923,8 +874,7 @@
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizar módulo</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -976,8 +926,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar</translation>
     </message>
     <message>
         <source>Local directory to be packaged as a PBI</source>
@@ -991,8 +940,7 @@
     </message>
     <message>
         <source>Local Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Diretório local</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
@@ -1006,8 +954,7 @@
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivo de ícone</translation>
     </message>
     <message>
         <source>Create a PBI from an existing FreeBSD port</source>
@@ -1050,16 +997,14 @@
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ícone PNG (*.png)</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Preferências do EasyPBI</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
@@ -1078,8 +1023,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecionar</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
@@ -1131,8 +1075,7 @@
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Pacotes para ignorar</translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
@@ -1146,8 +1089,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Remove the selected package from the ignore list.</source>
@@ -1156,8 +1098,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <source>Delete all packages currently in the cache.</source>
@@ -1166,8 +1107,7 @@
     </message>
     <message>
         <source>Clear Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Limpar cache</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1191,8 +1131,7 @@
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione um diretório local</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
@@ -1211,13 +1150,11 @@
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Detectar automaticamente</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
@@ -1231,8 +1168,7 @@
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
@@ -1299,8 +1235,7 @@
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Imagens PNG (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>

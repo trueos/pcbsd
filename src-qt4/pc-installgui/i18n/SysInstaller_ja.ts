@@ -211,7 +211,7 @@
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation>インストール設定を msdosfs/FAT32 フォーマットされた USB メモリーに保存します。よろしいですか?</translation>
+        <translation>インストール設定を msdosfs/FAT32 フォーマットされた USB メモリーに保存します。続行しますか?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
@@ -223,47 +223,39 @@
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USB メモリーへの設定保存に失敗しました。メモリーは正常に動作して msdosfs/FAT32 でフォーマットされていますか?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定を保存しました。USB メモリーを安全に取り外すことができるようになりました。</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストール設定を msdosfs/FAT32 フォーマットされた USB メモリーから読み込みます。続行しますか?</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USB メモリーからの設定情報の読み込みに失敗しました。メモリーは正常に動作して msdosfs/FAT32 でフォーマットされていますか?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定を読み込みました。USB メモリーを安全に取り外すことができるようになりました。</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定ファイル:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>この設定ファイルを使用してインストールを開始しますか?</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
         <translation type="unfinished">このディスクではパーティションを作成できません。</translation>
+    </message>
+    <message>
+        <source>Please insert the USB stick now, and click OK to continue.</source>
+        <translation type="unfinished">USB メモリーを挿入してください。OK ボタンをクリックすると続行します。</translation>
     </message>
 </context>
 <context>
@@ -587,7 +579,7 @@
     </message>
     <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-        <translation>ディスク1台にZFSでインストールを行う場合にはそのまま進んでください。それ以外なら mirror/raid モードと使用するディスクを選択してください。</translation>
+        <translation>ディスク1台にZFSでインストールを行う場合にはそのまま進んでください。それ以外なら mirror/raid モードと使用するディスクを選択してください。 </translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -631,13 +623,11 @@
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS プール名</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">ZFS のブロックサイズを 4K バイトに指定する</translation>
     </message>
 </context>
 <context>

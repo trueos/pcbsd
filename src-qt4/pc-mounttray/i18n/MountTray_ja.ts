@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">%</translation>
+        <translation>%</translation>
     </message>
 </context>
 <context>
@@ -91,8 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO ファイルはシステムから取り外されました。</translation>
     </message>
 </context>
 <context>
@@ -149,18 +148,15 @@ root 権限付きでファイルマネージャーを開くことはできませ
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO ファイルを読み込む</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO ファイルを選択</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO ファイル (*.iso)</translation>
     </message>
 </context>
 <context>

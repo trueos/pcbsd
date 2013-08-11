@@ -249,38 +249,31 @@
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Habilitar DNS personalizado</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Habilitar Gateway personalizado</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">DNS IPv6 especificado inválido</translation>
     </message>
     <message>
         <source>Invalid IPv6 Gateway specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Gateway IPv6 especificado inválido</translation>
     </message>
     <message>
         <source>Invalid DNS specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">DNS especificado inválido</translation>
     </message>
     <message>
         <source>Invalid Gateway specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Gateway especificado inválido</translation>
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Proxy habilitado</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>

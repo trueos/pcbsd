@@ -463,22 +463,15 @@
     </message>
     <message>
         <source>Verify PBI Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 削除の確認</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this application?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションを削除しますか?</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">不明</translation>
+        <translation>不明</translation>
     </message>
     <message>
         <source>Install Now!</source>
@@ -487,43 +480,40 @@
     </message>
     <message>
         <source>Downgrade</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウングレード</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションデータベースを検索しています。お待ちください...</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Available: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 は見つかりません</translation>
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルをダウンロード中:</translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 個のファイルをダウンロード中:</translation>
     </message>
     <message>
         <source>Start the application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Are you sure you wish to remove these applications?</source>
+        <translation type="unfinished">このアプリケーションを削除しますか?</translation>
+    </message>
+    <message>
+        <source>Installed: %1</source>
+        <translation type="unfinished">インストール済み: %1</translation>
+    </message>
+    <message>
+        <source>Available: %2</source>
+        <translation type="unfinished">利用可能: %2</translation>
     </message>
 </context>
 <context>
@@ -566,78 +556,63 @@
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できないアプリケーション: %1</translation>
     </message>
     <message>
         <source>Currently Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在インストール済み: %1</translation>
     </message>
     <message>
         <source>Import Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インポート結果</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>これらのアプリケーションをインストールしますか?</translation>
     </message>
     <message>
         <source>%1 Download Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 ダウンロードエラー:</translation>
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI をダウンロードできませんでした。もう一度実行してください。</translation>
     </message>
     <message>
         <source>%1 Update Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 アップデートエラー:</translation>
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデート処理でエラーが発生したため完了できません</translation>
     </message>
     <message>
         <source>%1 Installation Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 インストールエラー</translation>
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストール処理でエラーが発生したため完了できません</translation>
     </message>
     <message>
         <source>%1 Removal Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 削除エラー:</translation>
     </message>
     <message>
         <source>The removal process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除処理でエラーが発生したため完了できません</translation>
     </message>
     <message>
         <source>The download process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロード処理でエラーが発生したため完了できません</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 PBI エラー:</translation>
     </message>
     <message>
         <source>The process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>処理中にエラーが発生したため完了できません</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -645,66 +620,54 @@
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードがキャンセルされました</translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>ダウンロード中: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードが完了しました</translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードを開始しています</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールがキャンセルされました(削除されます)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除がキャンセルされました(再インストールされます)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートはキャンセルできません</translation>
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>アップデートのダウンロード中: %1%</translation>
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを開始しています</translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードを開始しています</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを利用できます: %1</translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>不明なエラー</translation>
     </message>
 </context>
 </TS>
