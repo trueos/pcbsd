@@ -104,6 +104,7 @@ get_fs_line_xvars()
 setup_zfs_mirror_parts()
 {
   _nZFS=""
+  SOUT="$4"
 
   # Check if the target disk is using GRUB
   grep -q "$3" ${TMPDIR}/.grub-install 2>/dev/null
@@ -126,9 +127,14 @@ setup_zfs_mirror_parts()
 
     is_disk "$_zvars" >/dev/null 2>/dev/null
     if [ $? -eq 0 ] ; then
+
+      # Save this disk as one we want to clone the original disk setup to
+      ZFS_CLONE_DISKS="$ZFS_CLONE_DISKS ${_zvars}"
+      export ZFS_CLONE_DISKS
+
       echo "Setting up ZFS disk $_zvars" >>${LOGOUT}
       init_gpt_full_disk "$_zvars" "$_tBL" >/dev/null 2>/dev/null
-      rc_halt "gpart add -a 4k -t freebsd-zfs ${_zvars}" >/dev/null 2>/dev/null
+      #rc_halt "gpart add ${SOUT} -t freebsd-zfs ${_zvars}" >/dev/null 2>/dev/null
 
       # If we are not using GRUB we need to add pmbr / gptzfsboot
       if [ "$_tBL" != "GRUB" ] ; then
@@ -139,7 +145,10 @@ setup_zfs_mirror_parts()
       _nZFS="$_nZFS ${_zvars}"	
     fi	
   done
-  echo "$ZTYPE $2 `echo $_nZFS | tr -s ' '`"
+
+  # Export the ZXTRAOPTS
+  ZXTRAOPTS="$ZTYPE $2 `echo $_nZFS | tr -s ' '`"
+  export ZXTRAOPTS
 } ;
 
 # Function which creates a unique label name for the specified mount
@@ -242,6 +251,9 @@ setup_gpart_partitions()
       rc_halt "gpart create -s BSD ${_wSlice}"
     fi
   fi
+
+  # Unset ZFS_CLONE_DISKS
+  #ZFS_CLONE_DISKS=""
 
   while read line
   do
@@ -371,11 +383,14 @@ setup_gpart_partitions()
       echo ${XTRAOPTS} | grep -q -e "mirror" -e "raidz"
       if [ $? -eq 0 -a "$FS" = "ZFS" ] ; then
         if [ "${_pType}" = "gpt" -o "${_pType}" = "gptslice" ] ; then
-       	  XTRAOPTS=$(setup_zfs_mirror_parts "$XTRAOPTS" "${_pDisk}p${CURPART}" "${_pDisk}")
+       	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}p${CURPART}" "${_pDisk}" "${SOUT}"
+       	  XTRAOPTS="${ZXTRAOPTS}"
         elif [ "${_pType}" = "apm" ] ; then
-       	  XTRAOPTS=$(setup_zfs_mirror_parts "$XTRAOPTS" "${_pDisk}s${CURPART}" "${_pDisk}")
+       	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_pDisk}s${CURPART}" "${_pDisk}" "${SOUT}"
+       	  XTRAOPTS="${ZXTRAOPTS}"
         else
-       	  XTRAOPTS=$(setup_zfs_mirror_parts "$XTRAOPTS" "${_wSlice}${PARTLETTER}" "${_pDisk}")
+       	  setup_zfs_mirror_parts "${XTRAOPTS}" "${_wSlice}${PARTLETTER}" "${_pDisk}" "${SOUT}"
+       	  XTRAOPTS="${ZXTRAOPTS}"
         fi
       fi
 
@@ -388,20 +403,14 @@ setup_gpart_partitions()
 
       # Create the partition
       if [ "${_pType}" = "gpt" ] ; then
-	if [ "$CURPART" = "2" ] ; then
-	  # If this is GPT, make sure first partition is aligned to 4k
-          sleep 2
-          rc_halt "gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_pDisk}"
-	else
-          sleep 2
-          rc_halt "gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
-	fi
+        sleep 2
+	aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
       elif [ "${_pType}" = "gptslice" ]; then
         sleep 2
-        rc_halt "gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
       elif [ "${_pType}" = "apm" ]; then
         sleep 2
-        rc_halt "gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
       else
         sleep 2
 
@@ -412,7 +421,28 @@ setup_gpart_partitions()
 	if [ "$CURPART" = "1" -a "$PARTYPE" = "freebsd-zfs" ] ; then
 	   aOpt="-a 512b"
 	fi
-        rc_halt "gpart add ${SOUT} ${aOpt} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
+        aCmd="gpart add ${SOUT} ${aOpt} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
+      fi
+
+      # Run the gpart add command now
+      rc_halt "$aCmd"
+
+      # Check if we need to clone this layout to a ZFS mirror/raidz disk
+      if [ -n "$ZFS_CLONE_DISKS" ] ; then
+         for zC in $ZFS_CLONE_DISKS
+         do
+	    echo_log "Cloning disk layout to ZFS disk ${zC}"
+	    rc_halt "gpart add ${SOUT} -t ${PARTYPE} ${zC}"
+	    if [ "$PARTYPE" = "freebsd-swap" ] ; then
+	       # If this is the first device, save the original swap dev
+	       if [ -z "$ZFS_SWAP_DEVS" ] ; then
+		  ZFS_SWAP_DEVS="${_pDisk}p${CURPART}"
+	       fi
+	       # Save this swap device, we will gmirror it later
+	       ZFS_SWAP_DEVS="${ZFS_SWAP_DEVS} ${zC}p${CURPART}"
+	       export ZFS_SWAP_DEVS
+	    fi
+         done
       fi
 
       # Check if this is a root / boot partition, and stamp the right loader

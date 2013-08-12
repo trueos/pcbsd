@@ -387,7 +387,7 @@ run_final_cleanup()
 {
   # Check if we need to run any gmirror setup
   ls ${MIRRORCFGDIR}/* >/dev/null 2>/dev/null
-  if [ $? -eq 0 ]
+  if [ $? -eq 0 -o -n "$ZFS_SWAP_DEVS" ]
   then
     # Lets setup gmirror now
     setup_gmirror

@@ -246,17 +246,24 @@ mount_all_filesystems()
          UFS+J) mount_partition ${PARTDEV}${EXT}.journal ${PARTFS} ${PARTMNT} "async,noatime" ;;
          ZFS) mount_partition ${PARTDEV} ${PARTFS} ${PARTMNT} ;;
          SWAP)
+
+		if [ -n "$ZFS_SWAP_DEVS" ] ; then
+		  SWAPDEV="/dev/mirror/swapmirror"
+		else
+		  SWAPDEV="$PARTDEV"
+		fi
+
 		   # Lets enable this swap now
            if [ "$PARTENC" = "ON" ]
            then
-             echo_log "Enabling encrypted swap on ${PARTDEV}"
-             rc_halt "geli onetime -d -e 3des ${PARTDEV}"
+             echo_log "Enabling encrypted swap on ${SWAPDEV}"
+             rc_halt "geli onetime -d -e 3des ${SWAPDEV}"
              sleep 5
-             rc_halt "swapon ${PARTDEV}.eli"
+             rc_halt "swapon ${SWAPDEV}.eli"
            else
-             echo_log "swapon ${PARTDEV}"
+             echo_log "swapon ${SWAPDEV}"
              sleep 5
-             rc_halt "swapon ${PARTDEV}"
+             rc_halt "swapon ${SWAPDEV}"
             fi
             ;;
          IMAGE)

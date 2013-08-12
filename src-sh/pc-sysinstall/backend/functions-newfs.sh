@@ -256,7 +256,13 @@ setup_filesystems()
 
       SWAP)
         rc_halt "sync"
-        rc_halt "glabel label ${PARTLABEL} ${PARTDEV}${EXT}" 
+	if [ -n "$ZFS_SWAP_DEVS" ] ; then
+	  setup_gmirror_swap "$ZFS_SWAP_DEVS"
+	  sleep 5
+          rc_halt "glabel label ${PARTLABEL} /dev/mirror/swapmirror" 
+        else
+          rc_halt "glabel label ${PARTLABEL} ${PARTDEV}${EXT}" 
+        fi
         rc_halt "sync"
         sleep 2
         ;;
@@ -271,3 +277,10 @@ setup_filesystems()
 
   done
 };
+
+
+# Takes a list of args to setup as a swapmirror
+setup_gmirror_swap()
+{
+  rc_halt "gmirror label swapmirror ${@}"
+}

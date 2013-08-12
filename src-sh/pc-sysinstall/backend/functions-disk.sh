@@ -287,13 +287,13 @@ stop_all_gmirror()
   GPROV="`gmirror list | grep ". Name: mirror/" | cut -d '/' -f 2`"
   for gprov in $GPROV 
   do
-    gmirror list | grep -q "Name: ${DISK}" 2>/dev/null
-    if [ $? -eq 0 ]
-    then
-      echo_log "Stopping mirror $gprov $DISK"
-      rc_nohalt "gmirror remove $gprov $DISK"
-      rc_nohalt "dd if=/dev/zero of=/dev/${DISK} count=4096"
-    fi
+    dName=`gmirror list | grep -v 'mirror/' | grep "Name: " | awk '{print $3}'`
+    for rmDisk in $dName
+    do
+      echo_log "Stopping mirror $gprov $rmDisk"
+      rc_nohalt "gmirror remove $gprov $rmDisk"
+      rc_nohalt "dd if=/dev/zero of=/dev/${rmDisk} count=4096"
+    done
   done
 };
 
