@@ -56,13 +56,6 @@ do_desktop_overlay()
     status="1"
   fi
 
-  # Make sure correct beastie.4th menu is showing
-  grep -q 'pcbsd_boot="YES"' /boot/loader.conf
-  if [ $? -ne 0 ] ; then
-    # Enable the PC-BSD beastie.4th menu in /boot/loader.conf
-    echo "pcbsd_boot=\"YES\"" >> /boot/loader.conf
-  fi
-
   # Make sure this system is flagged as a desktop
   if [ ! -e "/etc/defaults/pcbsd" ] ; then
      touch /etc/defaults/pcbsd
