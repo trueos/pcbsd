@@ -31,14 +31,20 @@ sh /usr/local/share/pcbsd/scripts/reset-firewall
 /usr/local/bin/pc-extractoverlay ports
 
 # Add our notice to top of loader.conf
-mv /boot/loader.conf /boot/loader.conf.tmp
+if [ -e "/boot/loader.conf" ] ; then
+  mv /boot/loader.conf /boot/loader.conf.tmp
+fi
+
 cat <<EOF >/boot/loader.conf
 # * IMPORTANT NOTICE *
 # Run 'grub-mkconfig -o /boot/grub/grub.cfg' after making changes to this file
 ###############################################################################
 EOF
-cat /boot/loader.conf.tmp >> /boot/loader.conf
-rm /boot/loader.conf.tmp
+
+if [ -e "/boot/loader.conf.tmp" ] ; then
+  cat /boot/loader.conf.tmp >> /boot/loader.conf
+  rm /boot/loader.conf.tmp
+fi
 
 ################################################
 # Do desktop specific init
