@@ -227,43 +227,35 @@
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не вдалося зберегти налаштування на носій USB. Можливо носій відформатований не у FAT32</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування збережено! Тепер Ви можете безпечно витягти USB пристрій.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження налаштувань встановлення з FAT32 форматованого USB пристрою. Продовжити?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будьласка вставте USB пристрій та натисніть OK щоб продовжити.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не вдалося завантажити налаштування з пристрою USB. Перевірте що пристрій вставлено вірно, пристрій форматований у FAT32.</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування завантажено. Тепер можете безпечно витягти USB пристрій.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл налаштувань:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Почати встановлення з цими налаштуваннями?</translation>
     </message>
 </context>
 <context>
@@ -631,13 +623,11 @@
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я пулу ZFS</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Примусово встановити розмір ZFS блоку 4K</translation>
     </message>
 </context>
 <context>

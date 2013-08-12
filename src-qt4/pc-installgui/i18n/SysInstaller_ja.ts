@@ -255,7 +255,7 @@
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">USB メモリーを挿入してください。OK ボタンをクリックすると続行します。</translation>
+        <translation>USB メモリーを挿入してください。OK ボタンをクリックすると続行します。</translation>
     </message>
 </context>
 <context>

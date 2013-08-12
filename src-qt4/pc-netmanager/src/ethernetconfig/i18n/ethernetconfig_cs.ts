@@ -175,13 +175,11 @@
     </message>
     <message>
         <source>Enable WPA authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Povolit WPA autentifikaci   </translation>
     </message>
     <message>
         <source>Configure &amp;WPA</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nastavení &amp;WPA            </translation>
     </message>
 </context>
 </TS>

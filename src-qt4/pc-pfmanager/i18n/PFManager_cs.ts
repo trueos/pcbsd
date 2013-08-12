@@ -168,7 +168,7 @@ Jste si jisti?</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Úspěch</translation>
+        <translation>Úspěch</translation>
     </message>
     <message>
         <source>Restarted successfuly!</source>
@@ -176,7 +176,7 @@ Jste si jisti?</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">Selhání</translation>
+        <translation>Selhání</translation>
     </message>
     <message>
         <source>Failed to restart!</source>

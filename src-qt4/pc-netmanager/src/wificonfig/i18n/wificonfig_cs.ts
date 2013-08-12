@@ -263,43 +263,35 @@
     </message>
     <message>
         <source>Add Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Přidej vybrané</translation>
     </message>
     <message>
         <source>Add Hidden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Přidej skryté</translation>
     </message>
     <message>
         <source>Network Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jméno sítě</translation>
     </message>
     <message>
         <source>Please enter the name of the network you wish to add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zadej jméno sítě kterou chceš přidat</translation>
     </message>
     <message>
         <source>Configured Network Profiles</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurované Síťové profily</translation>
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Přidej &amp;síť</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nastavení WPA</translation>
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kód státu</translation>
     </message>
 </context>
 <context>

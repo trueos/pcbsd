@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished">Spuštěno</translation>
+        <translation>Povoleno</translation>
     </message>
     <message>
         <source>Enable Service</source>
@@ -57,22 +57,19 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">Neznámý</translation>
+        <translation>Neznámý</translation>
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Následující služby jsou k dispozici na tomto systému</translation>
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spravuji služby pro Warden IP:  </translation>
     </message>
     <message>
         <source>Checking...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Testuji...</translation>
     </message>
 </context>
 <context>
@@ -83,7 +80,7 @@
     </message>
     <message>
         <source>Service Action in progress...</source>
-        <translation type="unfinished">Provádí se nastavení služby...</translation>
+        <translation>Provádí se nastavení služby...</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>

@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">リモートログイン用パスワードを入力してください</translation>
+        <translation>リモートログイン用パスワードを入力してください</translation>
     </message>
 </context>
 </TS>

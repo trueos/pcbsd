@@ -91,8 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл ISO було повністю від&apos;єднано.</translation>
     </message>
 </context>
 <context>
@@ -149,18 +148,15 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантажити файл ISO</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оберіть файл ISO образу</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO образи (*.iso)</translation>
     </message>
 </context>
 <context>

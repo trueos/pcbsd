@@ -215,23 +215,19 @@
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 адреса моста (Bridge) (Вимагає VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 шлюз за замовчуванням (Вимагає VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 адреса моста (Bridge) (Вимагає VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 шлюз за замовчуванням (Вимагає VNET)</translation>
     </message>
 </context>
 <context>
@@ -273,40 +269,35 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Шаблони в&apos;язниць</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Додати нову В&apos;язницю</translation>
+        <translation>Додати нову в&apos;язницю</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Видалити обрану В&apos;язницю</translation>
+        <translation>Видалити обрану в&apos;язницю</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">Закрити</translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версія системи</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Яку версію системи Ви бажаєте отримати?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Назва шаблону</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Введіть назву для цього  шаблону в&apos;язниці:</translation>
     </message>
 </context>
 <context>
@@ -669,8 +660,7 @@
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Керування шаблонами</translation>
     </message>
 </context>
 <context>
@@ -788,17 +778,15 @@
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версія в&apos;язниці</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Використовувати версію основної системи (за замовчуванням)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">Невірна IPv6 адреса!</translation>
+        <translation>Невірна IPv6 адреса!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>

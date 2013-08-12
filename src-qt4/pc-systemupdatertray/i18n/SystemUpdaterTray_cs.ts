@@ -65,18 +65,15 @@
     </message>
     <message>
         <source>Restart Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Potřeba restart</translation>
     </message>
     <message>
         <source>Please restart your computer to complete the pending updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pro dokončení aktualizací prosím restartujte počítač</translation>
     </message>
     <message>
         <source>System restart required to finish updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pro dokončení aktualizací je vyžadován restart systému</translation>
     </message>
     <message>
         <source>Start the Warden</source>
@@ -85,13 +82,11 @@
     </message>
     <message>
         <source>Jail updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizace Jailu k dispozici</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizace Jailu k dispozici</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
@@ -105,8 +100,7 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizace balíčků k dispozici    </translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>

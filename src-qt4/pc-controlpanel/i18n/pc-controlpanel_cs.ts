@@ -25,8 +25,7 @@
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktopové prostředí</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -62,13 +61,11 @@
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(současný)</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepodporované prostředí</translation>
     </message>
     <message>
         <source>(All installed)</source>
@@ -96,13 +93,11 @@
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Načítám položky...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Co chcete nastavit?</translation>
     </message>
 </context>
 </TS>

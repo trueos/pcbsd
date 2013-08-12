@@ -10,8 +10,7 @@
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zde můžete změnit zvukové zařízení a otestovat zvuk</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>

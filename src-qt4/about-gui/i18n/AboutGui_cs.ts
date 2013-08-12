@@ -5,118 +5,95 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">O aplikaci
-            </translation>
+        <translation>O aplikaci</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation>Verze:
-            </translation>
+        <translation>Verze:</translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>Verze:
-            </translation>
+        <translation>&lt;Neznámo&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Počítač:</translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>z FreeBSD verze</translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">Architektura:
-            </translation>
+        <translation>Architektura:</translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>identifikace</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Hardware
-            </translation>
+        <translation>Hardware</translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation>CPU:
-            </translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation>Paměť
-            </translation>
+        <translation>Paměť</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Zpět
-            </translation>
+        <translation>Zpět</translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Desktopové prostředí:
-            </translation>
+        <translation>Desktopová prostředí:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation>(Prosím čekejte...)
-            </translation>
+        <translation>(Prosím čekejte...)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Jméno
-            </translation>
+        <translation>Jméno</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Verze
-            </translation>
+        <translation>Verze</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Zavřít
-            </translation>
+        <translation>Zavřít</translation>
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Testovací sestavení %1. Může obsahovat chyby!</translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>Verze X.org serveru:
-            </translation>
+        <translation>Verze X.org serveru:</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systémové komponenty...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktopová prostředí...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD řádkové příkazy:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD grafické nástroje:</translation>
     </message>
 </context>
 </TS>
