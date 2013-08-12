@@ -18,6 +18,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
 		debootstrap:${PORTSDIR}/sysutils/debootstrap \
 		aria2c:${PORTSDIR}/www/aria2 \
+		sipcalc:${PORTSDIR}/net-mgmg/sipcalc \
 		jailme:${PORTSDIR}/sysutils/jailme
 
 WRKSRC=		${WRKDIR}/src-sh
