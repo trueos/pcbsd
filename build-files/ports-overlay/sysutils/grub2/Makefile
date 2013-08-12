@@ -26,6 +26,7 @@ USE_GMAKE=	yes
 USES=		bison gettext
 ONLY_FOR_ARCHS=	i386 amd64
 INFO=		grub grub-dev
+MAKE_JOBS_UNSAFE=	yes
 
 CONFIGURE_ARGS=	--disable-werror --localedir=${PREFIX}/share/locale
 CONFIGURE_ENV=	CPP="${CC} -E" \
@@ -34,7 +35,6 @@ CONFIGURE_ENV=	CPP="${CC} -E" \
 OPTIONS_DEFINE=	MKFONT FUSE
 MKFONT_DESC=	Build grub-mkfont (require freetype2)
 FUSE_DESC=	Build grub-mount (require FUSE)
-ZFS_DESC=	ZFS support (requires system sources for libzfs.h)
 
 MAN1=		grub-editenv.1 grub-mklayout.1 grub-mkpasswd-pbkdf2.1 \
 		grub-fstest.1 grub-script-check.1 grub-kbdcomp.1 \
@@ -72,14 +72,6 @@ FUSE=		"@comment "
 .endif
 
 PLIST_SUB+=	FUSE=${FUSE}
-
-# XXX this appears not to be needed or even cause breakage
-#.if ${PORT_OPTIONS:MZFS}
-#CPATH=	${SRC_BASE}/sys/cddl/compat/opensolaris:${SRC_BASE}/cddl/compat/opensolaris/include:${SRC_BASE}/cddl/compat/opensolaris/lib/libumem:${SRC_BASE}/cddl/contrib/opensolaris/lib/libnvpair:${SRC_BASE}/cddl/contrib/opensolaris/lib/libuutil/common:${SRC_BASE}/cddl/contrib/opensolaris/lib/libzfs/common:${SRC_BASE}/cddl/contrib/opensolaris/lib/libzpool/common:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common/fs/zfs:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common:${SRC_BASE}/sys/cddl/contrib/opensolaris/uts/common/sys:${SRC_BASE}/sys/cddl/contrib/opensolaris/common/zfs:${SRC_BASE}/cddl/contrib/opensolaris/head:${SRC_BASE}/cddl/lib/libumem
-#CFLAGS+=	-DB_FALSE=0 -DB_TRUE=1
-#CONFIGURE_ENV+=	CPATH=${CPATH}
-#MAKE_ENV+=	CPATH=${CPATH}
-#.endif
 
 post-patch:
 	@${LN} -s ${LOCALBASE}/lib/X11/fonts/dejavu/DejaVuSans.ttf ${WRKSRC}
