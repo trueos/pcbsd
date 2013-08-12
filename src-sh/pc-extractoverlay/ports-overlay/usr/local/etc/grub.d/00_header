@@ -101,17 +101,10 @@ else
 # If all_video.mod isn't available load all modules available
 # with versions prior to introduction of all_video.mod
 cat <<EOF
-  if [ x\$feature_all_video_module = xy ]; then
-    insmod all_video
-  else
-    insmod efi_gop
-    insmod efi_uga
-    insmod ieee1275_fb
-    insmod vbe
-    insmod vga
-    insmod video_bochs
-    insmod video_cirrus
-  fi
+  insmod vbe
+  insmod vga
+  insmod video_bochs
+  insmod video_cirrus
 EOF
 fi
 cat <<EOF
