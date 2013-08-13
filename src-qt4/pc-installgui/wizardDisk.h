@@ -37,6 +37,7 @@ private slots:
     void slotSaveFSResize(int);
     void slotTreeMountsRightClick();
     void slotTerminal();
+    void slotSwapSize();
  
     // QMenu slots
     void slotZCMON();
@@ -57,7 +58,6 @@ private slots:
     void slotZATOFF();
     void slotZEXON();
     void slotZEXOFF();
-    void slotZSwapSize();
 
 private:
     void populateDiskInfo();
@@ -72,6 +72,7 @@ private:
      int getDiskSliceSize();
      int prevID;
      int systemMemory;
+     int swapsize;
     QList<QStringList> sysDisks; // Our lists which contains disk info
     QList<QStringList> sysPartitions; // Our lists which contains partition info
     QList<QStringList> sysFinalDiskLayout; // The final disk layout

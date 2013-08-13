@@ -192,7 +192,7 @@ void Installer::loadDiskInfo()
 bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
 {
   QString targetType, tmp;
-  int targetLoc, totalSize = 0, mntsize;
+  int targetLoc, totalSize = 0, mntsize, swapsize;
   QString targetDisk, targetSlice, tmpPass, fsType;
   bool ok;
   ok = false;
@@ -227,6 +227,15 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   // Give us a small buffer for rounding errors
   totalSize = totalSize - 10;
 
+  // Setup some swap space
+  if ( totalSize > 30000 ) {
+    // 2GB if over 30GB of disk space, 512MB otherwise
+    swapsize = 2048;
+  } else {
+    swapsize = 512;
+  }
+  totalSize = totalSize - swapsize;
+
   // We got a valid size for this disk / slice, lets generate the layout now
   if( !ok )
     return false;
@@ -237,9 +246,15 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
     // Add the main zfs pool with standard partitions
     fsType= "ZFS";
     fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << "";
-    //qDebug() << "Auto-Gen FS:" <<  fileSystem;
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
+    
+    // Now add swap space
+    fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
+    sysFinalDiskLayout << fileSystem;
+    fileSystem.clear();
+
+    //qDebug() << "Auto-Gen FS:" <<  fileSystem;
     return true;
   }
 
@@ -261,16 +276,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   fileSystem.clear();
     
 
-  // Figure out the swap size, try for 2xPhysMem first, fallback to 256 if not enough space
-  mntsize = systemMemory * 2;
-  if ( totalSize - mntsize < 3000 )
-     mntsize = 256;
-
-  // Cap the swap size to 2GB
-  if ( mntsize > 2000 )
-     mntsize = 2000;
-
-  fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(mntsize) << "" << "";
+  fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
   totalSize = totalSize - mntsize;
   //qDebug() << "Auto-Gen FS:" <<  fileSystem;
   sysFinalDiskLayout << fileSystem;

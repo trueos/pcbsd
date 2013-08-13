@@ -22,7 +22,7 @@ void wizardDisk::programInit()
   populateDiskInfo();
 
   //connect(pushClose, SIGNAL(clicked()), this, SLOT(slotClose()));
-  connect(pushSizeMount, SIGNAL(clicked()), this, SLOT(slotResizeFS()));
+  connect(pushSwapSize, SIGNAL(clicked()), this, SLOT(slotSwapSize()));
   connect(pushRemoveMount, SIGNAL(clicked()), this, SLOT(slotRemoveFS()));
   connect(pushAddMount, SIGNAL(clicked()), this, SLOT(slotAddFS()));
   connect(this,SIGNAL(currentIdChanged(int)),this,SLOT(slotCheckComplete()));
@@ -95,12 +95,16 @@ void wizardDisk::slotClose()
 
 void wizardDisk::accept()
 {
+  bool useGRUB = true;
   bool useGPT = false;
   bool force4K = false;
   QString zpoolName;
   if (comboPartition->currentIndex() == 0 )
     useGPT = checkGPT->isChecked();
 
+  // Are we installing GRUB?
+  useGRUB = checkGRUB->isChecked();
+     
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
     useGPT = true;
@@ -115,7 +119,7 @@ void wizardDisk::accept()
   if ( radioExpert->isChecked() )
     emit saved(sysFinalDiskLayout, false, false, zpoolName, force4K);
   else
-    emit saved(sysFinalDiskLayout, true, useGPT, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, useGRUB, useGPT, zpoolName, force4K);
   close();
 }
 
@@ -127,11 +131,13 @@ int wizardDisk::nextId() const
          return Page_Expert;
        if (radioBasic->isChecked()) {
 	 checkGPT->setVisible(false);
+	 checkGRUB->setVisible(false);
 	 checkForce4K->setVisible(false);
 	 groupZFSPool->setVisible(false);
        }
        if (radioAdvanced->isChecked()) {
 	 checkGPT->setVisible(true);
+	 checkGRUB->setVisible(true);
 	 checkForce4K->setVisible(true);
 	 groupZFSPool->setVisible(true);
        }
@@ -374,18 +380,35 @@ void wizardDisk::generateDiskLayout()
     target = targetDisk + targetSlice;
     targetLoc = 2;
   }
-  
 
+  // Get the size of the slice we are working on
   totalSize = getDiskSliceSize();
+
+  // Setup some swap space
+  if ( totalSize > 30000 ) {
+    // 2GB if over 30GB of disk space, 512MB otherwise
+    swapsize = 2000;
+  } else {
+    swapsize = 512;
+  }
+  totalSize = totalSize - swapsize;
+
+
   if ( totalSize != -1 )
   {
      fsType= "ZFS";
 
      // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
     fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
-     //qDebug() << "Auto-Gen FS:" <<  fileSystem;
-     sysFinalDiskLayout << fileSystem;
-     fileSystem.clear();
+    sysFinalDiskLayout << fileSystem;
+    fileSystem.clear();
+
+    // Now add swap space
+    fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
+    sysFinalDiskLayout << fileSystem;
+    fileSystem.clear();
+
+    //qDebug() << "Auto-Gen FS:" <<  fileSystem;
   }
   
   qDebug() << "AutoLayout:" <<  sysFinalDiskLayout;
@@ -401,7 +424,6 @@ void wizardDisk::populateDiskTree()
   treeMounts->setColumnCount(3);
   labelFreeSpace->setVisible(false);
   lineFreeMB->setVisible(false);
-  pushSizeMount->setVisible(false);
 
   treeMounts->header()->setSectionHidden(0, true);
   treeMounts->header()->setDefaultSectionSize(150);
@@ -471,7 +493,6 @@ void wizardDisk::slotTreeDiskChanged()
 
    pushRemoveMount->setEnabled(true);
    pushAddMount->setEnabled(true);
-   pushSizeMount->setEnabled(true);
 
    if ( treeMounts->currentItem()->text(1) == "/boot" || treeMounts->currentItem()->text(1) == "/")
      pushRemoveMount->setEnabled(false);
@@ -614,13 +635,6 @@ void wizardDisk::slotTreeMountsRightClick()
   popup->setTitle(tr("Editing:") + " " + treeMounts->currentItem()->text(1));
   popup->addSeparator();
 
-  // No options to change for /swap
-  if ( treeMounts->currentItem()->text(1) == "/swap" ) {
-    popup->addAction( "Change size", this, SLOT(slotZSwapSize()));
-    popup->exec( QCursor::pos() );
-    return;
-  }
-
   // Create atime sub-menu
   popupAT = popup->addMenu("atime");
   popupAT->addAction( "on", this, SLOT(slotZATON()));
@@ -737,19 +751,14 @@ void wizardDisk::slotZATON()
   toggleZFSOpt(QString("atime=on"));
 }
 
-void wizardDisk::slotZSwapSize()
+void wizardDisk::slotSwapSize()
 {
   bool ok;
   QString tmp;
   int size = QInputDialog::getInt(this, tr("Enter SWAP size"),
-                                  tr("Size (MB)"), 2048, 0, 1000000, 1, &ok);
+                                  tr("Size (MB)"), swapsize, 0, 1000000, 1, &ok);
   if ( ok )
-  {
-    tmp.setNum(size);
-    QString optString = "volsize=" + tmp + "M|org.freebsd:swap=on|checksum=off";
-    treeMounts->currentItem()->setText(2, optString);
-    treeMounts->currentItem()->setToolTip(2, optString);
-  }
+    swapsize = size;
 }
 
 void wizardDisk::slotZATOFF()
@@ -838,6 +847,9 @@ void wizardDisk::generateCustomDiskLayout()
   fsType = "ZFS";
   int zpoolSize = getDiskSliceSize();
 
+  // Deduct any swap space
+  zpoolSize = zpoolSize - swapsize;
+
   // Get the zfs mounts
   QList<QTreeWidgetItem *> mItems = treeMounts->findItems("*", Qt::MatchWildcard);
   for ( int i = 0; i < mItems.size(); ++i) {
@@ -862,6 +874,10 @@ void wizardDisk::generateCustomDiskLayout()
   // Save the final disk layout
   fileSystem.clear();
   fileSystem << targetDisk << targetSlice << zMnts.join(",") << fsType << tmp.setNum(zpoolSize) << zOpts << tmpPass;
+  sysFinalDiskLayout << fileSystem;
+
+  fileSystem.clear();
+  fileSystem << targetDisk << targetSlice << "SWAP" << "SWAP" << tmp.setNum(swapsize) << "" << "";
   sysFinalDiskLayout << fileSystem;
 
   qDebug() <<"AutoLayout:" << sysFinalDiskLayout;
