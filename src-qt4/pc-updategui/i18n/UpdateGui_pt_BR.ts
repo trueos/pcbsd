@@ -117,33 +117,27 @@
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ocorreu um erro desconhecido!</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Bu&amp;scar atualizações novamente</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Instalar as atualizações selecionadas</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Fe&amp;char</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>As atualizações do sistema estão disponíveis!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detalhes da atualização</translation>
     </message>
     <message>
         <source>Base System Updates</source>
@@ -152,18 +146,15 @@
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os seguintes arquivos serão atualizados:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detalhes da atualização:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não foi possível executar freebsd-update, outro processo está em execução!</translation>
     </message>
 </context>
 </TS>

@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>IP Address:</source>
-        <translation>Endereços IP:</translation>
+        <translation>Endereço IP:</translation>
     </message>
     <message>
         <source>Warden</source>
@@ -95,28 +95,23 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuração do Jail</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv4</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv6</translation>
     </message>
     <message>
         <source>Aliases</source>
@@ -145,8 +140,7 @@
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permissões</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
@@ -205,8 +199,7 @@
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv4 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
@@ -220,8 +213,7 @@
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv6 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
@@ -235,13 +227,11 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Habilitar suporte VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
@@ -308,7 +298,7 @@
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Adicionar novo Jail</translation>
+        <translation>Adicionar um novo Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
@@ -320,8 +310,7 @@
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão do sistema</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
@@ -471,7 +460,7 @@
     </message>
     <message>
         <source>Are you sure you want to delete the jail</source>
-        <translation>Tem certeza que deseja apgar o jail</translation>
+        <translation>Tem certeza que deseja apagar o jail</translation>
     </message>
     <message>
         <source>Jail Information</source>
@@ -687,8 +676,7 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
@@ -753,7 +741,7 @@
     </message>
     <message>
         <source>Include system source</source>
-        <translation>Incluir fonte do sitema</translation>
+        <translation>Incluir fonte do sistema</translation>
     </message>
     <message>
         <source>Include ports tree</source>
@@ -807,43 +795,35 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv4</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv6</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Jail tradicional (Seguro, melhor para serviços)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Instalar PKGNG e utilitários do PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão do Jail</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usar a versão do sistema (padrão)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endereço IPv6 inválido!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Este assistente irá guiá-lo na criação de um novo jail. Primeiro, digite um nome de host e um endereço IP que não esteja em uso na rede. Se planeja usar IPv6 para acessar o jail, verifique a caixa do endereço IPv6 e insira um endereço IPv6 válido. Quando terminar, clique em Próximo para continuar.</translation>
     </message>
 </context>
 </TS>

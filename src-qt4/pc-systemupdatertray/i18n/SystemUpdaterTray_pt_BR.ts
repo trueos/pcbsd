@@ -97,21 +97,19 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">Atualizações de pacotes disponíveis</translation>
+        <translation>As atualizações de pacotes estão disponíveis</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">As atualizações importantes de pacotes estão disponíveis. Clique aqui para instalá-los!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iniciar o Gerenciador de Pacotes</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Atualizações de pacotes disponíveis</translation>
+        <translation>As Atualizações de Pacotes estão Disponíveis</translation>
     </message>
 </context>
 </TS>

@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configurações do gerenciador de login</translation>
     </message>
     <message>
         <source>Auto login</source>
@@ -51,8 +50,7 @@
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, digite a senha do login remoto</translation>
     </message>
 </context>
 </TS>

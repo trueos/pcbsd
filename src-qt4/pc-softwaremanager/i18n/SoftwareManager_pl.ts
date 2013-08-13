@@ -456,7 +456,7 @@
     </message>
     <message>
         <source>Downgrade</source>
-        <translation type="unfinished">Deaktualizuj</translation>
+        <translation>Deaktualizuj</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
@@ -591,66 +591,54 @@
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anulowano Pobieranie</translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Pobieranie: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukończono pobieranie</translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęto pobieranie</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anulowano instalację (będzie usunięta)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anulowano usunięcie (ędzie reinstalacja)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizacja nie może być przerwana</translation>
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Pobieranie aktualizacji: %1%</translation>
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęcie aktualizacji</translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęcie pobierania</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostępna aktualizacja: %1</translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nieznany błąd</translation>
     </message>
 </context>
 </TS>

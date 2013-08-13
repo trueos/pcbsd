@@ -381,8 +381,7 @@
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл PBI що має бути зв&apos;язаний символьним посланням з системою (шлях відносно каталогу PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
@@ -390,23 +389,19 @@
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Місце створення символічного посилання (відносно local base: зазвичай /usr/local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Прапорці для визначення типу файлу</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наявні прапорці для нового посилання</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти це посилання у модулі PBI</translation>
     </message>
     <message>
         <source>PBI Builder</source>
@@ -482,8 +477,7 @@
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>toolBar</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
@@ -651,7 +645,7 @@
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">Новий пакувальний скрипт</translation>
+        <translation>Новий скрипт-обгортка</translation>
     </message>
     <message>
         <source>Filename</source>
@@ -775,23 +769,19 @@
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Розпочати побудову PBI з поточного модуля (вимагає привілеїв адміністратора)</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процес вимагає наявності активного з&apos;єднання з мережею internet та прав адміністратора. Час збирання залежить від конфігурації Вашої системи та кількості портів до збирання.</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обраний каталог, скоріше за все, не є портом FreeBSD.</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Продовжити не зважаючи на це?</translation>
     </message>
 </context>
 <context>
@@ -850,7 +840,7 @@
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">Локальні вихідні коди</translation>
+        <translation>Локальні вихідні коди</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
@@ -885,7 +875,7 @@
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">Каталог PBI</translation>
+        <translation>Вихідний каталог PBI</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
@@ -925,7 +915,7 @@
     </message>
     <message>
         <source>Use TMPFS</source>
-        <translation type="unfinished">Використовувати TMPFS</translation>
+        <translation>Використовувати TMPFS</translation>
     </message>
     <message>
         <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
@@ -933,7 +923,7 @@
     </message>
     <message>
         <source>Use Package Caching</source>
-        <translation type="unfinished">Використовувати кеш пакунків</translation>
+        <translation>Використовувати кеш пакунків</translation>
     </message>
     <message>
         <source>Package Caching Options</source>
@@ -997,7 +987,7 @@
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">Вибрати типову іконку PNG.</translation>
+        <translation>Вибрати типову іконку PNG.</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
@@ -1009,7 +999,7 @@
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">pbi_makeport</translation>
+        <translation>pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
@@ -1017,7 +1007,7 @@
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">Вибрати виконуваний файл.</translation>
+        <translation>Вибрати виконуваний файл.</translation>
     </message>
     <message>
         <source>pbi_create</source>
@@ -1041,7 +1031,7 @@
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">Вибрати файл цифрового підпису</translation>
+        <translation>Вибрати файл цифрового підпису</translation>
     </message>
     <message>
         <source>Signature Files (*)</source>
@@ -1117,8 +1107,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Create Dir</source>
@@ -1150,7 +1139,7 @@
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">Ресурси</translation>
+        <translation>Ресурси</translation>
     </message>
     <message>
         <source>Default Icon</source>
@@ -1201,7 +1190,7 @@
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">Про EasyPBI</translation>
+        <translation>Про EasyPBI</translation>
     </message>
     <message>
         <source>License</source>

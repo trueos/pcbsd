@@ -790,8 +790,7 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цей майстер допоможе Вам створити нову в&apos;язницю. Спочатку введіть ім&apos;я хоста в&apos;язниці та IP адресу, що наразі не використовується у мережі. Якщо Ви плануєте використовувати протокол IPv6 для доступу до в&apos;язниці, відмітьте прапорець IPv6 та введіть IPv6 адресу. Натисніть &quot;Далі&quot; для продовження.</translation>
     </message>
 </context>
 </TS>

@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Other Options</source>
-        <translation>Outras Opções</translation>
+        <translation>Outras opções</translation>
     </message>
     <message>
         <source>Force IBUS keyboard input</source>
@@ -108,8 +108,7 @@
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando fontes do FreeBSD...</translation>
     </message>
 </context>
 <context>

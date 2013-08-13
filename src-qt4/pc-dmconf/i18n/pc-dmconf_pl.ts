@@ -41,8 +41,7 @@
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Różne</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>

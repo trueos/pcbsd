@@ -157,13 +157,11 @@
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Seleção de pacotes do TrueOS</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Seleção de pacotes do PC-BSD</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -173,22 +171,19 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Cancelar</translation>
+        <translation>&amp;Cancelar</translation>
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Extraindo o sistema...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Incapaz de detectar quaisquer unidades de disco! A instalação será encerrada agora.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Incapaz de sugerir uma partição para o disco detectado.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
@@ -201,16 +196,15 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">Carregar configuração de instalação de um dispositivo USB</translation>
+        <translation>Carregar arquivo de configuração de instalação de um dispositivo USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">Carregar configuração do USB</translation>
+        <translation>Carregar configuração do USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -218,17 +212,15 @@
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">Salvar configuração para USB</translation>
+        <translation>Salvar configuração para USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Isto irá salvar a sua configuração de instalação em um dispositivo USB formatado em MSDOSFS/FAT32. Continuar?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, insira agora um dispositivo USB e clique em OK para continuar.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
@@ -237,27 +229,23 @@
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Falhou ao salvar a configuração na mídia USB. O dispositivo está funcionando e formatado em MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">Configuração salva! Agora você pode remover com segurança a mídia USB.</translation>
+        <translation type="unfinished">Configuração salva! Agora você pode remover a mídia USB com segurança.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Isto irá carregar o arquivo de configuração de instalação do seu dispositivo USB formatado em MSDOSFS/FAT32. Continuar?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, insira agora o dispositivo USB e clique em OK para continuar.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Falhou ao carregar o arquivo de configuração salvo na mídia USB. O dispositivo está funcionando e formatado em MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>

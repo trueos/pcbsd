@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">Ações de pós-instalação</translation>
+        <translation>Ações de pós-instalação</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">Criar ícones na área de trabalho</translation>
+        <translation>Criar ícones na área de trabalho</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation type="unfinished">Registrar associações de arquivo</translation>
+        <translation>Registrar associações de arquivo</translation>
     </message>
     <message>
         <source>Create Path Links</source>
@@ -52,11 +52,11 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">Adicionar repositório PBI</translation>
+        <translation>Adicionar repositório PBI</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
@@ -88,8 +88,7 @@
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Este repositório deverá estar pronto para uso em breve (dependendo da velocidade da sua conexão de internet).</translation>
     </message>
     <message>
         <source>Repo Failure</source>
@@ -111,7 +110,7 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">Você tem certeza que deseja remover este repositório PBI?</translation>
+        <translation type="unfinished">Tem certeza que deseja remover este repositório PBI?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
@@ -119,12 +118,11 @@
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">URL do novo espelho</translation>
+        <translation type="unfinished">Nova URL de espelho</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, digite a URL para o novo espelho de repositório:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
@@ -165,16 +163,15 @@
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">Marcar/desmarcar todos os aplicativos</translation>
+        <translation>Marcar/desmarcar todos os aplicativos</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">Todos</translation>
+        <translation>Todos</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Executar ações em aplicativos marcados</translation>
     </message>
     <message>
         <source>Actions</source>
@@ -182,7 +179,7 @@
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">Detalhes do aplicativo</translation>
+        <translation>Detalhes do aplicativo</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -198,16 +195,15 @@
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">Atalhos:</translation>
+        <translation>Atalhos:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Cancelar todas as ações para este aplicativo</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -219,8 +215,7 @@
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizar o aplicativo para a versão mais recente</translation>
     </message>
     <message>
         <source>Update the selected application</source>
@@ -289,15 +284,15 @@
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">Informação do aplicativo</translation>
+        <translation>Informação do aplicativo</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Plataforma:</translation>
+        <translation>Plataforma:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">Tipo:</translation>
+        <translation>Tipo:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
@@ -313,7 +308,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Arquivo</translation>
+        <translation>Arquivo</translation>
     </message>
     <message>
         <source>Configure</source>
@@ -321,13 +316,11 @@
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Importar lista PBI</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Exportar lista PBI</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
