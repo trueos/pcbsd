@@ -87,7 +87,7 @@ create_template()
     isDirZFS "${TDIR}" "1"
     if [ $? -ne 0 ] ; then
        echo "Creating ZFS ${TDIR} dataset..."
-       zfs create -o mountpoint=/${zfsp} -p ${tank}${zfsp}
+       zfs create -o mountpoint=${TDIR} -p ${tank}${zfsp}
        if [ $? -ne 0 ] ; then exit_err "Failed creating ZFS base dataset"; fi
     fi
 
