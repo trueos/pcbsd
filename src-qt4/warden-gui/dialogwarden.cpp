@@ -38,7 +38,11 @@ void dialogWarden::helpAbout()
 
 
 void dialogWarden::programInit()
-{
+{  
+   // Disable these until we check if the jail is running
+   pushTerminal->setEnabled(false);
+   pushPackageManager->setEnabled(false);
+
    // Setup our listview options
    listJails->setSelectionMode(QAbstractItemView::SingleSelection);
    listJails->setAllColumnsShowFocus(TRUE);
@@ -594,12 +598,14 @@ void dialogWarden::slotCheckStatusReturn()
             if ( listJails->currentItem()) {
               if ( listJails->currentItem()->text(0) == currentStatusWorkingJail ) {
 		if ( running ) {
+		  pushPackageManager->setEnabled(true);
 		  pushTerminal->setEnabled(true);
 		  pushStart->setEnabled(true);
 		  pushStart->setIcon(QIcon(":stopjail.png"));
 		  pushStart->setIconSize(QSize(16,16));
 		  pushStart->setToolTip(tr("Stop the selected jail"));
 		} else {
+		  pushPackageManager->setEnabled(false);
 		  pushTerminal->setEnabled(false);
 		  pushStart->setEnabled(true);
 		  pushStart->setIcon(QIcon(":running.png"));
@@ -1379,6 +1385,7 @@ void dialogWarden::slotCurrentJailChanged()
    if ( listJails->currentItem()->text(2) == "Running" ) {
      //pushStart->setEnabled(true);
      pushTerminal->setEnabled(true);
+     pushPackageManager->setEnabled(true);
      pushStart->setIcon(QIcon(":stopjail.png"));
      pushStart->setIconSize(QSize(16,16));
      pushStart->setToolTip(tr("Stop the selected jail"));
@@ -1386,6 +1393,7 @@ void dialogWarden::slotCurrentJailChanged()
    if ( listJails->currentItem()->text(2) == "Not Running" ) {
      //pushStart->setEnabled(true);
      pushTerminal->setEnabled(false);
+     pushPackageManager->setEnabled(false);
      pushStart->setIcon(QIcon(":running.png"));
      pushStart->setIconSize(QSize(16,16));
      pushStart->setToolTip(tr("Start the selected jail"));
@@ -1448,7 +1456,7 @@ void dialogWarden::slotPushPackage()
    
    if ( ! listJails->currentItem() )
      return;
-   QString cmd = "pc-pkgmanager -chroot usr/jails/" + listJails->currentItem()->text(0) + " &"; 
+   QString cmd = "pc-pkgmanager -chroot /usr/jails/" + listJails->currentItem()->text(0) + " &"; 
    system(cmd.toLatin1());
 }
 
