@@ -29,9 +29,9 @@ else
 fi
 
 case $EMAILMODE in
-    ALL) email_msg "Automated Replication - $title" "`echo_queue_msg`" ;;
+    ALL) email_msg "$title - Automated Replication" "`echo_queue_msg`" ;;
     *) if [ $status -ne 0 ] ; then
-          email_msg "Automated Replication - $title" "`echo_queue_msg`"
+          email_msg "$title - Automated Replication" "`echo_queue_msg`"
        fi
        ;;
 esac

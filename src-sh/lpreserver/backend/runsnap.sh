@@ -64,12 +64,12 @@ done
 
 # If we failed at any point, sent out a notice
 if [ $snapStat -ne 0 ] ; then
-   email_msg "Automated Snapshot - FAILED" "`echo_queue_msg`"
+   email_msg "FAILED - Automated Snapshot" "`echo_queue_msg`"
 fi
 
 # If we are successful and user wants all notifications, send out a message
 if [ $snapStat -eq 0 -a "$EMAILMODE" = "ALL" ] ; then
-   email_msg "Automated Snapshot - Success" "`echo_queue_msg`"
+   email_msg "Success - Automated Snapshot" "`echo_queue_msg`"
 fi
 
 # Check if we need to run a replication task for this dataset

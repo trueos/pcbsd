@@ -141,7 +141,7 @@ echo_log() {
 # 2 = Message
 email_msg() {
    if [ -z "$EMAILADDY" ] ; then return ; fi
-   echo -e "$2"  | mail -s "Life-Preserver `hostname`: $1" $EMAILADDY
+   echo -e "$2"  | mail -s "$1 - `hostname`" $EMAILADDY
 }
 
 queue_msg() {
