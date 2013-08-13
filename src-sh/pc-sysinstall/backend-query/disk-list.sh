@@ -67,6 +67,9 @@ if [ -d "/dev/raid" ] ; then
   done
 fi
 
+# Sort the disk list to a more sane output
+SYSDISK="`echo $SYSDISK | tr ' ' '\n' | sed 's/\([^0-9]*\)/\1 /' | sort +0 -1 +1n | tr -d ' '`"
+
 # Now loop through these devices, and list the disk drives
 for i in ${SYSDISK}
 do
