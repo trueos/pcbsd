@@ -15,8 +15,13 @@ if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
 CMDLOG="${DBDIR}/lp-lastcmdout"
 CMDLOG2="${DBDIR}/lp-lastcmdout2"
 REPCONF="${DBDIR}/replication"
-LOGDIR="/var/log"
-export DBDIR LOGDIR PROGDIR CMDLOG REPCONF
+LOGDIR="/var/log/lpreserver"
+REPLOGSEND="${LOGDIR}/lastrep-send-log"
+REPLOGRECV="${LOGDIR}/lastrep-recv-log"
+export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV
+
+# Create the logdir
+if [ ! -d "$LOGDIR" ] ; then mkdir -p ${LOGDIR} ; fi
 
 MSGQUEUE=""
 export MSGQUEUE
@@ -241,14 +246,14 @@ check_rep_task() {
   # Is this a sync-task we do at the time of a snapshot?
   if [ "$2" = "sync" -a "$TIME" = "sync" ] ; then
      export DIDREP=1
-     echo_log "Starting replication SYNC task on ${DATASET}"
+     echo_log "Starting replication SYNC task on ${DATASET}: ${REPLOGSEND}"
      queue_msg "`date`: Starting replication SYNC task on ${DATASET}\n"
      start_rep_task "$LDATA"
      return $?
   else
      # Ready to do a scheduled replication
      export DIDREP=1
-     echo_log "Starting replication SCHEDULED task on ${DATASET}"
+     echo_log "Starting replication SCHEDULED task on ${DATASET}: ${REPLOGSEND}"
      queue_msg "`date`: Starting replication SCHEDULED task on ${DATASET}\n"
      start_rep_task "$LDATA"
      return $?
@@ -282,10 +287,10 @@ start_rep_task() {
   queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
 
   # Start up our process
-  $zSEND 2>${CMDLOG} | $zRCV >${CMDLOG2} 2>${CMDLOG2}
+  $zSEND 2>${REPLOGSEND} | $zRCV >${REPLOGRECV} 2>${REPLOGRECV}
   zStatus=$?
-  queue_msg "ZFS SEND LOG:\n--------------\n`cat ${CMDLOG}`\n\n"
-  queue_msg "ZFS RCV LOG:\n--------------\n`cat ${CMDLOG2}`\n\n"
+  queue_msg "ZFS SEND LOG:\n--------------\n`cat ${REPLOGSEND}`\n\n"
+  queue_msg "ZFS RCV LOG:\n--------------\n`cat ${REPLOGRECV}`\n\n"
 
   if [ $zStatus -eq 0 ] ; then
      # SUCCESS!
@@ -301,9 +306,9 @@ start_rep_task() {
      FLOG=${LOGDIR}/lpreserver_failed.log
      echo "Failed with command:\n$zSEND | $zRCV\n" > ${FLOG}
      echo "\nSending log:\n" >> ${FLOG}
-     cat ${CMDLOG} >> ${FLOG}
+     cat ${REPLOGSEND} >> ${FLOG}
      echo "\nRecv log:\n" >> ${FLOG}
-     cat ${CMDLOG2} >> ${FLOG}
+     cat ${REPLOGRECV} >> ${FLOG}
      echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
   fi
 
