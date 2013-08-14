@@ -262,6 +262,7 @@ check_rep_task() {
 
 start_rep_task() {
   LDATA="$1"
+  hName=`hostname`
 
   # Check for the last snapshot marked as replicated already
   lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
@@ -279,10 +280,13 @@ start_rep_task() {
      zFLAGS="-Rv -I $lastSEND $LDATA@$lastSNAP"
   else
      zFLAGS="-Rv $LDATA@$lastSNAP"
+
+     # This is a first-time replication, lets create the new target dataset
+     ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs create ${REPRDATA}/${hName} >${CMDLOG} 2>${CMDLOG}
   fi
 
   zSEND="zfs send $zFLAGS"
-  zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}"
+  zRCV="ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs receive -dvuF ${REPRDATA}/${hName}"
 
   queue_msg "Using ZFS send command:\n$zSEND | $zRCV\n\n"
 
@@ -324,7 +328,7 @@ save_rep_props() {
   queue_msg "`date`: Saving dataset properties for: ${DATASET}\n"
 
   # Lets start by building a list of props to keep
-  rProp=".lp-props-`echo ${REPRDATA} | sed 's|/|#|g'`"
+  rProp=".lp-props-`echo ${REPRDATA}/${hName} | sed 's|/|#|g'`"
 
   zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
 	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > $rProp"
