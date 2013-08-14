@@ -298,7 +298,7 @@ start_rep_task() {
   $zSEND 2>${REPLOGSEND} | $zRCV >${REPLOGRECV} 2>${REPLOGRECV}
   zStatus=$?
   queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
-  queue_msg "ZFS RCV LOG:\n--------------\n`" "${REPLOGRECV}"
+  queue_msg "ZFS RCV LOG:\n--------------\n" "${REPLOGRECV}"
 
   if [ $zStatus -eq 0 ] ; then
      # SUCCESS!
