@@ -46,6 +46,9 @@ private slots:
     void slotCheckUser();
     void slotSuggestUsername();
     
+    // Let us check the hostname
+    void slotCheckHost();
+    
     // Start a scan of the network
     void slotScanNetwork();
 

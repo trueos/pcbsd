@@ -8,6 +8,7 @@
 
 #include <sys/types.h>
 #include <pwd.h>
+#include <unistd.h>
 
 #include "backend.h"
 #include "ui_firstboot.h"
@@ -25,6 +26,8 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(helpButton, SIGNAL(clicked()), this, SLOT(slotHelp()));
     connect(pushTouchKeyboard, SIGNAL(clicked()), this, SLOT(slotPushVirtKeyboard()));
     connect(pushChangeKeyLayout, SIGNAL(clicked()), this, SLOT(slotPushKeyLayout()));
+
+    connect(lineHostname,SIGNAL(textChanged(const QString)),this,SLOT(slotCheckHost()));
 
     connect(lineRootPW, SIGNAL(textChanged ( const QString &)), this, SLOT(slotCheckRootPW()));
     connect(lineRootPW2, SIGNAL(textChanged ( const QString &)), this, SLOT(slotCheckRootPW()));
@@ -50,6 +53,9 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     int index = comboBoxTimezone->findText("America/New_York", Qt::MatchStartsWith);
     if (index != -1)
        comboBoxTimezone->setCurrentIndex(index);
+
+    // Load the hostname
+    lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
 
     // Start on the first screen
     installStackWidget->setCurrentIndex(0);
@@ -127,6 +133,24 @@ void Installer::slotCheckRootPW()
   if ( lineRootPW->text() != lineRootPW2->text() )
      return;
   // if we get this far, all the fields are filled in
+  nextButton->setEnabled(true);
+}
+
+void Installer::slotCheckHost()
+{
+  QRegExp hostnameRegExp("^(([a-z0-9][a-z0-9-].*[a-z0-9])|([a-z0-9]+))$");
+  nextButton->setEnabled(false);
+  lineHostname->setText(lineHostname->text().toLower());
+  if (lineHostname->text().isEmpty())
+  {
+     lineHostname->setToolTip(tr("Please enter a hostname"));
+     return;
+  } 
+  else if (hostnameRegExp.indexIn(lineHostname->text()) == -1)
+  {
+     lineHostname->setToolTip(tr("Hostname may only contain letters and numbers"));
+     return;
+  }
   nextButton->setEnabled(true);
 }
 
@@ -432,6 +456,17 @@ void Installer::saveSettings()
   // Encrypt the users home-directory?
   if ( checkEnc->isChecked() )
     system("enable_user_pefs " + lineUsername->text().toLatin1() + " " + linePW->text().toLatin1());
+
+  // Do we need to change the system hostname?
+  if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
+  {
+      pcbsd::Utils::setConfFileValue("/etc/rc.conf", "hostname=", "hostname=\"" + lineHostname->text() + "\"", -1);
+      pcbsd::Utils::setConfFileValue("/etc/hosts", "::1", "::1\t\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
+      pcbsd::Utils::setConfFileValue("/etc/hosts", "127.0.0.1", "127.0.0.1\t\tlocalhost localhost.localdomain " + lineHostname->text() + ".localhost " + lineHostname->text(), -1);
+
+      // Now set the hostname on the system
+      sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
+  }
 
 }
 
