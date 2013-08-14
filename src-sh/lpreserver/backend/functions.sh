@@ -12,19 +12,18 @@ PROGDIR="/usr/local/share/lpreserver"
 # Location of settings 
 DBDIR="/var/db/lpreserver"
 if [ ! -d "$DBDIR" ] ; then mkdir -p ${DBDIR} ; fi
+
 CMDLOG="${DBDIR}/lp-lastcmdout"
 CMDLOG2="${DBDIR}/lp-lastcmdout2"
 REPCONF="${DBDIR}/replication"
 LOGDIR="/var/log/lpreserver"
 REPLOGSEND="${LOGDIR}/lastrep-send-log"
 REPLOGRECV="${LOGDIR}/lastrep-recv-log"
-export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV
+MSGQUEUE="${DBDIR}/.lpreserver.msg.$$"
+export DBDIR LOGDIR PROGDIR CMDLOG REPCONF REPLOGSEND REPLOGRECV MSGQUEUE
 
 # Create the logdir
 if [ ! -d "$LOGDIR" ] ; then mkdir -p ${LOGDIR} ; fi
-
-MSGQUEUE=""
-export MSGQUEUE
 
 #Set our Options
 setOpts() {
@@ -150,11 +149,16 @@ email_msg() {
 }
 
 queue_msg() {
-  MSGQUEUE="$MSGQUEUE $@" 
+  echo -e "$1" >> ${MSGQUEUE}
+  if [ -n "$2" ] ; then
+    cat $2 >> ${MSGQUEUE}
+  fi
 }
 
 echo_queue_msg() {
-  echo -e "$MSGQUEUE"
+  if [ ! -e "$MSGQUEUE" ] ; then return ; fi
+  cat ${MSGQUEUE}
+  rm ${MSGQUEUE}
 }
 
 add_rep_task() {
@@ -293,8 +297,8 @@ start_rep_task() {
   # Start up our process
   $zSEND 2>${REPLOGSEND} | $zRCV >${REPLOGRECV} 2>${REPLOGRECV}
   zStatus=$?
-  queue_msg "ZFS SEND LOG:\n--------------\n`cat ${REPLOGSEND}`\n\n"
-  queue_msg "ZFS RCV LOG:\n--------------\n`cat ${REPLOGRECV}`\n\n"
+  queue_msg "ZFS SEND LOG:\n--------------\n" "${REPLOGSEND}"
+  queue_msg "ZFS RCV LOG:\n--------------\n`" "${REPLOGRECV}"
 
   if [ $zStatus -eq 0 ] ; then
      # SUCCESS!
