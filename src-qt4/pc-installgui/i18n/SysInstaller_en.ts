@@ -131,98 +131,98 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="314"/>
+        <location filename="../installer.cpp" line="320"/>
         <source>Installing to file-system mounted at /mnt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="320"/>
+        <location filename="../installer.cpp" line="326"/>
         <source>The disk will be setup with the following configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="339"/>
+        <location filename="../installer.cpp" line="345"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="339"/>
+        <location filename="../installer.cpp" line="345"/>
         <source>Mirroring:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="379"/>
-        <location filename="../installer.cpp" line="418"/>
-        <location filename="../installer.cpp" line="448"/>
+        <location filename="../installer.cpp" line="385"/>
+        <location filename="../installer.cpp" line="424"/>
+        <location filename="../installer.cpp" line="454"/>
         <source>Partition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="380"/>
-        <location filename="../installer.cpp" line="419"/>
-        <location filename="../installer.cpp" line="449"/>
+        <location filename="../installer.cpp" line="386"/>
+        <location filename="../installer.cpp" line="425"/>
+        <location filename="../installer.cpp" line="455"/>
         <source>FileSystem:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="381"/>
-        <location filename="../installer.cpp" line="420"/>
-        <location filename="../installer.cpp" line="450"/>
+        <location filename="../installer.cpp" line="387"/>
+        <location filename="../installer.cpp" line="426"/>
+        <location filename="../installer.cpp" line="456"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="394"/>
+        <location filename="../installer.cpp" line="400"/>
         <source>ZFS Datasets:&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="396"/>
-        <location filename="../installer.cpp" line="452"/>
+        <location filename="../installer.cpp" line="402"/>
+        <location filename="../installer.cpp" line="458"/>
         <source>Mount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="399"/>
-        <location filename="../installer.cpp" line="454"/>
+        <location filename="../installer.cpp" line="405"/>
+        <location filename="../installer.cpp" line="460"/>
         <source>Options:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="502"/>
+        <location filename="../installer.cpp" line="508"/>
         <source>TrueOS Package Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="500"/>
+        <location filename="../installer.cpp" line="506"/>
         <source>PC-BSD Package Selection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="504"/>
+        <location filename="../installer.cpp" line="510"/>
         <source>The following meta-pkgs will be installed:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../installer.cpp" line="166"/>
         <location filename="../installer.cpp" line="176"/>
-        <location filename="../installer.cpp" line="248"/>
-        <location filename="../installer.cpp" line="673"/>
-        <location filename="../installer.cpp" line="1196"/>
-        <location filename="../installer.cpp" line="1224"/>
-        <location filename="../installer.cpp" line="1503"/>
-        <location filename="../installer.cpp" line="1560"/>
-        <location filename="../installer.cpp" line="1572"/>
-        <location filename="../installer.cpp" line="1585"/>
-        <location filename="../installer.cpp" line="1592"/>
-        <location filename="../installer.cpp" line="1609"/>
+        <location filename="../installer.cpp" line="263"/>
+        <location filename="../installer.cpp" line="679"/>
+        <location filename="../installer.cpp" line="1202"/>
+        <location filename="../installer.cpp" line="1230"/>
+        <location filename="../installer.cpp" line="1509"/>
+        <location filename="../installer.cpp" line="1566"/>
+        <location filename="../installer.cpp" line="1578"/>
+        <location filename="../installer.cpp" line="1591"/>
+        <location filename="../installer.cpp" line="1598"/>
         <location filename="../installer.cpp" line="1615"/>
-        <location filename="../installer.cpp" line="1625"/>
-        <location filename="../installer.cpp" line="1638"/>
-        <location filename="../installer.cpp" line="1653"/>
-        <location filename="../installer.cpp" line="1660"/>
-        <location filename="../installer.cpp" line="1673"/>
-        <location filename="../installer.cpp" line="1678"/>
+        <location filename="../installer.cpp" line="1621"/>
+        <location filename="../installer.cpp" line="1631"/>
+        <location filename="../installer.cpp" line="1644"/>
+        <location filename="../installer.cpp" line="1659"/>
+        <location filename="../installer.cpp" line="1666"/>
+        <location filename="../installer.cpp" line="1679"/>
+        <location filename="../installer.cpp" line="1684"/>
         <source>PC-BSD Installer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -237,119 +237,119 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="249"/>
+        <location filename="../installer.cpp" line="264"/>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="674"/>
+        <location filename="../installer.cpp" line="680"/>
         <source>Start the installation now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1193"/>
+        <location filename="../installer.cpp" line="1199"/>
         <source>Failed!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1198"/>
+        <location filename="../installer.cpp" line="1204"/>
         <source>The installer has encountered an error and has been halted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1199"/>
+        <location filename="../installer.cpp" line="1205"/>
         <source>Do you want to generate an error report?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1226"/>
+        <location filename="../installer.cpp" line="1232"/>
         <source>Restart the system now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1254"/>
+        <location filename="../installer.cpp" line="1260"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1326"/>
-        <location filename="../installer.cpp" line="1368"/>
+        <location filename="../installer.cpp" line="1332"/>
+        <location filename="../installer.cpp" line="1374"/>
         <source>Extracting system...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1328"/>
-        <location filename="../installer.cpp" line="1370"/>
+        <location filename="../installer.cpp" line="1334"/>
+        <location filename="../installer.cpp" line="1376"/>
         <source>Installing system... This may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1347"/>
+        <location filename="../installer.cpp" line="1353"/>
         <source>Installing packages... This may take a while...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1504"/>
+        <location filename="../installer.cpp" line="1510"/>
         <source>Are you sure you want to abort this installation?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1561"/>
+        <location filename="../installer.cpp" line="1567"/>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1573"/>
+        <location filename="../installer.cpp" line="1579"/>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1586"/>
+        <location filename="../installer.cpp" line="1592"/>
         <source>Please insert a USB stick now, and click OK to continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1593"/>
+        <location filename="../installer.cpp" line="1599"/>
         <source>Please enter the nickname you want to save this configuration as.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1610"/>
+        <location filename="../installer.cpp" line="1616"/>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1616"/>
+        <location filename="../installer.cpp" line="1622"/>
         <source>Configuration saved! You may now safely remove the USB media.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1626"/>
+        <location filename="../installer.cpp" line="1632"/>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1654"/>
+        <location filename="../installer.cpp" line="1660"/>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1661"/>
+        <location filename="../installer.cpp" line="1667"/>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1639"/>
+        <location filename="../installer.cpp" line="1645"/>
         <source>Please insert the USB stick now, and click OK to continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1674"/>
+        <location filename="../installer.cpp" line="1680"/>
         <source>Config File:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.cpp" line="1679"/>
+        <location filename="../installer.cpp" line="1685"/>
         <source>Start the install using this config file?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -588,98 +588,103 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="234"/>
+        <location filename="../wizardDisk.ui" line="369"/>
         <source>ZFS pool name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="268"/>
+        <location filename="../wizardDisk.ui" line="272"/>
         <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="377"/>
+        <location filename="../wizardDisk.ui" line="214"/>
         <source>Selected Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="400"/>
+        <location filename="../wizardDisk.ui" line="237"/>
         <source>Selected Partition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="422"/>
+        <location filename="../wizardDisk.ui" line="259"/>
         <source>Force ZFS 4K block size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="352"/>
+        <location filename="../wizardDisk.ui" line="356"/>
         <source>Partition disk with GPT</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="500"/>
+        <location filename="../wizardDisk.ui" line="429"/>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardDisk.ui" line="510"/>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="526"/>
+        <location filename="../wizardDisk.ui" line="536"/>
         <source>Enable ZFS mirror/raidz mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="564"/>
+        <location filename="../wizardDisk.ui" line="574"/>
         <source>ZFS Virtual Device Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="573"/>
-        <location filename="../wizardDisk.cpp" line="260"/>
+        <location filename="../wizardDisk.ui" line="583"/>
+        <location filename="../wizardDisk.cpp" line="266"/>
         <source>Please select at least 1 other drive for mirroring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="592"/>
+        <location filename="../wizardDisk.ui" line="602"/>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="673"/>
+        <location filename="../wizardDisk.ui" line="683"/>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="733"/>
-        <source>Free Space (MB)</source>
+        <location filename="../wizardDisk.ui" line="743"/>
+        <source>(MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="753"/>
+        <location filename="../wizardDisk.ui" line="750"/>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../wizardDisk.ui" line="774"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="764"/>
-        <source>Resize</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../wizardDisk.ui" line="775"/>
+        <location filename="../wizardDisk.ui" line="785"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="881"/>
+        <location filename="../wizardDisk.ui" line="891"/>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="931"/>
+        <location filename="../wizardDisk.ui" line="941"/>
         <source>&amp;Launch terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1053"/>
+        <location filename="../wizardDisk.ui" line="1063"/>
         <source>Please check the disk summary below and click finish to save your settings. </source>
         <translation type="unfinished"></translation>
     </message>
@@ -689,135 +694,135 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="270"/>
+        <location filename="../wizardDisk.cpp" line="276"/>
         <source>Please select 2 or 4 additional drives for raidz1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="281"/>
+        <location filename="../wizardDisk.cpp" line="287"/>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="292"/>
+        <location filename="../wizardDisk.cpp" line="298"/>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="400"/>
+        <location filename="../wizardDisk.cpp" line="423"/>
         <source>ZFS Mounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="400"/>
+        <location filename="../wizardDisk.cpp" line="423"/>
         <source>ZFS Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="506"/>
+        <location filename="../wizardDisk.cpp" line="527"/>
         <source>Resizing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="518"/>
+        <location filename="../wizardDisk.cpp" line="539"/>
         <source>Remove mount-point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="519"/>
+        <location filename="../wizardDisk.cpp" line="540"/>
         <source>Are you sure you want to remove this mount point?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="536"/>
+        <location filename="../wizardDisk.cpp" line="557"/>
         <source>Enter mount-point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="537"/>
+        <location filename="../wizardDisk.cpp" line="558"/>
         <source>Please enter the new mount-point:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="545"/>
+        <location filename="../wizardDisk.cpp" line="566"/>
         <source>Invalid Mount</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="546"/>
+        <location filename="../wizardDisk.cpp" line="567"/>
         <source>Mount point should start with &apos;/&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="614"/>
+        <location filename="../wizardDisk.cpp" line="635"/>
         <source>Editing:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="744"/>
+        <location filename="../wizardDisk.cpp" line="758"/>
         <source>Enter SWAP size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="745"/>
+        <location filename="../wizardDisk.cpp" line="759"/>
         <source>Size (MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="877"/>
+        <location filename="../wizardDisk.cpp" line="893"/>
         <source>Installing to file-system mounted at /mnt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="891"/>
+        <location filename="../wizardDisk.cpp" line="907"/>
         <source>The disk will be setup with the following configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="910"/>
+        <location filename="../wizardDisk.cpp" line="926"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="910"/>
+        <location filename="../wizardDisk.cpp" line="926"/>
         <source>Mirroring:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="950"/>
-        <location filename="../wizardDisk.cpp" line="990"/>
-        <location filename="../wizardDisk.cpp" line="1020"/>
+        <location filename="../wizardDisk.cpp" line="966"/>
+        <location filename="../wizardDisk.cpp" line="1006"/>
+        <location filename="../wizardDisk.cpp" line="1036"/>
         <source>Partition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="951"/>
-        <location filename="../wizardDisk.cpp" line="991"/>
-        <location filename="../wizardDisk.cpp" line="1021"/>
+        <location filename="../wizardDisk.cpp" line="967"/>
+        <location filename="../wizardDisk.cpp" line="1007"/>
+        <location filename="../wizardDisk.cpp" line="1037"/>
         <source>FileSystem:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="952"/>
-        <location filename="../wizardDisk.cpp" line="992"/>
-        <location filename="../wizardDisk.cpp" line="1022"/>
+        <location filename="../wizardDisk.cpp" line="968"/>
+        <location filename="../wizardDisk.cpp" line="1008"/>
+        <location filename="../wizardDisk.cpp" line="1038"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="966"/>
+        <location filename="../wizardDisk.cpp" line="982"/>
         <source>ZFS Datasets:&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="968"/>
-        <location filename="../wizardDisk.cpp" line="1023"/>
+        <location filename="../wizardDisk.cpp" line="984"/>
+        <location filename="../wizardDisk.cpp" line="1039"/>
         <source>Mount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="971"/>
-        <location filename="../wizardDisk.cpp" line="1025"/>
+        <location filename="../wizardDisk.cpp" line="987"/>
+        <location filename="../wizardDisk.cpp" line="1041"/>
         <source>Options:</source>
         <translation type="unfinished"></translation>
     </message>

@@ -490,16 +490,8 @@
         <translation>可在下面調整檔案系統的掛載點。對大部份人來說預設值已足夠。</translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation>空間 (MB)</translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>新增(&amp;A)</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation>調整大小</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -652,6 +644,18 @@
         <source>Force ZFS 4K block size</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

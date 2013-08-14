@@ -99,8 +99,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO文件已经彻底从系统上移除。</translation>
     </message>
 </context>
 <context>
@@ -160,18 +159,15 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>载入ISO文件</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择ISO文件</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO文件(*.iso)</translation>
     </message>
 </context>
 <context>

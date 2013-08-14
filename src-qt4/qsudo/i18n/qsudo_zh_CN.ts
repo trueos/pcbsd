@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>请输入你的密码，以便用系统权限运行此命令</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>

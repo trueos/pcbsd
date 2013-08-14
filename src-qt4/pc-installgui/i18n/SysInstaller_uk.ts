@@ -470,16 +470,8 @@
         <translation>Нижче ви можете налаштувати точки монтування файлових систем. Для більшості користувачів значення за замовчування буде кращим вибором. </translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation>Вільний простір (Мб)</translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>Додати</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation>Змінити розмір</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -628,6 +620,18 @@
     <message>
         <source>Force ZFS 4K block size</source>
         <translation>Примусово встановити розмір ZFS блоку 4K</translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

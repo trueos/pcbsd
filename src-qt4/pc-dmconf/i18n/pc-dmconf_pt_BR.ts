@@ -5,24 +5,23 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">Configurações do gerenciador de login</translation>
+        <translation type="unfinished">Configurações do Gerenciador de Login</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">Login automático</translation>
+        <translation>Login automático</translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">Habilitar login automático</translation>
+        <translation>Habilitar login automático</translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Logar usuário automaticamente</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">Login remoto</translation>
+        <translation>Login remoto</translation>
     </message>
     <message>
         <source>Save</source>
@@ -38,11 +37,11 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">Habilitar área de trabalho remota (VNC)</translation>
+        <translation>Habilitar área de trabalho remota (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">Diversos</translation>
+        <translation>Diversos</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>

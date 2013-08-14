@@ -470,16 +470,8 @@
         <translation>Dưới đây bạn có thể điều chỉnh các điểm gắn kết tập tin hệ thống. Đối với người dùng MOST giá trị mặc định sẽ làm việc tốt nhất.</translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation>Miễn phí không gian (MB)</translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>&amp;gia tăng</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation>thay đổi kích thước</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -628,6 +620,18 @@
     <message>
         <source>Force ZFS 4K block size</source>
         <translation>Lực lượng ZFS kích thước khối 4K</translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

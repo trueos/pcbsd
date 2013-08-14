@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">Ambientes da área de trabalho...</translation>
+        <translation>Ambientes da área de trabalho...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>

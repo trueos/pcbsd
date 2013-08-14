@@ -470,16 +470,8 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
         <translation>Ci-dessous, vous pouvez ajuster les points de montage du système de fichiers. Pour la plupart des utilisateurs ce sont les valeurs par défaut qui fonctionnera le mieux.            </translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation>Espace libre (Mo)          </translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>&amp;Ajouter            </translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation>Redimentionner            </translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -628,6 +620,18 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     <message>
         <source>Force ZFS 4K block size</source>
         <translation>ZFS force de la taille des blocs 4K</translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

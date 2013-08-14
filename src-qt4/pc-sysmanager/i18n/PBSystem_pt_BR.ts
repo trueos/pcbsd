@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Misc</source>
-        <translation>Misc</translation>
+        <translation>Diversos</translation>
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation>Buscar árvore de &amp;Pacotes</translation>
+        <translation>Buscar Árvore de &amp;Pacotes</translation>
     </message>
 </context>
 <context>

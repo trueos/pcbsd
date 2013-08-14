@@ -486,16 +486,8 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Allpool saad kohandada failisüsteemi haakepunkte. Enamasti sobivad kõige paremini vaikeseaded.</translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation>Vaba ruum (MB)</translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>&amp;Lisa</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation>Muuda suurust</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -646,6 +638,18 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <source>Force ZFS 4K block size</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

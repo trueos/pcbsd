@@ -900,18 +900,15 @@
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此动作需要网络连接和管理员权限。创建PBI的时间长短会因系统参数及要编译的ports而不同。</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选定的目录不像是一个有效的FreeBSD port。</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您仍然要继续使用它吗？</translation>
     </message>
 </context>
 <context>
