@@ -40,18 +40,6 @@ numlockx off
 
 /usr/local/bin/${dCmd}" >/root/.xinitrc
 
-# Set all NICS to DHCP
-echo "Detecting NICs..."
-NICS=`ifconfig -l`
-for i in $NICS
-do
-  if [ "$i" != "lo0" -a "$i" != "fxp0" -a "$i" != "pfsync0" -a "$i" != "pflog0" ]
-  then
-    (dhclient ${i} >/dev/null 2>/dev/null ) &
-  fi
-done
-
-
 # Now run the X auto-detection
 detect_x
 

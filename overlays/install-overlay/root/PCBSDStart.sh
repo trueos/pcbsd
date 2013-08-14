@@ -38,6 +38,17 @@ fi
 # Enable the debug version of pc-sysinstall
 /root/debugpcsysinstall.sh
 
+# Set all NICS to DHCP
+NICS=`ifconfig -l`
+for i in $NICS
+do
+  ifconfig ${i} | grep -q "status: active"
+  if [ $? -eq 0 ] ; then
+    echo "Enabling networking on ${i}..."
+    (dhclient ${i} >/dev/null 2>/dev/null ) &
+  fi
+done
+
 # Check if we are booting in LIVE or INSTALL mode
 if [ -e "/usr/pcbsd-live" ]; then
 
