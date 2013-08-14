@@ -31,7 +31,6 @@ RUN_DEPENDS=	gnome2-lite>=0:${PORTSDIR}/x11/gnome2-lite \
 		gtk2-qtcurve-theme>=0:${PORTSDIR}/x11-themes/qtcurve-gtk2 \
 		nimbus>=0:${PORTSDIR}/x11-themes/nimbus \
 		nautilus>=0:${PORTSDIR}/x11-fm/nautilus \
-		nautilus-actions>=0:${PORTSDIR}/deskutils/nautilus-actions \
 		nautilus-locked-folder>=0:${PORTSDIR}/deskutils/nautilus-locked-folder \
 		nautilus-open-terminal>=0:${PORTSDIR}/deskutils/nautilus-open-terminal \
 		nautilus-sendto>=0:${PORTSDIR}/deskutils/nautilus-sendto \
