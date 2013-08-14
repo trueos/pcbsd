@@ -246,13 +246,11 @@ bool wizardDisk::validatePage()
 
 	 }
 
-         // Comment out this disk space check
-	 // We will warn the user right before install if the selected
-	 // Disk / partition looks too small
-	 //if ( ! checkDiskSpace() ) {
-         //  button(QWizard::NextButton)->setEnabled(false);
-	 //  return false;
-	 //}
+	 // If the select partition is just too small, we can stop here
+	 if ( ! checkDiskSpace() ) {
+           button(QWizard::NextButton)->setEnabled(false);
+	   return false;
+	 }
 	
          // if we get this far, all the fields are filled in
          button(QWizard::NextButton)->setEnabled(true);
@@ -341,7 +339,7 @@ void wizardDisk::populateZFSDisks()
 
 bool wizardDisk::checkDiskSpace()
 {
-  if ( getDiskSliceSize() < 10000 )
+  if ( getDiskSliceSize() < 4000 )
     return false;
 
   return true;
