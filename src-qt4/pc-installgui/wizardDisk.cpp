@@ -217,8 +217,10 @@ bool wizardDisk::validatePage()
 	   checkGPT->setVisible(true);
 	   checkForce4K->setVisible(true);
 	 } else {
+	   checkGPT->setChecked(false);
 	   checkGPT->setVisible(false);
 	   checkForce4K->setVisible(false);
+	   checkForce4K->setChecked(false);
  	 }
 
 	 // Doing a Advanced install
