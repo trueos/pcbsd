@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无法运行freebsd-update，已有另一进程正在运行！</translation>
     </message>
 </context>
 </TS>

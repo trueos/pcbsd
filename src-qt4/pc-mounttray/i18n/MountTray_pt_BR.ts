@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">Ponto de montagem</translation>
+        <translation>Ponto de montagem</translation>
     </message>
     <message>
         <source>Filesystem</source>
@@ -39,7 +39,7 @@
     <name>MenuItem</name>
     <message>
         <source>Auto-mount this device</source>
-        <translation type="unfinished">Montar este dispositivo automaticamente</translation>
+        <translation>Montar este dispositivo automaticamente</translation>
     </message>
     <message>
         <source>Eject</source>
@@ -51,26 +51,23 @@
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Sucesso</translation>
+        <translation>Sucesso</translation>
     </message>
     <message>
         <source>%1 mounted at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 montado em %2</translation>
     </message>
     <message>
         <source>Error mounting %1 at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erro ao montar %1 em %2</translation>
     </message>
     <message>
         <source>Error mounting %1</source>
-        <translation type="unfinished">Erro ao montar %1</translation>
+        <translation>Erro ao montar %1</translation>
     </message>
     <message>
         <source>Could not create mount point at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não foi possível criar ponto de montagem em %1</translation>
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
@@ -78,8 +75,7 @@
     </message>
     <message>
         <source>It is now safe to remove the device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agora pode remover o dispositivo com segurança</translation>
     </message>
     <message>
         <source>Error: %1 could not be unmounted</source>
@@ -87,23 +83,22 @@
     </message>
     <message>
         <source>%1 of disk space available</source>
-        <translation type="unfinished">%1 de espaço de disco disponível</translation>
+        <translation>%1 de espaço em disco disponível</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">Montado em %1</translation>
+        <translation>Montado em %1</translation>
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">O arquivo ISO foi completamente retirado do sistema.</translation>
     </message>
 </context>
 <context>
     <name>MountTray</name>
     <message>
         <source>Close Tray</source>
-        <translation>Bandeja fechada</translation>
+        <translation>Fechar bandeja</translation>
     </message>
     <message>
         <source>User Detection Error</source>
@@ -129,17 +124,15 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Rescan Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reexaminar dispositivos</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">Por favor aguarde</translation>
+        <translation>Por favor aguarde</translation>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reexaminando dispositivos conectados no sistema</translation>
     </message>
     <message>
         <source>More Options</source>
@@ -151,7 +144,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">Mudar configurações</translation>
+        <translation>Mudar configurações</translation>
     </message>
     <message>
         <source>Load ISO File</source>
@@ -194,7 +187,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">Aplicar</translation>
+        <translation>Aplicar</translation>
     </message>
 </context>
 </TS>

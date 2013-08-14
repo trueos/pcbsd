@@ -769,8 +769,7 @@
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beginne mit der Erstellung eines PBI aus dem aktuellen Modul (erfordert Administratorrechte)</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>

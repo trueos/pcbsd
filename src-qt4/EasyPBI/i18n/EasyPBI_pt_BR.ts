@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">Editor de módulo</translation>
+        <translation>Editor de módulo</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">Visualizar e editar o módulo PBI atual</translation>
+        <translation>Visualizar e editar o módulo PBI atual</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
@@ -21,17 +21,15 @@
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Principais configurações para o PBI</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">Informação do programa</translation>
+        <translation>Informação do programa</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nome oficial do programa correspondente</translation>
     </message>
     <message>
         <source>Name</source>
@@ -39,8 +37,7 @@
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Versão do programa a ser empacotado</translation>
     </message>
     <message>
         <source>Version</source>
@@ -48,13 +45,11 @@
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">URL do site principal do programa correspondente</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Site</translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
@@ -67,8 +62,7 @@
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ícone que será usado para o programa (recursos PNG disponíveis)</translation>
     </message>
     <message>
         <source>Icon</source>
@@ -95,7 +89,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Selecionar         </translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
@@ -162,7 +156,7 @@
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">Requer permissões de administrador para instalar este PBI</translation>
+        <translation>Requer permissões de administrador para instalar este PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
@@ -170,8 +164,7 @@
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Salvar as definições atuais para o arquivo de configuração do PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>
@@ -179,7 +172,7 @@
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">Recursos</translation>
+        <translation>Recursos</translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
@@ -187,12 +180,11 @@
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">Recursos atuais</translation>
+        <translation>Recursos atuais</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivos atuais a serem incluídos no PBI</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
@@ -201,7 +193,7 @@
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">Adicionar arquivo</translation>
+        <translation>Adicionar arquivo</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
@@ -228,8 +220,7 @@
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Salvar script</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -258,13 +249,11 @@
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Área de trabalho</translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criar e editar entradas de menu</translation>
     </message>
     <message>
         <source>Menu</source>
@@ -317,28 +306,23 @@
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Possíveis categorias de Menu</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iniciar o aplicativo na sessão do terminal</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir no Terminal</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sinalizar este item para que não seja exibido para todos</translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Tornar invisível</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
@@ -414,7 +398,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Arquivo</translation>
+        <translation>Arquivo</translation>
     </message>
     <message>
         <source>Link To</source>
@@ -559,7 +543,7 @@
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">Configurações do EasyPBI</translation>
+        <translation>Configurações do EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -568,8 +552,7 @@
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Obter Ports do FreeBSD</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
@@ -602,13 +585,11 @@
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Histórico</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ports do FreeBSD</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
@@ -617,8 +598,7 @@
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Módulos PBI</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -627,7 +607,7 @@
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">Fechar o EasyPBI</translation>
+        <translation>Fechar o EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
@@ -652,8 +632,7 @@
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Port do FreeBSD</translation>
     </message>
     <message>
         <source>Local Sources</source>
@@ -667,8 +646,7 @@
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Erro de permissões</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
@@ -695,13 +673,11 @@
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">EasyPBI: Erro de permissões</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não foi possível criar módulo PBI. Por favor, verifique as permissões do diretório e tente novamente.</translation>
     </message>
     <message>
         <source>Select Module</source>
@@ -719,12 +695,11 @@
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Selecione o pacote</translation>
+        <translation type="unfinished">Selecione o Port</translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">EasyPBI: Port inválido</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
@@ -733,8 +708,7 @@
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erro do EasyPBI</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
@@ -756,12 +730,11 @@
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não foi possível remover a entrada XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">Verifique as permissões do arquivo e tente novamente</translation>
+        <translation>Verifique as permissões do arquivo e tente novamente</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
@@ -779,7 +752,7 @@
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">Por favor, verifique as permissões do arquivo e tente novamente</translation>
+        <translation>Por favor, verifique as permissões do arquivo e tente novamente</translation>
     </message>
     <message>
         <source>Error</source>
@@ -833,8 +806,7 @@
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iniciar a criação da nova entrada XDG</translation>
     </message>
     <message>
         <source>Category</source>
@@ -847,7 +819,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Adicionar</translation>
+        <translation>Adicionar</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
@@ -898,16 +870,14 @@
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Deseja continuar a usá-lo de qualquer maneira?</translation>
     </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar um novo módulo</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
@@ -944,17 +914,15 @@
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivo de ícone PNG a ser usado pelo PBI (pode ser modificado depois)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione um arquivo PNG local (tamanho do pixel de 64x64 é recomendado)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">Arquivo de ícone</translation>
+        <translation>Arquivo de ícone</translation>
     </message>
     <message>
         <source>Create a PBI from an existing FreeBSD port</source>
@@ -997,19 +965,18 @@
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">Ícone PNG (*.png)</translation>
+        <translation>Ícone PNG (*.png)</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">Preferências do EasyPBI</translation>
+        <translation>Preferências do EasyPBI</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Diretório de saída do PBI</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
@@ -1075,7 +1042,7 @@
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">Pacotes para ignorar</translation>
+        <translation>Pacotes a ignorar</translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
@@ -1235,7 +1202,7 @@
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">Imagens PNG (*.png)</translation>
+        <translation>Imagens PNG (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
@@ -1279,8 +1246,7 @@
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Última atualização</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1294,8 +1260,7 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizar</translation>
     </message>
     <message>
         <source>Status</source>
@@ -1319,17 +1284,15 @@
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Módulos</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">Recursos</translation>
+        <translation>Recursos</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ícone padrão</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
@@ -1338,23 +1301,19 @@
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Todos os usuários (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Outro</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Inexistente</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sucesso    </translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
@@ -1363,8 +1322,7 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
@@ -1373,8 +1331,7 @@
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Última mensagem: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
@@ -1386,26 +1343,23 @@
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">Sobre o EasyPBI</translation>
+        <translation>Sobre o EasyPBI</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licença</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Histórico de desenvolvimento</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI versão %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">Cria PBI&apos;s fácil e rapidamente.</translation>
+        <translation type="unfinished">Cria PBI&apos;s de forma rápida e fácil.</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>

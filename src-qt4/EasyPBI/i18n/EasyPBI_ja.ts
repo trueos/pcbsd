@@ -13,18 +13,15 @@
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のPBIモジュールを編集する</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIの設定</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIの主設定            </translation>
     </message>
     <message>
         <source>Program Information</source>
@@ -172,13 +169,11 @@
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIに含まれているファイル</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIモジュールにファイルを追加する</translation>
     </message>
     <message>
         <source>Add File</source>
@@ -242,18 +237,15 @@
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のリストを更新する（EasyPBI以外でファイルが編集されている場合に有効です）</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のアイテムをPBIモジュールから削除</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -277,8 +269,7 @@
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アイテムのアイコンを表示</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
@@ -287,8 +278,7 @@
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用可能なメニューカテゴリー</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
@@ -312,13 +302,11 @@
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在表示されているアイテムを保存</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在の設定で新しいアイテムの作成</translation>
     </message>
     <message>
         <source>Scripts</source>
@@ -326,18 +314,15 @@
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加のインストール・ビルドスクリプト</translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>作成、編集したいスクリプトを選択してください</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたスクリプトの作成</translation>
     </message>
     <message>
         <source>Create</source>
@@ -345,8 +330,7 @@
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたスクリプトをPBIモジュールから削除</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
@@ -359,8 +343,7 @@
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたスクリプトの内容</translation>
     </message>
     <message>
         <source>External-Links</source>
@@ -368,13 +351,11 @@
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルシステム中にリンクされたファイル</translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在の入力</translation>
     </message>
     <message>
         <source>File</source>
@@ -387,13 +368,11 @@
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルの種類</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたリンクの削除</translation>
     </message>
     <message>
         <source>Remove Entry</source>
@@ -425,13 +404,11 @@
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいリンクに利用可能なフラグ</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リンクをPBIモジュールに保存</translation>
     </message>
     <message>
         <source>PBI Builder</source>
@@ -439,23 +416,19 @@
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のモジュールをPBIビルドに利用する            </translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュールビルディング            </translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在PBIビルドに利用されているモジュールを表示</translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在ビルドされているPBIはありません</translation>
     </message>
     <message>
         <source>Output Directory</source>
@@ -468,7 +441,7 @@
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
-        <translation>PBI ビルド出力をすべて表示する</translation>
+        <translation>PBI ビルドプロセスによる出力をすべて表示する</translation>
     </message>
     <message>
         <source>Build PBI</source>
@@ -484,7 +457,7 @@
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation>現在のビルドプロセスをキャンセルする</translation>
+        <translation>現在走っているビルドプロセスをキャンセルする</translation>
     </message>
     <message>
         <source>Cancel Build</source>

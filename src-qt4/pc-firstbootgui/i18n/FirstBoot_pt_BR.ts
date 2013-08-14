@@ -16,10 +16,6 @@
         <translation>&amp;Próximo</translation>
     </message>
     <message>
-        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Bem-vindo ao seu novo sistema PC-BSD! Você pode trocar sua língua acima, e clicar em próximo para iniciar o processo de configuração.</translation>
-    </message>
-    <message>
         <source>System Timezone</source>
         <translation>Fuso horário do sistema</translation>
     </message>
@@ -77,7 +73,7 @@
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation>Trocar a língua de instalação</translation>
+        <translation>Trocar o idioma de instalação</translation>
     </message>
     <message>
         <source>Set the system timezone</source>
@@ -93,20 +89,22 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Irá criptografar o diretório home dos usuários</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criptografar os arquivos do usuário</translation>
+    </message>
+    <message>
+        <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
+        <translation type="unfinished">Bem-vindo ao seu novo sistema PC-BSD! Você pode alterar o seu idioma acima e clicar em próximo para iniciar o processo de configuração.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the system language you wish to use.</source>
-        <translation>Esta tela permite a você selecionar a língua do sistema que você deseja utilizar.</translation>
+        <translation>Esta tela permite que você selecione o idioma do sistema que deseja utilizar.</translation>
     </message>
     <message>
         <source>This screen lets you pick the default timezone for your computer.</source>
@@ -126,7 +124,7 @@
     </message>
     <message>
         <source>The computer setup is now finished! Click Finish to log into your new Desktop.</source>
-        <translation>O setup do computador está finalizado! Clique em Finalizar para logar em sua nova Área de Trabalho.</translation>
+        <translation>A configuração do computador está finalizado! Clique em Finalizar para logar em sua nova Área de Trabalho.</translation>
     </message>
 </context>
 <context>

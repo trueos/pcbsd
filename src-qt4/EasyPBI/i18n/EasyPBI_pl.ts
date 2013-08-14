@@ -237,87 +237,71 @@
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odświerz aktualną listę (użyteczne jeśli pliki były ostatnio modyfikowane poza EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń aktualny element z modułu PBI</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szczegóły wpisu</translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Widoczna nazwa dla elementu</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">Wykonywalny</translation>
+        <translation>Wykonywalny</translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binarium do uruchomienia gdy element jest aktywowany</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatycznie wykryte binaria z PBI</translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Widoczna ikona do użycia przez element</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria Menu dla lokalizacji elementu</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Możliwe kategorie Menu</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uruchom aplikację w sesji terminalowej</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz w terminalu</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oznacz ten element aby nie był wyświetlany</translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uczyń widocznym</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Szablony MIME</translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Zapisz element jak jest obecnie widoczny</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>

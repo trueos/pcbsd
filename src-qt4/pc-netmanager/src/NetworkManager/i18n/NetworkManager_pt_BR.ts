@@ -277,8 +277,7 @@
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Você precisa logar novamente para que as configurações do proxy tenham efeito.</translation>
     </message>
 </context>
 </TS>

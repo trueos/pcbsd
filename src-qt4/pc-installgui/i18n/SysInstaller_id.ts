@@ -542,18 +542,8 @@
             </translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>&amp;Tambah</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -732,6 +722,18 @@
         <source>Force ZFS 4K block size</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

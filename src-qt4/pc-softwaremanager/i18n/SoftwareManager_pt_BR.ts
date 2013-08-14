@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">Criar ícones no Menu</translation>
+        <translation>Criar ícones de Menu</translation>
     </message>
     <message>
         <source>Register File Associations</source>
@@ -240,7 +240,7 @@
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">Atualizar automaticamente</translation>
+        <translation>Atualizar automaticamente</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -257,12 +257,11 @@
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Aplicativos</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">Pesquisar aqui</translation>
+        <translation>Pesquise aqui</translation>
     </message>
     <message>
         <source>Search</source>
@@ -270,13 +269,11 @@
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ver adições recentes</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Navegar por categoria</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -296,7 +293,7 @@
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">Aplicativos relacionados</translation>
+        <translation type="unfinished">Aplicativos similares</translation>
     </message>
     <message>
         <source>Best Matches</source>
@@ -324,7 +321,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Sair</translation>
+        <translation>&amp;Sair</translation>
     </message>
     <message>
         <source>Repositories</source>
@@ -332,7 +329,7 @@
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">Configurações do AppCafe</translation>
+        <translation>Configurações do AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -340,22 +337,19 @@
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">O AppCafe deve ser executado como root quando estiver em modo de compatibilidade com Warden</translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished">O AppCafe deve ser iniciado com permissões do usuário!</translation>
+        <translation>O AppCafe deve ser iniciado com permissões de usuário!</translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">O usuário também deve fazer parte do grupo &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Processos do AppCafe em execução</translation>
     </message>
     <message>
         <source>The AppCafe currently has actions pending. Do you want to cancel all running processes and quit anyway?</source>
@@ -374,8 +368,7 @@
     </message>
     <message>
         <source>Import Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Erro ao importar</translation>
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
@@ -412,7 +405,7 @@
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">Ícones da área de trabalho</translation>
+        <translation>Ícones da área de trabalho</translation>
     </message>
     <message>
         <source>Add</source>
@@ -424,12 +417,11 @@
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ícones de Menu</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">Adicionar (Todos os usuários)</translation>
+        <translation>Adicionar (Todos os usuários)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -438,20 +430,19 @@
     </message>
     <message>
         <source>File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Associações de arquivo</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">Cancelar ações</translation>
+        <translation>Cancelar ações</translation>
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">Área de trabalho/Menu</translation>
+        <translation>Área de trabalho/Menu</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">Área de trabalho</translation>
+        <translation>Área de trabalho</translation>
     </message>
     <message>
         <source>Menu</source>
@@ -468,13 +459,11 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tem certeza de que deseja remover este aplicativo?</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tem certeza que deseja remover estes aplicativos?</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -495,8 +484,7 @@
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nenhum resultado de pesquisa foi encontrado para o termo: %1</translation>
     </message>
     <message>
         <source>Installed: %1</source>
@@ -517,7 +505,7 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished">Iniciar o aplicativo</translation>
+        <translation>Iniciar o aplicativo</translation>
     </message>
 </context>
 <context>
@@ -536,23 +524,19 @@
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Downloads pendentes</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Instalações pendentes</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Remoções pendentes</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizações pendentes</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -560,7 +544,7 @@
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">Resultados:</translation>
+        <translation>Resultados:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
@@ -657,13 +641,11 @@
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Instalação cancelada (será removido)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Remoção cancelada (será reinstalado)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
@@ -691,7 +673,7 @@
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">Erro desconhecido</translation>
+        <translation>Erro desconhecido</translation>
     </message>
 </context>
 </TS>

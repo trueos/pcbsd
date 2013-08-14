@@ -469,16 +469,8 @@
         <translation>Poniżej możesz dostosować punkty montowania systemów plików. Dla większości użytkowników ustawienia domyślne będą działały najlepiej.</translation>
     </message>
     <message>
-        <source>Free Space (MB)</source>
-        <translation>Wolne miejsce (MB)</translation>
-    </message>
-    <message>
         <source>&amp;Add</source>
         <translation>&amp;Dodaj</translation>
-    </message>
-    <message>
-        <source>Resize</source>
-        <translation>Zmień rozmiar</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -627,6 +619,18 @@
     <message>
         <source>Force ZFS 4K block size</source>
         <translation>Wymuś wielkość bloku 4K dla ZFS</translation>
+    </message>
+    <message>
+        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(MB)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Swap Size</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
