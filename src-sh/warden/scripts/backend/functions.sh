@@ -844,6 +844,10 @@ rm pkg.txz
 echo "packagesite: http://pkg.cdn.pcbsd.org/${release}/${arch}" >/usr/local/etc/pkg.conf
 echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
 echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+
+pkg install -y pcbsd-utils
+pc-extractoverlay ports
+
 exit $?
 __EOF__
 }
