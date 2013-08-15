@@ -9,21 +9,21 @@ if [ `id -r -u` != "0" ] ; then
         which qsudo >/dev/null 2>/dev/null
         if [ $? -eq 0 ] ; then
            qsudo $VARS
-           exit $? 
+           exit $?
         fi
 
 	# Now try gksu
         which gksu >/dev/null 2>/dev/null
         if [ $? -eq 0 ] ; then
            gksu -a "$VARS"
-           exit $? 
+           exit $?
         fi
 
 	# Lastly we have kdesu
         which kdesu >/dev/null 2>/dev/null
         if [ $? -eq 0 ] ; then
            kdesu -t -c "$VARS"
-           exit $? 
+           exit $?
         fi
 	
 	# If no utility could be found...
