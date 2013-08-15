@@ -205,7 +205,7 @@ Usage:
 
   For a listing of all scheduled snapshots
 
-  # lpreserver cronsnap 
+  # lpreserver listcron
 
   or
 
