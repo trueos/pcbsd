@@ -303,7 +303,9 @@ start_rep_task() {
   if [ $zStatus -eq 0 ] ; then
      # SUCCESS!
      # Lets mark our new latest snapshot and unmark the last one
-     zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
+     if [ -n "$lastSEND" ] ; then
+       zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
+     fi
      zfs set backup:lpreserver=LATEST ${LDATA}@$lastSNAP
      echo_log "Finished replication task on ${DATASET}"
      save_rep_props
