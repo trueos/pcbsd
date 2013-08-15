@@ -17,11 +17,12 @@ for i in `grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $8}'`
 do
    min=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $1}'`
    hour=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $2}'`
+   count=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $9}'`
    time="Min: $min Hour: $hour";
    if [ "$min" = "0" -a "$hour" != '*' ] ; then time="daily@$hour" ; fi
    if [ "$min" = "0" -a "$hour" = '*' ] ; then time="hourly" ; fi
    if [ "$min" = "0,30" ] ; then time="30min" ; fi
    if [ "$min" = '*/10' ] ; then time="10min" ; fi
    if [ "$min" = '*/5' ] ; then time="5min" ; fi
-   echo "$i - $time"
+   echo "$i - $time - total: $count"
 done
