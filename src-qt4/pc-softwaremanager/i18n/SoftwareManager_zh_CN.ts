@@ -5,28 +5,23 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe配置</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>配置</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安装后动作</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建桌面图标</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建菜单图标</translation>
     </message>
     <message>
         <source>Register File Associations</source>

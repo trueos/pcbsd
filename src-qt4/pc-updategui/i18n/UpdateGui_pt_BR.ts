@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">&amp;Instalar as atualizações selecionadas</translation>
+        <translation>&amp;Instalar as atualizações selecionadas</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">Fe&amp;char</translation>
+        <translation>Fe&amp;char</translation>
     </message>
     <message>
         <source>System updates available!</source>
@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">Não foi possível executar freebsd-update, outro processo está em execução!</translation>
+        <translation>Não foi possível executar freebsd-update, outro processo está em execução!</translation>
     </message>
 </context>
 </TS>

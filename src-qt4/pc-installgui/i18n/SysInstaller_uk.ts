@@ -623,15 +623,15 @@
     </message>
     <message>
         <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation type="unfinished"></translation>
+        <translation>Встановити завантажувач GRUB (необхідно для підтримки оточень завантаження)</translation>
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished"></translation>
+        <translation>(МБ)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Розмір підкачки</translation>
     </message>
 </context>
 <context>

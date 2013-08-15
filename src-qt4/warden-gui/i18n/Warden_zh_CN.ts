@@ -825,8 +825,7 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此向导将带你创建一个新的jail。首先，输入一个当前网络中未使用的主机名和IP地址。如果您打算使用IPv6登陆此jail，勾选IPv6并输入一个有效的IPv6地址。输入完毕，点击下一步继续。</translation>
     </message>
 </context>
 </TS>

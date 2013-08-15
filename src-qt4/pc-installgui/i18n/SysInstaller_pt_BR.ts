@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">Seleção de pacotes do TrueOS</translation>
+        <translation>Seleção de pacotes do TrueOS</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
@@ -187,8 +187,7 @@
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Foi detectado que você está executando a versão de 32 bits. Se o seu sistema é de 64 bits (maioria dos sistemas fabricados após 2005), você deveria estar executando a versão de 64 bits</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
@@ -233,7 +232,7 @@
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">Configuração salva! Agora você pode remover a mídia USB com segurança.</translation>
+        <translation>Configuração salva! Agora você pode remover a mídia USB com segurança.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -253,11 +252,11 @@
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">Arquivo de configuração:</translation>
+        <translation>Arquivo de configuração:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">Iniciar a instalação usando este arquivo de configuração?</translation>
+        <translation>Iniciar a instalação usando este arquivo de configuração?</translation>
     </message>
 </context>
 <context>
@@ -609,7 +608,7 @@
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">Digite o tamanho da SWAP</translation>
+        <translation>Digite o tamanho da SWAP</translation>
     </message>
     <message>
         <source>Size (MB)</source>
@@ -627,15 +626,15 @@
     </message>
     <message>
         <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Instalar o carregador de inicialização GRUB (necessário para o suporte ao ambiente de inicialização)</translation>
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished"></translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamanho da Swap</translation>
     </message>
 </context>
 <context>

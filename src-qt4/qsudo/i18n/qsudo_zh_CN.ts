@@ -9,23 +9,19 @@
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>需要系统权限</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>登陆被禁止</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此用户在此系统中没有管理员权限！</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>密码无效！还可尝试1%次</translation>
     </message>
 </context>
 </TS>

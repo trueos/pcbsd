@@ -291,8 +291,7 @@
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Definir código de região</translation>
     </message>
 </context>
 <context>

@@ -99,6 +99,22 @@
         <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
         <translation type="unfinished">Bem-vindo ao seu novo sistema PC-BSD! Você pode alterar o seu idioma acima e clicar em próximo para iniciar o processo de configuração.</translation>
     </message>
+    <message>
+        <source>System Hostname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter a valid hostname, or leave default.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter a hostname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hostname may only contain letters and numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

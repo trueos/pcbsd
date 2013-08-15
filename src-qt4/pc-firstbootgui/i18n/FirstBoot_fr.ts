@@ -100,6 +100,22 @@
         <source>Encrypt user files</source>
         <translation>Crypter les fichiers des utilisateurs</translation>
     </message>
+    <message>
+        <source>System Hostname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enter a valid hostname, or leave default.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please enter a hostname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hostname may only contain letters and numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -29,104 +29,124 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="455"/>
+        <location filename="../firstboot.ui" line="382"/>
+        <source>System Hostname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../firstboot.ui" line="391"/>
+        <source>Enter a valid hostname, or leave default.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../firstboot.ui" line="541"/>
         <source>Root Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="474"/>
-        <location filename="../firstboot.ui" line="750"/>
+        <location filename="../firstboot.ui" line="560"/>
+        <location filename="../firstboot.ui" line="836"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="507"/>
-        <location filename="../firstboot.ui" line="767"/>
+        <location filename="../firstboot.ui" line="593"/>
+        <location filename="../firstboot.ui" line="853"/>
         <source>Password (Repeat)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="535"/>
+        <location filename="../firstboot.ui" line="621"/>
         <source>The system or &quot;root&quot; password allows you to make changes to your operating system, and should be kept from non-trusted users. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="701"/>
+        <location filename="../firstboot.ui" line="787"/>
         <source>Create a User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="720"/>
+        <location filename="../firstboot.ui" line="806"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="733"/>
+        <location filename="../firstboot.ui" line="819"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="776"/>
-        <location filename="../firstboot.ui" line="779"/>
+        <location filename="../firstboot.ui" line="862"/>
+        <location filename="../firstboot.ui" line="865"/>
         <source>Will encrypt users home-directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="785"/>
+        <location filename="../firstboot.ui" line="871"/>
         <source>Encrypt user files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="948"/>
+        <location filename="../firstboot.ui" line="1034"/>
         <source>Connect to a Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="980"/>
+        <location filename="../firstboot.ui" line="1066"/>
         <source>&amp;Rescan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="996"/>
+        <location filename="../firstboot.ui" line="1082"/>
         <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1103"/>
+        <location filename="../firstboot.ui" line="1189"/>
         <source>Setup is now complete! Press Finish to login to your new desktop.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1173"/>
+        <location filename="../firstboot.ui" line="1259"/>
         <source>Display help for the current screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1199"/>
+        <location filename="../firstboot.ui" line="1285"/>
         <source>Launch the on-screen keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1225"/>
+        <location filename="../firstboot.ui" line="1311"/>
         <source>Switch between US layout and user selected layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1276"/>
-        <location filename="../firstboot.cpp" line="38"/>
+        <location filename="../firstboot.ui" line="1362"/>
+        <location filename="../firstboot.cpp" line="41"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1292"/>
-        <location filename="../firstboot.cpp" line="39"/>
+        <location filename="../firstboot.ui" line="1378"/>
+        <location filename="../firstboot.cpp" line="42"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.cpp" line="188"/>
-        <location filename="../firstboot.cpp" line="199"/>
-        <location filename="../firstboot.cpp" line="380"/>
+        <location filename="../firstboot.cpp" line="146"/>
+        <source>Please enter a hostname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../firstboot.cpp" line="151"/>
+        <source>Hostname may only contain letters and numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../firstboot.cpp" line="212"/>
+        <location filename="../firstboot.cpp" line="223"/>
+        <location filename="../firstboot.cpp" line="404"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>
