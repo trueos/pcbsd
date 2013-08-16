@@ -35,10 +35,20 @@ void MainWindow::ProgramInit()
   connect(buttonBox, SIGNAL(clicked(QAbstractButton *)), this, SLOT(slotButtonClicked(QAbstractButton *)));
   connect(passwordLineEdit, SIGNAL(returnPressed()), this, SLOT(slotReturnPressed()));
   connect(passwordLineEdit, SIGNAL(textChanged(QString)), this, SLOT(slotPwdTextChanged(QString)));
+  connect(commandGroupBox,  SIGNAL(clicked(bool)), this, SLOT(slotExpandCommandClicked(bool)));
 
   QPushButton* btn= buttonBox->button(QDialogButtonBox::Ok);
   if (btn)
       btn->setEnabled(false);
+
+  // Set command text
+  commandLabel->setVisible(false);
+  QString commText;
+  for ( int i = 1; i< qApp->argc() ; i++)
+  {
+      commText+=qApp->argv()[i];
+  }
+  commandLabel->setText(commText);
 }
 
 void MainWindow::slotReturnPressed()
@@ -118,6 +128,11 @@ void MainWindow::slotPwdTextChanged(const QString &text)
     QPushButton* btn= buttonBox->button(QDialogButtonBox::Ok);
     if (btn)
         btn->setEnabled(text.length()?true:false);
+}
+
+void MainWindow::slotExpandCommandClicked(bool isChecked)
+{
+    commandLabel->setVisible(isChecked);
 }
 
 void MainWindow::slotProcDone()

@@ -25,6 +25,7 @@ private slots:
     void slotPrintStdErr();
     void slotPrintStdOut();
     void slotPwdTextChanged ( const QString & text );
+    void slotExpandCommandClicked(bool isChecked);
 
 
 private:
