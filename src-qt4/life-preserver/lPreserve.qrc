@@ -1,8 +1,9 @@
 <RCC>
-  <qresource prefix="images" >
+  <qresource prefix="" >
     <file>images/lifepreserver.png</file>
     <file>images/backup-ok.png</file>
     <file>images/backup-failed.png</file>
+    <file>images/copy.png</file>
     <file>images/folder.png</file>
     <file>images/network-wired.png</file>
     <file>images/drive-removable-media.png</file>

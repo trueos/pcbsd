@@ -2,16 +2,14 @@
 #include <qlocale.h>
 #include <qtsingleapplication.h>
 #include <QDebug>
-#include <QSettings>
-#include "preserver.h"
-#include "externals.h"
-#include "lifePreserverMain.h"
-#include "lifePreserverWelcome.h"
-#include "../config.h"
+#include <QFile>
 
-bool havePreservers;
-lifePreserver *m;
-lifePreserverWelcome *w;
+#include "LPTray.h"
+//#include "../config.h"
+
+#ifndef PREFIX
+#define PREFIX QString("/usr/local/")
+#endif
 
 int main( int argc, char ** argv )
 {
@@ -19,8 +17,12 @@ int main( int argc, char ** argv )
     if (a.isRunning())
       return !(a.sendMessage("show"));
 
-    havePreservers = false;
-
+    //Check whether running as root
+    if( getuid() != 0){
+      qDebug() << "Life-Preserver must be started as root!";
+      return 1;
+    }
+    
     QTranslator translator;
     QLocale mylocale;
     QString langCode = mylocale.name();
@@ -30,34 +32,9 @@ int main( int argc, char ** argv )
     a.installTranslator( &translator );
     qDebug() << "Locale:" << langCode;
 
-    // Check if we should not open
-    if ( (a.arguments().size() > 2) && a.arguments().at(2) == "-autostart" ) {
-       QSettings settings("PCBSD", "LifePreserver");
-       if ( ! settings.value("autostart", true).toBool() ) {
-	  qDebug() << "Life-Preserver autostart is diabled! Run without -autostart flag!";
-	  exit(1);
-       }
-    }
+    LPTray *w = new LPTray(); 
+    w->show();
 
-    m = new lifePreserver(); 
-    w = new lifePreserverWelcome(); 
-	
-    m->ProgramInit();
-    w->ProgramInit();
-
-    if ( havePreservers ) {
-      if ( (a.arguments().size() > 1) && a.arguments().at(1) == "-tray" )
-        m->hide();
-      else
-        m->show();
-    } else {
-      if ( (a.arguments().size() > 1) && a.arguments().at(1) == "-tray" )
-        w->hide();
-      else
-        w->show();
-    }
-
-    QObject::connect( &a, SIGNAL( messageReceived(const QString &) ), m, SLOT( slotSingleInstance() ) );
-    a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
+    QObject::connect( &a, SIGNAL( messageReceived(const QString &) ), w, SLOT( slotSingleInstance() ) );
     return a.exec();
 }

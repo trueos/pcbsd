@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainUI</class>
+ <widget class="QMainWindow" name="mainUI">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>456</width>
+    <height>175</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Life Preserver</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="lPreserve.qrc">
+    <normaloff>:/images/lifepreserver.png</normaloff>:/images/lifepreserver.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="indentation">
+       <number>0</number>
+      </property>
+      <attribute name="headerDefaultSectionSize">
+       <number>100</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Data Set</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Latest Snapshot</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Available</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Replication</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="tool_add">
+         <property name="statusTip">
+          <string>Enable backups of a new dataset</string>
+         </property>
+         <property name="text">
+          <string>Add</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/list-add.png</normaloff>:/images/list-add.png</iconset>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tool_remove">
+         <property name="statusTip">
+          <string>Remove selected dataset from automatic backup</string>
+         </property>
+         <property name="text">
+          <string>Remove</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/list-remove.png</normaloff>:/images/list-remove.png</iconset>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tool_config">
+         <property name="statusTip">
+          <string>Customize the backup configuration for the selected dataset</string>
+         </property>
+         <property name="text">
+          <string>Configure</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/configure.png</normaloff>:/images/configure.png</iconset>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tool_browse">
+         <property name="statusTip">
+          <string>Browse a snapshot and safely recover that version of a file</string>
+         </property>
+         <property name="text">
+          <string>Browse</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/folder.png</normaloff>:/images/folder.png</iconset>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="tool_revert">
+         <property name="statusTip">
+          <string>Revert an entire data subset to a previous snapshot (overwrites all files)</string>
+         </property>
+         <property name="text">
+          <string>Revert</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/lifepreserver.png</normaloff>:/images/lifepreserver.png</iconset>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>456</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset resource="lPreserve.qrc">
+     <normaloff>:/images/application-exit.png</normaloff>:/images/application-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close Window</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="lPreserve.qrc"/>
+ </resources>
+ <connections/>
+</ui>
