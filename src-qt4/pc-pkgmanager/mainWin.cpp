@@ -39,6 +39,7 @@ void mainWin::ProgramInit(QString ch)
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
   connect(action_Basic, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
   connect(action_Advanced, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
+  connect(tool_search, SIGNAL( clicked() ), this, SLOT( slotSearchPackages() ) );
 
   // Setup the action group
   viewGroup = new QActionGroup(this);
@@ -104,6 +105,58 @@ void mainWin::slotApplyClicked() {
      applyNGChanges();
   }
 
+}
+
+void mainWin::slotSearchPackages(){
+  QString pkgSearch = line_search->text();
+  if(pkgSearch.isEmpty()){ return; }
+  qDebug() << "Search for package:" <<pkgSearch;
+  //Get the pointer to the proper treewidget
+  QTreeWidget *TW = treeNGPkgs;
+  if( stackedPkgView->currentIndex() == 0 ){ TW = treeMetaPkgs; }
+  //Make sure the tree widget is not empty
+  if(TW->topLevelItemCount() < 2){ return; }
+  //iterate through the tree widget, starting at the current selection
+  QTreeWidgetItem *CI = TW->currentItem();
+  bool found=false; bool atTop=false;
+  if(CI == 0){ CI = TW->topLevelItem(0); atTop=true; }
+  //Get the starting index (parent and child)
+  QTreeWidgetItem *PI = CI->parent();
+  int startParent=0; int startChild=0;
+  if(PI == 0){ startParent = TW->indexOfTopLevelItem(CI); } //startchild == 0
+  else{ startParent = TW->indexOfTopLevelItem(PI); startChild = PI->indexOfChild(CI) +1; }
+  //Now iterate over the tree, only looking at the actual packages (not categories)
+  found = performSearch(pkgSearch, TW, startParent, startChild);
+  if(!found && !atTop){
+    //Ask whether to restart the search at the top 
+    if(QMessageBox::Yes == QMessageBox::question(this,tr("No Search Results"),tr("Do you want to continue the search from the top?"),QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+      //Restart the search from the top
+      found = performSearch(pkgSearch, TW, 0, 0);
+    }
+  }
+  if(!found){
+    QMessageBox::information(this, tr("No Search Results"), tr("No packages could be found with that search term. Please adjust it and try again.") );
+  }
+  qDebug() << " - Search Finished";
+}
+
+bool mainWin::performSearch(QString pkgSearch, QTreeWidget *TW, int startParent, int startChild){
+  //Iterate over the Tree 
+  bool found=false;
+  for(int p=startParent; p<TW->topLevelItemCount(); p++){
+    for(int c=startChild; c<TW->topLevelItem(p)->childCount(); c++){
+      QTreeWidgetItem *CI = TW->topLevelItem(p)->child(c);
+      if(CI->text(0).contains(pkgSearch, Qt::CaseInsensitive)){
+        TW->setCurrentItem(CI);
+	TW->scrollToItem(CI);
+	found=true;
+	break;
+      }
+    }
+    startChild=0; //reset this for the next top level item
+    if(found){ break; }
+  }
+  return found;
 }
 
 void mainWin::checkMPKGUpdates() {
@@ -672,7 +725,6 @@ void mainWin::addNGItems()
   
         catItem->addChild(pkgItem);
    }
-
 }
 
 // Lets prompt user, and do it!
@@ -899,6 +951,7 @@ void mainWin::addTreeItems(QString parent)
     // Now look for any possible children
     addTreeItems(metaPkgList.at(z).at(0));    
   }
+
 }
 
 // Check if a meta-pkg is installed

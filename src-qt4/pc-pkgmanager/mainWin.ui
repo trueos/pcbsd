@@ -181,6 +181,27 @@
                <item row="1" column="0">
                 <layout class="QHBoxLayout" name="horizontalLayout">
                  <item>
+                  <widget class="QLineEdit" name="line_search">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="tool_search">
+                   <property name="text">
+                    <string>Search</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="pc-pkgmanager.qrc">
+                     <normaloff>:/search.png</normaloff>:/search.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
                   <spacer name="spacer2">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
@@ -385,6 +406,10 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>&amp;Close</string>
         </property>
+        <property name="icon">
+         <iconset resource="pc-pkgmanager.qrc">
+          <normaloff>:/window-close.png</normaloff>:/window-close.png</iconset>
+        </property>
        </widget>
       </item>
      </layout>
@@ -397,7 +422,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">

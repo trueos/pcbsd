@@ -48,6 +48,7 @@ private slots:
     void slotFinishLoadingMetaPkgs();
     void slotGetPackageDataOutput();
     void slotApplyClicked();
+    void slotSearchPackages();
 
     // Package updates
     void slotRescanPkgsClicked();
@@ -78,6 +79,9 @@ private:
     QList<QStringList> pkgCmdList;
     bool pkgHasFailed;
     QString getConflictDetailText();
+
+    //Search Iteration
+    bool performSearch(QString pkgSearch, QTreeWidget *TW, int startParent, int startChild);
 
     // Updates
     void doUpdates();
