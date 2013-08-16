@@ -1,319 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en_ZA">
+<TS version="2.0">
 <context>
     <name>mainUI</name>
     <message>
-        <location filename="../mainUI.ui" line="14"/>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>PC-BSD Bootup Configuration</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="25"/>
         <source>Boot Environments</source>
-        <translation type="unfinished"></translation>
+        <translation>Boot Environments</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="35"/>
         <source>Create a new boot environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Create a new boot environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="38"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Add</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="62"/>
         <source>Remove the currently selected boot environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove the currently selected boot environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="65"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="76"/>
         <source>Make a copy of the selected boot environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Make a copy of the selected boot environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="79"/>
-        <location filename="../mainUI.ui" line="93"/>
-        <location filename="../mainUI.ui" line="107"/>
-        <location filename="../mainUI.ui" line="214"/>
-        <location filename="../mainUI.ui" line="256"/>
-        <location filename="../mainUI.ui" line="274"/>
-        <location filename="../mainUI.ui" line="288"/>
-        <location filename="../mainUI.ui" line="335"/>
-        <location filename="../mainUI.ui" line="349"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="90"/>
         <source>Rename the currently selected boot environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Rename the currently selected boot environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="104"/>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished"></translation>
+        <translation>Activate the selected boot environment to be used as the default during bootup</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="137"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Default</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="182"/>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished"></translation>
+        <translation>Amount of time before the default option is started (0 deactivates automatic booting)</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="227"/>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Display the GRUB menu during the countdown</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="395"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation>File</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="401"/>
         <source>Emergency Services</source>
-        <translation type="unfinished"></translation>
+        <translation>Emergency Services</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="425"/>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Rebuild GRUB Menu</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="434"/>
         <source>Restore GRUB Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>Restore GRUB Defaults</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="127"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="132"/>
         <source>Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Running</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="142"/>
         <source>Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Date</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="147"/>
         <source>Mountpoints</source>
-        <translation type="unfinished"></translation>
+        <translation>Mountpoints</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="152"/>
         <source>Space</source>
-        <translation type="unfinished"></translation>
+        <translation>Space</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="163"/>
         <source>GRUB Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>GRUB Configuration</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="169"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="175"/>
         <source>Timer</source>
-        <translation type="unfinished"></translation>
+        <translation>Timer</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="185"/>
         <source> seconds</source>
-        <translation type="unfinished"></translation>
+        <translation> seconds</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="195"/>
         <source>Font File</source>
-        <translation type="unfinished"></translation>
+        <translation>Font File</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="204"/>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Font file for GRUB to use</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="211"/>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished"></translation>
+        <translation>Select a font file for GRUB</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="230"/>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished"></translation>
+        <translation>Show Timer Countdown</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="237"/>
         <source>Theme File</source>
-        <translation type="unfinished"></translation>
+        <translation>Theme File</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="246"/>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished"></translation>
+        <translation>Theme file for GRUB to use</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="253"/>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished"></translation>
+        <translation>Select a theme file for GRUB</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="271"/>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Save the current settings configuration</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="285"/>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Re-load the GRUB settings</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="324"/>
         <source>Custom Entries</source>
-        <translation type="unfinished"></translation>
+        <translation>Custom Entries</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="332"/>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Save the current entry configuration</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="346"/>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished"></translation>
+        <translation>Re-load the GRUB entries file</translation>
     </message>
     <message>
-        <location filename="../mainUI.ui" line="416"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Close</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="64"/>
         <source>Invalid Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid Name</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="64"/>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished"></translation>
+        <translation>A Boot Environment with that name already exists, please choose a different one.</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="74"/>
         <source>Working</source>
-        <translation type="unfinished"></translation>
+        <translation>Working</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="71"/>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>Performing Boot Environment Changes. Please Wait.</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="313"/>
-        <location filename="../mainUI.cpp" line="348"/>
-        <location filename="../mainUI.cpp" line="373"/>
         <source>New BE name</source>
-        <translation type="unfinished"></translation>
+        <translation>New BE name</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="313"/>
-        <location filename="../mainUI.cpp" line="348"/>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose a name for the new boot environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="367"/>
-        <location filename="../mainUI.cpp" line="393"/>
         <source>Running Boot Environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Running Boot Environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="367"/>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished"></translation>
+        <translation>You cannot rename a boot environment that you are currently running!</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="373"/>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Choose a new name for this boot environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="389"/>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished"></translation>
+        <translation>You cannot remove your only boot environment!</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="389"/>
         <source>Single Boot Environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Single Boot Environment</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="393"/>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished"></translation>
+        <translation>You cannot remove a boot environment that you are currently running!</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="397"/>
         <source>Verify BE Removal</source>
-        <translation type="unfinished"></translation>
+        <translation>Verify BE Removal</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="397"/>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure you want to delete the following boot environment?</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="438"/>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished"></translation>
+        <translation>Select a GRUB Theme File</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="438"/>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished"></translation>
+        <translation>Theme File (theme.txt)</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="445"/>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished"></translation>
+        <translation>Select a GRUB Font File</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="445"/>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Font File (*.pf2)</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="475"/>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rebuilding GRUB menu system. Please wait.</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="504"/>
         <source>Unsaved Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Unsaved Changes</translation>
     </message>
     <message>
-        <location filename="../mainUI.cpp" line="504"/>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</translation>
     </message>
 </context>
 </TS>

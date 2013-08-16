@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa Systemu</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wprowdź poprawną nazwę lub pozostaw domyślną.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Proszę podać nazwę hosta</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa hosta może zawierać tylko litery i cyfry</translation>
     </message>
 </context>
 <context>

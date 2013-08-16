@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я системи (Hostname)</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished"></translation>
+        <translation>Введіть правильне ім&apos;я системи (hostname) або лишіть значення за замовчуванням.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка введіть ім&apos;я системи</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Ім&apos;я системи повинне містити лише букви та цифри</translation>
     </message>
 </context>
 <context>
