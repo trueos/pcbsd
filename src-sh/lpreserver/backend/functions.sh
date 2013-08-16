@@ -348,3 +348,20 @@ save_rep_props() {
     return 1
   fi
 }
+
+listStatus() {
+
+  for i in `grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $8}'`
+  do
+    echo -e "DATASET - SNAPSHOT - REPLICATION"
+    echo "------------------------------------------"
+
+    lastSEND=`zfs get -r backup:lpreserver ${i} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+    lastSNAP=`zfs list -t snapshot -d 1 -H ${i} | tail -1 | awk '{$1=$1}1' OFS=" " | cut -d '@' -f 2 | cut -d ' ' -f 1`
+
+    if [ -z "$lastSEND" ] ; then lastSEND="NONE"; fi
+    if [ -z "$lastSNAP" ] ; then lastSNAP="NONE"; fi
+
+    echo "$i - $lastSNAP - $lastSEND"
+  done
+}

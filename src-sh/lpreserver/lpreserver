@@ -50,6 +50,7 @@ cat<<__EOF__
    cronsnap - Schedule snapshot creation via cron
  revertsnap - Revert zpool/dataset to a snapshot
   replicate - Enable / Disable ZFS replication to a remote system
+     status - List datasets, along with last snapshot / replication date 
      rmsnap - Remove a snapshot
 __EOF__
 };
@@ -176,6 +177,21 @@ Usage:
   lpreserver listcron
 "
 };
+
+help_status()
+{
+ title
+ echo "Help status
+
+List monitored dataset's last snapshot and replication
+
+Usage:
+
+  lpreserver status
+
+"
+};
+
 
 help_listsnap()
 {
@@ -308,6 +324,7 @@ case "$1" in
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            rmsnap) help_rmsnap ;;
+           status) help_status ;;
            *) help_main ;;
          esac  ;;
 
@@ -377,6 +394,8 @@ revertsnap) require_root
          DATASET="$2"
          SNAP="$3"
          ${PROGDIR}/backend/zfsrmsnap.sh "${DATASET}" "${SNAP}"
+         ;;
+    status) listStatus
          ;;
  replicate) require_root
 	    shift
