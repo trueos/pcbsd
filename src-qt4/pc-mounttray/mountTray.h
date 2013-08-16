@@ -47,8 +47,9 @@ private slots:
   void slotTrayActivated(QSystemTrayIcon::ActivationReason);
   void slotOpenMediaDir();
   void openMediaDir(QString); 
-  void slotDisplayPopup(QString,QString);
+  void slotDisplayPopup(QString,QString, QString device = "");
   void slotDisplayWarning(QString,QString);
+  void slotPopupClicked();
   void removeDevice(QString);
   void slotRescan();
   void slotOpenFSDialog();
@@ -64,13 +65,13 @@ private:
   QSystemTrayIcon* trayIcon;
   QMenu *trayIconMenu, *sysMenu;
   QList<MenuItem*> deviceList;
-  QStringList oldsysdev;
+  //QStringList oldsysdev;
   FSWatcher *diskWatcher;
   FSDialog *diskDisplay;
   //Saved Settings
   bool useDiskWatcher, useDiskTimerDevd;
   int diskTimerMaxMS; //milliseconds
-
+  QString popupSave; //for saving the device for the latest pop-up message
 
   void updateMenu();
   void scanInitialDevices();

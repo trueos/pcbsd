@@ -38,7 +38,8 @@ class MenuItem : public QWidgetAction
 	
   	//Setters
 	void updateItem();
-	
+	void mountItem(); //be careful calling this on it's own
+  
 	//Getters
 	QString getDeviceName();
 	
@@ -57,7 +58,7 @@ class MenuItem : public QWidgetAction
   	QPushButton* pushMount;
   	QCheckBox* checkAutomount;
 
-	void mountItem();
+	//void mountItem();
   	void unmountItem();
         void updateSizes();
         QString getSizeDisplay(int);

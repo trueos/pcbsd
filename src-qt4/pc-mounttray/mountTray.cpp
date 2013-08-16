@@ -41,7 +41,8 @@ void MountTray::programInit()
   
   // Tie the left-click signal to open the context menu
   connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayActivated(QSystemTrayIcon::ActivationReason)) );
-  
+  //Connect the message clicked slot
+  connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotPopupClicked()) );
   //Set the default Tray Icon (will change once tray menus are set)
   trayIcon->setIcon(QIcon(":icons/CDdevices-inactive.png"));
   trayIcon->show();
@@ -193,7 +194,7 @@ void MountTray::slotDevChanges(bool showPopup){
   //Get the current list of devices
   QStringList nsd = DCheck->devChildren("");
   //Remove all the currently managed devices
-  qDebug() << "Rescanning Device List:" << nsd;
+  qDebug() << "Rescanning Device List";
   for(int i=0; i<deviceList.length(); i++){
     QString dev = deviceList[i]->device.section("/",-1);
     if(DEBUG_MODE){ qDebug() << " - Check device:" << dev; }
@@ -230,7 +231,7 @@ void MountTray::slotDevChanges(bool showPopup){
       if(showPopup && added){ //make sure this is not shown for previously added devices
         QString title = tr("New Device");
         QString message = QString( tr("%1 can now be accessed")).arg(dlabel);
-        slotDisplayPopup(title, message);
+        slotDisplayPopup(title, message, nsd[i]);
       }
     }
   }
@@ -374,20 +375,43 @@ void MountTray::slotSingleInstance()
   trayIcon->show();
 }
 
-void MountTray::slotDisplayPopup(QString title, QString msg){
+void MountTray::slotDisplayPopup(QString title, QString msg, QString device){
+  popupSave = device; //so we know what to do when it is clicked
   //Display a popup bubble with the given message for 3 seconds
   trayIcon->contextMenu()->hide(); //close the menu list
-  disconnect(trayIcon, SIGNAL(messageClicked()),0,0); //make sure only one signal/slot connection
-  connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotOpenMediaDir()) );
   trayIcon->showMessage(title, msg , QSystemTrayIcon::NoIcon,3000 );
 }
 
 void MountTray::slotDisplayWarning(QString title, QString msg){
+  popupSave="FSCHECK";
   //Display a popup bubble with the given message for 5 seconds
   trayIcon->contextMenu()->hide(); //close the menu list
-  disconnect(trayIcon, SIGNAL(messageClicked()),0,0); //make sure only one signal/slot connection
-  connect(trayIcon,SIGNAL(messageClicked()),this,SLOT(slotOpenFSDialog()) );
   trayIcon->showMessage(title, msg , QSystemTrayIcon::Warning,5000 );
+}
+
+void MountTray::slotPopupClicked(){
+  //Check the saved variable for what to do with this popup
+  if(popupSave == "FSCHECK"){
+    //Open up the filesystem disk space UI
+    slotOpenFSDialog();
+  }else if(!popupSave.isEmpty()){
+    //Check if it is a currently valid device
+    if(!popupSave.startsWith(DEVICEDIR)){ popupSave.prepend(DEVICEDIR); }
+    for(int i=0; i<deviceList.length(); i++){
+      if( deviceList[i]->device == popupSave){
+        //See if the device is mounted
+	if(deviceList[i]->isMounted()){
+	  //Open up the mountpoint directory
+	  openMediaDir(deviceList[i]->mountpoint);
+	}else{
+	  //Mount the device
+	  deviceList[i]->mountItem();
+	}
+        break;
+      }
+    }
+  }
+
 }
 
 void MountTray::loadSavedSettings(){
