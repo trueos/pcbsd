@@ -4,58 +4,31 @@ LIBS	+= -lQtSolutions_SingleApplication-head
 
 CONFIG	+= qt warn_on release
 
-HEADERS	+= lifePreserverMain.h \
-	lifePreserverWelcome.h \
-	lifePreserverWizard.h \
-	lifePreserverSettings.h \
-	lifePreserverRestore.h \
-	lifePreserverRestoreProgress.h \
-	lifePreserverListbackups.h \
-	lifePreserverUserExclude.h \
-	preserver.h
-
+HEADERS	+= LPTray.h \
+		mainUI.h \
+		LPBackend.h \
+		LPWizard.h \
+		LPContainers.h \
+		LPConfig.h
+		
 SOURCES	+= main.cpp \
-	lifePreserverMain.cpp \
-	lifePreserverWelcome.cpp \
-	lifePreserverWizard.cpp \
-	lifePreserverSettings.cpp \
-	lifePreserverRestore.cpp \
-	lifePreserverRestoreProgress.cpp \
-	lifePreserverListBackups.cpp \
-	lifePreserverUserExclude.cpp \
-	preserver.cpp
+		LPTray.cpp \
+		mainUI.cpp \
+		LPBackend.cpp \
+		LPWizard.cpp \
+		LPConfig.cpp
 
 RESOURCES += lPreserve.qrc
 
-FORMS	= lifePreserverMain.ui \
-	lifePreserverWelcome.ui \
-	lifePreserverWizard.ui \
-	lifePreserverSettings.ui \
-	lifePreserverRestore.ui \
-	lifePreserverRestoreProgress.ui \
-	lifePreserverUserExclude.ui \
-	lifePreserverListBackups.ui
-
-TRANSLATIONS = LifePreserver_en_US.ts 
+FORMS	= mainUI.ui \
+	LPWizard.ui \
+	LPConfig.ui
 
 TARGET=life-preserver
 target.path=/usr/local/bin
 
-scripts.path=/usr/local/share/lifePreserver/scripts
-scripts.files=scripts/setup-ssh-keys.sh \
-	scripts/check-backups.sh \
-	scripts/start-backup.sh \
-	scripts/functions.sh \
-	scripts/backup-rsync.sh \
-	scripts/restore-rsync.sh \
-	scripts/list-backup-rsync.sh \
-	scripts/kill-backup.sh
-
 images.path=/usr/local/share/lifePreserver/images/
 images.files=images/lifepreserver.png
-
-conf.path=/usr/local/share/lifePreserver/conf
-conf.files=conf/*
 
 desktop.path=/usr/local/share/applications
 desktop.files=lifepreserver.desktop
@@ -66,7 +39,7 @@ desktopperm.extra=chmod 644 /usr/local/share/applications/lifepreserver.desktop
 dotrans.path=/usr/local/share/lifePreserver/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/lifePreserver/i18n/
 
-INSTALLS += target scripts conf dotrans images
+INSTALLS += target dotrans images
 
 TRANSLATIONS =  i18n/LifePreserver_af.ts \
 		i18n/LifePreserver_ar.ts \

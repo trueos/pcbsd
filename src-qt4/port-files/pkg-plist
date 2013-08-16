@@ -172,6 +172,7 @@ share/lifePreserver/i18n/LifePreserver_et.qm
 share/lifePreserver/i18n/LifePreserver_es.qm
 share/lifePreserver/i18n/LifePreserver_en_ZA.qm
 share/lifePreserver/i18n/LifePreserver_en_GB.qm
+share/lifePreserver/i18n/LifePreserver_en_US.qm
 share/lifePreserver/i18n/LifePreserver_el.qm
 share/lifePreserver/i18n/LifePreserver_de.qm
 share/lifePreserver/i18n/LifePreserver_da.qm
@@ -184,17 +185,6 @@ share/lifePreserver/i18n/LifePreserver_bg.qm
 share/lifePreserver/i18n/LifePreserver_az.qm
 share/lifePreserver/i18n/LifePreserver_ar.qm
 share/lifePreserver/i18n/LifePreserver_zu.qm
-share/lifePreserver/conf/life-preserver.conf
-share/lifePreserver/conf/rsync-excludes
-share/lifePreserver/conf/rsync-includes
-share/lifePreserver/scripts/setup-ssh-keys.sh
-share/lifePreserver/scripts/check-backups.sh
-share/lifePreserver/scripts/start-backup.sh
-share/lifePreserver/scripts/functions.sh
-share/lifePreserver/scripts/backup-rsync.sh
-share/lifePreserver/scripts/restore-rsync.sh
-share/lifePreserver/scripts/list-backup-rsync.sh
-share/lifePreserver/scripts/kill-backup.sh
 share/warden/i18n/Warden_af.qm
 share/warden/i18n/Warden_zh_TW.qm
 share/warden/i18n/Warden_zh_HK.qm
@@ -2654,8 +2644,6 @@ include/pcbsd-ui.h
 @dirrmtry share/mime/application
 @dirrmtry share/mime/packages
 @dirrmtry share/mime
-@dirrm share/lifePreserver/scripts
-@dirrm share/lifePreserver/conf
 @dirrm share/lifePreserver/i18n
 @dirrm share/lifePreserver/images
 @dirrmtry share/lifePreserver

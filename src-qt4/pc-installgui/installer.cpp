@@ -1393,6 +1393,12 @@ void Installer::slotReadInstallerOutput()
 
      // Doing meta-pkgs
      if ( installFoundMetaCounter ) {
+	// Check if we are on the next meta-pkg
+        if ( tmp.indexOf("Running chroot command: pkg info") != -1 ) {
+           progressBarInstall->setValue(progressBarInstall->value() + 1); 
+	   continue;
+	}
+
         if ( tmp.indexOf("Package installation complete!") != -1 ) {
            installFoundMetaCounter = false;
            progressBarInstall->setRange(0, 0);  

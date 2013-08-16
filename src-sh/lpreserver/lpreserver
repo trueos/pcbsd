@@ -71,7 +71,7 @@ On the remote system, you will need to have created the <remotedataset> beforeha
 If you plan to replicate to a non-root user, please set the following permissions
 on the remote dataset:
 
-# zfs allow -u <user> create,receive,mount,userprop,destroy <remotedataset>
+# zfs allow -u <user> create,receive,mount,userprop,destroy,send,hold <remotedataset>
 
 Available Flags:
 	list - List replication targets
