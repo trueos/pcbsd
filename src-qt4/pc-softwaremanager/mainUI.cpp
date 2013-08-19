@@ -943,6 +943,10 @@ void MainUI::on_line_browse_searchbar_textChanged(){
 
 void MainUI::on_tool_bapp_download_clicked(){
   QString appID = ui->tool_bapp_download->whatsThis();
+  //Verify the app installation
+  if( QMessageBox::Yes != QMessageBox::question(this,tr("Verify Installation"), tr("Are you sure you want to install this application?")+"\n\n"+appID,QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)){
+    return;
+  }
   PBI->installApp(QStringList() << appID);
   ui->tool_bapp_download->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
   //Now show the Installed tab
