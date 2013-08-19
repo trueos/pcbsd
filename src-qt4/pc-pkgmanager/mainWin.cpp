@@ -139,9 +139,17 @@ bool mainWin::performSearch(QString pkgSearch, QTreeWidget *TW, QTreeWidgetItem 
   //Start Iterating over the tree
   bool found=false;
   bool started = false;
-
+  //if(SI==0){ started = true; }
   for(int p=0; (p<TW->topLevelItemCount()) && !found; p++){
-    found = searchChildren(pkgSearch, TW, TW->topLevelItem(p), started, SI);
+    //Check the actual item itself
+    QTreeWidgetItem *CI = TW->topLevelItem(p);
+    if(started && CI->text(0).contains(pkgSearch, Qt::CaseInsensitive)){
+      TW->setCurrentItem(CI);
+      TW->scrollToItem(CI);
+      found=true;	  
+    }else{    
+      found = searchChildren(pkgSearch, TW, CI, started, SI);
+    }
   }
   return found;
 }
@@ -156,7 +164,7 @@ bool mainWin::searchChildren(QString srch, QTreeWidget *TW, QTreeWidgetItem *CI,
   //qDebug() << "Search Children of:" << CI->text(0) << srch << started;
   //Check for the start position
   int start = -1;
-  if(SI == 0){
+  if(SI == 0 || SI == CI){
     //No search item to start at
     start = 0;
     started = true;
@@ -181,7 +189,7 @@ bool mainWin::searchChildren(QString srch, QTreeWidget *TW, QTreeWidgetItem *CI,
 	found=true;
 	break;
       }
-    }else if( SI == CI->child(i) || SI == CI ){
+    }else if( SI == CI->child(i) ){
       started = true; //but don't look at this item, continue on to the next one (or children)
     }
     if(found){ break; }
