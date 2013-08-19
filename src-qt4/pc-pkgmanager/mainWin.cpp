@@ -29,7 +29,7 @@ void mainWin::ProgramInit(QString ch)
   // Set any warden directories
   lastError="";
   wDir = ch;
-
+	
   //Grab the username
   //username = QString::fromLocal8Bit(getenv("LOGNAME"));
   connect(pushUpdatePkgs, SIGNAL(clicked()), this, SLOT(slotUpdatePkgsClicked()));
@@ -116,22 +116,17 @@ void mainWin::slotSearchPackages(){
   if( stackedPkgView->currentIndex() == 0 ){ TW = treeMetaPkgs; }
   //Make sure the tree widget is not empty
   if(TW->topLevelItemCount() < 2){ return; }
-  //iterate through the tree widget, starting at the current selection
+  //Get the currently selected item
   QTreeWidgetItem *CI = TW->currentItem();
   bool found=false; bool atTop=false;
-  if(CI == 0){ CI = TW->topLevelItem(0); atTop=true; }
-  //Get the starting index (parent and child)
-  QTreeWidgetItem *PI = CI->parent();
-  int startParent=0; int startChild=0;
-  if(PI == 0){ startParent = TW->indexOfTopLevelItem(CI); } //startchild == 0
-  else{ startParent = TW->indexOfTopLevelItem(PI); startChild = PI->indexOfChild(CI) +1; }
-  //Now iterate over the tree, only looking at the actual packages (not categories)
-  found = performSearch(pkgSearch, TW, startParent, startChild);
+  if(CI == 0){ atTop=true; }
+  //Now search the tree, starting at that item
+  found = performSearch(pkgSearch, TW, CI);
   if(!found && !atTop){
     //Ask whether to restart the search at the top 
     if(QMessageBox::Yes == QMessageBox::question(this,tr("No Search Results"),tr("Do you want to continue the search from the top?"),QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
       //Restart the search from the top
-      found = performSearch(pkgSearch, TW, 0, 0);
+      found = performSearch(pkgSearch, TW, 0);
     }
   }
   if(!found){
@@ -140,21 +135,60 @@ void mainWin::slotSearchPackages(){
   qDebug() << " - Search Finished";
 }
 
-bool mainWin::performSearch(QString pkgSearch, QTreeWidget *TW, int startParent, int startChild){
-  //Iterate over the Tree 
+bool mainWin::performSearch(QString pkgSearch, QTreeWidget *TW, QTreeWidgetItem *SI){
+  //Start Iterating over the tree
   bool found=false;
-  for(int p=startParent; p<TW->topLevelItemCount(); p++){
-    for(int c=startChild; c<TW->topLevelItem(p)->childCount(); c++){
-      QTreeWidgetItem *CI = TW->topLevelItem(p)->child(c);
-      if(CI->text(0).contains(pkgSearch, Qt::CaseInsensitive)){
-        TW->setCurrentItem(CI);
-	TW->scrollToItem(CI);
+  bool started = false;
+
+  for(int p=0; (p<TW->topLevelItemCount()) && !found; p++){
+    found = searchChildren(pkgSearch, TW, TW->topLevelItem(p), started, SI);
+  }
+  return found;
+}
+
+bool mainWin::searchChildren(QString srch, QTreeWidget *TW, QTreeWidgetItem *CI, bool &started, QTreeWidgetItem *SI){
+  //This is a recursive function for searching all the children of a particular item
+  // TW - TreeWidget pointer
+  // CI - Current TreeWidget Item (to search the children of)
+  // SI - Start Item (Try to start searching right after this item - optional)
+  // bool started - Start Item found and search has been started (optional input/output)
+	
+  //qDebug() << "Search Children of:" << CI->text(0) << srch << started;
+  //Check for the start position
+  int start = -1;
+  if(SI == 0){
+    //No search item to start at
+    start = 0;
+    started = true;
+  }else if( !started){
+    QTreeWidgetItem *PI = SI;
+      while( (start == -1) && (PI!=0) ){
+        start = CI->indexOfChild(PI);
+        PI = PI->parent(); //look up one more layer to make sure it is not a child of one of these items
+      }
+  }else{ start = 0; } //start with the first child
+  //Now quit if the start item is not found here
+  if(start == -1){ started = false; return false; }
+  
+  //Now start searching
+  bool found = false;
+  for(int i=start; (i<CI->childCount()) && !found ; i++){
+    if(started){
+      //Check this item 
+      if(CI->child(i)->text(0).contains(srch, Qt::CaseInsensitive)){
+        TW->setCurrentItem(CI->child(i));
+	TW->scrollToItem(CI->child(i));
 	found=true;
 	break;
       }
+    }else if( SI == CI->child(i) || SI == CI ){
+      started = true; //but don't look at this item, continue on to the next one (or children)
     }
-    startChild=0; //reset this for the next top level item
     if(found){ break; }
+    else if(CI->child(i)->childCount() > 0){
+      //recursively search this items children
+      found = searchChildren(srch, TW, CI->child(i), started, SI); 
+    }
   }
   return found;
 }
@@ -510,6 +544,8 @@ void mainWin::initMetaWidget()
 {
   qDebug() << "Starting metaWidget...";
   groupInfo->setVisible(false);
+  //Make sure the search box is disabled at startup
+  tool_search->setEnabled(false);
 
   // Running in basic mode
   if ( stackedPkgView->currentIndex() == 0 )
@@ -600,7 +636,8 @@ void mainWin::slotFinishLoadingNGPkgs()
 
   connect(treeNGPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotEnableApply()));
   connect(treeNGPkgs, SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(slotNGItemChanged()));
-
+  //Enable the search option
+  tool_search->setEnabled(true);
   // Now we can look for updates safely
   slotRescanPkgsClicked();
 }
@@ -907,7 +944,8 @@ void mainWin::slotFinishLoadingMetaPkgs()
   pushPkgApply->setEnabled(false);
 
   connect(treeMetaPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), this, SLOT(slotDeskPkgsChanged(QTreeWidgetItem *, int)));
-
+  //Enable the search option
+  tool_search->setEnabled(true);
   // Now we can look for updates safely
   slotRescanPkgsClicked();
 }

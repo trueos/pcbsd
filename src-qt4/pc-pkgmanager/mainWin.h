@@ -81,7 +81,8 @@ private:
     QString getConflictDetailText();
 
     //Search Iteration
-    bool performSearch(QString pkgSearch, QTreeWidget *TW, int startParent, int startChild);
+    bool performSearch(QString pkgSearch, QTreeWidget *TW, QTreeWidgetItem *SI = 0);
+    bool searchChildren(QString srch, QTreeWidget *TW, QTreeWidgetItem *CI, bool &started, QTreeWidgetItem *SI);
 
     // Updates
     void doUpdates();
