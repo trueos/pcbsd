@@ -72,6 +72,7 @@ private:
   bool useDiskWatcher, useDiskTimerDevd;
   int diskTimerMaxMS; //milliseconds
   QString popupSave; //for saving the device for the latest pop-up message
+  bool MTINIT;
 
   void updateMenu();
   void scanInitialDevices();

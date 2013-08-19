@@ -18,6 +18,7 @@ void MountTray::programInit()
 {
   DCheck = new DevCheck(); //initialize class for checking devices
   qDebug() << "pc-mounttray: starting up";
+  MTINIT=true; //set the flag that the mount tray is initializing;
   getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
   getDefaultFileManager(); //try to detect the default file-manager for opening the mount directory
   loadSavedSettings();
@@ -70,6 +71,7 @@ void MountTray::programInit()
   updateMenu();
 
   qDebug() << "-Program now ready for use";
+  MTINIT=false;
 }
 
 void MountTray::updateMenu(){
@@ -302,6 +304,7 @@ void MountTray::slotOpenMediaDir(){
 }
 
 void MountTray::openMediaDir(QString dir){
+  if(MTINIT){ return; } //don't open the FM during program initialization
   //Open the default file-manager to the directory listed
   if(dir.isEmpty()){ dir = MOUNTDIR; }
   if(!dir.endsWith("/")){ dir.append("/"); } //make sure the filemanager knows it is a directory
