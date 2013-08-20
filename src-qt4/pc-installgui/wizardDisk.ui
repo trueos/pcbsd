@@ -269,7 +269,7 @@
        </sizepolicy>
       </property>
       <property name="text">
-       <string>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </string>
+       <string>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>

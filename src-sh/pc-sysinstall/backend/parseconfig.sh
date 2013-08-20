@@ -33,6 +33,7 @@
 . ${BACKEND}/functions-bsdlabel.sh
 . ${BACKEND}/functions-cleanup.sh
 . ${BACKEND}/functions-disk.sh
+. ${BACKEND}/functions-ftp.sh
 . ${BACKEND}/functions-extractimage.sh
 . ${BACKEND}/functions-installcomponents.sh
 . ${BACKEND}/functions-installpackages.sh
@@ -43,10 +44,10 @@
 . ${BACKEND}/functions-packages.sh
 . ${BACKEND}/functions-parse.sh
 . ${BACKEND}/functions-runcommands.sh
-. ${BACKEND}/functions-ftp.sh
 . ${BACKEND}/functions-unmount.sh
 . ${BACKEND}/functions-upgrade.sh
 . ${BACKEND}/functions-users.sh
+. ${BACKEND}/functions-zfsrestore.sh
 
 # Check that the config file exists
 if [ ! -e "${1}" ]
@@ -63,21 +64,26 @@ CFGF="`realpath ${CFGF}`"
 export CFGF
 
 # Start by doing a sanity check, which will catch any obvious mistakes in the config
-file_sanity_check "installMode installType installMedium packageType"
 
 # We passed the Sanity check, lets grab some of the universal config settings and store them
-check_value installMode "fresh upgrade extract"
-check_value installType "PCBSD FreeBSD"
-check_value installMedium "dvd usb ftp rsync image local"
-check_value packageType "uzip tar rsync split dist"
-if_check_value_exists mirrorbal "load prefer round-robin split"
-
-# We passed all sanity checks! Yay, lets start the install
-echo "File Sanity Check -> OK"
+check_value installMode "fresh upgrade extract zfsrestore"
 
 # Lets load the various universal settings now
 get_value_from_cfg installMode
 export INSTALLMODE="${VAL}"
+
+if [ "$INSTALLMODE" = "zfsrestore" ] ; then
+  file_sanity_check "sshHost sshPort sshUser sshKey zfsRemoteDataset"
+else
+  file_sanity_check "installMode installType installMedium packageType"
+  check_value installType "PCBSD FreeBSD"
+  check_value installMedium "dvd usb ftp rsync image local"
+  check_value packageType "uzip tar rsync split dist zfs"
+  if_check_value_exists mirrorbal "load prefer round-robin split"
+fi
+
+# We passed all sanity checks! Yay, lets start the install
+echo "File Sanity Check -> OK"
 
 get_value_from_cfg installType
 export INSTALLTYPE="${VAL}"
@@ -105,6 +111,7 @@ start_networking
 
 # If we are not doing an upgrade, lets go ahead and setup the disk
 case "${INSTALLMODE}" in
+  zfsrestore) restore_zfs ;;
   fresh)
     if [ "${INSTALLMEDIUM}" = "image" ]
     then
