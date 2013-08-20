@@ -39,6 +39,7 @@ setup_zfs_filesystem()
   ZPOOLOPTS="$6"
   ROOTSLICE="`echo ${PART} | rev | cut -b 2- | rev`"
   ZPOOLNAME=$(get_zpool_name "${PART}")
+  export ZPOOLNAME
 
   # Sleep a few moments, let the disk catch its breath
   sleep 5

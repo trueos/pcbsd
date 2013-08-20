@@ -555,3 +555,22 @@ install_upgrade()
 
   echo_log "Upgrade finished!"
 };
+
+# We are restoring a ZFS replication
+restore_zfs()
+{
+  # Lets start setting up the disk slices now
+  setup_disk_slice
+  
+  # Disk setup complete, now lets parse WORKINGSLICES and setup the bsdlabels
+  setup_disk_label
+  
+  # Now we've setup the bsdlabels, lets go ahead and run newfs / zfs 
+  # to setup the filesystems
+  setup_filesystems
+
+  # We are ready to begin the restore process
+  do_zfs_restore
+
+  echo_log "Installation finished!"
+};
