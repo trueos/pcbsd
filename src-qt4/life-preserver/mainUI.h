@@ -10,6 +10,9 @@
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QFileDialog>
+#include <QInputDialog>
+#include <QTime>
+#include <QTimer>
 
 #include "LPBackend.h"
 #include "LPWizard.h"
@@ -28,9 +31,10 @@ class mainUI : public QMainWindow{
 public:
 	explicit mainUI(QWidget* parent = 0);
 	~mainUI();
-	void setupUI();
 
-	void updateDisplay(); //for the tray to call it as necessary
+
+public slots:
+	void setupUI(); //for the tray to call it as necessary
 
 private:
 	Ui::mainUI *ui;
@@ -38,7 +42,9 @@ private:
 	QStringList RLIST; //datasets that have replication enabled
 	QStringList SLIST; //available datasets on the system
 	QStringList CLIST; //current status for all datasets
-	QMenu *revMenu, *brMenu, *addMenu; //revert/browse menu's
+	QMenu *revMenu, *brMenu, *addMenu, *keyMenu; //button menu's
+	QTime lastUpdate;
+	QTimer *freqTimer;
 
 	void updateHash(QString ds="");
 	void updateUI();
@@ -56,6 +62,8 @@ private slots:
 	void slotAddDataset(QAction*);
 
 	void on_actionClose_triggered();
+	void on_actionKeyNew_triggered();
+	void on_actionKeyCopy_triggered();
 
 protected:
 	void closeEvent(QCloseEvent*);

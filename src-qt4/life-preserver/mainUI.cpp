@@ -14,6 +14,16 @@ mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   connect(revMenu,SIGNAL(triggered(QAction*)),this,SLOT(slotRevertToSnapshot(QAction*)) );
   connect(brMenu,SIGNAL(triggered(QAction*)),this,SLOT(slotBrowseSnapshot(QAction*)) );
   connect(addMenu, SIGNAL(triggered(QAction*)),this,SLOT(slotAddDataset(QAction*)) );
+  //Setup the Key menu items (static items, never changed)
+  keyMenu = new QMenu();
+    keyMenu->addAction(ui->actionKeyNew); //action from designer
+    keyMenu->addAction(ui->actionKeyCopy); //action from designer
+  ui->tool_keys->setMenu(keyMenu);
+  //Setup the update frequency limiter
+  freqTimer = new QTimer();
+	freqTimer->setSingleShot(true);
+	freqTimer->setInterval(15000);
+	connect(freqTimer, SIGNAL(timeout()), this, SLOT(setupUI()) );
 }
 
 mainUI::~mainUI(){
@@ -21,18 +31,15 @@ mainUI::~mainUI(){
 }
 
 void mainUI::setupUI(){
-  qDebug() << "Setting up Life Preserver UI...";
-  //Initialize the Hash
-  updateHash();
+  //Initialize the Hash (make sure it is not run too frequently - causes kernel panics)
+  if(lastUpdate.isNull() || lastUpdate.addSecs(15) < QTime::currentTime() ){
+    lastUpdate = QTime::currentTime();	  
+    qDebug() << "Updating the database";
+    updateHash();
+  }else{
+    freqTimer->start();
+  }
   //Update the display
-  updateUI();
-  updateMenus();
-}
-
-void mainUI::updateDisplay(){
-  //Public function for the tray to be able to request that the UI update 
-  // (In case there is a status message that goes by which changes things)
-  updateHash();
   updateUI();
   updateMenus();
 }
@@ -64,15 +71,14 @@ LPDataset mainUI::newDataset(QString ds){
     else{ ci++; }
   }
   if(CLIST.isEmpty()){ ci = -1; } //catch for empty list
-  
-  if(subsets.isEmpty()){
+  if(DSC.subsetHash.size() < 1){
     DSC.numberOfSnapshots = "0";
     DSC.latestSnapshot= "";
   }else{
     QStringList fSnap = DSC.subsetHash[subsets[0]].filter("auto-"); //filtered snapshot list (just life preserver snapshots)
     DSC.numberOfSnapshots = QString::number(fSnap.length());
     if(fSnap.isEmpty()){ DSC.latestSnapshot=""; }
-    else if(ci > -1){ 
+    else if(ci > -1 && ci < CLIST.length()){ 
       QString sna = CLIST[ci].section(":::",1,1);
       if(sna != "-"){ DSC.latestSnapshot= sna; }
       else{ DSC.latestSnapshot = ""; }      
@@ -94,21 +100,27 @@ LPDataset mainUI::newDataset(QString ds){
 //    PRIVATE FUNCTIONS
 // =================
 void mainUI::updateHash(QString ds){
+  //qDebug() << "Get replication targets";
   RLIST = LPBackend::listReplicationTargets(); //update list of replication datasets
+  //qDebug() << "Get possible datasets";
   SLIST = LPBackend::listPossibleDatasets();
+  //qDebug() << "List current status";
   CLIST = LPBackend::listCurrentStatus();
+  //qDebug() << "Check hash";
   if(HLIST.contains(ds) && !ds.isEmpty()){
     //only update the entry for the given dataset
     HLIST.insert(ds, newDataset(ds)); //will overwrite the current entry in the hash
   }else{
     //Clear and fill the hash
+    //qDebug() << "Clear hash";
     HLIST.clear();
+    //qDebug() << "List datasets";
     QStringList dsList = LPBackend::listDatasets();
     for(int i=0; i<dsList.length(); i++){
       HLIST.insert( dsList[i], newDataset(dsList[i]) );
     }
   }
-
+  //qDebug() << "Done with Hash Update";
 }
 
 void mainUI::updateUI(){
@@ -145,9 +157,16 @@ void mainUI::updateMenus(){
   if(ds.isEmpty()){
     ui->tool_remove->setVisible(false);
     ui->tool_config->setVisible(false);
+
   }else{
     ui->tool_remove->setVisible(true);
     ui->tool_config->setVisible(true);	  
+  }
+  //Enabled/disable the SSH key management
+  if(RLIST.contains(ds) && !ds.isEmpty()){
+    ui->tool_keys->setVisible(true);
+  }else{
+    ui->tool_keys->setVisible(false);
   }
   //check for a valid ds/snapshot combination
   bool ok = !ds.isEmpty();
@@ -224,9 +243,7 @@ void mainUI::on_tool_config_clicked(){
   }
   //Now update the UI if appropriate
   if(change){
-    updateHash(ds);
-    updateUI();
-    updateMenus();
+    setupUI();
   }
 }
 
@@ -250,9 +267,7 @@ void mainUI::on_tool_remove_clicked(){
       LPBackend::removeDataset(ds);
     }
   }
-  updateHash();
-  updateUI();
-  updateMenus();
+  setupUI();
 }
 
 
@@ -330,14 +345,60 @@ void mainUI::slotAddDataset(QAction *act){
     }
   }
   //Now update the UI/Hash
-  updateHash();
-  updateUI();
-  updateMenus();
+  setupUI();
 }
 
 void mainUI::on_actionClose_triggered(){
   this->close();
 }
+
+void mainUI::on_actionKeyNew_triggered(){
+  QString ds = getSelectedDS();
+  qDebug() << "New SSH Key triggered for DS:" << ds;
+  //Get the remote values for this dataset
+  QString remoteHost, user, remotedataset;
+  int port, time;
+  bool ok = LPBackend::replicationInfo(ds, remoteHost, user, port, remotedataset,  time);
+  if(ok){
+    if( !LPBackend::setupSSHKey(remoteHost, user, port) ){
+      QMessageBox::warning(this,tr("Failure"), tr("There was an error while creating the SSH key."));
+    }else{
+      QMessageBox::information(this,tr("Success"), tr("The SSH key was successfully generated."));
+    }
+  }else{
+    QMessageBox::warning(this,tr("Failure"), tr("There was an error in retrieving the remote replication information for this dataset. Please ensure that replication is enabled and try agin.") );
+  }
+}
+
+void mainUI::on_actionKeyCopy_triggered(){
+  QString ds = getSelectedDS();	
+  qDebug() << "Copy SSH Key triggered for DS:" << ds;
+  //Get the local hostname
+  char host[1023] = "\0";
+  gethostname(host,1023);
+  QString localHost = QString(host).simplified();
+  qDebug() << " - hostname:" << localHost;
+  //Scan for mounted USB devices
+  QStringList devs = LPBackend::findValidUSBDevices();
+  qDebug() << " - devs:" << devs;
+  if(devs.isEmpty()){
+    QMessageBox::warning(this,tr("No Valid USB Devices"), tr("No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again."));
+    return;
+  }
+  //Ask the user which one to save the file to
+  bool ok;
+  QString dev = QInputDialog::getItem(this, tr("Select USB Device"), tr("Available USB Devices:"), devs,0,false,&ok);	
+  if(!ok or dev.isEmpty()){ return; } //cancelled
+  QString devPath = dev.section("(",0,0).simplified();
+  //Now copy the file over
+  ok = LPBackend::copySSHKey(devPath, localHost);
+  if(ok){
+    QMessageBox::information(this,tr("Success"), tr("The public SSH key file was successfully copied onto the USB device."));
+  }else{
+    QMessageBox::information(this,tr("Failure"), tr("The public SSH key file could not be copied onto the USB device."));
+  }
+}
+
 
 // =============
 //      PROTECTED

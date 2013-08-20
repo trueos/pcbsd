@@ -32,6 +32,9 @@ public:
 	static bool setupReplication(QString dataset, QString remotehost, QString user, int port, QString remotedataset, int time);
 	static bool removeReplication(QString dataset);
 	static bool replicationInfo(QString dataset, QString& remotehost, QString& user, int& port, QString& remotedataset, int& time);
-
+	//SSH Key Management
+	static bool setupSSHKey(QString remoteHost, QString remoteUser, int remotePort);
+	static QStringList findValidUSBDevices();
+	static bool copySSHKey(QString mountPath, QString localHost);
 };
 #endif

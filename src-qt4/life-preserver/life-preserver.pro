@@ -27,6 +27,9 @@ FORMS	= mainUI.ui \
 TARGET=life-preserver
 target.path=/usr/local/bin
 
+scripts.path=/usr/local/share/lifePreserver/scripts
+scripts.files=scripts/setup-ssh-keys.sh
+
 images.path=/usr/local/share/lifePreserver/images/
 images.files=images/lifepreserver.png
 
@@ -39,7 +42,7 @@ desktopperm.extra=chmod 644 /usr/local/share/applications/lifepreserver.desktop
 dotrans.path=/usr/local/share/lifePreserver/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/lifePreserver/i18n/
 
-INSTALLS += target dotrans images
+INSTALLS += target dotrans images scripts
 
 TRANSLATIONS =  i18n/LifePreserver_af.ts \
 		i18n/LifePreserver_ar.ts \

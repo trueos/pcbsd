@@ -19,6 +19,7 @@ QStringList LPBackend::listPossibleDatasets(){
     if(!ds.isEmpty()){ list << ds; }
   }
   list.removeDuplicates();
+   
   return list;	
 }
 
@@ -37,6 +38,7 @@ QStringList LPBackend::listDatasets(){
     QString ds = out[i].section(" - ",0,0).simplified();
     if(!ds.isEmpty()){ list << ds; }
   }
+   
   return list;
 }
 
@@ -60,6 +62,7 @@ QStringList LPBackend::listDatasetSubsets(QString dataset){
     }
   }
   list.removeDuplicates();	
+   
   return list;
 }
 
@@ -90,6 +93,7 @@ QStringList LPBackend::listLPSnapshots(QString dataset){
       if(!snap.isEmpty()){ list << snap; }
     }
   }
+   
   return list;	
 }
 
@@ -110,6 +114,7 @@ QStringList LPBackend::listReplicationTargets(){
       if(!ds.isEmpty()){ list << ds; }
     }
   }
+   
   return list;		
 }
 
@@ -126,6 +131,7 @@ QStringList LPBackend::listCurrentStatus(){
   //Now process the output	
   for(int i=2; i<out.length(); i++){ //first 2 lines are headers
     //Format: <dataset>:::<lastsnapshot | NONE>:::<lastreplication | NONE>
+    if(out[i].isEmpty()){ continue; }
     QString ds  = out[i].section(" - ",0,0).simplified();
     QString snap = out[i].section(" - ",1,1).simplified();
     QString rep = out[i].section(" - ",2,2).simplified();
@@ -133,6 +139,7 @@ QStringList LPBackend::listCurrentStatus(){
     if(rep == "NONE"){ rep = "-"; }
     list << ds +":::"+ snap+":::"+rep;
   }
+   
   return list;
 }
 
@@ -151,12 +158,14 @@ bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   //Create the command
   QString cmd = "lpreserver cronsnap "+dataset+" start "+freq+" "+QString::number(numToKeep);
   int ret = system(cmd.toUtf8());
+   
   return (ret == 0);
 }
 
 bool LPBackend::removeDataset(QString dataset){
   QString cmd = "lpreserver cronsnap "+dataset+" stop";
   int ret = system(cmd.toUtf8());	
+   
   return (ret == 0);
 }
 
@@ -187,6 +196,7 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
     }
   }
   //qDebug() << "lpreserver cronsnap:\n" << out << QString::number(time) << QString::number(numToKeep);
+   
   return ok;
 }
 
@@ -196,18 +206,21 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 bool LPBackend::newSnapshot(QString dataset){
   QString cmd = "lpreserver mksnap "+dataset;
   int ret = system(cmd.toUtf8());
+   
   return (ret == 0);
 }
 
 bool LPBackend::removeSnapshot(QString dataset, QString snapshot){
   QString cmd = "lpreserver rmsnap "+dataset +" "+snapshot;
   int ret = system(cmd.toUtf8());	
+   
   return (ret == 0);
 }
 
 bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
   QString cmd = "lpreserver revertsnap "+dataset +" "+snapshot;
   int ret  = system(cmd.toUtf8());
+   
   return (ret == 0);
 }
 
@@ -267,12 +280,14 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   
   QString cmd = "lpreserver replicate add "+remotehost+" "+user+" "+ QString::number(port)+" "+dataset+" "+remotedataset+" "+stime;
   int ret = system(cmd.toUtf8());
+  
   return (ret == 0);
 }
 
 bool LPBackend::removeReplication(QString dataset){
   QString cmd = "lpreserver replicate remove "+dataset;
   int ret = system(cmd.toUtf8());	
+   
   return (ret == 0);
 }
 
@@ -301,5 +316,47 @@ bool LPBackend::replicationInfo(QString dataset, QString& remotehost, QString& u
       break;
     }
   }	  
+   
+  return ok;
+}
+
+// ======================
+//          SSH Key Management
+// ======================
+bool LPBackend::setupSSHKey(QString remoteHost, QString remoteUser, int remotePort){
+  QString LPPATH = "/usr/local/share/lifePreserver";
+  QString cmd = "xterm -e \""+LPPATH+"/scripts/setup-ssh-keys.sh "+remoteUser+" "+remoteHost+" "+QString::number(remotePort)+"\"";
+  int ret = system(cmd.toUtf8());
+  return (ret == 0);
+}
+
+QStringList LPBackend::findValidUSBDevices(){
+  //Return format: "<mountpoint> (<device node>")
+  QString cmd = "mount";
+  //Need output, so run this in a QProcess
+  QProcess *proc = new QProcess;
+  proc->setProcessChannelMode(QProcess::MergedChannels);
+  proc->start(cmd);
+  proc->waitForFinished();
+  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
+  delete proc;
+  //Now process the output
+  QStringList list;
+  for(int i=0; i<out.length(); i++){
+    if(out[i].startsWith("/dev/da") && out[i].contains("(msdosfs,local)")){
+      QString mountpoint = out[i].section(" on ",1,1).section("(",0,0).simplified();
+      QString devnode = out[i].section(" on ",0,0).section("/",-1).simplified();
+      list << mountpoint +" ("+devnode+")";
+    }
+  }
+  return list;
+}
+
+bool LPBackend::copySSHKey(QString mountPath, QString localHost){
+  QString publicKey = "/root/.ssh/id_rsa.pub";
+  //copy the file onto the designated USB stick
+  if(!mountPath.endsWith("/")){ mountPath.append("/"); }
+  mountPath.append("root/.ssh/"+localHost+"-id_rsa.pub");
+  bool ok = QFile::copy(publicKey, mountPath);
   return ok;
 }

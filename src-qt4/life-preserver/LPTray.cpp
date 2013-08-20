@@ -105,7 +105,7 @@ void LPTray::parseLogMessage(QString log){
     //this->setIcon( QIcon(":/images/tray-icon-idle.png") );    
   }
   if(GUI->isVisible()){
-    GUI->updateDisplay();
+    GUI->setupUI();
   }
 }
 

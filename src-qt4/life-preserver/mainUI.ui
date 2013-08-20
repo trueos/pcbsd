@@ -113,6 +113,23 @@
         </widget>
        </item>
        <item>
+        <widget class="QToolButton" name="tool_keys">
+         <property name="statusTip">
+          <string>Manage SSH keys for replication authentication</string>
+         </property>
+         <property name="text">
+          <string>Key Setup</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/key.png</normaloff>:/images/key.png</iconset>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::InstantPopup</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -189,6 +206,24 @@
    </property>
    <property name="text">
     <string>Close Window</string>
+   </property>
+  </action>
+  <action name="actionKeyCopy">
+   <property name="icon">
+    <iconset resource="lPreserve.qrc">
+     <normaloff>:/images/upload.png</normaloff>:/images/upload.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy To USB Stick</string>
+   </property>
+  </action>
+  <action name="actionKeyNew">
+   <property name="icon">
+    <iconset resource="lPreserve.qrc">
+     <normaloff>:/images/list-add.png</normaloff>:/images/list-add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Generate SSH Key</string>
    </property>
   </action>
  </widget>
