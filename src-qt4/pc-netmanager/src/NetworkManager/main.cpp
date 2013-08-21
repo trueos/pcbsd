@@ -1,14 +1,19 @@
-#include <qtranslator.h>
+#include <QApplication>
 #include <qlocale.h>
+#include <qtsingleapplication.h>
 #include <QDebug>
 #include <QFile>
-#include <QApplication>
+#include <QObject>
+#include <QString>
+#include <QTranslator>
 #include "networkman.h"
 #include "../../../config.h"
 
 int main( int argc, char ** argv )
 {
-    QApplication a(argc, argv);
+    QtSingleApplication a(argc, argv);
+    if (a.isRunning())
+      return !(a.sendMessage("show"));
 
     QTranslator translator;
     QLocale mylocale;
@@ -23,7 +28,16 @@ int main( int argc, char ** argv )
 
     w.Init();
 
+    // Are we running via the system-installer?
+    if ( argc == 2 ) {
+       QString tmp = argv[1];
+       if ( tmp == "-installer" )
+         w.setInstallerMode();
+    }
+
     w.show();
+
+    a.connect( &a, SIGNAL( messageReceived(const QString &) ), &w, SLOT( slotSingleInstance() ) );
     a.connect( &a, SIGNAL( lastWindowClosed() ), &a, SLOT( quit() ) );
     return a.exec();
 }

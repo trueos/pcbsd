@@ -33,6 +33,7 @@ using namespace std;
 
 void NetworkMan::Init()
 {
+    InstallerMode = false;
     Changed = FALSE;
     
     colourWhite = QColor(255, 255, 255);
@@ -410,7 +411,8 @@ void NetworkMan::DevSelectionChanged()
 
      textStatus2->setText(SSID);
    } else {
-     checkSysTray->setVisible(TRUE);
+     if ( ! InstallerMode )
+       checkSysTray->setVisible(TRUE);
      textStatusLabel2->setText(tr("MAC Address:"));
      textStatus2->setText(DevsMAC[sel]);
    }
@@ -1086,4 +1088,17 @@ void NetworkMan::slotIPV6DNS2Clicked()
         lineIPv6DNS2->setText(ip);
         slotCheckGlobalText();
     }
+}
+
+void NetworkMan::slotSingleInstance()
+{
+  this->show();
+}
+
+
+void NetworkMan::setInstallerMode()
+{
+  checkSysTray->setHidden(true);
+  groupBoxMisc->setHidden(true);
+  InstallerMode = true;
 }

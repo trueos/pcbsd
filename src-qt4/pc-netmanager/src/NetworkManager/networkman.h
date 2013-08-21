@@ -24,6 +24,7 @@ public:
 
 public slots:
     void Init();
+    void setInstallerMode();
 
 private slots:
     void detectDev();
@@ -47,9 +48,11 @@ private slots:
     void slotPublicDNS2Clicked();
     void slotIPV6DNS1Clicked();
     void slotIPV6DNS2Clicked();
+    void slotSingleInstance();
 
 
 private:
+    bool InstallerMode;
     QString Devs[100];
     QString DevsParent[100];
     QString DevsIP[100];
