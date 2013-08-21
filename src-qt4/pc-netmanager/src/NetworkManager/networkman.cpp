@@ -1093,6 +1093,7 @@ void NetworkMan::slotIPV6DNS2Clicked()
 void NetworkMan::slotSingleInstance()
 {
   this->show();
+  this->raise();
 }
 
 
