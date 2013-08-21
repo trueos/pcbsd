@@ -343,7 +343,7 @@ QStringList LPBackend::findValidUSBDevices(){
   //Now process the output
   QStringList list;
   for(int i=0; i<out.length(); i++){
-    if(out[i].startsWith("/dev/da") && out[i].contains("(msdosfs,local)")){
+      if(out[i].startsWith("/dev/da") && out[i].contains("(msdosfs,")){
       QString mountpoint = out[i].section(" on ",1,1).section("(",0,0).simplified();
       QString devnode = out[i].section(" on ",0,0).section("/",-1).simplified();
       list << mountpoint +" ("+devnode+")";
@@ -353,10 +353,15 @@ QStringList LPBackend::findValidUSBDevices(){
 }
 
 bool LPBackend::copySSHKey(QString mountPath, QString localHost){
-  QString publicKey = "/root/.ssh/id_rsa.pub";
+  QString publicKey = "/root/.ssh/id_rsa";
   //copy the file onto the designated USB stick
   if(!mountPath.endsWith("/")){ mountPath.append("/"); }
-  mountPath.append("root/.ssh/"+localHost+"-id_rsa.pub");
+  QDir lDir=mountPath + "lpreserver";
+  if ( ! lDir.exists() )
+     lDir.mkdir(lDir.path());
+
+  mountPath.append("lpreserver/"+localHost+"-id_rsa");
+
   bool ok = QFile::copy(publicKey, mountPath);
   return ok;
 }
