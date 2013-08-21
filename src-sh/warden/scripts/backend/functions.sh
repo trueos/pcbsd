@@ -185,6 +185,13 @@ isDirMounted() {
 # Mount all the FS needed for a PBI container
 mountpbibox() {
 
+  # Update the user files on the portjail
+  ETCFILES="resolv.conf passwd master.passwd spwd.db pwd.db group localtime"
+  for file in ${ETCFILES}; do
+    rm ${JDIR}/${1}/etc/${file} >/dev/null 2>&1
+    cp /etc/${file} ${JDIR}/${1}/etc/${file}
+  done
+
   for nullfs_mount in ${NULLFS_MOUNTS}; do
     if [ ! -d "${JDIR}/${1}${nullfs_mount}" ] ; then
       mkdir -p "${JDIR}/${1}${nullfs_mount}"
