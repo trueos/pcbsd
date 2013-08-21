@@ -1133,11 +1133,13 @@ void dialogWarden::refreshJailDetailsView()
      // Depending upon the type of jail, we may need to hide stuff
      if ( jailDetails.at(i).at(2) == "Linux Jail" ) {
 	pushServiceGUI->setHidden(true);
+        pushPackageManager->setHidden(true);
 	pushUserAdmin->setHidden(true);
 	pushUpdate->setHidden(true);
 	tabJail->setTabEnabled(3, false);
      } else {
 	pushServiceGUI->setHidden(false);
+        pushPackageManager->setHidden(false);
 	pushUserAdmin->setHidden(false);
 	pushUpdate->setHidden(false);
 	tabJail->setTabEnabled(3, true);
