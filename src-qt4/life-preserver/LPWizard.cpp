@@ -32,6 +32,8 @@ void LPWizard::slotFinished(){
     remoteHost = ui->lineHostName->text();
     remoteUser = ui->lineUserName->text();
     remoteDataset = ui->lineRemoteDataset->text();
+    //Prompt for the SSH key generation
+    LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
   }
   if(ui->radioDaily->isChecked()){ localTime = ui->timeEdit->time().hour(); }
   else if( ui->radio10Min->isChecked()){ localTime = -10; }
@@ -44,6 +46,7 @@ void LPWizard::slotFinished(){
     if(localTime >0){ totalSnapshots = ui->spin_keepDays->value(); }
     else{ totalSnapshots = ui->spin_keepDays->value() * (1440/(-localTime)); } //convert to number of snapshots a day
   }
+
   //Now close the UI
   this->close();
 }

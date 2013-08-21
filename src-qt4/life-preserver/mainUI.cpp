@@ -238,8 +238,13 @@ void mainUI::on_tool_config_clicked(){
     change = true;
   }
   if(CFG.remoteChanged){
-    LPBackend::setupReplication(ds, CFG.remoteHost, CFG.remoteUser, CFG.remotePort, CFG.remoteDataset, CFG.remoteFreq);
-    change = true;	  
+    change = true;
+    if(CFG.isReplicated){
+      LPBackend::setupReplication(ds, CFG.remoteHost, CFG.remoteUser, CFG.remotePort, CFG.remoteDataset, CFG.remoteFreq);
+      QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
+    }else{
+      LPBackend::removeReplication(ds);
+    }
   }
   //Now update the UI if appropriate
   if(change){
@@ -341,6 +346,7 @@ void mainUI::slotAddDataset(QAction *act){
     if( LPBackend::setupDataset(dataset, wiz.localTime, wiz.totalSnapshots) ){
       if(wiz.enableReplication){
 	 LPBackend::setupReplication(dataset, wiz.remoteHost, wiz.remoteUser, wiz.remotePort, wiz.remoteDataset, wiz.remoteTime);     
+	 QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
       }
     }
   }

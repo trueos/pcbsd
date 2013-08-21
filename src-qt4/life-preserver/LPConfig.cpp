@@ -104,17 +104,19 @@ void LPConfig::checkForChanges(){
   if(nTotSnaps != localSnapshots){ localChanged = true; localSnapshots = nTotSnaps; }
   
   //Replication Settings
+  bool updateSSHKey = false;
   if(isReplicated != ui->groupReplicate->isChecked()){
     remoteChanged = true;
     isReplicated = ui->groupReplicate->isChecked();
+    if(isReplicated){ updateSSHKey = true; }
   }
   QString tmp = ui->lineHostName->text().simplified();
-  if( tmp != remoteHost ){ remoteChanged = true; remoteHost = tmp; }
+  if( tmp != remoteHost ){ remoteChanged = true; remoteHost = tmp; updateSSHKey=true;}
   tmp = ui->lineUserName->text().simplified();
-  if( tmp != remoteUser ){ remoteChanged = true; remoteUser = tmp; }
+  if( tmp != remoteUser ){ remoteChanged = true; remoteUser = tmp; updateSSHKey=true;}
   tmp = ui->lineRemoteDataset->text().simplified();
   if( tmp != remoteDataset ){ remoteChanged = true; remoteDataset = tmp; }
-  if( ui->spinPort->value() != remotePort){ remoteChanged = true; remotePort = ui->spinPort->value(); }
+  if( ui->spinPort->value() != remotePort){ remoteChanged = true; remotePort = ui->spinPort->value(); updateSSHKey=true;}
   int nFreq = -1;
   if(ui->radioRepTime->isChecked()){
     nFreq = ui->time_replicate->time().hour();
@@ -123,6 +125,10 @@ void LPConfig::checkForChanges(){
     if( remoteFreq >= 0 && remoteFreq < 24){remoteChanged = true; remoteFreq = nFreq;}
   }else{
     if( nFreq != remoteFreq ){ remoteChanged = true; remoteFreq = nFreq; }
+  }
+  if(updateSSHKey){
+    //Prompt for the SSH key generation
+    LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
   }
 }
 
