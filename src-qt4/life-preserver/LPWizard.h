@@ -5,6 +5,8 @@
 #include <QString>
 #include <QDebug>
 
+#include "LPBackend.h"
+
 namespace Ui{
   class LPWizard;	
 }
