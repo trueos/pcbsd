@@ -147,6 +147,9 @@ restore_zfs_from_remote()
       val="`echo $zLine | awk '{print $3}'`"
       dChk="`echo $zLine | awk '{print $1}'`"
 
+      # Don't need to set empty props
+      if [ -z "$val" ] ; then continue ; fi
+
       # We can skip setting mountpoint on BEs
       echo $dSet | grep -q '^ROOT/'
       if [ $? -eq 0 -a "$prop" = "mountpoint" ] ; then continue; fi
