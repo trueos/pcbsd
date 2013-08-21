@@ -276,7 +276,8 @@ QString LPBackend::revertSnapshotFile(QString dsmountpoint, QString snapshot, QS
 // ==================
 bool LPBackend::setupReplication(QString dataset, QString remotehost, QString user, int port, QString remotedataset, int time){
   QString stime = "sync"; //synchronize on snapshot creation (default)
-  if(time >= 0 || time < 24){ stime = QString::number(time); } //daily at a particular hour (24 hour notation)
+  if(time >= 0 && time < 24){ stime = QString::number(time); } //daily at a particular hour (24 hour notation)
+  
   
   QString cmd = "lpreserver replicate add "+remotehost+" "+user+" "+ QString::number(port)+" "+dataset+" "+remotedataset+" "+stime;
   int ret = system(cmd.toUtf8());
