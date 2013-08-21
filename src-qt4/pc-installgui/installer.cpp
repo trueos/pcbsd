@@ -25,6 +25,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(pushTouchKeyboard, SIGNAL(clicked()), this, SLOT(slotPushVirtKeyboard()));
     connect(pushChangeKeyLayout, SIGNAL(clicked()), this, SLOT(slotPushKeyLayout()));
     connect(pushHardware, SIGNAL(clicked()), this, SLOT(slotCheckHardware()));
+    connect(pushNetwork, SIGNAL(clicked()), this, SLOT(slotStartNetworkManager()));
     connect(pushLoadConfig, SIGNAL(clicked()), this, SLOT(slotLoadConfigUSB()));
     connect(pushSaveConfig, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
     connect(pushSaveConfig2, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
@@ -1704,4 +1705,9 @@ void Installer::slotLoadConfigUSB()
   customCfgFile = "/tmp/pc-sys/" + cfgFile;
   installStackWidget->setCurrentIndex(3);
   startInstall();
+}
+
+void Installer::slotStartNetworkManager() 
+{
+   system("/usr/local/bin/pc-netmanager -installer &");
 }

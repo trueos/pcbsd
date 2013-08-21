@@ -99,6 +99,29 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="pushNetwork">
+         <property name="statusTip">
+          <string>Manage network connectivity</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="sysinstaller.qrc">
+           <normaloff>:/modules/images/networkwired.png</normaloff>:/modules/images/networkwired.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="helpButton">
          <property name="statusTip">
           <string>Display help for the current screen</string>
@@ -261,7 +284,7 @@
        <string notr="true">background-image: url(:/modules/images/backgroundimage.jpg);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_3">

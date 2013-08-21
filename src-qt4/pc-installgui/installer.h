@@ -63,6 +63,9 @@ private slots:
     void slotSaveConfigUSB();
     void slotLoadConfigUSB();
 
+    // Slot to start the network manager
+    void slotStartNetworkManager();
+
     // Desktop selector slots
     void slotDesktopCustomizeClicked();
     void slotSaveMetaChanges(QStringList);
