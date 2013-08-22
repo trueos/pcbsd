@@ -98,7 +98,7 @@ private:
 	//variables - processes
 	ProcessManager *PMAN;
 	QString cDownload, cInstall, cRemove, cUpdate, cDownloadFile, cOther; //currently running command/pbi
-	bool sDownload, sInstall, sRemove, sUpdate; //flag that these processes were Stopped
+	bool sDownload, sInstall, sRemove, sUpdate,; //flag that these processes were Stopped
 	QStringList PENDINGDL, PENDINGINSTALL, PENDINGREMOVAL, PENDINGUPDATE, PENDINGOTHER;
 	QString lDownload, lInstall, lRemove, lUpdate; //latest string output from process
 	//variables - other

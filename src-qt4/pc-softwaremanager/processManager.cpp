@@ -232,7 +232,7 @@ void ProcessManager::slotRemProcMessage(){
 }
 
 void ProcessManager::slotRemProcFinished(){
-  if(remProc->exitStatus() != QProcess::NormalExit){
+  if(remProc->exitStatus() != QProcess::NormalExit || remProc->exitCode() != 0){
     qDebug() << "Removal Process Error Log:\n"<<remLog.join("\n");
     emit ProcessError(REMOVE, remLog);
   }else{
@@ -260,7 +260,7 @@ void ProcessManager::slotDlProcMessage(){
 }
 
 void ProcessManager::slotDlProcFinished(){
-  if(dlProc->exitStatus() != QProcess::NormalExit){
+  if(dlProc->exitStatus() != QProcess::NormalExit || dlProc->exitCode() != 0){
     qDebug() << "Download Process Error Log:\n"<<dlLog.join("\n");
     emit ProcessError(DOWNLOAD, dlLog);
   }else{
@@ -281,7 +281,7 @@ void ProcessManager::slotInProcMessage(){
 }
 
 void ProcessManager::slotInProcFinished(){
-  if(inProc->exitStatus() != QProcess::NormalExit){
+  if(inProc->exitStatus() != QProcess::NormalExit || inProc->exitCode() != 0){
     qDebug() << "Install Process Error Log:\n"<<inLog.join("\n");
     emit ProcessError(INSTALL, inLog);
   }else{
@@ -297,7 +297,7 @@ void ProcessManager::slotOtProcMessage(){
 }
 
 void ProcessManager::slotOtProcFinished(){
-  if(otProc->exitStatus() != QProcess::NormalExit){
+  if(otProc->exitStatus() != QProcess::NormalExit || otProc->exitCode() != 0){
     QString msg = otProc->readAllStandardError();
     if(msg.isEmpty()){ msg = otProc->readAllStandardOutput(); }
     if(msg.isEmpty()){ msg = tr("Unknown Error"); }
