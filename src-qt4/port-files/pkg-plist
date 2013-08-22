@@ -121,6 +121,7 @@ share/wallpapers/FreeBSD/b_1600x900.jpg
 share/wallpapers/FreeBSD/c_1600x900.jpg
 share/wallpapers/FreeBSD/b_1280x1024.jpg
 share/wallpapers/FreeBSD/g_1280x1024.jpg
+share/lifePreserver/scripts/setup-ssh-keys.sh
 share/lifePreserver/images/lifepreserver.png
 share/lifePreserver/i18n/LifePreserver_af.qm
 share/lifePreserver/i18n/LifePreserver_zh_TW.qm
@@ -2650,4 +2651,5 @@ include/pcbsd-ui.h
 @dirrmtry share/mime
 @dirrm share/lifePreserver/i18n
 @dirrm share/lifePreserver/images
+@dirrm share/lifePreserver/scripts
 @dirrmtry share/lifePreserver
