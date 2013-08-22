@@ -236,7 +236,7 @@ check_rep_task() {
 
   # We have a replication task for this dataset, lets check if we need to do it now
   LDATA="$1"
-  TIME=`echo $repLine | cut -d ':' -f 2`
+  REPTIME=`echo $repLine | cut -d ':' -f 2`
 
   # Export the replication variables we will be using
   export REPHOST=`echo $repLine | cut -d ':' -f 3`
@@ -254,10 +254,10 @@ check_rep_task() {
   fi
 
   # If we are checking for a sync task, and the rep isn't marked as sync we can return
-  if [ "$2" = "sync" -a "$TIME" != "sync" ] ; then return 0; fi
+  if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then return 0; fi
 
   # Is this a sync-task we do at the time of a snapshot?
-  if [ "$2" = "sync" -a "$TIME" = "sync" ] ; then
+  if [ "$2" = "sync" -a "$REPTIME" = "sync" ] ; then
      export DIDREP=1
      echo_log "Starting replication SYNC task on ${DATASET}: ${REPLOGSEND}"
      queue_msg "`date`: Starting replication SYNC task on ${DATASET}\n"
