@@ -408,11 +408,17 @@ border-radius: 5px;
                 </item>
                 <item>
                  <widget class="QToolButton" name="tool_install_gotobrowserpage">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="statusTip">
                    <string>Open the browser page for the selected application</string>
                   </property>
                   <property name="text">
-                   <string>Open Browser</string>
+                   <string>Product Page</string>
                   </property>
                   <property name="icon">
                    <iconset resource="SoftwareManager.qrc">
