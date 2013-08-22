@@ -637,3 +637,31 @@ run_firstboot()
     rm /var/.pcbsd-firstgui
   fi
 }
+
+# Run-command, don't halt if command exits with non-0
+rc_nohalt()
+{
+  CMD="$1"
+
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_nohalt()"
+  fi
+
+  ${CMD}
+}
+
+# Run-command, halt if command exits with non-0
+rc_halt()
+{
+  CMD="$@"
+
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_halt()"
+  fi
+
+  ${CMD}
+  STATUS=$?
+  if [ ${STATUS} -ne 0 ] ; then
+    exit_err "Error ${STATUS}: ${CMD}"
+  fi
+}
