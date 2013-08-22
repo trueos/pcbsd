@@ -18,6 +18,7 @@
 void wizardDisk::programInit()
 {
   prevID = 0;
+  restoreMode=false;
 
   populateDiskInfo();
 
@@ -442,6 +443,13 @@ void wizardDisk::populateDiskTree()
 
   treeMounts->setCurrentItem(treeMounts->findItems("0", Qt::MatchFixedString).at(0));
   slotTreeDiskChanged();  
+
+  if ( restoreMode ) {
+     treeMounts->setEnabled(false);
+     pushRemoveMount->setEnabled(false);
+     pushAddMount->setEnabled(false);
+     labelMounts->setText(tr("The original system datasets / mount-points will be automatically restored."));
+  }
 
 }
 
@@ -1060,3 +1068,7 @@ void wizardDisk::slotTerminal()
   system("xterm &");
 }
 
+void wizardDisk::setRestoreMode()
+{
+  restoreMode=true;
+}

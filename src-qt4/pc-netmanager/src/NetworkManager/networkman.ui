@@ -219,7 +219,7 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_8">
        <item row="4" column="0">
-        <widget class="QGroupBox" name="groupBox">
+        <widget class="QGroupBox" name="groupBoxMisc">
          <property name="title">
           <string>Misc</string>
          </property>

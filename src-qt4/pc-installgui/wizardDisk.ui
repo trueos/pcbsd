@@ -672,7 +672,7 @@
      </spacer>
     </item>
     <item row="1" column="1">
-     <widget class="QLabel" name="label_18">
+     <widget class="QLabel" name="labelMounts">
       <property name="sizePolicy">
        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
         <horstretch>0</horstretch>

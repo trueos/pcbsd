@@ -44,12 +44,14 @@ if [ -e "/usr/local/bin/life-preserver" ] ; then
 fi
 
 cat<<__EOF__
+        get - Get list of lpreserver options
      mksnap - Create a ZFS snapshot of a zpool/dataset
    listsnap - List snapshots of a zpool/dataset
    listcron - Listing of scheduled snapshots
    cronsnap - Schedule snapshot creation via cron
  revertsnap - Revert zpool/dataset to a snapshot
   replicate - Enable / Disable ZFS replication to a remote system
+        set - Set lpreserver options
      status - List datasets, along with last snapshot / replication date 
      rmsnap - Remove a snapshot
 __EOF__
