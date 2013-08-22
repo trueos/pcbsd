@@ -101,7 +101,7 @@ restore_zfs_from_remote()
   # Lets start pulling our ZFS replication
   zSEND="ssh -p $SSHPORT ${SSHKEY} ${SSHUSER}@${SSHHOST} zfs send -Rv ${ZFSDATASET}@${lastSNAP}"
   zRECV="zfs receive -evuF ${ZPOOLNAME}"
-  $zSEND | $zRECV
+  $zSEND | $zRECV >/dev/null 2>/dev/null
   if [ $? -ne 0 ] ; then
      exit_err "Failed ZFS send / receive"
   fi
