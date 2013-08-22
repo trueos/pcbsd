@@ -202,6 +202,18 @@ border-radius: 5px;
               <bool>true</bool>
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="topMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item row="1" column="1" rowspan="2">
                <layout class="QFormLayout" name="formLayout">
                 <property name="fieldGrowthPolicy">
@@ -274,37 +286,21 @@ border-radius: 5px;
               <item row="1" column="0">
                <layout class="QVBoxLayout" name="verticalLayout_13">
                 <item>
-                 <widget class="QToolButton" name="tool_install_icon">
+                 <widget class="QLabel" name="label_install_icon">
                   <property name="maximumSize">
                    <size>
                     <width>64</width>
                     <height>64</height>
                    </size>
                   </property>
-                  <property name="statusTip">
-                   <string>Start the application</string>
-                  </property>
                   <property name="text">
                    <string/>
                   </property>
-                  <property name="icon">
-                   <iconset resource="SoftwareManager.qrc">
-                    <normaloff>:/icons/appcafe.png</normaloff>:/icons/appcafe.png</iconset>
+                  <property name="pixmap">
+                   <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
                   </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                  <property name="popupMode">
-                   <enum>QToolButton::InstantPopup</enum>
-                  </property>
-                  <property name="autoRaise">
+                  <property name="scaledContents">
                    <bool>true</bool>
-                  </property>
-                  <property name="arrowType">
-                   <enum>Qt::NoArrow</enum>
                   </property>
                  </widget>
                 </item>
@@ -315,13 +311,30 @@ border-radius: 5px;
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_6">
                   <item>
+                   <widget class="QToolButton" name="tool_install_startApp">
+                    <property name="statusTip">
+                     <string>Start the application</string>
+                    </property>
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="SoftwareManager.qrc">
+                      <normaloff>:/icons/application.png</normaloff>:/icons/application.png</iconset>
+                    </property>
+                    <property name="popupMode">
+                     <enum>QToolButton::InstantPopup</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
                    <spacer name="horizontalSpacer_7">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>10</width>
+                      <width>0</width>
                       <height>20</height>
                      </size>
                     </property>
@@ -408,11 +421,17 @@ border-radius: 5px;
                 </item>
                 <item>
                  <widget class="QToolButton" name="tool_install_gotobrowserpage">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="statusTip">
                    <string>Open the browser page for the selected application</string>
                   </property>
                   <property name="text">
-                   <string>Open Browser</string>
+                   <string>Product Page</string>
                   </property>
                   <property name="icon">
                    <iconset resource="SoftwareManager.qrc">
@@ -1205,8 +1224,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>447</width>
-                    <height>61</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                  </widget>
