@@ -19,6 +19,7 @@ public:
         }
 
     void programInit();
+    void setRestoreMode();
     virtual int nextId() const;
 
 public slots:
@@ -86,6 +87,7 @@ private:
     QMenu *popupCH;
     QMenu *popupNE;
     dialogFSSize *rFS;
+    bool restoreMode;
     enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_Mounts, Page_Expert, Page_Confirmation };
 
 signals:

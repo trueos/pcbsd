@@ -349,6 +349,8 @@ QStringList Installer::getDiskSummary()
        }
     }
 
+
+
     // If after doing the mirror, our list is empty, break out
     if ( copyList.empty() )
       break;
@@ -398,7 +400,10 @@ QStringList Installer::getDiskSummary()
                 zDS.replace(ds, zTMP );
               }
             } 
-            summaryList << tr("ZFS Datasets:<br>") + " " + zDS.join("<br>");
+            if ( radioRestore->isChecked())
+               summaryList << tr("ZFS Datasets:") + " " + tr("The original ZFS layout will be restored");
+            else
+               summaryList << tr("ZFS Datasets:<br>") + " " + zDS.join("<br>");
           } else {
             summaryList << tr("Mount:") + " " + copyList.at(i).at(2);
           }
@@ -453,7 +458,9 @@ QStringList Installer::getDiskSummary()
         // Write the user summary
         summaryList << "";
         summaryList << tr("Partition:") + " " + workingDisk + "(" + workingSlice + "):";
+
         summaryList << tr("FileSystem:") + " " + copyList.at(i).at(3);
+
         summaryList << tr("Size:") + " " + copyList.at(i).at(4) + "MB ";
 	if ( copyList.at(i).at(3) != "ZFS" )
           summaryList << tr("Mount:") + " " + copyList.at(i).at(2);
@@ -480,6 +487,8 @@ void Installer::slotDiskCustomizeClicked()
   wDisk = new wizardDisk();
   wDisk->programInit();
   wDisk->setWindowModality(Qt::ApplicationModal);
+  if ( radioRestore->isChecked() )
+    wDisk->setRestoreMode();
   connect(wDisk, SIGNAL(saved(QList<QStringList>, bool, bool, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, bool, bool, QString, bool)));
   wDisk->show();
   wDisk->raise();
@@ -536,6 +545,14 @@ void Installer::slotChangedMetaPkgSelection()
 {
 
   selectedPkgs.clear();
+  if ( radioRestore->isChecked() )
+  {
+     pushDeskCustomize->setEnabled(false);
+     textDeskSummary->setText(tr("Performing a restore from a Life-Preserver backup. Click next to start the restore wizard."));
+     return;
+  }
+
+  pushDeskCustomize->setEnabled(true);
 
   // Set the default desktop meta-pkgs based upon the selection
   if ( radioDesktop->isChecked() )
@@ -593,6 +610,7 @@ void Installer::initDesktopSelector()
     connect(pushDeskCustomize,SIGNAL(clicked()), this, SLOT(slotDesktopCustomizeClicked()));
     connect(radioDesktop,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
     connect(radioServer,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
+    connect(radioRestore,SIGNAL(clicked()), this, SLOT(slotChangedMetaPkgSelection()));
     slotChangedMetaPkgSelection();
 }
 
@@ -652,6 +670,17 @@ void Installer::slotNext()
      return;
    }
 
+   // Start the Restore wizard
+   if ( radioRestore->isChecked() && installStackWidget->currentIndex() == 1 ) { 
+     wRestore = new wizardRestore();
+     wRestore->setWindowModality(Qt::ApplicationModal);
+     wRestore->programInit();
+     connect(wRestore, SIGNAL(saved(QStringList)), this, SLOT(slotSaveRestoreSettings(QStringList)));
+     wRestore->show();
+     wRestore->raise();
+     return ;
+   }
+
    // Start the TrueOS wizard
    if ( radioServer->isChecked() && installStackWidget->currentIndex() == 1 ) { 
      bool tOS;
@@ -677,8 +706,15 @@ void Installer::slotNext()
    if ( installStackWidget->currentIndex() == 2 )
    {
       startConfigGen();
+      QString msg;
+
+      if (radioRestore->isChecked() )
+	msg=tr("Start the restore now?");
+      else
+	msg=tr("Start the installation now?");
+
       int ret = QMessageBox::question(this, tr("PC-BSD Installer"),
-                                tr("Start the installation now?"),
+                                msg,
                                 QMessageBox::No | QMessageBox::Yes,
                                 QMessageBox::No);
       switch (ret) {
@@ -763,6 +799,35 @@ QStringList Installer::getGlobalCfgSettings()
 
   tmpList << "# Auto-Generated pc-sysinstall configuration";
   tmpList << "installInteractive=no";
+
+  // Are we doing a restore?
+  if ( radioRestore->isChecked() )
+  {
+    tmpList << "installMode=zfsrestore";
+    tmpList << "";
+    tmpList << "sshHost=" + restOpts.at(0);
+    tmpList << "sshUser=" + restOpts.at(1);
+    tmpList << "sshPort=" + restOpts.at(2);
+    if ( ! restOpts.at(3).isEmpty() )
+      tmpList << "sshKey=" + restOpts.at(3);
+    tmpList << "zfsProps=" + restOpts.at(4);
+    tmp = restOpts.at(4);
+    tmp.replace(".lp-props-", "");
+    tmp.replace("#", "/");
+    tmpList << "zfsRemoteDataset=" + tmp;
+
+    // Using a custom zpool name?
+    if ( ! zpoolName.isEmpty() )
+      tmpList << "zpoolName=" + zpoolName;
+
+    // Are we force enabling ZFS 4K block sizes?
+    if ( force4K )
+      tmpList << "zfsForce4k=YES";
+
+    tmpList << "";
+    return tmpList;
+  } // End of restore options
+
 
   if ( sysFinalDiskLayout.at(0).at(0) == "MANUAL" )
   {
@@ -894,53 +959,58 @@ void Installer::startConfigGen()
   cfgList+=getGlobalCfgSettings();
 
   cfgList+=getDiskCfgSettings();
+ 
+  // We can skip these options if doing a restore
+  if ( ! radioRestore->isChecked() ) {
 
-  cfgList+=getComponentCfgSettings();
+    cfgList+=getComponentCfgSettings();
 
-  // Save the install config script to disk
-  cfgList << "runExtCommand=/root/save-config.sh";
+    // Save the install config script to disk
+    cfgList << "runExtCommand=/root/save-config.sh";
 
-  cfgList+= "";
+    cfgList+= "";
 
-  // If doing install from package disk
-  if ( hasPkgsOnMedia )
-    cfgList+=getDeskPkgCfg();
+    // If doing install from package disk
+    if ( hasPkgsOnMedia )
+      cfgList+=getDeskPkgCfg();
 
-  cfgList+= "";
+    cfgList+= "";
 
-  if ( radioDesktop->isChecked() ) {
-    // Doing PC-BSD Install
+    if ( radioDesktop->isChecked() ) {
+      // Doing PC-BSD Install
 
-    QString lang;
-    if ( comboLanguage->currentIndex() != 0 )
-      lang = languages.at(comboLanguage->currentIndex()).section("(",1,1).section(")",0,0);
-    else
-      lang="en_US";
+      QString lang;
+      if ( comboLanguage->currentIndex() != 0 )
+        lang = languages.at(comboLanguage->currentIndex()).section("(",1,1).section(")",0,0);
+      else
+        lang="en_US";
 
-    // Setup the desktop
-    cfgList << "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh desktop " + lang;
+      // Setup the desktop
+      cfgList << "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh desktop " + lang;
 
-    // Setup for a fresh system first boot
-    cfgList << "# Touch flags to enable PC-BSD setup at first boot";
-    cfgList << "runCommand=touch /var/.runxsetup";
-    cfgList << "runCommand=touch /var/.pcbsd-firstboot";
-    cfgList << "runCommand=touch /var/.pcbsd-firstgui";
+      // Setup for a fresh system first boot
+      cfgList << "# Touch flags to enable PC-BSD setup at first boot";
+      cfgList << "runCommand=touch /var/.runxsetup";
+      cfgList << "runCommand=touch /var/.pcbsd-firstboot";
+      cfgList << "runCommand=touch /var/.pcbsd-firstgui";
 
-  } else {
-    // Doing TrueOS Install
-    cfgList+=getUsersCfgSettings();
+    } else {
+      // Doing TrueOS Install
+      cfgList+=getUsersCfgSettings();
 
-    // Enable SSH?
-    if ( fSSH )
-      cfgList << "runCommand=echo 'sshd_enable=\"YES\"' >>/etc/rc.conf";
+      // Enable SSH?
+      if ( fSSH )
+        cfgList << "runCommand=echo 'sshd_enable=\"YES\"' >>/etc/rc.conf";
 
-    // Setup the TrueOS server
-    cfgList << "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server";
+      // Setup the TrueOS server
+      cfgList << "runCommand=sh /usr/local/share/pcbsd/scripts/sys-init.sh server";
 
-  } 
+    } 
 
-  // Run newaliases to fix mail errors
-  cfgList << "runCommand=newaliases";
+    // Run newaliases to fix mail errors
+    cfgList << "runCommand=newaliases";
+
+  } // End of restore check
 
   // Now write out the cfgList to file
   QFile cfgfile( PCSYSINSTALLCFG );
@@ -1150,6 +1220,15 @@ bool Installer::checkDiskRequirements()
 // Function which begins the backend install, and connects slots to monitor it
 void Installer::startInstall()
 {
+
+  // Update the UI elements if doing a restore
+  if ( radioRestore->isChecked() )
+  {
+      labelFinished->setText(tr("Your system is now restored!\nClick Finish to reboot. After rebooting you may eject the install media."));
+      groupInstall->setTitle(tr("System Restore"));
+      labelInstallHeader->setText(tr("Your system is now being restored, this may take a while depending upon the size of your backup and network conditions."));
+  }
+
   QString cfgFile;
   if (customCfgFile.isEmpty() )
     cfgFile = PCSYSINSTALLCFG;
@@ -1163,6 +1242,7 @@ void Installer::startInstall()
   installFoundCounter = false;
   installFoundMetaCounter = false;
   installFoundFetchOutput = false;
+  inZFSSend = false;
 
   // Setup some defaults for the secondary progress bar
   progressBarInstall2->setValue(0); 
@@ -1280,11 +1360,36 @@ void Installer::slotReadInstallerOutput()
      tmp.truncate(75);
      //qDebug() << tmp;
 
-     // If doing a restore, don't bother checking for other values
-     //if ( radioRestore->isChecked() ) {
-     //   labelInstallStatus->setText(tmp);
-     //	continue;
-     //} 
+     // If doing a restore we can do all parsing right here
+     if ( radioRestore->isChecked() ) {
+       line = tmp;
+
+       if ( tmp.contains("total estimated size"))
+       {  
+          repTotalK = line.section(" ",-1).simplified();
+	  double totSize = displayToDoubleK(repTotalK);
+          progressBarInstall->setRange(0, totSize + 1024);
+	  inZFSSend = true;
+          continue;
+       } 
+       if ( tmp.contains("Moving datasets to"))
+          inZFSSend=false;
+
+       if( line.contains("send from ") )
+	 continue;
+       if( line.contains("TIME ") )
+         continue;
+
+       labelInstallStatus->setText(tmp);
+
+       if ( ! inZFSSend )
+          continue;
+
+       // We got here, lets parse the ZFS send message
+       parseStatusMessage(tmp);
+
+       continue;
+     } // End of restore parsing
 
      // Parse fetch output
      if ( installFoundFetchOutput ) {
@@ -1709,5 +1814,62 @@ void Installer::slotLoadConfigUSB()
 
 void Installer::slotStartNetworkManager() 
 {
-   system("/usr/local/bin/pc-netmanager -installer &");
+  system("/usr/local/bin/pc-netmanager -installer &");
 }
+
+void Installer::slotSaveRestoreSettings(QStringList Opts)
+{
+  restOpts = Opts;
+
+  textEditDiskSummary->clear();
+  QStringList summary = getDiskSummary();
+  for ( int i=0; i < summary.count(); ++i)
+    textEditDiskSummary->append(summary.at(i));
+               
+  textEditDiskSummary->moveCursor(QTextCursor::Start);
+ 
+  startConfigGen();
+  installStackWidget->setCurrentIndex(installStackWidget->currentIndex() + 1);
+}
+
+void Installer::parseStatusMessage(QString stat){
+  //qDebug() << "msg:" << stat;
+  QString dispTotal;
+
+  //Divide up the status message into sections
+  stat.replace("\t"," ");
+  QString cSize = stat.section(" ",1,1,QString::SectionSkipEmpty);
+
+  //Now Setup the tooltip
+  if(!repTotalK.isEmpty()){
+    double c = displayToDoubleK(cSize);
+    progressBarInstall->setValue(c);
+    dispTotal = repTotalK;
+  } else {
+    dispTotal = "??";
+  }
+
+  //Format the tooltip String
+  QString status = cSize+"/"+dispTotal;
+
+  QString txt = QString(tr("Restoring system: %1")).arg(status);
+  labelInstallStatus->setText(txt);
+
+}
+
+double Installer::displayToDoubleK(QString displayNumber){
+  QStringList labels;
+    labels << "K" << "M" << "G" << "T" << "P" << "E";
+  QString clab = displayNumber.right(1); //last character is the size label
+        displayNumber.chop(1); //remove the label from the number
+  double num = displayNumber.toDouble();
+  //Now format the number properly
+  bool ok = false;
+  for(int i=0; i<labels.length(); i++){
+    if(labels[i] == clab){ ok = true; break; }
+    else{ num = num*1024; } //get ready for the next size
+  }
+  if(!ok){ num = -1; } //could not determine the size
+  return num;
+}
+

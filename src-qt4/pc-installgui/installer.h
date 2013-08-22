@@ -16,6 +16,7 @@
 #include "dialogCheckHardware.h"
 #include "wizardFreeBSD.h"
 #include "wizardDisk.h"
+#include "wizardRestore.h"
 
 #define wFREEBSD 1
 #define wPCSERVER 2
@@ -72,12 +73,21 @@ private slots:
     void slotChangedMetaPkgSelection();
     void slotSaveFBSDSettings(QString, QString, QString, QString, QString, QString, bool, bool, bool, QStringList);
 
+    // Restore-related slots
+    void slotSaveRestoreSettings(QStringList);
+
 
 private:
 
     void setArch();
     void startInstall(); // Function which begins the install process
     void installFailed(); // Function which does post-install failure stuff
+
+    // Functions to parse ZFS send/recv messages
+    bool inZFSSend;
+    double displayToDoubleK(QString);
+    void parseStatusMessage(QString);
+    QString repTotalK;
 
     // Disk functions
     void loadDiskInfo();
@@ -146,6 +156,9 @@ private:
 
     // FreeBSD setup wizard
     wizardFreeBSD *wFBSD;
+
+    // Restore wizard
+    wizardRestore *wRestore;
     
     // FreeBSD options
     QString fRootPW;
@@ -177,6 +190,9 @@ private:
 
     // Force 4K mode?
     bool force4K;
+
+    // Restore Options
+    QStringList restOpts;
 
 protected:
     void closeEvent(QCloseEvent *event);

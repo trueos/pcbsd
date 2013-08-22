@@ -13,6 +13,7 @@ SOURCES += main.cpp \
     dialogHelp.cpp \
     wizardDisk.cpp \
     wizardFreeBSD.cpp \
+    wizardRestore.cpp \
     installer.cpp \
     backend.cpp
 HEADERS += installer.h \
@@ -24,6 +25,7 @@ HEADERS += installer.h \
     dialogHelp.h \
     wizardDisk.h \
     wizardFreeBSD.h \
+    wizardRestore.h \
     helpText.h \
     backend.h
 TRANSLATIONS =  i18n/SysInstaller_af.ts \
@@ -97,7 +99,11 @@ TRANSLATIONS =  i18n/SysInstaller_af.ts \
 dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
 
-INSTALLS += target dotrans
+scripts.path=/usr/local/share/pcbsd/pc-installgui
+scripts.extra=cp scripts/* /usr/local/share/pcbsd/pc-installgui/ && chmod 755 /usr/local/share/pcbsd/pc-installgui/*.sh
 
-FORMS += installer.ui dialogCheckHardware.ui dialogDesktopSelection.ui dialogFSSize.ui dialogHelp.ui wizardFreeBSD.ui dialogKeyboard.ui wizardDisk.ui dialogInfoBox.ui
+INSTALLS += target dotrans scripts
+
+FORMS += installer.ui dialogCheckHardware.ui dialogDesktopSelection.ui dialogFSSize.ui dialogHelp.ui wizardFreeBSD.ui dialogKeyboard.ui wizardDisk.ui dialogInfoBox.ui wizardRestore.ui
+
 RESOURCES += sysinstaller.qrc
