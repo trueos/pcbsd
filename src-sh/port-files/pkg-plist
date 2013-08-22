@@ -119,6 +119,7 @@ share/pc-sysinstall/backend/functions-runcommands.sh
 share/pc-sysinstall/backend/functions-unmount.sh
 share/pc-sysinstall/backend/functions-mountoptical.sh
 share/pc-sysinstall/backend/functions-bsdlabel.sh
+share/pc-sysinstall/backend/functions-zfsrestore.sh
 share/pc-sysinstall/backend/startautoinstall.sh
 share/pc-sysinstall/backend/installimage.sh
 share/pc-sysinstall/backend/functions-parse.sh
