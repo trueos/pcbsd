@@ -143,6 +143,20 @@
         </spacer>
        </item>
        <item>
+        <widget class="QToolButton" name="tool_newsnapshot">
+         <property name="statusTip">
+          <string>Make a new snapshot immediately</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lPreserve.qrc">
+           <normaloff>:/images/camera_add.png</normaloff>:/images/camera_add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QToolButton" name="tool_browse">
          <property name="statusTip">
           <string>Browse a snapshot and safely recover that version of a file</string>

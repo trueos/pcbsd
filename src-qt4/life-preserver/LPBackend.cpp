@@ -203,8 +203,8 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 // ==================
 //    Snapshop Management
 // ==================
-bool LPBackend::newSnapshot(QString dataset){
-  QString cmd = "lpreserver mksnap "+dataset;
+bool LPBackend::newSnapshot(QString dataset, QString snapshotname){
+  QString cmd = "lpreserver mksnap --replicate "+dataset+" "+snapshotname;
   int ret = system(cmd.toUtf8());
    
   return (ret == 0);
