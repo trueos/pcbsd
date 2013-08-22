@@ -157,10 +157,11 @@ void mainUI::updateMenus(){
   if(ds.isEmpty()){
     ui->tool_remove->setVisible(false);
     ui->tool_config->setVisible(false);
-
+    ui->tool_newsnapshot->setVisible(false);
   }else{
     ui->tool_remove->setVisible(true);
     ui->tool_config->setVisible(true);	  
+    ui->tool_newsnapshot->setVisible(true);
   }
   //Enabled/disable the SSH key management
   if(RLIST.contains(ds) && !ds.isEmpty()){
