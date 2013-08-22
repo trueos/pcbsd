@@ -153,15 +153,15 @@ void MainUI::initializeInstalledTab(){
     actionMenu->addAction( QIcon(":icons/dialog-cancel.png"), tr("Cancel Actions"), this, SLOT(slotActionCancel()) );
   //Setup the binary menu for installed applications
   appBinMenu = new QMenu();
-  ui->tool_install_icon->setMenu(appBinMenu);
+  ui->tool_install_startApp->setMenu(appBinMenu);
     connect(appBinMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotStartApp(QAction*)) );
-    //Now setup the action button
-    ui->tool_install_performaction->setMenu(actionMenu);
-    ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
-    //Now setup any defaults for the installed tab
-    ui->tool_install_gotobrowserpage->setEnabled(FALSE); //disable it until the browser is ready
-    ui->tree_install_apps->setIconSize(QSize(22,22));
-    slotRefreshInstallTab();
+  //Now setup the action button
+  ui->tool_install_performaction->setMenu(actionMenu);
+  ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
+  //Now setup any defaults for the installed tab
+  ui->tool_install_gotobrowserpage->setEnabled(FALSE); //disable it until the browser is ready
+  ui->tree_install_apps->setIconSize(QSize(22,22));
+  slotRefreshInstallTab();
 }
 
 void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
@@ -491,7 +491,7 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
       else{ shortcuts = tr("None"); }
     //Now display that info on the UI
     ui->label_install_app->setText(vals[0]);
-    ui->tool_install_icon->setIcon( QIcon(vals[1]) );
+    ui->label_install_icon->setPixmap( QPixmap(vals[1]) );
     if(vals[3].isEmpty()){ 
       ui->label_install_author->setText(vals[2]); 
       ui->label_install_author->setToolTip("");
@@ -510,6 +510,7 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
       ui->tool_install_cancel->setVisible(TRUE);
       ui->tool_install_remove->setVisible(FALSE);
       ui->tool_install_update->setVisible(FALSE);
+      ui->tool_install_startApp->setVisible(FALSE);
     }else{
       //Nothing pending
       ui->tool_install_cancel->setVisible(FALSE);
@@ -525,9 +526,21 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
           if(rootonly){ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small-root.png")); }
           else{ ui->tool_install_update->setIcon(QIcon(":icons/app_upgrade_small.png")); }
         }
+	//Start Application binaries
+	QStringList bins = PBI->pbiBinList(appID);
+        appBinMenu->clear();
+        for(int i=0; i<bins.length(); i++){
+          QAction *act = new QAction(this);
+	    act->setText(bins[i].section("::::",0,0)); //set name
+	    act->setWhatsThis(bins[i].section("::::",1,10)); //set command string
+          appBinMenu->addAction(act);
+        }
+	if(appBinMenu->isEmpty()){ ui->tool_install_startApp->setVisible(FALSE); }
+	else{ ui->tool_install_startApp->setVisible(TRUE); }
       }else{ 
         ui->tool_install_remove->setVisible(FALSE); 
         ui->tool_install_update->setVisible(FALSE); 
+	ui->tool_install_startApp->setVisible(FALSE);
       }   
     }
   }
@@ -562,22 +575,6 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
     ui->group_install_appStat->setVisible(TRUE);
       ui->progress_install_DL->setVisible(FALSE);
       ui->label_install_DL->setVisible(FALSE);
-  }
-  if(!statusonly){
-    //Get the application binaries and set the icon to start them
-    QStringList bins = PBI->pbiBinList(appID);
-    appBinMenu->clear();
-    if(bins.isEmpty()){
-      ui->tool_install_icon->setAutoRaise(false);
-    }else{
-      ui->tool_install_icon->setAutoRaise(true);
-      for(int i=0; i<bins.length(); i++){
-        QAction *act = new QAction(this);
-	    act->setText(bins[i].section("::::",0,0)); //set name
-	    act->setWhatsThis(bins[i].section("::::",1,10)); //set command string
-        appBinMenu->addAction(act);
-      }
-    }
   }
 }
 

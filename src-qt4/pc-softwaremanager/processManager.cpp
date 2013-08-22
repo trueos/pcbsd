@@ -188,38 +188,6 @@ QString ProcessManager::parseDlLine(QString line){
   }else{
     out.append("??");
   }
-  /*
-    int i=0;
-    QStringList lab; lab << "KB" <<"MB"<<"GB"<<"TB"<<"PB";
-    while( (tot>1000) && (i<lab.length()) ){
-      cur=cur/1024; tot=tot/1024; i++;
-    }
-
-    cur = int(cur*10)/10.0;
-    tot = int(tot*10)/10.0;
-    if(totErr){ // cur==tot 
-      //Percentage unknown (since fetch is not done)
-      out.append("??::"+QString::number(tot)+" "+lab[i]+"::");
-      //stats = QString::number(tot)+" "+lab[i];
-    }else{
-      out.append(QString::number(percent)+"::"+QString::number(tot)+" "+lab[i]+"::");
-      //stats = QString::number(cur)+"/"+QString::number(tot)+" "+lab[i]+" ("+QString::number(percent)+"%)";
-    }
-    // Format:  <current>/<total> <size label> (<percent>%)
-  }else if(curok){
-    stats = Extras::sizeKToDisplay(QString::number(cur));
-  }
-  QString speed;
-  if(spdok){
-    speed = Extras::sizeKToDisplay(QString::number(spd))+"/s";	  
-  }
-  //Now put the output string together and return it
-  if(stats.isEmpty() && speed.isEmpty()){}
-  else if(stats.isEmpty()){ out = speed; }
-  else if(speed.isEmpty()){ out = stats; }
-  else{ out = QString( tr("%1 at %2") ).arg(stats,speed); }
-  */
-  //qDebug() << " - Result:" << out;
   return out;
 }
 
