@@ -71,7 +71,7 @@ QStringList LPBackend::listSnapshots(QString dsmountpoint){
   QDir dir(dsmountpoint+"/.zfs/snapshot");
   QStringList list;
   if(dir.exists()){
-    list = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name | QDir::Reversed);
+    list = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Time | QDir::Reversed);
   }
   return list;
 }
