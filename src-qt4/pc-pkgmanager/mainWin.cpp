@@ -34,6 +34,7 @@ void mainWin::ProgramInit(QString ch)
   //username = QString::fromLocal8Bit(getenv("LOGNAME"));
   connect(pushUpdatePkgs, SIGNAL(clicked()), this, SLOT(slotUpdatePkgsClicked()));
   connect(pushClose, SIGNAL(clicked()), this, SLOT(slotCloseClicked()));
+  connect(pushCloseAdv, SIGNAL(clicked()), this, SLOT(slotCloseAdvClicked()));
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
@@ -1420,4 +1421,9 @@ QString mainWin::getLineFromCommandOutput( QString cmd )
         }
         pclose(file);
         return line.simplified();
+}
+
+void mainWin::slotCloseAdvClicked()
+{
+   groupInfo->setVisible(false);
 }

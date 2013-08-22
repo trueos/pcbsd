@@ -63,6 +63,7 @@ private slots:
     void slotCloseClicked();
 
     // NG Packages
+    void slotCloseAdvClicked();
     void slotGetNGPackageDataOutput();
     void slotFinishLoadingNGPkgs();
     void slotGetNGInstalledDataOutput();
