@@ -22,6 +22,12 @@ status=$?
 # No replication was needed / done
 if [ $DIDREP -eq 0 ] ; then exit 0 ; fi
 
+if [ "$TIME" = "force" ] ; then
+  type="Manual" 
+else
+  type="Automated" 
+fi
+
 if [ $status -eq 0 ] ; then
   title="Success"
 else
@@ -29,9 +35,9 @@ else
 fi
 
 case $EMAILMODE in
-    ALL) email_msg "$title - Automated Replication" "`echo_queue_msg`" ;;
+    ALL) email_msg "$title - $type Replication" "`echo_queue_msg`" ;;
     *) if [ $status -ne 0 ] ; then
-          email_msg "$title - Automated Replication" "`echo_queue_msg`"
+          email_msg "$title - $type Replication" "`echo_queue_msg`"
        fi
        ;;
 esac

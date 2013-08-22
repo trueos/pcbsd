@@ -292,15 +292,19 @@ help_mksnap()
  title
  echo "Help mksnap
 
-Create a new ZFS snapshot of a dataset
+Create a new ZFS snapshot of a dataset and optionally replicate it immediately
 
 Usage:
 
-  lupdate mksnap <dataset>
+  lpreserver mksnap --replicate <dataset> <snapshotname>
 
 Example:
 
-  lupdate mksnap tank1/usr/home/kris
+  lpreserver mksnap tank1/usr/home/kris mysnapshot
+
+  or
+
+  lpreserver mksnap --replicate tank1/usr/home/kris mysnapshot
 
 NOTE:
 By default snapshots are recursive and will create snapshots
@@ -368,8 +372,16 @@ case "$1" in
          ;;
 
    mksnap) require_root
-         DATASET="$2"
-         ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}"
+	 if [ "$2" = "--replicate" ] ; then
+	   REP="YES"
+           DATASET="$3"
+           SNAPNAME="$4"
+         else
+	   REP="NO"
+           DATASET="$2"
+           SNAPNAME="$3"
+         fi
+         ${PROGDIR}/backend/zfsmksnap.sh "${DATASET}" "$SNAPNAME" "$REP"
          ;;
 
  listcron) require_root

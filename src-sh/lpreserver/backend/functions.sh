@@ -244,6 +244,15 @@ check_rep_task() {
   export REPPORT=`echo $repLine | cut -d ':' -f 5`
   export REPRDATA=`echo $repLine | cut -d ':' -f 6`
 
+  if [ "$2" = "force" ] ; then
+     # Ready to do a forced replication
+     export DIDREP=1
+     echo_log "Starting replication MANUAL task on ${DATASET}: ${REPLOGSEND}"
+     queue_msg "`date`: Starting replication MANUAL task on ${DATASET}\n"
+     start_rep_task "$LDATA"
+     return $?
+  fi
+
   # If we are checking for a sync task, and the rep isn't marked as sync we can return
   if [ "$2" = "sync" -a "$TIME" != "sync" ] ; then return 0; fi
 
