@@ -297,7 +297,7 @@ void ProcessManager::slotOtProcMessage(){
 }
 
 void ProcessManager::slotOtProcFinished(){
-  if(otProc->exitStatus() != QProcess::NormalExit || otProc->exitCode() != 0){
+  if(otProc->exitStatus() != QProcess::NormalExit){
     QString msg = otProc->readAllStandardError();
     if(msg.isEmpty()){ msg = otProc->readAllStandardOutput(); }
     if(msg.isEmpty()){ msg = tr("Unknown Error"); }
