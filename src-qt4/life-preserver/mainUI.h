@@ -56,6 +56,7 @@ private slots:
 	void on_treeWidget_itemSelectionChanged();
 	void on_tool_config_clicked();
 	void on_tool_remove_clicked();
+	void on_tool_newsnapshot_clicked();
 
 	void slotRevertToSnapshot(QAction*);
 	void slotBrowseSnapshot(QAction*);

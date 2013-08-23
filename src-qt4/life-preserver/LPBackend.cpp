@@ -71,7 +71,7 @@ QStringList LPBackend::listSnapshots(QString dsmountpoint){
   QDir dir(dsmountpoint+"/.zfs/snapshot");
   QStringList list;
   if(dir.exists()){
-    list = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name | QDir::Reversed);
+    list = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Time | QDir::Reversed);
   }
   return list;
 }
@@ -203,8 +203,8 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 // ==================
 //    Snapshop Management
 // ==================
-bool LPBackend::newSnapshot(QString dataset){
-  QString cmd = "lpreserver mksnap "+dataset;
+bool LPBackend::newSnapshot(QString dataset, QString snapshotname){
+  QString cmd = "lpreserver mksnap --replicate "+dataset+" "+snapshotname;
   int ret = system(cmd.toUtf8());
    
   return (ret == 0);

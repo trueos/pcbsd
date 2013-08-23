@@ -157,10 +157,11 @@ void mainUI::updateMenus(){
   if(ds.isEmpty()){
     ui->tool_remove->setVisible(false);
     ui->tool_config->setVisible(false);
-
+    ui->tool_newsnapshot->setVisible(false);
   }else{
     ui->tool_remove->setVisible(true);
     ui->tool_config->setVisible(true);	  
+    ui->tool_newsnapshot->setVisible(true);
   }
   //Enabled/disable the SSH key management
   if(RLIST.contains(ds) && !ds.isEmpty()){
@@ -275,6 +276,23 @@ void mainUI::on_tool_remove_clicked(){
   setupUI();
 }
 
+void mainUI::on_tool_newsnapshot_clicked(){
+  QString ds = getSelectedDS();
+  if(ds.isEmpty()){return; }
+  //Get the new snapshot name from the user
+  bool ok;
+  QString name = QInputDialog::getText(this,tr("New Snapshot Name"), tr("Snapshot Name:"), QLineEdit::Normal, tr("Name"), &ok, 0, Qt::ImhUppercaseOnly | Qt::ImhLowercaseOnly | Qt::ImhDigitsOnly );
+  if(!ok || name.isEmpty()){ return; } //cancelled
+  qDebug() << "Creating a new snapshot:" << ds << name;
+  //Now create the new snapshot
+  ok = LPBackend::newSnapshot(ds,name);
+  if( ok ){
+    QMessageBox::information(this,tr("Success"), tr("The new snapshot has been created"));
+  }else{
+    QMessageBox::warning(this,tr("Failure"), tr("The new snapshot could not be created"));
+  }
+  setupUI();
+}
 
 // --- Menu Items Clicked
 void mainUI::slotRevertToSnapshot(QAction *act){

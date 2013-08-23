@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>images/camera_add.png</file>
     <file>images/upload.png</file>
     <file>images/key.png</file>
     <file>images/lifepreserver.png</file>
