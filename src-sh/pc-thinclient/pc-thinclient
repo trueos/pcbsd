@@ -305,7 +305,7 @@ check_worldports() {
 	cp /usr/local/etc/pkg-pubkey.cert ${PXEWORLD}/usr/local/etc/
 
 	# Start by adding pcbsd-utils
-	pkg -c ${PXEWORLD} install -y pcbsd-utils
+	rc_halt "pkg -c ${PXEWORLD} install -y pcbsd-utils"
 	
 	# Remove old pc-sysinstall so we use new one in /usr/local/sbin
 	rm ${PXEWORLD}/usr/sbin/pc-sysinstall 2>/dev/null
@@ -316,11 +316,11 @@ check_worldports() {
 	if [ -e "${PXEWORLD}/usr/local/bin/xv" ] ; then return ; fi
 
 	# Install Xorg
-	pkg -c ${PXEWORLD} install -y xorg
+	rc_halt "pkg -c ${PXEWORLD} install -y xorg"
 
 	# Need to install / use GDM on the base system
 	if [ ! -e "/usr/local/sbin/gdm" ] ; then
-	  	pkg install -y gdm
+	  	rc_halt "pkg install -y gdm"
 	fi
 
 	# Disable PCDM since it doesn't do XDMCP
@@ -394,8 +394,7 @@ check_dhcpd() {
 	if [ "$?" = "0" ] ; then return; fi
 
 	echo "Installing $DHCPPORT"
-        pkg install -y ${DHCPPORT}
-	if [ "$?" != "0" ] ; then exit_err "Failed installing ${DHCPPORT}"; fi
+        rc_halt "pkg install -y ${DHCPPORT}"
 }
 
 # Function to display what information to add to external DHCP server
