@@ -234,9 +234,14 @@ void MainUI::slotRefreshInstallTab(){
         item->setWhatsThis(0,installList[i]);
         //Now format the display
         formatInstalledItemDisplay(item);
-        //Now insert this item onto the list
-        ui->tree_install_apps->insertTopLevelItem(i,item);
-        cList.insert(i,installList[i]); //reflect this inclusion into the current list
+	if(item->text(0).isEmpty()){
+	  //Do not put empty items into the display
+	  delete item;
+	}else{
+          //Now insert this item onto the list
+          ui->tree_install_apps->insertTopLevelItem(i,item);
+          cList.insert(i,installList[i]); //reflect this inclusion into the current list
+	}
       }else if(todo==1){
         //Update current item
         formatInstalledItemDisplay( ui->tree_install_apps->topLevelItem(i) );
