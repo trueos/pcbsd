@@ -7,7 +7,7 @@
 . /etc/rc.subr
 
 name="warden"
-rcvar=`set_rcvar`
+rcvar="warden_enable"
 
 stop_cmd="warden_stop"
 start_cmd="warden_start"

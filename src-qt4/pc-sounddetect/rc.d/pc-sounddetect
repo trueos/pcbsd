@@ -7,7 +7,7 @@
 . /etc/rc.subr
 
 name="snddetect"
-rcvar=`set_rcvar`
+rcvar=snddetect_enable
 
 stop_cmd="snddetect_stop"
 start_cmd="snddetect_start"
