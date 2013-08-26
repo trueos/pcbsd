@@ -12,7 +12,7 @@ installed system
 When hostname= is not present, pc-sysinstall will auto-generate
 a hostname such as freebsd-XXXX or pcbsd-XXXX
 
-# installMode=(fresh/upgrade/extract)
+# installMode=(fresh/upgrade/extract/zfsrestore)
 
 Set the type of install we are doing.
 
@@ -32,6 +32,10 @@ to the directory specified by "installLocation=". This location
 should be a directory with your pre-mounted file-systems ready
 for file extraction. When using the "extract" option, /etc/fstab
 on the installed system will *not* be automatically configured. 
+
+'zfsrestore' will use zfs send / recv to replicate a remote ZFS
+dataset to your local install. It requires several other flags
+documented below in the ZFS RESTORE section. 
 
 # installLocation=
 
@@ -293,6 +297,13 @@ The port to use when connecting to a ssh + rsync server
 
 The specified components to install, view available with "./pc-sysinstall list-components"
 
+# installPackages=xorg cabextract
+
+List of packages to install, can be either pkgng or old style packages
+
+# pkgExt=.txz
+
+Set the file-extension uses for packages, usually .txz or .tbz
 
 ########################################################################
 # UPGRADE OPTIONS
@@ -400,4 +411,33 @@ localizeKeyVariant is used to update the xorg config to set the keyboard variant
 Setting autoLoginUser will enable the specified user to log into the desktop 
 automatically without entering a password
 
-$FreeBSD: head/usr.sbin/pc-sysinstall/examples/README 247705 2013-03-03 09:47:47Z jpaetzel $
+########################################################################
+# ZFS RESTORE
+########################################################################
+
+When setting installMode=zfsrestore, the following options are also required
+
+# sshHost=mybackupserver
+
+Hostname or IP address of the machine to pull data via SSH from
+
+# sshPort=22
+
+Port to use for SSH
+
+# sshUser=kdeskbackup
+
+Username to log into SSH with
+
+# sshKey=/root/id_rsa
+
+SSH key file to use with auth into the remote server
+
+# zfsProps=.lp-props-tank1#backups#krisbackup
+
+Location of dataset properties file, usually created by "Life-Preserver" during replication
+
+# zfsRemoteDataset=tank1/backups/krisbackup
+
+Location of remote dataset we will be restoring from
+
