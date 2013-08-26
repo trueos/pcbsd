@@ -20,7 +20,6 @@ void MountTray::programInit()
   qDebug() << "pc-mounttray: starting up";
   MTINIT=true; //set the flag that the mount tray is initializing;
   getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
-  //getDefaultFileManager(); //try to detect the default file-manager for opening the mount directory
   loadSavedSettings();
   
   trayIcon = new QSystemTrayIcon(this);
@@ -286,19 +285,7 @@ void MountTray::getInitialUsername(){
   USERNAME=username.simplified(); //set the global variable
   if(DEBUG_MODE){ qDebug() << "-User detected:" << USERNAME; }
 }
-/*
-void MountTray::getDefaultFileManager(){
-  //Get the command to open the appropriate file manager
-  QString fmcmd = pcbsd::Utils::runShellCommand("de-info -fileman").join(" ");
-  //qDebug() << "de-info result:" << fmcmd;
-  fmcmd = fmcmd.remove("%s").simplified();
-  //qDebug() << "FM command found:" << fmcmd;
-  if( fmcmd.isEmpty() || fmcmd.contains("File ") ){fmcmd= "openwith"; } //Default to the "openwith" command
 
-  FILEMAN = fmcmd.simplified();
-  if(DEBUG_MODE){ qDebug() << "-File manager detected:" << FILEMAN; }
-}
-*/
 void MountTray::slotOpenMediaDir(){
   openMediaDir(MOUNTDIR);
 }
