@@ -58,7 +58,7 @@ private slots:
   
 private:
   DevCheck *DCheck;
-  QString USERNAME, FILEMAN;
+  QString USERNAME;//, FILEMAN;
   QLocalSocket* devdProc;
   QTimer *devdTimer;  
   int numMount, numAvail;
@@ -80,7 +80,7 @@ private:
   bool addDevice(QString,QString,QString,QString);
   void startupDevdProc();
   void getInitialUsername();
-  void getDefaultFileManager();
+  //void getDefaultFileManager();
   void loadSavedSettings();
   void saveCurrentSettings();
   
