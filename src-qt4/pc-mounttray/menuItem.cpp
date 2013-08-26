@@ -253,7 +253,7 @@ void MenuItem::mountItem(){
   
 }
 
-void MenuItem::unmountItem(){
+void MenuItem::unmountItem(bool force){
   //Unmount the device
 	
   //Check to see if the current mountpoint exists or if it is somewhere else
@@ -265,6 +265,7 @@ void MenuItem::unmountItem(){
   }
   //Make sure there are no spaces in the mounpoint path
   QString cmd1 = "umount \"" + mountpoint +"\"";
+  if(force){ cmd1.replace("umount ","umount -f "); }
   QString cmd2 = "rmdir \"" + mountpoint +"\"";
   qDebug() << "Unmounting device from" << mountpoint;
   //Run the commands
@@ -287,6 +288,14 @@ void MenuItem::unmountItem(){
       result = tr("It is now safe to remove the device");
     }
   }else{
+    if(!force){
+      if(QMessageBox::Yes == QMessageBox::question(0,tr("Device Busy"),
+	         tr("The device appears to be busy. Would you like to unmount it anyway?")+"\n\n"+tr("NOTE: This is generally not recommended unless you are sure that you don't have any applications using the device."),
+                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+        unmountItem(true); //force the unmount recursively
+	return;
+      }
+    }
     qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
     qDebug() << " - Error message:" << output;
     title = QString( tr("Error: %1 could not be unmounted") ).arg(devLabel->text());

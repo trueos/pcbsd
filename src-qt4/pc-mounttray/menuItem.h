@@ -59,7 +59,7 @@ class MenuItem : public QWidgetAction
   	QCheckBox* checkAutomount;
 
 	//void mountItem();
-  	void unmountItem();
+  	void unmountItem(bool force = false);
         void updateSizes();
         QString getSizeDisplay(int);
         bool checkSavedAutoMount();
