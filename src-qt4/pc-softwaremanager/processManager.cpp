@@ -83,6 +83,8 @@ void ProcessManager::startProcess(ProcessID ID, QString cmd){
   }else if( ID == REMOVE ){
     qDebug() << "Removal Process Started:" << cmd;
     remLog.clear();
+    if( cmd.contains("pbi_delete") ){ remStrictErrChecking = true; }
+    else{ remStrictErrChecking=false; }
     remProc->start(cmd);	   	  
   }else if( ID == DOWNLOAD ){
     qDebug() << "Download Process Started:" << cmd;
@@ -232,7 +234,7 @@ void ProcessManager::slotRemProcMessage(){
 }
 
 void ProcessManager::slotRemProcFinished(){
-  if(remProc->exitStatus() != QProcess::NormalExit || remProc->exitCode() != 0){
+  if(remProc->exitStatus() != QProcess::NormalExit || (remProc->exitCode() != 0 && remStrictErrChecking) ){
     qDebug() << "Removal Process Error Log:\n"<<remLog.join("\n");
     emit ProcessError(REMOVE, remLog);
   }else{

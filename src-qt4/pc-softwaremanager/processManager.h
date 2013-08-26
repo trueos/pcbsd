@@ -33,6 +33,7 @@ signals:
 private:
 	QProcess *upProc, *remProc, *dlProc, *inProc, *otProc;
 	QStringList upLog, remLog, dlLog, inLog;
+        bool remStrictErrChecking;
 
 private slots:
 	QString parseDlLine(QString);
