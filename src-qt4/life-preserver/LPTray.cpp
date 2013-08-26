@@ -2,6 +2,7 @@
 
 //PUBLIC
 LPTray::LPTray() : QSystemTrayIcon(){
+  initPhase = true; //flag that we are in the startup process
   //Start up the log file watcher
   QString logfile = "/var/log/lpreserver/lpreserver.log";
   watcher = new QFileSystemWatcher();
@@ -46,7 +47,7 @@ LPTray::~LPTray(){
 // ===============
 //  PRIVATE FUNCTIONS
 // ===============
-void LPTray::parseLogMessage(QString log){
+void LPTray::parseLogMessage(QString log, bool quiet){
   //Divide up the log into it's sections
   QString timestamp = log.section(":",0,2).simplified();
   QString time = timestamp.section(" ",3,3).simplified();
@@ -56,10 +57,10 @@ void LPTray::parseLogMessage(QString log){
   qDebug() << "New Log Message:" << log;
   if(message.contains("creating snapshot")){
     dev = message.section(" ",-1).simplified();
-    this->showMessage( time, QString(tr("Creating snapshot for %1")).arg(dev), QSystemTrayIcon::Information, 5000);
+    if(!quiet){ this->showMessage( time, QString(tr("Creating snapshot for %1")).arg(dev), QSystemTrayIcon::Information, 5000); }
     //Just set the standard idle icon
     this->setIcon( QIcon(":/images/tray-icon-idle.png") );   
-//  }else if(message.contains("pruning snapshot")){
+    setIdleToolTip();
   }else if(message.contains("starting replication")){
     startWorkingIcon();
     //Setup the file watcher for this new log file
@@ -81,9 +82,9 @@ void LPTray::parseLogMessage(QString log){
     }
     //Clean up and show messages
     repTotK.clear();
-    this->setToolTip("");
+    setIdleToolTip();
     dev = message.section(" ",-1).simplified();
-    this->showMessage( time, QString(tr("Finished replication for %1")).arg(dev), QSystemTrayIcon::Information, 5000);
+    if(!quiet){ this->showMessage( time, QString(tr("Finished replication for %1")).arg(dev), QSystemTrayIcon::Information, 5000); }
   }else if( message.contains("FAILED replication") ){
     stopWorkingIcon();
     //Stop the file wather from watching the status file and clean up
@@ -98,7 +99,7 @@ void LPTray::parseLogMessage(QString log){
     QString file = log.section("LOGFILE:",1,1).simplified();
     QString tt = QString(tr("%1: Replication Failed on %2")).arg(time,dev) +"\n"+ QString(tr("Logfile available at: %1")).arg(file);
     this->setToolTip(tt);   
-    this->showMessage( time, QString(tr("Replication Error for %1")).arg(dev), QSystemTrayIcon::Information, 5000);
+    if(!quiet){ this->showMessage( time, QString(tr("Replication Error for %1")).arg(dev), QSystemTrayIcon::Information, 5000); }
     this->setIcon(QIcon(":/images/tray-icon-failed.png"));
   }else{
     //Just set the standard idle icon
@@ -138,6 +139,28 @@ void LPTray::parseStatusMessage(QString stat){
   }
 }
 
+void LPTray::setIdleToolTip(){
+  //Get the last snapshot created
+  QStringList dsList = LPBackend::listDatasets();
+  if(dsList.isEmpty()){
+    this->setToolTip(tr("Automatic Backups Disabled"));
+  }else{
+    //Grab the newest snapshot from each dataset
+    QString tt; //tooltip
+    for(int i=0; i<dsList.length(); i++){
+      QStringList snaps = LPBackend::listLPSnapshots(dsList[0]);
+      if(!tt.isEmpty()){ tt.append("\n"); } //put each dataset on a new line
+      if(snaps.isEmpty()){
+        tt.append( QString(tr("%1: No snapshots available")).arg(dsList[0]) );
+      }else{
+        tt.append( QString(tr("%1: %2 available")).arg(dsList[0],snaps[0]) );
+      }
+    }
+    this->setToolTip(tt);
+  }
+	
+}
+
 void LPTray::startWorkingIcon(){
   this->setIcon( QIcon(":/images/tray-icon-active7.png"));
   //wNum = 1; //start on the first image
@@ -170,6 +193,7 @@ double LPTray::displayToDoubleK(QString displayNumber){
 // ===============
 void LPTray::firstCheck(){
   slotNewLogMessage("/var/log/lpreserver/lpreserver.log");
+  initPhase = false; //done with initializations
 }
 
 void LPTray::slotNewLogMessage(QString file){
@@ -180,7 +204,7 @@ void LPTray::slotNewLogMessage(QString file){
     QString log;
     while( !LFStream->atEnd() ){ log = LFStream->readLine(); }
     //Now parse the log line and do stuff with it
-    parseLogMessage(log);
+    parseLogMessage(log,initPhase);
   }else{
     //Replication status update
       //get the last line from the file

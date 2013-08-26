@@ -28,9 +28,11 @@ private:
 	QTextStream *LFStream, *SFStream;
 	QString repTotK, lastSize;
 	int wNum; //internal tracking of which frame of the icon animation we are on
+	bool initPhase;
 
-	void parseLogMessage(QString);
+	void parseLogMessage(QString, bool quiet = false);
 	void parseStatusMessage(QString);
+	void setIdleToolTip();
 	void startWorkingIcon();
 	void stopWorkingIcon();
 	double displayToDoubleK(QString);

@@ -50,6 +50,7 @@ LPDataset mainUI::newDataset(QString ds){
   LPDataset DSC;
   //List all the mountpoints in this dataset
   QStringList subsets = LPBackend::listDatasetSubsets(ds);
+  QStringList lpsnaps = LPBackend::listLPSnapshots(ds);
   //populate the list of snapshots available for each mountpoint
   for(int i=0; i<subsets.length(); i++){
     //qDebug() << "Subset:" << subsets[i];
@@ -60,7 +61,18 @@ LPDataset mainUI::newDataset(QString ds){
       subsets.removeAt(i);
       i--;
     }else{
-      DSC.subsetHash.insert(subsets[i],snaps); //add it to the internal container hash
+      QStringList subsnaps;
+      //only list the valid snapshots that life preserver created
+      for(int s=0; s<lpsnaps.length(); s++){
+	int index = snaps.indexOf(lpsnaps[s]);
+        if(index > -1){ subsnaps << lpsnaps[s]; snaps.removeAt(index); }
+      }
+      //Now list all the other available snapshots (no certain ordering)
+      if(!snaps.isEmpty()){
+	subsnaps << "--"; //so we know that this is a divider between the sections
+	subsnaps << snaps;
+      }
+      DSC.subsetHash.insert(subsets[i],subsnaps); //add it to the internal container hash
     }
   }
   //Get the time for the latest life-preserver snapshot (and total number)
@@ -75,14 +87,13 @@ LPDataset mainUI::newDataset(QString ds){
     DSC.numberOfSnapshots = "0";
     DSC.latestSnapshot= "";
   }else{
-    QStringList fSnap = DSC.subsetHash[subsets[0]].filter("auto-"); //filtered snapshot list (just life preserver snapshots)
-    DSC.numberOfSnapshots = QString::number(fSnap.length());
-    if(fSnap.isEmpty()){ DSC.latestSnapshot=""; }
+    DSC.numberOfSnapshots = QString::number(lpsnaps.length());
+    if(lpsnaps.isEmpty()){ DSC.latestSnapshot=""; }
     else if(ci > -1 && ci < CLIST.length()){ 
       QString sna = CLIST[ci].section(":::",1,1);
       if(sna != "-"){ DSC.latestSnapshot= sna; }
       else{ DSC.latestSnapshot = ""; }      
-    }else{ DSC.latestSnapshot=fSnap[0]; }
+    }else{ DSC.latestSnapshot=lpsnaps[0]; }
   }
   //List the replication status
   if(RLIST.contains(ds) && (ci > -1)){ 
@@ -185,9 +196,12 @@ void mainUI::updateMenus(){
 	if(snaps.isEmpty()){ continue; }
 	QMenu *menu = new QMenu(subsets[i],this);
 	for(int s =0; s<snaps.length(); s++){
-	  QAction *act = new QAction(snaps[s],this);
+	  if(snaps[s] == "--"){ menu->addSeparator(); }
+	  else{
+	    QAction *act = new QAction(snaps[s],this);
 		act->setWhatsThis(ds+":::"+subsets[i]+":::"+snaps[s]);
-	  menu->addAction(act);
+	    menu->addAction(act);
+	  }
 	}
 	revMenu->addMenu(menu);
 	brMenu->addMenu(menu);
