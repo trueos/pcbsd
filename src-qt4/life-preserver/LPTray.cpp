@@ -201,10 +201,8 @@ void LPTray::slotNewLogMessage(QString file){
   if(file == "/var/log/lpreserver/lpreserver.log"){
     //Backend Status Update
     //get the last line from the log file
-    QString log;
-    while( !LFStream->atEnd() ){ log = LFStream->readLine(); }
-    //Now parse the log line and do stuff with it
-    parseLogMessage(log,initPhase);
+    //Now parse the log lines and do stuff with it
+    while( !LFStream->atEnd() ){ parseLogMessage(LFStream->readLine(), initPhase); }
   }else{
     //Replication status update
       //get the last line from the file

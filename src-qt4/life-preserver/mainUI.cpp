@@ -299,12 +299,8 @@ void mainUI::on_tool_newsnapshot_clicked(){
   if(!ok || name.isEmpty()){ return; } //cancelled
   qDebug() << "Creating a new snapshot:" << ds << name;
   //Now create the new snapshot
-  ok = LPBackend::newSnapshot(ds,name);
-  if( ok ){
-    QMessageBox::information(this,tr("Success"), tr("The new snapshot has been created"));
-  }else{
-    QMessageBox::warning(this,tr("Failure"), tr("The new snapshot could not be created"));
-  }
+  LPBackend::newSnapshot(ds,name);
+  QMessageBox::information(this,tr("Snapshot Pending"), tr("The new snapshot creation has been added to the queue"));
   setupUI();
 }
 

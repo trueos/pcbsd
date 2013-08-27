@@ -161,11 +161,13 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 // ==================
 //    Snapshop Management
 // ==================
-bool LPBackend::newSnapshot(QString dataset, QString snapshotname){
+void LPBackend::newSnapshot(QString dataset, QString snapshotname){
+  //This needs to run externally - since the snapshot is simply added to the queue, and the replication
+  //   afterwards may take a long time.
   QString cmd = "lpreserver mksnap --replicate "+dataset+" "+snapshotname;
-  int ret = LPBackend::runCmd(cmd);
+  QProcess::startDetached(cmd);
    
-  return (ret == 0);
+  return;
 }
 
 bool LPBackend::removeSnapshot(QString dataset, QString snapshot){
