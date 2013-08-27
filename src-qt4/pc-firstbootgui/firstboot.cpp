@@ -455,7 +455,7 @@ void Installer::saveSettings()
   
   // Encrypt the users home-directory?
   if ( checkEnc->isChecked() )
-    system("enable_user_pefs " + lineUsername->text().toLatin1() + " " + linePW->text().toLatin1());
+    QProcess::execute("enable_user_pefs", QStringList() << lineUsername->text() << linePW->text());
 
   // Do we need to change the system hostname?
   if ( lineHostname->text() != pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1) )
