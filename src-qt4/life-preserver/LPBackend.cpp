@@ -5,13 +5,7 @@
 // ==============
 QStringList LPBackend::listPossibleDatasets(){
   QString cmd = "zpool list -H -o name";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output (one dataset per line - no headers)
   QStringList list;
   for(int i=0; i<out.length(); i++){
@@ -25,13 +19,7 @@ QStringList LPBackend::listPossibleDatasets(){
 
 QStringList LPBackend::listDatasets(){
   QString cmd = "lpreserver listcron";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
   for(int i=2; i<out.length(); i++){ //skip the first two lines (headers)
@@ -44,13 +32,7 @@ QStringList LPBackend::listDatasets(){
 
 QStringList LPBackend::listDatasetSubsets(QString dataset){
   QString cmd = "zfs list -H -t filesystem -o name,mountpoint,mounted";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output (one dataset per line - no headers)
   QStringList list;
   for(int i=0; i<out.length(); i++){
@@ -78,13 +60,7 @@ QStringList LPBackend::listSnapshots(QString dsmountpoint){
 
 QStringList LPBackend::listLPSnapshots(QString dataset){
   QString cmd = "lpreserver listsnap "+dataset;
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
   for(int i=out.length()-1; i>=0; i--){ //go in reverse order for proper time format (newest first)
@@ -99,13 +75,7 @@ QStringList LPBackend::listLPSnapshots(QString dataset){
 
 QStringList LPBackend::listReplicationTargets(){
   QString cmd = "lpreserver replicate list";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
   for(int i=0; i<out.length(); i++){
@@ -120,15 +90,9 @@ QStringList LPBackend::listReplicationTargets(){
 
 QStringList LPBackend::listCurrentStatus(){
   QString cmd = "lpreserver status";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
-  QStringList list;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output	
+  QStringList list;
   for(int i=2; i<out.length(); i++){ //first 2 lines are headers
     //Format: <dataset>:::<lastsnapshot | NONE>:::<lastreplication | NONE>
     if(out[i].isEmpty()){ continue; }
@@ -157,27 +121,21 @@ bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   
   //Create the command
   QString cmd = "lpreserver cronsnap "+dataset+" start "+freq+" "+QString::number(numToKeep);
-  int ret = system(cmd.toUtf8());
+  int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::removeDataset(QString dataset){
   QString cmd = "lpreserver cronsnap "+dataset+" stop";
-  int ret = system(cmd.toUtf8());	
+  int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
   QString cmd = "lpreserver listcron";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
   for(int i=0; i<out.length(); i++){
@@ -205,21 +163,21 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
 // ==================
 bool LPBackend::newSnapshot(QString dataset, QString snapshotname){
   QString cmd = "lpreserver mksnap --replicate "+dataset+" "+snapshotname;
-  int ret = system(cmd.toUtf8());
+  int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::removeSnapshot(QString dataset, QString snapshot){
   QString cmd = "lpreserver rmsnap "+dataset +" "+snapshot;
-  int ret = system(cmd.toUtf8());	
+  int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
 
 bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
   QString cmd = "lpreserver revertsnap "+dataset +" "+snapshot;
-  int ret  = system(cmd.toUtf8());
+  int ret  = LPBackend::runCmd(cmd);
    
   return (ret == 0);
 }
@@ -280,27 +238,21 @@ bool LPBackend::setupReplication(QString dataset, QString remotehost, QString us
   
   
   QString cmd = "lpreserver replicate add "+remotehost+" "+user+" "+ QString::number(port)+" "+dataset+" "+remotedataset+" "+stime;
-  int ret = system(cmd.toUtf8());
+  int ret = LPBackend::runCmd(cmd);
   
   return (ret == 0);
 }
 
 bool LPBackend::removeReplication(QString dataset){
   QString cmd = "lpreserver replicate remove "+dataset;
-  int ret = system(cmd.toUtf8());	
+  int ret = LPBackend::runCmd(cmd);	
    
   return (ret == 0);
 }
 
 bool LPBackend::replicationInfo(QString dataset, QString& remotehost, QString& user, int& port, QString& remotedataset, int& time){
   QString cmd = "lpreserver replicate list";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   bool ok = false;
   for(int i=0; i<out.length(); i++){
@@ -327,20 +279,14 @@ bool LPBackend::replicationInfo(QString dataset, QString& remotehost, QString& u
 bool LPBackend::setupSSHKey(QString remoteHost, QString remoteUser, int remotePort){
   QString LPPATH = "/usr/local/share/lifePreserver";
   QString cmd = "xterm -e \""+LPPATH+"/scripts/setup-ssh-keys.sh "+remoteUser+" "+remoteHost+" "+QString::number(remotePort)+"\"";
-  int ret = system(cmd.toUtf8());
+  int ret = LPBackend::runCmd(cmd);
   return (ret == 0);
 }
 
 QStringList LPBackend::findValidUSBDevices(){
   //Return format: "<mountpoint> (<device node>")
   QString cmd = "mount";
-  //Need output, so run this in a QProcess
-  QProcess *proc = new QProcess;
-  proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
-  proc->waitForFinished();
-  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
-  delete proc;
+  QStringList out = LPBackend::getCmdOutput(cmd);
   //Now process the output
   QStringList list;
   for(int i=0; i<out.length(); i++){
@@ -365,4 +311,32 @@ bool LPBackend::copySSHKey(QString mountPath, QString localHost){
 
   bool ok = QFile::copy(publicKey, mountPath);
   return ok;
+}
+
+
+// =========================
+//             PRIVATE FUNCTIONS
+// =========================
+QStringList LPBackend::getCmdOutput(QString cmd){
+  QProcess *proc = new QProcess;
+  proc->setProcessChannelMode(QProcess::MergedChannels);
+  proc->start(cmd);
+  while(!proc->waitForFinished(300)){
+    QCoreApplication::processEvents();
+  }
+  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
+  delete proc;	
+  return out;
+}
+
+int LPBackend::runCmd(QString cmd){
+  QProcess *proc = new QProcess;
+  proc->setProcessChannelMode(QProcess::MergedChannels);
+  proc->start(cmd);
+  while(!proc->waitForFinished(300)){
+    QCoreApplication::processEvents();
+  }
+  int ret = proc->exitCode();
+  delete proc;	
+  return ret;
 }

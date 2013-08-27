@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QDebug>
 #include <QDir>
+#include <QCoreApplication>
 
 //Class of static functions for using the "lpreserver" backend
 class LPBackend{
@@ -36,5 +37,9 @@ public:
 	static bool setupSSHKey(QString remoteHost, QString remoteUser, int remotePort);
 	static QStringList findValidUSBDevices();
 	static bool copySSHKey(QString mountPath, QString localHost);
+	
+private:
+	static QStringList getCmdOutput(QString);
+	static int runCmd(QString);
 };
 #endif
