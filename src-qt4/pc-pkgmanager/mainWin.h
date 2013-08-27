@@ -1,6 +1,7 @@
 #ifndef MAINWIN_H
 #define MAINWIN_H
 
+#include <QCloseEvent>
 #include <QDialog>
 #include <QFile>
 #include <QMenu>
@@ -37,6 +38,9 @@ public:
 public slots:
     void ProgramInit(QString);
     void slotSingleInstance();
+
+protected:
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     
