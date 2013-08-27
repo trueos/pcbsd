@@ -48,6 +48,7 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   else if(devType == "SD"){ devIcon->setPixmap(QPixmap(":icons/sdcard.png")); }
   else if(devType == "CD9660"){ devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
   else if(devType == "ISO"){devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
+  else if(devType == "SCSI"){devIcon->setPixmap(QPixmap(":icons/harddrive.png")); }
   //Start the automount procedure if necessary
   if(checkAutomount->isChecked() || devType=="ISO"){
     QTimer::singleShot(500,this,SLOT( slotMountClicked() ));

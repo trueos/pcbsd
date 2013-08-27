@@ -4,8 +4,8 @@
 
 DevCheck::DevCheck(){
   //Initialize the lists of valid device types
-  validDevs << "da" << "ad" << "mmcsd" << "cd" << "acd" << "md";
-  validDevTypes << "USB" << "SATA" << "SD" << "CD9660" << "CD9660" << "ISO";
+  validDevs << "da" << "ad" << "mmcsd" << "cd" << "acd" << "md" << "da";
+  validDevTypes << "USB" << "SATA" << "SD" << "CD9660" << "CD9660" << "ISO" << "SCSI";
   for(int i=0; i<validDevs.length(); i++){
     devFilter << validDevs[i]+"*";
   }
@@ -101,11 +101,12 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
 	break; 
     }
   }
-  if(detType == "USB"){
+  if(detType == "USB" && QFile::exists(fullDev)){
     //make sure that it is not a SCSI device
-    
+    QString camctl = "camcontrol identify "+node;
+    camctl = pcbsd::Utils::runShellCommand( camctl ).join(" ");
+    if(camctl.contains(" SCSI ")){ detType = "SCSI"; } //USB devices do not have any output
   }
-  
   //Make sure we quit before running commands on any invalid device nodes
   if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
   else{type->append(detType);}
@@ -125,7 +126,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     QStringList tmp = output.split(",");
     if( !tmp.filter("partition ").isEmpty() ){
       //Check for actual sub-devices (*s[#][a/b/c/....])
-      if( devChildren(node).length() > 0 ){ hasPartitions = TRUE; } //the main device will always make it length 1
+      if( devChildren(node).length() > 0 ){ hasPartitions = TRUE; }
     }
     if( !tmp.filter("last mounted on /").isEmpty() && (detType == "SATA")){
       isMounted = TRUE;
