@@ -38,8 +38,6 @@ void mainWin::ProgramInit(QString ch)
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
-  connect(action_Basic, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
-  connect(action_Advanced, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
   connect(tool_search, SIGNAL( clicked() ), this, SLOT( slotSearchPackages() ) );
 
   // Setup the action group
@@ -63,9 +61,14 @@ void mainWin::ProgramInit(QString ch)
   if ( !wDir.isEmpty() )
   {
      stackedPkgView->setCurrentIndex(1);
+     action_Basic->setChecked(false);
+     action_Basic->setEnabled(false);
      action_Advanced->setChecked(true);
-     menu_View->setEnabled(false);
-     menu_View->setVisible(false);
+     action_Advanced->setEnabled(false);
+  } else {
+    // Connect our view modes only when not running via in a chroot
+    connect(action_Basic, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
+    connect(action_Advanced, SIGNAL( triggered(bool) ), this, SLOT( slotViewChanged() ) );
   }
 
   initMetaWidget();
