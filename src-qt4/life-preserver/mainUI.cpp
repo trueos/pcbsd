@@ -196,6 +196,7 @@ void mainUI::updateMenus(){
   //Enabled/disable the SSH key management
   if(RLIST.contains(ds) && !ds.isEmpty()){
     ui->tool_keys->setVisible(true);
+    ui->tool_keys->setEnabled(true);
   }else{
     ui->tool_keys->setVisible(false);
   }
