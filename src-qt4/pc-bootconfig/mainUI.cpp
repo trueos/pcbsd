@@ -340,6 +340,10 @@ void mainUI::on_tool_BEactivate_clicked(){
 void mainUI::on_tool_BEcp_clicked(){
  int index = getSelectedBE();
   if(index != -1){
+    if(ui->tree_BE->topLevelItem(index)->text(1).toLower() == "yes"){
+      QMessageBox::warning(this,tr("Running Boot Environment"),tr("You cannot make a copy of the currently running boot environment!") );
+      return;
+    }
     bool updateGRUB=false;
     if( ui->tree_BE->topLevelItemCount() == 1){updateGRUB=true;} //moving from 1 to 2
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
