@@ -143,7 +143,7 @@ void LPTray::setIdleToolTip(){
   //Get the last snapshot created
   QStringList dsList = LPBackend::listDatasets();
   if(dsList.isEmpty()){
-    this->setToolTip(tr("Automatic Backups Disabled"));
+    this->setToolTip(tr("Automatic Snapshots Disabled"));
   }else{
     //Grab the newest snapshot from each dataset
     QString tt; //tooltip
@@ -153,7 +153,7 @@ void LPTray::setIdleToolTip(){
       if(snaps.isEmpty()){
         tt.append( QString(tr("%1: No snapshots available")).arg(dsList[0]) );
       }else{
-        tt.append( QString(tr("%1: %2 available")).arg(dsList[0],snaps[0]) );
+        tt.append( QString(tr("%1: Latest snapshot: %2")).arg(dsList[0],snaps[0]) );
       }
     }
     this->setToolTip(tt);
@@ -200,7 +200,6 @@ void LPTray::slotNewLogMessage(QString file){
   //qDebug() << "New Log Message in file:" << file;
   if(file == "/var/log/lpreserver/lpreserver.log"){
     //Backend Status Update
-    //get the last line from the log file
     //Now parse the log lines and do stuff with it
     while( !LFStream->atEnd() ){ parseLogMessage(LFStream->readLine(), initPhase); }
   }else{
