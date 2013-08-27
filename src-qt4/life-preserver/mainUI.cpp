@@ -33,9 +33,12 @@ mainUI::~mainUI(){
 void mainUI::setupUI(){
   //Initialize the Hash (make sure it is not run too frequently - causes kernel panics)
   if(lastUpdate.isNull() || lastUpdate.addSecs(15) < QTime::currentTime() ){
+    enableButtons(false); //disable the buttons temporarily
     lastUpdate = QTime::currentTime();	  
     qDebug() << "Updating the database";
+    ui->statusbar->showMessage(tr("Updating the database"),0);
     updateHash();
+    ui->statusbar->clearMessage();
   }else{
     freqTimer->start();
   }
@@ -107,6 +110,22 @@ LPDataset mainUI::newDataset(QString ds){
   return DSC;
 }
 
+void mainUI::enableButtons(bool enable){
+  if(enable){
+    //special care must be taken here to only enable the ones that are valid
+    updateMenus();
+  }else{
+    ui->tool_add->setEnabled(false);
+    ui->tool_browse->setEnabled(false);
+    ui->tool_config->setEnabled(false);
+    ui->tool_keys->setEnabled(false);
+    ui->tool_newsnapshot->setEnabled(false);
+    ui->tool_remove->setEnabled(false);
+    ui->tool_revert->setEnabled(false);
+  }
+  
+}
+
 // =================
 //    PRIVATE FUNCTIONS
 // =================
@@ -170,9 +189,9 @@ void mainUI::updateMenus(){
     ui->tool_config->setVisible(false);
     ui->tool_newsnapshot->setVisible(false);
   }else{
-    ui->tool_remove->setVisible(true);
-    ui->tool_config->setVisible(true);	  
-    ui->tool_newsnapshot->setVisible(true);
+    ui->tool_remove->setVisible(true); ui->tool_remove->setEnabled(true);
+    ui->tool_config->setVisible(true);  ui->tool_config->setEnabled(true);
+    ui->tool_newsnapshot->setVisible(true); ui->tool_newsnapshot->setEnabled(true);
   }
   //Enabled/disable the SSH key management
   if(RLIST.contains(ds) && !ds.isEmpty()){
@@ -237,7 +256,10 @@ QString mainUI::getSelectedDS(){
 // =================
 //  --- Buttons Clicked
 void mainUI::on_treeWidget_itemSelectionChanged(){
-  updateMenus();
+  if(ui->statusbar->currentMessage().isEmpty()){
+    //only update the menu's if they are not currently disabled while a process is running
+    updateMenus();
+  }
 }
 
 void mainUI::on_tool_config_clicked(){
@@ -249,17 +271,24 @@ void mainUI::on_tool_config_clicked(){
   //Now check for return values and update appropriately
   bool change = false;
   if(CFG.localChanged){
+    enableButtons(false);
+    ui->statusbar->showMessage(QString(tr("Configuring dataset: %1")).arg(ds),0);
     LPBackend::setupDataset(ds, CFG.localSchedule, CFG.localSnapshots);
+    ui->statusbar->clearMessage();
     change = true;
   }
   if(CFG.remoteChanged){
     change = true;
+    enableButtons(false);
     if(CFG.isReplicated){
+      ui->statusbar->showMessage(QString(tr("Configuring replication: %1")).arg(ds),0);
       LPBackend::setupReplication(ds, CFG.remoteHost, CFG.remoteUser, CFG.remotePort, CFG.remoteDataset, CFG.remoteFreq);
       QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
     }else{
+      ui->statusbar->showMessage(QString(tr("Removing replication: %1")).arg(ds),0);
       LPBackend::removeReplication(ds);
     }
+    ui->statusbar->clearMessage();
   }
   //Now update the UI if appropriate
   if(change){
@@ -272,19 +301,28 @@ void mainUI::on_tool_remove_clicked(){
   if(!ds.isEmpty()){
     //Verify the removal of the dataset
     if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify Dataset Backup Removal"),tr("Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?")+"\n\n"+ds,QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){	    
+      enableButtons(false);
       //verify the removal of all the snapshots for this dataset
       QStringList snaps = LPBackend::listLPSnapshots(ds);
       if(!snaps.isEmpty()){
         if( QMessageBox::Yes == QMessageBox::question(this,tr("Verify Snapshot Deletion"),tr("Do you wish to remove the local snapshots for this dataset?")+"\n"+tr("WARNING: This is a permanant change that cannot be reversed"),QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
 	  //Remove all the snapshots
+	  ui->statusbar->showMessage(QString(tr("%1: Removing snapshots")).arg(ds),0);
 	  for(int i=0; i<snaps.length(); i++){
 	    LPBackend::removeSnapshot(ds,snaps[i]);
 	  }
+	  ui->statusbar->clearMessage();
         }
       }
       //Remove the dataset from life-preserver management
-      if(RLIST.contains(ds)){ LPBackend::removeReplication(ds); }
+      if(RLIST.contains(ds)){ 
+        ui->statusbar->showMessage(QString(tr("%1: Disabling Replication")).arg(ds),0);
+	LPBackend::removeReplication(ds); 
+	ui->statusbar->clearMessage();      
+      }
+      ui->statusbar->showMessage(QString(tr("%1: Disabling Life-Preserver Management")).arg(ds),0);
       LPBackend::removeDataset(ds);
+      ui->statusbar->clearMessage();
     }
   }
   setupUI();
@@ -317,6 +355,8 @@ void mainUI::slotRevertToSnapshot(QAction *act){
 	     QString(tr("Are you sure that you wish to revert %1 to the selected snapshot?")).arg(subset)+"\n"+tr("WARNING: This will result in the loss of any data not previously backed up."),
 	     QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
         //Perform the reversion
+	enableButtons(false);
+	ui->statusbar->showMessage(QString(tr("%1: Reverting dataset: %2")).arg(ds,subset),0);
         if( !LPBackend::revertSnapshot(ds+subset,snap) ){
 	  //Error performing the reversion
 	  qDebug() << " - Error:" << ds+subset << snap;
@@ -326,6 +366,8 @@ void mainUI::slotRevertToSnapshot(QAction *act){
 	  qDebug() << " - Revert Complete";
 	  QMessageBox::information(this,tr("Reversion Success"), tr("The snapshot reversion was completed successfully."));	
 	}
+	ui->statusbar->clearMessage();
+	enableButtons(true);
      }
   }
 }
@@ -347,6 +389,8 @@ void mainUI::slotBrowseSnapshot(QAction *act){
     qDebug() << " - Invalid File";
     QMessageBox::warning(this, tr("Invalid Snapshot File"), tr("Please select a file from within the chosen snapshot that you wish to revert"));
   }else{
+    enableButtons(false);
+    ui->statusbar->showMessage(QString(tr("%1: Reverting File: %2")).arg(ds,filepath.remove(".zfs/snapshot/"+snap+"/").replace(QDir::homePath(),"~")),0);
     //Revert the file
     QString newfile = LPBackend::revertSnapshotFile(subset,snap,filepath);
     if(newfile.isEmpty()){
@@ -358,6 +402,8 @@ void mainUI::slotBrowseSnapshot(QAction *act){
       qDebug() << " - Successful reversion:" << newfile;
       QMessageBox::information(this, tr("FIle Reverted"), QString(tr("The reverted file is now available at: %1")).arg(newfile) );
     }
+    ui->statusbar->clearMessage();
+    enableButtons(true);
   }
   return;
 }
@@ -370,6 +416,8 @@ void mainUI::slotAddDataset(QAction *act){
   wiz.exec();
   //See if the wizard was cancelled or not
   if(!wiz.cancelled){
+    enableButtons(false);
+    ui->statusbar->showMessage(QString(tr("Enabling dataset management: %1")).arg(dataset),0);
     //run the proper commands to get the dataset enabled
     if( LPBackend::setupDataset(dataset, wiz.localTime, wiz.totalSnapshots) ){
       if(wiz.enableReplication){
@@ -377,6 +425,7 @@ void mainUI::slotAddDataset(QAction *act){
 	 QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
       }
     }
+    ui->statusbar->clearMessage();
   }
   //Now update the UI/Hash
   setupUI();
@@ -388,7 +437,10 @@ void mainUI::on_actionClose_triggered(){
 
 void mainUI::on_actionKeyNew_triggered(){
   QString ds = getSelectedDS();
+  if(ds.isEmpty()){ return; }
   qDebug() << "New SSH Key triggered for DS:" << ds;
+  enableButtons(false);
+  ui->statusbar->showMessage(QString(tr("%1: Setting up SSH Key")).arg(ds),0);
   //Get the remote values for this dataset
   QString remoteHost, user, remotedataset;
   int port, time;
@@ -402,10 +454,13 @@ void mainUI::on_actionKeyNew_triggered(){
   }else{
     QMessageBox::warning(this,tr("Failure"), tr("There was an error in retrieving the remote replication information for this dataset. Please ensure that replication is enabled and try agin.") );
   }
+  ui->statusbar->clearMessage();
+  enableButtons(true);
 }
 
 void mainUI::on_actionKeyCopy_triggered(){
   QString ds = getSelectedDS();	
+  if(ds.isEmpty()){ return; }
   qDebug() << "Copy SSH Key triggered for DS:" << ds;
   //Get the local hostname
   char host[1023] = "\0";

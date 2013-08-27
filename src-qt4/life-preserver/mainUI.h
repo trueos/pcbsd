@@ -52,6 +52,8 @@ private:
 	QString getSelectedDS();
 	LPDataset newDataset(QString);
 
+	void enableButtons(bool);
+
 private slots:
 	void on_treeWidget_itemSelectionChanged();
 	void on_tool_config_clicked();
