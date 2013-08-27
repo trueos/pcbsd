@@ -101,6 +101,10 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
 	break; 
     }
   }
+  if(detType == "USB"){
+    //make sure that it is not a SCSI device
+    
+  }
   
   //Make sure we quit before running commands on any invalid device nodes
   if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
@@ -121,7 +125,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     QStringList tmp = output.split(",");
     if( !tmp.filter("partition ").isEmpty() ){
       //Check for actual sub-devices (*s[#][a/b/c/....])
-      if( devChildren(node).length() > 1 ){ hasPartitions = TRUE; } //the main device will always make it length 1
+      if( devChildren(node).length() > 0 ){ hasPartitions = TRUE; } //the main device will always make it length 1
     }
     if( !tmp.filter("last mounted on /").isEmpty() && (detType == "SATA")){
       isMounted = TRUE;
