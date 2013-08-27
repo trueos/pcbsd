@@ -1427,3 +1427,25 @@ void mainWin::slotCloseAdvClicked()
 {
    groupInfo->setVisible(false);
 }
+
+void mainWin::closeEvent(QCloseEvent *event) {
+
+  if ( pkgCmdList.isEmpty() ) {
+    this->close();
+    return;   
+  }
+  if ( pkgCmdList.at(0).at(0).isEmpty() ) {
+    this->close();
+    return;  
+  }
+
+  //Verify that they want to continue
+  QMessageBox::StandardButton button = QMessageBox::warning(this, tr("Processes Running"), tr("Packages are currently being changed. Are you sure you want to quit?"), QMessageBox::Yes | QMessageBox::Cancel,QMessageBox::Cancel);
+  if(button == QMessageBox::Yes) {
+    this->close();
+  } else {
+    event->ignore();
+    return;
+  }
+}
+
