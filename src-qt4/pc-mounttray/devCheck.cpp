@@ -101,11 +101,11 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
 	break; 
     }
   }
+  QString camctl;
   if(detType == "USB" && QFile::exists(fullDev)){
     //make sure that it is not a SCSI device
-    QString camctl = "camcontrol identify "+node;
-    camctl = pcbsd::Utils::runShellCommand( camctl ).join(" ");
-    if(camctl.contains(" SCSI ")){ detType = "SCSI"; } //USB devices do not have any output
+    camctl = pcbsd::Utils::runShellCommand( QString("camcontrol inquiry ")+node ).join(" ");
+    if(camctl.contains(" Fixed Direct Access SCSI")){ detType = "SCSI"; } //USB devices do not have any output
   }
   //Make sure we quit before running commands on any invalid device nodes
   if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
@@ -189,7 +189,10 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   //Check to see if we have a label, otherwise assign one
   if( !glabel.isEmpty() ){ dlabel = glabel; hasLabel = TRUE; } //glabel
   else if(!dlabel.isEmpty()){ hasLabel = TRUE; } //file -s label
-  else{
+  else if( !camctl.isEmpty() ){ 
+    //not necessarily a "detected" label, but just an alternate fallback name
+    dlabel = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
+  }else{
     //Assign a device label
     if(isCD){
       if(detType == "ISO"){
