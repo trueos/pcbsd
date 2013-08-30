@@ -555,7 +555,7 @@ check_pkg_conflicts()
 	echo "Do you wish to remove them automatically?"
 	echo -e "Default yes: (y/n)\c"
         read tmp
-	if [ "$tmp" != "y" -a "$tmp" != "Y" ] ; then return 1 ; fi
+	if [ "$tmp" != "y" -a "$tmp" != "Y" -a -n "$tmp" ] ; then return 1 ; fi
   else
 	echo "PKGCONFLICTS: $cList"
 	echo "PKGREPLY: /tmp/pkgans.$$"
