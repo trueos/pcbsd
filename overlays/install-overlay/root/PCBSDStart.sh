@@ -45,6 +45,8 @@ do
   ifconfig ${i} | grep -q "status: active"
   if [ $? -eq 0 ] ; then
     echo "Enabling networking on ${i}..."
+    echo "ifconfig_${i}_ipv6=\"inet6 accept_rtadv\"" >> /etc/rc.conf
+    echo "ifconfig_${i}=\"DHCP\"" >> /etc/rc.conf
     (dhclient ${i} >/dev/null 2>/dev/null ) &
   fi
 done
