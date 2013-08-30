@@ -27,6 +27,7 @@
 #include <QDebug>
 #include <QUrl>
 #include <QFileInfo>
+#include <QTemporaryFile>
 
 UserManagerBackend::UserManagerBackend(QString dir) {
     chroot = dir;
@@ -384,19 +385,24 @@ bool UserManagerBackend::commit()
                       break;
  		    }
                     qDebug() << "Changing password: " << userIt->getUsername();
-		    args.clear();
+
+		    // Set the new PW
+    		    QTemporaryFile rfile("/tmp/.XXXXXXXX");
+  		    if ( rfile.open() ) {
+       		      QTextStream stream( &rfile );
+      		      stream << userIt->getClearPassword();
+    		      rfile.close();
+  		    }
 		    if ( ! chroot.isEmpty() )
-		       args << chroot << "chpass";
-                    args << "-p";
-                    args << userIt->getPassword();
-                    args << userIt->getUsername();
-		    if ( ! chroot.isEmpty() )
-		      QProcess::execute("chroot", args);
-		    else 
-		      QProcess::execute("chpass", args);
+  		      system("cat " + rfile.fileName().toLatin1() + " | chroot " + chroot.toLatin1() + " pw usermod " + userIt->getUsername().toLatin1() + " -h 0 ");
+		    else
+  		      system("cat " + rfile.fileName().toLatin1() + " | pw usermod " + userIt->getUsername().toLatin1() + " -h 0 ");
+
+  		    rfile.remove();
                 }
                 break;
             case 2:
+	    {
                 //Add User
                 qDebug() << "Adding user " << userIt->getUsername();
 		// Create the new home-directory
@@ -434,17 +440,18 @@ bool UserManagerBackend::commit()
 		   QProcess::execute("chroot", args);
 		else
 		   QProcess::execute("pw", args);
-                
-		args.clear();
+
+    		QTemporaryFile nfile("/tmp/.XXXXXXXX");
+  		if ( nfile.open() ) {
+       		  QTextStream stream( &nfile );
+      		  stream << userIt->getClearPassword();
+    		  nfile.close();
+  		}
 		if ( ! chroot.isEmpty() )
-		   args << chroot << "chpass";
-                args << "-p";
-                args << userIt->getPassword();
-                args << userIt->getUsername();
-		if ( ! chroot.isEmpty() )
-		   QProcess::execute("chroot", args);
+  		  system("cat " + nfile.fileName().toLatin1() + " | chroot " + chroot.toLatin1() + " pw usermod " + userIt->getUsername().toLatin1() + " -h 0 ");
 		else
-		   QProcess::execute("chpass", args);
+  		  system("cat " + nfile.fileName().toLatin1() + " | pw usermod " + userIt->getUsername().toLatin1() + " -h 0 ");
+  	        nfile.remove();
 
 		if ( chroot.isEmpty() ) {
 		   qDebug() << "Enabling Flash Plugin for " << userIt->getUsername();
@@ -464,6 +471,7 @@ bool UserManagerBackend::commit()
 		}
 
                 break;
+	    }
             case 3:
                 //Delete User
                 qDebug() << "Deleting user " << userIt->getUsername();
