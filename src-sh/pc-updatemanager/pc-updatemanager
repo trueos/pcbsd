@@ -462,6 +462,9 @@ start_major_fbsd_update() {
   SKIP_CACHE_PKGS="YES" ; export SKIP_CACHE_PKGS
   pc-updatemanager pkgupdate -f
 
+  # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
+  grub-mkconfig -o /boot/grub/grub.cfg 
+
   echo "Major update finished!" 
   echo "Please reboot the system for changes to take effect." 
   exit 0
