@@ -467,7 +467,8 @@ bool UserManagerBackend::commit()
 
 		// Are we enabling encryption?
 		if ( userIt->getEnc() ) {
-		   system("enable_user_pefs " + userIt->getUsername().toLatin1() + " " + userIt->getClearPassword().toLatin1() );
+		   QProcess::execute("enable_user_pefs", QStringList() << userIt->getUsername() << userIt->getClearPassword() );
+
 		}
 
                 break;
