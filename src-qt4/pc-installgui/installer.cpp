@@ -1500,8 +1500,9 @@ void Installer::slotReadInstallerOutput()
      // Doing meta-pkgs
      if ( installFoundMetaCounter ) {
 	// Check if we are on the next meta-pkg
-        if ( tmp.indexOf("Running chroot command: pkg info") != -1 ) {
+        if ( tmp.indexOf("Installing package: ") != -1 ) {
            progressBarInstall->setValue(progressBarInstall->value() + 1); 
+           labelInstallStatus->setText(tr("Installing meta-package: %1").arg(tmp.section(":", 1, 5))); 
 	   continue;
 	}
 
