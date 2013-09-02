@@ -856,6 +856,9 @@ run_gpart_slice()
   elif [ "${BMANAGER}" = "GRUB" ] ; then
     # Doing a GRUB stamp? Lets save it for post-install
     echo "${DISK}" >> ${TMPDIR}/.grub-install
+  elif [ "${BMANAGER}" = "GRUB-slice" ] ; then
+    # Lets stamp GRUB on the slice, let the user worry about how to chain-load it
+    echo "${slice}" >> ${TMPDIR}/.grub-install
   fi
 
   # Set the slice to the format we'll be using for gpart later
