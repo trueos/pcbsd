@@ -105,6 +105,13 @@ void wizardDisk::accept()
 
   // Are we installing GRUB?
   useGRUB = checkGRUB->isChecked();
+
+  if ( comboPartition->currentIndex() != 0 && ! useGRUB  ) {
+     QMessageBox::warning(this, tr("No boot-loader!"),
+     tr("You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader."),
+     QMessageBox::Ok,
+     QMessageBox::Ok);
+  }
      
   // When doing advanced ZFS setups, make sure to use GPT
   if ( radioAdvanced->isChecked() && groupZFSOpts->isChecked() )
@@ -172,6 +179,7 @@ int wizardDisk::nextId() const
 // Logic checks to see if we are ready to move onto next page
 bool wizardDisk::validatePage()
 {
+
   // Generate suggested disk layout and show disk tree
   if ( prevID == Page_BasicDisk && currentId() == Page_Mounts) {
     generateDiskLayout();
@@ -214,15 +222,20 @@ bool wizardDisk::validatePage()
          button(QWizard::NextButton)->setEnabled(true);
          return true;
      case Page_BasicDisk:
-	 if ( comboPartition->currentIndex() == 0  && radioAdvanced->isChecked()) {
-	   checkGPT->setVisible(true);
-	   checkForce4K->setVisible(true);
-	 } else {
+	
+	 if ( ! radioAdvanced->isChecked() ) {
 	   checkGPT->setChecked(false);
 	   checkGPT->setVisible(false);
 	   checkForce4K->setVisible(false);
 	   checkForce4K->setChecked(false);
- 	 }
+	 } else {
+	   checkGPT->setVisible(true);
+	   checkForce4K->setVisible(true);
+           if ( comboPartition->currentIndex() == 0)
+	     checkGRUB->setText(tr("Install GRUB (Required for Boot-Environment support)"));
+	   else
+	     checkGRUB->setText(tr("Stamp GRUB on MBR"));
+	 } 
 
 	 // Doing a Advanced install
 	 if ( radioAdvanced->isChecked() && groupZFSPool->isChecked() )

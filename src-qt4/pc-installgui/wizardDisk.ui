@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
-    <height>385</height>
+    <width>641</width>
+    <height>386</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -426,7 +426,7 @@
     <item row="7" column="1">
      <widget class="QCheckBox" name="checkGRUB">
       <property name="text">
-       <string>Install GRUB boot-loader (Required for Boot-Environment support)</string>
+       <string>Install GRUB (Required for Boot-Environment support)</string>
       </property>
       <property name="checked">
        <bool>true</bool>

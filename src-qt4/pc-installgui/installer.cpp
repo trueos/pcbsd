@@ -1081,8 +1081,14 @@ QStringList Installer::getDiskCfgSettings()
     // Are we loading a boot-loader?
     if ( loadMBR )
       tmpList << "bootManager=GRUB";
-    else
-      tmpList << "bootManager=none";
+    else {
+      // If the user declined the GRUB MBR, but we are still using a slice, install it to the slice
+      // for chain-loading later
+      if ( tmpSlice != "ALL" && ! loadGPT )
+        tmpList << "bootManager=GRUB-slice";
+      else
+        tmpList << "bootManager=none";
+    }
 
     // Set the GPT/MBR options
     if ( loadGPT ) 
