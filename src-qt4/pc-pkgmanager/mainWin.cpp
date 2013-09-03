@@ -371,6 +371,10 @@ void mainWin::slotReadPkgOutput() {
      line = uProc->readLine().simplified();
      qDebug() << line;
 
+     // Empty line? We can skip it
+     if ( line.isEmpty() )
+	continue;
+
      tmp = line;
      tmp.truncate(50);
 
