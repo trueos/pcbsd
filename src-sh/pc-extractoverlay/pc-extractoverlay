@@ -105,18 +105,6 @@ post_extract_setup()
     fi
   fi
 
-  # Make sure loader.conf.pcbsd is enabled
-  grep -q 'loader.conf.pcbsd' /boot/defaults/loader.conf
-  if [ $? -ne 0 ] ; then
-    # Setup /boot/defaults/loader.conf
-    sed -i '' 's|/boot/loader.conf /boot/loader.conf.local|/boot/loader.conf.pcbsd /boot/loader.conf /boot/loader.conf.local|g' /boot/defaults/loader.conf 2>/dev/null
-    grep -q "loader.conf.pcbsd" /boot/defaults/loader.conf
-    if [ $? -ne 0 ] ; then
-      echo "WARNING: loader.conf.pcbsd not enabled in /boot/defaults/loader.conf"
-      status="1"
-    fi
-  fi
-
   # See if we need to adjust pkg.conf
   grep -q "ARCH" /usr/local/etc/pkg.conf
   if [ $? -eq 0 ] ; then
