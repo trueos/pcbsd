@@ -126,6 +126,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		virtualbox-ose-kmod>=0:${PORTSDIR}/emulators/virtualbox-ose-kmod \
 		virtualbox-ose-additions>=0:${PORTSDIR}/emulators/virtualbox-ose-additions \
 		x11vnc>=0:${PORTSDIR}/net/x11vnc \
+		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		tk84>=0:${PORTSDIR}/x11-toolkits/tk84 \
 		tk85>=0:${PORTSDIR}/x11-toolkits/tk85 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \

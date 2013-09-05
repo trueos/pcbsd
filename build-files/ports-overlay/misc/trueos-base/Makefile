@@ -36,6 +36,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		nano:${PORTSDIR}/editors/nano \
 		mosh:${PORTSDIR}/net/mosh \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
+		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2
 
 NO_BUILD=	yes
