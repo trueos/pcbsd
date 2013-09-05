@@ -22,6 +22,12 @@ ix_diagnose_start()
 	# add /usr/local/bin for python..
 	PATH="$PATH:/usr/local/bin:/usr/local/sbin"
 	export PATH
+
+	# Check if we have sent a diag report yet
+	if [ ! -e "/var/db/ix_diag_init" ] ; then
+	   (/usr/local/bin/ixinitdiag >/dev/null 2>/dev/null) &
+	fi
+
 	_pidfile=`mktemp -t ix_diagnose`
 	(
 		sh -x /usr/local/bin/ixdiagnose -b \
