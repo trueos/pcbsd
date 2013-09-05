@@ -233,6 +233,11 @@ void LPTray::slotClose(){
 
 void LPTray::slotSingleInstance(){
   this->show();
+  if(!GUI->isVisible()){ startGUI(); }
+  else{ 
+    GUI->raise(); 
+    GUI->show();
+  }
 }
 
 void LPTray::startGUI(){
