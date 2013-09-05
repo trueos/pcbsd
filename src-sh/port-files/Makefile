@@ -26,6 +26,7 @@ WRKSRC=		${WRKDIR}/src-sh
 CONFLICTS?=	pbi-manager-[0-9]*
 NO_BUILD=	yes
 USE_BZIP2=	yes
+USE_PYTHON=	yes
 
 MAN1=		pbi_add.1 pbi_browser.1 pbi_create.1 \
 		pbi_delete.1 \
