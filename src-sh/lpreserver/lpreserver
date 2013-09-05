@@ -33,18 +33,14 @@ title()
 help_main()
 {
   title
-  echo "Available commands
+
+cat<<__EOF__
+Available commands
 
 Type in help <command> for information and usage about that command
 
-       help - This help file"
-
-if [ -e "/usr/local/bin/life-preserver" ] ; then
-   echo "        gui - Launch the GUI"
-fi
-
-cat<<__EOF__
         get - Get list of lpreserver options
+       help - This help file
      mksnap - Create a ZFS snapshot of a zpool/dataset
    listsnap - List snapshots of a zpool/dataset
    listcron - Listing of scheduled snapshots
