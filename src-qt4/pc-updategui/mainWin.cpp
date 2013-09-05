@@ -552,11 +552,11 @@ void mainWin::checkFBSDUpdates() {
   // Now check if there are freebsd-updates to install
   QProcess f;
   if ( wDir.isEmpty() )
-     f.start(QString("pc-fbsdupdatecheck"), QStringList());
+     f.start(QString("pc-fbsdupdatecheck"), QStringList() << "update" );
   else {
      QProcess::execute("cp /usr/local/bin/pc-fbsdupdatecheck " + wDir + "/tmp/.fbupdatechk");
      QProcess::execute("chmod 755 " + wDir + "/tmp/.fbupdatechk");
-     f.start(QString("chroot"), QStringList() << wDir << "/tmp/.fbupdatechk" << "fetch" );
+     f.start(QString("chroot"), QStringList() << wDir << "/tmp/.fbupdatechk" << "update" );
   }
   while(f.state() == QProcess::Starting || f.state() == QProcess::Running)
      QCoreApplication::processEvents();
