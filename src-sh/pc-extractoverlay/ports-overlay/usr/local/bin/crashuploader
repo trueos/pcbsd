@@ -18,6 +18,8 @@ if os.path.isfile("/etc/hostid"):
     f.close() 
     data = { 'hostid': hostid }
 
+data['os'] = 'pcbsd'
+
 r = requests.post(url, data=data, files=files)
 #if r.status_code != 200:
 #    print "Bad upload, status code: %s" % r.status_code
