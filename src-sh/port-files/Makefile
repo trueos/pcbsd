@@ -19,6 +19,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		debootstrap:${PORTSDIR}/sysutils/debootstrap \
 		aria2c:${PORTSDIR}/www/aria2 \
 		sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
+		${PYTHON_PKGNAMEPREFIX}requests>=1.0.0:${PORTSDIR}/www/py-requests \
 		jailme:${PORTSDIR}/sysutils/jailme
 
 WRKSRC=		${WRKDIR}/src-sh
