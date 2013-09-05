@@ -343,11 +343,6 @@ share/pcbsd/metaset/pcbsd/Rekonq/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Rekonq/ports-list
 share/pcbsd/metaset/pcbsd/Rekonq/pkg-parent
 share/pcbsd/metaset/pcbsd/Rekonq/dl-only
-share/pcbsd/metaset/pcbsd/Enlightenment/ports-list
-share/pcbsd/metaset/pcbsd/Enlightenment/desktop
-share/pcbsd/metaset/pcbsd/Enlightenment/pkg-icon.png
-share/pcbsd/metaset/pcbsd/Enlightenment/pkg-parent
-share/pcbsd/metaset/pcbsd/Enlightenment/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-L10N/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-L10N/pkg-icon.png
 share/pcbsd/metaset/pcbsd/KDE-L10N/ports-list
@@ -365,11 +360,6 @@ share/pcbsd/metaset/pcbsd/VirtualBoxGuest/pkg-desc
 share/pcbsd/metaset/pcbsd/VirtualBoxGuest/pkg-parent
 share/pcbsd/metaset/pcbsd/VirtualBoxGuest/ports-list
 share/pcbsd/metaset/pcbsd/VirtualBoxGuest/pkg-icon.png
-share/pcbsd/metaset/pcbsd/EvilWM/pkg-icon.png
-share/pcbsd/metaset/pcbsd/EvilWM/desktop
-share/pcbsd/metaset/pcbsd/EvilWM/pkg-desc
-share/pcbsd/metaset/pcbsd/EvilWM/pkg-parent
-share/pcbsd/metaset/pcbsd/EvilWM/ports-list
 share/pcbsd/metaset/pcbsd/KDE-PIM/pkg-icon.png
 share/pcbsd/metaset/pcbsd/KDE-PIM/ports-list
 share/pcbsd/metaset/pcbsd/KDE-PIM/pkg-parent
@@ -403,10 +393,6 @@ share/pcbsd/metaset/pcbsd/KDE-WebDevKit/ports-list
 share/pcbsd/metaset/pcbsd/KDE-WebDevKit/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-WebDevKit/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-WebDevKit/dl-only
-share/pcbsd/metaset/pcbsd/Enlightenment-Modules/pkg-parent
-share/pcbsd/metaset/pcbsd/Enlightenment-Modules/ports-list
-share/pcbsd/metaset/pcbsd/Enlightenment-Modules/pkg-desc
-share/pcbsd/metaset/pcbsd/Enlightenment-Modules/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Development-Embedded/pkg-parent
 share/pcbsd/metaset/pcbsd/Development-Embedded/ports-list
 share/pcbsd/metaset/pcbsd/Development-Embedded/pkg-desc
@@ -418,6 +404,11 @@ share/pcbsd/metaset/pcbsd/Development-Web/pkg-parent
 share/pcbsd/metaset/pcbsd/Development-Web/ports-list
 share/pcbsd/metaset/pcbsd/Development-Web/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Development-Web/pkg-desc
+share/pcbsd/metaset/pcbsd/WindowLab/desktop
+share/pcbsd/metaset/pcbsd/WindowLab/pkg-desc
+share/pcbsd/metaset/pcbsd/WindowLab/pkg-parent
+share/pcbsd/metaset/pcbsd/WindowLab/ports-list
+share/pcbsd/metaset/pcbsd/WindowLab/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Window_Maker/desktop
 share/pcbsd/metaset/pcbsd/Window_Maker/pkg-desc
 share/pcbsd/metaset/pcbsd/Window_Maker/pkg-parent
@@ -703,12 +694,10 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/metaset/pcbsd/GNOME-Games
 @dirrm share/pcbsd/metaset/pcbsd/Compiz
 @dirrm share/pcbsd/metaset/pcbsd/Rekonq
-@dirrm share/pcbsd/metaset/pcbsd/Enlightenment
 @dirrm share/pcbsd/metaset/pcbsd/KDE-L10N
 @dirrm share/pcbsd/metaset/pcbsd/Development
 @dirrm share/pcbsd/metaset/pcbsd/KDE-Artwork
 @dirrm share/pcbsd/metaset/pcbsd/VirtualBoxGuest
-@dirrm share/pcbsd/metaset/pcbsd/EvilWM
 @dirrm share/pcbsd/metaset/pcbsd/KDE-PIM
 @dirrm share/pcbsd/metaset/pcbsd/XFCE-Plugins
 @dirrm share/pcbsd/metaset/pcbsd/KDE-Accessibility
@@ -716,10 +705,10 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/metaset/pcbsd/KDE-Games
 @dirrm share/pcbsd/metaset/pcbsd/NVIDIA-Legacy-71
 @dirrm share/pcbsd/metaset/pcbsd/KDE-WebDevKit
-@dirrm share/pcbsd/metaset/pcbsd/Enlightenment-Modules
 @dirrm share/pcbsd/metaset/pcbsd/Development-Embedded
 @dirrm share/pcbsd/metaset/pcbsd/Unsupported-Desktops
 @dirrm share/pcbsd/metaset/pcbsd/Development-Web
+@dirrm share/pcbsd/metaset/pcbsd/WindowLab
 @dirrm share/pcbsd/metaset/pcbsd/Window_Maker
 @dirrm share/pcbsd/metaset/pcbsd/NVIDIA
 @dirrm share/pcbsd/metaset/pcbsd/GNOME-Accessibility

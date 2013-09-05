@@ -31,7 +31,7 @@
     <item row="0" column="0" colspan="3">
      <widget class="QLabel" name="label_9">
       <property name="text">
-       <string>Please select component which occures problem</string>
+       <string>Please select the component where the error occurs.</string>
       </property>
      </widget>
     </item>
@@ -297,8 +297,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>602</width>
-         <height>334</height>
+         <width>589</width>
+         <height>205</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -436,8 +436,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>602</width>
-         <height>334</height>
+         <width>343</width>
+         <height>104</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -512,8 +512,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>587</width>
-         <height>358</height>
+         <width>96</width>
+         <height>628</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -614,8 +614,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>587</width>
-         <height>358</height>
+         <width>302</width>
+         <height>388</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -713,8 +713,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>587</width>
-         <height>342</height>
+         <width>96</width>
+         <height>537</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -795,8 +795,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>602</width>
-         <height>334</height>
+         <width>569</width>
+         <height>79</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -861,8 +861,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>602</width>
-         <height>334</height>
+         <width>395</width>
+         <height>58</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -953,8 +953,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>587</width>
-         <height>336</height>
+         <width>309</width>
+         <height>351</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_23">

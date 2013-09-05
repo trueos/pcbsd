@@ -1,19 +1,18 @@
-# New ports collection makefile for:	pcbsd-meta-evilwm
+# New ports collection makefile for:	pcbsd-meta-windowlab
 #
 # $FreeBSD$
 #
 
-PORTNAME=	pcbsd-meta-evilwm
+PORTNAME=	pcbsd-meta-windowlab
 PORTVERSION=	CHGVERSION
 CATEGORIES=	misc
 MASTER_SITES=	# empty
 DISTFILES=	# none
 
 MAINTAINER=	kris@pcbsd.org
-COMMENT=	The meta-port pcbsd-meta-evilwm
+COMMENT=	The meta-port pcbsd-meta-windowlab
 
-RUN_DEPENDS=	evilwm>=0:${PORTSDIR}/x11-wm/evilwm
-
+RUN_DEPENDS=	windowlab>=0:${PORTSDIR}/x11-wm/windowlab
 NO_BUILD=	yes
 
 do-install:
