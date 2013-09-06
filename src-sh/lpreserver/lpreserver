@@ -103,7 +103,7 @@ Remove Options:
 
 List Options:
 
-	list <zpool>
+	lizt <zpool>
 	
 	Lists mirrored disks of a zpool
 
