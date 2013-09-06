@@ -374,3 +374,96 @@ listStatus() {
     echo "$i - $lastSNAP - $lastSEND"
   done
 }
+
+add_mirror_disk() {
+   pool="$1"
+   disk="$2"
+
+   if [ -z "$pool" ] ; then
+      exit_err "No pool specified"
+      exit 0
+   fi
+
+   if [ -z "$disk" ] ; then
+      exit_err "No disk specified"
+      exit 0
+   fi
+
+   # Check if pool exists
+   zpool status $pool >/dev/null 2>/dev/null
+   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
+
+   # Make sure zpool isn't raid
+   zpool list -H -v ${pool} | grep -q "raid"
+   if [ $? -eq 0 ] ; then exit_err "Cannot mirror a raidz pool!" ; fi
+
+   # Grab the first disk in the pool
+   mDisk=`zpool list -H -v | grep -v "^$pool" | awk '{print $1}' | grep -v "^mirror" | head -n 1`
+
+   # Now we can insert the target disk
+   zpool attach $pool $mDisk $disk
+   if [ $? -ne 0 ] ; then
+      exit_err "Failed attaching $disk"
+   fi
+
+   echo "Added $disk to zpool $pool. Resilver will begin automatically."
+   exit 0
+}
+
+list_mirror_disks() {
+   pool="$1"
+
+   if [ -z "$pool" ] ; then
+      exit_err "No pool specified"
+      exit 0
+   fi
+
+   # Check if pool exists
+   zpool status $pool >/dev/null 2>/dev/null
+   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
+
+   # Make sure zpool isn't raid
+   zpool list -H -v ${pool} | grep -q "raid"
+   if [ $? -eq 0 ] ; then exit_err "Pool: $pool is raidz!" ; fi
+
+   zpool list -H -v | grep -v "^$pool" | awk '{print $1}' | grep -v "^mirror" | tail +2 > /tmp/.mList.$$
+
+   while read line
+   do
+      echo "$line" | grep -q -e "spare" -e "log" -e "cache"
+      if [ $? -eq 0 ] ; then break ; fi
+
+      echo "$line"  
+   done < /tmp/.mList.$$
+   rm /tmp/.mList.$$
+}
+
+rem_mirror_disk() {
+   pool="$1"
+   disk="$2"
+
+   if [ -z "$pool" ] ; then
+      exit_err "No pool specified"
+      exit 0
+   fi
+
+   if [ -z "$disk" ] ; then
+      exit_err "No disk specified"
+      exit 0
+   fi
+
+   # Check if pool exists
+   zpool status $pool >/dev/null 2>/dev/null
+   if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi
+
+   # Make sure zpool isn't raid
+   zpool list -H -v ${pool} | grep -q "raid"
+   if [ $? -eq 0 ] ; then exit_err "Cannot remove disks from a raidz pool!" ; fi
+
+   zpool detach $pool $disk
+   if [ $? -ne 0 ] ; then
+      exit_err "Failed detaching $disk"
+   fi 
+   echo "$disk was detached successfully!"
+   exit 0
+}

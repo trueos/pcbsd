@@ -39,18 +39,82 @@ Available commands
 
 Type in help <command> for information and usage about that command
 
-        get - Get list of lpreserver options
-       help - This help file
-     mksnap - Create a ZFS snapshot of a zpool/dataset
-   listsnap - List snapshots of a zpool/dataset
-   listcron - Listing of scheduled snapshots
+       help - This help file or the help for the specified command
+
    cronsnap - Schedule snapshot creation via cron
- revertsnap - Revert zpool/dataset to a snapshot
+        get - Get list of lpreserver options
+   listcron - Listing of scheduled snapshots
+   listsnap - List snapshots of a zpool/dataset
+     mksnap - Create a ZFS snapshot of a zpool/dataset
+     mirror - Enable / Disable ZFS mirroring to a local drive
   replicate - Enable / Disable ZFS replication to a remote system
+ revertsnap - Revert zpool/dataset to a snapshot
+     rmsnap - Remove a snapshot
         set - Set lpreserver options
      status - List datasets, along with last snapshot / replication date 
-     rmsnap - Remove a snapshot
 __EOF__
+};
+
+help_mirror()
+{
+ title
+ echo "Help mirror
+
+Life-Preserver mirror sub-system
+
+Mirroring uses ZFS to create a exact copy of your target disk to a new drive,
+such as an external USB disk. When first started the mirror will take a while
+to sync or "resilver". Once this is finished your new disk will be kept in sync
+with the target disk automatically, and can be used as a fall-back disk if the
+primary begins to fail. 
+
+Should your primary disk fail the mirrored disk can then be used to restore
+the system via the restore option of the PC-BSD installation media. 
+
+*NOTES* 
+
+* Mirroring will only work with a non-raidz ZFS pool. If you are using
+raidz you will need to manage disks through the "zpool" command. 
+
+* The mirror disk must be the same size or larger than the target disk
+
+Available Flags:
+	list - List mirror disks
+         add - Add a new mirror disk
+      remove - Remove a mirror disk
+
+Add Options:
+
+	add <zpool> <new disk>
+
+	Example 1: 
+
+	add tank1 /dev/da0
+
+	Will enable mirroring of the tank1 pool to /dev/da0
+
+Remove Options:
+
+	remove <zpool> <disk>
+	
+	Remove a mirrored disk from the zpool
+
+        Use 'mirror list' for a list of available disks 
+
+List Options:
+
+	lizt <zpool>
+	
+	Lists mirrored disks of a zpool
+
+Usage:
+
+  lpreserver mirror <subcmd> <flags>
+
+Example:
+
+  lpreserver mirror list tank1
+"
 };
 
 help_replicate()
@@ -323,6 +387,7 @@ case "$1" in
            listcron) help_listcron ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
+           mirror) help_mirror ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            rmsnap) help_rmsnap ;;
@@ -420,7 +485,16 @@ revertsnap) require_root
 			   exit_err "No such replication task for dataset $2"
 			fi
                         ;;
-		*) exit_err "Invalid option!" ;;
+		*) help_replicate ;;
+	    esac
+	 ;;
+    mirror) require_root
+	    shift
+	    case ${1} in
+		add) add_mirror_disk "$2" "$3" ;;
+		list) list_mirror_disks "$2" ;;
+		remove) rem_mirror_disk "$2" "$3" ;;
+		*) help_mirror ;;
 	    esac
 	 ;;
    *) help_main ;;
