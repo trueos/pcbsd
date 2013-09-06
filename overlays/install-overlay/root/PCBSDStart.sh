@@ -38,6 +38,13 @@ fi
 # Enable the debug version of pc-sysinstall
 /root/debugpcsysinstall.sh
 
+# Check if we are running in a VM and enable guest services
+case "$(kenv smbios.system.product)" in
+VirtualBox) /usr/local/etc/rc.d/vboxguest onestart ;;
+VMware*) ;;
+  *) ;;
+esac
+
 # Set all NICS to DHCP
 NICS=`ifconfig -l`
 for i in $NICS
