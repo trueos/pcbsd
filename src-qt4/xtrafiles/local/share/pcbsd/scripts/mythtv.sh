@@ -34,6 +34,9 @@ do_init()
 	echo "Creating mysql database / user..."
 	mysql --user=root $PASS < /usr/local/share/mythtv/database/mc.sql
 
+	# Enable the tzinfo
+	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -uroot ${PASS} mysql
+
 	echo "Preparing to start mythtv setup..."
 	do_setup
 
