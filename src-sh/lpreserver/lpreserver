@@ -46,7 +46,6 @@ Type in help <command> for information and usage about that command
    listcron - Listing of scheduled snapshots
    listsnap - List snapshots of a zpool/dataset
      mksnap - Create a ZFS snapshot of a zpool/dataset
-     mirror - Enable / Disable ZFS mirroring to a local drive
   replicate - Enable / Disable ZFS replication to a remote system
  revertsnap - Revert zpool/dataset to a snapshot
      rmsnap - Remove a snapshot
@@ -387,7 +386,6 @@ case "$1" in
            listcron) help_listcron ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
-           mirror) help_mirror ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            rmsnap) help_rmsnap ;;
@@ -488,15 +486,15 @@ revertsnap) require_root
 		*) help_replicate ;;
 	    esac
 	 ;;
-    mirror) require_root
-	    shift
-	    case ${1} in
-		add) add_mirror_disk "$2" "$3" ;;
-		list) list_mirror_disks "$2" ;;
-		remove) rem_mirror_disk "$2" "$3" ;;
-		*) help_mirror ;;
-	    esac
-	 ;;
+#    mirror) require_root
+#	    shift
+#	    case ${1} in
+#		add) add_mirror_disk "$2" "$3" ;;
+#		list) list_mirror_disks "$2" ;;
+#		remove) rem_mirror_disk "$2" "$3" ;;
+#		*) help_mirror ;;
+#	    esac
+#	 ;;
    *) help_main ;;
 esac
 
