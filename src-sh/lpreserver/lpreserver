@@ -46,74 +46,83 @@ Type in help <command> for information and usage about that command
    listcron - Listing of scheduled snapshots
    listsnap - List snapshots of a zpool/dataset
      mksnap - Create a ZFS snapshot of a zpool/dataset
-     mirror - Enable / Disable ZFS mirroring to a local drive
   replicate - Enable / Disable ZFS replication to a remote system
  revertsnap - Revert zpool/dataset to a snapshot
      rmsnap - Remove a snapshot
         set - Set lpreserver options
      status - List datasets, along with last snapshot / replication date 
+      zpool - Mange a zpool by attaching / detaching disks
 __EOF__
 };
 
-help_mirror()
+help_zpool()
 {
  title
- echo "Help mirror
+ echo "Help zpool
 
-Life-Preserver mirror sub-system
+Life-Preserver zpool sub-system
 
-Mirroring uses ZFS to create a exact copy of your target disk to a new drive,
-such as an external USB disk. When first started the mirror will take a while
-to sync or "resilver". Once this is finished your new disk will be kept in sync
-with the target disk automatically, and can be used as a fall-back disk if the
-primary begins to fail. 
+The 'zpool' sub-command allows you to attach / detach drives to a zpool, 
+as well as get status and more. 
 
-Should your primary disk fail the mirrored disk can then be used to restore
-the system via the restore option of the PC-BSD installation media. 
-
-*NOTES* 
-
-* Mirroring will only work with a non-raidz ZFS pool. If you are using
-raidz you will need to manage disks through the "zpool" command. 
-
-* The mirror disk must be the same size or larger than the target disk
+When a drive is first attached to a zpool, it will be re-formatted with
+a new gpart layout and made bootable with GRUB. For this reason the disk
+must be the same size, or larger, than the first array disk SWAP + ZFS
+partition size. 
 
 Available Flags:
-	list - List mirror disks
-         add - Add a new mirror disk
-      remove - Remove a mirror disk
+	list - List zpool disks
+      attach - Attach a new zpool disk
+      detach - Remove a zpool disk
+     offline - Mark a disk as offline
+      online - Mark a disk as being online again
 
-Add Options:
+Attach Options:
 
-	add <zpool> <new disk>
+	attach <zpool> <new disk>
 
 	Example 1: 
 
-	add tank1 /dev/da0
+	attach tank1 /dev/da0
 
-	Will enable mirroring of the tank1 pool to /dev/da0
+	Attach the disk /dev/da0 to tank1 pool. The disk will be 
+        auto-partioned with a SWAP / ZFS partition and made bootable.
 
-Remove Options:
+Detach Options:
 
-	remove <zpool> <disk>
+	detach <zpool> <disk>
 	
-	Remove a mirrored disk from the zpool
+	Detach a disk from the zpool
 
-        Use 'mirror list' for a list of available disks 
+        Use 'zpool list' for a list of available disks 
+
+Offline Options:
+
+ 	offline <zpool> <disk>	
+	
+	Mark a disk in the zpool array as 'offline', should be when you
+	want to unplug a device, and anticipate plugging it back in later.
+
+Online Options:
+
+ 	online <zpool> <disk>	
+	
+	Mark an offline disk in the array as online again. The disk will begin
+	to resilver again automatically. 
 
 List Options:
 
 	list <zpool>
 	
-	Lists mirrored disks of a zpool
+	Lists the connected disks of a zpool
 
 Usage:
 
-  lpreserver mirror <subcmd> <flags>
+  lpreserver zpool <subcmd> <flags>
 
 Example:
 
-  lpreserver mirror list tank1
+  lpreserver zpool list tank1
 "
 };
 
@@ -387,7 +396,7 @@ case "$1" in
            listcron) help_listcron ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
-           mirror) help_mirror ;;
+           zpool) help_zpol ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            rmsnap) help_rmsnap ;;
@@ -488,13 +497,15 @@ revertsnap) require_root
 		*) help_replicate ;;
 	    esac
 	 ;;
-    mirror) require_root
+    zpool) require_root
 	    shift
 	    case ${1} in
-		add) add_mirror_disk "$2" "$3" ;;
-		list) list_mirror_disks "$2" ;;
-		remove) rem_mirror_disk "$2" "$3" ;;
-		*) help_mirror ;;
+		attach) add_zpool_disk "$2" "$3" ;;
+		detach) rem_zpool_disk "$2" "$3" ;;
+		online) online_zpool_disk "$2" "$3" ;;
+	       offline) offline_zpool_disk "$2" "$3" ;;
+		list) list_zpool_disks "$2" ;;
+		*) help_zpool ;;
 	    esac
 	 ;;
    *) help_main ;;

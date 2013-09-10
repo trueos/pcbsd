@@ -665,3 +665,23 @@ rc_halt()
     exit_err "Error ${STATUS}: ${CMD}"
   fi
 }
+
+# Run-command silently, only display / halt if command exits with non-0
+rc_halt_s()
+{
+  CMD="$@"
+
+  if [ -z "${CMD}" ] ; then
+    exit_err "Error: missing argument in rc_halt()"
+  fi
+
+  TMPRCLOG=`mktemp /tmp/.rc_halt.XXXXXX`
+  ${CMD} >${TMPRCLOG} 2>${TMPRCLOG}
+  STATUS=$?
+  if [ ${STATUS} -ne 0 ] ; then
+    cat ${TMPRCLOG}
+    rm ${TMPRCLOG}
+    exit_err "Error ${STATUS}: ${CMD}"
+  fi
+  rm ${TMPRCLOG}
+}
