@@ -51,7 +51,7 @@ Type in help <command> for information and usage about that command
      rmsnap - Remove a snapshot
         set - Set lpreserver options
      status - List datasets, along with last snapshot / replication date 
-      zpool - Mange a zpool by attaching / detaching disks
+      zpool - Manage a zpool by attaching / detaching disks
 __EOF__
 };
 
