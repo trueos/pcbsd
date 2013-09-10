@@ -9,14 +9,16 @@ HEADERS	+= LPTray.h \
 		LPBackend.h \
 		LPWizard.h \
 		LPContainers.h \
-		LPConfig.h
+		LPConfig.h \
+		LPWatcher.h
 		
 SOURCES	+= main.cpp \
 		LPTray.cpp \
 		mainUI.cpp \
 		LPBackend.cpp \
 		LPWizard.cpp \
-		LPConfig.cpp
+		LPConfig.cpp \
+		LPWatcher.cpp
 
 RESOURCES += lPreserve.qrc
 
