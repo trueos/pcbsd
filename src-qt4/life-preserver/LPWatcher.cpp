@@ -251,6 +251,7 @@ void LPWatcher::fileChanged(QString file){
 }
 
 void LPWatcher::checkErrorFile(){
+  //Check zpool status and report any errors/processes
   if(QFile::exists(FILE_ERROR)){
     //Read the file to determine the cause of the error
     QString msg, id, summary, timestamp, time, dataset;
