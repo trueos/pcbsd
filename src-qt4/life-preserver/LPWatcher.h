@@ -44,6 +44,8 @@ private:
 	void startRepFileWatcher();
 	void stopRepFileWatcher();
 
+	double displayToDoubleK(QString); // string->double conversion
+
 private slots:
 	void fileChanged(QString); //file system watcher saw a change
 	void checkErrorFile(); //check for serious system error file

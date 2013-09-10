@@ -11,6 +11,7 @@
 #include <QTextStream>
 
 #include "mainUI.h"
+#include "LPWatcher.h"
 
 class LPTray : public QSystemTrayIcon{
 		Q_OBJECT

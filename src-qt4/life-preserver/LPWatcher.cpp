@@ -25,7 +25,7 @@ LPWatcher::LPWatcher() : QObject(){
   //Initialize the path variables
   FILE_LOG = "/var/log/lpreserver/lpreserver.log";
   FILE_ERROR="/var/log/lpreserver/error.log";
-  FILE_REPLICATION="";
+  FILE_REPLICATION=""; //this is set automatically based on the log file outputs
 
   //initialize the watcher and timer
   watcher = new QFileSystemWatcher(this);
@@ -167,8 +167,8 @@ void LPWatcher::readLogFile(bool quiet){
 
 void LPWatcher::readReplicationFile(bool quiet){
   QString stat;
-  while( !SFStream->atEnd() ){ 
-    QString line = SFStream->readLine(); 
+  while( !RFSTREAM->atEnd() ){ 
+    QString line = RFSTREAM->readLine(); 
     if(line.contains("total estimated size")){ repTotK = line.section(" ",-1).simplified(); } //save the total size to replicate
     else if(line.startsWith("send from ")){}
     else if(line.startsWith("TIME ")){}
@@ -224,6 +224,22 @@ void LPWatcher::stopRepFileWatcher(){
   FILE_REPLICATION.clear();
   repTotK.clear();
   lastSize.clear();
+}
+
+double LPWatcher::displayToDoubleK(QString displayNumber){
+  QStringList labels; 
+    labels << "K" << "M" << "G" << "T" << "P" << "E";
+  QString clab = displayNumber.right(1); //last character is the size label
+	displayNumber.chop(1); //remove the label from the number
+  double num = displayNumber.toDouble();
+  //Now format the number properly
+  bool ok = false;
+  for(int i=0; i<labels.length(); i++){
+    if(labels[i] == clab){ ok = true; break; }
+    else{ num = num*1024; } //get ready for the next size
+  }
+  if(!ok){ num = -1; } //could not determine the size
+  return num;
 }
 
 // ------------------------------
