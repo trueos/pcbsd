@@ -489,7 +489,6 @@ void mainUI::on_actionKeyCopy_triggered(){
   }
 }
 
-
 // =============
 //      PROTECTED
 // =============

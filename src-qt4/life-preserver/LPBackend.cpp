@@ -315,6 +315,33 @@ bool LPBackend::copySSHKey(QString mountPath, QString localHost){
   return ok;
 }
 
+// ======================
+//          Device Management
+// ======================
+QStringList LPBackend::listDevices(){
+  //Scan the system for all valid da* and ada* devices (USB/SCSI, SATA)
+  //Return format: "<device node> (<device information>)"
+  QDir devDir("/dev");
+  QStringList devs = devDir.entryList(QStringList() << "da*"<<"ada*", QDir::System | QDir::NoSymLinks, QDir::Name);
+  QStringList camOut = LPBackend::getCmdOutput("camcontrol devlist");
+  QStringList output, flist;	
+  for(int i=0; i<devs.length(); i++){
+    flist = camOut.filter("("+devs[i]+",");
+    //still need to add an additional device filter to weed out devices currently in use.
+    if(!flist.isEmpty()){ output << devs[i] + " ("+flist[0].section(">",0,0).remove("<").simplified()+")"; }
+  }
+  return output;
+}
+
+bool LPBackend::isMounted(QString device){
+  qDebug() << "Device mount check not implemented yet";
+  return false;
+}
+
+bool LPBackend::unmountDevice(QString device){
+  qDebug() << "Device unmounting not implemented yet";
+  return false;
+}
 
 // =========================
 //             PRIVATE FUNCTIONS

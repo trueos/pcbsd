@@ -37,6 +37,12 @@ public:
 	static bool setupSSHKey(QString remoteHost, QString remoteUser, int remotePort);
 	static QStringList findValidUSBDevices();
 	static bool copySSHKey(QString mountPath, QString localHost);
+	//Device Management
+	static QStringList listDevices();
+	static bool isMounted(QString device);
+	static bool unmountDevice(QString device);
+	//Mirroring Management
+
 	
 private:
 	static QStringList getCmdOutput(QString);

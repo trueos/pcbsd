@@ -240,6 +240,15 @@
     <string>Generate SSH Key</string>
    </property>
   </action>
+  <action name="actionMirrorDataset">
+   <property name="icon">
+    <iconset resource="lPreserve.qrc">
+     <normaloff>:/images/drive-removable-media.png</normaloff>:/images/drive-removable-media.png</iconset>
+   </property>
+   <property name="text">
+    <string>Mirror Dataset to USB</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="lPreserve.qrc"/>
