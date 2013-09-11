@@ -3,8 +3,8 @@
 
 # Check if this is for the right version of FreeBSD
 verCheck="`grep '^#define __FreeBSD_version' /usr/include/sys/param.h | awk '{print $3}'`"
-if [ $verCheck -gt 1000000 ] ; then
-  # This version is for FreeBSD <= 10
+if [ $verCheck -lt 1000000 ] ; then
+  # This version is for FreeBSD >= 10
   exit 0
 fi
 
