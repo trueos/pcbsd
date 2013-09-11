@@ -187,7 +187,8 @@ bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
 QString LPBackend::revertSnapshotFile(QString dsmountpoint, QString snapshot, QString filepath){
   //Copy the given file from the snapshot back into the main dataset
   // -- filepath: full path to the file in the snapshot directory
-  
+  //qDebug() << " - Revert file:" << filepath;
+  filepath.replace("~",QDir::homePath());
   //Check that the file path is complete and the file exists
   if(!QFile::exists(filepath)){
     //invalid file given
@@ -222,6 +223,7 @@ QString LPBackend::revertSnapshotFile(QString dsmountpoint, QString snapshot, QS
     }
   }
   //perform the copy
+  qDebug() <<  " - File Reversion:" << filepath << newfilepath;
   bool ok = QFile::copy(filepath,newfilepath);
   //return the path to the new file if the copy was successful
   if(ok){ 
