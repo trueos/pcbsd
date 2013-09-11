@@ -40,6 +40,7 @@ Options:
   -v             -- Enable verbose output
   --checkscript  -- Display any custom install / removal scripts
   --licagree     -- Agree to LICENSE terms for installation
+  --meta         -- Display any custom meta-file supplied with the PBI
   --no-checksum  -- Skip the checksum verification during installation
   --no-checksig  -- Ignore signature verification and force install
   --no-hash      -- Disable using shared hash folder for PBI
@@ -90,6 +91,8 @@ Options:
   -p port      -- Pull name / version from FreeBSD Port
   -r version   -- Application Version
   -w url       -- Application Website
+  --meta file  -- Include the specified <file> inside the PBI header
+		  for display with "pbi_add --meta"
   --no-hash    -- Disable using shared hash folder for PBI
   --sign key   -- Sign the PBI with specified openssl key
 
@@ -122,6 +125,7 @@ Options:
   -p prefix    -- Specify alternate PBI Compile PREFIX
   -32          -- Build i386 PBI on amd64 host
   --delbuild   -- Delete existing build dirs if they exist
+  --meta file  -- Include the specified meta file in the PBI header
   --mkdebug    -- Drop to debug shell if port make fails
   --tmpfs      -- Use TMPFS for port WRKDIRPREFIX
   --no-prune   -- Do not prune non REQUIREDBY ports
@@ -880,6 +884,8 @@ parse_add_pbi_cmdline() {
                         ;;
                 -i)     PBI_ADD_INFODISPLAY="YES" 
                         ;;
+            --meta)     PBI_ADD_METADISPLAY="YES" 
+                        ;;
                 -l)     PBI_ADD_LICDISPLAY="YES" 
                         ;;
                 -o)     if [ $# -eq 1 ]; then usage_add_pbi; fi
@@ -1059,6 +1065,12 @@ parse_create_pbi_cmdline() {
                 -d)	if [ $# -eq 1 ]; then usage_create_pbi; fi
                         shift; PORTSDIR="$1"
                         ;;
+               --meta)	if [ $# -eq 1 ]; then usage_create_pbi; fi
+                        shift; PBI_CREATE_USERMETA="$1"
+			if [ ! -e "$PBI_CREATE_USERMETA" ] ; then
+				exit_err "No such file: $PBI_CREATE_USERMETA"
+			fi
+                        ;;
                 -i)	if [ $# -eq 1 ]; then usage_create_pbi; fi
                         shift; PBI_CICON="$1"
                         ;;
@@ -1161,6 +1173,19 @@ parse_make_pbi_cmdline() {
                 --mkdebug)	MKDEBUG="YES"
                         ;;
                 --tmpfs)	MKTMPFS="YES"
+                        ;;
+               --meta)	if [ $# -eq 1 ]; then usage_make_pbi; fi
+                        shift; PBI_CREATE_USERMETA="$1"
+
+			# If running the chroot portion, reset the location
+			if [ "`basename $0`" = "pbi_makeport_chroot" ] ; then
+				PBI_CREATE_USERMETA="/user-meta"
+			fi
+
+			# Check to ensure it exists
+			if [ ! -e "$PBI_CREATE_USERMETA" ] ; then
+				exit_err "No such file: $PBI_CREATE_USERMETA"
+			fi
                         ;;
                 -o)	if [ $# -eq 1 ]; then usage_make_pbi; fi
                         shift
@@ -1386,6 +1411,7 @@ init_vars() {
 	MOD_AUTOEXTLINKFILE=".auto-external-links"
 	PBI_ADD_GUIDISPLAY="NO"
 	PBI_ADD_INFODISPLAY="NO"
+	PBI_ADD_METADISPLAY="NO"
 	PBI_ADD_LICDISPLAY="NO"
 	PBI_APPDESK_DIR=".${MOD_XDGDESK_DIR}"
 	PBI_APPMENU_DIR=".${MOD_XDGMENU_DIR}"
@@ -1421,6 +1447,7 @@ init_vars() {
 	PBI_LISTREPO_MIRROR=""
 	PBI_LICAGREE="NO"
 	PBI_LICENSEFILE="LICENSE"
+	PBI_USERMETAFILE="metafile"
 	PBI_PATCHVERSION=""
 	PBI_PATCHTARGET=""
 	PBI_REMOTEFETCH=""
@@ -2414,7 +2441,7 @@ pbi_patch_init() {
 	check_pbi_gui_display
 	check_pbi_scripts_display
 	check_pbi_license_display
-	if [ "$PBI_ADD_GUIDISPLAY" = "YES" -o "$PBI_ADD_INFODISPLAY" = "YES" -o "$PBI_CHECKSCRIPTS" = "YES" -o "${PBI_ADD_LICDISPLAY}" = "YES" ] 
+	if [ "$PBI_ADD_GUIDISPLAY" = "YES" -o "$PBI_ADD_INFODISPLAY" = "YES" -o "$PBI_CHECKSCRIPTS" = "YES" -o "${PBI_ADD_LICDISPLAY}" = "YES" -o "${PBI_ADD_METADISPLAY}" = "YES" ] 
 	then 
 		exit_trap
 	fi
@@ -2674,7 +2701,8 @@ pbi_add_init() {
 	check_pbi_gui_display
 	check_pbi_scripts_display
 	check_pbi_license_display
-	if [ "$PBI_ADD_GUIDISPLAY" = "YES" -o "$PBI_ADD_INFODISPLAY" = "YES" -o "$PBI_CHECKSCRIPTS" = "YES" -o "${PBI_ADD_LICDISPLAY}" = "YES" ] 
+	check_pbi_meta_display
+	if [ "$PBI_ADD_GUIDISPLAY" = "YES" -o "$PBI_ADD_INFODISPLAY" = "YES" -o "$PBI_CHECKSCRIPTS" = "YES" -o "${PBI_ADD_LICDISPLAY}" = "YES" -o "${PBI_ADD_METADISPLAY}" = "YES" ] 
 	then 
 		clean_remote_dl
 		exit_trap
@@ -2727,6 +2755,19 @@ check_agree_lic() {
 		exit_err "LICENSE must be agreed to (--licagree) before this PBI can be installed."
         fi
         delete_header_tmp
+}
+
+# See if we need to display pbi meta file
+check_pbi_meta_display() {
+	if [ "$PBI_ADD_METADISPLAY" != "YES" ] ; then return 0 ; fi
+	open_header_tmp
+	
+	if [ -f "${PBI_HEADER_TMPDIR}/${PBI_USERMETAFILE}" ] ; then 
+		cat "${PBI_HEADER_TMPDIR}/${PBI_USERMETAFILE}"	
+	else
+		echo "`basename $0`: No user metafile included with this PBI"
+	fi
+	delete_header_tmp
 }
 
 # See if we need to display pbi license
@@ -4163,6 +4204,15 @@ save_pbi_details_to_header() {
 	# Do we have a license to accept?
 	if [ -e "${PBI_CONFDIR}/${PBI_LICENSEFILE}" ] ; then
 		cp "${PBI_CONFDIR}/${PBI_LICENSEFILE}" "${PBI_HEADERDIR}/${PBI_LICENSEFILE}"
+	fi
+
+	# Do we have a conf-supplied meta-file to copy?
+	if [ -e "${PBI_CONFDIR}/${PBI_USERMETAFILE}" ] ; then
+		cp "${PBI_CONFDIR}/${PBI_USERMETAFILE}" "${PBI_HEADERDIR}/${PBI_USERMETAFILE}"
+	fi
+	# Do we have a user-supplied meta-file to copy?
+	if [ -n "$PBI_CREATE_USERMETA" ] ; then
+		cp "$PBI_CREATE_USERMETA" "${PBI_HEADERDIR}/${PBI_USERMETAFILE}"
 	fi
 
 	# Custom install / remove scripts
@@ -6925,6 +6975,11 @@ EOF
 		if [ -e "${PBI_POSTMAKE_SCRIPT}" ] ; then
 			cp ${PBI_POSTMAKE_SCRIPT} ${PBI_CHROOTDIR}/post-build.sh
 		fi
+	fi
+
+	# Do we have a user-supplied meta-file to include in the PBI?
+	if [ -n "${PBI_CREATE_USERMETA}" ] ; then
+	   cp "$PBI_CREATE_USERMETA" ${PBI_CHROOTDIR}/user-meta
 	fi
 
 	# Start devfs in the chroot
