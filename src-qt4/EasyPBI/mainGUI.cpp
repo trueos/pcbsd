@@ -1466,6 +1466,12 @@ void MainGUI::slotUpdatePBIBuild(){
 }
 
 void MainGUI::slotPBIbuildFinished(int exitCode,QProcess::ExitStatus exitStatus){
+  //Make sure that the QProcess is actually finished
+  if( p->state() !=  QProcess::NotRunning ){
+    qDebug() << "QProcess finished signal, but the process is still running";
+    return;
+  }
+	
   //Check to see if the PBI process finished successfully
   qDebug() << "PBI build process Finished" << exitStatus << exitCode;
   //Check that the new PBI exists
