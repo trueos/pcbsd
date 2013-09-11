@@ -51,9 +51,7 @@ private slots:
 	void checkErrorFile(); //check for serious system error file
 
 signals:
-	void CriticalMessageAvailable();
-	void ProcessUpdateAvailable();
-	void NotificationMessageAvailable();
+	void MessageAvailable(QString type);
 };
 
 #endif

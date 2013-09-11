@@ -20,32 +20,34 @@ public:
 	~LPTray();
 
 private:
-	QFileSystemWatcher *watcher;
+	//QFileSystemWatcher *watcher;
+	LPWatcher *watcher;
 	QMenu *menu;
-	QTimer *timer;
+	//QTimer *timer;
 	mainUI *GUI;
-	QString sFile; //location of the replication status file
-	QFile *logFile, *statFile;
-	QTextStream *LFStream, *SFStream;
-	QString repTotK, lastSize;
-	int wNum; //internal tracking of which frame of the icon animation we are on
+	//QString sFile; //location of the replication status file
+	//QFile *logFile, *statFile;
+	//QTextStream *LFStream, *SFStream;
+	//QString repTotK, lastSize;
+	//int wNum; //internal tracking of which frame of the icon animation we are on
 	bool initPhase;
 
-	void parseLogMessage(QString, bool quiet = false);
-	void parseStatusMessage(QString);
-	void setIdleToolTip();
-	void startWorkingIcon();
-	void stopWorkingIcon();
-	double displayToDoubleK(QString);
+	//void parseLogMessage(QString, bool quiet = false);
+	//void parseStatusMessage(QString);
+	//void setIdleToolTip();
+	//void startWorkingIcon();
+	//void stopWorkingIcon();
+	//double displayToDoubleK(QString);
 
 private slots:
-	void firstCheck();
-	void slotNewLogMessage(QString);
+	void watcherMessage(QString);
+	//void firstCheck();
+	//void slotNewLogMessage(QString);
 	void slotTrayClicked(QSystemTrayIcon::ActivationReason);
 	void slotClose();
 	void slotSingleInstance();
 	void startGUI();
-	void displayWorkingIcon();
+	//void displayWorkingIcon();
 };
 
 #endif

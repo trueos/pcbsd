@@ -3,7 +3,7 @@
 /* ------ HASH NUMBERING NOTE -----
   Each set of 10 is a different type of status
     "message" status: 10-19
-    "running" status: 20-29
+    "replication" status: 20-29
     "critical" status: 30-39
   Within each set:
     *0 = ID Code (for internal identification as necessary)
@@ -123,7 +123,7 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(13, QString(tr("Creating snapshot for %1")).arg(dev) );
       LOGS.insert(14, timestamp); //full timestamp
       LOGS.insert(15, time); // time only
-      if(!quiet){ emit NotificationMessageAvailable(); }
+      if(!quiet){ emit MessageAvailable("message"); }
     }else if(message.contains("starting replication")){
       //Setup the file watcher for this new log file
       FILE_REPLICATION = dev;
@@ -146,7 +146,7 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(23, QString(tr("Finished replication for %1")).arg(dev) );
       LOGS.insert(24, timestamp); //full timestamp
       LOGS.insert(25, time); // time only      
-      if(!quiet){ emit ProcessUpdateAvailable(); }
+      if(!quiet){ emit MessageAvailable("replication"); }
     }else if( message.contains("FAILED replication") ){
       stopRepFileWatcher();
       //Now set the status of the process
@@ -159,7 +159,7 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(23, tt );
       LOGS.insert(24, timestamp); //full timestamp
       LOGS.insert(25, time); // time only      
-      if(!quiet){ emit ProcessUpdateAvailable(); }
+      if(!quiet){ emit MessageAvailable("replication"); }
     }
 	  
   }
@@ -202,7 +202,7 @@ void LPWatcher::readReplicationFile(bool quiet){
       //Now set the current process status
       LOGS.insert(21,dataset);
       LOGS.insert(23,txt);
-      if(!quiet){ emit ProcessUpdateAvailable(); }
+      if(!quiet){ emit MessageAvailable("replication"); }
     }
   }
 }
@@ -251,6 +251,7 @@ void LPWatcher::fileChanged(QString file){
 }
 
 void LPWatcher::checkErrorFile(){
+  return;
   if(QFile::exists(FILE_ERROR)){
     //Read the file to determine the cause of the error
     QString msg, id, summary, timestamp, time, dataset;
@@ -270,6 +271,6 @@ void LPWatcher::checkErrorFile(){
     LOGS.insert(33, msg ); //message
     LOGS.insert(34, timestamp); //full timestamp
     LOGS.insert(35, time); // time only    
-    emit CriticalMessageAvailable();
+    emit MessageAvailable("critical");
   }
 }
