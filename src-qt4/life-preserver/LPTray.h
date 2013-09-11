@@ -39,6 +39,9 @@ private:
 	//void stopWorkingIcon();
 	//double displayToDoubleK(QString);
 
+	void updateTrayIcon();
+	void updateToolTip();
+	
 private slots:
 	void watcherMessage(QString);
 	//void firstCheck();

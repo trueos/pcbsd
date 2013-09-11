@@ -40,6 +40,8 @@ LPTray::LPTray() : QSystemTrayIcon(){
   //QTimer::singleShot(1000, this,SLOT(firstCheck()));
   //Start up the watcher
   watcher->start();
+  updateTrayIcon();
+  updateToolTip();
 }
 
 LPTray::~LPTray(){
@@ -199,11 +201,61 @@ double LPTray::displayToDoubleK(QString displayNumber){
 }
 */
 
+void LPTray::updateTrayIcon(){
+  if( watcher->hasError() ){
+    //Errors - show that attention is required
+    this->setIcon( QIcon(":/images/tray-icon-failed.png") );
+  }else if( watcher->isRunning() ){
+    //Show the working icon
+    this->setIcon( QIcon(":/images/tray-icon-active7.png") );
+  }else{
+    //Show the idle icon
+    this->setIcon( QIcon(":/images/tray-icon-idle.png") );
+  }
+  
+}
+
+void LPTray::updateToolTip(){
+  QStringList info = watcher->getAllCurrentMessages();
+  this->setToolTip( info.join("\n") );	
+}
+
 // ===============
 //     PRIVATE SLOTS
 // ===============
 void LPTray::watcherMessage(QString type){
   qDebug() << "New Watcher Message:" << type;
+  QStringList info;
+  if(type=="message"){
+    //Show the message pop-up
+    info << "time" << "message";
+    info = watcher->getMessages(type,info);
+    if(!info.isEmpty()){
+      this->showMessage( info[0], info[1], QSystemTrayIcon::Information, 5000);
+    }
+  }else if(type=="replication"){
+    info << "id" << "time" << "message";
+    info = watcher->getMessages(type,info);
+    if(info.isEmpty()){ return; }
+    if(info[0] == "STARTED"){
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
+    }else if(info[0] == "RUNNING"){
+      //don't show anything here - just let the tooltip update
+    }else if(info[0] == "FINISHED"){
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
+    }else if(info[0] == "ERROR"){
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Warning, 5000);
+    }
+    
+  }else if(type=="critical"){
+	  
+  }else if(type=="mirror"){
+	  
+  }
+  //Update the tray icon
+  updateTrayIcon();
+  //Update the tooltip
+  updateToolTip();
 }
 /*
 void LPTray::firstCheck(){

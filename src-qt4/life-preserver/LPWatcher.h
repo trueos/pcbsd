@@ -18,8 +18,9 @@ public:
 	~LPWatcher();
 
 	QStringList getMessages(QString type, QStringList msgList);
-	//Valid types - "critical"/"running"/"message"
-	//Valid messages - "dataset","message","summary","id", "timestamp", "time"
+	QStringList getAllCurrentMessages();
+	bool isRunning();
+	bool hasError();
 
 public slots:
 	void start();

@@ -5,6 +5,7 @@
     "message" status: 10-19
     "replication" status: 20-29
     "critical" status: 30-39
+    "mirror" status: 40-49
   Within each set:
     *0 = ID Code (for internal identification as necessary)
     *1 = dataset (example: tank1)
@@ -15,9 +16,10 @@
 
   Valid Internal ID's:
     SNAPCREATED -> new snapshot created
-    REPSTARTED    -> Replication task started
-    REPFINISHED  -> Replication task finished
-    REPERROR       -> Replication task failed
+    STARTED    	-> Task started
+    RUNNING  	-> Task running (I.E. status update)
+    FINISHED  	-> Task finished
+    ERROR       	-> Task failed
     
 */
 
@@ -82,8 +84,9 @@ QStringList LPWatcher::getMessages(QString type, QStringList msgList){
   //Valid messages - "dataset","message","summary","id", "timestamp", "time"
   unsigned int base;
   if(type=="message"){base=10;}
-  else if(type=="running"){base=20;}
+  else if(type=="replicate"){base=20;}
   else if(type=="critical"){base=30;}
+  else if(type=="mirror"){base=40;}
   else{ return output; } //invalid input type
   //Now fill the output array based upon requested outputs
   for(int i=0; i<msgList.length(); i++){
@@ -98,6 +101,26 @@ QStringList LPWatcher::getMessages(QString type, QStringList msgList){
   }
   //Return the output list
   return output;
+}
+
+QStringList LPWatcher::getAllCurrentMessages(){
+  //Useful for quickly displaying all latest messages in a tooltip or summary
+  QStringList output;
+  if(LOGS.contains(12) && LOGS.contains(14)){ output << LOGS[14]+" -- "+LOGS[12]; }
+  if(LOGS.contains(22) && LOGS.contains(24)){ output << LOGS[24]+" -- "+LOGS[22]; }
+  if(LOGS.contains(32) && LOGS.contains(34)){ output << LOGS[34]+" -- "+LOGS[32]; }
+  if(LOGS.contains(42) && LOGS.contains(44)){ output << LOGS[44]+" -- "+LOGS[42]; }
+  return output;
+}
+
+bool LPWatcher::isRunning(){
+  if(LOGS.value(20) == "STARTED" || LOGS.value(20) == "RUNNING"){ return true; }
+  else if(LOGS.value(40) == "STARTED" || LOGS.value(40) == "RUNNING"){ return true; }
+  else{ return false; }
+}
+
+bool LPWatcher::hasError(){
+  return (LOGS.value(20)=="ERROR" || LOGS.contains(30) || LOGS.value(40)=="ERROR");
 }
 
 // -------------------------------------
@@ -134,8 +157,8 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(22, tr("Replication Started") ); //summary
       // 23 - Full message set on update ping
       LOGS.insert(24, timestamp); //full timestamp
-      LOGS.insert(25, time); // time only      
-      //let the first ping of the replication file watcher emit the signal - don't do it now
+      LOGS.insert(25, time); // time only
+      if(!quiet){ emit MessageAvailable("replication"); }
     }else if(message.contains("finished replication")){
       stopRepFileWatcher();
       dev = message.section(" ",-1).simplified();
@@ -200,6 +223,7 @@ void LPWatcher::readReplicationFile(bool quiet){
       QString txt = QString(tr("Replicating %1: %2")).arg(dataset, status);
       lastSize = cSize; //save the current size for later
       //Now set the current process status
+      LOGS.insert(20,"RUNNING");
       LOGS.insert(21,dataset);
       LOGS.insert(23,txt);
       if(!quiet){ emit MessageAvailable("replication"); }
@@ -252,7 +276,6 @@ void LPWatcher::fileChanged(QString file){
 
 void LPWatcher::checkErrorFile(){
   return;
-  //Check zpool status and report any errors/processes
   if(QFile::exists(FILE_ERROR)){
     //Read the file to determine the cause of the error
     QString msg, id, summary, timestamp, time, dataset;
