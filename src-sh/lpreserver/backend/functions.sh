@@ -412,6 +412,11 @@ add_zpool_disk() {
       exit 0
    fi
 
+   zpool list -H -v | awk '{print $1}' | grep -q "^$disk"
+   if [ $? -eq 0 ] ; then
+      exit_err "Error: This disk is already apart of a zpool!"
+   fi
+
    # Check if pool exists
    zpool status $pool >/dev/null 2>/dev/null
    if [ $? -ne 0 ] ; then exit_err "Invalid pool: $pool"; fi

@@ -407,7 +407,7 @@ case "$1" in
            listcron) help_listcron ;;
            listsnap) help_listsnap ;;
            revertsnap) help_revertsnap ;;
-           zpool) help_zpol ;;
+           zpool) help_zpool ;;
            replicate) help_replicate ;;
            cronsnap) help_cronsnap ;;
            rmsnap) help_rmsnap ;;
