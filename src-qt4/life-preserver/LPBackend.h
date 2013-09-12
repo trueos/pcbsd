@@ -43,9 +43,9 @@ public:
 	static bool unmountDevice(QString device);
 	//Mirroring Management
 
-	
-private:
+	//General utility functions
 	static QStringList getCmdOutput(QString);
-	static int runCmd(QString);
+	static int runCmd(QString);	
+
 };
 #endif

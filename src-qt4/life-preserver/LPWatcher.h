@@ -11,6 +11,8 @@
 #include <QTextStream>
 #include <QDebug>
 
+#include "LPBackend.h"
+
 class LPWatcher : public QObject{
 	Q_OBJECT
 public:
@@ -18,8 +20,9 @@ public:
 	~LPWatcher();
 
 	QStringList getMessages(QString type, QStringList msgList);
-	//Valid types - "critical"/"running"/"message"
-	//Valid messages - "dataset","message","summary","id", "timestamp", "time"
+	QStringList getAllCurrentMessages();
+	bool isRunning();
+	bool hasError();
 
 public slots:
 	void start();
@@ -48,12 +51,10 @@ private:
 
 private slots:
 	void fileChanged(QString); //file system watcher saw a change
-	void checkErrorFile(); //check for serious system error file
+	void checkPoolStatus(); //check for serious system errors
 
 signals:
-	void CriticalMessageAvailable();
-	void ProcessUpdateAvailable();
-	void NotificationMessageAvailable();
+	void MessageAvailable(QString type);
 };
 
 #endif

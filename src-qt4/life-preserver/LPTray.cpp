@@ -3,8 +3,11 @@
 //PUBLIC
 LPTray::LPTray() : QSystemTrayIcon(){
   initPhase = true; //flag that we are in the startup process
-  //Start up the log file watcher
-  QString logfile = "/var/log/lpreserver/lpreserver.log";
+  //Start up the log file watcher and connect the signals/slots
+  watcher = new LPWatcher();
+	connect(watcher,SIGNAL(MessageAvailable(QString)),this,SLOT(watcherMessage(QString)) );
+	
+  /*QString logfile = "/var/log/lpreserver/lpreserver.log";
   watcher = new QFileSystemWatcher();
 	if(!QFile::exists(logfile)){ 
 	  if(!QFile::exists("/var/log/lpreserver")){ system( "mkdir /var/log/lpreserver"); }
@@ -15,15 +18,18 @@ LPTray::LPTray() : QSystemTrayIcon(){
 	logFile->open(QIODevice::ReadOnly | QIODevice::Text); //open it now, for faster reading
   LFStream = new QTextStream(logFile);
   	connect(watcher, SIGNAL(fileChanged(QString)),this,SLOT(slotNewLogMessage(QString)) ); //now connect the signal/slot
+	*/
   //Setup the context menu
   menu = new QMenu;
 	menu->addAction(new QAction(QIcon(":/images/application-exit.png"),tr("Close Life Preserver Tray"),this) );
 	connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(slotClose()) );
   this->setContextMenu(menu);
   //Setup the animated icon timer
+  /*
   timer = new QTimer();
 	timer->setInterval(100);
 	connect(timer, SIGNAL(timeout()), this, SLOT(displayWorkingIcon()) );
+  */
   //Setup initial icon for the tray
   this->setIcon( QIcon(":/images/tray-icon-idle.png") );
   //Create the configuration GUI
@@ -31,22 +37,28 @@ LPTray::LPTray() : QSystemTrayIcon(){
   //connect other signals/slots
   connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayClicked(QSystemTrayIcon::ActivationReason)) );
   //Make sure we check the latest line in the logfile
-  QTimer::singleShot(1000, this,SLOT(firstCheck()));
+  //QTimer::singleShot(1000, this,SLOT(firstCheck()));
+  //Start up the watcher
+  watcher->start();
+  updateTrayIcon();
+  updateToolTip();
 }
 
 LPTray::~LPTray(){
-  if(statFile != 0){ statFile->close(); }
-  logFile->close();
-  delete statFile;
-  delete logFile;
+  //if(statFile != 0){ statFile->close(); }
+  //logFile->close();
+  //delete statFile;
+  //delete logFile;
+  watcher->stop();
   delete watcher;
-  delete menu;
-  delete timer;
+  //delete menu;
+  //delete timer;
 }
 
 // ===============
 //  PRIVATE FUNCTIONS
 // ===============
+/*
 void LPTray::parseLogMessage(QString log, bool quiet){
   //Divide up the log into it's sections
   QString timestamp = log.section(":",0,2).simplified();
@@ -187,10 +199,65 @@ double LPTray::displayToDoubleK(QString displayNumber){
   if(!ok){ num = -1; } //could not determine the size
   return num;
 }
+*/
+
+void LPTray::updateTrayIcon(){
+  if( watcher->hasError() ){
+    //Errors - show that attention is required
+    this->setIcon( QIcon(":/images/tray-icon-failed.png") );
+  }else if( watcher->isRunning() ){
+    //Show the working icon
+    this->setIcon( QIcon(":/images/tray-icon-active7.png") );
+  }else{
+    //Show the idle icon
+    this->setIcon( QIcon(":/images/tray-icon-idle.png") );
+  }
+  
+}
+
+void LPTray::updateToolTip(){
+  QStringList info = watcher->getAllCurrentMessages();
+  this->setToolTip( info.join("\n") );	
+}
 
 // ===============
 //     PRIVATE SLOTS
 // ===============
+void LPTray::watcherMessage(QString type){
+  qDebug() << "New Watcher Message:" << type;
+  QStringList info;
+  if(type=="message"){
+    //Show the message pop-up
+    info << "time" << "message";
+    info = watcher->getMessages(type,info);
+    if(!info.isEmpty()){
+      this->showMessage( info[0], info[1], QSystemTrayIcon::Information, 5000);
+    }
+  }else if(type=="replication"){
+    info << "id" << "time" << "message";
+    info = watcher->getMessages(type,info);
+    if(info.isEmpty()){ return; }
+    if(info[0] == "STARTED"){
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
+    }else if(info[0] == "RUNNING"){
+      //don't show anything here - just let the tooltip update
+    }else if(info[0] == "FINISHED"){
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
+    }else if(info[0] == "ERROR"){
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Warning, 5000);
+    }
+    
+  }else if(type=="critical"){
+	  
+  }else if(type=="mirror"){
+	  
+  }
+  //Update the tray icon
+  updateTrayIcon();
+  //Update the tooltip
+  updateToolTip();
+}
+/*
 void LPTray::firstCheck(){
   slotNewLogMessage("/var/log/lpreserver/lpreserver.log");
   initPhase = false; //done with initializations
@@ -217,7 +284,7 @@ void LPTray::slotNewLogMessage(QString file){
       if(!stat.isEmpty()){ parseStatusMessage(stat); }
   }
 }
-
+*/
 void LPTray::slotTrayClicked(QSystemTrayIcon::ActivationReason reason){
   if(reason == QSystemTrayIcon::Trigger){ 
     if(GUI->isVisible()){ GUI->hide(); }
@@ -247,9 +314,9 @@ void LPTray::startGUI(){
     GUI->show();
 }
 
-void LPTray::displayWorkingIcon(){
+/*void LPTray::displayWorkingIcon(){
   QString ico = ":/images/tray-icon-active"+QString::number(wNum)+".png";
   this->setIcon(QIcon(ico));
   if(wNum == 16){ wNum = 1; } //go back to the beginning of the loop
   else{ wNum++; }
-}
+}*/
