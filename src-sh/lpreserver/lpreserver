@@ -145,8 +145,10 @@ on the remote dataset:
 # zfs allow -u <user> create,receive,mount,userprop,destroy,send,hold <remotedataset>
 
 Available Flags:
-	list - List replication targets
+
          add - Add a new replication target
+        init - Initialize the remote side again
+	list - List replication targets
       remove - Remove a replication target
 
 Add Options:
@@ -164,6 +166,15 @@ Add Options:
 	add freenas.8343 backupuser 22 tank1 tankbackup/backups 22
 
 	Will schedule replication of tank1 to tankbackup/backups at 10PM, notated in 24hour time
+
+
+Init Options:
+
+	init <localdataset/zpool> 
+
+	Will re-init the remote side of the replication. This can be useful
+	when your replication gets stuck. Doing this option will remove
+	all the data on the remote side, and require a full re-sync again.
 
 Remove Options:
 
@@ -485,6 +496,7 @@ revertsnap) require_root
 	    shift
 	    case ${1} in
 		add) add_rep_task "$2" "$3" "$4" "$5" "$6" "$7" ;;
+		init) init_rep_task "$2" ;;
 		list) list_rep_task ;;
 		remove) cat ${REPCONF} | grep -q "^${2}:" 
 			if [ $? -eq 0 ] ; then

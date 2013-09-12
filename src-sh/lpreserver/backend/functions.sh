@@ -256,6 +256,21 @@ check_rep_task() {
   # If we are checking for a sync task, and the rep isn't marked as sync we can return
   if [ "$2" = "sync" -a "$REPTIME" != "sync" ] ; then return 0; fi
 
+  # Doing a replication task, check if one is in progress
+  export pidFile="${DBDIR}/.reptask-`echo ${LDATA} | sed 's|/|-|g'`"
+  if [ -e "${pidFile}" ] ; then
+     pgrep -F ${pidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then
+        echo_log "Skipped replication on $LDATA, previous replication is still running."
+        return 0
+     else
+        rm ${pidFile}
+     fi
+  fi
+
+  # Save this PID
+  echo "$$" > ${pidFile}
+
   # Is this a sync-task we do at the time of a snapshot?
   if [ "$2" = "sync" -a "$REPTIME" = "sync" ] ; then
      export DIDREP=1
@@ -285,6 +300,7 @@ start_rep_task() {
  
   if [ "$lastSEND" = "$lastSNAP" ] ; then
      queue_msg "`date`: Last snapshot $lastSNAP is already marked as replicated!"
+     rm ${pidFile}
      return 1
   fi
 
@@ -331,6 +347,7 @@ start_rep_task() {
      echo_log "FAILED replication task on ${DATASET}: LOGFILE: $FLOG"
   fi
 
+  rm ${pidFile}
   return $zStatus
 }
 
@@ -550,4 +567,37 @@ online_zpool_disk() {
 
    zpool online $pool $disk
    exit $?
+}
+
+init_rep_task() {
+
+  LDATA="$1"
+
+  repLine=`cat ${REPCONF} | grep "^${LDATA}:"`
+  if [ -z "$repLine" ] ; then return 0; fi
+ 
+  # We have a replication task for this set, get some vars
+  hName=`hostname`
+  REPHOST=`echo $repLine | cut -d ':' -f 3`
+  REPUSER=`echo $repLine | cut -d ':' -f 4`
+  REPPORT=`echo $repLine | cut -d ':' -f 5`
+  REPRDATA=`echo $repLine | cut -d ':' -f 6`
+
+  # First check if we even have a dataset on the remote
+  ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs list ${REPRDATA}/${hName} 2>/dev/null >/dev/null
+  if [ $? -eq 0 ] ; then
+     # Lets cleanup the remote side
+     echo "Removing remote dataset: ${REPRDATA}/${hName}"
+     ssh -p ${REPPORT} ${REPUSER}@${REPHOST} zfs destroy -r ${REPRDATA}/${hName}
+     if [ $? -ne 0 ] ; then
+        echo "Warning: Could not delete remote dataset ${REPRDATA}/${hName}"
+     fi
+  fi
+
+  # Now lets mark none of our datasets as replicated
+  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+  if [ -n "$lastSEND" ] ; then
+     zfs set backup:lpreserver=' ' ${LDATA}@$lastSEND
+  fi
+
 }
