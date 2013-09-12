@@ -50,6 +50,9 @@
 ## configuration files and this may lead to privilege escalation!
 Defaults env_keep += "HOME DESKTOP_SESSION KDE_SESSION_UID"
 ##
+## ENV to keep so xdg-open works
+Defaults env_keep += "KDE_FULL_SESSION GNOME_DESKTOP_SESSION_ID DESKTOP_SESSION"
+##
 ## X11 resource path settings
 Defaults env_keep += "XAPPLRESDIR XFILESEARCHPATH XUSERFILESEARCHPATH"
 ##
