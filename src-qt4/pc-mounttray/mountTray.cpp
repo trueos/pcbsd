@@ -20,6 +20,8 @@ void MountTray::programInit()
   qDebug() << "pc-mounttray: starting up";
   MTINIT=true; //set the flag that the mount tray is initializing;
   getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
+  getFileManager();
+    
   loadSavedSettings();
   
   trayIcon = new QSystemTrayIcon(this);
@@ -286,6 +288,23 @@ void MountTray::getInitialUsername(){
   if(DEBUG_MODE){ qDebug() << "-User detected:" << USERNAME; }
 }
 
+void MountTray::getFileManager(){
+  //Check for broken DE's that need a FM manually set
+  FMCMD = "xdg-open"; //the default auto-detection application
+    QStringList DEI = pcbsd::Utils::runShellCommand("de-info");
+    QStringList broken; broken << "LXDE";
+    for(int i=0; i<DEI.length(); i++){
+      if(DEI[i].contains("DE name:")){ //this is always at the top of the output
+        QString DE = DEI[i].section(":",1,1).simplified();
+	qDebug() << "-Desktop Detected:" << DE;
+	if( !broken.contains( DE ) ){ break; } //this DE is fine
+      }else if(DEI[i].contains("File manager:")){
+        FMCMD = DEI[i].section(":",1,1).section(" ",0,0, QString::SectionSkipEmpty).simplified();
+	break;
+      }
+    }
+  qDebug() << "-File Manager:" << FMCMD;
+}
 void MountTray::slotOpenMediaDir(){
   openMediaDir(MOUNTDIR);
 }
@@ -302,7 +321,7 @@ void MountTray::openMediaDir(QString dir){
   }
   //Open the default file manager to the given directory as that user
   qDebug() << "Opening the media directory with user permissions";
-  QString cmd = "su -m "+USERNAME+" -c \"xdg-open \'"+dir+"\' \"";
+  QString cmd = "su -m "+USERNAME+" -c \""+FMCMD+" \'"+dir+"\' \"";
   if(DEBUG_MODE){ qDebug() << " -cmd:" << cmd ; }
   cmd.prepend("("); cmd.append(") &");
   system( cmd.toUtf8() );
