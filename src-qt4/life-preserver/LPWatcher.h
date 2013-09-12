@@ -11,6 +11,8 @@
 #include <QTextStream>
 #include <QDebug>
 
+#include "LPBackend.h"
+
 class LPWatcher : public QObject{
 	Q_OBJECT
 public:
@@ -49,7 +51,7 @@ private:
 
 private slots:
 	void fileChanged(QString); //file system watcher saw a change
-	void checkErrorFile(); //check for serious system error file
+	void checkPoolStatus(); //check for serious system errors
 
 signals:
 	void MessageAvailable(QString type);
