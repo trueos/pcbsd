@@ -454,7 +454,7 @@ void MainUI::slotStartApp(QAction* act){
   QString desktopfile = act->whatsThis();
   QString cmd = "xdg-open "+desktopfile;
   //Startup the command externally
-  QProcess::startDetached(cmd);
+  QProcess::execute(cmd);
 }
 
 void MainUI::slotUpdateSelectedPBI(bool statusonly){
