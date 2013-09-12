@@ -302,9 +302,10 @@ void MountTray::openMediaDir(QString dir){
   }
   //Open the default file manager to the given directory as that user
   qDebug() << "Opening the media directory with user permissions";
-  QString cmd = "su -m "+USERNAME+" -c \'xdg-open \""+dir+"\"\' &";
-  if(DEBUG_MODE){ qDebug() << " -cmd:" << cmd; }
-  system( cmd.toUtf8() ); 
+  QString cmd = "su -m "+USERNAME+" -c \"xdg-open \'"+dir+"\' \"";
+  if(DEBUG_MODE){ qDebug() << " -cmd:" << cmd ; }
+  cmd.prepend("("); cmd.append(") &");
+  system( cmd.toUtf8() );
 }
 
 void MountTray::slotRescan(){
