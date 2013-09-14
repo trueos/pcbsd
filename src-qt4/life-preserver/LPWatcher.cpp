@@ -330,41 +330,81 @@ void LPWatcher::checkPoolStatus(){
 	    if(LOGS.value(60) != "RUNNING"){isnew=true;}
 	    LOGS.insert(60,"RUNNING");
 	    LOGS.insert(61,pool);
-	    LOGS.insert(62, QString(tr("Resilvering: %1")).arg(percent) );
-	    LOGS.insert(63, QString(tr("Resilvering: %1 (%2 remaining)")).arg(percent, remain) );
+	    LOGS.insert(62, QString(tr("Scrubbing: %1 (%2 remaining)")).arg(percent, remain) );
+	    LOGS.insert(63, QString(tr("Scrubbing: %1 (%2 remaining)")).arg(percent, remain) );
 	    LOGS.insert(64, timestamp);
 	    LOGS.insert(65, timestamp.section(" ",3,3) );
 	    qDebug() << "***Running Scrub: line needs parsing";
 	  }
 	  if(isnew){ emit MessageAvailable("scrub"); }
-	  if(LOGS.value(50) == "RUNNING"){
-	    //Resilvering is done - remove the info and send a ping
-	    LOGS.insert(50,"FINISHED");
-	    LOGS.insert(51,pool);
-	    LOGS.insert(52, tr("Resilvering complete"));
-	    LOGS.insert(53, tr("Resilvering completed successfully"));
-	    LOGS.insert(54, timestamp);
-	    LOGS.insert(55, timestamp.section(" ",3,3) );
-	    emit MessageAvailable("resilvering");
+	  if(LOGS.contains(50) ){
+	    //Only resilvering OR scrub is shown at a time - so remove the resilver info
+	    LOGS.remove(50);
+	    LOGS.remove(51);
+	    LOGS.remove(52);
+	    LOGS.remove(53);
+	    LOGS.remove(54);
+	    LOGS.remove(55);
 	  }
 	// --------- RESILVERING -------
-	}else if(zstat[i].contains("resilver")){
+	}else if(zstat[i].contains("resilver in progress")){
+	  //Resilvering is currently running
+	  timestamp = zstat[i].section(" ",5,9,QString::SectionSkipEmpty);
+	  //need info from the next two lines
+	  i++; QString timeleft = zstat[i].section(" ",7,7,QString::SectionSkipEmpty);
+	  i++; QString percent = zstat[i].section(" ", 2,2,QString::SectionSkipEmpty);
 	  //Setup the running re-silvering progress
-	  if(LOGS.value(50)!= " " && LOGS.value(50)!="RUNNING"){newresilver=true; }
+	  if(LOGS.value(50)!="RUNNING"){newresilver=true; }
 	  LOGS.insert(50, "RUNNING");
 	  // 51 - need to put the actual device in here (not available on this line)
-	  LOGS.insert(52, tr("Resilvering in progress"));
-	  if(newresilver){ LOGS.insert(53, tr("Resilvering started") ); }
-	  else{ LOGS.insert(53, tr("Resilvering in progress")); }
+	  LOGS.insert(52, QString(tr("Resilvering: %1 (%2 remaining)")).arg(percent, timeleft) );
+	  if(newresilver){ LOGS.insert(53, QString(tr("Resilvering Started: %1 remaining ")).arg( timeleft) ); }
+	  else{ LOGS.insert(53,QString(tr("Resilvering: %1 (%2 remaining)")).arg(percent, timeleft) ); }
 	  LOGS.insert(54, timestamp);
 	  LOGS.insert(55, timestamp.section(" ",3,3) );
-	  if(isnew){ emit MessageAvailable("resilvering"); }
+	  if(LOGS.contains(60) ){
+	    //Only resilvering OR scrub is shown at a time - so remove the scrub info
+	    LOGS.remove(60);
+	    LOGS.remove(61);
+	    LOGS.remove(62);
+	    LOGS.remove(63);
+	    LOGS.remove(64);
+	    LOGS.remove(65);
+	  }
+	}else if(zstat[i].contains("resilvered")){
+	  //Resilvering is finished
+	  timestamp = zstat[i].section(" ",9,13,QString::SectionSkipEmpty);
+	  QString timecomplete = zstat[i].section(" ",4,4,QString::SectionSkipEmpty);
+	  QString errors = zstat[i].section(" ", 6,6,QString::SectionSkipEmpty);
+	  //Setup the running re-silvering progress
+	  if(LOGS.value(50)!= " "){newresilver=true; } //don't display message for first run
+	  if(errors.toInt() > 0){ 
+	    LOGS.insert(50, "ERROR");
+	    LOGS.insert(52, QString(tr("Resilver completed in &1 with %2 errors")).arg(timecomplete, errors) );
+	    LOGS.insert(53, QString(tr("Resilver completed in &1 with %2 errors")).arg(timecomplete, errors) );
+	  }else{
+	    LOGS.insert(50, "FINISHED");
+	    LOGS.insert(52, QString(tr("Resilver completed successfully in &1")).arg(timecomplete) );
+	    LOGS.insert(53, QString(tr("Resilver completed successfully in &1")).arg(timecomplete) ); 
+          }
+	  // 51 - need to put the actual device in here (not available on this line)
+	  LOGS.insert(54, timestamp);
+	  LOGS.insert(55, timestamp.section(" ",3,3) );
+	  if(LOGS.contains(60) ){
+	    //Only resilvering OR scrub is shown at a time - so remove the scrub info
+	    LOGS.remove(60);
+	    LOGS.remove(61);
+	    LOGS.remove(62);
+	    LOGS.remove(63);
+	    LOGS.remove(64);
+	    LOGS.remove(65);
+	  }
 	}
       }else if(zstat[i].startsWith("errors:")){
 	if(zstat[i] != "errors: No known data errors"){
 	  qDebug() << "New zpool status error line that needs parsing:" << zstat[i];
 	}
-      }else if( state != "ONLINE" ){
+      }else if( state != "ONLINE" || !LOGS.value(50).isEmpty() ){
         //Check for state/resilvering of all real devices
 	if(zstat[i].contains("NAME\tSTATE\tREAD")){continue;} //nothing on this header line
 	else if(zstat[i].contains("(resilvering)")){ LOGS.insert(51, zstat[i].section("\t",0,0,QString::SectionSkipEmpty) ); }

@@ -74,12 +74,16 @@ private:
   QString popupSave; //for saving the device for the latest pop-up message
   bool MTINIT;
 
+  //CMD to use for opening the file manager
+  QString FMCMD;
+
   void updateMenu();
   void scanInitialDevices();
   int findDeviceInList(QString);
   bool addDevice(QString,QString,QString,QString);
   void startupDevdProc();
   void getInitialUsername();
+  void getFileManager();
   void loadSavedSettings();
   void saveCurrentSettings();
   
