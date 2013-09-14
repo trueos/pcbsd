@@ -27,12 +27,6 @@ unset LC_ALL
 unset LANG
 PATH=${PATH}:/bin:/usr/bin:/sbin:/usr/sbin
 
-if [ $( uname -r | cut -c 1 ) -lt 8 ]
-then
-  echo "ERROR: beadm works on FreeBSD 8.0 or later"
-  exit 1
-fi
-
 __usage() {
   local NAME=${0##*/}
   echo "usage:"
