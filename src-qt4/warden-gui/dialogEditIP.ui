@@ -270,7 +270,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</string>
+             <string>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
