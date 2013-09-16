@@ -89,7 +89,10 @@ esac
 # See if we need to create a default template
 # If using a ARCHIVEFILE we can skip this step
 if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
+  which uname
+  uname -r
   DEFTEMPLATE="`uname -r | cut -d '-' -f 1-2`-${ARCH}"
+  echo "DEF: $DEFTEMPLATE"
 
   # If on a plugin jail, lets change the nickname
   if [ "${PLUGINJAIL}" = "YES"  ] ; then

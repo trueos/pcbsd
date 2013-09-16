@@ -652,7 +652,6 @@ Example:
 "
 };
 
-
 # Fix old style meta-data, can be removed after 9.1
 fix_old_meta
 
@@ -1278,5 +1277,6 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
         ;;
    *) help_main ;;
 esac
+
 
 exit 0

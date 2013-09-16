@@ -185,6 +185,10 @@ isDirMounted() {
 ### Mount all needed filesystems for the jail
 mountjailxfs() {
 
+  if [ ! -d "${JDIR}/${1}/" ] ; then
+     exit_err "Invalid jail directory: ${JDIR}/${1}"
+  fi
+
   # Update the user files on the portjail
   ETCFILES="resolv.conf passwd master.passwd spwd.db pwd.db group localtime"
   for file in ${ETCFILES}; do
