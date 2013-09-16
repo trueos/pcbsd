@@ -47,7 +47,7 @@ export ATMP
 WARDENVER="1.3"
 export WARDENVER
 
-# Dirs to nullfs mount in X jail / pbibox
+# Dirs to nullfs mount in X jail
 NULLFS_MOUNTS="/tmp /media"
 X11_MOUNTS="/usr/local/lib/X11/icons /usr/local/lib/X11/fonts /usr/local/etc/fonts"
 
@@ -182,8 +182,8 @@ isDirMounted() {
   return $?
 }
 
-# Mount all the FS needed for a PBI container
-mountpbibox() {
+### Mount all needed filesystems for the jail
+mountjailxfs() {
 
   # Update the user files on the portjail
   ETCFILES="resolv.conf passwd master.passwd spwd.db pwd.db group localtime"
@@ -257,34 +257,6 @@ mountpbibox() {
     mount_nullfs ${i} ${JDIR}/${1}${i}
   done
 
-  # If this is a portjail, we can stop now
-  if [ "$1" = "portjail" ] ; then return ; fi
-
-  # For PBIs lets mount a few extra things
-  for nullfs_mount in ${X11_MOUNTS}; do
-    if [ ! -d "${JDIR}/${1}${nullfs_mount}" ] ; then
-	continue
-    fi
-    if is_symlinked_mountpoint ${nullfs_mount}; then
-      echo "${nullfs_mount} has symlink as parent, not mounting"
-      continue
-    fi
-
-    # If this is already mounted we can skip for now
-    isDirMounted "${JDIR}/${1}${nullfs_mount}" && continue
-
-    echo "Mounting ${JDIR}/${1}${nullfs_mount}"
-    mount_nullfs ${nullfs_mount} ${JDIR}/${1}${nullfs_mount}
-  done
-  
-}
-
-### Mount all needed filesystems for the jail
-mountjailxfs() {
- 
-   # Mount the same mount-points as pbibox 
-   mountpbibox "portjail"
-
 }
 
 ### Umount all the jail's filesystems
@@ -352,31 +324,6 @@ mkportjail() {
   # Flag this type
   touch ${JMETADIR}/jail-portjail
 }
-
-mkpbibox() {
-
-  if [ -z "${1}" ] ; then return ; fi
-
-  # KPM - Replace this section with a "mergeuserpw" function
-  # Need to be able to merge user accounts from /home on base system
-  # into the chroot each time we start it
-  ETCFILES="resolv.conf passwd master.passwd spwd.db pwd.db group localtime"
-  for file in ${ETCFILES}; do
-    rm ${1}/etc/${file} >/dev/null 2>&1
-    cp /etc/${file} ${1}/etc/${file}
-  done
-  
-  # Need to symlink /home
-  chroot ${1} ln -fs /usr/home /home
-
-  # Make sure we remove our cleartmp rc.d script, causes issues
-  [ -e "${1}/etc/rc.d/cleartmp" ] && rm ${1}/etc/rc.d/cleartmp
-
-  # Flag this type
-  touch ${JMETADIR}/jail-pbibox
-
-}
-
 
 mkpluginjail() {
   if [ -z "${1}" ] ; then return ; fi

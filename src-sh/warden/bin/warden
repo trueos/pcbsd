@@ -61,7 +61,7 @@ cat<<__EOF__
           set - Sets options for a jail
         start - Start a jail
          stop - Stops a jail
-         type - Set the jail type (pbibox|pluginjail|portjail|standard)
+         type - Set the jail type (pluginjail|portjail|standard)
      template - Manage jail templates
     zfsmksnap - Create a ZFS snapshot of a jail 
  zfslistclone - List clones of jail snapshots
@@ -375,7 +375,6 @@ help_type()
 
 Lets you set the type of jail to these options:
 
-pbibox: Special container for PBIs using host IP & user directories
 portjail: Jail with access to your home directories and Xorg
 pluginjail: Jail that can be used to install FreeNAS plugins
 standard: Normal FreeBSD secure jail environment
@@ -475,7 +474,6 @@ Generates a quick listing of the installed jails, including the running
 status.
 
 Available Flags:
-  -a           (List all jails, including pbi containers)
   -v           (Verbose listing)
 
 Usage:
@@ -636,7 +634,6 @@ Available Flags:
   --ports                      (Includes the ports tree)
   --vanilla                    (Don't install PC-BSD pkgng repo and utilities)
   --startauto                  (Start this jail at system boot)
-  --pbibox                     (Make this a pbi container)
   --portjail                   (Make this a portjail)
   --pluginjail                 (Make this a pluginjail)
   --linuxjail <script>         (Make this a linux jail and use supplied script for installation)
@@ -878,11 +875,6 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 	 if [ -e "${JMETADIR}/jail-linux" ] ; then exit_err "Cannot change type on Linux jail!"; fi
 
 	 case $TYPE in
-	   pbibox)
-              rm ${JMETADIR}/jail-pluginjail > /dev/null 2>/dev/null
-              rm ${JMETADIR}/jail-portjail >/dev/null 2>/dev/null
-              mkpbibox "${JAILDIR}"
-              ;;
 	   portjail)
               rm ${JMETADIR}/jail-pluginjail > /dev/null 2>/dev/null
               mkportjail "${JAILDIR}"
@@ -1181,7 +1173,6 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
              --startauto) AUTOSTART="YES" ;;
              --vanilla) VANILLA="YES" ;;
              --portjail) JAILTYPE="portjail" ;;
-             --pbibox) JAILTYPE="pbibox" ;;
              --pluginjail) JAILTYPE="pluginjail" ; VANILLA="YES" ;; 
              --linuxjail) JAILTYPE="linuxjail" ; shift
 			  if [ -z "$1" ] ; then exit_err "No linux setup script specified!"; fi

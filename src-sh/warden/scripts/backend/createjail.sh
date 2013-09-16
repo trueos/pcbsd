@@ -80,7 +80,6 @@ HOST="${1}"
 # Everything else is passed via environmental variables
 
 case "${JAILTYPE}" in
-  pbibox) PBIBOX="YES" ;;
   linuxjail) LINUXJAIL="YES" ;;
   pluginjail) PLUGINJAIL="YES" ;;
   portjail) PORTJAIL="YES" ;;
@@ -331,9 +330,6 @@ fi
 # Set the default meta-pkg set
 mkdir -p ${JAILDIR}/usr/local/etc >/dev/null 2>/dev/null
 echo "PCBSD_METAPKGSET: warden" > ${JAILDIR}/usr/local/etc/pcbsd.conf
-
-# Check if making a PBI box
-if [ "$PBIBOX" = "YES" ] ; then mkpbibox "${JAILDIR}" ; fi
 
 # Check if making a portjail
 if [ "$PORTJAIL" = "YES" ] ; then mkportjail "${JAILDIR}" ; fi

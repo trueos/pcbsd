@@ -275,13 +275,6 @@ then
   exit 5
 fi
 
-# If this is a pbibox, we don't really need to start any jail, just 
-# need to do some mounts and such
-if [ -e "${JMETADIR}/jail-pbibox" ] ; then 
-  mountpbibox ${JAILNAME}
-  exit 0
-fi
-
 # Make sure the jail is NOT already running
 jls | grep ${JAILDIR}$ >/dev/null 2>/dev/null
 if [ "$?" = "0" ]
