@@ -25,45 +25,6 @@ if [ "${IP6}" != "OFF" ] ; then
   MASK6="${JMASK}"
 fi
 
-JAILNAME="${HOST}"
-JAILDIR="${JDIR}/${JAILNAME}"
-
-if [ -z "${IFILE}" -o ! -e "${IFILE}" ]
-then
-  echo "ERROR: No jail specified or invalid file!"
-  exit 5
-fi
-
-if [ -z "${JDIR}" ]
-then
-  echo "ERROR: JDIR is unset!!!!"
-  exit 5
-fi
-
-if [ "${IP4}" != "OFF" ]
-then
-  for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
-  do
-    if [ "`cat ${i}/ipv4 2>/dev/null`" = "${IP4}/${MASK4}" ] ; then
-      echo "ERROR: A Jail exists with IP: ${IP4}"
-      exit 5
-    fi
-  done
-fi
-if [ "${IP6}" != "OFF" ]
-then
-  for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
-  do
-    _ipv6=`cat ${i}/ipv6 2>/dev/null|tr a-z A-Z`
-    _nipv6="`echo ${IP6}|tr a-z A-Z`/${MASK6}"
-    if [ "${ipv6}" = "${_nipv6}" ] ; then
-      echo "ERROR: A Jail exists with IP: ${IP6}"
-      exit 5
-    fi
-  done
-fi
-set_warden_metadir
-
 # Lets start importing the jail now
 ######################################################################
 
@@ -140,6 +101,51 @@ do
 
 done < $HEADER 
 
+
+if [ "$HOST" = "OFF" ] ; then
+   HOST="${FHOST}"
+fi
+
+JAILNAME="${HOST}"
+JAILDIR="${JDIR}/${JAILNAME}"
+
+if [ -z "${IFILE}" -o ! -e "${IFILE}" ]
+then
+  echo "ERROR: No jail specified or invalid file!"
+  exit 5
+fi
+
+if [ -z "${JDIR}" ]
+then
+  echo "ERROR: JDIR is unset!!!!"
+  exit 5
+fi
+
+if [ "${IP4}" != "OFF" ]
+then
+  for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+  do
+    if [ "`cat ${i}/ipv4 2>/dev/null`" = "${IP4}/${MASK4}" ] ; then
+      echo "ERROR: A Jail exists with IP: ${IP4}"
+      exit 5
+    fi
+  done
+fi
+if [ "${IP6}" != "OFF" ]
+then
+  for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
+  do
+    _ipv6=`cat ${i}/ipv6 2>/dev/null|tr a-z A-Z`
+    _nipv6="`echo ${IP6}|tr a-z A-Z`/${MASK6}"
+    if [ "${ipv6}" = "${_nipv6}" ] ; then
+      echo "ERROR: A Jail exists with IP: ${IP6}"
+      exit 5
+    fi
+  done
+fi
+set_warden_metadir
+
+
 cd ..
 
 # Make sure this is a file version we understand
@@ -153,7 +159,6 @@ fi
 if [ "${OS}" != "`uname -r | cut -d '-' -f 1`" ]
 then
     echo "WARNING: This .wdn file was created on $OS, while this host is `uname -r | cut -d '-' -f 1`"
-    echo "This jail may not work...Importing anyway..."
 fi
 
 if [ "${IP4}" = "OFF" ]
