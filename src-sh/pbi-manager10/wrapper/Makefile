@@ -126,6 +126,7 @@ main.o: main.c
 install_scripts: first FORCE
 	-@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/pbi || $(MKDIR) $(INSTALL_ROOT)/usr/pbi/
 	-$(INSTALL_FILE) .pbiwrapper $(INSTALL_ROOT)/usr/pbi/.pbiwrapper
+	-$(INSTALL_FILE) ldconfig $(INSTALL_ROOT)/usr/pbi/.ldconfig
 
 install:   FORCE install_scripts
 
