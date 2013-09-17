@@ -1722,7 +1722,7 @@ set_make_options() {
 		cd /tmp
 		fetch -o pkg.txz ${pkgFetchURL}/Latest/pkg.txz
 		if [ $? -ne 0 ] ; then exit_err "Failed fetching pkgng..."; fi
-		tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
+		tar xvf pkg.txz >/dev/null 2>/dev/null
 		./usr/local/sbin/pkg-static add pkg.txz
 		if [ $? -ne 0 ] ; then exit_err "Failed installing pkgng..."; fi
 		rm pkg.txz
@@ -7362,9 +7362,9 @@ do_port_build()
 
   # Are we doing a PKGNG build?
   if [ "$PBI_PKGNGBUILD" ] ; then
-	pkg install -y "${pkgName}"	
+	pkg install -y "$_lPort"	
 	if [ $? -ne 0 ] ; then
-	   exit_err "Failed installing ${pkgName}"
+	   exit_err "Failed installing $_lPort"
 	fi
 	return 0
   fi
