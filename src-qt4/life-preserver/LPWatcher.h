@@ -36,6 +36,7 @@ private:
 	//File system watcher
 	QFileSystemWatcher *watcher;
 	QTimer *timer;
+	int sysCheckTime;
 	QFile *logfile, *repfile;
 	QTextStream *LFSTREAM, *RFSTREAM;
 	//Replication size variables
@@ -55,6 +56,7 @@ private slots:
 
 signals:
 	void MessageAvailable(QString type);
+	void StatusUpdated();
 };
 
 #endif

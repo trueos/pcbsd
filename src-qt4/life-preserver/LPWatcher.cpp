@@ -6,11 +6,11 @@
     "replication" status: 20-29
     "critical" status: 30-39
     "mirror" status: 40-49
-    "resilvering" status: 50-59
+    "resilver" status: 50-59
     "scrub" status: 60-69
   Within each set:
     *0 = ID Code (for internal identification as necessary)
-    *1 = dataset (example: tank1)
+    *1 = zpool (example: tank1)
     *2 = summary (shortened version of the message - tooltips)
     *3 = message (full message)
     *4 = timestamp (full date/time timestamp in readable format)
@@ -30,12 +30,11 @@ LPWatcher::LPWatcher() : QObject(){
   FILE_LOG = "/var/log/lpreserver/lpreserver.log";
   FILE_ERROR="/var/log/lpreserver/error.log";
   FILE_REPLICATION=""; //this is set automatically based on the log file outputs
-
+  sysCheckTime = 300000; // 5 minutes
   //initialize the watcher and timer
   watcher = new QFileSystemWatcher(this);
     connect(watcher, SIGNAL(fileChanged(QString)),this,SLOT(fileChanged(QString)) );
   timer = new QTimer();
-    timer->setInterval( 300000 ); //5 minute check time
     connect(timer, SIGNAL(timeout()), this, SLOT(checkPoolStatus()) );
   //initialize the log file reader
   logfile = new QFile(FILE_LOG, this);
@@ -70,7 +69,7 @@ void LPWatcher::start(){
   //Now check for any current errors in the LPbackend
   checkPoolStatus();
   //And start up the error file watcher
-  timer->start();
+  if(!timer->isActive()){ timer->start(sysCheckTime); }
 }
 
 void LPWatcher::stop(){
@@ -89,14 +88,14 @@ QStringList LPWatcher::getMessages(QString type, QStringList msgList){
   else if(type=="replicate"){base=20;}
   else if(type=="critical"){base=30;}
   else if(type=="mirror"){base=40;}
-  else if(type=="resilvering"){base=50;}
+  else if(type=="resilver"){base=50;}
   else if(type=="scrub"){base=60;}
   else{ return output; } //invalid input type
   //Now fill the output array based upon requested outputs
   for(int i=0; i<msgList.length(); i++){
     msgList[i] = msgList[i].toLower();
     if(msgList[i]=="id" && LOGS.contains(base)){ output << LOGS[base]; }
-    else if(msgList[i]=="dataset" && LOGS.contains(base+1)){ output << LOGS[base+1]; }
+    else if(msgList[i]=="device" && LOGS.contains(base+1)){ output << LOGS[base+1]; }
     else if(msgList[i]=="summary" && LOGS.contains(base+2)){ output << LOGS[base+2]; }
     else if(msgList[i]=="message" && LOGS.contains(base+3)){ output << LOGS[base+3]; }
     else if(msgList[i]=="timestamp" && LOGS.contains(base+4)){ output << LOGS[base+4]; }
@@ -287,21 +286,20 @@ void LPWatcher::checkPoolStatus(){
   QStringList zstat = LPBackend::getCmdOutput("zpool status");
     //parse the output
     QString pool, state, timestamp;
-    qDebug() << "-----zpool status------";
-    bool newresilver = false;
+    //qDebug() << "-----zpool status------";
+    bool newresilver = false; bool newscrub = false; bool newerror = false;
     for(int i=0; i<zstat.length(); i++){
       zstat[i] = zstat[i].simplified();
       if(zstat[i].isEmpty()){ continue; }
-      qDebug() << zstat[i];
+      //qDebug() << zstat[i];
       if(zstat[i].startsWith("pool:")){ pool = zstat[i].section(":",1,10).simplified(); }
       else if(zstat[i].startsWith("state:")){ state = zstat[i].section(":",1,10).simplified(); }
       else if(zstat[i].startsWith("scan:")){
 	//check for scrubs/resilvering progress
-	bool isnew = false;
 	// ------ SCRUB ------
 	if(zstat[i].contains("scrub")){
-	  //Setup the latest/running scrub info
 	  if(zstat[i].contains(" scrub repaired ")){
+	    //Scrub Finished
 	    zstat[i]  = zstat[i].replace("\t"," ").simplified();
 	    timestamp = zstat[i].section(" ",10,14,QString::SectionSkipEmpty);
 	    QString numFixed = zstat[i].section(" ",3,3,QString::SectionSkipEmpty);
@@ -309,12 +307,12 @@ void LPWatcher::checkPoolStatus(){
 	    QString timeRun = zstat[i].section(" ",5,5,QString::SectionSkipEmpty);
 	    //Scrub finished previously
 	    if(numFixed.toInt() > 0){ 
-	      if(LOGS.value(60)!="ERROR"){ isnew=true; }
+	      if(LOGS.value(60)!="ERROR"){ newscrub=true; }
 	      LOGS.insert(60, "ERROR"); 
 	      LOGS.insert(62, QString(tr("Scrub repaired %1 bad blocks")).arg(numFixed) );
 	      LOGS.insert(63, QString(tr("Scrub repaired %1 blocks in %2 with %3 errors")).arg(numFixed, timeRun, numErr) );
 	    }else{ 
-	      if(LOGS.value(60)!= " " && LOGS.value(60)!="FINISHED"){ isnew=true; }
+	      if(LOGS.contains(60) && LOGS.value(60)!="FINISHED"){ newscrub=true; }
 	      LOGS.insert(60,"FINISHED"); 
 	      LOGS.insert(62, tr("Scrub completed") );
 	      LOGS.insert(63, tr("Scrub completed without needing repairs") );
@@ -322,21 +320,21 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.insert(61,pool);
 	    LOGS.insert(64, timestamp);
 	    LOGS.insert(65, timestamp.section(" ",3,3) );
+	    if(timer->interval() != sysCheckTime){ timer->start(sysCheckTime); }
 	  }else{
 	    //Scrub is running - parse the line
-	    timestamp = "??";
-	    QString percent = "??";
-	    QString remain = "??";
-	    if(LOGS.value(60) != "RUNNING"){isnew=true;}
+	    timestamp = zstat[i].section(" ",5,9,QString::SectionSkipEmpty);
+	    i++; QString remain = zstat[i].section(" ",7,7,QString::SectionSkipEmpty);
+	    i++; QString percent = zstat[i].section(" ",2,2,QString::SectionSkipEmpty);
+	    if(LOGS.value(60) != "RUNNING"){newscrub=true;}
 	    LOGS.insert(60,"RUNNING");
 	    LOGS.insert(61,pool);
-	    LOGS.insert(62, QString(tr("Scrubbing: %1 (%2 remaining)")).arg(percent, remain) );
-	    LOGS.insert(63, QString(tr("Scrubbing: %1 (%2 remaining)")).arg(percent, remain) );
+	    LOGS.insert(62, QString(tr("Scrubbing %1: %2 (%3 remaining)")).arg(pool, percent, remain) );
+	    LOGS.insert(63, QString(tr("Scrubbing %1: %2 (%3 remaining)")).arg(pool, percent, remain) );
 	    LOGS.insert(64, timestamp);
 	    LOGS.insert(65, timestamp.section(" ",3,3) );
-	    qDebug() << "***Running Scrub: line needs parsing";
+	    if(timer->interval() != 60000){ timer->start(60000); } //put the timer on a 1 minute refresh since it is running
 	  }
-	  if(isnew){ emit MessageAvailable("scrub"); }
 	  if(LOGS.contains(50) ){
 	    //Only resilvering OR scrub is shown at a time - so remove the resilver info
 	    LOGS.remove(50);
@@ -371,13 +369,14 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.remove(64);
 	    LOGS.remove(65);
 	  }
+	  if(timer->interval() != 60000){ timer->start(60000); }//put the timer on a 1 minute refresh since it is running
 	}else if(zstat[i].contains("resilvered")){
 	  //Resilvering is finished
 	  timestamp = zstat[i].section(" ",9,13,QString::SectionSkipEmpty);
 	  QString timecomplete = zstat[i].section(" ",4,4,QString::SectionSkipEmpty);
 	  QString errors = zstat[i].section(" ", 6,6,QString::SectionSkipEmpty);
 	  //Setup the running re-silvering progress
-	  if(LOGS.value(50)!= " "){newresilver=true; } //don't display message for first run
+	  if(LOGS.contains(50)){newresilver=true; } //don't display message for first run
 	  if(errors.toInt() > 0){ 
 	    LOGS.insert(50, "ERROR");
 	    LOGS.insert(52, QString(tr("Resilver completed in &1 with %2 errors")).arg(timecomplete, errors) );
@@ -399,6 +398,7 @@ void LPWatcher::checkPoolStatus(){
 	    LOGS.remove(64);
 	    LOGS.remove(65);
 	  }
+	  if(timer->interval() != sysCheckTime){ timer->start(sysCheckTime); }
 	}
       }else if(zstat[i].startsWith("errors:")){
 	if(zstat[i] != "errors: No known data errors"){
@@ -406,15 +406,21 @@ void LPWatcher::checkPoolStatus(){
 	}
       }else if( state != "ONLINE" || !LOGS.value(50).isEmpty() ){
         //Check for state/resilvering of all real devices
-	if(zstat[i].contains("NAME\tSTATE\tREAD")){continue;} //nothing on this header line
-	else if(zstat[i].contains("(resilvering)")){ LOGS.insert(51, zstat[i].section("\t",0,0,QString::SectionSkipEmpty) ); }
+	QString msg, summary, status;
+	if(zstat[i].contains("NAME STATE READ")){continue;} //nothing on this header line
+	else if(zstat[i].contains("(resilvering)")){ LOGS.insert(51, zstat[i].section("\t",0,0,QString::SectionSkipEmpty) ); continue;}
 	else if(zstat[i].contains("ONLINE")){continue;} //do nothing for this device - it is good
 	else if(zstat[i].contains("OFFLINE")){ }
 	else if(zstat[i].contains("DEGRADED")){ }
 	else if(zstat[i].contains("FAULTED")){ }
 	else if(zstat[i].contains("REMOVED")){ }
 	else if(zstat[i].contains("UNAVAIL")){ }
+	//Now put the error message into the "critical" message slot
       }
     } //end of loop over zpool status lines
-  if(newresilver){ emit MessageAvailable("resilvering"); }
+  //Now emit the appropriate signal
+  if(newerror){ emit MessageAvailable("critical"); }
+  else if(newresilver){ emit MessageAvailable("resilver"); }
+  else if(newscrub){ emit MessageAvailable("scrub"); }
+  else{ emit StatusUpdated(); }
 }
