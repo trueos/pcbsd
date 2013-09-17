@@ -1573,9 +1573,19 @@ get_pbi_progversion() {
 		# If we have PBI_PROGVERSION now set
 		if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
 	else
+		# Check first if we have this pkg in PKGNG
+		if [ -e "/usr/local/sbin/pkg-static" ] ; then
+			local testPkgVer="`pkg info -O ${PBI_MAKEPORT} | awk '{print $1}' | rev | cut -d '-' -f 1 | rev`"
+			if [ -n "$testPkgVer" ] ; then
+				export PBI_PROGVERSION="$testPkgVer"
+				return 0
+			fi
+		fi
+
 		return 0
 	fi
 
+	# Get the version from ports
 	if [ -z "${PBI_PROGVERSION}" -a -n "${PORTSDIR}" -a -n "${PBI_MAKEPORT}" ] ; then
 		PORTVER="`make -C ${PORTSDIR}/${PBI_MAKEPORT} -V DISTVERSION PORTSDIR=${PORTSDIR} 2>/dev/null`"
 
@@ -6682,6 +6692,9 @@ do_pbi_make() {
   	start_pbi_makeport
   	start_postbuild_script
   	start_pbi_mkportafter
+
+	# Get the version again, in case we installed from pkgng and it doesn't match ports
+	get_pbi_progversion
 
   	# Prune any proto / build specific ports
   	start_pbi_prune_ports
