@@ -67,7 +67,7 @@ Options:
   --genpatch   -- Generate patch files (*.pbp) from archived PBIs to current
   --keep <num> -- Keep <num> old versions in archive folder for each built PBI
   --prune      -- Remove files from 'outdir' that no longer have a module
-  --pkgcache   -- Create and use a .txz pkg cache directory, in the <outdir> of each PBI
+  --pkgbuild   -- Build the PBIs using packages from PKGNG
   --tmpfs      -- Use TMPFS for port WRKDIRPREFIX
   --sign key   -- Sign the PBI(s) with specified openssl key
 
@@ -127,9 +127,9 @@ Options:
   --delbuild   -- Delete existing build dirs if they exist
   --meta file  -- Include the specified meta file in the PBI header
   --mkdebug    -- Drop to debug shell if port make fails
+  --pkgbuild   -- Build PBI from PKGNG package repo
   --tmpfs      -- Use TMPFS for port WRKDIRPREFIX
   --no-prune   -- Do not prune non REQUIREDBY ports
-  --pkgdir dir -- Enable .txz pkg caching in the following directory
   --sign key   -- Sign the PBI with specified openssl key
 
 EOF
@@ -1020,7 +1020,7 @@ parse_autob_pbi_cmdline() {
 
         --genpatch)     PBI_AB_GENPATCH="YES" 
                         ;;
-        --pkgcache)     PBI_AB_PKGCACHE="YES" 
+        --pkgbuild)     PBI_AB_PKGBUILD="YES" 
                         ;;
             --keep)     if [ $# -eq 1 ]; then usage_autob_pbi; fi
                         shift; PBI_AB_ARCHIVENUM="$1"
@@ -1172,6 +1172,8 @@ parse_make_pbi_cmdline() {
                         ;;
                 --mkdebug)	MKDEBUG="YES"
                         ;;
+                --pkgbuild)	PBI_PKGNGBUILD="YES"
+                        ;;
                 --tmpfs)	MKTMPFS="YES"
                         ;;
                --meta)	if [ $# -eq 1 ]; then usage_make_pbi; fi
@@ -1196,12 +1198,6 @@ parse_make_pbi_cmdline() {
                         if [ -n "${PBI_MAKEPREFIX}" ]; then usage_make_pbi; fi
                         shift; PBI_MAKEPREFIX="$1"
                         ;;
-            --pkgdir)	if [ $# -eq 1 ]; then usage_make_pbi; fi
-			shift
-			get_abspath "$1"
-			PBI_PKGCACHEDIR="$_ABSPATH"
-			PBI_PKGCACHE="YES"
-                        ;;
             --sign)	if [ $# -eq 1 ]; then usage_make_pbi; fi
 			shift
 			get_abspath "$1"
@@ -1221,13 +1217,6 @@ parse_make_pbi_cmdline() {
 		if [ -n "${PBI_SSLPRIVKEY}" ] ; then PBI_SSLPRIVKEY="/privkey.pem" ; fi
 		if [ -n "${PBI_CREATE_OUTDIR}" ] ; then PBI_CREATE_OUTDIR="/pbiout" ; fi
 		if [ -n "${PORTSDIR}" ] ; then PORTSDIR="/usr/ports" ; fi
-	else
-	# If running as pbi_makeport
-
-		# Make sure the PBI_PKGCACHEDIR exists
-		if [ -n "${PBI_PKGCACHEDIR}" -a ! -d "${PBI_PKGCACHEDIR}" ] ; then
-			exit_err "No such directory: ${PBI_PKGCACHEDIR}"
-		fi
 	fi
 
 
@@ -1361,7 +1350,7 @@ init_vars() {
 	PBI_XDGDIRDIR="${PBI_APPDIR}/share/desktop-directories"
 	PBI_XDGICONDIR="${PBI_APPDIR}/share/icons/hicolor"
 	PBI_XDGMIMEDIR="${PBI_APPDIR}/share/mime/packages"
-	PBI_RCDIR="${SYS_LOCALBASE}/etc/rc.d"
+	PBI_RCDIR="${PBI_APPDIR}/etc/rc.d"
 	PBI_ETCCONF="${SYS_LOCALBASE}/etc/pbi.conf"
 	PCBSD_ETCCONF="${SYS_LOCALBASE}/etc/pcbsd.conf"
 	PBI_DEFAULT_ICON="${PROGBASE}/share/pbi-manager/icons/default.png"
@@ -1530,19 +1519,8 @@ init_vars() {
 
 detect_pkgng()
 {
-	export PORTSDIR
-	# Are we using pkgng?
-	WITH_PKGNG=$(make -f ${PORTSDIR}/Mk/bsd.port.mk -V WITH_PKGNG)
-        if [ -n "${WITH_PKGNG}" ]; then
-                export PKGNG=1
-                export PKG_ADD="pkg add"
-                export PKG_DELETE="pkg delete -y -f"
-        else
-                export PKGNG=0
-                export PKG_ADD=pkg_add
-                export PKG_DELETE=pkg_delete
-        fi
-
+        export PKG_ADD="pkg add"
+        export PKG_DELETE="pkg delete -y -f"
 }
 
 # Set and export vars used by module scripts
@@ -1715,26 +1693,13 @@ clean_remote_dl() {
 # Set port make options from config
 set_make_options() {
 
-	# Set the LOCALBASE
-	LOCALBASE="${PBI_PROGDIRPATH}"
-	if [ -e "${LOCALBASE}" ] ; then 
-		if [ "$MKDELBUILD" != "YES" ] ; then
-			exit_err "${LOCALBASE} already exists! Delete it before doing a rebuild"
-		else
-			if [ -z "${LOCALBASE}" ] ; then
-				exit_err "null LOCALBASE, this shouldn't happen"
-			fi
-			rm -rf "${LOCALBASE}"
-		fi
-	fi
-
 	local MAKE_CONF="/etc/make.conf"
 
-	echo "LOCALBASE=${LOCALBASE}" >> ${MAKE_CONF}
 	echo "PACKAGE_BUILDING=yes" >> ${MAKE_CONF}
 	echo "BATCH=yes" >> ${MAKE_CONF}
 	echo "NO_IGNORE=yes" >> ${MAKE_CONF}
 	echo "PACKAGE_BUILDING=yes" >> ${MAKE_CONF}
+	echo "WITH_PKGNG=yes" >> ${MAKE_CONF}
 
 	echo "WRKDIRPREFIX=/usr/wrkdirprefix" >> ${MAKE_CONF}
 	echo "DEPENDS_CLEAN=YES" >> ${MAKE_CONF}
@@ -1744,13 +1709,29 @@ set_make_options() {
 		echo "${PBI_MAKEOPTS}" >> ${MAKE_CONF}
 	fi
 
-	# Link LOCALBASE -> /usr/local
-	mkdir -p ${LOCALBASE}
-	rm -rf /usr/local
-	ln -s ${LOCALBASE} /usr/local
+	if [ ! -d "/usr/local" ] ; then
+		mkdir -p /usr/local
+	fi 
 
 	# Make sure ldconfig is primed
 	/etc/rc.d/ldconfig start
+
+	if [ "$PBI_PKGNGBUILD" ] ; then
+		echo "Installing pkgng..."
+		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}'`
+		cd /tmp
+		fetch -o pkg.txz ${pkgFetchURL}/Latest/pkg.txz
+		if [ $? -ne 0 ] ; then exit_err "Failed fetching pkgng..."; fi
+		tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
+		./usr/local/sbin/pkg-static add pkg.txz
+		if [ $? -ne 0 ] ; then exit_err "Failed installing pkgng..."; fi
+		rm pkg.txz
+	else
+		echo "Building pkgng..."
+		cd /usr/ports/ports-mgmt/pkg
+		make install clean
+		if [ $? -ne 0 ] ; then exit_err "Failed building pkgng!" ; fi 
+	fi
 
 	# Check if using ccache directory
 	if [ -d "/.ccache" ] ; then
@@ -1759,24 +1740,24 @@ set_make_options() {
 		make install clean
 		if [ $? -eq 0 ] ; then
 			# Setup environment variables
-			CCACHE_PATH="/usr/bin:${LOCALBASE}/bin"
+			CCACHE_PATH="/usr/bin:/usr/local/bin"
 			export CCACHE_PATH
 			CCACHE_DIR="/.ccache"
 			export CCACHE_DIR
-			PATH="${LOCALBASE}/libexec/ccache:${PATH}"
+			PATH="/usr/local/libexec/ccache:${PATH}"
 			export PATH
 
 			# Setup make configuration
 			echo ".if !defined(NO_CCACHE)" >> ${MAKE_CONF}
-			echo "  CC=${LOCALBASE}/libexec/ccache/world/cc" >> ${MAKE_CONF}
-			echo "  CXX=${LOCALBASE}/libexec/ccache/world/c++" >> ${MAKE_CONF}
+			echo "  CC=/usr/local/libexec/ccache/world/cc" >> ${MAKE_CONF}
+			echo "  CXX=/usr/local/libexec/ccache/world/c++" >> ${MAKE_CONF}
 			echo ".endif" >> ${MAKE_CONF}
 		else
 			echo "Failed installing ccache! Continuing without it..."
 		fi
 	fi
 
-	PATH="${PATH}:/usr/local/bin:/usr/local/sbin:${LOCALBASE}/bin:${LOCALBASE}/sbin"
+	PATH="${PATH}:/usr/local/bin:/usr/local/sbin"
 	export PATH
 
 	FORCE_PKG_REGISTER="Y"
@@ -3560,7 +3541,7 @@ do_pbi_create() {
 
 
 	if [ "`basename $0`" = "pbi_makeport" -o "`basename $0`" = "pbi_makeport_chroot" ] ; then
-	  PBI_STAGEDIR="${PBI_PROGDIRPATH}"
+	  PBI_STAGEDIR="/usr/local"
 	else
 	  mk_stage_dir
 	fi
@@ -4977,20 +4958,16 @@ start_pbi_prune_ports()
 		echo "${PKGNAME}" >> /.keepports
 		grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
         done
+
+	# Don't strip out pkgng
+	pkg info pkg >> /.keepports
 	
 	# Sort and clean the ports
 	cat /.keepports | sort | uniq > /.keepports.tmp
 	mv /.keepports.tmp /.keepports
 
-	# Define some commands
-     	if [ $PKGNG -eq 1 ] ; then
-		pkgInf="pkg info -f"
-     	else
-		pkgInf="pkg_info -I -a"
-	fi
-
 	# Now remove any unused ports
-	for j in `$pkgInf | cut -d " " -f 1`
+	for j in `pkg info -a | cut -d " " -f 1`
 	do
 		grep -q "^${j}" "/.keepports"
 		if [ $? -ne 0 ] ; then 
@@ -5996,12 +5973,9 @@ start_ext_ab() {
 		fi
 	fi
 
-	# Check if we need to enable pkgcaching
- 	if [ "$PBI_AB_PKGCACHE" = "YES" -a -z "$PBI_AB_NOPKGCACHE"  ] ; then
-		if [ ! -d "${_od}/pkgcache" ] ; then
-			mkdir -p ${_od}/pkgcache
-		fi
-		_flags="${_flags} --pkgdir ${_od}/pkgcache"
+	# Check if we need to enable pkgbuilding
+ 	if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
+		_flags="${_flags} --pkgbuild"
 	fi
 
 	# Are we doing 32bit builds?
@@ -6902,6 +6876,18 @@ chroot_extract() {
 	PBI_WRAPPERFILE="${PBI_SHARE_DIR}/.pbiwrapper-$ARCH"
 	cp ${PBI_WRAPPERFILE} ${PBI_CHROOTDIR}/.pbiwrapper-$ARCH
 
+	if [ "$PBI_PKGNGBUILD" = "YES" ] ; then
+		mkdir -p ${PBI_CHROOTDIR}/usr/local/etc 2>/dev/null
+	   	cp /usr/local/etc/pkg.conf ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf
+	   	local pubKey=`cat /usr/local/etc/pkg.conf | grep "^PUBKEY:" | awk '{print $2}'`
+	   	if [ -n "$pubKey" ] ; then
+			if [ ! -d "${PBI_CHROOTDIR}/`dirname $pubKey`" ] ; then
+				mkdir "${PBI_CHROOTDIR}/`dirname $pubKey`"
+			fi
+	     		cp $pubKey ${PBI_CHROOTDIR}/$pubKey
+	   	fi
+	fi
+
 	# If we have a custom PBI_MAKECONF include it
 	[ -e "${PBI_MAKECONF}" ] && cp ${PBI_MAKECONF} ${PBI_CHROOTDIR}/etc/make.conf
 
@@ -6923,12 +6909,6 @@ EOF
 	mkdir -p ${PBI_CHROOTDIR}/usr/ports 2>/dev/null
 	mount_nullfs ${PORTSDIR} ${PBI_CHROOTDIR}/usr/ports
 
-	# Are we doing pkg caching?
-	if [ "$PBI_PKGCACHE" = "YES" ] ; then
-		mkdir ${PBI_CHROOTDIR}/pkgs
-		mount_nullfs ${PBI_PKGCACHEDIR} ${PBI_CHROOTDIR}/pkgs
-	fi
-	
 	# Now copy over the pbi_* scripts
 	mkdir ${PBI_CHROOTDIR}/usr/local/sbin 2>/dev/null
 	cp ${PROGBASE}/sbin/pbi_* ${PBI_CHROOTDIR}/usr/local/sbin
@@ -7215,11 +7195,7 @@ mk_auto_ext_linksfile() {
 	_pname="${PKGNAME}"
 
 	# Define some commands
-     	if [ $PKGNG -eq 1 ] ; then
-		pkgInf="pkg info -l"
-     	else
-		pkgInf="pkg_info -L"
-	fi
+	pkgInf="pkg info -l"
 
  	${pkgInf} ${_pname} | sed "s|^${PBI_PROGDIRPATH}/||g" \
 		| grep -v -e "^Information for" -e "^Files:" -e "owns the following" \
@@ -7356,12 +7332,8 @@ do_port_build()
 
   # Make sure this port isn't already loaded
   local pkgName=`make -V PKGNAME -C $_lPort PORTSDIR=${PORTSDIR}`
-  if [ $PKGNG -eq 1 ] ; then
-	pkg info -e ${pkgName}
-	if [ $? -eq 0 ] ; then return ; fi
-  else
-	if [ -e "/var/db/pkg/${pkgName}" ] ; then return ; fi
-  fi
+  pkg info -e ${pkgName}
+  if [ $? -eq 0 ] ; then return ; fi
 
   # Save any users / groups we need to create later
   local pUsers="`make -V USERS -C $_lPort PORTSDIR=${PORTSDIR}`"
@@ -7379,12 +7351,8 @@ do_port_build()
     if [ -z "$cPkg" ] ; then continue ; fi
 
     # is this installed?
-    if [ $PKGNG -eq 1 ] ; then
-	pkg info -e ${cPkg}
-        if [ $? -eq 0 ] ; then continue ; fi
-    else
-	if [ -e "/var/db/pkg/${cPkg}" ] ; then continue ; fi
-    fi
+    pkg info -e ${cPkg}
+    if [ $? -eq 0 ] ; then continue ; fi
 
     local _port=`grep "^${cPkg}|" $iFile | cut -d '|' -f 2`
 
@@ -7392,44 +7360,16 @@ do_port_build()
     do_port_build "${_port}" >&1 2>&1
   done
 
-  if [ $PKGNG -eq 1 ] ; then
-  	pkgInf="pkg info -e"
-  	pkgDep="pkg info -d"
-  	pkgCreate="pkg create -f txz"
-  else
-  	pkgInf="pkg_info"
-  	pkgDep="pkg_info -r"
-  	pkgCreate="pkg_create -J -b"
+  # Are we doing a PKGNG build?
+  if [ "$PBI_PKGNGBUILD" ] ; then
+	pkg install -y "${pkgName}"	
+	if [ $? -ne 0 ] ; then
+	   exit_err "Failed installing ${pkgName}"
+	fi
+	return 0
   fi
 
-  # Not installed, see if we have a pkg to install instead
-  if [ -e "/pkgs/${pkgName}.txz" ] ; then
-     REBUILDPKG="NO"
-     echo "Checking package: ${pkgName}"
-     $pkgDep /pkgs/${pkgName}.txz | grep -v -e "^Information" -e "depends on:" -e "^Depends" | sed '/^$/d' | sed 's|Dependency: ||g' > /tmp/deps.$$
-     while read dLine
-     do
-     	$pkgInf $dLine >/dev/null 2>/dev/null
-        if [ $? -ne 0 ] ; then
-           echo "Package dependencies updated! Rebuilding port..."
-           REBUILDPKG="YES"
-	   break
-        fi
-     done < /tmp/deps.$$
-     rm /tmp/deps.$$
-
-     # Fix some pkgs bugging us with license questions
-     PACKAGE_BUILDING=yes
-     export PACKAGE_BUILDING
-
-     if [ "$REBUILDPKG" = "NO" ] ; then
-       echo "Adding package: ${pkgName}"
-       $PKG_ADD -f /pkgs/${pkgName}.txz
-       return
-     fi
-  fi
-
-  # No package, lets do old-fashioned build
+  # Lets do old-fashioned build
   echo "Compiling port: ${_lPort}"
   cd ${_lPort}
   make rmconfig
@@ -7450,29 +7390,6 @@ do_port_build()
   fi
   make clean
 
-  # Are we caching packages?
-  if [ "${PBI_PKGCACHE}" = "YES" ] ; then
-
-    # Prune outdated versions of cached pkg
-    local basePkgName
-    basePkgName="`echo ${pkgName} | rev | cut -d '-' -f 2- | rev`"
-    for rmPkg in `ls /pkgs/${basePkgName}* 2>/dev/null | sed 's|/pkgs/||g'`
-    do
-        testPkg="`echo ${rmPkg} | rev | cut -d '-' -f 2- | rev`"
-	if [ -n "$testPkg" -a "$testPkg" = "$basePkgName" ] ; then
-	   echo "Pruning old cache pkg: ${rmPkg}"
-	   rm /pkgs/${rmPkg}
-	fi
-    done
-
-    # Create new pkg
-    ${pkgCreate} ${pkgName}
-    if [ $? -ne 0 ] ; then
-       exit_err "$pkgCreate ${pkgName} failed!"
-    fi
-    mv ${pkgName}.txz /pkgs/
-    sha256 -q /pkgs/${pkgName}.txz >/pkgs/${pkgName}.txz.sha256
-  fi
 };
 
 # Check if the target directory is on ZFS
