@@ -286,6 +286,7 @@ void LPWatcher::checkPoolStatus(){
   QStringList zstat = LPBackend::getCmdOutput("zpool status");
     //parse the output
     QString pool, state, timestamp;
+    QStringList cDev, cStat, cMsg, cSummary;
     //qDebug() << "-----zpool status------";
     bool newresilver = false; bool newscrub = false; bool newerror = false;
     for(int i=0; i<zstat.length(); i++){
@@ -407,17 +408,55 @@ void LPWatcher::checkPoolStatus(){
       }else if( state != "ONLINE" || !LOGS.value(50).isEmpty() ){
         //Check for state/resilvering of all real devices
 	QString msg, summary, status;
+	QString device = zstat[i].section(" ",0,0,QString::SectionSkipEmpty);
 	if(zstat[i].contains("NAME STATE READ")){continue;} //nothing on this header line
-	else if(zstat[i].contains("(resilvering)")){ LOGS.insert(51, zstat[i].section("\t",0,0,QString::SectionSkipEmpty) ); continue;}
+	else if(zstat[i].contains("(resilvering)")){ LOGS.insert(51, device ); continue;}
 	else if(zstat[i].contains("ONLINE")){continue;} //do nothing for this device - it is good
-	else if(zstat[i].contains("OFFLINE")){ }
-	else if(zstat[i].contains("DEGRADED")){ }
-	else if(zstat[i].contains("FAULTED")){ }
-	else if(zstat[i].contains("REMOVED")){ }
-	else if(zstat[i].contains("UNAVAIL")){ }
-	//Now put the error message into the "critical" message slot
+	else if(zstat[i].contains("OFFLINE")){ continue; } //do nothing - this status must be set manually - it is not a "random" status
+        else if(zstat[i].contains("DEGRADED")){ 
+	  cStat << "DEGRADED";
+	  cMsg << tr("The device is in a degraded state, and should be replaced soon.");
+	  cSummary << QString(tr("%1 is degraded.")).arg(device);
+	  cDev << device;
+	}else if(zstat[i].contains("FAULTED")){ 
+	  cStat << "FAULTED";
+	  cMsg << tr("The device is faulty, and should be replaced.");
+	  cSummary << QString(tr("%1 is faulty.")).arg(device);
+	  cDev << device;
+	}else if(zstat[i].contains("REMOVED")){ 
+	  cStat << "REMOVED";
+	  cMsg << tr("The device was removed, and should be either be re-attached or replaced.");
+	  cSummary << QString(tr("%1 was removed.")).arg(device);
+	  cDev << device;
+	}else if(zstat[i].contains("UNAVAIL")){ 
+	  cStat << "UNAVAILABLE";
+	  cMsg << tr("The device is unavailable and should be re-added to the pool.");
+	  cSummary << QString(tr("%1 is unavailable.")).arg(device);
+	  cDev << device;
+	}
       }
     } //end of loop over zpool status lines
+    
+  //Add the critical messages to the hash
+  if(cStat.isEmpty()){
+    if(LOGS.contains(30)){
+      LOGS.remove(30);
+      LOGS.remove(31);
+      LOGS.remove(32);
+      LOGS.remove(33);
+      LOGS.remove(34);
+      LOGS.remove(35);
+    }
+  }else{
+    if(LOGS.value(30) != cStat.join(":::") ){ newerror = true; }
+    LOGS.insert(30, cStat.join(":::") );
+    LOGS.insert(31, cDev.join(":::") );
+    LOGS.insert(32, cSummary.join(":::") );
+    LOGS.insert(33, cMsg.join(":::") );
+    LOGS.insert(34, timestamp);
+    LOGS.insert(35, timestamp.section(" ",3,3) );
+  }
+    
   //Now emit the appropriate signal
   if(newerror){ emit MessageAvailable("critical"); }
   else if(newresilver){ emit MessageAvailable("resilver"); }

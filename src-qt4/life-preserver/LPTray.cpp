@@ -82,7 +82,13 @@ void LPTray::watcherMessage(QString type){
     info << "time" << "message" << "device";
     info = watcher->getMessages(type,info);
     if(!info.isEmpty()){
-      QString msg = QString(tr("Time: %1")).arg(info[0])+"\n"+QString(tr("Device: %1")).arg(info[2])+"\n"+QString(tr("Alert: %1")).arg(info[1]);
+      QString msg = QString(tr("Time: %1")).arg(info[0]);
+      //message/device information can have more than one listed
+      QStringList devs = info[2].split(":::");	    
+      QStringList msgs = info[1].split(":::");
+      for(int i=0; i<devs.length(); i++){
+        msg.append("\n"+QString(tr("%1: %2")).arg(devs[i],msgs[i]) );
+      }
       QString title = tr("System Alert");
       QMessageBox::warning(0, title ,msg);
     }
