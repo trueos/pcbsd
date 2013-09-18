@@ -3,12 +3,7 @@
 
 #include <QSystemTrayIcon>
 #include <QMenu>
-//#include <QFileSystemWatcher>
 #include <QString>
-//#include <QTimer>
-//#include <QProcess>
-//#include <QFile>
-//#include <QTextStream>
 #include <QMessageBox>
 
 #include "mainUI.h"
@@ -24,7 +19,6 @@ private:
 	LPWatcher *watcher;
 	QMenu *menu;
 	mainUI *GUI;
-	//bool initPhase;
 
 
 	void updateTrayIcon();

@@ -2,7 +2,6 @@
 
 //PUBLIC
 LPTray::LPTray() : QSystemTrayIcon(){
-  //initPhase = true; //flag that we are in the startup process
   //Start up the log file watcher and connect the signals/slots
   watcher = new LPWatcher();
 	connect(watcher,SIGNAL(MessageAvailable(QString)),this,SLOT(watcherMessage(QString)) );
