@@ -1573,9 +1573,19 @@ get_pbi_progversion() {
 		# If we have PBI_PROGVERSION now set
 		if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
 	else
+		# Check first if we have this pkg in PKGNG
+		if [ -e "/usr/local/sbin/pkg-static" ] ; then
+			local testPkgVer="`pkg info -O ${PBI_MAKEPORT} | awk '{print $1}' | rev | cut -d '-' -f 1 | rev`"
+			if [ -n "$testPkgVer" ] ; then
+				export PBI_PROGVERSION="$testPkgVer"
+				return 0
+			fi
+		fi
+
 		return 0
 	fi
 
+	# Get the version from ports
 	if [ -z "${PBI_PROGVERSION}" -a -n "${PORTSDIR}" -a -n "${PBI_MAKEPORT}" ] ; then
 		PORTVER="`make -C ${PORTSDIR}/${PBI_MAKEPORT} -V DISTVERSION PORTSDIR=${PORTSDIR} 2>/dev/null`"
 
@@ -4928,7 +4938,7 @@ run_pbi_prepkgscript()
 # Begins the port make
 start_pbi_makeport()
 {
-	do_port_build "/usr/ports/${PBI_MAKEPORT}"
+	do_port_build "${PBI_MAKEPORT}"
 }
 
 # Prune any ports which aren't required for runtime
@@ -4938,7 +4948,7 @@ start_pbi_prune_ports()
 
   	local iFile="$PORTSDIR/INDEX-$FBSDMAJOR"
 
-	get_pkgname "${PORTSDIR}/${PBI_MAKEPORT}"
+	get_pkgname "${PBI_MAKEPORT}"
 	echo "${PKGNAME}" > /.keepports
 	grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
 
@@ -4946,7 +4956,7 @@ start_pbi_prune_ports()
 	for port in ${PBI_MKPORTBEFORE}
 	do
                 if [ ! -d "${PORTSDIR}/${port}" ] ; then continue ; fi
-		get_pkgname "${PORTSDIR}/${port}"
+		get_pkgname "${port}"
 		echo "${PKGNAME}" >> /.keepports
 		grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
         done
@@ -4954,7 +4964,7 @@ start_pbi_prune_ports()
 	for port in ${PBI_MKPORTAFTER}
 	do
                 if [ ! -d "${PORTSDIR}/${port}" ] ; then continue ; fi
-		get_pkgname "${PORTSDIR}/${port}"
+		get_pkgname "${port}"
 		echo "${PKGNAME}" >> /.keepports
 		grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
         done
@@ -4979,7 +4989,7 @@ start_pbi_prune_ports()
 
 # Get the full package-name for a target port
 get_pkgname() {
-        name="`make -C ${1} -V PKGNAME PORTSDIR=${PORTSDIR}`"
+        name="`pkg info -O ${1} | awk '{print $1}'`"
 	PKGNAME="${name}"
 }
 
@@ -4993,7 +5003,7 @@ start_pbi_mkportbefore()
 		if [ ! -d "/usr/ports/${port}" ] ; then
 			exit_err "/usr/ports/${port} does not exist!"
 		fi
-		do_port_build "/usr/ports/${port}"
+		do_port_build "${port}"
 	done
 
 }
@@ -5008,7 +5018,7 @@ start_pbi_mkportafter()
 		if [ ! -d "/usr/ports/${port}" ] ; then
 			exit_err "/usr/ports/${port} does not exist!"
 		fi
-		do_port_build "/usr/ports/${port}"
+		do_port_build "${port}"
 	done
 
 }
@@ -6683,6 +6693,9 @@ do_pbi_make() {
   	start_postbuild_script
   	start_pbi_mkportafter
 
+	# Get the version again, in case we installed from pkgng and it doesn't match ports
+	get_pbi_progversion
+
   	# Prune any proto / build specific ports
   	start_pbi_prune_ports
 
@@ -7191,13 +7204,10 @@ mk_chroot_file() {
 # Read the target ports plist, and generate a external_links config based upon it
 mk_auto_ext_linksfile() {
 	# Get ports name
-	get_pkgname "${PORTSDIR}/${PBI_MAKEPORT}"
+	get_pkgname "${PBI_MAKEPORT}"
 	_pname="${PKGNAME}"
 
-	# Define some commands
-	pkgInf="pkg info -l"
-
- 	${pkgInf} ${_pname} | sed "s|^${PBI_PROGDIRPATH}/||g" \
+ 	pkg info -l ${_pname} | sed "s|^${PBI_PROGDIRPATH}/||g" \
 		| grep -v -e "^Information for" -e "^Files:" -e "owns the following" \
 		| tr -s '\t' ' ' \
 		| tr -d ' ' \
@@ -7320,7 +7330,8 @@ is_pbi_patch() {
 # Build the specified port
 do_port_build()
 {
-  local _lPort="$1"
+  local _lPortRaw="$1"
+  local _lPort="/usr/ports/$1"
 
   local iFile="$PORTSDIR/INDEX-$FBSDMAJOR"
   if [ ! -e "$iFile" ] ; then
@@ -7362,9 +7373,9 @@ do_port_build()
 
   # Are we doing a PKGNG build?
   if [ "$PBI_PKGNGBUILD" ] ; then
-	pkg install -y "$_lPort"	
+	pkg install -y "$_lPortRaw"
 	if [ $? -ne 0 ] ; then
-	   exit_err "Failed installing $_lPort"
+	   exit_err "Failed installing $_lPortRaw"
 	fi
 	return 0
   fi
