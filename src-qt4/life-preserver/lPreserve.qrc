@@ -1,5 +1,8 @@
 <RCC>
   <qresource>
+    <file>images/next.png</file>
+    <file>images/previous.png</file>
+    <file>images/view.png</file>
     <file>images/camera_add.png</file>
     <file>images/upload.png</file>
     <file>images/key.png</file>

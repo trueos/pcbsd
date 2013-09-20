@@ -11,7 +11,8 @@
 
 class LPGUtils{
 public:
-	
-}
+	static LPDataset loadPoolData(QString zpool); //Load backend data into container
+
+};
 
 #endif
