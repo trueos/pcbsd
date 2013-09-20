@@ -536,6 +536,13 @@ share/pcbsd/pc-thinclient/resources/etc/gettytab
 share/pcbsd/pc-thinclient/resources/root/dot.login
 share/pcbsd/pc-thinclient/resources/dhcpd/dhcpd.conf
 share/pcbsd/pc-thinclient/resources/boot/beastie.4th
+share/pcbsd/pc-thinclient/resources/webui/functions.php
+share/pcbsd/pc-thinclient/resources/webui/scripts.php
+share/pcbsd/pc-thinclient/resources/webui/clients.php
+share/pcbsd/pc-thinclient/resources/webui/config.php.dist
+share/pcbsd/pc-thinclient/resources/webui/logincheck.php
+share/pcbsd/pc-thinclient/resources/webui/index.php
+share/pcbsd/pc-thinclient/resources/webui/login.php
 share/pcbsd/de-profiles/lxde.profile
 share/pcbsd/de-profiles/kde.profile
 share/pcbsd/de-profiles/gnome.profile
@@ -733,6 +740,7 @@ share/pbi-manager/pcbsd.rpo
 @dirrm share/pcbsd/pc-thinclient/resources/scripts/cardDetect
 @dirrm share/pcbsd/pc-thinclient/resources/scripts
 @dirrm share/pcbsd/pc-thinclient/resources/gdm
+@dirrm share/pcbsd/pc-thinclient/resources/webui
 @dirrm share/pcbsd/pc-thinclient/resources
 @dirrm share/pcbsd/pc-thinclient
 @dirrm share/pcbsd/de-profiles
