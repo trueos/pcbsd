@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>235</height>
+    <width>377</width>
+    <height>245</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -82,64 +82,139 @@
        <attribute name="title">
         <string>Status</string>
        </attribute>
-       <layout class="QFormLayout" name="formLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label">
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>System State:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_status">
+            <property name="text">
+             <string notr="true">GOOD</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Number of Disks:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="label_numdisks">
+            <property name="text">
+             <string notr="true">1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Latest Snapshot:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label_latestsnapshot">
+            <property name="text">
+             <string notr="true">snapshot</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-          <property name="text">
-           <string>System State:</string>
+          <property name="sizeType">
+           <enum>QSizePolicy::Expanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QLabel" name="label_status">
+        <item>
+         <widget class="QLabel" name="label_replication">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(10,200,10,100)</string>
+          </property>
           <property name="text">
-           <string notr="true">GOOD</string>
+           <string notr="true">Replication Status</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
+        <item>
+         <widget class="QLabel" name="label_mirror">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(10,100,200,100)</string>
           </property>
           <property name="text">
-           <string>Number of Disks:</string>
+           <string notr="true">Mirror Status</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="label_numdisks">
-          <property name="text">
-           <string notr="true">1</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
+        <item>
+         <widget class="QLabel" name="label_errors">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(230,10,10,100)</string>
           </property>
           <property name="text">
-           <string>Safety Level:</string>
+           <string notr="true">System Errors</string>
           </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="label_safety">
-          <property name="text">
-           <string notr="true">None / Mirror / Remote</string>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -161,42 +236,100 @@
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QToolButton" name="tool_prevsnap">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="text">
              <string>Prev</string>
+            </property>
+            <property name="icon">
+             <iconset resource="lPreserve.qrc">
+              <normaloff>:/images/previous.png</normaloff>:/images/previous.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>16</width>
+              <height>16</height>
+             </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="slider_snapshots">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="tickPosition">
-             <enum>QSlider::TicksAbove</enum>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QSlider" name="slider_snapshots">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksAbove</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_snapshot">
+              <property name="styleSheet">
+               <string notr="true">border: 1px solid grey; border-radius: 5px</string>
+              </property>
+              <property name="text">
+               <string notr="true">Selected Snapshot</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="QToolButton" name="tool_nextsnap">
             <property name="text">
              <string>Next</string>
             </property>
+            <property name="icon">
+             <iconset resource="lPreserve.qrc">
+              <normaloff>:/images/next.png</normaloff>:/images/next.png</iconset>
+            </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="QLabel" name="label_snapshot">
-          <property name="text">
-           <string notr="true">Selected Snapshot</string>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QToolButton" name="tool_viewSnapshot">
+            <property name="statusTip">
+             <string>Browse through the currently selected snapshot</string>
+            </property>
+            <property name="text">
+             <string>View Snapshot</string>
+            </property>
+            <property name="icon">
+             <iconset resource="lPreserve.qrc">
+              <normaloff>:/images/view.png</normaloff>:/images/view.png</iconset>
+            </property>
+           </widget>
+          </item>
           <item>
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
@@ -212,6 +345,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="tool_restoreDir">
+            <property name="statusTip">
+             <string>Revert the entire directory to the selected snapshot</string>
+            </property>
             <property name="text">
              <string>Restore Dir</string>
             </property>
@@ -226,6 +362,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="tool_restoreFile">
+            <property name="statusTip">
+             <string>Retrieve file(s) from the selected snapshot</string>
+            </property>
             <property name="text">
              <string>Restore File</string>
             </property>
@@ -243,7 +382,8 @@
        </layout>
        <zorder></zorder>
        <zorder></zorder>
-       <zorder>label_snapshot</zorder>
+       <zorder>verticalSpacer_2</zorder>
+       <zorder>line_2</zorder>
       </widget>
      </widget>
     </item>
@@ -254,7 +394,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>380</width>
+     <width>377</width>
      <height>20</height>
     </rect>
    </property>
