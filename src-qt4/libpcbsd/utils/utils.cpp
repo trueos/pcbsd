@@ -277,7 +277,7 @@ QString Utils::getProxyPass() {
 	QString val = getValFromSHFile("/etc/profile", "HTTP_PROXY_AUTH");
 	if ( val.isEmpty() )
 	   return QString();
-	return val.section(":", 3, 3);
+	return val.section(":", 3, 3).section("'", 1, 1);
 }
 
 QString Utils::getProxyType() {

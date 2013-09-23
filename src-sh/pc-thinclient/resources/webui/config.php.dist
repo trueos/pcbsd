@@ -1,0 +1,16 @@
+<?php
+
+  // Install script directory
+  $sdir="/home/thinclient/installscripts";
+
+  // Users who have access to this site
+  // Multiple users can be defined
+  $AUTHUSERS = array();
+  $AUTHUSERS['admin'] = 'changeme';
+  //$AUTHUSERS['kris'] = 'example';
+
+  // Auth Token, you should make this a unique random string
+  $AUTHTOKEN="as&f09#34lj1?28a<bkf(a*kl09}$#";
+  
+
+?>

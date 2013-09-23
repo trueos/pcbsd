@@ -252,6 +252,31 @@ rpcbind : ALL : deny|" /etc/hosts.allow
 	done
 }
 
+# Check if the user wants to install packages for the webui
+check_webui() {
+  	echo "PC-ThinClient includes a web-interface for client management."
+	echo "Would you like to install the Apache / PHP packages required?"
+	echo -e "(Y/y)\c";
+	read ans
+	if [ $ans != "y" -o "$ans" != "Y" ] ; then return; fi 
+
+	pkg install apache22 php5-hash php5-session
+	if [ $? -ne 0 ] ; then
+		echo "Package install failed!"
+		echo "You may need to manually add apache, php5-hash and php5-session."
+	fi
+
+	# Make sure the config file exists
+	if [ ! -e "${PROGDIR}/resources/webui/config.php" ] ; then
+		cp ${PROGDIR}/resources/webui/config.php.dist ${PROGDIR}/resources/webui/config.php
+	fi
+
+	echo "All the webui files are located in: ${PROGDIR}/resources/webui"
+	echo "You will need to configure your web-server to serve this directory."
+	echo ""
+	echo "Please edit the file ${PROGDIR}/resources/webui/config.php to set the"
+	echo "user passwords / auth tokens for the site."
+}
 
 # Check if we need to install custom config
 check_installconfig() {
@@ -411,6 +436,8 @@ check_installdirs() {
 	touch ${PXEWORLD}/etc/installserver
 	mkdir ${PXEWORLD}/installscripts
 	cp ${PROGDIR}/resources/scripts/pc-sysinstall.example ${PXEWORLD}/installscripts/pc-sysinstall.example
+	chown -R www:www ${PXEWORLD}/installscripts
+
 	echo "zfs_load=\"YES\"" > ${PXEWORLD}/boot/loader.conf
 	echo "geom_mirror_load=\"YES\"" >> ${PXEWORLD}/boot/loader.conf
 	echo "geom_eli_load=\"YES\"" >> ${PXEWORLD}/boot/loader.conf
@@ -479,6 +506,9 @@ check_worldports
 if [ "$SYSTYPE" != "desktop" ] ; then
   # Setup the installation directories
   check_installdirs
+
+  # Ask if they want to use the WebUI
+  check_webui
 fi
 
 # Install the thinclient configuration files

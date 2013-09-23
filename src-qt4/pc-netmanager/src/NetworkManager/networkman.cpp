@@ -1038,7 +1038,7 @@ void NetworkMan::saveProxyConfig()
    	  else
 		authLine="digest:*:";
 	  authLine += lineProxyUser->text() + ":";
-	  authLine += lineProxyPass->text() + "";
+	  authLine += "'" + lineProxyPass->text() + "'";
      	  pcbsd::Utils::setProxyAuth(authLine);
 	}
         QMessageBox::warning( this, tr("Proxy enabled"), tr("You may need to re-login for proxy settings to take effect."));
