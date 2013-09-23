@@ -108,7 +108,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->CPUInfoLabel->setText(pcbsd::Utils::sysctl("hw.model"));
 
     // memory
-    ui->MemoryLabel->setText(pcbsd::Utils::bytesToHumanReadable(pcbsd::Utils::sysctlAsInt("hw.realmem")));
+    ui->MemoryLabel->setText(pcbsd::Utils::bytesToHumanReadable(pcbsd::Utils::sysctlAsInt("hw.physmem")));
     //this->setFixedSize(this->geometry().width(),this->geometry().height());
 }
 
