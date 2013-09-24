@@ -1,5 +1,5 @@
 # Created by: sem@FreeBSD.org
-# $FreeBSD: sysutils/grub2/Makefile 316596 2013-04-26 10:44:28Z ak $
+# $FreeBSD$
 
 PORTNAME=	grub2
 PORTVERSION=	2.00
@@ -17,8 +17,9 @@ BUILD_DEPENDS=	${LOCALBASE}/bin/flex:${PORTSDIR}/textproc/flex \
 		help2man:${PORTSDIR}/misc/help2man
 
 CONFLICTS=	grub-0*
+SSP_UNSAFE=	yes
 USE_XZ=		yes
-USE_GCC=	4.6+
+USE_GCC=	yes
 USE_AUTOTOOLS=	automake aclocal autoconf
 ACLOCAL_ARGS=	-Im4
 GNU_CONFIGURE=	yes
@@ -44,6 +45,7 @@ MAN8=		grub-reboot.8 grub-set-default.8 grub-probe.8 \
 		grub-mkconfig.8 grub-bios-setup.8 grub-mknetdir.8 \
 		grub-install.8 grub-sparc64-setup.8 grub-ofpathname.8
 
+NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 .if ${ARCH} != "amd64"
