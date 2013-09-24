@@ -144,9 +144,13 @@ QString Utils::getValFromSHFile(QString envFile, QString envVal)
   while ( !stream.atEnd() ) {
      line = stream.readLine();
      if ( line.indexOf(envVal + "=") == 0 ) {
-        // Strip any ""
 	line.replace(envVal + "=", "");
 
+	// Remove the ' or " from variable
+	if ( line.indexOf("'") == 0 ) {
+	   line = line.section("'", 1, 1);
+	   line = line.section("'", 0, 0);
+	} 
 	if ( line.indexOf('"') == 0 ) {
 	   line = line.section('"', 1, 1);
 	   line = line.section('"', 0, 0);
@@ -182,8 +186,12 @@ QString Utils::getValFromCSHFile(QString envFile, QString envVal)
   return QString();
 }
 
-
 bool Utils::setValSHFile(QString envFile, QString envName, QString envVal)
+{
+	return setValSHFile(envFile, envName, envVal, QString('"'));
+}
+
+bool Utils::setValSHFile(QString envFile, QString envName, QString envVal, QString quote)
 {
   QFile confFile(envFile);
   if ( ! confFile.open( QIODevice::ReadOnly ) )
@@ -198,7 +206,7 @@ bool Utils::setValSHFile(QString envFile, QString envName, QString envVal)
      line = stream.readLine();
      if ( line.indexOf(envName + "=") == 0 ) {
 	if ( ! envVal.isEmpty() && ! added )
-	  shConf << envName + "=\"" + envVal + "\" ; export " + envName;
+	  shConf << envName + "=" + quote + envVal + quote + " ; export " + envName;
 	added = true;
      } else {
 	shConf << line;
@@ -208,7 +216,7 @@ bool Utils::setValSHFile(QString envFile, QString envName, QString envVal)
   confFile.close();
 
   if (! added && ! envVal.isEmpty() )
-    shConf << envName + "=\"" + envVal + "\" ; export " + envName;
+    shConf << envName + "=" + quote + envVal + quote + " ; export " + envName;
 
   if ( confFile.open( QIODevice::WriteOnly ) ) {
         QTextStream stream( &confFile );
@@ -277,7 +285,7 @@ QString Utils::getProxyPass() {
 	QString val = getValFromSHFile("/etc/profile", "HTTP_PROXY_AUTH");
 	if ( val.isEmpty() )
 	   return QString();
-	return val.section(":", 3, 3).section("'", 1, 1);
+	return val.section(":", 3, 3);
 }
 
 QString Utils::getProxyType() {
@@ -361,18 +369,18 @@ bool Utils::setProxyAddress(QString val) {
    setValCSHFile(QString("/etc/csh.cshrc"), QString("http_proxy"), val);
    setValCSHFile(QString("/etc/csh.cshrc"), QString("https_proxy"), val);
    setValCSHFile(QString("/etc/csh.cshrc"), QString("no_proxy"), "127.0.0.1,localhost");
-   setValSHFile(QString("/etc/profile"), QString("HTTP_PROXY"), val);
-   setValSHFile(QString("/etc/profile"), QString("HTTPS_PROXY"), val);
+   setValSHFile(QString("/etc/profile"), QString("HTTP_PROXY"), val, "'");
+   setValSHFile(QString("/etc/profile"), QString("HTTPS_PROXY"), val, "'");
    setValSHFile(QString("/etc/profile"), QString("NO_PROXY"), "127.0.0.1,localhost");
-   setValSHFile(QString("/etc/profile"), QString("http_proxy"), val);
-   setValSHFile(QString("/etc/profile"), QString("https_proxy"), val);
+   setValSHFile(QString("/etc/profile"), QString("http_proxy"), val, "'");
+   setValSHFile(QString("/etc/profile"), QString("https_proxy"), val, "'");
    setValSHFile(QString("/etc/profile"), QString("no_proxy"), "127.0.0.1,localhost");
    return true;
 }
 
 bool Utils::setProxyAuth(QString val) {
    setValCSHFile(QString("/etc/csh.cshrc"), QString("HTTP_PROXY_AUTH"), val);
-   return setValSHFile(QString("/etc/profile"), QString("HTTP_PROXY_AUTH"), val);
+   return setValSHFile(QString("/etc/profile"), QString("HTTP_PROXY_AUTH"), val, "'");
 }
 
 bool Utils::setMasterMirror(QString val) {
