@@ -172,8 +172,11 @@
         </item>
         <item>
          <widget class="QLabel" name="label_replication">
+          <property name="statusTip">
+           <string/>
+          </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(10,200,10,100)</string>
+           <string notr="true">background-color: rgba(10,200,10,100); border-radius: 5px</string>
           </property>
           <property name="text">
            <string notr="true">Replication Status</string>
@@ -189,7 +192,7 @@
         <item>
          <widget class="QLabel" name="label_mirror">
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(10,100,200,100)</string>
+           <string notr="true">background-color: rgba(10,100,200,100); border-radius: 5px</string>
           </property>
           <property name="text">
            <string notr="true">Mirror Status</string>
@@ -205,7 +208,7 @@
         <item>
          <widget class="QLabel" name="label_errors">
           <property name="styleSheet">
-           <string notr="true">background-color: rgba(230,10,10,100)</string>
+           <string notr="true">background-color: rgba(230,10,10,100); border-radius: 5px</string>
           </property>
           <property name="text">
            <string notr="true">System Errors</string>
@@ -236,6 +239,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QToolButton" name="tool_prevsnap">
+            <property name="statusTip">
+             <string>Select the previous (older) snapshot</string>
+            </property>
             <property name="styleSheet">
              <string notr="true"/>
             </property>
@@ -283,6 +289,9 @@
           </item>
           <item>
            <widget class="QToolButton" name="tool_nextsnap">
+            <property name="statusTip">
+             <string>Select the next (more recent) snapshot</string>
+            </property>
             <property name="text">
              <string>Next</string>
             </property>

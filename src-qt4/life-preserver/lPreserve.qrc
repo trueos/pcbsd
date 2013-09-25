@@ -1,5 +1,7 @@
 <RCC>
   <qresource>
+    <file>images/tray-icon-error.png</file>
+    <file>images/tray-icon-working.png</file>
     <file>images/next.png</file>
     <file>images/previous.png</file>
     <file>images/view.png</file>

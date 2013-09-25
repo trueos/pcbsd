@@ -34,10 +34,10 @@ LPTray::~LPTray(){
 void LPTray::updateTrayIcon(){
   if( watcher->hasError() ){
     //Errors - show that attention is required
-    this->setIcon( QIcon(":/images/tray-icon-failed.png") );
+    this->setIcon( QIcon(":/images/tray-icon-error.png") );
   }else if( watcher->isRunning() ){
     //Show the working icon
-    this->setIcon( QIcon(":/images/tray-icon-active7.png") );
+    this->setIcon( QIcon(":/images/tray-icon-working.png") );
   }else{
     //Show the idle icon
     this->setIcon( QIcon(":/images/tray-icon-idle.png") );

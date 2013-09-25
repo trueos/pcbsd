@@ -377,7 +377,7 @@ void LPWatcher::checkPoolStatus(){
 	  QString timecomplete = zstat[i].section(" ",4,4,QString::SectionSkipEmpty);
 	  QString errors = zstat[i].section(" ", 6,6,QString::SectionSkipEmpty);
 	  //Setup the running re-silvering progress
-	  if(LOGS.contains(50)){newresilver=true; } //don't display message for first run
+	  if(LOGS.value(50) != "FINISHED" && LOGS.value(50) != "ERROR" ){newresilver=true; } //don't display message for first run
 	  if(errors.toInt() > 0){ 
 	    LOGS.insert(50, "ERROR");
 	    LOGS.insert(52, QString(tr("Resilver completed in &1 with %2 errors")).arg(timecomplete, errors) );
