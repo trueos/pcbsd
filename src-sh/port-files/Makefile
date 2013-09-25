@@ -27,6 +27,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 WRKSRC=		${WRKDIR}/src-sh
 CONFLICTS?=	pbi-manager-[0-9]*
 NO_BUILD=	yes
+NO_STAGE=	yes
 USE_BZIP2=	yes
 USE_PYTHON=	yes
 

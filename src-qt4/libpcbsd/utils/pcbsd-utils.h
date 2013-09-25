@@ -130,6 +130,7 @@ public:
    static QString getMasterMirror();
    static bool setValPBIConf(QString key, QString val);
    static bool setValSHFile(QString, QString, QString);
+   static bool setValSHFile(QString, QString, QString, QString);
    static bool setValCSHFile(QString, QString, QString);
    static bool setValPCBSDConf(QString key, QString val);
    static bool setValPCConf(QString conf, QString key, QString val);

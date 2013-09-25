@@ -35,6 +35,7 @@ USE_QT4=	accessible \
 
 WRKSRC=		${WRKDIR}/src-qt4
 HAS_CONFIGURE=	yes
+NO_STAGE=	yes
 
 QMAKE_PRO=	src-qt4.pro
 QMAKE_ARGS=	-recursive ${QMAKE_PRO}
