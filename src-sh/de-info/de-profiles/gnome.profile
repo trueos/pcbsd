@@ -17,7 +17,7 @@ installed() {
 # Check via pc-metapkgmanager if it exists
 which pc-metapkgmanager >/dev/null 2>/dev/null
 if [ $? -eq 0 ] ; then
-  pc-metapkgmanager status GNOME | grep installed >/dev/null
+  pc-metapkgmanager status GNOME | grep "is installed" >/dev/null
   if [ $? -eq 0 ] ; then
     DE_INSTALLED=1
   fi
