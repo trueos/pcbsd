@@ -242,17 +242,18 @@ void LPWatcher::readReplicationFile(){
 }
 
 void LPWatcher::startRepFileWatcher(){
-  //qDebug() << "Start Rep File Watcher:" << FILE_REPLICATION;
+  qDebug() << "Start Rep File Watcher:" << FILE_REPLICATION;
   if(FILE_REPLICATION.isEmpty()){ return; }
 
   if(watcher->files().contains(FILE_REPLICATION)){ return; } //duplicate - file already opened
-  else if(!watcher->files().isEmpty()){ 
+  /*else if(!watcher->files().isEmpty()){ 
     //Check that the file watcher is not already operating on a file
     // only one can be running at a time, so always cancel the previous instance (it is stale)
+    // *** WARNING - This causes seg fault for some reason****
     QString tmp = FILE_REPLICATION;
     stopRepFileWatcher();
     FILE_REPLICATION = tmp;
-  }
+  }*/
   //Check to make sure that lpreserver actually has a process running before starting this
   //if(!QFile::exists("/var/run/<something.pid>"){ FILE_REPLICATION.clear(); return; }
   //Check for the existance of the file to watch and create it as necessary  
@@ -262,19 +263,23 @@ void LPWatcher::startRepFileWatcher(){
   repfile->open(QIODevice::ReadOnly | QIODevice::Text);
   RFSTREAM = new QTextStream(repfile);
   watcher->addPath(FILE_REPLICATION);
-  //qDebug() << "Finished starting rep file watcher";
+  qDebug() << "Finished starting rep file watcher";
 }
 
 void LPWatcher::stopRepFileWatcher(){
-  //qDebug() << "Stop Rep File Watcher:" << FILE_REPLICATION;
+  qDebug() << "Stop Rep File Watcher:" << FILE_REPLICATION;
   if(FILE_REPLICATION.isEmpty()){ return; }
   watcher->removePath(FILE_REPLICATION);
+  //Close down the stream
+  RFSTREAM->setStatus(QTextStream::ReadPastEnd); //let any running process know to stop now
+  delete RFSTREAM;  
+  //Close the file
   repfile->close();
-  delete RFSTREAM;
+  //clear internal variables
   FILE_REPLICATION.clear();
   repTotK.clear();
   lastSize.clear();
-  //qDebug() << "Finished stopping rep file watcher";
+  qDebug() << "Finished stopping rep file watcher";
 }
 
 double LPWatcher::displayToDoubleK(QString displayNumber){
