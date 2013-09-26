@@ -2,6 +2,8 @@
 # Makefile for building: pc-updatemanager
 #############################################################################
 
+PREFIX?= /usr/local
+
 AR            = ar cqs
 RANLIB        = 
 TAR           = tar -cf
@@ -26,27 +28,27 @@ first: all
 all:
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	-$(INSTALL_FILE) pc-updatemanager $(INSTALL_ROOT)/usr/local/bin/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	-$(INSTALL_FILE) pc-updatemanager $(INSTALL_ROOT)$(PREFIX)/bin/
 
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/pc-updatemanager
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-updatemanager
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	chmod 755 /usr/local/bin/pc-updatemanager
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	chmod 755 $(PREFIX)/bin/pc-updatemanager
 
 install_conf: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-updatemanager/ 
-	-$(INSTALL_DIR) conf $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-updatemanager/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ 
+	-$(INSTALL_DIR) conf $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 
 
 uninstall_conf:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-updatemanager/conf
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-updatemanager
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/conf
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager
 
 
 install:  install_scripts install_dochmod install_conf  FORCE

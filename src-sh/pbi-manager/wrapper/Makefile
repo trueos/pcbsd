@@ -14,7 +14,6 @@ LFLAGS        = -Wl,-O1 $(DEFINES)
 LIBS          = $(SUBLIBS)
 AR            = ar cqs
 RANLIB        = 
-QMAKE         = /usr/local/bin/qmake-qt4
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 COPY          = cp -f
@@ -40,9 +39,8 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.c 
 OBJECTS       = main.o
-MAKE_TARGET   = .pbiwrapper
-DESTDIR       = /usr/pbi/
-TARGET        = .pbiwrapper
+MAKE_TARGET   = pbiwrapper
+TARGET        = pbiwrapper
 
 first: all
 ####### Implicit rules
@@ -69,7 +67,6 @@ first: all
 all: Makefile $(TARGET)
 
 $(TARGET):  $(OBJECTS)  
-	@$(CHK_DIR_EXISTS) /usr/pbi/ || $(MKDIR) /usr/pbi/
 	$(CC) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile:
@@ -124,8 +121,6 @@ main.o: main.c
 ####### Install
 
 install_scripts: first FORCE
-	-@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/pbi || $(MKDIR) $(INSTALL_ROOT)/usr/pbi/
-	-$(INSTALL_FILE) .pbiwrapper $(INSTALL_ROOT)/usr/pbi/.pbiwrapper
 
 install:   FORCE install_scripts
 

@@ -1,6 +1,7 @@
 #############################################################################
-# Makefile for building: /usr/local/bin/pc-fbsdupdatecheck
+# Makefile for building: $(PREFIX)/bin/pc-fbsdupdatecheck
 #############################################################################
+PREFIX?= /usr/local
 
 ####### Compiler, tools and options
 
@@ -9,13 +10,11 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
 CFLAGS        = -pipe -O2 -Wall -W $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -W $(DEFINES)
-INCPATH       = -I/usr/local/include -I. -I/usr/local/include
 LINK          = g++
 LFLAGS        = -Wl,-O1 -pthread
 LIBS          = $(SUBLIBS)
 AR            = ar cqs
 RANLIB        = 
-QMAKE         = /usr/local/bin/qmake-qt4
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 COPY          = cp -f
@@ -42,7 +41,7 @@ OBJECTS_DIR   = ./
 SOURCES       = main.c 
 OBJECTS       = main.o
 MAKE_TARGET   = pc-fbsdupdatecheck
-DESTDIR       = /usr/local/bin/
+DESTDIR       = $(PREFIX)/bin/
 TARGET        = pc-fbsdupdatecheck
 
 first: all
@@ -70,7 +69,7 @@ first: all
 all: Makefile $(TARGET)
 
 $(TARGET):  $(OBJECTS)  
-	@$(CHK_DIR_EXISTS) /usr/local/bin/ || $(MKDIR) /usr/local/bin/ 
+	@$(CHK_DIR_EXISTS) $(PREFIX)/bin/ || $(MKDIR) $(PREFIX)/bin/ 
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile:
@@ -125,8 +124,8 @@ main.o: main.c
 ####### Install
 
 install_scripts: first FORCE
-	-@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/
-	-$(INSTALL_FILE) pc-fbsdupdatecheck $(INSTALL_ROOT)/usr/local/bin/
+	-@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/
+	-$(INSTALL_FILE) pc-fbsdupdatecheck $(INSTALL_ROOT)$(PREFIX)/bin/
 
 install:   FORCE install_scripts
 

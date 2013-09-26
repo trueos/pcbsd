@@ -2,6 +2,8 @@
 # Makefile for building: pc-runxgui
 #############################################################################
 
+PREFIX?= /usr/local
+
 AR            = ar cqs
 RANLIB        = 
 TAR           = tar -cf
@@ -26,18 +28,18 @@ first: all
 all:
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	-$(INSTALL_FILE) pc-runxgui $(INSTALL_ROOT)/usr/local/bin/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	-$(INSTALL_FILE) pc-runxgui $(INSTALL_ROOT)$(PREFIX)/bin/
 
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/pc-runxgui
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-runxgui
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	chmod 755 /usr/local/bin/pc-runxgui
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	chmod 755 $(PREFIX)/bin/pc-runxgui
 
 
 install:  install_scripts install_dochmod FORCE

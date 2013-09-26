@@ -1,14 +1,21 @@
 #!/bin/sh
+
+if [ -z "$1" ] ; then
+   STAGEDIR="/usr/local"
+else
+   STAGEDIR="$1"
+fi
+
 # lpreserver install script
-PROGDIR="/usr/local/share/lpreserver"
+PROGDIR="${STAGEDIR}/share/lpreserver"
 
 mkdir -p ${PROGDIR} >/dev/null 2>/dev/null
 
 DIR=`dirname $0`
 cd ${DIR}
 
-cp lpreserver /usr/local/bin/lpreserver
-chmod 755 /usr/local/bin/lpreserver
+cp lpreserver ${STAGEDIR}/bin/lpreserver
+chmod 755 ${STAGEDIR}/bin/lpreserver
 
 if [ -d "${PROGDIR}/backend" ] ; then
   rm -rf ${PROGDIR}/backend

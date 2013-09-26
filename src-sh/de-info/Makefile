@@ -3,7 +3,7 @@
 #############################################################################
 
 ####### Compiler, tools and options
-
+PREFIX?= /usr/local
 AR            = ar cqs
 RANLIB        = 
 TAR           = tar -cf
@@ -30,23 +30,23 @@ all: Makefile $(TARGET)
 check: first
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	-$(INSTALL_FILE) de-info $(INSTALL_ROOT)/usr/local/bin/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	-$(INSTALL_FILE) de-info $(INSTALL_ROOT)$(PREFIX)/bin/
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/de-info
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/de-info
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	chmod 755 /usr/local/bin/de-info
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	chmod 755 $(PREFIX)/bin/de-info
 
 install_ddirs: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/de-profiles/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/de-profiles/ 
-	-$(INSTALL_DIR) de-profiles $(INSTALL_ROOT)/usr/local/share/pcbsd
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/de-profiles/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/de-profiles/ 
+	-$(INSTALL_DIR) de-profiles $(INSTALL_ROOT)$(PREFIX)/share/pcbsd
 
 uninstall_ddirs:  FORCE
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/de-profiles/ 
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/de-profiles/ 
 
 install:  install_scripts install_dochmod install_ddirs FORCE
 

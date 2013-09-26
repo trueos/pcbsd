@@ -1,7 +1,9 @@
 #!/bin/sh
 
-if [ -z "$LOCALBASE" ] ; then
+if [ -z "$1" ] ; then
    LOCALBASE=/usr/local
+else
+   LOCALBASE="$1"
 fi
 
 if [ -d "${LOCALBASE}/share/pc-sysinstall" ] ; then
@@ -26,7 +28,7 @@ do
   if [ -e "${LOCALBASE}/man/man8/${i}.gz" ] ; then
     rm ${LOCALBASE}/man/man8/${i}.gz >/dev/null 2>/dev/null
   fi
-  cp man8/${i} ${LOCALBASE}/man/man8/${i}
+  gzip -c man8/${i} > ${LOCALBASE}/man/man8/${i}.gz
 done
 
 # Install the executable

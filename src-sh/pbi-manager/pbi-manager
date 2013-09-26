@@ -7516,7 +7516,11 @@ getZFSTank() {
 }
 
 # Source our shared PCBSD functions
-. /usr/local/share/pcbsd/scripts/functions.sh
+if [ -z "$ALTPROGPREFIX" ] ; then
+  . ${ALTPROGPREFIX}/share/pcbsd/scripts/functions.sh
+else
+  . /usr/local/share/pcbsd/scripts/functions.sh
+fi
 
 # Set the default umask
 umask 022

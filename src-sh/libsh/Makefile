@@ -4,6 +4,7 @@
 
 ####### Compiler, tools and options
 
+PREFIX?= /usr/local
 AR            = ar cqs
 TAR           = tar -cf
 COMPRESS      = gzip -9f
@@ -30,18 +31,18 @@ clean:
 check: first
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/
-	-$(INSTALL_FILE) functions.sh $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts/
+	-$(INSTALL_FILE) functions.sh $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts/
 
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/functions.sh
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts/functions.sh
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts
 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/scripts/ 
-	chmod 755 /usr/local/share/pcbsd/scripts/functions.sh
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/scripts/ 
+	chmod 755 $(PREFIX)/share/pcbsd/scripts/functions.sh
 
 
 install:  install_scripts install_dochmod  FORCE

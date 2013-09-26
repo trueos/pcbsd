@@ -7,6 +7,12 @@ if [ "$2" != "POST-INSTALL" ] ; then
    exit 0
 fi
 
+# If this is during staging, we can skip for now
+echo $PREFIX | grep -q '/stage/'
+if [ $? -eq 0 ] ; then
+   exit 0
+fi
+
 # If this is a new install, add the PC-BSD master repo
 ls /var/db/pbi/keys/* 2>/dev/null >/dev/null
 if [ $? -ne 0 ] ; then
