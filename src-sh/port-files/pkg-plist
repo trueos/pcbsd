@@ -775,3 +775,7 @@ man/man8/pc-sysinstall.8.gz
 @dirrm share/pcbsd
 @dirrm share/lpreserver/backend
 @dirrm share/lpreserver
+@dirrmtry share/mime/application
+@dirrmtry share/desktop-directories
+@dirrmtry etc/xdg/menus
+@dirrmtry etc/xdg/applications-merged

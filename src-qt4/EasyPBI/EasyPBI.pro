@@ -103,7 +103,7 @@ TRANSLATIONS =  i18n/EasyPBI_af.ts \
                 i18n/EasyPBI_zu.ts
 
 dotrans.path=/usr/local/share/EasyPBI/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/EasyPBI/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/EasyPBI/i18n/
 
 desktop.path=/usr/local/share/applications/
 desktop.files=EasyPBI.desktop

@@ -34,8 +34,8 @@ SUBDIRS+= libpcbsd \
          EasyPBI \ 
          PCDM
 
-doins.path=/usr/local/share/pcbsd/
-doins.extra=cd xtrafiles && sh install.sh
+doins.path=/
+doins.extra=cd xtrafiles && sh install.sh $(INSTALL_ROOT)/usr/local
                 
 INSTALLS += doins
 

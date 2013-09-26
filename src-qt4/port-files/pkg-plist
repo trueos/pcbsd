@@ -2552,8 +2552,6 @@ share/PCDM/themes/default/splashscreen.png
 share/PCDM/themes/default/system.png
 share/PCDM/themes/default/virtualkeyboard.png
 share/mime/packages/pcbsd-pbi.xml
-share/icons/hicolor/64x64/mimetypes/application-pbi.png
-share/icons/hicolor/64x64/mimetypes/gnome-mime-application-pbi.png
 share/EasyPBI/EasyPBIicon.png
 share/applications/about.desktop
 share/applications/pccontrol.desktop
@@ -2568,7 +2566,6 @@ share/applications/pcgdmconf.desktop
 share/applications/pc-welcome.desktop
 share/applications/warden.desktop
 share/applications/EasyPBI.desktop
-share/gnome/apps/pcbsd-pbi.desktop
 lib/libpcbsd-ui.so.0.9.8
 lib/libpcbsd-ui.so
 lib/libpcbsd-ui.so.0
@@ -2581,14 +2578,7 @@ include/pcbsd-hardware.h
 include/pcbsd-netif.h
 include/pcbsd-utils.h
 include/pcbsd-ui.h
-@dirrmtry etc/xdg/applications-merged
-@dirrmtry etc/xdg/menus
 @dirrmtry etc/xdg/
-@dirrmtry var/db
-@dirrmtry var
-@dirrmtry share/desktop-directories
-@dirrmtry share/mime/application
-@dirrmtry share/mime
 @dirrm share/warden/bin
 @dirrm share/warden/images
 @dirrm share/warden/i18n
@@ -2639,17 +2629,18 @@ include/pcbsd-ui.h
 @dirrm share/wallpapers/FreeBSD
 @dirrm share/wallpapers/PCBSD
 @dirrm share/wallpapers
-@dirrmtry share/pcbsd/distfiles
-@dirrmtry share/pcbsd/xstartup
-@dirrmtry share/pcbsd/fluxboxinit
-@dirrmtry share/icons/hicolor/64x64/mimetypes
-@dirrmtry share/icons/hicolor/64x64
-@dirrmtry share/icons/hicolor
-@dirrmtry share/gnome/apps
-@dirrmtry share/mime/application
 @dirrmtry share/mime/packages
+@dirrmtry share/mime/application
 @dirrmtry share/mime
 @dirrm share/lifePreserver/i18n
 @dirrm share/lifePreserver/images
 @dirrm share/lifePreserver/scripts
 @dirrmtry share/lifePreserver
+@dirrmtry share/warden
+@dirrmtry share/pcbsd/scripts
+@dirrmtry share/pcbsd
+@dirrmtry share/applications
+@dirrmtry share/desktop-directories
+@dirrmtry etc/xdg/menus
+@dirrmtry etc/xdg/applications-merged
+@dirrmtry etc/xdg

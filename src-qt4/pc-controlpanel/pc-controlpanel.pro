@@ -99,24 +99,24 @@ TRANSLATIONS =  i18n/pc-controlpanel_af.ts \
 		i18n/pc-controlpanel_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 desktop.path=/usr/local/share/applications/
 desktop.files=pccontrol.desktop
 
 cleanitems.path=/usr/local/share/pcbsd/pc-controlpanel/items
-cleanitems.extra=rm -rf /usr/local/share/pcbsd/pc-controlpanel/items
+cleanitems.extra=rm -rf $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/items
 
 mkdiritems.path=/usr/local/share/pcbsd/pc-controlpanel/items
-mkdiritems.extra=mkdir -p /usr/local/share/pcbsd/pc-controlpanel/items
+mkdiritems.extra=mkdir -p $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/items
 
 cpitems.path=/usr/local/share/pcbsd/pc-controlpanel/items
-cpitems.extra=tar cvf - --exclude '.svn/' -C items . 2>/dev/null | tar xvf - -C /usr/local/share/pcbsd/pc-controlpanel/items 2>/dev/null
+cpitems.extra=tar cvf - --exclude '.svn/' -C items . 2>/dev/null | tar xvf - -C $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/items 2>/dev/null
 
 mkdiricons.path=/usr/local/share/pcbsd/pc-controlpanel/icons
-mkdiricons.extra=mkdir -p /usr/local/share/pcbsd/pc-controlpanel/icons
+mkdiricons.extra=mkdir -p $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/icons
 
 cpicons.path=/usr/local/share/pcbsd/pc-controlpanel/items
-cpicons.extra=tar cvf - --exclude '.svn/' -C icons . 2>/dev/null | tar xvf - -C /usr/local/share/pcbsd/pc-controlpanel/icons 2>/dev/null
+cpicons.extra=tar cvf - --exclude '.svn/' -C icons . 2>/dev/null | tar xvf - -C $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-controlpanel/icons 2>/dev/null
 
 INSTALLS += target dotrans desktop cleanitems mkdiritems cpitems mkdiricons cpicons

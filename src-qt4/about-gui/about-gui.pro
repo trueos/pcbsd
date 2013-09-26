@@ -95,7 +95,7 @@ TRANSLATIONS =  i18n/AboutGui_af.ts \
 		i18n/AboutGui_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 icons.path=/usr/local/share/pcbsd/icons/
 icons.files=about.png

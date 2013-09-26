@@ -82,7 +82,7 @@ TRANSLATIONS =  i18n/UpdateGui_af.ts \
 		i18n/UpdateGui_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 icon.path=/usr/local/share/pcbsd/icons/
 icon.files=sysupdate.png

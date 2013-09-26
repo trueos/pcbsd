@@ -110,7 +110,7 @@ doicon.path=/usr/local/share/warden/images/
 doicon.files=warden.png
 
 dotrans.path=/usr/local/share/warden/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/warden/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/warden/i18n/
 
 desktop.path=/usr/local/share/applications/
 desktop.files=warden.desktop

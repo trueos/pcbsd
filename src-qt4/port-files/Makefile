@@ -35,13 +35,16 @@ USE_QT4=	accessible \
 
 WRKSRC=		${WRKDIR}/src-qt4
 HAS_CONFIGURE=	yes
-NO_STAGE=	yes
 
 QMAKE_PRO=	src-qt4.pro
 QMAKE_ARGS=	-recursive ${QMAKE_PRO}
 
 do-configure:
 	@cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} \
-		${QMAKE} -unix CONFIG+="configure" ${QMAKE_PRO}
+		${QMAKE} PREFIX=${PREFIX} -unix CONFIG+="configure" ${QMAKE_PRO}
+
+do-install:
+	cd ${WRKSRC} && make install INSTALL_ROOT=$(STAGEDIR)
+
 
 .include <bsd.port.mk>

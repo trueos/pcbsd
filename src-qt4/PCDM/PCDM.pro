@@ -100,30 +100,30 @@ TRANSLATIONS =  i18n/PCDM_af.ts \
 		i18n/PCDM_zu.ts
 
 dotrans.path=/usr/local/share/PCDM/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/PCDM/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/PCDM/i18n/
 
 scripts=PCDMd
 scripts.path=/usr/local/sbin
-scripts.extra=cp PCDMd /usr/local/sbin/PCDMd
+scripts.extra=cp PCDMd $(INSTALL_ROOT)/usr/local/sbin/PCDMd
 
 xloop=PCDM-xloop
 xloop.path=/usr/local/sbin
-xloop.extra=cp PCDM-xloop /usr/local/sbin/PCDM-xloop && chmod 755 /usr/local/sbin/PCDM-xloop
+xloop.extra=cp PCDM-xloop $(INSTALL_ROOT)/usr/local/sbin/PCDM-xloop && chmod 755 $(INSTALL_ROOT)/usr/local/sbin/PCDM-xloop
 
 rcd=rc.d/pcdm
 rcd.path=/usr/local/etc/rc.d
-rcd.extra=cp rc.d/pcdm /usr/local/etc/rc.d/pcdm
+rcd.extra=cp rc.d/pcdm $(INSTALL_ROOT)/usr/local/etc/rc.d/pcdm
 
 cleanthemes.path=/usr/local/share/PCDM/themes
-cleanthemes.extra=rm -r /usr/local/share/PCDM/themes
+cleanthemes.extra=rm -r $(INSTALL_ROOT)/usr/local/share/PCDM/themes
 
 theme=themes
 theme.path=/usr/local/share/PCDM
-theme.extra=cp -r themes /usr/local/share/PCDM/.
+theme.extra=cp -r themes $(INSTALL_ROOT)/usr/local/share/PCDM/.
 
 conf=pcdm.conf
 conf.path=/usr/local/etc
-conf.extra=cp pcdm.conf /usr/local/etc/pcdm.conf.dist && chmod 600 /usr/local/etc/pcdm.conf.dist
+conf.extra=cp pcdm.conf $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist && chmod 600 $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist
 
 INSTALLS += dotrans scripts rcd cleanthemes theme conf target xloop
 
