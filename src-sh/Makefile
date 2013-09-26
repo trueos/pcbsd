@@ -34,7 +34,6 @@ SUBTARGETS    =  \
 		sub-pcfbsd \
 		sub-pcfirst \
 		sub-pbi \
-		sub-pbi10 \
 		sub-deinfo \
 		sub-meta \
 		sub-warden \
@@ -262,19 +261,6 @@ sub-pbi-clean: pbi-manager/$(MAKEFILE) FORCE
 sub-pbi-install_subtargets: pbi-manager/$(MAKEFILE) FORCE
 	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) install
 
-sub-pbi10: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE)
-sub-pbi10-make_default: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) 
-sub-pbi10-make_first: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) first
-sub-pbi10-all: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) all
-sub-pbi10-clean: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) clean
-sub-pbi10-install_subtargets: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) install
-
 sub-meta: pc-metapkgmanager/$(MAKEFILE) FORCE
 	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE)
 sub-meta-make_default: pc-metapkgmanager/$(MAKEFILE) FORCE
@@ -317,7 +303,6 @@ sub-pcthinclient-install_subtargets: pc-thinclient/$(MAKEFILE) FORCE
 make_default: sub-libsh-make_default \
 	sub-lpreserver-make_default \
 	sub-pbi-make_default \
-#	sub-pbi10-make_default \
 	sub-about-make_default \
 	sub-meta-make_default \
 	sub-warden-make_default \
@@ -340,7 +325,6 @@ make_default: sub-libsh-make_default \
 make_first: sub-libsh-make_first \
 	sub-lpreserver-make_first \
 	sub-pbi-make_first \
-#	sub-pbi10-make_first \
 	sub-about-make_first \
 	sub-meta-make_first \
 	sub-warden-make_first \
@@ -363,7 +347,6 @@ make_first: sub-libsh-make_first \
 all:	sub-libsh-all \
 	sub-lpreserver-all \
 	sub-pbi-all \
-#	sub-pbi10-all \
 	sub-about-all \
 	sub-meta-all \
 	sub-warden-all \
@@ -384,7 +367,6 @@ all:	sub-libsh-all \
 	FORCE
 
 clean: sub-pbi-clean \
-#	sub-pbi10-clean \
 	sub-libsh-clean \
 	sub-lpreserver-clean \
 	sub-about-clean \
@@ -408,7 +390,6 @@ clean: sub-pbi-clean \
 
 install_subtargets: sub-libsh-install_subtargets \
 	sub-pbi-install_subtargets \
-#	sub-pbi10-install_subtargets \
 	sub-lpreserver-install_subtargets \
 	sub-about-install_subtargets \
 	sub-meta-install_subtargets \
