@@ -242,7 +242,7 @@ void LPWatcher::readReplicationFile(){
 }
 
 void LPWatcher::startRepFileWatcher(){
-  qDebug() << "Start Rep File Watcher:" << FILE_REPLICATION;
+  //qDebug() << "Start Rep File Watcher:" << FILE_REPLICATION;
   if(FILE_REPLICATION.isEmpty()){ return; }
 
   if(watcher->files().contains(FILE_REPLICATION)){ return; } //duplicate - file already opened
@@ -263,11 +263,11 @@ void LPWatcher::startRepFileWatcher(){
   repfile->open(QIODevice::ReadOnly | QIODevice::Text);
   RFSTREAM = new QTextStream(repfile);
   watcher->addPath(FILE_REPLICATION);
-  qDebug() << "Finished starting rep file watcher";
+  //qDebug() << "Finished starting rep file watcher";
 }
 
 void LPWatcher::stopRepFileWatcher(){
-  qDebug() << "Stop Rep File Watcher:" << FILE_REPLICATION;
+  //qDebug() << "Stop Rep File Watcher:" << FILE_REPLICATION;
   if(FILE_REPLICATION.isEmpty()){ return; }
   watcher->removePath(FILE_REPLICATION);
   //Close down the stream
@@ -279,7 +279,7 @@ void LPWatcher::stopRepFileWatcher(){
   FILE_REPLICATION.clear();
   repTotK.clear();
   lastSize.clear();
-  qDebug() << "Finished stopping rep file watcher";
+  //qDebug() << "Finished stopping rep file watcher";
 }
 
 double LPWatcher::displayToDoubleK(QString displayNumber){
