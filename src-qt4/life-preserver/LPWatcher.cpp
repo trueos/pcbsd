@@ -85,7 +85,7 @@ QStringList LPWatcher::getMessages(QString type, QStringList msgList){
   //Valid messages - "dataset","message","summary","id", "timestamp", "time"
   unsigned int base;
   if(type=="message"){base=10;}
-  else if(type=="replicate"){base=20;}
+  else if(type=="replication"){base=20;}
   else if(type=="critical"){base=30;}
   else if(type=="mirror"){base=40;}
   else if(type=="resilver"){base=50;}
@@ -157,12 +157,13 @@ void LPWatcher::readLogFile(bool quiet){
     }else if(message.contains("starting replication")){
       //Setup the file watcher for this new log file
       FILE_REPLICATION = dev;
+      dev = message.section(" ",5,5,QString::SectionSkipEmpty);
       startRepFileWatcher();
       //Set the appropriate status variables
-      LOGS.insert(20,"REPSTARTED");
-      // 21 - dataset set on update ping
-      LOGS.insert(22, tr("Replication Started") ); //summary
-      // 23 - Full message set on update ping
+      LOGS.insert(20,"STARTED");
+      LOGS.insert(21, dev); //zpool
+      LOGS.insert(22, tr("Replication Starting") ); //summary
+      LOGS.insert(23, QString(tr("Starting replication for %1")).arg(dev) ); //Full message
       LOGS.insert(24, timestamp); //full timestamp
       LOGS.insert(25, time); // time only
       if(!quiet){ emit MessageAvailable("replication"); }
@@ -170,20 +171,20 @@ void LPWatcher::readLogFile(bool quiet){
       stopRepFileWatcher();
       dev = message.section(" ",-1).simplified();
       //Now set the status of the process
-      LOGS.insert(20,"REPFINISHED");
+      LOGS.insert(20,"FINISHED");
       LOGS.insert(21,dev); //dataset
       LOGS.insert(22, tr("Finished Replication") ); //summary
       LOGS.insert(23, QString(tr("Finished replication for %1")).arg(dev) );
       LOGS.insert(24, timestamp); //full timestamp
       LOGS.insert(25, time); // time only      
       if(!quiet){ emit MessageAvailable("replication"); }
-    }else if( message.contains("FAILED replication") ){
+    }else if( message.contains("failed replication") ){
       stopRepFileWatcher();
       //Now set the status of the process
       dev = message.section(" ",-1).simplified();
       QString file = log.section("LOGFILE:",1,1).simplified();
       QString tt = QString(tr("Replication Failed for %1")).arg(dev) +"\n"+ QString(tr("Logfile available at: %1")).arg(file);
-      LOGS.insert(20,"REPERROR");
+      LOGS.insert(20,"ERROR");
       LOGS.insert(21,dev); //dataset
       LOGS.insert(22, tr("Replication Failed") ); //summary
       LOGS.insert(23, tt );
@@ -195,17 +196,18 @@ void LPWatcher::readLogFile(bool quiet){
   }
 }
 
-void LPWatcher::readReplicationFile(bool quiet){
+void LPWatcher::readReplicationFile(){
   QString stat;
   while( !RFSTREAM->atEnd() ){ 
     QString line = RFSTREAM->readLine(); 
     if(line.contains("total estimated size")){ repTotK = line.section(" ",-1).simplified(); } //save the total size to replicate
     else if(line.startsWith("send from ")){}
     else if(line.startsWith("TIME ")){}
+    else if(line.startsWith("warning: ")){} //start of an error
     else{ stat = line; } //only save the relevant/latest status line
   }
-  if(stat.isEmpty()){
-    qDebug() << "New Status Message:" << stat;
+  if(!stat.isEmpty()){
+    //qDebug() << "New Status Message:" << stat;	    
     //Divide up the status message into sections
     stat.replace("\t"," ");
     QString dataset = stat.section(" ",2,2,QString::SectionSkipEmpty).section("/",0,0).simplified();
@@ -232,29 +234,52 @@ void LPWatcher::readReplicationFile(bool quiet){
       //Now set the current process status
       LOGS.insert(20,"RUNNING");
       LOGS.insert(21,dataset);
+      LOGS.insert(22,txt);
       LOGS.insert(23,txt);
-      if(!quiet){ emit MessageAvailable("replication"); }
+      emit MessageAvailable("");
     }
   }
 }
 
 void LPWatcher::startRepFileWatcher(){
+  //qDebug() << "Start Rep File Watcher:" << FILE_REPLICATION;
   if(FILE_REPLICATION.isEmpty()){ return; }
+
+  if(watcher->files().contains(FILE_REPLICATION)){ return; } //duplicate - file already opened
+  /*else if(!watcher->files().isEmpty()){ 
+    //Check that the file watcher is not already operating on a file
+    // only one can be running at a time, so always cancel the previous instance (it is stale)
+    // *** WARNING - This causes seg fault for some reason****
+    QString tmp = FILE_REPLICATION;
+    stopRepFileWatcher();
+    FILE_REPLICATION = tmp;
+  }*/
+  //Check to make sure that lpreserver actually has a process running before starting this
+  //if(!QFile::exists("/var/run/<something.pid>"){ FILE_REPLICATION.clear(); return; }
+  //Check for the existance of the file to watch and create it as necessary  
   if(!QFile::exists(FILE_REPLICATION)){ system( QString("touch "+FILE_REPLICATION).toUtf8() ); }
+  //Now open the file and start watching it for changes
   repfile->setFileName(FILE_REPLICATION);
   repfile->open(QIODevice::ReadOnly | QIODevice::Text);
   RFSTREAM = new QTextStream(repfile);
   watcher->addPath(FILE_REPLICATION);
+  //qDebug() << "Finished starting rep file watcher";
 }
 
 void LPWatcher::stopRepFileWatcher(){
+  //qDebug() << "Stop Rep File Watcher:" << FILE_REPLICATION;
   if(FILE_REPLICATION.isEmpty()){ return; }
   watcher->removePath(FILE_REPLICATION);
+  //Close down the stream
+  RFSTREAM->setStatus(QTextStream::ReadPastEnd); //let any running process know to stop now
+  delete RFSTREAM;  
+  //Close the file
   repfile->close();
-  delete RFSTREAM;
+  //clear internal variables
   FILE_REPLICATION.clear();
   repTotK.clear();
   lastSize.clear();
+  //qDebug() << "Finished stopping rep file watcher";
 }
 
 double LPWatcher::displayToDoubleK(QString displayNumber){

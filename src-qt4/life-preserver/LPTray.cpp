@@ -69,12 +69,10 @@ void LPTray::watcherMessage(QString type){
     if(info.isEmpty()){ return; }
     if(info[0] == "STARTED"){
       this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
-    }else if(info[0] == "RUNNING"){
-      //don't show anything here - just let the tooltip update
     }else if(info[0] == "FINISHED"){
       this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
     }else if(info[0] == "ERROR"){
-      this->showMessage( info[1], info[2], QSystemTrayIcon::Warning, 5000);
+      this->showMessage( info[1], info[2], QSystemTrayIcon::Warning, 10000);
     }
     
   }else if(type=="critical"){

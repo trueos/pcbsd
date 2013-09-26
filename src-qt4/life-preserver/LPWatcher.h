@@ -43,7 +43,7 @@ private:
 	QString repTotK, lastSize;
 
 	void readLogFile(bool quiet = false);
-	void readReplicationFile(bool quiet = false);
+	void readReplicationFile(); //always sends quiet signals
 
 	void startRepFileWatcher();
 	void stopRepFileWatcher();
