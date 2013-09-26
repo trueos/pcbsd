@@ -27,6 +27,9 @@
 # Script to detect TrueOS / PC-BSD disk installations and create grub
 # entries for them
 
+ROOTFS=`mount | awk '/ \/ / {print $1}'`
+BEDS="$( echo ${ROOTFS} | awk -F '/' '{print $2}' )"
+
 display_loaderopts()
 {
   # Optional ARG1, set to a ZFS dataset to mount and read values from
@@ -154,7 +157,7 @@ detect_beadm()
    for b in `${BEADM} list 2>/dev/null| grep -v "Created" | cut -d ' ' -f 1`
    do
       # Got a beadm snapshot, lets get the complete dataset name
-      beLine=`${BEADM} list -a | grep "/ROOT/${b}"`
+      beLine=`${BEADM} list -a | grep "/$BEDS/${b}"`
       cdataset=`echo $beLine | awk '{print $1}'`
       cdatadate=`echo $beLine | awk '{print $5}'`
       cdatatime=`echo $beLine | awk '{print $6}'`
