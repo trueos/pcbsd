@@ -51,7 +51,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		cups-bjnp>=0:${PORTSDIR}/print/cups-bjnp \
 		splix>=0:${PORTSDIR}/print/splix \
 		fusefs-ntfs>=0:${PORTSDIR}/sysutils/fusefs-ntfs \
-		fusefs-exfat>=0:${PORTSDIR}/sysutils/fusefs-exfat \
 		xdg-open:${PORTSDIR}/devel/xdg-utils \
 		rsync:${PORTSDIR}/net/rsync \
 		pwcview:${PORTSDIR}/multimedia/pwcview \
