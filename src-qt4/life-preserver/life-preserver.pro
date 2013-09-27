@@ -10,7 +10,8 @@ HEADERS	+= LPTray.h \
 		LPWizard.h \
 		LPContainers.h \
 		LPConfig.h \
-		LPWatcher.h
+		LPWatcher.h \
+		LPMessages.h
 		
 SOURCES	+= main.cpp \
 		LPTray.cpp \
@@ -18,13 +19,15 @@ SOURCES	+= main.cpp \
 		LPBackend.cpp \
 		LPWizard.cpp \
 		LPConfig.cpp \
-		LPWatcher.cpp
+		LPWatcher.cpp \
+		LPMessages.cpp
 
 RESOURCES += lPreserve.qrc
 
 FORMS	= mainUI.ui \
 	LPWizard.ui \
-	LPConfig.ui
+	LPConfig.ui \
+	LPMessages.ui
 
 TARGET=life-preserver
 target.path=/usr/local/bin

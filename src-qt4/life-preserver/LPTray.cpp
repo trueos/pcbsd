@@ -8,13 +8,16 @@ LPTray::LPTray() : QSystemTrayIcon(){
 	connect(watcher,SIGNAL(StatusUpdated()),this,SLOT(watcherMessage()) );
   //Setup the context menu
   menu = new QMenu;
-	menu->addAction(new QAction(QIcon(":/images/application-exit.png"),tr("Close Life Preserver Tray"),this) );
-	connect(menu, SIGNAL(triggered(QAction*)), this, SLOT(slotClose()) );
+	menu->addAction(QIcon(":/images/backup-failed.png"),tr("View Messages"),this,SLOT(startMessageDialog()) );
+	menu->addAction(QIcon(":/images/tray-icon-idle.png"),tr("Start Application UI"),this,SLOT(startGUI()) );
+	menu->addSeparator();
+	menu->addAction(QIcon(":/images/application-exit.png"),tr("Close Life Preserver Tray"),this,SLOT(slotClose()) );
   this->setContextMenu(menu);
   //Setup initial icon for the tray
   this->setIcon( QIcon(":/images/tray-icon-idle.png") );
   //Create the configuration GUI
   GUI = new mainUI();
+  msgdlg = new LPMessages();
   //connect other signals/slots
   connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayClicked(QSystemTrayIcon::ActivationReason)) );
   //Start up the watcher
@@ -26,6 +29,8 @@ LPTray::LPTray() : QSystemTrayIcon(){
 LPTray::~LPTray(){
   watcher->stop();
   delete watcher;
+  delete GUI;
+  delete msgdlg;
 }
 
 // ===============
@@ -135,4 +140,30 @@ void LPTray::startGUI(){
     GUI->setupUI();
     GUI->raise();
     GUI->show();
+}
+
+void LPTray::startMessageDialog(){
+  //Get all the available messages from the watcher
+  QStringList msgs, errs, logs; //message variables to fill
+  //Cycle through the watcher types and get any messages
+  QStringList types; types << "message" << "replication" << "critical" << "mirror" << "resilver" << "scrub";
+  QStringList infoL; infoL << "id" << "timestamp" << "device" << "message" << "files";
+  for(int i=0; i<types.length(); i++){
+    QStringList info = watcher->getMessages(types[i], infoL);
+    if(info.isEmpty()){continue;}
+    if(info[0] == "ERROR"){
+      errs << info[1] + " (" + info[2] + "): " + info[3];
+    }else if(!info[0].isEmpty()){
+      msgs << info[1] + " (" + info[2] + "): " + info[3];
+    }
+    if(!info[4].isEmpty()){
+      logs << info[4]; // In format:  "example logfile </var/logs/example.log>"
+    }
+  }
+  //Now start up the dialog
+  msgdlg->setMessages( msgs.join("\n") );
+  msgdlg->setErrors( errs.join("\n") );
+  msgdlg->setLogFiles(logs);
+  msgdlg->raise();
+  msgdlg->show();
 }
