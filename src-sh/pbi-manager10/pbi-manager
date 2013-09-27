@@ -1657,6 +1657,7 @@ exit_err() {
 	rm_pbipatchfiles
 	chroot_make_cleanup
 	clean_remote_dl
+	umount_md_devices ${DEVICES}
 	exit 255
 }
 
@@ -3551,7 +3552,9 @@ do_pbi_create() {
 
 
 	if [ "`basename $0`" = "pbi_makeport" -o "`basename $0`" = "pbi_makeport_chroot" ] ; then
-	  PBI_STAGEDIR="/usr/local"
+	  #PBI_STAGEDIR="/usr/local"
+	  # KPM REMOVE ME
+	  mk_stage_dir "/usr/local"
 	else
 	  mk_stage_dir
 	fi
@@ -3570,16 +3573,19 @@ do_pbi_create() {
 
 	mk_hash_list
 
-	mk_archive_file
+	#mk_archive_file
+	# KPM REMOVE ME
 
 	mk_header_dir
  	save_pbi_details_to_header
-	mk_header_file
-	rm_header_dir
+	#mk_header_file
+	# KPM REMOVE ME
+	#rm_header_dir
 
 	mk_output_pbi
 
 	rm_stage_dir
+	exit 0
 }
 
 # Start looping through and creating a hash-list of files
@@ -4047,7 +4053,7 @@ mk_deinstall_script() {
 
 # Create a dir for manipulating header info
 mk_header_dir() {
-	PBI_HEADERDIR="${PBI_PROGDIRPATH}/.headerdir"
+	PBI_HEADERDIR="${PBI_STAGEDIRMNT}/pbimeta"
 	if [ -e "${PBI_HEADERDIR}" ] ; then rm -rf "${PBI_HEADERDIR}" ; fi
 	mkdir -p ${PBI_HEADERDIR}
 }
@@ -4060,7 +4066,11 @@ rm_header_dir() {
 
 # Create a dir for staging the final archive
 mk_stage_dir() {
-	local _excOpts=""
+	if [ -n "$1" ] ; then
+		cpDir="$1"
+	else
+		cpDir="${PBI_PROGDIRPATH}"
+	fi
 
 	PBI_STAGEDIR="${PBI_PROGDIRPATH}/.stagedir"
 	echo "Creating Stage Dir: ${PBI_STAGEDIR}"
@@ -4070,6 +4080,24 @@ mk_stage_dir() {
 		rm -rf "${PBI_STAGEDIR}" 2>/dev/null
 	fi
 	mkdir -p ${PBI_STAGEDIR}
+
+	# Figure out disk size and set up a vnode
+	export UFSFILE=/usr/pbi/pbi.ufs.$$
+	cd /usr/local
+	DIRSIZE=$(($(du -kd 0 | cut -f 1)))
+	FSSIZE=$(($DIRSIZE + 1000))
+	rc_halt "dd if=/dev/zero of=${UFSFILE} bs=1k count=${FSSIZE}"
+
+	export USRDEVICE=/dev/$(mdconfig -a -t vnode -f ${UFSFILE})
+
+	rc_halt "newfs -b 4096 -n -o space ${USRDEVICE}"
+	rc_halt "mount -o noatime ${USRDEVICE} ${PBI_STAGEDIR}"
+
+	mkdir -p ${PBI_STAGEDIR}/local
+	mkdir -p ${PBI_STAGEDIR}/etc
+	mkdir -p ${PBI_STAGEDIR}/pbimeta
+
+	local _excOpts=""
 
 	# Build module list of excludes
 	if [ -n "$PBI_EXCLUDELIST" ] ; then
@@ -4087,9 +4115,12 @@ mk_stage_dir() {
 	tar cvf - ${_excOpts} --exclude .stagedir \
 		--exclude .pkgdb --exclude .ld-elf.hints --exclude make.conf \
 		--exclude make.conf.bak --exclude .keepports \
-		-C "${PBI_PROGDIRPATH}" . 2>/dev/null \
-		| tar xvpf - -C ${PBI_STAGEDIR} 2>/dev/null
+		-C "${cpDir}" . 2>/dev/null \
+		| tar xvpf - -C ${PBI_STAGEDIR}/local 2>/dev/null
 
+	cd ${PBI_PROGDIRPATH}
+	PBI_STAGEDIRMNT="${PBI_STAGEDIR}"
+	PBI_STAGEDIR="${PBI_STAGEDIR}/local"
 }
 
 # Remove the stagedir
@@ -4112,6 +4143,11 @@ clean_icons_dir() {
 
 # See if we need to clean the stagedir
 clean_stage_dir() {
+
+	if [ -e "${PBI_STAGEDIR}/etc" ] ; then
+		mv ${PBI_STAGEDIR}/etc/* ${PBI_STAGEDIRMNT}/etc/
+	fi
+
 	if [ "${PBI_USESYSGL}" != "NO" ] ; then
 		rm ${PBI_STAGEDIR}/lib/libGl.* >/dev/null 2>/dev/null
 		rm ${PBI_STAGEDIR}/lib/libGL.* >/dev/null 2>/dev/null
@@ -4254,7 +4290,8 @@ save_pbi_details_to_header() {
 	echo "${FILETOTAL}" > "${PBI_HEADERDIR}/pbi_archivecount"
 
 	# Save a checksum of archive file
-	sha256 -q "${PBI_CREATE_ARCHIVE}" > "${PBI_HEADERDIR}/pbi_archivesum"
+	#sha256 -q "${PBI_CREATE_ARCHIVE}" > "${PBI_HEADERDIR}/pbi_archivesum"
+	# KPM REMOVE ME
 
 	sign_pbi_files "$PBI_HEADERDIR"
 }
@@ -4272,6 +4309,14 @@ sign_pbi_files() {
 	done
 }
 
+# Unmount list of md devices
+umount_md_devices() {
+    for i in $@; do
+        echo "Unmounting ${i}"
+        rc_halt "umount -f ${i}"
+        rc_halt "mdconfig -d -u ${i}"
+    done
+}
 
 # All the pieces are ready, spit out the final PBI file
 mk_output_pbi() {
@@ -4280,27 +4325,35 @@ mk_output_pbi() {
         else
                 icon="${PBI_DEFAULT_ICON_CHROOT}"
         fi
+
+	# Set PBI name all lower-case
 	_pbilow="`echo ${PBI_PROGNAME} | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
-
 	outfile="${PBI_CREATE_OUTDIR}/${_pbilow}-${PBI_PROGVERSION}-${ARCH}.pbi"
-	mark1="${PBI_CREATE_OUTDIR}/.pbimark1.$$"
-	mark2="${PBI_CREATE_OUTDIR}/.pbimark2.$$"
 
-	echo "
-${PBI_SS_ICON}" >$mark1
-	echo "
-${PBI_SS_ARCHIVE}" >$mark2
+	DEVICES=${USRDEVICE}
+
+	echo "Filling the uncompressed fs with zeros to compress better"
+	echo "Don't worry if you see a 'filesystem full' message here"
+	zerofile=$(env TMPDIR=${PBI_STAGEDIR} mktemp -t zero)
+	dd if=/dev/zero of=${zerofile} >/dev/null 2>/dev/null
+	rm ${zerofile}
+
+	umount_md_devices ${DEVICES}
 
 	# DO IT, DO IT NOW!!!
-	cat ${PBI_HEADER_ARCHIVE} $mark1 ${icon} $mark2 ${PBI_CREATE_ARCHIVE} > ${outfile}	
+	echo -n "Compressing ${UFSFILE}..."
+	rc_halt "mkuzip -v -s 65536 -o ${outfile} ${UFSFILE}"
+
+	UFSSIZE=$(ls -l ${UFSFILE} | awk '{print $5}')
+	UZIPSIZE=$(ls -l ${outfile} | awk '{print $5}')
+
+	PERCENT=$(awk -v ufs=${UFSSIZE} -v uzip=${UZIPSIZE} 'BEGIN{print (100 - (100 * (uzip/ufs)));}')
+	rm -f ${UFSFILE}
+	echo " ${PERCENT}% saved"
+
 	sha256 -q ${outfile} > ${outfile}.sha256
 
 	echo "Created PBI: ${outfile}"
-
-	rm $mark1
-	rm $mark2
-	rm ${PBI_HEADER_ARCHIVE}
-	rm ${PBI_CREATE_ARCHIVE}
 }
 
 get_filetotal_dir() {
@@ -6656,6 +6709,8 @@ do_pbi_make() {
 		if [ "$_err" = "0" -a "${PBI_BUILDONLY}" != "YES" ] ; then
 			mv ${PBI_CHROOTDIR}/pbiout/*.pbi ${PBI_CREATE_OUTDIR}/ 
 			mv ${PBI_CHROOTDIR}/pbiout/*.sha256 ${PBI_CREATE_OUTDIR}/
+		else
+			echo "Error: pbi_makeport_chroot: returned non-0 status!"
 		fi
 
   		# Break here if we are only doing a build
