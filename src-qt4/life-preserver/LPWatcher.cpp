@@ -15,6 +15,7 @@
     *3 = message (full message)
     *4 = timestamp (full date/time timestamp in readable format)
     *5 = short timestamp (just time in readable format)
+    *6 = description and path of a log file (FORMAT: "example file </path/to/file.log>")
 
   Valid Internal ID's:
     SNAPCREATED -> new snapshot created
@@ -100,6 +101,7 @@ QStringList LPWatcher::getMessages(QString type, QStringList msgList){
     else if(msgList[i]=="message" && LOGS.contains(base+3)){ output << LOGS[base+3]; }
     else if(msgList[i]=="timestamp" && LOGS.contains(base+4)){ output << LOGS[base+4]; }
     else if(msgList[i]=="time" && LOGS.contains(base+5)){ output << LOGS[base+5]; }
+    else if(msgList[i]=="files" && LOGS.contains(base+6)){ output << LOGS[base+6]; }
     else{ output << ""; }
   }
   //Return the output list
@@ -166,6 +168,7 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(23, QString(tr("Starting replication for %1")).arg(dev) ); //Full message
       LOGS.insert(24, timestamp); //full timestamp
       LOGS.insert(25, time); // time only
+      LOGS.insert(26,tr("Replication Log")+" <"+FILE_REPLICATION+">"); //log file
       if(!quiet){ emit MessageAvailable("replication"); }
     }else if(message.contains("finished replication")){
       stopRepFileWatcher();
@@ -176,7 +179,8 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(22, tr("Finished Replication") ); //summary
       LOGS.insert(23, QString(tr("Finished replication for %1")).arg(dev) );
       LOGS.insert(24, timestamp); //full timestamp
-      LOGS.insert(25, time); // time only      
+      LOGS.insert(25, time); // time only
+      LOGS.insert(26, ""); //clear the log file entry
       if(!quiet){ emit MessageAvailable("replication"); }
     }else if( message.contains("failed replication") ){
       stopRepFileWatcher();
@@ -190,6 +194,7 @@ void LPWatcher::readLogFile(bool quiet){
       LOGS.insert(23, tt );
       LOGS.insert(24, timestamp); //full timestamp
       LOGS.insert(25, time); // time only      
+      LOGS.insert(26, tr("Replication Error Log")+" <"+file+">" );
       if(!quiet){ emit MessageAvailable("replication"); }
     }
 	  
@@ -312,7 +317,7 @@ void LPWatcher::checkPoolStatus(){
     //parse the output
     QString pool, state, timestamp;
     QStringList cDev, cStat, cMsg, cSummary;
-    //qDebug() << "-----zpool status------";
+    qDebug() << "-----zpool status------\n" << zstat.join("\n");
     bool newresilver = false; bool newscrub = false; bool newerror = false;
     for(int i=0; i<zstat.length(); i++){
       zstat[i] = zstat[i].simplified();

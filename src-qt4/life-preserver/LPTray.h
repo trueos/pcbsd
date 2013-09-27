@@ -8,6 +8,7 @@
 
 #include "mainUI.h"
 #include "LPWatcher.h"
+#include "LPMessages.h"
 
 class LPTray : public QSystemTrayIcon{
 		Q_OBJECT
@@ -17,9 +18,9 @@ public:
 
 private:
 	LPWatcher *watcher;
+	LPMessages *msgdlg;
 	QMenu *menu;
 	mainUI *GUI;
-
 
 	void updateTrayIcon();
 	void updateToolTip();
@@ -31,6 +32,7 @@ private slots:
 	void slotClose();
 	void slotSingleInstance();
 	void startGUI();
+	void startMessageDialog();
 
 };
 
