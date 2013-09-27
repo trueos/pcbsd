@@ -45,7 +45,7 @@ desktopperm.path=/usr/local/share/applications/
 desktopperm.extra=chmod 644 /usr/local/share/applications/lifepreserver.desktop
 
 dotrans.path=/usr/local/share/lifePreserver/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/lifePreserver/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/lifePreserver/i18n/
 
 INSTALLS += target dotrans images scripts
 

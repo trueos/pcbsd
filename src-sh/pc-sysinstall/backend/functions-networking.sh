@@ -387,9 +387,9 @@ enable_manual_nic()
     NETMASK="${VAL}"
     if [ -n "${NETMASK}" ]
     then
-      rc_halt "ifconfig inet ${NIC} netmask ${NETMASK}"
+      rc_halt "ifconfig ${NIC} inet ${NETIP} netmask ${NETMASK}"
     else
-      rc_halt "ifconfig inet ${NIC} ${NETIP}"
+      rc_halt "ifconfig ${NIC} inet ${NETIP}"
     fi
   fi
 

@@ -4,6 +4,8 @@
 
 ####### Compiler, tools and options
 
+PREFIX?= /usr/local
+
 AR            = ar cqs
 RANLIB        = 
 TAR           = tar -cf
@@ -30,20 +32,20 @@ all: Makefile $(TARGET)
 check: first
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	-$(INSTALL_FILE) pc-metapkgmanager $(INSTALL_ROOT)/usr/local/bin/
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/metaset/ || rm -rf /usr/local/share/pcbsd/metaset
-	cp -r metaset /usr/local/share/pcbsd/metaset
-	cd /usr/local/bin/ && ln -f pc-metapkgmanager pc-pkg
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	-$(INSTALL_FILE) pc-metapkgmanager $(INSTALL_ROOT)$(PREFIX)/bin/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/metaset/ || rm -rf $(PREFIX)/share/pcbsd/metaset
+	cp -r metaset $(PREFIX)/share/pcbsd/metaset
+	cd $(PREFIX)/bin/ && ln -f pc-metapkgmanager pc-pkg
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/pc-metapkgmanager
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-metapkgmanager
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	chmod 755 /usr/local/bin/pc-metapkgmanager
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	chmod 755 $(PREFIX)/bin/pc-metapkgmanager
 
 install:  install_scripts install_dochmod  FORCE
 

@@ -355,6 +355,7 @@ save_rep_props() {
   # If we are not doing a recursive backup / complete dataset we can skip this
   if [ "$RECURMODE" != "ON" ] ; then return 0; fi
   if [ "`basename $DATASET`" != "$DATASET" ] ; then return 0; fi
+  hName=`hostname`
 
   echo_log "Saving dataset properties for: ${DATASET}"
   queue_msg "`date`: Saving dataset properties for: ${DATASET}\n"

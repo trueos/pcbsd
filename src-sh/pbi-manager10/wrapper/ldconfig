@@ -2,6 +2,7 @@
 #
 # $FreeBSD$
 #
+# Modified ldconfig for creating PBI hints files
 
 # PROVIDE: ldconfig
 # REQUIRE: mountcritremote FILESYSTEMS
@@ -40,7 +41,6 @@ ldconfig_start()
 				_LDC="${_LDC} ${i}"
 			fi
 		done
-		check_startmsgs && echo 'ELF ldconfig path:' ${_LDC}
 		${ldconfig} -elf -f /usr/local/var/run/ld-elf.so.hints ${_ins} ${_LDC}
 
 		case `sysctl -n hw.machine_arch` in
@@ -59,8 +59,6 @@ ldconfig_start()
 					_LDC="${_LDC} ${i}"
 				fi
 			done
-			check_startmsgs &&
-			    echo '32-bit compatibility ldconfig path:' ${_LDC}
 			${ldconfig} -32 -f /usr/local/var/run/ld-elf32.so.hints -m ${_ins} ${_LDC}
 			;;
 		esac
@@ -76,7 +74,6 @@ ldconfig_start()
 					_LDC="${_LDC} ${i}"
 				fi
 			done
-			check_startmsgs && echo 'a.out ldconfig path:' ${_LDC}
 			${ldconfig} -aout -f /usr/local/var/run/ld.so.hints ${_ins} ${_LDC}
 			;;
 		esac

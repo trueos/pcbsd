@@ -95,7 +95,7 @@ TRANSLATIONS =  i18n/libpcbsd_af.ts \
 		i18n/libpcbsd_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 include.path=/usr/local/include/
 include.files=pcbsd-*.h

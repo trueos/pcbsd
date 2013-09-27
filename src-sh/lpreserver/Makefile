@@ -4,9 +4,11 @@
 
 ####### Install
 
+PREFIX?= /usr/local
+
 all:
 
 install_doinstall:
-	sh install.sh
+	sh install.sh $(PREFIX)
 
 install:  install_doinstall

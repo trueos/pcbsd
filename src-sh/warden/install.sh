@@ -1,6 +1,15 @@
 #!/bin/sh
 # Warden install script
-PROGDIR="/usr/local/share/warden"
+
+DEFAULT="/usr/local"
+
+if [ -z "$1" ] ; then
+        LB="${DEFAULT}"
+else
+        LB="${1}"
+fi
+
+PROGDIR="${LB}/share/warden"
 
 mkdir -p ${PROGDIR} >/dev/null 2>/dev/null
 
@@ -10,27 +19,27 @@ mkdir ${PROGDIR}/export >/dev/null 2>/dev/null
 DIR=`dirname $0`
 cd ${DIR}
 
-cp bin/warden /usr/local/bin/warden
-chmod 755 /usr/local/bin/warden
+cp bin/warden ${LB}/bin/warden
+chmod 755 ${LB}/bin/warden
 
 # Save existing settings 
-if [ -e "/usr/local/etc/warden.conf" ] ; then
-  NIC=`grep '^NIC:' /usr/local/etc/warden.conf | awk '{print $2}'`
-  WTMP=`grep '^WTMP:' /usr/local/etc/warden.conf | awk '{print $2}'`
-  JDIR=`grep '^JDIR:' /usr/local/etc/warden.conf | awk '{print $2}'`
+if [ -e "${LB}/etc/warden.conf" ] ; then
+  NIC=`grep '^NIC:' ${LB}/etc/warden.conf | awk '{print $2}'`
+  WTMP=`grep '^WTMP:' ${LB}/etc/warden.conf | awk '{print $2}'`
+  JDIR=`grep '^JDIR:' ${LB}/etc/warden.conf | awk '{print $2}'`
   ONIC=`grep '^NIC:' conf/warden.conf`
   OWTMP=`grep '^WTMP:' conf/warden.conf`
   OJDIR=`grep '^JDIR:' conf/warden.conf`
 fi
 
-cp conf/warden.conf /usr/local/etc/warden.conf
-chmod 644 /usr/local/etc/warden.conf
+cp conf/warden.conf ${LB}/etc/warden.conf
+chmod 644 ${LB}/etc/warden.conf
 
 # Save the settings
 if [ -n "$NIC" ] ; then
-   sed -i '' "s|$ONIC|NIC: $NIC|g" /usr/local/etc/warden.conf
-   sed -i '' "s|$OWTMP|WTMP: $WTMP|g" /usr/local/etc/warden.conf
-   sed -i '' "s|$OJDIR|JDIR: $JDIR|g" /usr/local/etc/warden.conf
+   sed -i '' "s|$ONIC|NIC: $NIC|g" ${LB}/etc/warden.conf
+   sed -i '' "s|$OWTMP|WTMP: $WTMP|g" ${LB}/etc/warden.conf
+   sed -i '' "s|$OJDIR|JDIR: $JDIR|g" ${LB}/etc/warden.conf
 fi
 
 if [ -d "${PROGDIR}/linux-installs" ] ; then
@@ -46,8 +55,8 @@ cp -r scripts ${PROGDIR}
 chmod 755 ${PROGDIR}/scripts/backend/*
 
 # Setup rc.d
-cp scripts/rc.d/wardenrc /usr/local/etc/rc.d/wardenrc
-chmod 755 /usr/local/etc/rc.d/wardenrc
+cp scripts/rc.d/wardenrc ${LB}/etc/rc.d/wardenrc
+chmod 755 ${LB}/etc/rc.d/wardenrc
 
 cp agent.png ${PROGDIR}/
 cp agent.png ${PROGDIR}/warden.png

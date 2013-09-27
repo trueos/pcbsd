@@ -2,6 +2,8 @@
 # Makefile for building: pc-xdgutil
 #############################################################################
 
+PREFIX?= /usr/local
+
 AR            = ar cqs
 RANLIB        = 
 TAR           = tar -cf
@@ -26,27 +28,27 @@ first: all
 all:
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	-$(INSTALL_FILE) pc-thinclient $(INSTALL_ROOT)/usr/local/bin/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	-$(INSTALL_FILE) pc-thinclient $(INSTALL_ROOT)$(PREFIX)/bin/
 
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/pc-thinclient
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-thinclient
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	chmod 755 /usr/local/bin/pc-thinclient
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	chmod 755 $(PREFIX)/bin/pc-thinclient
 
 
 install_ddirs: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-thinclient/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-thinclient/ 
-	-$(INSTALL_DIR) resources $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-thinclient/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-thinclient/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-thinclient/ 
+	-$(INSTALL_DIR) resources $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-thinclient/
 
 uninstall_ddirs:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-thinclient/resources
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-thinclient/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-thinclient/resources
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-thinclient/ 
 
 install:  install_scripts install_dochmod install_ddirs  FORCE
 

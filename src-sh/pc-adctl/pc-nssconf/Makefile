@@ -4,11 +4,12 @@
 
 .include <bsd.own.mk>
 
+PREFIX?= /usr/local
 MAN=
 PROGOWN=	root
 PROGGRP=	wheel
 PROGMODE=	0555
-DESTDIR=	/usr/local/bin
+DESTDIR=	$(PREFIX)/bin
 
 PROG=	pc-nssconf
 SRCS=	pc-nssconf.c pc-nssconf.h

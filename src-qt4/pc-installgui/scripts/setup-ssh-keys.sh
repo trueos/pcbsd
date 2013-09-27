@@ -6,9 +6,9 @@ SSHUSER=$1
 SSHHOST=$2
 SSHPORT=$3
 
-if [ -z "${SSHUSER}" -o -z "${SSHHOST}" ]; then
-  echo "ERROR: Usage setup-ssh-keys.sh <user> <host>"
-  touch /tmp/.ssh-auth-failed
+if [ -z "${SSHUSER}" -o -z "${SSHHOST}" ]
+then
+echo "ERROR: Usage setup-ssh-keys.sh <user> <host>"
   exit 150
 fi
 
@@ -17,15 +17,17 @@ cd /root
 echo "Preparing to setup SSH key authorization..."
 echo "When prompted, enter your password for ${SSHUSER}@${SSHHOST}"
 
-if [ ! -e ".ssh/id_rsa.pub" ]; then
+if [ ! -e ".ssh/id_rsa.pub" ]
+then
 mkdir .ssh >/dev/null 2>/dev/null
   ssh-keygen -q -t rsa -N '' -f .ssh/id_rsa
-  sync
+  sleep 1
 fi
 
-if [ ! -e ".ssh/id_rsa.pub" ]; then
-  echo "ERROR: Failed creating .ssh/id_rsa.pub"
-  touch /tmp/.ssh-auth-failed
+if [ ! -e ".ssh/id_rsa.pub" ]
+then
+echo "ERROR: Failed creating .ssh/id_rsa.pub"
+  read tmp
   exit 150
 fi
 
@@ -38,4 +40,6 @@ if [ $? -ne 0 ] ; then
 else
    rm /tmp/.ssh-auth-failed >/dev/null 2>/dev/null
 fi
-exit 0
+
+echo "Press ENTER to continue"
+read tmp

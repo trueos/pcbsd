@@ -5,8 +5,8 @@ doDirs="/usr/local/etc/xdg/menus /usr/local/etc/xdg/applications-merged /usr/loc
 
 for i in $doDirs
 do
-  if [ ! -d "$i" ] ; then
-     echo "Creating directory: ${i}"
-     mkdir -p ${i}
+  if [ ! -d "${1}$i" ] ; then
+     echo "Creating directory: ${1}${i}"
+     mkdir -p ${1}${i}
   fi
 done

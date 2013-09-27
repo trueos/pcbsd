@@ -97,10 +97,10 @@ TRANSLATIONS =  i18n/SysInstaller_af.ts \
 		i18n/SysInstaller_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 scripts.path=/usr/local/share/pcbsd/pc-installgui
-scripts.extra=cp scripts/* /usr/local/share/pcbsd/pc-installgui/ && chmod 755 /usr/local/share/pcbsd/pc-installgui/*.sh
+scripts.extra=cp scripts/* $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/ && chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-installgui/*.sh
 
 INSTALLS += target dotrans scripts
 

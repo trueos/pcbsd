@@ -4,8 +4,9 @@
 
 ####### Compiler, tools and options
 
+PREFIX?= /usr/local
+
 AR            = ar cqs
-QMAKE         = /usr/local/bin/qmake-qt4
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 COPY          = cp -f
@@ -31,18 +32,18 @@ clean:
 check: first
 
 install_scripts: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	-$(INSTALL_FILE) pc-su $(INSTALL_ROOT)/usr/local/bin/
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	-$(INSTALL_FILE) pc-su $(INSTALL_ROOT)$(PREFIX)/bin/
 
 
 uninstall_scripts:  FORCE
-	-$(DEL_FILE) -r $(INSTALL_ROOT)/usr/local/bin/pc-su
-	-$(DEL_DIR) $(INSTALL_ROOT)/usr/local/bin/ 
+	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/pc-su
+	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
 
 install_dochmod: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)/usr/local/bin/ || $(MKDIR) $(INSTALL_ROOT)/usr/local/bin/ 
-	chmod 755 /usr/local/bin/pc-su
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	chmod 755 $(PREFIX)/bin/pc-su
 
 
 install:  install_scripts install_dochmod  FORCE

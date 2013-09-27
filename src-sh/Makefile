@@ -19,6 +19,7 @@ DEL_DIR       = rmdir
 MOVE          = mv -f
 CHK_DIR_EXISTS= test -d
 MKDIR         = mkdir -p
+PREFIX?= $(STAGEDIR)/usr/local
 SUBTARGETS    =  \
 		sub-libsh \
 		sub-lpreserver \

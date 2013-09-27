@@ -27,7 +27,7 @@ fi
 if [ ! -e ".ssh/id_rsa.pub" ]
 then
 echo "ERROR: Failed creating .ssh/id_rsa.pub"
-  sleep 5
+  read tmp
   exit 150
 fi
 
@@ -38,8 +38,9 @@ echo $PUBKEY | ssh -p $SSHPORT $SSHUSER@$SSHHOST 'mkdir .ssh ; chmod 700 .ssh ; 
 
 echo $PUBKEY | ssh -p $SSHPORT $SSHUSER@$SSHHOST 'mkdir .ssh ; chmod 700 .ssh ; tee -a .ssh/authorized_keys2 ; chmod 644 .ssh/authorized_keys2'
 
-
-if [ "$?" != "0" ]
-then
-touch /tmp/.failedPreserver-${SSHUSER}
+if [ "$?" != "0" ]; then
+  touch /tmp/.failedPreserver-${SSHUSER}
 fi
+
+echo "Press ENTER to continue"
+read tmp

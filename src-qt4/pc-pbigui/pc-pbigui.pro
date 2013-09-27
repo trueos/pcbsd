@@ -74,16 +74,19 @@ TRANSLATIONS =  i18n/PBI_af.ts \
 		i18n/PBI_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 dodirs.path=/usr/local/etc/xdg
-dodirs.extra=sh mkdirs.sh
+dodirs.extra=sh mkdirs.sh $(INSTALL_ROOT)
 
 applnk.path=/usr/local/share/applications
-applnk.extra=cd resources && xdg-desktop-menu install pcbsd-pbi.desktop
+applnk.files=resources/pcbsd-pbi.desktop
+
+defaultlist.path=/usr/local/share/applications
+defaultlist.files=resources/defaults.list
 
 mimexml.path=/usr/local/share/mime/packages
-mimexml.extra=cd resources && xdg-mime install pcbsd-pbi.xml
+mimexml.files=resources/pcbsd-pbi.xml
 
 pbiimg.path=/usr/local/share/pcbsd/images/
 pbiimg.extra=cd resources && xdg-icon-resource install --context mimetypes --size 64 pcbsd-pbi.png application-pbi
@@ -92,10 +95,10 @@ runpbibin.path=/usr/local/bin
 runpbibin.files=resources/runpbi
 
 runpbichmod.path=/usr/local/bin
-runpbichmod.extra=chmod 755 /usr/local/bin/runpbi
+runpbichmod.extra=chmod 755 $(INSTALL_ROOT)/usr/local/bin/runpbi
 
 TARGET  = pc-pbigui
 target.path = /usr/local/bin/
 
-INSTALLS += target dodirs dotrans applnk pbiimg mimexml runpbibin runpbichmod
+INSTALLS += target dodirs dotrans applnk pbiimg mimexml runpbibin runpbichmod defaultlist
 

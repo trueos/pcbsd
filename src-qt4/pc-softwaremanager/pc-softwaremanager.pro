@@ -99,10 +99,10 @@ TRANSLATIONS =  i18n/SoftwareManager_af.ts \
 		i18n/SoftwareManager_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 symlnk.path=/usr/local/bin
-symlnk.extra=ln -fs /usr/local/bin/pc-softwaremanager /usr/local/bin/appcafe
+symlnk.extra=ln -fs /usr/local/bin/pc-softwaremanager $(INSTALL_ROOT)/usr/local/bin/appcafe
 
 icons.path=/usr/local/share/pcbsd/icons
 icons.files=icons/appcafe.png

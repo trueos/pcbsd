@@ -94,10 +94,10 @@ cpres.path=/usr/local/share/pcbsd/pc-netmanager/
 cpres.files=resources/umts_stick
 
 resperm.path=/usr/local/share/pcbsd/pc-netmanager/
-resperm.extra=chmod 755 /usr/local/share/pcbsd/pc-netmanager/umts_stick
+resperm.extra=chmod 755 $(INSTALL_ROOT)/usr/local/share/pcbsd/pc-netmanager/umts_stick
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
 INSTALLS+= target dotrans cpres resperm
 
