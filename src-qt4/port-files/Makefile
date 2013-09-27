@@ -1,7 +1,4 @@
-# New ports collection makefile for:	pcbsd-utils-qt4
-# Date created:				01 Feb 2013
-# Whom:					Kris Moore <kmoore@FreeBSD.org>
-#
+# Created by: Kris Moore <kmoore@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	pcbsd-utils-qt4
@@ -13,14 +10,14 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
-LIB_DEPENDS=	QtSolutions_SingleApplication-head.1:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication \
-		curl.7:${PORTSDIR}/ftp/curl
-
 RUN_DEPENDS=	pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils
+LIB_DEPENDS=	QtSolutions_SingleApplication-head.1:${PORTSDIR}/devel/qt4-qtsolutions-singleapplication \
+		curl:${PORTSDIR}/ftp/curl
 
 MAKE_JOBS_UNSAFE=yes
 USE_CDRTOOLS=	yes
 USE_BZIP2=	yes
+USE_LDCONFIG=	yes
 USE_QT4=	accessible \
 		clucene codecs-cn codecs-jp codecs-kr codecs-tw corelib \
 		dbus declarative \
@@ -44,7 +41,6 @@ do-configure:
 		${QMAKE} PREFIX=${PREFIX} -unix CONFIG+="configure" ${QMAKE_PRO}
 
 do-install:
-	cd ${WRKSRC} && make install INSTALL_ROOT=$(STAGEDIR)
-
+	cd ${WRKSRC} && make install INSTALL_ROOT=${STAGEDIR}
 
 .include <bsd.port.mk>

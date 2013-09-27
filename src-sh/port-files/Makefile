@@ -1,7 +1,4 @@
-# New ports collection makefile for:	pcbsd-utils
-# Date created:				04 Feb 2013
-# Whom:					Kris Moore <kmoore@FreeBSD.org>
-#
+# Created by: Kris Moore <kmoore@FreeBSD.org>
 # $FreeBSD$
 
 PORTNAME=	pcbsd-utils
@@ -13,7 +10,7 @@ MASTER_SITES=	http://www.pcbsd.org/~kris/software/ \
 MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD Command-Line Utilities
 
-RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
+RUN_DEPENDS=	pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		svn:${PORTSDIR}/devel/subversion \
 		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
 		debootstrap:${PORTSDIR}/sysutils/debootstrap \
@@ -33,7 +30,7 @@ USE_PYTHON=	yes
 .include <bsd.port.pre.mk>
 
 do-install:
-	cd ${WRKSRC} && make install PREFIX=$(STAGEDIR)$(PREFIX)
+	cd ${WRKSRC} && make install PREFIX=${STAGEDIR}${PREFIX}
 
 post-install:
 	PKG_PREFIX=${STAGEDIR}${PREFIX} ${SH} ${PKGINSTALL} ${PKGNAME} POST-INSTALL
