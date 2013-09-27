@@ -256,9 +256,9 @@ rpcbind : ALL : deny|" /etc/hosts.allow
 check_webui() {
   	echo "PC-ThinClient includes a web-interface for client management."
 	echo "Would you like to install the Apache / PHP packages required?"
-	echo -e "(Y/y)\c";
+	echo -e "default: (y)\c";
 	read ans
-	if [ $ans != "y" -o "$ans" != "Y" ] ; then return; fi 
+	if [ "$ans" != "y" -a "$ans" != "Y" ] ; then return; fi 
 
 	pkg install apache22 php5-hash php5-session
 	if [ $? -ne 0 ] ; then
