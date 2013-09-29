@@ -3527,9 +3527,6 @@ do_pbi_create_backup() {
 	# Make the header archive
 	mk_header_file
 
-	# Remove the new headerdir
-	rm -rf "$PBI_HEADERDIR"
-	
 	# Now finish up and make the resulting PBI file
 	mk_output_pbi
 
@@ -3580,7 +3577,6 @@ do_pbi_create() {
 	mk_header_dir
  	save_pbi_details_to_header
 	mk_header_file
-	rm_header_dir
 
 	mk_output_pbi
 
@@ -4058,12 +4054,6 @@ mk_header_dir() {
 	mkdir -p ${PBI_HEADERDIR}
 }
 
-# Remove the tmp header-dir
-rm_header_dir() {
-	PBI_HEADERDIR="${PBI_PROGDIRPATH}/.headerdir"
-	if [ -e "${PBI_HEADERDIR}" ] ; then rm -rf "${PBI_HEADERDIR}" ; fi
-}
-
 # Create a dir for staging the final archive
 mk_stage_dir() {
 	if [ -n "$1" ] ; then
@@ -4120,6 +4110,9 @@ mk_stage_dir() {
 
 # Remove the stagedir
 rm_stage_dir() {
+	# If this is in the chroot we can exit and let the parent cleanup
+	if [ "$0" = "pbi_makeport_chroot" ] ; then return; fi
+
 	cd /
 	PBI_STAGEDIR="${PBI_PROGDIRPATH}/.stagedir"
 	if [ -e "${PBI_STAGEDIR}" ] ; then 
