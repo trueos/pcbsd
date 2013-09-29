@@ -3553,7 +3553,10 @@ do_pbi_create() {
 	if [ "`basename $0`" = "pbi_makeport" -o "`basename $0`" = "pbi_makeport_chroot" ] ; then
 	  #PBI_STAGEDIR="/usr/local"
 	  # KPM REMOVE ME
-	  mk_stage_dir "/usr/local"
+	  mk_stage_dir "/usr/local" "move"
+
+	  # Check if we created a linux app, and need to copy files for it
+	  auto_copy_linuxbase
 	else
 	  mk_stage_dir
 	fi
@@ -4082,6 +4085,8 @@ mk_stage_dir() {
 	mkdir -p ${PBI_STAGEDIR}/etc
 	mkdir -p ${PBI_STAGEDIR}/pbimeta
 	mkdir -p ${PBI_STAGEDIR}/virtbase
+	mkdir -p ${PBI_STAGEDIR}/linux
+	mkdir -p ${PBI_STAGEDIR}/run
 
 	local _excOpts=""
 
@@ -4097,12 +4102,16 @@ mk_stage_dir() {
 		done
 	fi
 
-	# Now copy the stagedir
-	tar cvf - ${_excOpts} --exclude .stagedir \
+	if [ "$2" = "move" ] ; then
+		mv ${cpDir}/* ${PBI_STAGEDIR}/local
+	else
+	  	# Now copy the stagedir
+	  	tar cvf - ${_excOpts} --exclude .stagedir \
 		--exclude .pkgdb --exclude .ld-elf.hints --exclude make.conf \
 		--exclude make.conf.bak --exclude .keepports \
 		-C "${cpDir}" . 2>/dev/null \
 		| tar xvpf - -C ${PBI_STAGEDIR}/local 2>/dev/null
+	fi
 
 	cd ${PBI_PROGDIRPATH}
 	PBI_STAGEDIRMNT="${PBI_STAGEDIR}"
@@ -4140,9 +4149,9 @@ clean_stage_dir() {
 		rm ${PBI_STAGEDIR}/lib/libGLU.* >/dev/null 2>/dev/null
 	fi
 	if [ "${PBI_USESYSFONTS}" != "NO" ] ; then
-		rm -rf ${PBI_STAGEDIR}/etc/fonts >/dev/null 2>/dev/null
-		rm -rf ${PBI_STAGEDIR}/lib/X11/fonts >/dev/null 2>/dev/null
-		rm -rf ${PBI_STAGEDIR}/lib/X11/icons >/dev/null 2>/dev/null
+		rm -rf ${PBI_STAGEDIR}/etc/fonts/* >/dev/null 2>/dev/null
+		rm -rf ${PBI_STAGEDIR}/lib/X11/fonts/* >/dev/null 2>/dev/null
+		rm -rf ${PBI_STAGEDIR}/lib/X11/icons/* >/dev/null 2>/dev/null
 	fi
 }
 
@@ -4181,7 +4190,7 @@ mk_archive_file() {
 	PBI_CREATE_ARCHIVE="${PBI_CREATE_OUTDIR}/.PBI.$$.tbz"
 	if test_tar_lzma ; then _tcmp="J" ; else _tcmp="j" ; fi
 	echo "Creating compressed archive..."
-	tar cv${_tcmp}f "${PBI_CREATE_ARCHIVE}" ${_excOpts} -C ${PBI_STAGEDIR} . 2>/dev/null 
+	tar cv${_tcmp}f "${PBI_CREATE_ARCHIVE}" ${_excOpts} -C ${PBI_STAGEDIRMNT} . 2>/dev/null 
 }
 
 # Start creating the header archive
@@ -6737,7 +6746,7 @@ do_pbi_make() {
 	mk_auto_ext_linksfile
 
 	# Check if we created a linux app, and need to copy files for it
-	auto_copy_linuxbase
+	#auto_copy_linuxbase
 
   	# Break here if we are only doing a build
 	if [ "${PBI_BUILDONLY}" = "YES" ] ; then exit_trap; fi
@@ -6817,15 +6826,11 @@ start_postbuild_script()
 # Check if we created any linux stuff, and copy it into the correct PREFIX
 auto_copy_linuxbase()
 {
-	echo "Checking for Linux libraries to copy..."
 	if [ -d "/compat/linux/usr/lib" ] ; then
 		mkdir ${PBI_PROGDIRPATH}/linuxlib
-		echo "Copying /compat/linux/lib -> ${PBI_PROGDIRPATH}/linuxlib"
-		tar cvf - -C /compat/linux/lib . 2>/dev/null | \
-		tar xvf - -C ${PBI_PROGDIRPATH}/linuxlib 2>/dev/null
-		echo "Copying /compat/linux/usr/lib -> ${PBI_PROGDIRPATH}/linuxlib"
-		tar cvf - -C /compat/linux/usr/lib . 2>/dev/null | \
-		tar xvf - -C ${PBI_PROGDIRPATH}/linuxlib 2>/dev/null
+		echo "Copying /compat/linux -> ${PBI_STAGEDIRMNT}/linux"
+		tar cvf - -C /compat/linux . 2>/dev/null | \
+		tar xvf - -C ${PBI_STAGEDIRMNT}/linux 2>/dev/null
 	fi
 }
 
