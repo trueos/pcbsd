@@ -1657,7 +1657,6 @@ exit_err() {
 	rm_pbipatchfiles
 	chroot_make_cleanup
 	clean_remote_dl
-	umount_md_devices ${DEVICES}
 	exit 255
 }
 
@@ -3573,14 +3572,12 @@ do_pbi_create() {
 
 	mk_hash_list
 
-	#mk_archive_file
-	# KPM REMOVE ME
+	mk_archive_file
 
 	mk_header_dir
  	save_pbi_details_to_header
-	#mk_header_file
-	# KPM REMOVE ME
-	#rm_header_dir
+	mk_header_file
+	rm_header_dir
 
 	mk_output_pbi
 
@@ -4081,21 +4078,10 @@ mk_stage_dir() {
 	fi
 	mkdir -p ${PBI_STAGEDIR}
 
-	# Figure out disk size and set up a vnode
-	export UFSFILE=/usr/pbi/pbi.ufs.$$
-	cd /usr/local
-	DIRSIZE=$(($(du -kd 0 | cut -f 1)))
-	FSSIZE=$(($DIRSIZE + 1000))
-	rc_halt "dd if=/dev/zero of=${UFSFILE} bs=1k count=${FSSIZE}"
-
-	export USRDEVICE=/dev/$(mdconfig -a -t vnode -f ${UFSFILE})
-
-	rc_halt "newfs -b 4096 -n -o space ${USRDEVICE}"
-	rc_halt "mount -o noatime ${USRDEVICE} ${PBI_STAGEDIR}"
-
 	mkdir -p ${PBI_STAGEDIR}/local
 	mkdir -p ${PBI_STAGEDIR}/etc
 	mkdir -p ${PBI_STAGEDIR}/pbimeta
+	mkdir -p ${PBI_STAGEDIR}/virtbase
 
 	local _excOpts=""
 
@@ -4290,8 +4276,7 @@ save_pbi_details_to_header() {
 	echo "${FILETOTAL}" > "${PBI_HEADERDIR}/pbi_archivecount"
 
 	# Save a checksum of archive file
-	#sha256 -q "${PBI_CREATE_ARCHIVE}" > "${PBI_HEADERDIR}/pbi_archivesum"
-	# KPM REMOVE ME
+	sha256 -q "${PBI_CREATE_ARCHIVE}" > "${PBI_HEADERDIR}/pbi_archivesum"
 
 	sign_pbi_files "$PBI_HEADERDIR"
 }
@@ -4309,15 +4294,6 @@ sign_pbi_files() {
 	done
 }
 
-# Unmount list of md devices
-umount_md_devices() {
-    for i in $@; do
-        echo "Unmounting ${i}"
-        rc_halt "umount -f ${i}"
-        rc_halt "mdconfig -d -u ${i}"
-    done
-}
-
 # All the pieces are ready, spit out the final PBI file
 mk_output_pbi() {
         if [ -n "${PBI_PROGICON}" -a -e "${PBI_STAGEDIR}/${PBI_PROGICON}" ] ; then
@@ -4330,30 +4306,24 @@ mk_output_pbi() {
 	_pbilow="`echo ${PBI_PROGNAME} | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
 	outfile="${PBI_CREATE_OUTDIR}/${_pbilow}-${PBI_PROGVERSION}-${ARCH}.pbi"
 
-	DEVICES=${USRDEVICE}
+	mark1="${PBI_CREATE_OUTDIR}/.pbimark1.$$"
+	mark2="${PBI_CREATE_OUTDIR}/.pbimark2.$$"
+	echo "
+${PBI_SS_ICON}" >$mark1
+	echo "
+${PBI_SS_ARCHIVE}" >$mark2
 
-	echo "Filling the uncompressed fs with zeros to compress better"
-	echo "Don't worry if you see a 'filesystem full' message here"
-	zerofile=$(env TMPDIR=${PBI_STAGEDIR} mktemp -t zero)
-	dd if=/dev/zero of=${zerofile} >/dev/null 2>/dev/null
-	rm ${zerofile}
-
-	umount_md_devices ${DEVICES}
 
 	# DO IT, DO IT NOW!!!
-	echo -n "Compressing ${UFSFILE}..."
-	rc_halt "mkuzip -v -s 65536 -o ${outfile} ${UFSFILE}"
-
-	UFSSIZE=$(ls -l ${UFSFILE} | awk '{print $5}')
-	UZIPSIZE=$(ls -l ${outfile} | awk '{print $5}')
-
-	PERCENT=$(awk -v ufs=${UFSSIZE} -v uzip=${UZIPSIZE} 'BEGIN{print (100 - (100 * (uzip/ufs)));}')
-	rm -f ${UFSFILE}
-	echo " ${PERCENT}% saved"
-
+	cat ${PBI_HEADER_ARCHIVE} $mark1 ${icon} $mark2 ${PBI_CREATE_ARCHIVE} > ${outfile}
 	sha256 -q ${outfile} > ${outfile}.sha256
 
 	echo "Created PBI: ${outfile}"
+
+	rm $mark1
+	rm $mark2
+	rm ${PBI_HEADER_ARCHIVE}
+	rm ${PBI_CREATE_ARCHIVE}
 }
 
 get_filetotal_dir() {
@@ -6752,7 +6722,9 @@ do_pbi_make() {
 	get_pbi_progversion
 
   	# Prune any proto / build specific ports
-  	start_pbi_prune_ports
+  	if [ -z "$PBI_PKGNGBUILD" ] ; then
+  		start_pbi_prune_ports
+	fi
 
   	# See if we need to run a post make script
   	run_pbi_postportmake
@@ -7401,6 +7373,21 @@ do_port_build()
   pkg info -e ${pkgName}
   if [ $? -eq 0 ] ; then return ; fi
 
+  # Are we doing a PKGNG build?
+  if [ -n "$PBI_PKGNGBUILD" ] ; then
+	pkg install -y "$_lPortRaw"
+	if [ $? -ne 0 ] ; then
+	   exit_err "Failed installing $_lPortRaw"
+	fi
+	return 0
+  fi
+
+  # Lets do old-fashioned build
+
+  # KPM! ############## 
+  # We will need to revisit this portion later, see if we can
+  # grab the user / group list from pkgng installed packages
+
   # Save any users / groups we need to create later
   local pUsers="`make -V USERS -C $_lPort PORTSDIR=${PORTSDIR}`"
   local pGroups="`make -V GROUPS -C $_lPort PORTSDIR=${PORTSDIR}`"
@@ -7426,16 +7413,6 @@ do_port_build()
     do_port_build "${_port}" >&1 2>&1
   done
 
-  # Are we doing a PKGNG build?
-  if [ "$PBI_PKGNGBUILD" ] ; then
-	pkg install -y "$_lPortRaw"
-	if [ $? -ne 0 ] ; then
-	   exit_err "Failed installing $_lPortRaw"
-	fi
-	return 0
-  fi
-
-  # Lets do old-fashioned build
   echo "Compiling port: ${_lPort}"
   cd ${_lPort}
   make rmconfig
