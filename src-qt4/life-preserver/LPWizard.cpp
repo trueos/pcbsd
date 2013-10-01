@@ -1,7 +1,7 @@
 #include "LPWizard.h"
 #include "ui_LPWizard.h"
 
-LPWizard::LPWizard(QWidget *parent = 0) : QWizard(parent), ui(new Ui::LPWizard){
+LPWizard::LPWizard(QWidget *parent) : QWizard(parent), ui(new Ui::LPWizard){
   //Initialize the graphical items
   ui->setupUi(this);  //load the mainUI.ui file
   cancelled = true; //Make sure this is always set by default
