@@ -113,7 +113,13 @@ QStringList LPWatcher::getAllCurrentMessages(){
   QStringList output;
   if(LOGS.contains(12) && LOGS.contains(14)){ output << LOGS[14]+" -- "+LOGS[12]; }
   if(LOGS.contains(22) && LOGS.contains(24)){ output << LOGS[24]+" -- "+LOGS[22]; }
-  if(LOGS.contains(32) && LOGS.contains(34)){ output << LOGS[34]+" -- "+LOGS[32]; }
+  if(LOGS.contains(32) && LOGS.contains(34)){ 
+    //There can be multiple system errors at a time
+    QStringList errors = LOGS[32].split(":::");
+    for(int i=0; i<errors.length(); i++){
+      output << LOGS[34]+" -- "+errors[i]; 
+    }
+  }
   if(LOGS.contains(42) && LOGS.contains(44)){ output << LOGS[44]+" -- "+LOGS[42]; }
   if(LOGS.contains(52) && LOGS.contains(54)){ output << LOGS[54]+" -- "+LOGS[52]; }
   if(LOGS.contains(62) && LOGS.contains(64)){ output << LOGS[64]+" -- "+LOGS[62]; }
@@ -445,7 +451,7 @@ void LPWatcher::checkPoolStatus(){
 	else if(zstat[i].contains("OFFLINE")){ continue; } //do nothing - this status must be set manually - it is not a "random" status
         else if(zstat[i].contains("DEGRADED")){ 
 	  cStat << "DEGRADED";
-	  cMsg << tr("The device is in a degraded state, and should be replaced soon.");
+	  cMsg << tr("The pool is in a degraded state. See additional device error(s).");
 	  cSummary << QString(tr("%1 is degraded.")).arg(device);
 	  cDev << device;
 	}else if(zstat[i].contains("FAULTED")){ 
@@ -468,7 +474,8 @@ void LPWatcher::checkPoolStatus(){
     } //end of loop over zpool status lines
     
   //Add the critical messages to the hash
-  if(cStat.isEmpty()){
+  if(cStat.isEmpty() || (cStat.join(" ").simplified() == "DEGRADED") ){
+    //No errors, or the pool is degraded without any additional errors (usually because of a resilver going on)
     if(LOGS.contains(30)){
       LOGS.remove(30);
       LOGS.remove(31);
