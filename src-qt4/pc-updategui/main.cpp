@@ -19,7 +19,7 @@ int main( int argc, char ** argv )
    QString langCode = mylocale.name();
    if ( ! QFile::exists( PREFIX + "/share/pcbsd/i18n/UpdateGUI_" + langCode + ".qm" ) )
      langCode.truncate(langCode.indexOf("_"));
-   translator.load( QString("UpdateGUI_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
+   translator.load( QString("UpdateGui_") + langCode, PREFIX + "/share/pcbsd/i18n/" );
    a.installTranslator( &translator );
    qDebug() << "Locale:" << langCode;
 
