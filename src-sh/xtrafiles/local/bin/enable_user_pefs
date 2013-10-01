@@ -78,3 +78,4 @@ fi
 # Copy /etc/pam.d/ template files
 cp /usr/local/share/pcbsd/pefs/other /etc/pam.d/other
 cp /usr/local/share/pcbsd/pefs/system /etc/pam.d/system
+cp /usr/local/share/pcbsd/pefs/sshd /etc/pam.d/sshd

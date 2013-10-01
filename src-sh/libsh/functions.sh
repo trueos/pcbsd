@@ -242,7 +242,8 @@ get_file_from_mirrors()
       _time=`expr $_time + 1`
    done
 
-   _err="`cat ${_eFile}`"
+   _err="`cat ${_eFile} 2>/dev/null`"
+   if [ -z "$_err" ] ; then _err="0"; fi
    rm ${_eFile} 2>/dev/null
    if [ "$_err" = "0" ]; then echo "FETCHDONE" ; fi
    unset FETCH_PID
@@ -303,7 +304,8 @@ get_file() {
 			_time=`expr $_time + 2`
 		done
 
-		_err="`cat ${_eFile}`"
+		_err="`cat ${_eFile} 2>/dev/null`"
+		if [ -z "$_err" ] ; then _err="0"; fi
                 rm ${_eFile} 2>/dev/null
 		if [ "$_err" = "0" ]; then echo "FETCHDONE" ; fi
 		unset FETCH_PID

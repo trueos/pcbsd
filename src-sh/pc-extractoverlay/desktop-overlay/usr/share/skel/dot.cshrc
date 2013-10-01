@@ -37,6 +37,7 @@ if ($?prompt) then
 	set correct = cmd
 	set filec
 	set autocorrect
+	set autorehash = always
 	set filec
 	set history = 100
 	set savehist = 100

@@ -7516,7 +7516,7 @@ getZFSTank() {
 }
 
 # Source our shared PCBSD functions
-if [ -z "$ALTPROGPREFIX" ] ; then
+if [ -n "$ALTPROGPREFIX" ] ; then
   . ${ALTPROGPREFIX}/share/pcbsd/scripts/functions.sh
 else
   . /usr/local/share/pcbsd/scripts/functions.sh

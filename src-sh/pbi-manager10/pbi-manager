@@ -3527,9 +3527,6 @@ do_pbi_create_backup() {
 	# Make the header archive
 	mk_header_file
 
-	# Remove the new headerdir
-	rm -rf "$PBI_HEADERDIR"
-	
 	# Now finish up and make the resulting PBI file
 	mk_output_pbi
 
@@ -3551,7 +3548,12 @@ do_pbi_create() {
 
 
 	if [ "`basename $0`" = "pbi_makeport" -o "`basename $0`" = "pbi_makeport_chroot" ] ; then
-	  PBI_STAGEDIR="/usr/local"
+	  #PBI_STAGEDIR="/usr/local"
+	  # KPM REMOVE ME
+	  mk_stage_dir "/usr/local" "move"
+
+	  # Check if we created a linux app, and need to copy files for it
+	  auto_copy_linuxbase
 	else
 	  mk_stage_dir
 	fi
@@ -3575,11 +3577,11 @@ do_pbi_create() {
 	mk_header_dir
  	save_pbi_details_to_header
 	mk_header_file
-	rm_header_dir
 
 	mk_output_pbi
 
 	rm_stage_dir
+	exit 0
 }
 
 # Start looping through and creating a hash-list of files
@@ -4047,20 +4049,18 @@ mk_deinstall_script() {
 
 # Create a dir for manipulating header info
 mk_header_dir() {
-	PBI_HEADERDIR="${PBI_PROGDIRPATH}/.headerdir"
+	PBI_HEADERDIR="${PBI_STAGEDIRMNT}/pbimeta"
 	if [ -e "${PBI_HEADERDIR}" ] ; then rm -rf "${PBI_HEADERDIR}" ; fi
 	mkdir -p ${PBI_HEADERDIR}
 }
 
-# Remove the tmp header-dir
-rm_header_dir() {
-	PBI_HEADERDIR="${PBI_PROGDIRPATH}/.headerdir"
-	if [ -e "${PBI_HEADERDIR}" ] ; then rm -rf "${PBI_HEADERDIR}" ; fi
-}
-
 # Create a dir for staging the final archive
 mk_stage_dir() {
-	local _excOpts=""
+	if [ -n "$1" ] ; then
+		cpDir="$1"
+	else
+		cpDir="${PBI_PROGDIRPATH}"
+	fi
 
 	PBI_STAGEDIR="${PBI_PROGDIRPATH}/.stagedir"
 	echo "Creating Stage Dir: ${PBI_STAGEDIR}"
@@ -4070,6 +4070,15 @@ mk_stage_dir() {
 		rm -rf "${PBI_STAGEDIR}" 2>/dev/null
 	fi
 	mkdir -p ${PBI_STAGEDIR}
+
+	mkdir -p ${PBI_STAGEDIR}/local
+	mkdir -p ${PBI_STAGEDIR}/etc
+	mkdir -p ${PBI_STAGEDIR}/pbimeta
+	mkdir -p ${PBI_STAGEDIR}/virtbase
+	mkdir -p ${PBI_STAGEDIR}/linux
+	mkdir -p ${PBI_STAGEDIR}/run
+
+	local _excOpts=""
 
 	# Build module list of excludes
 	if [ -n "$PBI_EXCLUDELIST" ] ; then
@@ -4083,17 +4092,27 @@ mk_stage_dir() {
 		done
 	fi
 
-	# Now copy the stagedir
-	tar cvf - ${_excOpts} --exclude .stagedir \
+	if [ "$2" = "move" ] ; then
+		mv ${cpDir}/* ${PBI_STAGEDIR}/local
+	else
+	  	# Now copy the stagedir
+	  	tar cvf - ${_excOpts} --exclude .stagedir \
 		--exclude .pkgdb --exclude .ld-elf.hints --exclude make.conf \
 		--exclude make.conf.bak --exclude .keepports \
-		-C "${PBI_PROGDIRPATH}" . 2>/dev/null \
-		| tar xvpf - -C ${PBI_STAGEDIR} 2>/dev/null
+		-C "${cpDir}" . 2>/dev/null \
+		| tar xvpf - -C ${PBI_STAGEDIR}/local 2>/dev/null
+	fi
 
+	cd ${PBI_PROGDIRPATH}
+	PBI_STAGEDIRMNT="${PBI_STAGEDIR}"
+	PBI_STAGEDIR="${PBI_STAGEDIR}/local"
 }
 
 # Remove the stagedir
 rm_stage_dir() {
+	# If this is in the chroot we can exit and let the parent cleanup
+	if [ "$0" = "pbi_makeport_chroot" ] ; then return; fi
+
 	cd /
 	PBI_STAGEDIR="${PBI_PROGDIRPATH}/.stagedir"
 	if [ -e "${PBI_STAGEDIR}" ] ; then 
@@ -4112,15 +4131,20 @@ clean_icons_dir() {
 
 # See if we need to clean the stagedir
 clean_stage_dir() {
+
+	if [ -e "${PBI_STAGEDIR}/etc" ] ; then
+		mv ${PBI_STAGEDIR}/etc/* ${PBI_STAGEDIRMNT}/etc/
+	fi
+
 	if [ "${PBI_USESYSGL}" != "NO" ] ; then
 		rm ${PBI_STAGEDIR}/lib/libGl.* >/dev/null 2>/dev/null
 		rm ${PBI_STAGEDIR}/lib/libGL.* >/dev/null 2>/dev/null
 		rm ${PBI_STAGEDIR}/lib/libGLU.* >/dev/null 2>/dev/null
 	fi
 	if [ "${PBI_USESYSFONTS}" != "NO" ] ; then
-		rm -rf ${PBI_STAGEDIR}/etc/fonts >/dev/null 2>/dev/null
-		rm -rf ${PBI_STAGEDIR}/lib/X11/fonts >/dev/null 2>/dev/null
-		rm -rf ${PBI_STAGEDIR}/lib/X11/icons >/dev/null 2>/dev/null
+		rm -rf ${PBI_STAGEDIR}/etc/fonts/* >/dev/null 2>/dev/null
+		rm -rf ${PBI_STAGEDIR}/lib/X11/fonts/* >/dev/null 2>/dev/null
+		rm -rf ${PBI_STAGEDIR}/lib/X11/icons/* >/dev/null 2>/dev/null
 	fi
 }
 
@@ -4159,7 +4183,7 @@ mk_archive_file() {
 	PBI_CREATE_ARCHIVE="${PBI_CREATE_OUTDIR}/.PBI.$$.tbz"
 	if test_tar_lzma ; then _tcmp="J" ; else _tcmp="j" ; fi
 	echo "Creating compressed archive..."
-	tar cv${_tcmp}f "${PBI_CREATE_ARCHIVE}" ${_excOpts} -C ${PBI_STAGEDIR} . 2>/dev/null 
+	tar cv${_tcmp}f "${PBI_CREATE_ARCHIVE}" ${_excOpts} -C ${PBI_STAGEDIRMNT} . 2>/dev/null 
 }
 
 # Start creating the header archive
@@ -4272,7 +4296,6 @@ sign_pbi_files() {
 	done
 }
 
-
 # All the pieces are ready, spit out the final PBI file
 mk_output_pbi() {
         if [ -n "${PBI_PROGICON}" -a -e "${PBI_STAGEDIR}/${PBI_PROGICON}" ] ; then
@@ -4280,19 +4303,21 @@ mk_output_pbi() {
         else
                 icon="${PBI_DEFAULT_ICON_CHROOT}"
         fi
-	_pbilow="`echo ${PBI_PROGNAME} | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
 
+	# Set PBI name all lower-case
+	_pbilow="`echo ${PBI_PROGNAME} | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
 	outfile="${PBI_CREATE_OUTDIR}/${_pbilow}-${PBI_PROGVERSION}-${ARCH}.pbi"
+
 	mark1="${PBI_CREATE_OUTDIR}/.pbimark1.$$"
 	mark2="${PBI_CREATE_OUTDIR}/.pbimark2.$$"
-
 	echo "
 ${PBI_SS_ICON}" >$mark1
 	echo "
 ${PBI_SS_ARCHIVE}" >$mark2
 
+
 	# DO IT, DO IT NOW!!!
-	cat ${PBI_HEADER_ARCHIVE} $mark1 ${icon} $mark2 ${PBI_CREATE_ARCHIVE} > ${outfile}	
+	cat ${PBI_HEADER_ARCHIVE} $mark1 ${icon} $mark2 ${PBI_CREATE_ARCHIVE} > ${outfile}
 	sha256 -q ${outfile} > ${outfile}.sha256
 
 	echo "Created PBI: ${outfile}"
@@ -6656,6 +6681,8 @@ do_pbi_make() {
 		if [ "$_err" = "0" -a "${PBI_BUILDONLY}" != "YES" ] ; then
 			mv ${PBI_CHROOTDIR}/pbiout/*.pbi ${PBI_CREATE_OUTDIR}/ 
 			mv ${PBI_CHROOTDIR}/pbiout/*.sha256 ${PBI_CREATE_OUTDIR}/
+		else
+			echo "Error: pbi_makeport_chroot: returned non-0 status!"
 		fi
 
   		# Break here if we are only doing a build
@@ -6697,7 +6724,9 @@ do_pbi_make() {
 	get_pbi_progversion
 
   	# Prune any proto / build specific ports
-  	start_pbi_prune_ports
+  	if [ -z "$PBI_PKGNGBUILD" ] ; then
+  		start_pbi_prune_ports
+	fi
 
   	# See if we need to run a post make script
   	run_pbi_postportmake
@@ -6710,7 +6739,7 @@ do_pbi_make() {
 	mk_auto_ext_linksfile
 
 	# Check if we created a linux app, and need to copy files for it
-	auto_copy_linuxbase
+	#auto_copy_linuxbase
 
   	# Break here if we are only doing a build
 	if [ "${PBI_BUILDONLY}" = "YES" ] ; then exit_trap; fi
@@ -6790,15 +6819,11 @@ start_postbuild_script()
 # Check if we created any linux stuff, and copy it into the correct PREFIX
 auto_copy_linuxbase()
 {
-	echo "Checking for Linux libraries to copy..."
 	if [ -d "/compat/linux/usr/lib" ] ; then
 		mkdir ${PBI_PROGDIRPATH}/linuxlib
-		echo "Copying /compat/linux/lib -> ${PBI_PROGDIRPATH}/linuxlib"
-		tar cvf - -C /compat/linux/lib . 2>/dev/null | \
-		tar xvf - -C ${PBI_PROGDIRPATH}/linuxlib 2>/dev/null
-		echo "Copying /compat/linux/usr/lib -> ${PBI_PROGDIRPATH}/linuxlib"
-		tar cvf - -C /compat/linux/usr/lib . 2>/dev/null | \
-		tar xvf - -C ${PBI_PROGDIRPATH}/linuxlib 2>/dev/null
+		echo "Copying /compat/linux -> ${PBI_STAGEDIRMNT}/linux"
+		tar cvf - -C /compat/linux . 2>/dev/null | \
+		tar xvf - -C ${PBI_STAGEDIRMNT}/linux 2>/dev/null
 	fi
 }
 
@@ -7346,6 +7371,21 @@ do_port_build()
   pkg info -e ${pkgName}
   if [ $? -eq 0 ] ; then return ; fi
 
+  # Are we doing a PKGNG build?
+  if [ -n "$PBI_PKGNGBUILD" ] ; then
+	pkg install -y "$_lPortRaw"
+	if [ $? -ne 0 ] ; then
+	   exit_err "Failed installing $_lPortRaw"
+	fi
+	return 0
+  fi
+
+  # Lets do old-fashioned build
+
+  # KPM! ############## 
+  # We will need to revisit this portion later, see if we can
+  # grab the user / group list from pkgng installed packages
+
   # Save any users / groups we need to create later
   local pUsers="`make -V USERS -C $_lPort PORTSDIR=${PORTSDIR}`"
   local pGroups="`make -V GROUPS -C $_lPort PORTSDIR=${PORTSDIR}`"
@@ -7371,16 +7411,6 @@ do_port_build()
     do_port_build "${_port}" >&1 2>&1
   done
 
-  # Are we doing a PKGNG build?
-  if [ "$PBI_PKGNGBUILD" ] ; then
-	pkg install -y "$_lPortRaw"
-	if [ $? -ne 0 ] ; then
-	   exit_err "Failed installing $_lPortRaw"
-	fi
-	return 0
-  fi
-
-  # Lets do old-fashioned build
   echo "Compiling port: ${_lPort}"
   cd ${_lPort}
   make rmconfig
