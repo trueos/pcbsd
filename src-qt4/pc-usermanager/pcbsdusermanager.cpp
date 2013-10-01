@@ -25,6 +25,8 @@
 #include <qlayout.h>
 #include <qtranslator.h>
 #include <qtextcodec.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "pcbsdusermanager.h"
 

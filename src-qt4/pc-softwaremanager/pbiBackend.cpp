@@ -28,6 +28,7 @@
  //  catID: <name> (of category in repo)
  //  appID: <name> (of app in repo)
  
+ #include <unistd.h>
  #include "pbiBackend.h"
 
  

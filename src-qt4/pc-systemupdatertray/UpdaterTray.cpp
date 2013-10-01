@@ -12,6 +12,8 @@
 #include <QToolTip>
 #include <QTranslator>
 #include <QTextStream>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "UpdaterTray.h"
 #include "../config.h"

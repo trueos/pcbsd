@@ -4,6 +4,8 @@
 #include <qstylefactory.h>
 #include <qdesktopwidget.h>
 #include <QDebug>
+#include <unistd.h>
+#include <sys/types.h>
 #include "pbsystemtab.h"
 #include "../config.h"
 

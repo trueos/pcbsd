@@ -20,6 +20,8 @@
 #include <QTextStream>
 #include <pcbsd-netif.h>
 #include <pcbsd-utils.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "networkman.h"
 #include "ui_networkman.h"
