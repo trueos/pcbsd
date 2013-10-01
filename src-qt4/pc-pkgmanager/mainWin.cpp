@@ -39,7 +39,8 @@ void mainWin::ProgramInit(QString ch)
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
   connect(tool_search, SIGNAL( clicked() ), this, SLOT( slotSearchPackages() ) );
-
+  connect(line_search, SIGNAL( returnPressed()), this, SLOT( slotSearchPackages()) );
+	
   // Setup the action group
   viewGroup = new QActionGroup(this);
   viewGroup->addAction(action_Basic);
