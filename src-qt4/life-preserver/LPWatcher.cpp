@@ -410,12 +410,12 @@ void LPWatcher::checkPoolStatus(){
 	  if(LOGS.value(50) != "FINISHED" && LOGS.value(50) != "ERROR" ){newresilver=true; } //don't display message for first run
 	  if(errors.toInt() > 0){ 
 	    LOGS.insert(50, "ERROR");
-	    LOGS.insert(52, QString(tr("Resilver completed in &1 with %2 errors")).arg(timecomplete, errors) );
-	    LOGS.insert(53, QString(tr("Resilver completed in &1 with %2 errors")).arg(timecomplete, errors) );
+	    LOGS.insert(52, QString(tr("Resilver completed in %1 with %2 errors")).arg(timecomplete, errors) );
+	    LOGS.insert(53, QString(tr("Resilver completed in %1 with %2 errors")).arg(timecomplete, errors) );
 	  }else{
 	    LOGS.insert(50, "FINISHED");
-	    LOGS.insert(52, QString(tr("Resilver completed successfully in &1")).arg(timecomplete) );
-	    LOGS.insert(53, QString(tr("Resilver completed successfully in &1")).arg(timecomplete) ); 
+	    LOGS.insert(52, QString(tr("Resilver completed successfully in %1")).arg(timecomplete) );
+	    LOGS.insert(53, QString(tr("Resilver completed successfully in %1")).arg(timecomplete) ); 
           }
 	  // 51 - need to put the actual device in here (not available on this line)
 	  LOGS.insert(54, timestamp);
