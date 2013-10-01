@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>262</height>
+    <width>638</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>PC-BSD Bootup Configuration</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="pc-bootconfig.qrc">
+    <normaloff>:/pc-bootconfig.png</normaloff>:/pc-bootconfig.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -386,8 +390,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
-     <height>20</height>
+     <width>638</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
