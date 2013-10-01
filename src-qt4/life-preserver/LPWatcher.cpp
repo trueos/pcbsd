@@ -266,7 +266,7 @@ void LPWatcher::startRepFileWatcher(){
     FILE_REPLICATION = tmp;
   }*/
   //Check to make sure that lpreserver actually has a process running before starting this
-  //if(!QFile::exists("/var/run/<something.pid>"){ FILE_REPLICATION.clear(); return; }
+  if( !isReplicationRunning() ){ FILE_REPLICATION.clear(); return; }
   //Check for the existance of the file to watch and create it as necessary  
   if(!QFile::exists(FILE_REPLICATION)){ system( QString("touch "+FILE_REPLICATION).toUtf8() ); }
   //Now open the file and start watching it for changes
@@ -309,6 +309,13 @@ double LPWatcher::displayToDoubleK(QString displayNumber){
   return num;
 }
 
+bool LPWatcher::isReplicationRunning(){
+  //Check for the replication PID
+  QDir dir("/var/db/lpreserver");
+  QStringList files = dir.entryList( QStringList() << ".reptask-*" );
+  return ( !files.isEmpty() );
+}
+
 // ------------------------------
 //    PRIVATE SLOTS
 // ------------------------------
@@ -323,7 +330,7 @@ void LPWatcher::checkPoolStatus(){
     //parse the output
     QString pool, state, timestamp;
     QStringList cDev, cStat, cMsg, cSummary;
-    qDebug() << "-----zpool status------\n" << zstat.join("\n");
+    //qDebug() << "-----zpool status------\n" << zstat.join("\n");
     bool newresilver = false; bool newscrub = false; bool newerror = false;
     for(int i=0; i<zstat.length(); i++){
       zstat[i] = zstat[i].simplified();
@@ -449,7 +456,8 @@ void LPWatcher::checkPoolStatus(){
 	else if(zstat[i].contains("(resilvering)")){ LOGS.insert(51, device ); continue;}
 	else if(zstat[i].contains("ONLINE")){continue;} //do nothing for this device - it is good
 	else if(zstat[i].contains("OFFLINE")){ continue; } //do nothing - this status must be set manually - it is not a "random" status
-        else if(zstat[i].contains("DEGRADED")){ 
+        else if(zstat[i].contains("DEGRADED")){
+	  // This should only happen on pools, not actual devices
 	  cStat << "DEGRADED";
 	  cMsg << tr("The pool is in a degraded state. See additional device error(s).");
 	  cSummary << QString(tr("%1 is degraded.")).arg(device);

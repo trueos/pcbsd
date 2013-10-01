@@ -49,7 +49,8 @@ private:
 	void stopRepFileWatcher();
 
 	double displayToDoubleK(QString); // string->double conversion
-
+	bool isReplicationRunning(); //check for replication PID file
+	
 private slots:
 	void fileChanged(QString); //file system watcher saw a change
 	void checkPoolStatus(); //check for serious system errors
