@@ -19,7 +19,6 @@ usr/share/me
 usr/share/mk
 usr/share/man
 usr/share/nls
-usr/share/openssl
 usr/share/pcvt
 usr/share/security
 usr/share/sendmail
@@ -188,7 +187,6 @@ usr/bin/objcopy
 usr/bin/objdump
 usr/bin/objformat
 usr/bin/od
-usr/bin/openssl
 usr/bin/pagesize
 usr/bin/paste
 usr/bin/patch
