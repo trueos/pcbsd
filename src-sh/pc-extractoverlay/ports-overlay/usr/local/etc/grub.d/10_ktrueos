@@ -29,6 +29,8 @@
 
 ROOTFS=`mount | awk '/ \/ / {print $1}'`
 BEDS="$( echo ${ROOTFS} | awk -F '/' '{print $2}' )"
+if [ "$BEDS" = "dev" ] ; then BEDS="ROOT"; fi
+
 
 display_loaderopts()
 {
