@@ -3,6 +3,8 @@
 #include <qtsingleapplication.h>
 #include <QDebug>
 #include <QFile>
+#include <unistd.h>
+#include <sys/types.h>
 
 #include "LPTray.h"
 //#include "../config.h"

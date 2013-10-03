@@ -18,6 +18,8 @@
 #include <QApplication>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <unistd.h>
+#include <sys/types.h>
 #include "mainwindow.h"
 #include "../config.h"
 

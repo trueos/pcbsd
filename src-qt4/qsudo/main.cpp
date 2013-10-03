@@ -3,6 +3,8 @@
 #include <QApplication>
 #include <QDebug>
 #include <QFile>
+#include <unistd.h>
+#include <sys/types.h>
 #include "mainwindow.h"
 #include "../config.h"
 

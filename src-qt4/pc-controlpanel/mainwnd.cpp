@@ -27,6 +27,7 @@
 #include "ui_mainwnd.h"
 #include "deinfo.h"
 #include "../config.h"
+#include <unistd.h>
 
 #include <QFile>
 #include <iostream>

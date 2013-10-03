@@ -14,7 +14,7 @@ namespace Ui{
 class LPWizard : public QWizard{
 	Q_OBJECT
 public:
-	explicit LPWizard(QWidget*);
+	explicit LPWizard(QWidget *parent = 0);
 	~LPWizard();
 
 	//Input dataset

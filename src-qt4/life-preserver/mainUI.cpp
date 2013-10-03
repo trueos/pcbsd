@@ -1,5 +1,6 @@
 #include "mainUI.h"
 #include "ui_mainUI.h"
+#include <unistd.h>
 
 mainUI::mainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainUI){
   //Initialize the graphical items

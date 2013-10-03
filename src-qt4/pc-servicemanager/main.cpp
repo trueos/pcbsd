@@ -4,6 +4,8 @@
 #include <qstylefactory.h>
 #include <qdesktopwidget.h>
 #include <QDebug>
+#include <unistd.h>
+#include <sys/types.h>
 #include "servicemanager.h"
 #include "../config.h"
 

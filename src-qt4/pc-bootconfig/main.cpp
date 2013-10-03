@@ -4,6 +4,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include "mainUI.h"
+#include <unistd.h>
+#include <sys/types.h>
 
 #ifndef PREFIX
 #define PREFIX QString("/usr/local/")
@@ -29,7 +31,7 @@ int main(int argc, char ** argv)
     QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
     w.show();
     //Check for root
-    if (0 != geteuid())
+    if (0 != getuid())
     {
         QMessageBox msg;
         msg.setText(w.tr("This application requires administrator privileges for operation."));

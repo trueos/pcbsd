@@ -29,6 +29,10 @@ USE_PYTHON=	yes
 
 .include <bsd.port.pre.mk>
 
+.if ${OSVERSION} < 900030
+IGNORE=		requires FreeBSD 9.0 or later
+.endif
+
 do-install:
 	cd ${WRKSRC} && make install PREFIX=${STAGEDIR}${PREFIX}
 
