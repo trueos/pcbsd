@@ -53,8 +53,18 @@ main(int argc, char *argv[])
 	gid_t groups[NGROUPS];
 	login_cap_t *lcap;
 
+	/* Is this a request to unmount? */
+	if ( argc == 3 ) {
+		if ( strcmp(argv[1], "umount") == 0 ) {
+			strcpy(mountscript, "/usr/pbi/.pbimount umount ");
+			strcat(mountscript, argv[2]);
+			return system(mountscript);
+		}
+	}
+
 	if (argc < 4)
 		usage();
+
 	/* Get the current user ID and user name in the host system */
 	huid = getuid();
 	husername = getpwuid(huid);

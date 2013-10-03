@@ -4096,6 +4096,11 @@ clean_stage_dir() {
 		rm -rf ${PBI_STAGEDIR}/lib/X11/fonts/* >/dev/null 2>/dev/null
 		rm -rf ${PBI_STAGEDIR}/lib/X11/icons/* >/dev/null 2>/dev/null
 	fi
+	if [ -e "${PBI_STAGEDIR}/lib/X11" ] ; then
+		mkdir -p ${PBI_STAGEDIR}/lib/X11/icons/ >/dev/null 2>/dev/null
+		mkdir -p ${PBI_STAGEDIR}/lib/X11/fonts/ >/dev/null 2>/dev/null
+		mkdir -p ${PBI_STAGEDIR}/etc/fonts/ >/dev/null 2>/dev/null
+	fi
 }
 
 # Copy over any resource files into the PBI dir
@@ -4293,6 +4298,9 @@ pbi_delete_init() {
 do_pbi_delete() {
 	load_info_from_dir "${PBI_DBAPPDIR}/${PBI_DELETENAME}"
 	PBI_PROGDIRPATH="${PBI_ORIGPROGDIRPATH}"
+
+	# Unmount the PBI if its mounted
+	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
 
 	get_username_from_file "${PBI_DBAPPDIR}/${PBI_DELETENAME}/pbi_name"
 	if [ "$FILEUSER" != `whoami` -a `id -u` != "0" ] ; then
