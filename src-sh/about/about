@@ -71,7 +71,7 @@ if [ "$SYSTYPE" = "PCBSD" ]; then
 echo ""
 echo "Installed desktop environments:"
 display_pkg_version "       KDE:.........." "kde-workspace"
-display_pkg_version "       Gnome:........" "gnome-desktop"
+display_pkg_version "       Gnome:........" "gnome2-lite"
 display_pkg_version "       LXDE:........." "lxde-meta"
 display_pkg_version "       XFCE:........." "xfce"
 display_pkg_version "       e17:.........." "enlightenment"
