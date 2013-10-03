@@ -4955,11 +4955,9 @@ start_pbi_prune_ports()
 {
 	if [ "${PBI_PRUNEBUILDPORTS}" = "NO" ] ; then return ; fi
 
-  	local iFile="$PORTSDIR/INDEX-$FBSDMAJOR"
-
 	get_pkgname "${PORTSDIR}/${PBI_MAKEPORT}"
 	echo "${PKGNAME}" > /.keepports
-	grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
+	make -C "${PORTSDIR}/${PBI_MAKEPORT}" PORTSDIR=${PORTSDIR} package-depends | cut -d: -f1 >> /.keepports
 
 	# Do the same for any OTHERPORTS
 	for port in ${PBI_MKPORTBEFORE}
@@ -4967,7 +4965,7 @@ start_pbi_prune_ports()
                 if [ ! -d "${PORTSDIR}/${port}" ] ; then continue ; fi
 		get_pkgname "${PORTSDIR}/${port}"
 		echo "${PKGNAME}" >> /.keepports
-		grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
+		make -C "${PORTSDIR}/${port}" PORTSDIR=${PORTSDIR} package-depends | cut -d: -f1 >> /.keepports
         done
 
 	for port in ${PBI_MKPORTAFTER}
@@ -4975,7 +4973,7 @@ start_pbi_prune_ports()
                 if [ ! -d "${PORTSDIR}/${port}" ] ; then continue ; fi
 		get_pkgname "${PORTSDIR}/${port}"
 		echo "${PKGNAME}" >> /.keepports
-		grep "^${PKGNAME}|" $iFile | cut -d '|' -f 9 | tr ' ' '\n' >>/.keepports
+		make -C "${PORTSDIR}/${port}" PORTSDIR=${PORTSDIR} package-depends | cut -d: -f1 >> /.keepports
         done
 	
 	# Sort and clean the ports
@@ -7346,12 +7344,6 @@ do_port_build()
 {
   local _lPort="$1"
 
-  local iFile="$PORTSDIR/INDEX-$FBSDMAJOR"
-  if [ ! -e "$iFile" ] ; then
-     echo "Creating $iFile "
-     make -C ${PORTSDIR} index
-  fi
-
   echo "Checking port: $_lPort"
 
   # Make sure this port isn't already loaded
@@ -7373,20 +7365,18 @@ do_port_build()
      PBI_BUILD_GROUPS="$PBI_BUILD_GROUPS $pGroups"
   fi
 
-  # Parse the pkg deps 
-  for cPkg in `grep "^${pkgName}|" $iFile | cut -d '|' -f 8-9 | sed 's/|/ /g'`
+  # Parse the pkg deps
+  for _port in `make -C $_lPort PORTSDIR=${PORTSDIR} all-depends-list|sed 's,^${PORTSDIR}/,,g'`
   do
-    if [ -z "$cPkg" ] ; then continue ; fi
+    if [ -z "${_port}" ] ; then continue ; fi
 
     # is this installed?
     if [ $PKGNG -eq 1 ] ; then
-	pkg info -e ${cPkg}
+	pkg info -e ${_port}
         if [ $? -eq 0 ] ; then continue ; fi
     else
-	if [ -e "/var/db/pkg/${cPkg}" ] ; then continue ; fi
+	if [ -e "/var/db/pkg/`make -V PKGNAME -C ${_port} PORTSDIR=${PORTSDIR}`" ] ; then continue ; fi
     fi
-
-    local _port=`grep "^${cPkg}|" $iFile | cut -d '|' -f 2`
 
     # Not installed, do this one now until we drill down to the base
     do_port_build "${_port}" >&1 2>&1
