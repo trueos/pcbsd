@@ -450,8 +450,7 @@ void Installer::saveSettings()
   ufile.remove();
 
   // Enable Flash for the new user
-  QString flashCmd = "su -m " + lineUsername->text() + " -c \"flashpluginctl on\"";
-  system(flashCmd.toLatin1());
+  QProcess::execute("su", QStringList() << "-m" << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
   
   // Encrypt the users home-directory?
   if ( checkEnc->isChecked() )
