@@ -3609,14 +3609,6 @@ save_dir_hash_list() {
 	do
 		if [ ! -f "$line" -o -h "$line" ] ; then continue ; fi
 		
-		# Make sure this isn't a binary executable
-		file "${line}" | grep "executable," >/dev/null 2>/dev/null
-		if [ "$?" = "0" ] ; then continue ; fi
-
-		# Ignore files / libs with the full PREFIX hard-coded
-		strings "${line}" | grep "${PBI_PROGDIRPATH}" >/dev/null 2>/dev/null
-		if [ "$?" = "0" ]; then continue ; fi
-
 		# Check if this hash file is excluded
 		_hfound="0"
 		if [ -n "${PBI_HASH_EXCLUDES}" ] ; then
@@ -3631,16 +3623,10 @@ save_dir_hash_list() {
 			fi
 		fi	
 
-		# Get the file size
-		tSize=`du -k "${line}" | awk '{print $1}'`
-		if [ $(is_num "$tSize") ] ; then 
-			# If the file is less than 10Kb, we can skip
-			if [ $tSize -lt 10 ] ; then continue ; fi
+		# Add to the hash-dir
+	 	sha=`sha256 -q "$line"`
+		echo "${line}:::${sha}" >> ${2}
 
-			# Add to the hash-dir
-	 		sha=`sha256 -q "$line"`
-			echo "${line}:::${sha}" >> ${2}
-		fi
 	done < ${tmp_hashdir}
 	rm ${tmp_hashdir}
 	cd /
@@ -4054,7 +4040,9 @@ mk_stage_dir() {
 	fi
 
 	if [ "$2" = "move" ] ; then
-		mv ${cpDir}/* ${PBI_STAGEDIR}/local
+		rmdir ${PBI_STAGEDIR}/local
+		mv ${cpDir} ${PBI_STAGEDIR}/local
+		ln -s ${PBI_STAGEDIR}/local /usr/local
 	else
 	  	# Now copy the stagedir
 	  	tar cvf - ${_excOpts} --exclude .stagedir \
@@ -4087,6 +4075,7 @@ rm_stage_dir() {
 clean_icons_dir() {
 	if [ "${PBI_USESYSFONTS}" != "NO" ] ; then
 		rm -rf ${PBI_STAGEDIR}/share/icons >/dev/null 2>/dev/null
+		mkdir ${PBI_STAGEDIR}/share/icons >/dev/null 2>/dev/null
 	fi
 }
 
