@@ -17,6 +17,7 @@ else
 fi
 
 DIR=`dirname $0`
+DIR=`realpath $DIR`
 cd ${DIR}
 
 # Install the app
@@ -123,4 +124,6 @@ make install DEFINES=""
 chown root:wheel pbiwrapper 
 chmod 644 pbiwrapper
 mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
-cp ldconfig ${LB}/share/pbi-manager/ldconfig-pbi
+
+# Install the pbime wrapper
+cd ${DIR}/pbime && make install
