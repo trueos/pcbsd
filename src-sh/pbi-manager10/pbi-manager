@@ -1419,7 +1419,7 @@ init_vars() {
 	PBI_MIMEDEL="NO"
 	PBI_PATHDEL="NO"
 	PBI_DELETENAME=""
-	PBI_FAKEBIN_DIR=".sbin"
+	PBI_FAKEBIN_DIR="bin"
 	PBI_FILENAME=""
 	PBI_FORCEADD="NO"
 	PBI_HASHLIST=".pbi-hash-list"
@@ -3651,11 +3651,11 @@ mk_extlink_entries() {
 	echo "Creating external link entries..."
 	init_tmpdir
 	_extf="${PBI_CONFDIR}/${MOD_EXTLINKFILE}"
-	_autoextf="${PBI_STAGEDIR}/${MOD_AUTOEXTLINKFILE}"
+	_autoextf="${PBI_TMPDIR}/${MOD_AUTOEXTLINKFILE}"
 	_tmpextf="${PBI_TMPDIR}/${MOD_AUTOEXTLINKFILE}.$$"
   	if [ ! -e "${_extf}" -a ! -e "${_autoextf}" ] ; then return 0 ; fi
 
-	dir="${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}"
+	dir="${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}"
         if [ ! -d "${dir}" ] ; then mkdir -p "${dir}" ; fi
 
 	# Create the headers for the PATH link scripts
@@ -3765,7 +3765,7 @@ mk_extlink_entries() {
 
 # Create the wrapper scripts for the specified binaries 
 mk_path_wrappers() {
-	dir="${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}"
+	dir="${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}"
         if [ ! -d "${dir}" ] ; then mkdir -p "${dir}" ; fi
 
 	bin="${1}"
@@ -3795,29 +3795,6 @@ mk_path_wrappers() {
 	# Create the wrapper .pbiopt
 	echo "PROGDIR: ${PBI_PROGDIRPATH}" >${dir}/${fbin}.pbiopt
 	echo "TARGET: ${bin}" >>${dir}/${fbin}.pbiopt
-
-	# Figure out the extra ldconfig dirs
-	LDCONFIGDIRS=""
-	if [ -d "${PBI_STAGEDIR}/libdata/ldconfig" ] ; then
-	  for _ldc in `ls ${PBI_STAGEDIR}/libdata/ldconfig 2>/dev/null`
- 	  do
-   	     while read TMP
-  	     do
-      	       echo $LDCONFIGDIRS | grep "${TMP}:" >/dev/null 2>/dev/null
-      	       if [ "$?" != "0" ]; then
-        	 LDCONFIGDIRS="${TMP}:${LDCONFIGDIRS}"
-     	       fi
-    	     done < ${PBI_STAGEDIR}/libdata/ldconfig/${_ldc}
-          done
-        fi
-
-	# If this is marked as a linux app, make sure we point to the linux libs first
-	if [ "$linwrap" = "YES" ] ; then
-	  LDCONFIGDIRS="${PROGDIR}/linuxlib"
-	fi
-
-	# Create the wrapper .ldhints
-	echo "${LDCONFIGDIRS}" >${dir}/${fbin}.ldhints
 }
 
 # Create any XDG script for install / deinstall
@@ -3978,32 +3955,16 @@ mk_xdg_mime_script() {
 # Create the install script for the PBI
 mk_install_script() {
 	echo "Creating install script..."
-	if [ ! -d "${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}" ] ; then mkdir -p "${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}" ; fi
-	insc="${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}/.pbi-install.sh"
+	if [ ! -d "${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}" ] ; then mkdir -p "${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}" ; fi
+	insc="${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}/.pbi-install.sh"
 	echo "#!/bin/sh" > "$insc"
 	echo "PBI_WRAPPERBIN=\"${PBI_FAKEBIN_DIR}\"" >> "$insc"
 	echo "PBI_PROGDIRPATH=\"${PBI_PROGDIRPATH}\"" >> "$insc"
 	echo "SYS_LOCALBASE=\"${SYS_LOCALBASE}\"" >> "$insc"
 	echo "cd \"\$PBI_PROGDIRPATH\"" >> "$insc"
 
-	# Xorg Font setup
-	if [ "${PBI_USESYSFONTS}" != "NO" ] ; then
-		echo 'if [ -d "${PBI_PROGDIRPATH}/etc" ] ; then' >> "$insc"
-		echo '	rm "${PBI_PROGDIRPATH}/etc/fonts" >/dev/null 2>/dev/null' >> "$insc"
-		echo '	ln -fs "${SYS_LOCALBASE}/etc/fonts" "${PBI_PROGDIRPATH}/etc/fonts"' >> "$insc"
-		echo 'fi' >> "$insc"
-		echo 'if [ -d "${PBI_PROGDIRPATH}/lib/X11" ] ; then' >> "$insc"
-		echo '	rm "${PBI_PROGDIRPATH}/lib/X11/fonts" >/dev/null 2>/dev/null' >> "$insc"
-		echo '	ln -fs "${SYS_LOCALBASE}/lib/X11/fonts" "${PBI_PROGDIRPATH}/lib/X11/fonts"' >> "$insc"
-		echo '	rm "${PBI_PROGDIRPATH}/lib/X11/icons" >/dev/null 2>/dev/null' >> "$insc"
-		echo '	ln -fs "${SYS_LOCALBASE}/lib/X11/icons" "${PBI_PROGDIRPATH}/lib/X11/icons"' >> "$insc"
-		echo '	rm "${PBI_PROGDIRPATH}/share/icons" >/dev/null 2>/dev/null' >> "$insc"
-		echo '	ln -fs "${SYS_LOCALBASE}/share/icons" "${PBI_PROGDIRPATH}/share/icons"' >> "$insc"
-		echo 'fi' >> "$insc"
-	fi
-
 	# Add the binary wrapper sym-links
-        if [ -e "${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}/${PBI_INS_PATHSCRIPT}" ] ; then
+        if [ -e "${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}/${PBI_INS_PATHSCRIPT}" ] ; then
 		echo 'if [ `id -u` = "0" ] ; then ' >>${insc}
 		echo "	$PBI_PROGDIRPATH/${PBI_FAKEBIN_DIR}/${PBI_INS_PATHSCRIPT}" >>${insc}
 		echo "fi" >>${insc}
@@ -4024,14 +3985,14 @@ mk_install_script() {
 # Create the deinstall script for the PBI
 mk_deinstall_script() {
 	echo "Creating deinstall script..."
-	uisc="${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}/.pbi-uninstall.sh"
+	uisc="${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}/.pbi-uninstall.sh"
 
 	echo "#!/bin/sh" > "$uisc"
 	echo "PBI_PROGDIRPATH=\"${PBI_PROGDIRPATH}\"" >> "$uisc"
 	echo "SYS_LOCALBASE=\"${SYS_LOCALBASE}\"" >> "$uisc"
 
 	# Remove the binary wrapper sym-links
-        if [ -e "${PBI_STAGEDIR}/${PBI_FAKEBIN_DIR}/${PBI_UNINS_PATHSCRIPT}" ] ; then
+        if [ -e "${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}/${PBI_UNINS_PATHSCRIPT}" ] ; then
 		echo 'if [ `id -u` = "0" ] ; then ' >>${uisc}
 		echo "	$PBI_PROGDIRPATH/${PBI_FAKEBIN_DIR}/${PBI_UNINS_PATHSCRIPT}" >>${uisc}
 		echo "fi" >>${uisc}
@@ -7230,13 +7191,16 @@ mk_auto_ext_linksfile() {
 	get_pkgname "${PBI_MAKEPORT}"
 	_pname="${PKGNAME}"
 
- 	pkg info -l ${_pname} | sed "s|^${PBI_PROGDIRPATH}/||g" \
+ 	pkg info -l ${_pname} | sed "s|/usr/local/||g" \
 		| grep -v -e "^Information for" -e "^Files:" -e "owns the following" \
 		| tr -s '\t' ' ' \
 		| tr -d ' ' \
 		 > "${PBI_TMPDIR}/.pkg_flist.$$"
 
-	_ef="${PBI_PROGDIRPATH}/${MOD_AUTOEXTLINKFILE}"
+	if [ ! -d "${PBI_PROGDIRPATH}" ] ; then
+		mkdir -p "${PBI_PROGDIRPATH}"
+	fi
+	_ef="${PBI_TMPDIR}/${MOD_AUTOEXTLINKFILE}"
 
 	[ -e "$_ef" ] && rm "$_ef"
 
@@ -7244,14 +7208,14 @@ mk_auto_ext_linksfile() {
 	do
 		bin="NO"
 		[ -z "${f}" ] && continue
-		[ -e "${PBI_PROGDIRPATH}/${f}" ] || continue
+		[ -e "/usr/local/${f}" ] || continue
 
 		# See if this is executable and set it as binary
 		dirname ${f} | grep -e "bin" -e "sbin" >/dev/null 2>/dev/null
-		if [ -x "${PBI_PROGDIRPATH}/${f}" -a $? -eq 0 ] ; then
+		if [ -x "/usr/local/${f}" -a $? -eq 0 ] ; then
 
 		   # Check this executable, if Linux binary, flag it
-		   file "${PBI_PROGDIRPATH}/${f}" | grep -iq "Linux"
+		   file "/usr/local/${f}" | grep -iq "Linux"
 		   if [ $? -ne 0 ] ; then
 	  	      echo "${f}	${f}	binary,nocrash" >> "$_ef"
 		   else

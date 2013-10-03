@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NULLFS="/root/mount_nullfs"
+NULLFS="/usr/pbi/.mount_nullfs"
 
 is_mounted() {
    mount | grep -q "on ${1} (" 

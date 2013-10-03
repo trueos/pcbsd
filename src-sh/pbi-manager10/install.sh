@@ -127,3 +127,6 @@ mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
 
 # Install the pbime wrapper
 cd ${DIR}/pbime && make install
+
+# Install the nullfs binary
+cd ${DIR}/mount_nullfs && make install
