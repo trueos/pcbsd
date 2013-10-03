@@ -181,7 +181,9 @@ void SimpleAddCode::submit()
     switch (passError)
     {
     case 0:
-        qDebug() << "Case 0 was found!!!........." + username + " pass: " + password;
+        qDebug() << "Case 0 was found!!!........." + username; //+ " pass: " + password;
+        //Do NOT show the password on comitted versions - this can get saved to a log file on the system (~/.xsession-errors)
+    
 	//back->changePassword(username, password);
 	close();
 	break;
