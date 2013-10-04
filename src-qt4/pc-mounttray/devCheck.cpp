@@ -106,6 +106,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     //make sure that it is not a SCSI device
     camctl = pcbsd::Utils::runShellCommand( QString("camcontrol inquiry ")+node ).join(" ");
     if(camctl.contains(" Fixed Direct Access SCSI")){ detType = "SCSI"; } //USB devices do not have any output
+    if(camctl.contains("camcontrol")){ camctl.clear(); } //error or invalid device type
   }
   //Make sure we quit before running commands on any invalid device nodes
   if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
