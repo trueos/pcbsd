@@ -5,12 +5,12 @@ PREFIX?= /usr/local
 
 ####### Compiler, tools and options
 
-CC            = gcc
-CXX           = g++
+CC            = cc
+CXX           = c++
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
 CFLAGS        = -pipe -O2 -Wall -W $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -W $(DEFINES)
-LINK          = g++
+LINK          = c++
 LFLAGS        = -Wl,-O1 -pthread
 LIBS          = $(SUBLIBS)
 AR            = ar cqs
