@@ -130,3 +130,9 @@ cd ${DIR}/pbime && make install
 
 # Install the nullfs binary
 cd ${DIR}/mount_nullfs && make install
+
+# Install the MANPATH conf
+if [ ! -d "${LB}/etc/man.d" ] ; then
+   mkdir -p "${LB}/etc/man.d"
+fi
+cp ${DIR}/man.d/pbi.conf ${LB}/etc/man.d/pbi.conf

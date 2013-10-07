@@ -1283,6 +1283,8 @@ mk_required_dirs() {
 	if [ ! -d "${PBI_XDGICONDIR}" ] ; then mkdir -p ${PBI_XDGICONDIR} >/dev/null 2>/dev/null ; fi
 	if [ ! -d "${PBI_XDGMIMEDIR}" ] ; then mkdir -p ${PBI_XDGMIMEDIR} >/dev/null 2>/dev/null ; fi
 	if [ ! -d "${PBI_RCDIR}" ] ; then mkdir -p ${PBI_RCDIR} >/dev/null 2>/dev/null ; fi
+	if [ ! -d "${PBI_BINDIR}" ] ; then mkdir -p ${PBI_BINDIR} >/dev/null 2>/dev/null ; fi
+	if [ ! -d "${PBI_MANDIR}" ] ; then mkdir -p ${PBI_MANDIR} >/dev/null 2>/dev/null ; fi
 	if [ ! -d "${PBI_HASHDIR}" ] ; then mkdir -p ${PBI_HASHDIR} >/dev/null 2>/dev/null ; fi
 	if [ ! -d "${PBI_DBAPPDIR}" ] ; then mkdir -p ${PBI_DBAPPDIR} >/dev/null 2>/dev/null ; fi
 	if [ ! -d "${PBI_DBKEYDIR}" ] ; then mkdir -p ${PBI_DBKEYDIR} >/dev/null 2>/dev/null ; fi
@@ -1349,7 +1351,9 @@ init_vars() {
 	PBI_XDGDIRDIR="${PBI_APPDIR}/share/desktop-directories"
 	PBI_XDGICONDIR="${PBI_APPDIR}/share/icons/hicolor"
 	PBI_XDGMIMEDIR="${PBI_APPDIR}/share/mime/packages"
-	PBI_RCDIR="${PBI_APPDIR}/etc/rc.d"
+	PBI_RCDIR="${PBI_APPDIR}/rc.d"
+	PBI_BINDIR="${PBI_APPDIR}/bin"
+	PBI_MANDIR="${PBI_APPDIR}/man"
 	PBI_ETCCONF="${SYS_LOCALBASE}/etc/pbi.conf"
 	PCBSD_ETCCONF="${SYS_LOCALBASE}/etc/pcbsd.conf"
 	PBI_DEFAULT_ICON="${PROGBASE}/share/pbi-manager/icons/default.png"
@@ -1383,7 +1387,7 @@ init_vars() {
 	PBI_INSTALLGROUP="operator"
 
 	# What dirs do we build hash-lists of
-	HASH_SEARCH_DIRS="lib kde4/lib share include info man"
+	HASH_SEARCH_DIRS="lib share include info man"
 
 	# What dbus dirs do we parse for setting up services
 	DBUS_SEARCH_DIRS="share/dbus-1 kde4/share/dbus-1 gnome/share/dbus-1"
@@ -1529,7 +1533,7 @@ export_script_vars() {
 	get_pbi_progdir
 	get_pbi_progversion
 
-	export PBI_PROGNAME PBI_PROGDIRNAME PBI_PROGDIRPATH PBI_PROGVERSION PBI_RCDIR 
+	export PBI_PROGNAME PBI_PROGDIRNAME PBI_PROGDIRPATH PBI_PROGVERSION PBI_RCDIR PBI_MANDIR PBI_BINDIR
 	export SYS_LOCALBASE PBI_FAKEBIN_DIR PBI_FAKERC_DIR
 }
 
@@ -3653,6 +3657,10 @@ mk_extlink_entries() {
         echo "if [ -z \"\$SYS_LOCALBASE\" ]; then SYS_LOCALBASE=\"${SYS_LOCALBASE}\" ; fi" >>"${dir}/${PBI_UNINS_PATHSCRIPT}"
         echo "if [ -z \"\$PBI_RCDIR\" ]; then PBI_RCDIR=\"${PBI_RCDIR}\" ; fi" >>"${dir}/${PBI_INS_PATHSCRIPT}"
         echo "if [ -z \"\$PBI_RCDIR\" ]; then PBI_RCDIR=\"${PBI_RCDIR}\" ; fi" >>"${dir}/${PBI_UNINS_PATHSCRIPT}"
+        echo "if [ -z \"\$PBI_MANDIR\" ]; then PBI_MANDIR=\"${PBI_MANDIR}\" ; fi" >>"${dir}/${PBI_INS_PATHSCRIPT}"
+        echo "if [ -z \"\$PBI_MANDIR\" ]; then PBI_MANDIR=\"${PBI_MANDIR}\" ; fi" >>"${dir}/${PBI_UNINS_PATHSCRIPT}"
+        echo "if [ -z \"\$PBI_BINDIR\" ]; then PBI_BINDIR=\"${PBI_BINDIR}\" ; fi" >>"${dir}/${PBI_INS_PATHSCRIPT}"
+        echo "if [ -z \"\$PBI_BINDIR\" ]; then PBI_BINDIR=\"${PBI_BINDIR}\" ; fi" >>"${dir}/${PBI_UNINS_PATHSCRIPT}"
 
 	touch "$_tmpextf"
 	if [ -e "$_autoextf" ]; then cat "${_autoextf}" >> "${_tmpextf}" ; fi
@@ -3704,11 +3712,6 @@ mk_extlink_entries() {
 				
 			done
 
-			# Make sure SYS_LOCALBASE/$tar dir exists
-			echo "_bd=\"\`dirname \$SYS_LOCALBASE/$tar\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-			echo "if [ ! -d \"\$_bd\" ] ; then" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-			echo "	mkdir -p \"\${_bd}\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-			echo "fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
 
 			# If we are doing a binary, run special function to make wrapper
 			if [ "$_bin" = "YES" ] ; then
@@ -3725,21 +3728,32 @@ mk_extlink_entries() {
 			else
 				# Make our link commands
 				if [ "$_keep" = "YES" ] ; then _lop="-fs"; else _lop="-s"; fi
-				echo "ln ${_lop} $PBI_PROGDIRPATH/${src} \$SYS_LOCALBASE/${tar}" \
-					>> "${dir}/${PBI_INS_PATHSCRIPT}"
+				echo $tar | grep -q "^man/"
+				if [ $? -eq 0 ] ; then
+					# Strip off the man/ path
+					_mTar=`echo $tar | sed 's|^man/||g'`
+					_dTar="\$PBI_MANDIR/${_mTar}"
+					echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "if [ ! -d \"\$_bd\" ] ; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "ln ${_lop} $PBI_PROGDIRPATH/local/${src} \$PBI_MANDIR/${_mTar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+				else
+					_dTar="\$SYS_LOCALBASE/${tar}"
+					echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "if [ ! -d \"\$_bd\" ] ; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "ln ${_lop} $PBI_PROGDIRPATH/local/${src} \$SYS_LOCALBASE/${tar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+
+				fi
 			fi
 
 			# Make the uninstall command
-			echo "ls -al \"\$SYS_LOCALBASE/$tar\" | grep \"> $PBI_PROGDIRPATH\" >/dev/null 2>/dev/null " \
+			echo "ls -al \"${_dTar}\" | grep \"> $PBI_PROGDIRPATH\" >/dev/null 2>/dev/null " \
 				>> "${dir}/${PBI_UNINS_PATHSCRIPT}"
 			echo "if [ \"\$?\" = \"0\" ] ; then" >> "${dir}/${PBI_UNINS_PATHSCRIPT}"
-			echo "	rm \"\$SYS_LOCALBASE/${tar}\"" >> "${dir}/${PBI_UNINS_PATHSCRIPT}"
+			echo "	rm \"${_dTar}\"" >> "${dir}/${PBI_UNINS_PATHSCRIPT}"
 			echo "fi" >> "${dir}/${PBI_UNINS_PATHSCRIPT}"
 
 			echo " " >> "${dir}/${PBI_INS_PATHSCRIPT}"
 			echo " " >> "${dir}/${PBI_UNINS_PATHSCRIPT}"
-
-
 
                 fi
 
@@ -3772,8 +3786,11 @@ mk_path_wrappers() {
 
 	# If this is an rc.d script, add it to the PBI_RCDIR
 	if [ "`dirname $tar`" = "etc/rc.d" ] ; then
-		echo "ln -fs $PBI_PROGDIRPATH/${PBI_FAKERC_DIR}/${fbin} \$PBI_RCDIR/`basename ${tar}`" \
 			>> "${dir}/${PBI_INS_PATHSCRIPT}"
+		_dTar="\$PBI_RCDIR/`basename ${tar}`"
+		echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+		echo "if [ ! -d \"\$_bd\" ] ; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+		echo "ln -fs $PBI_PROGDIRPATH/${PBI_FAKERC_DIR}/${fbin} \$PBI_RCDIR/`basename ${tar}`" >> "${dir}/${PBI_INS_PATHSCRIPT}"
 
 		# Copy the wrapper binary
 		PBI_WRAPPERFILE="/.pbiwrapper-$ARCH"
@@ -3788,8 +3805,13 @@ mk_path_wrappers() {
 
 	# Make our link to the system localbase if its not a wrapper only
  	if [ "$onlywrap" != "YES" ] ; then	
-		echo "ln -fs $PBI_PROGDIRPATH/${PBI_FAKEBIN_DIR}/${fbin} \$SYS_LOCALBASE/${tar}" \
+		_mTar=`echo $tar | sed "s|^bin/||g" | sed "s|^sbin/||g"`
+		_dTar="\$PBI_BINDIR/${_mTar}"
+
 			>> "${dir}/${PBI_INS_PATHSCRIPT}"
+		echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+		echo "if [ ! -d \"\$_bd\" ] ; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+		echo "ln -fs $PBI_PROGDIRPATH/${PBI_FAKEBIN_DIR}/${fbin} \$PBI_BINDIR/${_mTar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
 	fi
 
 
@@ -7225,8 +7247,12 @@ mk_auto_ext_linksfile() {
 		[ -z "${f}" ] && continue
 		[ -e "/usr/local/${f}" ] || continue
 
+		# Strip out anything not in:
+		dirname ${f} | grep -q -e "^bin" -e "^sbin" -e "^etc/rc.d" -e "^man" -e "^info"
+		[ $? -ne 0 ] && continue
+
 		# See if this is executable and set it as binary
-		dirname ${f} | grep -e "bin" -e "sbin" -e "rc.d" >/dev/null 2>/dev/null
+		dirname ${f} | grep -q -e "^bin" -e "^sbin" -e "^etc/rc.d"
 		if [ -x "/usr/local/${f}" -a $? -eq 0 ] ; then
 
 		   # Check this executable, if Linux binary, flag it
