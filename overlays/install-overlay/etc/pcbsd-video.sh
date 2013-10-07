@@ -68,9 +68,3 @@ if [ $? -eq 0 ] ; then
       sleep 1
    fi
 fi
-
-# If we are running an intel chipset, load the newer KMS driver automatically
-if [ "$loadIntelKMS" = "yes" ] ; then
-   kldload i915kms
-   touch /tmp/loadIntelKMS
-fi

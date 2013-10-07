@@ -73,16 +73,6 @@ if [ "$1" = "desktop" ] ;then
   # Init the desktop
   /usr/local/bin/pc-extractoverlay desktop --sysinit
 
-  # Check if we need to load i915kms
-  kldstat | grep -q "i915kms"
-  if [ $? -eq 0 ] ; then
-     echo "iicbb_load=\"YES\"" >> /boot/loader.conf
-     echo "iicbus_load=\"YES\"" >> /boot/loader.conf
-     echo "iic_load=\"YES\"" >> /boot/loader.conf
-     echo "drm2_load=\"YES\"" >> /boot/loader.conf
-     echo "i915kms_load=\"YES\"" >> /boot/loader.conf
-  fi
-
   # Need to save a language?
   if [ -n "$2" ] ; then
      echo "$2" > /etc/pcbsd-lang
