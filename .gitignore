@@ -994,3 +994,6 @@ src-qt4/pc-netmanager/src/wificonfig/ui_wifiselectiondialog.h
 src-sh/pbi-manager/wrapper/.pbiwrapper
 src-sh/pbi-manager/wrapper/pbiwrapper
 src-sh/pbi-manager10/wrapper/.pbiwrapper
+src-sh/pbi-manager10/mount_nullfs/mount_nullfs
+src-sh/pbi-manager10/pbime/pbime
+

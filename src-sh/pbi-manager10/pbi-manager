@@ -916,9 +916,8 @@ parse_add_pbi_cmdline() {
                         ;;
                  *)
                         if [ $# -gt 1 ]; then usage_add_pbi; fi
-                        if [ ! -e "${1}" -a -z "$PBI_REMOTEFETCH" ] ; then
-                                exit_err "PBI file not found: (${1})"
-                        fi
+			# If there is no file, try fetching from repo
+                        if [ ! -e "${1}" ] ; then PBI_REMOTEFETCH="YES"; fi
                         PBI_FILENAME="$1"
                         ;;
                 esac
@@ -1420,6 +1419,7 @@ init_vars() {
 	PBI_PATHDEL="NO"
 	PBI_DELETENAME=""
 	PBI_FAKEBIN_DIR="bin"
+	PBI_FAKERC_DIR="rc.d"
 	PBI_FILENAME=""
 	PBI_FORCEADD="NO"
 	PBI_HASHLIST=".pbi-hash-list"
@@ -1530,7 +1530,7 @@ export_script_vars() {
 	get_pbi_progversion
 
 	export PBI_PROGNAME PBI_PROGDIRNAME PBI_PROGDIRPATH PBI_PROGVERSION PBI_RCDIR 
-	export SYS_LOCALBASE PBI_FAKEBIN_DIR
+	export SYS_LOCALBASE PBI_FAKEBIN_DIR PBI_FAKERC_DIR
 }
 
 # init tmpdir
@@ -3649,8 +3649,10 @@ mk_extlink_entries() {
         echo "#!/bin/sh" >"${dir}/${PBI_UNINS_PATHSCRIPT}"
 
 	# Make sure we also set SYS_LOCALBASE in case user runs these stand-alone at some point
-        echo "if [ -z \"\$SYS_LOCALBASE\" ]; then SYS_LOCALBASE=\"${SYS_LOCALBASE}\" ; fi" >"${dir}/${PBI_INS_PATHSCRIPT}"
-        echo "if [ -z \"\$SYS_LOCALBASE\" ]; then SYS_LOCALBASE=\"${SYS_LOCALBASE}\" ; fi" >"${dir}/${PBI_UNINS_PATHSCRIPT}"
+        echo "if [ -z \"\$SYS_LOCALBASE\" ]; then SYS_LOCALBASE=\"${SYS_LOCALBASE}\" ; fi" >>"${dir}/${PBI_INS_PATHSCRIPT}"
+        echo "if [ -z \"\$SYS_LOCALBASE\" ]; then SYS_LOCALBASE=\"${SYS_LOCALBASE}\" ; fi" >>"${dir}/${PBI_UNINS_PATHSCRIPT}"
+        echo "if [ -z \"\$PBI_RCDIR\" ]; then PBI_RCDIR=\"${PBI_RCDIR}\" ; fi" >>"${dir}/${PBI_INS_PATHSCRIPT}"
+        echo "if [ -z \"\$PBI_RCDIR\" ]; then PBI_RCDIR=\"${PBI_RCDIR}\" ; fi" >>"${dir}/${PBI_UNINS_PATHSCRIPT}"
 
 	touch "$_tmpextf"
 	if [ -e "$_autoextf" ]; then cat "${_autoextf}" >> "${_tmpextf}" ; fi
@@ -3752,6 +3754,7 @@ mk_extlink_entries() {
 # Create the wrapper scripts for the specified binaries 
 mk_path_wrappers() {
 	dir="${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}"
+	rcdir="${PBI_STAGEDIRMNT}/${PBI_FAKERC_DIR}"
         if [ ! -d "${dir}" ] ; then mkdir -p "${dir}" ; fi
 
 	bin="${1}"
@@ -3767,11 +3770,28 @@ mk_path_wrappers() {
 		fbin=`echo $bin | sed 's|/|-|g'`
 	fi
 
+	# If this is an rc.d script, add it to the PBI_RCDIR
+	if [ "`dirname $tar`" = "etc/rc.d" ] ; then
+		echo "ln -fs $PBI_PROGDIRPATH/${PBI_FAKERC_DIR}/${fbin} \$PBI_RCDIR/`basename ${tar}`" \
+			>> "${dir}/${PBI_INS_PATHSCRIPT}"
+
+		# Copy the wrapper binary
+		PBI_WRAPPERFILE="/.pbiwrapper-$ARCH"
+		cp ${PBI_WRAPPERFILE} ${rcdir}/${fbin}
+		chmod 755 ${rcdir}/${fbin}
+
+		# Create the wrapper .pbiopt
+		echo "PROGDIR: ${PBI_PROGDIRPATH}" >${rcdir}/${fbin}.pbiopt
+		echo "TARGET: ${bin}" >>${rcdir}/${fbin}.pbiopt
+		return
+	fi
+
 	# Make our link to the system localbase if its not a wrapper only
  	if [ "$onlywrap" != "YES" ] ; then	
 		echo "ln -fs $PBI_PROGDIRPATH/${PBI_FAKEBIN_DIR}/${fbin} \$SYS_LOCALBASE/${tar}" \
 			>> "${dir}/${PBI_INS_PATHSCRIPT}"
 	fi
+
 
 	# Copy the wrapper binary
 	PBI_WRAPPERFILE="/.pbiwrapper-$ARCH"
@@ -3942,6 +3962,7 @@ mk_xdg_mime_script() {
 mk_install_script() {
 	echo "Creating install script..."
 	if [ ! -d "${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}" ] ; then mkdir -p "${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}" ; fi
+	if [ ! -d "${PBI_STAGEDIRMNT}/${PBI_FAKERC_DIR}" ] ; then mkdir -p "${PBI_STAGEDIRMNT}/${PBI_FAKERC_DIR}" ; fi
 	insc="${PBI_STAGEDIRMNT}/${PBI_FAKEBIN_DIR}/.pbi-install.sh"
 	echo "#!/bin/sh" > "$insc"
 	echo "PBI_WRAPPERBIN=\"${PBI_FAKEBIN_DIR}\"" >> "$insc"
@@ -4020,6 +4041,7 @@ mk_stage_dir() {
 
 	mkdir -p ${PBI_STAGEDIR}/local
 	mkdir -p ${PBI_STAGEDIR}/etc
+	mkdir -p ${PBI_STAGEDIR}/rc.d
 	mkdir -p ${PBI_STAGEDIR}/pbimeta
 	mkdir -p ${PBI_STAGEDIR}/virtbase
 	mkdir -p ${PBI_STAGEDIR}/linux
@@ -4081,10 +4103,6 @@ clean_icons_dir() {
 
 # See if we need to clean the stagedir
 clean_stage_dir() {
-
-	if [ -e "${PBI_STAGEDIR}/etc" ] ; then
-		mv ${PBI_STAGEDIR}/etc/* ${PBI_STAGEDIRMNT}/etc/
-	fi
 
 	if [ "${PBI_USESYSGL}" != "NO" ] ; then
 		rm ${PBI_STAGEDIR}/lib/libGl.* >/dev/null 2>/dev/null
@@ -7208,7 +7226,7 @@ mk_auto_ext_linksfile() {
 		[ -e "/usr/local/${f}" ] || continue
 
 		# See if this is executable and set it as binary
-		dirname ${f} | grep -e "bin" -e "sbin" >/dev/null 2>/dev/null
+		dirname ${f} | grep -e "bin" -e "sbin" -e "rc.d" >/dev/null 2>/dev/null
 		if [ -x "/usr/local/${f}" -a $? -eq 0 ] ; then
 
 		   # Check this executable, if Linux binary, flag it
