@@ -249,6 +249,15 @@ EOF
 	exit_trap
 }
 
+usage_mt_syncpbi() {
+        cat <<EOF
+usage: `basename $0` syncpbi pbifile metafile
+
+This command will sync the meta-data from a PBI into the repo metafile
+                
+EOF
+	exit_trap
+}
 
 usage_it_rem() {
         cat <<EOF
@@ -271,6 +280,7 @@ usage: `basename $0` [options] metafile
 Options:
   add   	-- Add a new entry to the specified metafile
   rem    	-- Remove an entry in the metafile
+  syncpbi    	-- Sync meta-data from a PBI file
 
 EOF
 	exit_trap
@@ -517,6 +527,13 @@ parse_makepatch_pbi_cmdline() {
 parse_mt_pbi_cmdline() {
 
 	case $1 in
+      	syncpbi) PBI_MT_MODE="SYNCPBI" ; shift ; 
+		PBI_MT_PBIFILE="$1"
+		PBI_MT_METAFILE="$2"
+		if [ -z "${PBI_MT_PBIFILE}" ] ; then usage_mt_syncpbi ; fi
+		if [ -z "${PBI_MT_METAFILE}" ] ; then usage_mt_syncpbi ; fi
+		return
+		;;
   	   add)	PBI_MT_MODE="ADD" ; shift ; 
 		while [ $# -gt 0 ]; do
                 	case "$1" in
@@ -2018,10 +2035,39 @@ make_pbi_repo() {
 	rm_tmpdir
 }
 
+do_pbi_mt_syncpbi()
+{
+	# First load values from the target PBI
+	PBI_FILENAME="${PBI_MT_PBIFILE}"
+	load_info_from_header
+
+	mFlags="add --app"
+	if [ -n "$PBI_PROGAUTHOR" ] ; then mFlags="$mFlags -a \"${PBI_PROGAUTHOR}\""; fi
+	if [ -n "$PBI_CATEGORY" ] ; then mFlags="$mFlags -c \"${PBI_CATEGORY}\""; fi
+	if [ -n "$PBI_LICENSE" ] ; then mFlags="$mFlags -l \"${PBI_LICENSE}\""; fi
+	if [ -n "$PBI_TAGS" ] ; then mFlags="$mFlags -k \"${PBI_TAGS}\""; fi
+	if [ -n "$PBI_ICONURL" ] ; then mFlags="$mFlags -i \"${PBI_ICONURL}\""; fi
+	if [ -n "$PBI_PROGWEB" ] ; then mFlags="$mFlags -u \"${PBI_PROGWEB}\""; fi
+	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"${PBI_PROGTYPE}\""; fi
+	if [ -n "$PBI_DESC" ] ; then mFlags="$mFlags -d \"`echo $PBI_DESC | sed 's|;||g'`\""; fi
+	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"$PBI_PROGTYPE\""; fi
+	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then mFlags="$mFlags -r"; fi
+
+
+	# Add the app
+	echo "pbi_metatool ${mFlags} -n \"${PBI_PROGNAME}\" `realpath ${PBI_MT_METAFILE}`" >/tmp/.pbiCmd.$$
+	chmod 755 /tmp/.pbiCmd.$$
+	/tmp/.pbiCmd.$$
+	err=$?
+	#rm /tmp/.pbiCmd.$$
+	exit $err
+}
+
 # Init the metatool
 pbi_mt_init() {
 	parse_mt_pbi_cmdline "$@"
 	case $PBI_MT_MODE in
+	    SYNCPBI) do_pbi_mt_syncpbi ;;
 		ADD) if [ "$PBI_MT_TYPE" = "CAT" ] ; then
 			do_pbi_mt_add_cat
 		     else
@@ -2055,8 +2101,10 @@ do_pbi_mt_add_app() {
 	# Remove any duplicate name
 	do_pbi_mt_rem_app "${PBI_MT_ADDNAME}" "${PBI_MT_METAFILE}"
 
+	local _date=`date '+%s'`
+
 	cp ${PBI_MT_METAFILE} ${PBI_TMPDIR}/.meta.$$
-	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;" \
+	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date}" \
 	>> ${PBI_TMPDIR}/.meta.$$
 	sort ${PBI_TMPDIR}/.meta.$$ > "${PBI_MT_METAFILE}"
 	rm ${PBI_TMPDIR}/.meta.$$
@@ -3046,6 +3094,9 @@ load_info_from_dir() {
 	PBI_DESC=""
 	PBI_SHORTDESC=""
 	PBI_TAGS=""
+	PBI_PROGTYPE=""
+	PBI_CATEGORY=""
+	PBI_ICONURL=""
 	PBI_LICENSE=""
 
 	PBI_ORIGPROGDIRPATH="`cat ${1}/pbi_defaultpath`"
@@ -3065,6 +3116,15 @@ load_info_from_dir() {
         fi
 	if [ -e "${1}/pbi_tags" ] ; then
                 PBI_TAGS="`cat ${1}/pbi_tags`"
+        fi
+	if [ -e "${1}/pbi_type" ] ; then
+                PBI_PROGTYPE="`cat ${1}/pbi_type`"
+        fi
+	if [ -e "${1}/pbi_category" ] ; then
+                PBI_CATEGORY="`cat ${1}/pbi_category`"
+        fi
+	if [ -e "${1}/pbi_iconurl" ] ; then
+                PBI_ICONURL="`cat ${1}/pbi_iconurl`"
         fi
 	if [ -e "${1}/pbi_desc" ] ; then
                 PBI_DESC="`cat ${1}/pbi_desc`"
@@ -4294,6 +4354,15 @@ save_pbi_details_to_header() {
 	fi
 	if [ -n "$PBI_TAGS" ] ; then
 		echo "$PBI_TAGS" > ${PBI_HEADERDIR}/pbi_tags
+	fi
+	if [ -n "$PBI_PROGTYPE" ] ; then
+		echo "$PBI_PROGTYPE" > ${PBI_HEADERDIR}/pbi_type
+	fi
+	if [ -n "$PBI_CATEGORY" ] ; then
+		echo "$PBI_CATEGORY" > ${PBI_HEADERDIR}/pbi_category
+	fi
+	if [ -n "$PBI_ICONURL" ] ; then
+		echo "$PBI_ICONURL" > ${PBI_HEADERDIR}/pbi_iconurl
 	fi
 	if [ -n "$PBI_DESC" ] ; then
 		echo "$PBI_DESC" > ${PBI_HEADERDIR}/pbi_desc
@@ -6841,6 +6910,12 @@ load_pkg_metadata()
 	fi
 	if [ -z "$PBI_PROGWEB" ] ; then
 		PBI_PROGWEB="`pkg query '%w' ${PBI_MAKEPORT}`"
+	fi
+	if [ -z "$PBI_CATEGORY" ] ; then
+		PBI_CATEGORY="`pkg query '%C' ${PBI_MAKEPORT} | head -n 1`"
+	fi
+	if [ -z "$PBI_PROGTYPE" ] ; then
+		PBI_PROGTYPE="Text"
 	fi
 }
 
