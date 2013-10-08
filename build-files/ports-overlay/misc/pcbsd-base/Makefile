@@ -92,7 +92,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		ibus-qt>=0:${PORTSDIR}/textproc/ibus-qt \
 		zh-ibus-chewing>=0:${PORTSDIR}/chinese/ibus-chewing \
 		zh-ibus-pinyin>=0:${PORTSDIR}/chinese/ibus-pinyin \
-		ja-ibus-anthy>=0:${PORTSDIR}/japanese/ibus-anthy \
 		ibus-m17n>=0:${PORTSDIR}/textproc/ibus-m17n \
 		ibus-table>=0:${PORTSDIR}/textproc/ibus-table \
 		fonts-indic>=0:${PORTSDIR}/x11-fonts/fonts-indic \

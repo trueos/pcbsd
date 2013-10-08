@@ -13,7 +13,6 @@ MAINTAINER=	kris@pcbsd.org
 COMMENT=	The meta-port pcbsd-meta-development-web
 
 RUN_DEPENDS=	mysql-server>=0:${PORTSDIR}/databases/mysql55-server \
-		mysql-client>=0:${PORTSDIR}/databases/mysql55-client \
 		php5>=0:${PORTSDIR}/lang/php5 \
 		php5-extensions>=0:${PORTSDIR}/lang/php5-extensions \
 		php5-mysql>=0:${PORTSDIR}/databases/php5-mysql \
