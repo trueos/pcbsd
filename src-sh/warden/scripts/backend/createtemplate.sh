@@ -33,10 +33,10 @@ download_template_files() {
      found=0
      for f in $DFILES
      do
-       fetch -o "${JDIR}/.download/$f" "ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDVER}/$f"
+       fetch -o "${JDIR}/.download/$f" "ftp://ftp.freebsd.org/pub/FreeBSD/releases/${FBSDARCH}/${FBSDARCH}/${FBSDVER}/$f"
        if [ $? -ne 0 ] ; then
 	 echo "Trying ftp-archive..."
-         fetch -o "${JDIR}/.download/$f" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDVER}/$f"
+         fetch -o "${JDIR}/.download/$f" "http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/${FBSDARCH}/${FBSDARCH}/${FBSDVER}/$f"
 	 if [ $? -ne 0 ] ; then found=1 ; break; fi
        fi
      done
@@ -207,7 +207,7 @@ fi
 
 # Check if we are on REAL old versions of FreeBSD
 if [ -n "$FBSDVER" ] ; then
-  mV=`echo $FBSDVER | cut -d '.' -f 1`
+  mV=`echo $FBSDVER | cut -d '-' -f 1 | cut -d '.' -f 1`
   if [ $mV -lt 9 ] ; then 
      oldFBSD="YES"
      oldStr="base"

@@ -758,7 +758,7 @@ template) require_root
    		    shift
 		    done
 		    export TPLUGJAIL TNICK FBSDTAR FBSDARCH TRUEOSVER FBSDVER
-		    ${PROGDIR}/scripts/backend/createtemplate.sh ;;
+		    ${PROGDIR}/scripts/backend/createtemplate.sh ; exit $? ;;
 	    delete) delete_template "$3" ;;
 	      list) list_templates ;;
 	         *) help_template ; exit 1 ;;
