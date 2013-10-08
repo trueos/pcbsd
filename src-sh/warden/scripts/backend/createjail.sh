@@ -116,7 +116,17 @@ if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
       fi
       warden template create ${FLAGS}
       if [ $? -ne 0 ] ; then
-        exit_err "Failed create default template"
+	# If we failed, lets try again with FreeBSD dist files
+        FLAGS="-arch $ARCH -nick $DEFTEMPLATE"
+      	FLAGS="-fbsd `uname -r | cut -d '-' -f 1-2` $FLAGS" ; export FLAGS
+
+      	if [ "${PLUGINJAIL}" = "YES" ] ; then
+          FLAGS="$FLAGS -pluginjail"
+      	fi
+        warden template create ${FLAGS}
+        if [ $? -ne 0 ] ; then
+          exit_err "Failed create default template"
+	fi
       fi
   fi
   WORLDCHROOT="${TDIR}"

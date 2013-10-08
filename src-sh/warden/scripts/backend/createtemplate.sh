@@ -120,6 +120,7 @@ create_template()
   else
     # Sigh, still on UFS??
     if [ -d "${JDIR}/.templatedir" ]; then
+       chflags -R noschg ${JDIR}/.templatedir
        rm -rf ${JDIR}/.templatedir
     fi
 
@@ -131,6 +132,7 @@ create_template()
       cd ${JDIR}/.download/
       echo "Extrating FreeBSD..."
       cat ${oldStr}.?? | tar --unlink -xpzf - -C ${JDIR}/.templatedir 2>/dev/null
+      if [ $? -ne 0 ] ; then exit_err "Failed to extract FreeBSD" ; fi
       cd ${JDIR}
 
       # Creating a plugin jail?
@@ -141,6 +143,7 @@ create_template()
 
       echo "Creating template archive..."
       tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
+      chflags -R noschg ${JDIR}/.templatedir
       rm -rf ${JDIR}/.templatedir
     else
       # Extract the dist files
@@ -150,7 +153,7 @@ create_template()
         tar xvpf ${JDIR}/.download/$f -C ${JDIR}/.templatedir 2>/dev/null
         if [ $? -ne 0 ] ; then 
            rm -rf ${JDIR}/.templatedir
-           exit_err "Failed extracting ZFS template environment"
+           exit_err "Failed extracting template environment"
         fi
         rm ${JDIR}/.download/${f}
       done
@@ -162,10 +165,16 @@ create_template()
       fi
 
       echo "Creating template archive..."
-      tar cvjf ${TDIR} -C ${JDIR}/.templatedir 2>/dev/null
+      tar cvjf ${TDIR} -C ${JDIR}/.templatedir . 2>/dev/null
+      if [ $? -ne 0 ] ; then 
+         chflags -R noschg ${JDIR}/.templatedir
+         rm -rf ${JDIR}/.templatedir
+         exit_err "Failed creating template environment"
+      fi
+      chflags -R noschg ${JDIR}/.templatedir
       rm -rf ${JDIR}/.templatedir
     fi
-  fi
+  fi # End of UFS section
 
   rm -rf ${JDIR}/.download
   echo "Created jail template: $TNICK"
