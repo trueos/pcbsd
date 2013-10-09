@@ -5,7 +5,7 @@
 verCheck="`grep '^#define __FreeBSD_version' /usr/include/sys/param.h | awk '{print $3}'`"
 if [ $verCheck -lt 1000000 ] ; then
   # This version is for FreeBSD >= 10
-  #exit 0
+  exit 0
 fi
 
 DEFAULT="/usr/local"
@@ -110,7 +110,7 @@ if [ `uname -m` = "amd64" ] ; then
   chmod 644 pbiwrapper
   mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-i386
 else
-  touch ${LB}/share/pbi-manager/.pbiwrapper-i386
+  touch ${LB}/share/pbi-manager/.pbiwrapper-amd64
 fi
 
 # Build system arch wrapper
@@ -126,10 +126,20 @@ chmod 644 pbiwrapper
 mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
 
 # Install the pbime wrapper
-cd ${DIR}/pbime && make install
+cd ${DIR}/pbime && make
+install -o root -g wheel -m 4751 pbime ${LB}/share/pbi-manager/.pbime
+install -o root -g wheel -m 755 pbimount ${LB}/share/pbi-manager/.pbimount
+if [ "${LB}" = "/usr/local" ] ; then
+  install -o root -g wheel -m 4751 pbime /usr/pbi/.pbime
+  install -o root -g wheel -m 755 pbimount /usr/pbi/.pbimount
+fi
 
 # Install the nullfs binary
-cd ${DIR}/mount_nullfs && make install
+cd ${DIR}/mount_nullfs && make 
+install -o root -g wheel -m 755 mount_nullfs ${LB}/share/pbi-manager/.mount_nullfs
+if [ "${LB}" = "/usr/local" ] ; then
+  install -o root -g wheel -m 755 mount_nullfs /usr/pbi/.mount_nullfs
+fi
 
 # Install the MANPATH conf
 if [ ! -d "${LB}/etc/man.d" ] ; then
