@@ -238,6 +238,7 @@ void mainWin::slotUpdateLoop()
       if ( wDir.isEmpty() ) {
          if ( listUpdates.at(z).at(1) == "FBSDUPDATE" ) {
            uProc->start("freebsd-update", QStringList() << "install"); 
+	   system("touch /tmp/.fbsdup-reboot");
          } else {
            uProc->start("pc-updatemanager", QStringList() << "install" << tag ); 
 	 }
@@ -356,6 +357,12 @@ void mainWin::slotRescanUpdates()
   groupDetails->setVisible(false);
   groupUpdates->setEnabled(false);
   listUpdates.clear();
+
+  if ( QFile::exists("/tmp/.fbsdup-reboot") ) {
+     textLabel->setText(tr("Reboot required for update to finish!"));
+     return;
+  }
+
   textLabel->setText(tr("Checking for updates... Please Wait..."));
   slotReadUpdateData();
   slotDisplayUpdates();
@@ -543,6 +550,11 @@ void mainWin::checkPCUpdates() {
 void mainWin::checkFBSDUpdates() {
   QString line, toPatchVer, tmp;
   QStringList up, listDesc, listPkgs;
+
+  if ( QFile::exists("/tmp/.fbsdup-reboot") ) {
+     qDebug() << "Skipping update check - Waiting for reboot";
+     return;
+  }
 
   if ( QFile::exists("/tmp/.fbsdup-lock") ) {
      qDebug() << "Skipping update check - freebsd-update is running elsewhere";

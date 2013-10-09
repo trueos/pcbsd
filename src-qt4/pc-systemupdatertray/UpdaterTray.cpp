@@ -337,9 +337,12 @@ void UpdaterTray::slotStartUpdateCheck()
   qDebug() << "Starting System Update Check";
 
   //Check for installed system updates needing computer to restart to finish
-  bool needRestart = false;
-  if( QFile::exists("/usr/local/tmp/update-stagedir/doupdate.sh") ){
-    needRestart = true;
+  if ( QFile::exists("/tmp/.fbsdup-reboot") ) {
+     programstatus = SYSTEM_RESTART_NEEDED;
+     contextMenuRefresh();
+     displayTooltip();
+     doingCheck=false;
+     return;
   }
 
   bool haveUp = false;
@@ -432,9 +435,7 @@ void UpdaterTray::slotStartUpdateCheck()
   }
   /////////////////////////////////////////////
 
-  if ( needRestart ) {
-    programstatus = SYSTEM_RESTART_NEEDED;
-  } else if ( haveUp ) {
+  if ( haveUp ) {
     programstatus = SYSTEM_UPDATE_AVAIL;
   } else if ( haveNGUp ) {
     programstatus = PACKAGE_UPDATE_AVAIL;

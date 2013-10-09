@@ -451,6 +451,9 @@ start_major_fbsd_update() {
      exit_err "Failed running \"freebsd-update -r $rel upgrade\"..."
   fi
 
+  # Touch our marker that we will need to reboot before doing other updates
+  touch /tmp/.fbsdup-reboot
+
   # Now install freebsd-update files
   freebsd-update --non-interactive install
   if [ $? -ne 0 ] ; then
