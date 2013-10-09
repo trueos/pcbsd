@@ -109,7 +109,7 @@ if [ `uname -m` = "amd64" ] ; then
   chmod 644 pbiwrapper
   mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-i386
 else
-  touch ${LB}/share/pbi-manager/.pbiwrapper-i386
+  touch ${LB}/share/pbi-manager/.pbiwrapper-amd64
 fi
 
 # Build system arch wrapper
