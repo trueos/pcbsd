@@ -400,11 +400,13 @@ parse_delete_pbi_cmdline() {
 
 find_pbi_namematch()
 {
+	_fLow="`echo ${1} | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
 	PBI_NAMEMATCH=""
 	for i in `ls -d ${PBI_DBAPPDIR}/* 2>/dev/null`
 	do
 		if [ ! -e "$i/pbi_name" ] ; then continue ; fi
-		if [ "`cat $i/pbi_name`" = "$1" ] ; then 
+		_tLow="`cat $i/pbi_name | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
+		if [ "$_tLow" = "$_fLow" ] ; then 
 			PBI_NAMEMATCH="`basename ${i}`"
 			break
 		fi
