@@ -6163,7 +6163,6 @@ start_ext_ab() {
         if [ $? -ne 0 ] ; then
            if [ "$PBI_ABFB32" = "YES" -a "$have32" = "true" ] ; then
  	      _flags="${_flags} -32"
-	      _flags="`echo ${_flags} | sed 's| --pkgbuild||g'`"
            fi
         fi
 
@@ -7080,9 +7079,14 @@ chroot_extract() {
 	PBI_WRAPPERFILE="${PBI_SHARE_DIR}/.pbiwrapper-$ARCH"
 	cp ${PBI_WRAPPERFILE} ${PBI_CHROOTDIR}/.pbiwrapper-$ARCH
 
+	# If we are doing a PKGNG build, lets set it up
 	if [ "$PBI_PKGNGBUILD" = "YES" ] ; then
 		mkdir -p ${PBI_CHROOTDIR}/usr/local/etc 2>/dev/null
 	   	cp /usr/local/etc/pkg.conf ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf
+		# Make sure we change pkgng ARCH to what we are building
+	        sed -i '' "s|amd64|$ARCH|g" ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf 	
+	        sed -i '' "s|i386|$ARCH|g" ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf 	
+		# Now make sure to copy over the pubkey
 	   	local pubKey=`cat /usr/local/etc/pkg.conf | grep "^PUBKEY:" | awk '{print $2}'`
 	   	if [ -n "$pubKey" ] ; then
 			if [ ! -d "${PBI_CHROOTDIR}/`dirname $pubKey`" ] ; then
@@ -7090,6 +7094,7 @@ chroot_extract() {
 			fi
 	     		cp $pubKey ${PBI_CHROOTDIR}/$pubKey
 	   	fi
+
 	fi
 
 	# If we have a custom PBI_MAKECONF include it
