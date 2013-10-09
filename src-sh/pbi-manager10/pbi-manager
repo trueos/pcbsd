@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright 2011 iXsystems (Kris Moore)
+# Copyright 2013 iXsystems (Kris Moore)
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -6163,6 +6163,7 @@ start_ext_ab() {
         if [ $? -ne 0 ] ; then
            if [ "$PBI_ABFB32" = "YES" -a "$have32" = "true" ] ; then
  	      _flags="${_flags} -32"
+	      _flags="`echo ${_flags} | sed 's| --pkgbuild||g'`"
            fi
         fi
 
