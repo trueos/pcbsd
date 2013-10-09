@@ -228,18 +228,28 @@ void mainWin::checkMPKGUpdates() {
   while (p.canReadLine()) {
     line = p.readLine().simplified();
     qDebug() << line;
-    if ( line.indexOf("Upgrading") != 0) {
-       continue;
+    if ( line.indexOf("Upgrading") == 0 ) {
+      tmp = line;
+      pkgname = tmp.section(" ", 1, 1);
+      pkgname.replace(":", "");
+      pkgover = tmp.section(" ", 2, 2);
+      pkgnver = tmp.section(" ", 4, 4);
+      QTreeWidgetItem *myItem = new QTreeWidgetItem(QStringList() << pkgname << pkgover << pkgnver);
+      listViewUpdatesPkgs->addTopLevelItem(myItem);
+      haveUpdates = true;
+      totPkgs++;
+    } // End of upgrading section
+    if ( line.indexOf("Reinstalling") == 0 ) {
+      tmp = line;
+      pkgname = tmp.section(" ", 1, 1);
+      pkgover = pkgname.section("-", -1);
+      pkgname.truncate(pkgname.lastIndexOf("-"));
+      pkgnver = tmp.section(" ", 2);
+      QTreeWidgetItem *myItem = new QTreeWidgetItem(QStringList() << pkgname << pkgover << pkgnver);
+      listViewUpdatesPkgs->addTopLevelItem(myItem);
+      haveUpdates = true;
+      totPkgs++;
     }
-    tmp = line;
-    pkgname = tmp.section(" ", 1, 1);
-    pkgname.replace(":", "");
-    pkgover = tmp.section(" ", 2, 2);
-    pkgnver = tmp.section(" ", 4, 4);
-    QTreeWidgetItem *myItem = new QTreeWidgetItem(QStringList() << pkgname << pkgover << pkgnver);
-    listViewUpdatesPkgs->addTopLevelItem(myItem);
-    haveUpdates = true;
-    totPkgs++;
   }
 
   buttonRescanPkgs->setEnabled(true);
