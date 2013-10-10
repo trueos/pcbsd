@@ -16,15 +16,16 @@ detect_x()
     return
   fi
 
+  # Ignore X -configure for now, let startx handle it
   # Now run the X auto-detection
-  echo "Detecting X Setup..."
-  sleep 5
-  HOME="/root" ; export HOME
-  X -configure >/dev/null 2>&1
+  #echo "Detecting X Setup..."
+  #sleep 5
+  #HOME="/root" ; export HOME
+  #X -configure >/dev/null 2>&1
   # Copy over the new xorg.conf
-  cp /root/xorg.conf.new /etc/X11/xorg.conf
+  #cp /root/xorg.conf.new /etc/X11/xorg.conf
   # Use nvidia driver
-  sed -i '' 's|"nv"|"nvidia"|g' /etc/X11/xorg.conf
+  #sed -i '' 's|"nv"|"nvidia"|g' /etc/X11/xorg.conf
 
 }
 
