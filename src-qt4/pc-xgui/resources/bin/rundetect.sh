@@ -41,14 +41,6 @@ if [ -e "/etc/X11/xorg.conf" ] ; then
 fi
 
 echo "`clear`" >/dev/console
-echo "Detecting video card and monitor capabilities..." >/dev/console
-
-X -configure 2>/dev/null
-
-# Check if we have an unprobed / unknown monitor
-${PROGDIR}/scripts/checkunprobed.sh
-
-echo "`clear`" >/dev/console
 echo "Please wait... Start X-Configuration Utility" >/dev/console
 
 # Check if we need to save an existing .xinitrc file
@@ -113,16 +105,7 @@ do
       echo "Using failsafe VESA 1024x768 mode..." >/dev/console
       cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
     else
-      # Now run the X auto-detection
-      echo "Detecting X Setup..."
-      sleep 1
-      HOME="/root" ; export HOME
-      X -configure >/dev/null 2>&1
-      cp /root/xorg.conf.new /etc/X11/xorg.conf
-
       AUTORES="YES"
-      # Use nvidia driver
-      sed -i '' 's|"nv"|"nvidia"|g' /etc/X11/xorg.conf
     fi
   elif [ "${ATTEMPT}" = "1" ] ; then
     # Try running the driver detection again
