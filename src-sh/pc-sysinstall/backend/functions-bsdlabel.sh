@@ -134,7 +134,6 @@ setup_zfs_mirror_parts()
 
       echo "Setting up ZFS disk $_zvars" >>${LOGOUT}
       init_gpt_full_disk "$_zvars" "$_tBL" >/dev/null 2>/dev/null
-      #rc_halt "gpart add ${SOUT} -t freebsd-zfs ${_zvars}" >/dev/null 2>/dev/null
 
       # If we are not using GRUB we need to add pmbr / gptzfsboot
       if [ "$_tBL" != "GRUB" ] ; then
@@ -404,7 +403,7 @@ setup_gpart_partitions()
       # Create the partition
       if [ "${_pType}" = "gpt" ] ; then
         sleep 2
-	aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
+	aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_pDisk}"
       elif [ "${_pType}" = "gptslice" ]; then
         sleep 2
         aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
@@ -413,15 +412,8 @@ setup_gpart_partitions()
         aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
       else
         sleep 2
-
-	# When we install to ZFS on a MBR slice, align the partition to 512b
-	# This corrects some issues with cranky disks causing gpart alignment
-	# to 4k to fail, resulting in zfsboot hanging...
-	aOpt=""
-	if [ "$CURPART" = "1" -a "$PARTYPE" = "freebsd-zfs" ] ; then
-	   aOpt="-a 512b"
-	fi
-        aCmd="gpart add ${SOUT} ${aOpt} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
+	# MBR type
+        aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
       fi
 
       # Run the gpart add command now
@@ -432,7 +424,7 @@ setup_gpart_partitions()
          for zC in $ZFS_CLONE_DISKS
          do
 	    echo_log "Cloning disk layout to ZFS disk ${zC}"
-	    rc_halt "gpart add ${SOUT} -t ${PARTYPE} ${zC}"
+	    rc_halt "gpart add -a 4k ${SOUT} -t ${PARTYPE} ${zC}"
 	    if [ "$PARTYPE" = "freebsd-swap" ] ; then
 	       # If this is the first device, save the original swap dev
 	       if [ -z "$ZFS_SWAP_DEVS" ] ; then

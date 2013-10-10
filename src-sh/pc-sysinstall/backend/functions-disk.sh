@@ -686,8 +686,6 @@ init_mbr_full_disk()
   _intDISK=$1
   _intBOOT=$2
  
-  startblock="2016"
-
   # Set our sysctl so we can overwrite any geom using drives
   sysctl kern.geom.debugflags=16 >>${LOGOUT} 2>>${LOGOUT}
 
