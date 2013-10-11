@@ -39,11 +39,7 @@ fi
 /root/debugpcsysinstall.sh
 
 # Check if we are running in a VM and enable guest services
-case "$(kenv smbios.system.product)" in
-VirtualBox) /usr/local/etc/rc.d/vboxguest onestart ;;
-VMware*) ;;
-  *) ;;
-esac
+/usr/local/etc/rc.d/vboxguest onestart
 
 # Set all NICS to DHCP
 NICS=`ifconfig -l`
@@ -95,10 +91,8 @@ mkdir /tmp/.qt
 mkdir /tmp/xkb
 
 # Check if we should be going to the console instead of X directly
-/sbin/sysctl kern.module_path | /usr/bin/grep "CONSOLE" >/dev/null 2>/dev/null
-FOUND="$?"
-if [ "$FOUND" = "0" ]
-then
+kenv xconsole 2>/dev/null | grep -q "YES"
+if [ $? -eq 0 ]; then
   /root/PCBSDtext.sh
   shutdown -r now
   exit
