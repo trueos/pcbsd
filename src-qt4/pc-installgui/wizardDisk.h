@@ -39,6 +39,7 @@ private slots:
     void slotTreeMountsRightClick();
     void slotTerminal();
     void slotSwapSize();
+    void slotGPTClicked();
  
     // QMenu slots
     void slotZCMON();

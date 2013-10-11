@@ -23,6 +23,7 @@ void wizardDisk::programInit()
   populateDiskInfo();
 
   //connect(pushClose, SIGNAL(clicked()), this, SLOT(slotClose()));
+  connect(checkGPT, SIGNAL(clicked()), this, SLOT(slotGPTClicked()));
   connect(pushSwapSize, SIGNAL(clicked()), this, SLOT(slotSwapSize()));
   connect(pushRemoveMount, SIGNAL(clicked()), this, SLOT(slotRemoveFS()));
   connect(pushAddMount, SIGNAL(clicked()), this, SLOT(slotAddFS()));
@@ -1084,4 +1085,17 @@ void wizardDisk::slotTerminal()
 void wizardDisk::setRestoreMode()
 {
   restoreMode=true;
+}
+
+void wizardDisk::slotGPTClicked()
+{
+   // Right now we can't do the dirty "gnop" trick on GPT
+   // Mangles the partitions and fails to boot
+   if ( checkGPT->isChecked() )
+   {
+     checkForce4K->setChecked(false);
+     checkForce4K->setEnabled(false);
+   } else {
+     checkForce4K->setEnabled(true);
+   }
 }
