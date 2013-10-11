@@ -8,9 +8,10 @@ QT       += core gui svg
 
 CONFIG += qt warn_on
 
-
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+LIBS	+= -L../libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
+INCLUDEPATH+= ../libpcbsd/utils/
 
 TARGET = pc-zmanager
 target.path = /usr/local/bin/
@@ -46,14 +47,6 @@ FORMS    += zmanagerwindow.ui \
     dialogprop.ui \
     dialogfscreate.ui \
     dialogfsprop.ui
-# DEBUG ONLY, IT SHOULD BE ONLY ../libpcbsd
-LIBS	+= -L../../pcbsd/src-qt4/libpcbsd -lQtSolutions_SingleApplication-head -lpcbsd-utils
-
-# DEBUG ONLY
-INCLUDEPATH+= ../../pcbsd/src-qt4/libpcbsd/utils/
-# INCLUDEPATH+= ../libpcbsd/utils/
-
-
 
 TRANSLATIONS =  i18n/ZManager_af.ts \
                 i18n/ZManager_ar.ts \
