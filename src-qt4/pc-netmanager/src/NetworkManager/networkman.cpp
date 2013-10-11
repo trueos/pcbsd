@@ -843,15 +843,17 @@ void NetworkMan::slotCheckGlobalText()
             }
         }
     }
-  
-     if ( lineDNS1->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineDNS1->text() ) && groupDNS->isChecked()) {
-         textGlobalError->setText(tr("Invalid DNS specified"));
-	 return;
-     }
     
-    if ( lineDNS2->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineDNS2->text() ) && groupDNS->isChecked()) {
+     if(groupDNS->isChecked()){
+       if( lineDNS1->text() == "..." && lineDNS2->text() == "..." ){ return; }
+       if ( lineDNS1->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineDNS1->text() ) ) {
          textGlobalError->setText(tr("Invalid DNS specified"));
 	 return;
+       }
+       if ( lineDNS2->text() != "..."  && ! pcbsd::Utils::validateIPV4(lineDNS2->text() ) ) {
+         textGlobalError->setText(tr("Invalid DNS specified"));
+	 return;
+       }
      }
     
     
