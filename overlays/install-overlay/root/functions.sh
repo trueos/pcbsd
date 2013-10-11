@@ -6,7 +6,7 @@ detect_x()
 {
   # Check for VESA support
   xvesa="NO"
-  v=`/bin/kenv xvesa`
+  v=`/bin/kenv xvesa 2>/dev/null`
   if [ $? -eq 0 ]; then
         xvesa=$v
   fi
