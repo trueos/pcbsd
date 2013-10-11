@@ -114,7 +114,8 @@ TRANSLATIONS =  i18n/ZManager_af.ts \
                 i18n/ZManager_zu.ts
 
 dotrans.path=/usr/local/share/pcbsd/i18n/
-dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm /usr/local/share/pcbsd/i18n/
+dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_RO
+OT)/usr/local/share/pcbsd/i18n/
 
 icons.path=/usr/local/share/pcbsd/icons
 icons.files=icons/zmanager.png
