@@ -14,7 +14,6 @@ RUN_DEPENDS=	pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		svn:${PORTSDIR}/devel/subversion \
 		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \
 		debootstrap:${PORTSDIR}/sysutils/debootstrap \
-		aria2c:${PORTSDIR}/www/aria2 \
 		sipcalc:${PORTSDIR}/net-mgmt/sipcalc \
 		eject:${PORTSDIR}/sysutils/eject \
 		unzip:${PORTSDIR}/archivers/unzip \

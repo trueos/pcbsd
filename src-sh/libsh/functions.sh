@@ -118,10 +118,10 @@ get_mirror() {
 }
 
 # Function which returns the installed list of PC-BSD mirrors for use
-# with the aria2c command
+# with the fetch command
 # Will return just a single mirror, if the user has manually specified one
 # in /usr/local/etc/pcbsd.conf
-get_aria_mirror_list()
+get_mirror_loc()
 {
   if [ -z $1 ] ; then
      exit_err "Need to supply file to grab from mirrors..."
@@ -160,7 +160,8 @@ get_aria_mirror_list()
   # Build the mirror list
   while read line
   do
-    VAL="$VAL ${line}${1}"
+    VAL="${line}${1}"
+    break
   done < ${mirrorFile}
   echo ${VAL}
 }
@@ -182,30 +183,13 @@ get_file_from_mirrors()
    # Get any proxy information
    . /etc/profile
 
-   # Split up the dir / file name
-   local aDir=`dirname $_lf`
-   local aFile=`basename $_lf`
-
-   # Server status flag
-   if [ `id -u` = "0" ] ; then
-      aStatFile=/root/.pcbsd-aria-stat
-   else
-      aStatFile=${HOME}/.pcbsd-aria-stat
-   fi
-
-   if [ -e "$aStatFile" ] ; then
-     local aStat="--server-stat-of=$aStatFile --server-stat-if=$aStatFile --uri-selector=adaptive --server-stat-timeout=864000"
-   else
-     local aStat="--server-stat-of=$aStatFile --uri-selector=adaptive"
-   fi
-   touch $aStatFile
-
    # Get mirror list
-   local mirrorList="$(get_aria_mirror_list ${_rf} ${_mtype})"
-   
+   local mirrorLoc="$(get_mirror_loc ${_rf} ${_mtype})"
+   mirrorLoc="`echo $mirrorLoc | awk '{print $1}'`"
+
    # Running from a non GUI?
    if [ "$GUI_FETCH_PARSING" != "YES" -a "$PBI_FETCH_PARSING" != "YES" -a -z "$PCFETCHGUI" ] ; then
-      aria2c ${aStat} --check-certificate=false --file-allocation=none -d "${aDir}" -o "${aFile}" ${mirrorList}
+      fetch -o "${_lf}" ${mirrorLoc}
       return $?
    fi
 
@@ -213,14 +197,14 @@ get_file_from_mirrors()
 
    # Doing a front-end download, parse the output of fetch
    _eFile="/tmp/.fetch-exit.$$"
-   fetch -s "`echo ${mirrorList} | awk '{print $1}'`" > /tmp/.fetch-size.$$ 2>/dev/null
+   fetch -s ${mirrorLoc} > /tmp/.fetch-size.$$ 2>/dev/null
    _fSize=`cat /tmp/.fetch-size.$$ 2>/dev/null`
    _fSize="`expr ${_fSize} / 1024 2>/dev/null`"
    rm "/tmp/.fetch-size.$$" 2>/dev/null
    _time=1
    if [ -z "$_fSize" ] ; then _fSize=0; fi
 
-   ( aria2c -o ${aFile} -d ${aDir} ${aStat} --check-certificate=false --file-allocation=none ${mirrorList} >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
+   ( fetch -o ${_lf} ${mirrorLoc} >/dev/null 2>/dev/null ; echo "$?" > ${_eFile} ) &
    FETCH_PID=$!
    while : 
    do
