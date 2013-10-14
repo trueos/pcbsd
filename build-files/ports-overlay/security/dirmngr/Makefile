@@ -19,7 +19,6 @@ LIB_DEPENDS=	assuan.0:${PORTSDIR}/security/libassuan \
 		ksba.19:${PORTSDIR}/security/libksba \
 		pth:${PORTSDIR}/devel/pth
 
-USE_GCC=	yes
 USE_BZIP2=	yes
 USES=		iconv
 USE_OPENLDAP=	yes
@@ -29,7 +28,7 @@ INFO=		dirmngr
 MAN1=		dirmngr-client.1 dirmngr.1
 
 CONFIGURE_ARGS+=	--docdir=${DOCSDIR}
-LDFLAGS+=	-L${LOCALBASE}/lib -liber
+LDFLAGS+=	-L${LOCALBASE}/lib -llber-2.4
 
 OPTIONS_DEFINE=	NLS
 
