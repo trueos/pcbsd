@@ -7187,7 +7187,7 @@ EOF
 	mkdir -p ${PBI_CHROOTDIR}${PBI_CREATE_OUTDIR} >/dev/null 2>/dev/null
 
 	# Check for ccache being enabled on the host and nullfs mount it to the chroot
-	if [ -n "${CCACHE_DIR}" -a -d "${CCACHE_DIR}" ] ; then
+	if [ -n "${CCACHE_DIR}" -a -d "${CCACHE_DIR}" -a "$PBI_PKGNGBUILD" != "YES" ] ; then
 		mkdir ${PBI_CHROOTDIR}/.ccache
 		mount_nullfs ${CCACHE_DIR} ${PBI_CHROOTDIR}/.ccache	
 	fi
