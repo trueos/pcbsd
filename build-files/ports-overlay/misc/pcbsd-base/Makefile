@@ -128,7 +128,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		tk85>=0:${PORTSDIR}/x11-toolkits/tk85 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \
 		gdm>=0:${PORTSDIR}/x11/gdm \
-		grub-mkconfig:${PORTSDIR}/sysutils/grub2
+		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
+		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 
 NO_BUILD=	yes
 
