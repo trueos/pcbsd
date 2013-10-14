@@ -1,0 +1,43 @@
+@comment $FreeBSD: editors/vim/pkg-plist 314778 2013-03-20 23:56:59Z bapt $
+bin/vim
+bin/vimtutor
+bin/xxd
+@comment bin/ex
+@comment bin/gex
+bin/eview
+bin/evim
+bin/gview
+bin/gvim
+bin/gvimtutor
+bin/rgview
+bin/rgvim
+bin/rview
+bin/rvim
+bin/vimdiff
+bin/gvimdiff
+@comment bin/view
+@exec mkdir -p %D/share/vim/%%VIM_VER%%/lang
+@comment Insert PLIST.share-vim here
+@comment -=[ begin PLIST.share-vim ]=-
+@comment -=[ end PLIST.share-vim ]=-
+%%NLS%%@dirrmtry man/fr/man1
+%%NLS%%@dirrmtry man/fr
+%%NLS%%@dirrmtry man/fr.ISO8859-1/man1
+%%NLS%%@dirrmtry man/fr.ISO8859-1
+%%NLS%%@dirrmtry man/fr.UTF-8/man1
+%%NLS%%@dirrmtry man/fr.UTF-8
+%%NLS%%@dirrmtry man/it/man1
+%%NLS%%@dirrmtry man/it
+%%NLS%%@dirrmtry man/it.ISO8859-1/man1
+%%NLS%%@dirrmtry man/it.ISO8859-1
+%%NLS%%@dirrmtry man/it.UTF-8/man1
+%%NLS%%@dirrmtry man/it.UTF-8
+%%NLS%%@dirrmtry man/pl/man1
+%%NLS%%@dirrmtry man/pl
+%%NLS%%@dirrmtry man/pl.ISO8859-2/man1
+%%NLS%%@dirrmtry man/pl.ISO8859-2
+%%NLS%%@dirrmtry man/pl.UTF-8/man1
+%%NLS%%@dirrmtry man/pl.UTF-8
+%%NLS%%@dirrmtry man/ru.UTF-8/man1
+%%NLS%%@dirrmtry man/ru.UTF-8
+@dirrm share/vim
