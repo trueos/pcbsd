@@ -414,7 +414,7 @@ void wizardDisk::generateDiskLayout()
      fsType= "ZFS";
 
      // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
-    fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lzjb),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lzjb),/usr/pbi,/usr/ports(compress=gzip),/usr/ports/distfiles(compress=off),/usr/src(compress=gzip),/var(canmount=off),/var/audit(compress=lzjb),/var/log(compress=gzip),/var/tmp(compress=lzjb)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
+    fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=lz4),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
 
