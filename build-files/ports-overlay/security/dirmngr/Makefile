@@ -29,7 +29,7 @@ INFO=		dirmngr
 MAN1=		dirmngr-client.1 dirmngr.1
 
 CONFIGURE_ARGS+=	--docdir=${DOCSDIR}
-LDFLAGS+=	-L${LOCALBASE}/lib
+LDFLAGS+=	-L${LOCALBASE}/lib -liber
 
 OPTIONS_DEFINE=	NLS
 

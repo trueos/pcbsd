@@ -13,6 +13,9 @@ MAINTAINER=	glarkin@FreeBSD.org
 COMMENT?=	A security tool to monitor and check logs and intrusions
 
 USE_GCC=	yes
+CC=gcc46
+CXX=g++46
+CPP=cpp46
 USE_RC_SUBR=	ossec-hids
 
 .if defined(MAINTAINER_MODE)

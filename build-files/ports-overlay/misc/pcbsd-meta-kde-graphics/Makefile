@@ -18,8 +18,7 @@ RUN_DEPENDS=	kdegraphics>=0:${PORTSDIR}/graphics/kdegraphics4 \
 		kipi-plugins>=0:${PORTSDIR}/graphics/kipi-plugins-kde4 \
 		kcoloredit>=0:${PORTSDIR}/graphics/kcoloredit \
 		kiconedit>=0:${PORTSDIR}/graphics/kiconedit \
-		skanlite>=0:${PORTSDIR}/graphics/skanlite \
-		hugin>=0:${PORTSDIR}/graphics/hugin
+		skanlite>=0:${PORTSDIR}/graphics/skanlite 
 
 NO_BUILD=	yes
 

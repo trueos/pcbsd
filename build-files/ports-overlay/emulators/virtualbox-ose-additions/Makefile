@@ -22,7 +22,7 @@ BUILD_DEPENDS=	yasm:${PORTSDIR}/devel/yasm \
 
 UNIQUENAME=	${PORTNAME}${PKGNAMESUFFIX}
 WRKSRC=		${WRKDIR}/VirtualBox-${PORTVERSION}
-USE_GCC=	yes
+USE_GCC=	4.7
 USE_RC_SUBR=	vboxguest vboxservice
 USES=		iconv
 ONLY_FOR_ARCHS=	i386 amd64
