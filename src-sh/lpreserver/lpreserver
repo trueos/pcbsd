@@ -492,13 +492,13 @@ revertsnap) require_root
          ;;
     status) listStatus
          ;;
- replicate) require_root
-	    shift
+ replicate) shift
 	    case ${1} in
-		add) add_rep_task "$2" "$3" "$4" "$5" "$6" "$7" ;;
-		init) init_rep_task "$2" ;;
+		add) require_root ; add_rep_task "$2" "$3" "$4" "$5" "$6" "$7" ;;
+		init) require_root ; init_rep_task "$2" ;;
 		list) list_rep_task ;;
-		remove) cat ${REPCONF} | grep -q "^${2}:" 
+		remove) require_root
+		        cat ${REPCONF} | grep -q "^${2}:" 
 			if [ $? -eq 0 ] ; then
 			   rem_rep_task "$2"
 		  	   echo "Removed replication task for $2"
