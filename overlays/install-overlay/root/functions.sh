@@ -67,3 +67,9 @@ start_xorg()
   fi
 
 }
+
+rtn()
+{
+   echo "Press ENTER to continue"
+   read tmp
+}

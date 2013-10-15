@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2007 PC-BSD Software
+# Copyright 2013 PC-BSD Software
 # http://www.pcbsd.com
 # Author: Kris Moore
 ###########################################################################
