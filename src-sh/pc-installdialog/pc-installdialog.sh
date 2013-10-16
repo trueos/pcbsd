@@ -44,6 +44,7 @@ get_sys_type()
 get_target_disk()
 {
   # Now we prompt for the disk to install on
+  dOpts=""
   pc-sysinstall disk-list > /tmp/.dList.$$
   while read i
   do
@@ -239,19 +240,73 @@ gen_pc-sysinstall_cfg()
  
 }
 
-# Start the wizard
-get_sys_type
-get_target_disk
-get_target_part
+change_disk_selection() {
+  get_target_disk
+  get_target_part
+  gen_pc-sysinstall_cfg
+}
 
-# If doing a server setup, need to prompt for some more details
-if [ "$SYSTYPE" = "server" ] ; then
-   get_root_pw
-   get_user_name
-   get_user_pw
-   get_user_realname
-   get_user_shell
+start_full_wizard() 
+{
+  # Start the wizard
+  get_sys_type
+  get_target_disk
+  get_target_part
+
+  # If doing a server setup, need to prompt for some more details
+  if [ "$SYSTYPE" = "server" ] ; then
+     get_root_pw
+     get_user_name
+     get_user_pw
+     get_user_realname
+     get_user_shell
+  fi
+  gen_pc-sysinstall_cfg
+}
+
+start_menu_loop()
+{
+
+  while :
+  do
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 15 40 10 wizard "Run install wizard" disk "Change disk ($SYSDISK)" view "View install script" edit "Edit install script" install "Start the installation" quit "Quit install wizard" 2>/tmp/answer
+    if [ $? -ne 0 ] ; then break ; fi
+
+    ANS="`cat /tmp/answer`"
+
+    case $ANS in
+     wizard) start_full_wizard
+             rtn
+             ;;
+       disk) change_disk_selection
+             rtn
+             ;;
+       view) more ${CFGFILE}
+             rtn
+             ;;
+       edit) vi ${CFGFILE}
+             rtn
+             ;;
+    install) echo "This will begin the installation, continue?"
+             echo -e "(y/n)\c"
+             read tmp
+             if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
+                pc-sysinstall -c ${CFGFILE}
+                rtn
+             fi
+             ;;
+       quit) break ;;
+          *) ;;
+    esac
+  done
+
+}
+
+if [ ! -e "$CFGFILE" ] ; then
+   start_full_wizard
+   start_menu_loop
+else
+   start_menu_loop
 fi
 
-gen_pc-sysinstall_cfg
 exit 0

@@ -7,40 +7,6 @@
 
 . /root/functions.sh
 
-text_install_menu()
-{
-
-  while :
-  do
-    if [ -e "/tmp/sys-install.cfg" ] ; then
-      dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 20 55 15 wizard "Re-Run install wizard" edit "Edit install script" install "Start installation" back "Return to previous menu" 2>/tmp/answer
-    else
-      dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 20 55 15 wizard "Run install wizard" back "Return to previous menu" 2>/tmp/answer
-    fi
-
-    ANS="`cat /tmp/answer`"
-
-    case $ANS in
-     wizard) pc-installdialog
-             rtn
-             ;;
-       edit) vi /tmp/sys-install.cfg
-             rtn
-             ;;
-    install) echo "This will begin the installation, continue?"
-             echo -e "(y/n)\c"
-             read tmp
-             if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
-                pc-sysinstall -c /tmp/sys-install.cfg
-                rtn
-             fi
-             ;;
-       back) break ;;
-          *) ;;
-    esac
-  done
-}
-
 DRES="1024x768" 
 
 while
@@ -52,7 +18,7 @@ dialog --title "PC-BSD Installation Menu" --menu "Please select from the followi
 ANS="`cat /tmp/answer`"
 
 case $ANS in
-    install) text_install_menu ;;
+    install) /usr/local/bin/pc-installdialog ;;
     xinstall) echo "Starting PC-BSD System Installer.. Please wait.."
              startx 2>/tmp/Xerrors ;;
        vesa) echo "Starting PC-BSD System Installer.. Please wait.."
