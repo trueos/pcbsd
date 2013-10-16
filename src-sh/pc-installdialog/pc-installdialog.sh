@@ -302,11 +302,13 @@ start_menu_loop()
 
 }
 
+
+
 if [ ! -e "$CFGFILE" ] ; then
-   start_full_wizard
-   start_menu_loop
-else
-   start_menu_loop
+   cp ${CFGFILE} ${CFGFILE}.bak
+   rm ${CFGFILE}
 fi
+
+start_menu_loop
 
 exit 0
