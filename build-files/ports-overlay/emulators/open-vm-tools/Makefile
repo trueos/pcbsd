@@ -22,7 +22,7 @@ WRKSRC=			${WRKDIR}/open-vm-tools-${RELEASE_VER}-${BUILD_VER}
 GNU_CONFIGURE=		yes
 USES=			pkgconfig
 USE_LDCONFIG=		yes
-USE_GCC=		yes
+USE_GCC=		4.2
 CPPFLAGS+=		-Wno-deprecated-declarations
 
 SSP_UNSAFE=		kernel module does not support ssp
