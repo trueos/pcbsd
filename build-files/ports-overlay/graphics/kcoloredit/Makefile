@@ -12,7 +12,8 @@ DIST_SUBDIR=	KDE/extragear
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	Palette files editor for KDE
 
-USE_GCC=	yes
+USE_GCC=	4.7+
+USE_GMAKE=	yes
 USE_BZIP2=	yes
 USE_KDE4=	kdelibs kdeprefix kdehier automoc4
 USE_QT4=	corelib qmake_build moc_build rcc_build uic_build
