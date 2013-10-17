@@ -24,7 +24,7 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		bash:${PORTSDIR}/shells/bash \
 		zsh:${PORTSDIR}/shells/zsh \
 		nano:${PORTSDIR}/editors/nano \
-		vim:${PORTSDIR}/editors/vim-lite \
+		vim:${PORTSDIR}/editors/vim \
 		rsync:${PORTSDIR}/net/rsync \
 		svn:${PORTSDIR}/devel/subversion \
 		mksquashfs:${PORTSDIR}/sysutils/squashfs-tools \

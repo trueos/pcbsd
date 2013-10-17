@@ -44,7 +44,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		cdrdao:${PORTSDIR}/sysutils/cdrdao \
 		growisofs:${PORTSDIR}/sysutils/dvd+rw-tools \
 		ssh-askpass:${PORTSDIR}/security/openssh-askpass \
-		vim:${PORTSDIR}/editors/vim-lite \
+		vim:${PORTSDIR}/editors/vim \
 		cups-smb-backend>=0:${PORTSDIR}/print/cups-smb-backend \
 		cups-pdf>=0:${PORTSDIR}/print/cups-pdf \
 		cups-bjnp>=0:${PORTSDIR}/print/cups-bjnp \
