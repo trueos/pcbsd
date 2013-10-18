@@ -775,20 +775,16 @@ void Installer::slotChangeLanguage()
       QCoreApplication::installTranslator(translator);
       this->retranslateUi(this);
     }
-}
 
-void Installer::changeLang(QString code)
-{
-   // Change the language in the combobox with the current running one
-   comboLanguage->disconnect();
-
-   for (int i=0; i < languages.count(); ++i) {
-      if ( languages.at(i).indexOf("(" + code + ")" ) != -1 ) {
-        comboLanguage->setCurrentIndex(i); 
-      }
-   }
-
-   connect(comboLanguage, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotChangeLanguage()));
+    // Change the default keyboard layout
+    if ( langCode == "en" ) {
+       Scripts::Backend::changeKbMap(langCode, "pc104", "");
+    } else {
+       // TODO - At some point, add additional tests here and set more specific layouts
+       // based upon the language selected
+       Scripts::Backend::changeKbMap(langCode, "pc105", "intl");
+    }
+    
 }
 
 QStringList Installer::getGlobalCfgSettings()
