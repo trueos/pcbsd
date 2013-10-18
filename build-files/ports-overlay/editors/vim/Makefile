@@ -10,8 +10,8 @@ PORTNAME?=	vim
 #		! Doing so is dis-genuine.  It implies we're at a level we are
 #		! not.  The "PATCHLEVEL" patch needs to apply before bumping
 #		! PATCHLEVEL to that level.
-PATCHLEVEL=	1314
-PORTVERSION=	7.3.${PATCHLEVEL}
+PATCHLEVEL=	052
+PORTVERSION=	7.4.${PATCHLEVEL}
 RELEASE=	vim-${PORTVERSION:C/\.[0-9a-z]*$//}
 PORTREVISION?=	0
 CATEGORIES?=	editors
@@ -23,7 +23,7 @@ PATCH_SITES=	${MASTER_SITES:S|unix|patches/${PORTVERSION:C/\.[0-9a-z]*$//}|}\
 PATCHFILES!=	/usr/bin/jot -s " " -w ${PORTVERSION:C/\.[0-9]*$//}.%03d  \
 			${PATCHLEVEL} 1 ${PATCHLEVEL}
 #	bits to remove
-BADPATCHES=	527 780 796 873 890 1104 1111
+BADPATCHES=	
 .for p in ${BADPATCHES}
 PATCHFILES:=	${PATCHFILES:N7.3.${p}}
 .endfor
@@ -31,7 +31,6 @@ PATCHFILES:=	${PATCHFILES:N7.3.${p}}
 MAINTAINER?=	obrien@FreeBSD.org
 COMMENT?=	Vi "workalike", with many additional features
 
-WITH_GCC=	4.2
 SLAVEDIRS=	editors/vim-lite
 NO_STAGE=	yes
 
