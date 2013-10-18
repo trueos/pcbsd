@@ -192,5 +192,9 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Reboot required for update to finish!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

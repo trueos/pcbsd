@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Software and updates</source>
-        <translation>Software und Updates</translation>
+        <translation>Anwendungen und Aktualisierungen</translation>
     </message>
     <message>
         <source>System management</source>

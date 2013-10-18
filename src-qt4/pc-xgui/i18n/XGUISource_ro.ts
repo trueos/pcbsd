@@ -14,8 +14,7 @@
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Afișajul a fost configurat. Păstrați aceste setări?            </translation>
     </message>
 </context>
 <context>
@@ -151,18 +150,15 @@ Dacă ecranul nu apare, vă rugăm să aşteptaţi şi vă veţi întoarce la ac
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok      </translation>
     </message>
     <message>
         <source>Resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rezoluție:            </translation>
     </message>
     <message>
         <source>Driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Driver:            </translation>
     </message>
 </context>
 </TS>

@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation>Host:</translation>
+        <translation>Systeem:</translation>
     </message>
     <message>
         <source>????</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>FreeBSD-basis            </translation>
+        <translation>FreeBSD-basis</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>Grafische werkomgevinggereedschappen van PC-BSD:</translation>
+        <translation>Grafische hulpmiddelen van PC-BSD:</translation>
     </message>
 </context>
 </TS>

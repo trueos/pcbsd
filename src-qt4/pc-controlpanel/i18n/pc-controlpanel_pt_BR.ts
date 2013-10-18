@@ -5,7 +5,7 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation>Panel de Controle do PCBSD</translation>
+        <translation>Painel de Controle do PCBSD</translation>
     </message>
     <message>
         <source>Software and updates</source>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>System management</source>
-        <translation>Geremciamento do sistema</translation>
+        <translation>Gerenciamento do sistema</translation>
     </message>
     <message>
         <source>Hardware</source>
@@ -22,10 +22,6 @@
     <message>
         <source>Networking</source>
         <translation>Rede</translation>
-    </message>
-    <message>
-        <source>Desktop environment</source>
-        <translation>Ambiente Desktop</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -49,7 +45,7 @@
     </message>
     <message>
         <source>Enlightenment</source>
-        <translation>Enlightenmen</translation>
+        <translation>Enlightenment</translation>
     </message>
     <message>
         <source>XFCE</source>
@@ -57,15 +53,11 @@
     </message>
     <message>
         <source>unsupported</source>
-        <translation>Não suportados</translation>
+        <translation>não suportado</translation>
     </message>
     <message>
         <source>(current)</source>
         <translation>(atual)</translation>
-    </message>
-    <message>
-        <source>Unsupported DE</source>
-        <translation>Desktop não suportado</translation>
     </message>
     <message>
         <source>(All installed)</source>
@@ -98,6 +90,14 @@
     <message>
         <source>What do you want to configure?</source>
         <translation>O que você quer configurar?</translation>
+    </message>
+    <message>
+        <source>Desktop environment</source>
+        <translation type="unfinished">Ambiente de trabalho</translation>
+    </message>
+    <message>
+        <source>Unsupported DE</source>
+        <translation type="unfinished">Ambiente de trabalho não suportado</translation>
     </message>
 </context>
 </TS>

@@ -243,5 +243,9 @@
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
         <translation>Vous avez actuellement des modifications non enregistrées dans la configuration de GRUB. Voulez-vous arrêter de toute manière?</translation>
     </message>
+    <message>
+        <source>You cannot make a copy of the currently running boot environment!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

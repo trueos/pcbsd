@@ -5,7 +5,7 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation>声音配置  </translation>
+        <translation>声音配置</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>

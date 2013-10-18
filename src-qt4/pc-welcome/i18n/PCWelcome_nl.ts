@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Een ongeluk zit in een klein hoekje. Schijven kunnen stuk gaan en bestanden kunnen zoek raken. Daarom heeft PC-BSD &quot;Reddingsvest&quot;, een programma dat het makkelijk maakt uw gegevens te synchroniseren met een FreeNAS of met een ander soort netwerkopslag.</translation>
+        <translation>Een ongeluk zit in een klein hoekje. Schijven kunnen stuk gaan en bestanden kunnen zoek raken. Daarom heeft PC-BSD &quot;Reddingsboei&quot;, een programma dat het makkelijk maakt uw gegevens te synchroniseren met een FreeNAS of met een ander soort netwerkopslag.</translation>
     </message>
     <message>
         <source>Stay up to date</source>
@@ -85,7 +85,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Keep your computer current and secure with the online updater tool. When the icon changes to yellow there are important system updates ready to be installed. If it turns blue, then applications you have downloaded from the AppCafe are ready to be updated.</source>
-        <translation>Met het Updategereedschap zorgt u ervoor dat uw computer bijgewerkt en veilig blijft. Wordt het pictogram geel, dan zijn er belangrijke systeemupdates beschikbaar. Wordt het pictogram blauw, dan staat er een nieuwe versie van een toepassing uit het AppCafe voor u klaar.</translation>
+        <translation>Met het Updategereedschap zorgt u ervoor dat uw computer bijgewerkt en veilig blijft. Wordt het pictogram geel, dan zijn er belangrijke bijgewerkte systeempakketten beschikbaar. Wordt het pictogram blauw, dan staat er een nieuwe versie van een toepassing uit het AppCafe voor u klaar.</translation>
     </message>
     <message>
         <source>Get involved</source>

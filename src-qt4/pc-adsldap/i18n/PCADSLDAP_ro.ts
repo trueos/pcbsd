@@ -5,148 +5,119 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Director activ            </translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Activare director activ            </translation>
     </message>
     <message>
         <source>Domain Name (DNS/Realm-Name)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume domeniu (DNS/Domeniul-Nume)            </translation>
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume NetBIOS            </translation>
     </message>
     <message>
         <source>Workgroup Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Numele Grupului de lucru            </translation>
     </message>
     <message>
         <source>Allow Trusted Domains</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permiteți domenii de încredere            </translation>
     </message>
     <message>
         <source>Administrator Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume administrator</translation>
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parolă administrator            </translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parolă administrator (Confirmare)            </translation>
     </message>
     <message>
         <source>LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LDAP            </translation>
     </message>
     <message>
         <source>Enable LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Activare LDAP            </translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume gazdă</translation>
     </message>
     <message>
         <source>Base DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DN de bază            </translation>
     </message>
     <message>
         <source>Allow Anon Binding</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permite obligatoriu Anon            </translation>
     </message>
     <message>
         <source>Root bind DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DN root obligatoriu            </translation>
     </message>
     <message>
         <source>Root bind password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parolă root pbligatorie            </translation>
     </message>
     <message>
         <source>Password Encryption</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criptare a parolei            </translation>
     </message>
     <message>
         <source>User Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sufix utilizator            </translation>
     </message>
     <message>
         <source>Group Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sufix grup            </translation>
     </message>
     <message>
         <source>Password Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sufix parolă            </translation>
     </message>
     <message>
         <source>Machine Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sufix mașină            </translation>
     </message>
     <message>
         <source>Encryption Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mod criptare            </translation>
     </message>
     <message>
         <source>Self Signed Certificate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Certificat de autosemnare            </translation>
     </message>
     <message>
         <source>Auxiliary Parameters</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parametrii auxiliari</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Salvare            </translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Închide            </translation>
     </message>
     <message>
         <source>Active Directory Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurare director activ            </translation>
     </message>
     <message>
         <source>The Active Directory passwords specified do not match!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parolele directorului activ specificate nu se potrivesc!            </translation>
     </message>
     <message>
         <source>AD and LDAP Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurare AD și LDAP            </translation>
     </message>
 </context>
 </TS>

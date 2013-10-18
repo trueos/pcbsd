@@ -223,10 +223,6 @@
         <translation>Open the browser page for the selected application</translation>
     </message>
     <message>
-        <source>Open Browser</source>
-        <translation>Open Browser</translation>
-    </message>
-    <message>
         <source>Automatically update the selected application when an update is available</source>
         <translation>Automatically update the selected application when an update is available</translation>
     </message>
@@ -485,6 +481,18 @@
     <message>
         <source>Start the application</source>
         <translation>Start the application</translation>
+    </message>
+    <message>
+        <source>Product Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to install this application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

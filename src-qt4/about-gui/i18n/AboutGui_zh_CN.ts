@@ -41,11 +41,11 @@
     </message>
     <message>
         <source>CPU:</source>
-        <translation>CPU:</translation>
+        <translation>CPU：</translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation>内存：</translation>
+        <translation>内存</translation>
     </message>
     <message>
         <source>Back</source>

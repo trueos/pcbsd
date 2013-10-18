@@ -244,40 +244,39 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome da máquina do sistema</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">Habilitar DNS personalizado</translation>
+        <translation>Habilitar DNS personalizado</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation type="unfinished">Habilitar Gateway personalizado</translation>
+        <translation>Habilitar Gateway personalizado</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
-        <translation type="unfinished">DNS IPv6 especificado inválido</translation>
+        <translation>DNS IPv6 especificado inválido</translation>
     </message>
     <message>
         <source>Invalid IPv6 Gateway specified</source>
-        <translation type="unfinished">Gateway IPv6 especificado inválido</translation>
+        <translation>Gateway IPv6 especificado inválido</translation>
     </message>
     <message>
         <source>Invalid DNS specified</source>
-        <translation type="unfinished">DNS especificado inválido</translation>
+        <translation>DNS especificado inválido</translation>
     </message>
     <message>
         <source>Invalid Gateway specified</source>
-        <translation type="unfinished">Gateway especificado inválido</translation>
+        <translation>Gateway especificado inválido</translation>
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">Proxy habilitado</translation>
+        <translation>Proxy ativado</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation type="unfinished">Você precisa logar novamente para que as configurações do proxy tenham efeito.</translation>
+        <translation>Você pode precisar logar novamente para que as configurações do proxy entrem em vigor.</translation>
     </message>
 </context>
 </TS>

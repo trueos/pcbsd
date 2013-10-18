@@ -5,118 +5,95 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Despre</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versiune</translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Necunoscut</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gazdă       </translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????            </translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Componentele FreeBSD de bază            </translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arhitectură            </translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ident            </translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hardware            </translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CPU:            </translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mem.            </translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Înapoi            </translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Medii grafice de lucru</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Vă rugăm așteptați...)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume            </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versiune</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Închide            </translation>
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Testarea snapshot % 1. Poate fi instabilă!            </translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versiune server X.org   </translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Componentele sistemului...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Medii grafice de lucru...            </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitățile CLI ale PC-BSD: </translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitățile UI ale PC-BSD:            </translation>
     </message>
 </context>
 </TS>

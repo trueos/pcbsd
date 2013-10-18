@@ -5,7 +5,7 @@
     <name>AddDlg</name>
     <message>
         <source>Add a port</source>
-        <translation>Adicionar uma port</translation>
+        <translation>Adicionar uma porta</translation>
     </message>
     <message>
         <source>Add</source>

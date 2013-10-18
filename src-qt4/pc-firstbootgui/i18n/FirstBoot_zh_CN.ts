@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation>完成(&amp;F)            </translation>
+        <translation>完成(&amp;F)</translation>
     </message>
     <message>
         <source>Change the installation language</source>
@@ -101,23 +101,19 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统主机名</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>输入一个有效的用户名，或者使用默认的。</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>请输入一个主机名</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>主机名只能使用字母和数字</translation>
     </message>
 </context>
 <context>
@@ -151,14 +147,14 @@
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation>关闭(&amp;C)            </translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation>关闭(&amp;C)            </translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -177,11 +173,11 @@
     </message>
     <message>
         <source>Show network key as text</source>
-        <translation>显示网络密码为明文 </translation>
+        <translation>显示网络密码为明文</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>应用           </translation>
+        <translation>应用</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -189,13 +185,13 @@
     </message>
     <message>
         <source>Network Key Error</source>
-        <translation>网络密码错误            </translation>
+        <translation>网络密码错误</translation>
     </message>
     <message>
         <source>Error: The entered network keys do not match!
 </source>
-        <translation>错误: 输入的网络密码不符合！
-            </translation>
+        <translation>错误：输入的网络密码不符合！
+</translation>
     </message>
 </context>
 <context>
@@ -206,7 +202,7 @@
     </message>
     <message>
         <source>Key Layout</source>
-        <translation>键盘布局            </translation>
+        <translation>键盘布局</translation>
     </message>
     <message>
         <source>Variant</source>
@@ -218,7 +214,7 @@
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation>(你可以在下面空白处打字，测试你选择的设置。)            </translation>
+        <translation>(你可以在下面空白处打字，测试你选择的设置。)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>

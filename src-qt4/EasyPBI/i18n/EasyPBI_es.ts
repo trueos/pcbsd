@@ -5,7 +5,7 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">EasyPBI</translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">Icono</translation>
+        <translation>Icono</translation>
     </message>
     <message>
         <source>Build Information</source>
@@ -357,7 +357,7 @@
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Archivo</translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>Link To</source>
@@ -461,7 +461,7 @@
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">Guardar registro de compilación</translation>
+        <translation>Guardar historial de compilación</translation>
     </message>
     <message>
         <source>System</source>
@@ -617,8 +617,7 @@
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No se ha encontrado el árbol de ports FreeBSD en el sistema. Puede obtener el árbol de ports a través del menú de EasyPBI o indicar la ruta de acceso al árbol de ports en las preferencias de EasyPBI si está instalado en una ubicación no estándar.</translation>
     </message>
     <message>
         <source>Select Port</source>
@@ -630,8 +629,7 @@
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El directorio elegido no es un puerto FreeBSD válido. Por favor, elija un directorio válido que contenga los ficheros correspondientes Makefile y distinfo.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -639,8 +637,7 @@
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No se ha podido guardar el fichero de configuración PBI. Por favor, compruebe los permisos del fichero antes de intentarlo de nuevo.</translation>
     </message>
     <message>
         <source>Select Resources</source>
@@ -648,8 +645,7 @@
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nuevo Wrapper Script</translation>
     </message>
     <message>
         <source>Filename</source>
@@ -689,7 +685,7 @@
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">¿Está seguro que desea iniciar la construcción del PBI?</translation>
+        <translation>¿Está seguro de que desea iniciar la construcción del PBI?</translation>
     </message>
     <message>
         <source>PBI Builder (Working)</source>
@@ -717,7 +713,7 @@
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">El PBI se ha podido construir.</translation>
+        <translation>El PBI no se ha podido construir.</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
@@ -757,8 +753,7 @@
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La aplicación necesita privilegios de administrador para funcionar.</translation>
     </message>
     <message>
         <source>Requires Root</source>
@@ -777,23 +772,19 @@
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construir un PBI a partir del módulo actual (requiere privilegios de administrador)</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esto requiere una conexión a Internet en funcionamiento y privilegios de administrador. El tiempo necesario para construir un PBI varía dependiendo de las características del sistema y el número de ports a compilar.</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El directorio elegido no para contener un puerto FreeBSD válido.</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Desea seguir usándolo de todas formas?</translation>
     </message>
 </context>
 <context>
@@ -860,8 +851,7 @@
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No se ha encontrado el árbol de ports FreeBSD en el sistema. Puede obtenerlo a través del menú de EasyPBI o indicar la ruta de acceso al mismo en las preferencias de EasyPBI si el árbol ha sido instalado en una ubicación diferente de la estándar.</translation>
     </message>
     <message>
         <source>Select Port</source>
@@ -996,18 +986,15 @@
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icono PNG por defecto para los módulos PBI.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buscar en el sistema un icono PNG por defecto.</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hacer que EasyPBI busque de nuevo las utilidades disponibles en el sistema.</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
@@ -1035,13 +1022,11 @@
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilidad de cambio de usuario.</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ruta de acceso a la utilidad gráfica para cambiar de usuario (pc-su, gksu, kdesu, qsu, etc..)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -1058,23 +1043,19 @@
     </message>
     <message>
         <source>Select the Package to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Escoja el paquete a ignorar</translation>
     </message>
     <message>
         <source>Package Files (*.txz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ficheros de Paquetes (*.txz)</translation>
     </message>
     <message>
         <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Está seguro de que quiere borrar el caché de paquetes PBI?</translation>
     </message>
     <message>
         <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esto borrará todos los directorios y ficheros del caché. La próxima vez que construya un PBI, los paquetes necesarios tendrán que compilarse de nuevo.</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
@@ -1083,48 +1064,39 @@
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Escoja el directorio por defecto donde encontrar ficheros de iconos.</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Escoja el fichero de icono por defecto.</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Imágenes PNG (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seleccione gráficamente el cambio de usuario.</translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indique la ubicación del fichero &apos;pbi_create&apos;</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indique la ubicación del fichero &apos;pbi_makeport&apos;</translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>¿Está seguro de que quiere volver a las rutas de acceso detectadas automáticamente?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Se eliminarán todas las rutas personalizadas de las utilidades externas.</translation>
     </message>
     <message>
         <source>Select FreeBSD Ports Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indique el directorio del árbol de ports FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
@@ -1132,13 +1104,11 @@
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Árbol de ports</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Última actualización</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1152,13 +1122,11 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualización</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>PBI Builds</source>
@@ -1167,18 +1135,15 @@
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilidades Externas</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rutas donde buscar por defecto</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Módulos</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -1186,37 +1151,31 @@
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icono por defecto</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuario actual (~/EasyPBI/ports)</translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Todos los usuarios (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otro</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inexistente</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">éxito</translation>
+        <translation>Éxito</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El árbol de ports FreeBSD ha sido actualizado.</translation>
     </message>
     <message>
         <source>Failure</source>
@@ -1225,8 +1184,7 @@
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La actualización del árbol de ports de FreeBSD ha fallado.</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
@@ -1234,8 +1192,7 @@
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Petición de Acceso Root</translation>
     </message>
 </context>
 <context>
@@ -1246,8 +1203,7 @@
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licencia</translation>
     </message>
     <message>
         <source>Development History</source>
@@ -1260,17 +1216,15 @@
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">Crear PBI de forma rápida y sencilla.</translation>
+        <translation>Crear PBI instantáneamente.</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Imposible abrir el fichero de recursos: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, compruebe que la compilación EasyPBI se ejecutó correctamente.</translation>
     </message>
 </context>
 </TS>

@@ -23,5 +23,10 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>Chybné heslo! Zbývá %1 pokusů.</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

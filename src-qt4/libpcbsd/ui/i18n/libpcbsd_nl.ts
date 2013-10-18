@@ -128,7 +128,7 @@ Indien u nu afbreekt, kunnen de pakketten corrupt worden. Toch afbreken?</transl
     </message>
     <message>
         <source>System packages updated successfully.</source>
-        <translation>Systeempakketten werden met succes bijgewerkt.           </translation>
+        <translation>Systeempakketten werden met succes bijgewerkt.</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -140,15 +140,15 @@ Indien u nu afbreekt, kunnen de pakketten corrupt worden. Toch afbreken?</transl
     </message>
     <message>
         <source>View Packages</source>
-        <translation>Pakketten bekijken           </translation>
+        <translation>Pakketten bekijken</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation>Pakketlijst voor: </translation>
+        <translation>Pakketlijst voor:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation>Aan het binnenhalen: %1            </translation>
+        <translation>Aan het binnenhalen: %1</translation>
     </message>
 </context>
 </TS>

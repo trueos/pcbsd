@@ -77,8 +77,7 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org 서버 버전:</translation>
     </message>
     <message>
         <source>System components...</source>

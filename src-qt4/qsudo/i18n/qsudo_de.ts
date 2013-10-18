@@ -21,7 +21,11 @@
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation>Ungültiges Passwort! Verbleibende Versuche: %1   </translation>
+        <translation>Ungültiges Passwort! Verbleibende Versuche: %1</translation>
+    </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Befehlsdetails umschlalten</translation>
     </message>
 </context>
 </TS>

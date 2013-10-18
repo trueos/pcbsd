@@ -138,10 +138,6 @@
         <translation>Uprawnienia</translation>
     </message>
     <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>Następujące uprawnienia będą włączone lub wyłączone dla tej celi. Więcej szczegółów po podniesieniu każdej z nich lub w instrukcji dla Celi.</translation>
-    </message>
-    <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
         <translation>Proces w celi ma dostęp do System V IPC primitives.</translation>
     </message>
@@ -228,6 +224,10 @@
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
         <translation>Domyślny router IPv6 ( wymaga VNET )</translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -23,5 +23,9 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>パスワードが間違っています。残り試行回数: %1</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>コマンド内容を表示/隠す</translation>
+    </message>
 </context>
 </TS>

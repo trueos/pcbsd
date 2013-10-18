@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
-        <translation>Aan het voorbereiden om te controleren op updates... Even geduld a.u.b...</translation>
+        <translation>Aan het voorbereiden om te controleren op bijgewerkte pakketten... Even geduld a.u.b...</translation>
     </message>
     <message>
         <source>Available Updates</source>
-        <translation>Beschikbare updates</translation>
+        <translation>Beschikbare bijgewerkte pakketten</translation>
     </message>
     <message>
         <source>Select / Deselect All</source>
@@ -21,15 +21,15 @@
     </message>
     <message>
         <source>Update Conflict</source>
-        <translation>Updateconflict</translation>
+        <translation>Conflict met bijwerken</translation>
     </message>
     <message>
         <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
-        <translation>Er is meer dan één afzonderlijk te installeren update geselecteerd. Deselecteer a.u.b. alle andere updates en probeer het opnieuw.</translation>
+        <translation>Er is meer dan één afzonderlijk te installeren bijgewerkt pakket geselecteerd. Deselecteer a.u.b. alle andere bijgewerkte pakketten en probeer het opnieuw.</translation>
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation>Update is mislukt.</translation>
+        <translation>Installeren van bijgewerkt pakket is mislukt.</translation>
     </message>
     <message>
         <source>Failed to install:</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Update Ready</source>
-        <translation>Update gereed</translation>
+        <translation>Bijwerken gereed</translation>
     </message>
     <message>
         <source>Please reboot to start the update to PC-BSD version &quot;</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
-        <translation>Aan het controleren op updates... Even geduld a.u.b...</translation>
+        <translation>Aan het controleren op bijgewerkte pakketten... Even geduld a.u.b...</translation>
     </message>
     <message>
         <source>Your system is fully updated!</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>This update must be installed by itself.</source>
-        <translation>Deze update moet door zichzelf worden geïnstalleerd.</translation>
+        <translation>Dit bijgewerkte pakket moet door zichzelf worden geïnstalleerd.</translation>
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
@@ -81,23 +81,23 @@
     </message>
     <message>
         <source>System Package Updates</source>
-        <translation>Updates voor systeempakket</translation>
+        <translation>Bijgewerkte systeempakketten</translation>
     </message>
     <message>
         <source>The following package updates are available:</source>
-        <translation>De volgende pakketupdates zijn beschikbaar:</translation>
+        <translation>De volgende bijgewerkte pakketten zijn beschikbaar:</translation>
     </message>
     <message>
         <source>Updates for Jail:</source>
-        <translation>Updates voor Gevangenis:</translation>
+        <translation>Bijgewerkte pakketten voor Gevangenis:</translation>
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation>Bezig met starten van de update: %1 (%2 van %3)</translation>
+        <translation>Bezig met starten van bijwerken: %1 (%2 van %3)</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation>Aan het binnenhalen: %1 (update %2 van %3)</translation>
+        <translation>Aan het binnenhalen: %1 (bijgewerkt pakket %2 van %3)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
@@ -121,11 +121,11 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation>Opnieuw zoeken naar updates</translation>
+        <translation>Opnieuw zoeken naar bijgewerkte pakketten</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation>Gekozen updates installeren</translation>
+        <translation>Gekozen bijgewerkte pakketten installeren</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -133,32 +133,31 @@
     </message>
     <message>
         <source>System updates available!</source>
-        <translation>Er zijn systeemupdates beschikbaar.</translation>
+        <translation>Er zijn bijgewerkte systeempakketten beschikbaar.</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Details van bijgewerkt pakket</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bijgewerkte pakketten voor basissysteem</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>De volgende pakketten zullen worden bijgewerkt:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bijzonderheden van bijgewerkt pakket:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon freebsd-update niet draaien, er is al een ander draaiend proces.</translation>
+    </message>
+    <message>
+        <source>Reboot required for update to finish!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

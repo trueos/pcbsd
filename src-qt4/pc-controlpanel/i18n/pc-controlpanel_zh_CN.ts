@@ -97,8 +97,7 @@
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>您想要配置什么？
-            </translation>
+        <translation>您想要配置什么？</translation>
     </message>
 </context>
 </TS>

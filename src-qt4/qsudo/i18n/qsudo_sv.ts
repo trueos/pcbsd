@@ -5,28 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Var god ange din användares lösenord för att köra detta kommando med systemprivilegier</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Begär systemprivilegier</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Åtkomst nekad</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Denna användaren har inte administratörprivilegier på detta system!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ogitligt lösenord! Försök kvar: %1            </translation>
+    </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Växla kommando detaljer</translation>
     </message>
 </context>
 </TS>

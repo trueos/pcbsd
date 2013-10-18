@@ -34,7 +34,7 @@
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
         <translation>警告：软件包正在被更改
-如果现在取消，软件包可以会崩溃。一定要取消吗？            </translation>
+如果现在取消，软件包可以会崩溃。一定要取消吗？</translation>
     </message>
 </context>
 <context>
@@ -77,7 +77,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Private Key File:</source>
-        <translation>私有key文件：            </translation>
+        <translation>私有key文件：</translation>
     </message>
     <message>
         <source>Password:</source>
@@ -144,11 +144,11 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation>包列表：            </translation>
+        <translation>包列表：</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation>正在下载：1%            </translation>
+        <translation>正在下载：1%</translation>
     </message>
 </context>
 </TS>

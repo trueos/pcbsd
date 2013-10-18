@@ -138,118 +138,96 @@
         <translation>Rechten</translation>
     </message>
     <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>De volgende rechten kunnen worden in- of uitgeschakeld voor deze gevangenis. Laat de muispijl rusten op een element voor meer bijzonderheden, of gebruik de handleidingpagina van Gevangenis (manpage).</translation>
-    </message>
-    <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Een proces binnen de gevangenis heeft toegang tot System V IPC primitives.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>De root van de gevangenis mag ruwe sockets maken. Schakelt ping / traceroute in.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wanneer deze parameter is ingesteld, worden gebruikers behandeld als bevoorrecht, en mogen zij vlaggen van systeembestanden veranderen onder de gebruikelijke beperkingen voor kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bevoorrechte gebruikers binnen de gevangenis zullen in staat zijn om bestandssysteemtypes te koppelen en te ontkoppelen, wanneer die zijn aangemerkt als gevangenis-vriendelijk.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bevoorrechte gebruikers binnen de gevangenis zullen in staat zijn om het devfs-bestandssysteem te koppelen en te ontkoppelen.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bevoorrechte gebruikers binnen de gevangenis zullen in staat zijn om het nullfs-bestandssysteem te koppelen en te ontkoppelen.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bevoorrechte gebruikers binnen de gevangenis zullen in staat zijn om het procfs-bestandssysteem te koppelen en te ontkoppelen.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bevoorrechte gebruikers binnen de gevangenis zullen in staat zijn om het zfs-bestandssysteem te koppelen en te ontkoppelen.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>De root van de gevangenis mag quota beheren op de bestandssystemen van de gevangenis.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dit maakt toegang mogelijk tot andere protocollen die geen gevangenisfunctionaliteit hebben gekregen.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv4-adres.</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv4-brugadres.</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv4-routeradres.</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv6-adres.</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv6-brugadres.</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv6-routeradres.</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opties</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Schakel ondersteuning in voor VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-brugadres (vereist VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-standaardrouter (vereist VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-brugadres (vereist VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-standaardrouter (vereist VNET)</translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -260,7 +238,7 @@
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>U hebt de optie om de IP / hostnaam van de geimporteerde Gevangenis te veranderen. Eventuele interne verwijzingen naar de oude IP / hostnaam moeten mogelijk nog steeds worden veranderd na de import. </translation>
+        <translation>U hebt de optie om de IP / systeemnaam van de geïmporteerde Gevangenis te veranderen. Eventuele interne verwijzingen naar de oude IP / systeemnaam moeten mogelijk nog steeds worden veranderd na de import. </translation>
     </message>
     <message>
         <source>Change IP Address</source>
@@ -276,7 +254,7 @@
     </message>
     <message>
         <source>Change Hostname</source>
-        <translation>Hostnaam veranderen</translation>
+        <translation>Systeemnaam veranderen</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
@@ -291,40 +269,35 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gevangenissjablonen</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Een nieuwe Gevangenis toevoegen</translation>
+        <translation>Een nieuwe Gevangenis toevoegen</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">De gekozen Gevangenis verwijderen</translation>
+        <translation>De gekozen Gevangenis verwijderen</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Sluiten</translation>
+        <translation>&amp;Sluiten</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systeemversie</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Welke versie wilt u ophalen?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bijnaam van sjabloon</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voer een bijnaam in voor deze sjabloon:</translation>
     </message>
 </context>
 <context>
@@ -515,7 +488,7 @@
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation>Controleer op updates</translation>
+        <translation>Controleer op bijgewerkte pakketten</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -523,7 +496,7 @@
     </message>
     <message>
         <source>No jail selected!</source>
-        <translation>Geen Gevangenis gekozen!</translation>
+        <translation>Geen Gevangenis gekozen.</translation>
     </message>
     <message>
         <source>Snapshots</source>
@@ -603,7 +576,7 @@
     </message>
     <message>
         <source>(Cloned)</source>
-        <translation>(Gekloond)           </translation>
+        <translation>(Gekloond)</translation>
     </message>
     <message>
         <source>Loading clones...</source>
@@ -675,23 +648,19 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stel de Gevangenis in</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketbeheerder</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sjabloonbeheerder</translation>
     </message>
 </context>
 <context>
@@ -705,7 +674,7 @@
     <name>wizardNewJail</name>
     <message>
         <source>Hostname</source>
-        <translation>Hostnaam</translation>
+        <translation>Systeemnaam</translation>
     </message>
     <message>
         <source>Jailbird</source>
@@ -713,7 +682,7 @@
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation>Kies a.u.b. het type Gevangenis dat u wil aanmaken. </translation>
+        <translation>Kies a.u.b. het type Gevangenis dat u wil maken. </translation>
     </message>
     <message>
         <source>Jail Type</source>
@@ -745,7 +714,7 @@
     </message>
     <message>
         <source>Include ports tree</source>
-        <translation>Ports tree opnemen</translation>
+        <translation>Poortenboom opnemen</translation>
     </message>
     <message>
         <source>Start jail at system bootup</source>
@@ -773,7 +742,7 @@
     </message>
     <message>
         <source>Hostname already used!</source>
-        <translation>Hostnaam is reeds in gebruik.</translation>
+        <translation>Systeemnaam is reeds in gebruik.</translation>
     </message>
     <message>
         <source>IP already used!</source>
@@ -793,43 +762,35 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-adres</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-adres</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traditionele Gevangenis (veilig, beste voor diensten)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installeer PKGNG- en PC-BSD-hulpmiddelen</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gevangenisversie</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gebruik systeemversie (standaard)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig IPv6-adres.</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deze instelhulp zal u begeleiden bij het maken van een nieuwe Gevangenis. Voer eerst een systeemnaam en IP-adres in, die nog niet in gebruik zijn op het netwerk. Indien u voornemens bent om IPv6 te gebruiken bij het benaderen van de Gevangenis, vink dan het vakje aan voor IPv6-adres en voer een geldig IPv6-adres in. Wanneer u gereed bent klikt u op Volgende om door te gaan.</translation>
     </message>
 </context>
 </TS>

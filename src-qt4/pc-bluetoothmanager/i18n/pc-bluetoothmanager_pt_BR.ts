@@ -5,7 +5,7 @@
     <name>btmaingui</name>
     <message>
         <source>BlueTooth Manager</source>
-        <translation>Gerenciador BlueTooth</translation>
+        <translation>Gerenciador de BlueTooth</translation>
     </message>
     <message>
         <source>Current Settings</source>

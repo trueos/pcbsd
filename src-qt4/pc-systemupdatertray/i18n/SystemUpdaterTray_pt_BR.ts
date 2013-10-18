@@ -25,15 +25,15 @@
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation>O seu sistema está completamente actualizado</translation>
+        <translation>O seu sistema está completamente atualizado</translation>
     </message>
     <message>
         <source>System updates available</source>
-        <translation>Actualizações para o sistema estão disponíveis</translation>
+        <translation>As atualizações para o sistema estão disponíveis</translation>
     </message>
     <message>
         <source>PBI updates available</source>
-        <translation>As actualizações PBI estão disponíveis</translation>
+        <translation>As atualizações PBI estão disponíveis</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
@@ -57,11 +57,11 @@
     </message>
     <message>
         <source>Important system updates are available. Click here to install them!</source>
-        <translation>Atualizações importante do sistema estão disponívies. Clique aqui para instalar!</translation>
+        <translation>Atualizações importantes do sistema estão disponíveis. Clique aqui para instalá-los!</translation>
     </message>
     <message>
         <source>Software updates are available. Click here to install them!</source>
-        <translation>Atualizações de aplicativos disponívies. Clique aqui para instalar!</translation>
+        <translation>Atualizações de aplicativos estão disponíveis. Clique aqui para instalá-los!</translation>
     </message>
     <message>
         <source>Restart Required</source>
@@ -101,11 +101,11 @@
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">As atualizações importantes de pacotes estão disponíveis. Clique aqui para instalá-los!</translation>
+        <translation>As atualizações importantes de pacotes estão disponíveis. Clique aqui para instalá-los!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">Iniciar o Gerenciador de Pacotes</translation>
+        <translation>Iniciar o Gerenciador de Pacotes</translation>
     </message>
     <message>
         <source>Package Updates Available</source>

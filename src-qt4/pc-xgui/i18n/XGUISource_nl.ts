@@ -84,7 +84,7 @@ Deze instellingen behouden?</translation>
         <source>The settings you have specified will now be tested.
 If your screen does not appear, please wait and you will be returned to this screen.</source>
         <translation>De instellingen die u opgegeven heeft, zullen nu beproefd worden.
-Als er niets gebeurt, wacht dan a.u.b. even en u komt weer in dit scherm terug.</translation>
+Als er niets gebeurt, wacht dan a.u.b. even en u komt vanzelf weer in dit scherm terug.</translation>
     </message>
     <message>
         <source>Video Card:</source>

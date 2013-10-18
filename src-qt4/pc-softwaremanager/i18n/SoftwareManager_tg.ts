@@ -267,11 +267,6 @@
             </translation>
     </message>
     <message>
-        <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Automatically update the selected application when an update is available</source>
         <translation type="unfinished">
             </translation>
@@ -587,6 +582,18 @@
         <source>Start the application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Product Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to install this application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

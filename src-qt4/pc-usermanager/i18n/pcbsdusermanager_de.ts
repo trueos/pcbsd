@@ -285,7 +285,7 @@
     <name>MainDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Benutzer-Manager</translation>
+        <translation>PC-BSD Benutzerverwaltung</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -353,7 +353,7 @@
     </message>
     <message>
         <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD Benutzer-Manager - Erweiterter Modus</translation>
+        <translation>PC-BSD-Benutzerverwaltung - Erweiterter Modus</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -372,15 +372,15 @@
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Benutzer-Manager</translation>
+        <translation>PC-BSD-Benutzerverwaltung</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schließen</translation>
+        <translation>&amp;Beenden</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Übernehmen</translation>
+        <translation>&amp;Anwenden</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>

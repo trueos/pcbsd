@@ -23,5 +23,9 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>密码无效！还可尝试1%次</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>打开/关闭命令细节</translation>
+    </message>
 </context>
 </TS>

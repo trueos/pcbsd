@@ -91,8 +91,19 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-fail on süsteemist täielikult lahti haagitud.</translation>
+    </message>
+    <message>
+        <source>Device Busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The device appears to be busy. Would you like to unmount it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -149,25 +160,22 @@ Failihaldurit ei saa juurkasutaja õigustega avada</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laadi ISO-fail</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali ISO-fail</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-failid (*.iso)</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">Süsteemisalve sätted</translation>
+        <translation>Süsteemisalve sätted</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>

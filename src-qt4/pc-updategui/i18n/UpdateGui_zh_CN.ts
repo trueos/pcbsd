@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation>开始更新：%1 (%2 / %3)            </translation>
+        <translation>开始更新：%1 (%2 / %3)</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation>下载：%1 (更新 %2 / %3)           </translation>
+        <translation>下载：%1 (更新 %2 / %3)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
@@ -113,31 +113,27 @@
     </message>
     <message>
         <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-        <translation>系统升级正在准备安装。请重启来进行！  </translation>
+        <translation>系统升级正在准备安装。请重启来进行！</translation>
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation>发生了未知错误！            </translation>
+        <translation>发生了未知错误！</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation>重新扫描(&amp;S)更新
-            </translation>
+        <translation>重新扫描(&amp;S)更新</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation>安装(&amp;I)选定的更新
-            </translation>
+        <translation>安装(&amp;I)选定的更新</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>关闭(&amp;C)
-            </translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation>有可用的系统更新！
-            </translation>
+        <translation>有可用的系统更新！</translation>
     </message>
     <message>
         <source>Update Details</source>
@@ -158,6 +154,10 @@
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
         <translation>无法运行freebsd-update，已有另一进程正在运行！</translation>
+    </message>
+    <message>
+        <source>Reboot required for update to finish!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

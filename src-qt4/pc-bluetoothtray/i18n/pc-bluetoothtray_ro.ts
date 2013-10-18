@@ -5,38 +5,31 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dispozitiv nou Bluetooth detectat</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pornire manager Bluetooth            </translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restartate servicii Bluetooth            </translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Închidere panou Bluetooth            </translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vă rugăm așteptați            </translation>
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repornirea serviciilor Bluetooth            </translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Click aici pentru a configura configurațiile dispozitivelor Bluetooth            </translation>
     </message>
 </context>
 </TS>

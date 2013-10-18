@@ -81,8 +81,8 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+            مكونات النظام</translation>
     </message>
     <message>
         <source>Desktop environments...</source>

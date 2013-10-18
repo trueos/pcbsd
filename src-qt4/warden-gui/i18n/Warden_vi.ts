@@ -138,10 +138,6 @@
         <translation>Sự chấp nhận</translation>
     </message>
     <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>Các quyền sau đây có thể được kích hoạt hay diabled cho các này jail. Để biết thêm chi tiết về di chuột qua mỗi mục hoặc tham khảo các trang hướng dẫn tù.</translation>
-    </message>
-    <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
         <translation>Một quá trình trong vòng nhà jail có quyền truy cập vào hệ thống V IPC nguyên thủy.</translation>
     </message>
@@ -228,6 +224,10 @@
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
         <translation>IPv6 Mặc định Router (yêu cầu vnet)</translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

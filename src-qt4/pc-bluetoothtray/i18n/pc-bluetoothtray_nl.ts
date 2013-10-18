@@ -5,7 +5,7 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation>Nieuw Bluetooth-apparaat bespeurd           </translation>
+        <translation>Nieuw Bluetooth-apparaat ontdekt</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation>Bluetooth-systeemvak sluiten           </translation>
+        <translation>Bluetooth-systeemvak sluiten</translation>
     </message>
     <message>
         <source>Please Wait</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation>Bluetooth-diensten aan het herstarten            </translation>
+        <translation>Bluetooth-diensten aan het herstarten </translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>

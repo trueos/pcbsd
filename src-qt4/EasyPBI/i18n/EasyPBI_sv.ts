@@ -5,7 +5,7 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">EasyPBI</translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
@@ -13,132 +13,107 @@
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visa och redigera nuvarande PBI modulen</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI konfiguration</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Huvudinställningar för PBIn</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Programinformation</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Officiella namnet av målprogrammet</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Namn            </translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Version av programmet som kommer packas</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL till webbsidan för målprogramvaran</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Webbsida            </translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skapare av programmet (eller FreeBSD port maintainer som alternativ)            </translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skapare</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikon som kommer användas av programmet (PNG resurs tillgänglig)</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">Ikon</translation>
+        <translation>Ikon</translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bygginformation</translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokal mapp som ska paketeras till en PBI  (måste innehålla allt nödvändigt för ett progam att köras)</translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket mapp            </translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välj en mapp att paketeras till en PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välj</translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Huvud FreeBSD Port</translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD port som ska packas som en PBI</translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välj en FreeBSD port</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Byt port</translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alternativ för portbygge</translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Speciella konfigurationsalternativ för någon port som behövs byggas.</translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Byggalternativ tillgängliga för huvud FreeBSD port</translation>
     </message>
     <message>
         <source>Make Port Before</source>
@@ -146,18 +121,15 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ytterligare FreeBSD portar som ska byggas före huvudprogrammet            </translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lägg till ytterligare FreeBSD port</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ta bort ytterligare FreeBSD port</translation>
     </message>
     <message>
         <source>Make Port After</source>
@@ -165,96 +137,79 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ytterligare FreeBSD portar som ska byggas efter huvudprogrammet</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kräv administratörsrättigheter för att installera denna PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kräver root rättigheter</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spara nuvarande inställningarna till PBI konfigrationsfilen</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spara konfiguration</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">Resurser</translation>
+        <translation>Resurser</translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ytterligare filer att inkluderas i PBIn</translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">Aktuella resurser</translation>
+        <translation>Aktuella resurser</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktuella filer som inkluderas i PBIn</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopiera ytterligare en fil till PBI modulen</translation>
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lägg till fil</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ta bort den valda filen från PBI modulen</translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ta bort fil</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skapa anpassat wrapper skript för programbinären</translation>
     </message>
     <message>
         <source>Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wrapper skript</translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spara wrapper skriptet</translation>
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spara skript</translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resurs ikon</translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resurs beskrivning</translation>
     </message>
     <message>
         <source>XDG Entries</source>

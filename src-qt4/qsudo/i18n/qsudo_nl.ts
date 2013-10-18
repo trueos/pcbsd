@@ -5,28 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voer a.u.b. uw gebruikerswachtwoord in om deze opdracht uit te voeren met systeemrechten</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systeemrechten vragen</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toegang geweigerd</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deze gebruiker heeft geen beheerdersrechten op dit systeem.</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ongeldig wachtwoord. Overgebleven pogingen: %1</translation>
+    </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Opdrachtdetails omschakelen</translation>
     </message>
 </context>
 </TS>

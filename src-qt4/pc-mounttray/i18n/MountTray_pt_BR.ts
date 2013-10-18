@@ -5,7 +5,7 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">Capacidade de disco do sistema</translation>
+        <translation>Capacidade de disco do sistema</translation>
     </message>
     <message>
         <source>Mount Point</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">Porcentagem %</translation>
+        <translation>Percentual %</translation>
     </message>
     <message>
         <source>Close</source>
@@ -32,7 +32,7 @@
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">Disco(s) quase cheio(s)</translation>
+        <translation>Disco(s) quase cheio(s)</translation>
     </message>
 </context>
 <context>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Could not create mount point at %1</source>
-        <translation type="unfinished">Não foi possível criar ponto de montagem em %1</translation>
+        <translation>Não foi possível criar ponto de montagem em %1</translation>
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Error: %1 could not be unmounted</source>
-        <translation type="unfinished">Erro: %1 não pôde ser desmontado</translation>
+        <translation>Erro: %1 não pôde ser desmontado</translation>
     </message>
     <message>
         <source>%1 of disk space available</source>
@@ -91,7 +91,19 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">O arquivo ISO foi completamente retirado do sistema.</translation>
+        <translation>O arquivo ISO foi desanexado completamente do sistema.</translation>
+    </message>
+    <message>
+        <source>Device Busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The device appears to be busy. Would you like to unmount it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -103,12 +115,6 @@
     <message>
         <source>User Detection Error</source>
         <translation>Erro de detecção de usuário</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>Incapaz de determinar o usuário não-root que iniciou a aplicação 
-Não é possível abrir o gerenciador de arquivos com permissões de root</translation>
     </message>
     <message>
         <source>Open Media Directory</source>
@@ -140,7 +146,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">Visualizar uso do disco</translation>
+        <translation>Visualizar o uso do disco</translation>
     </message>
     <message>
         <source>Change Settings</source>
@@ -158,18 +164,21 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
         <source>ISO Files (*.iso)</source>
         <translation>Arquivos ISO (*.iso)</translation>
     </message>
+    <message>
+        <source>Unable to determine the non-root user who started the application 
+Can not open the file manager with root permissions</source>
+        <translation type="unfinished">Incapaz de determinar qual usuário não-administrador que iniciou a aplicação Não é possível abrir o gerenciador de arquivos com permissões de administrador</translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Configurações da Bandeja de Montagem</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Monitorar o espaço no disco de armazenamento</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
@@ -178,8 +187,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tempo máximo entre as verificações (minutos)</translation>
     </message>
     <message>
         <source>Cancel</source>

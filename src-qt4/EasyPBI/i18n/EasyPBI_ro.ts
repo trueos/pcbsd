@@ -5,1517 +5,1216 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Editor Modul</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vizualizare și editare modul PBI curent</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurare PBI</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setări principale pentru PBI</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informații despre program</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Numele oficial al programului țintă</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume</translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versiune a programului care urmează să fie împachetat</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versiune</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL-ul sitului web principal pentru programul de țintă</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Website</translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autor al programului principal (sau în schimb întreținătorul portului FreeBSD portul)</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Author</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictograma care va fi utilizată pentru program (format disponibil PNG)</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictogramă  </translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informații despre construcția pachetului            </translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul local care va fi împachetat într-un PBI (trebuie să conțină tot ce este necesar pentru ca programul să poată rula)</translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul pachetului            </translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un director care să fie împachetat într-un PBI            </translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectare            </translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Portul FreeBSD principal            </translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Portul FreBSD care va fi împachetat ca un PBI            </translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un port FreeBSD            </translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Schimbă port            </translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opțiuni construcție port            </translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opțiuni de configurare speciale pentru toate porturi care trebuie să fie construite.            </translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opțiuni disponobile pentru construirea portului principal FreeBSD            </translation>
     </message>
     <message>
         <source>Make Port Before</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construcție portul înainte</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porturi suplimentare FreeBSD care să fie construite înainte de programul principal            </translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugare port suplimentar FreeBSD            </translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Îndepărtare port suplimentar FreeBSD            </translation>
     </message>
     <message>
         <source>Make Port After</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construcție port după            </translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porturi suplimentare FreeBSD care să fie construite înainte de programul principal            </translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Necesită permisiuni de administrator pentru a instala acest PBI            </translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Necesită permisiuni de root            </translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvare setări curente ale fișierului de configurare PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvare configurare            </translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resurse            </translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișiere suplimentare care să fie incluse în PBI            </translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resurse curente            </translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișierele curente care vor fi incluse în PBI            </translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copiere fișier suplimentar în modul PBI</translation>
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugare fișier        </translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ștergere fișier selectat din modul PBI            </translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Șterge fișier            </translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Crearea unui script wrapper personalizat pentru un program binar            </translation>
     </message>
     <message>
         <source>Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Script wrapper      </translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvare script wrapper            </translation>
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvare script            </translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resursă pictogramă            </translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descriere resursă            </translation>
     </message>
     <message>
         <source>XDG Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Intrări XDE            </translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setați orice mediu grafic/intrări de meniu și orice tip MIME            </translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creare și editare intrări medii grafice            </translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mediu grafic            </translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creare și editare intrări meniu            </translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meniu        </translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizare listă curentă (utilă în cazul fișierele modificate recent în afara lui EasyPBI)            </translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ștergere element curent din modulul PBI            </translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Îndepărtare     </translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detalii intrări            </translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume vizibil pentru element            </translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Executabil            </translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binar care să fi rulat atunci când elementul este activat</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binare detectate automat pentru modulul PBI            </translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictogramă vizibilă pentru element</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Categoria de meniu pentru ca elementul să fie localizat.            </translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Categorii de meniu posibile </translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porniți aplicația într-o sesiune terminal </translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deschide în terminal            </translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Marchează acest element să nu fie afișat deloc            </translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fă-l invizibil</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modele MIME            </translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvați elementul așa cum arată în prezent     </translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creați un element nou cu setările curente </translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scripturi            </translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scripturi suplimentare instalare/construire     </translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alegeți un script pe care doriți să-l creați sau să-l editați            </translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creare script selectat      </translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creare            </translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ștergere script selectat din modulul PBI  </translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvați textul curent ca script selectat            </translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvare            </translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Conținutul scriptului selectat            </translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linkuri externe       </translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișiere care să fie conectate la sistemul local            </translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Intrării curente            </translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișier            </translation>
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Legătură catre            </translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tip fișier            </translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Îndepărtați legătura selectată curent            </translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Îndepărtare intrare            </translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugare intrare            </translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișierul PBI să fie simbolic legat în sistemul local (în raport cu directorul PBI)            </translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binare detectate automat pentru acest PBI            </translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Locația pentru legătură să fie creată (în raport cu baza locală: în mod normal /usr/local/)            </translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Marcaje pentru a determina tipul fișierului            </translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Marcaje disponibile pentru legătura nouă            </translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvați această legătură în modulul PBI            </translation>
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Constructor PBI            </translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilizați modulul curent pentru a construi un PBI      </translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construcția modulului            </translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arată modulul care este în prezent folosit pentru a construi un PBI            </translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>În prezent nu se construiește nici un PBI            </translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul de ieșire            </translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Locație pentru ca PBI terminat să fie amplasat            </translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Afișează toate ieșire unui proces de construcție PBI            </translation>
     </message>
     <message>
         <source>Build PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construire PBI     </translation>
     </message>
     <message>
         <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>OPȚIONAL: Construiți un PBI pe 32 de biți în locul unuia pe 64-biți            </translation>
     </message>
     <message>
         <source>Build 32-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construiți pe 32 de biți            </translation>
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anulați procesul de construcție care rulează în prezent            </translation>
     </message>
     <message>
         <source>Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anulare construire            </translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvați jurnalul construcției curente pe disc (foarte util atunci când solicitați ajutor pentru o construcție care a eșuat)            </translation>
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvare jurnal construcție            </translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem            </translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opțiuni   </translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informații            </translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bară de instrumente            </translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setări EasyPBI            </translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deschide setările editorului EasyPBI            </translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obține porturi FreeBSD            </translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aduce/actualizează copacul de porturi FreeBSD            </translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nou            </translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Click pentru a crea un nou modul PBI            </translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Încărcare            </translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Click pentru a încărca un modul existent            </translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sumar            </translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licență            </translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Istorie            </translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porturi FreeBSD            </translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deschide freshports.org pentru informații suplimentare despre port      </translation>
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Module PBI            </translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deschide pagina wiki PC-BSD pentru dezvoltatori PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Închide EasyPBI  </translation>
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modul pachet            </translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Comprimă modulul curent pentru distribuire            </translation>
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Despre EasyPBI            </translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vizualiza informații suplimentare despre EasyPBI            </translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nici un modulul încărcat            </translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porturi FreeBSD            </translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Surse locale            </translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalare scripturi            </translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eroare permisiuni            </translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A existat o eroare la încercarea de a crea structura locală a directorul EasyPBI. Vă rugăm să verificați permisiunile pentru directorul acasă și să reporniți EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resurse indisponibile            </translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Câteva resurse externe nu au putut fi găsite, astfel încât serviciile EasyPBI care folosesc aceste resurse au fost dezactivate.</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succes            </translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O copie a modulul curent a fost împachetată cu succes   în directorul modulul.            </translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Eroare Permisiuni            </translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nu am putut crea modulul PBI. Vă rugăm să verificați permisiunile directorului și încercați din nou.            </translation>
     </message>
     <message>
         <source>Select Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați module            </translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Niciun port FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copacul de porturi FreeBSD nu a putut fi găsit pe sistemul dumneavoastră.Puteți descărca copacul de porturi prin intermediul meniul EasyPBI sau să setați manual calea către copaculul de portul din preferințele EasyPBI dacă nu este instalat într-o locație standard.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectare port            </translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Port invalid</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul selectat nu este un port FreeBSD valabil. Vă rugăm să selectați directorul portului care conține fișierele Makefile și distinfo corespunzătoare.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eroare EasyPBI</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișierul de configurare PBI nu a putut fi salvat. Vă rugăm să verificați permisiunile fișierul dvs. înainte de a încerca din nou.</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați resursele</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Script weapper nou            </translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume fișier            </translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nu a putut elimina intrarea XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificați permisiunile fișierului și încercați din nou</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nu a putut salva modificările pentru intrarea XDG.            </translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eroare la salvarea fișierului</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nu a putut salva scriptul          </translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vă rugăm să verificați permisiunile fișierului și încercați din nou   </translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eroare</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setări PBI invalide            </translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sunteți sigur că doriți să porniți construirea PBI?</translation>
     </message>
     <message>
         <source>PBI Builder (Working)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Constructor PBI (lucrează)            </translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slavare fișier jurnal </translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișiere jurnal            </translation>
     </message>
     <message>
         <source>PBI Build Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI construit cu succes            </translation>
     </message>
     <message>
         <source>The PBI finished building successfully</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI a terminat de construit cu succes            </translation>
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construcția PBI a eșuat            </translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI nu a reușit să construiască.            </translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vă rugăm să verificați jurnalul de construcție pentru a găsi cauza eșecului și a ajusta modulul corespunzător</translation>
     </message>
     <message>
         <source>PBI Builder (Finished)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Constructorul PBI (A terminat)</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Începeți crearea unei noi intrării XDG            </translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Categorie   </translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista de spații separate asociate automat fișierelor (Exemplu:*.junk*.JUNK*.test*.TEST)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugare            </translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați directorul pachetelor            </translation>
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porturile FreeBSD lipsesc            </translation>
     </message>
     <message>
         <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copacul de porturi FreeBSD lipsește de pe sistemul dumneavoastră.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicația are nevoie de drepturi de administrator pentru pentru a rula            </translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Necesită Root            </translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reîmprospătează modulul            </translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vă rugăm să deschideți setările EasyPBI pentru a corecta această deficiență.</translation>
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Începe construirea unui PBI din modulul curent (necesită privilegii de administrator)            </translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acest lucru necesită o conexiune activă la Internet și drepturi de administrator. Timpul necesar pentru a construi un PBI variază în funcție de specificațiile de sistem și de porturi pentru a fie compilate.            </translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul selectat nu pare să fie un port FreeBSD valid.            </translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Doriți să continuați să utilizați-l oricum?</translation>
     </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creați un nou modul            </translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Portul FreeBSD pe care doriți să-l construiți ca un PBI            </translation>
     </message>
     <message>
         <source>Select a port from the local FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un port din copac de porturile locale FreeBSD            </translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectare </translation>
     </message>
     <message>
         <source>Local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul local să fie împachetat ca un PBI            </translation>
     </message>
     <message>
         <source>Select a local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un director local să fie împachetate ca un PBI            </translation>
     </message>
     <message>
         <source>Local Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Director local </translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictograma fișierului PNG utilizată pentru PBI (poate fi shimbată ulterior)            </translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un fișier PNG local (dimensiunea 64x64 pixeli recomandată)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictograma fișierului            </translation>
     </message>
     <message>
         <source>Create a PBI from an existing FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creați un PBI dintr-un port FreeBSD existent            </translation>
     </message>
     <message>
         <source>Package a local directory as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Împachetați un director local ca PBI            </translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Surse locale            </translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Niciun port FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copacul de porturi FreeBSD nu a putut fi găsit pe sistemul dumneavoastră.Puteți descărca copacul de porturi prin intermediul meniul EasyPBI sau să setați manual calea către copaculul de portul din preferințele EasyPBI dacă nu este instalat într-o locație standard.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectare port            </translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați directorul pachetului            </translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați pictograma PNG            </translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictogramă PNG (*.png)            </translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preferințe EasyPBI</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul de ieșire PBI</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul local pentru ca PBI-urile construite să fie puse.            </translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Răsfoiți sistemul local pentru a selecta un director de ieșire PBI  </translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectare</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Semnați digital orice PBI-uri care sunt create pentru distribuire cu sigiliu            </translation>
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI semant digital            </translation>
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișier de semnătură</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fișier local care conține cheia openssl</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Răsfoiți pentru fișierul cheie openssl</translation>
     </message>
     <message>
         <source>Use system memory to speed up PBI build processes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilizați memoria de sistem pentru a accelera procesul de construcție a PBI-ului.            </translation>
     </message>
     <message>
         <source>Use TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilizați TMPFS            </translation>
     </message>
     <message>
         <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Foarte mult se accelerează procesul construcției PBI prin prevenirea recompilări porturilor construite anterior.            </translation>
     </message>
     <message>
         <source>Use Package Caching</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Folosiți caching-ul pachetului            </translation>
     </message>
     <message>
         <source>Package Caching Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opțiuni caching pachet            </translation>
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pachete de ignorat            </translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pachetele listate vor fi întotdeauna ignorate în timpul construcției PBI-ului.            </translation>
     </message>
     <message>
         <source>Add a currently cached package to be ignored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugați un pachet stocat în memoria cache pentru a fi ignorat.            </translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugare            </translation>
     </message>
     <message>
         <source>Remove the selected package from the ignore list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Înlăturați pachetul selectat din lista de ignorare.    </translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Îndepărtare</translation>
     </message>
     <message>
         <source>Delete all packages currently in the cache.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sterge toate pachetele prezente în memoria cache.</translation>
     </message>
     <message>
         <source>Clear Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Glorire memorie cache            </translation>
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Căi locale            </translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul implicit pentru toate module PBI să fie creat</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un director local pentru modulele PBI.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorul implicit deschis atunci când se adaugă pictograme/fișiere la un modul            </translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați un director local.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictogramă PNG implicită utilizată pentru modulele PBI.            </translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Căutați în sistemul local pentru o pictogramă implicită PNG.            </translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trebuie ca EasyPBI să rescaneze sistemul pentru utilități disponibile.</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Detectare automată</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_makeport            </translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Calea completă către binarul &quot;pbi_makeport&quot; </translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Răsfoiți sistemul pentru binare locale.            </translation>
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Calea completă către binarul &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitar comutare user</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Calea completă către utilitarul grafic &quot;comutare utilizator&quot; (pc-su, gksu, kdesu, qsu, etc..)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați directorul de ieșire PBI</translation>
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați semnătura digitală a fișierului            </translation>
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Semnătură fișiere (*)</translation>
     </message>
     <message>
         <source>Select the Package to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați pachetul pentru ignorare</translation>
     </message>
     <message>
         <source>Package Files (*.txz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pachet de fișiere (*.txz)            </translation>
     </message>
     <message>
         <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sunteți sigur că doriți să ștergeți cache-ul pachetului PBI?</translation>
     </message>
     <message>
         <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Această operație va șterge toate fișierele și directoarele din directorul memorie cache. Data viitoare când veți începeți să construiți un PBI, acesta va începe să reconstruiască toate pachetele din surse.</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați directorul implicit al modulelor            </translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați directorul implicit pentru a găsi fișierele pictogramă</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați fișierul pictogramă implicit            </translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictograme PNG (*.png)            </translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați utilitatea grafică comutare-utilizator            </translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați locația fișierului &apos;pbi_create&apos;</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați locația fișierului &apos;pbi_makeport&apos;            </translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sunteți sigur că doriți să se întoarcă la căile de utilități detectate în mod automat?            </translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acest lucru va elimina orice setările de cale personalizate pentru utilitățile externe.            </translation>
     </message>
     <message>
         <source>Select FreeBSD Ports Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selectați directorul de porturi FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porturi FreeBSD            </translation>
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copacul de porturi </translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ultima actualizare</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel            </translation>
     </message>
     <message>
         <source>Create Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creare director            </translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizare  </translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stare            </translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construiește PBI            </translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitare externe            </translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Căile implicite de căutare            </translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Module </translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resurse</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pictogramă implicită            </translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilizator curent (~/EasyPBI/ports)            </translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toți utilizatori (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alte </translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inexistente            </translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succes</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copacul de porturi FreeBSD a fost actualizat cu succes</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Insucces</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copacul de porturi FreeBSD nu a reușit să se actualizaze.</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ultimul mesaj: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Solicitantă acces root            </translation>
     </message>
 </context>
 <context>
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Despre EasyPBI            </translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licență</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Istoria dezvoltării</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versiune EasyPBI %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Creați PBI-uri ușor și rapid </translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Incapabil să deschidă fișierul de resurse:%1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vă rugăm să verificați dacă compilarea EasyPBI a fost efectuată corect</translation>
     </message>
 </context>
 </TS>

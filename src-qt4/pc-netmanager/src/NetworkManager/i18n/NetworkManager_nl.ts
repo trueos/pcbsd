@@ -32,7 +32,7 @@
     </message>
     <message>
         <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Netwerkbeheerder</translation>
+        <translation>PC-BSD-netwerkbeheerder</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Display system tray icon</source>
-        <translation>Pictogram in de systeembalk tonen</translation>
+        <translation>Pictogram in het systeemvak tonen</translation>
     </message>
     <message>
         <source>DNS 1:</source>
@@ -152,7 +152,7 @@
     </message>
     <message>
         <source>Specify a Username / Password</source>
-        <translation>Geef een gebruikersnaam / wachtwoord</translation>
+        <translation>Geef een gebruikersnaam / wachtwoord op</translation>
     </message>
     <message>
         <source>Username</source>
@@ -196,11 +196,11 @@
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation>Geef a.u.b. een hostnaam</translation>
+        <translation>Voer a.u.b. een systeemnaam in</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation>Hostnaam mag alleen letters en cijfers bevatten</translation>
+        <translation>Systeemnaam mag alleen letters en cijfers bevatten</translation>
     </message>
     <message>
         <source>IPV6 DNS 1:</source>
@@ -232,7 +232,7 @@
     </message>
     <message>
         <source>You must restart your computer to finish changing your hostname</source>
-        <translation>U dient uw computer te herstarten om het veranderen van uw hostnaam te voltooien.</translation>
+        <translation>U dient uw computer te herstarten om het veranderen van uw systeemnaam te voltooien</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -244,7 +244,7 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation>Hostnaam van systeem</translation>
+        <translation>Naam van systeem</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
@@ -260,7 +260,7 @@
     </message>
     <message>
         <source>Invalid IPv6 Gateway specified</source>
-        <translation>Ongeldige IPv6 gateway opgegeven</translation>
+        <translation>Ongeldige IPv6-gateway opgegeven</translation>
     </message>
     <message>
         <source>Invalid DNS specified</source>

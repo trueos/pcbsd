@@ -23,5 +23,9 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>Mật khẩu không hợp lệ! Cố gắng trái: %1</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Chi tiết lệnh Chuyển chế độ</translation>
+    </message>
 </context>
 </TS>

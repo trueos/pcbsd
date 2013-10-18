@@ -105,11 +105,11 @@
     </message>
     <message>
         <source>Cannot load meta data from this PBI. File corrupt / invalid.</source>
-        <translation>Não foi possível carregar meta data deste PBI. Arquivo corrompido / Inválido.</translation>
+        <translation>Não foi possível carregar metadados deste PBI. Arquivo corrompido / inválido.</translation>
     </message>
     <message>
         <source>Click Next to begin the installation.</source>
-        <translation>Clique em próximo para começar a instalação.</translation>
+        <translation>Clique em Próximo para começar a instalação.</translation>
     </message>
     <message>
         <source>The pbi_add command returned an error, the source file may be corrupt or invalid.</source>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>This application has no digital signature. Installing applications from unknown sources can be dangerous. Continue with the install? </source>
-        <translation>Essa aplicação não tem assinatura digital. Instala aplicações de fontes desconhecidas pode ser perigoso. Continuar com a instalação? </translation>
+        <translation>Essa aplicação não tem assinatura digital. Instalar aplicações de fontes desconhecidas pode ser perigoso. Continuar com a instalação? </translation>
     </message>
     <message>
         <source>Invalid digital signature</source>

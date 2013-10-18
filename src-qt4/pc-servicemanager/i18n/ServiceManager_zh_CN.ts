@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation>管理Warden IP的服务：            </translation>
+        <translation>管理Warden IP的服务：</translation>
     </message>
     <message>
         <source>Checking...</source>

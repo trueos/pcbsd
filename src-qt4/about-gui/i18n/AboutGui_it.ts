@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>About</translation>
+        <translation>A riguardo</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>Base FreeBSD</translation>
+        <translation>FreeBSD base</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -73,31 +73,27 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Testando istantanea %1. Potrebbe essere instabile!</translation>
+        <translation>Testando snapshot %1. Potrebbe essere instabile!</translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>X.org server versione:</translation>
+        <translation>Versione server X.org:</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Componenti del sistema...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambienti desktop...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CLI utilities di PC-BSD:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UI utilities di PC-BSD:</translation>
     </message>
 </context>
 </TS>

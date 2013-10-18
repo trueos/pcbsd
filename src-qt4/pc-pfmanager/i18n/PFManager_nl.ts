@@ -76,7 +76,7 @@
     </message>
     <message>
         <source>Start</source>
-        <translation>Start</translation>
+        <translation>Starten</translation>
     </message>
     <message>
         <source>Restart</source>
@@ -116,7 +116,7 @@
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation>Netwerkkaart</translation>
     </message>
     <message>
         <source>Edit entry</source>

@@ -95,143 +95,111 @@
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation>Jail配置
-            </translation>
+        <translation>Jail配置</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation>IPv4
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation>IPv4地址
-            </translation>
+        <translation>IPv4地址</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation>IPv6
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation>IPv6地址
-            </translation>
+        <translation>IPv6地址</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation>别名
-            </translation>
+        <translation>别名</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation>IPv4别名
-            </translation>
+        <translation>IPv4别名</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation>IPv4桥接别名
-            </translation>
+        <translation>IPv4桥接别名</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation>IPv6别名
-            </translation>
+        <translation>IPv6别名</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation>IPv6桥接别名
-            </translation>
+        <translation>IPv6桥接别名</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation>权限
-            </translation>
-    </message>
-    <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>以下是此jail可以启用或禁用的权限。可通过在每个条目上悬念鼠标或查看jail的manpage以了解更多信息。
-            </translation>
+        <translation>权限</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation>jail内有一进程有System V的进程间通信元。
-            </translation>
+        <translation>jail内有一进程有System V的进程间通信元。</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation>狱根用户允许创建原始套接字。启用ping / traceroute。
-            </translation>
+        <translation>狱根用户允许创建原始套接字。启用ping / traceroute。</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation>当参数设定好，此类用户被视为高权限用户，可以在不违反kern.securelevel的常用限制情况下控制系统文件的标识。
-            </translation>
+        <translation>当参数设定好，此类用户被视为高权限用户，可以在不违反kern.securelevel的常用限制情况下控制系统文件的标识。</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation>jail内的高权限用户可以挂载和卸载对jail友好的文件系统类型。
-            </translation>
+        <translation>jail内的高权限用户可以挂载和卸载对jail友好的文件系统类型。</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation>jail内的高权限用户可以挂载或卸载devfs文件系统。
-            </translation>
+        <translation>jail内的高权限用户可以挂载或卸载devfs文件系统。</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation>jail内的高权限用户可以挂载和卸载nullfs文件系统。
-            </translation>
+        <translation>jail内的高权限用户可以挂载和卸载nullfs文件系统。</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation>Jail内的高权限用户可以挂载和卸载procfs文件系统。
-            </translation>
+        <translation>Jail内的高权限用户可以挂载和卸载procfs文件系统。</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation>Jail内的高权限用户可以挂载和卸载zfs文件系统。
-            </translation>
+        <translation>Jail内的高权限用户可以挂载和卸载zfs文件系统。</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation>狱根用户可以管理jail文件系统的配额。
-            </translation>
+        <translation>狱根用户可以管理jail文件系统的配额。</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation>此动作允许访问那些还没将jail功能添加上去的协议栈
-            </translation>
+        <translation>此动作允许访问那些还没将jail功能添加上去的协议栈。</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation>无效的IPv4地址！
-            </translation>
+        <translation>无效的IPv4地址！</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation>无效的IPv4桥接地址！
-            </translation>
+        <translation>无效的IPv4桥接地址！</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation>无效的IPv4路由地址！
-            </translation>
+        <translation>无效的IPv4路由地址！</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation>无效的IPv6地址！
-            </translation>
+        <translation>无效的IPv6地址！</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation>无效的IPv6桥接地址！
-            </translation>
+        <translation>无效的IPv6桥接地址！</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation>无效的IPv6路由地址！
-            </translation>
+        <translation>无效的IPv6路由地址！</translation>
     </message>
     <message>
         <source>Options</source>
@@ -257,6 +225,10 @@
         <source>IPv6 Default Router (Requires VNET)</source>
         <translation>IPv6默认路由(需要启用VNET)</translation>
     </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dialogImport</name>
@@ -274,7 +246,7 @@
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation>999\.999\.999\.999; </translation>
+        <translation>999\.999\.999\.999； </translation>
     </message>
     <message>
         <source>...</source>
@@ -372,7 +344,7 @@
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation>是否自启动       </translation>
+        <translation>是否自启动</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
@@ -452,7 +424,7 @@
     </message>
     <message>
         <source>&lt;- Please select a jail</source>
-        <translation>&lt;-请选择一个jail            </translation>
+        <translation>&lt;-请选择一个jail</translation>
     </message>
     <message>
         <source>Working on jail:</source>
@@ -576,7 +548,7 @@
     </message>
     <message>
         <source>Are you sure you want to remove the snapshot:</source>
-        <translation>确定要删除快照：            </translation>
+        <translation>确定要删除快照：</translation>
     </message>
     <message>
         <source>Updates available!</source>
@@ -592,7 +564,7 @@
     </message>
     <message>
         <source>Create a new snapshot</source>
-        <translation>创建新快照            </translation>
+        <translation>创建新快照</translation>
     </message>
     <message>
         <source>Mount the snapshot</source>
@@ -600,11 +572,11 @@
     </message>
     <message>
         <source>Unmount the snapshot</source>
-        <translation>卸载快照            </translation>
+        <translation>卸载快照</translation>
     </message>
     <message>
         <source>(Cloned)</source>
-        <translation>（已复制）            </translation>
+        <translation>（已复制）</translation>
     </message>
     <message>
         <source>Loading clones...</source>
@@ -616,11 +588,11 @@
     </message>
     <message>
         <source>Snapshot not mounted</source>
-        <translation>快照未挂载            </translation>
+        <translation>快照未挂载</translation>
     </message>
     <message>
         <source>R&amp;estore</source>
-        <translation>恢复(&amp;E)            </translation>
+        <translation>恢复(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Mount</source>
@@ -676,18 +648,15 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation>IP：
-            </translation>
+        <translation>IP：</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation>配置此jail
-            </translation>
+        <translation>配置此jail</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation>软件管理器
-            </translation>
+        <translation>软件管理器</translation>
     </message>
     <message>
         <source>Template Manager</source>
@@ -793,23 +762,19 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation>IPv4地址
-            </translation>
+        <translation>IPv4地址</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation>IPv6地址
-            </translation>
+        <translation>IPv6地址</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation>传统的Jail（安全，适用于服务）
-            </translation>
+        <translation>传统的Jail（安全，适用于服务）</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation>安装PKGNG和PC-BSD工具
-            </translation>
+        <translation>安装PKGNG和PC-BSD工具</translation>
     </message>
     <message>
         <source>Jail Version</source>

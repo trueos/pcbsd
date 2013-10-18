@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation>Schijf selectie</translation>
+        <translation>Schijfkeuze</translation>
     </message>
     <message>
         <source>Installation</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Failed!</source>
-        <translation>Mislukt!</translation>
+        <translation>Mislukt.</translation>
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation>Toon diagnose van apparaat-verenigbaarheid</translation>
+        <translation>Toon diagnose van apparatuurverenigbaarheid</translation>
     </message>
     <message>
         <source>System Selection</source>
@@ -195,18 +195,15 @@
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laad instellingenbestand voor installatie vanaf USB-staafje</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instellingen laden vanaf USB-staafje</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bureaublad (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
@@ -226,48 +223,84 @@
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voer a.u.b. de naam in waaronder u deze instellingen wil opslaan.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon instellingen niet opslaan op USB-media. Doet het apparaat het wel en is het geformatteerd in MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instellingen opgeslagen. U kunt het USB-medium nu veilig verwijderen.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dit zal een bestand met installatie-instellingen laden vanaf uw MSDOSFS/FAT32-geformatteerde USB-staafje. Doorgaan?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop het USB-staafje a.u.b. nu erin, en klik op OK om door te gaan.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon opgeslagen instellingenbestand niet laden vanaf het USB-medium. Doet het apparaat het wel en is het geformatteerd in MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instellingen zijn geladen. U kunt het USB-medium nu veilig verwijderen.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instellingenbestand:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>De installatie beginnen met gebruikmaking van dit instellingenbestand?</translation>
+    </message>
+    <message>
+        <source>Restore from Life-Preserver backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage network connectivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZFS Datasets:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original ZFS layout will be restored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start the restore now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now restored!
+Click Finish to reboot. After rebooting you may eject the install media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing meta-package: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restoring system: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -304,10 +337,6 @@
         <translation>Beschikbare systeempakketten</translation>
     </message>
     <message>
-        <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-        <translation>Kies de programma&apos;s die u wilt installeren. Kies minimaal één werkomgeving. U kunt de werkomgeving na de installatie nog wijzigen.</translation>
-    </message>
-    <message>
         <source>&amp;Save</source>
         <translation>&amp;Opslaan</translation>
     </message>
@@ -331,12 +360,16 @@
         <source>Package Listing for:</source>
         <translation>Pakketten-opsomming voor:</translation>
     </message>
+    <message>
+        <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dialogCheckHardware</name>
     <message>
         <source>Detected hardware devices</source>
-        <translation>Bespeurde apparaten</translation>
+        <translation>Ontdekte apparaten</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -352,7 +385,7 @@
     </message>
     <message>
         <source>No ethernet detected</source>
-        <translation>Geen ethernet bespeurd           </translation>
+        <translation>Geen ethernet bespeurd</translation>
     </message>
     <message>
         <source>Ethernet device:</source>
@@ -368,7 +401,7 @@
     </message>
     <message>
         <source>No sound detected</source>
-        <translation>Geen geluid bespeurd            </translation>
+        <translation>Geen geluid bespeurd</translation>
     </message>
     <message>
         <source>Sound device:</source>
@@ -416,7 +449,7 @@
     </message>
     <message>
         <source>Key Layout</source>
-        <translation>Toetsen layout</translation>
+        <translation>Toetsindeling</translation>
     </message>
     <message>
         <source>Variant</source>
@@ -424,7 +457,7 @@
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation>Keyboard model</translation>
+        <translation>Toetsenbordmodel</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
@@ -443,23 +476,23 @@
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation>Deze wizard neemt het schijfinrichtingsproces met u door. Kies de inrichtingsmethode die u wilt gebruiken.</translation>
+        <translation>Deze instelhulp neemt het schijfindelingsproces met u door. Kies de indelingsmethode die u wilt gebruiken.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation>Inrichtingsmethode</translation>
+        <translation>Indelingsmethode</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation>Basis (Onbekend met BSD of schijfpartitionering)</translation>
+        <translation>Basis (onbekend met BSD of schijfpartitionering)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation>Geavanceerd (Ervaren met bestandssystemen)</translation>
+        <translation>Geavanceerd (ervaren met bestandssystemen)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation>FreeBSD experts (CLI handmatige methode)</translation>
+        <translation>FreeBSD-deskundigen (handmatige methode via de terminal)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
@@ -475,7 +508,7 @@
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation>Hieronder kunt u de bestandssysteem aankoppelpunten wijzigen. Voor de meeste gebruikers volstaat de standaard.</translation>
+        <translation>Hieronder kunt u de koppelpunten van het bestandssysteem wijzigen. Voor de meeste gebruikers volstaan de standaarden. </translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -487,15 +520,15 @@
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>U heeft de expert-modus gekozen. In deze modus kunt u een terminal venster openen en de command-line gebruiken om uw schijf handmatig te partitioneren. Zodra u klaar ben moet u de nieuwe bestandssystemen aankoppelen aan /mnt om de installatie te beginnen.</translation>
+        <translation>U heeft de expertmodus gekozen. In deze modus kunt u een terminalvenster openen en de opdrachtregel gebruiken om uw schijf handmatig te partitioneren. Wanneer u klaar bent moet u uw bestandssystemen aankoppelen aan /mnt om de installatie te beginnen. </translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>Termina&amp;l starten</translation>
+        <translation>Termina&amp;lvenster starten</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Controleer onderstaande samenvatting van de schijfindeling en klik klaar om uw instellingen op te slaan.</translation>
+        <translation>Controleer a.u.b. onderstaande samenvatting van de schijfindeling en klik op Voltooien om uw instellingen op te slaan. </translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -515,19 +548,19 @@
     </message>
     <message>
         <source>Remove mount-point</source>
-        <translation>Verwijder aankoppelpunt</translation>
+        <translation>Verwijder koppelpunt</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this mount point?</source>
-        <translation>Weet u zeker dat u dit aankoppelpunt wilt verwijderen?</translation>
+        <translation>Weet u zeker dat u dit koppelpunt wilt verwijderen?</translation>
     </message>
     <message>
         <source>Enter mount-point</source>
-        <translation>Voer aankoppelpunt in</translation>
+        <translation>Voer koppelpunt in</translation>
     </message>
     <message>
         <source>Please enter the new mount-point:</source>
-        <translation>Geef het nieuwe aankoppelpunt aan:</translation>
+        <translation>Geef a.u.b. het nieuwe koppelpunt op:</translation>
     </message>
     <message>
         <source>Editing:</source>
@@ -582,10 +615,6 @@
         <translation>Opties:</translation>
     </message>
     <message>
-        <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-        <translation>Kies a.u.b. de schijf of partitie waarop u wilt installeren. Let er a.u.b. op dat PC-BSD alleen geïnstalleerd kan worden op een hele schijf, of op een primaire partitie groter dan 10 GB. </translation>
-    </message>
-    <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
         <translation>Indien dit een ZFS-installatie op een enkele schijf betreft, dan kunt u doorgaan. Zo niet, kies dan hieronder a.u.b. de spiegel- of raidmodus en de schijven. </translation>
     </message>
@@ -627,28 +656,43 @@
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naam van ZFS-pool</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Forceer ZFS-blokgrootte van 4K</translation>
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Swapgrootte</translation>
+    </message>
+    <message>
+        <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install GRUB (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No boot-loader!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stamp GRUB on MBR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original system datasets / mount-points will be automatically restored.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -683,11 +727,11 @@
     </message>
     <message>
         <source>Please enter a system hostname and remote login preference.</source>
-        <translation>Voer a.u.b. een systeemhostnaam in en uw voorkeur voor aanmelden-op-afstand.</translation>
+        <translation>Voer a.u.b. een systeemnaam in en uw voorkeur voor aanmelden-op-afstand.</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation>Hostnaam</translation>
+        <translation>Systeemnaam</translation>
     </message>
     <message>
         <source>Enable remote SSH login</source>
@@ -719,15 +763,15 @@
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation>IPv6 adres</translation>
+        <translation>IPv6-adres</translation>
     </message>
     <message>
         <source>IPv6 Gateway</source>
-        <translation>IPv6 Gateway</translation>
+        <translation>IPv6-Gateway</translation>
     </message>
     <message>
         <source>IPv6 Nameserver</source>
-        <translation>IPv6 naamserver</translation>
+        <translation>IPv6-naamserver</translation>
     </message>
     <message>
         <source>000.000.000.000; </source>
@@ -743,11 +787,105 @@
     </message>
     <message>
         <source>Install ports tree (/usr/ports)</source>
-        <translation>Installeer ports tree (/usr/ports)</translation>
+        <translation>Installeer poortenboom (/usr/ports)</translation>
     </message>
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
         <translation>Deze instelhulp zal u begeleiden bij het instellen van uw nieuwe server. Klik op &apos;volgende&apos; om te beginnen. </translation>
+    </message>
+</context>
+<context>
+    <name>wizardRestore</name>
+    <message>
+        <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To get started please enter the hostname, username and port of your backup server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backup Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSH Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use USB key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use password authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following systems are backed up on this server, select the one you wish to restore. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore System Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The system is ready to be restored, click Finish to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Auth keys could be found on that memory stick!
+Please try another USB stick or use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check that the server is reachable and verify your user/password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check your hostname and that the backup server is reachable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will restore from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the SSH key to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key File:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

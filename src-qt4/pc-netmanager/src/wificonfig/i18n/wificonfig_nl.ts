@@ -387,7 +387,7 @@
     </message>
     <message>
         <source>WPA Enterprise</source>
-        <translation>WPA-Bedrijf</translation>
+        <translation>WPA-Zakelijk</translation>
     </message>
     <message>
         <source>Configure</source>

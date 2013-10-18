@@ -26,7 +26,7 @@ Diese Einstellungen beibehalten?</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Übernehmen</translation>
+        <translation>&amp;Anwenden</translation>
     </message>
     <message>
         <source>Skip</source>

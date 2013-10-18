@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">Passworteingabe            </translation>
+        <translation>Passwortanforderung</translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation>VNC Fernsteuerung aktivieren            </translation>
+        <translation>VNC Fernsteuerung aktivieren</translation>
     </message>
     <message>
         <source>Misc</source>

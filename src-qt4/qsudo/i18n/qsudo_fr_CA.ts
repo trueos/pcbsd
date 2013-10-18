@@ -21,7 +21,11 @@
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation>Mot de passe invalide! Tries à gauche: %1</translation>
+        <translation>Mot de passe invalide! Essais restants: %1</translation>
+    </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Basculer les détails d&apos;une commande</translation>
     </message>
 </context>
 </TS>

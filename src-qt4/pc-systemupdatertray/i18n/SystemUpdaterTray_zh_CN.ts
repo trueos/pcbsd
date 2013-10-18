@@ -97,13 +97,11 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation>有可用的软件更新
-            </translation>
+        <translation>有可用的软件更新</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation>有重新的软件更新。点击此处安装！
-            </translation>
+        <translation>有重新的软件更新。点击此处安装！</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>

@@ -164,18 +164,15 @@
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したアプリケーションに対してアクションを実行します</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アクション</translation>
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションの詳細</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -191,13 +188,11 @@
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ショートカット:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションに対するアクションをキャンセルします</translation>
     </message>
     <message>
         <source>...</source>
@@ -205,8 +200,7 @@
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したアプリケーションを削除します</translation>
     </message>
     <message>
         <source>Uninstall</source>
@@ -226,13 +220,7 @@
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択したアプリケーションの説明用ページを開きます</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -244,13 +232,11 @@
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションの説明</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ホーム</translation>
     </message>
     <message>
         <source>Category</source>
@@ -258,13 +244,11 @@
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリ</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ここで検索</translation>
     </message>
     <message>
         <source>Search</source>
@@ -272,13 +256,11 @@
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最近追加されたアプリケーション</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>カテゴリーごとの表示</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -306,8 +288,7 @@
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>その他の検索結果</translation>
     </message>
     <message>
         <source>File</source>
@@ -403,63 +384,43 @@
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップアイコン</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メニューアイコン</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加 (全ユーザー対象)</translation>
     </message>
     <message>
         <source>Path Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パスへのリンク</translation>
     </message>
     <message>
         <source>File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルの関連付け</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アクションをキャンセルする</translation>
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ/メニュー</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メニュー</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無し</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
@@ -475,8 +436,7 @@
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールする!</translation>
     </message>
     <message>
         <source>Downgrade</source>
@@ -500,20 +460,39 @@
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーションを起動します</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished">このアプリケーションを削除しますか?</translation>
+        <translation>このアプリケーションを削除しますか?</translation>
     </message>
     <message>
         <source>Installed: %1</source>
-        <translation type="unfinished">インストール済み: %1</translation>
+        <translation>インストール済み: %1</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>追加</translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Available: %2</source>
-        <translation type="unfinished">利用可能: %2</translation>
+        <translation>利用可能: %2</translation>
+    </message>
+    <message>
+        <source>Product Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to install this application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -532,19 +511,19 @@
     </message>
     <message>
         <source>Pending Download</source>
-        <translation>ダウンロードを保留しています</translation>
+        <translation>ダウンロード待ち</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation>インストールを保留しています</translation>
+        <translation>インストール待ち</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation>削除を保留しています</translation>
+        <translation>削除待ち</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation>アップデートを保留しています</translation>
+        <translation>アップデート待ち</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -616,7 +595,7 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">不明</translation>
+        <translation>不明</translation>
     </message>
     <message>
         <source>Download Canceled</source>

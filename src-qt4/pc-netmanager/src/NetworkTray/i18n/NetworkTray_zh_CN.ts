@@ -5,7 +5,7 @@
     <name>NetworkTray</name>
     <message>
         <source>Configure </source>
-        <translation>配置</translation>
+        <translation>配置 </translation>
     </message>
     <message>
         <source>Start the Network Manager</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>No connection detected.&lt;br&gt; Check your cable connection and try again!</source>
-        <translation>无法检测到网络连接。&lt;br&gt;请检查网线后再重试！</translation>
+        <translation>无法检测到网络连接。 &lt;br&gt; 请检查网线后再重试！</translation>
     </message>
     <message>
         <source>SSID:</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>No wireless connection detected.&lt;br&gt; Double-click to start the wireless configuration wizard.</source>
-        <translation>无法检测到无线网络。&lt;br&gt;请双击以启动无线配置向导。</translation>
+        <translation>无法检测到无线网络。 &lt;br&gt; 请双击以启动无线配置向导。</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation>未知            </translation>
+        <translation>未知</translation>
     </message>
     <message>
         <source>Close the Network Monitor</source>
@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Please Wait</source>
-        <translation>请等待   </translation>
+        <translation>请等待</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation>网络密钥（重复）</translation>
+        <translation>网络密钥(重复)</translation>
     </message>
     <message>
         <source>Apply</source>

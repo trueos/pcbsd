@@ -24,25 +24,23 @@
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Selecionar</translation>
+        <translation>Selecionar</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Seleciona um usuário alternativo e limpa o campo de senha</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation type="unfinished">Selecionar este usuário</translation>
+        <translation>Selecionar este usuário</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">Login</translation>
+        <translation type="unfinished">Entrar</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Acessar o sistema com o atual usuário e senha</translation>
     </message>
     <message>
         <source>Password</source>
@@ -50,8 +48,7 @@
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Espere para ver a senha digitada no momento</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
@@ -67,8 +64,7 @@
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambientes de trabalho disponíveis</translation>
     </message>
 </context>
 <context>
@@ -79,19 +75,19 @@
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">Localidade</translation>
+        <translation>Localidade</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation type="unfinished">Mudar localidade</translation>
+        <translation>Mudar localidade</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">Disposição do teclado</translation>
+        <translation>Disposição de teclado</translation>
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation type="unfinished">Mudar disposição do teclado</translation>
+        <translation>Mudar disposição de teclado</translation>
     </message>
     <message>
         <source>System</source>
@@ -99,7 +95,7 @@
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">Dica: Certifique-se de que o caps-lock está desligado.</translation>
+        <translation>Dica: Certifique-se de que o Caps Lock esteja desligado.</translation>
     </message>
     <message>
         <source>Restart</source>
@@ -111,7 +107,7 @@
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">Fechar PCDM</translation>
+        <translation>Fechar PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
@@ -119,21 +115,19 @@
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">Nome de usuário/Senha inválido</translation>
+        <translation>Nome de usuário/senha inválidos</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation type="unfinished">A combinação Nome de usuário/Senha é inválida, por favor tente novamente.</translation>
+        <translation>A combinação do nome de usuário/senha é inválida, Por favor tente novamente.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desligamento do sistema</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Você está prestes a desligar o sistema.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
@@ -141,21 +135,18 @@
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reinicialização do sistema</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Você está prestes a reiniciar o sistema.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desligando o sistema</translation>
     </message>
 </context>
 <context>
@@ -166,29 +157,27 @@
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disposição das teclas</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Variante</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">Modelo do teclado</translation>
+        <translation>Modelo do teclado</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">( você pode digitar algo no espaço abaixo para testar as suas configurações selecionadas. )</translation>
+        <translation>( você pode digitar algo no espaço abaixo para testar as suas configurações selecionadas. )</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Aplicar</translation>
+        <translation>&amp;Aplicar</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Fechar</translation>
+        <translation type="unfinished">Fe&amp;char</translation>
     </message>
 </context>
 <context>
@@ -199,8 +188,7 @@
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Localidade atual</translation>
     </message>
     <message>
         <source>Apply</source>

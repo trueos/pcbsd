@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">モジュールエディター</translation>
+        <translation>モジュールエディター</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation>PBIの主設定            </translation>
+        <translation>PBIの主設定</translation>
     </message>
     <message>
         <source>Program Information</source>
@@ -273,8 +273,7 @@
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアイテムが配置されるメニューのカテゴリー</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
@@ -334,8 +333,7 @@
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在入力されているテキストを選択されたスクリプトに保存します</translation>
     </message>
     <message>
         <source>Save</source>
@@ -363,8 +361,7 @@
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リンク先</translation>
     </message>
     <message>
         <source>File Type</source>
@@ -384,27 +381,23 @@
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルファイルシステムへリンクさせる PBI 内のファイル(PBI ディレクトリーへの相対パス)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動検出されたこの PBI ファイルのバイナリー</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リンクを作成する場所 (local base: 通常は /usr/local/ への相対パス)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルの種類を指定するフラグ</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation>新しいリンクに利用可能なフラグ</translation>
+        <translation>新しいリンクで指定可能なフラグ</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
@@ -416,11 +409,11 @@
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation>現在のモジュールをPBIビルドに利用する            </translation>
+        <translation>現在表示されたモジュールの PBI をビルドします</translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation>モジュールビルディング            </translation>
+        <translation>ビルド対象モジュール</translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
@@ -436,8 +429,7 @@
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビルドが完了した PBI が置かれる場所</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
@@ -477,915 +469,752 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オプション</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>情報</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI の設定</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI の設定を編集します</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports の取得</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports ツリーの取得/更新を行います</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI モジュールを新規に作成します</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開く</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>既存のモジュールを開きます</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サマリー</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ライセンス</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>履歴</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>さらに port の情報を得るために freshports.org を開く</translation>
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI モジュール</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Wiki のPBI 開発者向けページを開く</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI を閉じる</translation>
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">モジュールのパッケージ化</translation>
+        <translation>モジュールのパッケージ化</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のモジュールを配布のために圧縮する</translation>
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">EasyPBI について</translation>
+        <translation>EasyPBI について</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI についての詳細情報を表示します</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュールがロードされていません</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルソース</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールスクリプト</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パーミッションエラー</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI のディレクトリー構造の作成時にエラーが発生しました。あなたのホームディレクトリーのパーミッションを確認し、EasyPBI を再起動してください。</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リソースが利用できません</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>いくつかの外部リソースが見つからないため、EasyPBI はそれらのリソースを無効化します。</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュールディレクトリーにモジュールを作成しました。</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: パーミッションエラー</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI モジュールを作成できません。パーミッションを作成してからやり直してください。</translation>
     </message>
     <message>
         <source>Select Module</source>
-        <translation type="unfinished">モジュールを選択</translation>
+        <translation>モジュールを選択</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: FreeBSD ports がありません</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このシステム内に FreeBSD ports ツリーが存在しません。EasyPBI のメニューから ports ツリーを取得するか、ports ツリーが標準的ではない場所にある場合には、 EasyPBI の設定画面で ports ツリーのパスを手動で指定してください。</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">port を選択</translation>
+        <translation>port を選択</translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: 無効な ports</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたディレクトリーは正しい FreeBSD port ではありません。Makefile と distinfo が含まれる適切な port ディレクトリーを選択してください。</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI エラー</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 設定ファイルを保存できません。ファイルのパーミッションを確認してからやり直してください。</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リソースの選択</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新規ラッパースクリプト</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル名</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG エントリーを削除できません。</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パーミッションをチェックしてからやり直してください</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG エントリーの変更を保存できません。</translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル保存エラー</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリプトを保存できません</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルのパーミッションをチェックしてからやり直してください</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">エラー</translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">無効な PBI 設定です</translation>
+        <translation>無効な PBI 設定です</translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">PBI のビルドを開始しますか?</translation>
+        <translation>PBI のビルドを開始しますか?</translation>
     </message>
     <message>
         <source>PBI Builder (Working)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI ビルダー (作業中)</translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">ログを保存</translation>
+        <translation>ログを保存</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">ログファイル</translation>
+        <translation>ログファイル</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
-        <translation type="unfinished">PBI のビルドに成功しました</translation>
+        <translation>PBI のビルドに成功しました</translation>
     </message>
     <message>
         <source>The PBI finished building successfully</source>
-        <translation type="unfinished">PBI のビルドは無事完了しました</translation>
+        <translation>PBI のビルドは無事完了しました</translation>
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">PBI のビルドに失敗</translation>
+        <translation>PBI のビルドに失敗</translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">PBI のビルドに失敗しました。</translation>
+        <translation>PBI のビルドに失敗しました。</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">ビルドログを確認して失敗の原因を確認し、モジュールを修正してください。</translation>
+        <translation>ビルドログを確認して失敗の原因を確認し、モジュールを修正してください。</translation>
     </message>
     <message>
         <source>PBI Builder (Finished)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI ビルダー (完了)</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG エントリーを作成を開始します</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>カテゴリー</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スペースで区切られたファイル関連付けのリスト (例: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージディレクトリーの選択</translation>
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports が存在しません</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports ツリーがシステム内にありません。</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>実行には管理者権限が必要</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>root が必要</translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュールのリフレッシュ</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI の設定画面を開いて設定を修正してください。</translation>
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のモジュールの PBI のビルドを開始します (管理者権限が必要です)</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インターネット接続と管理者権限が必要です。PBI をビルドする時にはシステムが適切な条件下にあることと ports がコンパイルできることが必要です。</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたディレクトリーは適切な FreeBSD ports ではありません。</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このまま使用しますか?</translation>
+    </message>
+    <message>
+        <source>toolBar</source>
+        <translation>ツールバー</translation>
+    </message>
+    <message>
+        <source>New</source>
+        <translation>新規</translation>
     </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいモジュールを作成</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI としてビルドする FreeBSD ports</translation>
     </message>
     <message>
         <source>Select a port from the local FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports ツリーから port を選択</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択</translation>
     </message>
     <message>
         <source>Local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI としてパッケージ化するローカルディレクトリー</translation>
     </message>
     <message>
         <source>Select a local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI としてパッケージ化するローカルディレクトリーを選択</translation>
     </message>
     <message>
         <source>Local Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルディレクトリー</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI の PNG アイコンファイル (後で変更できます)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルの PNG ファイルを選択 (64x64 ピクセルを推奨)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アイコンファイル</translation>
     </message>
     <message>
         <source>Create a PBI from an existing FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>既存の FreeBSD port から PBI を作成します</translation>
     </message>
     <message>
         <source>Package a local directory as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルディレクトリーを PBI としてパッケージ化します</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルソース</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: FreeBSD ports が存在しません</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このシステム内に FreeBSD ports ツリーが存在しません。EasyPBI のメニューから ports ツリーを取得するか、ports ツリーが標準的ではない場所にある場合には、 EasyPBI の設定画面で ports ツリーのパスを手動で指定してください。</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">port を選択</translation>
+        <translation>port を選択</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージディレクトリーの選択</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG アイコンの選択</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG アイコン (*.png)</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI の設定</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI の出力先</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビルドされた PBI が置かれるローカルディレクトリー。</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI の出力先ディレクトリーを探す</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>配布時の改ざんの有無を確認するためにどの PBI にも電子署名を作成します</translation>
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI の電子署名</translation>
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>署名ファイル</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>OpenSSL の鍵を含むローカルファイル</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>OpenSSL 鍵ファイルを探す</translation>
     </message>
     <message>
         <source>Use system memory to speed up PBI build processes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI のビルド処理を高速化するためにシステムのメモリーを使用します</translation>
     </message>
     <message>
         <source>Use TMPFS</source>
-        <translation type="unfinished">TMPFS を使用する</translation>
+        <translation>TMPFS を使用する</translation>
     </message>
     <message>
         <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI のビルド処理を大幅に加速するために前回ビルドした ports の再コンパイルを行わないようにします。</translation>
     </message>
     <message>
         <source>Use Package Caching</source>
-        <translation type="unfinished">パッケージをキャッシュする</translation>
+        <translation>パッケージをキャッシュする</translation>
     </message>
     <message>
         <source>Package Caching Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージキャッシュのオプション</translation>
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無視するパッケージ</translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI ビルド時に常に無視するキャッシュ済みパッケージのリストを作成します</translation>
     </message>
     <message>
         <source>Add a currently cached package to be ignored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無視するキャッシュ済みパッケージを追加します。</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove the selected package from the ignore list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無視リストから削除するパッケージを追加します。</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Delete all packages currently in the cache.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャッシュされたパッケージを全て削除します。</translation>
     </message>
     <message>
         <source>Clear Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャッシュをクリアー</translation>
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルパス</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI モジュールを作成する時のデフォルトディレクトリー</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI モジュールを置くローカルディレクトリーを選択</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュールのアイコンやファイルを開くときのデフォルトディレクトリー</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ローカルディレクトリーを選択</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI モジュールで使用するデフォルトの PNG アイコン。</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルト PNG ファイルをローカルシステムから探す</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI が利用できるユーティリティーを再スキャンします。</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動検出</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;pbi_makeport&quot; のフルパス</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>バイナリーをシステムから探す。</translation>
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;pbi_create&quot; のフルパス</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザー切り替えユーティリティー</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>グラフィカルな &quot;ユーザー切り替え&quot; ユーティリティーのフルパス (pc-su, gksu, kdesu, qsu, etc...)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">PBI 出力先ディレクトリーを選択</translation>
+        <translation>PBI 出力先ディレクトリーを選択</translation>
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">デジタル署名ファイルを選択</translation>
+        <translation>デジタル署名ファイルを選択</translation>
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>署名ファイル (*)</translation>
     </message>
     <message>
         <source>Select the Package to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無視するパッケージ</translation>
     </message>
     <message>
         <source>Package Files (*.txz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージファイル (*.txz)</translation>
     </message>
     <message>
         <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI パッケージのキャッシュを消去しますか?</translation>
     </message>
     <message>
         <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャッシュディレクトリー内の全ファイルとディレクトリーを削除します。次に PBI のビルドを行う時に、全てのパッケージをソースから再ビルドすることになります。</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルトのモジュールディレクトリーを選択</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アイコンファイル探索を開始するデフォルトのディレクトリーを選択</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルトのアイコンファイルを選択</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG 画像 (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>グラフィカルなユーザー切り替えユーティリティーを選択</translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&apos;pbi_create&apos; の場所を選択</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&apos;pbi_makeport&apos; の場所を選択</translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動的に検出したユーティリティーのパスに変更しますか?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>あなたが設定したパスの設定が削除されます。</translation>
     </message>
     <message>
         <source>Select FreeBSD Ports Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports のディレクトリーを選択</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Ports</translation>
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ports ツリー</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最終更新</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Create Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディレクトリーの作成</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ステータス</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI のビルド</translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>外部ユーティリティー</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルトの検索パス</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュール</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">リソース</translation>
+        <translation>リソース</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルトのアイコン</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のユーザー (~/EasyPBI/ports)</translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>全ユーザー (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>その他</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>存在しません</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports ツリーの更新に成功しました</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ports ツリーの更新に失敗しました</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最後のメッセージ: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>root 権限の要求</translation>
     </message>
 </context>
 <context>
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">EasyPBI について</translation>
+        <translation>EasyPBI について</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ライセンス</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開発履歴</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI バージョン %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">PBI を迅速・簡単に作成します。</translation>
+        <translation>PBI を迅速・簡単に作成します。</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>リソースファイルを開くことができません: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI が正しくコンパイルされているか確認してください</translation>
     </message>
 </context>
 </TS>

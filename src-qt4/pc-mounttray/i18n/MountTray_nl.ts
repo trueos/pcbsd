@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Error mounting %1 at %2</source>
-        <translation>Fout bij het aankoppelen van %1 op %2            </translation>
+        <translation>Fout bij het aankoppelen van %1 op %2</translation>
     </message>
     <message>
         <source>Error mounting %1</source>
@@ -91,8 +91,19 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Het ISO-bestand is volledig losgekoppeld van het systeem.</translation>
+    </message>
+    <message>
+        <source>Device Busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The device appears to be busy. Would you like to unmount it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -103,7 +114,7 @@
     </message>
     <message>
         <source>Close Tray</source>
-        <translation>Lade sluiten</translation>
+        <translation>Koppelvak sluiten</translation>
     </message>
     <message>
         <source>User Detection Error</source>
@@ -113,7 +124,7 @@
         <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
         <translation>Kan de niet-rootgebruiker niet vaststellen die de toepassing heeft gestart 
-Kan de bestandbeheerder niet openen met rootrechten           </translation>
+Kan de bestandbeheerder niet openen met rootrechten</translation>
     </message>
     <message>
         <source>New Device</source>
@@ -149,25 +160,22 @@ Kan de bestandbeheerder niet openen met rootrechten           </translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-bestand laden</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-bestand kiezen</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-bestanden (*.iso)</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation>Systeemvak-instellingen voor aankoppelen</translation>
+        <translation>Instellingen van Koppelvak</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>

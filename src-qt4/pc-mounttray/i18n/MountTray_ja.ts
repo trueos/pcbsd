@@ -93,6 +93,18 @@
         <source>The ISO file has been completely detached from the system.</source>
         <translation>ISO ファイルはシステムから取り外されました。</translation>
     </message>
+    <message>
+        <source>Device Busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The device appears to be busy. Would you like to unmount it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -144,7 +156,7 @@ root 権限付きでファイルマネージャーを開くことはできませ
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">オプション</translation>
+        <translation>オプション</translation>
     </message>
     <message>
         <source>Load ISO File</source>
@@ -171,7 +183,7 @@ root 権限付きでファイルマネージャーを開くことはできませ
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">デバイスの変更を通知する</translation>
+        <translation>デバイスの変更を通知する</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>

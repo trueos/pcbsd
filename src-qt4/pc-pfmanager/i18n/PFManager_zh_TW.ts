@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <source>Cancel</source>

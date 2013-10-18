@@ -101,23 +101,19 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hệ thống tên máy chủ</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhập tên máy chủ hợp lệ, hoặc để mặc định.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy nhập tên máy chủ</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tên máy chủ chỉ có thể chứa chữ cái và số</translation>
     </message>
 </context>
 <context>

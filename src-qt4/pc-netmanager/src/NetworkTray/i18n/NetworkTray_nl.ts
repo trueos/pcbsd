@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Click here to configure wireless connections</source>
-        <translation>Klik hier om draadloos netwerk in te stellen</translation>
+        <translation>Klik hier om draadloze verbindingen in te stellen</translation>
     </message>
     <message>
         <source>No Wireless Network Connection</source>

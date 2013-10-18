@@ -5,7 +5,7 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation>活动目录            </translation>
+        <translation>活动目录</translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation>NetBIOS名称            </translation>
+        <translation>NetBIOS名称</translation>
     </message>
     <message>
         <source>Workgroup Name</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>AD and LDAP Configuration</source>
-        <translation>活动目录和LDAP配置            </translation>
+        <translation>活动目录和LDAP配置</translation>
     </message>
 </context>
 </TS>

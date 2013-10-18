@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>Mε βάση το FreeBSD</translation>
+        <translation>Βασισμένο στο FreeBSD</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation>Εξαρτήματα του συστήματος ...</translation>
+        <translation>Συστατικά συστήματος ...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
@@ -89,13 +89,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εργαλεία γραμμής εντολών του PC-BSD:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εργαλεία του PC-BSD με γραφικό περιβάλλον:</translation>
     </message>
 </context>
 </TS>

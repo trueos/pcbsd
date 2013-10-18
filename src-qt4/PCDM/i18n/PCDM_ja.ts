@@ -139,7 +139,7 @@
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">PCDM を閉じる</translation>
+        <translation>PCDM を閉じる</translation>
     </message>
 </context>
 <context>

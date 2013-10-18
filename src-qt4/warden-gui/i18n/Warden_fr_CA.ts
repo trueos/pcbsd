@@ -138,10 +138,6 @@
         <translation>Permissions</translation>
     </message>
     <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>Les autorisations suivantes peuvent être activées ou désactivées pour ce Jail. Pour plus de détails survoler sur chaque article ou reportez-vous à la page du manuel de Jail..</translation>
-    </message>
-    <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
         <translation>Un processus au sein de ce Jail a accès à V IPC système primitif.</translation>
     </message>
@@ -228,6 +224,10 @@
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
         <translation>Routeur par défaut IPv6 (Nécessite VNET)</translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

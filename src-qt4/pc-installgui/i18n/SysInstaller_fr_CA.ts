@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation>Lancement du clavier à l&apos;écran</translation>
+        <translation>Lancer du clavier à l&apos;écran</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
@@ -257,6 +257,51 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
         <source>Start the install using this config file?</source>
         <translation>Lancer l&apos;installation en utilisant ce fichier de configuration?</translation>
     </message>
+    <message>
+        <source>Restore from Life-Preserver backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage network connectivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZFS Datasets:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original ZFS layout will be restored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start the restore now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now restored!
+Click Finish to reboot. After rebooting you may eject the install media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing meta-package: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restoring system: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -292,10 +337,6 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
         <translation>Paquets système disponibles    </translation>
     </message>
     <message>
-        <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-        <translation>S&apos;il vous plaît sélectionner le logiciel que vous souhaitez installer. Au moins un environnement bureau doit être sélectionné et les modifications peuvent aussi être apportées après l&apos;installation.</translation>
-    </message>
-    <message>
         <source>&amp;Save</source>
         <translation>&amp;Sauvegarder            </translation>
     </message>
@@ -318,6 +359,10 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     <message>
         <source>Package Listing for:</source>
         <translation>Liste des paquets pour:            </translation>
+    </message>
+    <message>
+        <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -448,10 +493,6 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
         <translation>Pour experts de FreeBSD (mode manuel en ligne de commande)          </translation>
-    </message>
-    <message>
-        <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-        <translation>S&apos;il vous plaît sélectionner le disque ou la partition que vous souhaitez faire l&apos;installation. Veillez noter que BSD ne peut-être installé que sur un disque entier ou une partition primaire supérieure à 10Go.            </translation>
     </message>
     <message>
         <source>Selected Disk</source>
@@ -622,16 +663,36 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
         <translation>ZFS force de la taille des blocs 4K</translation>
     </message>
     <message>
-        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation>GRUB boot-loader (Requis pour le support Boot-Environnement)</translation>
-    </message>
-    <message>
         <source>(MB)</source>
         <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
         <translation>Swap Size            </translation>
+    </message>
+    <message>
+        <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install GRUB (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No boot-loader!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stamp GRUB on MBR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original system datasets / mount-points will be automatically restored.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -731,6 +792,100 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
         <translation>Cet Assistant vous guidera pour l&apos;installation de votre nouveau serveur. Cliquez sur suivant pour commencer.</translation>
+    </message>
+</context>
+<context>
+    <name>wizardRestore</name>
+    <message>
+        <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To get started please enter the hostname, username and port of your backup server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backup Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSH Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use USB key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use password authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following systems are backed up on this server, select the one you wish to restore. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore System Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The system is ready to be restored, click Finish to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Auth keys could be found on that memory stick!
+Please try another USB stick or use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check that the server is reachable and verify your user/password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check your hostname and that the backup server is reachable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will restore from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the SSH key to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key File:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -65,11 +65,11 @@
     </message>
     <message>
         <source>System Tasks</source>
-        <translation>Systeemtaken            </translation>
+        <translation>Systeemtaken</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
-        <translation>P&amp;orts boom ophalen            </translation>
+        <translation>P&amp;oortenboom ophalen</translation>
     </message>
 </context>
 <context>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation>Update is mislukt!</translation>
+        <translation>Bijwerken is mislukt.</translation>
     </message>
     <message>
         <source>Unable to connect to server. Possible causes:
@@ -104,7 +104,7 @@
     </message>
     <message>
         <source>Fetching Ports, this may take a while...</source>
-        <translation>Ports ophalen, dit kan even duren...</translation>
+        <translation>Poorten ophalen, dit kan even duren...</translation>
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>

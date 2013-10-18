@@ -64,8 +64,7 @@
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation>可用的桌面环境
-            </translation>
+        <translation>可用的桌面环境</translation>
     </message>
 </context>
 <context>

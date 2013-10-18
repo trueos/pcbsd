@@ -15,7 +15,7 @@
         <source>Your display has been configured.
 Keep these settings?</source>
         <translation>Kuva on seadistatud.
-Kas hoida need sätted alles?</translation>
+Kas jätkata nende sätetega?</translation>
     </message>
 </context>
 <context>
