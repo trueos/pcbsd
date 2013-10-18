@@ -27,11 +27,12 @@
 # We use geo-location to detect the country of this machine, and can set the default language this way
 fetch -o "/tmp/.dR.$$" "http://web.pcbsd.org/getlocale.php" >/dev/null 2>/dev/null
 COUNTRY="`grep CountryCode: /tmp/.dR.$$ | awk '{print $2}' | tr '[:upper:]' '[:lower:]' | sed 's| ||g'`"
+TZ="`grep TimeZone: /tmp/.dR.$$ | awk '{print $2}'`"
 rm /tmp/.dR.$$
 if [ -z "$COUNTRY" ] ; then
   echo "UNKNOWN"
   exit 1
 fi
 
-echo "$COUNTRY"
+echo "$COUNTRY $TZ"
 exit 0

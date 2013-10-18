@@ -137,7 +137,7 @@ case $1 in
   detect-laptop) ${QUERYDIR}/detect-laptop.sh
   ;;
 
-  # Check what country the system IP resolves to
+  # Get geo-location data for this system
   detect-country) ${QUERYDIR}/detect-country.sh
   ;;
 

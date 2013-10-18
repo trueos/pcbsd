@@ -243,6 +243,7 @@ QString Backend::detectCountryCode()
     if (p.waitForFinished()) {
        code = p.readLine().simplified();
     }
+    code = code.section(" ", 0, 0);
     qDebug() << "Found Country Code:" << code;
     return code;
 }
