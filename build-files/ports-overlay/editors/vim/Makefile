@@ -147,16 +147,16 @@ USE_XORG+=	xaw
 . if ${PORT_OPTIONS:MGTK2}
 USE_GNOME=	gtk20
 CONF_OPT_GUI="--enable-gui=gtk2 --with-gtk-prefix=${LOCALBASE}"
-MAKE_ARGS+=	X_LIBS="$(X_LIBS) -lXt"
-USE_XORG+=	xt
+MAKE_ARGS+=	X_LIBS="$(X_LIBS) -lX11 -lXext -lXt"
+USE_XORG+=	xt x11 xext
 . endif
 
 . if ${PORT_OPTIONS:MGNOME}
 USE_GNOME=	libgnomeui
 PKGNAMESUFFIX=	-gnome2
 CONF_OPT_GUI="--enable-gui=gnome2"
-MAKE_ARGS+=	X_LIBS="$(X_LIBS) -lXt"
-USE_XORG+=	xt glproto
+MAKE_ARGS+=	X_LIBS="$(X_LIBS) -lX11 -lXext -lXt"
+USE_XORG+=	xt x11 xext glproto
 . endif
 
 . if ${PORT_OPTIONS:MMOTIF}
