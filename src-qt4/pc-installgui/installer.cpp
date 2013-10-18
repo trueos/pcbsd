@@ -100,14 +100,30 @@ void Installer::slotPushKeyLayout()
 void Installer::initInstall()
 {
     // load languages
+    QString langCode;
+    bool foundLang = false;
     comboLanguage->clear();
     languages = Scripts::Backend::languages();
+    QString curLang = Scripts::Backend::detectCountryCode(); 
     for (int i=0; i < languages.count(); ++i) {
         QString languageStr = languages.at(i);
         QString language = languageStr.split("-").at(0);
         comboLanguage->addItem(language.trimmed());
+
+	// Grab the language code
+        langCode = languageStr;
+        langCode.truncate(langCode.lastIndexOf(")"));
+        langCode.remove(0, langCode.lastIndexOf("(") + 1);
+	if ( curLang == langCode ) {
+          comboLanguage->setCurrentIndex(i);
+          foundLang = true;
+        }
     }
     connect(comboLanguage, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotChangeLanguage()));
+    // If we found a language from geo-loication, change UI now
+    if ( foundLang )
+       slotChangeLanguage();
+    
 
     // Load any package scheme data
     listDeskPkgs = Scripts::Backend::getPackageData(availDesktopPackageData, QString());
@@ -778,11 +794,11 @@ void Installer::slotChangeLanguage()
 
     // Change the default keyboard layout
     if ( langCode == "en" ) {
-       Scripts::Backend::changeKbMap(langCode, "pc104", "");
+       Scripts::Backend::changeKbMap("pc104", "us", "");
     } else {
        // TODO - At some point, add additional tests here and set more specific layouts
        // based upon the language selected
-       Scripts::Backend::changeKbMap(langCode, "pc105", "intl");
+       Scripts::Backend::changeKbMap("pc105", langCode, "" );
     }
     
 }
