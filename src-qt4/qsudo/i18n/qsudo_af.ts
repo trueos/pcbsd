@@ -23,5 +23,10 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>Ongeldig wagwoord! probeer steeds links:% 1</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

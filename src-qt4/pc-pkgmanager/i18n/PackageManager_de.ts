@@ -1,292 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="de_DE">
+<TS version="2.0">
 <context>
     <name>dialogConfirm</name>
     <message>
-        <location filename="../dialogConfirm.ui" line="14"/>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Paketänderungen bestätigen</translation>
     </message>
     <message>
-        <location filename="../dialogConfirm.ui" line="20"/>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>Die folgenden Änderungen werden am System vorgenommen. Bitte bestätigen Sie dies und klicken Sie auf OK, um fortzufahren.</translation>
     </message>
     <message>
-        <location filename="../dialogConfirm.ui" line="48"/>
         <source>&amp;Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Weiter</translation>
     </message>
     <message>
-        <location filename="../dialogConfirm.ui" line="55"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Abbruch</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
-        <location filename="../mainWin.ui" line="217"/>
         <source>Available Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Verfügbare Aktualisierungen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="14"/>
         <source>System Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Systempaketverwaltung</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="32"/>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakete hinzufügen / entfernen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="38"/>
         <source>System Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>Systempakete</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="91"/>
         <source>Package Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Paketinformationen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="101"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beschreibung</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="116"/>
         <source>10 MB</source>
-        <translation type="unfinished"></translation>
+        <translation>10 MB</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="129"/>
         <source>My Package 1.0</source>
-        <translation type="unfinished"></translation>
+        <translation>Mein Paket 1.0</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="136"/>
         <source>http://www.pcbsd.org</source>
-        <translation type="unfinished"></translation>
+        <translation>http://www.pcbsd.org</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="150"/>
         <source>Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Optionen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="160"/>
-        <source>Dependances</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainWin.ui" line="198"/>
         <source>&amp;Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Ü&amp;bernehmen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="211"/>
-        <location filename="../mainWin.cpp" line="153"/>
         <source>Package Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Paketaktualisierungen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="238"/>
         <source>Re&amp;scan packages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neueinlesen der Pakete</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="275"/>
         <source>&amp;Update packages</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakete &amp;Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="294"/>
         <source>Package</source>
-        <translation type="unfinished"></translation>
+        <translation>Paket</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="299"/>
         <source>Old Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Alte Version</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="304"/>
         <source>New Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Neue Version</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="329"/>
         <source>Installing updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualisierungen installieren </translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="382"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="401"/>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="407"/>
         <source>&amp;View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Anzeigen</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="418"/>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="429"/>
         <source>&amp;Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Elementar</translation>
     </message>
     <message>
-        <location filename="../mainWin.ui" line="437"/>
         <source>&amp;Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>E&amp;rweitert</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="120"/>
         <source>Checking for updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Auf Aktualisierungen prüfen</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="150"/>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Paketaktualisierungen (%1)</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="151"/>
         <source>Available updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Verfügbare Aktualisierungen</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="154"/>
         <source>No available updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Aktualisierungen vorhanden</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="191"/>
         <source>Starting package updates...</source>
-        <translation type="unfinished"></translation>
+        <translation>Beginne Paketaktualisierung...</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="215"/>
         <source>required by:</source>
-        <translation type="unfinished"></translation>
+        <translation>notwendig für</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="292"/>
         <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bei folgenden Paketen kommt es zu Konflikten mit den ausgewählten Änderungen.Diese können automatisch entfernt werden. Weiter?</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="301"/>
         <source>Package Conflicts</source>
-        <translation type="unfinished"></translation>
+        <translation>Paketkonflikte</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="302"/>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished"></translation>
+        <translation>Möglicherweise müssen Sie die Konflikte manuell beheben bevor Sie es erneutt versuchen.</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="371"/>
         <source>Downloading packages...</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakete herunterladen...</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="422"/>
         <source>Failed!</source>
-        <translation type="unfinished"></translation>
+        <translation>Fehlgeschlagen!</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="422"/>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Paketbefehl ist fehlgeschlagen. Eine Kopie der Ausgabe wurde in /tmp/pkg-output.log gespeichert</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="424"/>
         <source>Finished!</source>
-        <translation type="unfinished"></translation>
+        <translation>Beendet!</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="424"/>
         <source>Package changes complete!</source>
-        <translation type="unfinished"></translation>
+        <translation>Paketänderungen sind erfolgt!</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="462"/>
-        <location filename="../mainWin.cpp" line="807"/>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lade... Bitte warten...</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="705"/>
         <source>No changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Änderungen</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="706"/>
         <source>No changes to make!</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Änderungen notwendig!</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="721"/>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Die folgenden Pakete werden entfernt:</translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="724"/>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="742"/>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="745"/>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="763"/>
         <source>Confirm package changes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="1030"/>
         <source>No Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="1031"/>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="1246"/>
         <source>View Packages</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="1276"/>
         <source>Package Listing for:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Downloading: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Dependencies</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainWin.cpp" line="323"/>
-        <location filename="../mainWin.cpp" line="324"/>
-        <source>Downloading: %1</source>
+        <source>Find Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Search Results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want to continue the search from the top?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No packages could be found with that search term. Please adjust it and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Processes Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Packages are currently being changed. Are you sure you want to quit?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

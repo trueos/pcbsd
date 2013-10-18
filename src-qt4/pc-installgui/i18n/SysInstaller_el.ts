@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Το σύστημά σας εγκαθίστατε τώρα! Αυτή η διαδικασία μπορεί να διαρκέσει λίγο, ανάλογα με την εγκατάσταση των επιλογών που επιλέξατε, και την ταχύτητα του συστήματος. Θα ειδοποιηθείτε όταν ολοκληρωθεί η εγκατάσταση.</translation>
+        <translation>Το σύστημά σας εγκαθίσταται τώρα! Αυτή η διαδικασία μπορεί να διαρκέσει λίγο, ανάλογα με την εγκατάσταση των επιλογών που επιλέξατε, και την ταχύτητα του συστήματος. Θα ειδοποιηθείτε όταν ολοκληρωθεί η εγκατάσταση.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation>Ο δίσκος θα εγκατασταθεί, με την ακόλουθη ρύθμιση παραμέτρων:</translation>
+        <translation>Ο δίσκος θα ρυθμιστεί με τις παραμέτρους που ακολουθούν:</translation>
     </message>
     <message>
         <source>Disk:</source>
@@ -125,8 +125,7 @@
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Παρουσίαση διαγνωστικού για την συμβατότητα του υλικού του υπολογιστή</translation>
     </message>
     <message>
         <source>System Selection</source>
@@ -140,8 +139,7 @@
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αλλαγή γλώσσας εγκατάστασης</translation>
     </message>
     <message>
         <source>Customize the selected system</source>
@@ -160,18 +158,15 @@
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ακύρωση εγκατάστασης</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Επιλογή πακέτων για το TrueOS</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Επιλογή πακέτων για το PC-BSD</translation>
     </message>
     <message>
         <source>Your system is now installed!
@@ -288,13 +283,57 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Restore from Life-Preserver backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage network connectivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZFS Datasets:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original ZFS layout will be restored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start the restore now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now restored!
+Click Finish to reboot. After rebooting you may eject the install media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing meta-package: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restoring system: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Σ&apos;αυτή την οθόνη μπορείτε να επιλέξετε την γλώσσα στην οποία θα γίνει η εγκατάσταση.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
@@ -328,11 +367,6 @@
         <translation>Διαθέσιμα πακέτα συστήματος</translation>
     </message>
     <message>
-        <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Save</source>
         <translation>&amp;Αποθήκευση</translation>
     </message>
@@ -355,6 +389,10 @@
     <message>
         <source>Package Listing for:</source>
         <translation>Λίστα για το πακέτο:</translation>
+    </message>
+    <message>
+        <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -500,14 +538,8 @@
             </translation>
     </message>
     <message>
-        <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Selected Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Επιλεγμένος δίσκος:</translation>
     </message>
     <message>
         <source>Selected Partition</source>
@@ -715,11 +747,6 @@
             </translation>
     </message>
     <message>
-        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>(MB)</source>
         <translation type="unfinished">
             </translation>
@@ -728,6 +755,30 @@
         <source>Swap Size</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install GRUB (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No boot-loader!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stamp GRUB on MBR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original system datasets / mount-points will be automatically restored.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -848,6 +899,100 @@
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
         <translation type="unfinished">
             </translation>
+    </message>
+</context>
+<context>
+    <name>wizardRestore</name>
+    <message>
+        <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To get started please enter the hostname, username and port of your backup server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backup Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSH Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use USB key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use password authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following systems are backed up on this server, select the one you wish to restore. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore System Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The system is ready to be restored, click Finish to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Auth keys could be found on that memory stick!
+Please try another USB stick or use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check that the server is reachable and verify your user/password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check your hostname and that the backup server is reachable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will restore from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the SSH key to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key File:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

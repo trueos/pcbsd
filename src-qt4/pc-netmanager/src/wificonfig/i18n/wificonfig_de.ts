@@ -183,11 +183,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>&amp;Übernehmen</translation>
+        <translation>&amp;Anwenden</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation>Alt+Ü</translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>&amp;OK</source>

@@ -5,303 +5,247 @@
     <name>mainUI</name>
     <message>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja Uruchomieniowa PC-BSD</translation>
     </message>
     <message>
         <source>Boot Environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Środowiska Uruchomieniowe</translation>
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz nowe środowisko uruchomieniowe</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń aktualnie wybrane środowisko uruchomieniowe</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Make a copy of the selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zrób kopię wybranego środowiska uruchomieniowego</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zmień nazwę aktualnie wybranego środowiska uruchomieniowego</translation>
     </message>
     <message>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktywuj aktualnie wybrane środowisko uruchomieniowe aby było ono domyślnym w trakcie startu</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wartość domyślna</translation>
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Czas oczekiwania na uruchomienie domyślej opcji (0 deaktywuje automatyczne botowanie)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyświetlaj menu GRUB w trakcie odliczania            </translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik</translation>
     </message>
     <message>
         <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usługi Awaryjne</translation>
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przebuduj menu GRUB</translation>
     </message>
     <message>
         <source>Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przywróć domyślne wartości dla GRUB&apos;a</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <source>Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Działa</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Punkty montowania</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Powierzchnia</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja GRUB</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Timer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opóźnienie</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> sekund</translation>
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik czcionek</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik czcionek do użycia przez GRUB</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz plik czcionek dla GRUB&apos;a</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż odliczanie opóźnienia</translation>
     </message>
     <message>
         <source>Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik Kompozycji</translation>
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik Kompozycji do użycia przez GRUB&apos;a</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz plik Kompozycji dla GRUB&apos;a</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz aktualne ustawienia konfiguracji</translation>
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeładuj ustawienia GRUB&apos;a</translation>
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Własnie wpisy</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz aktualną konfigurację wpisu</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeładuj plik wpisów GRUB</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepoprawna nazwa </translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Środowisko uruchomieniowe o tej nazwie już istnieje, proszę wybrać inną.</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Działanie</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeprowadzanie zmian środowiska uruchomieniowego. Proszę czekać.</translation>
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowa nazwa BE</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz nazwę dla nowego środowiska uruchomieniowego</translation>
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Działające środowisko uruchomieniowe</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można zmienić nazwy środowiska uruchomieniowego którego aktualnie używasz!</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz nową nazwę dla tego środowiska uruchomieniowego</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie możesz usunąć jedynego środowiska uruchomieniowego!</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pojedyńcze środowisko uruchomieniowe</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie możesz usunąć środowiska uruchomieniowego którego aktualnie używasz!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Potwierdź usunięcie BE</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na pewno chcesz usunąć poniższe środowisko uruchomieniowe?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz Plik Kompozycji GRUB&apos;a</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik kompozycji (theme.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz plik czcionek GRUB&apos;a</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik czcionek (*.pf2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przebudowywanie menu systemu GRUB. Proszę czekać.</translation>
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niezapisane zmiany           </translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masz niezapisane zmiany w konfiguracji GRUB. Na pewno chcesz wyjść?</translation>
+    </message>
+    <message>
+        <source>You cannot make a copy of the currently running boot environment!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

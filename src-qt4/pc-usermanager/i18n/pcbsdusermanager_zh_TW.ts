@@ -192,7 +192,7 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;OK</translation>
+        <translation>確定(&amp;O)</translation>
     </message>
     <message>
         <source>Alt+O</source>
@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>加密檔案：</translation>
     </message>
 </context>
 <context>
@@ -543,8 +542,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>加密檔案：</translation>
     </message>
 </context>
 <context>

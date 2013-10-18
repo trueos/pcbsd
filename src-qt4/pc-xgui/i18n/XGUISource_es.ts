@@ -108,7 +108,7 @@ Si no ve nada, espere un poco y volverá a esta pantalla.</translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation>¡Aviso!</translation>
+        <translation>¡Advertencia!</translation>
     </message>
     <message>
         <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>

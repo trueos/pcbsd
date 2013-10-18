@@ -13,27 +13,27 @@
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation>Afficher et modifier le module PBI courant             </translation>
+        <translation>Afficher et modifier le module PBI courant</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation>PBI Configuration            </translation>
+        <translation>PBI Configuration</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation>Paramètres principaux pour le PBI            </translation>
+        <translation>Paramètres principaux pour le PBI</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation>Information sur le Programme            </translation>
+        <translation>Information sur le programme</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation>Nom officiel du programme cible            </translation>
+        <translation>Nom officiel du programme cible</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nom            </translation>
+        <translation>Nom</translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
@@ -41,15 +41,15 @@
     </message>
     <message>
         <source>Version</source>
-        <translation>Version            </translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation>URL du site Web principal du programme cible            </translation>
+        <translation>URL du site Web principal du programme cible</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation>Site Web            </translation>
+        <translation>Site Web</translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Author</source>
-        <translation>Auteur            </translation>
+        <translation>Auteur</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
@@ -73,43 +73,43 @@
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation>Répertoire local à conditionner dans un PBI (doit contenir tout le nécessaire pour exécuter le programme)    </translation>
+        <translation>Répertoire local à conditionner dans un PBI (doit contenir tout le nécessaire pour exécuter le programme)</translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation>Répertoire de paquets            </translation>
+        <translation>Répertoire de paquets</translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation>Sélectionnez un répertoire à emballer dans un PBI            </translation>
+        <translation>Sélectionnez un répertoire à emballer dans un PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Sélectionner            </translation>
+        <translation>Sélectionner</translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation>Principal port FreeBSD  </translation>
+        <translation>Port FreeBSD principal</translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation>FreeBSD port à être présenté comme un PBI            </translation>
+        <translation>FreeBSD port à être présenté comme un PBI</translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation>Sélectionnez un port FreeBSD            </translation>
+        <translation>Sélectionnez un port FreeBSD</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation>Changement de Port            </translation>
+        <translation>Changement de Port</translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation>Port Option de compilation            </translation>
+        <translation>Port Option de compilation</translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation>Option de configuration spéciale pour les ports qui doivent être construits.            </translation>
+        <translation>Option de configuration spéciale pour les ports qui doivent être construits.</translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
@@ -121,15 +121,15 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation>D&apos;autres ports de FreeBSD peuvent-être construit avant le programme principal            </translation>
+        <translation>D&apos;autres ports de FreeBSD à construire avant le programme principal</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation>Ajouter port FreeBSD supplémentaire            </translation>
+        <translation>Ajouter port FreeBSD supplémentaire</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation>Retirer port supplémentaire FreeBSD            </translation>
+        <translation>Retirer port supplémentaire FreeBSD</translation>
     </message>
     <message>
         <source>Make Port After</source>
@@ -137,11 +137,11 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>D&apos;autres ports de FreeBSD peuvent-être construit après le programme principal            </translation>
+        <translation>D&apos;autres ports de FreeBSD à construire après le programme principal</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation>Nécessitent des autorisations d&apos;administrateur pour installer ce PBI            </translation>
+        <translation>Des droits d&apos;administrateur sont requis pour installer ce PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
@@ -149,11 +149,11 @@
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation>Enregistrer les paramètres actuels dans le fichier de configuration PBI    </translation>
+        <translation>Enregistrer les paramètres actuels dans le fichier de configuration du PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation>Sauvegarder la Configuration            </translation>
+        <translation>Sauvegarder la configuration</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -161,7 +161,7 @@
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation>Fichiers supplémentaires à inclure dans le PBI   </translation>
+        <translation>Fichiers supplémentaires à inclure dans le PBI</translation>
     </message>
     <message>
         <source>Current Resources</source>

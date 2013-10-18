@@ -355,7 +355,7 @@ save_rep_props() {
   # If we are not doing a recursive backup / complete dataset we can skip this
   if [ "$RECURMODE" != "ON" ] ; then return 0; fi
   if [ "`basename $DATASET`" != "$DATASET" ] ; then return 0; fi
-  hName=`hostname`
+  hName="`hostname`"
 
   echo_log "Saving dataset properties for: ${DATASET}"
   queue_msg "`date`: Saving dataset properties for: ${DATASET}\n"
@@ -364,7 +364,7 @@ save_rep_props() {
   rProp=".lp-props-`echo ${REPRDATA}/${hName} | sed 's|/|#|g'`"
 
   zfs get -r all $DATASET | grep ' local$' | awk '{$1=$1}1' OFS=" " | sed 's| local$||g' \
-	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > $rProp"
+	| ssh -p ${REPPORT} ${REPUSER}@${REPHOST} "cat > \"$rProp\""
   if [ $? -eq 0 ] ; then
     echo_log "Successful save of dataset properties for: ${DATASET}"
     queue_msg "`date`: Successful save of dataset properties for: ${DATASET}\n"

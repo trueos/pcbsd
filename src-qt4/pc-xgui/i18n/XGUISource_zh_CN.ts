@@ -143,7 +143,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Auto-close in </source>
-        <translation>自动关闭于</translation>
+        <translation>自动关闭于 </translation>
     </message>
     <message>
         <source> seconds...</source>

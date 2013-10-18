@@ -5,28 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sisesta enda kasutaja parool, et seda käsku süsteemi õigustega käivitada</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi õiguste pärimine</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ligipääs keelatud</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sellel kasutajal ei ole süsteemis administraatori õigusi!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane parool! Proovimisi järel: %1</translation>
+    </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Käsu üksikasjade näitamine</translation>
     </message>
 </context>
 </TS>

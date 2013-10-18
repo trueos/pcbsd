@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation>Iniciar Gerenciador Bluetooth</translation>
+        <translation>Iniciar Gerenciador de Bluetooth</translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation>Reiniciar Serviços Bluetooth</translation>
+        <translation>Reiniciar Serviços de Bluetooth</translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation>Reiniciando Serviços Bluetooth</translation>
+        <translation>Reiniciando Serviços de Bluetooth</translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>

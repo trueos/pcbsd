@@ -5,28 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εισαγωγή κωδικού χρήστη για εκτέλεση του προγράμματος με δικαιώματα συστήματος</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αίτηση δικαιωμάτων για όλο το σύστημα</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Απαγορεύεται η πρόσβαση</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ο χρήστης δεν έχει δικαιώματα διαχειριστή στο σύστημα!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Λάθος Κωδικός! Μένουν %1 προσπάθειες.</translation>
+    </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Λεπτομέρειες εντολής</translation>
     </message>
 </context>
 </TS>

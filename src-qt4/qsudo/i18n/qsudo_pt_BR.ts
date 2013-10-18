@@ -23,5 +23,9 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>Senha inválida! Tentativas restantes: %1</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation type="unfinished">Detalhes do comando de alternância</translation>
+    </message>
 </context>
 </TS>

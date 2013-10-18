@@ -49,248 +49,203 @@
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Кількість часу до автоматичного застосування значення за замовчуванням (0 - повністю автоматичне)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відображати меню GRUB під час відліку часу</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невідкладні задачі</translation>
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегенерувати меню GRUB</translation>
     </message>
     <message>
         <source>Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відновити налаштування GRUB</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я</translation>
     </message>
     <message>
         <source>Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Поточне</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Дата, час</translation>
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Монтування</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Розмір</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування GRUB</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <source>Timer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Таймер</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> секунд</translation>
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл шрифту</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл шрифту для GRUB </translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оберіть файл шрифту GRUB</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показати відлік часу</translation>
     </message>
     <message>
         <source>Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл теми</translation>
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Тема GRUB</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оберіть тему для GRUB</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти поточні налаштування</translation>
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезавантажити налаштування GRUB</translation>
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування користувача</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти поточні налаштування користувача</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перечитати налаштування GRUB</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невірне ім&apos;я</translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оточення завантаження з таким ім&apos;ям вже існує. Будь ласка оберіть інше ім&apos;я.</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Працюю</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відбувається зміна налаштувань оточення завантаження. Будь ласка зачекайте...</translation>
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я нового ОЗ</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оберіть ім&apos;я нового оточення завантаження</translation>
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Активне оточення завантаження</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви не можете переіменувати оточення завантаження що наразі є активним</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка оберіть ім&apos;я для оточення завантаження</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви не можете видалити єдине оточення завантаження</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Єдине оточення завантаження</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви не можете видалити оточення завантаження з якого ви наразі завантажили систему!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалення ОЗ</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви певні що бажаєте видалити наступне оточення завантаження?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оберіть файл теми GRUB</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файли тем (theme.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оберіть файл шрифту GRUB</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файли шрифту (*.pf2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перебудування системи меню GRUB. Будь ласка зачекайте.</translation>
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зміни не збережено</translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наразі ви маєте деякі налаштування GRUB що не було збережено. Бажаєте вийти не зважаючи на це?</translation>
+    </message>
+    <message>
+        <source>You cannot make a copy of the currently running boot environment!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -16,7 +16,6 @@ RUN_DEPENDS=	kdegraphics>=0:${PORTSDIR}/graphics/kdegraphics4 \
 		digikam>=0:${PORTSDIR}/graphics/digikam-kde4 \
 		kphotoalbum>=0:${PORTSDIR}/graphics/kphotoalbum-kde4 \
 		kipi-plugins>=0:${PORTSDIR}/graphics/kipi-plugins-kde4 \
-		kcoloredit>=0:${PORTSDIR}/graphics/kcoloredit \
 		kiconedit>=0:${PORTSDIR}/graphics/kiconedit \
 		skanlite>=0:${PORTSDIR}/graphics/skanlite 
 

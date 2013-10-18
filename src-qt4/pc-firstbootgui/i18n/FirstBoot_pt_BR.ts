@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">Irá criptografar o diretório home dos usuários</translation>
+        <translation>Irá criptografar o diretório home dos usuários</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
@@ -97,27 +97,23 @@
     </message>
     <message>
         <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation type="unfinished">Bem-vindo ao seu novo sistema PC-BSD! Você pode alterar o seu idioma acima e clicar em próximo para iniciar o processo de configuração.</translation>
+        <translation>Bem-vindo ao seu novo sistema PC-BSD! Você pode alterar o seu idioma acima e clicar em Próximo para iniciar o processo de configuração.</translation>
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome do computador</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Digite um nome válido para o computador ou deixe como está.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, digite um nome do computador</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O nome do computador deve conter apenas letras e números</translation>
     </message>
 </context>
 <context>

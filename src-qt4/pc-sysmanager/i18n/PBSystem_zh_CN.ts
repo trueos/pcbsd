@@ -121,11 +121,11 @@
     </message>
     <message>
         <source>Update</source>
-        <translation>更新      </translation>
+        <translation>更新</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation>大小  </translation>
+        <translation>大小</translation>
     </message>
     <message>
         <source>Status</source>
@@ -141,9 +141,7 @@
     </message>
     <message>
         <source> of </source>
-        <translation>
- of 
-</translation>
+        <translation> of </translation>
     </message>
 </context>
 </TS>

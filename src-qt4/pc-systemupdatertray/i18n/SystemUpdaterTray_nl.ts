@@ -5,7 +5,7 @@
     <name>UpdaterTray</name>
     <message>
         <source>Check for updates</source>
-        <translation>Controleer op updates</translation>
+        <translation>Controleer op bijgewerkte pakketten</translation>
     </message>
     <message>
         <source>Run at startup</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Checking for updates...</source>
-        <translation>Aan het controleren op updates...</translation>
+        <translation>Aan het controleren op bijgewerkte pakketten...</translation>
     </message>
     <message>
         <source>Failed to contact the update server!</source>
@@ -29,11 +29,11 @@
     </message>
     <message>
         <source>System updates available</source>
-        <translation>Systeemupdates beschikbaar</translation>
+        <translation>Bijgewerkte systeempakketten beschikbaar</translation>
     </message>
     <message>
         <source>PBI updates available</source>
-        <translation>PBI-updates beschikbaar</translation>
+        <translation>Bijgewerkte PBI&apos;s beschikbaar</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
@@ -45,11 +45,11 @@
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation>Systeemupdates beschikbaar</translation>
+        <translation>Bijgewerkte systeempakketten beschikbaar</translation>
     </message>
     <message>
         <source>Software Updates Available</source>
-        <translation>Software-updates beschikbaar</translation>
+        <translation>Bijgewerkte programmatuur beschikbaar</translation>
     </message>
     <message>
         <source>Start the Update Manager</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>Software updates are available. Click here to install them!</source>
-        <translation>Er zijn programma-updates beschikbaar. Klik hier om ze te installeren.</translation>
+        <translation>Er zijn bijgewerkte programmatuurbestanden beschikbaar. Klik hier om ze te installeren.</translation>
     </message>
     <message>
         <source>Restart Required</source>
@@ -69,11 +69,11 @@
     </message>
     <message>
         <source>Please restart your computer to complete the pending updates</source>
-        <translation>Herstart a.u.b. uw computer, om de wachtende updates te voltooien</translation>
+        <translation>Herstart a.u.b. uw computer, om de wachtende bijgewerkte pakketten te voltooien</translation>
     </message>
     <message>
         <source>System restart required to finish updates</source>
-        <translation>Herstart van systeem vereist om updates te voltooien</translation>
+        <translation>Herstart van systeem vereist om bijwerken van pakketten te voltooien</translation>
     </message>
     <message>
         <source>Start the Warden</source>
@@ -81,15 +81,15 @@
     </message>
     <message>
         <source>Jail updates available</source>
-        <translation>Gevangenisupdates beschikbaar</translation>
+        <translation>Bijgewerkte Gevangenispakketten beschikbaar</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation>Gevangenisupdates beschikbaar</translation>
+        <translation>Bijgewerkte Gevangenispakketten beschikbaar</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation>Er zijn belangrijke gevangenisupdates beschikbaar. Klik hier om de Cipier te starten.</translation>
+        <translation>Er zijn belangrijke bijgewerkte Gevangenispakketten beschikbaar. Klik hier om de Cipier te starten.</translation>
     </message>
     <message>
         <source>Display notifications</source>
@@ -105,13 +105,11 @@
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start de pakketbeheerder</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Er zijn bijgewerkte pakketten beschikbaar</translation>
     </message>
 </context>
 </TS>

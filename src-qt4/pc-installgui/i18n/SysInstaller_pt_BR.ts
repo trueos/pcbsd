@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Bem vindo ao PC-BSD! Favor selecionar sua língua e clique em próximo para continuar.</translation>
+        <translation>Bem vindo ao PC-BSD! Por favor, selecione o seu idioma e clique em próximo para continuar.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Seu sistema está sendo instalado! Este processo deve levar algum tempo, dependendo das opções de instalação escolhidas, e da velocidade do sistema. Você será avisado quando a instalação terminar.</translation>
+        <translation>Seu sistema está sendo instalado! Este processo deve levar algum tempo, dependendo das opções de instalação escolhidas e da velocidade do sistema. Você será avisado quando a instalação terminar.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation>Os seguintees meta-pkgs serão instalados:</translation>
+        <translation>Os seguintes meta-pkgs serão instalados:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
@@ -161,13 +161,13 @@
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">Seleção de pacotes do PC-BSD</translation>
+        <translation>Seleção de pacotes do PC-BSD</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">Seu sistema está instalado!
- Clique em Concluir para reiniciar. Após a reinicialização, você pode ejetar a mídia de instalação.</translation>
+        <translation>Seu sistema está instalado!
+ Clique em Finalizar para reiniciar. Após a reinicialização, você pode ejetar a mídia de instalação.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -175,23 +175,23 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">Extraindo o sistema...</translation>
+        <translation>Extraindo o sistema...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">Incapaz de detectar quaisquer unidades de disco! A instalação será encerrada agora.</translation>
+        <translation type="unfinished">Não foi possível detectar quaisquer unidades de disco! A instalação será encerrada agora.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">Incapaz de sugerir uma partição para o disco detectado.</translation>
+        <translation>Não foi possível sugerir uma partição para o disco detectado.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">Foi detectado que você está executando a versão de 32 bits. Se o seu sistema é de 64 bits (maioria dos sistemas fabricados após 2005), você deveria estar executando a versão de 64 bits</translation>
+        <translation>Foi detectado que você está executando a versão de 32 bits. Se o seu sistema é de 64 bits (maioria dos sistemas fabricados após 2005), você deveria usar a versão de 64 bits</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">O disco / partição selecionado é menor que o recomendado %1GB. A instalação pode falhar...</translation>
+        <translation type="unfinished">O disco / partição selecionado é menor que o recomendado %1GB. A instalação poderá falhar...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
@@ -215,28 +215,27 @@
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">Isto irá salvar a sua configuração de instalação em um dispositivo USB formatado em MSDOSFS/FAT32. Continuar?</translation>
+        <translation>Isto irá salvar a sua configuração de instalação em um dispositivo USB formatado em MSDOSFS/FAT32. Continuar?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">Por favor, insira agora um dispositivo USB e clique em OK para continuar.</translation>
+        <translation>Por favor, insira agora um dispositivo USB e clique em OK para continuar.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, digite o apelido para esta configuração que você deseja salvar.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">Falhou ao salvar a configuração na mídia USB. O dispositivo está funcionando e formatado em MSDOSFS/FAT32?</translation>
+        <translation>Falhou ao salvar a configuração na mídia USB. O dispositivo está funcionando e formatado em MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation>Configuração salva! Agora você pode remover a mídia USB com segurança.</translation>
+        <translation>Configuração salva! Agora pode remover a mídia USB com segurança.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">Isto irá carregar o arquivo de configuração de instalação do seu dispositivo USB formatado em MSDOSFS/FAT32. Continuar?</translation>
+        <translation>Isto irá carregar o arquivo de configuração de instalação do seu dispositivo USB formatado em MSDOSFS/FAT32. Continuar?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
@@ -244,11 +243,11 @@
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">Falhou ao carregar o arquivo de configuração salvo na mídia USB. O dispositivo está funcionando e formatado em MSDOSFS/FAT32?</translation>
+        <translation>Falhou ao carregar o arquivo de configuração salvo da mídia USB. O dispositivo está funcionando e formatado em MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">Configuração carregada! Agora você pode remover com segurança a mídia USB.</translation>
+        <translation>Configuração carregada! Agora pode remover a mídia USB com segurança.</translation>
     </message>
     <message>
         <source>Config File:</source>
@@ -257,6 +256,51 @@
     <message>
         <source>Start the install using this config file?</source>
         <translation>Iniciar a instalação usando este arquivo de configuração?</translation>
+    </message>
+    <message>
+        <source>Restore from Life-Preserver backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage network connectivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZFS Datasets:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original ZFS layout will be restored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start the restore now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now restored!
+Click Finish to reboot. After rebooting you may eject the install media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing meta-package: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restoring system: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -293,10 +337,6 @@
         <translation>Sistema de pacotes disponíveis</translation>
     </message>
     <message>
-        <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-        <translation>Por favor, selecione o software que você deseja ter instalado. Pelo menos uma área de trabalho deve ser selecionada, e as mudanças podem ser feitas após a instalação.</translation>
-    </message>
-    <message>
         <source>&amp;Save</source>
         <translation>&amp;Salvar</translation>
     </message>
@@ -319,6 +359,10 @@
     <message>
         <source>Package Listing for:</source>
         <translation>Listando pacotes para:</translation>
+    </message>
+    <message>
+        <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -451,10 +495,6 @@
         <translation>Especialista em FreeBSD (modo manual CLI)</translation>
     </message>
     <message>
-        <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-        <translation>Favor selecionar o disco ou partição na qual você deseja instalar. Favor notar que o BSD pode ser instalado apenas num disco inteiro, ou partição primária maior que 10GB. </translation>
-    </message>
-    <message>
         <source>Selected Disk</source>
         <translation>Selecione o disco</translation>
     </message>
@@ -488,7 +528,7 @@
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Favoer checar o resumo do disco abaixo e clique em finalizar para salvar suas configurações. </translation>
+        <translation>Favor checar o resumo do disco abaixo e clique em finalizar para salvar suas configurações. </translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -528,7 +568,7 @@
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation>Instalando no sistema de arquivos montaod em /mnt</translation>
+        <translation>Instalando no sistema de arquivos montado em /mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
@@ -621,12 +661,7 @@
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation type="unfinished">Instalar o carregador de inicialização GRUB (necessário para o suporte ao ambiente de inicialização)</translation>
+        <translation type="unfinished">Forçar o tamanho de bloco do ZFS em 4k</translation>
     </message>
     <message>
         <source>(MB)</source>
@@ -635,6 +670,30 @@
     <message>
         <source>Swap Size</source>
         <translation>Tamanho da Swap</translation>
+    </message>
+    <message>
+        <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install GRUB (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No boot-loader!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stamp GRUB on MBR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original system datasets / mount-points will be automatically restored.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -734,6 +793,100 @@
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
         <translation>Este facilitador de configuração permitirá para os passos através da configuração de seu novo servidor. Clique em próximo para começar. </translation>
+    </message>
+</context>
+<context>
+    <name>wizardRestore</name>
+    <message>
+        <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To get started please enter the hostname, username and port of your backup server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backup Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSH Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use USB key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use password authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following systems are backed up on this server, select the one you wish to restore. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore System Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The system is ready to be restored, click Finish to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Auth keys could be found on that memory stick!
+Please try another USB stick or use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check that the server is reachable and verify your user/password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check your hostname and that the backup server is reachable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will restore from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the SSH key to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key File:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -108,7 +108,7 @@ Wenn Sie jetzt abbrechen könnten die Pakete beschädigt werden. Trotzdem abbrec
     <name>metaWidget</name>
     <message>
         <source>Apply</source>
-        <translation>Übernehmen</translation>
+        <translation>Anwenden</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>

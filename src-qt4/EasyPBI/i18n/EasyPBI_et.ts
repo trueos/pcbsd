@@ -769,23 +769,19 @@
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alusta PBI ehitamist käesolevast moodulist (vajab administraatori õigusi)</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nõutud on internetiühendus ja administraatori õigused. PBI ehitamise aeg sõltub süsteemi jõudlusest ja kompileeritavatest portidest.</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitud kaust ei paista olevat sobiv FreeBSD port.</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kas kasutada sellegipoolest?</translation>
     </message>
 </context>
 <context>
@@ -1111,8 +1107,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">TextLabel</translation>
     </message>
     <message>
         <source>Create Dir</source>

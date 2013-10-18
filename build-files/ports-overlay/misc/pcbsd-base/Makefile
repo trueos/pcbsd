@@ -35,7 +35,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		linux-f10-cups-libs>=0:${PORTSDIR}/print/linux-f10-cups-libs \
 		fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
-		ossec-hids-local>=0:${PORTSDIR}/security/ossec-hids-local \
 		${LOCALBASE}/etc/rc.d/fail2ban:${PORTSDIR}/security/py-fail2ban \
 		vorbis-tools>=0:${PORTSDIR}/audio/vorbis-tools \
 		zip:${PORTSDIR}/archivers/zip \
@@ -44,7 +43,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		cdrdao:${PORTSDIR}/sysutils/cdrdao \
 		growisofs:${PORTSDIR}/sysutils/dvd+rw-tools \
 		ssh-askpass:${PORTSDIR}/security/openssh-askpass \
-		vim:${PORTSDIR}/editors/vim-lite \
+		vim:${PORTSDIR}/editors/vim \
 		cups-smb-backend>=0:${PORTSDIR}/print/cups-smb-backend \
 		cups-pdf>=0:${PORTSDIR}/print/cups-pdf \
 		cups-bjnp>=0:${PORTSDIR}/print/cups-bjnp \
@@ -71,7 +70,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		numlockx:${PORTSDIR}/x11/numlockx \
 		swapexd:${PORTSDIR}/sysutils/swapexd \
 		epdfview:${PORTSDIR}/graphics/epdfview \
-		uhidd:${PORTSDIR}/sysutils/uhidd \
 		pciutils>=0:${PORTSDIR}/sysutils/pciutils \
 		gpg:${PORTSDIR}/security/gnupg \
 		idesk:${PORTSDIR}/x11/idesk \
@@ -121,7 +119,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		mosh:${PORTSDIR}/net/mosh \
 		virtualbox-ose>=0:${PORTSDIR}/emulators/virtualbox-ose \
 		virtualbox-ose-kmod>=0:${PORTSDIR}/emulators/virtualbox-ose-kmod \
-		virtualbox-ose-additions>=0:${PORTSDIR}/emulators/virtualbox-ose-additions \
 		x11vnc>=0:${PORTSDIR}/net/x11vnc \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
 		tk84>=0:${PORTSDIR}/x11-toolkits/tk84 \

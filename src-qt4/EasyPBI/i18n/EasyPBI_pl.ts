@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation>Wymaganie uprawnień administratora do instalacji tego PBI</translation>
+        <translation>Do zainstalowania tego PBI wymagane są uprawnienia administratora</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
@@ -293,7 +293,7 @@
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation>Uczyń widocznym</translation>
+        <translation>Uczyń niewidocznym</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
@@ -301,1119 +301,920 @@
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">Zapisz element jak jest obecnie widoczny</translation>
+        <translation>Zapisz element w obecnej formie</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz nowy element z obecnymi ustawieniami</translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrypty</translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodatkowe skrypty instalacji/budowy</translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz sktypt który chcesz użyć lub edytować</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz wybrany skrypt</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz</translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń wybrany skrypt z modułu PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz aktualny tekst jako wybrany skrypt</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zawartość dla wybranego skryptu</translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">Linki zewnętrzne</translation>
+        <translation>Linki zewnętrzne</translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pliki do zalinkowania w lokalny system</translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualne wpisy</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">Plik</translation>
+        <translation>Plik</translation>
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrót do</translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Typ pliku</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń aktualnie wybrany skrót</translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń wpis</translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj wpis</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik PBI do zlinkowania symbolicznego w lokalny system (względnie do katalogu PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatycznie wykryte binaria dla tego PBI</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Położenie gdzie link ma być stworzony (relatywnie do położenia lokalnego: normalnie /usr/local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Flagi do określenia typu pliku</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostępne flagi dla nowego skrótu</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz ten link do modułu PBI</translation>
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builder</translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Użyj aktualnego modułu aby zbudować PBI</translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Budowanie Modułu</translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokazanie modułu który jest aktualnie używany do budowania PBI</translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualnie nie jest budowany żaden PBI</translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">Katalog wyjściowy</translation>
+        <translation>Katalog wyjściowy</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Położenie gdzie będą umieszczane gotowe PBI</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyświetla wszystkie komunikaty procesu budowania PBI</translation>
     </message>
     <message>
         <source>Build PBI</source>
-        <translation type="unfinished">Buduj PBI</translation>
+        <translation>Budowanie PBI</translation>
     </message>
     <message>
         <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcjonalnie: Buduj 32-bitowe PBI zamiast typowego 64-bitowego</translation>
     </message>
     <message>
         <source>Build 32-bit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Budowanie 32-bity</translation>
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj działający teraz proces budowania</translation>
     </message>
     <message>
         <source>Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anuluj Budowanie</translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapisz log aktualnego budowania na dysku (bardzo przydatne gdy potrzebna jest pomoc z powodu niepowodzenia budowania)</translation>
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">Zapisz log budowania</translation>
+        <translation>Zapisz log budowania</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcje</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacja</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pasek narzędzi</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustawienia EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz edytor ustawień EasyPBI</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobierz porty FreeBSD</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobierz/aktualizuj drzewo portów FreeBSD</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowy</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kliknij aby stworzyć nowy moduł PBI</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ładuj</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kliknij aby załadować istniejący moduł</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podsumowanie</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LIcencja</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Historia</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porty FreeBSD</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz freshports.org po dodatkowe informacje</translation>
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moduły PBI</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otwórz stronę PC-BSD wiki dla deweloperów PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">Pakiet modułu</translation>
+        <translation>Pakiet modułu</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kompresuj aktualny moduł dla rozpowszechniania</translation>
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">O EasyPBI</translation>
+        <translation>O EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przejrzyj dodatkowe informacje o EasyPBI</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak załadowanego Modułu</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalne źródła</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrypty instalacyjne</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd uprawnień</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wystąpił błąd w trakcje tworzenia lokalnej struktury katalogów EasyPBI. Proszę sprawdzić uprawnienia swojego katalogu domowego i restartować EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zasoby niedostępne</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ponieważ niektóre zasoby zewnętrzne nie mogły być znalezione, usługi EasyPBI z nich korzystające zostały deaktywowane.</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sukces</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopia aktualnego modułu została z powodzeniem spakowana   w katalogu modułu.</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Błąd uprawnień</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można stworzyć modułu PBI. Proszę sprawdzić uprawnienia katalogów i spróbować ponownie.</translation>
     </message>
     <message>
         <source>Select Module</source>
-        <translation type="unfinished">Wybierz moduł</translation>
+        <translation>Wybierz moduł</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: brak portów FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Drzewo portów FreeBSD nie zostało znalezione w twoim systemie.Możesz pobrać drzewo portów przez menu EasyPBI lub ręcznie określić ścieżkę do drzewa w ustawieniach EasyPBI jeśli zostało ono zainstalowane w niestandardowej lokalizacji.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Wybierz Port</translation>
+        <translation>Wybierz Port</translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: niepoprawny Port</translation>
     </message>
     <message>
         <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybrany katalog nie jest poprawnym portem FreeBSD. Proszę wybrać katalog portów który zawiera odpowiednie Makefile i distinfo.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd EasyPBI</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracja PBI nie mogła zostać zapisana. Proszę sprawdzić uprawnienia plików przed ponowną próbą.</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz zasoby</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nowy skrypt Wrapper</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwa pliku</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można usunąć wpisu XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sprawdź uprawnienia pliku i spróbuj ponownie</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można zachować zmian we wpisie XDG.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Błąd zapisu pliku</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie można zapisać skryptu</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę sprawdzić uprawnienia pliku i spróbować ponownie.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Błąd</translation>
+        <translation>Błąd</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">Niepoprawne ustawienia PBI</translation>
+        <translation>Niepoprawne ustawienia PBI</translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">Jesteś pewny że chcesz uruchomić tworzenie PBI?</translation>
+        <translation>Na pewno chcesz uruchomić budowanie PBI?</translation>
     </message>
     <message>
         <source>PBI Builder (Working)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builder (działa)</translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">Zapisz Log</translation>
+        <translation>Zapisz Log</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">Pliki logów</translation>
+        <translation>Pliki logów</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
-        <translation type="unfinished">Tworzenie PBI zakończone powodzeniem.</translation>
+        <translation>Tworzenie PBI zakończone powodzeniem.</translation>
     </message>
     <message>
         <source>The PBI finished building successfully</source>
-        <translation type="unfinished">Budowanie PBI zakończone sukcesem</translation>
+        <translation>Budowanie PBI zakończone sukcesem</translation>
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">Niepowodzenie tworzenia PBI</translation>
+        <translation>Niepowodzenie tworzenia PBI</translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">Nie udało się zbudować PBI.</translation>
+        <translation>Nie udało się zbudować PBI.</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">Proszę sprawdzić log budowy aby znaleźć przyczynę niepowodzenia i poprawić ustawienia modułu</translation>
+        <translation>Proszę sprawdzić log budowy aby znaleźć przyczynę niepowodzenia i poprawić ustawnienia modułu</translation>
     </message>
     <message>
         <source>PBI Builder (Finished)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builder (zakończono)</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęcie tworzenia nowego wpisu XDG</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oddzielona spacjali lista automatycznych powiązań plików (Przykład: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wbierz Katalog Pakietu</translation>
     </message>
     <message>
         <source>FreeBSD Ports Missing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak portów FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak portów FreeBSD w twoim systemie.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplikacja wymaga do działania uprawnień administracyjnych</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wymaga administratora</translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odświerz Moduł</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę odworzyć ustawienia EasyPBI aby poprawić niekompletność</translation>
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rozpoczęcie budowania aktualnego modułu PBI (wymaga uprawnień administracyjnych)</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To wymaga aktywnego połączenia sieciowego i uprawnień administracyjnych. Czas wymagany do budowy PBI zależy od specyfikacji systemu i portów do kompilowania.</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybrany katalog wydaje się nie być poprawnym portem FreeBSD.</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na pewno chcesz kontynuować używając go?</translation>
     </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz nowy Moduł</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD który chcesz budować jako PBI</translation>
     </message>
     <message>
         <source>Select a port from the local FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz port z lokalnego drzewa portów FreeBSD</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz</translation>
     </message>
     <message>
         <source>Local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalny katalog do pakowania jako PBI</translation>
     </message>
     <message>
         <source>Select a local directory to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz lokalny katalog do pakowania jako PBI</translation>
     </message>
     <message>
         <source>Local Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalny katalog</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik ikony PNG do użycia przez PBI (może być zmieniony później)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz lokalny plik PNG (sugerowany rozmiar to 64x64)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik ikony</translation>
     </message>
     <message>
         <source>Create a PBI from an existing FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz PBI z lokalnego portu FreeBSD</translation>
     </message>
     <message>
         <source>Package a local directory as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spakuj lokalny katalog jako PBI</translation>
     </message>
     <message>
         <source>Local Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalne źródła</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: brak portów FreeBSD</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Drzewo portów FreeBSD nie zostało znalezione w twoim systemie. Możesz pobrać drzewo portów przez menu EasyPBI lub ręcznie określić ścieżkę do drzewa portów w ustawieniach EasyPBI jeśli zostało ono zainstalowane w niestandardowej lokalizacji.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Wybierz Port</translation>
+        <translation>Wybierz Port</translation>
     </message>
     <message>
         <source>Select Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz katalog pakietów</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz ikonę PNG</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona PNG (*.png)</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preferencje EasyPBI</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog wyjściowy PBI</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalny katalog w którym znajdą się zbudowane PBI</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj lokalny system aby wybrać katalog wyściowy PBI.</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podpisz cyfrowo PBI które będą tworzone dla bezpiecznej dystrybucji</translation>
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cyfrowo podpisz PBI</translation>
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik podpisu</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plik lokalny który zawiera klucz openssl</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj aby wybrać plik klucza openssl</translation>
     </message>
     <message>
         <source>Use system memory to speed up PBI build processes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Użyj pamięci systemowej aby przyśpieszyć proces budowania PBI.</translation>
     </message>
     <message>
         <source>Use TMPFS</source>
-        <translation type="unfinished">Użyj TMPFS</translation>
+        <translation>Użyj TMPFS</translation>
     </message>
     <message>
         <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bardzo przyśpiesza proces budowania PBI poprzez zapobieganie ponownej kompilacji zbudowanych już portów</translation>
     </message>
     <message>
         <source>Use Package Caching</source>
-        <translation type="unfinished">Użyj keszowania pakietów</translation>
+        <translation>Użyj keszowania pakietów</translation>
     </message>
     <message>
         <source>Package Caching Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcje keszkowania pakietów</translation>
     </message>
     <message>
         <source>Packages to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakiety do ignorowania</translation>
     </message>
     <message>
         <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybrane pakiety będą zawsze ignorowanie w czasie budowania PBI.</translation>
     </message>
     <message>
         <source>Add a currently cached package to be ignored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj aktualnie keszowany pakiet do ignorowanych.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Remove the selected package from the ignore list.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń wybrany pakiet z listy ignorowanych.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń</translation>
     </message>
     <message>
         <source>Delete all packages currently in the cache.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usuń wszystkie katalogi które są aktualnie w Pamięci podręcznej</translation>
     </message>
     <message>
         <source>Clear Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyczyść Pamięć Podręczną</translation>
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalne ścieżki</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślny katalog do tworzenia wszystkich modułów PBI</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz lokalny katalog dla modułów PBI.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślny katalog do otwarcia przy dodawaniu ikon/plików do modułu</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz lokalny katalog.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślna ikona PNG do użycia w modułach PBI.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj lokalny system za domyślną ikoną PNG,</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poleć EasyPBI ponownie skanować system za dostępnymi narzędziami.</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automatyczne wykrywanie</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pełna ścieżka do binaria &quot;pbi_makeport&quot;</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przeglądaj system za lokalnymi binariami.</translation>
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pełna ścieżka do binaria &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Narzędzie przełączania użytkownika</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pełna ścieżka do graficznego narzędzia  &quot;przełącz użytkownika&quot; (pc-su, gksu, kdesu, qsu, etc..)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">Wybierz wyjściowy katalog PBI</translation>
+        <translation>Wybierz wyjściowy katalog PBI</translation>
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">Wybierz plik podpisu cyfrowego</translation>
+        <translation>Wybierz plik podpisu cyfrowego</translation>
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pliki podpisu (*)</translation>
     </message>
     <message>
         <source>Select the Package to Ignore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz pakieto do ignorowania.</translation>
     </message>
     <message>
         <source>Package Files (*.txz)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pliki pakietów (*.txz)</translation>
     </message>
     <message>
         <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na pewno chesz wyczyścić pamieć podręczną pakietów PBI</translation>
     </message>
     <message>
         <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To usunie wszystkie  pliki i podkatalogi z katalogu pamięci podręcznej. Następnym razem gdy zaczniesz budowanie PBI, rozpocznie się ponowne budowanie wszystkich pakietów ze żródeł.</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz domyślny katalog modułu.</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz domyślny katalog do znalezienia plików ikon.</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz domyślny plik ikony.</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obrazy PNG (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz graficzne narzędzie przełączania użytkownika</translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz położenie narzędzia &apos;pbi_create&apos;</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz położenie pliku &apos;pbi_makeport&apos;</translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na pewno chcesz powrócić do automatycznie wykrytych ścieżek narzędzi?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>To usunie wszystkie niestandardowe ustawienia ścieżek do zewnętrznych narzędzi.</translation>
     </message>
     <message>
         <source>Select FreeBSD Ports Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz drzewo portów FreeBSD</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porty FReeBSD</translation>
     </message>
     <message>
         <source>Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Drzewo Portów</translation>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ostatnia aktualizacja</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Create Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stwórz katalog</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizuj</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Budowania PBI</translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zewnętrzne narzędzia</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślne ścieżki wyszukiwania</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moduły</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">Zasoby</translation>
+        <translation>Zasoby</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domyślna Ikona</translation>
     </message>
     <message>
         <source>Current User (~/EasyPBI/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualny użytkownik (~/EasyPBI/ports)</translation>
     </message>
     <message>
         <source>All Users (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wszyscy użytkownicy (/usr/ports)</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inni</translation>
     </message>
     <message>
         <source>Nonexistent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nieistniejący</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sukces</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Drzewo portów FreeBSD zostało zaktualizowane.</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Niepowodzenie</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has failed to update.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizacja drzewa Portów nie powiodła się.</translation>
     </message>
     <message>
         <source>Last Message: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ostatnia wiadomość: %1</translation>
     </message>
     <message>
         <source>Requesting Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wymaganie dostępu administratora</translation>
     </message>
 </context>
 <context>
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">O EasyPBI</translation>
+        <translation>O EasyPBI</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licencja</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Historia rozwoju</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wersja EasyPBI %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">Stwórz PBI szybko i łatwo.</translation>
+        <translation>Stwórz PBI szybko i łatwo.</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie udało się otworzyć pliku z zasobów: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę sprawdzić czy kompilacja EasyPBI została wykonana poprawnie</translation>
     </message>
 </context>
 </TS>

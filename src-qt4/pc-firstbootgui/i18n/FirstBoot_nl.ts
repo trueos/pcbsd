@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Welcome to your new PC-BSD system! You may change your language above, and click next to begin the setup process.</source>
-        <translation>Welkom in uw nieuwe PC-BSD-systeem! U kunt bovenin uw taal wijzigen, en op Volgende klikken om het instelproces te beginnen.</translation>
+        <translation>Welkom in uw nieuwe PC-BSD-systeem! U kunt hierboven uw taal wijzigen, en op Volgende klikken om het instelproces te beginnen.</translation>
     </message>
     <message>
         <source>System Timezone</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
-        <translation>De volgende draadloze netwerken werden gevonden. Klik op degene waar u mee wil verbinden. Indien u dit wenst over te slaan, klik dan op &apos;Volgende&apos; onderaan. </translation>
+        <translation>De volgende draadloze netwerken werden gevonden. Klik op datgene waar u mee wil verbinden. Indien u dit wenst over te slaan, klik dan op &apos;Volgende&apos; hieronder. </translation>
     </message>
     <message>
         <source>Setup is now complete! Press Finish to login to your new desktop.</source>
@@ -93,33 +93,27 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zal de persoonlijke map van gebruiker versleutelen</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gebruikersbestanden versleutelen</translation>
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systeemnaam</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voer een geldige systeemnaam in, of laat die op de standaard staan.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voer a.u.b. een systeemnaam in</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Een systeemnaam mag alleen letters en cijfers bevatten</translation>
     </message>
 </context>
 <context>
@@ -196,7 +190,7 @@
     <message>
         <source>Error: The entered network keys do not match!
 </source>
-        <translation>Fout: de ingevoerde netwerksleutels komen niet overeen!
+        <translation>Fout: de ingevoerde netwerksleutels komen niet overeen.
 </translation>
     </message>
 </context>

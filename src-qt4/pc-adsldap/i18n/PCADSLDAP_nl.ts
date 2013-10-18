@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation>Wachtwoord van beheerder            </translation>
+        <translation>Wachtwoord van beheerder</translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Hostname</source>
-        <translation>Hostnaam</translation>
+        <translation>Systeemnaam</translation>
     </message>
     <message>
         <source>Base DN</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Password Encryption</source>
-        <translation>Wachtwoordversleuteling            </translation>
+        <translation>Wachtwoordversleuteling</translation>
     </message>
     <message>
         <source>User Suffix</source>
@@ -77,19 +77,19 @@
     </message>
     <message>
         <source>Group Suffix</source>
-        <translation>Achtervoegsel van groep           </translation>
+        <translation>Achtervoegsel van groep</translation>
     </message>
     <message>
         <source>Password Suffix</source>
-        <translation>Achtervoegsel van wachtwoord         </translation>
+        <translation>Achtervoegsel van wachtwoord</translation>
     </message>
     <message>
         <source>Machine Suffix</source>
-        <translation>Achtervoegsel van machine           </translation>
+        <translation>Achtervoegsel van machine</translation>
     </message>
     <message>
         <source>Encryption Mode</source>
-        <translation>Versleutelingsmodus           </translation>
+        <translation>Versleutelingsmodus</translation>
     </message>
     <message>
         <source>Self Signed Certificate</source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>&amp;Opslaan            </translation>
+        <translation>&amp;Opslaan</translation>
     </message>
     <message>
         <source>&amp;Close</source>

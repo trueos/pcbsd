@@ -29,11 +29,11 @@
     </message>
     <message>
         <source>Jail Directory</source>
-        <translation>Jail Verzeichnis</translation>
+        <translation>Jail-Verzeichnis</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation>Temp Verzeichnis</translation>
+        <translation>Temp-Verzeichnis</translation>
     </message>
     <message>
         <source>Select Jail Directory</source>
@@ -138,10 +138,6 @@
         <translation>Berechtigungen</translation>
     </message>
     <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>Für diese Jail können die folgenden Berechtigungen aktiviert oder deaktiviert werden. Für weitere Details die Maus über das jeweilige Element gehen oder die Jail-Manpage zu Rate ziehen.</translation>
-    </message>
-    <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
         <translation>Prozesse innerhalb einer Jail haben Zugriff auf die System V IPC-Grundfunktionen.</translation>
     </message>
@@ -209,8 +205,7 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Optionen</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
@@ -236,6 +231,10 @@
         <source>IPv6 Default Router (Requires VNET)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -277,25 +276,23 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail-Vorlagen</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Neue Jail hinzufügen</translation>
+        <translation>Neue Jail hinzufügen</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Entferne die ausgewählte Jail</translation>
+        <translation>Entferne die ausgewählte Jail</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Schließen</translation>
+        <translation>&amp;Schließen</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemversion</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
@@ -669,12 +666,11 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation>Paketverwalter</translation>
+        <translation>Paketverwaltung</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vorlagenverwaltung</translation>
     </message>
 </context>
 <context>
@@ -792,22 +788,19 @@
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Version</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verwende Systemversion (Standard)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">Ungültige IPv6-Adresse!</translation>
+        <translation>Ungültige IPv6-Adresse!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dieser Assistent begleitet Sie durch die Erstellung einer neuen Jail. Zuerst geben Sie einen Hostnamen und eine IP-Adresse ein, die aktuell im Netzwerk nicht verwendet wird. Wenn sie per IPv6 auf die Jail zugreifen wollen, wählen Sie die IPv6 Adressbox an und geben eine gültige IPv6-Adresse ein. Wenn Sie fertig sind klicken sie Weiter um fortzufahren.</translation>
     </message>
 </context>
 </TS>

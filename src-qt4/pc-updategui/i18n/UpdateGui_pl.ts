@@ -155,5 +155,9 @@
         <source>Could not run freebsd-update, another process is already running!</source>
         <translation>Nie można uruchomić freebsd-update,inny proces już działa!</translation>
     </message>
+    <message>
+        <source>Reboot required for update to finish!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

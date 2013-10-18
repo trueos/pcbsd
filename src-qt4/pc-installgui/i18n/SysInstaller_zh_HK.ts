@@ -174,108 +174,132 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在抽取系統...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>偵測不到有磁碟！安裝馬上會結束。</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無法在偵測到的磁碟建議分割區。</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>偵測到運行的是32位元版本。若電腦可使用64位元系統 (大部份2005年之後的電腦都可以)，您真的最好使用64位元版本</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>所選磁碟 / 分割區少於建議的 %1GB。可能無法完成安裝...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自 USB 碟載入安裝設定檔</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自 USB 載入設定</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>桌面 (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>伺服器 (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>將設定儲存至 USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>會將安裝設定儲存至以 MSDOSFS/FAT32 格式化的 USB 碟。是否繼續？</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請插入 USB 碟，並按「好」繼續。</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請輸入此設定存檔要使用的暱稱。</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>未能將設定儲存至 USB 媒體。該裝置是否運作正常並以 MSDOSFS/FAT32 格式化？</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定已儲存！現在可安全移除該 USB 媒體。</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>會自以 MSDOSFS/FAT32 格式化的 USB 碟載入安裝設定檔。是否繼續？</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請插入 USB 碟，並按「好」繼續。</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>未能自 USB 媒體載入設定檔。該裝置是否運作正常？又或是否以 MSDOSFS/FAT32 格式化？</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定已載入！現在可安全移除該 USB 媒體。</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定檔：</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>是否以此設定檔開始安裝？</translation>
+    </message>
+    <message>
+        <source>Restore from Life-Preserver backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manage network connectivity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>ZFS Datasets:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original ZFS layout will be restored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start the restore now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now restored!
+Click Finish to reboot. After rebooting you may eject the install media.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Installing meta-package: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restoring system: %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -312,10 +336,6 @@
         <translation>可提供系統套件</translation>
     </message>
     <message>
-        <source>Please select the software you wish to have installed. At least one desktop must be selected, and changes may be made after installation.</source>
-        <translation>請選擇要安裝的軟件。注意：最起碼必須安裝一個桌面環境；要更改桌面環境須在安裝完成後。</translation>
-    </message>
-    <message>
         <source>&amp;Save</source>
         <translation>儲存(&amp;S)</translation>
     </message>
@@ -338,6 +358,10 @@
     <message>
         <source>Package Listing for:</source>
         <translation>以下項目的套件清單：</translation>
+    </message>
+    <message>
+        <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -468,10 +492,6 @@
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
         <translation>FreeBSD 專家 (指令列介面手動模式)</translation>
-    </message>
-    <message>
-        <source>Please select the disk or partition you wish to install onto. Please note that BSD can only be installed to an entire disk, or primary partition larger than 10GB. </source>
-        <translation>請選取要用於安裝的磁碟或分割區。請注意：BSD 只能以整個磁碟安裝或安裝在大於 10GB 的主分割區。</translation>
     </message>
     <message>
         <source>Selected Disk</source>
@@ -627,38 +647,51 @@
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>輸入置換區大小</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>大小 (MB)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS pool 名稱</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Install GRUB boot-loader (Required for Boot-Environment support)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>強制使用 ZFS 4K 區塊大小</translation>
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>置換區大小</translation>
+    </message>
+    <message>
+        <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install GRUB (Required for Boot-Environment support)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No boot-loader!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stamp GRUB on MBR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The original system datasets / mount-points will be automatically restored.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -758,6 +791,100 @@
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
         <translation>本精靈會引導您完成新伺服器的整個設置程序。按「下一步」開始。</translation>
+    </message>
+</context>
+<context>
+    <name>wizardRestore</name>
+    <message>
+        <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To get started please enter the hostname, username and port of your backup server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backup Server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Host Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSH Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use USB key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use password authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The following systems are backed up on this server, select the one you wish to restore. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore System Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The system is ready to be restored, click Finish to continue.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No keys found!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Auth keys could be found on that memory stick!
+Please try another USB stick or use password authentication.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection failed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check that the server is reachable and verify your user/password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not connect to the backup server!
+Please check your hostname and that the backup server is reachable.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will restore from:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select the SSH key to use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Key File:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

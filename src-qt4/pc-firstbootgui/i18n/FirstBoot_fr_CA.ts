@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Set the system timezone</source>
-        <translation>FrançaisDéfinir le fuseau horaire</translation>
+        <translation>Définir le fuseau horaire</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>

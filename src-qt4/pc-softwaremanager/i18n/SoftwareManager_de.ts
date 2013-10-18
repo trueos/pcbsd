@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation>Abkürzungen:</translation>
+        <translation>Verknüpfungen:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
@@ -221,10 +221,6 @@
     <message>
         <source>Open the browser page for the selected application</source>
         <translation>Die Browser-Seite für das ausgewählte Programm öffnen</translation>
-    </message>
-    <message>
-        <source>Open Browser</source>
-        <translation>Browser öffnen</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -296,11 +292,11 @@
     </message>
     <message>
         <source>File</source>
-        <translation>Datei</translation>
+        <translation>&amp;Datei</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation>Konfigurieren</translation>
+        <translation>&amp;Einstellungen</translation>
     </message>
     <message>
         <source>Import PBI List</source>
@@ -328,7 +324,7 @@
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>Das AppCafe muss als Administrator (root)  ausgeführt werden, wenn Warden im Kompatiblitätsmodus ausgeführt wird.</translation>
+        <translation>Das AppCafe muss als Administrator (root) ausgeführt werden, wenn Warden im Kompatiblitätsmodus ausgeführt wird.</translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
@@ -432,7 +428,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation>Nichts</translation>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
@@ -456,7 +452,7 @@
     </message>
     <message>
         <source>Downgrade</source>
-        <translation type="unfinished">Downgrade</translation>
+        <translation>Downgrade</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
@@ -480,11 +476,23 @@
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished">Lade %1:</translation>
+        <translation>Herunterladen Datei %1:</translation>
     </message>
     <message>
         <source>Start the application</source>
         <translation>Programm starten</translation>
+    </message>
+    <message>
+        <source>Product Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to install this application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -623,7 +631,7 @@
     </message>
     <message>
         <source>Starting Update</source>
-        <translation>Starte Update            </translation>
+        <translation>Starte Aktualisierung</translation>
     </message>
     <message>
         <source>Starting Download</source>

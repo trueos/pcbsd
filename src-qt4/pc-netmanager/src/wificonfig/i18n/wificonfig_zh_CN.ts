@@ -279,18 +279,15 @@
     </message>
     <message>
         <source>Configured Network Profiles</source>
-        <translation>已配置的网络资料
-            </translation>
+        <translation>已配置的网络资料</translation>
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation>添加网络(n)
-            </translation>
+        <translation>添加网络(n)</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation>WPA配置
-            </translation>
+        <translation>WPA配置</translation>
     </message>
     <message>
         <source>Set Country Code</source>
@@ -346,7 +343,8 @@
     <message>
         <source>Error: You must select a network to connect!
 </source>
-        <translation>错误: 你必须选择一个网络才能连接！</translation>
+        <translation>错误: 你必须选择一个网络才能连接！
+</translation>
     </message>
 </context>
 <context>
@@ -406,7 +404,8 @@
     <message>
         <source>Error: You must select a wireless network to connect!
 </source>
-        <translation>错误：你必须选择连接一个无线网络</translation>
+        <translation>错误：你必须选择连接一个无线网络！
+</translation>
     </message>
     <message>
         <source>Invalid BSSID!</source>
@@ -452,7 +451,7 @@ Please configure your WPA settings before saving!</source>
     </message>
     <message>
         <source>Save</source>
-        <translation>保存  </translation>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Network Security</source>

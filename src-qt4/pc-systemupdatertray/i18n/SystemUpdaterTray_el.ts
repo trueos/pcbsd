@@ -33,17 +33,15 @@
     </message>
     <message>
         <source>PBI updates available</source>
-        <translation> Διαθέσιμες ενημερώσεις PBI</translation>
+        <translation>Διαθέσιμες ενημερώσεις PBI</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εκκίνηση AppCafe</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Έξοδος</translation>
     </message>
     <message>
         <source>System Updates Available</source>

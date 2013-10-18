@@ -23,5 +23,9 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>Błędne hasło! Pozostało prób: %1</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Przełącz szczegóły polecenia</translation>
+    </message>
 </context>
 </TS>

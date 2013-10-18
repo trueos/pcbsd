@@ -223,10 +223,6 @@
         <translation>Mở trang trình duyệt cho các ứng dụng được chọn</translation>
     </message>
     <message>
-        <source>Open Browser</source>
-        <translation>Mở trình duyệt</translation>
-    </message>
-    <message>
         <source>Automatically update the selected application when an update is available</source>
         <translation>Tự động cập nhật các ứng dụng được chọn khi có bản cập nhật</translation>
     </message>
@@ -485,6 +481,18 @@
     <message>
         <source>Start the application</source>
         <translation>Bắt đầu ứng dụng</translation>
+    </message>
+    <message>
+        <source>Product Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to install this application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

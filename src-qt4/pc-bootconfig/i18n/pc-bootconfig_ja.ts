@@ -5,303 +5,247 @@
     <name>mainUI</name>
     <message>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD 起動設定</translation>
     </message>
     <message>
         <source>Boot Environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブート環境設定</translation>
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいブート環境設定を作成します</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたブート環境設定を削除します</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Make a copy of the selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたブート環境設定をコピーします</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたブート環境設定の名前を変更します</translation>
     </message>
     <message>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択されたブート環境設定を起動時のデフォルト設定とします</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルト</translation>
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デフォルトオプションで起動するまでの時間(0が設定されると自動的には起動しません)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>カウントダウン中に GRUB メニューを表示します</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル</translation>
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB メニューの再構築</translation>
     </message>
     <message>
         <source>Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB デフォルト設定の再読み込み</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>実行中</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>日付</translation>
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントポイント</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>容量</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB の設定</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Timer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>タイマー</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> 秒</translation>
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>フォントファイル</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB が使用するフォントファイル</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB 用フォントファイルを選択</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>タイマーのカウントダウンを表示</translation>
     </message>
     <message>
         <source>Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>テーマファイル</translation>
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB のテーマファイル</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB のテーマファイルを選択</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在の設定値を保存します</translation>
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB の設定を再読み込みします</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のエントリーを保存します</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB エントリーファイルを再読み込み</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無効な名前です</translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>その名前のブート環境設定は既に存在します。別の名前をつけてください。</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブート環境設定を変更しています。お待ちください。</translation>
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいブート環境設定の名前</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいブート環境設定を指定してください</translation>
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブート環境設定が有効です</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>そのブート環境設定が有効な状態では名前を変更できません。</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>別のブート環境設定の名前を指定してください。</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>そのブート環境設定は削除できません。</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>唯一のブート環境設定</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在有効なブート環境設定は削除できません。</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブート環境設定の削除確認</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このブート環境設定を削除してもよろしいですか?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB テーマファイルの選択</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>テーマファイル(theme.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB 用フォントファイルの選択</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>フォントファイル (*.pf2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB メニューシステムを再構築しています。お待ちください。</translation>
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存していない変更</translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更された GRUB 設定が保存されていません。保存しますか?</translation>
+    </message>
+    <message>
+        <source>Custom Entries</source>
+        <translation>カスタム設定のエントリー</translation>
+    </message>
+    <message>
+        <source>Emergency Services</source>
+        <translation>非常時の修復</translation>
+    </message>
+    <message>
+        <source>Working</source>
+        <translation>処理しています</translation>
+    </message>
+    <message>
+        <source>You cannot make a copy of the currently running boot environment!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

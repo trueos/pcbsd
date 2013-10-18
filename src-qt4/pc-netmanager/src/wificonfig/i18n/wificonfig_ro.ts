@@ -278,23 +278,19 @@
     </message>
     <message>
         <source>Configured Network Profiles</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurare profiluri de rețea</translation>
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adăugare &amp; rețea</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurare WPA    </translation>
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setare cod de țară            </translation>
     </message>
 </context>
 <context>

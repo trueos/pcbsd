@@ -5,303 +5,247 @@
     <name>mainUI</name>
     <message>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Cấu hình bootup</translation>
     </message>
     <message>
         <source>Boot Environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Môi trường khởi động</translation>
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ra một môi trường khởi động mới</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thêm</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại bỏ các môi trường khởi động hiện đang được chọn</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Make a copy of the selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo một bản sao của môi trường khởi động được chọn</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đổi tên các môi trường khởi động hiện đang được chọn</translation>
     </message>
     <message>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kích hoạt các môi trường khởi động được lựa chọn sẽ được sử dụng như là mặc định trong quá trình khởi động hệ thống</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>mặc</translation>
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Số lượng thời gian trước khi lựa chọn mặc định được bắt đầu (0 vô hiệu hóa tự động khởi động)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiển thị menu GRUB trong đếm ngược</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tập tin</translation>
     </message>
     <message>
         <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các dịch vụ khẩn cấp</translation>
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng lại GRUB đơn</translation>
     </message>
     <message>
         <source>Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khôi phục mặc định GRUB</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tên</translation>
     </message>
     <message>
         <source>Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>đang chạy</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ngày</translation>
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>điểm lắp</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>không gian</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cấu hình GRUB</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các thiết lập</translation>
     </message>
     <message>
         <source>Timer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hẹn giờ</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Giây</translation>
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>phông chữ tập tin</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Phông chữ cho GRUB dùng</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một tập tin phông chữ cho GRUB</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hiển thị đồng hồ đếm ngược</translation>
     </message>
     <message>
         <source>Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>chủ đề tập tin</translation>
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tập tin chủ đề cho GRUB dùng</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một tập tin chủ đề cho GRUB</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu lại cấu hình các thiết lập hiện tại</translation>
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tái tải các cài đặt GRUB</translation>
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tùy chỉnh riêng</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lưu lại cấu hình nhập hiện tại</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tái nạp các mục file GRUB</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên không hợp lệ</translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Một môi trường khởi động với tên đó đã tồn tại, xin vui lòng chọn tên khác.</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>làm việc</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thực hiện các thay đổi môi trường khởi động. Xin vui lòng đợi.</translation>
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mới BE tên</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một tên cho môi trường khởi động mới</translation>
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>đang chạy khởi động Môi trường</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn không thể đổi tên một môi trường khởi động mà bạn đang chạy!</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một tên mới cho môi trường khởi động này</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn không thể loại bỏ môi trường khởi động duy nhất của bạn!</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Độc thân khởi động Môi trường</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn không thể loại bỏ một môi trường khởi động mà bạn đang chạy!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xác minh BE diệt</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc bạn muốn xóa các môi trường khởi động sau đây?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số một GRUB Chủ điểm tệp</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chủ điểm tệp (theme.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn số một GRUB phông chữ tệp</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>phông chữ tệp (*.PF2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng lại hệ thống menu GRUB. Xin vui lòng chờ đợi.</translation>
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Những thay đổi chưa được lưu</translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn đang có những thay đổi chưa được lưu trong cấu hình GRUB. Bạn có muốn bỏ thuốc lá không?</translation>
+    </message>
+    <message>
+        <source>You cannot make a copy of the currently running boot environment!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

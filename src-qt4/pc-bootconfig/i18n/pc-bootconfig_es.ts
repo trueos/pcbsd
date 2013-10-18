@@ -5,78 +5,63 @@
     <name>mainUI</name>
     <message>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuración del arranque de PC-BSD</translation>
     </message>
     <message>
         <source>Boot Environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entornos de Arranque</translation>
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Crear un nuevo entorno de arranque</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminar el entorno de arranque elegido.</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eliminar</translation>
     </message>
     <message>
         <source>Make a copy of the selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copiar el entorno de arranque elegido.</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cambiar el nombre del entorno de arranque elegido.</translation>
     </message>
     <message>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usar el entorno de arranque elegido como arranque por defecto.</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por defecto</translation>
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiempo de espera antes de que la opción por defecto arranque (0 desactiva el arranque automático)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mostrar el menú GRUB durante la cuenta atrás.</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichero</translation>
     </message>
     <message>
         <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servicios de emergencia.</translation>
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
@@ -302,6 +287,10 @@
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>You cannot make a copy of the currently running boot environment!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

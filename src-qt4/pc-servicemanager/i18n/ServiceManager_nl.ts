@@ -69,14 +69,14 @@
     </message>
     <message>
         <source>Checking...</source>
-        <translation>Aan het controleren...            </translation>
+        <translation>Aan het controleren...</translation>
     </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation>Service</translation>
+        <translation>Dienst</translation>
     </message>
     <message>
         <source>Service Action in progress...</source>

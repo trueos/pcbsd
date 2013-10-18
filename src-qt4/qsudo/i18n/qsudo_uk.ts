@@ -23,5 +23,9 @@
         <source>Invalid Password! Tries Left: %1</source>
         <translation>Невірний пароль! Лишилося спроб: %1</translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation>Показати команду</translation>
+    </message>
 </context>
 </TS>

@@ -115,13 +115,11 @@
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Apelidos</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Apelidos IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
@@ -130,8 +128,7 @@
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Apelidos IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
@@ -141,11 +138,6 @@
     <message>
         <source>Permissions</source>
         <translation>Permissões</translation>
-    </message>
-    <message>
-        <source>The following permissions can be enabled or diabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
@@ -169,23 +161,19 @@
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Usuários privilegiados dentro do jail poderão montar e desmontar o sistema de arquivos devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Usuários privilegiados dentro do jail poderão montar e desmontar o sistema de arquivos nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Usuários privilegiados dentro do jail poderão montar e desmontar o sistema de arquivos procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Usuários privilegiados dentro do jail poderão montar e desmontar o sistema de arquivos zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
@@ -203,13 +191,11 @@
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Endereço de ponte IPv4 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Endereço de roteador IPv4 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
@@ -217,13 +203,11 @@
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Endereço de ponte IPv6 inválido!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Endereço de roteador IPv6 inválido!</translation>
     </message>
     <message>
         <source>Options</source>
@@ -231,27 +215,27 @@
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">Habilitar suporte VNET / VIMAGE</translation>
+        <translation>Habilitar suporte ao VNET / VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Endereço de ponte IPv4 (Requer VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Roteador padrão IPv4 (Requer VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Endereço de ponte IPv6 (Requer VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Roteador padrão IPv6 (Requer VNET)</translation>
+    </message>
+    <message>
+        <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -262,7 +246,7 @@
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>Você tem a opção de alterar o IP / nome de host do jail importado. Quaisquer referências internas ao antigo IP / nome de host ainda precisarão ser alteradas depois da importação. </translation>
+        <translation type="unfinished">Você tem a opção de alterar o IP / nome da máquina do jail importado. Quaisquer referências internas ao antigo IP / nome da máquina ainda precisarão ser alteradas depois da importação. </translation>
     </message>
     <message>
         <source>Change IP Address</source>
@@ -278,7 +262,7 @@
     </message>
     <message>
         <source>Change Hostname</source>
-        <translation>Alterar nome de host</translation>
+        <translation>Alterar nome da máquina</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
@@ -293,8 +277,7 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Modelos de jail</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
@@ -319,13 +302,11 @@
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Apelido do modelo</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Digite um apelido para este modelo:</translation>
     </message>
 </context>
 <context>
@@ -368,7 +349,7 @@
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation>Alternar o auto início</translation>
+        <translation>Alternar o início automático</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
@@ -672,7 +653,7 @@
     </message>
     <message>
         <source>The Warden</source>
-        <translation type="unfinished">O Warden</translation>
+        <translation>The Warden</translation>
     </message>
     <message>
         <source>IPs:</source>
@@ -680,18 +661,15 @@
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurar o jail</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gerenciador de Pacotes</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Gerenciador de Modelos</translation>
     </message>
 </context>
 <context>
@@ -705,7 +683,7 @@
     <name>wizardNewJail</name>
     <message>
         <source>Hostname</source>
-        <translation>Nome do host</translation>
+        <translation>Nome da máquina</translation>
     </message>
     <message>
         <source>Jailbird</source>
@@ -785,13 +763,11 @@
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Por favor, reserve um momento e configure todas as outras opções para este jail. Note que incluindo a opção fonte do sistema requer que este esteja presente em /usr/src. </translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, reserve um momento e configure todas as outras opções para este jail.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
@@ -803,11 +779,11 @@
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">Jail tradicional (Seguro, melhor para serviços)</translation>
+        <translation>Jail tradicional (Seguro, melhor para serviços)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">Instalar PKGNG e utilitários do PC-BSD</translation>
+        <translation>Instalar PKGNG e utilitários do PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
@@ -823,7 +799,7 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">Este assistente irá guiá-lo na criação de um novo jail. Primeiro, digite um nome de host e um endereço IP que não esteja em uso na rede. Se planeja usar IPv6 para acessar o jail, verifique a caixa do endereço IPv6 e insira um endereço IPv6 válido. Quando terminar, clique em Próximo para continuar.</translation>
+        <translation type="unfinished">Este assistente irá guiá-lo na criação de um novo jail. Primeiro, digite um nome da máquina e um endereço IP que não esteja em uso na rede. Se planeja usar IPv6 para acessar o jail, verifique a caixa do endereço IPv6 e insira um endereço IPv6 válido. Quando terminar, clique em Próximo para continuar.</translation>
     </message>
 </context>
 </TS>

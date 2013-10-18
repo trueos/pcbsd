@@ -272,13 +272,11 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>啟用代理伺服器</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可能要重新登入以讓代理設定生效。</translation>
     </message>
 </context>
 </TS>

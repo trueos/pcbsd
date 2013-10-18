@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Computer/Device ID</source>
-        <translation>计算机/设备ID            </translation>
+        <translation>计算机/设备ID</translation>
     </message>
     <message>
         <source>Change</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Start Tray Application</source>
-        <translation>启动托盘程序            </translation>
+        <translation>启动托盘程序</translation>
     </message>
     <message>
         <source>Restart Service</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Add Device</source>
-        <translation>添加设备            </translation>
+        <translation>添加设备</translation>
     </message>
     <message>
         <source>Saved Devices</source>

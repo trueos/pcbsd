@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation>Você pode também gerar um relatório, com informações sobre o seu sistema. Este relatório pode também ser útil para técnicos para resoluções de problemas do seu sistema.</translation>
+        <translation>Você pode também gerar um relatório com informações sobre o seu sistema. Este relatório pode ser usado por técnicos para resolução de problemas.</translation>
     </message>
     <message>
         <source>&amp;Save</source>

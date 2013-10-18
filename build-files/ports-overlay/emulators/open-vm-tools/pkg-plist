@@ -14,7 +14,6 @@ lib/open-vm-tools/plugins/common/libhgfsServer.la
 lib/open-vm-tools/plugins/common/libvix.so
 lib/open-vm-tools/plugins/common/libvix.la
 %%X11%%lib/open-vm-tools/plugins/vmusr/libresolutionSet.so
-%%X11%%lib/open-vm-tools/plugins/vmusr/libvixUser.so
 %%X11%%lib/open-vm-tools/plugins/vmusr/libdesktopEvents.so
 %%X11%%lib/open-vm-tools/plugins/vmusr/libdndcp.so
 lib/libhgfs.a
@@ -41,16 +40,12 @@ include/vmGuestLib/vmSessionId.h
 include/vmGuestLib/vm_basic_types.h
 @exec mkdir -p %D/lib/vmware-tools/modules/input
 sbin/mount_vmhgfs
-%%X11%%bin/vmware-toolbox
 %%X11%%bin/vmware-user-suid-wrapper
 share/vmware-tools/poweroff-vm-default
 share/vmware-tools/poweron-vm-default
 share/vmware-tools/resume-vm-default
 share/vmware-tools/suspend-vm-default
 share/vmware-tools/vm-support
-share/open-vm-tools/messages/de/toolbox.vmsg
-share/open-vm-tools/messages/ja/toolbox.vmsg
-share/open-vm-tools/messages/zh_CN/toolbox.vmsg
 share/vmware-tools/statechange.subr
 share/vmware-tools/scripts/vmware/network
 @exec kldxref %D/lib/vmware-tools/modules/drivers 2>/dev/null || true

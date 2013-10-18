@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Good Input</source>
-        <translation>Correcte invoer</translation>
+        <translation>Goede invoer</translation>
     </message>
     <message>
         <source>This field can only accept letters and numbers</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Invalid input</source>
-        <translation>Verkeerde invoer</translation>
+        <translation>Ongeldige invoer</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
-        <translation>- U koos een bestand als &apos;Persoonlijke Map&apos;, het moet een map zijn.</translation>
+        <translation>- U koos een bestand als &apos;Persoonlijke map&apos;, dit moet een map zijn.</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bestanden versleutelen:</translation>
     </message>
 </context>
 <context>
@@ -306,7 +305,7 @@
     </message>
     <message>
         <source>Alt+R</source>
-        <translation>Alt+R</translation>
+        <translation>Alt+V</translation>
     </message>
     <message>
         <source>Home Directory:</source>
@@ -480,7 +479,7 @@
     </message>
     <message>
         <source>Warning!</source>
-        <translation>Waarschuwing!</translation>
+        <translation>Waarschuwing.</translation>
     </message>
     <message>
         <source>The field is empty</source>
@@ -543,8 +542,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bestanden versleutelen:</translation>
     </message>
 </context>
 <context>
@@ -693,7 +691,7 @@
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation>De persoonlijke map buiten &apos;/home/&apos; plaatsen kan compatibiliteitsproblemen veroorzaken met sommige programma&apos;s. NIET AANBEVOLEN</translation>
+        <translation>De persoonlijke map buiten &apos;/home/&apos; plaatsen kan verenigbaarheidsproblemen veroorzaken met sommige programma&apos;s. NIET AANBEVOLEN</translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>

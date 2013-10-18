@@ -137,28 +137,27 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uuenduse üksikasjad</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baassüsteemi uuendused</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uuendatakse järgmisi faile:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uuenduse üksikasjad:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Programm freebsd-update on juba käivitatud!</translation>
+    </message>
+    <message>
+        <source>Reboot required for update to finish!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

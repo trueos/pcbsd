@@ -93,28 +93,23 @@
     </message>
     <message>
         <source>Display notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">알림사항 표시하기</translation>
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패키지 업데이트 사용가능함</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>중요한 패키지 업데이트가 준비됐습니다. 설치하려면 여길 누르세요!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패키지 관리자 시작하기</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패키지 업데이트 사용하능함</translation>
     </message>
 </context>
 </TS>

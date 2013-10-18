@@ -28,5 +28,10 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Toggle command details</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

@@ -5,126 +5,102 @@
     <name>ServiceManager</name>
     <message>
         <source>Service Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Managerul de servicii</translation>
     </message>
     <message>
         <source>Service Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nume serviciu            </translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oprire            </translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repornire            </translation>
     </message>
     <message>
         <source>Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rulare   </translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oprite            </translation>
     </message>
     <message>
         <source>SDIR</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SDIR            </translation>
     </message>
     <message>
         <source>TAG</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TAG            </translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Activat      </translation>
     </message>
     <message>
         <source>Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Activare serviciu</translation>
     </message>
     <message>
         <source>Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dezactivare serviciu            </translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dezactivat</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Necunoscut            </translation>
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Următoarele servicii sunt disponibile pe acest sistem            </translation>
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Managementul serviciilor IP pentru Warden:            </translation>
     </message>
     <message>
         <source>Checking...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verifică...   </translation>
     </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serviciu            </translation>
     </message>
     <message>
         <source>Service Action in progress...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Acțiune de serviciu în curs</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Anulare            </translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eșuat            </translation>
     </message>
     <message>
         <source>The specified command failed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Comanda specificată a eșuat.</translation>
     </message>
     <message>
         <source>Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminat    </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Închide            </translation>
     </message>
 </context>
 </TS>

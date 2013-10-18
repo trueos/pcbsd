@@ -53,13 +53,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>苦于寻找软件?PC-BSD拥有“APPCafe”，它可以让你很轻松的搜寻到并安装软件。
-            </translation>
+        <translation>苦于寻找软件?PC-BSD拥有“APPCafe”，它可以让你很轻松的搜寻到并安装软件。</translation>
     </message>
     <message>
         <source>Need to add a new user? Configure the firewall? Add a printer? The PC-BSD control panel is your one-stop shop for managing your system.</source>
-        <translation>添加用户?配置防火墙?增加打印机?PC-BSD的控制面板可以为你提供一站式服务解决所有这些苦恼的问题。
-            </translation>
+        <translation>添加用户?配置防火墙?增加打印机?PC-BSD的控制面板可以为你提供一站式服务解决所有这些苦恼的问题。</translation>
     </message>
     <message>
         <source>Preserve your files</source>
@@ -115,8 +113,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Bitstream Vera Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;配置您的系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-            </translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;配置您的系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&amp;Next</source>

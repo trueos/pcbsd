@@ -93,33 +93,27 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kommer kryptera användares hemmappar</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kryptera användarfiler</translation>
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemets hostname</translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ange ett giltigt hostname, eller lämna standard.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Var god ange ett hostname            </translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname kan endast innehålla bokstäver och nummer</translation>
     </message>
 </context>
 <context>

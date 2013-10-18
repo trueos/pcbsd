@@ -5,41 +5,34 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系統碟容量</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>掛載點</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>檔案系統</translation>
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>已用/總量</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>百份比 %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>關閉</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>磁碟將滿</translation>
     </message>
 </context>
 <context>
@@ -94,13 +87,23 @@
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>掛載於 %1</translation>
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO 檔案已與系統完全分離。</translation>
+    </message>
+    <message>
+        <source>Device Busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The device appears to be busy. Would you like to unmount it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -137,7 +140,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation>請稍候            </translation>
+        <translation>請稍候</translation>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
@@ -145,66 +148,54 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更多選項</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>檢視磁碟用量</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>變更設定</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>載入 ISO 檔案</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選取 ISO 檔案</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO 檔案 (*.iso)</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>掛載匣設定</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>監察磁碟儲存空間</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>對裝置通知進行檢查</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>兩次檢查之間最長的時間 (以分鐘計)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>套用</translation>
     </message>
 </context>
 </TS>

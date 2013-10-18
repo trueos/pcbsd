@@ -36,6 +36,7 @@ SUBTARGETS    =  \
 		sub-pcfirst \
 		sub-pbi \
 		sub-pbi10 \
+		sub-install \
 		sub-deinfo \
 		sub-meta \
 		sub-warden \
@@ -250,6 +251,19 @@ sub-pcrunx-clean: pc-runxgui/$(MAKEFILE) FORCE
 sub-pcrunx-install_subtargets: pc-runxgui/$(MAKEFILE) FORCE
 	cd pc-runxgui/ && $(MAKE) -f $(MAKEFILE) install
 
+sub-install: pc-installdialog/$(MAKEFILE) FORCE
+	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE)
+sub-install-make_default: pc-installdialog/$(MAKEFILE) FORCE
+	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE) 
+sub-install-make_first: pc-installdialog/$(MAKEFILE) FORCE
+	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE) first
+sub-install-all: pc-installdialog/$(MAKEFILE) FORCE
+	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE) all
+sub-install-clean: pc-installdialog/$(MAKEFILE) FORCE
+	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE) clean
+sub-install-install_subtargets: pc-installdialog/$(MAKEFILE) FORCE
+	cd pc-installdialog/ && $(MAKE) -f $(MAKEFILE) install
+
 sub-pbi: pbi-manager/$(MAKEFILE) FORCE
 	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE)
 sub-pbi-make_default: pbi-manager/$(MAKEFILE) FORCE
@@ -320,6 +334,7 @@ make_default: sub-libsh-make_default \
 	sub-pbi-make_default \
 	sub-pbi10-make_default \
 	sub-about-make_default \
+	sub-install-make_default \
 	sub-meta-make_default \
 	sub-warden-make_default \
 	sub-pcrunx-make_default \
@@ -343,6 +358,7 @@ make_first: sub-libsh-make_first \
 	sub-pbi-make_first \
 	sub-pbi10-make_first \
 	sub-about-make_first \
+	sub-install-make_first \
 	sub-meta-make_first \
 	sub-warden-make_first \
 	sub-pcrunx-make_first \
@@ -366,6 +382,7 @@ all:	sub-libsh-all \
 	sub-pbi-all \
 	sub-pbi10-all \
 	sub-about-all \
+	sub-install-all \
 	sub-meta-all \
 	sub-warden-all \
 	sub-pcrunx-all \
@@ -389,6 +406,7 @@ clean: sub-pbi-clean \
 	sub-libsh-clean \
 	sub-lpreserver-clean \
 	sub-about-clean \
+	sub-install-clean \
 	sub-meta-clean \
 	sub-warden-clean \
 	sub-pcrunx-clean \
@@ -412,6 +430,7 @@ install_subtargets: sub-libsh-install_subtargets \
 	sub-pbi10-install_subtargets \
 	sub-lpreserver-install_subtargets \
 	sub-about-install_subtargets \
+	sub-install-install_subtargets \
 	sub-meta-install_subtargets \
 	sub-warden-install_subtargets \
 	sub-pcrunx-install_subtargets \

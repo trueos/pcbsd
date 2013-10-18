@@ -5,7 +5,7 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation>Geluidinstelling</translation>
+        <translation>Geluidinstellingen</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>No sound devices detected!</source>
-        <translation>Er zijn geen geluidapparaten bespeurd.</translation>
+        <translation>Er zijn geen geluidapparaten aangetroffen.</translation>
     </message>
 </context>
 </TS>

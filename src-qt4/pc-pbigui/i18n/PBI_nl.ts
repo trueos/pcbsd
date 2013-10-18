@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>I Agree</source>
-        <translation>Akkoord</translation>
+        <translation>Ik ga akkoord</translation>
     </message>
     <message>
         <source>&lt;Status&gt;</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>&lt;b&gt;&lt;font size=&quot;+1&quot;&gt;Installation complete! &lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Click &quot;Finish&quot; to exit.</source>
-        <translation>&lt;b&gt;&lt;font size=&quot;+1&quot;&gt;Installatie afgerond. &lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Klik op &quot;Voltooien&quot; om dit programma te beëindigen.</translation>
+        <translation>&lt;b&gt;&lt;font size=&quot;+1&quot;&gt;Installatie afgerond. &lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br&gt;Klik op &apos;Voltooien&apos; om dit programma te beëindigen.</translation>
     </message>
     <message>
         <source>The program</source>
@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Cannot load meta data from this PBI. File corrupt / invalid.</source>
-        <translation>Kan de metadata van deze PBI niet laden. Het bestand is beschadigd / ongeldig.</translation>
+        <translation>Kan de metagegevens van deze PBI niet laden. Het bestand is beschadigd / ongeldig.</translation>
     </message>
     <message>
         <source>Click Next to begin the installation.</source>

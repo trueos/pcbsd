@@ -348,7 +348,7 @@
     </message>
     <message>
         <source>Available:  </source>
-        <translation>可用:</translation>
+        <translation>可用： </translation>
     </message>
     <message>
         <source>Members:</source>
@@ -493,8 +493,7 @@
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation>在尝试添加新用户时发生了如下非致命错误，是否继续？
-      </translation>
+        <translation>在尝试添加新用户时发生了如下非致命错误，是否继续？</translation>
     </message>
 </context>
 <context>
@@ -623,7 +622,7 @@
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation>将以下用户的家目录删除</translation>
+        <translation>将以下用户的家目录删除 </translation>
     </message>
 </context>
 <context>
@@ -698,7 +697,7 @@
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation>将以下用户的家目录删除</translation>
+        <translation>将以下用户的家目录删除 </translation>
     </message>
 </context>
 </TS>

@@ -34,7 +34,7 @@
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
         <translation>Atenção: Os pacotes estão sendo modificados!
-Se você cancelar agora, os pacotes podem ser corrompidos. Cancelar mesmo assim?</translation>
+Se cancelar agora, os pacotes poderão ser corrompidos. Cancelar mesmo assim?</translation>
     </message>
 </context>
 <context>

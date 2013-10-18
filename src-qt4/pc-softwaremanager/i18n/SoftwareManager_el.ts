@@ -5,28 +5,23 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ρύθμιση του AppCafe</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ρύθμιση</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ενέργειες μετά την εγκατάσταση</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Δημιουργία εικονιδίων στην Επιφάνεια Εργασίας</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Δημιουργία Εικονιδίων στο Μενού</translation>
     </message>
     <message>
         <source>Register File Associations</source>
@@ -45,23 +40,19 @@
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Κατάλογος Λήψεων</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Κατάλογος Λήψεων</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αποθετήρια</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <source>...</source>
@@ -73,73 +64,59 @@
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Μετακίνηση προς τα πάνω</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Μετακίνηση προς τα κάτω</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Προσθήκη Αποθετηρίου PBI</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αρχείο Αποθετηρίου (*.rpo)</translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Επιτυχής προσθήκη αποθετηρίου</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αυτό το αποθετήριο θα είναι σύντομα έτοιμο για χρήση (εξαρτάται από την ταχύτητα σύνδεσή σας στο internet)</translation>
     </message>
     <message>
         <source>Repo Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αποτυχία αποθετηρίου</translation>
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αυτό το αποθετήριο δεν είναι δυνατόν να προστεθεί.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Παρακαλώ τρέξτε χειροκίνητα την εντολή &apos;%1&apos; για να δείτε το πλήρες μήνυμα λάθους.</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Επιβεβαίωση αφαίρεσης</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Θέλετε σίγουρα να αφαιρέσετε αυτό το αποθετήριο;</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αυτό το αποθετήριο δεν μπορεί να αφαιρεθεί.</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Νεό Mirror URL</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
@@ -178,8 +155,7 @@
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Έκδοση</translation>
     </message>
     <message>
         <source>Status</source>
@@ -187,13 +163,11 @@
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Επιλογή/αποεπιλογή όλων των εφαρμογών</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Όλα</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -202,13 +176,11 @@
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ενέργειες</translation>
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Λεπτομέρειες εφαρμογής</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -225,13 +197,11 @@
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Συντομεύσεις:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ακύρωση οποιασδήποτε ενέργειας για την εφαρμογή</translation>
     </message>
     <message>
         <source>...</source>
@@ -239,8 +209,7 @@
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αφαίρεση της εφαρμογής</translation>
     </message>
     <message>
         <source>Uninstall</source>
@@ -248,8 +217,7 @@
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αναβάθμιση της εφαρμογής στην πιο πρόσφατη έκδοση</translation>
     </message>
     <message>
         <source>Update the selected application</source>
@@ -267,19 +235,13 @@
             </translation>
     </message>
     <message>
-        <source>Open Browser</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Automatically update the selected application when an update is available</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αυτόματη αναβάθμιση</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
@@ -303,8 +265,7 @@
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αναζήτηση εδώ</translation>
     </message>
     <message>
         <source>Search</source>
@@ -312,18 +273,15 @@
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Πρόσφατες προσθήκες</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Πλοήγηση ανά κατηρορία</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Μέγεθος:</translation>
     </message>
     <message>
         <source>Application Information</source>
@@ -380,13 +338,11 @@
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αποθετήρια</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ρυθμίσεις AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -399,13 +355,11 @@
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Το AppCafe πρέπει να ξεκινήσει με δικαιώματα χρήστη!</translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ο χρήστης πρέπει να ανήκει και στο group &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -468,28 +422,23 @@
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εικονίδια επιφάνειας εργασίας</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εικονίδια Μενού</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Προσθήκη (Για όλους τους χρήστες)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -590,6 +539,18 @@
         <source>Start the application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Product Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Verify Installation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to install this application?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

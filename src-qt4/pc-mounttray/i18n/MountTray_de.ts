@@ -93,6 +93,18 @@
         <source>The ISO file has been completely detached from the system.</source>
         <translation>Die ISO-Datei wurde aus dem System ausgehängt.            </translation>
     </message>
+    <message>
+        <source>Device Busy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The device appears to be busy. Would you like to unmount it anyway?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -183,7 +195,7 @@ Kann den Dateimanager nicht mit root-Berechtigungen öffnen</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Übernehmen</translation>
+        <translation>Anwenden</translation>
     </message>
 </context>
 </TS>

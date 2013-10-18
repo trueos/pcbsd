@@ -273,7 +273,7 @@
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation>Menükategorie in die der Eintrag eingeordnet werden soll</translation>
+        <translation>Menükategorie in die der Eintrag eingeordnet werden soll.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
@@ -773,18 +773,15 @@
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dies erfordert eine aktive Internetverbindung und Administratorrechte. Die benötigte Zeit, um ein PBI zu erstellen, variiert je nach den Spezifikationen des Systems und den Ports, die dazu benötigt werden.</translation>
     </message>
     <message>
         <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Das ausgewählte Verzeichnis scheint keinen gültigen FreeBSD-Port zu enthalten.</translation>
     </message>
     <message>
         <source>Do you wish to continue using it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Möchten Sie dennoch fortfahren?</translation>
     </message>
 </context>
 <context>
@@ -839,7 +836,7 @@
     </message>
     <message>
         <source>Package a local directory as a PBI</source>
-        <translation>Lokales Verzeichnis als ein PBI packen.</translation>
+        <translation>Lokales Verzeichnis als ein PBI packen</translation>
     </message>
     <message>
         <source>Local Sources</source>
@@ -983,7 +980,7 @@
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation>Lokales Verzeichnis auswählen</translation>
+        <translation>Lokales Verzeichnis auswählen.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
@@ -1111,8 +1108,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Create Dir</source>
@@ -1172,7 +1168,7 @@
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>Der FreeBSD-Portbaum wurde erfolgreich auf den neusten Stand gebracht.</translation>
+        <translation>Der FreeBSD-Portbaum wurde erfolgreich auf den neusten Stand gebracht</translation>
     </message>
     <message>
         <source>Failure</source>

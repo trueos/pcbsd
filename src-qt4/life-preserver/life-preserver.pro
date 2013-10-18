@@ -61,7 +61,6 @@ TRANSLATIONS =  i18n/LifePreserver_af.ts \
 		i18n/LifePreserver_da.ts \
 		i18n/LifePreserver_de.ts \
 		i18n/LifePreserver_el.ts \
-		i18n/LifePreserver_en_US.ts \
 		i18n/LifePreserver_en_GB.ts \
 		i18n/LifePreserver_en_ZA.ts \
 		i18n/LifePreserver_es.ts \

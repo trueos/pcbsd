@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>The following package updates are available:</source>
-        <translation>As seguintes atualizações de pacotes estão disponívies:</translation>
+        <translation>As seguintes atualizações de pacotes estão disponíveis:</translation>
     </message>
     <message>
         <source>Updates for Jail:</source>
@@ -155,6 +155,10 @@
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
         <translation>Não foi possível executar freebsd-update, outro processo está em execução!</translation>
+    </message>
+    <message>
+        <source>Reboot required for update to finish!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

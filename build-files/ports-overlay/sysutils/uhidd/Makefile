@@ -18,7 +18,7 @@ OPTIONS_DEFINE=	DEVD
 OPTIONS_DEFAULT=	DEVD
 
 USE_RC_SUBR=	uhidd
-USE_GCC=	yes
+USE_GCC=	4.2
 SUB_FILES=	pkg-message
 
 MAN5=		uhidd.conf.5

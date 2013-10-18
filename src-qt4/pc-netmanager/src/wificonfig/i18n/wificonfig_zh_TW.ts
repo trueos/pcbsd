@@ -195,7 +195,7 @@
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
+        <translation>確定(&amp;O)</translation>
     </message>
     <message>
         <source>Alt+O</source>

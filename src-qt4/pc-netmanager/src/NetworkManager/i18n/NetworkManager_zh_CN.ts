@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>Configure </source>
-        <translation>配置</translation>
+        <translation>配置 </translation>
     </message>
     <message>
         <source>Device Information</source>
@@ -272,13 +272,11 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation>代理已启用
-            </translation>
+        <translation>代理已启用</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation>需要重新登录以使代理设置生效。
-            </translation>
+        <translation>需要重新登录以使代理设置生效。</translation>
     </message>
 </context>
 </TS>

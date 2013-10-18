@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>The program</source>
-        <translation>程序            </translation>
+        <translation>程序</translation>
     </message>
     <message>
         <source>is already installed. Overwrite it?</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>URL: </source>
-        <translation>URL:    </translation>
+        <translation>URL：</translation>
     </message>
     <message>
         <source>Valid Digital Signature</source>

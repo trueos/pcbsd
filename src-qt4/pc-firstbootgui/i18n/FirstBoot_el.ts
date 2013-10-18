@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>System Timezone</source>
-        <translation>Σύστημα Χρονικών Ζωνών</translation>
+        <translation>Ζώνη ώρας συστήματος</translation>
     </message>
     <message>
         <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Που βρίσκεστε; Επιλέξτε την χρονική ζώνη με βάση το πού βρίσκεστε.</translation>
+        <translation>Που βρίσκεστε; Επιλέξτε την ζώνη ώρας με βάση το πού βρίσκεστε.</translation>
     </message>
     <message>
         <source>Root Password</source>
@@ -93,13 +93,11 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Κρυπτογράφηση του καταλόγου χρήστη</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Κρυπτογράφηση των αρχείων του χρήστη</translation>
     </message>
     <message>
         <source>System Hostname</source>

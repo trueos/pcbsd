@@ -163,9 +163,17 @@ list_branches() {
      echo $line | grep -q "^BRANCHES:"
      if [ $? -eq 0 ] ; then
 	echo "Available branches:"
+	echo "* = Current Branch"
         echo "----------------------------------"
 	echo $line | cut -d ':' -f 2 | sed 's|,|\
-|g'
+|g' | while read branch
+	do
+		if [ "`uname -r | cut -d '-' -f 1-2`" = "$branch" ] ; then
+			echo "$branch *"
+		else
+			echo "$branch"
+		fi
+	done
 	echo ""
 	echo "To change branches run: ${0} chbranch <branch>"
         BRANCHFOUND="1"

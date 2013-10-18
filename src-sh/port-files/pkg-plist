@@ -22,6 +22,7 @@ bin/pc-xdgutil
 bin/pc-firstgui
 bin/pc-runxgui
 bin/pc-checkxdisplay
+bin/pc-installdialog
 bin/enable_user_pefs
 sbin/pc-sysinstall
 share/lpreserver/backend/zfsmon.sh
