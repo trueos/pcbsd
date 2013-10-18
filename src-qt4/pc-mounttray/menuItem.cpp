@@ -51,7 +51,7 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   else if(devType == "SCSI"){devIcon->setPixmap(QPixmap(":icons/harddrive.png")); }
   //Start the automount procedure if necessary
   if(checkAutomount->isChecked() || devType=="ISO"){
-    QTimer::singleShot(500,this,SLOT( slotMountClicked() ));
+    QTimer::singleShot(500,this,SLOT( slotAutoMount() ));
   }
   //Update the Item based upon current device status
   updateItem();
@@ -148,6 +148,18 @@ void MenuItem::slotMountClicked(){
     emit itemRemoved(device);	  
   }
   updateItem();
+}
+
+void MenuItem::slotAutoMount(){
+//Just like slotMountClicked, but will only mount the device if appropriate (no removals);
+  if( isConnected() ){
+    if( !isMounted() ){
+      mountItem();
+    }
+  }else{
+    emit itemRemoved(device);	  
+  }
+  updateItem();	
 }
 
 void MenuItem::slotAutoMountToggled(bool checked){
@@ -276,7 +288,9 @@ void MenuItem::unmountItem(bool force){
   output = pcbsd::Utils::runShellCommand(cmd1);
   if(output.join(" ").simplified().isEmpty()){
     //unmounting successful, remove the mount point directory
-    output = pcbsd::Utils::runShellCommand(cmd2);
+    if(mountpoint != "/mnt" && mountpoint != "/media"){ //make sure not to remove base directories
+      output = pcbsd::Utils::runShellCommand(cmd2);
+    }
     if(!output.join(" ").simplified().isEmpty()){
       qDebug() << "pc-mounttray: Error removing mountpoint:" << mountpoint;
       qDebug() << " - Error message:" << output;

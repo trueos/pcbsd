@@ -67,6 +67,7 @@ class MenuItem : public QWidgetAction
   	
   private slots:
   	void slotMountClicked();
+	void slotAutoMount();
         void slotAutoMountToggled(bool);
 	
   signals:
