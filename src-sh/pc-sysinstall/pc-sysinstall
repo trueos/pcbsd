@@ -7,6 +7,7 @@
 #  to retrive information about the system
 #####################################################################
 # Copyright 2010 iXsystems
+# Copyright 2013 iXsystems
 # All rights reserved
 #
 # Redistribution and use in source and binary forms, with or without
@@ -134,6 +135,10 @@ case $1 in
 
   # The user is wanting to check if we are on a laptop or desktop
   detect-laptop) ${QUERYDIR}/detect-laptop.sh
+  ;;
+
+  # Check what country the system IP resolves to
+  detect-country) ${QUERYDIR}/detect-country.sh
   ;;
 
   # The user is wanting to see what nics are available on the system
