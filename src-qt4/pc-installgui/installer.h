@@ -34,7 +34,6 @@ class Installer : public QMainWindow, private Ui::Installer
 public:
     Installer(QWidget *parent = 0);
     ~Installer();
-    void changeLang(QString code);
     void initInstall();
 
 private slots:

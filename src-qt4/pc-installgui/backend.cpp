@@ -234,6 +234,21 @@ int Backend::systemMemory()
     return -1;
 }
 
+QString Backend::detectCountryCode()
+{
+    QString code;
+
+    Process p(QStringList() << "detect-country");
+
+    if (p.waitForFinished()) {
+       code = p.readLine().simplified();
+    }
+    code = code.section(" ", 0, 0);
+    qDebug() << "Found Country Code:" << code;
+    return code;
+}
+
+
 QStringList Backend::networkDevices()
 {
     QStringList nics;

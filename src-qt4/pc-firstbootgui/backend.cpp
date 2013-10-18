@@ -96,6 +96,20 @@ QStringList Backend::timezones()
     return _zones;
 }
 
+QString Backend::guessTimezone()
+{
+    QString code;
+  
+    Process p(QStringList() << "detect-country");
+  
+    if (p.waitForFinished()) {
+       code = p.readLine().simplified();
+    }
+    code = code.section(" ", 1, 1);
+    qDebug() << "Found timezone:" << code;
+    return code;
+}
+
 QStringList Backend::languages()
 {
     QStringList _languages;

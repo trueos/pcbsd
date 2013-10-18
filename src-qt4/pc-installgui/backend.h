@@ -56,6 +56,7 @@ public:
     static QStringList bootableMedia();
     static QStringList networkDevices();
     static QStringList timezones();
+    static QString detectCountryCode();
     static void changeKbMap(QString model, QString layout, QString variant);
     static QList<QStringList> hardDrives();
     static QList<QStringList> availComponents();

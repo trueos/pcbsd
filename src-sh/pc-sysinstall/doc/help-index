@@ -20,6 +20,9 @@ System Query Commands
     
     disk-info <disk>
         Returns information about the disks size, cyls, heads, and sectors 
+
+    detect-country
+	Returns the country-code based upon IP address of the system, or UNKNOWN
     
     detect-laptop
         Tests to see if this system is a laptop or desktop

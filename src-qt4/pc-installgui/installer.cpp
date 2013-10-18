@@ -100,14 +100,30 @@ void Installer::slotPushKeyLayout()
 void Installer::initInstall()
 {
     // load languages
+    QString langCode;
+    bool foundLang = false;
     comboLanguage->clear();
     languages = Scripts::Backend::languages();
+    QString curLang = Scripts::Backend::detectCountryCode(); 
     for (int i=0; i < languages.count(); ++i) {
         QString languageStr = languages.at(i);
         QString language = languageStr.split("-").at(0);
         comboLanguage->addItem(language.trimmed());
+
+	// Grab the language code
+        langCode = languageStr;
+        langCode.truncate(langCode.lastIndexOf(")"));
+        langCode.remove(0, langCode.lastIndexOf("(") + 1);
+	if ( curLang == langCode ) {
+          comboLanguage->setCurrentIndex(i);
+          foundLang = true;
+        }
     }
     connect(comboLanguage, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotChangeLanguage()));
+    // If we found a language from geo-loication, change UI now
+    if ( foundLang )
+       slotChangeLanguage();
+    
 
     // Load any package scheme data
     listDeskPkgs = Scripts::Backend::getPackageData(availDesktopPackageData, QString());
@@ -775,20 +791,16 @@ void Installer::slotChangeLanguage()
       QCoreApplication::installTranslator(translator);
       this->retranslateUi(this);
     }
-}
 
-void Installer::changeLang(QString code)
-{
-   // Change the language in the combobox with the current running one
-   comboLanguage->disconnect();
-
-   for (int i=0; i < languages.count(); ++i) {
-      if ( languages.at(i).indexOf("(" + code + ")" ) != -1 ) {
-        comboLanguage->setCurrentIndex(i); 
-      }
-   }
-
-   connect(comboLanguage, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotChangeLanguage()));
+    // Change the default keyboard layout
+    if ( langCode == "en" ) {
+       Scripts::Backend::changeKbMap("pc104", "us", "");
+    } else {
+       // TODO - At some point, add additional tests here and set more specific layouts
+       // based upon the language selected
+       Scripts::Backend::changeKbMap("pc105", langCode, "" );
+    }
+    
 }
 
 QStringList Installer::getGlobalCfgSettings()
