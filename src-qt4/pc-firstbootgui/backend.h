@@ -10,8 +10,8 @@
 #include <QByteArray>
 #include <QWidget>
 
-#define PCSYSINSTALL    QString("/usr/sbin/pc-sysinstall")
-#define PCSYSINSTALLDIR QString("/usr/share/pc-sysinstall")
+#define PCSYSINSTALL    QString("/usr/local/sbin/pc-sysinstall")
+#define PCSYSINSTALLDIR QString("/usr/local/share/pc-sysinstall")
 #define PCSYSINSTALLCFG QString("/tmp/sys-install.cfg")
 #define TMPLANGFILE QString("/tmp/.SysInstallLang")
 
@@ -50,6 +50,7 @@ public:
     static QStringList bootableMedia();
     static QStringList networkDevices();
     static QStringList timezones();
+    static QString guessTimezone();
     static void changeKbMap(QString model, QString layout, QString variant);
     static QList<QStringList> hardDrives();
     static QList<QStringList> availComponents();

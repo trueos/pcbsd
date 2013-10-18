@@ -48,11 +48,18 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
 
     // Load the timezones
     comboBoxTimezone->clear();
+    QString curZone = Scripts::Backend::guessTimezone();
     comboBoxTimezone->addItems(Scripts::Backend::timezones());
-    // Set America/New_York to default
-    int index = comboBoxTimezone->findText("America/New_York", Qt::MatchStartsWith);
-    if (index != -1)
-       comboBoxTimezone->setCurrentIndex(index);
+    if ( ! curZone.isEmpty() ) {
+      int index = comboBoxTimezone->findText(curZone, Qt::MatchStartsWith);
+      if (index != -1)
+         comboBoxTimezone->setCurrentIndex(index);
+    } else {
+      // Set America/New_York to default
+      int index = comboBoxTimezone->findText("America/New_York", Qt::MatchStartsWith);
+      if (index != -1)
+         comboBoxTimezone->setCurrentIndex(index);
+    }
 
     // Load the hostname
     lineHostname->setText(pcbsd::Utils::getConfFileValue("/etc/rc.conf", "hostname=", 1));
