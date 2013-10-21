@@ -3672,8 +3672,6 @@ do_pbi_create() {
 
 
 	if [ "`basename $0`" = "pbi_makeport" -o "`basename $0`" = "pbi_makeport_chroot" ] ; then
-	  #PBI_STAGEDIR="/usr/local"
-	  # KPM REMOVE ME
 	  mk_stage_dir "/usr/local" "move"
 
 	  # Check if we created a linux app, and need to copy files for it
@@ -3713,7 +3711,7 @@ mk_hash_list() {
   	if [ "${PBI_CREATE_HASHLIST}" = "NO" ] ; then return 0 ; fi
 	echo "Creating hash list..."
 
-	hashfile="${PBI_STAGEDIR}/${PBI_HASHLIST}"
+	hashfile="${PBI_STAGEDIRMNT}/${PBI_HASHLIST}"
 
 	if [ -e "${hashfile}" ] ; then rm "${hashfile}" ; fi
 
@@ -3958,7 +3956,7 @@ mk_xdg_desktop_script() {
   	if [ ! -d "${PBI_CONFDIR}/${MOD_XDGDESK_DIR}" ] ; then return 0 ; fi
 	_dFound=0
 
-	dir="${PBI_STAGEDIR}/${PBI_APPDESK_DIR}"
+	dir="${PBI_STAGEDIRMNT}/${PBI_APPDESK_DIR}"
 	if [ ! -d "${dir}" ] ; then mkdir -p "${dir}" ; fi
 	echo "#!/bin/sh" >"${dir}/${PBI_INS_DESKSCRIPT}"
 	echo "#!/bin/sh" >"${dir}/${PBI_UNINS_DESKSCRIPT}"
@@ -4002,7 +4000,7 @@ mk_xdg_menu_script() {
 
 	_mFound=0
 
-	dir="${PBI_STAGEDIR}/${PBI_APPMENU_DIR}"
+	dir="${PBI_STAGEDIRMNT}/${PBI_APPMENU_DIR}"
         if [ ! -d "${dir}" ] ; then mkdir -p "${dir}" ; fi
         echo "#!/bin/sh" >"${dir}/${PBI_INS_MENUSCRIPT}"
         echo "#!/bin/sh" >"${dir}/${PBI_UNINS_MENUSCRIPT}"
@@ -4057,7 +4055,7 @@ mk_xdg_mime_script() {
   	if [ ! -d "${PBI_CONFDIR}/${MOD_XDGMIME_DIR}" ] ; then return 0 ; fi
 	_mFound=0
 
-        dir="${PBI_STAGEDIR}/${PBI_APPMIME_DIR}"
+        dir="${PBI_STAGEDIRMNT}/${PBI_APPMIME_DIR}"
         if [ ! -d "${dir}" ] ; then mkdir -p "${dir}" ; fi
         echo "#!/bin/sh" >"${dir}/${PBI_INS_MIMESCRIPT}"
         echo "#!/bin/sh" >"${dir}/${PBI_UNINS_MIMESCRIPT}"
@@ -4120,10 +4118,10 @@ mk_install_script() {
 	fi
 
 	# Look for any XDG scripts
-        if [ -e "${PBI_STAGEDIR}/${PBI_APPMIME_DIR}/${PBI_INS_MIMESCRIPT}" ] ; then
+        if [ -e "${PBI_STAGEDIRMNT}/${PBI_APPMIME_DIR}/${PBI_INS_MIMESCRIPT}" ] ; then
 		echo "$PBI_PROGDIRPATH/${PBI_APPMIME_DIR}/${PBI_INS_MIMESCRIPT}" >>${insc}
 	fi
-        if [ -e "${PBI_STAGEDIR}/${PBI_APPMENU_DIR}/${PBI_INS_MENUSCRIPT}" ] ; then
+        if [ -e "${PBI_STAGEDIRMNT}/${PBI_APPMENU_DIR}/${PBI_INS_MENUSCRIPT}" ] ; then
 		echo "$PBI_PROGDIRPATH/${PBI_APPMENU_DIR}/${PBI_INS_MENUSCRIPT}" >>${insc}
 	fi
 
@@ -4148,10 +4146,10 @@ mk_deinstall_script() {
 	fi
 
 	# Look for any XDG scripts
-        if [ -e "${PBI_STAGEDIR}/${PBI_APPMIME_DIR}/${PBI_UNINS_MIMESCRIPT}" ] ; then
+        if [ -e "${PBI_STAGEDIRMNT}/${PBI_APPMIME_DIR}/${PBI_UNINS_MIMESCRIPT}" ] ; then
 		echo "$PBI_PROGDIRPATH/${PBI_APPMIME_DIR}/${PBI_UNINS_MIMESCRIPT}" >>${uisc}
 	fi
-        if [ -e "${PBI_STAGEDIR}/${PBI_APPMENU_DIR}/${PBI_UNINS_MENUSCRIPT}" ] ; then
+        if [ -e "${PBI_STAGEDIRMNT}/${PBI_APPMENU_DIR}/${PBI_UNINS_MENUSCRIPT}" ] ; then
 		echo "$PBI_PROGDIRPATH/${PBI_APPMENU_DIR}/${PBI_UNINS_MENUSCRIPT}" >>${uisc}
 	fi
 	chmod 755 "${uisc}"
