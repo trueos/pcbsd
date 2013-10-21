@@ -62,7 +62,7 @@ mount_dirs() {
 
    done
 
-   cp /usr/pbi/.ldconfig ${pDir}/var/run/ldconfig
+   cp /usr/pbi/.ldconfig ${pDir}/virtbase/var/run/ldconfig
    chroot ${pDir}/virtbase /var/run/ldconfig start >/dev/null 2>/dev/null
 }
 
