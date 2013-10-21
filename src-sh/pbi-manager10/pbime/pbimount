@@ -62,7 +62,8 @@ mount_dirs() {
 
    done
 
-   chroot ${pDir}/virtbase /etc/rc.d/ldconfig start >/dev/null 2>/dev/null
+   cp /usr/pbi/.ldconfig ${pDir}/var/run/ldconfig
+   chroot ${pDir}/virtbase /var/run/ldconfig start >/dev/null 2>/dev/null
 }
 
 umount_pbidir() {
