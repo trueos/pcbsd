@@ -108,3 +108,4 @@ fi
 get_pdir "$1"
 check_pbidir "${2}"
 mount_dirs "${2}"
+mount_dirs "${2}"
