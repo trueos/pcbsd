@@ -20,28 +20,23 @@
     </message>
     <message>
         <source>Schedule:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zeitplan:</translation>
     </message>
     <message>
         <source>Daily</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Täglich</translation>
     </message>
     <message>
         <source>Hourly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stündlich</translation>
     </message>
     <message>
         <source>30 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>30 Minuten</translation>
     </message>
     <message>
         <source>10 minutes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 Minuten</translation>
     </message>
     <message>
         <source>5 minutes</source>
@@ -55,13 +50,11 @@
     </message>
     <message>
         <source>Days</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tage</translation>
     </message>
     <message>
         <source>Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gesamt</translation>
     </message>
     <message>
         <source>Keep:</source>
@@ -88,7 +81,7 @@
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">SSH Port</translation>
+        <translation>SSH-Port</translation>
     </message>
     <message>
         <source>Remote Dataset</source>
@@ -117,13 +110,11 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Übernehmen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abbruch</translation>
     </message>
 </context>
 <context>
@@ -135,8 +126,7 @@
     </message>
     <message>
         <source>Messages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nachrichten</translation>
     </message>
     <message>
         <source>Log Files</source>

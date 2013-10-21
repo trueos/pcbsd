@@ -489,13 +489,11 @@
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Überprüfe Installation</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Möchten Sie wirklich diese Anwendung installieren?</translation>
     </message>
 </context>
 <context>

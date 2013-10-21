@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation>Die ISO-Datei wurde aus dem System ausgehängt.            </translation>
+        <translation>Die ISO-Datei wurde aus dem System ausgehängt.</translation>
     </message>
     <message>
         <source>Device Busy</source>

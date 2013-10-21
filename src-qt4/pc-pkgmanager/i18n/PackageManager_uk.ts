@@ -228,43 +228,35 @@
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Залежності</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Знайти пакунки</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нічого не знайдено</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Бажаєте повторити пошук спочатку? </translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Жодного пакунку не було знайдено. Будь ласка перевірте рядок пошуку та спробуйте ще.</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процес не закінчено</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наразі процес зміни пакунків не завершено. Ви дійсно бажаєте вийти?</translation>
     </message>
 </context>
 </TS>

@@ -197,18 +197,15 @@
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Folgende Pakete werden installiert:</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die folgenden Abhängigkeiten werden ebenfalls installiert:</translation>
     </message>
     <message>
         <source>Confirm package changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketänderungen bestätigen</translation>
     </message>
     <message>
         <source>No Desktop</source>
