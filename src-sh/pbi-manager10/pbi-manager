@@ -1629,14 +1629,12 @@ load_pbi_conffile() {
 # Get the PBI_PROGVERSION
 get_pbi_progversion() {
 
-	if [ -z "${PBI_PROGVERSION}" ] ; then
-		load_pbi_conffile
+	if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
 
-		# If we have PBI_PROGVERSION now set
-		if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
-	else
-		return 0
-	fi
+	load_pbi_conffile
+
+	# If we have PBI_PROGVERSION now set
+	if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
 
 	# Check first if we have this pkg in PKGNG
 	if [ -e "/usr/local/sbin/pkg-static" -a -n "${PBI_MAKEPORT}" ] ; then

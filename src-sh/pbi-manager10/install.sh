@@ -129,9 +129,11 @@ mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
 cd ${DIR}/pbime && make
 install -o root -g wheel -m 4751 pbime ${LB}/share/pbi-manager/.pbime
 install -o root -g wheel -m 755 pbimount ${LB}/share/pbi-manager/.pbimount
+install -o root -g wheel -m 755 ldconfig ${LB}/share/pbi-manager/.ldconfig
 if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 4751 pbime /usr/pbi/.pbime
   install -o root -g wheel -m 755 pbimount /usr/pbi/.pbimount
+  install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
 fi
 
 # Install the nullfs binary
