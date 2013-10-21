@@ -2,6 +2,7 @@ etc/rc.d/pc-sounddetect
 etc/rc.d/pcdm
 bin/about-gui
 bin/life-preserver
+bin/life-preserver-tray
 bin/pc-adsldap
 bin/pc-bluetoothmanager
 bin/pc-bluetoothtray
