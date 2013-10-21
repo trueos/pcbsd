@@ -484,15 +484,15 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished"></translation>
+        <translation>Переглянути опис</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished"></translation>
+        <translation>Перевірка встановлення</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви певні що бажаєте встановити цей додаток?</translation>
     </message>
 </context>
 <context>

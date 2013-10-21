@@ -245,7 +245,7 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished"></translation>
+        <translation>Ви не можете копіювати поточне середовище завантаження!</translation>
     </message>
 </context>
 </TS>
