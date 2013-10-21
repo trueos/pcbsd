@@ -200,7 +200,7 @@ QString LPGUtils::packageHomeDir(QString username, QString packageName){
   QString cmd = "tar -czf /usr/home/"+packageName+" -C /usr/home "+username;
   //Create the exclude list and skip these files
   QStringList excludes;
-    excludes << "*flashplayer*" << "*.desktop"; //Don't overwrite the flash plugin
+    excludes << "*flashplayer*"; //Don't overwrite the flash plugin
   for(int i=0; i<excludes.length(); i++){
     cmd.replace("-czf /usr/home", " --exclude \'"+excludes[i]+"\' -czf /usr/home");
   }
