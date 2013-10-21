@@ -309,6 +309,7 @@ if [ ! -e "$CFGFILE" ] ; then
    rm ${CFGFILE}
 fi
 
+start_full_wizard
 start_menu_loop
 
 exit 0

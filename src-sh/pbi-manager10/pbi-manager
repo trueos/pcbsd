@@ -1635,16 +1635,16 @@ get_pbi_progversion() {
 		# If we have PBI_PROGVERSION now set
 		if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
 	else
-		# Check first if we have this pkg in PKGNG
-		if [ -e "/usr/local/sbin/pkg-static" ] ; then
-			local testPkgVer="`pkg query %v ${PBI_MAKEPORT}`"
-			if [ -n "$testPkgVer" ] ; then
-				export PBI_PROGVERSION="$testPkgVer"
-				return 0
-			fi
-		fi
-
 		return 0
+	fi
+
+	# Check first if we have this pkg in PKGNG
+	if [ -e "/usr/local/sbin/pkg-static" -a -n "${PBI_MAKEPORT}" ] ; then
+		local testPkgVer="`pkg query %v ${PBI_MAKEPORT}`"
+		if [ -n "$testPkgVer" ] ; then
+			export PBI_PROGVERSION="$testPkgVer"
+			return 0
+		fi
 	fi
 
 	# Get the version from ports
