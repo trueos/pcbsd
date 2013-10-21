@@ -35,6 +35,7 @@ IGNORE=		requires FreeBSD 9.0 or later
 .if ${OSVERSION} > 1000000
 PLIST_FILES+=	share/pbi-manager/.pbime \
 		share/pbi-manager/.pbimount \
+		share/pbi-manager/.ldconfig \
 		share/pbi-manager/.mount_nullfs \
 		etc/man.d/pbi.conf
 .endif
