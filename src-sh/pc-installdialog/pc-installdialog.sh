@@ -38,6 +38,11 @@ get_sys_type()
      exit_err "Invalid system type"
   fi
   SYSTYPE="$ANS"
+
+  # If on a desktop, lets just set DHCP
+  if [ "$SYSTYPE" = "desktop" ] ; then
+     SYSNIC="AUTO-DHCP-SLAAC"
+  fi
 }
 
 
@@ -163,6 +168,79 @@ get_user_shell()
     USERSHELL="$ANS"
 }
 
+get_hostname()
+{
+    get_dlg_ans "--inputbox 'Enter a system Hostname' 8 40"
+    if [ -z "$ANS" ] ; then
+       exit_err "Invalid hostname entered!"
+    fi
+    SYSHOSTNAME="$ANS"
+}
+
+get_sshd()
+{
+  SYSSSHD=""
+  get_dlg_ans "--yesno 'Enable SSH?' 8 30"
+  if [ $? -ne 0 ] ; then return ; fi
+  SYSSSHD="YES"
+}
+
+get_netconfig()
+{
+  SYSNIC=""
+  SYSNICIP=""
+  SYSNICDNS=""
+  SYSNICMASK=""
+  SYSNICROUTE=""
+
+  get_dlg_ans "--yesno 'Enable networking?' 6 30"
+  if [ $? -ne 0 ] ; then return ; fi
+
+  dOpts="auto \"Automatic DHCP\" on"
+  pc-sysinstall detect-nics > /tmp/.dList.$$
+  while read i
+  do
+     d="`echo $i | cut -d ':' -f 1`"
+     desc="`echo $i | cut -d '<' -f 2 | cut -d '>' -f 1`"
+     dOpts="$dOpts $d \"$desc\" off"
+  done < /tmp/.dList.$$
+  rm /tmp/.dList.$$
+  get_dlg_ans "--radiolist \"Select network card to configure\" 12 50 5 ${dOpts}"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid NIC selected!"
+  fi
+  SYSNIC="$ANS"
+  if [ "$SYSNIC" = "auto" ] ; then
+     SYSNIC="AUTO-DHCP-SLAAC"
+     return
+  fi
+
+  get_dlg_ans "--inputbox \"Enter the IP address for $SYSNIC\" 8 40"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid IP entered!"
+  fi
+  SYSNICIP="$ANS"
+
+  get_dlg_ans "--inputbox \"Enter the Netmask for $SYSNIC\" 8 40"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid real name entered!"
+  fi
+  SYSNICMASK="$ANS"
+
+  get_dlg_ans "--inputbox \"Enter the DNS address for $SYSNIC\" 8 40"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid real name entered!"
+  fi
+  SYSNICDNS="$ANS"
+
+  get_dlg_ans "--inputbox \"Enter the Gateway address for $SYSNIC\" 8 40"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid real name entered!"
+  fi
+  SYSNICROUTE="$ANS"
+
+}
+
 gen_pc-sysinstall_cfg()
 {
    # Start the header information
@@ -171,7 +249,6 @@ gen_pc-sysinstall_cfg()
    echo "installMode=fresh" >>${CFGFILE}
    if [ "$SYSTYPE" = "desktop" ] ; then
      echo "installType=PCBSD" >>${CFGFILE}
-     echo "netSaveDev=AUTO-DHCP-SLAAC" >> ${CFGFILE}
    else
      echo "installType=FreeBSD" >>${CFGFILE}
    fi
@@ -183,6 +260,22 @@ gen_pc-sysinstall_cfg()
    fi
    echo "installMedium=local" >>${CFGFILE}
    echo "localPath=/dist" >>${CFGFILE}
+
+   if [ -n "$SYSHOSTNAME" ] ; then
+      echo "" >> ${CFGFILE}
+      echo "hostname=$SYSHOSTNAME" >> ${CFGFILE}
+   fi
+   if [ -n "$SYSNIC" ] ; then
+      echo "" >> ${CFGFILE}
+      echo "netSaveDev=$SYSNIC" >> ${CFGFILE}
+      if [ "$SYSNIC" != "AUTO-DHCP-SLAAC" ] ; then
+        echo "netSaveIP_${SYSNIC}=$SYSNICIP" >> ${CFGFILE}
+        echo "netSaveMask_${SYSNIC}=$SYSNICMASK" >> ${CFGFILE}
+        echo "netSaveNameServer_${SYSNIC}=$SYSNICDNS" >> ${CFGFILE}
+        echo "netSaveDefaultRouter_${SYSNIC}=$SYSNICROUTE" >> ${CFGFILE}
+      fi
+   fi
+
 
    # Now do the disk block
    echo "" >> ${CFGFILE}
@@ -228,16 +321,18 @@ gen_pc-sysinstall_cfg()
      echo "userHome=/home/${USERNAME}" >> ${CFGFILE}
      echo "userGroups=wheel,operator" >> ${CFGFILE}
      echo "commitUser" >> ${CFGFILE}
-
-     # KPM - TODO, add blocks to create network config, hostname / ssh settings
    fi
 
    # Last cleanup stuff
    echo "" >> ${CFGFILE}
    echo "runExtCmd=/root/save-config.sh" >> ${CFGFILE}
    echo "runCommand=newaliases" >> ${CFGFILE}
-  
- 
+
+   # Are we enabling SSHD?
+   if [ "$SYSSSHD" = "YES" ] ; then
+     echo "runCommand=echo 'sshd_enable=\"YES\"' >> /etc/rc.conf" >> ${CFGFILE}
+   fi
+
 }
 
 change_disk_selection() {
@@ -264,12 +359,20 @@ start_full_wizard()
   gen_pc-sysinstall_cfg
 }
 
+# Adjust network options
+change_networking() {
+  get_hostname
+  get_netconfig
+  get_sshd
+  gen_pc-sysinstall_cfg
+}
+
 start_menu_loop()
 {
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 15 40 10 wizard "Run install wizard" disk "Change disk ($SYSDISK)" view "View install script" edit "Edit install script" install "Start the installation" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 15 40 10 wizard "Run install wizard" disk "Change disk ($SYSDISK)" network "Change networking" view "View install script" edit "Edit install script" install "Start the installation" quit "Quit install wizard" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -281,6 +384,8 @@ start_menu_loop()
        disk) change_disk_selection
              rtn
              ;;
+    network) change_networking 
+	     ;;
        view) more ${CFGFILE}
              rtn
              ;;
