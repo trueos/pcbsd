@@ -23,4 +23,5 @@
 ./usr/local/etc/pkg.conf
 ./usr/local/etc/pkg-pubkey.cert
 ./usr/local/etc/pcbsd.conf
+./usr/local/etc/sudoers
 ./var/run/fail2ban

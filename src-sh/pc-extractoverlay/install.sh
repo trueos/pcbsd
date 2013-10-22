@@ -30,11 +30,7 @@ if [ $? -ne 0 ] ; then
   exit 1
 fi
 
-# Copy exclude list
-cp port-excludes ${LB}/share/pcbsd/conf
-if [ $? -ne 0 ] ; then
-  exit 1
-fi
+# Copy exclude lists
 cp desktop-excludes ${LB}/share/pcbsd/conf
 if [ $? -ne 0 ] ; then
   exit 1
