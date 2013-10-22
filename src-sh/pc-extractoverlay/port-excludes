@@ -2,3 +2,4 @@
 # Make sure to update both copies of this file in
 ./usr/local/etc/gdm
 ./usr/local/etc/default/grub
+./usr/local/etc/sudoers
