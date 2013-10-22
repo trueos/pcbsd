@@ -37,7 +37,9 @@ PLIST_FILES+=	share/pbi-manager/.pbime \
 		share/pbi-manager/.pbimount \
 		share/pbi-manager/.ldconfig \
 		share/pbi-manager/.mount_nullfs \
-		etc/man.d/pbi.conf
+		etc/man.d/pbi.conf \
+		sbin/app \
+		sbin/pbi
 .endif
 
 do-install:

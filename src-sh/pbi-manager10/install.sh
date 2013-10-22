@@ -42,6 +42,8 @@ ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi_update
 ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi_update_hashdir
 ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbid
 ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi-crashhandler
+ln -f ${LB}/sbin/pbi_create ${LB}/sbin/app
+ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi
 
 # Set the new PREFIX / LOCALBASE
 if [ "$LB" != /usr/local ] ; then

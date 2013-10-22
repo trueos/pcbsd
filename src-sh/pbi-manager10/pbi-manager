@@ -7641,6 +7641,51 @@ getZFSTank() {
   return 1
 }
 
+app_init()
+{
+  cmd=$1
+
+  # Alias install -> add
+  if [ "$cmd" = "install" ] ; then cmd="add" ; fi
+
+  which -s "pbi_${cmd}" 
+  if [ $? -ne 0 ] ; then usage_app; fi
+
+  shift
+  pbi_${cmd} $*
+  exit $?
+}
+
+usage_app()
+{
+   cat <<EOF
+usage: `basename $0` <subcommand>
+
+Available sub-commands:
+
+  add
+  addrepo
+  autobuild
+  browser
+  create
+  deleterepo
+  delete
+  icon
+  indextool
+  info
+  install
+  listrepo
+  makeport
+  makepatch
+  makerepo
+  metatool
+  patch
+  update  
+
+EOF
+   exit 1
+}
+
 # Source our shared PCBSD functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
@@ -7676,6 +7721,8 @@ case `basename ${0}` in
    pbi_update) pbi_update_init "$@" ;;
    pbi_update_hashdir) pbi_update_hashdir_init "$@" ;;
    pbi-crashhandler) pbi_crash_init "$@" ;;
+   app) app_init "$@" ;;
+   pbi) app_init "$@" ;;
    pbid) pbid_init "$@" ;;
    *) echo "Error: Called with invalid basename!" ; exit_trap ;;
 esac
