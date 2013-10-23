@@ -16,7 +16,7 @@ LIB_DEPENDS=	polkit.2:${PORTSDIR}/sysutils/policykit
 
 USE_BZIP2=	yes
 USE_GMAKE=	yes
-USE_GCC=	4.2
+USE_GCC=	4.8+
 USES=		gettext pkgconfig
 USE_GNOME=	gnomehack intlhack gnomedocutils gconf2
 GNU_CONFIGURE=	yes
