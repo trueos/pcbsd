@@ -484,18 +484,15 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Page Produit</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vérification de l&apos;installation      </translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Êtes-vous sûr que vous voulez installer cette application?            </translation>
     </message>
 </context>
 <context>
