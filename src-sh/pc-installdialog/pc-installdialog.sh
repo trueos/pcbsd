@@ -18,15 +18,23 @@ get_dlg_ans()
 {
     if [ -e "$TANS" ] ; then rm ${TANS}; fi
     if [ -e "$TANS.dlg" ] ; then rm ${TANS}.dlg; fi
-    echo "dialog --title \"$TITLE\" ${@}" >${TANS}.dlg
-    sh ${TANS}.dlg 2>${TANS}
-    exit=$?
-    if [ ! -e "$TANS" ] ; then
-       ANS=""
-       return $exit
-    fi
-    ANS=`cat ${TANS}`
-    return $exit
+    while :
+    do
+      echo "dialog --title \"$TITLE\" ${@}" >${TANS}.dlg
+      sh ${TANS}.dlg 2>${TANS}
+      if [ $? -ne 0 ] ; then
+        dialog --title "$TITLE" --yesno 'Exit the installer?' 8 30
+        if [ $? -eq 0 ] ; then exit_err "User canceled install" ; fi
+        continue
+      fi
+
+      if [ ! -e "$TANS" ] ; then
+         ANS=""
+         return
+      fi
+      ANS=`cat ${TANS}`
+      return
+    done
 }
 
 
@@ -45,6 +53,15 @@ get_sys_type()
   fi
 }
 
+get_sys_bootmanager()
+{
+  # Ask the boot-manager
+  get_dlg_ans "--radiolist \"Boot Manager\" 12 50 5 GRUB \"GRUB - Recommended\" on BSD \"FreeBSD Boot-Loader\" off none \"No boot-loader\" off"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid bootmanager type"
+  fi
+  SYSBOOTMANAGER="$ANS"
+}
 
 get_target_disk()
 {
@@ -114,7 +131,7 @@ get_root_pw()
     fi
     ROOTPWCONFIRM="$ANS"
     if [ "$ROOTPWCONFIRM" = "$ROOTPW" ] ; then break; fi
-    get_dlg_ans "--yesno 'Password Mismatch, try again?' 8 30"
+    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 30
     if [ $? -eq 0 ] ; then continue ; fi
     exit_err "Failed setting root password!"
   done
@@ -135,7 +152,7 @@ get_user_pw()
     fi
     USERPWCONFIRM="$ANS"
     if [ "$USERPWCONFIRM" = "$USERPW" ] ; then break; fi
-    get_dlg_ans "--yesno 'Password Mismatch, try again?' 8 30"
+    dialog --title "$TITLE" --yesno 'Password Mismatch, try again?' 8 30
     if [ $? -eq 0 ] ; then continue ; fi
     exit_err "Failed setting password!"
   done
@@ -180,7 +197,7 @@ get_hostname()
 get_sshd()
 {
   SYSSSHD=""
-  get_dlg_ans "--yesno 'Enable SSH?' 8 30"
+  dialog --title "$TITLE" --yesno 'Enable SSH?' 8 30
   if [ $? -ne 0 ] ; then return ; fi
   SYSSSHD="YES"
 }
@@ -193,7 +210,7 @@ get_netconfig()
   SYSNICMASK=""
   SYSNICROUTE=""
 
-  get_dlg_ans "--yesno 'Enable networking?' 6 30"
+  dialog --title "$TITLE" --yesno 'Enable networking?' 6 30
   if [ $? -ne 0 ] ; then return ; fi
 
   dOpts="auto \"Automatic DHCP\" on"
@@ -282,7 +299,7 @@ gen_pc-sysinstall_cfg()
    echo "# Disk Setup for $SYSDISK" >> ${CFGFILE}
    echo "disk0=$SYSDISK" >> ${CFGFILE}
    echo "partition=$DISKPART" >> ${CFGFILE}
-   echo "bootManager=GRUB" >> ${CFGFILE}
+   echo "bootManager=${SYSBOOTMANAGER}" >> ${CFGFILE}
    echo "partscheme=$DISKFORMAT" >> ${CFGFILE}
    echo "commitDiskPart" >> ${CFGFILE}
 
@@ -338,6 +355,7 @@ gen_pc-sysinstall_cfg()
 change_disk_selection() {
   get_target_disk
   get_target_part
+  get_sys_bootmanager
   gen_pc-sysinstall_cfg
 }
 
@@ -347,6 +365,7 @@ start_full_wizard()
   get_sys_type
   get_target_disk
   get_target_part
+  get_sys_bootmanager
 
   # If doing a server setup, need to prompt for some more details
   if [ "$SYSTYPE" = "server" ] ; then
