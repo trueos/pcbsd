@@ -470,6 +470,10 @@ setup_disk_slice()
       get_value_from_string "${line}"
       strip_white_space "$VAL"
       BMANAGER="$VAL"
+      # Convert to upper
+      if [ "$BMANAGER" = "bsd" ] ; then BMANAGER="BSD" ; fi
+      if [ "$BMANAGER" = "grub" ] ; then BMANAGER="GRUB" ; fi
+      if [ "$BMANAGER" = "grub-slice" ] ; then BMANAGER="GRUB-slice" ; fi
     fi
 
     echo $line | grep -q "^commitDiskPart" 2>/dev/null
@@ -711,7 +715,7 @@ init_mbr_full_disk()
   # Make the partition active
   rc_halt "gpart set -a active -i 1 ${_intDISK}"
 
-  if [ "$_intBOOT" = "bsd" ] ; then
+  if [ "$_intBOOT" = "BSD" ] ; then
     echo_log "Stamping boot0 on ${_intDISK}"
     rc_halt "gpart bootcode -b /boot/boot0 ${_intDISK}"
   elif [ "$_intBOOT" = "GRUB" ] ; then
@@ -848,7 +852,7 @@ run_gpart_slice()
 
   sleep 1
 
-  if [ "${BMANAGER}" = "bsd" ]; then
+  if [ "${BMANAGER}" = "BSD" ]; then
     echo_log "Stamping boot sector on ${DISK}"
     rc_halt "gpart bootcode -b /boot/boot0 ${DISK}"
   elif [ "${BMANAGER}" = "GRUB" ] ; then
@@ -906,7 +910,7 @@ run_gpart_free()
 
   sleep 1
 
-  if [ "${BMANAGER}" = "bsd" ]; then
+  if [ "${BMANAGER}" = "BSD" ]; then
     echo_log "Stamping boot sector on ${DISK}"
     rc_halt "gpart bootcode -b /boot/boot0 ${DISK}"
   elif [ "${BMANAGER}" = "GRUB" ] ; then
