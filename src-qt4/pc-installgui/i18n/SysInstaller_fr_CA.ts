@@ -259,59 +259,48 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurer depuis bouée de sauvetage</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gérer la connectivité réseau</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeux de données ZFS:     </translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La disposition ZFS d&apos;origine sera rétablie      </translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Effectuer une restauration à partir d&apos;une sauvegarde de bouée de sauvetage. Cliquez sur Suivant pour lancer l&apos;assistant de restauration.            </translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Démarrer la restauration maintenant? </translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Votre système est maintenant restauré!\NCliquez sur Terminer pour redémarrer. Après le redémarrage vous pouvez éjecter le média d&apos;installation.     </translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restauration du système</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Votre système est maintenant en cours de restauration, cela peut prendre un certain temps selon la taille de votre sauvegarde et conditions du réseau.     </translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installation méta-paquet: 1%</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La restauration du système: %1</translation>
     </message>
 </context>
 <context>
@@ -373,8 +362,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&apos;il vous plaît sélectionner le logiciel à installer. Post-installation vous pouvez ajouter / supprimer des logiciels via la commande &quot;paquet&quot; Package Manager (desktop) ou (serveur).</translation>
     </message>
 </context>
 <context>
@@ -684,38 +672,31 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Install GRUB (Required for Boot-Environment support)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB (Requis pour le support Boot-Environnement)</translation>
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&apos;il vous plaît sélectionner le disque ou la partition que vous souhaitez faire l&apos;installation. Veuillez noter que vous devez sélectionner un disque entier ou une partition principale qui est d&apos;au moins 20 Go pour une installation serveur ou 50 Go pour une installation de bureau.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installation de SSD (désactive SWAP / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucun chargeur de démarrage!</translation>
     </message>
     <message>
         <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous avez choisi de ne pas installer GRUB dans le MBR. Vous aurez besoin de configurer manuellement votre propre chargeur de MBR.      </translation>
     </message>
     <message>
         <source>Stamp GRUB on MBR</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installer GRUB sur le MBR</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L&apos;ensembles de données / points de montage système original sera automatiquement rétabli.</translation>
     </message>
 </context>
 <context>
@@ -821,116 +802,94 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cet assistant vous guidera si le processus de restauration de votre système à partir d&apos;une sauvegarde de bouée de sauvetage. Cliquez sur Suivant pour commencer.</translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pour commencer, veuillez entrer le nom d&apos;hôte, nom d&apos;utilisateur et le port de votre serveur de sauvegarde.   </translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serveur de sauvegarde    </translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom d&apos;hôte</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom d&apos;usager      </translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH Port   </translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Si vous avez enregistré votre clé de bouée de sauvetage sur une clé USB, sélectionnez-la ci-dessous, sinon vous pouvez utiliser l&apos;authentification par mot de passe.</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Authentification Serveur    </translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilisez la clé USB</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utiliser l&apos;authentification par mot de passe      </translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les systèmes suivants sont sauvegardés sur le serveur, sélectionnez celui que vous souhaitez restaurer.    </translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurer la sélection du système    </translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurer Résumé</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le système est prêt à être restauré, cliquez sur Terminer pour continuer.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucune clé trouvé!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de touches Auth n&apos;a pu être trouvé sur ce memory stick!\NS&apos;il vous plaît essayer une autre clé USB ou utiliser l&apos;authentification par mot de passe.</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La connexion a échoué!    </translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impossible de se connecter au serveur de sauvegarde!\NVeuillez vérifier que le serveur est accessible et vérifiez votre nom d&apos;utilisateur/mot de passe.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impossible de se connecter au serveur de sauvegarde!\NS&apos;il vous plaît vérifier votre nom d&apos;hôte et que le serveur de sauvegarde est accessible.   </translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permettra de restaurer à partir de:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionnez la clé SSH à utiliser</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichier de clé:     </translation>
     </message>
 </context>
 </TS>

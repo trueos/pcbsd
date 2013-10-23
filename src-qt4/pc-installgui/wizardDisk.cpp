@@ -97,19 +97,21 @@ void wizardDisk::slotClose()
 
 void wizardDisk::accept()
 {
-  bool useGRUB = true;
+  QString bootLoader;
   bool useGPT = false;
   bool force4K = false;
   QString zpoolName;
   if (comboPartition->currentIndex() == 0 )
     useGPT = checkGPT->isChecked();
 
-  // Are we installing GRUB?
-  useGRUB = checkGRUB->isChecked();
+  // Get the boot-loader
+  bootLoader = comboBootLoader->currentText();
+  if ( radioBasic->isChecked() )
+     bootLoader="GRUB";
 
-  if ( comboPartition->currentIndex() != 0 && ! useGRUB  ) {
+  if ( comboPartition->currentIndex() != 0 && bootLoader == "NONE"  ) {
      QMessageBox::warning(this, tr("No boot-loader!"),
-     tr("You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader."),
+     tr("You have chosen not to install a boot-loader. You will need to manually setup your own loader."),
      QMessageBox::Ok,
      QMessageBox::Ok);
   }
@@ -126,9 +128,9 @@ void wizardDisk::accept()
      zpoolName = lineZpoolName->text();
 
   if ( radioExpert->isChecked() )
-    emit saved(sysFinalDiskLayout, false, false, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, QString("NONE"), false, zpoolName, force4K);
   else
-    emit saved(sysFinalDiskLayout, useGRUB, useGPT, zpoolName, force4K);
+    emit saved(sysFinalDiskLayout, bootLoader, useGPT, zpoolName, force4K);
   close();
 }
 
@@ -140,13 +142,15 @@ int wizardDisk::nextId() const
          return Page_Expert;
        if (radioBasic->isChecked()) {
 	 checkGPT->setVisible(false);
-	 checkGRUB->setVisible(false);
+	 comboBootLoader->setVisible(false);
+	 textBootLoader->setVisible(false);
 	 checkForce4K->setVisible(false);
 	 groupZFSPool->setVisible(false);
        }
        if (radioAdvanced->isChecked()) {
 	 checkGPT->setVisible(true);
-	 checkGRUB->setVisible(true);
+	 comboBootLoader->setVisible(true);
+	 textBootLoader->setVisible(true);
 	 checkForce4K->setVisible(true);
 	 groupZFSPool->setVisible(true);
        }
@@ -237,10 +241,6 @@ bool wizardDisk::validatePage()
 	 } else {
 	   checkGPT->setVisible(true);
 	   checkForce4K->setVisible(true);
-           if ( comboPartition->currentIndex() == 0)
-	     checkGRUB->setText(tr("Install GRUB (Required for Boot-Environment support)"));
-	   else
-	     checkGRUB->setText(tr("Stamp GRUB on MBR"));
 	 } 
 
 	 // Doing a Advanced install

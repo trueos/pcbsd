@@ -228,43 +228,35 @@
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dépendances        </translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trouver des paquets</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Recherche</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucun résultat de recherche</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voulez-vous continuer la recherche par le haut? </translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucun paquet n&apos;a pu être trouvée avec ce terme de recherche. S&apos;il vous plaît ajuster et essayer à nouveau.    </translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Processus en cours        </translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Les paquets sont actuellement en cours de modification. Etes-vous sûr de vouloir quitter?</translation>
     </message>
 </context>
 </TS>

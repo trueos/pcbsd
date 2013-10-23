@@ -5,6 +5,10 @@
 ## that prevent sudo from running.
 ##
 ## See the sudoers man page for the details on how to write a sudoers file.
+## 
+## WARNING!!! 
+## Changes to this file will be lost during system updates. Please set
+## custom option files in the /usr/local/etc/sudoers.d/ directory instead. 
 ##
 
 ##

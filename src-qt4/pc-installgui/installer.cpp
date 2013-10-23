@@ -34,8 +34,8 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     backButton->setText(tr("&Back"));
     nextButton->setText(tr("&Next"));
 
-    // Init the MBR to yes
-    loadMBR = true;
+    // Init the boot-loader
+    bootLoader = QString("GRUB");
     // Init the GPT to no
     loadGPT = false;
 
@@ -505,7 +505,7 @@ void Installer::slotDiskCustomizeClicked()
   wDisk->setWindowModality(Qt::ApplicationModal);
   if ( radioRestore->isChecked() )
     wDisk->setRestoreMode();
-  connect(wDisk, SIGNAL(saved(QList<QStringList>, bool, bool, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, bool, bool, QString, bool)));
+  connect(wDisk, SIGNAL(saved(QList<QStringList>, QString, bool, QString, bool)), this, SLOT(slotSaveDiskChanges(QList<QStringList>, QString, bool, QString, bool)));
   wDisk->show();
   wDisk->raise();
 }
@@ -536,14 +536,14 @@ void Installer::slotSaveMetaChanges(QStringList sPkgs)
   textDeskSummary->setText(tr("The following meta-pkgs will be installed:") + "<br>" + selectedPkgs.join("<br>"));
 }
 
-void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, bool MBR, bool GPT, QString zName, bool zForce )
+void Installer::slotSaveDiskChanges(QList<QStringList> newSysDisks, QString BL, bool GPT, QString zName, bool zForce )
 {
 
+  bootLoader=BL;
   zpoolName = zName; 
   force4K = zForce;
 
   // Save the new disk layout
-  loadMBR = MBR;
   loadGPT = GPT;
   sysFinalDiskLayout = newSysDisks;
   textEditDiskSummary->clear();
@@ -1090,17 +1090,8 @@ QStringList Installer::getDiskCfgSettings()
     tmpList << "disk" + tmp.setNum(disk) + "=" + workingDisk;
     tmpList << "partition=" + tmpSlice;
 
-    // Are we loading a boot-loader?
-    if ( loadMBR )
-      tmpList << "bootManager=GRUB";
-    else {
-      // If the user declined the GRUB MBR, but we are still using a slice, install it to the slice
-      // for chain-loading later
-      if ( tmpSlice != "ALL" && ! loadGPT )
-        tmpList << "bootManager=GRUB-slice";
-      else
-        tmpList << "bootManager=none";
-    }
+    // Which boot-loader are we stamping?
+    tmpList << "bootManager=" + bootLoader;
 
     // Set the GPT/MBR options
     if ( loadGPT ) 

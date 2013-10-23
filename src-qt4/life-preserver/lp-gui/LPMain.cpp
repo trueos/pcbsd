@@ -1,5 +1,6 @@
 #include "LPMain.h"
 #include "ui_LPMain.h"
+#include <unistd.h>
 
 LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   ui->setupUi(this); //load the Qt-designer UI file

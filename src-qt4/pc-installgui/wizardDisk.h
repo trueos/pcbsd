@@ -92,7 +92,7 @@ private:
     enum { Page_Intro, Page_BasicDisk, Page_ZFS, Page_Mounts, Page_Expert, Page_Confirmation };
 
 signals:
-    void saved(QList<QStringList>, bool, bool, QString, bool);
+    void saved(QList<QStringList>, QString, bool, QString, bool);
 
 } ;
 #endif // WIZDISK_H
