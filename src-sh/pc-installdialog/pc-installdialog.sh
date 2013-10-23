@@ -8,33 +8,37 @@
 # Source our functions
 . /usr/local/share/pcbsd/scripts/functions.sh
 
+# Dialog menu title
 TITLE="PC-BSD Install Dialog"
 
-TANS="/tmp/.pcinsdialog.$$"
-
+# pc-sysinstall config file to write out to
 CFGFILE="/tmp/sys-install.cfg"
+
+# Default ZFS layout
+ZFSLAYOUT="/,/root,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
 
 get_dlg_ans()
 {
-    if [ -e "$TANS" ] ; then rm ${TANS}; fi
-    if [ -e "$TANS.dlg" ] ; then rm ${TANS}.dlg; fi
-    while :
-    do
-      echo "dialog --title \"$TITLE\" ${@}" >${TANS}.dlg
-      sh ${TANS}.dlg 2>${TANS}
-      if [ $? -ne 0 ] ; then
-        dialog --title "$TITLE" --yesno 'Exit the installer?' 8 30
-        if [ $? -eq 0 ] ; then exit_err "User canceled install" ; fi
-        continue
-      fi
+  TANS="/tmp/.pcinsdialog.$$"
+  if [ -e "$TANS" ] ; then rm ${TANS}; fi
+  if [ -e "$TANS.dlg" ] ; then rm ${TANS}.dlg; fi
+  while :
+  do
+    echo "dialog --title \"$TITLE\" ${@}" >${TANS}.dlg
+    sh ${TANS}.dlg 2>${TANS}
+    if [ $? -ne 0 ] ; then
+      dialog --title "$TITLE" --yesno 'Exit the installer?' 8 30
+      if [ $? -eq 0 ] ; then exit_err "User canceled install" ; fi
+      continue
+    fi
 
-      if [ ! -e "$TANS" ] ; then
-         ANS=""
-         return
-      fi
-      ANS=`cat ${TANS}`
-      return
-    done
+    if [ ! -e "$TANS" ] ; then
+       ANS=""
+       return
+    fi
+    ANS=`cat ${TANS}`
+    return
+  done
 }
 
 
@@ -309,7 +313,7 @@ gen_pc-sysinstall_cfg()
    echo "# All sizes are expressed in MB" >> ${CFGFILE}
    echo "# Avail FS Types, UFS, UFS+S, UFS+SUJ, UFS+J, ZFS, SWAP" >> ${CFGFILE}
    echo "# UFS.eli, UFS+S.eli, UFS+SUJ, UFS+J.eli, ZFS.eli, SWAP.eli" >> ${CFGFILE}
-   echo "disk0-part=ZFS 0 /,/root,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)" >> ${CFGFILE}
+   echo "disk0-part=ZFS 0 ${ZFSLAYOUT}" >> ${CFGFILE}
    echo "disk0-part=SWAP 2000 none" >> ${CFGFILE}
    echo "commitDiskLabel" >> ${CFGFILE}
    echo "" >> ${CFGFILE}
