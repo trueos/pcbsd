@@ -12,6 +12,7 @@ LPConfig::LPConfig(QWidget *parent) : QDialog(parent), ui(new Ui::LPConfig){
   //now connect the buttons
   connect(ui->tool_apply,SIGNAL(clicked()), this,SLOT(slotApplyChanges()) );
   connect(ui->tool_cancel,SIGNAL(clicked()), this, SLOT(slotCancelConfig()) );
+  connect(ui->push_scanNetwork, SIGNAL(clicked()), this, SLOT(autoDetectReplicationTargets()) );
 }
 
 LPConfig::~LPConfig(){
@@ -168,4 +169,28 @@ void LPConfig::slotCancelConfig(){
 void LPConfig::on_combo_local_schedule_currentIndexChanged(int index){
   //Adjust whether the daily time box is visible
   ui->time_local_daily->setVisible( (index == 0) );
+}
+
+void LPConfig::autoDetectReplicationTargets(){
+  QStringList targs = LPGUtils::scanNetworkSSH(); // <name>:::<address>:::<port>
+  if(targs.isEmpty()){
+    QMessageBox::warning(this,tr("No Network Targets"), tr("We could not find any systems on the local network with SSH availability (port 22)") );
+    return;
+  }
+  //Ask the user to select a target
+  QStringList targets;
+  for(int i=0; i<targs.length(); i++){
+    targets << targs[i].section(":::",0,0);
+  }
+  bool ok;
+  QString target = QInputDialog::getItem(this, tr("Select Replication Target"), tr("Hostname:"), targets, 0, false, &ok);
+  if(!ok || target.isEmpty() ){ return; } //cancelled
+  //Now look for that target in the list of info
+  for(int i=0; i<targs.length(); i++){
+    if(targs[i].startsWith(target+":::")){
+      ui->lineHostName->setText(targs[i].section(":::",1,1));
+      ui->spinPort->setValue( targs[i].section(":::",2,2).toInt() );
+      break;
+    }
+  }
 }

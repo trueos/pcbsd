@@ -252,3 +252,27 @@ QStringList LPGUtils::listAvailableHardDisks(){
   devs.removeDuplicates();
   return devs;
 }
+
+QStringList LPGUtils::scanNetworkSSH(){
+  //Output format: <name>:::<address>::::<port>
+  QStringList out;
+  QStringList netout = LPBackend::getCmdOutput("avahi-browse -art");
+  for(int i=0; i<netout.length(); i++){
+    if(netout[i].startsWith("=") && netout[i].contains("local")){
+      QString name, address, port;
+      for(int j=0; j<3; j++){ //need the next 3 lines
+        i++; //Move to the next line
+	QString var = netout[i].section("=",0,0).replace("\t"," ").simplified();
+	QString val = netout[i].section("[",1,1).section("]",0,0).simplified();
+	if(var == "hostname"){ name = val.section(".local",0,0).simplified(); }
+	else if(var == "address"){ address = val; }
+	else if(var == "port"){ port = val; }
+      }
+      //Check that it is an SSH connection that is open (port 22)
+      if(port == "22"){ 
+	 out << name+":::"+address+":::"+port;
+      }
+    }
+  }
+  return out;
+}

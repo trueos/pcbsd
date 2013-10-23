@@ -4,8 +4,11 @@
 #include <QDialog>
 #include <QString>
 #include <QDebug>
+#include <QMessageBox>
+#include <QInputDialog>
 
 #include "LPBackend.h"
+#include "LPGUtils.h"
 
 namespace Ui{
 	class LPConfig;
@@ -34,6 +37,7 @@ private slots:
 	void slotApplyChanges();
 	void slotCancelConfig();
 	void on_combo_local_schedule_currentIndexChanged(int);
+	void autoDetectReplicationTargets();
 };
 
 #endif

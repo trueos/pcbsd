@@ -23,6 +23,8 @@ public:
 	static bool extractHomeDirPackage(QString packagePath);
 	//Function to scan the system for available harddisks/devices
 	static QStringList listAvailableHardDisks();
+	//Function to scan the network for available replication targets (SSH open)
+	static QStringList scanNetworkSSH();
 };
 
 #endif
