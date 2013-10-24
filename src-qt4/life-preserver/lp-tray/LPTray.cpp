@@ -133,7 +133,7 @@ void LPTray::slotSingleInstance(){
 
 void LPTray::startGUI(){
   //Start up the GUI
-  system("pc-su life-preserver");
+  QProcess::startDetached("pc-su life-preserver");
 }
 
 void LPTray::startMessageDialog(){
