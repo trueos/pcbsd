@@ -5,53 +5,43 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Діалог</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Застосувати зміни рекурсивно до всіх нащадків</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Значення</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Джерело</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати власну властивість</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вилучити власну властивість</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наслідувати</translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відмінити зміни</translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are

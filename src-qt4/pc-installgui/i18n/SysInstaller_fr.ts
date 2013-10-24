@@ -671,10 +671,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Swap Size </translation>
     </message>
     <message>
-        <source>Install GRUB (Required for Boot-Environment support)</source>
-        <translation>GRUB (Requis pour le support Boot-Environnement)   </translation>
-    </message>
-    <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
         <translation>S&apos;il vous plaît sélectionner le disque ou la partition que vous souhaitez faire l&apos;installation. Veuillez noter que vous devez sélectionner un disque entier ou une partition principale qui est d&apos;au moins 20 Go pour une installation serveur ou 50 Go pour une installation de bureau.    </translation>
     </message>
@@ -687,16 +683,16 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Aucun chargeur de démarrage!</translation>
     </message>
     <message>
-        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
-        <translation>Vous avez choisi de ne pas installer GRUB dans le MBR. Vous aurez besoin de configurer manuellement votre propre chargeur de MBR.</translation>
-    </message>
-    <message>
-        <source>Stamp GRUB on MBR</source>
-        <translation>Installer GRUB sur le MBR            </translation>
-    </message>
-    <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
         <translation>L&apos;ensembles de données / points de montage système original sera automatiquement rétabli.    </translation>
+    </message>
+    <message>
+        <source>Boot-Loader (GRUB recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -683,11 +683,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Saaleala suurus</translation>
     </message>
     <message>
-        <source>Install GRUB (Required for Boot-Environment support)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
         <translation type="unfinished">
             </translation>
@@ -703,19 +698,17 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
             </translation>
     </message>
     <message>
-        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Stamp GRUB on MBR</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Boot-Loader (GRUB recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

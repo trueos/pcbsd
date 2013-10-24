@@ -292,18 +292,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Наразі Ваша система відновлюється з резервної копії. Час відновлення залежить від розміру збережених даних та швидкості мережі.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановлення мета пакунку: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відновлення системи: %1</translation>
     </message>
 </context>
 <context>
@@ -365,8 +362,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка оберіть програми для встановлення. Після встановлення системи Ви зможете також встановити та видалити програми використовуючи засіб &quot;Керування пакунками&quot; або команду &quot;pkg&quot; (для TrueOS).</translation>
     </message>
 </context>
 <context>
@@ -675,39 +671,28 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Розмір підкачки</translation>
     </message>
     <message>
-        <source>Install GRUB (Required for Boot-Environment support)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка оберіть диск для встановлення. Майте на увазі що Ви маєте вказати весь диск або головний (primary) розділ диску що має принаймні 20 Гб вільного простору для серверу та 50 Гб для стільниці. </translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановлення на флеш накопичувач (SSD) (SWAP / atime буде вимкнено)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>You have chosen not to install GRUB on your MBR. You will need to manually setup your own MBR loader.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Stamp GRUB on MBR</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Без завантажувача!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оригінальні системні набори даних ZFS та точки монтування будуть автоматично відновлені.</translation>
+    </message>
+    <message>
+        <source>Boot-Loader (GRUB recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
