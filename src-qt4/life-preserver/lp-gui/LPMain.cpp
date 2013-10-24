@@ -100,12 +100,14 @@ void LPMain::updatePoolList(){
   QString cPool;
   if(ui->combo_pools->currentIndex() != -1){ cPool = ui->combo_pools->currentText(); }
   //Get the list of managed pools
+  qDebug() << "[DEBUG] Fetching list of pools";
   QStringList pools = LPBackend::listDatasets();
   QStringList poolsAvail = LPBackend::listPossibleDatasets();
   //Now put the lists into the UI
   ui->combo_pools->clear();
   if(!pools.isEmpty()){ ui->combo_pools->addItems(pools); }
   //Now set the currently selected pools
+  qDebug() << "[DEBUG] Pool list:" << pools;
   if(pools.length() > 0){
     poolSelected=true;	  
     int index = pools.indexOf(cPool);
@@ -117,6 +119,7 @@ void LPMain::updatePoolList(){
     ui->combo_pools->addItem("No Managed Pools!");
     ui->combo_pools->setCurrentIndex(0);
   }
+  qDebug() << "[DEBUG] Update pool menu options";
   //Now update the add/remove pool menu's
   ui->menuManage_Pool->clear();
   for( int i=0; i<poolsAvail.length(); i++){
@@ -129,6 +132,7 @@ void LPMain::updatePoolList(){
     ui->menuUnmanage_Pool->addAction(pools[i]);
   }
   ui->menuUnmanage_Pool->setEnabled( !ui->menuUnmanage_Pool->isEmpty() );
+  qDebug() << "[DEBUG] Update user menus";
   //Now update the user's that are available for home-dir packaging
   QDir hdir("/usr/home");
   QStringList users = hdir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
@@ -138,6 +142,7 @@ void LPMain::updatePoolList(){
   }
   //Now update the interface appropriately
   ui->combo_pools->setEnabled(poolSelected);
+  qDebug() << "[DEBUG] Finished updatePoolList()";
   updateTabs();
 }
 
@@ -159,6 +164,7 @@ void LPMain::viewChanged(){
 
 void LPMain::updateTabs(){
   //qDebug() << "Update Tabs" << poolSelected;
+  qDebug() << "[DEBUG] start updateTabs():" << poolSelected;
   viewChanged();
   ui->tabWidget->setEnabled(poolSelected);
   ui->menuView->setEnabled(poolSelected);	
@@ -168,7 +174,9 @@ void LPMain::updateTabs(){
   ui->action_SaveKeyToUSB->setEnabled(poolSelected);
   if(poolSelected){
     showWaitBox(tr("Loading zpool information"));
+    qDebug() << "[DEBUG] loadPoolData:" << ui->combo_pools->currentText();
     POOLDATA = LPGUtils::loadPoolData(ui->combo_pools->currentText());
+    qDebug() << "[DEBUG] loaded data";
     hideWaitBox();
     //Now list the status information
     ui->label_status->setText(POOLDATA.poolStatus);
