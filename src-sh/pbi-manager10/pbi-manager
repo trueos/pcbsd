@@ -3969,7 +3969,7 @@ mk_xdg_desktop_script() {
 		# Copy over the .desktop file, modifying any variables within
 	        cat "${i}" \
            	| sed "s|%%PBI_EXEDIR%%|$PBI_PROGDIRPATH/$PBI_FAKEBIN_DIR|g" \
-		| sed "s|%%PBI_APPDIR%%|$PBI_PROGDIRPATH|g" \
+		| sed "s|%%PBI_APPDIR%%|${PBI_PROGDIRPATH}/local|g" \
 		> "${dir}/PBI-${i}"
 
 		# Set the correct permissions on the desktop file
@@ -4013,7 +4013,7 @@ mk_xdg_menu_script() {
 		# Copy the desktop file, changing any included vars
 	        cat "${i}" \
            	| sed "s|%%PBI_EXEDIR%%|$PBI_PROGDIRPATH/$PBI_FAKEBIN_DIR|g" \
-		| sed "s|%%PBI_APPDIR%%|$PBI_PROGDIRPATH|g" \
+		| sed "s|%%PBI_APPDIR%%|${PBI_PROGDIRPATH}/local|g" \
 		> "${dir}/PBI-${i}"
 
 		# Set the correct permissions on the menu file
@@ -4027,7 +4027,7 @@ mk_xdg_menu_script() {
 		if [ -e "${dirfile}.directory" ] ; then
 	        	cat "${dirfile}.directory" \
            		| sed "s|%%PBI_EXEDIR%%|$PBI_PROGDIRPATH/$PBI_FAKEBIN_DIR|g" \
-			| sed "s|%%PBI_APPDIR%%|$PBI_PROGDIRPATH|g" \
+			| sed "s|%%PBI_APPDIR%%|${PBI_PROGDIRPATH}/local|g" \
 			> "${dir}/PBI-${dirfile}.directory"
 			#cp "${dirfile}.directory" "${dir}/PBI-${dirfile}.directory"
 			ifd="$PBI_PROGDIRPATH/${PBI_APPMENU_DIR}/PBI-${dirfile}.directory "	
