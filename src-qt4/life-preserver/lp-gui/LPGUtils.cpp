@@ -2,9 +2,10 @@
 
 LPDataset LPGUtils::loadPoolData(QString zpool){
   //Load the current information for the given zpool
-  qDebug() << "New Dataset: " << zpool;
+  qDebug() << "[DEBUG] New Dataset: " << zpool;
   LPDataset DSC;
   //List all the mountpoints in this dataset
+  qDebug() << "[DEBUG] list snapshots";
   QStringList subsets = LPBackend::listDatasetSubsets(zpool);
   QStringList lpsnaps = LPBackend::listLPSnapshots(zpool);
   //populate the list of snapshots available for each mountpoint
@@ -32,7 +33,9 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
     }
   }
   //Parse "zpool status <pool>"
+  qDebug() << "[DEBUG] get zpool status";
   QStringList zstat = LPBackend::getCmdOutput("zpool status "+zpool);
+  qDebug() << zstat.join("\n");
   //qDebug() << "zpool status "+zpool+":\n" << zstat.join("\n");
   bool atheader=false;
   QStringList disks, diskstates, running, errors, finished;
@@ -78,6 +81,7 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
       }
     }
   }
+  qDebug() << "[DEBUG] Get latest snapshot/replication info";
   //Now get the latest Snapshot/Replication information
   QStringList lpstat = LPBackend::listCurrentStatus();
   for(int i=0; i<lpstat.length(); i++){
@@ -93,6 +97,7 @@ LPDataset LPGUtils::loadPoolData(QString zpool){
       }
     }
   }
+  qDebug() << "[DEBUG] save info to the structure and finish";
   //Now save the info to the dataset
   DSC.harddisks = disks;
   DSC.harddiskStatus = diskstates;
