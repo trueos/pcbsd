@@ -381,6 +381,11 @@
         </item>
         <item>
          <property name="text">
+          <string notr="true">GRUB-slice</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
           <string notr="true">BSD</string>
          </property>
         </item>

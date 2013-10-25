@@ -5,82 +5,77 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog     </translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Appliquer les modifications de manière récursive à tous les descendants</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valeur</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Source</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter la propriété de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Retirez la propriété de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hériter du parent   </translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Annuler les changements    </translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle des entrées ACL sont héritées lorsque les fichiers et les répertoires sont créés. Les valeurs sont
+ discard, noallow, restricted, and passthrough. Pour une description de ces valeurs, voir Propriétés ACL.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle le processus de modification des entrées ACL lors d&apos;une opération chmod.
+Les valeurs possibles sont discard, groupmask et passthrough. Pour une description des 
+ces valeurs, voir Propriétés ACL.   </translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si le temps d&apos;accès aux fichiers est mis à jour lorsqu&apos;ils sont lus.
+La désactivation de cette propriété évite hors production trafic d&apos;écriture lors de la lecture des fichiers et
+ peut entrainer des gains de performance significatifs, même si cela risque d&apos;induire les expéditeurs et
+ utilitaires similaires.    </translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant la quantité d&apos;espace disque disponible pour un ensemble de données
+ et tous ses enfants, en supposant qu&apos;aucun autre activité dans le pool. Parce que l&apos;espace disque est
+ partagées au sein d&apos;un pool, l&apos;espace disponible peut être limitée par divers facteurs, y compris
+ taille du pool physique, les quotas, les réservations et autres ensembles de données au sein du pool.    </translation>
     </message>
     <message>
         <source>If this property is set to off, the file system cannot be mounted,
@@ -92,8 +87,15 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Si cette propriété est désactivée, le système de fichier ne peut pas être monté,
+et est ignoré par &apos;zfs mount -a&apos;. La définition de cette propriété sur off est
+similaire à définir la propriété mountpoint sur aucun, sauf que les
+ ensembles de données possède toujours une propriété mountpoint normale, ce qui peut être héritée
+La définition de cette propriété sur off permet des ensembles de données qui seront utilisés uniquement comme un 
+ mécanisme d&apos;hériter des propriétés. Un exemple de mise en canmount = off est 
+ d&apos;avoir deux ensembles de données avec le même point de montage, de sorte que les enfants de 
+ deux ensembles de données apparaissent dans le même répertoire, mais peuvent avoir différentes 
+ hérité caractéristiques.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -101,16 +103,21 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle la somme de contrôle permettant de vérifier l&apos;intégrité des données. La valeur par défaut 
+ valeur est en marche, qui sélectionne automatiquement un algorithme approprié 
+(actuellement, fletcher4, mais cela pourrait changer dans les versions futures). Le 
+valeur hors intégrité désactive la vérification des données des utilisateurs. Désactivation 
+checksums n&apos;est pas une pratique recommandée.</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Active ou désactive la compression de données. Les valeurs sont on, off, lzjb, zle, gzip, 
+et gzip-N. Actuellement, la définition de cette propriété à lzjb, gzip ou gzip-N a le même 
+effet que la définition de cette propriété sur. Activation de la compression sur un système de fichiers avec 
+ données existantes uniquement la compression des nouvelles données. Les données existantes ne sont pas compressées.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -118,8 +125,11 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant le ratio de compression obtenu pour un ensemble de données,
+ exprimée comme un multiplicateur. La compression peut être activée par la commande zfs set compression = on
+ commande de données. La valeur est calculée à partir de la taille logique de tous les fichiers et les
+ quantité de données physiques indiquée. Il comprend des économies explicites grâce à l&apos;utilisation de
+ la propriété de compression.</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -129,13 +139,17 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Définit le nombre de copies des données utilisateur par système de fichiers. Ces copies
+s&apos;ajoutent à toute redondance de niveau pool. L&apos;espace disque utilisé par
+plusieurs copies de données utilisateur est facturé pour le fichier correspondant et
+DataSet et pénalise les quotas et les réservations. En outre, le
+ bien utilisé est mis à jour lorsque plusieurs copies sont activées. Envisager de mettre
+ cette propriété lorsque le système de fichier est créé parce que la modification de cette propriété
+ sur un système de fichiers existant affecte uniquement les données nouvellement écrites.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule identifiant la date et l&apos;heure qu&apos;un jeu de données a été créée. </translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.
@@ -146,25 +160,30 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration de la dé-duplication pour un ensemble de données. La valeur par défaut est off.
+Le contrôle de dé-duplication par défaut est sha256 (cela pourrait changer à l&apos;
+ avenir). Quand dedup est activée, le contrôle défini ici remplace
+ la propriété de contrôle. Réglage de la valeur pour vérifier a la même 
+ effet que la mise en sha256, vérifiez. 
+ Si elle est définie à vérifier, ZFS feront un comparsion octet par octet en cas de 
+ deux blocs ayant la même signature pour s&apos;assurer que le contenu du bloc 
+ sont identiques.   </translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La propriété du dispositif n&apos;est actuellement pas pris en charge sur FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si les processus peuvent être exécutés à l&apos;intérieur de ce fichier
+système. La valeur par défaut est activé.      </translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule qui indique que un système de fichiers, un clone ou un instantané
+actuellement monté.  </translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -173,24 +192,32 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle le point de montage utilisé pour le système de fichiers. Lorsque la propriété mountpoint
+ est changé pour un système de fichiers, le système de fichiers et les descendants qui héritent de ce
+ point de montage sont démontés. Si la nouvelle valeur est héritage, alors ils restent démontés. 
+ Sinon, ils sont automatiquement remontés au nouvel emplacement si la propriété était
+ précédemment héritage ou pas, ou s&apos;ils étaient montés avant que le bien a été modifiée.
+ En outre, les systèmes de fichiers partagés sont non partagées et partagées dans le nouvel emplacement.  </translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle ce qui est mis en cache dans le cache principal (ARC). Les valeurs possibles sont tous,
+none et metadata. Si réglé sur all, les données de l&apos;utilisateur et les métadonnées sont mises en cache. Si
+ définie sur none, ni les données d&apos;utilisateur ni les métadonnées sont mises en cache. Si réglé sur metadata, seules les
+ métadonnées sont mises en cache.</translation>
     </message>
     <message>
         <source>Read-only property for cloned file systems or volumes that identifies
 the snapshot from which the clone was created. The origin cannot be
 destroyed (even with the -r or -f option) as long as a clone exists.
 Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule pour les systèmes de fichiers ou aux volumes clonés qui identifie
+l&apos;instantané à partir duquel le clone a été créé. L&apos;origine ne peut pas être
+ détruit (même avec l&apos;option-r ou option-f) tant que le clone existe.
+ Les systèmes de fichiers non clonés ont une origine d&apos;aucun.</translation>
     </message>
     <message>
         <source>Limits the amount of disk space a dataset and its descendents can consume.
@@ -198,14 +225,17 @@ This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
 Setting a quota on a descendent of a dataset that already has a quota does not
 override the ancestor&apos;s quota, but rather imposes an additional limit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Limite la quantité d&apos;espace disque un ensemble de données et ses descendants peuvent consommer.
+ Cette propriété impose une limite fixe à la quantité d&apos;espace disque utilisée,
+y compris l&apos;espace utilisé par les descendants, tels que les systèmes de fichiers et les instantanés.
+ Fixation d&apos;un quota sur un descendant d&apos;un ensemble de données qui dispose déjà d&apos;un quota ne
+ le remplacement du quota de l&apos;ancêtre, mais impose plutôt une limite supplémentaire.</translation>
     </message>
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si un ensemble de données peut être modifié. Quand elle est activée,
+pas de modifications peuvent être apportées. </translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -217,22 +247,31 @@ Use of this property for general purpose file systems is strongly
 discouraged, and may adversely affect performance.
 The size specified must be a power of two greater than or equal to
 512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indique une taille de bloc suggérée pour les fichiers du système de fichiers. Cette
+propriété est conçu uniquement pour une utilisation avec des charges de travail de base de données
+ accès aux fichiers dans les dossiers de taille fixe. ZFS règle automatiquement bloc
+tailles en fonction d&apos;algorithmes internes optimisés pour l&apos;accès typique
+patterns.
+ L&apos;utilisation de cette propriété pour les systèmes de fichiers but est fortement
+découragé, et peut nuire au rendement.
+ La taille spécifiée doit être une puissance de deux supérieure ou égale à
+ 512 et inférieure ou égale à 128 kilo-octets.   </translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of data accessible by a
 dataset, which might or might not be shared with other datasets in the
 pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule qui indique la quantité de données accessible par un 
+ensemble de données, ce qui pourrait ou ne pourrait pas être partagé avec d&apos;autres ensembles de données dans le répertoire
+ pool. </translation>
     </message>
     <message>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Définit la quantité d&apos;espace disque qu&apos;un ensemble de données peut consommer. Cette propriété
+ impose une limite fixe à la quantité d&apos;espace utilisé. Cette limite maximale ne
+ne pas inclure d&apos;espace disque utilisé par les descendants, notamment les instantanés et les clones. </translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -244,8 +283,15 @@ the parent dataset&apos;s quotas and reservations.
 If refreservation is set, a snapshot is only allowed if enough free pool space
 is available outside of this reservation to accommodate the current number of
 referenced bytes in the dataset.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fixe le montant minimum d&apos;espace disque qui est garanti pour un ensemble de données, pas
+y compris les descendants, notamment les instantanés et les clones. Lorsque la quantité d&apos;espace disque
+ espace utilisé est inférieur à cette valeur, l&apos;ensemble de données est traitée comme si elle était prise de
+ la quantité d&apos;espace spécifiée par refreservation. La réservation refreservation
+ est pris en compte dans l&apos;espace disque de la base de données utilisée parent et chefs d&apos;accusation contre
+ Les quotas et réservations de jeux de données parent.
+Si refreservation est définie, un instantané n&apos;est autorisé que si suffisamment d&apos;espace libre pool
+ est disponible à l&apos;extérieur de cette réserve pour accueillir le nombre actuel de
+octets référencés dans le jeu de données.</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
@@ -253,69 +299,73 @@ When the amount of disk space used is below this value, the dataset is treated a
 it were using the amount of space specified by its reservation. Reservations are
 accounted for in the parent dataset&apos;s disk space used, and count against the parent
 dataset&apos;s quotas and reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fixe le montant minimum d&apos;espace disque garanti à un ensemble de données et de ses descendants.
+ Lorsque la quantité d&apos;espace disque utilisée est inférieure à cette valeur, l&apos;ensemble de données est traitée comme si
+ il utilise la quantité d&apos;espace spécifiée par sa réserve. Les réservations sont
+ pris en compte dans l&apos;espace disque du parent données utilisées, et imputées sur le parent
+ Les quotas et les réservations des données.</translation>
     </message>
     <message>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle ce qui est mis en cache dans le cache secondaire (L2ARC). Les valeurs possibles sont all, none
+ et des métadonnées. Si réglé sur all, les données de l&apos;utilisateur et les métadonnées sont mises en cache. Si la valeur none,
+ ni les données d&apos;utilisateur ni les métadonnées sont mises en cache. S&apos;il est réglé sur metadata, seules les métadonnées sont mises en cache.</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si le bit setuid dans un système de fichiers.</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si un système de fichiers est disponible via NFS et ce
+options sont utilisées. Si elle est activée, la commande zfs share est exécutée
+sans option. Sinon, la commande zfs share est exécutée avec
+options équivalentes au contenu de cette propriété.</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La propriété sharesmb a actuellement aucun effet sur FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si le répertoire ZFS. Est caché ou visible dans la racine du système de fichiers.   </translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule qui identifie le type de données comme système de fichiers (système de fichiers ou clone), le volume ou instantané.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant la quantité d&apos;espace disque consommé par un ensemble de données et de tous ses descendants. </translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant la quantité d&apos;espace disque qui est utilisé par
+enfants de cet ensemble de données, qui serait libérée si tous les enfants du jeu de données
+ont été détruites.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 a dataset itself, which would be freed if the dataset was destroyed, after
 first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant la quantité d&apos;espace disque qui est utilisé par
+un ensemble de données lui-même, qui serait libérée si le jeu de données a été détruite, après
+d&apos;abord détruire les instantanés et la suppression des réserves refreservation.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
 refreservation set on a dataset, which would be freed if the refreservation was
 removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant la quantité d&apos;espace disque qui est utilisé par un
+refreservation situé sur un ensemble de données, qui serait libérée si la refreservation était
+éliminée.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is consumed
@@ -323,58 +373,57 @@ by snapshots of a dataset. In particular, it is the amount of disk space that
 would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété en lecture seule indiquant la quantité d&apos;espace disque qui est consommé
+par les instantanés d&apos;un ensemble de données. En particulier, c&apos;est la quantité d&apos;espace disque que
+ serait libérée si l&apos;ensemble des instantanés de ce jeu de données ont été détruits. Notez que
+ cette valeur n&apos;est pas simplement la somme des propriétés used des instantanés, car
+espace peut être partagé par plusieurs instantanés.</translation>
     </message>
     <message>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Identifie la version sur disque d&apos;un système de fichiers, qui est indépendante de la
+Version piscine. Cette propriété ne peut être réglé à une version plus récente est disponible
+à partir de la version du logiciel pris en charge.</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pour les volumes, spécifie la taille logique du volume.</translation>
     </message>
     <message>
         <source>For volumes, specifies the block size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pour les volumes, spécifie la taille de bloc du volume.</translation>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indique si un ensemble de données a été ajoutée à un Jail.</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette propriété n&apos;est pas supportée sur FreeBSD.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le système du fichier est marqué pour être détruites après démontage.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
 dataset, expressed as a multiplier.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le taux de compression atteint pour l&apos;espace référencé de cette
+ensemble de données, exprimée comme un multiplicateur.</translation>
     </message>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>La quantité d&apos;espace référencé par écrit à cette base de données depuis le
+instantané précédent.</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette propriété est définie sur le nombre d&apos;utilisateur tient sur ​​ce cliché.
+</translation>
     </message>
     <message>
         <source>Provide a hint to ZFS about handling of synchronous requests in this

@@ -688,11 +688,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Boot-Loader (GRUB recommendé)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous avez choisi de ne pas installer un chargeur d&apos;amorçage. Vous aurez besoin de configurer manuellement votre propre chargeur.</translation>
     </message>
 </context>
 <context>
