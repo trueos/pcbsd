@@ -33,3 +33,42 @@ QIcon Backend::icon(QString icon){
 	
   return QIcon(iconPath);
 }
+
+QStringList Backend::getCmdOutput(QString cmd){
+  QProcess *proc = new QProcess;
+  proc->setProcessChannelMode(QProcess::MergedChannels);
+  proc->start(cmd);
+  while(!proc->waitForFinished(300)){
+    QCoreApplication::processEvents();
+  }
+  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
+  delete proc;	
+  return out;
+}
+
+// ====================
+//  PACKAGE DATABASE TOOLS
+// ====================
+QStringList Backend::getPkgList(){
+  //Generate an alphabetized list of all available packages on the repo
+  //format: <category>/<pkgname>
+  QString cmd = "pkg search -o \"/\"";
+  QStringList result = getCmdOutput(cmd);
+  return result;
+}
+
+QStringList Backend::getPkgInfo(QString pkgname){
+  //Function to query the package repository and pull down information about a particular package
+  //Output: <name>, <port>, <maintainer>, <website>
+  QString cmd = "pkg rquery \"%n\\n%o\\n%m\\n%w\" "+pkgname;
+  QStringList out = Backend::getCmdOutput(cmd);
+  return out;
+}
+
+QStringList Backend::getPkgOpts(QString pkgname){
+  //Function to query the package repository and pull down information about a particular package
+  //Output: <name>, <port>, <maintainer>, <website>
+  QString cmd = "pkg rquery \"%Ok=%Ov\" "+pkgname;
+  QStringList out = Backend::getCmdOutput(cmd);
+  return out;
+}
