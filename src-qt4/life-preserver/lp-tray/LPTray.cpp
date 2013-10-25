@@ -8,12 +8,12 @@ LPTray::LPTray() : QSystemTrayIcon(){
 	connect(watcher,SIGNAL(StatusUpdated()),this,SLOT(watcherMessage()) );
   //Setup the context menu
   menu = new QMenu;
-	menu->addAction(QIcon(":/images/tray-icon-idle.png"),tr("Start Application UI"),this,SLOT(startGUI()) );
+	menu->addAction(QIcon(":/images/tray-icon-idle.png"),tr("Open Life Preserver"),this,SLOT(startGUI()) );
 	menu->addSeparator();
 	menu->addAction(QIcon(":/images/backup-failed.png"),tr("View Messages"),this,SLOT(startMessageDialog()) );
 	menu->addAction(QIcon(":/images/refresh.png"),tr("Refresh Tray"),this,SLOT(refreshStatus()) );
 	menu->addSeparator();
-	menu->addAction(QIcon(":/images/application-exit.png"),tr("Close Life Preserver Tray"),this,SLOT(slotClose()) );
+	menu->addAction(QIcon(":/images/application-exit.png"),tr("Close Tray"),this,SLOT(slotClose()) );
   this->setContextMenu(menu);
   //Setup initial icon for the tray
   this->setIcon( QIcon(":/images/tray-icon-idle.png") );
