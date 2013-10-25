@@ -649,7 +649,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="425"/>
+        <location filename="../wizardDisk.ui" line="430"/>
         <source>ZFS pool name</source>
         <translation type="unfinished"></translation>
     </message>
@@ -679,73 +679,73 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="397"/>
+        <location filename="../wizardDisk.ui" line="402"/>
         <source>Boot-Loader (GRUB recommended)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="537"/>
+        <location filename="../wizardDisk.ui" line="542"/>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="563"/>
+        <location filename="../wizardDisk.ui" line="568"/>
         <source>Enable ZFS mirror/raidz mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="601"/>
+        <location filename="../wizardDisk.ui" line="606"/>
         <source>ZFS Virtual Device Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="610"/>
+        <location filename="../wizardDisk.ui" line="615"/>
         <location filename="../wizardDisk.cpp" line="286"/>
         <source>Please select at least 1 other drive for mirroring</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="629"/>
+        <location filename="../wizardDisk.ui" line="634"/>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="710"/>
+        <location filename="../wizardDisk.ui" line="715"/>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="770"/>
+        <location filename="../wizardDisk.ui" line="775"/>
         <source>(MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="777"/>
+        <location filename="../wizardDisk.ui" line="782"/>
         <source>Swap Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="801"/>
+        <location filename="../wizardDisk.ui" line="806"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="812"/>
+        <location filename="../wizardDisk.ui" line="817"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="918"/>
+        <location filename="../wizardDisk.ui" line="923"/>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="968"/>
+        <location filename="../wizardDisk.ui" line="973"/>
         <source>&amp;Launch terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.ui" line="1090"/>
+        <location filename="../wizardDisk.ui" line="1095"/>
         <source>Please check the disk summary below and click finish to save your settings. </source>
         <translation type="unfinished"></translation>
     </message>

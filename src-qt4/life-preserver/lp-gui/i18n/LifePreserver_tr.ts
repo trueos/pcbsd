@@ -222,74 +222,74 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="387"/>
+        <location filename="../LPMain.ui" line="385"/>
         <source>File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="418"/>
+        <location filename="../LPMain.ui" line="416"/>
         <source>View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="423"/>
+        <location filename="../LPMain.ui" line="421"/>
         <source>Disks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="427"/>
+        <location filename="../LPMain.ui" line="425"/>
         <source>Detach Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="447"/>
+        <location filename="../LPMain.ui" line="445"/>
         <source>Set Disk Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="466"/>
+        <location filename="../LPMain.ui" line="464"/>
         <source>Snapshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="483"/>
+        <location filename="../LPMain.ui" line="481"/>
         <source>Classic Backups</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="487"/>
+        <location filename="../LPMain.ui" line="485"/>
         <source>Compress Home Dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="511"/>
+        <location filename="../LPMain.ui" line="509"/>
         <source>Close Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="516"/>
+        <location filename="../LPMain.ui" line="514"/>
         <location filename="../LPMain.cpp" line="11"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="521"/>
+        <location filename="../LPMain.ui" line="519"/>
         <location filename="../LPMain.cpp" line="8"/>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="598"/>
+        <location filename="../LPMain.ui" line="596"/>
         <source>Extract Home Dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="646"/>
+        <location filename="../LPMain.ui" line="644"/>
         <source>Stop Scrub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="391"/>
+        <location filename="../LPMain.ui" line="389"/>
         <source>Manage Pool</source>
         <translation type="unfinished"></translation>
     </message>
@@ -309,59 +309,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="401"/>
+        <location filename="../LPMain.ui" line="399"/>
         <source>Unmanage Pool</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="526"/>
+        <location filename="../LPMain.ui" line="524"/>
         <source>Recover File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="531"/>
+        <location filename="../LPMain.ui" line="529"/>
         <source>Restore Dataset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="536"/>
-        <location filename="../LPMain.ui" line="568"/>
+        <location filename="../LPMain.ui" line="534"/>
+        <location filename="../LPMain.ui" line="566"/>
         <source>Save Key to USB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="437"/>
+        <location filename="../LPMain.ui" line="435"/>
         <source>Set Disk Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="550"/>
-        <location filename="../LPMain.ui" line="559"/>
+        <location filename="../LPMain.ui" line="548"/>
+        <location filename="../LPMain.ui" line="557"/>
         <source>New Snapshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="470"/>
+        <location filename="../LPMain.ui" line="468"/>
         <source>Delete Snapshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="545"/>
+        <location filename="../LPMain.ui" line="543"/>
         <source>Attach Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="577"/>
+        <location filename="../LPMain.ui" line="575"/>
         <source>Start Scrub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="580"/>
+        <location filename="../LPMain.ui" line="578"/>
         <source>Check system data integrity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="589"/>
+        <location filename="../LPMain.ui" line="587"/>
         <source>Classic Backup</source>
         <translation type="unfinished"></translation>
     </message>
@@ -371,556 +371,556 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="170"/>
+        <location filename="../LPMain.cpp" line="176"/>
         <source>Loading zpool information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="200"/>
+        <location filename="../LPMain.cpp" line="208"/>
         <source>No datasets available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="309"/>
+        <location filename="../LPMain.cpp" line="317"/>
         <source>Restoring Directory: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="314"/>
+        <location filename="../LPMain.cpp" line="322"/>
         <source>File destination(s) that could not be restored:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="315"/>
-        <location filename="../LPMain.cpp" line="330"/>
+        <location filename="../LPMain.cpp" line="323"/>
+        <location filename="../LPMain.cpp" line="338"/>
         <source>Reversion Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="315"/>
+        <location filename="../LPMain.cpp" line="323"/>
         <source>Some files could not be restored from the snapshot.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="318"/>
-        <location filename="../LPMain.cpp" line="333"/>
+        <location filename="../LPMain.cpp" line="326"/>
+        <location filename="../LPMain.cpp" line="341"/>
         <source>Restore Successful</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="318"/>
+        <location filename="../LPMain.cpp" line="326"/>
         <source>The following directory was succesfully restored: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="322"/>
+        <location filename="../LPMain.cpp" line="330"/>
         <source>Restoring file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="327"/>
+        <location filename="../LPMain.cpp" line="335"/>
         <source>Snapshot file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="328"/>
+        <location filename="../LPMain.cpp" line="336"/>
         <source>Destination: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="329"/>
+        <location filename="../LPMain.cpp" line="337"/>
         <source>Please check that the destination directory exists and is writable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="330"/>
+        <location filename="../LPMain.cpp" line="338"/>
         <source>The file could not be restored from the snapshot.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="333"/>
+        <location filename="../LPMain.cpp" line="341"/>
         <source>The following file was succesfully restored: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="349"/>
+        <location filename="../LPMain.cpp" line="357"/>
         <source>Configuring dataset: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="357"/>
+        <location filename="../LPMain.cpp" line="365"/>
         <source>Configuring replication: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="359"/>
-        <location filename="../LPMain.cpp" line="389"/>
+        <location filename="../LPMain.cpp" line="367"/>
+        <location filename="../LPMain.cpp" line="397"/>
         <source>Reminder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="359"/>
-        <location filename="../LPMain.cpp" line="389"/>
+        <location filename="../LPMain.cpp" line="367"/>
+        <location filename="../LPMain.cpp" line="397"/>
         <source>Don&apos;t forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="361"/>
+        <location filename="../LPMain.cpp" line="369"/>
         <source>Removing replication: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="384"/>
+        <location filename="../LPMain.cpp" line="392"/>
         <source>Enabling dataset management: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="403"/>
+        <location filename="../LPMain.cpp" line="411"/>
         <source>Verify Dataset Backup Removal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="403"/>
+        <location filename="../LPMain.cpp" line="411"/>
         <source>Are you sure that you wish to cancel automated snapshots and/or replication of the following dataset?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="407"/>
-        <location filename="../LPMain.cpp" line="663"/>
+        <location filename="../LPMain.cpp" line="415"/>
+        <location filename="../LPMain.cpp" line="671"/>
         <source>Verify Snapshot Deletion</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="407"/>
+        <location filename="../LPMain.cpp" line="415"/>
         <source>Do you wish to remove the local snapshots for this dataset?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="407"/>
-        <location filename="../LPMain.cpp" line="663"/>
+        <location filename="../LPMain.cpp" line="415"/>
+        <location filename="../LPMain.cpp" line="671"/>
         <source>WARNING: This is a permanant change that cannot be reversed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="409"/>
+        <location filename="../LPMain.cpp" line="417"/>
         <source>%1: Removing snapshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="410"/>
+        <location filename="../LPMain.cpp" line="418"/>
         <source>Removing snapshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="419"/>
+        <location filename="../LPMain.cpp" line="427"/>
         <source>%1: Disabling Replication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="420"/>
+        <location filename="../LPMain.cpp" line="428"/>
         <source>Disabling Replication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="424"/>
+        <location filename="../LPMain.cpp" line="432"/>
         <source>%1: Disabling Life-Preserver Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="425"/>
+        <location filename="../LPMain.cpp" line="433"/>
         <source>Removing Life Preserver Schedules</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="448"/>
+        <location filename="../LPMain.cpp" line="456"/>
         <source>No Valid USB Devices</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="448"/>
+        <location filename="../LPMain.cpp" line="456"/>
         <source>No valid USB devices could be found. Please mount a FAT32 formatted USB stick and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="453"/>
+        <location filename="../LPMain.cpp" line="461"/>
         <source>Select USB Device</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="453"/>
+        <location filename="../LPMain.cpp" line="461"/>
         <source>Available USB Devices:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="459"/>
+        <location filename="../LPMain.cpp" line="467"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="459"/>
+        <location filename="../LPMain.cpp" line="467"/>
         <source>The public SSH key file was successfully copied onto the USB device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="461"/>
+        <location filename="../LPMain.cpp" line="469"/>
         <source>Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="461"/>
+        <location filename="../LPMain.cpp" line="469"/>
         <source>The public SSH key file could not be copied onto the USB device.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="476"/>
+        <location filename="../LPMain.cpp" line="484"/>
         <source>Package Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="476"/>
+        <location filename="../LPMain.cpp" line="484"/>
         <source>Name of the package to create:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="479"/>
+        <location filename="../LPMain.cpp" line="487"/>
         <source>Packaging home directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="485"/>
-        <location filename="../LPMain.cpp" line="512"/>
+        <location filename="../LPMain.cpp" line="493"/>
+        <location filename="../LPMain.cpp" line="520"/>
         <source>Package Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="485"/>
+        <location filename="../LPMain.cpp" line="493"/>
         <source>The home directory package could not be created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="488"/>
+        <location filename="../LPMain.cpp" line="496"/>
         <source>Package Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="488"/>
+        <location filename="../LPMain.cpp" line="496"/>
         <source>The home directory package was successfully created.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="495"/>
+        <location filename="../LPMain.cpp" line="503"/>
         <source>Find Home Dir Package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="495"/>
+        <location filename="../LPMain.cpp" line="503"/>
         <source>Home Dir Package (*.home.tar.gz)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="501"/>
+        <location filename="../LPMain.cpp" line="509"/>
         <source>User Missing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="501"/>
+        <location filename="../LPMain.cpp" line="509"/>
         <source>The user (%1) does not exist on this system. Please create this user first and then try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="505"/>
+        <location filename="../LPMain.cpp" line="513"/>
         <source>Extracting Home Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="510"/>
+        <location filename="../LPMain.cpp" line="518"/>
         <source>Package Extracted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="510"/>
+        <location filename="../LPMain.cpp" line="518"/>
         <source>The package was successfully extracted within %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="512"/>
+        <location filename="../LPMain.cpp" line="520"/>
         <source>The package could not be extracted within %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="526"/>
-        <location filename="../LPMain.cpp" line="531"/>
+        <location filename="../LPMain.cpp" line="534"/>
+        <location filename="../LPMain.cpp" line="539"/>
         <source>Attach New Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="526"/>
+        <location filename="../LPMain.cpp" line="534"/>
         <source>No available disks could be found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="531"/>
+        <location filename="../LPMain.cpp" line="539"/>
         <source>Detected Disks:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="534"/>
+        <location filename="../LPMain.cpp" line="542"/>
         <source>Attaching disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="538"/>
+        <location filename="../LPMain.cpp" line="546"/>
         <source>Disk Attached</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="538"/>
+        <location filename="../LPMain.cpp" line="546"/>
         <source>Success: %1 was added to %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="541"/>
+        <location filename="../LPMain.cpp" line="549"/>
         <source>Disk Attach Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="541"/>
+        <location filename="../LPMain.cpp" line="549"/>
         <source>Failure: %1 could not be attached to %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="549"/>
+        <location filename="../LPMain.cpp" line="557"/>
         <source>Verify Disk Removal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="549"/>
+        <location filename="../LPMain.cpp" line="557"/>
         <source>Are you sure that you want to remove %1 from %2?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="549"/>
+        <location filename="../LPMain.cpp" line="557"/>
         <source>CAUTION: This disk can only be re-attached later as a brand new disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="553"/>
+        <location filename="../LPMain.cpp" line="561"/>
         <source>Detaching disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="557"/>
+        <location filename="../LPMain.cpp" line="565"/>
         <source>Disk Removal Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="557"/>
+        <location filename="../LPMain.cpp" line="565"/>
         <source>Success: %1 was removed from %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="560"/>
+        <location filename="../LPMain.cpp" line="568"/>
         <source>Disk Removal Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="560"/>
+        <location filename="../LPMain.cpp" line="568"/>
         <source>Failure: %1 could not be removed from %2 at this time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="568"/>
+        <location filename="../LPMain.cpp" line="576"/>
         <source>Verify Disk Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="568"/>
+        <location filename="../LPMain.cpp" line="576"/>
         <source>Are you sure you wish to set %1 offline?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="572"/>
+        <location filename="../LPMain.cpp" line="580"/>
         <source>Setting disk offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="576"/>
+        <location filename="../LPMain.cpp" line="584"/>
         <source>Disk Offline Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="576"/>
+        <location filename="../LPMain.cpp" line="584"/>
         <source>Success: %1 has been taken offline.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="579"/>
+        <location filename="../LPMain.cpp" line="587"/>
         <source>Disk Offline Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="579"/>
+        <location filename="../LPMain.cpp" line="587"/>
         <source>Failure: %1 could not be taken offline at this time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="587"/>
+        <location filename="../LPMain.cpp" line="595"/>
         <source>Verify Disk Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="587"/>
+        <location filename="../LPMain.cpp" line="595"/>
         <source>Are you sure you wish to set %1 online?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="591"/>
+        <location filename="../LPMain.cpp" line="599"/>
         <source>Setting disk online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="595"/>
+        <location filename="../LPMain.cpp" line="603"/>
         <source>Disk Online Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="595"/>
+        <location filename="../LPMain.cpp" line="603"/>
         <source>Success: %1 has been set online.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="598"/>
+        <location filename="../LPMain.cpp" line="606"/>
         <source>Disk Online Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="598"/>
+        <location filename="../LPMain.cpp" line="606"/>
         <source>Failure: %1 could not be set online at this time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="605"/>
-        <location filename="../LPMain.cpp" line="625"/>
+        <location filename="../LPMain.cpp" line="613"/>
+        <location filename="../LPMain.cpp" line="633"/>
         <source>Verify Scrub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="605"/>
+        <location filename="../LPMain.cpp" line="613"/>
         <source>Are you sure you want to start a scrub on %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="605"/>
+        <location filename="../LPMain.cpp" line="613"/>
         <source>NOTE: This may take quite a while to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="610"/>
+        <location filename="../LPMain.cpp" line="618"/>
         <source>Trying to start a scrub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="615"/>
+        <location filename="../LPMain.cpp" line="623"/>
         <source>Scrub Started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="615"/>
+        <location filename="../LPMain.cpp" line="623"/>
         <source>A scrub has just been started on %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="618"/>
+        <location filename="../LPMain.cpp" line="626"/>
         <source>Scrub Not Started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="618"/>
+        <location filename="../LPMain.cpp" line="626"/>
         <source>A scrub on %1 could not be started at this time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="618"/>
+        <location filename="../LPMain.cpp" line="626"/>
         <source>Please wait until any current resilvering or scrubs are finished before trying again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="625"/>
+        <location filename="../LPMain.cpp" line="633"/>
         <source>Are you sure you want to stop the scrub on %1?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="630"/>
+        <location filename="../LPMain.cpp" line="638"/>
         <source>Trying to stop scrub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="635"/>
+        <location filename="../LPMain.cpp" line="643"/>
         <source>Scrub Stopped</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="635"/>
+        <location filename="../LPMain.cpp" line="643"/>
         <source>The scrub on %1 has been stopped.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="638"/>
+        <location filename="../LPMain.cpp" line="646"/>
         <source>Scrub Not Running</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="638"/>
+        <location filename="../LPMain.cpp" line="646"/>
         <source>There was no scrub running on %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="649"/>
+        <location filename="../LPMain.cpp" line="657"/>
         <source>New Snapshot Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="649"/>
+        <location filename="../LPMain.cpp" line="657"/>
         <source>Snapshot Name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="649"/>
+        <location filename="../LPMain.cpp" line="657"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="654"/>
+        <location filename="../LPMain.cpp" line="662"/>
         <source>Snapshot Pending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="654"/>
+        <location filename="../LPMain.cpp" line="662"/>
         <source>The new snapshot creation has been added to the queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="663"/>
+        <location filename="../LPMain.cpp" line="671"/>
         <source>Do you wish to delete this snapshot? %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="666"/>
+        <location filename="../LPMain.cpp" line="674"/>
         <source>Snapshot Removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="666"/>
+        <location filename="../LPMain.cpp" line="674"/>
         <source>The snapshot was successfully deleted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="668"/>
+        <location filename="../LPMain.cpp" line="676"/>
         <source>Snapshot Removal Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.cpp" line="668"/>
+        <location filename="../LPMain.cpp" line="676"/>
         <source>The snapshot removal experienced an error and it not be completed at this time.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1068,47 +1068,47 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../LPGUtils.cpp" line="46"/>
+        <location filename="../LPGUtils.cpp" line="49"/>
         <source>Scrub Finished: %1 (%2 errors)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="49"/>
+        <location filename="../LPGUtils.cpp" line="52"/>
         <source>Scrub Cancelled: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="52"/>
+        <location filename="../LPGUtils.cpp" line="55"/>
         <source>Scrub Started: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="56"/>
+        <location filename="../LPGUtils.cpp" line="59"/>
         <source>Resilver Finished: %1 (%2 errors)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="72"/>
+        <location filename="../LPGUtils.cpp" line="75"/>
         <source>%1: Currently Resilvering</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="76"/>
+        <location filename="../LPGUtils.cpp" line="79"/>
         <source>%1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="87"/>
+        <location filename="../LPGUtils.cpp" line="91"/>
         <source>No Snapshots Available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="90"/>
+        <location filename="../LPGUtils.cpp" line="94"/>
         <source>Latest Replication: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPGUtils.cpp" line="92"/>
+        <location filename="../LPGUtils.cpp" line="96"/>
         <source>No Successful Replication</source>
         <translation type="unfinished"></translation>
     </message>
