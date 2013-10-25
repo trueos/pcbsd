@@ -4,6 +4,8 @@
 
 LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   ui->setupUi(this); //load the Qt-designer UI file
+  //Initialize the waitbox pointer
+  waitBox = 0;
   //Create the basic/advanced view options
   viewBasic = new QRadioButton(tr("Basic"), ui->menuView);
 	QWidgetAction *WABasic = new QWidgetAction(this); WABasic->setDefaultWidget(viewBasic);
