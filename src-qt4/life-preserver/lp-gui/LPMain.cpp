@@ -80,7 +80,13 @@ void LPMain::showWaitBox(QString message){
     waitBox->setWindowModality(Qt::WindowModal);
   }else{
     qDebug() << "Update Wait Box:" << message;
-    waitBox->setText(message);
+    try{
+      waitBox->setText(message);
+    }catch(...){
+      waitBox = 0; //reset flag if necessary
+      showWaitBox(message);
+      return;
+    }
   }
   if(!waitBox->isVisible()){ waitBox->show(); waitBox->raise(); }
   QCoreApplication::processEvents();
