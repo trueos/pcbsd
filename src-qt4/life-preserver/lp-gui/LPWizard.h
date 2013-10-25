@@ -4,8 +4,11 @@
 #include <QWizard>
 #include <QString>
 #include <QDebug>
+#include <QMessageBox>
+#include <QInputDialog>
 
 #include "LPBackend.h"
+#include "LPGUtils.h"
 
 namespace Ui{
   class LPWizard;	
@@ -30,6 +33,7 @@ private:
 private slots:
 	void slotFinished();
 	void slotCancelled();
+	void scanNetwork();
 };
 
 #endif

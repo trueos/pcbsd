@@ -7,6 +7,7 @@ LPWizard::LPWizard(QWidget *parent) : QWizard(parent), ui(new Ui::LPWizard){
   cancelled = true; //Make sure this is always set by default
   connect(this,SIGNAL(accepted()), this,SLOT(slotFinished()) );
   connect(this,SIGNAL(rejected()),this,SLOT(slotCancelled()) );
+  connect(ui->push_scanNetwork, SIGNAL(clicked()), this, SLOT(scanNetwork()) );
 }
 
 LPWizard::~LPWizard(){
@@ -55,4 +56,28 @@ void LPWizard::slotCancelled(){
   qDebug() << "Wizard Cancelled";
   cancelled = true; //just to make sure
   this->close();
+}
+
+void LPWizard::scanNetwork(){
+  QStringList targs = LPGUtils::scanNetworkSSH(); // <name>:::<address>:::<port>
+  if(targs.isEmpty()){
+    QMessageBox::warning(this,tr("No Network Targets"), tr("We could not find any systems on the local network with SSH availability (port 22)") );
+    return;
+  }
+  //Ask the user to select a target
+  QStringList targets;
+  for(int i=0; i<targs.length(); i++){
+    targets << targs[i].section(":::",0,0);
+  }
+  bool ok;
+  QString target = QInputDialog::getItem(this, tr("Select Replication Target"), tr("Hostname:"), targets, 0, false, &ok);
+  if(!ok || target.isEmpty() ){ return; } //cancelled
+  //Now look for that target in the list of info
+  for(int i=0; i<targs.length(); i++){
+    if(targs[i].startsWith(target+":::")){
+      ui->lineHostName->setText(targs[i].section(":::",1,1));
+      ui->spinPort->setValue( targs[i].section(":::",2,2).toInt() );
+      break;
+    }
+  }
 }
