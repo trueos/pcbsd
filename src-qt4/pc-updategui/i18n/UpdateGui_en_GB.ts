@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reboot required for update to finish!</translation>
     </message>
 </context>
 </TS>

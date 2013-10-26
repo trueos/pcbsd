@@ -5,41 +5,34 @@
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Confirm Package Changes</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The following changes will be made to the system. Please confirm below and click OK to continue.</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Cancel</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Available Updates</translation>
     </message>
     <message>
         <source>System Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Package Manager</translation>
     </message>
     <message>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add / Remove Packages</translation>
     </message>
     <message>
         <source>System Packages</source>
