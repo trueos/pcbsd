@@ -7547,6 +7547,10 @@ do_port_build()
 	if [ $? -ne 0 ] ; then
 	   exit_err "Failed installing $_lPortRaw"
 	fi
+
+	# Did it install?
+    	pkg info -e ${_lPortRaw}
+    	if [ $? -ne 0 ] ; then exit_err "Failed to install $_lPortRaw" ; fi
 	return 0
   fi
 
