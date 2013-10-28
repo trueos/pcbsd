@@ -205,7 +205,7 @@ QString LPGUtils::packageHomeDir(QString username, QString packageName){
   QString cmd = "tar -czf /usr/home/"+packageName+" -C /usr/home "+username;
   //Create the exclude list and skip these files
   QStringList excludes;
-    excludes << "*flashplayer*"; //Don't overwrite the flash plugin
+    excludes << "*flashplayer*" << "*/PBI-*.desktop"; //Don't include the flash plugin/PBI entries
   for(int i=0; i<excludes.length(); i++){
     cmd.replace("-czf /usr/home", " --exclude \'"+excludes[i]+"\' -czf /usr/home");
   }
@@ -225,7 +225,7 @@ bool LPGUtils::checkPackageUserPath(QString packagePath, QString *user){
   //Determine if the file exists
   if( !QFile::exists(packagePath) ){ return false; }
   //Check the username of the home dir in the package
-  QStringList ret = LPBackend::getCmdOutput("tar -tvf "+packagePath);
+  QStringList ret = LPBackend::getCmdOutput("tar -tvf "+packagePath+" -q \"*/Desktop\"");
   if(ret.isEmpty()){ return false; }
   QString username = ret[0].section(" ",2,2,QString::SectionSkipEmpty).simplified();
   QString dirname = ret[0].section(" ",8,8,QString::SectionSkipEmpty).section("/",0,0).simplified();
