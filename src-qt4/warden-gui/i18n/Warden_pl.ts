@@ -227,8 +227,7 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poniższe uprawnienia mogą być włączone lub wyłączone w tej celi. Po więcej informacji najedź na każdy z nich lub użyj strony pomocy Celi.</translation>
     </message>
 </context>
 <context>
