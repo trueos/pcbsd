@@ -77,6 +77,7 @@ void LPMain::showWaitBox(QString message){
   if(waitBox == 0){
     qDebug() << "New Wait Box";
     waitBox = new QMessageBox(QMessageBox::NoIcon, tr("Please Wait"), message, QMessageBox::NoButton, this);
+    waitBox->setStandardButtons(QMessageBox::NoButton);
     waitBox->setWindowModality(Qt::WindowModal);
   }else{
     qDebug() << "Update Wait Box:" << message;

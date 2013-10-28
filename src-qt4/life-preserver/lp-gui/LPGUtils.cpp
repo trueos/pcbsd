@@ -213,7 +213,7 @@ QString LPGUtils::packageHomeDir(QString username, QString packageName){
   }
   //Run the command
   qDebug() << "Package command:" << cmd << args;
-  LPBackend::runCmd(cmd, args);
+  LPBackend::runCmd(cmd, args); //need to use this version due to the complex command
 
   //Check that the package was created
   QString packagePath;
