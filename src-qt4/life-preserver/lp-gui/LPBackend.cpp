@@ -330,7 +330,7 @@ bool LPBackend::setDiskOffline(QString pool, QString disk){
 }
 
 // =========================
-//             PRIVATE FUNCTIONS
+//             UTILITY FUNCTIONS
 // =========================
 QStringList LPBackend::getCmdOutput(QString cmd){
   QProcess *proc = new QProcess;
@@ -344,10 +344,14 @@ QStringList LPBackend::getCmdOutput(QString cmd){
   return out;
 }
 
-int LPBackend::runCmd(QString cmd){
+int LPBackend::runCmd(QString cmd, QStringList args){
   QProcess *proc = new QProcess;
   proc->setProcessChannelMode(QProcess::MergedChannels);
-  proc->start(cmd);
+  if(args.isEmpty()){	
+    proc->start(cmd);
+  }else{
+    proc->start(cmd, args);
+  }
   while(!proc->waitForFinished(300)){
     QCoreApplication::processEvents();
   }

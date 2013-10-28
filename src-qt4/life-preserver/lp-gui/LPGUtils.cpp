@@ -202,17 +202,19 @@ QString LPGUtils::packageHomeDir(QString username, QString packageName){
   
   
   //Generate the command
-  QString cmd = "tar -czf /usr/home/"+packageName+" -C /usr/home "+username;
+  QString cmd = "tar";
+  QStringList args;
+  args << "-czf" << "/usr/home/"+packageName << "-C" << "/usr/home" << username;
   //Create the exclude list and skip these files
   QStringList excludes;
     excludes << "*flashplayer*" << "*/PBI-*.desktop"; //Don't include the flash plugin/PBI entries
   for(int i=0; i<excludes.length(); i++){
-    cmd.replace("-czf /usr/home", " --exclude \'"+excludes[i]+"\' -czf /usr/home");
+    args.prepend(excludes[i]); args.prepend("--exclude");
   }
   //Run the command
-  qDebug() << "Package command:" << cmd;
-  system(cmd.toUtf8()); //need to be careful with the exclude syntax (quotes) so use system command
-  //qDebug() << "Command return:" << QString::number(ret);
+  qDebug() << "Package command:" << cmd << args;
+  LPBackend::runCmd(cmd, args);
+
   //Check that the package was created
   QString packagePath;
   if(QFile::exists("/usr/home/"+packageName)){ packagePath = "/usr/home/"+packageName; }

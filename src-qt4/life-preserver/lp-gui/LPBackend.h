@@ -47,7 +47,7 @@ public:
 	static bool setDiskOffline(QString pool, QString disk);
 	//General utility functions
 	static QStringList getCmdOutput(QString);
-	static int runCmd(QString);	
+	static int runCmd(QString cmd, QStringList args = QStringList() );	
 
 };
 #endif
