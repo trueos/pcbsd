@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>要完成更新需要重启！</translation>
     </message>
 </context>
 </TS>

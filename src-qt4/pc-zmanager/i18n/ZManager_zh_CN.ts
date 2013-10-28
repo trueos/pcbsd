@@ -5,8 +5,7 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>对话</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>

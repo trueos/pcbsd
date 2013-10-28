@@ -17,6 +17,116 @@ CFGFILE="/tmp/sys-install.cfg"
 # Default ZFS layout
 ZFSLAYOUT="/,/root,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
 
+change_zfs()
+{
+  get_zfs_layout
+  gen_pc-sysinstall_cfg
+}
+
+get_zfs_layout()
+{
+  while :
+  do
+    dOpts="done \"Exit dataset menu\" add \"New ZFS dataset\""
+    for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+    do
+       d=`echo $z | cut -d '(' -f 1`
+       echo "$z" | grep -q '('
+       if [ $? -eq 0 ] ; then
+         desc="(`echo $z | cut -d '(' -f 2`"
+       else
+         desc=""
+       fi
+       dOpts="$dOpts $d \"$desc\""
+    done
+    get_dlg_ans "--menu \"Select dataset to edit\" 22 78 15 ${dOpts}"
+    if [ -z "$ANS" ] ; then
+       exit_err "Invalid dataset selected!"
+    fi
+    case $ANS in
+       done) break ;;
+        add) add_dataset ;;
+          *) edit_dataset "$ANS" ;;
+    esac
+  done
+}
+
+edit_dataset()
+{
+    # Ask what to do on this dataset
+    get_dlg_ans "--menu \"What to do on this dataset?\" 22 50 15 edit 'Set ZFS options' delete 'Remove the dataset' cancel 'Cancel'"
+    if [ -z "$ANS" ] ; then
+       exit_err "Invalid dataset selected!"
+    fi
+    case $ANS in
+      cancel) return ;;
+        edit) get_dlg_ans "--inputbox 'Enter ZFS option flags, using a | seperator.' 8 40"
+	      NEWLAYOUT=""
+              for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+	      do
+                 d=`echo $z | cut -d '(' -f 1`
+                 if [ "$d" = "$1" ] ; then 
+		   opt=""
+		   if [ -n "$ANS" ] ; then opt="($ANS)"; fi
+                   if [ -z "$NEWLAYOUT" ] ; then
+                     NEWLAYOUT="${d}${opt}"
+                   else
+                     NEWLAYOUT="$NEWLAYOUT,${d}${opt}"
+		   fi
+                 else
+                   if [ -z "$NEWLAYOUT" ] ; then
+                     NEWLAYOUT="${z}"
+                   else
+                     NEWLAYOUT="$NEWLAYOUT,${z}"
+                   fi
+		 fi
+              done
+	      ZFSLAYOUT="$NEWLAYOUT"
+              ;;
+      delete) NEWLAYOUT=""
+	      for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+              do
+                 d=`echo $z | cut -d '(' -f 1`  
+	         if [ "$d" = "$1" ] ; then continue ; fi
+		 if [ -z "$NEWLAYOUT" ] ; then
+		   NEWLAYOUT="${z}"
+                 else
+		   NEWLAYOUT="$NEWLAYOUT,${z}"
+                 fi
+              done
+	      ZFSLAYOUT="$NEWLAYOUT"
+             ;;
+    esac
+}
+
+add_dataset()
+{
+    get_dlg_ans "--inputbox 'Enter dataset mountpoint' 8 40"
+    if [ -z "$ANS" ] ; then
+       exit_err "Invalid dataset entered!"
+    fi
+
+    # Make sure it starts with a /
+    echo $ANS | grep -q "^/" 
+    if [ $? -ne 0 ] ; then
+       return
+    fi
+
+    # Check for duplicates
+    for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+    do
+       d=`echo $z | cut -d '(' -f 1`
+       if [ "$d" = "$ANS" ] ; then
+          echo "Error, this dataset already exists!"
+          rtn
+	  return
+       fi
+    done
+
+    # Save the dataset
+    ZFSLAYOUT="$ZFSLAYOUT,$ANS"
+}
+
 get_dlg_ans()
 {
   TANS="/tmp/.pcinsdialog.$$"
@@ -395,7 +505,7 @@ start_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 15 40 10 wizard "Run install wizard" disk "Change disk ($SYSDISK)" network "Change networking" view "View install script" edit "Edit install script" install "Start the installation" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 wizard "Run install wizard" disk "Change disk ($SYSDISK)" zfs "Change ZFS layout" network "Change networking" view "View install script" edit "Edit install script" install "Start the installation" quit "Quit install wizard" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -408,6 +518,8 @@ start_menu_loop()
              rtn
              ;;
     network) change_networking 
+	     ;;
+        zfs) change_zfs
 	     ;;
        view) more ${CFGFILE}
              rtn

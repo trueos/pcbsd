@@ -432,8 +432,12 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fournir une touche de ZFS sur le traitement des demandes synchrones dans cette
+ensemble de données. Si logbias est fixé à latence (par défaut), ZFS vont utiliser
+périphériques de journalisation de pool(s&apos;il est configuré) pour traiter les demandes à faible
+latence. Si logbias est réglé sur le débit, ZFS n&apos;utiliseront pas configuré les
+périphériques de journalisation de pool. ZFS seront plutôt optimiser les opérations synchrones
+pour un débit de réserve globale et l&apos;utilisation efficace des ressources.</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -452,384 +456,327 @@ disabled  Disables synchronous requests. File system transactions
           nous transaction demands of applications such as data-
           bases or NFS.  Administrators should only use this
           option when the risks are understood.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle le comportement des requêtes synchrones (par exemple fsync (2),
+O_DSYNC). Cette propriété accepte les valeurs suivantes:
+classique, c&apos;est le comportement spécifié POSIX de sorte que tous les
+requêtes synchrones sont écrits au stockage stable et
+tous les appareils sont vidées de s&apos;assurer que les données ne sont pas mises en cache par
+Les contrôleurs de périphériques (c&apos;est le défaut).
+toujours Toutes les transactions du système de fichiers sont écrits et vidés
+avant de leur système appelle retour. Cela a une grande
+pénalité de performance.
+désactivé désactive synchrone demandes. Transactions du système de fichiers
+sont seulement engagés à stockage stable périodiquement. Cette
+option donner la plus haute performance. Cependant, il
+est très dangereux car ZFS ne tiendrait pas compte de la synchro-
+demandes de transactions d&apos;applications telles que des données 
+des bases ou NFS. Les administrateurs ne doivent utiliser cette
+option lorsque les risques sont connus.</translation>
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette propriété ne peut pas être modifié après que le système est créé.</translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété inconnu ou information non disponible.
+Lisez le manuel ZFS pour plus d&apos;informations.</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Invalide]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Invalide]</translation>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Ajouter]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Modifié]</translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété de l&apos;utilisateur</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu du périphérique</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter une nouvelle propriété utilisateur</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Supprimer la propriété de l&apos;utilisateur</translation>
     </message>
 </context>
 <context>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dispositif à monter:</translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Dispositif)</translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montez l&apos;emplacement:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionner le répertoire</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom Pool:</translation>
     </message>
     <message>
         <source>Read only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lecture seule</translation>
     </message>
     <message>
         <source>Change altroot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Changer altroot:</translation>
     </message>
 </context>
 <context>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialogue </translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sélectionner</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom Pool:</translation>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Type de configuration:</translation>
     </message>
     <message>
         <source>Striped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rayé</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Miroir</translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>RAID-Z (parité simple)</translation>
     </message>
     <message>
         <source>Raid-Z2 (double parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z3 (triple parité)</translation>
     </message>
     <message>
         <source>Raid-Z3 (triple parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cache</translation>
     </message>
     <message>
         <source>Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cache</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Log</translation>
     </message>
     <message>
         <source>Spare</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Épargnez</translation>
     </message>
     <message>
         <source>Error Description Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Description de l&apos;erreur ici</translation>
     </message>
     <message>
         <source>Must provide a valid pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous devez fournir un nom de pool valide</translation>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous devez sélectionner exactement 1% périphériques </translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous devez sélectionner au moins un dispositif</translation>
     </message>
 </context>
 <context>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter une partition</translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter une nouvelle tranche/partition</translation>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 GB</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dispositif</translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ada0</translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plus grand bloc libre disponible:</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taille totale:</translation>
     </message>
     <message>
         <source>Current layout:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration actuelle:</translation>
     </message>
     <message>
         <source>Designation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Désignation</translation>
     </message>
     <message>
         <source>Start Sector</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Commencez secteur</translation>
     </message>
     <message>
         <source>Sector Count</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nombre de secteurs</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taille</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Couleur</translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouvelle partition Taille:</translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>octets</translation>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TB</translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Type de Partition</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-zfs</translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-ufs</translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd</translation>
     </message>
     <message>
         <source>freebsd-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-boot</translation>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-swap</translation>
     </message>
     <message>
         <source>bios-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bios-boot</translation>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>efi</translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer et initialiser un nouveau système de fichiers</translation>
     </message>
     <message>
         <source>** FREE **</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>** FREE **</translation>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas d&apos;espace libre!</translation>
     </message>
 </context>
 <context>
     <name>DialogProp</name>
     <message>
         <source>Edit Pool Properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modifier les propriétés de pool</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriété</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valeur</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taille totale du pool de stockage.</translation>
     </message>
     <message>
         <source>Percentage of pool space used.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pourcentage d&apos;espace utilisé du pool.</translation>
     </message>
     <message>
         <source>Alternate root directory. If set, this directory is prepended to any
@@ -839,18 +786,21 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Répertoire racine secondaire. S&apos;il est défini, ce répertoire est ajouté en cas de
+points de montage à l&apos;intérieur de pool. Ceci peut être utilisé lors de l&apos;examen d&apos;un
+pool inconnu où les points de montage ne ​​sont pas fiables, ou dans un
+environnement d&apos;initialisation de remplacement, où les chemins typiques ne sont pas valides.
+altroot n&apos;est pas une propriété persistante. Elle est valable uniquement si le
+système est en place. Réglage altroot utilise par défaut cachefile = aucune, si
+cela peut être outrepassé en utilisant un cadre explicite.</translation>
     </message>
     <message>
         <source>The current health of the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L&apos;état ​​de santé actuel de pool.</translation>
     </message>
     <message>
         <source>A unique identifier for the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Un identifiant unique pour le pool.</translation>
     </message>
     <message>
         <source>The current on-disk version of the pool. This can be increased, but
@@ -859,15 +809,18 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">La version sur le disque actuel de pool. Cela peut être augmentée, mais
+jamais diminué. La méthode préférée de la mise à jour des pools consiste à le
+commande &quot;zpool upgrade&quot;, bien que cette propriété peut être utilisée quand un
+version spécifique est nécessaire pour la compatibilité ascendante. Cette propriété
+peut être n&apos;importe quel nombre entre 1 et la version actuelle rapporté par
+&quot;zpool upgrade-v&quot;.</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Identifie le jeu de données d&apos;initialisation par défaut du pool racine. Cette \ npropriété devrait être mis principalement par l&apos;installation et la mise à niveau \ nprogrammes.</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the

@@ -227,8 +227,7 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可以对此jail做以下权限的开关。将鼠标悬念在每个条目上或者查看jail的帮助文档以了解详情。</translation>
     </message>
 </context>
 <context>

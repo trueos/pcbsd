@@ -57,18 +57,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPTray.cpp" line="11"/>
-        <source>Start Application UI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../LPTray.cpp" line="14"/>
         <source>Refresh Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../LPTray.cpp" line="11"/>
+        <source>Open Life Preserver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../LPTray.cpp" line="16"/>
-        <source>Close Life Preserver Tray</source>
+        <source>Close Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

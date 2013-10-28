@@ -245,8 +245,7 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>不可以对正在运行的启动环境做备份！</translation>
     </message>
 </context>
 </TS>

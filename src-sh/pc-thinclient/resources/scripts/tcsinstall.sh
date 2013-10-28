@@ -4,7 +4,7 @@
 do_installwiz() {
 
   installChoices=""
-  for i in `ls /installscripts`
+  for i in `ls /installscripts/*.cfg`
   do
      installChoices="$installChoices $i $i"
   done
@@ -63,6 +63,20 @@ get_nic_mac()
 # Check for MAC address config file
 NIC=$(get_active_nic)
 MAC=$(get_nic_mac "$NIC")
+
+# Check if the mac address is in the blacklist
+# Create this file with a line-by-line list of MACs to blacklist
+if [ -e "/installscripts/macblacklist" ] ; then
+   grep -q "^${MAC}" /installscripts/macblacklist
+   if [ $? -eq 0 ] ; then
+      echo "ERROR: This MAC address listed in the /installscripts/macblacklist file!"
+      echo "To install this system, remove the address: ${MAC}"
+      echo ""
+      echo "Installation HALTED!"
+      echo "[Press Enter to shutdown]"
+      shutdown -p now
+   fi
+fi
 
 # Detect auto-install scripts
 ASCRIPT=""

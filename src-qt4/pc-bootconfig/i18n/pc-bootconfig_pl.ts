@@ -245,8 +245,7 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nie możesz zrobić kopii aktualnie uruchomionego środowiska uruchomieniowego!</translation>
     </message>
 </context>
 </TS>
