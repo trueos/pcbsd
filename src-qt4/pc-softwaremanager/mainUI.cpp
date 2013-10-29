@@ -275,6 +275,8 @@ void MainUI::slotRefreshInstallTab(){
 }
 
 void MainUI::slotPBIStatusUpdate(QString pbiID){
+  //This will do a full update of a particlar PBI entry
+  //	and just update/check the icons for all the other PBI's
   for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
     QString itemID = ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
     if(itemID == pbiID){
@@ -288,7 +290,11 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
       if ( appID == pbiID ) {
 	slotUpdateSelectedPBI(true);; //only update status
       }
-      return; // Found our match, we can return now
+    }else{
+      //Just check/update the icon if necessary
+      if(ui->tree_install_apps->topLevelItem(i)->icon(0).isNull()){
+	 ui->tree_install_apps->topLevelItem(i)->setIcon(0, QIcon( PBI->PBIInfo(itemID, QStringList() << "icon").join("") ));
+      }
     }
   }
 }
