@@ -25,7 +25,7 @@
 
 #define TMPLANGFILE QString("/tmp/.PCDMLang")
 #define TMPAUTOLOGINFILE QString("/tmp/.PCDMAutoLogin")
-
+#define TMPAUTHFILE QString("/tmp/.PCDMAuth")
 //Make sure that prefix is set
 //#ifndef prefix
 //#define prefix "/usr/local/"
