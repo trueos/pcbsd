@@ -6188,9 +6188,6 @@ start_ext_ab() {
 	if [ -e "${_od}/build.log.bz2" ] ; then
 		rm "${_od}/build.log.bz2"
 	fi
-	if [ -e "${_od}/.failed-csum" ] ; then
-		rm ${_od}/.failed-csum
-	fi
 
 	# Move old PBIs to archived folder
         oldVersion=`cat ${_od}/pbi-version 2>/dev/null`
@@ -6257,9 +6254,6 @@ ab_post_build()
 		bzip2 "${_od}/build.log"
 
 	else
-		# Save the md5sum of the ports directory
-		tar cvf - -C "${PORTSDIR}/${_mp}" . 2>/dev/null | md5 -q >${_od}/.failed-csum
-
 		echo "Failed" > "${_od}/pbi-result"
 		if [ -n "${PBI_AB_HELPS}" ] ; then
 			${PBI_AB_HELPS} "FAILED" "${_od}"
@@ -6740,16 +6734,6 @@ check_ab_needed() {
 	fi
 
 	#echo "Checking $_port for rebuild in ${PBI_AB_OUTDIR}/$_cd with key of $_bk"
-
-	# Check if this is a failed port we should be skipping until its fixed
-	if [ -e "${PBI_AB_OUTDIR}/${_cd}/.failed-csum" ] ; then
-		_fcsum="`cat ${PBI_AB_OUTDIR}/${_cd}/.failed-csum`"
-		_ncsum="`tar cvf - -C "${PORTSDIR}/${_port}" . 2>/dev/null | md5 -q`"
-		if [ "$_fcsum" = "$_ncsum" ] ; then
-            		#echo "$_port - Skipping failed"
-			return 1
-		fi
- 	fi	
 
 	# See if we have an existing PBI
 	ls ${PBI_AB_OUTDIR}/${_cd}/*.pbi >/dev/null 2>/dev/null
