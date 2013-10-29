@@ -22,8 +22,6 @@
 
 #include "pcdm-backend.h"
 
-#include <X11/Xauth.h>
-
 class XProcess : public QProcess
 {
 	Q_OBJECT
@@ -56,11 +54,6 @@ class XProcess : public QProcess
 	bool pam_stopSession();
 	void pam_logFailure(int);
   	void pam_shutdown(); //cleanly close all the PAM stuff
-	// XAuthoriy functions
-	Xauth XAUTH; //saved authority structure
-        char *XAUTHFILENAME; //file location for the authority file
-	void generateXAuth();
-	void revokeXAuth();
 	
   
   private slots:

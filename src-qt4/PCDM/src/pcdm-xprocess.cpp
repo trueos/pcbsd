@@ -406,23 +406,3 @@ void XProcess::pam_shutdown(){
     pam_started = FALSE;
   }
 }
-// -------------------------------------------
-//   XAUTHORITY FUNCTIONS
-// -------------------------------------------
-void XProcess::generateXAuth(){
-  //determine the filename
-  XAUTHFILENAME = XauFileName();
-  //generate the structure
-  XAUTH = new Xauth;
-    XAUTH->
-  //open the file (as new)
-  FILE *XFILE = fopen( XAUTHFILENAME, "w+" );
-  //Write the authorization file
-  XauWriteAuth( XFILE, XAUTH );
-  //Now close the file
-  fclose(XFILE);
-}
-
-void XProcess::revokeXAuth(){
-
-}
