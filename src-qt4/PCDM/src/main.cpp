@@ -31,7 +31,7 @@
 //#define prefix "/usr/local/"
 //#endif
 
-bool USECLIBS=true;
+bool USECLIBS=false;
 
 int runSingleSession(int argc, char *argv[]){
   //QTime clock;
