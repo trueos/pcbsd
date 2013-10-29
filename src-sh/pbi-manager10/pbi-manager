@@ -7535,14 +7535,21 @@ do_port_build()
 	# Did it install?
     	pkg info -e ${_lPortRaw}
     	if [ $? -ne 0 ] ; then exit_err "Failed to install $_lPortRaw" ; fi
+
+  	# Save any users / groups we need to create later
+  	local pUsers="`pkg query "%U" $_lPortRaw`"
+  	local pGroups="`pkg query "%G" $_lPortRaw`"
+  	if [ -n "$pUsers" ] ; then
+     		PBI_BUILD_USERS="$PBI_BUILD_USERS $pUsers"
+  	fi
+  	if [ -n "$pGroups" ] ; then
+     		PBI_BUILD_GROUPS="$PBI_BUILD_GROUPS $pGroups"
+  	fi
+
 	return 0
   fi
 
   # Lets do old-fashioned build
-
-  # KPM! ############## 
-  # We will need to revisit this portion later, see if we can
-  # grab the user / group list from pkgng installed packages
 
   # Save any users / groups we need to create later
   local pUsers="`make -V USERS -C $_lPort PORTSDIR=${PORTSDIR}`"
