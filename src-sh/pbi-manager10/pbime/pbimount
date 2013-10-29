@@ -39,7 +39,7 @@ mount_dirs() {
    is_mounted "${pDir}/virtbase" || $NULLFS / ${pDir}/virtbase
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs ${pDir}/virtbase/dev
    is_mounted "${pDir}/virtbase/usr/local" || $NULLFS ${1}/local ${pDir}/virtbase/usr/local
-   is_mounted "${pDir}/virtbase/var/run" || mount -t unionfs -o noatime ${pDir}/run ${pDir}/virtbase/var/run
+   is_mounted "${pDir}/virtbase/var/run" || $NULLFS ${pDir}/run ${pDir}/virtbase/var/run
    is_mounted "${pDir}/virtbase/usr/local/etc" || mount -t unionfs -o noatime ${1}/etc ${pDir}/virtbase/usr/local/etc
    is_mounted "${pDir}/virtbase/compat/linux" || $NULLFS ${1}/linux ${pDir}/virtbase/compat/linux
    if [ -d "${pDir}/virtbase/usr/local/etc/fonts" ] ; then
