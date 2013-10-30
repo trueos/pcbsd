@@ -228,43 +228,35 @@
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Afhankelijkheden</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketten zoeken</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zoeken</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Geen zoekresultaten</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wilt u doorgaan met de zoektocht vanaf de bovenkant?</translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Geen pakketten gevonden met deze zoekterm. Wijzig hem a.u.b. en probeer het opnieuw.</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Draaiende processen</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Er worden thans pakketten veranderd. Weet u wel zeker dat u wil afsluiten?</translation>
     </message>
 </context>
 </TS>
