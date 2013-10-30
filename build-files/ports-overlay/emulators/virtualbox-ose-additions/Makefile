@@ -123,6 +123,10 @@ post-patch:
 	@${REINPLACE_CMD} -e 's|iconv||' ${WRKSRC}/Config.kmk ${WRKSRC}/src/VBox/Runtime/Makefile.kmk \
 		${WRKSRC}/src/VBox/Additions/x11/VBoxClient/Makefile.kmk
 .endif
+.if ${OSVERSION} > 1000000
+	@${REINPLACE_CMD} -e 's|supc\+\+|cxxrt|' ${WRKSRC}/Config.kmk \
+		${WRKSRC}/src/VBox/Additions/x11/VBoxClient/Makefile.kmk
+.endif
 
 pre-build:
 	@${REINPLACE_CMD} -e 's|/bin/bash|/bin/sh|' \
