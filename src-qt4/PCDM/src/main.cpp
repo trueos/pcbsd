@@ -167,7 +167,7 @@ int main(int argc, char *argv[])
 {
  bool neverquit = TRUE;
  bool runonce = FALSE;
- if(argc==2){ if( QString(argv[1]) == "--once"){ runonce = TRUE; } }
+ if(argc==2){ if( QString(argv[1]) == "-once"){ runonce = TRUE; } }
   
  while(neverquit){
   if(runonce){ neverquit = FALSE; }
