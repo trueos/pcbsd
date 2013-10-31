@@ -95,7 +95,7 @@ bool XProcess::startXSession(){
   // Get the environment before we drop priv
   QProcessEnvironment environ = QProcessEnvironment::systemEnvironment(); //current environment
 
-  QWidget *wid = new QWidget();
+  //QWidget *wid = new QWidget();
   if (setgid(pw->pw_gid) < 0) {
       qDebug() << "setgid() failed!";
       emit InvalidLogin();  //Make sure the GUI knows that it was a failure
@@ -157,7 +157,7 @@ bool XProcess::startXSession(){
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
   // Startup the process
-  QMessageBox::warning(wid, "My Application", "CMD: " + cmd, QMessageBox::Ok, QMessageBox::Ok);
+  //QMessageBox::warning(wid, "My Application", "CMD: " + cmd, QMessageBox::Ok, QMessageBox::Ok);
   this->start(cmd);
   return TRUE;
 }
