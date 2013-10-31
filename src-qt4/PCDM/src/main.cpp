@@ -172,6 +172,8 @@ int main(int argc, char *argv[])
  while(neverquit){
   if(runonce){ neverquit = FALSE; }
   qDebug() << " -- PCDM Session Starting...";
+  system("xauth -f "+TMPAUTHFILE.toUtf8()+" generate :0 ."); //Using MIT-MAGIC-COOKIE-1 protocol
+  //MIT-MAGIC-COOKIE-1 is good enough for our purposes since it is a single-user graphical system with no XDMCP
   int sid = -1;
   int pid = fork();
   if(pid < 0){
@@ -197,5 +199,6 @@ int main(int argc, char *argv[])
   qDebug() << "-- PCDM Session Ended --";
   if(QFile::exists("/var/run/nologin")){ neverquit = FALSE; } 
  }
+ system("xauth -f "+TMPAUTHFILE.toUtf8()+" remove :0");
  return 0;
 }
