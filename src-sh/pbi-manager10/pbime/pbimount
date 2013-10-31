@@ -3,6 +3,7 @@
 NULLFS="/usr/pbi/.mount_nullfs"
 
 is_mounted() {
+   if [ ! -d "${1}" ] ; then return 0; fi
    mount | grep -q "on ${1} (" 
    return $?
 }
