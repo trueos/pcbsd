@@ -35,6 +35,8 @@ fi
 
 # Allow Auto-Login the first time PCDM starts
 touch /tmp/.PCDMAutoLogin
+# Make sure the authorization file exists
+touch ${PCDMAUTHFILE}
 # Now start the X Server
 while [ ! -e /var/run/nologin ]; do
   /usr/local/bin/pc-checkxdisplay
