@@ -809,7 +809,7 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">La version sur le disque actuel de pool. Cela peut être augmentée, mais
+        <translation>La version sur le disque actuel de pool. Cela peut être augmentée, mais
 jamais diminué. La méthode préférée de la mise à jour des pools consiste à le
 commande &quot;zpool upgrade&quot;, bien que cette propriété peut être utilisée quand un
 version spécifique est nécessaire pour la compatibilité ascendante. Cette propriété
@@ -820,14 +820,15 @@ peut être n&apos;importe quel nombre entre 1 et la version actuelle rapporté p
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">Identifie le jeu de données d&apos;initialisation par défaut du pool racine. Cette \ npropriété devrait être mis principalement par l&apos;installation et la mise à niveau \ nprogrammes.</translation>
+        <translation>Identifie le jeu de données d&apos;initialisation par défaut du pool racine. Cette \ npropriété devrait être mis principalement par l&apos;installation et la mise à niveau \ nprogrammes.</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle si un utilisateur non-privilégié est accordé à l&apos;accès basé sur les
+permissions d&apos;ensembles de données définis sur l&apos;ensemble de données. Voir ZFS (8) pour plus d&apos;
+informations sur l&apos;administration déléguée de ZFS.</translation>
     </message>
     <message>
         <source>Controls automatic device replacement. If set to &quot;off&quot;, device
@@ -837,8 +838,13 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle le remplacement automatique d&apos;appareil. S&apos;il est réglé sur &quot;off&quot;, le périphérique
+de remplacement doit être initié par l&apos;administrateur en utilisant le
+&quot;zpool replace&quot; commande. S&apos;il est réglé sur &quot;on&quot;, tout nouveau périphérique se trouvant dans le répertoire
+même emplacement physique qu&apos;un périphérique qui appartenait à ce
+pool est automatiquement formaté et remplacé. Le comportement par défaut
+est &quot;off&quot;. Cette propriété peut également être désigné par son raccourci
+nom de colonne, &quot;remplacer&quot;.</translation>
     </message>
     <message>
         <source>Controls the location of where the pool configuration is cached. Disâ
@@ -852,15 +858,24 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle l&apos;emplacement où la configuration de pool qui est mise en cache. Disa??\Ncouvrant toutes les pool au démarrage du système exige une copie en cache de la
+les données de configuration qui sont stockées sur le système de fichiers racine. Toutes les piscines
+dans ce cache sont importés automatiquement au démarrage du système. Certains
+environnements, tels que l&apos;installation et le clustering, doivent mettre en cache cette
+informations dans un emplacement différent de sorte que les pool ne sont pas Automatique??
+ment importé. La définition de cette propriété met en cache le pool de configuration
+dans un emplacement différent qui peut ensuite être importé avec &quot;zpool import
+-c &quot;. Mise à la valeur spéciale&quot; none &quot;crée un pool temporaire
+qui n&apos;est jamais mis en cache, et la valeur spéciale&apos;&apos; (chaîne vide) utilise
+l&apos;emplacement par défaut.</translation>
     </message>
     <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détermine si les informations sur les instantanés associés à ce
+pool est émit lorsque  &quot;zfs list&quot; est exécuté sans l&apos;option-t. La
+valeur par défaut est off.</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -870,34 +885,41 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôle d&apos;extension de pool automatique lorsque le LUN sous-jacente est cultivé.
+S&apos;il est réglé sur &quot;on&quot;, le pool sera redimensionné selon la taille de la 
+dispositif élargi. Si l&apos;appareil fait partie d&apos;un miroir ou raidz puis tous
+dispositifs à l&apos;intérieur de ce groupe miroir / raidz doivent être élargis avant le
+nouvel espace est rendu disponible dans la piscine. Le comportement par défaut est
+&quot;off&quot;. Cette propriété peut également être désigné par sa colonne raccourci
+nommer, développez.</translation>
     </message>
     <message>
         <source>Threshold for the number of block ditto copies. If the reference
 count for a deduplicated block increases above this number, a new
 ditto copy of this block is automatically stored. Default setting is
 0.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seuil pour le nombre de blocs idem copies. Si la référence
+comptent pour dédupliquées bloc augmente au-dessus de ce nombre, un nouveau
+idem copie de ce bloc est automatiquement mémorisé. Le réglage par défaut est
+0.</translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le taux de duplication spécifié pour un pool, exprimé comme un multiplicateur. Par
+exemple, une valeur de 1,76 indique que 1,76 unités de données ont été stockées, mais
+seulement 1 unité d&apos;espace disque a été effectivement consommé. Voir ZFS (8) pour une description
+de la fonction de déduplication.  </translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nombre de blocs dans le pool qui ne sont pas affectés.</translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quantité d&apos;espace de stockage dans le pool qui a été alloué physiquement.</translation>
     </message>
     <message>
         <source>If set to on, pool will be imported in read-only mode with the folâ
@@ -908,18 +930,22 @@ lowing restrictions:
   Â·   To write to a read-only pool, a export and import of the pool
       is required.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Si il est activé, le pool sera importé en mode lecture seule avec le Fola??
+restrictions après:
+Â · données synchrones dans le journal d&apos;intention ne seront pas accessibles
+Â · Propriétés de ces pool peuvent pas être modifiés
+Â · Données de ce pool ne peut être monté en lecture seule
+Â · Pour écrire à un pool en lecture seule, une exportation et l&apos;importation de ce pool
+est nécessaire.
+</translation>
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Une chaîne de commentaire arbitraire défini par l&apos;administrateur.</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette propriété a actuellement aucune valeur sur FreeBSD</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failâ
