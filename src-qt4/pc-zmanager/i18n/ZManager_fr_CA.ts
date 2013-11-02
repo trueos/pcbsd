@@ -941,7 +941,7 @@ est nécessaire.
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation>Une chaîne de commentaire arbitraire défini par l&apos;administrateur.</translation>
+        <translation>Une chaine de commentaire arbitraire défini par l&apos;administrateur.</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
@@ -973,632 +973,514 @@ panic   Prints out a message to the console and generates a system
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau système de fichiers</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom:</translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriétés du remplacement au moment de la création:</translation>
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Empêcher le montage automatique (canmount = noauto)</translation>
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Point de montage</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aucun </translation>
     </message>
     <message>
         <source>legacy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>héritage</translation>
     </message>
     <message>
         <source>[path]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[chemin]</translation>
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Force UTF-8 seulement (utf8only=on)</translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unicode normalization =</translation>
     </message>
     <message>
         <source>formD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formD</translation>
     </message>
     <message>
         <source>formKCF</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formKCF</translation>
     </message>
     <message>
         <source>Copies =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copies =</translation>
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dé duplication (dedup = on)</translation>
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Compression =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>off</translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>on</translation>
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lzjb</translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zle</translation>
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip</translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-1</translation>
     </message>
     <message>
         <source>gzip-2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-2</translation>
     </message>
     <message>
         <source>gzip-3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-3 </translation>
     </message>
     <message>
         <source>gzip-4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-4</translation>
     </message>
     <message>
         <source>gzip-5</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-5</translation>
     </message>
     <message>
         <source>gzip-6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-6</translation>
     </message>
     <message>
         <source>gzip-7</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-7</translation>
     </message>
     <message>
         <source>gzip-8</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-8</translation>
     </message>
     <message>
         <source>gzip-9</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-9</translation>
     </message>
 </context>
 <context>
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD Gestionnaire de disque</translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disques</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Périphériques</translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>État</translation>
     </message>
     <message>
         <source>ZFS Pools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Pools</translation>
     </message>
     <message>
         <source>Pool Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nom du Pool</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statut:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TexLabel</translation>
     </message>
     <message>
         <source>Clear Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Effacer l&apos;erreur</translation>
     </message>
     <message>
         <source>poolname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>poolnom</translation>
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Système de fichier</translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système de fichier</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statut</translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raffraichir...</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de piscines disponibles, faites un clic droit pour créer un nouveau...</translation>
     </message>
     <message>
         <source> (No media in drive)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Pas média dans le lecteur)</translation>
     </message>
     <message>
         <source>Avaliable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponible</translation>
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pas de disque</translation>
     </message>
     <message>
         <source>ZPool: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZPool:</translation>
     </message>
     <message>
         <source>Sliced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tranches</translation>
     </message>
     <message>
         <source>Mounted: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monter:</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponible </translation>
     </message>
     <message>
         <source>Unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Démonter</translation>
     </message>
     <message>
         <source>Partitioned</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partitionner</translation>
     </message>
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Exportés)
+</translation>
     </message>
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Détruit)
+</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hors ligne</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>En Ligne </translation>
     </message>
     <message>
         <source>Degraded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dégradé</translation>
     </message>
     <message>
         <source>Faulted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Défaillant</translation>
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indisponible</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inconnue</translation>
     </message>
     <message>
         <source>Create new pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer un nouveau pool</translation>
     </message>
     <message>
         <source>Rename pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Renommer un Pool</translation>
     </message>
     <message>
         <source>Destroy pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détruire un pool </translation>
     </message>
     <message>
         <source>Add devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter un périphérique</translation>
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter des périphériques de journal...</translation>
     </message>
     <message>
         <source>Add cache devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter des périphériques de cache...</translation>
     </message>
     <message>
         <source>Add spare devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter des périphériques de rechange...</translation>
     </message>
     <message>
         <source>Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub</translation>
     </message>
     <message>
         <source>Export pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exporter un pool</translation>
     </message>
     <message>
         <source>Import pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importer un pool</translation>
     </message>
     <message>
         <source>Recover destroyed pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Récupérer un pool détruit</translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriétés...</translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fixez dispositif (miroir)...</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détacher du miroir</translation>
     </message>
     <message>
         <source>Take offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mettez hors ligne</translation>
     </message>
     <message>
         <source>Bring online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mettez en ligne</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Retirer</translation>
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpool Menu</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Périphérique Menu</translation>
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Démontez</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monter</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer une table de partition MBR</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer une table de partition GPT</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer une table de partition BSD</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Supprimer la table de partition</translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter une nouvelle tranche</translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter une nouvelle partition</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détruisez cette tranche</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détruisez cette partition</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette opération ne peut être annulée.
+OK pour détruire la tranche / partition?</translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rapport d&apos;erreur</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer un nouveau zpool</translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importante information</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le pool a été importé en mode lecture seule, donc de tenter de détruire le pool va laisser le pool pool dans l&apos;état où il était lors de l&apos;importation, pas nécessairement détruite.</translation>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fixez les dispositifs de miroir à</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le pool a été importé en mode lecture seule, donc de tenter d&apos;exporter le pool va laisser le pool dans l&apos;état où il était lors de l&apos;importation, pas nécessairement exportés.</translation>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Récupérer le pool détruit en...</translation>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importer le pool comme...</translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
 OK to proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ce Pool a été détruit, et ses disques ont été réutilisés. Tenter de récupérer toutes les nouvelles données qui pourraient avoir été stockés dans des dispositifs qui ont été réutilisés et ne peuvent pas être récupérées.
+OK pour procéder à la récupération?</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le pool a été importé en mode lecture seule, elle ne peut pas être renommé.</translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter plus d&apos;appareils à zpool</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter des périphériques de journal à zpool</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter des périphériques de cache à zpool</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ajouter des périphériques de rechange pour zpool</translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Montage]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Non Montage]  </translation>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
-            </translation>
+        <translation> de     </translation>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Renommer la base de données</translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer une nouvelle base de données</translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Créer un jeu de données clonés</translation>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détruisez ensemble de données</translation>
     </message>
     <message>
         <source>Promote filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promouvoir système de fichiers</translation>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prendre un instantané</translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Détruisez un instantané</translation>
     </message>
     <message>
         <source>Rollback to this snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restauration de cet instantané</translation>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modifier les propriétés</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zfs Menu</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Confirmation</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prendre un nouvel instantané</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nouveau nom </translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette opération ne peut être annulée et fera toutes les données ajoutées après l&apos;instantané à perdre.
+ Toutes les instantanés créés après celui-ci seront supprimés, ainsi que tous les systèmes de fichiers clone qui en dépendent. 
+</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:

@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khởi động lại cần có để bản cập nhật để hoàn tất!</translation>
     </message>
 </context>
 </TS>

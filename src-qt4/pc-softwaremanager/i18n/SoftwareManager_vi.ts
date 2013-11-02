@@ -484,18 +484,15 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>sản phẩm trang</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>xác minh cài đặt</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn có chắc chắn bạn muốn cài đặt ứng dụng này?</translation>
     </message>
 </context>
 <context>
