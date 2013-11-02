@@ -27,7 +27,6 @@ RUN_DEPENDS=	gnome2-lite>=0:${PORTSDIR}/x11/gnome2-lite \
 		gnome-power-manager>=0:${PORTSDIR}/sysutils/gnome-power-manager \
 		seahorse>=0:${PORTSDIR}/security/seahorse \
 		seahorse-plugins>=0:${PORTSDIR}/security/seahorse-plugins \
-		py27-gtk>=0:${PORTSDIR}/x11-toolkits/py-gtk2 \
 		gtk2-qtcurve-theme>=0:${PORTSDIR}/x11-themes/qtcurve-gtk2 \
 		nimbus>=0:${PORTSDIR}/x11-themes/nimbus \
 		nautilus>=0:${PORTSDIR}/x11-fm/nautilus \
