@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation>ZFS Datasets:&lt;br&gt;</translation>
+        <translation>ZFS podatkovna skupina:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
