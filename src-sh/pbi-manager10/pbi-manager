@@ -7516,7 +7516,14 @@ is_pbi_patch() {
 do_port_build()
 {
   local _lPortRaw="$1"
-  local _lPort="/usr/ports/$1"
+
+  # Remove any trailing '/'
+  echo $_lPortRaw | grep -q "/$"
+  if [ $? -eq 0 ] ; then
+     _lPortRaw="`echo $_lPortRaw | sed 's|/$||g'`"
+  fi
+
+  local _lPort="/usr/ports/$_lPortRaw"
 
   echo "Checking port: $_lPort"
 
