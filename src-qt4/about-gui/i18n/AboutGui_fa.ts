@@ -22,12 +22,12 @@
     <message>
         <source>????</source>
         <translation>
-            ؟؟؟؟؟</translation>
+؟؟؟؟</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
         <translation>
-   اساس FreeBSD         </translation>
+اساس FreeBSD</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>CPU:</source>
-        <translation>پردازنده</translation>
+        <translation>پردازنده:</translation>
     </message>
     <message>
         <source>Mem.</source>
@@ -84,7 +84,7 @@
     <message>
         <source>System components...</source>
         <translation>
-            اجزای سیستم</translation>
+اجزای سیستم</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
@@ -96,8 +96,7 @@
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>
-            ابزارهای رابط کاربری PC-BSD:</translation>
+        <translation>ابزارهای رابط کاربری PC-BSD:</translation>
     </message>
 </context>
 </TS>

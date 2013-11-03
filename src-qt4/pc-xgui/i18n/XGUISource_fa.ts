@@ -14,7 +14,7 @@
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation>صفحه نمایش شما پیکربندی شده است.n\نگه داشتن این تنظیمات؟</translation>
+        <translation>صفحه نمایش شما پیکربندی شده است.n\تنظیملت حفظ شود؟</translation>
     </message>
 </context>
 <context>
