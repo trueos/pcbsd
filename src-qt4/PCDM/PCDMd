@@ -1,6 +1,6 @@
 #!/bin/sh
 # Login daemon for PCDM
-# This listens for system login prompts and starts the main PCDM UI appropriately
+# This starts the main PCDM UI appropriately
 #------------------------------------
 
 PCDMCONF="/usr/local/etc/pcdm.conf"
@@ -36,7 +36,9 @@ fi
 # Allow Auto-Login the first time PCDM starts
 touch /tmp/.PCDMAutoLogin
 # Make sure the authorization file exists
-touch ${PCDMAUTHFILE}
+setenv XAUTHORITY ${PCDMAUTHFILE} #Set the auth file location
+touch ${PCDMAUTHFILE} #Create the authorication file
+xauth add :0 MIT-MAGIC-COOKIE-1 1234567890 #Add a default entry to the file (will randomize it later)
 # Now start the X Server
 while [ ! -e /var/run/nologin ]; do
   /usr/local/bin/pc-checkxdisplay
