@@ -23,6 +23,8 @@ PCDMgui::PCDMgui() : QMainWindow()
     loadTheme();
     //Create the GUI based upon the current Theme
     createGUIfromTheme();
+    //Put the background image on all the other screens
+    fillExtraScreens();
     //Now make sure that the login widget has keyboard focus
     loginW->resetFocus();
     this->setObjectName("PCDM-background");
@@ -247,6 +249,28 @@ void PCDMgui::createGUIfromTheme(){
 
 }
 
+void PCDMgui::fillExtraScreens(){
+    //Set a background image on any other available screens
+    QDesktopWidget *DE = QApplication::desktop();
+    screens.clear();
+    //Generate the background style sheet
+    QString tmpIcon = currentTheme->itemIcon("background");
+    if( tmpIcon.isEmpty() || !QFile::exists(tmpIcon) ){ tmpIcon = ":/images/backgroundimage.jpg"; }
+    QString bgstyle = "border-image: url(BGIMAGE) stretch;"; 
+      bgstyle.replace("BGIMAGE", tmpIcon);
+    //Now apply the background to all the other screens    
+    for(int i=0; i<DE->screenCount(); i++){
+      if(i != DE->screenNumber(this)){
+        //Just show a generic QWidget with the proper background image on every other screen
+	QWidget *screen = new QWidget(0, Qt::X11BypassWindowManagerHint);
+	screen->setGeometry( DE->screenGeometry(i) );
+	screen->setStyleSheet(bgstyle);
+	screen->show();
+	screens << screen;
+      }
+    }	
+}
+
 void PCDMgui::slotStartLogin(QString displayname, QString password){
   //Get user inputs
   QString username = Backend::getUsernameFromDisplayname(displayname);
@@ -347,6 +371,7 @@ void PCDMgui::slotRestartComputer(){
 
 void PCDMgui::slotClosePCDM(){
   system("killall -9 xvkbd"); //be sure to close the virtual keyboard
+  for(int i=0; i<screens.length(); i++){ screens[i]->close(); } //close all the other screens
   QCoreApplication::exit(0);
   close();
 }
