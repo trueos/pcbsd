@@ -44,10 +44,10 @@ while [ ! -e /var/run/nologin ]; do
   fi
   setenv XAUTHORITY ${PCDMAUTHFILE} #Set the auth file location
   touch ${PCDMAUTHFILE} #Create the (empty) authorization file
-  xauth add :0 MIT-MAGIC-COOKIE-1 1234567890 #Add a default entry to the file (will randomize it later)
+  xauth add :0 MIT-MAGIC-COOKIE-1 `openssl rand -hex 64` #Add a default entry to the file (randomized)
   if [ -n "$vnccmd" ] ; then
     # Start VNC
     (sleep 10 ; $vnccmd >/var/log/vncserver 2>/var/log/vncserver) &
   fi
-  xinit /usr/local/bin/PCDM-session -once -- :0 +extension SECURITY -auth ${PCDMAUTHFILE} $XOPTS
+  xinit /usr/local/bin/PCDM-session -once -- :0 -auth ${PCDMAUTHFILE} $XOPTS
 done
