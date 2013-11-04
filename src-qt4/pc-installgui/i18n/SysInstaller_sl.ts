@@ -5,8 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preklopi med US tipkovnico in izbiro tipkovnice uporabnika            </translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -22,13 +21,11 @@
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dobrodošli v PC-BSD! Prosimo da izberete vaš jezik in nato kliknete Naprej.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Prilagodi</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -36,8 +33,7 @@
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbira diska</translation>
     </message>
     <message>
         <source>Installation</source>
@@ -45,12 +41,11 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Sedaj poteka nameščanje sistema. To lahko traja dalj časa, odvisno od izbranih namestitvenih možnosti in hitrosti računalnika. Ob zaključku namestitve boste o tem obveščeni.</translation>
+        <translation>Vaš sistem se sedaj namešča! To lahko traja dalj časa, odvisno od izbranih namestitvenih možnosti in hitrosti računalnika. Ob zaključku namestitve boste o tem obveščeni.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nameščanje na datotečni sistem, ki je priklopljen na /mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
@@ -82,29 +77,27 @@
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nameščeni bodo naslednji meta-paketi:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
-        <translation>Namestilnik PC-BSD</translation>
+        <translation>Namestitev PC-BSD</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
-        <translation>Ali naj se sedaj začne namestitev?</translation>
+        <translation>Ali naj pričnem z namestitvijo?</translation>
     </message>
     <message>
         <source>Are you sure you want to abort this installation?</source>
-        <translation>Ali ste prepričani, da želite preklicati to namestitev?</translation>
+        <translation>Ali ste prepričani, da želite preklicati namestitev?</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neuspešno!</translation>
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
-        <translation>Namestilnik je naletel na napako in je bil ustavljen.</translation>
+        <translation>Zaradi napake se je namestitev prekinila.</translation>
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
@@ -112,83 +105,69 @@
     </message>
     <message>
         <source>Restart the system now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ponovni zagon sistema?</translation>
     </message>
     <message>
         <source>Installing system... This may take a while...</source>
-        <translation>Namesščanje sistema ... To lahko traja dalj časa ...</translation>
+        <translation>Nameščanje sistema... To lahko traja dalj časa...</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Možnosti:</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konec</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS podatkovna skupina:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prikaži diagnostiko strojne kompatibilnosti</translation>
     </message>
     <message>
         <source>System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbira sistema</translation>
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nameščam pakete... To lahko traja nekaj časa...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremeni jezik namestitve</translation>
     </message>
     <message>
         <source>Customize the selected system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prilagodi izbrani sistem</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prikaži pomoč za izbrano okno</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zaženi zaslonsko tipkovnico</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prekini namestitev</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbira paketov za TrueOS</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbira paketov za PC-BSD</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem je uspešno nameščen!
+Klikni Končaj za ponovni zagon. Ob ponovnem zagonu odstrani namestitveni medij.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -196,128 +175,103 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nalaganje sistema...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk ni zaznan! Namestitev bo prekinjena.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Za disk ni možno predlagati particije.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zaznana 32bitna različica. Če je vaša strojna oprema 64bitna (večina sistemov narejenih po letu 2005), vam priporočamo 64bitno različico.</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>Korenska / particija ima manj kot %1GB priporočenega prostora. Namestitev morda ne bo uspela...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naloži namestitveno konfiguracijsko datoteko iz USB ključka</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naloži konfiguracijo iz USB pogona</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Delovna postaja (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Strežnik (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shrani konfiguracijo na USB pogon</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Namestitvena konfiguracijska datoteka bo shranjena na MSDOSFS/FAT32 formatirano USB napravo. Nadaljujem?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vstavi USB napravo in klikni OK za nadaljevanje.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izberi poljubno ime za namestitveno konfiguracijsko datoteko.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shranjevanje na USB napravo ni uspelo. Ali je naprava priklopljena in formatirana z MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapis je uspel! Sedaj lahko varno odstranite USB napravo.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Namestitvena konfiguracijska datoteka bo naložena iz MSDOSFS/FAT32 formatirane USB naprave. Nadaljujem?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vstavi USB napravo in klikni OK za nadaljevanje.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nalaganje shranjene konfiguracijske datoteke iz USB naprave ni uspelo. Ali je naprava priklopljena in formatirana z MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracija naložena! Sedaj lahko varno odstranite USB napravo.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracijska datoteka:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pričnem namestitev z uporabo naložene konfiguracijske datoteke?</translation>
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obnovi Life-Preserver varnostno kopijo</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uredi mrežno povezavo</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Datasets:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obnovitev originalne ZFS razporeditve</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
@@ -326,34 +280,29 @@
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pričnem z obnovitvijo sistema?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem je uspešno obnovljen!
+Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitveni medij.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obnovitev sistema</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaš sistem se obnavlja. Čas obnovitve je odvisen od velikosti varnostne kopije in lastnosti omrežne povezave.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nameščanje meta-paketov: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obnavljanje sistema: %1</translation>
     </message>
 </context>
 <context>

@@ -10,8 +10,7 @@
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation>
-تایید            </translation>
+        <translation>تایید            </translation>
     </message>
     <message>
         <source>Alt+O</source>
@@ -220,7 +219,7 @@ Netmask خارج از محدوده است! (            </translation>
     </message>
     <message>
         <source>Configure &amp;WPA</source>
-        <translation>پيكربندي &amp; WPA    </translation>
+        <translation>پيكربندي WPA    </translation>
     </message>
 </context>
 </TS>

@@ -24,7 +24,7 @@ if [ $? -eq 0 ]; then
      vncopts="-nevershared "
    fi
    if [ -e "/usr/local/etc/vncpass" ] ; then
-     vnccmd="x11vnc -display :0 $vncopts -passwdfile /usr/local/etc/vncpass"
+     vnccmd="x11vnc -display :0 $vncopts -passwdfile /usr/local/etc/vncpass -loop"
    else
      echo "WARNING: VNC enabled but no password in /usr/local/etc/vncpass!"
      sleep 5

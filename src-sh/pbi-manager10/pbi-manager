@@ -5861,7 +5861,7 @@ check_zfs_ab_destroy()
 		  sync
 		  sleep 3
              	  zfs destroy -r ${zDir}
-       	 	  rmdir ${zDir} >/dev/null 2>/dev/null
+       	 	  rmdir "${zDir}" >/dev/null 2>/dev/null
 		fi
   	fi
 }
@@ -7003,7 +7003,7 @@ chroot_make_cleanup() {
 	     # If we are running as a result of pbi_autobuild, let it do the ZFS cleanup
 	     if [ -z "${PBI_AB_TMPDIR}" ] ; then
              	zfs destroy -r ${tank}${PBI_CHROOTDIR}
-  	     	rmdir ${PBI_CHROOTDIR} >/dev/null 2>/dev/null
+  	     	rmdir "${PBI_CHROOTDIR}" >/dev/null 2>/dev/null
 	     fi
 	     return
         fi
@@ -7516,7 +7516,14 @@ is_pbi_patch() {
 do_port_build()
 {
   local _lPortRaw="$1"
-  local _lPort="/usr/ports/$1"
+
+  # Remove any trailing '/'
+  echo $_lPortRaw | grep -q "/$"
+  if [ $? -eq 0 ] ; then
+     _lPortRaw="`echo $_lPortRaw | sed 's|/$||g'`"
+  fi
+
+  local _lPort="/usr/ports/$_lPortRaw"
 
   echo "Checking port: $_lPort"
 

@@ -5,8 +5,8 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+دیالوگ</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
@@ -20,13 +20,13 @@
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+مقدار</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+منبع</translation>
     </message>
     <message>
         <source>Add user property</source>
@@ -35,8 +35,8 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+...</translation>
     </message>
     <message>
         <source>Remove user property</source>
