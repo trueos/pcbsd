@@ -94,7 +94,10 @@ bool XProcess::startXSession(){
 
   // Get the environment before we drop priv
   QProcessEnvironment environ = QProcessEnvironment::systemEnvironment(); //current environment
-
+  //Now allow this user access to the Xserver
+  QString xhostcmd = "xhost si:localuser:"+xuser;
+  system(xhostcmd.toUtf8());
+  
   //QWidget *wid = new QWidget();
   if (setgid(pw->pw_gid) < 0) {
       qDebug() << "setgid() failed!";
@@ -163,7 +166,10 @@ bool XProcess::startXSession(){
 }
 
 void XProcess::slotCleanup(int exitCode, QProcess::ExitStatus status){
-  pam_shutdown(); //make sure that PAM shuts down properly	
+  pam_shutdown(); //make sure that PAM shuts down properly
+  //Now remove this user's access to the Xserver
+  QString xhostcmd = "xhost -si:localuser:"+xuser;
+  system(xhostcmd.toUtf8());
 }
 
 //Start the desktop in the current process with C functions

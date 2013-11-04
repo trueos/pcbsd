@@ -35,14 +35,16 @@ fi
 
 # Allow Auto-Login the first time PCDM starts
 touch /tmp/.PCDMAutoLogin
-# Make sure the authorization file exists
-setenv XAUTHORITY ${PCDMAUTHFILE} #Set the auth file location
-touch ${PCDMAUTHFILE} #Create the authorication file
-xauth add :0 MIT-MAGIC-COOKIE-1 1234567890 #Add a default entry to the file (will randomize it later)
 # Now start the X Server
 while [ ! -e /var/run/nologin ]; do
   /usr/local/bin/pc-checkxdisplay
-
+  # Make sure the authorization file does not exist
+  if [ -f ${PCDMAUTHFILE} ]; then
+    rm ${PCDMAUTHFILE}
+  fi
+  setenv XAUTHORITY ${PCDMAUTHFILE} #Set the auth file location
+  touch ${PCDMAUTHFILE} #Create the (empty) authorization file
+  xauth add :0 MIT-MAGIC-COOKIE-1 1234567890 #Add a default entry to the file (will randomize it later)
   if [ -n "$vnccmd" ] ; then
     # Start VNC
     (sleep 10 ; $vnccmd >/var/log/vncserver 2>/var/log/vncserver) &
