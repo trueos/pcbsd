@@ -48,7 +48,7 @@ int runSingleSession(int argc, char *argv[]){
   QString confFile = "/usr/local/etc/pcdm.conf";
   if(!QFile::exists(confFile)){ 
     qDebug() << "PCDM: Configuration file missing:"<<confFile<<"\n  - Using default configuration";
-    confFile = ":samples/pcdm.conf"; 
+    QFile::copy(":samples/pcdm.conf", confFile);
   }
   
   Config::loadConfigFile(confFile);
