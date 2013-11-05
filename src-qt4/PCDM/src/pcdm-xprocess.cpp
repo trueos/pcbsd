@@ -161,8 +161,8 @@ bool XProcess::startXSession(){
   if(QFile::exists(xhome+"/.xprofile")){
     disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup(int, QProcess::ExitStatus)) );
     this->start("sh "+xhome+"/.xprofile &");//make sure to start it in parallel
-    if(!this->waitForFinished(300000) ){
-      //If it still has not finished this after 5 minutes, kill it
+    if(!this->waitForFinished(30000) ){
+      //If it still has not finished this after 30 seconds, kill it
       this->terminate();
     }
     connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup(int, QProcess::ExitStatus)) );
