@@ -42,7 +42,7 @@ while [ ! -e /var/run/nologin ]; do
   if [ -f ${PCDMAUTHFILE} ]; then
     rm ${PCDMAUTHFILE}
   fi
-  setenv XAUTHORITY ${PCDMAUTHFILE} #Set the auth file location
+  export XAUTHORITY=${PCDMAUTHFILE} #Set the auth file location
   touch ${PCDMAUTHFILE} #Create the (empty) authorization file
   xauth -f ${PCDMAUTHFILE} add :0 MIT-MAGIC-COOKIE-1 `openssl rand -hex 64` #Add a default entry to the file (randomized)
   xhost si:localuser:root
