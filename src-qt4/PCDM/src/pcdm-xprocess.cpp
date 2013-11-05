@@ -126,13 +126,10 @@ bool XProcess::startXSession(){
   
   QString cmd;
   // Configure the DE startup command
-  //  - Setup to run the user's <home-dir>/.xprofile startup script
-  if(QFile::exists(xhome+"/.xprofile")){
-    //cmd.append(". "+xhome+"/.xprofile; ");  //make sure to start it in parallel
-  }
+
   //  - Add the DE startup command to the end
-  //cmd.append("dbus-launch --exit-with-session "+xcmd);
-  cmd.append(xcmd);
+  cmd.append("dbus-launch --exit-with-session "+xcmd);
+  //cmd.append(xcmd);
   //cmd.append("; kill -l KILL"); //to clean up the session afterwards
   // Get the current locale code
   QLocale mylocale;
@@ -159,8 +156,17 @@ bool XProcess::startXSession(){
   //Log the DE startup outputs as well
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
-  // Startup the process
-  //QMessageBox::warning(wid, "My Application", "CMD: " + cmd, QMessageBox::Ok, QMessageBox::Ok);
+  // Startup the process(s)
+   //  - Setup to run the user's <home-dir>/.xprofile startup script
+  if(QFile::exists(xhome+"/.xprofile")){
+    disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup(int, QProcess::ExitStatus)) );
+    this->start("sh "+xhome+"/.xprofile &");//make sure to start it in parallel
+    if(!this->waitForFinished(300000) ){
+      //If it still has not finished this after 5 minutes, kill it
+      this->terminate();
+    }
+    connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup(int, QProcess::ExitStatus)) );
+  }
   this->start(cmd);
   return TRUE;
 }
