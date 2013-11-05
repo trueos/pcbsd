@@ -32,13 +32,13 @@ class XProcess : public QProcess
 	bool isRunning();
         void waitForSessionClosed();
 	
-	void startDesktop(); 
+	//void startDesktop(); 
 	
   
   public slots:
         void loginToXSession(QString, QString, QString); //user, pwd, desktop
   	void checkPW(QString,QString); //user, pwd
-	void setupDesktop(QString,QString,QString); //user, pwd, desktop
+	//void setupDesktop(QString,QString,QString); //user, pwd, desktop
 	
   private:
         int fstatus; //fork status

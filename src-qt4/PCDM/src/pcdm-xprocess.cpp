@@ -178,6 +178,7 @@ void XProcess::slotCleanup(int exitCode, QProcess::ExitStatus status){
   system(xhostcmd.toUtf8());
 }
 
+/*
 //Start the desktop in the current process with C functions
 void XProcess::startDesktop(){
   //Check for PAM username/password validity
@@ -273,9 +274,9 @@ void XProcess::startDesktop(){
   //Now start the process
   system(cmd.toLatin1());
 }
-
+*/
   
-void XProcess::setupDesktop(QString user, QString pwd, QString desktop){
+/*void XProcess::setupDesktop(QString user, QString pwd, QString desktop){
   //Setup internal variables
   xuser = Backend::getUsernameFromDisplayname(user);
   xpwd = pwd;
@@ -288,7 +289,7 @@ void XProcess::setupDesktop(QString user, QString pwd, QString desktop){
   if(ok){ emit ValidLogin(); }
   else{ emit InvalidLogin(); }
 }
-  
+  */
   
 
 //Stand-alone function to check a username/password combination for validity

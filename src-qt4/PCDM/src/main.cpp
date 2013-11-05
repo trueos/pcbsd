@@ -31,7 +31,7 @@
 //#define prefix "/usr/local/"
 //#endif
 
-bool USECLIBS=false;
+//bool USECLIBS=false;
 
 int runSingleSession(int argc, char *argv[]){
   //QTime clock;
@@ -125,8 +125,10 @@ int runSingleSession(int argc, char *argv[]){
     w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
     //Setup the signals/slots to startup the desktop session
-    if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
-    else{ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString)) ); }
+    //if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
+    //else{ 
+	    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString)) ); 
+    //}
     //Setup the signals/slots for return information for the GUI
     QObject::connect( &desktop, SIGNAL(InvalidLogin()), &w, SLOT(slotLoginFailure()) );
     QObject::connect( &desktop, SIGNAL(started()), &w, SLOT(slotLoginSuccess()) );
@@ -138,8 +140,10 @@ int runSingleSession(int argc, char *argv[]){
   }  // end of PCDM GUI running
   int retcode = 0;
   //Wait for the desktop session to finish before exiting
-  if(USECLIBS){ desktop.startDesktop(); }
-  else{ desktop.waitForSessionClosed(); }
+  //if(USECLIBS){ desktop.startDesktop(); }
+  //else{ 
+    desktop.waitForSessionClosed(); 
+  //}
   splash.show(); //show the splash screen again
   QCoreApplication::processEvents();
   //check for shutdown process

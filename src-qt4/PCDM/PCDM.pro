@@ -106,10 +106,6 @@ scripts=PCDMd
 scripts.path=/usr/local/sbin
 scripts.extra=cp PCDMd $(INSTALL_ROOT)/usr/local/sbin/PCDMd
 
-xloop=PCDM-xloop
-xloop.path=/usr/local/sbin
-xloop.extra=cp PCDM-xloop $(INSTALL_ROOT)/usr/local/sbin/PCDM-xloop && chmod 755 $(INSTALL_ROOT)/usr/local/sbin/PCDM-xloop
-
 rcd=rc.d/pcdm
 rcd.path=/usr/local/etc/rc.d
 rcd.extra=cp rc.d/pcdm $(INSTALL_ROOT)/usr/local/etc/rc.d/pcdm
@@ -125,6 +121,6 @@ conf=pcdm.conf
 conf.path=/usr/local/etc
 conf.extra=cp pcdm.conf $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist && chmod 600 $(INSTALL_ROOT)/usr/local/etc/pcdm.conf.dist
 
-INSTALLS += dotrans scripts rcd cleanthemes theme conf target xloop
+INSTALLS += dotrans scripts rcd cleanthemes theme conf target
 
 RESOURCES += PCDM.qrc
