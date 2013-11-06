@@ -4786,6 +4786,18 @@ pbid_init() {
 	do_pbid
 }
 
+# This is a crude hack, but we need to copy libGL* to a location outside
+# of /usr/local for PBIs to be able to access them
+check_populate_opengl()
+{
+  local lG
+  for i in `ls /usr/local/lib/libGl.* /usr/local/lib/libGL.* /usr/local/lib/libGLU.* 2>/dev/null`
+  do
+    lG=`basename $i`
+    cp ${i} /usr/lib/${lG}
+  done
+}
+
 # Start the PBID daemon
 do_pbid() {
 
@@ -4804,6 +4816,9 @@ do_pbid() {
 	_redir="&1"
 	if [ "${PBI_VERBOSE}" != "YES" ] ; then _redir="/dev/null" ; fi
 	echo "Started pbid: `date`" > ${_pbid_log}
+
+	# Check for opengl libs to link
+	check_populate_opengl
 
 	while
 	i=1
