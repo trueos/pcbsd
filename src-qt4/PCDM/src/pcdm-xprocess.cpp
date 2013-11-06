@@ -24,6 +24,7 @@ XProcess::XProcess() : QProcess(0) {
   xcmd.clear();
   xhome.clear();
   xpwd.clear();
+  xshell.clear();
   pam_started = FALSE;
   pam_session_open = FALSE;
   //Setup the finished signal/slot
@@ -43,6 +44,7 @@ void XProcess::loginToXSession(QString username, QString password, QString deskt
   xpwd = password;
   xhome = Backend::getUserHomeDir(xuser);
   xcmd = Backend::getDesktopBinary(desktop);
+  xshell = Backend::getUserShell(xuser);
   xde = desktop;
   //Now start the login process
   startXSession();
@@ -93,7 +95,7 @@ bool XProcess::startXSession(){
   }
 
   // Get the environment before we drop priv
-  QProcessEnvironment environ = QProcessEnvironment::systemEnvironment(); //current environment
+  this->setProcessEnvironment( QProcessEnvironment::systemEnvironment() ); //current environment
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
@@ -131,28 +133,11 @@ bool XProcess::startXSession(){
   cmd.append("dbus-launch --exit-with-session "+xcmd);
   //cmd.append(xcmd);
   //cmd.append("; kill -l KILL"); //to clean up the session afterwards
-  // Get the current locale code
-  QLocale mylocale;
-  QString langCode = mylocale.name();
   
   //Backend::log("Startup command: "+cmd);
   // Setup the process environment
-
-  // Setup any specialized environment variables
-  // USER, HOME, and SHELL are set by the "su" login
-  environ.insert("LOGNAME",xuser); //Login name
-  environ.insert("USERNAME",xuser); // Username
-  environ.insert("PATH",environ.value("PATH")+":"+xhome+"/bin"); // Append the user's home dir to the path
-  if( langCode.toLower() == "c" ){} // do nothing extra to it
-  else if(!environ.value("MM_CHARSET").isEmpty() ){ langCode.append( "."+environ.value("MM_CHARSET") ); }
-  else{ langCode.append(".UTF-8"); }
-  environ.insert("LANG",langCode); //Set the proper localized language
-  environ.insert("MAIL","/var/mail/"+xuser); //Set the mail variable
-  environ.insert("GROUP",xuser); //Set the proper group id
-  environ.insert("SHLVL","0"); //Set the proper shell level
-  environ.insert("HOME",xhome); //Set the users home directory
-  this->setProcessEnvironment(environ);
-  this->setWorkingDirectory(xhome); //set the current directory to the user's home directory
+  setupSessionEnvironment();
+  
   //Log the DE startup outputs as well
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
@@ -178,6 +163,29 @@ void XProcess::slotCleanup(int exitCode, QProcess::ExitStatus status){
   system(xhostcmd.toUtf8());
 }
 
+void XProcess::setupSessionEnvironment(){
+  // Setup any specialized environment variables
+  QProcessEnvironment environ = this->processEnvironment();
+  // Get the current locale code
+  QLocale mylocale;
+  QString langCode = mylocale.name();
+  if( langCode.toLower() == "c" ){} // do nothing extra to it
+  else if(!environ.value("MM_CHARSET").isEmpty() ){ langCode.append( "."+environ.value("MM_CHARSET") ); }
+  else{ langCode.append(".UTF-8"); }
+  // USER, HOME, and SHELL are set by the "su" login
+  environ.insert("LOGNAME",xuser); //Login name
+  environ.insert("USERNAME",xuser); // Username
+  environ.insert("USER",xuser); // Username
+  environ.insert("PATH",environ.value("PATH")+":"+xhome+"/bin"); // Append the user's home dir to the path
+  environ.insert("LANG",langCode); //Set the proper localized language
+  environ.insert("MAIL","/var/mail/"+xuser); //Set the mail variable
+  environ.insert("GROUP",xuser); //Set the proper group id
+  environ.insert("SHLVL","0"); //Set the proper shell level
+  environ.insert("HOME",xhome); //Set the users home directory
+  environ.insert("SHELL",xshell); //Set the user's default shell
+  this->setProcessEnvironment(environ);
+  this->setWorkingDirectory(xhome); //set the current directory to the user's home directory
+}
 /*
 //Start the desktop in the current process with C functions
 void XProcess::startDesktop(){

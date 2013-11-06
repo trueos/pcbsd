@@ -11,7 +11,7 @@
 #include "pcdm-config.h"
 #include "pcbsd-utils.h"
 
-QStringList displaynameList,usernameList,homedirList,instXNameList,instXBinList,instXCommentList,instXIconList;
+QStringList displaynameList,usernameList,homedirList,usershellList,instXNameList,instXBinList,instXCommentList,instXIconList;
 QString logFile;
 QString saveX,saveUsername, lastUser, lastDE;
 
@@ -90,6 +90,12 @@ QString Backend::getUserHomeDir(QString username){
   int i = usernameList.indexOf(username);
   if( i == -1 ){ i = displaynameList.indexOf(username); }
   return homedirList[i];
+}
+
+QString Backend::getUserShell(QString username){
+  int i = usernameList.indexOf(username);
+  if( i == -1 ){ i = displaynameList.indexOf(username); }
+  return usershellList[i];	
 }
 
 QStringList Backend::keyModels()
@@ -365,6 +371,7 @@ void Backend::readSystemUsers(){
       usernameList << uList[i].section(":",0,0).simplified();
       displaynameList << uList[i].section(":",4,4).simplified();
       homedirList << uList[i].section(":",5,5).simplified();
+      usershellList << uList[i].section(":",6,6).simplified();
     }
   }
   

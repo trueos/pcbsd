@@ -43,9 +43,12 @@ class XProcess : public QProcess
   private:
         int fstatus; //fork status
         pid_t fpid;  //fork pid
-	QString xuser, xcmd, xhome, xpwd, xde;
+	QString xuser, xcmd, xhome, xpwd, xde, xshell;
   	bool startXSession();
 	
+	// Session environment setup
+	void setupSessionEnvironment();
+  
 	// PAM stuff and simplification functions
 	pam_handle_t *pamh;  //handle for the PAM process structure
 	bool pam_started, pam_session_open;
