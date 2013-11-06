@@ -148,23 +148,21 @@ void DialogProp::InitAllProperties()
 //     failmode
 
     tmp.Name="failmode";
-    tmp.Description=tr("Controls the system behavior in the event of catastrophic pool fail‐\n"
-                       "ure. This condition is typically a result of a loss of connectivity\n"
+    tmp.Description=tr("Controls the system behavior in the event of catastrophic pool failure\n"
+                       "This condition is typically a result of a loss of connectivity\n"
                        "to the underlying storage device(s) or a failure of all devices\n"
-                       "within the pool. The behavior of such an event is determined as fol‐\n"
-                       "lows:\n\n"
-
-                       "wait    Blocks all I/O access until the device connectivity is recov‐\n"
-                       "        ered and the errors are cleared.  This is the default behav‐\n"
-                       "        ior.\n\n"
-
+                       "within the pool. The behavior of such an event is determined as follows\n"
+                       "wait\n"
+                       "Blocks all I/O access until the device connectivity is recovered\n"
+                       "and the errors are cleared. This is the default behavior\n"
                        "continue\n"
-                       "        Returns EIO to any new write I/O requests but allows reads to\n"
-                       "        any of the remaining healthy devices. Any write requests that\n"
-                       "        have yet to be committed to disk would be blocked.\n\n"
+                       "Returns EIO to any new write I/O requests but allows reads to\n"
+                       "any of the remaining healthy devices. Any write requests that\n"
+                       "have yet to be committed to disk would be blocked.\n\n"
 
-                       "panic   Prints out a message to the console and generates a system\n"
-                       "        crash dump.\n");
+                       "panic\n" 
+                       "Prints out a message to the console and generates a system\n"
+                       "crash dump.\n");
     tmp.Flags=PROP_ISOPTION;
     tmp.ValidOptions.clear();
     tmp.ValidOptions.append("wait");
