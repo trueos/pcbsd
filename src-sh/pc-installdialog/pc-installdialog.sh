@@ -17,6 +17,9 @@ CFGFILE="/tmp/sys-install.cfg"
 # Default ZFS layout
 ZFSLAYOUT="/,/root,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
 
+# Location of pc-sysinstall
+PCSYS="/usr/local/sbin/pc-sysinstall"
+
 change_zfs()
 {
   get_zfs_layout
@@ -181,7 +184,7 @@ get_target_disk()
 {
   # Now we prompt for the disk to install on
   dOpts=""
-  pc-sysinstall disk-list > /tmp/.dList.$$
+  ${PCSYS} disk-list > /tmp/.dList.$$
   while read i
   do
      fOpt="on"
@@ -201,7 +204,7 @@ get_target_disk()
 get_target_part()
 {
   # Now prompt for the full-disk or partition to install onto
-  pc-sysinstall disk-part $SYSDISK > /tmp/.dList.$$
+  ${PCSYS} disk-part $SYSDISK > /tmp/.dList.$$
   dOpts="ALL \"Use entire disk\" on"
   dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'` 
   if [ "$dFmt" = "MBR" ] ; then
@@ -328,7 +331,7 @@ get_netconfig()
   if [ $? -ne 0 ] ; then return ; fi
 
   dOpts="auto \"Automatic DHCP\" on"
-  pc-sysinstall detect-nics > /tmp/.dList.$$
+  ${PCSYS} detect-nics > /tmp/.dList.$$
   while read i
   do
      d="`echo $i | cut -d ':' -f 1`"
@@ -531,7 +534,7 @@ start_menu_loop()
              echo -e "(y/n)\c"
              read tmp
              if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
-                pc-sysinstall -c ${CFGFILE}
+                ${PCSYS} -c ${CFGFILE}
                 rtn
              fi
              ;;
