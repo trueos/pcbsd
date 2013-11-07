@@ -62,9 +62,6 @@ share/pcbsd/fluxboxinit/keys
 share/pcbsd/fluxboxinit/init
 share/pcbsd/fluxboxinit/overlay
 share/pcbsd/fluxboxinit/menu
-share/pcbsd/movies/PCBSD9_16-10_WUXGA.flv
-share/pcbsd/movies/PCBSD9_4-3_UXGA.flv
-share/pcbsd/movies/PCBSD9_16-9_1080p.flv
 share/pcbsd/scripts/first-boot.sh
 share/pcbsd/scripts/mythtv.sh
 share/pcbsd/scripts/lidchanged.sh
@@ -2726,7 +2723,6 @@ include/pcbsd-ui.h
 @dirrm share/pcbsd/icons
 @dirrmtry share/pcbsd/images
 @dirrm share/pcbsd/fluxboxinit
-@dirrm share/pcbsd/movies
 @dirrm share/pcbsd/pc-controlpanel/items/de
 @dirrm share/pcbsd/pc-controlpanel/items/network
 @dirrm share/pcbsd/pc-controlpanel/items/hardware
