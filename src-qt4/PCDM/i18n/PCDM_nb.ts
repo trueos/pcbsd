@@ -5,36 +5,30 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Venstre</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Høyre</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Opp</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Ned</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velg</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velg en annen bruker og tøm passord feltet</translation>
     </message>
     <message>
         <source>Select this user</source>
@@ -53,8 +47,7 @@
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passord</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
@@ -68,8 +61,7 @@
     </message>
     <message>
         <source>Available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tilgjengelige brukere</translation>
     </message>
     <message>
         <source>Login to %1</source>
@@ -126,23 +118,19 @@
     </message>
     <message>
         <source>Shut Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skru av</translation>
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lukk PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skru av datamaskinen</translation>
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ugyldig brukernavn/passord</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
@@ -156,13 +144,11 @@
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Du er i ferd med å skru av systemet.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Er du sikker?</translation>
     </message>
     <message>
         <source>System Restart</source>
