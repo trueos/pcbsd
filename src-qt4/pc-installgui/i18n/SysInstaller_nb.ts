@@ -5,8 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bytt mellom US layout og brukervalgt layout</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -15,13 +14,11 @@
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tilbake</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Neste</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
@@ -163,8 +160,7 @@
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installerer pakker... Dette kan ta en stund...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
@@ -188,8 +184,7 @@
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avbryt installasjonen</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>

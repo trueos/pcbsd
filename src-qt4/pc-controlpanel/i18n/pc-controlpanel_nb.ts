@@ -5,123 +5,99 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD Kontrollpanel</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Programvare og oppdateringer</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systembehandling</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Maskinvare</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nettverk</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrivebordsmiljø</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verktøy</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alle</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>Enlightenment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enlightenment</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>unsupported</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ustøttet</translation>
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(nåværende)</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ustøttet skrivebordsmiljø</translation>
     </message>
     <message>
         <source>(All installed)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Alle installert)</translation>
     </message>
     <message>
         <source>(KDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(KDE)</translation>
     </message>
     <message>
         <source>(LXDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(LXDE)</translation>
     </message>
     <message>
         <source>(Gnome)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Gnome)</translation>
     </message>
     <message>
         <source>(Enlightenment)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Enlightenment)</translation>
     </message>
     <message>
         <source>(XFCE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(XFCE)</translation>
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Leser elementer...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hva ønsker du å konfigurere?</translation>
     </message>
 </context>
 </TS>
