@@ -206,8 +206,8 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     }
   }
   //make sure that a device label does not contain "(" or ")"
-  if(dlabel.contains("(")){ dlabel.remove("(").simplified(); }
-  if(dlabel.contains(")")){ dlabel.remove(")").simplified(); }
+  if(dlabel.contains("(")){ dlabel = dlabel.remove("(").simplified(); }
+  if(dlabel.contains(")")){ dlabel = dlabel.remove(")").simplified(); }
   dlabel = dlabel.simplified();
   //Now perform the final checks to see if it is a good device
   bool good = FALSE;
