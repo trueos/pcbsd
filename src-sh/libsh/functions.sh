@@ -426,6 +426,10 @@ getZFSRelativePath() {
    if [ -z "${_tank}" ] ; then return 1 ; fi
 
    local _name="${_chkDir#${_mp}}"
+
+   # Make sure we have a '/' at the start of dataset
+   if [ "`echo ${_name} | cut -c 1`" != "/" ] ; then _name="/${_name}"; fi
+
    echo "${_name}"
    return 0
 }
