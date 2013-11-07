@@ -99,7 +99,6 @@ bool XProcess::startXSession(){
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
-  
   //QWidget *wid = new QWidget();
   if (setgid(pw->pw_gid) < 0) {
       qDebug() << "setgid() failed!";
@@ -121,11 +120,9 @@ bool XProcess::startXSession(){
       emit InvalidLogin();  //Make sure the GUI knows that it was a failure
       return FALSE;
   }
-
   //Startup the PAM session
   if( !pam_startSession() ){ pam_shutdown(); return FALSE; }
   pam_session_open = TRUE; //flag that pam has an open session
-  
   QString cmd;
   // Configure the DE startup command
 
@@ -133,24 +130,23 @@ bool XProcess::startXSession(){
   cmd.append("dbus-launch --exit-with-session "+xcmd);
   //cmd.append(xcmd);
   //cmd.append("; kill -l KILL"); //to clean up the session afterwards
-  
   //Backend::log("Startup command: "+cmd);
   // Setup the process environment
   setupSessionEnvironment();
-  
   //Log the DE startup outputs as well
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
-    disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup(int, QProcess::ExitStatus)) );
+    disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
+    qDebug() << "Run user ~/.xprofile";
     this->start("sh "+xhome+"/.xprofile &");//make sure to start it in parallel
     if(!this->waitForFinished(30000) ){
       //If it still has not finished this after 30 seconds, kill it
       this->terminate();
     }
-    connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup(int, QProcess::ExitStatus)) );
+    connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   }
   this->start(cmd);
   return TRUE;
