@@ -43,7 +43,6 @@ bin/openwith
 bin/flashpluginctl
 bin/xorg-startupcheck
 sbin/PCDMd
-sbin/PCDM-xloop
 share/pcbsd/pc-installgui/load-usb-key.sh
 share/pcbsd/pc-installgui/get-zfs-restore-list.sh
 share/pcbsd/pc-installgui/setup-ssh-keys.sh
