@@ -32,7 +32,8 @@ const char* GetKo(xmlDocPtr doc, xmlNodePtr cur, char* chip_id) {
 
 		    if(!memcmp(tempkey,chip_id,strlen(tempkey))) { 
 		        xmlFree(key);
-			return cur->name;
+			char *name = cur->name;
+			return name;
 		    }
 		    cur = cur->next;
 	}
