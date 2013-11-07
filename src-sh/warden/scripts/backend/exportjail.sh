@@ -8,12 +8,13 @@ PROGDIR="/usr/local/share/warden"
 # Source our variables
 . ${PROGDIR}/scripts/backend/functions.sh
 
+EXPORTNAME="$1"
 JAILNAME="$1"
 OUTDIR="$2"
 
-if [ -z "${JAILNAME}" ]
+if [ -z "${EXPORTNAME}" ]
 then
-  echo "ERROR: No jail specified to chroot into!"
+  echo "ERROR: No jail specified to export!"
   exit 5
 fi
 
@@ -23,7 +24,7 @@ then
   exit 5
 fi
 
-JAILDIR="${JDIR}/${JAILNAME}"
+JAILDIR="${JDIR}/${EXPORTNAME}"
 
 if [ ! -d "${JAILDIR}" ]
 then
@@ -34,11 +35,16 @@ fi
 set_warden_metadir
 
 # First check if this jail is running, and stop it
-${PROGDIR}/scripts/backend/checkstatus.sh "${JAILNAME}"
+${PROGDIR}/scripts/backend/checkstatus.sh "${EXPORTNAME}"
 if [ "$?" = "0" ]
 then
-  ${PROGDIR}/scripts/backend/stopjail.sh "${JAILNAME}"
+  ${PROGDIR}/scripts/backend/stopjail.sh "${EXPORTNAME}"
 fi
+
+# Reset JAILDIR
+JAILNAME="$1"
+JAILDIR="${JDIR}/${EXPORTNAME}"
+set_warden_metadir
 
 # Now that the jail is stopped, lets make a large tbz file of it
 cd ${JAILDIR}
@@ -57,12 +63,12 @@ get_ip_and_netmask "${IP6}"
 IP6="${JIP}"
 MASK6="${JMASK}"
 
-echo "Creating compressed archive of ${JAILNAME}... Please Wait..." >&1
-tar cvJf "${WTMP}/${JAILNAME}.tlz" -C "${JAILDIR}" . 2>${WTMP}/${JAILNAME}.files
+echo "Creating compressed archive of ${EXPORTNAME}... Please Wait..." >&1
+tar cvJf "${WTMP}/${EXPORTNAME}.txz" -C "${JAILDIR}" . 2>${WTMP}/${EXPORTNAME}.files
 
 cd ${WTMP}
 
-LINES="`wc -l ${JAILNAME}.files | sed -e 's, ,,g' | cut -d '.' -f 1`"
+LINES="`wc -l ${EXPORTNAME}.files | sed -e 's, ,,g' | cut -d '.' -f 1`"
 
 # Finished, now make the header info
 cd ${WTMP}
@@ -73,27 +79,27 @@ Files: $LINES
 IP4: ${IP4}/${MASK4}
 IP6: ${IP6}/${MASK6}
 HOST: ${HOST}
-" >${WTMP}/${JAILNAME}.header
+" >${WTMP}/${EXPORTNAME}.header
 
 # Copy over jail extra meta-data
 cp ${JMETADIR}/jail-* ${WTMP}/ 2>/dev/null
 
 # Compress the header file
-tar cvzf ${JAILNAME}.header.tgz ${JAILNAME}.header jail-* 2>/dev/null
+tar cvzf ${EXPORTNAME}.header.tgz ${EXPORTNAME}.header jail-* 2>/dev/null
 
 # Create our spacer
 echo "
 ___WARDEN_START___" > .spacer
 
 # Make the .wdn file now
-cat ${JAILNAME}.header.tgz .spacer ${JAILNAME}.tlz > ${JAILNAME}.wdn
+cat ${EXPORTNAME}.header.tgz .spacer ${EXPORTNAME}.txz > ${EXPORTNAME}.wdn
 
 # Remove the old files
-rm ${JAILNAME}.header
-rm ${JAILNAME}.files
-rm ${JAILNAME}.tlz
+rm ${EXPORTNAME}.header
+rm ${EXPORTNAME}.files
+rm ${EXPORTNAME}.txz
 rm .spacer
-rm ${JAILNAME}.header.tgz
+rm ${EXPORTNAME}.header.tgz
 
 # Remove any extra jail meta-files from WTMP
 for i in `ls ${JMETADIR}/jail-* 2>/dev/null`
@@ -105,10 +111,10 @@ done
 if [ ! -z "${OUTDIR}" ]
 then
   mkdir -p ${OUTDIR} 2>/dev/null
-  mv ${JAILNAME}.wdn ${OUTDIR}/
-  echo "Created ${JAILNAME}.wdn in ${OUTDIR}" >&1
+  mv ${EXPORTNAME}.wdn ${OUTDIR}/
+  echo "Created ${EXPORTNAME}.wdn in ${OUTDIR}" >&1
 else 
-  echo "Created ${JAILNAME}.wdn in ${WTMP}" >&1
+  echo "Created ${EXPORTNAME}.wdn in ${WTMP}" >&1
 fi
 
 exit 0
