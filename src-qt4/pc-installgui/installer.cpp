@@ -257,6 +257,9 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   if( !ok )
     return false;
 
+  // If over 1.99TB, we should use GPT mode
+  if ( totalSize > 1999900 )
+    loadGPT=true;
 
   // If on amd64 lets use ZFS, it rox
   if ( Arch == "amd64" ) {
