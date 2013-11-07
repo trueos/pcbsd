@@ -60,7 +60,7 @@ class XProcess : public QProcess
 	
   
   private slots:
-  	void slotCleanup(int, QProcess::ExitStatus);
+  	void slotCleanup();
 
   signals:
 	void ValidLogin();
