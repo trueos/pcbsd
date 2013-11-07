@@ -46,7 +46,7 @@ public:
 
 public slots:
     void slotSingleInstance();
-    void slotPackagesFinished(int exitCode, QProcess::ExitStatus exitStatus );
+    void slotPackagesFinished();
 
 private slots:
     void on_pushButton_2_clicked();

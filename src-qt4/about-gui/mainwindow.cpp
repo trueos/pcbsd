@@ -225,7 +225,7 @@ void MainWindow::slotReadPkg()
 }
 
 ////////////////////////////////////////////////////////////////////////////
-void MainWindow::slotPackagesFinished(int exitCode, QProcess::ExitStatus exitStatus)
+void MainWindow::slotPackagesFinished()
 {
     ui->WaitTextLabel->setVisible(false);
 }
@@ -240,7 +240,7 @@ void MainWindow::on_pushButton_clicked()
         pkginfo = new QProcess(this);
         pkginfo->setProcessChannelMode(QProcess::MergedChannels);
         connect( pkginfo, SIGNAL(readyRead()), this, SLOT(slotReadPkg() ) );
-        connect( pkginfo, SIGNAL(finished ( int, QProcess::ExitStatus)), this, SLOT(slotPackagesFinished(int, QProcess::ExitStatus)));
+        connect( pkginfo, SIGNAL(finished ( int, QProcess::ExitStatus)), this, SLOT(slotPackagesFinished()));
         pkginfo->start("pkg_info");
         ui->WaitTextLabel->setVisible(true);
     }
