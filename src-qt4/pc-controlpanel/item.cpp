@@ -59,7 +59,7 @@ QCPItem::QCPItem():misValid(false), misMsgBox(false), isRequireRoot(false),isSud
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-bool QCPItem::read(QString FileName, const QVector<QString>& vEnabledDE)
+bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
 {
     QString Str;
 
