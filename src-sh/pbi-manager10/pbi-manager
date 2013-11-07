@@ -4680,7 +4680,7 @@ add_app_path_links()
 	# Running as user add to ~/bin
 	init_tmpdir
 	if [ ! -d "${HOME}/bin" ] ; then mkdir -p "${HOME}/bin"; fi
-	cat ${1}/${PBI_FAKEBIN_DIR}/${PBI_INS_PATHSCRIPT} | grep "${1}/${PBI_FAKEBIN_DIR}" | grep '$SYS_LOCALBASE/bin' | sed 's|$SYS_LOCALBASE|${HOME}|g' >${PBI_TMPDIR}/.binlnks
+	cat ${1}/${PBI_FAKEBIN_DIR}/${PBI_INS_PATHSCRIPT} | grep "${1}/${PBI_FAKEBIN_DIR}" | grep '$PBI_BINDIR' | sed 's|$PBI_BINDIR|${HOME}/bin|g' >${PBI_TMPDIR}/.binlnks
 	while read lnk
 	do
 		/bin/sh -c "${lnk}"

@@ -20,6 +20,8 @@ ZFSLAYOUT="/,/root,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/u
 # Ugly master list of settable ZFS properties
 ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compression(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly=(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias=latency|throughput),snapdir=(hidden|visible),sync=(standard|always|disabled),jailed=(off|on)"
 
+PCSYS="/usr/local/sbin/pc-sysinstall"
+
 change_zfs()
 {
   get_zfs_layout
@@ -184,7 +186,7 @@ get_target_disk()
 {
   # Now we prompt for the disk to install on
   dOpts=""
-  pc-sysinstall disk-list > /tmp/.dList.$$
+  ${PCSYS} disk-list > /tmp/.dList.$$
   while read i
   do
      fOpt="on"
@@ -204,7 +206,7 @@ get_target_disk()
 get_target_part()
 {
   # Now prompt for the full-disk or partition to install onto
-  pc-sysinstall disk-part $SYSDISK > /tmp/.dList.$$
+  ${PCSYS} disk-part $SYSDISK > /tmp/.dList.$$
   dOpts="ALL \"Use entire disk\" on"
   dFmt=`grep "$SYSDISK-format:" /tmp/.dList.$$ | awk '{print $2}'` 
   if [ "$dFmt" = "MBR" ] ; then
@@ -331,7 +333,7 @@ get_netconfig()
   if [ $? -ne 0 ] ; then return ; fi
 
   dOpts="auto \"Automatic DHCP\" on"
-  pc-sysinstall detect-nics > /tmp/.dList.$$
+  ${PCSYS} detect-nics > /tmp/.dList.$$
   while read i
   do
      d="`echo $i | cut -d ':' -f 1`"
@@ -534,7 +536,7 @@ start_menu_loop()
              echo -e "(y/n)\c"
              read tmp
              if [ "$tmp" = "y" -o "$tmp" = "Y" ] ; then
-                pc-sysinstall -c ${CFGFILE}
+                ${PCSYS} -c ${CFGFILE}
                 rtn
              fi
              ;;
