@@ -109,7 +109,7 @@ public:
    QString out = name.toLower();
    out.remove(" ");
    out.remove("\t");
-   out.simplified();
+   out = out.simplified();
    return out;
  }
  

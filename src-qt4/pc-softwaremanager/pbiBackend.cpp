@@ -1131,11 +1131,8 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
      }
    }
    else if(ID == ProcessManager::DOWNLOAD){ 
-     if(!sDownload){ //not stopped manually
-       if(APPHASH.contains(cDownload)){name = APPHASH[cDownload].name; }
-       title = QString(tr("%1 Download Error:")).arg(name);
-       message = tr("The download process experienced an error and could not be completed");
-     }
+       //The ProcessFinished function has a bit more robust check for download failures
+       //       - use it instead to prevent duplicate error messages
    }
    else if(ID == ProcessManager::OTHER){ 
      if(PBIHASH.contains(cOther)){name = PBIHASH[cOther].name; }
