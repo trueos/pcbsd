@@ -13,11 +13,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    indicatorwidget.cpp \
+    updatecontroller.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    indicatorwidget.h \
+    updatecontroller.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    indicatorwidget.ui
 
 RESOURCES += \
     res.qrc

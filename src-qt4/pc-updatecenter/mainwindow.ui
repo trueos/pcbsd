@@ -48,7 +48,7 @@
               <property name="sizeHint" stdset="0">
                <size>
                 <width>20</width>
-                <height>57</height>
+                <height>82</height>
                </size>
               </property>
              </spacer>
@@ -101,6 +101,47 @@
              </layout>
             </item>
             <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="text">
+                 <string>Check for updates</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="res.qrc">
+                  <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
              <spacer name="verticalSpacer_2">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -108,7 +149,7 @@
               <property name="sizeHint" stdset="0">
                <size>
                 <width>20</width>
-                <height>57</height>
+                <height>49</height>
                </size>
               </property>
              </spacer>
@@ -116,97 +157,186 @@
            </layout>
           </widget>
           <widget class="QWidget" name="page_6">
-           <widget class="QGroupBox" name="groupBox">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>461</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>System</string>
-            </property>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_2">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>100</y>
-              <width>461</width>
-              <height>71</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Packages</string>
-            </property>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>200</y>
-              <width>471</width>
-              <height>80</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Software</string>
-            </property>
-           </widget>
-           <widget class="Line" name="line">
-            <property name="geometry">
-             <rect>
-              <x>60</x>
-              <y>90</y>
-              <width>311</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-           <widget class="Line" name="line_2">
-            <property name="geometry">
-             <rect>
-              <x>60</x>
-              <y>190</y>
-              <width>301</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-           <widget class="Line" name="line_3">
-            <property name="geometry">
-             <rect>
-              <x>140</x>
-              <y>290</y>
-              <width>118</width>
-              <height>3</height>
-             </rect>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton">
-            <property name="geometry">
-             <rect>
-              <x>180</x>
-              <y>300</y>
-              <width>89</width>
-              <height>23</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Update all</string>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="title">
+               <string>System</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="IndicatorWidget" name="widget" native="true"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox_2">
+              <property name="title">
+               <string>Packages</string>
+              </property>
+              <widget class="QWidget" name="layoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>20</y>
+                 <width>471</width>
+                 <height>66</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/images/pkgcheck.png</pixmap>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
+                  <item>
+                   <widget class="QLabel" name="label_6">
+                    <property name="text">
+                     <string>Checking for updates...</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <item>
+                     <widget class="QProgressBar" name="progressBar_2">
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_5">
+                      <property name="text">
+                       <string>Check</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="res.qrc">
+                        <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_6">
+                      <property name="text">
+                       <string>Details...</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="groupBox_3">
+              <property name="title">
+               <string>Software</string>
+              </property>
+              <widget class="QWidget" name="layoutWidget_2">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>10</y>
+                 <width>471</width>
+                 <height>66</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/images/pbicheck.png</pixmap>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_6">
+                  <item>
+                   <widget class="QLabel" name="label_8">
+                    <property name="text">
+                     <string>Checking for updates...</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <item>
+                     <widget class="QProgressBar" name="progressBar_3">
+                      <property name="value">
+                       <number>24</number>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_7">
+                      <property name="text">
+                       <string>Check</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="res.qrc">
+                        <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_8">
+                      <property name="text">
+                       <string>Details...</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item>
+             <widget class="Line" name="line_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>Update all</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -272,6 +402,14 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>IndicatorWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">indicatorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="res.qrc"/>
  </resources>

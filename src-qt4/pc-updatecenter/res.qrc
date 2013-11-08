@@ -4,5 +4,12 @@
         <file>images/pkgupdates.png</file>
         <file>images/sysupdater.png</file>
         <file>images/sysupdates.png</file>
+        <file>images/view-refresh.png</file>
+        <file>images/pbiok.png</file>
+        <file>images/pkgok.png</file>
+        <file>images/syscheck.png</file>
+        <file>images/pbicheck.png</file>
+        <file>images/pkgcheck.png</file>
+        <file>images/sysok.png</file>
     </qresource>
 </RCC>
