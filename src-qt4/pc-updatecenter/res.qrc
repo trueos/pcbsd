@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/pbiupdates.png</file>
+        <file>images/pkgupdates.png</file>
+        <file>images/sysupdater.png</file>
+        <file>images/sysupdates.png</file>
+    </qresource>
+</RCC>
