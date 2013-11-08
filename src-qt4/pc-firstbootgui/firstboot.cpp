@@ -456,6 +456,9 @@ void Installer::saveSettings()
   system("cat " + ufile.fileName().toLatin1() + userCmd.toLatin1());
   ufile.remove();
 
+  // Sync after adding the user
+  sync();
+
   // Enable Flash for the new user
   QProcess::execute("su", QStringList() << "-m" << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
   
