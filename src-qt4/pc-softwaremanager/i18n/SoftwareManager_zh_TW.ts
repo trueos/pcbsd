@@ -585,10 +585,6 @@
         <translation>移除程序出錯，無法完成</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>下載程序出錯，無法完成</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI 出錯：</translation>
     </message>

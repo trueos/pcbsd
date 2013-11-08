@@ -585,10 +585,6 @@
         <translation>Borttagningsprocessen stötte på ett fel och kunde inte slutföras</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>Nerladdningsprocessen stötte på ett fel och kunde inte slutföras</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI fel:            </translation>
     </message>
