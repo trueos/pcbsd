@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QString>
 
-class CUpdateController:public QObject
+class CAbstractUpdateController:public QObject
 {
     Q_OBJECT
 public:
@@ -27,16 +27,19 @@ public:
     }SProgress;
 
 public:
-    CUpdateController();
+    CAbstractUpdateController();
 
     EUpdateControllerState curentState();
 
+
+
 signals:
-    virtual void stateChanged(EUpdateControllerState)=0;
-    virtual void progress(SProgress progress);
+    void stateChanged(EUpdateControllerState new_state);
+    void progress(SProgress progress);
 
 public slots:
-
+    virtual void check(){}//=0;
+    virtual void updateAll(){}//=0;
 
 };
 

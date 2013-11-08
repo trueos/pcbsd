@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     indicatorwidget.cpp \
-    updatecontroller.cpp
+    updatecontroller.cpp \
+    syscontroller.cpp
 
 HEADERS  += mainwindow.h \
     indicatorwidget.h \
-    updatecontroller.h
+    updatecontroller.h \
+    syscontroller.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui

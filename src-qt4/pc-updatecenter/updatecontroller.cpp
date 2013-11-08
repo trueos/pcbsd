@@ -1,5 +1,5 @@
 #include "updatecontroller.h"
 
-CUpdateController::CUpdateController()
+CAbstractUpdateController::CAbstractUpdateController()
 {
 }
