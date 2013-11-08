@@ -582,10 +582,6 @@
         <translation>Quá trình loại bỏ gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>Quá trình tải về gặp lỗi và không thể hoàn tất</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI Lỗi:</translation>
     </message>

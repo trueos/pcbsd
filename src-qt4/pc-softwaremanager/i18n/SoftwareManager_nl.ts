@@ -582,10 +582,6 @@
         <translation>Het verwijderingsproces onderging een fout en kon niet worden voltooid</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>Het binnenhaalproces onderging een fout en kon niet worden voltooid</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI-fout:</translation>
     </message>

@@ -37,33 +37,33 @@ mount_pbifile() {
 }
 
 mount_dirs() {
-   is_mounted "${pDir}/virtbase" || $NULLFS / ${pDir}/virtbase
-   is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs ${pDir}/virtbase/dev
-   is_mounted "${pDir}/virtbase/usr/local" || $NULLFS ${1}/local ${pDir}/virtbase/usr/local
-   is_mounted "${pDir}/virtbase/var/run" || $NULLFS ${pDir}/run ${pDir}/virtbase/var/run
-   is_mounted "${pDir}/virtbase/compat/linux" || $NULLFS ${1}/linux ${pDir}/virtbase/compat/linux
+   is_mounted "${pDir}/virtbase" || $NULLFS / "${pDir}/virtbase"
+   is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
+   is_mounted "${pDir}/virtbase/usr/local" || $NULLFS ${1}/local "${pDir}/virtbase/usr/local"
+   is_mounted "${pDir}/virtbase/var/run" || $NULLFS ${pDir}/run "${pDir}/virtbase/var/run"
+   is_mounted "${pDir}/virtbase/compat/linux" || $NULLFS ${1}/linux "${pDir}/virtbase/compat/linux"
    if [ -d "${pDir}/virtbase/usr/local/etc/fonts" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || $NULLFS /usr/local/etc/fonts ${pDir}/virtbase/usr/local/etc/fonts
+      is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || $NULLFS /usr/local/etc/fonts "${pDir}/virtbase/usr/local/etc/fonts"
    fi
    if [ -d "${pDir}/virtbase/usr/local/lib/X11/fonts" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" || $NULLFS /usr/local/lib/X11/fonts ${pDir}/virtbase/usr/local/lib/X11/fonts
+      is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" || $NULLFS /usr/local/lib/X11/fonts "${pDir}/virtbase/usr/local/lib/X11/fonts"
    fi
    if [ -d "${pDir}/virtbase/usr/local/lib/X11/icons" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || $NULLFS /usr/local/lib/X11/icons ${pDir}/virtbase/usr/local/lib/X11/icons
+      is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || $NULLFS /usr/local/lib/X11/icons "${pDir}/virtbase/usr/local/lib/X11/icons"
    fi
-   is_mounted "${pDir}/virtbase/tmp" || $NULLFS /tmp ${pDir}/virtbase/tmp
-   is_mounted "${pDir}/virtbase/usr/home" || $NULLFS /usr/home ${pDir}/virtbase/usr/home
+   is_mounted "${pDir}/virtbase/tmp" || $NULLFS /tmp "${pDir}/virtbase/tmp"
+   is_mounted "${pDir}/virtbase/usr/home" || $NULLFS /usr/home "${pDir}/virtbase/usr/home"
    for i in `ls -d /usr/home/* 2>/dev/null`
    do
       is_mounted "${i}" 
       if [ $? -eq 0 ] ;then
-         is_mounted "${pDir}/virtbase${i}" || $NULLFS ${i} ${pDir}/virtbase${i}
+         is_mounted "${pDir}/virtbase${i}" || $NULLFS ${i} "${pDir}/virtbase${i}"
       fi
 
    done
 
-   cp /usr/pbi/.ldconfig ${pDir}/virtbase/var/run/ldconfig
-   chroot ${pDir}/virtbase /var/run/ldconfig start >/dev/null 2>/dev/null
+   cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
+   chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
 }
 
 umount_pbidir() {

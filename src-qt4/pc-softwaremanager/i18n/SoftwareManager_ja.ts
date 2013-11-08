@@ -585,10 +585,6 @@
         <translation>削除処理でエラーが発生したため完了できません</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>ダウンロード処理でエラーが発生したため完了できません</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI エラー:</translation>
     </message>
