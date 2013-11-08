@@ -211,6 +211,7 @@ Options:
   -k keywords  	-- Application keywords for searching
   -l license  	-- Application license type
 		   Example: BSD, GPL, Commercial
+  -m email   	-- Port / Application Maintainer
   -n name   	-- Application / category name (Required)
   -t type  	-- Application interface type
 		   Example; Graphical, Text, Service
@@ -541,6 +542,9 @@ parse_mt_pbi_cmdline() {
                 	case "$1" in
             	      --cat) PBI_MT_TYPE="CAT" ;;
             	      --app) PBI_MT_TYPE="APP" ;;
+			-m) if [ $# -eq 1  ]; then usage_mt_add; fi
+			    shift; PBI_MT_MAINTAINER="$1"
+			    ;;
           		-n) if [ $# -eq 1  ]; then usage_mt_add; fi
                        	    shift; PBI_MT_ADDNAME="$1"
 			    ;;
@@ -1638,7 +1642,7 @@ get_pbi_progversion() {
 
 	# Check first if we have this pkg in PKGNG
 	if [ -e "/usr/local/sbin/pkg-static" -a -n "${PBI_MAKEPORT}" ] ; then
-		local testPkgVer="`pkg query %v ${PBI_MAKEPORT}`"
+		local testPkgVer="`pkg rquery %v ${PBI_MAKEPORT}`"
 		if [ -n "$testPkgVer" ] ; then
 			export PBI_PROGVERSION="$testPkgVer"
 			return 0
@@ -2045,6 +2049,7 @@ do_pbi_mt_syncpbi()
 	if [ -n "$PBI_PROGAUTHOR" ] ; then mFlags="$mFlags -a \"${PBI_PROGAUTHOR}\""; fi
 	if [ -n "$PBI_CATEGORY" ] ; then mFlags="$mFlags -c \"${PBI_CATEGORY}\""; fi
 	if [ -n "$PBI_LICENSE" ] ; then mFlags="$mFlags -l \"${PBI_LICENSE}\""; fi
+	if [ -n "$PBI_MAINTAINER" ] ; then mFlags="$mFlags -m \"${PBI_MAINTAINER}\""; fi
 	if [ -n "$PBI_TAGS" ] ; then mFlags="$mFlags -k \"${PBI_TAGS}\""; fi
 	if [ -n "$PBI_ICONURL" ] ; then mFlags="$mFlags -i \"${PBI_ICONURL}\""; fi
 	if [ -n "$PBI_PROGWEB" ] ; then mFlags="$mFlags -u \"${PBI_PROGWEB}\""; fi
@@ -2104,7 +2109,7 @@ do_pbi_mt_add_app() {
 	local _date=`date '+%s'`
 
 	cp ${PBI_MT_METAFILE} ${PBI_TMPDIR}/.meta.$$
-	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date}" \
+	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date};${PBI_MT_MAINTAINER}" \
 	>> ${PBI_TMPDIR}/.meta.$$
 	sort ${PBI_TMPDIR}/.meta.$$ > "${PBI_MT_METAFILE}"
 	rm ${PBI_TMPDIR}/.meta.$$
@@ -3093,6 +3098,7 @@ load_info_from_dir() {
 	PBI_SIGVALID=""
 	PBI_DESC=""
 	PBI_SHORTDESC=""
+	PBI_MAINTAINER=""
 	PBI_TAGS=""
 	PBI_PROGTYPE=""
 	PBI_CATEGORY=""
@@ -3131,6 +3137,9 @@ load_info_from_dir() {
         fi
 	if [ -e "${1}/pbi_shortdesc" ] ; then
                 PBI_SHORTDESC="`cat ${1}/pbi_shortdesc`"
+        fi
+	if [ -e "${1}/pbi_maintainer" ] ; then
+                PBI_MAINTAINER="`cat ${1}/pbi_maintainer`"
         fi
 
 	# Check if auto-update is enabled
@@ -4371,6 +4380,9 @@ save_pbi_details_to_header() {
 	fi
 	if [ -n "$PBI_SHORTDESC" ] ; then
 		echo "$PBI_SHORTDESC" > ${PBI_HEADERDIR}/pbi_shortdesc
+	fi
+	if [ -n "$PBI_MAINTAINER" ] ; then
+		echo "$PBI_MAINTAINER" > ${PBI_HEADERDIR}/pbi_maintainer
 	fi
 
 	# Custom install / remove scripts
@@ -6905,6 +6917,9 @@ load_pkg_metadata()
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
 		PBI_SHORTDESC="`pkg query '%c' ${PBI_MAKEPORT}`"
+	fi
+	if [ -z "$PBI_MAINTAINER" ] ; then
+		PBI_MAINTAINER="`pkg query '%m' ${PBI_MAKEPORT}`"
 	fi
 	if [ -z "$PBI_DESC" ] ; then
 		PBI_DESC="`pkg query '%e' ${PBI_MAKEPORT}`"
