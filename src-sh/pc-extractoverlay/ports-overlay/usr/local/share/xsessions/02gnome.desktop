@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=gnome-session
+Exec=ck-launch-session gnome-session
 TryExec=gnome-terminal
 Icon=/usr/local/share/pixmaps/gnome.png
 Type=Application
