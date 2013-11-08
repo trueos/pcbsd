@@ -284,6 +284,7 @@ then
 fi
 
 IFACE=
+
 DEFAULT=0
 
 # Make sure jail uses special interface if specified
@@ -291,8 +292,12 @@ if [ -e "${JMETADIR}/iface" ] ; then
   IFACE=`cat "${JMETADIR}/iface"`
 fi
 if [ -z "${IFACE}" ] ; then
-   IFACE=`get_default_interface`
-   DEFAULT=1
+  if [ -n "$NIC" ] ; then
+    IFACE="$NIC"
+  else
+    IFACE=`get_default_interface`
+    DEFAULT=1
+  fi
 fi
 if [ -z "${IFACE}" ] ; then
   echo "ERROR: no interface specified and a default doesn't exist!"
