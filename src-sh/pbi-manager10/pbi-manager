@@ -3193,6 +3193,10 @@ do_pbi_add() {
 	# Be sure to let the pbid know we have a new hash-dir to register
 	add_hashdir_trigger
 
+	# Flush to disk
+	sleep 0.5
+	sync
+
 	clean_remote_dl
 }
 
