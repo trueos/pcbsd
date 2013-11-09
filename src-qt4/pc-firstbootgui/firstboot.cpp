@@ -460,7 +460,7 @@ void Installer::saveSettings()
   sync();
 
   // Enable Flash for the new user
-  QProcess::execute("su", QStringList() << "-m" << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
+  QProcess::execute("su", QStringList() << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
   
   // Encrypt the users home-directory?
   if ( checkEnc->isChecked() )
