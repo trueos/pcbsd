@@ -2752,9 +2752,9 @@ include/pcbsd-ui.h
 @dirrm share/pcbsd/xorg-gui/nvidia-detect
 @dirrm share/pcbsd/xorg-gui
 @dirrm share/pcbsd/xstartup
-@dirrm share/wallpapers/pcbsd9-default/contents/images
-@dirrm share/wallpapers/pcbsd9-default/contents
-@dirrm share/wallpapers/pcbsd9-default
+@dirrm share/wallpapers/pcbsd10-default/contents/images
+@dirrm share/wallpapers/pcbsd10-default/contents
+@dirrm share/wallpapers/pcbsd10-default
 @dirrm share/wallpapers/FreeBSD
 @dirrm share/wallpapers/PCBSD
 @dirrm share/wallpapers
