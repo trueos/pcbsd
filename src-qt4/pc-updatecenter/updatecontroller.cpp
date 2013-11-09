@@ -10,6 +10,11 @@ CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::cur
     return mCurrentState;
 }
 
+QString CAbstractUpdateController::updateMessage()
+{
+    return mUpdateMasage;
+}
+
 void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpdateControllerState new_state)
 {
     mCurrentState= new_state;
@@ -20,6 +25,13 @@ void CAbstractUpdateController::reportProgress(CAbstractUpdateController::SProgr
 {
     mCurrentProgress= curr_progress;
     emit progress(mCurrentProgress);
+}
+
+void CAbstractUpdateController::reportUpdatesAvail(QString message)
+{
+    mUpdateMasage = message;
+    setCurrentState(eUPDATES_AVAIL);
+    emit updatesAvail(mUpdateMasage);
 }
 
 void CAbstractUpdateController::check()

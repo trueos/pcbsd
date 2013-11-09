@@ -36,6 +36,17 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="checkButton">
+         <property name="text">
+          <string>Check for updates</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="horizontalSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -56,17 +67,6 @@
         <widget class="QProgressBar" name="progress">
          <property name="value">
           <number>24</number>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="checkButton">
-         <property name="text">
-          <string>Check</string>
-         </property>
-         <property name="icon">
-          <iconset resource="res.qrc">
-           <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
          </property>
         </widget>
        </item>

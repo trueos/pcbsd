@@ -39,10 +39,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::init()
 {
-    for (int i=0; i<ui->mainToolbox->count(); i++)
+    for (int i=0; i<ui->mainTab->count(); i++)
     {
         if (i!=TOOLBOX_MAIN_INDEX)
-            ui->mainToolbox->setItemEnabled(i, false);
+            ui->mainTab->setTabEnabled(i, false);
     }
 
     //ui->mainToolbox->

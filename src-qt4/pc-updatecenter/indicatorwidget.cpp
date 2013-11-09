@@ -86,7 +86,8 @@ void IndicatorWidget::onUpdateAvail()
 
     ui->stateImage->setPixmap(QPixmap(mAvailImage));
 
-    //ui->msgLabel->setText(tr("Checking for updates..."));
+    if (mpUC)
+        ui->msgLabel->setText(mpUC->updateMessage());
 
 }
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>507</width>
-    <height>562</height>
+    <width>598</width>
+    <height>463</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,20 +16,18 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QToolBox" name="mainToolbox">
+     <widget class="QTabWidget" name="mainTab">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
-      <widget class="QWidget" name="page">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>495</width>
-         <height>382</height>
-        </rect>
-       </property>
-       <attribute name="label">
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="Main">
+       <attribute name="title">
         <string>Main</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -184,9 +182,7 @@
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_4">
                <item>
-                <widget class="IndicatorWidget" name="pkgIndicator" native="true">
-                 <zorder>groupBox_3</zorder>
-                </widget>
+                <widget class="IndicatorWidget" name="pkgIndicator" native="true"/>
                </item>
               </layout>
              </widget>
@@ -230,54 +226,30 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>520</width>
-         <height>334</height>
-        </rect>
-       </property>
+      <widget class="QWidget" name="tab_2">
        <attribute name="icon">
         <iconset resource="res.qrc">
          <normaloff>:/images/sysupdates.png</normaloff>:/images/sysupdates.png</iconset>
        </attribute>
-       <attribute name="label">
+       <attribute name="title">
         <string>System update details</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="page_3">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>520</width>
-         <height>334</height>
-        </rect>
-       </property>
+      <widget class="QWidget" name="tab">
        <attribute name="icon">
         <iconset resource="res.qrc">
          <normaloff>:/images/pkgupdates.png</normaloff>:/images/pkgupdates.png</iconset>
        </attribute>
-       <attribute name="label">
+       <attribute name="title">
         <string>Package update details</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="page_4">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>520</width>
-         <height>334</height>
-        </rect>
-       </property>
+      <widget class="QWidget" name="tab_3">
        <attribute name="icon">
         <iconset resource="res.qrc">
          <normaloff>:/images/pbiupdates.png</normaloff>:/images/pbiupdates.png</iconset>
        </attribute>
-       <attribute name="label">
+       <attribute name="title">
         <string>Software update details</string>
        </attribute>
       </widget>
@@ -290,7 +262,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>507</width>
+     <width>598</width>
      <height>21</height>
     </rect>
    </property>

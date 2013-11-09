@@ -32,10 +32,12 @@ public:
 
     EUpdateControllerState curentState();
     SProgress              currentProgress();
+    QString                updateMessage();
 
 protected:
     void setCurrentState(EUpdateControllerState new_state);
     void reportProgress(SProgress curr_progress);
+    void reportUpdatesAvail(QString message);
 
     virtual void onCheckUpdates()=0;
     virtual void onUpdateAll()=0;
@@ -43,11 +45,12 @@ protected:
 private:
     EUpdateControllerState mCurrentState;
     SProgress              mCurrentProgress;
+    QString                mUpdateMasage;
 
 signals:
     void stateChanged(EUpdateControllerState new_state);
     void progress(SProgress progress);
-    void updatesAvail();
+    void updatesAvail(QString update_message);
 
 public slots:
     void check();//=0;

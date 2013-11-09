@@ -6,7 +6,7 @@ CPBIController::CPBIController()
 
 void CPBIController::onCheckUpdates()
 {
-    setCurrentState(eFULLY_UPDATED);
+    reportUpdatesAvail("Available updates for 3 PBI packages");
 }
 
 void CPBIController::onUpdateAll()
