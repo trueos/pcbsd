@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zum Abschluß der Aktualisierung ist Neustart erforderlich!</translation>
     </message>
 </context>
 </TS>

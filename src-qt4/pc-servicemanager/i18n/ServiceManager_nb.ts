@@ -5,8 +5,7 @@
     <name>ServiceManager</name>
     <message>
         <source>Service Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tjenestebehandling</translation>
     </message>
     <message>
         <source>Service Name</source>
@@ -66,8 +65,7 @@
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Behandle tjenester for Warden IP:</translation>
     </message>
     <message>
         <source>Checking...</source>

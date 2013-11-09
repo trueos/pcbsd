@@ -65,11 +65,11 @@
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation>999\.999\.999\.999; </translation>
+        <translation>999\.999\.999\.999;</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Monipuoliset asetukset</translation>
+        <translation>Monipuoliset asetukset</translation>
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>Missing Fields</source>
-        <translation type="unfinished">Puuttuvat kentät</translation>
+        <translation>Puuttuvat kentät</translation>
     </message>
     <message>
         <source>You must enter an IP and Netmask to continue!
@@ -159,19 +159,19 @@
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation type="unfinished">IP-osoite ei ole oikeanlainen! (</translation>
+        <translation>IP-osoite on IP-alueen ulkopuolella! (</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>
-        <translation type="unfinished">) Kenttien arvojen tulee olla 0 ja 255 välillä.</translation>
+        <translation>) Kenttien arvojen tulee olla 0 ja 255 välillä.</translation>
     </message>
     <message>
         <source>Netmask is out of range! (</source>
-        <translation type="unfinished">Verkkopeite ei ole oikeanlainen! (</translation>
+        <translation>Verkkopeite on IP-alueen ulkopuolella! (</translation>
     </message>
     <message>
         <source>configuration</source>
-        <translation type="unfinished">asetus</translation>
+        <translation>asetus</translation>
     </message>
     <message>
         <source>Enable WPA authentication</source>

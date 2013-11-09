@@ -209,8 +209,7 @@
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>VNET / VIMAGE-Unterstützung aktivieren</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
