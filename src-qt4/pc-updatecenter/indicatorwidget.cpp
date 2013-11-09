@@ -30,7 +30,7 @@ bool IndicatorWidget::init(QString check_img, QString ok_img,
     stateChanged(mpUC->curentState());
 
     connect(mpUC, SIGNAL(stateChanged(AbstractUpdateController::EUpdateControllerState)),
-            this, SLOT(AbstractUpdateController::EUpdateControllerState));
+            this, SLOT(stateChanged(AbstractUpdateController::EUpdateControllerState)));
 
     return true;
 }

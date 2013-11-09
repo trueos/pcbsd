@@ -34,6 +34,8 @@ public:
     SProgress              currentProgress();
     QString                updateMessage();
 
+    virtual void parseProcessLine(QString line) { Q_UNUSED(line);};
+
 protected:
     void setCurrentState(EUpdateControllerState new_state);
     void reportProgress(SProgress curr_progress);
