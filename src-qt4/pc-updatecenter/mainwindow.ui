@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>534</width>
-    <height>516</height>
+    <width>507</width>
+    <height>562</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QToolBox" name="toolBox">
+     <widget class="QToolBox" name="mainToolbox">
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -25,8 +25,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>522</width>
-         <height>336</height>
+         <width>495</width>
+         <height>382</height>
         </rect>
        </property>
        <attribute name="label">
@@ -34,7 +34,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QStackedWidget" name="stackedWidget">
+         <widget class="QStackedWidget" name="mainStatesStack">
           <property name="currentIndex">
            <number>1</number>
           </property>
@@ -165,7 +165,7 @@
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_3">
                <item>
-                <widget class="IndicatorWidget" name="widget" native="true"/>
+                <widget class="IndicatorWidget" name="sysIndicator" native="true"/>
                </item>
               </layout>
              </widget>
@@ -182,68 +182,13 @@
               <property name="title">
                <string>Packages</string>
               </property>
-              <widget class="QWidget" name="layoutWidget">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>20</y>
-                 <width>471</width>
-                 <height>66</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QLabel" name="label_5">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/images/pkgcheck.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_5">
-                  <item>
-                   <widget class="QLabel" name="label_6">
-                    <property name="text">
-                     <string>Checking for updates...</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_6">
-                    <item>
-                     <widget class="QProgressBar" name="progressBar_2">
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_5">
-                      <property name="text">
-                       <string>Check</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="res.qrc">
-                        <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_6">
-                      <property name="text">
-                       <string>Details...</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_4">
+               <item>
+                <widget class="IndicatorWidget" name="pkgIndicator" native="true">
+                 <zorder>groupBox_3</zorder>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
@@ -258,68 +203,11 @@
               <property name="title">
                <string>Software</string>
               </property>
-              <widget class="QWidget" name="layoutWidget_2">
-               <property name="geometry">
-                <rect>
-                 <x>0</x>
-                 <y>10</y>
-                 <width>471</width>
-                 <height>66</height>
-                </rect>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
-                 <widget class="QLabel" name="label_7">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/images/pbicheck.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_6">
-                  <item>
-                   <widget class="QLabel" name="label_8">
-                    <property name="text">
-                     <string>Checking for updates...</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="horizontalLayout_8">
-                    <item>
-                     <widget class="QProgressBar" name="progressBar_3">
-                      <property name="value">
-                       <number>24</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_7">
-                      <property name="text">
-                       <string>Check</string>
-                      </property>
-                      <property name="icon">
-                       <iconset resource="res.qrc">
-                        <normaloff>:/images/view-refresh.png</normaloff>:/images/view-refresh.png</iconset>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QPushButton" name="pushButton_8">
-                      <property name="text">
-                       <string>Details...</string>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </widget>
+              <layout class="QVBoxLayout" name="verticalLayout_5">
+               <item>
+                <widget class="IndicatorWidget" name="pbiIndicator" native="true"/>
+               </item>
+              </layout>
              </widget>
             </item>
             <item>
@@ -347,8 +235,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>522</width>
-         <height>336</height>
+         <width>520</width>
+         <height>334</height>
         </rect>
        </property>
        <attribute name="icon">
@@ -360,6 +248,14 @@
        </attribute>
       </widget>
       <widget class="QWidget" name="page_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>520</width>
+         <height>334</height>
+        </rect>
+       </property>
        <attribute name="icon">
         <iconset resource="res.qrc">
          <normaloff>:/images/pkgupdates.png</normaloff>:/images/pkgupdates.png</iconset>
@@ -369,6 +265,14 @@
        </attribute>
       </widget>
       <widget class="QWidget" name="page_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>520</width>
+         <height>334</height>
+        </rect>
+       </property>
        <attribute name="icon">
         <iconset resource="res.qrc">
          <normaloff>:/images/pbiupdates.png</normaloff>:/images/pbiupdates.png</iconset>
@@ -386,7 +290,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>534</width>
+     <width>507</width>
      <height>21</height>
     </rect>
    </property>

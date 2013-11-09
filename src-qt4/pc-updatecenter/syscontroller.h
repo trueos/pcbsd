@@ -9,9 +9,9 @@ class CSysController : public CAbstractUpdateController
 public:
     CSysController();
     
-signals:
-    
-public slots:
+protected:
+    virtual void onCheckUpdates();
+    virtual void onUpdateAll();
     
 };
 

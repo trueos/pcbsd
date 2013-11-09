@@ -13,6 +13,7 @@ public:
        eCHECKING,
        eFULLY_UPDATED,
        eUPDATES_AVAIL,
+       eUPDATING,
        eUPDATING_ERROR
     }EUpdateControllerState;
 
@@ -30,16 +31,27 @@ public:
     CAbstractUpdateController();
 
     EUpdateControllerState curentState();
+    SProgress              currentProgress();
 
+protected:
+    void setCurrentState(EUpdateControllerState new_state);
+    void reportProgress(SProgress curr_progress);
 
+    virtual void onCheckUpdates()=0;
+    virtual void onUpdateAll()=0;
+
+private:
+    EUpdateControllerState mCurrentState;
+    SProgress              mCurrentProgress;
 
 signals:
     void stateChanged(EUpdateControllerState new_state);
     void progress(SProgress progress);
+    void updatesAvail();
 
 public slots:
-    virtual void check(){}//=0;
-    virtual void updateAll(){}//=0;
+    void check();//=0;
+    void updateAll();//=0;
 
 };
 

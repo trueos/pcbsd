@@ -24,6 +24,19 @@ public slots:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void progress(CAbstractUpdateController::SProgress progress);
 
+protected:
+    void onCheck();
+    void onUpdateAvail();
+    void onFullyUpdated();
+    void onUpdateProgress();
+
+protected:
+    QString mCheckImage;
+    QString mOkImage;
+    QString mAvailImage;
+    QString mProcessImage;
+    CAbstractUpdateController* mpUC;
+
 private:
     Ui::IndicatorWidget *ui;
 };

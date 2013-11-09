@@ -16,12 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     indicatorwidget.cpp \
     updatecontroller.cpp \
-    syscontroller.cpp
+    syscontroller.cpp \
+    pkgcontroller.cpp \
+    pbicontroller.cpp
 
 HEADERS  += mainwindow.h \
     indicatorwidget.h \
     updatecontroller.h \
-    syscontroller.h
+    syscontroller.h \
+    pkgcontroller.h \
+    pbicontroller.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui

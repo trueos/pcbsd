@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 
+#include "syscontroller.h"
+#include "pkgcontroller.h"
+#include "pbicontroller.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +21,12 @@ public:
     
 private:
     Ui::MainWindow *ui;
+
+    void init();
+
+    CSysController  mSysController;
+    CPkgController  mPkgController;
+    CPBIController  mPBIController;
 };
 
 #endif // MAINWINDOW_H
