@@ -455,7 +455,7 @@ bool UserManagerBackend::commit()
 
 		if ( chroot.isEmpty() ) {
 		   qDebug() << "Enabling Flash Plugin for " << userIt->getUsername();
-		   QString flashCmd = "su -m " + userIt->getUsername() + " -c \"flashpluginctl on\"";
+		   QString flashCmd = "su " + userIt->getUsername() + " -c \"flashpluginctl on\"";
 		   system(flashCmd.toLatin1());
 		}
 
