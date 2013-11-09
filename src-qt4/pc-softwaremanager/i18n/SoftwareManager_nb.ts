@@ -26,8 +26,7 @@
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Registrer filassosiasjoner</translation>
     </message>
     <message>
         <source>Create Path Links</source>
@@ -40,18 +39,15 @@
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nedlastingsmappe</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nedlastingsmappe</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arkiv</translation>
     </message>
     <message>
         <source>Add</source>
@@ -78,18 +74,15 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fjerne</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Legg til PBI arkiv</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arkivfil (*.rpo)</translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
@@ -98,8 +91,7 @@
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dette arkivet skal være klart for bruk i løpet av kort tid (avhengig av farten på din internettforbindelse).</translation>
     </message>
     <message>
         <source>Repo Failure</source>
@@ -108,8 +100,7 @@
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dette arkivet kunne ikke bli lagt til.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
@@ -123,8 +114,7 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Er du sikker på at du ønsker å fjerne dette PBI arkivet?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
@@ -153,8 +143,7 @@
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velg nedlastingsmappe</translation>
     </message>
 </context>
 <context>
@@ -200,8 +189,7 @@
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Programdetaljer</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -209,8 +197,7 @@
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skaper:</translation>
     </message>
     <message>
         <source>License:</source>

@@ -217,8 +217,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apstiprināt</translation>
     </message>
     <message>
         <source>Cancel</source>

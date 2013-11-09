@@ -22,8 +22,7 @@
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velkommen til PC-BSD! Vennligst velg språk og klikk neste for å fortsette.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -231,8 +230,7 @@
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Last inn konfigurasjon fra USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
@@ -276,8 +274,7 @@
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dette vil laste inn installasjonskonfigurasjon fra ditt MSDOSFS/FAT32 formaterte USB medium. Fortsett?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
@@ -683,13 +680,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Speiling:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partisjon:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
@@ -701,8 +696,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monteringspunkt:</translation>
     </message>
     <message>
         <source>Enable ZFS mirror/raidz mode</source>
@@ -735,13 +729,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Invalid Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ugyldig montering</translation>
     </message>
     <message>
         <source>Mount point should start with &apos;/&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monteringspunkt skal starte med &apos;/&apos;</translation>
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>

@@ -484,8 +484,7 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anbieterseite</translation>
     </message>
     <message>
         <source>Verify Installation</source>
