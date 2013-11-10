@@ -37,7 +37,7 @@ public:
     virtual void parseProcessLine(QString line) { Q_UNUSED(line);};
 
 protected:
-    void setCurrentState(EUpdateControllerState new_state);
+    virtual void setCurrentState(EUpdateControllerState new_state);
     void reportProgress(SProgress curr_progress);
     void reportUpdatesAvail(QString message);
 
@@ -49,9 +49,9 @@ private:
     SProgress              mCurrentProgress;
     QString                mUpdateMasage;
 
-signals:
-    void stateChanged(EUpdateControllerState new_state);
-    void progress(SProgress progress);
+public: signals:
+    void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+    void progress(CAbstractUpdateController::SProgress progress);
     void updatesAvail(QString update_message);
 
 public slots:

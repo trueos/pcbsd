@@ -29,8 +29,8 @@ bool IndicatorWidget::init(QString check_img, QString ok_img,
     mpUC = upd_controller;
     stateChanged(mpUC->curentState());
 
-    connect(mpUC, SIGNAL(stateChanged(AbstractUpdateController::EUpdateControllerState)),
-            this, SLOT(stateChanged(AbstractUpdateController::EUpdateControllerState)));
+    connect(mpUC, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(stateChanged(CAbstractUpdateController::EUpdateControllerState)));
 
     return true;
 }
