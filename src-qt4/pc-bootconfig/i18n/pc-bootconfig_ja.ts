@@ -245,8 +245,7 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在実行中のブート環境をコピーできません!</translation>
     </message>
 </context>
 </TS>

@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Av&amp;bryt</translation>
     </message>
     <message>
         <source>&amp;Back</source>
@@ -26,8 +25,7 @@
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Skreddersy</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -44,8 +42,7 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemet ditt blir nå installert! Denne prosessen kan ta en stund, avhenging av instillingene som er valgt og hastigheten på datamaskinen. Du vil bli informert når installasjonen er fullført.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
@@ -64,8 +61,7 @@
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Speiling:</translation>
     </message>
     <message>
         <source>Partition:</source>
@@ -81,8 +77,7 @@
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monteringspunkt:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
@@ -113,8 +108,7 @@
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ønsker du å generere en feilrapport?</translation>
     </message>
     <message>
         <source>Restart the system now?</source>
@@ -123,8 +117,7 @@
     </message>
     <message>
         <source>Installing system... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installerer systemet... Dette kan ta en stund...</translation>
     </message>
     <message>
         <source>Options:</source>
@@ -132,8 +125,7 @@
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fullfør</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -147,8 +139,7 @@
     </message>
     <message>
         <source>System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemvalg</translation>
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
@@ -171,8 +162,7 @@
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start skjermtastatur</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
@@ -180,19 +170,17 @@
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TrueOS programvarevalg</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD programvarevalg</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemet ditt er nå installert!
+Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjonsmediet.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -200,8 +188,7 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakker ut systemet...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
@@ -230,27 +217,23 @@
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation>Last inn konfigurasjon fra USB</translation>
+        <translation>Last inn oppsett fra USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrivebord (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tjener (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lagre oppsett til USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dette vil lagre ditt installasjonsoppsett til et MSDOSFS/FAT32 formattert USB medium. Fortsett?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
@@ -269,12 +252,11 @@
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oppsett lagret! Du kan nå trygt fjerne USB mediet.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation>Dette vil laste inn installasjonskonfigurasjon fra ditt MSDOSFS/FAT32 formaterte USB medium. Fortsett?</translation>
+        <translation>Dette vil laste inn installasjonsoppsett fra ditt MSDOSFS/FAT32 formaterte USB medium. Fortsett?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
@@ -288,12 +270,11 @@
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oppsett lastet! Du kan nå trygt fjerne USB mediet.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation>Konfigurasjonsfil:</translation>
+        <translation>Oppsettfil:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
@@ -302,8 +283,7 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gjenoppretting fra Life-Preserver reservekopi</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
@@ -317,13 +297,11 @@
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Den originale ZFS utformingen vil bli gjenopprettet</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utfører gjenoppretting fra Life-Preserver reservekopi. Klikk neste for å starte gjennopprettelsesveiviser.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
@@ -332,8 +310,8 @@
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemet ditt er nå gjenopprettet!
+Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjonsmediet.</translation>
     </message>
     <message>
         <source>System Restore</source>
@@ -432,8 +410,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>dialogCheckHardware</name>
     <message>
         <source>Detected hardware devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gjenkjente maskinvareenheter</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -441,8 +418,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Video driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skjermkort driver:</translation>
     </message>
     <message>
         <source>Video resolution:</source>
@@ -539,8 +515,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Bruk</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -556,8 +531,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oppsettmodus</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
@@ -742,18 +716,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vennligst velg 2 eller 4 ytterligere lagringsenheter for raidz1</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vennligst velg 3, 5 eller 9 ytterligere lagringsenheter for raidz2</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vennligst velg 4, 6 eller 10 ytterligere lagringsenheter for raidz3</translation>
     </message>
     <message>
         <source>Enter SWAP size</source>

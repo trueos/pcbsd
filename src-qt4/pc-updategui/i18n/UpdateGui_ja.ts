@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
-        <translation>アップデートを始める前に、あなたのデータをバックアップすることをお勧めします。</translation>
+        <translation>アップデートを始める前に、あなたのデータをバックアップすることをおすすめします。</translation>
     </message>
     <message>
         <source>This is a patch for your version of PC-BSD</source>
@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートの完了には再起動が必要です。</translation>
     </message>
 </context>
 </TS>

@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Hva ønsker du å konfigurere?</translation>
+        <translation>Hva ønsker du å sette opp?</translation>
     </message>
 </context>
 </TS>
