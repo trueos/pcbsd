@@ -130,9 +130,7 @@ void CPkgController::checkReadLine(QString line)
             mUpdData.mDownloadSize = sizeToLong(line);
             return;
         }
-
-
-    }
+    }//if we read common update data
     else
     {
         EPkgAction action = eUnknown;

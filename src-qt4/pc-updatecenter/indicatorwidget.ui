@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>419</width>
-    <height>74</height>
+    <width>496</width>
+    <height>76</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,16 +64,20 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QProgressBar" name="progress">
-         <property name="value">
-          <number>24</number>
+        <widget class="QPushButton" name="installButton">
+         <property name="text">
+          <string>Install updates</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="detailsButton">
-         <property name="text">
-          <string>Details...</string>
+        <widget class="QProgressBar" name="progress">
+         <property name="value">
+          <number>24</number>
          </property>
         </widget>
        </item>

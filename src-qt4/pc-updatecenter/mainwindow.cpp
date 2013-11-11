@@ -134,9 +134,9 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
                 QTreeWidgetItem* item = new QTreeWidgetItem(QStringList()<<curr.mPackageName<<curr.mOldVersion<<curr.mReinstallReason);
                 ui->pkgReinstallList->addTopLevelItem(item);
             }
-        }
+        }//populate lists
 
-    }
+    }// if updates evail.
 
 
 

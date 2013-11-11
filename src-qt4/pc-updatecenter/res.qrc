@@ -12,5 +12,7 @@
         <file>images/pkgcheck.png</file>
         <file>images/sysok.png</file>
         <file>images/download.png</file>
+        <file>images/install.png</file>
+        <file>update-center.png</file>
     </qresource>
 </RCC>

@@ -72,7 +72,7 @@ void IndicatorWidget::onCheck()
 {
     ui->progress->setVisible(false);
     ui->checkButton->setVisible(false);
-    ui->detailsButton->setVisible(false);
+    ui->installButton->setVisible(false);
 
     ui->stateImage->setPixmap(QPixmap(mCheckImage));
 
@@ -83,7 +83,7 @@ void IndicatorWidget::onUpdateAvail()
 {
     ui->progress->setVisible(false);
     ui->checkButton->setVisible(true);
-    ui->detailsButton->setVisible(true);
+    ui->installButton->setVisible(true);
 
     ui->stateImage->setPixmap(QPixmap(mAvailImage));
 
@@ -96,7 +96,7 @@ void IndicatorWidget::onFullyUpdated()
 {
     ui->progress->setVisible(false);
     ui->checkButton->setVisible(true);
-    ui->detailsButton->setVisible(false);
+    ui->installButton->setVisible(false);
 
     ui->stateImage->setPixmap(QPixmap(mOkImage));
     ui->msgLabel->setText(tr("Is up to date!"));
