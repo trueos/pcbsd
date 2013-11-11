@@ -11,7 +11,7 @@ class CSysController : public CAbstractUpdateController
 public:
     CSysController();
     
-    virtual void parseProcessLine(QString line);
+    virtual void parseProcessLine(EUpdateControllerState state, QString line);
 
 protected:
     virtual void onCheckUpdates();

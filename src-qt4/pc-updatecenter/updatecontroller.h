@@ -30,11 +30,12 @@ public:
 public:
     CAbstractUpdateController();
 
-    EUpdateControllerState curentState();
+    EUpdateControllerState currentState();
     SProgress              currentProgress();
     QString                updateMessage();
 
-    virtual void parseProcessLine(QString line) { Q_UNUSED(line);};
+    virtual void parseProcessLine(EUpdateControllerState state, QString line)
+    { Q_UNUSED(line); Q_UNUSED(state)};
 
 protected:
     virtual void setCurrentState(EUpdateControllerState new_state);

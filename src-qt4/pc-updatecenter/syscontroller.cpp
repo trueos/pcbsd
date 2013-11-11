@@ -2,7 +2,7 @@
 
 #include <QDebug>
 
-const QString UPDATE_MANAGER = "pc-updatemanager";
+static const QString UPDATE_MANAGER = "pc-updatemanager";
 #define UM_CHECK_PARAMS "check"
 
 CSysController::CSysController()
@@ -12,9 +12,9 @@ CSysController::CSysController()
             this, SLOT(slotProcessRead()));
 }
 
-void CSysController::parseProcessLine(QString line)
+void CSysController::parseProcessLine(EUpdateControllerState state, QString line)
 {
-    switch(curentState())
+    switch(state)
     {
         case eCHECKING:
             checkReadLine(line);
@@ -44,7 +44,7 @@ void CSysController::onUpdateAll()
 void CSysController::slotProcessRead()
 {
     while (mUpdProcess.canReadLine())
-        parseProcessLine(mUpdProcess.readLine().simplified());
+        parseProcessLine(currentState(), mUpdProcess.readLine().simplified());
 
 }
 

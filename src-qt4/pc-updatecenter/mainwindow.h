@@ -7,6 +7,7 @@
 #include "pkgcontroller.h"
 #include "pbicontroller.h"
 
+
 namespace Ui {
 class MainWindow;
 }
@@ -27,6 +28,9 @@ private:
     CSysController  mSysController;
     CPkgController  mPkgController;
     CPBIController  mPBIController;
+
+public slots:
+    void pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 };
 
 #endif // MAINWINDOW_H

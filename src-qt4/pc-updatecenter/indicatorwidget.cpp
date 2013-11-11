@@ -27,10 +27,11 @@ bool IndicatorWidget::init(QString check_img, QString ok_img,
     mAvailImage= avail_img;
     mProcessImage= process_img;
     mpUC = upd_controller;
-    stateChanged(mpUC->curentState());
+    stateChanged(mpUC->currentState());
 
     connect(mpUC, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(stateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(ui->checkButton, SIGNAL(clicked()), mpUC, SLOT(check()));
 
     return true;
 }

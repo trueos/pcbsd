@@ -5,7 +5,7 @@ CAbstractUpdateController::CAbstractUpdateController()
     mCurrentState= eNOT_INITIALIZED;
 }
 
-CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::curentState()
+CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::currentState()
 {
     return mCurrentState;
 }
@@ -18,6 +18,14 @@ QString CAbstractUpdateController::updateMessage()
 void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpdateControllerState new_state)
 {
     mCurrentState= new_state;
+
+    //Set default start values for update progress
+    if(new_state == eUPDATING)
+    {
+        mUpdateMasage = tr("Starting update...");
+        mCurrentProgress = SProgress();
+    }
+
     emit stateChanged(mCurrentState);
 }
 

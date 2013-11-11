@@ -8,6 +8,10 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
+INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
+
+
 TARGET = pc-updatecenter
 TEMPLATE = app
 
