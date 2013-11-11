@@ -5,11 +5,11 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation>AppCafe Konfigurasjon</translation>
+        <translation>AppCafe Innstillinger</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation>Konfigurasjon</translation>
+        <translation>Innstillinger</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
@@ -427,8 +427,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fjerne</translation>
     </message>
     <message>
         <source>Menu Icons</source>
@@ -436,8 +435,7 @@
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Legg til (alle brukere)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -446,8 +444,7 @@
     </message>
     <message>
         <source>File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filassosiasjoner</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
@@ -456,8 +453,7 @@
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skrivebord/Meny</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -493,8 +489,7 @@
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installer nå!</translation>
     </message>
     <message>
         <source>Downgrade</source>
@@ -532,8 +527,7 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produktside</translation>
     </message>
     <message>
         <source>Verify Installation</source>
@@ -622,8 +616,7 @@
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oppdateringsprosessen støtte på en feil og kunne ikke fullføre</translation>
     </message>
     <message>
         <source>%1 Installation Error:</source>

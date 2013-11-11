@@ -15,21 +15,18 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャンセル(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用可能なアップデート</translation>
     </message>
     <message>
         <source>System Package Manager</source>
@@ -68,8 +65,7 @@
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>http://www.pcbsd.org</translation>
     </message>
     <message>
         <source>Options</source>
@@ -78,8 +74,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>適用(&amp;A)</translation>
     </message>
     <message>
         <source>Package Updates</source>
@@ -118,13 +113,11 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -133,8 +126,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>終了(&amp;Q)</translation>
     </message>
     <message>
         <source>&amp;Basic</source>
@@ -158,8 +150,7 @@
     </message>
     <message>
         <source>Available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用可能なアップデート</translation>
     </message>
     <message>
         <source>No available updates</source>
@@ -208,8 +199,7 @@
     </message>
     <message>
         <source>Finished!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>完了しました。</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
@@ -278,8 +268,7 @@
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロード中: %1</translation>
     </message>
     <message>
         <source>Dependencies</source>
