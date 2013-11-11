@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
-        <translation>アップデートの準備中です... しばらくお待ち下さい...</translation>
+        <translation>アップデートの準備をしています... しばらくお待ち下さい...</translation>
     </message>
     <message>
         <source>Available Updates</source>

@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
-        <translation>インストーラーにてエラーが発生したため停止します。</translation>
+        <translation>インストーラーにエラーが発生したため停止します。</translation>
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
@@ -271,44 +271,37 @@
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>復旧されるオリジナルのZFSレイアウト</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Life-Preserver 内のバックアップから復旧します。「次へ」をクリックしたら復旧ウィザードを起動します。</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>復旧を開始しますか?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムを復旧しました!
+「完了」をクリックすると再起動します。再起動中にインストールメディアを取り外してください。</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムの復旧</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムを復旧しています。待ち時間はバックアップの内容とネットワークの状態に依存します。</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メタパッケージをインストールしています: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムを復旧しています: %1</translation>
     </message>
 </context>
 <context>
