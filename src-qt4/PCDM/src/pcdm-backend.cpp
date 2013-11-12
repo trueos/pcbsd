@@ -281,7 +281,7 @@ void Backend::loadXSessionsData(){
       //if(!tmp[0].startsWith("/")){ tmp[0] = "/usr/local/bin/"+tmp[0]; }
       if(!tmp[3].startsWith("/")&&!tmp[3].startsWith(":")&&!tmp[3].isEmpty()){ tmp[3] = xIconDir+tmp[3]; }
       if(!tmp[4].startsWith("/") && !QFile::exists(tmp[4])){ 
-	for(int p=0; i<paths.length(); i++){
+	for(int p=0; p<paths.length(); p++){
 	  if(QFile::exists(paths[p]+"/"+tmp[4])){
 	    tmp[4] = paths[p]+"/"+tmp[4];
 	  }
