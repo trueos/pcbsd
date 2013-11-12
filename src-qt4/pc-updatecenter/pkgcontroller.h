@@ -9,6 +9,10 @@
 class CPkgController : public CAbstractUpdateController
 {
     Q_OBJECT
+
+    USES_CHECK_SHELL_COMMAND("pc-updatemanager", QString("pkgcheck"))
+    USES_UPDATE_SHELL_COMMAND("pc-updatemanager", QString("pkgcheck"))
+
 public:
 
     typedef enum{
@@ -50,21 +54,11 @@ public:
 
     SUpdate updateData();
 
-    virtual void parseProcessLine(EUpdateControllerState state, QString line);
-
 protected:
-    virtual void onCheckUpdates();
-    virtual void onUpdateAll();
-
-private slots:
-    void slotProcessRead();
+    virtual void onReadCheckLine(QString line);
+    virtual void onReadUpdateLine(QString line);
 
 private:
-    void checkReadLine(QString line);
-    void updateReadLine(QString line);
-
-private:
-    QProcess mUpdProcess;
     SUpdate mUpdData;
 };
 

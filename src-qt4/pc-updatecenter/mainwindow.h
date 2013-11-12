@@ -31,6 +31,7 @@ private:
 
 public slots:
     void pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+    void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 };
 
 #endif // MAINWINDOW_H

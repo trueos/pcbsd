@@ -14,5 +14,6 @@
         <file>images/download.png</file>
         <file>images/install.png</file>
         <file>update-center.png</file>
+        <file>images/application.png</file>
     </qresource>
 </RCC>

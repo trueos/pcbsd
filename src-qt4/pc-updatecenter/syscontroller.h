@@ -8,25 +8,18 @@
 class CSysController : public CAbstractUpdateController
 {
     Q_OBJECT
+
+    USES_CHECK_SHELL_COMMAND("pc-updatemanager", QString("check"))
+    USES_UPDATE_SHELL_COMMAND("pc-updatemanager", QString("check"))
+
 public:
     CSysController();
     
-    virtual void parseProcessLine(EUpdateControllerState state, QString line);
-
 protected:
-    virtual void onCheckUpdates();
-    virtual void onUpdateAll();
-
-private slots:
-    void slotProcessRead();
+    void onReadCheckLine(QString line);
+    void onReadUpdateLine(QString line);
 
 private:
-    void checkReadLine(QString line);
-    void updateReadLine(QString line);
-
-private:
-    QProcess mUpdProcess;
-
     
 };
 

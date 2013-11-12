@@ -2,18 +2,15 @@
 
 #include <QDebug>
 
-static const QString UPDATE_MANAGER = "pc-updatemanager";
-#define UM_CHECK_PARAMS "pkgcheck"
+static const char* const UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
+static const char* const UPDATES_AVAIL_SIZE_STRING = "The upgrade will require ";
+static const char* const UPDATES_AVAIL_SIZE_FREE_STR= "The upgrade will free ";
+static const char* const UPDATES_AVAIL_DL_SIZE_STRING = " to be downloaded";
+static const char* const UPDATES_AVAIL_END_STRING = "To start the upgrade run";
 
-const char* const UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
-const char* const UPDATES_AVAIL_SIZE_STRING = "The upgrade will require ";
-const char* const UPDATES_AVAIL_SIZE_FREE_STR= "The upgrade will free ";
-const char* const UPDATES_AVAIL_DL_SIZE_STRING = " to be downloaded";
-const char* const UPDATES_AVAIL_END_STRING = "To start the upgrade run";
-
-const char* const INSTALLING  = "Installing";
-const char* const UPGRADING   = "Upgrading";
-const char* const REINSTALLING = "Reinstalling";
+static const char* const INSTALLING  = "Installing";
+static const char* const UPGRADING   = "Upgrading";
+static const char* const REINSTALLING = "Reinstalling";
 
 typedef enum{
     eCommonInfo,
@@ -45,9 +42,7 @@ static long long sizeToLong(QString size_with_units)
 
 CPkgController::CPkgController()
 {
-    mUpdProcess.setProcessChannelMode(QProcess::MergedChannels);
-    connect(&mUpdProcess, SIGNAL(readyReadStandardOutput()),
-            this, SLOT(slotProcessRead()));
+
 }
 
 CPkgController::SUpdate CPkgController::updateData()
@@ -55,40 +50,7 @@ CPkgController::SUpdate CPkgController::updateData()
     return mUpdData;
 }
 
-void CPkgController::parseProcessLine(CAbstractUpdateController::EUpdateControllerState state, QString line)
-{
-    switch(state)
-    {
-        case eCHECKING:
-            checkReadLine(line.trimmed());
-            break;
-
-        case eUPDATING:
-            updateReadLine(line.trimmed());
-            break;
-
-        default: //fuckup here
-        qDebug()<<"Unknown state of update manager";
-    }
-}
-
-void CPkgController::onCheckUpdates()
-{
-    mUpdProcess.start(UPDATE_MANAGER, QStringList() << UM_CHECK_PARAMS);
-}
-
-void CPkgController::onUpdateAll()
-{
-
-}
-
-void CPkgController::slotProcessRead()
-{
-    while (mUpdProcess.canReadLine())
-        parseProcessLine(currentState(), mUpdProcess.readLine().simplified());
-}
-
-void CPkgController::checkReadLine(QString line)
+void CPkgController::onReadCheckLine(QString line)
 {
     static ECheckClState curChkrState = eCommonInfo;
     line = line.trimmed();
@@ -207,7 +169,7 @@ void CPkgController::checkReadLine(QString line)
     }// if inside packages list
 }
 
-void CPkgController::updateReadLine(QString line)
+void CPkgController::onReadUpdateLine(QString line)
 {
     Q_UNUSED(line);
 }

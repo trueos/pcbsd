@@ -1,8 +1,15 @@
 #include "updatecontroller.h"
 
+#include <QDebug>
+
 CAbstractUpdateController::CAbstractUpdateController()
 {
     mCurrentState= eNOT_INITIALIZED;
+    mUpdProc.setProcessChannelMode(QProcess::MergedChannels);
+    connect(&mUpdProc, SIGNAL(readyReadStandardOutput()),
+            this, SLOT(slotProcessRead()));
+    connect(&mUpdProc, SIGNAL(finished(int,QProcess::ExitStatus)),
+            this, SLOT(slotProcessFinished(int,QProcess::ExitStatus)));
 }
 
 CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::currentState()
@@ -13,6 +20,22 @@ CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::cur
 QString CAbstractUpdateController::updateMessage()
 {
     return mUpdateMasage;
+}
+
+void CAbstractUpdateController::parseProcessLine(CAbstractUpdateController::EUpdateControllerState state, QString line)
+{
+    switch (state)
+    {
+        case eCHECKING:
+            onReadCheckLine(line);
+            break;
+        case eUPDATING:
+            onReadUpdateLine(line);
+            break;
+        case eNOT_INITIALIZED:
+            qDebug()<<"Updater internal state error";
+            break;
+    }
 }
 
 void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpdateControllerState new_state)
@@ -42,16 +65,66 @@ void CAbstractUpdateController::reportUpdatesAvail(QString message)
     emit updatesAvail(mUpdateMasage);
 }
 
+void CAbstractUpdateController::reportError(QString error_message)
+{
+    mErrorMessage = error_message;
+    setCurrentState(eUPDATING_ERROR);
+    emit updateError(mErrorMessage);
+}
+
 void CAbstractUpdateController::check()
 {
-    //TODO: correct current state check
-    setCurrentState(eCHECKING);
     onCheckUpdates();
+
+    QString proc;
+    QStringList args;
+    checkShellCommand(proc, args);
+    mUpdProc.start(proc,args);
+    if (!mUpdProc.waitForStarted())
+    {
+        reportError(tr("Can not execute update shell command"));
+        return;
+    }
+
+    setCurrentState(eCHECKING);
 }
 
 void CAbstractUpdateController::updateAll()
 {
     //TODO: correct current state check
-    setCurrentState(eUPDATING);
+
     onUpdateAll();
+
+    QString proc;
+    QStringList args;
+    updateShellCommand(proc, args);
+    mUpdProc.start(proc,args);
+    if (!mUpdProc.waitForStarted())
+    {
+        reportError(tr("Can not execute update shell command"));
+        return;
+    }
+
+    setCurrentState(eUPDATING);
+}
+
+void CAbstractUpdateController::slotProcessRead()
+{
+    while (mUpdProc.canReadLine())
+        parseProcessLine(currentState(), mUpdProc.readLine().simplified());
+}
+
+void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
+{
+    Q_UNUSED(exitStatus)
+
+    switch (currentState())
+    {
+        case eCHECKING:
+            onCheckProcessfinished(exitCode);
+            break;
+        case eUPDATING:
+            onUpdateProcessfinished(exitCode);
+            break;
+    }
 }

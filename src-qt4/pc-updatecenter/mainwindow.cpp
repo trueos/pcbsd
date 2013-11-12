@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QTreeWidgetItem>
+#include <QFile>
 #include "pcbsd-utils.h"
 
 const int MAIN_INDICATORS_IDX= 1;
@@ -29,6 +30,11 @@ const QString PBI_CHECK_IMG =  ":images/pbicheck.png";
 const QString PBI_OK_IMG =     ":/images/pbiok.png";
 const QString PBI_AVAIL_IMG =  ":/images/pbiupdates.png";
 const QString PBI_PROGRESS_IMG=":/images/pbiupdates.png";
+
+const QString DEFAULT_APP_ICON=":/images/application.png";
+
+const QString DEFAULT_PBI_DB_DIR="/var/db/pbi";
+const QString INSTALLED_IN_DB="/installed";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -67,9 +73,14 @@ void MainWindow::init()
 
     ui->pbiIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG, PBI_PROGRESS_IMG,
                            &mPBIController);
+    ui->pbiDetailsIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG, PBI_PROGRESS_IMG,
+                           &mPBIController);
+
 
     connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
 
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
@@ -91,6 +102,8 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
             break;
         case CAbstractUpdateController::eCHECKING:
             ui->mainTab->setTabEnabled(TOOLBOX_PKG_INDEX, false);
+            break;
+        default: //supress warning
             break;
     }
 
@@ -140,4 +153,43 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
 
 
 
+}
+
+void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
+{
+
+    if (new_state == CAbstractUpdateController::eUPDATES_AVAIL)
+    {
+        QVector<CPBIController::SPBIUpdate> updates = mPBIController.pbiUpdates();
+        for(int i=0; i<updates.size(); i++)
+        {
+            QTreeWidgetItem* item = new QTreeWidgetItem(QStringList()<<updates[i].mName<<updates[i].mOldVer<<updates[i].mNewVer);
+            item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+            item->setCheckState(0, Qt::Checked);
+
+            //Parse pbi db to get application icon...
+            QString icon_file = DEFAULT_PBI_DB_DIR + INSTALLED_IN_DB + QString("/") + updates[i].mGenericName + QString("/pbi_icon.png");
+
+            if (!QFile::exists(icon_file))
+            {
+                icon_file= DEFAULT_APP_ICON;
+            }
+
+            item->setIcon(0, QIcon(icon_file));
+
+            ui->pbiUpdateList->addTopLevelItem(item);
+        }
+    }
+
+    switch (new_state)
+    {
+        case CAbstractUpdateController::eUPDATES_AVAIL:
+            ui->mainTab->setTabEnabled(TOOLBOX_PBI_INDEX, true);
+            break;
+        case CAbstractUpdateController::eUPDATING:
+            ui->mainTab->setTabEnabled(TOOLBOX_PBI_INDEX, true);
+            break;
+        default: //supress warning
+            break;
+    }
 }
