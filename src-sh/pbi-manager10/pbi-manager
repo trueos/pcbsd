@@ -1185,6 +1185,12 @@ parse_create_pbi_cmdline() {
 
         if [ -z "${PBI_PROGDIRPATH}" ]; then usage_create_pbi ; fi
 
+	# Remove any trailing '/' from PBI_MAKEPORT
+	echo $PBI_MAKEPORT | grep -q "/$"
+	if [ $? -eq 0 ] ; then
+		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+	fi
+
 	# Lastly set PBI_PROGDIRNAME
 	PBI_PROGDIRNAME="`echo ${PBI_PROGDIRPATH} | rev | cut -d '/' -f 1 | rev`"
 }
@@ -1282,6 +1288,12 @@ parse_make_pbi_cmdline() {
 	# Make sure this port exists
 	if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then
 		exit_err "No port (${PORTSDIR}/${PBI_MAKEPORT})"
+	fi
+
+	# Remove any trailing '/' from PBI_MAKEPORT
+	echo $PBI_MAKEPORT | grep -q "/$"
+	if [ $? -eq 0 ] ; then
+		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
 	fi
 
 	# Make sure we have a valid PBI_CONFDIR
@@ -1630,6 +1642,12 @@ load_pbi_conffile() {
   	if [ -e "${PBI_CONFDIR}/${PBI_CONFFILE}" ] ; then
 		unset PBI_MAKEPORT PBI_BUILDKEY PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION
 		. ${PBI_CONFDIR}/${PBI_CONFFILE}
+
+		# Remove any trailing '/' from PBI_MAKEPORT
+		echo $PBI_MAKEPORT | grep -q "/$"
+		if [ $? -eq 0 ] ; then
+			PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+		fi
 	fi
 }
 
@@ -1642,6 +1660,12 @@ get_pbi_progversion() {
 
 	# If we have PBI_PROGVERSION now set
 	if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
+
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
 
 	# Check first if we have this pkg in PKGNG
 	if [ -e "/usr/local/sbin/pkg-static" -a -n "${PBI_MAKEPORT}" ] ; then
@@ -5145,6 +5169,12 @@ run_pbi_prepkgscript()
 # Begins the port make
 start_pbi_makeport()
 {
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
+
 	do_port_build "${PBI_MAKEPORT}"
 }
 
@@ -6020,6 +6050,12 @@ ab_get_build_list()
 		#echo "Skipping invalid port ${PORTSDIR}/${PBI_MAKEPORT}"
 		continue
 	fi
+
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
 	
 	# Check if this port can be built on this architecture
 	check_port_compat_arch "${PORTSDIR}/${PBI_MAKEPORT}"
@@ -6128,6 +6164,12 @@ start_next_ab_target()
   if [ -z "${PBI_MAKEPORT}" ] ; then
      PBI_MAKEPORT=$(dirname $pbi | sed 's|./||')
   fi	
+
+  # Remove any trailing '/'
+  echo $PBI_MAKEPORT | grep -q "/$"
+  if [ $? -eq 0 ] ; then
+    PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  fi
 
   echo "==> Starting build process [$curBuilder]: $PBI_MAKEPORT"
   echo "$PBI_MAKEPORT" >${PBI_TMPDIR}/${curBuilder}.bPort
@@ -6921,6 +6963,12 @@ do_pbi_make() {
 # Loads some optional meta-data from the package
 load_pkg_metadata()
 {
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
+
 	if [ -z "$PBI_LICENSE" ] ; then
 		PBI_LICENSE="`pkg query '%L' ${PBI_MAKEPORT}`"
 	fi
