@@ -2048,7 +2048,7 @@ do_pbi_mt_syncpbi()
 	PBI_FILENAME="${PBI_MT_PBIFILE}"
 	load_info_from_header
 
-	mFlags="add --app -i \"http://images.pbidir.com/progicons/generic.png\""
+	mFlags="add --app"
 	if [ -n "$PBI_PROGAUTHOR" ] ; then mFlags="$mFlags -a \"${PBI_PROGAUTHOR}\""; fi
 	if [ -n "$PBI_CATEGORY" ] ; then mFlags="$mFlags -c \"${PBI_CATEGORY}\""; fi
 	if [ -n "$PBI_LICENSE" ] ; then mFlags="$mFlags -l \"${PBI_LICENSE}\""; fi
@@ -2060,6 +2060,13 @@ do_pbi_mt_syncpbi()
 	if [ -n "$PBI_SHORTDESC" ] ; then mFlags="$mFlags -s \"`echo $PBI_SHORTDESC | sed 's|;||g' | sed 's|\"||g'`\""; fi
 	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"$PBI_PROGTYPE\""; fi
 	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then mFlags="$mFlags -r"; fi
+
+	# Set the icon URL, or make it generic if it doesn't exist
+	if [ -n "$PBI_ICONURL" ] ; then
+		mFlags="$mFlags -i \"${PBI_ICONURL}\""
+	else
+		mFlags="$mFlags -i \"http://images.pbidir.com/progicons/generic.png\""
+	fi
 
 	# Add the app
 	echo "${0} ${mFlags} -n \"${PBI_PROGNAME}\" `realpath ${PBI_MT_METAFILE}`" >/tmp/.pbiCmd.$$
