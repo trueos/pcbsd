@@ -2072,33 +2072,27 @@ do_pbi_mt_syncpbi()
 	PBI_FILENAME="${PBI_MT_PBIFILE}"
 	load_info_from_header
 
-	mFlags="add --app"
-	if [ -n "$PBI_PROGAUTHOR" ] ; then mFlags="$mFlags -a \"${PBI_PROGAUTHOR}\""; fi
-	if [ -n "$PBI_CATEGORY" ] ; then mFlags="$mFlags -c \"${PBI_CATEGORY}\""; fi
-	if [ -n "$PBI_LICENSE" ] ; then mFlags="$mFlags -l \"${PBI_LICENSE}\""; fi
-	if [ -n "$PBI_MAINTAINER" ] ; then mFlags="$mFlags -m \"${PBI_MAINTAINER}\""; fi
-	if [ -n "$PBI_TAGS" ] ; then mFlags="$mFlags -k \"${PBI_TAGS}\""; fi
-	if [ -n "$PBI_PROGWEB" ] ; then mFlags="$mFlags -u \"${PBI_PROGWEB}\""; fi
-	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"${PBI_PROGTYPE}\""; fi
-	if [ -n "$PBI_DESC" ] ; then mFlags="$mFlags -d \"`echo $PBI_DESC | sed 's|;||g' | sed 's|\"||g'`\""; fi
-	if [ -n "$PBI_SHORTDESC" ] ; then mFlags="$mFlags -s \"`echo $PBI_SHORTDESC | sed 's|;||g' | sed 's|\"||g'`\""; fi
-	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"$PBI_PROGTYPE\""; fi
-	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then mFlags="$mFlags -r"; fi
-
-	# Set the icon URL, or make it generic if it doesn't exist
-	if [ -n "$PBI_ICONURL" ] ; then
-		mFlags="$mFlags -i \"${PBI_ICONURL}\""
-	else
-		mFlags="$mFlags -i \"http://images.pbidir.com/progicons/generic.png\""
+	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then 
+		PBI_MT_REQUIRESROOT="YES"
 	fi
 
-	# Add the app
-	echo "${0} ${mFlags} -n \"${PBI_PROGNAME}\" `realpath ${PBI_MT_METAFILE}`" >/tmp/.pbiCmd.$$
-	chmod 755 /tmp/.pbiCmd.$$
-	/tmp/.pbiCmd.$$
-	err=$?
-	rm /tmp/.pbiCmd.$$
-	exit $err
+	PBI_MT_MAINTAINER="${PBI_MAINTAINER}"
+	PBI_MT_ADDNAME="$PBI_PROGNAME"
+	PBI_MT_ADDDESC="`echo ${PBI_DESC} | sed 's|;||g' | sed 's|\"||g'`"
+	PBI_MT_ADDSHORTDESC="`echo ${PBI_SHORTDESC} | sed 's|;||g' | sed 's|\"||g'`"
+	PBI_MT_ADDTYPE="$PBI_PROGTYPE"
+	PBI_MT_ADDLIC="$PBI_LICENSE"
+	PBI_MT_ADDCAT="$PBI_CATEGORY"
+	PBI_MT_ADDAUTHOR="$PBI_PROGAUTHOR"
+	PBI_MT_ADDURL="$PBI_PROGWEB"
+	PBI_MT_ADDKEYWORDS="$PBI_TAGS"
+	if [ -n "$PBI_ICONURL" ] ; then
+		PBI_MT_ADDICON="$PBI_ICONURL"
+	else
+		PBI_MT_ADDICON="http://images.pbidir.com/progicons/generic.png"
+	fi
+
+	do_pbi_mt_add_app
 }
 
 # Init the metatool
@@ -3166,10 +3160,10 @@ load_info_from_dir() {
                 PBI_ICONURL="`cat ${1}/pbi_iconurl`"
         fi
 	if [ -e "${1}/pbi_desc" ] ; then
-                PBI_DESC="`cat ${1}/pbi_desc`"
+                PBI_DESC="`cat ${1}/pbi_desc | awk 1 ORS='<br>' | sed 's|*|-|g'`"
         fi
 	if [ -e "${1}/pbi_shortdesc" ] ; then
-                PBI_SHORTDESC="`cat ${1}/pbi_shortdesc`"
+                PBI_SHORTDESC="`cat ${1}/pbi_shortdesc | awk 1 ORS='<br>' | sed 's|*|-|g'`"
         fi
 	if [ -e "${1}/pbi_maintainer" ] ; then
                 PBI_MAINTAINER="`cat ${1}/pbi_maintainer`"
