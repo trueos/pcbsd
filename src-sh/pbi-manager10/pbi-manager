@@ -217,6 +217,7 @@ Options:
 		   Example; Graphical, Text, Service
   -u url 	-- Application homepage URL
   -r	 	-- Application must be installed as root
+  -s shortdesc 	-- Short description for application
 
 EOF
 	exit_trap
@@ -554,6 +555,9 @@ parse_mt_pbi_cmdline() {
           		-d) if [ $# -eq 1  ]; then usage_mt_add; fi
                        	    shift; PBI_MT_ADDDESC="$1"
 			    ;;
+			-s) if [ $# -eq 1  ]; then usage_mt_add; fi
+			    shift; PBI_MT_ADDSHORTDESC="$1"
+			    ;;
           		-c) if [ $# -eq 1  ]; then usage_mt_add; fi
                        	    shift; PBI_MT_ADDCAT="$1"
 			    ;;
@@ -609,8 +613,8 @@ parse_mt_pbi_cmdline() {
 	case ${PBI_MT_MODE} in
 		ADD) # Check the common values 
 		     if [ -z "${PBI_MT_ADDNAME}" ] ; then usage_mt_add ; fi
-		     if [ -z "${PBI_MT_ADDICON}" ] ; then usage_mt_add ; fi
 		     if [ -z "${PBI_MT_ADDDESC}" ] ; then usage_mt_add ; fi
+		     if [ -z "${PBI_MT_ADDICON}" ] ; then usage_mt_add ; fi
 
 	 	     if [ "$PBI_MT_TYPE" = "CAT" ]; then	      
 		     elif [ "$PBI_MT_TYPE" = "APP" ]; then
@@ -619,7 +623,6 @@ parse_mt_pbi_cmdline() {
 		     	if [ -z "${PBI_MT_ADDURL}" ]; then usage_mt_add ; fi
 		     	if [ -z "${PBI_MT_ADDLIC}" ]; then usage_mt_add ; fi
 		     	if [ -z "${PBI_MT_ADDTYPE}" ]; then usage_mt_add ; fi
-		     	if [ -z "${PBI_MT_ADDKEYWORDS}" ]; then usage_mt_add;fi
 		     else
 		       usage_mt_add
 		     fi
@@ -2045,26 +2048,25 @@ do_pbi_mt_syncpbi()
 	PBI_FILENAME="${PBI_MT_PBIFILE}"
 	load_info_from_header
 
-	mFlags="add --app"
+	mFlags="add --app -i \"http://images.pbidir.com/progicons/generic.png\""
 	if [ -n "$PBI_PROGAUTHOR" ] ; then mFlags="$mFlags -a \"${PBI_PROGAUTHOR}\""; fi
 	if [ -n "$PBI_CATEGORY" ] ; then mFlags="$mFlags -c \"${PBI_CATEGORY}\""; fi
 	if [ -n "$PBI_LICENSE" ] ; then mFlags="$mFlags -l \"${PBI_LICENSE}\""; fi
 	if [ -n "$PBI_MAINTAINER" ] ; then mFlags="$mFlags -m \"${PBI_MAINTAINER}\""; fi
 	if [ -n "$PBI_TAGS" ] ; then mFlags="$mFlags -k \"${PBI_TAGS}\""; fi
-	if [ -n "$PBI_ICONURL" ] ; then mFlags="$mFlags -i \"${PBI_ICONURL}\""; fi
 	if [ -n "$PBI_PROGWEB" ] ; then mFlags="$mFlags -u \"${PBI_PROGWEB}\""; fi
 	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"${PBI_PROGTYPE}\""; fi
-	if [ -n "$PBI_DESC" ] ; then mFlags="$mFlags -d \"`echo $PBI_DESC | sed 's|;||g'`\""; fi
+	if [ -n "$PBI_DESC" ] ; then mFlags="$mFlags -d \"`echo $PBI_DESC | sed 's|;||g' | sed 's|\"||g'`\""; fi
+	if [ -n "$PBI_SHORTDESC" ] ; then mFlags="$mFlags -s \"`echo $PBI_SHORTDESC | sed 's|;||g' | sed 's|\"||g'`\""; fi
 	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"$PBI_PROGTYPE\""; fi
 	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then mFlags="$mFlags -r"; fi
 
-
 	# Add the app
-	echo "pbi_metatool ${mFlags} -n \"${PBI_PROGNAME}\" `realpath ${PBI_MT_METAFILE}`" >/tmp/.pbiCmd.$$
+	echo "${0} ${mFlags} -n \"${PBI_PROGNAME}\" `realpath ${PBI_MT_METAFILE}`" >/tmp/.pbiCmd.$$
 	chmod 755 /tmp/.pbiCmd.$$
 	/tmp/.pbiCmd.$$
 	err=$?
-	#rm /tmp/.pbiCmd.$$
+	rm /tmp/.pbiCmd.$$
 	exit $err
 }
 
@@ -2109,7 +2111,7 @@ do_pbi_mt_add_app() {
 	local _date=`date '+%s'`
 
 	cp ${PBI_MT_METAFILE} ${PBI_TMPDIR}/.meta.$$
-	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date};${PBI_MT_MAINTAINER}" \
+	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date};${PBI_MT_MAINTAINER};${PBI_MT_ADDSHORTDESC};" \
 	>> ${PBI_TMPDIR}/.meta.$$
 	sort ${PBI_TMPDIR}/.meta.$$ > "${PBI_MT_METAFILE}"
 	rm ${PBI_TMPDIR}/.meta.$$
