@@ -2,6 +2,7 @@
 #define INDICATORWIDGET_H
 
 #include <QWidget>
+#include <QIcon>
 
 #include "updatecontroller.h"
 
@@ -17,8 +18,9 @@ public:
     explicit IndicatorWidget(QWidget *parent = 0);
     ~IndicatorWidget();
 
-    bool init(QString check_img, QString ok_img, QString avail_img, QString process_img,
-              CAbstractUpdateController* upd_controller);
+    bool init(QString check_img, QString ok_img, QString avail_img,
+              QString download_img, QString install_img, QString error_img,
+              CAbstractUpdateController* upd_controller);    
     
 public slots:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
@@ -31,11 +33,12 @@ protected:
     void onUpdateProgress();
 
 protected:
-    QString mCheckImage;
-    QString mOkImage;
-    QString mAvailImage;
-    QString mProcessImage;
+
+    QString mDownloadImage;
+    QString mInstallImage;
     CAbstractUpdateController* mpUC;
+
+    QString mStateImages[CAbstractUpdateController::eMAX];
 
 private:
     Ui::IndicatorWidget *ui;

@@ -473,7 +473,11 @@
           <item>
            <widget class="QPushButton" name="pushButton_7">
             <property name="text">
-             <string>Update only selected</string>
+             <string>Update selected only</string>
+            </property>
+            <property name="icon">
+             <iconset resource="res.qrc">
+              <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
             </property>
            </widget>
           </item>

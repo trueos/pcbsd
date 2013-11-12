@@ -11,9 +11,17 @@
         <file>images/pbicheck.png</file>
         <file>images/pkgcheck.png</file>
         <file>images/sysok.png</file>
-        <file>images/download.png</file>
         <file>images/install.png</file>
         <file>update-center.png</file>
         <file>images/application.png</file>
+        <file>images/pbidownload.png</file>
+        <file>images/pbierror.png</file>
+        <file>images/pbiinstall.png</file>
+        <file>images/sysdownload.png</file>
+        <file>images/syserror.png</file>
+        <file>images/sysinstall.png</file>
+        <file>images/pkgdownload.png</file>
+        <file>images/pkgerror.png</file>
+        <file>images/pkginstall.png</file>
     </qresource>
 </RCC>

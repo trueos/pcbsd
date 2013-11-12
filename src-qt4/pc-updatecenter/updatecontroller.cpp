@@ -72,6 +72,21 @@ void CAbstractUpdateController::reportError(QString error_message)
     emit updateError(mErrorMessage);
 }
 
+void CAbstractUpdateController::launchUpdate()
+{
+    QString proc;
+    QStringList args;
+    updateShellCommand(proc, args);
+    mUpdProc.start(proc,args);
+    if (!mUpdProc.waitForStarted())
+    {
+        reportError(tr("Can not execute update shell command"));
+        return;
+    }
+
+    setCurrentState(eUPDATING);
+}
+
 void CAbstractUpdateController::check()
 {
     onCheckUpdates();
@@ -95,17 +110,7 @@ void CAbstractUpdateController::updateAll()
 
     onUpdateAll();
 
-    QString proc;
-    QStringList args;
-    updateShellCommand(proc, args);
-    mUpdProc.start(proc,args);
-    if (!mUpdProc.waitForStarted())
-    {
-        reportError(tr("Can not execute update shell command"));
-        return;
-    }
-
-    setCurrentState(eUPDATING);
+    launchUpdate();
 }
 
 void CAbstractUpdateController::slotProcessRead()

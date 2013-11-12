@@ -25,17 +25,32 @@ public:
        eFULLY_UPDATED,
        eUPDATES_AVAIL,
        eUPDATING,
-       eUPDATING_ERROR
+       eUPDATING_ERROR,
+       eMAX
     }EUpdateControllerState;
+
+    typedef enum{
+        eDownload,
+        eInstall
+    }EUpdateSubstate;
 
     typedef struct _SProgress
     {
-        int ItemNo;
-        int ItemsCount;
-        int ProgressMin;
-        int ProgressMax;
-        int ProgressCurr;
-        QString Message;
+        int mItemNo;
+        int mItemsCount;
+        int mProgressMin;
+        int mProgressMax;
+        int mProgressCurr;
+        EUpdateSubstate mSubstate;
+        bool        misCanCancel;
+        QString     mMessage;
+        QStringList mLogMessages;
+        _SProgress()
+            {   mSubstate = eDownload; misCanCancel = false;
+                mMessage = tr("Preparing update...");
+                mItemNo=0; mItemsCount=0;
+                mProgressMin=0; mProgressMax=0; mProgressCurr=0;
+            }
     }SProgress;
 
 public:
@@ -52,6 +67,7 @@ protected:
     void reportProgress(SProgress curr_progress);
     void reportUpdatesAvail(QString message);
     void reportError(QString error_message);
+    void launchUpdate();
 
     virtual void checkShellCommand(QString& cmd, QStringList& args)=0;
     virtual void updateShellCommand(QString& cmd, QStringList& args)=0;

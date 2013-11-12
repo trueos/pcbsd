@@ -15,17 +15,21 @@ IndicatorWidget::~IndicatorWidget()
     delete ui;
 }
 
-bool IndicatorWidget::init(QString check_img, QString ok_img,
-                           QString avail_img, QString process_img,
+bool IndicatorWidget::init(QString check_img, QString ok_img, QString avail_img,
+                           QString download_img, QString install_img, QString error_img,
                            CAbstractUpdateController *upd_controller)
 {
     if (!upd_controller)
         return false;
 
-    mCheckImage= check_img;
-    mOkImage= ok_img;
-    mAvailImage= avail_img;
-    mProcessImage= process_img;
+    mStateImages[CAbstractUpdateController::eCHECKING]= check_img;
+    mStateImages[CAbstractUpdateController::eFULLY_UPDATED]= ok_img;
+    mStateImages[CAbstractUpdateController::eUPDATING]= download_img;
+    mStateImages[CAbstractUpdateController::eUPDATING_ERROR]= error_img;
+    mStateImages[CAbstractUpdateController::eUPDATES_AVAIL]= avail_img;
+    mInstallImage= install_img;
+    mDownloadImage= download_img;
+
     mpUC = upd_controller;
     stateChanged(mpUC->currentState());
 
@@ -38,9 +42,10 @@ bool IndicatorWidget::init(QString check_img, QString ok_img,
 
 void IndicatorWidget::stateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
+    ui->stateImage->setPixmap(QPixmap(mStateImages[new_state]));
     switch(new_state)
     {
-        case CAbstractUpdateController::eCHECKING:
+        case CAbstractUpdateController::eCHECKING:            
             onCheck();
             break;
 
@@ -74,7 +79,7 @@ void IndicatorWidget::onCheck()
     ui->checkButton->setVisible(false);
     ui->installButton->setVisible(false);
 
-    ui->stateImage->setPixmap(QPixmap(mCheckImage));
+    //ui->stateImage->setPixmap(QPixmap(mCheckImage));
 
     ui->msgLabel->setText(tr("Checking for updates..."));
 }
@@ -85,7 +90,7 @@ void IndicatorWidget::onUpdateAvail()
     ui->checkButton->setVisible(true);
     ui->installButton->setVisible(true);
 
-    ui->stateImage->setPixmap(QPixmap(mAvailImage));
+    //ui->stateImage->setPixmap(QPixmap(mAvailImage));
 
     if (mpUC)
         ui->msgLabel->setText(mpUC->updateMessage());
@@ -98,7 +103,7 @@ void IndicatorWidget::onFullyUpdated()
     ui->checkButton->setVisible(true);
     ui->installButton->setVisible(false);
 
-    ui->stateImage->setPixmap(QPixmap(mOkImage));
+    //ui->stateImage->setPixmap(QPixmap(mOkImage));
     ui->msgLabel->setText(tr("Is up to date!"));
 }
 

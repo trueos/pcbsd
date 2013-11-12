@@ -19,17 +19,26 @@ const int PKG_UPDATING_STACK_IDX = 0;
 const QString SYS_CHECK_IMG =  ":images/syscheck.png";
 const QString SYS_OK_IMG =     ":/images/sysok.png";
 const QString SYS_AVAIL_IMG =  ":/images/sysupdates.png";
-const QString SYS_PROGRESS_IMG=":/images/sysupdates.png";
+const QString SYS_DL_IMG=      ":/images/sysdownload.png";
+const QString SYS_INSTALL_IMG= ":/images/sysinstall.png";
+const QString SYS_ERROR_IMG=   ":/images/syserror.png";
 
 const QString PKG_CHECK_IMG =  ":images/pkgcheck.png";
 const QString PKG_OK_IMG =     ":/images/pkgok.png";
 const QString PKG_AVAIL_IMG =  ":/images/pkgupdates.png";
 const QString PKG_PROGRESS_IMG=":/images/pkgupdates.png";
+const QString PKG_DL_IMG=      ":/images/pkgdownload.png";
+const QString PKG_INSTALL_IMG= ":/images/pkginstall.png";
+const QString PKG_ERROR_IMG=   ":/images/pkgerror.png";
+
 
 const QString PBI_CHECK_IMG =  ":images/pbicheck.png";
 const QString PBI_OK_IMG =     ":/images/pbiok.png";
 const QString PBI_AVAIL_IMG =  ":/images/pbiupdates.png";
 const QString PBI_PROGRESS_IMG=":/images/pbiupdates.png";
+const QString PBI_DL_IMG=      ":/images/pbidownload.png";
+const QString PBI_INSTALL_IMG= ":/images/pbiinstall.png";
+const QString PBI_ERROR_IMG=   ":/images/pbierror.png";
 
 const QString DEFAULT_APP_ICON=":/images/application.png";
 
@@ -63,18 +72,29 @@ void MainWindow::init()
     mPkgController.check();
     mPBIController.check();
 
-    ui->sysIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG, SYS_PROGRESS_IMG,
+    /*
+     *(QString check_img, QString ok_img, QString avail_img,
+              QString download_img, QString install_img, QString error_img,
+              CAbstractUpdateController* upd_controller);
+              */
+
+    ui->sysIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
+                           SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
                            &mSysController);
 
-    ui->pkgIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG, PKG_PROGRESS_IMG,
+    ui->pkgIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG,
+                           PKG_DL_IMG, PKG_INSTALL_IMG, PKG_ERROR_IMG,
                            &mPkgController);
-    ui->pkgDetailsIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG, PKG_PROGRESS_IMG,
+    ui->pkgDetailsIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG,
+                                  PKG_DL_IMG, PKG_INSTALL_IMG, PKG_ERROR_IMG,
                                   &mPkgController);
 
-    ui->pbiIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG, PBI_PROGRESS_IMG,
+    ui->pbiIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG,
+                           PBI_DL_IMG, PBI_INSTALL_IMG, PBI_ERROR_IMG,
                            &mPBIController);
-    ui->pbiDetailsIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG, PBI_PROGRESS_IMG,
-                           &mPBIController);
+    ui->pbiDetailsIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG,
+                                  PBI_DL_IMG, PBI_INSTALL_IMG, PBI_ERROR_IMG,
+                                  &mPBIController);
 
 
     connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
