@@ -494,8 +494,7 @@
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tem certeza que deseja instalar este aplicativo?</translation>
     </message>
 </context>
 <context>

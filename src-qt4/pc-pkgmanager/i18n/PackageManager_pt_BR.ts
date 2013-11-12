@@ -10,26 +10,22 @@
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>As seguintes alterações serão feitas no sistema. Por favor, confirme abaixo e clique em OK para continuar.</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Cancelar</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizações disponíveis</translation>
     </message>
     <message>
         <source>System Package Manager</source>
@@ -38,8 +34,7 @@
     </message>
     <message>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adicionar / Remover pacotes</translation>
     </message>
     <message>
         <source>System Packages</source>
@@ -53,13 +48,11 @@
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Descrição</translation>
     </message>
     <message>
         <source>10 MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 MB</translation>
     </message>
     <message>
         <source>My Package 1.0</source>
@@ -68,18 +61,15 @@
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>http://www.pcbsd.org</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opções</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Aplicar</translation>
     </message>
     <message>
         <source>Package Updates</source>
@@ -103,18 +93,15 @@
     </message>
     <message>
         <source>Old Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão antiga</translation>
     </message>
     <message>
         <source>New Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nova versão</translation>
     </message>
     <message>
         <source>Installing updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalando atualizações</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -158,13 +145,11 @@
     </message>
     <message>
         <source>Available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizações disponíveis</translation>
     </message>
     <message>
         <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não há atualizações disponíveis</translation>
     </message>
     <message>
         <source>Starting package updates...</source>
@@ -183,8 +168,7 @@
     </message>
     <message>
         <source>Package Conflicts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Conflitos de pacotes</translation>
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
@@ -193,13 +177,11 @@
     </message>
     <message>
         <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando pacotes...</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falhou!</translation>
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
@@ -208,8 +190,7 @@
     </message>
     <message>
         <source>Finished!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terminado!</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
@@ -218,23 +199,19 @@
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregando... Por favor aguarde...</translation>
     </message>
     <message>
         <source>No changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sem alterações</translation>
     </message>
     <message>
         <source>No changes to make!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não há alterações a fazer!</translation>
     </message>
     <message>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os seguintes pacotes serão removidos:</translation>
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
@@ -243,13 +220,11 @@
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os seguintes pacotes serão instalados:</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">As seguintes dependências também serão instaladas:</translation>
     </message>
     <message>
         <source>Confirm package changes</source>
@@ -268,8 +243,7 @@
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visualizar pacotes</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
@@ -278,28 +252,23 @@
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando: %1</translation>
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dependências</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Encontrar pacotes</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não há resultados de pesquisa</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
@@ -313,8 +282,7 @@
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Processos em execução</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
