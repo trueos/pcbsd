@@ -4834,7 +4834,7 @@ pbid_init() {
 check_populate_opengl()
 {
   local lG
-  for i in `ls /usr/local/lib/libGl.* /usr/local/lib/libGL.* /usr/local/lib/libGLU.* 2>/dev/null`
+  for i in `ls /usr/local/lib/libGl.* /usr/local/lib/libGL.* /usr/local/lib/libGLU.* /usr/local/lib/libnvidia-* 2>/dev/null`
   do
     lG=`basename $i`
     cp ${i} /usr/lib/${lG}
