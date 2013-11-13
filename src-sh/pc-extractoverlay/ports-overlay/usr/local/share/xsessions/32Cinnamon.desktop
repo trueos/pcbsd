@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=gnome-session-cinnamon
+Exec=ck-launch-session gnome-session-cinnamon
 TryExec=/usr/local/bin/cinnamon
 Icon=/usr/local/share/pixmaps/cinnamon.png
 Type=Application
