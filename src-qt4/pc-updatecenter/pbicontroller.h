@@ -30,6 +30,7 @@ public:
 protected:
     virtual void onCheckUpdates();
     virtual void onUpdateAll();
+    virtual void onCancel();
 
     void onReadCheckLine(QString line);
     void onReadUpdateLine(QString line);

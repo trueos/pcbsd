@@ -81,6 +81,17 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+         <property name="icon">
+          <iconset resource="res.qrc">
+           <normaloff>:/images/dialog-cancel.png</normaloff>:/images/dialog-cancel.png</iconset>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>

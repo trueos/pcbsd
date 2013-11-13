@@ -113,6 +113,14 @@ void CAbstractUpdateController::updateAll()
     launchUpdate();
 }
 
+void CAbstractUpdateController::cancel()
+{
+    if (mCurrentProgress.misCanCancel)
+    {
+        onCancel();
+    }
+}
+
 void CAbstractUpdateController::slotProcessRead()
 {
     while (mUpdProc.canReadLine())

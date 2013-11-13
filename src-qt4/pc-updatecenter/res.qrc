@@ -23,5 +23,6 @@
         <file>images/pkgdownload.png</file>
         <file>images/pkgerror.png</file>
         <file>images/pkginstall.png</file>
+        <file>images/dialog-cancel.png</file>
     </qresource>
 </RCC>

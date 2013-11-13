@@ -29,9 +29,14 @@ private:
     CPkgController  mPkgController;
     CPBIController  mPBIController;
 
-public slots:
+private slots:
     void pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+
+    void pbiProgress(CAbstractUpdateController::SProgress progress);
+
+private slots:
+    void on_updateSelectedPBIBtn_clicked();
 };
 
 #endif // MAINWINDOW_H

@@ -68,6 +68,7 @@ protected:
     void reportUpdatesAvail(QString message);
     void reportError(QString error_message);
     void launchUpdate();
+    QProcess& process() {return mUpdProc;}
 
     virtual void checkShellCommand(QString& cmd, QStringList& args)=0;
     virtual void updateShellCommand(QString& cmd, QStringList& args)=0;
@@ -76,6 +77,8 @@ protected:
     virtual void onCheckUpdates(){}
     //! May be overrided by child. Calls on update install
     virtual void onUpdateAll(){}
+
+    virtual void onCancel(){}
 
     //! Calls on check command process is finished
     virtual void onCheckProcessfinished(int exitCode){Q_UNUSED(exitCode)}
@@ -100,8 +103,9 @@ public: signals:
     void updateError(QString message);
 
 public slots:
-    void check();//=0;
-    void updateAll();//=0;
+    void check();
+    void updateAll();
+    void cancel();
 
 private slots:
     void slotProcessRead();

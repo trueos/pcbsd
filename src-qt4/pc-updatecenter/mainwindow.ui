@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>596</width>
-    <height>461</height>
+    <width>594</width>
+    <height>459</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -258,7 +258,7 @@
         <item>
          <widget class="QStackedWidget" name="pkgDetailsStack">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_3">
            <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -432,56 +432,85 @@
        <attribute name="title">
         <string>Software update details</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_17">
+       <layout class="QVBoxLayout" name="verticalLayout_18">
         <item>
          <widget class="IndicatorWidget" name="pbiDetailsIndicator" native="true"/>
         </item>
         <item>
-         <widget class="QTreeWidget" name="pbiUpdateList">
-          <column>
-           <property name="text">
-            <string>Name</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Installed version</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>New version</string>
-           </property>
-          </column>
+         <widget class="QStackedWidget" name="pbiUpdateStack">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="page_7">
+           <layout class="QVBoxLayout" name="verticalLayout_17">
+            <item>
+             <widget class="QTreeWidget" name="pbiUpdateList">
+              <column>
+               <property name="text">
+                <string>Name</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Installed version</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>New version</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <spacer name="horizontalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="updateSelectedPBIBtn">
+                <property name="text">
+                 <string>Update selected only</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="res.qrc">
+                  <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_8">
+           <layout class="QVBoxLayout" name="verticalLayout_19">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Update log:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="pbiUpdateLog">
+              <property name="textInteractionFlags">
+               <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_8">
-          <item>
-           <spacer name="horizontalSpacer_9">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_7">
-            <property name="text">
-             <string>Update selected only</string>
-            </property>
-            <property name="icon">
-             <iconset resource="res.qrc">
-              <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
        </layout>
       </widget>
@@ -494,10 +523,25 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>596</width>
+     <width>594</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuLogs">
+    <property name="title">
+     <string>Logs</string>
+    </property>
+    <addaction name="actionLast_system_update_log"/>
+    <addaction name="actionLast_package_update_log"/>
+    <addaction name="actionLast_software_update_log"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuLogs"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -508,6 +552,21 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLast_system_update_log">
+   <property name="text">
+    <string>Last system update log</string>
+   </property>
+  </action>
+  <action name="actionLast_package_update_log">
+   <property name="text">
+    <string>Last package update log</string>
+   </property>
+  </action>
+  <action name="actionLast_software_update_log">
+   <property name="text">
+    <string>Last software update log</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

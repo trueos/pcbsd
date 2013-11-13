@@ -3,6 +3,8 @@
 
 #include <QTreeWidgetItem>
 #include <QFile>
+#include <QPalette>
+
 #include "pcbsd-utils.h"
 
 const int MAIN_INDICATORS_IDX= 1;
@@ -66,17 +68,9 @@ void MainWindow::init()
             ui->mainTab->setTabEnabled(i, false);
     }
 
-    //ui->mainToolbox->
-
     mSysController.check();
     mPkgController.check();
-    mPBIController.check();
-
-    /*
-     *(QString check_img, QString ok_img, QString avail_img,
-              QString download_img, QString install_img, QString error_img,
-              CAbstractUpdateController* upd_controller);
-              */
+    mPBIController.check();    
 
     ui->sysIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
                            SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
@@ -101,9 +95,17 @@ void MainWindow::init()
             this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
+            this, SLOT(pbiProgress(CAbstractUpdateController::SProgress)));
 
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
+
+    QPalette palette = ui->pbiUpdateLog->palette();
+    palette.setColor(QPalette::Base, Qt::black);
+    palette.setColor(QPalette::Text, Qt::white);
+    ui->pbiUpdateLog->setPalette(palette);
+    //ui->pkg
 
 }
 
@@ -170,9 +172,6 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
         }//populate lists
 
     }// if updates evail.
-
-
-
 }
 
 void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
@@ -181,6 +180,7 @@ void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerSta
     if (new_state == CAbstractUpdateController::eUPDATES_AVAIL)
     {
         QVector<CPBIController::SPBIUpdate> updates = mPBIController.pbiUpdates();
+        ui->pbiUpdateList->clear();
         for(int i=0; i<updates.size(); i++)
         {
             QTreeWidgetItem* item = new QTreeWidgetItem(QStringList()<<updates[i].mName<<updates[i].mOldVer<<updates[i].mNewVer);
@@ -196,6 +196,8 @@ void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerSta
             }
 
             item->setIcon(0, QIcon(icon_file));
+            QVariant uData(updates[i].mGenericName);
+            item->setData(0, Qt::UserRole, uData);
 
             ui->pbiUpdateList->addTopLevelItem(item);
         }
@@ -205,11 +207,39 @@ void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerSta
     {
         case CAbstractUpdateController::eUPDATES_AVAIL:
             ui->mainTab->setTabEnabled(TOOLBOX_PBI_INDEX, true);
+            ui->pbiUpdateStack->setCurrentIndex(0);
             break;
         case CAbstractUpdateController::eUPDATING:
             ui->mainTab->setTabEnabled(TOOLBOX_PBI_INDEX, true);
+            ui->pbiUpdateStack->setCurrentIndex(1);
             break;
+        case CAbstractUpdateController::eCHECKING:
+            ui->mainTab->setTabEnabled(TOOLBOX_PBI_INDEX, false);
         default: //supress warning
             break;
     }
+}
+
+void MainWindow::pbiProgress(CAbstractUpdateController::SProgress progress)
+{
+    for(int i=0; i<progress.mLogMessages.size(); i++)
+    {
+        ui->pbiUpdateLog->append(progress.mLogMessages[i]);
+    }
+}
+
+void MainWindow::on_updateSelectedPBIBtn_clicked()
+{
+    QStringList ListToUpdate;
+    for(int i=0; i < ui->pbiUpdateList->topLevelItemCount(); i++)
+    {
+        if (ui->pbiUpdateList->topLevelItem(i)->checkState(0) == Qt::Checked)
+        {
+            QVariant v= ui->pbiUpdateList->topLevelItem(i)->data(0, Qt::UserRole);
+            QString gen_name= v.toString();
+            ListToUpdate<<gen_name;
+        }
+    }
+
+    mPBIController.updateSelected(ListToUpdate);
 }

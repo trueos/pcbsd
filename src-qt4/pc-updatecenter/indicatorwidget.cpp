@@ -35,7 +35,13 @@ bool IndicatorWidget::init(QString check_img, QString ok_img, QString avail_img,
 
     connect(mpUC, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(stateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(mpUC, SIGNAL(progress(CAbstractUpdateController::SProgress)),
+            this, SLOT(progress(CAbstractUpdateController::SProgress)));
+
     connect(ui->checkButton, SIGNAL(clicked()), mpUC, SLOT(check()));
+    connect(ui->installButton , SIGNAL(clicked()), mpUC, SLOT(updateAll()));
+    connect(ui->cancelButton , SIGNAL(clicked()), mpUC, SLOT(cancel()));
+
 
     return true;
 }
@@ -70,7 +76,15 @@ void IndicatorWidget::stateChanged(CAbstractUpdateController::EUpdateControllerS
 
 void IndicatorWidget::progress(CAbstractUpdateController::SProgress progress)
 {
-    Q_UNUSED(progress);
+    ui->progress->setMinimum(progress.mProgressMin);
+    ui->progress->setMaximum(progress.mProgressMax);
+    ui->progress->setValue(progress.mProgressCurr);
+    ui->msgLabel->setText(progress.mMessage);
+    ui->cancelButton->setEnabled(progress.misCanCancel);
+
+    QString pict_name= (progress.mSubstate == CAbstractUpdateController::eInstall)? mInstallImage : mDownloadImage;
+
+    ui->stateImage->setPixmap(QPixmap(pict_name));
 }
 
 void IndicatorWidget::onCheck()
@@ -78,8 +92,7 @@ void IndicatorWidget::onCheck()
     ui->progress->setVisible(false);
     ui->checkButton->setVisible(false);
     ui->installButton->setVisible(false);
-
-    //ui->stateImage->setPixmap(QPixmap(mCheckImage));
+    ui->cancelButton->setVisible(false);
 
     ui->msgLabel->setText(tr("Checking for updates..."));
 }
@@ -89,8 +102,7 @@ void IndicatorWidget::onUpdateAvail()
     ui->progress->setVisible(false);
     ui->checkButton->setVisible(true);
     ui->installButton->setVisible(true);
-
-    //ui->stateImage->setPixmap(QPixmap(mAvailImage));
+    ui->cancelButton->setVisible(false);
 
     if (mpUC)
         ui->msgLabel->setText(mpUC->updateMessage());
@@ -102,12 +114,20 @@ void IndicatorWidget::onFullyUpdated()
     ui->progress->setVisible(false);
     ui->checkButton->setVisible(true);
     ui->installButton->setVisible(false);
+    ui->cancelButton->setVisible(false);
 
-    //ui->stateImage->setPixmap(QPixmap(mOkImage));
     ui->msgLabel->setText(tr("Is up to date!"));
 }
 
 void IndicatorWidget::onUpdateProgress()
 {
+    ui->progress->setVisible(true);
+    ui->progress->setMaximum(0);
+    ui->progress->setMinimum(0);
+    ui->cancelButton->setVisible(true);
+    ui->cancelButton->setEnabled(false);
+    ui->checkButton->setVisible(false);
+    ui->installButton->setVisible(false);
 
+    ui->msgLabel->setText(tr("Preparing update..."));
 }
