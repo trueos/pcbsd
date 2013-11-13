@@ -217,6 +217,7 @@ Options:
 		   Example; Graphical, Text, Service
   -u url 	-- Application homepage URL
   -r	 	-- Application must be installed as root
+  -s shortdesc 	-- Short description for application
 
 EOF
 	exit_trap
@@ -554,6 +555,9 @@ parse_mt_pbi_cmdline() {
           		-d) if [ $# -eq 1  ]; then usage_mt_add; fi
                        	    shift; PBI_MT_ADDDESC="$1"
 			    ;;
+			-s) if [ $# -eq 1  ]; then usage_mt_add; fi
+			    shift; PBI_MT_ADDSHORTDESC="$1"
+			    ;;
           		-c) if [ $# -eq 1  ]; then usage_mt_add; fi
                        	    shift; PBI_MT_ADDCAT="$1"
 			    ;;
@@ -609,8 +613,8 @@ parse_mt_pbi_cmdline() {
 	case ${PBI_MT_MODE} in
 		ADD) # Check the common values 
 		     if [ -z "${PBI_MT_ADDNAME}" ] ; then usage_mt_add ; fi
-		     if [ -z "${PBI_MT_ADDICON}" ] ; then usage_mt_add ; fi
 		     if [ -z "${PBI_MT_ADDDESC}" ] ; then usage_mt_add ; fi
+		     if [ -z "${PBI_MT_ADDICON}" ] ; then usage_mt_add ; fi
 
 	 	     if [ "$PBI_MT_TYPE" = "CAT" ]; then	      
 		     elif [ "$PBI_MT_TYPE" = "APP" ]; then
@@ -619,7 +623,6 @@ parse_mt_pbi_cmdline() {
 		     	if [ -z "${PBI_MT_ADDURL}" ]; then usage_mt_add ; fi
 		     	if [ -z "${PBI_MT_ADDLIC}" ]; then usage_mt_add ; fi
 		     	if [ -z "${PBI_MT_ADDTYPE}" ]; then usage_mt_add ; fi
-		     	if [ -z "${PBI_MT_ADDKEYWORDS}" ]; then usage_mt_add;fi
 		     else
 		       usage_mt_add
 		     fi
@@ -1182,6 +1185,12 @@ parse_create_pbi_cmdline() {
 
         if [ -z "${PBI_PROGDIRPATH}" ]; then usage_create_pbi ; fi
 
+	# Remove any trailing '/' from PBI_MAKEPORT
+	echo $PBI_MAKEPORT | grep -q "/$"
+	if [ $? -eq 0 ] ; then
+		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+	fi
+
 	# Lastly set PBI_PROGDIRNAME
 	PBI_PROGDIRNAME="`echo ${PBI_PROGDIRPATH} | rev | cut -d '/' -f 1 | rev`"
 }
@@ -1279,6 +1288,12 @@ parse_make_pbi_cmdline() {
 	# Make sure this port exists
 	if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then
 		exit_err "No port (${PORTSDIR}/${PBI_MAKEPORT})"
+	fi
+
+	# Remove any trailing '/' from PBI_MAKEPORT
+	echo $PBI_MAKEPORT | grep -q "/$"
+	if [ $? -eq 0 ] ; then
+		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
 	fi
 
 	# Make sure we have a valid PBI_CONFDIR
@@ -1627,6 +1642,12 @@ load_pbi_conffile() {
   	if [ -e "${PBI_CONFDIR}/${PBI_CONFFILE}" ] ; then
 		unset PBI_MAKEPORT PBI_BUILDKEY PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION
 		. ${PBI_CONFDIR}/${PBI_CONFFILE}
+
+		# Remove any trailing '/' from PBI_MAKEPORT
+		echo $PBI_MAKEPORT | grep -q "/$"
+		if [ $? -eq 0 ] ; then
+			PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+		fi
 	fi
 }
 
@@ -1639,6 +1660,12 @@ get_pbi_progversion() {
 
 	# If we have PBI_PROGVERSION now set
 	if [ -n "${PBI_PROGVERSION}" ] ; then return 0 ; fi
+
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
 
 	# Check first if we have this pkg in PKGNG
 	if [ -e "/usr/local/sbin/pkg-static" -a -n "${PBI_MAKEPORT}" ] ; then
@@ -2045,27 +2072,27 @@ do_pbi_mt_syncpbi()
 	PBI_FILENAME="${PBI_MT_PBIFILE}"
 	load_info_from_header
 
-	mFlags="add --app"
-	if [ -n "$PBI_PROGAUTHOR" ] ; then mFlags="$mFlags -a \"${PBI_PROGAUTHOR}\""; fi
-	if [ -n "$PBI_CATEGORY" ] ; then mFlags="$mFlags -c \"${PBI_CATEGORY}\""; fi
-	if [ -n "$PBI_LICENSE" ] ; then mFlags="$mFlags -l \"${PBI_LICENSE}\""; fi
-	if [ -n "$PBI_MAINTAINER" ] ; then mFlags="$mFlags -m \"${PBI_MAINTAINER}\""; fi
-	if [ -n "$PBI_TAGS" ] ; then mFlags="$mFlags -k \"${PBI_TAGS}\""; fi
-	if [ -n "$PBI_ICONURL" ] ; then mFlags="$mFlags -i \"${PBI_ICONURL}\""; fi
-	if [ -n "$PBI_PROGWEB" ] ; then mFlags="$mFlags -u \"${PBI_PROGWEB}\""; fi
-	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"${PBI_PROGTYPE}\""; fi
-	if [ -n "$PBI_DESC" ] ; then mFlags="$mFlags -d \"`echo $PBI_DESC | sed 's|;||g'`\""; fi
-	if [ -n "$PBI_PROGTYPE" ] ; then mFlags="$mFlags -t \"$PBI_PROGTYPE\""; fi
-	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then mFlags="$mFlags -r"; fi
+	if [ "$PBI_REQUIRESROOT" = "YES" ] ; then 
+		PBI_MT_REQUIRESROOT="YES"
+	fi
 
+	PBI_MT_MAINTAINER="${PBI_MAINTAINER}"
+	PBI_MT_ADDNAME="$PBI_PROGNAME"
+	PBI_MT_ADDDESC="`echo ${PBI_DESC} | sed 's|;||g' | sed 's|\"||g'`"
+	PBI_MT_ADDSHORTDESC="`echo ${PBI_SHORTDESC} | sed 's|;||g' | sed 's|\"||g'`"
+	PBI_MT_ADDTYPE="$PBI_PROGTYPE"
+	PBI_MT_ADDLIC="$PBI_LICENSE"
+	PBI_MT_ADDCAT="$PBI_CATEGORY"
+	PBI_MT_ADDAUTHOR="$PBI_PROGAUTHOR"
+	PBI_MT_ADDURL="$PBI_PROGWEB"
+	PBI_MT_ADDKEYWORDS="$PBI_TAGS"
+	if [ -n "$PBI_ICONURL" ] ; then
+		PBI_MT_ADDICON="$PBI_ICONURL"
+	else
+		PBI_MT_ADDICON="http://images.pbidir.com/progicons/generic.png"
+	fi
 
-	# Add the app
-	echo "pbi_metatool ${mFlags} -n \"${PBI_PROGNAME}\" `realpath ${PBI_MT_METAFILE}`" >/tmp/.pbiCmd.$$
-	chmod 755 /tmp/.pbiCmd.$$
-	/tmp/.pbiCmd.$$
-	err=$?
-	#rm /tmp/.pbiCmd.$$
-	exit $err
+	do_pbi_mt_add_app
 }
 
 # Init the metatool
@@ -2109,7 +2136,7 @@ do_pbi_mt_add_app() {
 	local _date=`date '+%s'`
 
 	cp ${PBI_MT_METAFILE} ${PBI_TMPDIR}/.meta.$$
-	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date};${PBI_MT_MAINTAINER}" \
+	echo "App=${PBI_MT_ADDNAME};${PBI_MT_ADDCAT};${PBI_MT_ADDICON};${PBI_MT_ADDAUTHOR};${PBI_MT_ADDURL};${PBI_MT_ADDLIC};${PBI_MT_ADDTYPE};${PBI_MT_ADDKEYWORDS};${PBI_MT_ADDDESC};$PBI_MT_REQUIRESROOT;${_date};${PBI_MT_MAINTAINER};${PBI_MT_ADDSHORTDESC};" \
 	>> ${PBI_TMPDIR}/.meta.$$
 	sort ${PBI_TMPDIR}/.meta.$$ > "${PBI_MT_METAFILE}"
 	rm ${PBI_TMPDIR}/.meta.$$
@@ -3133,10 +3160,10 @@ load_info_from_dir() {
                 PBI_ICONURL="`cat ${1}/pbi_iconurl`"
         fi
 	if [ -e "${1}/pbi_desc" ] ; then
-                PBI_DESC="`cat ${1}/pbi_desc`"
+                PBI_DESC="`cat ${1}/pbi_desc | awk 1 ORS='<br>' | sed 's|*|-|g'`"
         fi
 	if [ -e "${1}/pbi_shortdesc" ] ; then
-                PBI_SHORTDESC="`cat ${1}/pbi_shortdesc`"
+                PBI_SHORTDESC="`cat ${1}/pbi_shortdesc | awk 1 ORS='<br>' | sed 's|*|-|g'`"
         fi
 	if [ -e "${1}/pbi_maintainer" ] ; then
                 PBI_MAINTAINER="`cat ${1}/pbi_maintainer`"
@@ -4807,7 +4834,7 @@ pbid_init() {
 check_populate_opengl()
 {
   local lG
-  for i in `ls /usr/local/lib/libGl.* /usr/local/lib/libGL.* /usr/local/lib/libGLU.* 2>/dev/null`
+  for i in `ls /usr/local/lib/libGl.* /usr/local/lib/libGL.* /usr/local/lib/libGLU.* /usr/local/lib/libnvidia-* 2>/dev/null`
   do
     lG=`basename $i`
     cp ${i} /usr/lib/${lG}
@@ -5136,6 +5163,12 @@ run_pbi_prepkgscript()
 # Begins the port make
 start_pbi_makeport()
 {
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
+
 	do_port_build "${PBI_MAKEPORT}"
 }
 
@@ -6011,6 +6044,12 @@ ab_get_build_list()
 		#echo "Skipping invalid port ${PORTSDIR}/${PBI_MAKEPORT}"
 		continue
 	fi
+
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
 	
 	# Check if this port can be built on this architecture
 	check_port_compat_arch "${PORTSDIR}/${PBI_MAKEPORT}"
@@ -6119,6 +6158,12 @@ start_next_ab_target()
   if [ -z "${PBI_MAKEPORT}" ] ; then
      PBI_MAKEPORT=$(dirname $pbi | sed 's|./||')
   fi	
+
+  # Remove any trailing '/'
+  echo $PBI_MAKEPORT | grep -q "/$"
+  if [ $? -eq 0 ] ; then
+    PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  fi
 
   echo "==> Starting build process [$curBuilder]: $PBI_MAKEPORT"
   echo "$PBI_MAKEPORT" >${PBI_TMPDIR}/${curBuilder}.bPort
@@ -6912,6 +6957,12 @@ do_pbi_make() {
 # Loads some optional meta-data from the package
 load_pkg_metadata()
 {
+  	# Remove any trailing '/'
+  	echo $PBI_MAKEPORT | grep -q "/$"
+  	if [ $? -eq 0 ] ; then
+     		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
+  	fi
+
 	if [ -z "$PBI_LICENSE" ] ; then
 		PBI_LICENSE="`pkg query '%L' ${PBI_MAKEPORT}`"
 	fi
