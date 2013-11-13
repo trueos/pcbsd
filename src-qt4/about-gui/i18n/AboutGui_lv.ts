@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">About</translation>
+        <translation>Par</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -13,12 +13,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Host:</source>
-        <translation type="unfinished">Host:</translation>
+        <translation>&lt;Unknown&gt;</translation>
     </message>
     <message>
         <source>????</source>
@@ -34,12 +29,11 @@
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">identifikācija</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">Detaļas</translation>
+        <translation>Aparatūra</translation>
     </message>
     <message>
         <source>CPU:</source>
@@ -55,7 +49,7 @@
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Darbavirsmas vides:</translation>
+        <translation>Darbvirsmas vides:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
@@ -88,7 +82,7 @@
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation>Darbavirsmas vides...</translation>
+        <translation>Darbvirsmas vides...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -97,6 +91,10 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI rīki:</translation>
+    </message>
+    <message>
+        <source>Host:</source>
+        <translation type="unfinished">Resursdators:</translation>
     </message>
 </context>
 </TS>

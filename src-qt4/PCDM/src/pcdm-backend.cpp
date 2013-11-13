@@ -262,6 +262,8 @@ void Backend::loadXSessionsData(){
   instXCommentList.clear(); instXIconList.clear();
   //Load the default paths/locale
   QString xDir = Config::xSessionsDir();
+  QStringList paths = QString(getenv("PATH")).split(":");
+  if(paths.isEmpty()){ paths <<"/usr/local/bin" << "/usr/local/sbin" << "/usr/bin" << "/usr/sbin" << "/bin" << "/sbin"; }
   if(!xDir.endsWith("/")){ xDir.append("/"); }
   QString xIconDir = Config::xSessionsImageDir();
   if(!xIconDir.endsWith("/")){ xIconDir.append("/"); }
@@ -278,7 +280,13 @@ void Backend::loadXSessionsData(){
       //Complete file paths if necessary
       //if(!tmp[0].startsWith("/")){ tmp[0] = "/usr/local/bin/"+tmp[0]; }
       if(!tmp[3].startsWith("/")&&!tmp[3].startsWith(":")&&!tmp[3].isEmpty()){ tmp[3] = xIconDir+tmp[3]; }
-      if(!tmp[4].startsWith("/")){ tmp[4] = "/usr/local/bin/"+tmp[4]; }
+      if(!tmp[4].startsWith("/") && !QFile::exists(tmp[4])){ 
+	for(int p=0; p<paths.length(); p++){
+	  if(QFile::exists(paths[p]+"/"+tmp[4])){
+	    tmp[4] = paths[p]+"/"+tmp[4];
+	  }
+	}
+      }
       //Check for valid DE using the "tryexec" line
         //this allows for special startup commands on the "exec" line
       if(QFile::exists(tmp[4])){
