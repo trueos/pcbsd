@@ -16,3 +16,4 @@ add path 'fd[0-9]*' mode 666
 add path 'uscan[0-9]*' mode 666
 add path 'video[0-9]*' mode 666  
 add path 'dvb/*' mode 666 
+add path 'dri/*' mode 0666

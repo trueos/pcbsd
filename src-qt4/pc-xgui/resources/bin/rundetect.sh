@@ -105,6 +105,12 @@ do
       echo "Using failsafe VESA 1024x768 mode..." >/dev/console
       cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
     else
+      # Check if this system has a nvidia device, and run nvidia-xconfig
+      kldstat | grep -q 'nvidia'
+      if [ $? -eq 0 ] ; then
+	 echo "Detected NVIDIA, creating xorg.conf"
+         nvidia-xconfig 2>/dev/null
+      fi
       AUTORES="YES"
     fi
   elif [ "${ATTEMPT}" = "1" ] ; then
