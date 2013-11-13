@@ -494,8 +494,7 @@
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tem certeza que deseja instalar este aplicativo?</translation>
     </message>
 </context>
 <context>
@@ -587,10 +586,6 @@
     <message>
         <source>The removal process experienced an error and could not be completed</source>
         <translation>O processo de remoção apresentou um erro e não pôde ser concluído</translation>
-    </message>
-    <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>O processo de download apresentou um erro e não pôde ser concluído</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>

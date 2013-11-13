@@ -227,8 +227,7 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>De volgende rechten kunnen worden ingeschakeld of uitgeschakeld voor deze gevangenis. Voor meer bijzonderheden plaatst u de muispijl op elk element. Ook kunt u de handleidingpagina voor gevangenis inzien.</translation>
     </message>
 </context>
 <context>

@@ -10,13 +10,11 @@
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monteringspunkt</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filsystem</translation>
     </message>
     <message>
         <source>Used/Total</source>
@@ -25,13 +23,11 @@
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prosent %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lukk</translation>
     </message>
 </context>
 <context>
@@ -51,8 +47,7 @@
     </message>
     <message>
         <source>Eject</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Løs ut</translation>
     </message>
     <message>
         <source>Mount</source>
@@ -170,8 +165,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vennligst vent</translation>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>

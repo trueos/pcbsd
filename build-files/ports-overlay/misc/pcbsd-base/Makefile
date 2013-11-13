@@ -14,6 +14,7 @@ MAINTAINER=	kmoore@FreeBSD.org
 COMMENT=	PC-BSD QT4 Utilities
 
 RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
+		git:${PORTSDIR}/devel/git \
 		beadm:${PORTSDIR}/sysutils/beadm-devel \
 		samba36>=0:${PORTSDIR}/net/samba36 \
 		foomatic-db>=0:${PORTSDIR}/print/foomatic-db \
@@ -124,7 +125,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		tk84>=0:${PORTSDIR}/x11-toolkits/tk84 \
 		tk85>=0:${PORTSDIR}/x11-toolkits/tk85 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \
-		gdm>=0:${PORTSDIR}/x11/gdm \
+		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 

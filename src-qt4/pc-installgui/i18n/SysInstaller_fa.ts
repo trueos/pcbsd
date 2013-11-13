@@ -781,7 +781,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select a network device to configure for this system.</source>
-        <translation>لطفا يك كارت شبكه براي براي پيكربندي بروري اين سيستم انتخاب كنيد</translation>
+        <translation>لطفا يك كارت شبكه براي پيكربندي بروري اين سيستم انتخاب كنيد.</translation>
     </message>
     <message>
         <source>Network Interface</source>

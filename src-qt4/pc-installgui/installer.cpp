@@ -583,13 +583,13 @@ void Installer::slotChangedMetaPkgSelection()
 	 selectedPkgs << "KDE-L10N";
 
       // Check if we are using NVIDIA driver and include it automatically
-      QFile file("/etc/X11/xorg.conf");
+      QFile file("/var/log/Xorg.0.log");
       if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
           
         QTextStream in(&file);
         while (!in.atEnd()) {
            QString line = in.readLine();
-           if ( line.indexOf("nvidia") != -1 ) {
+           if ( line.indexOf('LoadModule: "nvidia"') != -1 ) {
 	     selectedPkgs << "NVIDIA";
              break;
            }
@@ -1622,7 +1622,7 @@ QStringList Installer::getUsersCfgSettings()
    userList << "userPass=" + fUserPW;
    userList << "userShell=" + fShell;
    userList << "userHome=/home/" + fUserName;
-   userList << "userGroups=wheel,operator,vboxusers";
+   userList << "userGroups=wheel,operator";
    userList << "commitUser";
    userList << "";
  

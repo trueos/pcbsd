@@ -582,10 +582,6 @@
         <translation>删除进程发生错误，无法完成</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>下载进程发生错误，无法完成</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1PBI错误：</translation>
     </message>

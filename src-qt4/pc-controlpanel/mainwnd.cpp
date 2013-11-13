@@ -419,6 +419,7 @@ void MainWnd::onDirectoryChanged(const QString& path)
     on_toolButton_2_clicked();
     QObject::connect(&mDirWatcher, SIGNAL(directoryChanged(const QString &)),
                      this, SLOT(onDirectoryChanged(const QString &)));
+    QString junk = path; //to get rid of compilation warning about unused variable
 }
 
 ///////////////////////////////////////////////////////////////////////////////

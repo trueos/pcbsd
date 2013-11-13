@@ -25,7 +25,7 @@ DOWNLOADDIR="/usr/local/tmp"
 SYSVER="`uname -r | cut -d '-' -f 1-2`" ; export SYSVER
 
 # Get the system type
-SYSTYPE="`pbreg get /PC-BSD/SysType`" ; export SYSTYPE
+SYSTYPE="`/usr/local/bin/pbreg get /PC-BSD/SysType`" ; export SYSTYPE
 
 # Set the config location
 UPDATECONF="${PROGDIR}/conf/sysupdate.conf"
@@ -413,6 +413,56 @@ rollback_update()
   fi
 }
 
+# After installing the kernel and rebooting, this gets run
+finish_major_fbsd_update() {
+
+  PATH="${PATH}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
+  export PATH
+
+  echo "Installing FreeBSD updates... Please wait..."
+  freebsd-update --non-interactive install
+  if [ $? -ne 0 ] ; then
+     echo "Warning: Failed running freebsd-update install!"
+     echo "Press ENTER to continue"
+     read tmp
+  fi
+
+  # Lets pre-download all packages
+  echo "Downloading updated packages..."
+  download_cache_packages "pkg-static upgrade -fn"
+  if [ $? -ne 0 ] ; then
+     echo "Warning: Failed running 'pkg-static upgrade -fn'"
+     echo "Press ENTER to continue"
+     read tmp
+  fi
+
+  # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
+  SKIP_CACHE_PKGS="YES" ; export SKIP_CACHE_PKGS
+  pc-updatemanager pkgupdate -f
+  if [ $? -ne 0 ] ; then
+     echo "Warning: Failed running 'pc-updatemanager pkgupdate -f'"
+     echo "Press ENTER to continue"
+     read tmp
+  fi
+
+  # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
+  grub-mkconfig -o /boot/grub/grub.cfg
+  if [ $? -ne 0 ] ; then
+     echo "Warning: Failed running 'pc-updatemanager pkgupdate -f'"
+     echo "Press ENTER to continue"
+     read tmp
+  fi
+
+  echo "Updating overlay files..."
+  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
+    pc-extractoverlay desktop
+  else
+    pc-extractoverlay server
+  fi
+
+  exit 0
+}
+
 start_major_fbsd_update() {
   local rel=`echo $1 | sed 's|fbsd-||g'`
   PKGROLLBACK="NO"
@@ -442,15 +492,6 @@ start_major_fbsd_update() {
 
   # Lets install pkgng update
   PKGROLLBACK="YES"
-  echo "Installing pkgng update..."
-  pkg-static add /usr/local/tmp/pkg.txz
-
-  # Lets pre-download all packages
-  download_cache_packages "pkg-static upgrade -fn"
-  if [ $? -ne 0 ] ; then
-     rollback_update
-     exit_err "Failed downloading packages for update..."
-  fi
 
   # Download update files from freebsd-update
   freebsd-update --non-interactive -r "$rel" upgrade
@@ -468,13 +509,6 @@ start_major_fbsd_update() {
      rollback_update
      exit_err "Failed running \"freebsd-update install\"..."
   fi
-
-  # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
-  SKIP_CACHE_PKGS="YES" ; export SKIP_CACHE_PKGS
-  pc-updatemanager pkgupdate -f
-
-  # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
-  grub-mkconfig -o /boot/grub/grub.cfg 
 
   echo "Major update finished!" 
   echo "Please reboot the system for changes to take effect." 
@@ -594,6 +628,7 @@ case $1 in
                   do_branch "${2}" ;;
 	pkgcheck) checkup_pkgs ;;
        pkgupdate) update_pkgs "$2" ;;
+finish-major-update) finish_major_fbsd_update ;;
  	 install) get_update_file
                   do_install "${2}" ;;
 	*) show_usage ;;

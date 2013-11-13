@@ -45,7 +45,7 @@ public:
 	  *
 	  * @return TRUE if success and item is visible
 	  */
-        bool read(QString FileName, const QVector<QString>& vEnabledDE);
+        bool readDE(QString FileName, const QVector<QString>& vEnabledDE);
 
 	/**
 	  * Check for valid data

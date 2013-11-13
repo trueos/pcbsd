@@ -56,7 +56,7 @@ int QGroupList::read(QString Path, const QVector<QString>& vEnabledDE, bool Enab
 	{
 		QCPItem* anItem = new QCPItem;
 
-                if (anItem->read(dir.absoluteFilePath(DirList[i]), vEnabledDE))
+                if (anItem->readDE(dir.absoluteFilePath(DirList[i]), vEnabledDE))
                 {
                     if ((anItem->isSudoRequired() && (!EnableSudo))
                       ||(anItem->isRootRequired() && (!EnableSu)))

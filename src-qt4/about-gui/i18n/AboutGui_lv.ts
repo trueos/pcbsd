@@ -5,88 +5,67 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Par</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versija:</translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Host:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Unknown&gt;</translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD versija</translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kodols:</translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">identifikācija</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aparatūra</translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atmiņa</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atpakaļ</translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Darbvirsmas vides:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Lūdzu uzgaidiet...)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nosaukums</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versija</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aizvērt</translation>
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
@@ -95,28 +74,27 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org servera versija:</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas komponentes...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Darbvirsmas vides...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD CLI rīki:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD UI rīki:</translation>
+    </message>
+    <message>
+        <source>Host:</source>
+        <translation type="unfinished">Resursdators:</translation>
     </message>
 </context>
 </TS>

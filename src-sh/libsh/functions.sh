@@ -613,7 +613,8 @@ run_firstboot()
   esac
 
   # Play the video now
-  mplayer -fs -nomouseinput -zoom /usr/local/share/pcbsd/movies/$mov
+  # NO Movie for 10, if we end up with one, replace this
+  #mplayer -fs -nomouseinput -zoom /usr/local/share/pcbsd/movies/$mov
 
   # Setting a language
   if [ -e "/etc/pcbsd-lang" ] ; then

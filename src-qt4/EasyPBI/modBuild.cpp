@@ -669,7 +669,7 @@ bool ModBuild::loadExternalLinks(){
     QString original, linkto, types;
     while(!in.atEnd()){
       QString line = in.readLine();
-      line.replace("\t"," ").simplified();
+      line = line.replace("\t"," ").simplified();
       if(!line.startsWith("#") && !line.isEmpty()){
         original = line.section(" ",0,0,QString::SectionSkipEmpty);
         linkto =  line.section(" ",1,1,QString::SectionSkipEmpty);
@@ -1120,7 +1120,7 @@ int ModBuild::readMakeFile(QString makefile){
 	}
 	for(int i=0; i<tmpL.length(); i++){
 	  if(tmpL[i].endsWith("\\")){ tmpL[i].chop(1); }
-          tmpL[i].simplified();
+          tmpL[i] = tmpL[i].simplified();
 	  if( tmpL[i].startsWith("bin/") || tmpL[i].startsWith("sbin/") ){
 	    bins << tmpL[i];
 	    if(tmpL[i].contains("$")){ variableBinFound=TRUE; }
@@ -1217,7 +1217,7 @@ QString ModBuild::checkYesNo(QString chk){
 bool ModBuild::writeSampleFreenasControl(){
     //convert the program name to the proper format
     QString progname = progStruct[0];
-    progname.toLower().remove(" ").remove("\t").simplified();
+    progname = progname.toLower().remove(" ").remove("\t").simplified();
     //Now create the sample file contents
     QStringList contents;
     contents << "#!/bin/python";
@@ -1311,7 +1311,7 @@ bool ModBuild::writeSampleFreenasControl(){
 bool ModBuild::writeSampleFreenasTweakRC(){
     //convert the program name to the proper format
     QString progname = progStruct[0];
-    progname.toLower().remove(" ").remove("\t").simplified();
+    progname = progname.toLower().remove(" ").remove("\t").simplified();
     //Now create the sample file contents
     QStringList contents;
     contents << "#!/bin/sh\n"; //add an extra line after this

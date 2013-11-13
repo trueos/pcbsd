@@ -484,8 +484,7 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anbieterseite</translation>
     </message>
     <message>
         <source>Verify Installation</source>
@@ -581,10 +580,6 @@
     <message>
         <source>The removal process experienced an error and could not be completed</source>
         <translation>Beim Entfernungsprozess ist ein Fehler aufgetreten.</translation>
-    </message>
-    <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>Beim Downloadprozess ist ein Fehler aufgetreten.</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>

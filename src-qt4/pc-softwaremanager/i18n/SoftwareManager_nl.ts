@@ -484,18 +484,15 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Productpagina</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installatie verifiëren</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Weet u zeker dat u deze toepassing wil installeren?</translation>
     </message>
 </context>
 <context>
@@ -583,10 +580,6 @@
     <message>
         <source>The removal process experienced an error and could not be completed</source>
         <translation>Het verwijderingsproces onderging een fout en kon niet worden voltooid</translation>
-    </message>
-    <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>Het binnenhaalproces onderging een fout en kon niet worden voltooid</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>

@@ -582,10 +582,6 @@
         <translation>В процесі видалення сталася помилка. Видалення не може бути завершено коректно.</translation>
     </message>
     <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>Під час завантаження сталася помилка. Завантаження не завершено</translation>
-    </message>
-    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 Помилка PBI:</translation>
     </message>

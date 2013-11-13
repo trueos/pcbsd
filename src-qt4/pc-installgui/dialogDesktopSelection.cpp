@@ -118,21 +118,24 @@ void desktopSelection::slotDeskPkgsChanged(QTreeWidgetItem *aItem, int aCol)
         disconnect(treeWidgetDesktopPackages, SIGNAL(itemChanged(QTreeWidgetItem *, int)), 0, 0);
 
 	if (aItem->childCount() == 0) {
-		if (aItem->checkState(0) == Qt::Checked && aItem->parent() )
-			if ( allChildrenPkgsChecked(aItem->parent()->text(0)))
+		if (aItem->checkState(0) == Qt::Checked && aItem->parent() ){
+			if ( allChildrenPkgsChecked(aItem->parent()->text(0))){
 				aItem->parent()->setCheckState(0, Qt::Checked);	
-			else
+			}else{
 				aItem->parent()->setCheckState(0, Qt::PartiallyChecked);	
-		if (aItem->checkState(0) == Qt::Unchecked && aItem->parent() )
+			}
+		}
+		if (aItem->checkState(0) == Qt::Unchecked && aItem->parent() ){
 			if ( ! allChildrenPkgsUnchecked(aItem->parent()->text(0)))
 				aItem->parent()->setCheckState(0, Qt::PartiallyChecked);	
-
+		}
 
 	} else {
-		if (aItem->checkState(0) == Qt::Checked )
+		if (aItem->checkState(0) == Qt::Checked ){
 			checkAllChildrenPkgs(aItem->text(0));
-		else
+		}else{
 			uncheckAllChildrenPkgs(aItem->text(0));
+		}
 	}
 	
 

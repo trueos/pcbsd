@@ -39,8 +39,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation>
-            تصویب کردن</translation>
+        <translation>تایید</translation>
     </message>
     <message>
         <source>Cancel</source>

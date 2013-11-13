@@ -67,7 +67,7 @@ void widgetKeyboard::slotUpdateKbOnSys()
 {
   QString model, layout, variant;
 
-  if ( ! comboBoxKeyboardModel->currentIndex() == -1 )
+  if ( ! (comboBoxKeyboardModel->currentIndex() == -1) )
      return;
   if ( ! listKbLayouts->currentItem() )
      return;

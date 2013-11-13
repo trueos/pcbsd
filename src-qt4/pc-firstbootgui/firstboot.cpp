@@ -452,12 +452,15 @@ void Installer::saveSettings()
       stream << linePW->text();
     ufile.close();
   }
-  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator,vboxusers\"";
+  QString userCmd = " | pw useradd -n \"" + lineUsername->text() + "\" -c \"" + lineName->text() + "\" -h 0 -s \"/bin/csh\" -m -d \"/usr/home/" + lineUsername->text() + "\" -G \"wheel,operator\"";
   system("cat " + ufile.fileName().toLatin1() + userCmd.toLatin1());
   ufile.remove();
 
+  // Sync after adding the user
+  sync();
+
   // Enable Flash for the new user
-  QProcess::execute("su", QStringList() << "-m" << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
+  QProcess::execute("su", QStringList() << lineUsername->text() << "-c" << "/usr/local/bin/flashpluginctl on" );
   
   // Encrypt the users home-directory?
   if ( checkEnc->isChecked() )

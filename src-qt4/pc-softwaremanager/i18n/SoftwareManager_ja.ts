@@ -484,18 +484,15 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>製品のページ</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールの確認</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションをインストールしますか?</translation>
     </message>
 </context>
 <context>
@@ -583,10 +580,6 @@
     <message>
         <source>The removal process experienced an error and could not be completed</source>
         <translation>削除処理でエラーが発生したため完了できません</translation>
-    </message>
-    <message>
-        <source>The download process experienced an error and could not be completed</source>
-        <translation>ダウンロード処理でエラーが発生したため完了できません</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>

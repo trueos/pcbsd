@@ -15,7 +15,7 @@ alias ls	ls -G
 # A righteous umask
 umask 22
 
-set path = (/usr/local/share/pcbsd/bin /sbin /bin /usr/sbin /usr/bin /usr/games /usr/local/sbin /usr/local/bin $HOME/bin)
+set path = (/usr/local/share/pcbsd/bin /sbin /bin /usr/sbin /usr/bin /usr/games /usr/pbi/bin /usr/local/sbin /usr/local/bin $HOME/bin)
 
 setenv	CLICOLOR true
 setenv	EDITOR	vi
@@ -36,6 +36,9 @@ if ($?prompt) then
 	set filec
 	set history = 100
 	set savehist = 100
+        # Use history to aid expansion
+        set autoexpand
+        set autorehash
 	set mail = (/var/mail/$USER)
 	if ( $?tcsh ) then
 		bindkey "^W" backward-delete-word

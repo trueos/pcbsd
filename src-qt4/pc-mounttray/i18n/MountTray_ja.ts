@@ -95,18 +95,15 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスがビジー状態です</translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスが使用中です。それでもアンマウントしますか?</translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>注意: どのアプリケーションでもこのデバイスを使用していないと確信できる場合を除いて、これを実行する事はおすすめできません。</translation>
     </message>
 </context>
 <context>

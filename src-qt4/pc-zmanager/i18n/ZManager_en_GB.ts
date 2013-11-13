@@ -5,82 +5,77 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apply changes recursively to all descendants</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Property</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Value</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Source</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add user property</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove user property</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inherit from parent</translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Revert changes</translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls how ACL entries are inherited when files and directories are created. The values are
+discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls how an ACL entry is modified during a chmod operation.
+The values are discard, groupmask, and passthrough. For a description of
+these values, see ACL Properties.</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls whether the access time for files is updated when they are read.
+Turning this property off avoids producing write traffic when reading files and
+can result in significant performance gains, though it might confuse mailers and
+similar utilities.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of disk space available to a dataset
+and all its children, assuming no other activity in the pool. Because disk space is
+shared within a pool, available space can be limited by various factors including
+physical pool size, quotas, reservations, and other datasets within the pool.</translation>
     </message>
     <message>
         <source>If this property is set to off, the file system cannot be mounted,
@@ -92,8 +87,15 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>If this property is set to off, the file system cannot be mounted,
+and is ignored by &apos;zfs mount -a&apos;.  Setting this property to off is
+similar to setting the mountpoint property to none, except that the
+dataset still has a normal mountpoint property, which can be inherited
+Setting this property to off allows datasets to be used solely as a
+mechanism to inherit properties. One example of setting canmount=off is
+to have two datasets with the same mountpoint, so that the children of
+both datasets appear in the same directory, but might have different
+inherited characteristics.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -101,16 +103,21 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls the checksum used to verify data integrity. The default
+value is on, which automatically selects an appropriate algorithm
+(currently, fletcher4, but this may change in future releases). The
+value off disables integrity checking on user data. Disabling
+checksums is NOT a recommended practice.</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
+and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
+effect as setting this property to on. Enabling compression on a file system with
+existing data only compresses new data. Existing data remains uncompressed.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -118,8 +125,11 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the compression ratio achieved for a dataset,
+expressed as a multiplier. Compression can be enabled by the zfs set compression=on
+dataset command. The value is calculated from the logical size of all files and the
+amount of referenced physical data. It includes explicit savings through the use of
+the compression property.</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -129,13 +139,17 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sets the number of copies of user data per file system. These copies
+are in addition to any pool-level redundancy. Disk space used by
+multiple copies of user data is charged to the corresponding file and
+dataset, and counts against quotas and reservations. In addition, the
+used property is updated when multiple copies are enabled. Consider setting
+this property when the file system is created because changing this property
+on an existing file system only affects newly written data.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the date and time that a dataset was created.</translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.
@@ -146,25 +160,30 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configures deduplication for a dataset. The default value is off.
+The default deduplication checksum is sha256 (this may change in the
+future).  When dedup is enabled, the checksum defined here overrides
+the checksum property. Setting the value to verify has the same
+effect as the setting sha256,verify.
+If set to verify, ZFS will do a byte-to-byte comparsion in case of
+two blocks having the same signature to make sure the block contents
+are identical.</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The devices property is currently not supported on FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls whether processes can be executed from within this file
+system. The default value is on.</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that indicates whether a file system, clone, or snapshot
+is currently mounted.</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -173,24 +192,32 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls the mount point used for this file system. When the mountpoint property
+is changed for a file system, the file system and any descendents that inherit the
+mount point are unmounted. If the new value is legacy, then they remain unmounted.
+Otherwise, they are automatically remounted in the new location if the property was
+previously legacy or none, or if they were mounted before the property was changed.
+In addition, any shared file systems are unshared and shared in the new location.</translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls what is cached in the primary cache (ARC). Possible values are all,
+none, and metadata. If set to all, both user data and metadata are cached. If
+set to none, neither user data nor metadata is cached. If set to metadata, only
+metadata is cached.</translation>
     </message>
     <message>
         <source>Read-only property for cloned file systems or volumes that identifies
 the snapshot from which the clone was created. The origin cannot be
 destroyed (even with the -r or -f option) as long as a clone exists.
 Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property for cloned file systems or volumes that identifies
+the snapshot from which the clone was created. The origin cannot be
+destroyed (even with the -r or -f option) as long as a clone exists.
+Non-cloned file systems have an origin of none.</translation>
     </message>
     <message>
         <source>Limits the amount of disk space a dataset and its descendents can consume.
@@ -198,14 +225,17 @@ This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
 Setting a quota on a descendent of a dataset that already has a quota does not
 override the ancestor&apos;s quota, but rather imposes an additional limit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Limits the amount of disk space a dataset and its descendents can consume.
+This property enforces a hard limit on the amount of disk space used,
+including all space consumed by descendents, such as file systems and snapshots.
+Setting a quota on a descendent of a dataset that already has a quota does not
+override the ancestor&apos;s quota, but rather imposes an additional limit.</translation>
     </message>
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls whether a dataset can be modified. When set to on,
+no modifications can be made.</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -217,22 +247,31 @@ Use of this property for general purpose file systems is strongly
 discouraged, and may adversely affect performance.
 The size specified must be a power of two greater than or equal to
 512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Specifies a suggested block size for files in the file system. This
+property is designed solely for use with database workloads that
+access files in fixed-size records.  ZFS automatically tunes block
+sizes according to internal algorithms optimized for typical access
+patterns.
+Use of this property for general purpose file systems is strongly
+discouraged, and may adversely affect performance.
+The size specified must be a power of two greater than or equal to
+512 and less than or equal to 128 Kbytes.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of data accessible by a
 dataset, which might or might not be shared with other datasets in the
 pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of data accessible by a
+dataset, which might or might not be shared with other datasets in the
+pool.</translation>
     </message>
     <message>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sets the amount of disk space that a dataset can consume. This property
+enforces a hard limit on the amount of space used. This hard limit does
+not include disk space used by descendents, such as snapshots and clones.</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -244,8 +283,15 @@ the parent dataset&apos;s quotas and reservations.
 If refreservation is set, a snapshot is only allowed if enough free pool space
 is available outside of this reservation to accommodate the current number of
 referenced bytes in the dataset.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sets the minimum amount of disk space that is guaranteed to a dataset, not
+including descendents, such as snapshots and clones. When the amount of disk
+space used is below this value, the dataset is treated as if it were taking up
+the amount of space specified by refreservation. The refreservation reservation
+is accounted for in the parent dataset&apos;s disk space used, and counts against
+the parent dataset&apos;s quotas and reservations.
+If refreservation is set, a snapshot is only allowed if enough free pool space
+is available outside of this reservation to accommodate the current number of
+referenced bytes in the dataset.</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
@@ -253,69 +299,73 @@ When the amount of disk space used is below this value, the dataset is treated a
 it were using the amount of space specified by its reservation. Reservations are
 accounted for in the parent dataset&apos;s disk space used, and count against the parent
 dataset&apos;s quotas and reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
+When the amount of disk space used is below this value, the dataset is treated as if
+it were using the amount of space specified by its reservation. Reservations are
+accounted for in the parent dataset&apos;s disk space used, and count against the parent
+dataset&apos;s quotas and reservations.</translation>
     </message>
     <message>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
+and metadata. If set to all, both user data and metadata are cached. If set to none,
+neither user data nor metadata is cached. If set to metadata, only metadata is cached.</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls whether the setuid bit is honored in a file system.</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls whether a file system is available over NFS and what
+options are used. If set to on, the zfs share command is invoked
+with no options. Otherwise, the zfs share command is invoked with
+options equivalent to the contents of this property.</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The sharesmb property has currently no effect on FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls whether the .zfs directory is hidden or visible in the root of the file system.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of disk space that is used by
+children of this dataset, which would be freed if all the dataset&apos;s children
+were destroyed.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 a dataset itself, which would be freed if the dataset was destroyed, after
 first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of disk space that is used by
+a dataset itself, which would be freed if the dataset was destroyed, after
+first destroying any snapshots and removing any refreservation reservations.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
 refreservation set on a dataset, which would be freed if the refreservation was
 removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of disk space that is used by a
+refreservation set on a dataset, which would be freed if the refreservation was
+removed.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is consumed
@@ -323,58 +373,57 @@ by snapshots of a dataset. In particular, it is the amount of disk space that
 would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read-only property that identifies the amount of disk space that is consumed
+by snapshots of a dataset. In particular, it is the amount of disk space that
+would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
+this value is not simply the sum of the snapshots&apos; used properties, because
+space can be shared by multiple snapshots.</translation>
     </message>
     <message>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Identifies the on-disk version of a file system, which is independent of the
+pool version. This property can only be set to a later version that is available
+from the supported software release.</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>For volumes, specifies the logical size of the volume.</translation>
     </message>
     <message>
         <source>For volumes, specifies the block size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>For volumes, specifies the block size of the volume.</translation>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indicates whether a dataset has been added to a jail.</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This property is not supported on FreeBSD.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The file system is marked to be destroyed after unmount.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
 dataset, expressed as a multiplier.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The compression ratio achieved for the referenced space of this
+dataset, expressed as a multiplier.</translation>
     </message>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The amount of referenced space written to this dataset since the
+previous snapshot.</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This property is set to the number of user holds on this snapshot.
+</translation>
     </message>
     <message>
         <source>Provide a hint to ZFS about handling of synchronous requests in this
@@ -383,8 +432,12 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provide a hint to ZFS about handling of synchronous requests in this
+dataset.  If logbias is set to latency (the default), ZFS will use
+pool log devices (if configured) to handle the requests at low
+latency. If logbias is set to throughput, ZFS will not use configured
+pool log devices.  ZFS will instead optimize synchronous operations
+for global pool throughput and efficient use of resources.</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -403,241 +456,212 @@ disabled  Disables synchronous requests. File system transactions
           nous transaction demands of applications such as data-
           bases or NFS.  Administrators should only use this
           option when the risks are understood.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controls the behavior of synchronous requests (e.g.  fsync(2),
+O_DSYNC). This property accepts the following values:
+standard  This is the POSIX specified behavior of ensuring all
+          synchronous requests are written to stable storage and
+          all devices are flushed to ensure data is not cached by
+          device controllers (this is the default).
+always    All file system transactions are written and flushed
+          before their system calls return. This has a large
+          performance penalty.
+disabled  Disables synchronous requests. File system transactions
+          are only committed to stable storage periodically. This
+          option will give the highest performance.  However, it
+          is very dangerous as ZFS would be ignoring the synchro-
+          nous transaction demands of applications such as data-
+          bases or NFS.  Administrators should only use this
+          option when the risks are understood.</translation>
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This property cannot be changed after the system is created.</translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User Property</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unknown property or information not available.
+Read ZFS manual for more information.</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Invalid]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Inherit]</translation>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Added]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Changed]</translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User property</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device Menu</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add new user property</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Delete user property</translation>
     </message>
 </context>
 <context>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device to mount:</translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Device)</translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mount location:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select Directory</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool name:</translation>
     </message>
     <message>
         <source>Read only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read only</translation>
     </message>
     <message>
         <source>Change altroot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Change altroot:</translation>
     </message>
 </context>
 <context>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selected</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool name:</translation>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration type:</translation>
     </message>
     <message>
         <source>Striped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Striped</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mirror</translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z (single parity)</translation>
     </message>
     <message>
         <source>Raid-Z2 (double parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z2 (double parity)</translation>
     </message>
     <message>
         <source>Raid-Z3 (triple parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z3 (triple parity)</translation>
     </message>
     <message>
         <source>Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cache</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Log</translation>
     </message>
     <message>
         <source>Spare</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spare</translation>
     </message>
     <message>
         <source>Error Description Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error Description Here</translation>
     </message>
     <message>
         <source>Must provide a valid pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Must provide a valid pool name</translation>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Must select exactly %1 devices</translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Must select at least one device</translation>
     </message>
 </context>
 <context>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add Partition</translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add new slice/partition</translation>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 GB</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device:</translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ada0</translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Largest available free block:</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Total Size:</translation>
     </message>
     <message>
         <source>Current layout:</source>
@@ -920,23 +944,21 @@ lowing restrictions:
             </translation>
     </message>
     <message>
-        <source>Controls the system behavior in the event of catastrophic pool failâ
-ure. This condition is typically a result of a loss of connectivity
+        <source>Controls the system behavior in the event of catastrophic pool failure
+This condition is typically a result of a loss of connectivity
 to the underlying storage device(s) or a failure of all devices
-within the pool. The behavior of such an event is determined as folâ
-lows:
-
-wait    Blocks all I/O access until the device connectivity is recovâ
-        ered and the errors are cleared.  This is the default behavâ
-        ior.
-
+within the pool. The behavior of such an event is determined as follows
+wait
+Blocks all I/O access until the device connectivity is recovered
+and the errors are cleared. This is the default behavior
 continue
-        Returns EIO to any new write I/O requests but allows reads to
-        any of the remaining healthy devices. Any write requests that
-        have yet to be committed to disk would be blocked.
+Returns EIO to any new write I/O requests but allows reads to
+any of the remaining healthy devices. Any write requests that
+have yet to be committed to disk would be blocked.
 
-panic   Prints out a message to the console and generates a system
-        crash dump.
+panic
+Prints out a message to the console and generates a system
+crash dump.
 </source>
         <translation type="unfinished"></translation>
     </message>
