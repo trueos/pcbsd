@@ -212,7 +212,7 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   QStringList list = line.split(";");
   //Format the output list
   QStringList output;
-  bool DEBUG = (list[0].toLower()=="xastir");
+  //bool DEBUG = (list[0].toLower()=="xastir");
   if(list.length() < 13){ return output;} //invalid line
   output << list[0]; //NAME
   output << list[1]; //CATEGORY
@@ -224,14 +224,14 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   output << list[7]; //TAGS
   //Cleanup the description (try to format the text properly)
   QStringList tmp = list[8].split("<br>");
-  if(DEBUG){ qDebug() << "Raw Description:\n" << list[8]; }
+  //if(DEBUG){ qDebug() << "Raw Description:\n" << list[8]; }
   for(int i=1; i<tmp.length(); i++){
     tmp[i-1] = tmp[i-1].simplified();
     if(tmp[i-1].isEmpty() || tmp[i].isEmpty() ){}
     else if(tmp[i-1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){}
     else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){}
     else{
-      if(DEBUG){ qDebug() << " - Bad Line Break:\n" << tmp[i-1] << "<br>" << tmp[i]; }
+      //if(DEBUG){ qDebug() << " - Bad Line Break:\n" << tmp[i-1] << "<br>" << tmp[i]; }
       //Bad line break, combine it with the previous line
       tmp[i-1].append(" "+tmp[i]);
       tmp.removeAt(i);
