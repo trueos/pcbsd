@@ -213,7 +213,6 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   //Format the output list
   QStringList output;
   qDebug() << "Parse App Meta Line:" << line;
-  qDebug() << " - Number of fields:" << list.length();
   if(list.length() < 13){ return output;} //invalid line
   output << list[0]; //NAME
   output << list[1]; //CATEGORY
@@ -226,6 +225,7 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   //Cleanup the description (try to format the text properly)
   QStringList tmp = list[8].split("<br>");
   for(int i=1; i<tmp.length(); i++){
+    qDebug() << "Check description line:" << tmp[i-1] << QString::number(i);
     tmp[i-1] = tmp[i-1].simplified();
     if(tmp[i=1].isEmpty() || tmp[i].isEmpty() ){continue;}
     else if(tmp[i=1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){ continue; }
