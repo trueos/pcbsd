@@ -227,7 +227,7 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   for(int i=1; i<tmp.length(); i++){
     qDebug() << "Check description line:" << tmp[i-1] << QString::number(i);
     tmp[i-1] = tmp[i-1].simplified();
-    if(tmp[i=1].isEmpty() || tmp[i].isEmpty() ){}
+    if(tmp[i-1].isEmpty() || tmp[i].isEmpty() ){}
     else if(tmp[i-1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){}
     else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){}
     else{
