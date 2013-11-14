@@ -213,8 +213,8 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   //Format the output list
   QStringList output;
   qDebug() << "Parse App Meta Line:" << line;
-  qDebug() << " - Number of fields:" << output.length();
-  if(output.length() < 13){ return output;} //invalid line
+  qDebug() << " - Number of fields:" << list.length();
+  if(list.length() < 13){ return output;} //invalid line
   output << list[0]; //NAME
   output << list[1]; //CATEGORY
   output << list[2]; //remoteIcon
