@@ -212,7 +212,6 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   QStringList list = line.split(";");
   //Format the output list
   QStringList output;
-  qDebug() << "Parse App Meta Line:" << line;
   if(list.length() < 13){ return output;} //invalid line
   output << list[0]; //NAME
   output << list[1]; //CATEGORY
@@ -225,14 +224,12 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   //Cleanup the description (try to format the text properly)
   QStringList tmp = list[8].split("<br>");
   for(int i=1; i<tmp.length(); i++){
-    qDebug() << "Check description line:" << tmp[i-1] << QString::number(i);
     tmp[i-1] = tmp[i-1].simplified();
     if(tmp[i-1].isEmpty() || tmp[i].isEmpty() ){}
     else if(tmp[i-1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){}
     else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){}
     else{
       //Bad line break, combine it with the previous line
-      qDebug() << "Bad line break:" << tmp[i-1] << "<br>" << tmp[i];
       tmp[i-1].append(" "+tmp[i]);
       tmp.removeAt(i);
       i--;
