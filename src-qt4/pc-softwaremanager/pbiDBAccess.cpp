@@ -232,8 +232,9 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
     else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){}
     else{
       //Bad line break, combine it with the previous line
+      qDebug() << "Bad line break:" << tmp[i-1] << "<br>" << tmp[i];
       tmp[i-1].append(" "+tmp[i]);
-      tmp = tmp.removeAt(i);
+      tmp.removeAt(i);
       i--;
     }
   }
