@@ -3,6 +3,7 @@
 #include "pcbsd-utils.h"
 
 #include <QDebug>
+#include <QFile>
 
 static const char* const UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
 static const char* const UPDATES_AVAIL_SIZE_STRING = "The upgrade will require ";
@@ -19,6 +20,9 @@ static const char* const FETCH_DONE = "FETCHDONE";
 static const char* const SIZE_DL_MARKER = "SIZE:";
 static const char* const DOWNLOADED_DL_MARKER = "DOWNLOADED:";
 static const char* const DL_FETCH_START = "FETCH:";
+static const char* const DL_RESUME_DOWNLOAD= "Resuming download of:";
+static const char* const PKG_CONFLICTS_LIST= "PKGCONFLICTS: ";
+static const char* const PKG_CONFLICTS_REPLY= "PKGREPLY: ";
 
 typedef enum{
     eCommonInfo,
@@ -212,7 +216,12 @@ void CPkgController::onReadUpdateLine(QString line)
         mCurrentPkgName= line.right(line.size() - line.lastIndexOf("/") - 1); // get package file name (ex: pcbsd-base-1382021797.txz)
         mCurrentPkgName= mCurrentPkgName.left(mCurrentPkgName.lastIndexOf("-")); // get packagename without version
         progress.misCanCancel= true;
-        return;
+        progress.mMessage= tr("[%1/%2] Downloading %3").arg(QString::number(progress.mItemNo+1),
+                                                            QString::number(progress.mItemsCount),
+                                                            mCurrentPkgName);
+        if (!mLastLine.contains(DL_RESUME_DOWNLOAD))
+            progress.mLogMessages= QStringList()<<(QString("Downloading: ")+line.replace(FETCH, ""));
+
     }
     if(line == FETCH_DONE)
     {
@@ -246,7 +255,44 @@ void CPkgController::onReadUpdateLine(QString line)
                                                                                   pcbsd::Utils::bytesToHumanReadable(downloaded),
                                                                                   speed);
     }
+    else
+    if (line.indexOf(PKG_CONFLICTS_LIST) == 0)
+    {
+        //----------- package conflict
+        mConflictList= line.replace(PKG_CONFLICTS_LIST, "");
+        progress.misCanCancel= true;
+        progress.mLogMessages= QStringList()<<QString("ERROR: Package upgrade conflict for packages: ")<<mConflictList;
+        reportProgress(progress);
 
+        reportError(tr("Package conflict: ") + mConflictList);
+        return;
+    }
+    else
+    if (line.indexOf(PKG_CONFLICTS_REPLY))
+    {
+        mConflictsReply= line.replace(PKG_CONFLICTS_REPLY, "");
+        emit packageConflict(mConflictList);
+        return;
+    }
+
+    mLastLine = line;
 
     reportProgress(progress);
+}
+
+void CPkgController::autoResolveConflict(bool isAutoResolve)
+{
+    QString answer = (isAutoResolve)?"yes":"no";
+
+    QFile pkgReply( mConflictsReply );
+    if ( pkgReply.open( QIODevice::WriteOnly ) )
+    {
+       QTextStream streamReply( &pkgReply );
+       streamReply << answer;
+       pkgReply.close();
+    }
+    if (!isAutoResolve)
+    {
+        //process().terminate();
+    }
 }

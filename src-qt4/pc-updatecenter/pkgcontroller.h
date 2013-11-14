@@ -60,12 +60,21 @@ protected:
     virtual void onUpdateAll();
     virtual void onReadUpdateLine(QString line);
 
+signals:
+    void packageConflict(QString conflictList);
+
+public slots:
+    void autoResolveConflict(bool isAutoResolve);
+
 private:
     SUpdate mUpdData;
     bool    misDownloadComplete;
     int     mCurrentPkgNo;
     int     misInFetch;
     QString mCurrentPkgName;
+    QString mLastLine;
+    QString mConflictList;
+    QString mConflictsReply;
 };
 
 #endif // PKGCONTROLLER_H
