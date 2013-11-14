@@ -207,15 +207,48 @@ QStringList PBIDBAccess::parseIndexLine(QString line){
 }
 
 QStringList PBIDBAccess::parseAppMetaLine(QString line){
-  // line format 5/1/2013: [name,category,remoteIcon,author,website,license,apptype,tags,description,requiresroot]
-  QStringList output = line.split(";");
-  if(output.length() < 10){ output.clear();} //invalid line
-  else if(output[9]=="YES"){ output[9]="true"; } //change to the same true/false syntax as elsewhere
+  // line format 11/14/2013 (10.x PBI format): 
+  // [name,category,remoteIcon,author,website,license,apptype,tags,description,requiresroot,dateadded,maintainerEmail,shortDescription]
+  QStringList list = line.split(";");
+  //Format the output list
+  QStringList output;
+  if(output.length() < 13){ return output;} //invalid line
+  output << list[0]; //NAME
+  output << list[1]; //CATEGORY
+  output << list[2]; //remoteIcon
+  output << list[3]; //AUTHOR
+  output << list[4]; //WEBSITE
+  output << list[5]; //LICENSE
+  output << list[6]; //APP-TYPE
+  output << list[7]; //TAGS
+  //Cleanup the description (try to format the text properly)
+  QStringList tmp = list[8].split("<br>");
+  for(int i=1; i<tmp.length(); i++){
+    tmp[i-1] = tmp[i-1].simplified();
+    if(tmp[i=1].isEmpty() || tmp[i].isEmpty() ){continue;}
+    else if(tmp[i=1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){ continue; }
+    else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){ continue; }
+    else{
+      //Bad line break, combine it with the previous line
+      tmp[i-1].append(" "+tmp[i]);
+      tmp.removeAt(i);
+      i--;
+    }
+  }
+  output << tmp.join("\n"); //DESCRIPTION
+  if(list[9]=="YES"){ list[9]="true"; } //change to the same true/false syntax as elsewhere
+  output << list[9]; //REQUIRESROOT
+  output << list[10]; //DATE ADDED (just a number - not human-readable)
+  output << list[11]; //MAINTAINER EMAIL
+  //Cleanup the short description (remove any line breaks)
+  tmp = list[12].split("<br>", QString::SkipEmptyParts);
+  list[12] = tmp.join(" ").simplified();
+  output << list[12]; //SHORT DESCRIPTION
   return output;
 }
 
 QStringList PBIDBAccess::parseCatMetaLine(QString line){
-  // line format 5/1/2013: [name,remoteicon,description,?]
+  // line format 11/14/2013: [name,remoteicon,description]
   QStringList output = line.split(";");
   if(output.length() < 3){output.clear(); } //incomplete line
   return output;
