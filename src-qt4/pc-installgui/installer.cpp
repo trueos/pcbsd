@@ -588,11 +588,7 @@ void Installer::slotChangedMetaPkgSelection()
         QTextStream in(&file);
         while (!in.atEnd()) {
            QString line = in.readLine();
-<<<<<<< HEAD
-           if ( line.indexOf("NVIDIA") != -1 ) {
-=======
            if ( line.indexOf("nvidia") != -1 ) {
->>>>>>> parent of d208e87... Merge branch 'master' of github.com:pcbsd/pcbsd into 9.2-release
 	     selectedPkgs << "NVIDIA";
              break;
            }
