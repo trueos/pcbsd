@@ -1,5 +1,7 @@
 #include "pkgcontroller.h"
 
+#include "pcbsd-utils.h"
+
 #include <QDebug>
 
 static const char* const UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
@@ -11,6 +13,12 @@ static const char* const UPDATES_AVAIL_END_STRING = "To start the upgrade run";
 static const char* const INSTALLING  = "Installing";
 static const char* const UPGRADING   = "Upgrading";
 static const char* const REINSTALLING = "Reinstalling";
+
+static const char* const FETCH = "FETCH:";
+static const char* const FETCH_DONE = "FETCHDONE";
+static const char* const SIZE_DL_MARKER = "SIZE:";
+static const char* const DOWNLOADED_DL_MARKER = "DOWNLOADED:";
+static const char* const DL_FETCH_START = "FETCH:";
 
 typedef enum{
     eCommonInfo,
@@ -42,7 +50,9 @@ static long long sizeToLong(QString size_with_units)
 
 CPkgController::CPkgController()
 {
-
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("PCFETCHGUI","YES"); //For readable download notifications
+    process().setProcessEnvironment(env);
 }
 
 CPkgController::SUpdate CPkgController::updateData()
@@ -169,7 +179,66 @@ void CPkgController::onReadCheckLine(QString line)
     }// if inside packages list
 }
 
+void CPkgController::onUpdateAll()
+{
+    misDownloadComplete= false;
+    mCurrentPkgNo= 0;
+    misInFetch= 0;
+}
+
 void CPkgController::onReadUpdateLine(QString line)
 {
-    Q_UNUSED(line);
+    qDebug()<<line;
+    line= line.trimmed();
+
+    SProgress progress;
+    progress.mItemNo = mCurrentPkgNo;
+    progress.mItemsCount = mUpdData.mCommonPkgsCount;
+    progress.mSubstate= (misDownloadComplete)?eDownload:eInstall;
+    progress.mLogMessages= QStringList()<<line;
+
+    if (line.indexOf(DL_FETCH_START) == 0)
+    {
+        //starting fetch
+        mCurrentPkgNo++;
+        progress.mLogMessages.clear();
+        misInFetch++;
+        //Example:
+        // Resuming download of: /usr/local/tmp/All/pcbsd-base-1382021797.txz
+        //
+        mCurrentPkgName= line.right(line.size() - line.lastIndexOf("/") - 1); // get package file name (ex: pcbsd-base-1382021797.txz)
+        mCurrentPkgName= line.left(line.lastIndexOf("-")); // get packagename without version
+    }
+    if(line == FETCH_DONE)
+    {
+        progress.mLogMessages.clear();
+        misInFetch--;
+    }
+    else
+    if ( line.contains(SIZE_DL_MARKER) && line.contains(DOWNLOADED_DL_MARKER))
+    {
+        //downloading progress parsing
+        progress.mLogMessages.clear();
+
+        //Example:
+        // SIZE: 215710 DOWNLOADED: 3973 SPEED: 233 KB/s
+        // ^0    ^1     ^2          ^3   ^4     ^5  ^6
+
+        //TODO: as eparate function (code duplication)
+        QStringList dl_list = line.split(" ");
+        progress.mProgressMax= dl_list[1].toInt();
+        progress.mProgressCurr= dl_list[3].toInt();
+        QString speed= dl_list[5] + QString(" ") + dl_list[6];
+        long size= dl_list[3].toInt() * 1024;
+        long downloaded= dl_list[1].toInt() * 1024;
+
+        progress.mMessage= tr("[%1/%2] Downloading package %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
+                                                                                  QString::number(progress.mItemsCount),
+                                                                                  mCurrentPkgName,
+                                                                                  pcbsd::Utils::bytesToHumanReadable(size),
+                                                                                  pcbsd::Utils::bytesToHumanReadable(downloaded),
+                                                                                  speed);
+    }
+
+    reportProgress(progress);
 }

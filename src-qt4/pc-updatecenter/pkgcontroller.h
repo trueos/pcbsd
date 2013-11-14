@@ -56,10 +56,16 @@ public:
 
 protected:
     virtual void onReadCheckLine(QString line);
+
+    virtual void onUpdateAll();
     virtual void onReadUpdateLine(QString line);
 
 private:
     SUpdate mUpdData;
+    bool    misDownloadComplete;
+    int     mCurrentPkgNo;
+    int     misInFetch;
+    QString mCurrentPkgName;
 };
 
 #endif // PKGCONTROLLER_H
