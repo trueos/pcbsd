@@ -16,7 +16,7 @@ const int TOOLBOX_PKG_INDEX=   2;
 const int TOOLBOX_PBI_INDEX=   3;
 
 const int PKG_AVAIL_STACK_IDX = 0;
-const int PKG_UPDATING_STACK_IDX = 0;
+const int PKG_UPDATING_STACK_IDX = 1;
 
 const QString SYS_CHECK_IMG =  ":images/syscheck.png";
 const QString SYS_OK_IMG =     ":/images/sysok.png";
@@ -93,6 +93,8 @@ void MainWindow::init()
 
     connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(&mPkgController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
+            this, SLOT(pkgProgress(CAbstractUpdateController::SProgress)));
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
@@ -105,7 +107,7 @@ void MainWindow::init()
     palette.setColor(QPalette::Base, Qt::black);
     palette.setColor(QPalette::Text, Qt::white);
     ui->pbiUpdateLog->setPalette(palette);
-    //ui->pkg
+    ui->pkgUpdateLog->setPalette(palette);
 
 }
 
@@ -120,7 +122,7 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
             break;
         case CAbstractUpdateController::eUPDATING:
             ui->mainTab->setTabEnabled(TOOLBOX_PKG_INDEX, true);
-            ui->pkgDetailsStack->setCurrentIndex(PKG_AVAIL_STACK_IDX);
+            ui->pkgDetailsStack->setCurrentIndex(PKG_UPDATING_STACK_IDX);
             break;
         case CAbstractUpdateController::eCHECKING:
             ui->mainTab->setTabEnabled(TOOLBOX_PKG_INDEX, false);
@@ -225,6 +227,15 @@ void MainWindow::pbiProgress(CAbstractUpdateController::SProgress progress)
     for(int i=0; i<progress.mLogMessages.size(); i++)
     {
         ui->pbiUpdateLog->append(progress.mLogMessages[i]);
+    }
+}
+
+void MainWindow::pkgProgress(CAbstractUpdateController::SProgress progress)
+{
+    for(int i=0; i<progress.mLogMessages.size(); i++)
+    {
+        ui->pkgUpdateLog->append(progress.mLogMessages[i]);
+        qDebug()<<"<<<"<<progress.mLogMessages[i];
     }
 }
 

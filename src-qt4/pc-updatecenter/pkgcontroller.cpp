@@ -191,10 +191,13 @@ void CPkgController::onReadUpdateLine(QString line)
     qDebug()<<line;
     line= line.trimmed();
 
+    if (!line.length())
+        return;
+
     SProgress progress;
     progress.mItemNo = mCurrentPkgNo;
     progress.mItemsCount = mUpdData.mCommonPkgsCount;
-    progress.mSubstate= (misDownloadComplete)?eDownload:eInstall;
+    progress.mSubstate= (misDownloadComplete)?eInstall:eDownload;
     progress.mLogMessages= QStringList()<<line;
 
     if (line.indexOf(DL_FETCH_START) == 0)
@@ -207,18 +210,22 @@ void CPkgController::onReadUpdateLine(QString line)
         // Resuming download of: /usr/local/tmp/All/pcbsd-base-1382021797.txz
         //
         mCurrentPkgName= line.right(line.size() - line.lastIndexOf("/") - 1); // get package file name (ex: pcbsd-base-1382021797.txz)
-        mCurrentPkgName= line.left(line.lastIndexOf("-")); // get packagename without version
+        mCurrentPkgName= mCurrentPkgName.left(mCurrentPkgName.lastIndexOf("-")); // get packagename without version
+        progress.misCanCancel= true;
+        return;
     }
     if(line == FETCH_DONE)
     {
         progress.mLogMessages.clear();
         misInFetch--;
+        return;
     }
     else
     if ( line.contains(SIZE_DL_MARKER) && line.contains(DOWNLOADED_DL_MARKER))
     {
         //downloading progress parsing
         progress.mLogMessages.clear();
+        progress.misCanCancel= true;
 
         //Example:
         // SIZE: 215710 DOWNLOADED: 3973 SPEED: 233 KB/s
@@ -232,13 +239,14 @@ void CPkgController::onReadUpdateLine(QString line)
         long size= dl_list[3].toInt() * 1024;
         long downloaded= dl_list[1].toInt() * 1024;
 
-        progress.mMessage= tr("[%1/%2] Downloading package %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
+        progress.mMessage= tr("[%1/%2] Downloading %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
                                                                                   QString::number(progress.mItemsCount),
                                                                                   mCurrentPkgName,
                                                                                   pcbsd::Utils::bytesToHumanReadable(size),
                                                                                   pcbsd::Utils::bytesToHumanReadable(downloaded),
                                                                                   speed);
     }
+
 
     reportProgress(progress);
 }

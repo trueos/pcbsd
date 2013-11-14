@@ -34,6 +34,7 @@ private slots:
     void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 
     void pbiProgress(CAbstractUpdateController::SProgress progress);
+    void pkgProgress(CAbstractUpdateController::SProgress progress);
 
 private slots:
     void on_updateSelectedPBIBtn_clicked();

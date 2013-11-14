@@ -11,7 +11,7 @@ class CPkgController : public CAbstractUpdateController
     Q_OBJECT
 
     USES_CHECK_SHELL_COMMAND("pc-updatemanager", QString("pkgcheck"))
-    USES_UPDATE_SHELL_COMMAND("pc-updatemanager", QString("pkgcheck"))
+    USES_UPDATE_SHELL_COMMAND("pc-updatemanager", QString("pkgupdate"))
 
 public:
 
