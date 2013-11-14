@@ -582,6 +582,10 @@
         <translation>Le processus de suppression a rencontré une erreur et ne peut être achevée</translation>
     </message>
     <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation>Le processus de téléchargement a rencontré une erreur et ne peut être achevée</translation>
+    </message>
+    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI erreur:</translation>
     </message>

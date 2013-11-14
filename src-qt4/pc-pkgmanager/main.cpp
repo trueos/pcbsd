@@ -41,9 +41,9 @@ int main( int argc, char ** argv )
        QString chkarg = argv[1];
        // Running in a chroot
        if ( chkarg == "-chroot" )
-         if( argc == 3 ){
+         if ( argc == 3 ) {
 	   chroot = argv[2];
-         }else{
+         } else {
            qDebug() << "Usage: -chroot <directory>";
            exit(1);
          }

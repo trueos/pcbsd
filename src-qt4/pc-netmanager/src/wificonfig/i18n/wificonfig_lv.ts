@@ -25,11 +25,13 @@
     </message>
     <message>
         <source>Show Key</source>
-        <translation>Parādīt atslēgu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>WPA Personal Configuration</source>
-        <translation>WPA personīga konfigurācija</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -60,7 +62,8 @@
     </message>
     <message>
         <source>Hex Key</source>
-        <translation>Hex atslēga</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Plaintext</source>
@@ -69,18 +72,20 @@
     </message>
     <message>
         <source>Show Key</source>
-        <translation>Parādīt atslēgu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Wireless Network Key</source>
-        <translation>Bezvadu tīkla atslēga</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>wificonfigwidgetbase</name>
     <message>
         <source>Wireless Configuration</source>
-        <translation>Bezvadu konfigurācija</translation>
+        <translation type="unfinished">Bezvadu konfigurācija</translation>
     </message>
     <message>
         <source>&amp;General</source>
@@ -88,7 +93,7 @@
     </message>
     <message>
         <source>O&amp;btain IP automatically (DHCP)</source>
-        <translation>&amp;Iegūt IP automātiski (DHCP)</translation>
+        <translation type="unfinished">&amp;Iegūt IP automātiski (DHCP)</translation>
     </message>
     <message>
         <source>Alt+B</source>
@@ -100,7 +105,7 @@
     </message>
     <message>
         <source>Assign static IP address</source>
-        <translation>Piešķirt statisku IP adresi</translation>
+        <translation type="unfinished">Piešķirt statisku IP adresi</translation>
     </message>
     <message>
         <source>IP:</source>
@@ -132,11 +137,11 @@
     </message>
     <message>
         <source>Info</source>
-        <translation>Informācija</translation>
+        <translation type="unfinished">Informācija</translation>
     </message>
     <message>
         <source>Configuration info</source>
-        <translation>Konfigurācijas informācija</translation>
+        <translation type="unfinished">konfigurācijas informācija</translation>
     </message>
     <message>
         <source>Mac/Ether:</source>
@@ -152,7 +157,7 @@
     </message>
     <message>
         <source>Status:</source>
-        <translation>Statuss:</translation>
+        <translation type="unfinished">Statuss:</translation>
     </message>
     <message>
         <source>Media:</source>
@@ -180,15 +185,15 @@
     </message>
     <message>
         <source>Close</source>
-        <translation>Aizvērt:</translation>
+        <translation type="unfinished">Aizvērt:</translation>
     </message>
     <message>
         <source>Disable this wireless device</source>
-        <translation>Atslēgt šo bezvadu ierīci</translation>
+        <translation type="unfinished">Atslēgt šo bezvadu ierīci</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>&amp;Apstiprināt</translation>
+        <translation type="unfinished">&amp;Apstiprināt</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -204,7 +209,7 @@
     </message>
     <message>
         <source>Missing Fields</source>
-        <translation>Trūkstošie lauki</translation>
+        <translation type="unfinished">Trūkstošie lauki</translation>
     </message>
     <message>
         <source>You must enter an IP and Netmask to continue!
@@ -213,7 +218,7 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation>Brīdinājums</translation>
+        <translation type="unfinished">Brīdinājums</translation>
     </message>
     <message>
         <source>IP Address is out of range! (</source>
@@ -234,7 +239,8 @@
     </message>
     <message>
         <source>Error</source>
-        <translation>Kļūda</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>You already have a wireless network with this SSID! Please remove it first.
@@ -244,11 +250,13 @@
     </message>
     <message>
         <source>Edit</source>
-        <translation>Labot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
-        <translation>Nezināma bezvadu ierīce</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>(Higher connections are given priority)</source>
@@ -257,7 +265,8 @@
     </message>
     <message>
         <source>Available Wireless Networks</source>
-        <translation>Piejamie bezvadu tīkli</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Scan</source>
@@ -266,7 +275,8 @@
     </message>
     <message>
         <source>Add Selected</source>
-        <translation>Pievienot izvēlēto</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add Hidden</source>
@@ -275,7 +285,8 @@
     </message>
     <message>
         <source>Network Name</source>
-        <translation type="unfinished">Tīkla nosaukums</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please enter the name of the network you wish to add</source>
@@ -294,7 +305,8 @@
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation>WPA konfigurācija</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Set Country Code</source>
@@ -306,7 +318,8 @@
     <name>wifiscanssid</name>
     <message>
         <source>Scan for Wireless networks</source>
-        <translation type="unfinished">Skanēt bezvadu tīklus</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Available wireless networks</source>
@@ -322,7 +335,8 @@
     </message>
     <message>
         <source>Select</source>
-        <translation>Izvēlēties</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -407,7 +421,8 @@
     </message>
     <message>
         <source>Add</source>
-        <translation>Pievienot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No SSID!</source>
@@ -433,7 +448,8 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation>Brīdinājums</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>WEP is selected, but not configured!
@@ -464,11 +480,13 @@ Please configure your WPA settings before saving!</source>
     </message>
     <message>
         <source>Save</source>
-        <translation>Saglabāt</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Network Security</source>
-        <translation>Tīkla drošība</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

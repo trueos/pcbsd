@@ -357,7 +357,7 @@
     </message>
     <message>
         <source>Current Entries</source>
-        <translation>مطالب فعلی</translation>
+        <translation> مطالب فعلی</translation>
     </message>
     <message>
         <source>File</source>
@@ -397,11 +397,11 @@
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation>پرچم برای تعیین نوع فایل</translation>
+        <translation> پرچم برای تعیین نوع فایل</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation>پرچم های موجود برای لینک جدید</translation>
+        <translation> پرچم های موجود برای لینک جدید</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>

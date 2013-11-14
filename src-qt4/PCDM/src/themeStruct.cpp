@@ -90,7 +90,7 @@ void ThemeStruct::loadThemeFile(QString filePath){
 	    //special instructions for this item
 	    items[index].icon = val; //should be [icononly | textonly | textbesideicon | textundericon ]
 	}else if(itemCat == "LOCATION"){
-	   val =  val.remove("[").remove("]").simplified(); //remove the brackets
+	    val.remove("[").remove("]").simplified(); //remove the brackets
 	    QString x = val.section(",",0,0);
 	    QString y = val.section(",",1,1);
 	    if(x.indexOf("-") == -1){ items[index].x1 = x.toInt(); items[index].x2 = -1;}

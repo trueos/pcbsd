@@ -4,5 +4,5 @@ for (var i in activitiesList) {
   activity.wallpaperPlugin = "image";
   activity.wallpaperMode = "SingleImage";
   activity.currentConfigGroup = new Array("Wallpaper", "image");
-  activity.writeConfig("wallpaper", "pcbsd10-default");
+  activity.writeConfig("wallpaper", "pcbsd9-default");
 }

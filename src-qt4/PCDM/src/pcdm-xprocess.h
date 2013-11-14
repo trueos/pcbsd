@@ -32,23 +32,20 @@ class XProcess : public QProcess
 	bool isRunning();
         void waitForSessionClosed();
 	
-	//void startDesktop(); 
+	void startDesktop(); 
 	
   
   public slots:
         void loginToXSession(QString, QString, QString); //user, pwd, desktop
   	void checkPW(QString,QString); //user, pwd
-	//void setupDesktop(QString,QString,QString); //user, pwd, desktop
+	void setupDesktop(QString,QString,QString); //user, pwd, desktop
 	
   private:
         int fstatus; //fork status
         pid_t fpid;  //fork pid
-	QString xuser, xcmd, xhome, xpwd, xde, xshell;
+	QString xuser, xcmd, xhome, xpwd, xde;
   	bool startXSession();
 	
-	// Session environment setup
-	void setupSessionEnvironment();
-  
 	// PAM stuff and simplification functions
 	pam_handle_t *pamh;  //handle for the PAM process structure
 	bool pam_started, pam_session_open;
@@ -58,9 +55,8 @@ class XProcess : public QProcess
 	void pam_logFailure(int);
   	void pam_shutdown(); //cleanly close all the PAM stuff
 	
-  
   private slots:
-  	void slotCleanup();
+  	void slotCleanup(int, QProcess::ExitStatus);
 
   signals:
 	void ValidLogin();

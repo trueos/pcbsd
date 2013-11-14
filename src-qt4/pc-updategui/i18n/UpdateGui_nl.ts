@@ -157,7 +157,8 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation>Herstart is vereist om het bijwerken af te ronden.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

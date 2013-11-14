@@ -542,11 +542,10 @@ QString metaWidget::getAddPkgs()
 	    // See if any packages status have changed
 	    if ( ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "NO" && (*it)->checkState(0) == Qt::Checked ) || \
 	         ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "NO" && (*it)->checkState(0) == Qt::PartiallyChecked ) )
-		if ( tmp.isEmpty() ){
+		if ( tmp.isEmpty() )
 			tmp = (*it)->text(0);
-		}else{
+		else
 			tmp = tmp + "," + (*it)->text(0);
-		}
          ++it;
         }
 
@@ -561,11 +560,10 @@ QString metaWidget::getDelPkgs()
 	  for (int z=0; z < metaPkgList.count(); ++z)
 	    // See if any packages status have changed
 	    if ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "YES" && (*it)->checkState(0) == Qt::Unchecked )
-		if ( tmp.isEmpty() ){
+		if ( tmp.isEmpty() )
 			tmp = (*it)->text(0);
-		}else{
+		else
 			tmp = tmp + "," + (*it)->text(0);
-		}
          ++it;
         }
 
@@ -589,17 +587,15 @@ void metaWidget::slotDeskPkgsChanged(QTreeWidgetItem *aItem, int __unused)
         disconnect(treeMetaPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), 0, 0);
 
 	if (aItem->childCount() == 0) {
-		if (aItem->checkState(0) == Qt::Checked && aItem->parent() ){
-			if ( allChildrenPkgsChecked(aItem->parent()->text(0))){
+		if (aItem->checkState(0) == Qt::Checked && aItem->parent() )
+			if ( allChildrenPkgsChecked(aItem->parent()->text(0)))
 				aItem->parent()->setCheckState(0, Qt::Checked);	
-			}else{
+			else
 				aItem->parent()->setCheckState(0, Qt::PartiallyChecked);	
-			}
-		}
-		if (aItem->checkState(0) == Qt::Unchecked && aItem->parent() ){
+		if (aItem->checkState(0) == Qt::Unchecked && aItem->parent() )
 			if ( ! allChildrenPkgsUnchecked(aItem->parent()->text(0)))
 				aItem->parent()->setCheckState(0, Qt::PartiallyChecked);	
-		}
+
 
 	} else {
 		if (aItem->checkState(0) == Qt::Checked )

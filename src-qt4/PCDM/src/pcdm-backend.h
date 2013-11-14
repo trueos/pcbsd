@@ -44,7 +44,6 @@ public:
     static void openLogFile(QString);
     static void log(QString); 
     static QString getUserHomeDir(QString);
-    static QString getUserShell(QString);
     static void checkLocalDirs();
 
     static QString getALUsername();

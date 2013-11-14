@@ -718,6 +718,11 @@
             </translation>
     </message>
     <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
         <source>%1 PBI Error:</source>
         <translation type="unfinished">
             </translation>

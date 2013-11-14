@@ -582,6 +582,10 @@
         <translation>Proces usunięcia napotkał błąd i nie może być on ukończony</translation>
     </message>
     <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation>Proces pobierania napotkał błąd i nie może być on ukończony</translation>
+    </message>
+    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 Błąd PBI:</translation>
     </message>

@@ -15,7 +15,8 @@
     </message>
     <message>
         <source>Available Updates</source>
-        <translation>Tilgjengelige oppdateringer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select / Deselect All</source>
@@ -34,19 +35,23 @@
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation>Oppdatering mislyktes!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failed to install:</source>
-        <translation>Installasjon mislyktes:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update Ready</source>
-        <translation>Oppdatering klar</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please reboot to start the update to PC-BSD version &quot;</source>
-        <translation>Vennligst omstart datamaskinen for å starte oppdateringen av PC-BSD versjon &quot;</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>This process may take a while, please do NOT interrupt the process.</source>
@@ -55,7 +60,8 @@
     </message>
     <message>
         <source>Updating:</source>
-        <translation>Oppdaterer:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
@@ -104,7 +110,8 @@
     </message>
     <message>
         <source>Updates for Jail:</source>
-        <translation>Oppdatering for Jail:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
@@ -113,11 +120,13 @@
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation>Laster ned: %1 (Oppdatering %2 av %3)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
-        <translation>Oppdaterer: %1 (%2 av %3)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System Upgrade: %1 (%2)</source>
@@ -136,7 +145,8 @@
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation>En ukjent feil oppstod!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
@@ -150,7 +160,8 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>&amp;Lukk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System updates available!</source>
@@ -169,7 +180,8 @@
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation>Følgende filer vil bli oppdatert:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update Details:</source>
@@ -178,7 +190,8 @@
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation>Kunne ikke kjøre freebsd-update, en annen prosess kjører allerde!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>

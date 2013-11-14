@@ -37,7 +37,6 @@ RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		mosh:${PORTSDIR}/net/mosh \
 		zfs-stats:${PORTSDIR}/sysutils/zfs-stats \
 		ataidle>=0:${PORTSDIR}/sysutils/ataidle \
-		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 

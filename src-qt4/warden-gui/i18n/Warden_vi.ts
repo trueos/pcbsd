@@ -227,7 +227,8 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>Các quyền sau đây có thể được kích hoạt hoặc vô hiệu hóa cho tù này. Để biết thêm chi tiết về di chuột qua mỗi mục hoặc tham khảo các trang hướng dẫn tù</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

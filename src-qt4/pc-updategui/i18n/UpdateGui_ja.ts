@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
-        <translation>アップデートの準備をしています... しばらくお待ち下さい...</translation>
+        <translation>アップデートの準備中です... しばらくお待ち下さい...</translation>
     </message>
     <message>
         <source>Available Updates</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
-        <translation>アップデートを始める前に、あなたのデータをバックアップすることをおすすめします。</translation>
+        <translation>アップデートを始める前に、あなたのデータをバックアップすることをお勧めします。</translation>
     </message>
     <message>
         <source>This is a patch for your version of PC-BSD</source>
@@ -157,7 +157,8 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation>アップデートの完了には再起動が必要です。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

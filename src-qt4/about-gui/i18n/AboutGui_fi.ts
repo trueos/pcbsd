@@ -10,11 +10,13 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation>Versio:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>&lt;Tuntematon&gt;</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Host:</source>
@@ -23,15 +25,18 @@
     </message>
     <message>
         <source>????</source>
-        <translation>????</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>FreeBSD base</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation>Arkkitehtuuri:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>ident</source>
@@ -40,63 +45,78 @@
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Laitteisto</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation>Prosessori:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation>Muisti</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Back</source>
-        <translation>Takaisin</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Työpöytäympäristöt:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation>(Odota ole hyvä...)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nimi</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Sulje</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Testataan snapshottia %1. Saattaa olla mahdollisesti epävakaa!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>X.org serveriversio:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation>Systeemikomponentit...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation>Työpöytäympäristöt...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD komentoriviapuohjelmat:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD käyttöliittymäapuohjelmat:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

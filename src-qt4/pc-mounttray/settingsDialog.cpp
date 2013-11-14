@@ -48,9 +48,9 @@ void SettingsDialog::showDialog(){
   //qDebug() << "Refresh Time:"<< QString::number(diskRefreshMS)+" ms, "+QString::number(minutes)+" min";
   spinDiskRefreshMin->setValue(minutes);
     //Apply signals/slots AFTER setting the values
-    connect(groupDiskWatch, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI()) );
-    connect(checkDiskAutoTimer, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI()) );
-    connect(spinDiskRefreshMin, SIGNAL(valueChanged(int)),this,SLOT(slotUpdateUI()) );
+    connect(groupDiskWatch, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI(bool)) );
+    connect(checkDiskAutoTimer, SIGNAL(clicked(bool)),this,SLOT(slotUpdateUI(bool)) );
+    connect(spinDiskRefreshMin, SIGNAL(valueChanged(int)),this,SLOT(slotUpdateUI(int)) );
   this->exec();
 	
 }
@@ -70,10 +70,14 @@ void SettingsDialog::slotCloseDialog(){
   this->close();
 }
 
-void SettingsDialog::slotUpdateUI(){
+void SettingsDialog::slotUpdateUI(bool checked){
   applyButton->setEnabled(TRUE);
   //Could do check for visible/invisible options here as well
 }
 
+void SettingsDialog::slotUpdateUI(int value){
+  applyButton->setEnabled(TRUE);
+  //Could do check for visible/invisible options here as well
+}
 
 

@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation>Vert:</translation>
+        <translation>Vert:            </translation>
     </message>
     <message>
         <source>????</source>

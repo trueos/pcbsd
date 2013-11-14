@@ -22,7 +22,6 @@
 #include <QGridLayout>
 #include <QSpacerItem>
 #include <QProcessEnvironment>
-#include <QDesktopWidget>
 
 #include "pcdm-backend.h"
 #include "themeStruct.h"
@@ -68,7 +67,6 @@ private:
     QMenu* systemMenu;
     FancySwitcher* deSwitcher; // full switcher
     bool simpleDESwitcher;
-    QList<QWidget*> screens;
     
     QProcess* vkbd;
     ThemeStruct* currentTheme;
@@ -79,7 +77,6 @@ private:
     QString hostname;
     //Functions
     void createGUIfromTheme();
-    void fillExtraScreens();
     void retranslateUi();
     void loadTheme();
     void loadLastUser();

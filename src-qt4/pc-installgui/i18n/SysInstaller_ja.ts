@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
-        <translation>インストーラーにエラーが発生したため停止します。</translation>
+        <translation>インストーラーにてエラーが発生したため停止します。</translation>
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
@@ -259,49 +259,59 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation>Life-Preserver のバックアップから復旧</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation>ネットワーク接続の管理</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation>ZFS データセット:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation>復旧されるオリジナルのZFSレイアウト</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation>Life-Preserver 内のバックアップから復旧します。「次へ」をクリックしたら復旧ウィザードを起動します。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation>復旧を開始しますか?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation>システムを復旧しました!
-「完了」をクリックすると再起動します。再起動中にインストールメディアを取り外してください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation>システムの復旧</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation>システムを復旧しています。待ち時間はバックアップの内容とネットワークの状態に依存します。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation>メタパッケージをインストールしています: %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation>システムを復旧しています: %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -363,7 +373,8 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation>インストールするソフトウェアを選択してください。インストール後にソフトウェアの追加/削除を行う場合にはパッケージマネージャー(デスクトップ)や&quot;pkg&quot;コマンド(サーバー)を利用してください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -673,27 +684,33 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation>インストール先のディスクまたはパーティションを選択してください。ディスク全体またはサーバーでは20Gバイト以上、デスクトップでは50Gバイト以上のプライマリーパーティションを選択してください。 </translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation>SSD にインストール(SWAP と atime を無効化します)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation>ブートローダーが未指定です</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">オリジナルのシステムデータセット/マウントポイントは自動的にレストアされます。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation>ブートローダー(GRUB をおすすめします)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation>ブートローダーが選択されていません。あなた自身が手動でローダーを設定する必要があります。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -799,97 +816,116 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation>このウィザードの指示通りに Life-Preserver バックアップによるシステム復旧設定を行います。設定を始めるには「次へ」をクリックします。 </translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation>はじめに、バックアップサーバーのホスト名、ユーザー名、ポート番号を入力してください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation>バックアップサーバー</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation>ホスト名</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation>ユーザー名</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation>SSH ポート番号</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>Life-Preserver のキーを USB メモリーに保存する場合には「USB メモリーを使用する」を選択してください。そうでない場合にはパスワード認証となります。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation>サーバーの認証</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation>USB メモリーを使用する</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation>パスワード認証を使用する</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation>このサーバーにバックアップされているシステムから、復旧させるシステムを選択してください。 </translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation>復旧させるシステムの選択</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation>復旧処理の概要</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation>システム復旧処理が完了しました。「完了」をクリックして作業を続けてください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation>キーが見つかりません。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation>認証キーが USB メモリー内で見つかりません。
-他の USB メモリーを試してみるか、パスワード認証を行ってください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation>接続に失敗しました。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation>バックアップサーバーに接続できません。
-サーバーに接続可能か、ユーザー名とパスワードを確認してください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation>バックアップサーバーに接続できません。
-このシステムのホスト名とバックアップサーバーに接続可能かを確認してください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation>復旧元:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation>使用する SSH キーを選択</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation>キーファイル:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

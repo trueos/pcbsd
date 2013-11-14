@@ -245,7 +245,8 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation>Bạn không thể tạo một bản sao của môi trường khởi động hiện đang chạy!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

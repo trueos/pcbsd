@@ -5,28 +5,30 @@
     <name>QObject</name>
     <message>
         <source>Keep these display settings?</source>
-        <translation>Saglabāt šos displeja iestatījumus?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The previous attempt failed, please check your settings and try again.</source>
-        <translation>Iepriekšējais mēģinājums izgāzās, lūdzu pārbaudiet savus iestatījumus un mēģiniet vēlreiz.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation>Jūsu displejs ir konfigurēt.
-Saglabāt šos iestatījumus?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>XGUI</name>
     <message>
         <source>Display Settings</source>
-        <translation>Displeja iestatījumi</translation>
+        <translation>Displeja iestatÄ«jumi</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Apstiprināt</translation>
+        <translation>ApstiprinÄt</translation>
     </message>
     <message>
         <source>Skip</source>
@@ -38,7 +40,7 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>Screen Resolution:</source>
-        <translation>Ekrāna izšķirtspēja:</translation>
+        <translation>EkrÄna izÅ¡Ä·irtspÄ“ja:</translation>
     </message>
     <message>
         <source>1024x768</source>
@@ -46,7 +48,7 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>Color Depth:</source>
-        <translation>Krāsu dziļums:</translation>
+        <translation>KrÄsu dziÄ¼ums:</translation>
     </message>
     <message>
         <source>24bits</source>
@@ -58,15 +60,15 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>Izvērsts</translation>
+        <translation>IzvÄ“rsts</translation>
     </message>
     <message>
         <source>Monitor Settings</source>
-        <translation>Monitora iestatījumi</translation>
+        <translation>Monitora iestatÄ«jumi</translation>
     </message>
     <message>
         <source>Horizontal Sync:</source>
-        <translation>Horizontālā sinhronizācija:</translation>
+        <translation>HorizontÄlÄ sinhronizÄcija:</translation>
     </message>
     <message>
         <source>28.0-78.0</source>
@@ -74,7 +76,7 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>Vertical Refresh:</source>
-        <translation>Vertikālā atsvaidzināšana</translation>
+        <translation>VertikÄlÄ atsvaidzinÄÅ¡ana</translation>
     </message>
     <message>
         <source>50.0-76.0</source>
@@ -83,15 +85,17 @@ Saglabāt šos iestatījumus?</translation>
     <message>
         <source>The settings you have specified will now be tested.
 If your screen does not appear, please wait and you will be returned to this screen.</source>
-        <translation>Jūsu izvēlētie iestatījumi tagad tiks izmēģināti. Ja jūsu ekrāns neparādās, lūdzu uzgaidiet un Jūs atgriezīsieties pie šī ekrāna.</translation>
+        <translation>JÅ«su izvÄ“lÄ“tie iestatÄ«jumi tagad tiks izmÄ“Ä£inÄti. Ja jÅ«su ekrÄns neparÄdÄs, lÅ«dzu uzgaidiet un JÅ«s atgriezÄ«sieties pie Å¡Ä« ekrÄna.</translation>
     </message>
     <message>
         <source>Video Card:</source>
-        <translation>Video karte:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Monitor:</source>
-        <translation>Monitors:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Enable Dual-Head support</source>
@@ -100,19 +104,23 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Monitor Resolution:</source>
-        <translation>Monitora izšķirtspēja:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Unknown Monitor</source>
-        <translation>Nezināms monitors</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation>Brīdinājums!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD nespēja automātiski atpazīt jūsu monitoru. Jums var nākties precizēt šī monitora horizontālo un vertikālo atsvaidzināšanu &quot;Izvērsts&quot; cilnē.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>
@@ -124,27 +132,27 @@ If your screen does not appear, please wait and you will be returned to this scr
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Resolution</source>
-        <translation>Apstiprināt izšķirtspēju</translation>
+        <translation>ApstiprinÄt izÅ¡Ä·irtspÄ“ju</translation>
     </message>
     <message>
         <source>Do you wish to use this resolution?</source>
-        <translation>Vai jūs vēlaties izmantot šo izšķirtspēju?</translation>
+        <translation>Vai jÅ«s vÄ“laties izmantot Å¡o izÅ¡Ä·irtspÄ“ju?</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Jā</translation>
+        <translation>JÄ</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Nē</translation>
+        <translation>NÄ“</translation>
     </message>
     <message>
         <source>Auto-close in 10 seconds...</source>
-        <translation>Automātiska aizvēršanās pēc 10 sekundēm...</translation>
+        <translation>AutomÄtiska aizvÄ“rÅ¡anÄs 10 sekundes...</translation>
     </message>
     <message>
         <source>Auto-close in </source>
-        <translation>Automātiska aizvēršanās pēc </translation>
+        <translation>AutomÄtiska aizvÄ“rÅ¡anÄs </translation>
     </message>
     <message>
         <source> seconds...</source>
@@ -152,11 +160,13 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Resolution:</source>
-        <translation>Izšķirtspēja:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Driver:</source>

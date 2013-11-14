@@ -5,11 +5,13 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation>AppCafe Innstillinger</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation>Innstillinger</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
@@ -18,15 +20,18 @@
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation>Opprett skrivebordsikoner</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation>Opprett menyikoner</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation>Registrer filassosiasjoner</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Create Path Links</source>
@@ -35,27 +40,33 @@
     </message>
     <message>
         <source>Keep Downloaded Files</source>
-        <translation>Behold nedlastede filer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Download Dir</source>
-        <translation>Nedlastingsmappe</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation>Nedlastingsmappe</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation>Arkiv</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Legg til</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
@@ -74,15 +85,18 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation>Fjerne</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation>Legg til PBI arkiv</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation>Arkivfil (*.rpo)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
@@ -91,7 +105,8 @@
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>Dette arkivet skal være klart for bruk i løpet av kort tid (avhengig av farten på din internettforbindelse).</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Repo Failure</source>
@@ -100,7 +115,8 @@
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation>Dette arkivet kunne ikke bli lagt til.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
@@ -114,7 +130,8 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>Er du sikker på at du ønsker å fjerne dette PBI arkivet?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
@@ -143,30 +160,35 @@
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation>Velg nedlastingsmappe</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation>AppCafe</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation>Installert</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation>Programnavn</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versjon</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Status</translation>
+        <translation type="unfinished">Status            </translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
@@ -175,7 +197,8 @@
     </message>
     <message>
         <source>All</source>
-        <translation>Alle</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -189,23 +212,28 @@
     </message>
     <message>
         <source>Application Details</source>
-        <translation>Programdetaljer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation>Versjon:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation>Skaper:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>License:</source>
-        <translation>Lisens:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation>Snarvei:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
@@ -214,7 +242,8 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -223,23 +252,27 @@
     </message>
     <message>
         <source>Uninstall</source>
-        <translation>Avinstallere</translation>
+        <translation type="unfinished">Avinstallere            </translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation>Oppdater programmet til nyeste versjon</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation>Oppdater valgt program</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation>Oppdater program</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation>Åpne nettside for valgt program</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -258,11 +291,13 @@
     </message>
     <message>
         <source>Home</source>
-        <translation>Hjem</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Category</source>
-        <translation>Kategori</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>App</source>
@@ -271,11 +306,13 @@
     </message>
     <message>
         <source>Search Here</source>
-        <translation>Søk her</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Search</source>
-        <translation>Søk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>View Recent Additions</source>
@@ -289,51 +326,63 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation>Størelse:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation>Programinformasjon</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation>Plattform:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation>Liknende programmer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation>Beste treff</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation>Andre resultat</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>File</source>
-        <translation>Fil</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation>Konfigurer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation>Importer PBI liste</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation>Exporter PBI liste</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Avslutt</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Repositories</source>
@@ -351,15 +400,18 @@
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation>AppCafe må kjøres som root i Warden kompatibilitetsmodus</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation>AppCafe må startes med brukerrettigheter!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation>Brukeren må også være med i &quot;operator&quot; gruppen</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -378,7 +430,8 @@
     </message>
     <message>
         <source>PBI List (*.pbilist)</source>
-        <translation>PBI liste (*.pbilist)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Import Error</source>
@@ -387,7 +440,8 @@
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
-        <translation>Det oppstod en feil ved importering av PBI listen</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please make sure that the file has not been corrupted and try again</source>
@@ -406,7 +460,8 @@
     </message>
     <message>
         <source>There was an error exporting the PBI list</source>
-        <translation>Det oppstod en feil ved eksporteringen av PBI listen</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Please make sure that you have the proper directory permissions and try again</source>
@@ -415,27 +470,32 @@
     </message>
     <message>
         <source>Update</source>
-        <translation>Oppdater</translation>
+        <translation type="unfinished">Oppdater            </translation>
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation>Skrivebordsikoner</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add</source>
-        <translation>Legg til</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Fjerne</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation>Menyikoner</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation>Legg til (alle brukere)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -444,7 +504,8 @@
     </message>
     <message>
         <source>File Associations</source>
-        <translation>Filassosiasjoner</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Cancel Actions</source>
@@ -453,15 +514,18 @@
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation>Skrivebord/Meny</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Skrivebord</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation>Meny</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>None</source>
@@ -485,11 +549,13 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Ukjent</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Install Now!</source>
-        <translation>Installer nå!</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Downgrade</source>
@@ -498,7 +564,8 @@
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation>Søker i programdatabasen. Vennligst vent...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
@@ -507,27 +574,33 @@
     </message>
     <message>
         <source>Installed: %1</source>
-        <translation>Installert: %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Available: %2</source>
-        <translation>Tilgjengelig: %2</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation>Laster ned fil:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation>Laster ned %1 fil:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start the application</source>
-        <translation>Start programmet</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Product Page</source>
-        <translation>Produktside</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Verify Installation</source>
@@ -536,14 +609,16 @@
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation>Er du sikker på at du ønsker å installere dette programmet?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
-        <translation>Installerer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Removing</source>
@@ -552,7 +627,8 @@
     </message>
     <message>
         <source>Updating</source>
-        <translation>Oppdaterer</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Pending Download</source>
@@ -571,15 +647,18 @@
     </message>
     <message>
         <source>Pending Update</source>
-        <translation>Venter på oppdatering</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
-        <translation>Ingen program å installere fra denne listen.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Results:</source>
-        <translation>Resultat:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
@@ -598,7 +677,8 @@
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
-        <translation>Er du sikker på at du ønsker å installere disse programmene?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 Download Error:</source>
@@ -612,19 +692,23 @@
     </message>
     <message>
         <source>%1 Update Error:</source>
-        <translation>%1 Oppdateringsfeil:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
-        <translation>Oppdateringsprosessen støtte på en feil og kunne ikke fullføre</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 Installation Error:</source>
-        <translation>%1 Installasjonsfeil:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>
-        <translation>Installeringsprosessen støtte på en feil og kunne ikke fullføre</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 Removal Error:</source>
@@ -633,7 +717,13 @@
     </message>
     <message>
         <source>The removal process experienced an error and could not be completed</source>
-        <translation>Avinstalleringsprosessen støtte på en feil og kunne ikke fullføre</translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>
@@ -647,7 +737,8 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Ukjent</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Download Canceled</source>
@@ -701,14 +792,16 @@
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation>Oppdatering tilgjengelig: %1</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation>Ukjent feil</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

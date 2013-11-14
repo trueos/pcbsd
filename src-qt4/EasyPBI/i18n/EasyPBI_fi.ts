@@ -5,115 +5,143 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation>EasyPBI</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation>Moduulieditori</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation>Katso ja editoi nykyistä PBI moduulia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation>PBI Kokoonpano</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation>PBI:n pääasetukset</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation>Ohjelman tietoja</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation>Ohjelman virallinen nimi</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Nimi</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation>Paketoitavan ohjelman versio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Versio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation>Ohjelman pääasiallisen nettisivun osoite</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Website</source>
-        <translation>Nettisivu</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation>Ohjelman luoja (tai vaihtoehtoisesti FreeBSD portin ylläpitäjä)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Author</source>
-        <translation>Luoja</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">Ohjelmassa käytettävä ikoni (PNG resursseja käytettävissä)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation>Ikoni</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation>Käännösinformaatio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation>Paikallinen hakemisto, joka paketoidaan PBI:hin (tulee sisältää kaikki tarpeellinen, jotta ohjelma toimii)</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation>Pakettihakemisto</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation>Valitse hakemisto, joka paketoidaan PBI:hin</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Valitse</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation>Pääasiallinen FreeBSD portti</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation>FreeBSD portti, joka paketoidaan PBI:hin</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation>Valitse FreeBSD portti</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation>Vaihda portti</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation>Portin käännösoptiot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation>Mukana käännettävien porttien erityisoptiot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation>Käytettävissä olevat FreeBSD portin käännösoptiot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Make Port Before</source>
@@ -122,15 +150,18 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation>Ennen pääohjelmaa käännettävät FreeBSD portit</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation>Lisää uusi FreeBSD portti</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation>Poista FreeBSD portti</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Make Port After</source>
@@ -139,55 +170,68 @@
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>Pääohjelman käännöksen jälkeen käännettävät FreeBSD portit</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation>Vaadi järjestelmävalvojan oikeuksia tätä PBI:tä asennettaessa</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation>Vaatii pääkäyttäjän oikeuksia</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation>Tallenna nykyiset asetukset PBI:n konfiguraatiotiedostoon</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation>Tallenna konfiguraatio</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation>Resurssit</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation>PBI:hin lisättävät lisätiedostot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation>Nykyiset resurssit</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation>Nykyiset PBI:hin lisättävät tiedostot</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation>Kopioi lisätiedosto PBI-moduulin</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add File</source>
-        <translation>Lisää tiedosto</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation>Poista valittu tiedosto PBI-moduulista</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation>Poista tiedosto</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>

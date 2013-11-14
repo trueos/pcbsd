@@ -137,7 +137,7 @@ QString Utils::getValFromSHFile(QString envFile, QString envVal)
 {
   QFile confFile(envFile);
   if ( ! confFile.open( QIODevice::ReadOnly ) )
-        return "";
+        return false;
 
   QTextStream stream( &confFile );
   QString line;
@@ -169,7 +169,7 @@ QString Utils::getValFromCSHFile(QString envFile, QString envVal)
 {
   QFile confFile(envFile);
   if ( ! confFile.open( QIODevice::ReadOnly ) )
-        return "";
+        return false;
 
   QTextStream stream( &confFile );
   QString line;

@@ -42,7 +42,8 @@ private slots:
 	void slotApply();
 	void slotCloseDialog();
 	
-	void slotUpdateUI();
+	void slotUpdateUI(bool checked=FALSE);
+	void slotUpdateUI(int);
 
 };
 

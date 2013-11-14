@@ -484,15 +484,18 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation>sản phẩm trang</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation>xác minh cài đặt</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation>Bạn có chắc chắn bạn muốn cài đặt ứng dụng này?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -580,6 +583,10 @@
     <message>
         <source>The removal process experienced an error and could not be completed</source>
         <translation>Quá trình loại bỏ gặp lỗi và không thể hoàn tất</translation>
+    </message>
+    <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation>Quá trình tải về gặp lỗi và không thể hoàn tất</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>

@@ -143,7 +143,6 @@ void User::setNew()
 
 void User::setPassword(QString password)
 {
-    this->clearPass = password;
     this->password = crypt(password.toAscii(), "KG");
     qDebug("Done with crypt now........");
     setChanges();

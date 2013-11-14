@@ -26,9 +26,9 @@ int main( int argc, char ** argv )
        QString chkarg = argv[1];
        // Running in a warden jail?
        if ( chkarg == "-warden" )
-         if ( argc == 4 ){
+         if ( argc == 4 )
            w.setWardenMode(QString(argv[2]), QString(argv[3]));
-         }else{
+         else {
            qDebug() << "Usage: -warden <directory> <ip>";
            exit(1);
          }

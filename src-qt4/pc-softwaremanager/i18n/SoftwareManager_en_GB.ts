@@ -582,6 +582,10 @@
         <translation>The removal process experienced an error and could not be completed</translation>
     </message>
     <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation>The download process experienced an error and could not be completed</translation>
+    </message>
+    <message>
         <source>%1 PBI Error:</source>
         <translation>%1 PBI Error:</translation>
     </message>

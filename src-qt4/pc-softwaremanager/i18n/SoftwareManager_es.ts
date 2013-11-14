@@ -627,6 +627,10 @@
         <translation>El proceso de eliminación sufrió un error y no se pudo completar</translation>
     </message>
     <message>
+        <source>The download process experienced an error and could not be completed</source>
+        <translation>El proceso de descarga sufrió un error y no se pudo completar</translation>
+    </message>
+    <message>
         <source>%1 PBI Error:</source>
         <translation type="unfinished">
             </translation>

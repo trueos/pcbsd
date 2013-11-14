@@ -227,7 +227,8 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation>下記のパーミッションの有効・無効を設定できます。詳細は各パーミッションのツールチップや jail の man ページを確認してください。</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

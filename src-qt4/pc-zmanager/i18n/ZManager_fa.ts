@@ -5,8 +5,8 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation>
-دیالوگ</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
@@ -20,13 +20,13 @@
     </message>
     <message>
         <source>Value</source>
-        <translation>
-مقدار</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Source</source>
-        <translation>
-منبع</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Add user property</source>
@@ -35,8 +35,8 @@
     </message>
     <message>
         <source>...</source>
-        <translation>
-...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Remove user property</source>
@@ -920,21 +920,23 @@ lowing restrictions:
             </translation>
     </message>
     <message>
-        <source>Controls the system behavior in the event of catastrophic pool failure
-This condition is typically a result of a loss of connectivity
+        <source>Controls the system behavior in the event of catastrophic pool failâ
+ure. This condition is typically a result of a loss of connectivity
 to the underlying storage device(s) or a failure of all devices
-within the pool. The behavior of such an event is determined as follows
-wait
-Blocks all I/O access until the device connectivity is recovered
-and the errors are cleared. This is the default behavior
-continue
-Returns EIO to any new write I/O requests but allows reads to
-any of the remaining healthy devices. Any write requests that
-have yet to be committed to disk would be blocked.
+within the pool. The behavior of such an event is determined as folâ
+lows:
 
-panic
-Prints out a message to the console and generates a system
-crash dump.
+wait    Blocks all I/O access until the device connectivity is recovâ
+        ered and the errors are cleared.  This is the default behavâ
+        ior.
+
+continue
+        Returns EIO to any new write I/O requests but allows reads to
+        any of the remaining healthy devices. Any write requests that
+        have yet to be committed to disk would be blocked.
+
+panic   Prints out a message to the console and generates a system
+        crash dump.
 </source>
         <translation type="unfinished"></translation>
     </message>

@@ -73,7 +73,7 @@ class LoginWidget : public QGroupBox
 	void updateWidget();
 
   private slots:
-	void slotUserActivated();
+	void slotUserActivated(QAction*);
 	//void slotUserClicked(QListWidgetItem*);
 	void slotUserHighlighted(int);
 	void slotUserSelected();

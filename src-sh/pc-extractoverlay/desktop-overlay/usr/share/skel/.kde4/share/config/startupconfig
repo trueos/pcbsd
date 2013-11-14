@@ -3,6 +3,10 @@
 kcminputrc_mouse_cursortheme=Oxygen_White
 # kcminputrc Mouse cursorSize ''
 kcminputrc_mouse_cursorsize=''
+# ksplashrc KSplash Theme Default
+ksplashrc_ksplash_theme=pcbsd9
+# ksplashrc KSplash Engine KSplashX
+ksplashrc_ksplash_engine=KSplashX
 # krandrrc Display ApplyOnStartup false
 krandrrc_display_applyonstartup=false
 # krandrrc Display StartupCommands ''

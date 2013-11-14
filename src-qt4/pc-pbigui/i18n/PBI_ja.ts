@@ -5,7 +5,7 @@
     <name>PBI</name>
     <message>
         <source>&lt;Author&gt;</source>
-        <translation>&lt;作者&gt;</translation>
+        <translation>&lt;著者&gt;</translation>
     </message>
     <message>
         <source>&lt;Web&gt;</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Preparing to install PROGNAME</source>
-        <translation>PROGNAME をインストールする準備をしています...</translation>
+        <translation>PROGNAME のインストール準備中...</translation>
     </message>
     <message>
         <source>Cancel Confirmation</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>Preparing to install...</source>
-        <translation>インストールの準備をしています...</translation>
+        <translation>インストールの準備中...</translation>
     </message>
     <message>
         <source>No digital signature</source>

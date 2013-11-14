@@ -5,11 +5,13 @@
     <name>ServiceManager</name>
     <message>
         <source>Service Manager</source>
-        <translation>Tjenestebehandling</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Service Name</source>
-        <translation>Tjenestenavn</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start</source>
@@ -25,7 +27,7 @@
     </message>
     <message>
         <source>Running</source>
-        <translation>Kjører</translation>
+        <translation type="unfinished">Kjører</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -33,74 +35,91 @@
     </message>
     <message>
         <source>SDIR</source>
-        <translation>SDIR</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>TAG</source>
-        <translation>TAG</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation>Aktivert</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Enable Service</source>
-        <translation>Aktivere tjeneste</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disable Service</source>
-        <translation>Deaktivere tjeneste</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>Deaktivert</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Ukjent</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation>Følgende tjenester er tilgjengelig på dette systemet</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation>Behandle tjenester for Warden IP:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Checking...</source>
-        <translation>Kontrollerer...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation>Tjeneste</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Service Action in progress...</source>
-        <translation>Tjenestehandling pågår...</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Avbryt</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Mislykket</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The specified command failed.</source>
-        <translation>Angitt kommando mislyktes</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Finished</source>
-        <translation>Avsluttet</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Lukk</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

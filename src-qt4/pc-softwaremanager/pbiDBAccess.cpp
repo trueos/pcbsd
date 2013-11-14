@@ -361,6 +361,6 @@ QString PBIDBAccess::runCMD(QString cmd){
     output = "Process timed out (30 sec)";
   }
   if(output.endsWith("\n")){ output.chop(1); }
-  output = output.simplified();
+  output.simplified();
   return output;
 }

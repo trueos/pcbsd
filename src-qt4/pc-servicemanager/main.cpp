@@ -31,7 +31,7 @@ int main( int argc, char ** argv )
          if ( argc == 4 ) {
            chroot = argv[2];
            ip = argv[3];
-         }else{
+         } else {
            qDebug() << "Usage: -warden <directory> <ip>";
            exit(1);
          }

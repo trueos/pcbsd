@@ -25,13 +25,13 @@
 
 #define TMPLANGFILE QString("/tmp/.PCDMLang")
 #define TMPAUTOLOGINFILE QString("/tmp/.PCDMAutoLogin")
-#define TMPAUTHFILE QString("/tmp/.PCDMAuth")
+
 //Make sure that prefix is set
 //#ifndef prefix
 //#define prefix "/usr/local/"
 //#endif
 
-//bool USECLIBS=false;
+bool USECLIBS=true;
 
 int runSingleSession(int argc, char *argv[]){
   //QTime clock;
@@ -48,7 +48,7 @@ int runSingleSession(int argc, char *argv[]){
   QString confFile = "/usr/local/etc/pcdm.conf";
   if(!QFile::exists(confFile)){ 
     qDebug() << "PCDM: Configuration file missing:"<<confFile<<"\n  - Using default configuration";
-    QFile::copy(":samples/pcdm.conf", confFile);
+    confFile = ":samples/pcdm.conf"; 
   }
   
   Config::loadConfigFile(confFile);
@@ -125,10 +125,8 @@ int runSingleSession(int argc, char *argv[]){
     w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
     //Setup the signals/slots to startup the desktop session
-    //if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
-    //else{ 
-	    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString)) ); 
-    //}
+    if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
+    else{ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString)) ); }
     //Setup the signals/slots for return information for the GUI
     QObject::connect( &desktop, SIGNAL(InvalidLogin()), &w, SLOT(slotLoginFailure()) );
     QObject::connect( &desktop, SIGNAL(started()), &w, SLOT(slotLoginSuccess()) );
@@ -140,16 +138,12 @@ int runSingleSession(int argc, char *argv[]){
   }  // end of PCDM GUI running
   int retcode = 0;
   //Wait for the desktop session to finish before exiting
-  //if(USECLIBS){ desktop.startDesktop(); }
-  //else{ 
-    desktop.waitForSessionClosed(); 
-  //}
+  if(USECLIBS){ desktop.startDesktop(); }
+  else{ desktop.waitForSessionClosed(); }
   splash.show(); //show the splash screen again
-  QCoreApplication::processEvents();
+  splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
   //check for shutdown process
   if(QFile::exists("/var/run/nologin")){
-    splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
-    QCoreApplication::processEvents();
     //Pause for a few seconds to prevent starting a new session during a shutdown
     QTime wTime = QTime::currentTime().addSecs(30);
     while( QTime::currentTime() < wTime ){ 
@@ -173,7 +167,7 @@ int main(int argc, char *argv[])
 {
  bool neverquit = TRUE;
  bool runonce = FALSE;
- if(argc==2){ if( QString(argv[1]) == "-once"){ runonce = TRUE; } }
+ if(argc==2){ if( QString(argv[1]) == "--once"){ runonce = TRUE; } }
   
  while(neverquit){
   if(runonce){ neverquit = FALSE; }

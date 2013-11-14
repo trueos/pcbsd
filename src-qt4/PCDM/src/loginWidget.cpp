@@ -67,8 +67,8 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
     
   //Setup the Signals/Slots
   connect(pushLogin,SIGNAL(clicked()),this,SLOT(slotTryLogin()));
-  connect(pushUserIcon,SIGNAL(triggered(QAction*)), this, SLOT(slotUserActivated()));
-  connect(userIcon,SIGNAL(triggered(QAction*)), this, SLOT(slotUserActivated()));
+  connect(pushUserIcon,SIGNAL(triggered(QAction*)), this, SLOT(slotUserActivated(QAction*)));
+  connect(userIcon,SIGNAL(triggered(QAction*)), this, SLOT(slotUserActivated(QAction*)));
   connect(listUsers,SIGNAL(activated(int)),this,SLOT(slotChooseUser(int)));
   connect(listUserBig,SIGNAL(itemClicked(QListWidgetItem*)),this,SLOT(slotUserSelected()) );
   connect(listUserBig,SIGNAL(currentRowChanged(int)),this,SLOT(slotUserHighlighted(int)) );
@@ -135,7 +135,7 @@ void LoginWidget::keyPressEvent(QKeyEvent *e){
 //-------------------------------------
 //    PRIVATE SLOTS
 //-------------------------------------
-void LoginWidget::slotUserActivated(){
+void LoginWidget::slotUserActivated(QAction* act){
     //Toggle the user box as to what is visible
     if(!userSelected){ 
 	slotUserSelected(); 

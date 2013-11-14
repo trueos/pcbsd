@@ -95,15 +95,18 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation>Apparaat bezig</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation>Het apparaat lijkt bezig te zijn. Wilt u het toch ontkoppelen?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation>Let op: dit wordt gewoonlijk niet aangeraden tenzij u er zeker van bent dat er geen toepassingen zijn die het apparaat aan het gebruiken zijn.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

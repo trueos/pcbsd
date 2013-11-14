@@ -95,15 +95,18 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation>thiết bị bận rộn</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation>Thiết bị này xuất hiện để được bận rộn. Bạn có muốn gỡ bỏ nó không?</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation>Chú ý: Đây là nói chung không nên trừ khi bạn có chắc rằng bạn không có bất kỳ ứng dụng bằng cách sử dụng thiết bị.</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

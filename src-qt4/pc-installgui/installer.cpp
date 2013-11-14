@@ -582,13 +582,17 @@ void Installer::slotChangedMetaPkgSelection()
 	 selectedPkgs << "KDE-L10N";
 
       // Check if we are using NVIDIA driver and include it automatically
-      QFile file("/var/log/Xorg.0.log");
+      QFile file("/etc/X11/xorg.conf");
       if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
           
         QTextStream in(&file);
         while (!in.atEnd()) {
            QString line = in.readLine();
+<<<<<<< HEAD
            if ( line.indexOf("NVIDIA") != -1 ) {
+=======
+           if ( line.indexOf("nvidia") != -1 ) {
+>>>>>>> parent of d208e87... Merge branch 'master' of github.com:pcbsd/pcbsd into 9.2-release
 	     selectedPkgs << "NVIDIA";
              break;
            }
@@ -1621,7 +1625,7 @@ QStringList Installer::getUsersCfgSettings()
    userList << "userPass=" + fUserPW;
    userList << "userShell=" + fShell;
    userList << "userHome=/home/" + fUserName;
-   userList << "userGroups=wheel,operator";
+   userList << "userGroups=wheel,operator,vboxusers";
    userList << "commitUser";
    userList << "";
  

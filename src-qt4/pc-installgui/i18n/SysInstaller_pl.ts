@@ -258,15 +258,18 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">Przywróć kopię z programu Life-Preserver</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation>Zarządzaj połączeniami sieciowymi</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation>Zbiory danych ZFS:</translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>

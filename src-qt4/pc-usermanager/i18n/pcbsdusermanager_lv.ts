@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation>Šis lauks nevar saturēt ! @ vai :</translation>
+        <translation>Šis lauks var saturēt vienīgi ! @ vai :</translation>
     </message>
     <message>
         <source>Directory will be used</source>
