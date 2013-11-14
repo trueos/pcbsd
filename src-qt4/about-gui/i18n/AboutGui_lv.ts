@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">identifikācija</translation>
+        <translation>identifikācija</translation>
     </message>
     <message>
         <source>Hardware</source>
@@ -94,7 +94,7 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">Resursdators:</translation>
+        <translation>Resursdators:</translation>
     </message>
 </context>
 </TS>

@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Configure </source>
-        <translation>Konfigurācija</translation>
+        <translation>Konfigurēt </translation>
     </message>
     <message>
         <source>Device Information</source>
@@ -125,12 +125,11 @@
     </message>
     <message>
         <source>Network Configuration (Advanced)</source>
-        <translation type="unfinished">Tīkla konfigurācija</translation>
+        <translation>Tīkla konfigurācija (paplašināti)</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nezināma bezvadu ierīce</translation>
     </message>
     <message>
         <source>Search Domain:</source>
@@ -164,13 +163,11 @@
     </message>
     <message>
         <source>Server Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servera adrese</translation>
     </message>
     <message>
         <source>Port Number</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porta numurs</translation>
     </message>
     <message>
         <source>Proxy Type</source>
@@ -179,18 +176,15 @@
     </message>
     <message>
         <source>Specify a Username / Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Norādiet lietotājvārdu / paroli</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lietotājvārds</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parole</translation>
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
@@ -199,58 +193,47 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Saglabāt</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
     <message>
         <source>Need Root Access</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepieciešama root pieeja</translation>
     </message>
     <message>
         <source>This program must be run as root!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Šai programmai ir jābūt palaistai izmantojot root!</translation>
     </message>
     <message>
         <source>Address:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adrese:</translation>
     </message>
     <message>
         <source>SSID:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSID:</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statuss:</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lūdzu ievadiet resursdatora nosaukumu</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resursdatora nosaukums var saturēt tikai burtus un ciparus</translation>
     </message>
     <message>
         <source>IPV6 DNS 1:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPV6 DNS 1:</translation>
     </message>
     <message>
         <source>IPv6 DNS 2:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 DNS 2:</translation>
     </message>
     <message>
         <source>Public servers</source>
@@ -259,13 +242,11 @@
     </message>
     <message>
         <source>Computer Restart Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepieciešams datora restarts</translation>
     </message>
     <message>
         <source>You must restart your computer to finish changing your hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jums jārestartē dators, lai pabeigtu mainīt resursdatora nosaukumu</translation>
     </message>
     <message>
         <source>Basic</source>
