@@ -37,6 +37,8 @@ bool IndicatorWidget::init(QString check_img, QString ok_img, QString avail_img,
             this, SLOT(stateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(mpUC, SIGNAL(progress(CAbstractUpdateController::SProgress)),
             this, SLOT(progress(CAbstractUpdateController::SProgress)));
+    connect(mpUC, SIGNAL(updateError(QString)),
+            this, SLOT(updateError(QString)));
 
     connect(ui->checkButton, SIGNAL(clicked()), mpUC, SLOT(check()));
     connect(ui->installButton , SIGNAL(clicked()), mpUC, SLOT(updateAll()));
@@ -67,6 +69,9 @@ void IndicatorWidget::stateChanged(CAbstractUpdateController::EUpdateControllerS
             onUpdateProgress();
             break;
 
+         case CAbstractUpdateController::eUPDATING_ERROR:
+            onUpdateError();
+
         default:
             //FIXME: Error maybe?
             onFullyUpdated();
@@ -85,6 +90,11 @@ void IndicatorWidget::progress(CAbstractUpdateController::SProgress progress)
     QString pict_name= (progress.mSubstate == CAbstractUpdateController::eInstall)? mInstallImage : mDownloadImage;
 
     ui->stateImage->setPixmap(QPixmap(pict_name));
+}
+
+void IndicatorWidget::updateError(QString message)
+{
+    ui->msgLabel->setText(message);
 }
 
 void IndicatorWidget::onCheck()
@@ -130,4 +140,12 @@ void IndicatorWidget::onUpdateProgress()
     ui->installButton->setVisible(false);
 
     ui->msgLabel->setText(tr("Preparing update..."));
+}
+
+void IndicatorWidget::onUpdateError()
+{
+    ui->progress->setVisible(false);
+    ui->cancelButton->setVisible(false);
+    ui->checkButton->setVisible(true);
+    ui->installButton->setVisible(false);
 }

@@ -25,12 +25,14 @@ public:
 public slots:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void progress(CAbstractUpdateController::SProgress progress);
+    void updateError(QString message);
 
 protected:
     void onCheck();
     void onUpdateAvail();
     void onFullyUpdated();
     void onUpdateProgress();
+    void onUpdateError();
 
 protected:
 
