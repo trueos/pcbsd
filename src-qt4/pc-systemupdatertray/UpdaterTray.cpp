@@ -357,7 +357,16 @@ void UpdaterTray::slotStartUpdateCheck()
      p.waitForFinished(200);
      QCoreApplication::processEvents();
   }
-
+  
+    //Make sure that we have a valid connection, otherwise stop the update process here
+    if(p.exitCode() != 0){
+       programstatus = CHECK_FAILED;
+       contextMenuRefresh();
+       displayTooltip();
+       doingCheck=false;
+       return;
+    }
+    
   while (p.canReadLine()) {
     line = p.readLine().simplified();
     if ( line.indexOf("The following updates are available") == 0 ) {
