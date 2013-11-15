@@ -552,9 +552,16 @@ is_net_up() {
 
 checkup_pkgs() {
 
-  # Checkout the installed pkgs and compare to master list
+  # Update the repo DB
   rc_halt "pkg-static update"
+
   pkg-static upgrade -n >/tmp/.pkgData.$$
+  if [ $? -ne 0 ] ; then
+     echo "Error checking for package updates..."
+     exit 1
+  fi
+
+  # Check fr updates now
   grep -q "Upgrading" /tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "All packages are up to date!"
