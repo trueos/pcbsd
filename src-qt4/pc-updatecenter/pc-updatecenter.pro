@@ -22,17 +22,20 @@ SOURCES += main.cpp\
     updatecontroller.cpp \
     syscontroller.cpp \
     pkgcontroller.cpp \
-    pbicontroller.cpp
+    pbicontroller.cpp \
+    dialogconflict.cpp
 
 HEADERS  += mainwindow.h \
     indicatorwidget.h \
     updatecontroller.h \
     syscontroller.h \
     pkgcontroller.h \
-    pbicontroller.h
+    pbicontroller.h \
+    dialogconflict.h
 
 FORMS    += mainwindow.ui \
-    indicatorwidget.ui
+    indicatorwidget.ui \
+    dialogconflict.ui
 
 RESOURCES += \
     res.qrc

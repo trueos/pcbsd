@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "dialogconflict.h"
+
 #include <QTreeWidgetItem>
 #include <QFile>
 #include <QPalette>
@@ -95,6 +97,8 @@ void MainWindow::init()
             this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPkgController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
             this, SLOT(pkgProgress(CAbstractUpdateController::SProgress)));
+    connect(&mPkgController, SIGNAL(packageConflict(QString)),
+            this, SLOT(packageConflict(QString)));
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
@@ -237,6 +241,12 @@ void MainWindow::pkgProgress(CAbstractUpdateController::SProgress progress)
         ui->pkgUpdateLog->append(progress.mLogMessages[i]);
         qDebug()<<"<<<"<<progress.mLogMessages[i];
     }
+}
+
+void MainWindow::pkgConflict(QString conflictList)
+{
+    DialogConflict* dlg = new  DialogConflict(this);
+    dlg->exec(conflictList, &mPkgController); //QDialog::Accepted | QDialog::Rejected
 }
 
 void MainWindow::on_updateSelectedPBIBtn_clicked()

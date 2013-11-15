@@ -36,6 +36,8 @@ private slots:
     void pbiProgress(CAbstractUpdateController::SProgress progress);
     void pkgProgress(CAbstractUpdateController::SProgress progress);
 
+    void pkgConflict(QString conflictList);
+
 private slots:
     void on_updateSelectedPBIBtn_clicked();
 };
