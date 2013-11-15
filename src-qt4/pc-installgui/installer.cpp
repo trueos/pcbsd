@@ -1008,6 +1008,14 @@ void Installer::startConfigGen()
       cfgList << "runCommand=touch /var/.pcbsd-firstboot";
       cfgList << "runCommand=touch /var/.pcbsd-firstgui";
 
+      if ( comboLanguage->currentIndex() != 0 ) {
+        QString lang = languages.at(comboLanguage->currentIndex());
+        // Grab the language code
+        lang.truncate(lang.lastIndexOf(")"));
+        lang.remove(0, lang.lastIndexOf("(") + 1);
+        cfgList << "runCommand=echo " + lang + " >/var/.wizardlang";
+      }
+
     } else {
       // Doing TrueOS Install
       cfgList+=getUsersCfgSettings();

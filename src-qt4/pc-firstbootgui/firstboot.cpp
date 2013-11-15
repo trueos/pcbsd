@@ -106,13 +106,42 @@ void Installer::slotPushVirtKeyboard()
 void Installer::initInstall()
 {
     // load languages
+    QString langCode;
+    QString curLang;
+    curLang = "en_US";
+    bool foundLang = false;
     comboLanguage->clear();
     languages = Scripts::Backend::languages();
+    if ( QFile::exists("/var/.wizardlang") ) {
+      QFile lFile("/var/.wizardlang");
+      if ( lFile.open(QIODevice::ReadOnly | QIODevice::Text) ) {
+         curLang = lFile.readLine().simplified();
+         lFile.close();
+      } 
+    } 
+
+    qDebug() << curLang;
+
+    // Now set languages
     for (int i=0; i < languages.count(); ++i) {
         QString languageStr = languages.at(i);
         QString language = languageStr.split("-").at(0);
         comboLanguage->addItem(language.trimmed());
+    
+        // Grab the language code
+        langCode = languageStr;
+        langCode.truncate(langCode.lastIndexOf(")"));
+        langCode.remove(0, langCode.lastIndexOf("(") + 1);
+        if ( curLang == langCode ) {
+          comboLanguage->setCurrentIndex(i);
+          foundLang = true;
+        }
     }
+
+    // If we found a language to default to
+    if ( foundLang )
+      slotChangeLanguage();
+
     connect(comboLanguage, SIGNAL(currentIndexChanged(QString)), this, SLOT(slotChangeLanguage()));
 }
 
