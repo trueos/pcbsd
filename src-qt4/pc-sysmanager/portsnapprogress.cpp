@@ -146,6 +146,7 @@ void PortsnapProgress::parseUpdate()
   while( portsnap->canReadLine() )
   {
     QString output = portsnap->readLine().simplified();
+    output.truncate(100);
     qDebug() << "Portsnap Update: " + output;
     taskProgressLbl->setText(output);
   }
