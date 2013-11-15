@@ -70,6 +70,12 @@ void MainWindow::init()
             ui->mainTab->setTabEnabled(i, false);
     }
 
+#if 1
+    mPkgController.setEmulateCheckFile("/home/yurkis/_pkgcheck.txt");
+    mPkgController.setEmulateUpdateFile("/home/yurkis/_pkguc.txt");
+#endif
+
+
     mSysController.check();
     mPkgController.check();
     mPBIController.check();    
@@ -98,7 +104,7 @@ void MainWindow::init()
     connect(&mPkgController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
             this, SLOT(pkgProgress(CAbstractUpdateController::SProgress)));
     connect(&mPkgController, SIGNAL(packageConflict(QString)),
-            this, SLOT(packageConflict(QString)));
+            this, SLOT(pkgConflict(QString)));
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),

@@ -5,6 +5,8 @@
 #include <QString>
 #include <QProcess>
 
+#define CONTROLLER_EMULATION_ENABLED
+
 #define USES_CHECK_SHELL_COMMAND(command, arguments)\
     protected:\
     virtual void checkShellCommand(QString& cmd, QStringList& args){cmd= QString(command); args.clear(); args<<arguments;};\
@@ -111,6 +113,19 @@ private slots:
     void slotProcessRead();
     void slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus);
 
+#ifdef CONTROLLER_EMULATION_ENABLED
+public:
+    void setEmulateCheckFile(QString fileName)
+        { mEmulateCheck= fileName; }
+
+    void setEmulateUpdateFile(QString fileName)
+        { mEmulateUpd= fileName;}
+
+private:
+    QString mEmulateCheck;
+    int     mEmulationDelay;
+    QString mEmulateUpd;
+#endif
 };
 
 #endif // UPDATECONTROLLER_H

@@ -259,18 +259,18 @@ void CPkgController::onReadUpdateLine(QString line)
     if (line.indexOf(PKG_CONFLICTS_LIST) == 0)
     {
         //----------- package conflict
-        mConflictList= line.replace(PKG_CONFLICTS_LIST, "");
+        mConflictList= line.replace(PKG_CONFLICTS_LIST, "");        
+        return;
+    }
+    else
+    if (line.indexOf(PKG_CONFLICTS_REPLY) == 0)
+    {
         progress.misCanCancel= true;
         progress.mLogMessages= QStringList()<<QString("ERROR: Package upgrade conflict for packages: ")<<mConflictList;
         reportProgress(progress);
 
         reportError(tr("Package conflict: ") + mConflictList);
-        return;
-    }
-    else
-    if (line.indexOf(PKG_CONFLICTS_REPLY))
-    {
-        mConflictsReply= line.replace(PKG_CONFLICTS_REPLY, "");
+         mConflictsReply= line.replace(PKG_CONFLICTS_REPLY, "");
         emit packageConflict(mConflictList);
         return;
     }

@@ -1,9 +1,16 @@
 #include "updatecontroller.h"
 
 #include <QDebug>
+#include <unistd.h>
+
+const char* const EMULATION_PROC = "cat";
+const QStringList EMULATION_DEF_ARGS;
 
 CAbstractUpdateController::CAbstractUpdateController()
 {
+#ifdef CONTROLLER_EMULATION_ENABLED
+    mEmulationDelay= 0;
+#endif
     mCurrentState= eNOT_INITIALIZED;
     mUpdProc.setProcessChannelMode(QProcess::MergedChannels);
     connect(&mUpdProc, SIGNAL(readyReadStandardOutput()),
@@ -77,6 +84,14 @@ void CAbstractUpdateController::launchUpdate()
     QString proc;
     QStringList args;
     updateShellCommand(proc, args);
+#ifdef CONTROLLER_EMULATION_ENABLED
+    if (mEmulateUpd.length())
+    {
+        proc = EMULATION_PROC;
+        args = EMULATION_DEF_ARGS;
+        args<<mEmulateUpd;
+    }
+#endif
     mUpdProc.start(proc,args);
     if (!mUpdProc.waitForStarted())
     {
@@ -94,6 +109,14 @@ void CAbstractUpdateController::check()
     QString proc;
     QStringList args;
     checkShellCommand(proc, args);
+#ifdef CONTROLLER_EMULATION_ENABLED
+    if (mEmulateCheck.length())
+    {
+        proc = EMULATION_PROC;
+        args = EMULATION_DEF_ARGS;
+        args<<mEmulateCheck;
+    }
+#endif
     mUpdProc.start(proc,args);
     if (!mUpdProc.waitForStarted())
     {
@@ -124,7 +147,15 @@ void CAbstractUpdateController::cancel()
 void CAbstractUpdateController::slotProcessRead()
 {
     while (mUpdProc.canReadLine())
+    {
+#ifdef CONTROLLER_EMULATION_ENABLED
+        if (mEmulationDelay)
+        {
+           usleep(mEmulationDelay / 1000);
+        }
+#endif
         parseProcessLine(currentState(), mUpdProc.readLine().simplified());
+    }
 }
 
 void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
