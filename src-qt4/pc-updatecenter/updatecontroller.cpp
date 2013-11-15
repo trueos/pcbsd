@@ -151,7 +151,7 @@ void CAbstractUpdateController::slotProcessRead()
 #ifdef CONTROLLER_EMULATION_ENABLED
         if (mEmulationDelay)
         {
-           usleep(mEmulationDelay / 1000);
+           usleep(mEmulationDelay );
         }
 #endif
         parseProcessLine(currentState(), mUpdProc.readLine().simplified());

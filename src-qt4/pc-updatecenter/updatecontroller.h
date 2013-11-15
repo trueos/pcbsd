@@ -120,6 +120,8 @@ public:
 
     void setEmulateUpdateFile(QString fileName)
         { mEmulateUpd= fileName;}
+    void setEmulateDelay(int ms)
+        {mEmulationDelay= ms;}
 
 private:
     QString mEmulateCheck;

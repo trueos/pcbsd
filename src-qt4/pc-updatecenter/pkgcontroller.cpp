@@ -23,6 +23,9 @@ static const char* const DL_FETCH_START = "FETCH:";
 static const char* const DL_RESUME_DOWNLOAD= "Resuming download of:";
 static const char* const PKG_CONFLICTS_LIST= "PKGCONFLICTS: ";
 static const char* const PKG_CONFLICTS_REPLY= "PKGREPLY: ";
+static const char* const PKG_INSTALL_START_MARKER= "Upgrades have been requested for the following";
+static const char* const PKG_INSTALL_DONE = "... done";
+
 
 typedef enum{
     eCommonInfo,
@@ -273,6 +276,39 @@ void CPkgController::onReadUpdateLine(QString line)
          mConflictsReply= line.replace(PKG_CONFLICTS_REPLY, "");
         emit packageConflict(mConflictList);
         return;
+    }
+
+    if (line.indexOf(PKG_INSTALL_START_MARKER) == 0)
+    {
+        mCurrentPkgNo=0;
+        misDownloadComplete= true;
+    }
+    else
+    if (line.contains(UPDATES_AVAIL_DL_SIZE_STRING))
+    {
+        // Checking integrity
+
+    }
+    else
+    if ((line[0] == '[') && misDownloadComplete)
+    {
+        //Example:
+        // [2/717] Reinstalling a2ps-4.13b_5... done
+        // ^0      ^1           ^2
+
+        QStringList line_list = line.split(" ");
+        QString state;
+        if (line_list[1] == INSTALLING)
+            state= tr("Installed");
+        if (line_list[1] == UPGRADING)
+            state= tr("Upgraded");
+        if (line_list[1] == REINSTALLING)
+            state= tr("Reinstalled");
+        QString pkg_name = line_list[2].replace(PKG_INSTALL_DONE, "");
+        pkg_name= pkg_name.left(pkg_name.lastIndexOf("-"));
+
+        QString msg = line_list[0] + QString(" ") + state + QString(" ") + pkg_name;
+        progress.mMessage = msg;
     }
 
     mLastLine = line;

@@ -72,7 +72,8 @@ void MainWindow::init()
 
 #if 1
     mPkgController.setEmulateCheckFile("/home/yurkis/_pkgcheck.txt");
-    mPkgController.setEmulateUpdateFile("/home/yurkis/_pkguc.txt");
+    mPkgController.setEmulateUpdateFile("/home/yurkis/_pkgupd.txt");
+    //mPkgController.setEmulateDelay(1);
 #endif
 
 
