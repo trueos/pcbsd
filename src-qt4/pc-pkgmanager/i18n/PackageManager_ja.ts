@@ -310,5 +310,13 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Package Check</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unable to check for package updates!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
