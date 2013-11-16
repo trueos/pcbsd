@@ -27,7 +27,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		libvdpau>=0:${PORTSDIR}/multimedia/libvdpau \
 		rdesktop:${PORTSDIR}/net/rdesktop \
 		alsa-lib>=0:${PORTSDIR}/audio/alsa-lib \
-		gconf2>=0:${PORTSDIR}/devel/gconf2 \
 		nspluginwrapper:${PORTSDIR}/www/nspluginwrapper \
 		linux_base-c6>=0:${PORTSDIR}/emulators/linux_base-c6 \
 		linux-c6-flashplugin>=0:${PORTSDIR}/www/linux-c6-flashplugin11 \
@@ -64,9 +63,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		gutenprint-foomatic>=0:${PORTSDIR}/print/gutenprint-foomatic \
 		system-config-printer:${PORTSDIR}/print/system-config-printer \
 		mc:${PORTSDIR}/misc/mc \
-		at-spi>=0:${PORTSDIR}/accessibility/at-spi \
-		metacity:${PORTSDIR}/x11-wm/metacity \
-		libgtop>=0:${PORTSDIR}/devel/libgtop \
 		numlockx:${PORTSDIR}/x11/numlockx \
 		swapexd:${PORTSDIR}/sysutils/swapexd \
 		epdfview:${PORTSDIR}/graphics/epdfview \
