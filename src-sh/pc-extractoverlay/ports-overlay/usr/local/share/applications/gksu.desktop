@@ -67,6 +67,7 @@ Comment[es]=Abre un terminal como usuario root, usando gksu para pedir la contra
 Comment[et]=Avab terminali juurkasutajana ja küsib gksu abil parooli
 Comment[eu]=Root erabiltzaile gisa terminal bat irekitzen du pasahitza eskatzeko gksu erabiliaz
 Comment[fa]=باز کردن یک ترمینال با دسترسی کاربر Root از برنامه gksu برای پرسش در مورد رمزعبور استفاده کنید
+Comment[fi]=Avaa terminaalin pääkäyttäjänä, käyttäen gksu:a salasanan kysymiseen
 Comment[fr]=Ouvre un terminal au nom du superutilisateur, en utilisant gksu pour saisir son mot de passe.
 Comment[fr_CA]=Ouvrir un terminal en tant qu'administrateur système, en utilisant gksu pour saisir son mot de passe.
 Comment[gl]=Abre un terminal como usuario root, usando gksu para preguntar polo contrasinal
