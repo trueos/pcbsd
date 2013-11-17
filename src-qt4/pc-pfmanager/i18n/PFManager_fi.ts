@@ -131,83 +131,70 @@
     <name>PFAddDlg</name>
     <message>
         <source>incoming</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>sisääntuleva</translation>
     </message>
     <message>
         <source>outgoing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ulosmenevä</translation>
     </message>
     <message>
         <source>TCP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TCP</translation>
     </message>
     <message>
         <source>UDP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UDP</translation>
     </message>
 </context>
 <context>
     <name>PFManagerDlg</name>
     <message>
         <source>Question</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kysymys</translation>
     </message>
     <message>
         <source>Restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palautettu.</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguraatiotiedosto palautettu.</translation>
     </message>
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tämä poistaa palomuurin kokonaan käytöstä.
+Oletko varma?</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Onnistuminen</translation>
     </message>
     <message>
         <source>Restarted successfuly!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uudelleenkäynnistetty onnistuneesti!</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Epäonnistuminen</translation>
     </message>
     <message>
         <source>Failed to restart!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uudelleenkäynnistys epäonnistui!</translation>
     </message>
 </context>
 <context>
     <name>RcConfig</name>
     <message>
         <source>Error opening the specified rc.conf file.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Annetun rc.conf tiedoston avaus epäonnistui.</translation>
     </message>
 </context>
 <context>
     <name>services</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuntematon</translation>
     </message>
 </context>
 </TS>

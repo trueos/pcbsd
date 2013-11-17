@@ -37,8 +37,7 @@
     </message>
     <message>
         <source>TAG</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TAG</translation>
     </message>
     <message>
         <source>Enabled</source>
@@ -62,13 +61,11 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuntematon</translation>
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seuraavat palvelut ovat mahdollisia tässä järjestelmässä</translation>
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
@@ -77,16 +74,14 @@
     </message>
     <message>
         <source>Checking...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tarkistaa...</translation>
     </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palvelu</translation>
     </message>
     <message>
         <source>Service Action in progress...</source>
@@ -95,13 +90,11 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peruuta</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Epäonnistui</translation>
     </message>
     <message>
         <source>The specified command failed.</source>
@@ -115,8 +108,7 @@
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulje</translation>
     </message>
 </context>
 </TS>
