@@ -225,6 +225,9 @@ void mainWin::checkMPKGUpdates() {
   while(p.state() == QProcess::Starting || p.state() == QProcess::Running)
      QCoreApplication::processEvents();
 
+  if ( p.exitCode() != 0 )
+    QMessageBox::warning(this, tr("Package Check"), tr("Unable to check for package updates!"));
+
   while (p.canReadLine()) {
     line = p.readLine().simplified();
     qDebug() << line;
@@ -1221,12 +1224,13 @@ QString mainWin::getDelPkgs()
         while (*it) {
 	  for (int z=0; z < metaPkgList.count(); ++z)
 	    // See if any packages status have changed
-	    if ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "YES" && (*it)->checkState(0) == Qt::Unchecked )
+	    if ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "YES" && (*it)->checkState(0) == Qt::Unchecked ) {
 		if ( tmp.isEmpty() ){
 			tmp = (*it)->text(0);
 		}else{
 			tmp = tmp + "," + (*it)->text(0);
 		}
+	    }
          ++it;
         }
 

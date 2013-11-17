@@ -1,0 +1,6 @@
+SHA256 (rpm/i686/centos/6.2/mesa-libGL-7.11-3.el6.i686.rpm) = 36193ace9dd63e4b46ea679a794b99473c81f6951d09c944c33cd63829d5c853
+SIZE (rpm/i686/centos/6.2/mesa-libGL-7.11-3.el6.i686.rpm) = 164652
+SHA256 (rpm/i686/centos/6.2/mesa-libGLU-7.11-3.el6.i686.rpm) = 205fbfb0e29aa359b3bcbe5730f783c7064e58c54c578abe71c21c04e5d7c9a8
+SIZE (rpm/i686/centos/6.2/mesa-libGLU-7.11-3.el6.i686.rpm) = 203656
+SHA256 (rpm/i686/centos/6.2/freeglut-2.6.0-1.el6.i686.rpm) = fa6cb446baf0b4e02a68c7260e3a2186fc2bb208293d39ccb48dd8ed9c61b606
+SIZE (rpm/i686/centos/6.2/freeglut-2.6.0-1.el6.i686.rpm) = 170044

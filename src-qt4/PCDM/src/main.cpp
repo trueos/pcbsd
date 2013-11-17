@@ -145,13 +145,17 @@ int runSingleSession(int argc, char *argv[]){
     desktop.waitForSessionClosed(); 
   //}
   splash.show(); //show the splash screen again
-  QCoreApplication::processEvents();
+  //Now wait a couple seconds for things to settle
+  QTime wTime = QTime::currentTime().addSecs(2);
+  while( QTime::currentTime() < wTime ){
+    QCoreApplication::processEvents(QEventLoop::AllEvents,100);
+  }
   //check for shutdown process
   if(QFile::exists("/var/run/nologin")){
     splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     QCoreApplication::processEvents();
     //Pause for a few seconds to prevent starting a new session during a shutdown
-    QTime wTime = QTime::currentTime().addSecs(30);
+    wTime = QTime::currentTime().addSecs(30);
     while( QTime::currentTime() < wTime ){ 
       //Keep processing events during the wait (for splashscreen)
       QCoreApplication::processEvents(QEventLoop::AllEvents, 100); 

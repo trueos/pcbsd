@@ -395,8 +395,7 @@ QStringList Installer::getDiskSummary()
       for (int z = 0; z < mounts.size(); ++z) {
         if ( copyList.at(i).at(0) == workingDisk \
           && copyList.at(i).at(1) == workingSlice \
-          && (mounts.at(z) == startPart || mounts.at(z).contains(startPart + "(") ) ) {
-
+          && (mounts.at(z) == startPart || mounts.at(z).indexOf(startPart + "(") == 0 ) ) {
           // Check if we have any extra arguments to throw on the end
           XtraTmp="";
           if ( ! copyList.at(i).at(5).isEmpty() )
@@ -412,7 +411,7 @@ QStringList Installer::getDiskSummary()
             QString zTMP;
             for (int ds = 0; ds < zDS.size(); ++ds) {
               //if ( zDS.at(ds) != "/" )
-               // zDS.replace(ds, "/" + zDS.at(ds));
+              // zDS.replace(ds, "/" + zDS.at(ds));
               if ( zDS.at(ds).indexOf("(") != -1 ) {
                 zTMP = zDS.at(ds);
                 zTMP.replace("(", " (");
@@ -589,7 +588,7 @@ void Installer::slotChangedMetaPkgSelection()
         QTextStream in(&file);
         while (!in.atEnd()) {
            QString line = in.readLine();
-           if ( line.indexOf('LoadModule: "nvidia"') != -1 ) {
+           if ( line.indexOf("NVIDIA") != -1 ) {
 	     selectedPkgs << "NVIDIA";
              break;
            }
@@ -1009,6 +1008,14 @@ void Installer::startConfigGen()
       cfgList << "runCommand=touch /var/.pcbsd-firstboot";
       cfgList << "runCommand=touch /var/.pcbsd-firstgui";
 
+      if ( comboLanguage->currentIndex() != 0 ) {
+        QString lang = languages.at(comboLanguage->currentIndex());
+        // Grab the language code
+        lang.truncate(lang.lastIndexOf(")"));
+        lang.remove(0, lang.lastIndexOf("(") + 1);
+        cfgList << "runCommand=echo " + lang + " >/var/.wizardlang";
+      }
+
     } else {
       // Doing TrueOS Install
       cfgList+=getUsersCfgSettings();
@@ -1136,7 +1143,7 @@ QStringList Installer::getDiskCfgSettings()
       for (int z = 0; z < mounts.size(); ++z) {
         if ( copyList.at(i).at(0) == workingDisk \
           && copyList.at(i).at(1) == workingSlice \
-          && mounts.at(z) == startPart ) {
+          && ( mounts.at(z) == startPart || mounts.at(z).indexOf(startPart + "(") == 0 ) ) {
 
           // Check if we have any extra arguments to throw on the end
           XtraTmp="";

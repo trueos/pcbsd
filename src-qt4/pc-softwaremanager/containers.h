@@ -53,7 +53,7 @@ class InstalledPBI{
 class MetaPBI{
 	
   public:
-    QString name, category, remoteIcon, localIcon, author, website, license, appType, description;
+    QString name, category, remoteIcon, localIcon, author, website, license, appType, description, shortdescription,maintainer,dateadded;
     QStringList tags;
     QString latestVersion, latestDatetime, latestArch, latestSizeK, latestFilename; //newest version in the index
     QString backupVersion, backupDatetime, backupArch, backupSizeK, backupFilename; //next-to-newest version in the index

@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">Rauta</translation>
+        <translation>Laitteisto</translation>
     </message>
     <message>
         <source>Networking</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>unsupported</source>
-        <translation type="unfinished">ei tuettu            </translation>
+        <translation>ei tuettu</translation>
     </message>
     <message>
         <source>(current)</source>
@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>(All installed)</source>
-        <translation type="unfinished">(Kaikki asennettu)</translation>
+        <translation>(Kaikki asennettu)</translation>
     </message>
     <message>
         <source>(KDE)</source>
@@ -97,8 +97,7 @@
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mitä haluat määrittää?</translation>
     </message>
 </context>
 </TS>

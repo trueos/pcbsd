@@ -1,0 +1,6 @@
+SHA256 (rpm/i686/centos/6.2/gtk2-2.18.9-6.el6.centos.i686.rpm) = e729f6f853acfcaad2eb496809f630989fea318d11bd8d3f6f74341d4054bc92
+SIZE (rpm/i686/centos/6.2/gtk2-2.18.9-6.el6.centos.i686.rpm) = 3401480
+SHA256 (rpm/i686/centos/6.2/pixman-0.18.4-1.el6_0.1.i686.rpm) = baf2a438fcd9574183e201efe21012f3cc60ad6bed3fc9e21e1013518de64c3f
+SIZE (rpm/i686/centos/6.2/pixman-0.18.4-1.el6_0.1.i686.rpm) = 158052
+SHA256 (rpm/i686/centos/6.2/jasper-libs-1.900.1-15.el6.i686.rpm) = a5e8861ecd20788fcf904a6df053959c94aa572aa6708f44c9b546ee80563c4d
+SIZE (rpm/i686/centos/6.2/jasper-libs-1.900.1-15.el6.i686.rpm) = 139832

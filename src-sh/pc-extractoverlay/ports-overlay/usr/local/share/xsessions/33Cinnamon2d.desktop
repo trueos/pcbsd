@@ -1,0 +1,9 @@
+[Desktop Entry]
+Exec=ck-launch-session gnome-session-cinnamon2d
+TryExec=/usr/local/bin/cinnamon2d
+Icon=/usr/local/share/pixmaps/cinnamon.png
+Type=Application
+X-Ubuntu-Gettext-Domain=cinnamon
+X-GNOME-Provides=cinnamon2d
+Name=Cinnamon (Software Rendering)
+Comment=This session logs you into Cinnamon (using software rendering)

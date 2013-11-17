@@ -258,5 +258,15 @@
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
         <translation>Pakiety są aktualnie zmieniane. Na pewno chcesz wyjść?</translation>
     </message>
+    <message>
+        <source>Package Check</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Unable to check for package updates!</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

@@ -696,7 +696,7 @@ void MainUI::slotGoToCategory(QString cat){
   clearScrollArea(ui->scroll_br_cat_apps);
   apps.sort();
   QVBoxLayout *applayout = new QVBoxLayout;
-  QStringList info; info << "name" << "description" << "icon";
+  QStringList info; info << "name" << "shortdescription" << "icon";
   for(int i=0; i<apps.length(); i++){
     QStringList data = PBI->AppInfo(apps[i],info);
     if(!data.isEmpty()){
@@ -870,7 +870,7 @@ void MainUI::slotShowSearchResults(QStringList best, QStringList rest){
     //Now fill the "best" section
     clearScrollArea(ui->scroll_bsearch_best);
     QVBoxLayout *layout = new QVBoxLayout;
-    QStringList info; info << "name" << "description" << "icon";
+    QStringList info; info << "name" << "shortdescription" << "icon";
     for(int i=0; i<best.length(); i++){
       QStringList data = PBI->AppInfo(best[i],info);
       if(!data.isEmpty()){

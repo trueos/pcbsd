@@ -61,16 +61,17 @@ void PortsnapProgress::startSource(QString pcVer)
     QString branch;
     // Figure out which to download
     if ( pcVer.indexOf("STABLE") )
-       branch = "/stable/" + pcVer.section(".", 0, 0); 
+       branch = "stable/" + pcVer.section("-", 0, 0).section(".", 0, 0); 
     else if ( pcVer.indexOf(".") != -1 )
-       branch = "/releng/" + pcVer.section("-", 0, 0); 
+       branch = "releng/" + pcVer.section("-", 0, 0); 
     else
-       branch = "/head";
+       branch = "master";
 
     QStringList args;
     QString prog;
-    prog = "svn";
-    args << "co" << "svn://svn.freebsd.org/base" + branch << "/usr/src";
+    prog = "git";
+    args << "clone" << "https://github.com/pcbsd/freebsd.git" << "-b" << branch << "/usr/src";
+    qDebug() << args;
     portsnap = new QProcess(this);
     portsnap->setProcessChannelMode(QProcess::MergedChannels);
     connect(portsnap, SIGNAL(readyReadStandardOutput()), this, SLOT(parseUpdate()));
@@ -145,6 +146,7 @@ void PortsnapProgress::parseUpdate()
   while( portsnap->canReadLine() )
   {
     QString output = portsnap->readLine().simplified();
+    output.truncate(100);
     qDebug() << "Portsnap Update: " + output;
     taskProgressLbl->setText(output);
   }

@@ -10,13 +10,11 @@
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alla voit vaihtaa oletus äänilaitetta ja testata äänentoistoa</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Testaa ääntä</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
@@ -25,13 +23,11 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulje</translation>
     </message>
     <message>
         <source>No sound devices detected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Äänilaitteita ei havaittu!</translation>
     </message>
 </context>
 </TS>

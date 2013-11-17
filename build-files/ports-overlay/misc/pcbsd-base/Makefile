@@ -27,13 +27,11 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		libvdpau>=0:${PORTSDIR}/multimedia/libvdpau \
 		rdesktop:${PORTSDIR}/net/rdesktop \
 		alsa-lib>=0:${PORTSDIR}/audio/alsa-lib \
-		gconf2>=0:${PORTSDIR}/devel/gconf2 \
 		nspluginwrapper:${PORTSDIR}/www/nspluginwrapper \
-		linux_base-f10>=0:${PORTSDIR}/emulators/linux_base-f10 \
-		linux-f10-flashplugin>=0:${PORTSDIR}/www/linux-f10-flashplugin11 \
-		linux-f10-alsa-lib>=0:${PORTSDIR}/audio/linux-f10-alsa-lib \
-		linux-f10-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-f10-alsa-plugins-oss \
-		linux-f10-cups-libs>=0:${PORTSDIR}/print/linux-f10-cups-libs \
+		linux_base-c6>=0:${PORTSDIR}/emulators/linux_base-c6 \
+		linux-c6-flashplugin>=0:${PORTSDIR}/www/linux-c6-flashplugin11 \
+		linux-c6-alsa-lib>=0:${PORTSDIR}/audio/linux-c6-alsa-lib \
+		linux-c6-alsa-plugins-oss>=0:${PORTSDIR}/audio/linux-c6-alsa-plugins-oss \
 		fluxbox:${PORTSDIR}/x11-wm/fluxbox \
 		fluxbox-tenr-styles-pack>=0:${PORTSDIR}/x11-themes/fluxbox-tenr-styles-pack \
 		${LOCALBASE}/etc/rc.d/fail2ban:${PORTSDIR}/security/py-fail2ban \
@@ -65,9 +63,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		gutenprint-foomatic>=0:${PORTSDIR}/print/gutenprint-foomatic \
 		system-config-printer:${PORTSDIR}/print/system-config-printer \
 		mc:${PORTSDIR}/misc/mc \
-		at-spi>=0:${PORTSDIR}/accessibility/at-spi \
-		metacity:${PORTSDIR}/x11-wm/metacity \
-		libgtop>=0:${PORTSDIR}/devel/libgtop \
 		numlockx:${PORTSDIR}/x11/numlockx \
 		swapexd:${PORTSDIR}/sysutils/swapexd \
 		epdfview:${PORTSDIR}/graphics/epdfview \

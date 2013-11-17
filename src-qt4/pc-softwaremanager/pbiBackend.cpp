@@ -470,6 +470,8 @@ QStringList PBIBackend::AppInfo( QString appID, QStringList infoList){
     else if(infoList[i]=="license"){ output << APPHASH[appID].license; }
     else if(infoList[i]=="type"){ output << APPHASH[appID].appType; }
     else if(infoList[i]=="description"){ output << APPHASH[appID].description; }
+    else if(infoList[i]=="shortdescription"){ output << APPHASH[appID].shortdescription; }
+    else if(infoList[i]=="maintainer"){ output << APPHASH[appID].maintainer; }
     else if(infoList[i]=="category"){ output << APPHASH[appID].category; }
     else if(infoList[i]=="latestversion"){ output << APPHASH[appID].latestVersion; }
     else if(infoList[i]=="latestarch"){ output << APPHASH[appID].latestArch; }
@@ -1317,6 +1319,9 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
          app.description=info[8];
          if(info[9]=="true"){ app.requiresroot=TRUE; }
          else{ app.requiresroot=FALSE; }
+	 app.dateadded=info[10];
+	 app.maintainer=info[11];
+	 app.shortdescription=info[12];
          //Fix the website if needed
          if(app.website.endsWith("/")){ app.website.chop(1); }
          //Add it to the hash

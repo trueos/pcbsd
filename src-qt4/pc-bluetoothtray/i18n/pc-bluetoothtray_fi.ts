@@ -5,8 +5,7 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uusi Bluetooth laite havaittu</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>

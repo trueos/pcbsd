@@ -131,83 +131,70 @@
     <name>PFAddDlg</name>
     <message>
         <source>incoming</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ienākošie</translation>
     </message>
     <message>
         <source>outgoing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>izejošie</translation>
     </message>
     <message>
         <source>TCP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TCP</translation>
     </message>
     <message>
         <source>UDP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UDP</translation>
     </message>
 </context>
 <context>
     <name>PFManagerDlg</name>
     <message>
         <source>Question</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jautājums</translation>
     </message>
     <message>
         <source>Restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atjaunots.</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurācijas fails veiksmīgi atjaunots.</translation>
     </message>
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šis pilnībā atslēgs ugunsmūri.
+Vai esat pārliecināts?</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izdevās</translation>
     </message>
     <message>
         <source>Restarted successfuly!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veiksmīgi restartēts!</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neveiksme</translation>
     </message>
     <message>
         <source>Failed to restart!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neizdevās restartēt!</translation>
     </message>
 </context>
 <context>
     <name>RcConfig</name>
     <message>
         <source>Error opening the specified rc.conf file.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kļūda atverot norādīto rc.conf failu.</translation>
     </message>
 </context>
 <context>
     <name>services</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nezināms</translation>
     </message>
 </context>
 </TS>

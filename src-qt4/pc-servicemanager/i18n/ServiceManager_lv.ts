@@ -5,11 +5,11 @@
     <name>ServiceManager</name>
     <message>
         <source>Service Manager</source>
-        <translation>Pakalpojumu menedžeris</translation>
+        <translation>Servisu pārvaldnieks</translation>
     </message>
     <message>
         <source>Service Name</source>
-        <translation>Pakalpojuma nosaukums</translation>
+        <translation>Servisa nosaukums</translation>
     </message>
     <message>
         <source>Start</source>
@@ -43,81 +43,66 @@
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgts</translation>
     </message>
     <message>
         <source>Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgts serviss</translation>
     </message>
     <message>
         <source>Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atslēgts serviss</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atslēgts</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nezināms</translation>
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sekojošie servisi ir pieejami uz šīs sistēmas</translation>
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pārvalda servisus priekš Warden IP:</translation>
     </message>
     <message>
         <source>Checking...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pārbauda...</translation>
     </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serviss</translation>
     </message>
     <message>
         <source>Service Action in progress...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Serviss darbībā...</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Atcelt</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neizdevās</translation>
     </message>
     <message>
         <source>The specified command failed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Norādītā komanda neizdevās.</translation>
     </message>
     <message>
         <source>Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pabeigts</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aizvērt</translation>
     </message>
 </context>
 </TS>

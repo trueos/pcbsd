@@ -1,0 +1,8 @@
+[Desktop Entry]
+Exec=ck-launch-session gnome-session-cinnamon
+TryExec=/usr/local/bin/cinnamon
+Icon=/usr/local/share/pixmaps/cinnamon.png
+Type=Application
+Comment=This session logs you into Cinnamon
+Name=Cinnamon
+Name[fi]=Cinnamon
