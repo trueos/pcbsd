@@ -70,7 +70,7 @@ void MainWindow::init()
             ui->mainTab->setTabEnabled(i, false);
     }
 
-#if 1
+#ifdef CONTROLLER_EMULATION_ENABLED
     mPkgController.setEmulateCheckFile("/home/yurkis/_pkgcheck.txt");
     mPkgController.setEmulateUpdateFile("/home/yurkis/_pkgupd.txt");
     //mPkgController.setEmulateDelay(1);
@@ -156,7 +156,7 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
         }
         else
         {
-            ui->pkgSpaceReqLabel_2->setText(tr("Upgrade will free %1").arg(pcbsd::Utils::bytesToHumanReadable(- upd.mDiskSpace)));
+            ui->pkgSpaceReqLabel_2->setText(tr("Upgrade will free %1").arg(pcbsd::Utils::bytesToHumanReadable(0 - upd.mDiskSpace)));
         }
 
         ui->pkgDlSizeLabel_2->setText(tr("%1 to be downloaded. ").arg(pcbsd::Utils::bytesToHumanReadable(upd.mDownloadSize)));

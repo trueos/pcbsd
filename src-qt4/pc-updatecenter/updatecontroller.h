@@ -5,7 +5,7 @@
 #include <QString>
 #include <QProcess>
 
-#define CONTROLLER_EMULATION_ENABLED
+//#define CONTROLLER_EMULATION_ENABLED
 
 #define USES_CHECK_SHELL_COMMAND(command, arguments)\
     protected:\

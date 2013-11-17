@@ -209,6 +209,7 @@ void CPkgController::onReadUpdateLine(QString line)
 
     if (line.indexOf(DL_FETCH_START) == 0)
     {
+        misWasInstalation= false;
         //starting fetch
         mCurrentPkgNo++;
         progress.mLogMessages.clear();
@@ -309,11 +310,35 @@ void CPkgController::onReadUpdateLine(QString line)
 
         QString msg = line_list[0] + QString(" ") + state + QString(" ") + pkg_name;
         progress.mMessage = msg;
+
+        misWasInstalation= true;
+    }
+    else
+    if (misDownloadComplete && misWasInstalation)
+    {
+        progress.mMessage = tr("Finaizing instalation...");
     }
 
     mLastLine = line;
 
     reportProgress(progress);
+}
+
+void CPkgController::onUpdateProcessfinished(int exitCode)
+{
+    if (!misWasInstalation || exitCode)
+    {
+        reportError(tr("Installation process was unxepected terminated"));
+    }
+    else
+        check();
+}
+
+void CPkgController::onCancel()
+{
+    process().terminate();
+    process().waitForFinished();
+    check();
 }
 
 void CPkgController::autoResolveConflict(bool isAutoResolve)

@@ -43,8 +43,8 @@ public:
         unsigned int mUpgradeCount;
         unsigned int mInstallCount;
         unsigned int mReinstallCount;
-        long long  mDownloadSize;
-        long long  mDiskSpace;
+        signed long  mDownloadSize;
+        signed long  mDiskSpace;
         QVector<SPackageUpdate> mvPkgUpdates;
         _SUpdateDescription():mCommonPkgsCount(0), mUpgradeCount(0), mInstallCount(0), mReinstallCount(0), mDownloadSize(0), mDiskSpace(0){;};
     }SUpdate;
@@ -59,6 +59,8 @@ protected:
 
     virtual void onUpdateAll();
     virtual void onReadUpdateLine(QString line);
+    virtual void onUpdateProcessfinished(int exitCode);
+    virtual void onCancel();
 
 signals:
     void packageConflict(QString conflictList);
@@ -69,6 +71,7 @@ public slots:
 private:
     SUpdate mUpdData;
     bool    misDownloadComplete;
+    bool    misWasInstalation;
     int     mCurrentPkgNo;
     int     misInFetch;
     QString mCurrentPkgName;
