@@ -56,23 +56,26 @@ void CSysController::onReadCheckLine(QString line)
 
 void CSysController::onReadUpdateLine(QString line)
 {
-
+    line= line.trimmed();
 }
 
 void CSysController::onCheckProcessfinished(int exitCode)
 {
     if (!misFREEBSDCheck)
-    {
-        qDebug()<<"PC updates check proc finished!";
+    {        
         misFREEBSDCheck= true;
         launchCheck();
     }
     else
-    {
-        qDebug()<<"Sys updates check done!";
-        if (mvUpdates.size())
+    {        
+        int n= mvUpdates.size();
+        if (n)
         {
-            setCurrentState(eUPDATES_AVAIL);
+
+            if (n>1)
+                reportUpdatesAvail(tr("%1 system updates avilable").arg(QString::number(n)));
+            else
+                reportUpdatesAvail(tr("System update is available"));
             return;
         }
         else

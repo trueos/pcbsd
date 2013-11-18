@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
+    <width>639</width>
     <height>453</height>
    </rect>
   </property>
@@ -25,7 +25,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -244,6 +244,9 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
+         <widget class="IndicatorWidget" name="sysDetailsIndicator" native="true"/>
+        </item>
+        <item>
          <widget class="QStackedWidget" name="sysUpdatesStack">
           <widget class="QWidget" name="page">
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -281,6 +284,10 @@
                 <property name="text">
                  <string>Install selected only</string>
                 </property>
+                <property name="icon">
+                 <iconset resource="res.qrc">
+                  <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
+                </property>
                </widget>
               </item>
              </layout>
@@ -288,7 +295,7 @@
             <item>
              <widget class="QStackedWidget" name="sysUpdateDetailsStack">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_9">
                <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -407,7 +414,7 @@
                  </widget>
                 </item>
                 <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_20">
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
                   <item>
                    <widget class="QLabel" name="label_9">
                     <property name="font">
@@ -429,17 +436,18 @@
                    </widget>
                   </item>
                   <item>
-                   <spacer name="verticalSpacer_5">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
+                   <widget class="QLabel" name="sysUpgradeStandalone">
+                    <property name="text">
+                     <string>Update should be installed standalone. </string>
                     </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="sysUpgradehRebootRequired">
+                    <property name="text">
+                     <string>Update requires system reboot</string>
                     </property>
-                   </spacer>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -748,7 +756,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>620</width>
+     <width>639</width>
      <height>22</height>
     </rect>
    </property>
@@ -794,41 +802,65 @@
    </attribute>
   </widget>
   <action name="actionLast_system_update_log">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Last system update log</string>
    </property>
   </action>
   <action name="actionLast_package_update_log">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Last package update log</string>
    </property>
   </action>
   <action name="actionLast_software_update_log">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Last software update log</string>
    </property>
   </action>
   <action name="actionUpdate_set">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Update set</string>
    </property>
   </action>
   <action name="actionSystem_branches">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>System branches</string>
    </property>
   </action>
   <action name="actionIgnored_updates">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Ignored updates</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
   <action name="actionJail">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Jail</string>
    </property>

@@ -227,7 +227,7 @@ void CPkgController::onReadUpdateLine(QString line)
         mCurrentPkgName= line.right(line.size() - line.lastIndexOf("/") - 1); // get package file name (ex: pcbsd-base-1382021797.txz)
         mCurrentPkgName= mCurrentPkgName.left(mCurrentPkgName.lastIndexOf("-")); // get packagename without version
         progress.misCanCancel= true;
-        progress.mMessage= tr("[%1/%2] Downloading %3").arg(QString::number(progress.mItemNo+1),
+        progress.mMessage= tr("[%1/%2] Downloading %3").arg(QString::number(progress.mItemNo),
                                                             QString::number(progress.mItemsCount),
                                                             mCurrentPkgName);
         if (!mLastLine.contains(DL_RESUME_DOWNLOAD))

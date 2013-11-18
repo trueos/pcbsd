@@ -90,6 +90,9 @@ void MainWindow::init()
     ui->sysIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
                            SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
                            &mSysController);
+    ui->sysDetailsIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
+                                  SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
+                                  &mSysController);
 
     ui->pkgIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG,
                            PKG_DL_IMG, PKG_INSTALL_IMG, PKG_ERROR_IMG,
@@ -128,7 +131,7 @@ void MainWindow::init()
     ui->pbiUpdateLog->setPalette(palette);
     ui->pkgUpdateLog->setPalette(palette);
 
-    ui->sysUpdatesList->header()->resizeSection(0, 400);// resizeSection();
+    ui->sysUpdatesList->header()->resizeSection(0, 420);
     ui->pkgUpgradeList->header()->resizeSection(0, 260);
     ui->pkgInstallList->header()->resizeSection(0, 350);
     ui->pkgReinstallList->header()->resizeSection(0, 200);
@@ -385,13 +388,15 @@ void MainWindow::on_sysUpdatesList_itemSelectionChanged()
         ui->sysPatchDate->setText(updates[id].mDate.toString(SYSUPDATE_DATE_FORMAT));
         ui->sysPatchSize->setText(updates[id].mSize);
         ui->sysPadthDescription->setText(updates[id].mDetails);
-        ui->sysPatchStandalone->setVisible(!updates[id].misStandalone);
-        ui->sysPatchRebootRequired->setVisible(!updates[id].misRequiresReboot);
+        ui->sysPatchStandalone->setVisible(updates[id].misStandalone);
+        ui->sysPatchRebootRequired->setVisible(updates[id].misRequiresReboot);
     }
     else
     if (updates[id].mType == CSysController::eSYSUPDATE)
     {
         ui->sysUpdateDetailsStack->setCurrentIndex(1);
-        ui->sysUpgradeText->setText(tr("This update will upgrade your PC-BSD to %1").arg(updates[id].mVersion));        
+        ui->sysUpgradeText->setText(tr("This update will upgrade your PC-BSD to %1").arg(updates[id].mVersion));
+        ui->sysUpgradeStandalone->setVisible(updates[id].misStandalone);
+        ui->sysUpgradehRebootRequired->setVisible(updates[id].misRequiresReboot);
     }
 }
