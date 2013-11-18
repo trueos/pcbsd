@@ -128,6 +128,12 @@ void MainWindow::init()
     ui->pbiUpdateLog->setPalette(palette);
     ui->pkgUpdateLog->setPalette(palette);
 
+    ui->sysUpdatesList->header()->resizeSection(0, 400);// resizeSection();
+    ui->pkgUpgradeList->header()->resizeSection(0, 260);
+    ui->pkgInstallList->header()->resizeSection(0, 350);
+    ui->pkgReinstallList->header()->resizeSection(0, 200);
+    ui->pbiUpdateList->header()->resizeSection(0, 260);
+
 }
 
 void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
@@ -148,36 +154,57 @@ void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerSta
     }
     if (CAbstractUpdateController::eUPDATES_AVAIL == new_state)
     {
+        ui->sysUpdatesList->clear();
         QVector<CSysController::SSystemUpdate> updates = mSysController.updates();
         for(int i=0; i<updates.count(); i++)
-        {
-            QTreeWidgetItem* item = new QTreeWidgetItem;
+        {           
             QString name = updates[i].mName;
+            QString type;
             QString icon_file;
             //Change icon
             switch (updates[i].mType)
             {
                 case CSysController::ePATCH:
                     icon_file= SYSUPDATE_PATCH_ICON;
-                    name+=QString(" (")+updates[i].mDate.toString(SYSUPDATE_DATE_FORMAT);
+                    name+=QString(" (")+updates[i].mDate.toString(SYSUPDATE_DATE_FORMAT)+QString(")");
+                    type= tr("Patch");
                     break;
                  case CSysController::eSYSUPDATE:
                     icon_file= SYSUPDATE_UPGRADE_ICON;
+                    type= tr("Upgrade");
                     break;
                  case CSysController::eFBSDUPDATE:
                     icon_file= SYSUPDATE_FBSD_ICON;
+                    type= tr("FreeBSD update");
                     break;
             }//switch
+            /*if (updates[i].misStandalone)
+            {
+                type+=tr(",standalone");
+            }
+            if (updates[i].misRequiresReboot)
+            {
+                type+=tr(",reboot required");
+            }*/
+
+            QTreeWidgetItem* item = new QTreeWidgetItem(QStringList()<<name<<type);
             item->setText(0, name);
             item->setIcon(0, QIcon(icon_file));
             QVariant uData(i);
             item->setData(0, Qt::UserRole, uData);
 
             item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
-            item->setCheckState(0, Qt::Checked);
+            item->setCheckState(0, Qt::Checked);            
 
             ui->sysUpdatesList->addTopLevelItem(item);
-        }
+
+            if(i==0)
+            {
+                ui->sysUpdatesList->setCurrentItem(item);
+
+            }
+
+        }//for all updates
     }
 
 }
@@ -345,6 +372,8 @@ void MainWindow::on_sysUpdatesList_itemActivated(QTreeWidgetItem *item, int colu
 void MainWindow::on_sysUpdatesList_itemSelectionChanged()
 {
     QTreeWidgetItem* item = ui->sysUpdatesList->currentItem();
+    if (!item)
+        return;
     QVariant v= item->data(0, Qt::UserRole);
     int id= v.toInt();
 
@@ -356,11 +385,13 @@ void MainWindow::on_sysUpdatesList_itemSelectionChanged()
         ui->sysPatchDate->setText(updates[id].mDate.toString(SYSUPDATE_DATE_FORMAT));
         ui->sysPatchSize->setText(updates[id].mSize);
         ui->sysPadthDescription->setText(updates[id].mDetails);
+        ui->sysPatchStandalone->setVisible(!updates[id].misStandalone);
+        ui->sysPatchRebootRequired->setVisible(!updates[id].misRequiresReboot);
     }
     else
     if (updates[id].mType == CSysController::eSYSUPDATE)
     {
         ui->sysUpdateDetailsStack->setCurrentIndex(1);
-        ui->sysUpgradeText->setText(tr("This update will upgrade your PC-BSD to %1").arg(updates[id].mVersion));
+        ui->sysUpgradeText->setText(tr("This update will upgrade your PC-BSD to %1").arg(updates[id].mVersion));        
     }
 }

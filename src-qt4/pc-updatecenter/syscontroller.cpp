@@ -17,7 +17,8 @@ _STRING_CONSTANT SIZE_TAG = "SIZE:";
 _STRING_CONSTANT CU_END_MARKER = "To install:";
 _STRING_CONSTANT PATCH_TYPE = "PATCH";
 _STRING_CONSTANT SYSUPDATE_TYPE = "SYSUPDATE";
-
+_STRING_CONSTANT STANDALONE_TAG = "STANDALONE:";
+_STRING_CONSTANT REQUIRESREBOOT_TAG = "REQUIRESREBOOT:";
 
 CSysController::CSysController()
 {
@@ -130,6 +131,20 @@ void CSysController::parseCheckPCBSDLine(QString line)
                          line_list[1].toInt());
         qDebug()<<upd.mDate.toString("d MMM yyyy");
         return;
+    }
+
+    if (line.indexOf(STANDALONE_TAG) == 0)
+    {
+        line= line.replace(STANDALONE_TAG, "");
+        if (line.trimmed().toLower() == "yes")
+            upd.misStandalone= true;
+    }
+
+    if (line.indexOf(REQUIRESREBOOT_TAG) == 0)
+    {
+        line= line.replace(REQUIRESREBOOT_TAG, "");
+        if (line.trimmed().toLower() == "yes")
+            upd.misRequiresReboot= true;
     }
 
     if (line.indexOf(CU_END_MARKER) == 0)

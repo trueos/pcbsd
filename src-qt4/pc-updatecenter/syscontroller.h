@@ -35,7 +35,14 @@ public:
         QString mVersion; // For sysupdates only
         QDate   mDate;    // For patch only
         QStringList mFilesToUpdate; //For FreeBSD updates only
+        bool   misStandalone;
+        bool   misRequiresReboot;
 
+        _SSystemUpdate()
+        {
+            misStandalone= false;
+            misRequiresReboot= false;
+        }
     }SSystemUpdate;
     
     QVector<SSystemUpdate> updates() {return mvUpdates;}

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>592</width>
-    <height>457</height>
+    <width>620</width>
+    <height>453</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -254,6 +254,11 @@
                 <string>Update</string>
                </property>
               </column>
+              <column>
+               <property name="text">
+                <string>Update type</string>
+               </property>
+              </column>
              </widget>
             </item>
             <item>
@@ -283,7 +288,7 @@
             <item>
              <widget class="QStackedWidget" name="sysUpdateDetailsStack">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_9">
                <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -357,6 +362,20 @@
                      </widget>
                     </item>
                    </layout>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="sysPatchStandalone">
+                    <property name="text">
+                     <string>Update should be installed standalone. </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="sysPatchRebootRequired">
+                    <property name="text">
+                     <string>Update requires system reboot</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -645,7 +664,7 @@
         <item>
          <widget class="QStackedWidget" name="pbiUpdateStack">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_7">
            <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -729,8 +748,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>592</width>
-     <height>21</height>
+     <width>620</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -774,7 +793,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionLast_system_update_log">
    <property name="text">
     <string>Last system update log</string>
