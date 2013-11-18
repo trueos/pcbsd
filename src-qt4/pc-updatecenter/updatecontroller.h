@@ -70,6 +70,7 @@ protected:
     void reportUpdatesAvail(QString message);
     void reportError(QString error_message);
     void launchUpdate();
+    void launchCheck();
     QProcess& process() {return mUpdProc;}
 
     virtual void checkShellCommand(QString& cmd, QStringList& args)=0;

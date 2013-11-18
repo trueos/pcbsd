@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTreeWidgetItem>
 
 #include "syscontroller.h"
 #include "pkgcontroller.h"
@@ -30,6 +31,7 @@ private:
     CPBIController  mPBIController;
 
 private slots:
+    void sysStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 
@@ -40,6 +42,9 @@ private slots:
 
 private slots:
     void on_updateSelectedPBIBtn_clicked();
+    void on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column);
+    void on_sysUpdatesList_itemActivated(QTreeWidgetItem *item, int column);
+    void on_sysUpdatesList_itemSelectionChanged();
 };
 
 #endif // MAINWINDOW_H

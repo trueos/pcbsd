@@ -102,10 +102,8 @@ void CAbstractUpdateController::launchUpdate()
     setCurrentState(eUPDATING);
 }
 
-void CAbstractUpdateController::check()
+void CAbstractUpdateController::launchCheck()
 {
-    onCheckUpdates();
-
     QString proc;
     QStringList args;
     checkShellCommand(proc, args);
@@ -125,6 +123,12 @@ void CAbstractUpdateController::check()
     }
 
     setCurrentState(eCHECKING);
+}
+
+void CAbstractUpdateController::check()
+{
+    onCheckUpdates();
+    launchCheck();
 }
 
 void CAbstractUpdateController::updateAll()

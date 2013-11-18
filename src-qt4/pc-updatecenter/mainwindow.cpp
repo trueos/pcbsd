@@ -46,8 +46,14 @@ const QString PBI_ERROR_IMG=   ":/images/pbierror.png";
 
 const QString DEFAULT_APP_ICON=":/images/application.png";
 
+const QString SYSUPDATE_PATCH_ICON = ":/images/sysupdates-patch.png";
+const QString SYSUPDATE_UPGRADE_ICON = ":/images/sysupdates-upgrade.png";
+const QString SYSUPDATE_FBSD_ICON = ":/images/sysupdates-freebsd.png";
+
 const QString DEFAULT_PBI_DB_DIR="/var/db/pbi";
 const QString INSTALLED_IN_DB="/installed";
+
+const QString SYSUPDATE_DATE_FORMAT= "d MMM yyyy";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -71,8 +77,8 @@ void MainWindow::init()
     }
 
 #ifdef CONTROLLER_EMULATION_ENABLED
-    mPkgController.setEmulateCheckFile("/home/yurkis/_pkgcheck.txt");
-    mPkgController.setEmulateUpdateFile("/home/yurkis/_pkgupd.txt");
+   // mPkgController.setEmulateCheckFile("/home/yurkis/_pkgcheck.txt");
+//    mPkgController.setEmulateUpdateFile("/home/yurkis/_pkgupd.txt");
     //mPkgController.setEmulateDelay(1);
 #endif
 
@@ -100,6 +106,8 @@ void MainWindow::init()
                                   &mPBIController);
 
 
+    connect(&mSysController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(sysStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPkgController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
@@ -119,6 +127,58 @@ void MainWindow::init()
     palette.setColor(QPalette::Text, Qt::white);
     ui->pbiUpdateLog->setPalette(palette);
     ui->pkgUpdateLog->setPalette(palette);
+
+}
+
+void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
+{
+    switch (new_state)
+    {
+        case CAbstractUpdateController::eUPDATES_AVAIL:
+            ui->mainTab->setTabEnabled(TOOLBOX_SYS_INDEX, true);
+            break;
+        case CAbstractUpdateController::eUPDATING:
+            ui->mainTab->setTabEnabled(TOOLBOX_SYS_INDEX, true);
+            break;
+        case CAbstractUpdateController::eCHECKING:
+            ui->mainTab->setTabEnabled(TOOLBOX_SYS_INDEX, false);
+            break;
+        default: //supress warning
+            break;
+    }
+    if (CAbstractUpdateController::eUPDATES_AVAIL == new_state)
+    {
+        QVector<CSysController::SSystemUpdate> updates = mSysController.updates();
+        for(int i=0; i<updates.count(); i++)
+        {
+            QTreeWidgetItem* item = new QTreeWidgetItem;
+            QString name = updates[i].mName;
+            QString icon_file;
+            //Change icon
+            switch (updates[i].mType)
+            {
+                case CSysController::ePATCH:
+                    icon_file= SYSUPDATE_PATCH_ICON;
+                    name+=QString(" (")+updates[i].mDate.toString(SYSUPDATE_DATE_FORMAT);
+                    break;
+                 case CSysController::eSYSUPDATE:
+                    icon_file= SYSUPDATE_UPGRADE_ICON;
+                    break;
+                 case CSysController::eFBSDUPDATE:
+                    icon_file= SYSUPDATE_FBSD_ICON;
+                    break;
+            }//switch
+            item->setText(0, name);
+            item->setIcon(0, QIcon(icon_file));
+            QVariant uData(i);
+            item->setData(0, Qt::UserRole, uData);
+
+            item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+            item->setCheckState(0, Qt::Checked);
+
+            ui->sysUpdatesList->addTopLevelItem(item);
+        }
+    }
 
 }
 
@@ -270,4 +330,37 @@ void MainWindow::on_updateSelectedPBIBtn_clicked()
     }
 
     mPBIController.updateSelected(ListToUpdate);
+}
+
+void MainWindow::on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column)
+{
+
+}
+
+void MainWindow::on_sysUpdatesList_itemActivated(QTreeWidgetItem *item, int column)
+{
+
+}
+
+void MainWindow::on_sysUpdatesList_itemSelectionChanged()
+{
+    QTreeWidgetItem* item = ui->sysUpdatesList->currentItem();
+    QVariant v= item->data(0, Qt::UserRole);
+    int id= v.toInt();
+
+    QVector<CSysController::SSystemUpdate> updates = mSysController.updates();
+
+    if (updates[id].mType == CSysController::ePATCH)
+    {
+        ui->sysUpdateDetailsStack->setCurrentIndex(0);
+        ui->sysPatchDate->setText(updates[id].mDate.toString(SYSUPDATE_DATE_FORMAT));
+        ui->sysPatchSize->setText(updates[id].mSize);
+        ui->sysPadthDescription->setText(updates[id].mDetails);
+    }
+    else
+    if (updates[id].mType == CSysController::eSYSUPDATE)
+    {
+        ui->sysUpdateDetailsStack->setCurrentIndex(1);
+        ui->sysUpgradeText->setText(tr("This update will upgrade your PC-BSD to %1").arg(updates[id].mVersion));
+    }
 }

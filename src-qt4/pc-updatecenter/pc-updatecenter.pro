@@ -31,7 +31,8 @@ HEADERS  += mainwindow.h \
     syscontroller.h \
     pkgcontroller.h \
     pbicontroller.h \
-    dialogconflict.h
+    dialogconflict.h \
+    utils.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui \

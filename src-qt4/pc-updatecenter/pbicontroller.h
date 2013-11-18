@@ -38,7 +38,7 @@ protected:
     virtual void onCheckProcessfinished(int exitCode);
     virtual void onUpdateProcessfinished(int exitCode);
 
-     virtual void updateShellCommand(QString& cmd, QStringList& args);
+    virtual void updateShellCommand(QString& cmd, QStringList& args);
 
 private:
     QVector<SPBIUpdate> mvUpdates;

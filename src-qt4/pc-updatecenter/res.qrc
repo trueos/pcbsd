@@ -24,5 +24,8 @@
         <file>images/pkgerror.png</file>
         <file>images/pkginstall.png</file>
         <file>images/dialog-cancel.png</file>
+        <file>images/sysupdates-freebsd.png</file>
+        <file>images/sysupdates-patch.png</file>
+        <file>images/sysupdates-upgrade.png</file>
     </qresource>
 </RCC>
