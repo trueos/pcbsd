@@ -17,3 +17,6 @@
 
 # Remove old xsessions
 /usr/local/share/xsessions/[a-zA-Z]*.desktop
+
+# Remove font link which causes weird AA issues
+/usr/local/etc/fonts/conf.d/85-wqy.conf
