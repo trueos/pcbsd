@@ -136,34 +136,29 @@
     </message>
     <message>
         <source>On this screen you will need to create a user to log into your desktop. Additional users may be created in the Control Panel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Τώρα μπορείτε να δημιουργήσετε έναν λογαριασμό χρήστη για να μπορέσετε να συνδεθείτε στην επιφάνεια εργασίας σας. Πρόσθετοι λογαριασμοί χρηστών μπορούν να δημιουργηθούν από το Κέντρο Ελέγχου.</translation>
     </message>
     <message>
         <source>On this screen you may connect to an available wifi network. If you have a hidden network, it may be added later in the Network Manager.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Μπορείτε να συνδεθείτε σε ένα διαθέσιμο ασύρματο δίκτυο wifi. Εάν έχετε ένα κρυφό δίκτυο, τότε μπορείτε να συνδεθείτε αργότερα από το Κέντρο Ελέγχου.</translation>
     </message>
     <message>
         <source>The computer setup is now finished! Click Finish to log into your new Desktop.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Η εγκατάσταση τελείωσε! Πατήστε το κουμπί τέλος και συνδεθείτε στην επιφάνεια εργασίας σας.</translation>
     </message>
 </context>
 <context>
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Κλείσιμο</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Κλείσιμο</translation>
     </message>
 </context>
 <context>
@@ -175,33 +170,27 @@
     </message>
     <message>
         <source>Network Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Κωδικός δικτύου</translation>
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Κωδικός δικτύου (Επιβεβαίωση)</translation>
     </message>
     <message>
         <source>Show network key as text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Προβολή κωδικού ως ορατό κείμενο</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Εφαρμογή</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ακύρωση</translation>
     </message>
     <message>
         <source>Network Key Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Σφάλμα Κωδικού δικτύου</translation>
     </message>
     <message>
         <source>Error: The entered network keys do not match!

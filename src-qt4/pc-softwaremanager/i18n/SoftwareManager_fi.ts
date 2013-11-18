@@ -15,23 +15,19 @@
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennuksen jälkeiset toiminnot</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Luo työpöydän ikonit</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Luo valikon ikonit</translation>
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rekisteröi tiedostoassosiaatiot</translation>
     </message>
     <message>
         <source>Create Path Links</source>
@@ -40,8 +36,7 @@
     </message>
     <message>
         <source>Keep Downloaded Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Säilytä ladatut tiedostot</translation>
     </message>
     <message>
         <source>Download Dir</source>
@@ -60,13 +55,11 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
@@ -75,18 +68,15 @@
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Siirrä ylös</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Siirrä alas</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
@@ -125,8 +115,7 @@
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vahvista poisto</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
@@ -168,23 +157,19 @@
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennettu</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ohjelman nimi</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versio</translation>
     </message>
     <message>
         <source>Status</source>
@@ -198,18 +183,15 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kaikki</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suorita toiminnot valituille sovelluksille</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toiminnot</translation>
     </message>
     <message>
         <source>Application Details</source>
@@ -218,18 +200,15 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versio:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tekijä:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisenssi:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
@@ -238,58 +217,47 @@
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peru kaikki sovellusta koskevat toiminnot</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poista valittu sovellus</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poista asennus</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitä sovellus viimeisimpään versioon</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitä valitus sovellukset</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitä sovellus</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avaa sovellusta koskeva selaimen sivu</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitä valittu sovellus automaattisesti kun päivityksiä on saatavilla</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automaattinen päivitys</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selaa sovelluksia</translation>
     </message>
     <message>
         <source>Home</source>
@@ -298,8 +266,7 @@
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria</translation>
     </message>
     <message>
         <source>App</source>
@@ -313,13 +280,11 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Etsi</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tarkastele viimeisimpiä lisäyksiä</translation>
     </message>
     <message>
         <source>Browse By Category</source>
@@ -328,48 +293,39 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koko:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sovelluksen tiedot</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alusta:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tyyppi:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samankaltaiset sovellukset</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parhaat osumat</translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muut tulokset</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiedosto</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguroi</translation>
     </message>
     <message>
         <source>Import PBI List</source>
@@ -383,8 +339,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lopeta</translation>
     </message>
     <message>
         <source>Repositories</source>
@@ -398,8 +353,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virhe!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
@@ -413,8 +367,7 @@
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käyttäjän tulee kuulua myös &quot;operator&quot;-käyttäjäryhmään</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -473,33 +426,27 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitä</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työpöydän ikonit</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisää</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valikon ikonit</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisää (Kaikille käyttäjille)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -508,28 +455,23 @@
     </message>
     <message>
         <source>File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiedostoassosiaatiot</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peru toiminnot</translation>
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työpöytä/Valikko</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työpöytä</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valikko</translation>
     </message>
     <message>
         <source>None</source>
@@ -553,13 +495,11 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuntematon</translation>
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asenna nyt!</translation>
     </message>
     <message>
         <source>Downgrade</source>
@@ -578,61 +518,50 @@
     </message>
     <message>
         <source>Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennettu: %1</translation>
     </message>
     <message>
         <source>Available: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saatavilla: %2</translation>
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataa tiedostoa:</translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataa %1 tiedostoa:</translation>
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käynnistä sovellus</translation>
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuotesivu</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vahvista asennus</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oletko varma, että haluat asentaa tämän sovelluksen?</translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus käynnissä</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poisto käynnissä</translation>
     </message>
     <message>
         <source>Updating</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitys käynnissä</translation>
     </message>
     <message>
         <source>Pending Download</source>
@@ -661,8 +590,7 @@
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tulokset:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
@@ -671,8 +599,7 @@
     </message>
     <message>
         <source>Currently Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tällä hetkellä asennettu: %1</translation>
     </message>
     <message>
         <source>Import Results</source>
@@ -681,13 +608,11 @@
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oletko varma, että haluat asentaa nämä sovellukset?</translation>
     </message>
     <message>
         <source>%1 Download Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Latausvirhe:</translation>
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>
@@ -696,38 +621,31 @@
     </message>
     <message>
         <source>%1 Update Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Päivitysvirhe:</translation>
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitys pysähtyi virheeseen, eikä sitä voitu suorittaa loppuun</translation>
     </message>
     <message>
         <source>%1 Installation Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Asennusvirhe:</translation>
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus pysähtyi virheeseen, eikä sitä voitu suorittaa loppuun</translation>
     </message>
     <message>
         <source>%1 Removal Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Poistovirhe:</translation>
     </message>
     <message>
         <source>The removal process experienced an error and could not be completed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poistaminen pysähtyi virheeseen, eikä sitä voitu suorittaa loppuun</translation>
     </message>
     <message>
         <source>%1 PBI Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 PBI:n virhe:</translation>
     </message>
     <message>
         <source>The process experienced an error and could not be completed</source>
@@ -736,71 +654,58 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuntematon</translation>
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataus peruutettu</translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Lataus käynnissä: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataus valmis</translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataus käynnistyy</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus peruutettu (poistetaan)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poisto peruutettu (uudelleen asennetaan)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivityksiä ei voi perua</translation>
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Päivitystä ladataan: %1%</translation>
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitys käynnistyy</translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataus käynnistyy</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päivitys saatavilla: %1</translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuntematon virhe</translation>
     </message>
 </context>
 </TS>

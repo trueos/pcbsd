@@ -5,53 +5,43 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaihda amerikkalaisen ja itse määrittelemäsi näppäinasettelun välillä</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Keskeytä</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Takaisin</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Seuraava</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tervetuloa PC-BSD:n pariin. Valitse kielesi ja paina Seuraava jatkaaksesi.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Muokkaa</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Yhteenveto</translation>
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Levyn valinta</translation>
     </message>
     <message>
         <source>Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus</translation>
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käyttöjärjestelmää asennetaan! Tämä voi kestää pidemmänkin aikaa, riippuen valinnoistasi ja koneesi nopeudesta. Sinulle ilmoitetaan kun asennus on valmis.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
@@ -65,8 +55,7 @@
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Levy:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
@@ -75,8 +64,7 @@
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partitio:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
@@ -85,13 +73,11 @@
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koko:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liitospiste:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
@@ -100,43 +86,35 @@
     </message>
     <message>
         <source>PC-BSD Installer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD asennusohjelma</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käynnistä asennus?</translation>
     </message>
     <message>
         <source>Are you sure you want to abort this installation?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oletko varma, että haluat keskeyttää asennuksen?</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Epäonnistui!</translation>
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennusohjelma pysähtyi virheeseen.</translation>
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haluatko luoda virheraportin?</translation>
     </message>
     <message>
         <source>Restart the system now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uudelleenkäynnistä tietokone?</translation>
     </message>
     <message>
         <source>Installing system... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asentaa järjestelmää... Tähän voi kulua aikaa...</translation>
     </message>
     <message>
         <source>Options:</source>

@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -18,8 +17,7 @@
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verkkonimi:</translation>
     </message>
     <message>
         <source>????</source>
@@ -35,8 +33,7 @@
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tunniste</translation>
     </message>
     <message>
         <source>Hardware</source>
@@ -76,7 +73,7 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Testataan snapshottia %1. Saattaa olla mahdollisesti epävakaa!</translation>
+        <translation>Testataan snapshottia %1. Saattaa olla epävakaa!</translation>
     </message>
     <message>
         <source>X.org server version:</source>

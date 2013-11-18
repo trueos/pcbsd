@@ -63,38 +63,31 @@
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lisää</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Poista</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tallenna</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peruuta</translation>
     </message>
     <message>
         <source>Add IP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisää IP</translation>
     </message>
     <message>
         <source>IP Address:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP osoite:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
@@ -108,33 +101,27 @@
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 osoite</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 osoite</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aliakset</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 aliakset</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
