@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QFile>
 
+static const char* const FULLY_UPDATED_MESSAGE = "All packages are up to date!";
 static const char* const UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
 static const char* const UPDATES_AVAIL_SIZE_STRING = "The upgrade will require ";
 static const char* const UPDATES_AVAIL_SIZE_FREE_STR= "The upgrade will free ";
@@ -75,6 +76,11 @@ void CPkgController::onReadCheckLine(QString line)
 
     if (eCommonInfo == curChkrState)
     {
+        if ( line.contains(FULLY_UPDATED_MESSAGE))
+        {
+            setCurrentState(eFULLY_UPDATED);
+            return;
+        }
         if ( line.indexOf(UPDATES_AVAIL_STRING) == 0)
         {
             line = line.replace(UPDATES_AVAIL_STRING, "");
@@ -195,6 +201,7 @@ void CPkgController::onUpdateAll()
 
 void CPkgController::onReadUpdateLine(QString line)
 {
+    static QString last_message;
     qDebug()<<line;
     line= line.trimmed();
 
@@ -312,11 +319,12 @@ void CPkgController::onReadUpdateLine(QString line)
         progress.mMessage = msg;
 
         misWasInstalation= true;
+        last_message= msg;
     }
     else
     if (misDownloadComplete && misWasInstalation)
     {
-        progress.mMessage = tr("Finaizing instalation...");
+        progress.mMessage = last_message;
     }
 
     mLastLine = line;
