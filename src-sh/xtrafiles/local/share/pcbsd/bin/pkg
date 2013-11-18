@@ -58,7 +58,7 @@ intercept_pkg_dl()
    download_cache_packages "pkg $op $flags"
 
    # Lets check for any conflicts doing this install
-   check_pkg_conflicts "${op} -F $flags"
+   check_pkg_conflicts "${op} -FUy $flags"
    if [ $? -ne 0 ] ; then
   	exit 1
    fi
