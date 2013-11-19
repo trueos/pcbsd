@@ -28,7 +28,6 @@ PLIST_FILES=	usr/lib/libcairo.so.2 \
 		usr/lib/libcairo.so.2.10800.8
 DOCSDIR=	${PREFIX}/usr/share/doc/cairo-${PORTVERSION}
 PORTDOCS=	AUTHORS BIBLIOGRAPHY BUGS COPYING COPYING-LGPL-2.1 \
-		COPYING-MPL-1.1 ChangeLog NEWS PORTING_GUIDE README
+		COPYING-MPL-1.1 NEWS README
 
-NO_STAGE=	yes
 .include <bsd.port.mk>

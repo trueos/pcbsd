@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>&amp;Takaisin</translation>
+        <translation>&amp;Edellinen</translation>
     </message>
     <message>
         <source>&amp;Next</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Tervetuloa PC-BSD:n pariin. Valitse kielesi ja paina Seuraava jatkaaksesi.</translation>
+        <translation>Tervetuloa PC-BSD:n pariin. Valitse asennuskieli ja paina Seuraava jatkaaksesi.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Mount:</source>
-        <translation>Liitospiste:</translation>
+        <translation>Liitos:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
@@ -133,13 +133,11 @@
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näytä laitteiston yhteensopivuus diagnostiikka</translation>
     </message>
     <message>
         <source>System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmän valinta</translation>
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
@@ -158,8 +156,7 @@
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näytä tämän näkymän ohjeet</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
@@ -358,18 +355,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tässä näkymässä voit valita asennusohjelmassa käytetyn kielen.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tässä näkymässä voit valita minkä tyyppisen järjestelmän asennat. Painamalla Muokkaa, voit muokata asennettavia paketteja vielä tarkemmin.</translation>
     </message>
     <message>
         <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tässä näymässä näet miten järjestelmä asennetaan levylle. Painamalla Muokkaa, voit muokata levyä, jolle asennus tehdään, tiedostojärjestelmää ja muitakin asetuksia.</translation>
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
@@ -510,137 +504,112 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulje</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulje</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näppäimistön asetukset</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näppäinasettelu</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muunnos</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näppäimistön malli</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>( voit kirjoittaa alla olevaan tilaan testataksesi asetusia )</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Käytä</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulje</translation>
     </message>
 </context>
 <context>
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tämä avustaja kuljettaa sinut levyn asetusten valintaprosessin läpi. Ole hyvä, ja valitse missä moodissa haluat avustajan toimivan.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus moodi</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perus (Uusi BSD:n käyttäjä tai levyn partitioimisessa)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edistynyt (Tiedostojärjestelmät ovat tuttuja)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD expertti (Komentoriviä käyttäen)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitty levy</translation>
     </message>
     <message>
         <source>Selected Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valittu partitio</translation>
     </message>
     <message>
         <source>Partition disk with GPT</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tee GPT paritiointi</translation>
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alla voit muokata tiedostojärjestelmän liitospisteitä. Useimmille käyttäjille oletusasetukset toimivat parhaiten.</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lisää</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Poista</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Olet valinnut experteille suunnatun käyttötilan. Tässä käyttötilassa voit käynnistää komentorivin ja antaa partitointikomennot käsin. Kun olet valmis, varmista että olet liittänyt tiedostojärjestelmän liitospisteeseen /mnt ennen asennuksen aloittamista.</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Käynnistä komentorivi</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ole hyvä, ja tarkista alla oleva levyn yhteenveto. Paina Lopeta tallentaaksesi asetukset.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käytä levy kokonaan</translation>
     </message>
     <message>
         <source>ZFS Mounts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Liitokset</translation>
     </message>
     <message>
         <source>ZFS Options</source>
@@ -649,33 +618,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Resizing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muokkaa kokoa</translation>
     </message>
     <message>
         <source>Remove mount-point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poista liitospiste</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this mount point?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oletko varma, että haluat poistaa tämän liitospisteen?</translation>
     </message>
     <message>
         <source>Enter mount-point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjoita liitospiste</translation>
     </message>
     <message>
         <source>Please enter the new mount-point:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ole hyvä, ja kirjoita uusi liitospiste:</translation>
     </message>
     <message>
         <source>Editing:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muokkaa:</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>

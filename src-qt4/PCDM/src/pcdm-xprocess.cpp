@@ -174,6 +174,7 @@ void XProcess::setupSessionEnvironment(){
   environ.insert("USER",xuser); // Username
   environ.insert("PATH",environ.value("PATH")+":"+xhome+"/bin"); // Append the user's home dir to the path
   environ.insert("LANG",langCode); //Set the proper localized language
+  environ.insert("LC_ALL",langCode); //additional localization variable for some DE's
   environ.insert("MAIL","/var/mail/"+xuser); //Set the mail variable
   environ.insert("GROUP",xuser); //Set the proper group id
   environ.insert("SHLVL","0"); //Set the proper shell level

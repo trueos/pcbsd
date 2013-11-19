@@ -3160,10 +3160,10 @@ load_info_from_dir() {
                 PBI_ICONURL="`cat ${1}/pbi_iconurl`"
         fi
 	if [ -e "${1}/pbi_desc" ] ; then
-                PBI_DESC="`cat ${1}/pbi_desc | awk 1 ORS='<br>' | sed 's|*|-|g'`"
+                PBI_DESC="`cat ${1}/pbi_desc | awk 1 ORS=' ' | sed 's|  |<br>|g' | sed 's|*|-|g'`"
         fi
 	if [ -e "${1}/pbi_shortdesc" ] ; then
-                PBI_SHORTDESC="`cat ${1}/pbi_shortdesc | awk 1 ORS='<br>' | sed 's|*|-|g'`"
+                PBI_SHORTDESC="`cat ${1}/pbi_shortdesc | awk 1 ORS=' ' | sed 's|  |<br>|g' | sed 's|*|-|g'`"
         fi
 	if [ -e "${1}/pbi_maintainer" ] ; then
                 PBI_MAINTAINER="`cat ${1}/pbi_maintainer`"
