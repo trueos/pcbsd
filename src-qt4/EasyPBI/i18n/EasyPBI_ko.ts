@@ -9,18 +9,18 @@
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+모듈 에디터</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+현재 PBI 모듈 보기와 수정</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+PBI 설정</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>

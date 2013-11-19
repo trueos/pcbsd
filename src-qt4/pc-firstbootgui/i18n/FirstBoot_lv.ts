@@ -61,13 +61,11 @@
     </message>
     <message>
         <source>&amp;Rescan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Pārskenēt</translation>
     </message>
     <message>
         <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sekojošie bezvadu tīkli tika atrasti. Klikšķiniet tam kuram jūs vēlaties pieslēgties. Ja vēlaties izlaist, tad klišķiniet &quot;Nākamais&quot;. </translation>
     </message>
     <message>
         <source>Setup is now complete! Press Finish to login to your new desktop.</source>
@@ -87,7 +85,7 @@
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation type="unfinished">Parādīt palīdzību aktīvajam logam</translation>
+        <translation>Parādīt palīdzību pašreizējam logam</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
@@ -204,12 +202,11 @@
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">Taustiņu izkārtojums</translation>
+        <translation>Taustiņu izkārtojums</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Variants</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
