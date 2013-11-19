@@ -5,5 +5,6 @@ Icon=/usr/local/share/pixmaps/cinnamon.png
 Type=Application
 X-Ubuntu-Gettext-Domain=cinnamon
 X-GNOME-Provides=cinnamon2d
-Name=Cinnamon (Software Rendering)
 Comment=This session logs you into Cinnamon (using software rendering)
+Name=Cinnamon (Software Rendering)
+Name[ko]=시나몬 (소프트웨어 렌더링)
