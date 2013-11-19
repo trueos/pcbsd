@@ -109,17 +109,15 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">Lauks ir tukšs</translation>
+        <translation>Lauks ir tukšs</translation>
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novietojot mājas mapi ārpus &apos;/home/&apos; var radīt saderības problēmas ar dažām programmām. NAV IETEICAMS</translation>
     </message>
     <message>
         <source>- The &apos;Home Directory&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- &apos;Mājas mape&apos; lauks nav aizpildīts.</translation>
     </message>
     <message>
         <source>- The value entered as &apos;Home Directory&apos; is not a valid path.</source>
@@ -139,14 +137,14 @@
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notika sekojošas kļūdas mēģinot pievienot jaunu lietotāju:
+</translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notika sekojošas ne-kritiskas kļūdas cenšoties pievienot jaunu lietotāju, vai vēlaties turpināt?
+</translation>
     </message>
 </context>
 <context>

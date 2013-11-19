@@ -5,149 +5,121 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Pa kreisi</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Pa labi</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Uz augšu</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Uz leju</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvēlieties</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Izvēlieties citu lietotāju un notīriet paroles lauku</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvēlieties šo lietotāju</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieteikties</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieteikties sistēmā ar esošo lietotāju un paroli</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parole</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Turiet nospiestu, lai redzētu ievadīto paroli</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieteikšanās parole izvēlētajam lietotājam</translation>
     </message>
     <message>
         <source>Available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamie lietotāji</translation>
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieteikties %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamās darbvirsmu vides</translation>
     </message>
 </context>
 <context>
     <name>PCDMgui</name>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virtuālā klaviatūra</translation>
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokāle</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mainīt lokāli</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klaviatūras izkārtojums</translation>
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mainīt klaviatūras izkārtojumu</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēma</translation>
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Padoms: Pārliecinieties ka caps-lock ir izslēgts</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restartēt</translation>
     </message>
     <message>
         <source>Shut Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izslēgt</translation>
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aizvērt PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izslēgt datoru</translation>
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepareizs lietotājvārds/parole</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lietotājvārda/Paroles kombinācija ir nepareiza, lūdzu mēģiniet vēlreiz.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
@@ -156,77 +128,64 @@
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Jūs tūlīt izslēgsiet sistēmu.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vai esat pārliecināti?</translation>
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sistēmas restarts</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Jūs tūlīt restartēsiet sistēmu.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēma izslēdzas</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klaviatūras iestatījumi</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taustiņu izkārtojumus</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Variants</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klaviatūras modelis</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>( šeit jūs varat pārbaudīt jūsu izvēlētos iestatījumus. )</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Apstiprināt</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
 </context>
 <context>
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvēlieties lokāli</translation>
     </message>
     <message>
         <source>Current Locale</source>
@@ -235,13 +194,11 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apstiprināt</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atcelt</translation>
     </message>
 </context>
 </TS>

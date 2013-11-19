@@ -5,68 +5,68 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>액티브디렉터리(AD)
+</translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AD 활성화
+</translation>
     </message>
     <message>
         <source>Domain Name (DNS/Realm-Name)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>도메인 명 (DNS/실명)
+</translation>
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NetBIOS 명
+</translation>
     </message>
     <message>
         <source>Workgroup Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>작업그룹 명
+</translation>
     </message>
     <message>
         <source>Allow Trusted Domains</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>신뢰 도메인 허용
+</translation>
     </message>
     <message>
         <source>Administrator Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>관리자 명
+</translation>
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>관리자 비밀번호
+</translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>관리자 비밀번호 (승인)
+</translation>
     </message>
     <message>
         <source>LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LDAP
+</translation>
     </message>
     <message>
         <source>Enable LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LDAP 활성
+</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>호스트 명
+</translation>
     </message>
     <message>
         <source>Base DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>기준 DN
+</translation>
     </message>
     <message>
         <source>Allow Anon Binding</source>

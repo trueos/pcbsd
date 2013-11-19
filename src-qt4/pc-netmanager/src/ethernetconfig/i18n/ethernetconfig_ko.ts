@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Obtain IPv6 address automaticall&amp;y</source>
-        <translation>IPv6의 주소를 자동으로 얻기</translation>
+        <translation>IPv6의 주소를 자동으로 얻기(&amp;y)</translation>
     </message>
     <message>
         <source>I&amp;nfo</source>
