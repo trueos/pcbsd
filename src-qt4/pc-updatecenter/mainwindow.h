@@ -35,6 +35,8 @@ private slots:
     void pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 
+    void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+
     void pbiProgress(CAbstractUpdateController::SProgress progress);
     void pkgProgress(CAbstractUpdateController::SProgress progress);
 

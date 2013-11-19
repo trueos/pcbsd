@@ -111,16 +111,24 @@ void MainWindow::init()
 
     connect(&mSysController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(sysStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(&mSysController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPkgController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
             this, SLOT(pkgProgress(CAbstractUpdateController::SProgress)));
     connect(&mPkgController, SIGNAL(packageConflict(QString)),
             this, SLOT(pkgConflict(QString)));
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+    connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(globelStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
             this, SLOT(pbiProgress(CAbstractUpdateController::SProgress)));
+
+
 
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
@@ -323,6 +331,15 @@ void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerSta
     }
 }
 
+void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
+{
+    bool isUpdatesAvail= (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
+                       ||(mPkgController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
+                       ||(mPBIController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL);
+
+    ui->updateAllButton->setEnabled(isUpdatesAvail);
+}
+
 void MainWindow::pbiProgress(CAbstractUpdateController::SProgress progress)
 {
     for(int i=0; i<progress.mLogMessages.size(); i++)
@@ -399,4 +416,14 @@ void MainWindow::on_sysUpdatesList_itemSelectionChanged()
         ui->sysUpgradeStandalone->setVisible(updates[id].misStandalone);
         ui->sysUpgradehRebootRequired->setVisible(updates[id].misRequiresReboot);
     }
+}
+
+void MainWindow::on_updateAllButton_clicked()
+{
+    if (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
+        mSysController.updateAll();
+    if (mPkgController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
+        mPkgController.updateAll();
+    if (mPBIController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
+        mPBIController.updateAll();
 }

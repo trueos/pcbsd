@@ -23,6 +23,11 @@ _STRING_CONSTANT REQUIRESREBOOT_TAG = "REQUIRESREBOOT:";
 CSysController::CSysController()
 {
     misFREEBSDCheck= false;
+
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("PCFETCHGUI", "YES");
+    process().setProcessEnvironment(env);
+
 }
 
 void CSysController::onCheckUpdates()
