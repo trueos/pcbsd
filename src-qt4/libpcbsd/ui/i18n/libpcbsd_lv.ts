@@ -5,183 +5,150 @@
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialogs</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
 </context>
 <context>
     <name>dialogMetaProgress</name>
     <message>
         <source>System-Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas-pakotnes</translation>
     </message>
     <message>
         <source>Total Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopējais progress</translation>
     </message>
     <message>
         <source>Update Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atjaunināšanas progress</translation>
     </message>
     <message>
         <source>Meta-Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meta-pakotņu izmaiņas</translation>
     </message>
     <message>
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uzmanību: Pakotnes joprojām tiek mainītas!
+Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</translation>
     </message>
 </context>
 <context>
     <name>dialogWPAEnterprise</name>
     <message>
         <source>WPA-Enterprise Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA-Enterprise konfigurācija</translation>
     </message>
     <message>
         <source>WPA Enterprise Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA Enterprise konfigurācija</translation>
     </message>
     <message>
         <source>EAP authentication method</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP autentifikācijas metode</translation>
     </message>
     <message>
         <source>EAP-TLS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP-TLS</translation>
     </message>
     <message>
         <source>EAP-TTLS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP-TTLS</translation>
     </message>
     <message>
         <source>EAP-PEAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP-PEAP</translation>
     </message>
     <message>
         <source>EAP Identity:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">EAP identitāte:</translation>
     </message>
     <message>
         <source>CA Certificate:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CA sertifikāts:</translation>
     </message>
     <message>
         <source>Client Certificate:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klienta sertifikāts:</translation>
     </message>
     <message>
         <source>Private Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Privātās atslēgas fails:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parole:</translation>
     </message>
     <message>
         <source>Repeat Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atkārtot paroli:</translation>
     </message>
     <message>
         <source>Show Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parādīt atslēgu</translation>
     </message>
     <message>
         <source>Key Management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atslēgu pārvaldība</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
 </context>
 <context>
     <name>metaWidget</name>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pielietot</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ielādē... Lūdzu uzgaidiet...</translation>
     </message>
     <message>
         <source>Performing system-package changes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veic sistēmas-pakotņu izmaiņas.</translation>
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas pakotnes</translation>
     </message>
     <message>
         <source>The meta-pkg manager returned an error. For more details please look at the log file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Meta-pkg pārvaldnieks atgrieza kļūdu. Lai iegūtu plašāku informāciju lūdzu aplūkojiet žurnālfailu:</translation>
     </message>
     <message>
         <source>System packages updated successfully.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas pakotnes atjaunotas veiksmīgi.</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nav darbvirsmas</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netika izvēlēta neviena darbvirsma! Pirms saglabāšanas lūdzu izvēlieties vismaz vienu darbvirsmu.</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apskatīt pakotnes</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakotņu saraksts priekš:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lejuplādē: %1</translation>
     </message>
 </context>
 </TS>

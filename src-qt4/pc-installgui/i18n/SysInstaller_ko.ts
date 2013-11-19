@@ -5,21 +5,21 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>US 형태와 사용자 선택 형태 간 전환</translation>
+        <translation>US 레이아웃과 사용자가 선택한 레이아웃 전환</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation>중지
-            </translation>
+        <translation>중지(&amp;o)
+</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>뒤로            </translation>
+        <translation>뒤로(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>
-            &amp;다음</translation>
+        <translation>다음(&amp;N)
+</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
@@ -33,8 +33,8 @@
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>요약
+</translation>
     </message>
     <message>
         <source>Disk Selection</source>

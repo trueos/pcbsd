@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Installation Finished!</source>
-        <translation>설치 실패!</translation>
+        <translation>설치 완료!</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>확인</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -85,11 +85,11 @@
     </message>
     <message>
         <source>Vendor: </source>
-        <translation>공급 업체:</translation>
+        <translation>공급 업체: </translation>
     </message>
     <message>
         <source>URL: </source>
-        <translation>URL:</translation>
+        <translation>URL: </translation>
     </message>
     <message>
         <source>Valid Digital Signature</source>
@@ -137,7 +137,7 @@
     </message>
     <message>
         <source>This application has no digital signature. Installing applications from unknown sources can be dangerous. Continue with the install? </source>
-        <translation>이 응용 프로그램은 전자 서명이 없습니다. 알 수 없는 소스로부터 설치하는 응용 프로그램은 위험할 수 있습니다. 설치를 계속하시겠습니까?</translation>
+        <translation>이 응용 프로그램은 전자 서명이 없습니다. 알 수 없는 소스로부터 설치하는 응용 프로그램은 위험할 수 있습니다. 설치를 계속하시겠습니까? </translation>
     </message>
     <message>
         <source>Invalid digital signature</source>
@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>This application has a bad or unknown digital signature. Installing applications from unknown sources can be dangerous. Continue with the install? </source>
-        <translation>이 응용 프로그램은 전자 서명이 잘못되었거나 알 수 없습니다. 알 수 없는 소스로부터 설치하는 응용 프로그램은 위험할 수 있습니다. 설치를 계속하시겠습니까?</translation>
+        <translation>이 응용 프로그램은 전자 서명이 잘못되었거나 알 수 없습니다. 알 수 없는 소스로부터 설치하는 응용 프로그램은 위험할 수 있습니다. 설치를 계속하시겠습니까? </translation>
     </message>
     <message>
         <source>Error, This application must be installed as root!</source>

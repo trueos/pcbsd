@@ -2691,7 +2691,6 @@ share/applications/softmanager.desktop
 share/applications/pcbsdpbu.desktop
 share/applications/pc-pkgmanager.desktop
 share/applications/pc-updategui.desktop
-share/applications/pcgdmconf.desktop
 share/applications/pc-welcome.desktop
 share/applications/warden.desktop
 share/applications/EasyPBI.desktop
