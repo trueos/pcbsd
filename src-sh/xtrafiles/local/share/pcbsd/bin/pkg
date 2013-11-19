@@ -42,13 +42,6 @@ intercept_pkg_dl()
    pkg-static $fullopts
    result=$?
 
-   # Nobody likes a litter bug
-   if [ $result -eq 0 -a -d "${PKG_CACHEDIR}/All" ] ; then
-      echo -e "Cleaning up cache files..\c"
-      rm -rf "${PKG_CACHEDIR}/All"
-      echo -e "Done"
-   fi
-
    # Make sure we run extract-overlay again
    pc-extractoverlay ports >/dev/null 2>/dev/null
    
