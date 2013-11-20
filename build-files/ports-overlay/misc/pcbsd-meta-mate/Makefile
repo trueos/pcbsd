@@ -15,7 +15,7 @@ COMMENT=	The meta-port pcbsd-meta-mate
 RUN_DEPENDS=	mate-base>=0:${PORTSDIR}/x11/mate-base \
 		mate-terminal>=0:${PORTSDIR}/x11/mate-terminal \
 		mate-system-monitor>=0:${PORTSDIR}/sysutils/mate-system-monitor \
-		mate-image-viewer>=0:${PORTSDIR}/graphics/mate-image-viewer \
+		eom>=0:${PORTSDIR}/graphics/mate-image-viewer \
 		engrampa>=0:${PORTSDIR}/archivers/mate-file-archiver \
 		atril>=0:${PORTSDIR}/graphics/mate-document-viewer \
 		mate-volume-control>=0:${PORTSDIR}/audio/mate-media \
