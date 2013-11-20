@@ -123,28 +123,23 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>업데이트 재확인(&amp;s)</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>선택된 업데이트 설치(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>닫기(&amp;C)</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>시스템 업데이트 가능!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>업데이트 상세</translation>
     </message>
     <message>
         <source>Base System Updates</source>
@@ -158,8 +153,7 @@
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>업데이트 상세:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>

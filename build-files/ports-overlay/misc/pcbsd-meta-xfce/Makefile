@@ -16,7 +16,6 @@ RUN_DEPENDS=	xfce>=0:${PORTSDIR}/x11-wm/xfce4 \
 		midori>=0:${PORTSDIR}/www/midori \
 		xfburn>=0:${PORTSDIR}/sysutils/xfburn \
 		ristretto>=0:${PORTSDIR}/graphics/ristretto \
-		alacarte>=0:${PORTSDIR}/deskutils/alacarte \
 		xfce4-wm-themes>=0:${PORTSDIR}/misc/xfce4-wm-themes \
 		xfce4-power-manager>=0:${PORTSDIR}/sysutils/xfce4-power-manager \
 		thunar-archive-plugin>=0:${PORTSDIR}/archivers/thunar-archive-plugin \

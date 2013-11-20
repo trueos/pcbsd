@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>About</translation>
+        <translation>PC-BSD 정보</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>&lt;알 수없음&gt;</translation>
+        <translation>&lt;알 수 없음&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>FreeBSD 베이스</translation>
+        <translation>FreeBSD 기반</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Mem.</source>
-        <translation>메모리</translation>
+        <translation>메모리.</translation>
     </message>
     <message>
         <source>Back</source>
@@ -57,7 +57,7 @@
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation>(기다려주십시오...)</translation>
+        <translation>(기다려 주십시오...)</translation>
     </message>
     <message>
         <source>Name</source>
@@ -81,23 +81,19 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation>시스템 컴포넌트...
-</translation>
+        <translation>시스템 컴포넌트...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation>데스크톱 환경...
-</translation>
+        <translation>데스크톱 환경...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI 유틸리티:
-</translation>
+        <translation>PC-BSD CLI 유틸리티:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI 유틸리티:
-</translation>
+        <translation>PC-BSD UI 유틸리티:</translation>
     </message>
 </context>
 </TS>

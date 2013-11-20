@@ -5,161 +5,131 @@
     <name>ConfigDialog</name>
     <message>
         <source>AppCafe Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe 설정</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>사후 설치 작업</translation>
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>데스크톱 아이콘 생성</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>메뉴 아이콘 생성</translation>
     </message>
     <message>
         <source>Register File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>파일 연결 등록</translation>
     </message>
     <message>
         <source>Create Path Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패스 링크 생성</translation>
     </message>
     <message>
         <source>Keep Downloaded Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운로드한 파일 유지</translation>
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운로드 Dir</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운로드 디렉터리</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>저장소</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>추가</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
-        <translation type="unfinished">저장소 미러 사이트</translation>
+        <translation>저장소 미러 사이트</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>위로 이동</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>아래로 이동</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제거</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 저장소 추가</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>저장소 파일 (*.rpo)</translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repo 성공적으로 추가</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>이 repo는 짧은 시간에 사용할 준비가 되어 있어야 합니다. (당신의 인터넷 연결 속도에 따라 다름)</translation>
     </message>
     <message>
         <source>Repo Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repo 실패</translation>
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>이 repo는 추가할 수 없습니다.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>수동으로 전체 오류 메시지를 보려면 명령 &apos;%1&apos; 을(를) 실행하십시오.</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제거 확인</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>정말로 이 PBI 저장소를 삭제 하시겠습니까?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>이 repo는 제거할 수 없습니다.</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>새로운 미러 사이트 URL</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>새로운 미러 사이트의 URL을 입력하십시오:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>미러 사이트 변경 오류</translation>
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>전체 오류가 AppCafe 터미널 출력에 표시됩니다.</translation>
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운로드 디렉터리 선택</translation>
     </message>
 </context>
 <context>
@@ -170,228 +140,195 @@
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">설치됨</translation>
+        <translation>설치됨</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">프로그램 이름</translation>
+        <translation>프로그램 명</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>버전</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">상태</translation>
+        <translation>상태</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>모든 응용프로그램 선택/선택 해제</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>모두</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>확인된 응용프로그램에 대한 작업 수행</translation>
     </message>
     <message>
         <source>Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>작업</translation>
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>응용프로그램 상세</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">버전:</translation>
+        <translation>버전:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">제작자:</translation>
+        <translation>제작자:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">라이센스:</translation>
+        <translation>라이선스:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>바로가기:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>이 응용프로그램에 대한 작업을 취소</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>선택된 응용프로그램을 제거</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">제거</translation>
+        <translation>설치제거</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>가장 최근 버전으로 응용프로그램을 업데이트</translation>
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>선택된 응용프로그램을 업데이트</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>응용프로그램 업데이트</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>선택된 응용프로그램에 대한 페이지를 브라우저에서 엽니다.</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>업데이트 가능할 때 선택된 응용프로그램을 자동으로 업데이트</translation>
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>자동-업데이트</translation>
     </message>
     <message>
         <source>Browse For Apps</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>어플 찾아보기</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>홈</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>카테고리</translation>
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>어플</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>검색하려면 여기</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">찾기</translation>
+        <translation>검색</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>최근 추가된 보기</translation>
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>카테고리 별 찾아보기</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">크기:</translation>
+        <translation>크기:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>응용프로그램 정보</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">플랫폼:</translation>
+        <translation>플랫폼:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">종류:</translation>
+        <translation>종류:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>유사한 응용프로그램</translation>
     </message>
     <message>
         <source>Best Matches</source>
-        <translation type="unfinished">최선의 일치</translation>
+        <translation>최선의 일치</translation>
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다른 결과</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>파일</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 목록 가져오기</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 목록 내보내기</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">취소(&amp;Q)</translation>
+        <translation>취소(&amp;Q)</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>저장소</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe 설정</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">오류!</translation>
+        <translation>오류!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">워든 호환모드일 때 AppCafe는 반드시 루트로 실행해야 합니다.</translation>
     </message>
     <message>
         <source>The AppCafe must be started with user permissions!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AppCafe는 반드시 사용자 권한으로 시작해야 합니다!</translation>
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
@@ -455,72 +392,59 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">업데이트</translation>
+        <translation>업데이트</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>데스크톱 아이콘</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>추가</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제거</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>메뉴 아이콘</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>추가(모든 사용자)</translation>
     </message>
     <message>
         <source>Path Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패스 링크</translation>
     </message>
     <message>
         <source>File Associations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>파일 연결</translation>
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>작업 취소</translation>
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>데스크톱/메뉴</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>데스크톱</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>메뉴</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 제거 검증</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this application?</source>
@@ -534,22 +458,19 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">알 수 없음</translation>
+        <translation>알 수 없음</translation>
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>지금 설치!</translation>
     </message>
     <message>
         <source>Downgrade</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운 그레이드</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>응용프로그램 데이터베이스 검색 중. 잠시 기다려주십시오....</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
@@ -568,69 +489,58 @@
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>파일 다운로드:</translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 파일 다운로딩:</translation>
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>응용프로그램 시작</translation>
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제품 페이지</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>설치 검증</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>이 응용프로그램의 설치를 원하십니까?</translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished">설치 중</translation>
+        <translation>설치 중</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제거 중</translation>
     </message>
     <message>
         <source>Updating</source>
-        <translation type="unfinished">업데이트</translation>
+        <translation>업데이트 중</translation>
     </message>
     <message>
         <source>Pending Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운로드 대기 중</translation>
     </message>
     <message>
         <source>Pending Install</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>설치 대기 중</translation>
     </message>
     <message>
         <source>Pending Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제거 대기 중</translation>
     </message>
     <message>
         <source>Pending Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>업데이트 대기 중</translation>
     </message>
     <message>
         <source>No applications to install from this list.</source>
@@ -639,8 +549,7 @@
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>결과:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
@@ -654,8 +563,7 @@
     </message>
     <message>
         <source>Import Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>결과 가져오기</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
@@ -753,31 +661,26 @@
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>다운로드 업데이트: %1%</translation>
     </message>
     <message>
         <source>Starting Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>업데이트 시작</translation>
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>다운로드 시작</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>사용 가능한 업데이트: %1</translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>알 수 없는 오류</translation>
     </message>
 </context>
 </TS>

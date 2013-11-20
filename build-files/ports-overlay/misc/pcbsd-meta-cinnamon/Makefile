@@ -1,18 +1,18 @@
-# New ports collection makefile for:	pcbsd-meta-gnome
+# New ports collection makefile for:	pcbsd-meta-cinnamon
 #
 # $FreeBSD$
 #
 
-PORTNAME=	pcbsd-meta-gnome
+PORTNAME=	pcbsd-meta-cinnamon
 PORTVERSION=	CHGVERSION
 CATEGORIES=	misc
 MASTER_SITES=	# empty
 DISTFILES=	# none
 
 MAINTAINER=	kris@pcbsd.org
-COMMENT=	The meta-port pcbsd-meta-gnome
+COMMENT=	The meta-port pcbsd-meta-cinnamon
 
-RUN_DEPENDS=	gnome3>=0:${PORTSDIR}/x11/gnome3
+RUN_DEPENDS=	cinnamon>=0:${PORTSDIR}/x11/cinnamon
 
 NO_BUILD=	yes
 
