@@ -33,13 +33,11 @@
     </message>
     <message>
         <source>SDIR</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SDIR</translation>
     </message>
     <message>
         <source>TAG</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TAG</translation>
     </message>
     <message>
         <source>Enabled</source>

@@ -20,3 +20,5 @@ ENV=$HOME/.shrc; export ENV
 
 [ -x /usr/games/fortune ] && /usr/games/fortune freebsd-tips
 
+# Enable colors and such for git diff
+MORE="-erX" ; export MORE

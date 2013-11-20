@@ -16,7 +16,7 @@ MAINTAINER=	eadler@FreeBSD.org
 COMMENT=	Adobe Flash Player NPAPI Plugin
 
 ONLY_FOR_ARCHS=	amd64 i386
-USE_LINUX_APPS=	openssl nspr nss gtk2 alsalib curl
+USE_LINUX_APPS=	openssl nspr nss gtk2 alsalib curl cyrus-sasl2
 WANT_GNOME=	yes
 
 RESTRICTED=	Redistribution not allowed

@@ -95,8 +95,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Enable Dual-Head support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt Dual-Head atbalstu</translation>
     </message>
     <message>
         <source>Monitor Resolution:</source>
@@ -116,8 +115,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Dual-Head atbalsts ir domāts sistēmām ar vienu video karti un diviem monitoriem. Citi &quot;uzstādījumi&quot; var tikt sasniegti rediģējot /etc/X11/xorg.conf</translation>
     </message>
 </context>
 <context>
@@ -160,8 +158,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Draiveris:</translation>
     </message>
 </context>
 </TS>

@@ -26,8 +26,7 @@ USE_LDCONFIG=	yes
 PLIST_SUB+=	PORTVERSION="${PORTVERSION}"
 DESCR=		${.CURDIR}/../openssl/pkg-descr
 
-NO_STAGE=	yes
 post-install:
-	@cd ${PREFIX}/usr/lib && ${LN} -sf libssl.so.6 libssl.so.7
+	${LN} -sf libssl.so.6 ${STAGEDIR}${PREFIX}/usr/lib/libssl.so.7
 
 .include <bsd.port.mk>

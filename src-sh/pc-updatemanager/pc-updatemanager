@@ -589,7 +589,7 @@ update_pkgs()
     download_cache_packages "pkg-static upgrade -U -n $1"
   fi
 
-  check_pkg_conflicts "upgrade -U -F -y $1"
+  check_pkg_conflicts "upgrade -FUy $1"
   if [ $? -ne 0 ] ; then
      exit 1
   fi

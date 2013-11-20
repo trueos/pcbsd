@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Run at startup</source>
-        <translation>시작시 실행</translation>
+        <translation>시작할 때 실행</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>

@@ -38,41 +38,9 @@ intercept_pkg_dl()
    fullopts="$@"
    op="$1"
    
-   # Make sure we insert some flags we need
-   while [ $# -gt 0 ]; do
-     if [ $count -gt 0 ] ; then
-        # If we are already using -n, we can skip downloading anything
-	if [ "$1" = "-n" ] ; then
-           pkg $fullopts
-           exit $?
-	fi
-        flags="$flags $1"
-     else
-        flags="-U -n"
-     fi
-     count=`expr $count + 1`
-     shift
-   done
-
-   # Lets pre-download all packages
-   download_cache_packages "pkg $op $flags"
-
-   # Lets check for any conflicts doing this install
-   check_pkg_conflicts "${op} -F $flags"
-   if [ $? -ne 0 ] ; then
-  	exit 1
-   fi
-
    # Time to run pkgng and let it do its thing
-   pkg $fullopts 
+   pkg-static $fullopts
    result=$?
-
-   # Nobody likes a litter bug
-   if [ $result -eq 0 -a -d "${PKG_CACHEDIR}/All" ] ; then
-      echo -e "Cleaning up cache files..\c"
-      rm -rf "${PKG_CACHEDIR}/All"
-      echo -e "Done"
-   fi
 
    # Make sure we run extract-overlay again
    pc-extractoverlay ports >/dev/null 2>/dev/null

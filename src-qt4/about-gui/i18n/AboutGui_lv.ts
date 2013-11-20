@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Mem.</source>
-        <translation>Atmiņa</translation>
+        <translation>Atmiņa.</translation>
     </message>
     <message>
         <source>Back</source>
@@ -69,8 +69,7 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pārbauda momentuzņēmumu %1. Var būt nestabils!</translation>
     </message>
     <message>
         <source>X.org server version:</source>

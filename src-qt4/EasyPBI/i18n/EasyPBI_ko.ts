@@ -5,62 +5,51 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">EasyPBI            </translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>모듈 에디터</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>현재 PBI 모듈 보기와 수정</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 설정</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI에 대한 주요 설정</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>프로그램 정보</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>대상 프로그램 공식 명칭</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>명칭</translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패키징할 프로그램의 버전</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>버전</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>대상 프로그램의 주요 웹사이트 URL</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>웹사이트</translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
@@ -79,37 +68,31 @@
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">아이콘            </translation>
+        <translation>아이콘</translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>빌드 정보</translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI로 패키징할 로컬 디렉터리 (프로그램을 실행하는 데 필요한 모든 것을 포함해야함)</translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>패키지 디렉터리</translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI에 패키징할 디렉터리를 선택</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>선택</translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>주요 FreeBSD 포트</translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
@@ -118,18 +101,15 @@
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD 포트 선택</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>포트 변경</translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>포트 빌드 옵션      </translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
@@ -138,33 +118,27 @@
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>주요 FreeBSD 포트를 위한 빌드 옵션 사용</translation>
     </message>
     <message>
         <source>Make Port Before</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>포트 생성 이전</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>주요 프로그램 빌드 전에 추가할 FreeBSD 포트</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>추가적인 FreeBSD 포트 추가</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>추가적인 FreeBSD 포트 제거</translation>
     </message>
     <message>
         <source>Make Port After</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>포트 생성 이후</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
@@ -178,8 +152,7 @@
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>루트 권한 요청</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
@@ -188,8 +161,7 @@
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>설정 저장</translation>
     </message>
     <message>
         <source>Resources</source>
@@ -218,8 +190,7 @@
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>파일 추가</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
@@ -228,8 +199,7 @@
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>파일 삭제</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
@@ -248,18 +218,15 @@
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>스크립트 저장</translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>리소스 아이콘</translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>리소스 주석</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -278,8 +245,7 @@
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>데스크톱     </translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
@@ -288,8 +254,7 @@
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>메뉴     </translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
@@ -303,8 +268,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>제거</translation>
     </message>
     <message>
         <source>Entry Details</source>
