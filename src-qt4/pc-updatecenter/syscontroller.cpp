@@ -85,7 +85,14 @@ void CSysController::onCheckProcessfinished(int exitCode)
         }
         else
         {
-            setCurrentState(eFULLY_UPDATED);
+            if (!exitCode)
+            {
+                setCurrentState(eFULLY_UPDATED);
+            }
+            else
+            {
+                reportError(tr("Error while system update check process"));
+            }
             return;
         }
     }

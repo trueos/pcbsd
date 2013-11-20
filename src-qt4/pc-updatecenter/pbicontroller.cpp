@@ -135,7 +135,10 @@ void CPBIController::onCheckProcessfinished(int exitCode)
 {
     if (!mvUpdates.size())
     {
-        setCurrentState(eFULLY_UPDATED);
+        if (!exitCode)
+            setCurrentState(eFULLY_UPDATED);
+        else
+            reportError(tr("Error while software update check"));
         return;
     }
     else
@@ -151,6 +154,8 @@ void CPBIController::onCheckProcessfinished(int exitCode)
 void CPBIController::onUpdateProcessfinished(int exitCode)
 {
     SProgress progress;
+
+    Q_UNUSED(exitCode); // TODO: more accurate error check
 
     QString current_app = mAppsToUpdate[mCurrentUpdate];
     current_app= current_app.left(current_app.lastIndexOf("-")); // remove arch

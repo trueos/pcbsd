@@ -17,7 +17,7 @@ int DialogConflict::exec(QString conflictList, CPkgController *controller)
 {
     mController= controller;
     ui->conflictList->append(conflictList);
-    QDialog::exec();
+    return QDialog::exec();
 }
 
 void DialogConflict::on_buttonBox_accepted()

@@ -163,6 +163,12 @@ void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerSta
         default: //supress warning
             break;
     }
+
+    if ((!ui->mainTab->isTabEnabled(TOOLBOX_SYS_INDEX)) && (ui->mainTab->currentIndex() == TOOLBOX_SYS_INDEX))
+    {
+        ui->mainTab->setCurrentIndex(TOOLBOX_MAIN_INDEX);
+    }
+
     if (CAbstractUpdateController::eUPDATES_AVAIL == new_state)
     {
         ui->sysUpdatesList->clear();
@@ -238,6 +244,11 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
             break;
         default: //supress warning
             break;
+    }
+
+    if ((!ui->mainTab->isTabEnabled(TOOLBOX_PKG_INDEX)) && (ui->mainTab->currentIndex() == TOOLBOX_PKG_INDEX))
+    {
+        ui->mainTab->setCurrentIndex(TOOLBOX_MAIN_INDEX);
     }
 
     if (new_state == CAbstractUpdateController::eUPDATES_AVAIL)
@@ -328,6 +339,10 @@ void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerSta
             ui->mainTab->setTabEnabled(TOOLBOX_PBI_INDEX, false);
         default: //supress warning
             break;
+    }
+    if ((!ui->mainTab->isTabEnabled(TOOLBOX_PBI_INDEX)) && (ui->mainTab->currentIndex() == TOOLBOX_PBI_INDEX))
+    {
+        ui->mainTab->setCurrentIndex(TOOLBOX_MAIN_INDEX);
     }
 }
 

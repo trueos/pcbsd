@@ -42,6 +42,8 @@ void CAbstractUpdateController::parseProcessLine(CAbstractUpdateController::EUpd
         case eNOT_INITIALIZED:
             qDebug()<<"Updater internal state error";
             break;
+        default:
+            break;
     }
 }
 
@@ -173,6 +175,8 @@ void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::Exit
             break;
         case eUPDATING:
             onUpdateProcessfinished(exitCode);
+            break;
+        default:
             break;
     }
 }

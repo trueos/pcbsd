@@ -47,6 +47,7 @@ private slots:
     void on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column);
     void on_sysUpdatesList_itemActivated(QTreeWidgetItem *item, int column);
     void on_sysUpdatesList_itemSelectionChanged();
+    void on_updateAllButton_clicked();
 };
 
 #endif // MAINWINDOW_H
