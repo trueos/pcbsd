@@ -13,7 +13,6 @@ MAINTAINER=	kris@pcbsd.org
 COMMENT=	The meta-port pcbsd-meta-mate
 
 RUN_DEPENDS=	mate-base>=0:${PORTSDIR}/x11/mate-base \
-		mate-icon-theme-faenza>=0:${PORTSDIR}/x11-themes/mate-icon-theme-faenza \
 		mate-terminal>=0:${PORTSDIR}/x11/mate-terminal \
 		mate-system-monitor>=0:${PORTSDIR}/sysutils/mate-system-monitor \
 		eom>=0:${PORTSDIR}/graphics/mate-image-viewer \
