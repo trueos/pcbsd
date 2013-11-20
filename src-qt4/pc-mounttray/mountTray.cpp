@@ -49,16 +49,16 @@ void MountTray::programInit()
   trayIcon->setIcon(QIcon(":icons/CDdevices-inactive.png"));
   trayIcon->show();
 
+  //Do an initial scan of the devices with dmesg
+  qDebug() << "-Performing initial device scan";
+  scanInitialDevices();
+  
   //Startup the devd watching process
   qDebug() << "-Starting up the DEVD watcher";
   devdTimer = new QTimer();
   devdTimer->setSingleShot(TRUE);
   connect(devdTimer,SIGNAL(timeout()),this,SLOT(slotDevChanges()));
   startupDevdProc();
-  
-  //Do an initial scan of the devices with dmesg
-  qDebug() << "-Performing initial device scan";
-  scanInitialDevices();
   
   //Start up the filesystem watcher
   diskWatcher = new FSWatcher();
