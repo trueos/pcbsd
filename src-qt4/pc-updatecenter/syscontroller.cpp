@@ -4,8 +4,11 @@
 
 _STRING_CONSTANT PC_UPDATE_COMMAND = "pc-updatemanager";
 _STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
+//_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
+_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
 static const QStringList PC_UPDATE_ARGS(QStringList()<<"check");
-static const QStringList FBSD_UPDATE_ARGS;
+static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"update");
+//static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"/home/yurkis/_sysbasesys_check.txt");
 
 _STRING_CONSTANT NAME_TAG = "NAME:";
 _STRING_CONSTANT TYPE_TAG = "TYPE:";
@@ -19,6 +22,10 @@ _STRING_CONSTANT PATCH_TYPE = "PATCH";
 _STRING_CONSTANT SYSUPDATE_TYPE = "SYSUPDATE";
 _STRING_CONSTANT STANDALONE_TAG = "STANDALONE:";
 _STRING_CONSTANT REQUIRESREBOOT_TAG = "REQUIRESREBOOT:";
+
+_STRING_CONSTANT FILES_MODIFYED_LOCALLY = "been downloaded because the files have been modified locally:";
+_STRING_CONSTANT FILES_TO_DELETE = "The following files will be removed as part of updating to";
+_STRING_CONSTANT FILES_TO_UPDATE = "The following files will be updated as part of updating to";
 
 CSysController::CSysController()
 {
@@ -34,6 +41,9 @@ void CSysController::onCheckUpdates()
 {
     misFREEBSDCheck= false;
     mvUpdates.clear();
+    mFilesLocallyModifyed.clear();
+    mFilesToRemove.clear();
+    mFilesToUpdate.clear();
 }
 
 void CSysController::checkShellCommand(QString &cmd, QStringList &args)
@@ -73,7 +83,16 @@ void CSysController::onCheckProcessfinished(int exitCode)
     }
     else
     {        
+        if (mFilesLocallyModifyed.size() || mFilesToRemove.size() || mFilesToUpdate.size())
+        {
+            SSystemUpdate entry;
+            entry.mName= tr("Base system update");
+            entry.mType= eFBSDUPDATE;
+            mvUpdates.push_back(entry);
+        }
+
         int n= mvUpdates.size();
+
         if (n)
         {
 
@@ -176,4 +195,52 @@ void CSysController::parseCheckPCBSDLine(QString line)
 void CSysController::parseCheckFREEBSDLine(QString line)
 {
     qDebug()<<line;
+
+    typedef enum{
+        eUndefined,
+        eFilesModifyedLocally,
+        eFilesToDelete,
+        eFilesToUpdate
+    }ECheckState;
+
+    static ECheckState currCheckState = eUndefined;
+
+    line=line.trimmed();
+    if (!line.length())
+    {
+        return;
+    }
+
+    if (line.contains(FILES_MODIFYED_LOCALLY))
+    {
+        currCheckState= eFilesModifyedLocally;
+        return;
+    }
+    else if (line.contains(FILES_TO_DELETE))
+    {
+        currCheckState= eFilesToDelete;
+        return;
+    }
+    else if (line.contains(FILES_TO_UPDATE))
+    {
+        currCheckState= eFilesToUpdate;
+        return;
+    }
+
+
+    if (eFilesModifyedLocally == currCheckState)
+    {
+        mFilesLocallyModifyed<<line;
+    }
+    else
+    if (eFilesToDelete == currCheckState)
+    {
+        mFilesToRemove<<line;
+    }
+    else
+    if(eFilesToUpdate == currCheckState)
+    {
+        mFilesToUpdate<<line;
+    }
+
 }

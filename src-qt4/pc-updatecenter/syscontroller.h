@@ -33,8 +33,7 @@ public:
         QString mDetails; // For patch only
         QString mSize;    // For patch only
         QString mVersion; // For sysupdates only
-        QDate   mDate;    // For patch only
-        QStringList mFilesToUpdate; //For FreeBSD updates only
+        QDate   mDate;    // For patch only        
         bool   misStandalone;
         bool   misRequiresReboot;
 
@@ -46,6 +45,9 @@ public:
     }SSystemUpdate;
     
     QVector<SSystemUpdate> updates() {return mvUpdates;}
+    QStringList filesToUpdate()      {return mFilesToUpdate;}
+    QStringList filesToDelete()      {return mFilesToRemove;}
+    QStringList fileslocalyModifyed(){return mFilesLocallyModifyed;}
 
 protected:
     virtual void onCheckUpdates();
@@ -60,9 +62,14 @@ protected:
 private:
     bool misFREEBSDCheck;
     QVector<SSystemUpdate> mvUpdates;
+    QStringList mFilesLocallyModifyed;
+    QStringList mFilesToRemove;
+    QStringList mFilesToUpdate;
 
     void parseCheckPCBSDLine(QString line);
     void parseCheckFREEBSDLine(QString line);
+
+
 };
 
 #endif // SYSCONTROLLER_H

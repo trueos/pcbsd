@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>451</height>
+    <width>635</width>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -298,7 +298,7 @@
             <item>
              <widget class="QStackedWidget" name="sysUpdateDetailsStack">
               <property name="currentIndex">
-               <number>1</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="page_9">
                <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -470,32 +470,55 @@
                </layout>
               </widget>
               <widget class="QWidget" name="page_11">
-               <widget class="QListWidget" name="listWidget">
-                <property name="geometry">
-                 <rect>
-                  <x>125</x>
-                  <y>20</y>
-                  <width>301</width>
-                  <height>91</height>
-                 </rect>
-                </property>
-               </widget>
-               <widget class="QLabel" name="label_7">
-                <property name="geometry">
-                 <rect>
-                  <x>1</x>
-                  <y>11</y>
-                  <width>64</width>
-                  <height>64</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="pixmap">
-                 <pixmap resource="res.qrc">:/images/sysupdates-freebsd.png</pixmap>
-                </property>
-               </widget>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap resource="res.qrc">:/images/sysupdates-freebsd.png</pixmap>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTabWidget" name="sysUpdateFilesTab">
+                  <property name="currentIndex">
+                   <number>0</number>
+                  </property>
+                  <widget class="QWidget" name="tab_4">
+                   <attribute name="title">
+                    <string>Files to update</string>
+                   </attribute>
+                   <layout class="QHBoxLayout" name="horizontalLayout_10">
+                    <item>
+                     <widget class="QListWidget" name="sysFilesToUpdateList"/>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="tab_5">
+                   <attribute name="title">
+                    <string>Files to delete</string>
+                   </attribute>
+                   <layout class="QHBoxLayout" name="horizontalLayout_11">
+                    <item>
+                     <widget class="QListWidget" name="sysFilesToDeleteList"/>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="tab_6">
+                   <attribute name="title">
+                    <string>Locally modifyed files</string>
+                   </attribute>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <item>
+                     <widget class="QListWidget" name="sysFilesModifyedList"/>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </widget>
             </item>
@@ -759,7 +782,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>637</width>
+     <width>635</width>
      <height>21</height>
     </rect>
    </property>

@@ -431,6 +431,23 @@ void MainWindow::on_sysUpdatesList_itemSelectionChanged()
         ui->sysUpgradeStandalone->setVisible(updates[id].misStandalone);
         ui->sysUpgradehRebootRequired->setVisible(updates[id].misRequiresReboot);
     }
+    else
+    if (updates[id].mType == CSysController::eFBSDUPDATE)
+    {
+        ui->sysFilesModifyedList->clear();
+        ui->sysFilesToDeleteList->clear();
+        ui->sysFilesToUpdateList->clear();
+
+        ui->sysFilesModifyedList->addItems(mSysController.fileslocalyModifyed());
+        ui->sysFilesToDeleteList->addItems(mSysController.filesToDelete());
+        ui->sysFilesToUpdateList->addItems(mSysController.filesToUpdate());
+
+        ui->sysUpdateFilesTab->setTabText(0, tr("Files to update (%1)").arg(QString::number(mSysController.filesToUpdate().size())));
+        ui->sysUpdateFilesTab->setTabText(1, tr("Files to remove (%1)").arg(QString::number(mSysController.filesToDelete().size())));
+        ui->sysUpdateFilesTab->setTabText(2, tr("Locally modifyed files (%1)").arg(QString::number(mSysController.fileslocalyModifyed().size())));
+
+        ui->sysUpdateDetailsStack->setCurrentIndex(2);
+    }
 }
 
 void MainWindow::on_updateAllButton_clicked()
