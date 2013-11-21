@@ -36,7 +36,7 @@ install_scripts: first FORCE
 	-$(INSTALL_FILE) pc-metapkgmanager $(INSTALL_ROOT)$(PREFIX)/bin/
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/metaset/ || rm -rf $(PREFIX)/share/pcbsd/metaset
-	cp -r metaset $(PREFIX)/share/pcbsd/metaset
+	cp -r metaset $(PREFIX)/share/pcbsd/
 	cd $(PREFIX)/bin/ && ln -f pc-metapkgmanager pc-pkg
 
 uninstall_scripts:  FORCE
