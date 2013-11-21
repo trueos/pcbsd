@@ -289,7 +289,8 @@ get_target_disk()
      fOpt="on"
      d=`echo $i | cut -d ':' -f 1`
      desc=`echo $i | cut -d ':' -f 2`
-     dOpts="$dOpts $d \"$desc\" $fOpt" 
+     size="`${PCSYS} disk-info $d | grep size | cut -d '=' -f 2`MB"
+     dOpts="$dOpts $d \"$desc ($size)\" $fOpt" 
      if [ -z "$fOpt" ] ; then fOpt="off"; fi
   done < /tmp/.dList.$$
   rm /tmp/.dList.$$
