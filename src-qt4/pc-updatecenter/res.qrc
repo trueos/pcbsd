@@ -27,5 +27,6 @@
         <file>images/sysupdates-freebsd.png</file>
         <file>images/sysupdates-patch.png</file>
         <file>images/sysupdates-upgrade.png</file>
+        <file>images/beta.png</file>
     </qresource>
 </RCC>

@@ -3,12 +3,11 @@
 #include <QDebug>
 
 _STRING_CONSTANT PC_UPDATE_COMMAND = "pc-updatemanager";
-_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
-//_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
-_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
+_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
+//_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
 static const QStringList PC_UPDATE_ARGS(QStringList()<<"check");
-static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"update");
-//static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"/home/yurkis/_sysbasesys_check.txt");
+//static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"update");
+static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"/home/yurkis/_sysbasesys_check.txt");
 
 _STRING_CONSTANT NAME_TAG = "NAME:";
 _STRING_CONSTANT TYPE_TAG = "TYPE:";
@@ -83,7 +82,7 @@ void CSysController::onCheckProcessfinished(int exitCode)
     }
     else
     {        
-        if (mFilesLocallyModifyed.size() || mFilesToRemove.size() || mFilesToUpdate.size())
+        if (mFilesToRemove.size() || mFilesToUpdate.size())
         {
             SSystemUpdate entry;
             entry.mName= tr("Base system update");
