@@ -171,6 +171,9 @@ void SimpleDlgCode::changeRootPassword()
 void SimpleDlgCode::removeUser()
 {
     QString username = userList->currentItem()->text().section(" ", 0, 0);
+    if ( username.isEmpty() )
+       return;
+
     User *user = back->getUser(username);
     QString home = user->getHome();
     int answer = QMessageBox::question(this,
