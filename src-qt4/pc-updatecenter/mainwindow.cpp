@@ -369,7 +369,6 @@ void MainWindow::pkgProgress(CAbstractUpdateController::SProgress progress)
     for(int i=0; i<progress.mLogMessages.size(); i++)
     {
         ui->pkgUpdateLog->append(progress.mLogMessages[i]);
-        qDebug()<<"<<<"<<progress.mLogMessages[i];
     }
 }
 

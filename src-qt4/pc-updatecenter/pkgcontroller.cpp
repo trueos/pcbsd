@@ -27,6 +27,8 @@ static const char* const PKG_CONFLICTS_REPLY= "PKGREPLY: ";
 static const char* const PKG_INSTALL_START_MARKER= "Upgrades have been requested for the following";
 static const char* const PKG_INSTALL_DONE = "... done";
 
+static const char* const PKG_NETWORK_ERROR = ": No address record";
+
 
 typedef enum{
     eCommonInfo,
@@ -76,6 +78,10 @@ void CPkgController::onReadCheckLine(QString line)
 
     if (eCommonInfo == curChkrState)
     {
+        if (line.contains(PKG_NETWORK_ERROR))
+        {
+            reportError(tr("Error during update check. Check network connection"));
+        }
         if ( line.contains(FULLY_UPDATED_MESSAGE))
         {
             setCurrentState(eFULLY_UPDATED);
@@ -347,6 +353,14 @@ void CPkgController::onCancel()
     process().terminate();
     process().waitForFinished();
     check();
+}
+
+void CPkgController::onCheckProcessfinished(int exitCode)
+{
+    if (!exitCode)
+    {
+        reportError(tr("Update check error"));
+    }
 }
 
 void CPkgController::autoResolveConflict(bool isAutoResolve)

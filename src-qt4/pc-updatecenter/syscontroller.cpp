@@ -3,11 +3,11 @@
 #include <QDebug>
 
 _STRING_CONSTANT PC_UPDATE_COMMAND = "pc-updatemanager";
-_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
-//_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
+//_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
+_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
 static const QStringList PC_UPDATE_ARGS(QStringList()<<"check");
-//static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"update");
-static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"/home/yurkis/_sysbasesys_check.txt");
+static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"update");
+//static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"/home/yurkis/_sysbasesys_check.txt");
 
 _STRING_CONSTANT NAME_TAG = "NAME:";
 _STRING_CONSTANT TYPE_TAG = "TYPE:";
@@ -25,6 +25,8 @@ _STRING_CONSTANT REQUIRESREBOOT_TAG = "REQUIRESREBOOT:";
 _STRING_CONSTANT FILES_MODIFYED_LOCALLY = "been downloaded because the files have been modified locally:";
 _STRING_CONSTANT FILES_TO_DELETE = "The following files will be removed as part of updating to";
 _STRING_CONSTANT FILES_TO_UPDATE = "The following files will be updated as part of updating to";
+
+_STRING_CONSTANT NETWORKING_PROBLEM= "No mirrors remaining, giving up.";
 
 CSysController::CSysController()
 {
@@ -208,6 +210,11 @@ void CSysController::parseCheckFREEBSDLine(QString line)
     if (!line.length())
     {
         return;
+    }
+
+    if (line.contains(NETWORKING_PROBLEM) && (!mvUpdates.size()))
+    {
+        reportError(tr("Error during update check. Check network connection"));
     }
 
     if (line.contains(FILES_MODIFYED_LOCALLY))
