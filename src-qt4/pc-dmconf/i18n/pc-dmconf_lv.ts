@@ -5,63 +5,51 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieteikšanās pārvaldnieka iestatījumi</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automātiska pieteikšanās</translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt automātisko pieteikšanos</translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Automātiskās pieteikšanās lietotājs</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Attālinātā pieteikšanās</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saglabāt</translation>
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paroles pieprasījums</translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lūdzu ievadiet pieteikšanās paroli šim lietotājam</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt attālināto darbvirsmu (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dažādi</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt &quot;parādīt paroli&quot; pogu</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lūdzu ievadiet attālinātās pieslēgšanās paroli</translation>
     </message>
 </context>
 </TS>

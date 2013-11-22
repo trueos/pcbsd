@@ -54,13 +54,13 @@ void ChangePassCode::commit()
             close();
             break;
         case 1:
-            QMessageBox::critical(this, tr("You must specify a password"), tr("Error changing password..."));
+            QMessageBox::critical(this, tr("You must specify a password"), tr("You must specify a password"));
             break;
         case 2:
-            QMessageBox::critical(this, tr("The passwords didn't match. Both boxes most contain the same value."), tr("Error changing password..."));
+            QMessageBox::critical(this, tr("The passwords didn't match. Both boxes most contain the same value."), tr("The passwords didn't match. Both boxes most contain the same value."));
             break;
         case 3:
-            QMessageBox::critical(this, tr("Invalid password, please choose another."), tr("Error changing password..."));
+            QMessageBox::critical(this, tr("Invalid password, please choose another."), tr("Invalid password, please choose another."));
             break;
     }
 }

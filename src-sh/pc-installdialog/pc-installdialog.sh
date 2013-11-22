@@ -18,7 +18,7 @@ CFGFILE="/tmp/sys-install.cfg"
 ZFSLAYOUT="/,/root,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)"
 
 # Ugly master list of settable ZFS properties
-ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compression(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly=(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias=latency|throughput),snapdir=(hidden|visible),sync=(standard|always|disabled),jailed=(off|on)"
+ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode(discard|groupmask|passthrough|restricted),atime(on|off),canmount(on|off|noauto),checksum(on|off|fletcher2|fletcher4|sha256),compress(on|off|lzjb|gzip|zle|lz4),copies(1|2|3),dedup(on|off|verify|sha256),exec(on|off),primarycache(all|none|metadata),readonly(on|off),secondarycache(all|none|metadata),setuid(on|off),sharenfs(on|off),logbias(latency|throughput),snapdir(hidden|visible),sync(standard|always|disabled),jailed(off|on)"
 
 PCSYS="/usr/local/sbin/pc-sysinstall"
 
@@ -56,52 +56,149 @@ get_zfs_layout()
   done
 }
 
+get_zfs_dset_opt()
+{
+  local changeOpt="$1"
+  dOpts=""
+
+  # Build a list of dataset options to display
+  for z in `echo $ZPROPS | sed 's|,| |g'`
+  do
+    zOpt=`echo $z | cut -d '(' -f 1`
+    if [ "$zOpt" != "$changeOpt" ] ; then continue ; fi
+
+    zOps=`echo $z | cut -d '(' -f 2 | cut -d ')' -f 1`
+    for o in `echo $zOps | sed 's,|, ,g'`
+    do
+       d="$o" 
+       desc="($o)"
+       dOpts="$dOpts $d \"$desc\""
+    done
+    break
+  done
+
+  # Ask what to do on this dataset
+  get_dlg_ans "--menu \"Set option for $changeOpt on $2\" 22 50 15 unset 'Unset this option' cancel 'Cancel' ${dOpts}"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid option selected!"
+  fi
+
+  if [ "$ANS" = "unset" ] ; then ANS="" ; fi
+  if [ "$ANS" = "cancel" ] ; then ANS="CANCELED" ; fi
+  VAL=$ANS ; export VAL
+}
+
 edit_dataset()
 {
-    # Ask what to do on this dataset
-    get_dlg_ans "--menu \"What to do on this dataset?\" 22 50 15 edit 'Set ZFS options' delete 'Remove the dataset' cancel 'Cancel'"
-    if [ -z "$ANS" ] ; then
-       exit_err "Invalid dataset selected!"
-    fi
-    case $ANS in
-      cancel) return ;;
-        edit) get_dlg_ans "--inputbox 'Enter ZFS option flags, using a | seperator.' 8 40"
-	      NEWLAYOUT=""
-              for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
-	      do
-                 d=`echo $z | cut -d '(' -f 1`
-                 if [ "$d" = "$1" ] ; then 
-		   opt=""
-		   if [ -n "$ANS" ] ; then opt="($ANS)"; fi
-                   if [ -z "$NEWLAYOUT" ] ; then
-                     NEWLAYOUT="${d}${opt}"
-                   else
-                     NEWLAYOUT="$NEWLAYOUT,${d}${opt}"
-		   fi
+
+  dOpts=""
+
+  # Pull a list of dataset options from the users layout
+  for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+  do
+     d=`echo $z | cut -d '(' -f 1`
+     if [ "$d" != "$1" ] ; then continue ; fi
+     curOpts="`echo $z | cut -d '(' -f 2 | cut -d ')' -f 1`"
+  done
+
+  # Build a list of dataset options to display
+  for z in `echo $ZPROPS | sed 's|,| |g'`
+  do
+    d=`echo $z | cut -d '(' -f 1`
+    desc="(unset)"
+    for o in `echo $curOpts | sed 's,|, ,g'`
+    do
+       _opt="`echo $o | cut -d '=' -f 1`"
+       if [ "$_opt" != "$d" ] ; then continue ; fi
+       desc="(`echo $o | cut -d '=' -f 2`)"
+    done
+    dOpts="$dOpts $d \"$desc\""
+  done
+
+  # Ask what to do on this dataset
+  get_dlg_ans "--menu \"Editing dataset: ${1}\" 22 50 15 delete 'Remove the dataset' cancel 'Cancel' ${dOpts}"
+  if [ -z "$ANS" ] ; then
+     exit_err "Invalid dataset selected!"
+  fi
+  case $ANS in
+    cancel) return ;;
+    delete) NEWLAYOUT=""
+            for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+            do
+              d=`echo $z | cut -d '(' -f 1`  
+	      if [ "$d" = "$1" ] ; then continue ; fi
+	      if [ -z "$NEWLAYOUT" ] ; then
+	        NEWLAYOUT="${z}"
+              else
+	        NEWLAYOUT="$NEWLAYOUT,${z}"
+              fi
+            done
+	    ZFSLAYOUT="$NEWLAYOUT"
+            ;;
+         *) cOpt=$ANS 
+	    get_zfs_dset_opt "$cOpt" "$1"
+	    newOpt="$VAL"
+	    if [ "$newOpt" = "CANCELED" ] ; then return ; fi
+
+            NEWLAYOUT=""
+            for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
+            do
+               d=`echo $z | cut -d '(' -f 1`
+               if [ "$d" != "$1" ] ; then 
+                 if [ -z "$NEWLAYOUT" ] ; then
+                   NEWLAYOUT="${z}"
                  else
-                   if [ -z "$NEWLAYOUT" ] ; then
-                     NEWLAYOUT="${z}"
-                   else
-                     NEWLAYOUT="$NEWLAYOUT,${z}"
-                   fi
-		 fi
-              done
-	      ZFSLAYOUT="$NEWLAYOUT"
-              ;;
-      delete) NEWLAYOUT=""
-	      for z in `echo $ZFSLAYOUT | sed 's|,| |g'`
-              do
-                 d=`echo $z | cut -d '(' -f 1`  
-	         if [ "$d" = "$1" ] ; then continue ; fi
-		 if [ -z "$NEWLAYOUT" ] ; then
-		   NEWLAYOUT="${z}"
-                 else
-		   NEWLAYOUT="$NEWLAYOUT,${z}"
+                   NEWLAYOUT="$NEWLAYOUT,${z}"
                  fi
-              done
-	      ZFSLAYOUT="$NEWLAYOUT"
-             ;;
-    esac
+	         continue
+	       fi
+		
+	       # Add this option to our optList
+	       NEWOPTLIST=""
+	       optList="`echo $z | cut -d '(' -f 2 | cut -d ')' -f 1`"
+	       if [ "$optList" = "$z" ] ; then optList="" ; fi
+	       addedOpt=0
+               for o in `echo $optList | sed 's,|, ,g'`
+               do
+                  _opt="`echo $o | cut -d '=' -f 1`"
+                  if [ "$_opt" != "$cOpt" ] ; then
+                     if [ -z "$NEWOPTLIST" ] ; then
+                        NEWOPTLIST="${o}"
+                     else
+                        NEWOPTLIST="$NEWOPTLIST|${o}"
+                     fi
+	             continue
+		  fi
+		  addedOpt=1
+		  # If the user unset this opt, lets skip adding it
+		  if [ -z "$newOpt" ] ; then continue ; fi
+                  if [ -z "$NEWOPTLIST" ] ; then
+                     NEWOPTLIST="${cOpt}=${newOpt}"
+                  else
+                     NEWOPTLIST="$NEWOPTLIST|${cOpt}=${newOpt}"
+                  fi
+               done
+
+	       # If we need to add the opt fresh
+	       if [ $addedOpt -eq 0 ] ; then
+                  if [ -z "$NEWOPTLIST" ] ; then
+                     NEWOPTLIST="${cOpt}=${newOpt}"
+                  else
+                     NEWOPTLIST="$NEWOPTLIST|${cOpt}=${newOpt}"
+                  fi
+	       fi
+
+               opt=""
+	       if [ -n "$NEWOPTLIST" ] ; then opt="($NEWOPTLIST)"; fi
+               if [ -z "$NEWLAYOUT" ] ; then
+                  NEWLAYOUT="${d}${opt}"
+               else
+                  NEWLAYOUT="$NEWLAYOUT,${d}${opt}"
+	       fi
+            done
+            ZFSLAYOUT="$NEWLAYOUT"
+            ;;
+  esac
 }
 
 add_dataset()
@@ -192,7 +289,8 @@ get_target_disk()
      fOpt="on"
      d=`echo $i | cut -d ':' -f 1`
      desc=`echo $i | cut -d ':' -f 2`
-     dOpts="$dOpts $d \"$desc\" $fOpt" 
+     size="`${PCSYS} disk-info $d | grep size | cut -d '=' -f 2`MB"
+     dOpts="$dOpts $d \"$desc ($size)\" $fOpt" 
      if [ -z "$fOpt" ] ; then fOpt="off"; fi
   done < /tmp/.dList.$$
   rm /tmp/.dList.$$
