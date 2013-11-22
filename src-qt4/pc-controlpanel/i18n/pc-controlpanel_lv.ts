@@ -5,123 +5,99 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD kontroles panelis</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Programmatūra un atjaunināšana</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas pārvaldība</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aparatūra</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tīkls</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Darbvirsmas vide</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rīki</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visi</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>Enlightenment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enlightenment</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>unsupported</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>neatbalstīts</translation>
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(pašreizējais)</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neatbalstīta darbvirsmas vide</translation>
     </message>
     <message>
         <source>(All installed)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(visi instalētie)</translation>
     </message>
     <message>
         <source>(KDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(KDE)</translation>
     </message>
     <message>
         <source>(LXDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(LXDE)</translation>
     </message>
     <message>
         <source>(Gnome)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Gnome)</translation>
     </message>
     <message>
         <source>(Enlightenment)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Enlightenment)</translation>
     </message>
     <message>
         <source>(XFCE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(XFCE)</translation>
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lasa vienības...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ko jūs vēlaties konfigurēt?</translation>
     </message>
 </context>
 </TS>

@@ -5,28 +5,23 @@
     <name>DNSList</name>
     <message>
         <source>Public DNS servers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Publiskais DNS serveris</translation>
     </message>
     <message>
         <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sava provaidera DNS servera vietā, jūs varat izvēlēties vienu no prubliskajiem DNS serveriem</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP adrese</translation>
     </message>
     <message>
         <source>Provider</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provaideris</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lokācija</translation>
     </message>
 </context>
 <context>
@@ -138,13 +133,11 @@
     </message>
     <message>
         <source>Enable IPv6 support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt IPv6 atbalstu</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dažādi</translation>
     </message>
     <message>
         <source>Enable wireless / wired failover via lagg0 interface</source>
@@ -153,13 +146,11 @@
     </message>
     <message>
         <source>Proxy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starpniekserveris</translation>
     </message>
     <message>
         <source>Proxy Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starpniekservera konfigurācija</translation>
     </message>
     <message>
         <source>Server Address</source>
@@ -171,8 +162,7 @@
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starpniekservera tips</translation>
     </message>
     <message>
         <source>Specify a Username / Password</source>
@@ -188,8 +178,7 @@
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Piezīme: Šī starpniekservera konfigurācija ir domāta priekš PC-BSD specifiskiem rīkiem. Internet atkarīgās programmas var izmantot pašas savus starpniekserveru konfigurācijas, kurām ir jābūt manuāli iestatītām.</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -205,7 +194,7 @@
     </message>
     <message>
         <source>This program must be run as root!</source>
-        <translation type="unfinished">Šai programmai ir jābūt palaistai izmantojot root!</translation>
+        <translation>Šai programmai ir jābūt palaistai izmantojot Root!</translation>
     </message>
     <message>
         <source>Address:</source>
@@ -229,7 +218,7 @@
     </message>
     <message>
         <source>IPV6 DNS 1:</source>
-        <translation>IPV6 DNS 1:</translation>
+        <translation>IPv6 DNS 1:</translation>
     </message>
     <message>
         <source>IPv6 DNS 2:</source>
@@ -237,8 +226,7 @@
     </message>
     <message>
         <source>Public servers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Publiskie serveri</translation>
     </message>
     <message>
         <source>Computer Restart Required</source>
@@ -260,48 +248,39 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas nosaukums</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ieslēgt pielāgotu DNS</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt pielāgotu vārteju</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Norādīts nepareizs IPv6 DNS</translation>
     </message>
     <message>
         <source>Invalid IPv6 Gateway specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Norādīta nepareiza IPv6 vārteja</translation>
     </message>
     <message>
         <source>Invalid DNS specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Norādīts nepareizs DNS</translation>
     </message>
     <message>
         <source>Invalid Gateway specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Norādīta nepareiza vārteja</translation>
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starpniekserveris ieslēgts</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jums var nākties pieteikties no jauna, lai starpniekservera iestatījumi stātos spēkā.</translation>
     </message>
 </context>
 </TS>

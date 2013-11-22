@@ -5,11 +5,11 @@
     <name>ethernetconfig</name>
     <message>
         <source>Network Configuration</source>
-        <translation type="unfinished">Tīkla konfigurācija</translation>
+        <translation>Tīkla konfigurācija</translation>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation type="unfinished">&amp;Labi</translation>
+        <translation>&amp;Labi</translation>
     </message>
     <message>
         <source>Alt+O</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Apstiprināt</translation>
+        <translation>&amp;Apstiprināt</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>&amp;General</source>
-        <translation type="unfinished">&amp;Galvenais</translation>
+        <translation>&amp;Galvenais</translation>
     </message>
     <message>
         <source>Alt+Y</source>
@@ -49,23 +49,23 @@
     </message>
     <message>
         <source>Network address configuration</source>
-        <translation type="unfinished">Tīkla adreses konfigurācija</translation>
+        <translation>Tīkla adreses konfigurācija</translation>
     </message>
     <message>
         <source>Assign static IP address</source>
-        <translation type="unfinished">Piešķirt statisko IP adresi</translation>
+        <translation>Piešķirt statisko IP adresi</translation>
     </message>
     <message>
         <source>Netmask:</source>
-        <translation type="unfinished">Netmask:</translation>
+        <translation>Tīkla maska:</translation>
     </message>
     <message>
         <source>IP:</source>
-        <translation type="unfinished">IP:</translation>
+        <translation>IP:</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation type="unfinished">999\.999\.999\.999; </translation>
+        <translation>999\.999\.999\.999; </translation>
     </message>
     <message>
         <source>Advanced</source>
@@ -81,15 +81,15 @@
     </message>
     <message>
         <source>Custom MAC address</source>
-        <translation type="unfinished">Izvēles MAC adrese</translation>
+        <translation>Izvēles MAC adrese</translation>
     </message>
     <message>
         <source>IPv6 static address</source>
-        <translation type="unfinished">IPv6 statiskā adrese</translation>
+        <translation>Statiskā IPv6 adrese</translation>
     </message>
     <message>
         <source>Address:</source>
-        <translation type="unfinished">Adrese:</translation>
+        <translation>Adrese:</translation>
     </message>
     <message>
         <source>Obtain IPv6 address automaticall&amp;y</source>
@@ -101,19 +101,19 @@
     </message>
     <message>
         <source>Configuration info</source>
-        <translation type="unfinished">Konfigurācijas informācija</translation>
+        <translation>Konfigurācijas informācija</translation>
     </message>
     <message>
         <source>Gateway:</source>
-        <translation type="unfinished">Vārteja:</translation>
+        <translation>Vārteja:</translation>
     </message>
     <message>
         <source>IPv6:</source>
-        <translation type="unfinished">IPv6:</translation>
+        <translation>IPv6:</translation>
     </message>
     <message>
         <source>Mac:</source>
-        <translation type="unfinished">Mac:</translation>
+        <translation>Mac:</translation>
     </message>
     <message>
         <source>Media:</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">Statuss:</translation>
+        <translation>Statuss:</translation>
     </message>
     <message>
         <source>Traffic info</source>
@@ -133,61 +133,53 @@
     </message>
     <message>
         <source>Errors:</source>
-        <translation type="unfinished">Kļūdas:</translation>
+        <translation>Kļūdas:</translation>
     </message>
     <message>
         <source>In:</source>
-        <translation type="unfinished">Iekšā:</translation>
+        <translation>Iekšā:</translation>
     </message>
     <message>
         <source>Out:</source>
-        <translation type="unfinished">Ārā:</translation>
+        <translation>Ārā:</translation>
     </message>
     <message>
         <source>Missing Fields</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trūkstošie lauki</translation>
     </message>
     <message>
         <source>You must enter an IP and Netmask to continue!
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lai turpinātu, jums ir jāievada IP adrese un tīkla maska!
+</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brīdinājums</translation>
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP adrese pārkāpj robežas ! (</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>) Laukiem ir jābūt intervālā no 0 līdz 255.</translation>
     </message>
     <message>
         <source>Netmask is out of range! (</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tīkla maska pārkāpj robežas! (</translation>
     </message>
     <message>
         <source>configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>konfigurācija</translation>
     </message>
     <message>
         <source>Enable WPA authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieslēgt WPA autentifikāciju</translation>
     </message>
     <message>
         <source>Configure &amp;WPA</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurēt &amp;WPA</translation>
     </message>
 </context>
 </TS>

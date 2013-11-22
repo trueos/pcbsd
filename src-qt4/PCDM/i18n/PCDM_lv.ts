@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">Izvēlieties citu lietotāju un notīriet paroles lauku</translation>
+        <translation>Izvēlieties citu lietotāju un notīriet paroles lauku</translation>
     </message>
     <message>
         <source>Select this user</source>
@@ -48,7 +48,7 @@
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">Turiet nospiestu, lai redzētu ievadīto paroli</translation>
+        <translation>Turiet nospiestu, lai redzētu ievadīto paroli</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
@@ -123,12 +123,11 @@
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas izslēgšana</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">Jūs tūlīt izslēgsiet sistēmu.</translation>
+        <translation>Jūs tūlīt izslēgsiet sistēmu.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
@@ -136,11 +135,11 @@
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">Sistēmas restarts</translation>
+        <translation>Sistēmas restarts</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">Jūs tūlīt restartēsiet sistēmu.</translation>
+        <translation>Jūs tūlīt restartēsiet sistēmu.</translation>
     </message>
 </context>
 <context>
@@ -189,8 +188,7 @@
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pašreizējā lokāle</translation>
     </message>
     <message>
         <source>Apply</source>
