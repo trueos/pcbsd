@@ -34,11 +34,11 @@ typedef enum{
 
 }ECheckClState;
 
-static long long sizeToLong(QString size_with_units)
+static signed long sizeToLong(QString size_with_units)
 {
     size_with_units = size_with_units.trimmed();
 
-    long long space = size_with_units.split(" ")[0].toInt();
+    signed long space = size_with_units.split(" ")[0].toInt();
     QString units = size_with_units.split(" ")[1].toLower().trimmed();
     if (units == QString("kb"))
     {
@@ -106,7 +106,7 @@ void CPkgController::onReadCheckLine(QString line)
         }
         if (line.indexOf(UPDATES_AVAIL_SIZE_FREE_STR) == 0 )
         {
-            line= line.replace(UPDATES_AVAIL_SIZE_STRING, "");
+            line= line.replace(UPDATES_AVAIL_SIZE_FREE_STR, "");
             mUpdData.mDiskSpace= 0 - sizeToLong(line);
             return;
         }
