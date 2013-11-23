@@ -227,10 +227,6 @@
         <translation>Meg kell adnia egy jelszót</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Hiba történt a jelszó módosításakor…</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>A jelszavak nem egyeznek. A két mezőnek meg kell egyeznie.</translation>
     </message>

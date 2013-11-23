@@ -226,10 +226,6 @@
         <translation>Parool on vajalik</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Parooli muutmine ei õnnestunud...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Paroolid ei klapi. Mõlemas lahtris peab olema sama parool.</translation>
     </message>

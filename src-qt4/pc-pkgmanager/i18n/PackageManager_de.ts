@@ -192,8 +192,7 @@
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die folgenden Pakete, die die obigen Pakete erfordern, werden ebenfalls entfernt:</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>
@@ -209,78 +208,63 @@
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keine Arbeitsplatzumgebung</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keine Arbeitsplatzumgebung ausgewählt! Bitte wählen Sie mindestens eine Arbeitsplatzumgebung vor dem Speichern aus.</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakete anzeigen</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketliste für:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Herunterladen: %1</translation>
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abhängigkeiten</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Finde Pakete</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keine Suchergebnisse</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Möchten Sie mit der Suche vom Beginn an fortfahren?</translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keine Pakete zu diesem Suchbegriff gefunden. Bitte überprüfen Sie Ihre Suche und versuchen Sie es erneut.</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laufende Prozesse</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakete werden derzeit geändert. Sind Sie sicher, dass Sie beenden wollen?  </translation>
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakettest</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kann nicht auf Paket-Aktualisierungen prüfen!</translation>
     </message>
 </context>
 </TS>

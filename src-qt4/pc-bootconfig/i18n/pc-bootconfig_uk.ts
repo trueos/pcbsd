@@ -247,5 +247,9 @@
         <source>You cannot make a copy of the currently running boot environment!</source>
         <translation>Ви не можете копіювати поточне середовище завантаження!</translation>
     </message>
+    <message>
+        <source>Boot Environment names may only be comprised of letters and numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

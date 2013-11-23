@@ -225,10 +225,6 @@
         <translation>请设定一个密码</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>变更密码时出错...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>密码不匹配, 两个方框内应包含相同的值.</translation>
     </message>

@@ -217,10 +217,6 @@
         <translation>Du skal skrive en adgangskode</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Fejl under ændring af adgangskoder. </translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Adgangskoderne stemmer ikke overens. Begge felter skal indeholde samme kode.</translation>
     </message>

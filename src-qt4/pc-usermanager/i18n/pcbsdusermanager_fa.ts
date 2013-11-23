@@ -225,10 +225,6 @@
         <translation>شما باید یک رمزعبور مشخص کنید</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>خطا در تغییر رمز عبور ...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>رمزعبورها یکسان نیستند. هر دو فیلد باید شامل مقادیر یکسانی باشند.</translation>
     </message>

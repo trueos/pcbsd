@@ -226,10 +226,6 @@
         <translation>Необходимо задать пароль</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Не удалось сменить пароль...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Пароли не совпадают. Содержимое обоих полей должно совпадать.</translation>
     </message>

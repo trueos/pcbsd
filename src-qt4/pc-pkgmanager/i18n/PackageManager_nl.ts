@@ -260,13 +260,11 @@
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketcontrole</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon niet nakijken of er bijgewerkte pakketten zijn.</translation>
     </message>
 </context>
 </TS>
