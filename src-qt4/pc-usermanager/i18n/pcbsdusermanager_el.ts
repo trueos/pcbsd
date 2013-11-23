@@ -232,10 +232,6 @@
         <translation>Πρέπει να προσδιορίσετε ένα κωδικό</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Λάθος κατά την αλλαγή Κωδικού...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Αυτοί οι κωδικοί δεν ταιριάζουν. Και τα δύο κουτιά πρέπει να περιέχουν την ίδια τιμή.</translation>
     </message>

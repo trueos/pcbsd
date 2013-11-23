@@ -226,10 +226,6 @@
         <translation>必須指定密碼</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>更改密碼出錯...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>兩組密碼不相符合。兩個欄位的字串需完全相同。</translation>
     </message>

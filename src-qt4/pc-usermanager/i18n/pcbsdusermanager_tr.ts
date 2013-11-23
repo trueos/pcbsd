@@ -227,10 +227,6 @@
         <translation>Bir şifre belirlemelisiniz</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Şifre değiştirmede hata...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Şifreler eşleşmedi. Her iki kutucuk da aynı değeri taşımalı.</translation>
     </message>

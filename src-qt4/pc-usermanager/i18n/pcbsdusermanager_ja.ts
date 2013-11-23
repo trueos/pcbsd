@@ -226,10 +226,6 @@
         <translation>パスワードを入力してください</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>パスワードの変更に失敗しました...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>パスワードが一致しません。両方のパスワード入力フィールドに同じ値を入力してください。</translation>
     </message>

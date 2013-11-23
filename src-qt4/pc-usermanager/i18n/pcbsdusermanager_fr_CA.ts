@@ -225,10 +225,6 @@
         <translation>Vous devez spécifier un mot de passe</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Erreur lors du changement de mot de passe...            </translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Les mots de passe ne correspondent pas. Les deux champs doivent contenir les mêmes valeurs.</translation>
     </message>

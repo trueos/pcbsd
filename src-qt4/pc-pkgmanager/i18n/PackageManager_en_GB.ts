@@ -260,13 +260,11 @@
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package Check</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unable to check for package updates!</translation>
     </message>
 </context>
 </TS>

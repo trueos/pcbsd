@@ -308,5 +308,9 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Boot Environment names may only be comprised of letters and numbers</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

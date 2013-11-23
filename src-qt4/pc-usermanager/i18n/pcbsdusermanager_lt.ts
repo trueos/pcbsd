@@ -227,10 +227,6 @@
         <translation>Jūs privalote įvesti slaptažodį</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Klaida keičiant slaptažodį...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Slaptažodžiai nesutampa. Abiejuose laukuose turi būti ta pati reikšmė.</translation>
     </message>

@@ -259,13 +259,11 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wiederherstellen vom Life-Preserver-Backup</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netzwerkverbindungen verwalten</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>

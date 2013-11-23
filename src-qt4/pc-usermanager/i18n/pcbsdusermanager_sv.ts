@@ -226,10 +226,6 @@
         <translation>Du måste ange ett lösenord</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Fel uppstod vid byte av lösenord...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Angivna lösenord stämde inte. Du måste ange samma värde i båda fälten.</translation>
     </message>

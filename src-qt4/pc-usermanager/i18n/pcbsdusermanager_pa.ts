@@ -228,10 +228,6 @@
         <translation>ਤੁਹਾਨੂੰ ਪਾਸਵਰਡ ਦੇਣਾ ਪਵੇਗਾ</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>ਪਾਸਵਰਡ ਬਦਲਣ ਦੌਰਾਨ ਗਲਤੀ...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>ਪਾਸਵਰਡ ਨਹੀਂ ਮਿਲਦਾ ਹੈ। ਦੋਵੇਂ ਬਕਸਿਆਂ ਵਿੱਚ ਇੱਕੋ ਮੁੱਲ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।</translation>
     </message>

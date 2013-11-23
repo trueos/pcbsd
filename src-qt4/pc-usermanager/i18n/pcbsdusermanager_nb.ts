@@ -235,10 +235,6 @@
         <translation>Du må angi et passord</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Feil ved endring av passord...            </translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Passordene stemte ikke overens. Begge boksene må inneholde samme verdi.            </translation>
     </message>
