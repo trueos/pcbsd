@@ -7219,8 +7219,8 @@ mk_auto_ext_linksfile() {
 		pkgInf="pkg_info -L"
 	fi
 
- 	${pkgInf} ${_pname} | sed "s|^${PBI_PROGDIRPATH}/||g" \
-		| grep -v -e "^Information for" -e "^Files:" -e "owns the following" \
+ 	${pkgInf} ${_pname} | sed "s|${PBI_PROGDIRPATH}/||g" \
+		| grep -v -e ":" -e "^Information for" -e "^Files:" -e "owns the following" \
 		| tr -s '\t' ' ' \
 		| tr -d ' ' \
 		 > "${PBI_TMPDIR}/.pkg_flist.$$"
