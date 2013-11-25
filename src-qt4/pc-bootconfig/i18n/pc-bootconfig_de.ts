@@ -249,7 +249,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Namen in der Boot-Umgebung dürfen nur aus Buchstaben und Zahlen bestehen</translation>
     </message>
 </context>
 </TS>

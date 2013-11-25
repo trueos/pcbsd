@@ -249,7 +249,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Namen van opstartomgeving mogen alleen bestaan uit letters en cijfers</translation>
     </message>
 </context>
 </TS>
