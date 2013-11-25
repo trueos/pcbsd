@@ -15,8 +15,10 @@ usage_func() {
     echo "usage: flashpluginctl [on | off]"
     exit
 }
+
+FLASHFILE="/usr/local/lib/browser_plugins/linux-f10-flashplugin/libflashplayer.so"
  
-check_file "/usr/local/lib/browser_plugins/libflashplayer.so" "www/linux-f10-flashplugin10"
+check_file "$FLASHFILE" "www/linux-f10-flashplugin10"
 check_file "/usr/local/bin/nspluginwrapper" "www/nspluginwrapper"
  
 if [ $# -ne 1 ]; then
@@ -38,7 +40,7 @@ case $1 in
 		fi
 		kldload linux
 	fi
-	nspluginwrapper -i /usr/local/lib/browser_plugins/libflashplayer.so
+	nspluginwrapper -i $FLASHFILE
 	printf "\nFlash Plugin for user '`whoami`' enabled\n\n"
 	;;
  
