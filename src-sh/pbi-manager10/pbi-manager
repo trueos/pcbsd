@@ -3727,6 +3727,10 @@ do_pbi_create() {
 	clean_icons_dir
 	mk_xdg_scripts
 
+	# Check for any users / groups we need to save for install time
+	mk_pbi_users_file
+	mk_pbi_groups_file
+
 	run_pbi_prepkgscript
 
 	mk_install_script
@@ -6931,10 +6935,6 @@ do_pbi_make() {
   	# See if we need to run a post make script
   	run_pbi_postportmake
 
-	# Check for any users / groups we need to save for install time
-	mk_pbi_users_file
-	mk_pbi_groups_file
-
 	# Auto-generate a external_links directive from plist info
 	mk_auto_ext_linksfile
 
@@ -6999,10 +6999,10 @@ mk_pbi_groups_file()
 			echo "Warning: No entry for \"$group\" in GIDs file..."
 			continue
 		fi
-		grep -q "^$group:" ${PBI_PROGDIRPATH}/${PBI_INS_GROUPSFILE} 2>/dev/null
+		grep -q "^$group:" ${PBI_STAGEDIRMNT}/${PBI_INS_GROUPSFILE}
 		if [ $? -ne 0 ] ; then
 			echo "Saving gid details for group: $group"
-			echo "$gidLine" >> ${PBI_PROGDIRPATH}/${PBI_INS_GROUPSFILE}
+			echo "$gidLine" >> ${PBI_STAGEDIRMNT}/${PBI_INS_GROUPSFILE}
 		fi
 	done
 }
@@ -7020,10 +7020,10 @@ mk_pbi_users_file()
 			echo "Warning: No entry for \"$user\" in UIDs file..."
 			continue
 		fi
-		grep -q "^$user:" ${PBI_PROGDIRPATH}/${PBI_INS_USERSFILE} 2>/dev/null
+		grep -q "^$user:" ${PBI_STAGEDIRMNT}/${PBI_INS_USERSFILE}
 		if [ $? -ne 0 ] ; then
 			echo "Saving uid details for user: $user"
-			echo "$uidLine" >> ${PBI_PROGDIRPATH}/${PBI_INS_USERSFILE}
+			echo "$uidLine" >> ${PBI_STAGEDIRMNT}/${PBI_INS_USERSFILE}
 		fi
 	done
 }
