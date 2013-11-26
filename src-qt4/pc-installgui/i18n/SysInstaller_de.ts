@@ -267,49 +267,41 @@
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Datenmenge:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Das originale Layout für ZFS wird wieder hergestellt</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Führen eine Wiederherstellung von einem Life-Preserver Backup aus. Klicke next, um den Wiederherstellungassistent zu starten.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Soll die Wiederherstellung jetzt gestartet werden?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ihr System ist nun wiederhergestellt!
+Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installationsmedium entnehmen.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Systemwiederherstellung</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ihr System wird nun wiederhergestellt. Dies kann eine Weile, in Abhängigkeit von der Größe Ihres Backups und den Bedingungen des Netzwerkes, dauern.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installiere Meta-Pakete: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wiederherstellen des Systems: %1</translation>
     </message>
 </context>
 <context>
