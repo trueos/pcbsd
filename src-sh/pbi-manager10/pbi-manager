@@ -1788,7 +1788,7 @@ set_make_options() {
 
 	if [ "$PBI_PKGNGBUILD" ] ; then
 		echo "Installing pkgng..."
-		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}'`
+		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}' | sed 's|pkg+||g'`
 		cd /tmp
 		fetch -o pkg.txz ${pkgFetchURL}/Latest/pkg.txz
 		if [ $? -ne 0 ] ; then exit_err "Failed fetching pkgng..."; fi
