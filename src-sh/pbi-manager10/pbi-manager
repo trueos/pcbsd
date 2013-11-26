@@ -6044,34 +6044,47 @@ ab_get_build_list()
 		export PBI_MAKEPORT
 	fi	
 
-	if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then 
-		#echo "Skipping invalid port ${PORTSDIR}/${PBI_MAKEPORT}"
-		continue
-	fi
-
   	# Remove any trailing '/'
   	echo $PBI_MAKEPORT | grep -q "/$"
   	if [ $? -eq 0 ] ; then
      		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
   	fi
 	
-	# Check if this port can be built on this architecture
-	check_port_compat_arch "${PORTSDIR}/${PBI_MAKEPORT}"
-	if [ "$?" = "1" ] ; then
-           if [ "$PBI_ABFB32" != "YES" ] ; then
-		echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
-		continue
-           fi
-           if [ "$have32" != "true" ] ; then
-		echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
-		continue
-           fi
-	fi
-	
 	# Check for missing port target
 	if [ -z "$PBI_MAKEPORT" ] ; then
 		#echo "Warning: Missing PBI_MAKEPORT for ${pbi}"
 		continue
+	fi
+
+ 	if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
+		# Doing a package build for this PBI
+		pkg rquery "%v" ${PBI_MAKEPORT} >/dev/null 2>/dev/null
+		if [ $? -ne 0 ] ; then
+			echo "No package found for: ${PBI_MAKEPORT}"
+			continue
+		fi
+
+	else
+
+		# Doing a port build for this PBI
+		if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then 
+			#echo "Skipping invalid port ${PORTSDIR}/${PBI_MAKEPORT}"
+			continue
+		fi
+
+		# Check if this port can be built on this architecture
+		check_port_compat_arch "${PORTSDIR}/${PBI_MAKEPORT}"
+		if [ "$?" = "1" ] ; then
+			if [ "$PBI_ABFB32" != "YES" ] ; then
+				echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
+				continue
+			fi
+			if [ "$have32" != "true" ] ; then
+				echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
+				continue
+			fi
+		fi
+
 	fi
 
 	# Check if another builder is already doing this port
@@ -6964,7 +6977,7 @@ load_pkg_metadata()
   	fi
 
 	if [ -z "$PBI_LICENSE" ] ; then
-		PBI_LICENSE="`pkg query '%L' ${PBI_MAKEPORT}`"
+		PBI_LICENSE="`pkg query '%L' ${PBI_MAKEPORT} | head -n 1`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
 		PBI_SHORTDESC="`pkg query '%c' ${PBI_MAKEPORT}`"
