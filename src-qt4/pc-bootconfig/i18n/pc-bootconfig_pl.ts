@@ -249,8 +249,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazwy środowisk uruchomieniowych mogą składać się tylko z liter i cyfr</translation>
     </message>
 </context>
 </TS>
