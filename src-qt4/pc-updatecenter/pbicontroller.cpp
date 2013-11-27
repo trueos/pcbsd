@@ -1,12 +1,15 @@
 #include "pbicontroller.h"
 
 #include "pcbsd-utils.h"
+#include "utils.h"
 #include <QDebug>
 
-static const char* const PBU_UPDATE_CMD= "pbi_update";
-static const char* const AVAIL= "Available:";
-static const char* const DOWNLOAD_INDICATOR = "DOWNLOADED:";
-static const char* const FETCHDONE="FETCHDONE";
+_STRING_CONSTANT PBU_UPDATE_CMD= "pbi_update";
+_STRING_CONSTANT AVAIL= "Available:";
+_STRING_CONSTANT DOWNLOAD_INDICATOR = "DOWNLOADED:";
+_STRING_CONSTANT FETCHDONE= "FETCHDONE";
+_STRING_CONSTANT FETCH_WORLD= "FETCH";
+_STRING_CONSTANT DOWNLOADING_ERROR= "ERROR: ";
 
 CPBIController::CPBIController()
 {
@@ -112,6 +115,11 @@ void CPBIController::onReadUpdateLine(QString line)
             //indicates beginning of instalation
             log_message.clear();
             misWasFETCHDONE= true;
+        }
+
+        if (line.indexOf(FETCH_WORLD) == 0)
+        {
+            log_message = log_message.replace(FETCH_WORLD, "Downloading");
         }
 
         if (misWasFETCHDONE || (line == FETCHDONE))
