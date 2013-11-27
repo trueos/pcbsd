@@ -5233,6 +5233,15 @@ start_pbi_mkportbefore()
 	
 	for port in ${PBI_MKPORTBEFORE}
 	do
+		if [ -n "$PBI_PKGNGBUILD" ] ; then
+			pkg-static rquery '%v' ${port} >/dev/null 2>/dev/null
+			if [ $? -ne 0 ] ; then
+				exit_err "No package exists for: ${port}"
+			fi
+			do_port_build "${port}"
+			continue
+		fi
+
 		if [ ! -d "/usr/ports/${port}" ] ; then
 			exit_err "/usr/ports/${port} does not exist!"
 		fi
@@ -5248,6 +5257,16 @@ start_pbi_mkportafter()
 	
 	for port in ${PBI_MKPORTAFTER}
 	do
+		if [ -n "$PBI_PKGNGBUILD" ] ; then
+			pkg-static rquery '%v' ${port} >/dev/null 2>/dev/null
+			if [ $? -ne 0 ] ; then
+				exit_err "No package exists for: ${port}"
+			fi
+			do_port_build "${port}"
+			continue
+		fi
+
+		# Doing a regular port build
 		if [ ! -d "/usr/ports/${port}" ] ; then
 			exit_err "/usr/ports/${port} does not exist!"
 		fi
