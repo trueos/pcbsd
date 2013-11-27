@@ -1286,7 +1286,7 @@ parse_make_pbi_cmdline() {
 
 
 	# Make sure this port exists
-	if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then
+	if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" -a "$PBI_PKGNGBUILD" != "YES" ] ; then
 		exit_err "No port (${PORTSDIR}/${PBI_MAKEPORT})"
 	fi
 
