@@ -355,8 +355,9 @@ first_word()
 
 open_kde()
 {
-    if kde-open -v 2>/dev/null 1>&2; then
-        kde-open "$1"
+
+    if kioclient -v 2>/dev/null 1>&2; then
+        kioclient exec "$1"
     else
         if [ x"$KDE_SESSION_VERSION" = x"4" ]; then
             kfmclient openURL "$1"
