@@ -249,8 +249,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Boot Environment names may only be comprised of letters and numbers</translation>
     </message>
 </context>
 </TS>
