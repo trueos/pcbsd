@@ -7633,6 +7633,7 @@ is_pbi_patch() {
 do_port_build()
 {
   local _lPortRaw="$1"
+  local pkgName=""
 
   # Remove any trailing '/'
   echo $_lPortRaw | grep -q "/$"
@@ -7644,8 +7645,13 @@ do_port_build()
 
   echo "Checking port: $_lPort"
 
+  if [ -n "$PBI_PKGNGBUILD" ] ; then
+     pkgName=`pkg-static rquery '%n' $_lPortRaw`
+  else
+     pkgName=`make -V PKGNAME -C $_lPort PORTSDIR=${PORTSDIR}`
+  fi
+
   # Make sure this port isn't already loaded
-  local pkgName=`make -V PKGNAME -C $_lPort PORTSDIR=${PORTSDIR}`
   pkg info -e ${pkgName}
   if [ $? -eq 0 ] ; then return ; fi
 
