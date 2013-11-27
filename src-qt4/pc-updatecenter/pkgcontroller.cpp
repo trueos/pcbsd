@@ -215,17 +215,19 @@ void CPkgController::onReadUpdateLine(QString line)
         return;
 
     SProgress progress;
+    QString log_line;
+
     progress.mItemNo = mCurrentPkgNo;
     progress.mItemsCount = mUpdData.mCommonPkgsCount;
     progress.mSubstate= (misDownloadComplete)?eInstall:eDownload;
-    progress.mLogMessages= QStringList()<<line;
+    log_line= line;
 
     if (line.indexOf(DL_FETCH_START) == 0)
     {
         misWasInstalation= false;
         //starting fetch
         mCurrentPkgNo++;
-        progress.mLogMessages.clear();
+        log_line.clear();
         misInFetch++;
         //Example:
         // Resuming download of: /usr/local/tmp/All/pcbsd-base-1382021797.txz
@@ -237,12 +239,14 @@ void CPkgController::onReadUpdateLine(QString line)
                                                             QString::number(progress.mItemsCount),
                                                             mCurrentPkgName);
         if (!mLastLine.contains(DL_RESUME_DOWNLOAD))
-            progress.mLogMessages= QStringList()<<(QString("Downloading: ")+line.replace(FETCH, ""));
+        {
+            log_line= QString("Downloading: ")+line.replace(FETCH, "");
+        }
 
     }
     if(line == FETCH_DONE)
     {
-        progress.mLogMessages.clear();
+        log_line.clear();
         misInFetch--;
         return;
     }
@@ -250,7 +254,7 @@ void CPkgController::onReadUpdateLine(QString line)
     if ( line.contains(SIZE_DL_MARKER) && line.contains(DOWNLOADED_DL_MARKER))
     {
         //downloading progress parsing
-        progress.mLogMessages.clear();
+        log_line.clear();
         progress.misCanCancel= true;
 
         //Example:
@@ -282,9 +286,7 @@ void CPkgController::onReadUpdateLine(QString line)
     else
     if (line.indexOf(PKG_CONFLICTS_REPLY) == 0)
     {
-        progress.misCanCancel= true;
-        progress.mLogMessages= QStringList()<<QString("ERROR: Package upgrade conflict for packages: ")<<mConflictList;
-        reportProgress(progress);
+        reportLogLine(QString("ERROR: Package upgrade conflict for packages: ") + mConflictList);
 
         reportError(tr("Package conflict: ") + mConflictList);
          mConflictsReply= line.replace(PKG_CONFLICTS_REPLY, "");
@@ -336,6 +338,8 @@ void CPkgController::onReadUpdateLine(QString line)
     mLastLine = line;
 
     reportProgress(progress);
+    if(log_line.length())
+        reportLogLine(log_line);
 }
 
 void CPkgController::onUpdateProcessfinished(int exitCode)

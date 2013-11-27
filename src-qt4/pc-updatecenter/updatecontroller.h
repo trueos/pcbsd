@@ -67,6 +67,7 @@ public:
 protected:
     virtual void setCurrentState(EUpdateControllerState new_state);
     void reportProgress(SProgress curr_progress);
+    void reportLogLine(QString line);
     void reportUpdatesAvail(QString message);
     void reportError(QString error_message);
     void launchUpdate();
@@ -99,12 +100,14 @@ private:
     QString                mUpdateMasage;
     QString                mErrorMessage;
     QProcess               mUpdProc;
+    QStringList            mLogMessages;
 
 public: signals:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
     void progress(CAbstractUpdateController::SProgress progress);
     void updatesAvail(QString update_message);
     void updateError(QString message);
+    void logLinePresent(QString line);
 
 public slots:
     void check();

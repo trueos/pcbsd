@@ -67,6 +67,12 @@ void CAbstractUpdateController::reportProgress(CAbstractUpdateController::SProgr
     emit progress(mCurrentProgress);
 }
 
+void CAbstractUpdateController::reportLogLine(QString line)
+{
+    mLogMessages.append(line);
+    emit logLinePresent(line);
+}
+
 void CAbstractUpdateController::reportUpdatesAvail(QString message)
 {
     mUpdateMasage = message;
@@ -152,14 +158,14 @@ void CAbstractUpdateController::cancel()
 
 void CAbstractUpdateController::slotProcessRead()
 {
-    qint64 size= mUpdProc.bytesAvailable();
+    /*qint64 size= mUpdProc.bytesAvailable();
     for(qint64 i=0; i<size; i++)
     {
         char ch;
         mUpdProc.getChar(&ch);
         mUpdProc.putChar(ch);
         onReadProcessChar(ch);
-    }
+    }*/
 
     while (mUpdProc.canReadLine())
     {

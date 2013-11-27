@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>635</width>
-    <height>449</height>
+    <width>633</width>
+    <height>447</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -293,285 +293,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
-         <widget class="IndicatorWidget" name="sysDetailsIndicator" native="true"/>
-        </item>
-        <item>
-         <widget class="QStackedWidget" name="sysUpdatesStack">
-          <widget class="QWidget" name="page">
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <item>
-             <widget class="QTreeWidget" name="sysUpdatesList">
-              <column>
-               <property name="text">
-                <string>Update</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Update type</string>
-               </property>
-              </column>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <spacer name="horizontalSpacer_5">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_3">
-                <property name="text">
-                 <string>Install selected only</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="res.qrc">
-                  <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QStackedWidget" name="sysUpdateDetailsStack">
-              <property name="currentIndex">
-               <number>2</number>
-              </property>
-              <widget class="QWidget" name="page_9">
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
-                 <widget class="QLabel" name="label_5">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/images/sysupdates-patch.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_11">
-                  <item>
-                   <widget class="QLabel" name="label_8">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>PC-BSD update patch</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <layout class="QFormLayout" name="formLayout">
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_12">
-                      <property name="text">
-                       <string>Description</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QLabel" name="sysPadthDescription">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLabel" name="label_10">
-                      <property name="text">
-                       <string>Date</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QLabel" name="sysPatchDate">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="0">
-                     <widget class="QLabel" name="label_11">
-                      <property name="text">
-                       <string>Size</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <widget class="QLabel" name="sysPatchSize">
-                      <property name="text">
-                       <string/>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="sysPatchStandalone">
-                    <property name="text">
-                     <string>Update should be installed standalone. </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="sysPatchRebootRequired">
-                    <property name="text">
-                     <string>Update requires system reboot</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_8">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>314</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="page_10">
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QLabel" name="label_6">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/images/sysupdates-upgrade.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout_12">
-                  <item>
-                   <widget class="QLabel" name="label_9">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>PC-BSD upgrade</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="sysUpgradeText">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="sysUpgradeStandalone">
-                    <property name="text">
-                     <string>Update should be installed standalone. </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="sysUpgradehRebootRequired">
-                    <property name="text">
-                     <string>Update requires system reboot</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_6">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>347</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="page_11">
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
-                <item>
-                 <widget class="QLabel" name="label_7">
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="res.qrc">:/images/sysupdates-freebsd.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QTabWidget" name="sysUpdateFilesTab">
-                  <property name="currentIndex">
-                   <number>0</number>
-                  </property>
-                  <widget class="QWidget" name="tab_4">
-                   <attribute name="title">
-                    <string>Files to update</string>
-                   </attribute>
-                   <layout class="QHBoxLayout" name="horizontalLayout_10">
-                    <item>
-                     <widget class="QListWidget" name="sysFilesToUpdateList"/>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="tab_5">
-                   <attribute name="title">
-                    <string>Files to delete</string>
-                   </attribute>
-                   <layout class="QHBoxLayout" name="horizontalLayout_11">
-                    <item>
-                     <widget class="QListWidget" name="sysFilesToDeleteList"/>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="tab_6">
-                   <attribute name="title">
-                    <string>Locally modifyed files</string>
-                   </attribute>
-                   <layout class="QHBoxLayout" name="horizontalLayout_12">
-                    <item>
-                     <widget class="QListWidget" name="sysFilesModifyedList"/>
-                    </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="page_2"/>
-         </widget>
+         <widget class="SysDetailsWidget" name="sysDetailsW" native="true"/>
         </item>
        </layout>
       </widget>
@@ -585,147 +307,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <widget class="IndicatorWidget" name="pkgDetailsIndicator" native="true"/>
-        </item>
-        <item>
-         <widget class="QStackedWidget" name="pkgDetailsStack">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="page_3">
-           <layout class="QVBoxLayout" name="verticalLayout_16">
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
-              <item>
-               <widget class="QLabel" name="pkgDlSizeLabel_2">
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="pkgSpaceReqLabel_2">
-                <property name="text">
-                 <string/>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_7">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QTabWidget" name="pkgListsTab">
-              <property name="currentIndex">
-               <number>0</number>
-              </property>
-              <widget class="QWidget" name="pkgUpgradeTab">
-               <attribute name="title">
-                <string>Packages to upgrade</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_10">
-                <item>
-                 <widget class="QTreeWidget" name="pkgUpgradeList">
-                  <column>
-                   <property name="text">
-                    <string>Package name</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Installed version</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>New version</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_9">
-               <attribute name="title">
-                <string>Packages to install</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_13">
-                <item>
-                 <widget class="QTreeWidget" name="pkgInstallList">
-                  <column>
-                   <property name="text">
-                    <string>Package name</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Version</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-              <widget class="QWidget" name="tab_10">
-               <attribute name="title">
-                <string>Packages to reinstall</string>
-               </attribute>
-               <layout class="QVBoxLayout" name="verticalLayout_14">
-                <item>
-                 <widget class="QTreeWidget" name="pkgReinstallList">
-                  <column>
-                   <property name="text">
-                    <string>Package name</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Version</string>
-                   </property>
-                  </column>
-                  <column>
-                   <property name="text">
-                    <string>Reason</string>
-                   </property>
-                  </column>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="page_4">
-           <layout class="QVBoxLayout" name="verticalLayout_15">
-            <item>
-             <widget class="QLabel" name="label_3">
-              <property name="text">
-               <string>Update log:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QTextEdit" name="pkgUpdateLog">
-              <property name="readOnly">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
+         <widget class="PkgDetailsWidget" name="widget" native="true"/>
         </item>
        </layout>
       </widget>
@@ -737,87 +319,7 @@
        <attribute name="title">
         <string>Software update details</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_18">
-        <item>
-         <widget class="IndicatorWidget" name="pbiDetailsIndicator" native="true"/>
-        </item>
-        <item>
-         <widget class="QStackedWidget" name="pbiUpdateStack">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="page_7">
-           <layout class="QVBoxLayout" name="verticalLayout_17">
-            <item>
-             <widget class="QTreeWidget" name="pbiUpdateList">
-              <column>
-               <property name="text">
-                <string>Name</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>Installed version</string>
-               </property>
-              </column>
-              <column>
-               <property name="text">
-                <string>New version</string>
-               </property>
-              </column>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <spacer name="horizontalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="updateSelectedPBIBtn">
-                <property name="text">
-                 <string>Update selected only</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="res.qrc">
-                  <normaloff>:/images/install.png</normaloff>:/images/install.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="page_8">
-           <layout class="QVBoxLayout" name="verticalLayout_19">
-            <item>
-             <widget class="QLabel" name="label_4">
-              <property name="text">
-               <string>Update log:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QTextEdit" name="pbiUpdateLog">
-              <property name="textInteractionFlags">
-               <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
-       </layout>
+       <layout class="QVBoxLayout" name="verticalLayout_18"/>
       </widget>
      </widget>
     </item>
@@ -828,7 +330,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>635</width>
+     <width>633</width>
      <height>21</height>
     </rect>
    </property>
@@ -944,6 +446,18 @@
    <class>IndicatorWidget</class>
    <extends>QWidget</extends>
    <header location="global">indicatorwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SysDetailsWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">sysdetailswidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PkgDetailsWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">pkgdetailswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -31,22 +31,16 @@ private:
     CPBIController  mPBIController;
 
 private slots:
-    void sysStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-    void pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-    void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+
+    //void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 
     void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 
-    void pbiProgress(CAbstractUpdateController::SProgress progress);
-    void pkgProgress(CAbstractUpdateController::SProgress progress);
+    //void pbiProgress(CAbstractUpdateController::SProgress progress);
 
-    void pkgConflict(QString conflictList);
 
 private slots:
-    void on_updateSelectedPBIBtn_clicked();
-    void on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column);
-    void on_sysUpdatesList_itemActivated(QTreeWidgetItem *item, int column);
-    void on_sysUpdatesList_itemSelectionChanged();
+    //void on_updateSelectedPBIBtn_clicked();
     void on_updateAllButton_clicked();
     void on_pushButton_clicked();
 };

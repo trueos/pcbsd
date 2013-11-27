@@ -18,9 +18,6 @@ const int TOOLBOX_SYS_INDEX=   1;
 const int TOOLBOX_PKG_INDEX=   2;
 const int TOOLBOX_PBI_INDEX=   3;
 
-const int PKG_AVAIL_STACK_IDX = 0;
-const int PKG_UPDATING_STACK_IDX = 1;
-
 const QString SYS_CHECK_IMG =  ":images/syscheck.png";
 const QString SYS_OK_IMG =     ":/images/sysok.png";
 const QString SYS_AVAIL_IMG =  ":/images/sysupdates.png";
@@ -44,18 +41,12 @@ const QString PBI_PROGRESS_IMG=":/images/pbiupdates.png";
 const QString PBI_DL_IMG=      ":/images/pbidownload.png";
 const QString PBI_INSTALL_IMG= ":/images/pbiinstall.png";
 const QString PBI_ERROR_IMG=   ":/images/pbierror.png";
-
+/*
 const QString DEFAULT_APP_ICON=":/images/application.png";
-
-const QString SYSUPDATE_PATCH_ICON = ":/images/sysupdates-patch.png";
-const QString SYSUPDATE_UPGRADE_ICON = ":/images/sysupdates-upgrade.png";
-const QString SYSUPDATE_FBSD_ICON = ":/images/sysupdates-freebsd.png";
 
 const QString DEFAULT_PBI_DB_DIR="/var/db/pbi";
 const QString INSTALLED_IN_DB="/installed";
-
-const QString SYSUPDATE_DATE_FORMAT= "d MMM yyyy";
-
+*/
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -90,67 +81,50 @@ void MainWindow::init()
 
     ui->sysIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
                            SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
-                           &mSysController);
-    ui->sysDetailsIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
-                                  SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
-                                  &mSysController);
+                           &mSysController);    
 
     ui->pkgIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG,
                            PKG_DL_IMG, PKG_INSTALL_IMG, PKG_ERROR_IMG,
                            &mPkgController);
-    ui->pkgDetailsIndicator->init(PKG_CHECK_IMG, PKG_OK_IMG, PKG_AVAIL_IMG,
-                                  PKG_DL_IMG, PKG_INSTALL_IMG, PKG_ERROR_IMG,
-                                  &mPkgController);
-
     ui->pbiIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG,
                            PBI_DL_IMG, PBI_INSTALL_IMG, PBI_ERROR_IMG,
                            &mPBIController);
-    ui->pbiDetailsIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG,
+    /*ui->pbiDetailsIndicator->init(PBI_CHECK_IMG, PBI_OK_IMG, PBI_AVAIL_IMG,
                                   PBI_DL_IMG, PBI_INSTALL_IMG, PBI_ERROR_IMG,
                                   &mPBIController);
+*/
 
 
     connect(&mSysController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
-            this, SLOT(sysStateChanged(CAbstractUpdateController::EUpdateControllerState)));
-    connect(&mSysController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
-    connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
-            this, SLOT(pkgStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+
     connect(&mPkgController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
-    connect(&mPkgController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
-            this, SLOT(pkgProgress(CAbstractUpdateController::SProgress)));
-    connect(&mPkgController, SIGNAL(packageConflict(QString)),
-            this, SLOT(pkgConflict(QString)));
-    connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
-            this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+
+   /* connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
+            this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));*/
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
-    connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
-            this, SLOT(pbiProgress(CAbstractUpdateController::SProgress)));
+    /*connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
+            this, SLOT(pbiProgress(CAbstractUpdateController::SProgress)));*/
 
 
 
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
 
-    QPalette palette = ui->pbiUpdateLog->palette();
+    /*QPalette palette = ui->pbiUpdateLog->palette();
     palette.setColor(QPalette::Base, Qt::black);
     palette.setColor(QPalette::Text, Qt::white);
     ui->pbiUpdateLog->setPalette(palette);
-    ui->pkgUpdateLog->setPalette(palette);
 
-    ui->sysUpdatesList->header()->resizeSection(0, 420);
-    ui->pkgUpgradeList->header()->resizeSection(0, 260);
-    ui->pkgInstallList->header()->resizeSection(0, 350);
-    ui->pkgReinstallList->header()->resizeSection(0, 200);
-    ui->pbiUpdateList->header()->resizeSection(0, 260);
+    ui->pbiUpdateList->header()->resizeSection(0, 260);*/
 
 }
-
+/*
 void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
-    switch (new_state)
+    /*switch (new_state)
     {
         case CAbstractUpdateController::eUPDATES_AVAIL:
             ui->mainTab->setTabEnabled(TOOLBOX_SYS_INDEX, true);
@@ -163,8 +137,8 @@ void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerSta
             break;
         default: //supress warning
             break;
-    }
-
+    }*/
+/**
     if ((!ui->mainTab->isTabEnabled(TOOLBOX_SYS_INDEX)) && (ui->mainTab->currentIndex() == TOOLBOX_SYS_INDEX))
     {
         ui->mainTab->setCurrentIndex(TOOLBOX_MAIN_INDEX);
@@ -196,14 +170,7 @@ void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerSta
                     type= tr("FreeBSD update");
                     break;
             }//switch
-            /*if (updates[i].misStandalone)
-            {
-                type+=tr(",standalone");
-            }
-            if (updates[i].misRequiresReboot)
-            {
-                type+=tr(",reboot required");
-            }*/
+
 
             QTreeWidgetItem* item = new QTreeWidgetItem(QStringList()<<name<<type);
             item->setText(0, name);
@@ -225,8 +192,8 @@ void MainWindow::sysStateChanged(CAbstractUpdateController::EUpdateControllerSta
         }//for all updates
     }
 
-}
-
+}*/
+/*
 void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
 
@@ -296,7 +263,8 @@ void MainWindow::pkgStateChanged(CAbstractUpdateController::EUpdateControllerSta
 
     }// if updates evail.
 }
-
+*/
+/*
 void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
 
@@ -346,7 +314,7 @@ void MainWindow::pbiStateChanged(CAbstractUpdateController::EUpdateControllerSta
         ui->mainTab->setCurrentIndex(TOOLBOX_MAIN_INDEX);
     }
 }
-
+*/
 void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
     bool isUpdatesAvail= (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
@@ -355,15 +323,15 @@ void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateController
 
     ui->updateAllButton->setEnabled(isUpdatesAvail);
 }
-
+/*
 void MainWindow::pbiProgress(CAbstractUpdateController::SProgress progress)
 {
     for(int i=0; i<progress.mLogMessages.size(); i++)
     {
         ui->pbiUpdateLog->append(progress.mLogMessages[i]);
     }
-}
-
+}*/
+/*
 void MainWindow::pkgProgress(CAbstractUpdateController::SProgress progress)
 {
     for(int i=0; i<progress.mLogMessages.size(); i++)
@@ -377,7 +345,8 @@ void MainWindow::pkgConflict(QString conflictList)
     DialogConflict* dlg = new  DialogConflict(this);
     dlg->exec(conflictList, &mPkgController); //QDialog::Accepted | QDialog::Rejected
 }
-
+*/
+/*
 void MainWindow::on_updateSelectedPBIBtn_clicked()
 {
     QStringList ListToUpdate;
@@ -392,8 +361,8 @@ void MainWindow::on_updateSelectedPBIBtn_clicked()
     }
 
     mPBIController.updateSelected(ListToUpdate);
-}
-
+}*/
+/*
 void MainWindow::on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column)
 {
 
@@ -449,7 +418,7 @@ void MainWindow::on_sysUpdatesList_itemSelectionChanged()
         ui->sysUpdateDetailsStack->setCurrentIndex(2);
     }
 }
-
+*/
 void MainWindow::on_updateAllButton_clicked()
 {
     if (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)

@@ -23,7 +23,10 @@ SOURCES += main.cpp\
     syscontroller.cpp \
     pkgcontroller.cpp \
     pbicontroller.cpp \
-    dialogconflict.cpp
+    dialogconflict.cpp \
+    sysdetailswidget.cpp \
+    pkgdetailswidget.cpp \
+    pbidetailswidget.cpp
 
 HEADERS  += mainwindow.h \
     indicatorwidget.h \
@@ -32,11 +35,18 @@ HEADERS  += mainwindow.h \
     pkgcontroller.h \
     pbicontroller.h \
     dialogconflict.h \
-    utils.h
+    utils.h \
+    sysdetailswidget.h \
+    iconset.h \
+    pkgdetailswidget.h \
+    pbidetailswidget.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui \
-    dialogconflict.ui
+    dialogconflict.ui \
+    sysdetailswidget.ui \
+    pkgdetailswidget.ui \
+    pbidetailswidget.ui
 
 RESOURCES += \
     res.qrc
