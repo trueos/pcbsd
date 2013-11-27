@@ -71,7 +71,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -307,7 +307,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <widget class="PkgDetailsWidget" name="widget" native="true"/>
+         <widget class="PkgDetailsWidget" name="pkgDetailsW" native="true"/>
         </item>
        </layout>
       </widget>
@@ -319,7 +319,11 @@
        <attribute name="title">
         <string>Software update details</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_18"/>
+       <layout class="QVBoxLayout" name="verticalLayout_18">
+        <item>
+         <widget class="PBIDetailsWidget" name="pbiDetailsW" native="true"/>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -458,6 +462,12 @@
    <class>PkgDetailsWidget</class>
    <extends>QWidget</extends>
    <header location="global">pkgdetailswidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PBIDetailsWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">pbidetailswidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

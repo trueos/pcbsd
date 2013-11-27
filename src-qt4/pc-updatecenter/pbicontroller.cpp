@@ -70,6 +70,7 @@ void CPBIController::onReadUpdateLine(QString line)
 {
     SProgress progress;
     line= line.trimmed();
+    QString log_message= line;
     qDebug()<<line;
     progress.mLogMessages = QStringList()<<line;
     progress.mItemNo= mCurrentUpdate;
@@ -100,7 +101,7 @@ void CPBIController::onReadUpdateLine(QString line)
                                                                              pcbsd::Utils::bytesToHumanReadable(size),
                                                                              pcbsd::Utils::bytesToHumanReadable(downloaded),
                                                                              speed);
-        progress.mLogMessages=QStringList();
+        log_message.clear();
         reportProgress(progress);
         return;
     }
@@ -109,7 +110,7 @@ void CPBIController::onReadUpdateLine(QString line)
         if (line == FETCHDONE)
         {
             //indicates beginning of instalation
-            progress.mLogMessages=QStringList();
+            log_message.clear();
             misWasFETCHDONE= true;
         }
 
@@ -127,6 +128,8 @@ void CPBIController::onReadUpdateLine(QString line)
                                                                          QString::number(progress.mItemsCount),
                                                                          current_app);
         }
+        if (log_message.length())
+            reportLogLine(log_message);
         reportProgress(progress);
     }
 }

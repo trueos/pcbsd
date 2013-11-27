@@ -54,6 +54,9 @@ bool PkgDetailsWidget::init(QString check_img, QString ok_img, QString avail_img
 {
     if (!upd_controller)
         return false;
+
+    mUpdateController= upd_controller;
+
     ui->pkgDetailsIndicator->init(check_img, ok_img, avail_img, download_img, install_img, error_img, upd_controller);
 
     connect(mUpdateController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),

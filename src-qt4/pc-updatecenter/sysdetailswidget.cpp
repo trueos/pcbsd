@@ -54,6 +54,8 @@ bool SysDetailsWidget::init(QString check_img, QString ok_img, QString avail_img
         return false;
     ui->sysDetailsIndicator->init(check_img, ok_img, avail_img, download_img, install_img, error_img, upd_controller);
 
+    mUpdateController= upd_controller;
+
     connect(mUpdateController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(slotControllerStateChanged(CAbstractUpdateController::EUpdateControllerState)));
 

@@ -32,15 +32,10 @@ private:
 
 private slots:
 
-    //void pbiStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-
     void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
 
-    //void pbiProgress(CAbstractUpdateController::SProgress progress);
-
-
 private slots:
-    //void on_updateSelectedPBIBtn_clicked();
+
     void on_updateAllButton_clicked();
     void on_pushButton_clicked();
 };
