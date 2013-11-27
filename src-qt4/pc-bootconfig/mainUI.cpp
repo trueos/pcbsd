@@ -66,6 +66,18 @@ bool mainUI::checkName(QString newname){
   return ok;
 }
 
+bool mainUI::validateInput(QString name){
+  //Check for invalid name characters (only letters/numbers)
+  bool ok = true;
+  for(int i=0; i<name.length(); i++){
+    if( !name.at(i).isLetter() && !name.at(i).isDigit() ){ ok = false; break; }
+  }
+  if(!ok){
+    QMessageBox::warning(this,tr("Invalid Name"), tr("Boot Environment names may only be comprised of letters and numbers") );
+  }
+  return ok;  
+}
+
 void mainUI::runLongCMD(QString cmd, QString info){
 	
   if(info.isEmpty()){ info = tr("Performing Boot Environment Changes. Please Wait."); }
@@ -310,8 +322,12 @@ void mainUI::on_tool_BEadd_clicked(){
   if( ui->tree_BE->topLevelItemCount() == 1){updateGRUB=true;} //moving from 1 to 2
   //Get the new name from the user
   bool ok;
-  QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, "", &ok); 
+  QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, "", &ok,0, Qt::ImhLowercaseOnly | Qt::ImhUppercaseOnly | Qt::ImhDigitsOnly); 
   if(ok && !newname.isEmpty()){
+    if( !validateInput(newname) ){
+      on_tool_BEadd_clicked(); //try again
+      return;
+    }
     if( checkName(newname) ){
       if(updateGRUB && !G_showMenu){ 
 	G_showMenu=true; 
@@ -349,8 +365,12 @@ void mainUI::on_tool_BEcp_clicked(){
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
     //Get the new name from the user
     bool ok;
-    QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, name, &ok); 
+    QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a name for the new boot environment"), QLineEdit::Normal, name, &ok,0, Qt::ImhDigitsOnly | Qt::ImhUppercaseOnly | Qt::ImhLowercaseOnly); 
     if(ok && !newname.isEmpty()){
+      if( !validateInput(newname) ){
+        on_tool_BEcp_clicked(); //try again
+        return;
+      }
       if( checkName(newname) ){
 	if(updateGRUB && !G_showMenu){ 
 	  G_showMenu=true; 
@@ -374,8 +394,12 @@ void mainUI::on_tool_BEmv_clicked(){
     QString name = ui->tree_BE->topLevelItem(index)->text(0);
     //Get the new name from the user
     bool ok;
-    QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a new name for this boot environment"), QLineEdit::Normal, name, &ok); 
+    QString newname = QInputDialog::getText( this, tr("New BE name"), tr("Choose a new name for this boot environment"), QLineEdit::Normal, name, &ok,0, Qt::ImhLowercaseOnly | Qt::ImhUppercaseOnly | Qt::ImhDigitsOnly ); 
     if(ok && !newname.isEmpty()){
+      if( !validateInput(newname) ){
+        on_tool_BEmv_clicked(); //try again
+        return;
+      }
       if( checkName(newname) ){
         beadmRename(name,newname);
         updateBEList();

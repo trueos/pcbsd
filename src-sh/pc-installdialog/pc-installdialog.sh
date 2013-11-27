@@ -289,7 +289,8 @@ get_target_disk()
      fOpt="on"
      d=`echo $i | cut -d ':' -f 1`
      desc=`echo $i | cut -d ':' -f 2`
-     dOpts="$dOpts $d \"$desc\" $fOpt" 
+     size="`${PCSYS} disk-info $d | grep size | cut -d '=' -f 2`MB"
+     dOpts="$dOpts $d \"$desc ($size)\" $fOpt" 
      if [ -z "$fOpt" ] ; then fOpt="off"; fi
   done < /tmp/.dList.$$
   rm /tmp/.dList.$$
@@ -602,20 +603,17 @@ change_networking() {
   gen_pc-sysinstall_cfg
 }
 
-start_menu_loop()
+start_edit_menu_loop()
 {
 
   while :
   do
-    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 wizard "Run install wizard" disk "Change disk ($SYSDISK)" zfs "Change ZFS layout" network "Change networking" view "View install script" edit "Edit install script" install "Start the installation" quit "Quit install wizard" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zfs "Change ZFS layout" network "Change networking" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
 
     case $ANS in
-     wizard) start_full_wizard
-             rtn
-             ;;
        disk) change_disk_selection
              rtn
              ;;
@@ -628,6 +626,29 @@ start_menu_loop()
              ;;
        edit) vi ${CFGFILE}
              rtn
+             ;;
+       back) break ;;
+          *) ;;
+    esac
+  done
+
+}
+
+start_menu_loop()
+{
+
+  while :
+  do
+    dialog --title "PC-BSD Text Install" --menu "Please select from the following options:" 18 40 10 install "Start the installation" wizard "Re-run install wizard" edit "Edit install options" quit "Quit install wizard" 2>/tmp/answer
+    if [ $? -ne 0 ] ; then break ; fi
+
+    ANS="`cat /tmp/answer`"
+
+    case $ANS in
+     wizard) start_full_wizard
+             rtn
+             ;;
+       edit) start_edit_menu_loop
              ;;
     install) echo "This will begin the installation, continue?"
              echo -e "(y/n)\c"

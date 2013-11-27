@@ -124,7 +124,7 @@ Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</t
     </message>
     <message>
         <source>The meta-pkg manager returned an error. For more details please look at the log file:</source>
-        <translation type="unfinished">Meta-pkg pārvaldnieks atgrieza kļūdu. Lai iegūtu plašāku informāciju lūdzu aplūkojiet žurnālfailu:</translation>
+        <translation>Meta-pkg pārvaldnieks atgrieza kļūdu. Lai iegūtu plašāku informāciju lūdzu aplūkojiet žurnālfailu:</translation>
     </message>
     <message>
         <source>System packages updated successfully.</source>

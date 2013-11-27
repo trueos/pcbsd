@@ -30,49 +30,6 @@
 . ${BACKEND}/functions.sh
 . ${BACKEND}/functions-parse.sh
 
-# Recursively determine all dependencies for this package
-determine_package_dependencies()
-{
-  local PKGNAME="${1}"
-  local DEPFILE="${2}"
-
-  grep -q "${PKGNAME}" "${DEPFILE}"
-  if [ $? -ne 0 ]
-  then
-    echo "${PKGNAME}" >> "${DEPFILE}"
-    get_package_dependencies "${PKGNAME}" "1"
-
-    local DEPS="${VAL}"
-    for d in ${DEPS}
-    do
-      determine_package_dependencies "${d}" "${DEPFILE}"
-    done
-  fi
-};
-
-# Fetch packages dependencies from a file
-fetch_package_dependencies()
-{
-  local DEPFILE
-  local DEPS
-  local SAVEDIR
-
-  DEPFILE="${1}"
-  DEPS=`cat "${DEPFILE}"`
-  SAVEDIR="${2}"
-
-  for d in ${DEPS}
-  do
-    get_package_short_name "${d}"
-    SNAME="${VAL}"
-
-    get_package_category "${SNAME}"
-    CATEGORY="${VAL}"
-
-    fetch_package "${CATEGORY}" "${d}" "${SAVEDIR}"
-  done
-};
-
 # Check for any packages specified, and begin loading them
 install_packages()
 {
@@ -97,29 +54,12 @@ install_packages()
   get_package_location
   rc_halt "cd ${PKGDLDIR}"
 
-  # Set the location of the INDEXFILE
-  INDEXFILE="${TMPDIR}/INDEX"
-
-  if [ ! -f "${INDEXFILE}" ]; then
-    get_package_index
-  fi
-
-  if [ ! -f "${TMPDIR}/INDEX.parsed" -a "$INSTALLMEDIUM" = "ftp" ]; then
-    parse_package_index
-  fi
-
-  # What extension are we using for pkgs?
-  PKGEXT="txz"
-  get_value_from_cfg pkgExt
-  if [ -n "${VAL}" ]; then 
-     strip_white_space ${VAL}
-     PKGEXT="$VAL"
-  fi
-  export PKGEXT
-  
   # We dont want to be bothered with scripts asking questions
   PACKAGE_BUILDING=yes
   export PACKAGE_BUILDING
+
+  # Install PKGNG into the chroot
+  bootstrap_pkgng
 
   # Lets start by cleaning up the string and getting it ready to parse
   get_value_from_cfg_with_spaces installPackages
@@ -127,64 +67,35 @@ install_packages()
   echo_log "Packages to install: `echo $PACKAGES | wc -w | awk '{print $1}'`"
   for i in $PACKAGES
   do
-    if ! get_package_name "${i}"
-    then
-      echo_log "Unable to locate package ${i}"
-      continue
+    PKGNAME="${i}"
+
+    # When doing a pkg install, if on local media, use a pkg.conf from /dist/
+    if [ "${INSTALLMEDIUM}" != "ftp" ] ; then
+      PKGADD="pkg -C /mnt/pkg.conf install -y ${PKGNAME}"
+    else
+      # Doing a network install, use the default pkg.conf
+      PKGADD="pkg install -y ${PKGNAME}"
     fi
 
-    PKGNAME="${VAL}"
-
-    # Fetch package + deps, but skip if installing from local media
-    if [ "${INSTALLMEDIUM}" = "ftp" ] ; then
-      DEPFILE="${FSMNT}/${PKGTMPDIR}/.${PKGNAME}.deps"
-      rc_nohalt "touch ${DEPFILE}"
-      determine_package_dependencies "${PKGNAME}" "${DEPFILE}"
-      fetch_package_dependencies "${DEPFILE}" "${FSMNT}/${PKGTMPDIR}"
-    fi
-
-    # Set package location
-    case "${INSTALLMEDIUM}" in
-      usb|dvd|local) PKGPTH="${PKGTMPDIR}/All/${PKGNAME}" ;;
-                  *) PKGPTH="${PKGTMPDIR}/${PKGNAME}" ;;
-    esac
-
-    # See if we need to determine the package format we are working with
-    if [ -z "${PKGINFO}" ] ; then
-      tar tqf "${FSMNT}${PKGPTH}" '+MANIFEST' >/dev/null 2>/dev/null	
-      if [ $? -ne 0 ] ; then
-        PKGADD="pkg_add -C ${FSMNT}" 
-        PKGINFO="pkg_info" 
-      else
-        PKGADD="pkg -c ${FSMNT} add"
-        PKGINFO="pkg info"
-        bootstrap_pkgng
-      fi
-    fi
+    PKGINFO="pkg info"
 
     # If the package is not already installed, install it!
     if ! run_chroot_cmd "${PKGINFO} -e ${PKGNAME}" >/dev/null 2>/dev/null
     then
       echo_log "Installing package: ${PKGNAME}"
-      ${PKGADD} ${PKGPTH} | tee -a ${LOGOUT}
+      run_chroot_cmd "$PKGADD" | tee -a ${LOGOUT}
+      run_chroot_cmd "rm -rf /usr/local/tmp/All"
     fi
-
-    if [ "${INSTALLMEDIUM}" = "ftp" ] ; then
-      rc_nohalt "rm ${DEPFILE}"
-    fi
-
   done
 
   echo_log "Package installation complete!"
 
   # Cleanup after ourselves
   echo_log "Cleaning up: ${FSMNT}${PKGTMPDIR}"
-  sleep 10 
+  sleep 1
   rc_halt "cd ${HERE}"
-  if [ "${INSTALLMEDIUM}" = "ftp" ] ; then
-    rc_halt "rm -rf ${FSMNT}${PKGTMPDIR}" >/dev/null 2>/dev/null
-  else
-    rc_halt "umount ${FSMNT}${PKGTMPDIR}" >/dev/null 2>/dev/null
+  if [ "${INSTALLMEDIUM}" != "ftp" ] ; then
+    rc_halt "umount ${FSMNT}/mnt" >/dev/null 2>/dev/null
     rc_halt "rmdir ${FSMNT}${PKGTMPDIR}" >/dev/null 2>/dev/null
   fi
 };

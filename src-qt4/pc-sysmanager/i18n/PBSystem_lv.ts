@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>PC-BSD System Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD sistēmas konfigurācija</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -18,28 +17,23 @@
     </message>
     <message>
         <source>PC-BSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD versija:</translation>
     </message>
     <message>
         <source>Base Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Bāzes versija:</translation>
     </message>
     <message>
         <source>CPU Type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CPU tips:</translation>
     </message>
     <message>
         <source>System Memory:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas atmiņa:</translation>
     </message>
     <message>
         <source>Tasks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uzdevumi</translation>
     </message>
     <message>
         <source>Fetch &amp;System Source</source>
@@ -48,13 +42,11 @@
     </message>
     <message>
         <source>Alt+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dažādi</translation>
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
@@ -63,13 +55,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Saglabāt</translation>
     </message>
     <message>
         <source>Other Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Citas opcijas</translation>
     </message>
     <message>
         <source>Force IBUS keyboard input</source>
@@ -78,8 +68,7 @@
     </message>
     <message>
         <source>System Tasks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas uzdevumi</translation>
     </message>
     <message>
         <source>Fetch P&amp;orts Tree</source>
@@ -91,40 +80,35 @@
     <name>PortsnapProgress</name>
     <message>
         <source>Portsnap Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Portsnap progress</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Atcelt</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Task Progress...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uzdevuma progress...</translation>
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atjaunināšana neizdevās!</translation>
     </message>
     <message>
         <source>Unable to connect to server. Possible causes:
 - Your network is down
 - Target server is unresponsive.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Neizdevās pieslēgties serverim. Iespējamie iemesli:
+- Jūsu tīkls nestrādā
+- Mērķserveris ir nepieejams.</translation>
     </message>
     <message>
         <source>Fetching Ports, this may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ielādē Portus, tas var ilgt kādu brīdi...</translation>
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>
@@ -136,43 +120,35 @@
     <name>updaterStatus</name>
     <message>
         <source>Installing Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalē atjauninājumus</translation>
     </message>
     <message>
         <source>The system is currently installing the following updates:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēma tagad instalē sekojošos atjauninājumus:</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atjauninājums</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izmērs</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Statuss</translation>
     </message>
     <message>
         <source>ID</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ID</translation>
     </message>
     <message>
         <source>Update Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atjauninājuma progress</translation>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
-            </translation>
+        <translation> no </translation>
     </message>
 </context>
 </TS>

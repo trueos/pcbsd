@@ -48,7 +48,7 @@ download_cache_packages()
   if [ $? -ne 0 ] ; then
      exit_err "Failed getting packagesite:"
   fi
-  pkgUrl="`grep '^packagesite:' /usr/local/etc/pkg.conf | awk '{print $2}'`"
+  pkgUrl="`grep '^packagesite:' /usr/local/etc/pkg.conf | awk '{print $2}' | sed 's|pkg+||g'`"
 
   if [ ! -d "$PKG_CACHEDIR/All" ] ; then
      mkdir -p ${PKG_CACHEDIR}/All

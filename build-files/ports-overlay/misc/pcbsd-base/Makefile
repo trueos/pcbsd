@@ -73,7 +73,6 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		qt4-style-qtcurve>=0:${PORTSDIR}/x11-themes/qtcurve-qt4 \
 		webfonts>=0:${PORTSDIR}/x11-fonts/webfonts \
 		gtk-theme-switch>=0:${PORTSDIR}/x11/gtk-theme-switch2 \
-		xscreensaver-gnome>=0:${PORTSDIR}/x11/xscreensaver-gnome \
 		foo2zjs>=0:${PORTSDIR}/print/foo2zjs \
 		linux_dvbwrapper-kmod>=0:${PORTSDIR}/multimedia/linux_dvbwrapper-kmod \
 		xvkbd:${PORTSDIR}/x11/xvkbd \

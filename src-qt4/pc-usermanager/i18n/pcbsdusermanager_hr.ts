@@ -227,10 +227,6 @@
         <translation>Morate navesti zaporku</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Greška pri promijeni zaporke...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Zaporke se ne podudaraju. Oba polja moraju sadržavati iste vrijednosti.</translation>
     </message>

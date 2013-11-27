@@ -248,11 +248,6 @@
             </translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation type="unfinished">
             </translation>

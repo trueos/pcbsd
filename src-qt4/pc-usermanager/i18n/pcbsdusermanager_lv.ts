@@ -230,10 +230,6 @@
         <translation>Tev ir jānorāda parole</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Kļūda mainot paroli...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Paroles nav vienādas. Abiem laukiem jāsatur vienāda vērtība.</translation>
     </message>

@@ -226,10 +226,6 @@
         <translation>पासवर्ड का जरुर होना </translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>पासवर्ड बदलने में त्रुटी आना </translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>पासवर्ड का न मिलना. दोनों जगह एक ही बात आना </translation>
     </message>

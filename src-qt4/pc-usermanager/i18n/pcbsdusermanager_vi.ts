@@ -225,10 +225,6 @@
         <translation>Bạn phải chỉ định một mật khẩu</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Lỗi khi thay đổi mật khẩu...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Mật khẩu không phù hợp. Cả hai hộp nhất có giá trị như nhau.</translation>
     </message>

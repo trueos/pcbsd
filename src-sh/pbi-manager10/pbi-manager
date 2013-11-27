@@ -1819,7 +1819,7 @@ set_make_options() {
 
 	if [ "$PBI_PKGNGBUILD" ] ; then
 		echo "Installing pkgng..."
-		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}'`
+		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}' | sed 's|pkg+||g'`
 		cd /tmp
 		fetch -o pkg.txz ${pkgFetchURL}/Latest/pkg.txz
 		if [ $? -ne 0 ] ; then exit_err "Failed fetching pkgng..."; fi
@@ -3726,6 +3726,10 @@ do_pbi_create() {
 	mk_extlink_entries
 	clean_icons_dir
 	mk_xdg_scripts
+
+	# Check for any users / groups we need to save for install time
+	mk_pbi_users_file
+	mk_pbi_groups_file
 
 	run_pbi_prepkgscript
 
@@ -6040,34 +6044,47 @@ ab_get_build_list()
 		export PBI_MAKEPORT
 	fi	
 
-	if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then 
-		#echo "Skipping invalid port ${PORTSDIR}/${PBI_MAKEPORT}"
-		continue
-	fi
-
   	# Remove any trailing '/'
   	echo $PBI_MAKEPORT | grep -q "/$"
   	if [ $? -eq 0 ] ; then
      		PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
   	fi
 	
-	# Check if this port can be built on this architecture
-	check_port_compat_arch "${PORTSDIR}/${PBI_MAKEPORT}"
-	if [ "$?" = "1" ] ; then
-           if [ "$PBI_ABFB32" != "YES" ] ; then
-		echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
-		continue
-           fi
-           if [ "$have32" != "true" ] ; then
-		echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
-		continue
-           fi
-	fi
-	
 	# Check for missing port target
 	if [ -z "$PBI_MAKEPORT" ] ; then
 		#echo "Warning: Missing PBI_MAKEPORT for ${pbi}"
 		continue
+	fi
+
+ 	if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
+		# Doing a package build for this PBI
+		pkg rquery "%v" ${PBI_MAKEPORT} >/dev/null 2>/dev/null
+		if [ $? -ne 0 ] ; then
+			echo "No package found for: ${PBI_MAKEPORT}"
+			continue
+		fi
+
+	else
+
+		# Doing a port build for this PBI
+		if [ ! -d "${PORTSDIR}/${PBI_MAKEPORT}" ] ; then 
+			#echo "Skipping invalid port ${PORTSDIR}/${PBI_MAKEPORT}"
+			continue
+		fi
+
+		# Check if this port can be built on this architecture
+		check_port_compat_arch "${PORTSDIR}/${PBI_MAKEPORT}"
+		if [ "$?" = "1" ] ; then
+			if [ "$PBI_ABFB32" != "YES" ] ; then
+				echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
+				continue
+			fi
+			if [ "$have32" != "true" ] ; then
+				echo "${PBI_MAKEPORT} - Skipping for invalid system arch"
+				continue
+			fi
+		fi
+
 	fi
 
 	# Check if another builder is already doing this port
@@ -6931,10 +6948,6 @@ do_pbi_make() {
   	# See if we need to run a post make script
   	run_pbi_postportmake
 
-	# Check for any users / groups we need to save for install time
-	mk_pbi_users_file
-	mk_pbi_groups_file
-
 	# Auto-generate a external_links directive from plist info
 	mk_auto_ext_linksfile
 
@@ -6964,7 +6977,7 @@ load_pkg_metadata()
   	fi
 
 	if [ -z "$PBI_LICENSE" ] ; then
-		PBI_LICENSE="`pkg query '%L' ${PBI_MAKEPORT}`"
+		PBI_LICENSE="`pkg query '%L' ${PBI_MAKEPORT} | head -n 1`"
 	fi
 	if [ -z "$PBI_SHORTDESC" ] ; then
 		PBI_SHORTDESC="`pkg query '%c' ${PBI_MAKEPORT}`"
@@ -6999,10 +7012,10 @@ mk_pbi_groups_file()
 			echo "Warning: No entry for \"$group\" in GIDs file..."
 			continue
 		fi
-		grep -q "^$group:" ${PBI_PROGDIRPATH}/${PBI_INS_GROUPSFILE} 2>/dev/null
+		grep -q "^$group:" ${PBI_STAGEDIRMNT}/${PBI_INS_GROUPSFILE}
 		if [ $? -ne 0 ] ; then
 			echo "Saving gid details for group: $group"
-			echo "$gidLine" >> ${PBI_PROGDIRPATH}/${PBI_INS_GROUPSFILE}
+			echo "$gidLine" >> ${PBI_STAGEDIRMNT}/${PBI_INS_GROUPSFILE}
 		fi
 	done
 }
@@ -7020,10 +7033,10 @@ mk_pbi_users_file()
 			echo "Warning: No entry for \"$user\" in UIDs file..."
 			continue
 		fi
-		grep -q "^$user:" ${PBI_PROGDIRPATH}/${PBI_INS_USERSFILE} 2>/dev/null
+		grep -q "^$user:" ${PBI_STAGEDIRMNT}/${PBI_INS_USERSFILE}
 		if [ $? -ne 0 ] ; then
 			echo "Saving uid details for user: $user"
-			echo "$uidLine" >> ${PBI_PROGDIRPATH}/${PBI_INS_USERSFILE}
+			echo "$uidLine" >> ${PBI_STAGEDIRMNT}/${PBI_INS_USERSFILE}
 		fi
 	done
 }

@@ -226,10 +226,6 @@
         <translation>Você deve especificar uma senha</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Erro ao mudar a senha...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>As senhas não conferem. Ambas as caixas devem conter o mesmo valor.</translation>
     </message>

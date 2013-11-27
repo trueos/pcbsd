@@ -142,7 +142,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Auto-close in </source>
-        <translation>Automātiska aizvēršanās pēc </translation>
+        <translation>Automātiska aizvēršanās pēc </translation>
     </message>
     <message>
         <source> seconds...</source>

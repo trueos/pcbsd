@@ -38,6 +38,7 @@ private:
 	//Random usage functions
 	int getSelectedBE(); //get the currently selected Boot Environment index
 	bool checkName(QString); //make sure the selected name is valid
+	bool validateInput(QString); //Make sure the input text is number/letter
 	void runLongCMD(QString cmd , QString info = ""); 
 
 	//Boot Environment Management Functions

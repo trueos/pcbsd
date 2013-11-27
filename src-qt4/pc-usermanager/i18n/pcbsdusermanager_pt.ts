@@ -233,10 +233,6 @@
         <translation>Deverá especificar uma palavra passe</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Erro ao alterar a palavra passe...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>As palavras passe não coincidem. Ambas as caixas de texto devem conter o mesmo valor.</translation>
     </message>

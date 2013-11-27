@@ -227,10 +227,6 @@
         <translation>Heu d&apos;especificar una contrasenya</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>S&apos;ha produït un error en canviar la contrasenya...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Les contrasenyes no coincideixen. Ambdós recuadres han de contindre el mateix valor.</translation>
     </message>
