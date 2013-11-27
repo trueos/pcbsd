@@ -152,6 +152,15 @@ void CAbstractUpdateController::cancel()
 
 void CAbstractUpdateController::slotProcessRead()
 {
+    qint64 size= mUpdProc.bytesAvailable();
+    for(qint64 i=0; i<size; i++)
+    {
+        char ch;
+        mUpdProc.getChar(&ch);
+        mUpdProc.putChar(ch);
+        onReadProcessChar(ch);
+    }
+
     while (mUpdProc.canReadLine())
     {
 #ifdef CONTROLLER_EMULATION_ENABLED

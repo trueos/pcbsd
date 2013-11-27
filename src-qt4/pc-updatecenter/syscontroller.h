@@ -13,8 +13,6 @@ class CSysController : public CAbstractUpdateController
 {
     Q_OBJECT
 
-    //USES_CHECK_SHELL_COMMAND("pc-updatemanager", QString("check"))
-    USES_UPDATE_SHELL_COMMAND("pc-updatemanager", QString("check"))
 
 public:
     CSysController();
@@ -49,12 +47,16 @@ public:
     QStringList filesToDelete()      {return mFilesToRemove;}
     QStringList fileslocalyModifyed(){return mFilesLocallyModifyed;}
 
+    void updateSelected(QVector<SSystemUpdate> selectedUpdates);
+
 protected:
     virtual void onCheckUpdates();
     virtual void checkShellCommand(QString& cmd, QStringList& args);
+    virtual void updateShellCommand(QString& cmd, QStringList& args);
 
     void onReadCheckLine(QString line);
     void onReadUpdateLine(QString line);
+    virtual void onReadProcessChar(char character);
 
     virtual void onCheckProcessfinished(int exitCode);
     virtual void onCancel();
@@ -66,8 +68,16 @@ private:
     QStringList mFilesToRemove;
     QStringList mFilesToUpdate;
 
+    QVector<SSystemUpdate> mvUpdatesToApply;
+    int                    mCurrentUpdate;
+
     void parseCheckPCBSDLine(QString line);
     void parseCheckFREEBSDLine(QString line);
+
+    void parsePatchUpdateLine(QString line);
+    void parseUpgradeLine(QString line);
+    void parseFreeBSDUpdateLine(QString line);
+
 
 
 };

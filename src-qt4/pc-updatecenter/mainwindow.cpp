@@ -125,7 +125,7 @@ void MainWindow::init()
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(pbiStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
-            this, SLOT(globelStateChanged(CAbstractUpdateController::EUpdateControllerState)));
+            this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
     connect(&mPBIController, SIGNAL(progress(CAbstractUpdateController::SProgress)),
             this, SLOT(pbiProgress(CAbstractUpdateController::SProgress)));
 

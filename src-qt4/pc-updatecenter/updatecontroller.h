@@ -90,6 +90,7 @@ protected:
 
     virtual void onReadCheckLine(QString line)=0;
     virtual void onReadUpdateLine(QString line)=0;
+    virtual void onReadProcessChar(char character){Q_UNUSED(character);}
 
 
 private:

@@ -61,6 +61,7 @@ protected:
     virtual void onReadUpdateLine(QString line);
     virtual void onUpdateProcessfinished(int exitCode);
     virtual void onCancel();
+    virtual void onCheckProcessfinished(int exitCode);
 
 signals:
     void packageConflict(QString conflictList);

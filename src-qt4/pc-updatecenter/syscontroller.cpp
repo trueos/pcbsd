@@ -38,6 +38,12 @@ CSysController::CSysController()
 
 }
 
+void CSysController::updateSelected(QVector<CSysController::SSystemUpdate> selectedUpdates)
+{
+    mvUpdatesToApply= selectedUpdates;
+    mCurrentUpdate= 0;
+}
+
 void CSysController::onCheckUpdates()
 {
     misFREEBSDCheck= false;
@@ -61,6 +67,25 @@ void CSysController::checkShellCommand(QString &cmd, QStringList &args)
     }
 }
 
+void CSysController::updateShellCommand(QString &cmd, QStringList &args)
+{
+    if (mCurrentUpdate>=mvUpdatesToApply.size())
+        return;
+
+    ESysUpdate currUpdateType= mvUpdatesToApply[mCurrentUpdate].mType;
+    if ((currUpdateType == ePATCH) || (currUpdateType == eSYSUPDATE))
+    {
+        cmd= PC_UPDATE_COMMAND;
+        args= QStringList()<<"install"<<mvUpdatesToApply[mCurrentUpdate].mTag;
+    }
+    else
+    {
+        cmd="freebsd-update";
+        args= QStringList()<<"install";
+    }
+
+}
+
 void CSysController::onReadCheckLine(QString line)
 {    
     if (misFREEBSDCheck)
@@ -73,6 +98,26 @@ void CSysController::onReadCheckLine(QString line)
 void CSysController::onReadUpdateLine(QString line)
 {
     line= line.trimmed();
+    if (mCurrentUpdate>=mvUpdatesToApply.size())
+        return;
+    ESysUpdate currUpdateType= mvUpdatesToApply[mCurrentUpdate].mType;
+    switch(currUpdateType)
+    {
+        case ePATCH:
+            parsePatchUpdateLine(line);
+            break;
+        case eSYSUPDATE:
+            parseUpgradeLine(line);
+            break;
+        case eFBSDUPDATE:
+            parseFreeBSDUpdateLine(line);
+            break;
+    }
+}
+
+void CSysController::onReadProcessChar(char character)
+{
+    qDebug()<<character;
 }
 
 void CSysController::onCheckProcessfinished(int exitCode)
@@ -248,5 +293,21 @@ void CSysController::parseCheckFREEBSDLine(QString line)
     {
         mFilesToUpdate<<line;
     }
+
+}
+
+void CSysController::parsePatchUpdateLine(QString line)
+{
+    SProgress progress;
+
+}
+
+void CSysController::parseUpgradeLine(QString line)
+{
+
+}
+
+void CSysController::parseFreeBSDUpdateLine(QString line)
+{
 
 }
