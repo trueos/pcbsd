@@ -38,7 +38,7 @@ void UserManagerBackend::programInit() {
     fullnameRegExp.setPattern("([:!@])+");
     homeLocRegExp.setPattern("^(/usr)?/home/?");
     usernameRegExp.setPattern("([a-z]*[A-Z]*[0-9]*[_]*)+");
-    passwordRegExp.setPattern("([a-z]*[A-Z]*[0-9]*[!\"$%^&*()_+=#'`@~:?<>|{}\\-.]*)+");
+    passwordRegExp.setPattern("([a-z]*[A-Z]*[0-9]*[!\"$%^&*()_+=#'`@~:?<>|{}\\-.,]*)+");
     groupnameRegExp.setPattern("([a-z]*[A-Z]*[0-9]*[_]*)+");
 }
 
