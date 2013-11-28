@@ -105,6 +105,7 @@ void PBIDetailsWidget::slotControllerStateChanged(CAbstractUpdateController::EUp
     if (new_state == CAbstractUpdateController::eUPDATING)
     {
         ui->pbiUpdateStack->setCurrentIndex(1);
+        ui->pbiUpdateLog->clear();
     }
 }
 

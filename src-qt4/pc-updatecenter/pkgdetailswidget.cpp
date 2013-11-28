@@ -132,6 +132,7 @@ void PkgDetailsWidget::slotControllerStateChanged(CAbstractUpdateController::EUp
     if (new_state == CAbstractUpdateController::eUPDATING)
     {
         ui->pkgDetailsStack->setCurrentIndex(PKG_UPDATING_STACK_IDX);
+        ui->pkgUpdateLog->clear();
     }
 }
 

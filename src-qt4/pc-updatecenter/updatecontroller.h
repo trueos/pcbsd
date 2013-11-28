@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <QProcess>
+#include <QStringList>
 
 //#define CONTROLLER_EMULATION_ENABLED
 
@@ -61,8 +62,11 @@ public:
     EUpdateControllerState currentState();
     SProgress              currentProgress();
     QString                updateMessage();
+    QStringList            updateLog();
+    bool                   hasLog();
 
     void parseProcessLine(EUpdateControllerState state, QString line);
+
 
 protected:
     virtual void setCurrentState(EUpdateControllerState new_state);

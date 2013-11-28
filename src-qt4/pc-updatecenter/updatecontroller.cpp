@@ -29,6 +29,16 @@ QString CAbstractUpdateController::updateMessage()
     return mUpdateMasage;
 }
 
+QStringList CAbstractUpdateController::updateLog()
+{
+    return mLogMessages;
+}
+
+bool CAbstractUpdateController::hasLog()
+{
+    return (mLogMessages.size()!=0);
+}
+
 void CAbstractUpdateController::parseProcessLine(CAbstractUpdateController::EUpdateControllerState state, QString line)
 {
     switch (state)
@@ -49,14 +59,17 @@ void CAbstractUpdateController::parseProcessLine(CAbstractUpdateController::EUpd
 
 void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpdateControllerState new_state)
 {
-    mCurrentState= new_state;
+
 
     //Set default start values for update progress
-    if(new_state == eUPDATING)
+    if((new_state == eUPDATING) && (mCurrentState!=eUPDATING))
     {
         mUpdateMasage = tr("Starting update...");
         mCurrentProgress = SProgress();
+        mLogMessages.clear();
     }
+
+    mCurrentState= new_state;
 
     emit stateChanged(mCurrentState);
 }
@@ -107,7 +120,8 @@ void CAbstractUpdateController::launchUpdate()
         return;
     }
 
-    setCurrentState(eUPDATING);
+    if (currentState() != eUPDATING)
+        setCurrentState(eUPDATING);
 }
 
 void CAbstractUpdateController::launchCheck()

@@ -120,10 +120,10 @@ void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateController
     ui->updateAllButton->setEnabled(isUpdatesAvail);
 
     bool isFullyUpdate= (mSysController.currentState() == CAbstractUpdateController::eFULLY_UPDATED)
-            ||(mPkgController.currentState() == CAbstractUpdateController::eFULLY_UPDATED)
-            ||(mPBIController.currentState() == CAbstractUpdateController::eFULLY_UPDATED);
+            &&(mPkgController.currentState() == CAbstractUpdateController::eFULLY_UPDATED)
+            &&(mPBIController.currentState() == CAbstractUpdateController::eFULLY_UPDATED);
 
-    ui->mainStatesStack->setCurrentIndex((isFullyUpdate)?MAIN_INDICATORS_IDX:MAIN_FULLY_UPDATED_IDX);
+    ui->mainStatesStack->setCurrentIndex((isFullyUpdate)?MAIN_FULLY_UPDATED_IDX:MAIN_INDICATORS_IDX);
 
     switch(mSysController.currentState())
     {
@@ -185,4 +185,12 @@ void MainWindow::on_updateAllButton_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates installation</b><br><2.Warden support<br>2.Some error handling<br>3.Last update log view<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
+}
+
+
+void MainWindow::on_checkAllButton_clicked()
+{
+    mSysController.check();
+    mPkgController.check();
+    mPBIController.check();
 }
