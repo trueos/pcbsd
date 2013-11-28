@@ -1669,9 +1669,13 @@ get_pbi_progversion() {
 
 	# Check first if we have this pkg in PKGNG
 	if [ -e "/usr/local/sbin/pkg-static" -a -n "${PBI_MAKEPORT}" ] ; then
-		local testPkgVer="`pkg rquery %v ${PBI_MAKEPORT}`"
+		testPkgVer="`pkg rquery '%v' ${PBI_MAKEPORT}`"
 		if [ -n "$testPkgVer" ] ; then
-			export PBI_PROGVERSION="$testPkgVer"
+			PBI_PROGVERSION="$testPkgVer"
+			# If we have a REVISION, use it as well
+			if [ -n "$PBI_PROGREVISION" ] ; then
+				PBI_PROGVERSION="${PBI_PROGVERSION}_${PBI_PROGREVISION}"
+			fi
 			return 0
 		fi
 	fi
