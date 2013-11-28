@@ -70,6 +70,8 @@ bool PBIDetailsWidget::init(QString check_img, QString ok_img, QString avail_img
     ui->pbiUpdateLog->setPalette(palette);
 
     ui->pbiUpdateList->header()->resizeSection(0, 260);
+
+    return true;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
