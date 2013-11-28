@@ -249,8 +249,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я оточення завантаження має містити лише букви та цифри</translation>
     </message>
 </context>
 </TS>
