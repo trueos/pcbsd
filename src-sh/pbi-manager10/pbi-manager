@@ -6090,6 +6090,7 @@ ab_get_build_list()
 			echo "No package found for: ${PBI_MAKEPORT}"
 			continue
 		fi
+		PBI_PKGNGBUILD="YES" ; export PBI_PKGNGBUILD
 
 	else
 
@@ -6111,6 +6112,7 @@ ab_get_build_list()
 				continue
 			fi
 		fi
+		unset PBI_PKGNGBUILD
 
 	fi
 
