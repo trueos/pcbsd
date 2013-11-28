@@ -6058,6 +6058,8 @@ ab_get_build_list()
    do
 	# Figure out the target port for this build
 	unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD
+	PBI_AB_NOPKGBUILD=""
+
 	. ${pbi}
 
 	_cd=$(dirname $pbi | sed 's|./||')
@@ -6129,7 +6131,13 @@ ab_get_build_list()
  	if [ "$?" = "0" ] ; then	
 	   AB_FOUND="1"
 
- 	           # Unset the priority if set to 00 / 0
+ 	   if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
+	      echo "Doing package build for $PBI_MAKEPORT"
+	   else
+	      echo "Doing source build for $PBI_MAKEPORT"
+	   fi
+
+ 	   # Unset the priority if set to 00 / 0
            if [ "${PBI_AB_PRIORITY}" = "00" -o "${PBI_AB_PRIORITY}" = "0" ] ; then 
 	   	unset PBI_AB_PRIORITY
            fi
