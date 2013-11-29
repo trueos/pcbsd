@@ -1668,7 +1668,7 @@ get_pbi_progversion() {
   	fi
 
 	# Check first if we have this pkg in PKGNG
-	if [ -n "$PBI_PKGNGBUILD" ] ; then
+	if [ -n "$PBI_PKGNGBUILD" -a -z "$PBI_AB_NOPKGBUILD" ] ; then
 		testPkgVer="`pkg-static rquery '%v' ${PBI_MAKEPORT}`"
 		if [ -n "$testPkgVer" ] ; then
 			PBI_PROGVERSION="$testPkgVer"
@@ -1679,7 +1679,7 @@ get_pbi_progversion() {
 			export PBI_PROGVERSION
 			return 0
 		fi
-		exit_err "Failed to get PBI_PROGVERSION"
+		exit_err "Failed to get PBI_PROGVERSION for ${PBI_MAKEPORT}"
 	fi
 
 	# Get the version from ports
@@ -1823,17 +1823,7 @@ set_make_options() {
 	# Make sure ldconfig is primed
 	/etc/rc.d/ldconfig start
 
-	if [ "$PBI_PKGNGBUILD" ] ; then
-		echo "Installing pkgng..."
-		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}' | sed 's|pkg+||g'`
-		cd /tmp
-		fetch -o pkg.txz ${pkgFetchURL}/Latest/pkg.txz
-		if [ $? -ne 0 ] ; then exit_err "Failed fetching pkgng..."; fi
-		tar xvf pkg.txz >/dev/null 2>/dev/null
-		./usr/local/sbin/pkg-static add pkg.txz
-		if [ $? -ne 0 ] ; then exit_err "Failed installing pkgng..."; fi
-		rm pkg.txz
-	else
+	if [ -z "$PBI_PKGNGBUILD" ] ; then
 		echo "Building pkgng..."
 		cd /usr/ports/ports-mgmt/pkg
 		make install clean
@@ -5953,7 +5943,7 @@ check_zfs_ab_destroy()
 		  umount -f ${PBI_CHROOTDIR}/dev >/dev/null 2>/dev/null
 		  sync
 		  sleep 3
-             	  zfs destroy -r ${zDir}
+             	  zfs destroy -r "${zDir}"
        	 	  rmdir "${zDir}" >/dev/null 2>/dev/null
 		fi
   	fi
@@ -6018,7 +6008,7 @@ do_pbi_autob() {
 		if [ $done -eq 1 ] ; then continue ; fi
 
 		# Builder idle, lets figure out the next build
-  		echo "==> Finding target for build process [$build]"
+  		#echo "==> Finding target for build process [$build]"
 		start_next_ab_target "$build"
 		if [ $? -eq 0 ] ; then 
 			# Nothing left to build, lets wait for any existing build to finish before exiting
@@ -6058,7 +6048,6 @@ ab_get_build_list()
    do
 	# Figure out the target port for this build
 	unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD
-	PBI_AB_NOPKGBUILD=""
 
 	. ${pbi}
 
@@ -6133,12 +6122,6 @@ ab_get_build_list()
  	if [ "$?" = "0" ] ; then	
 	   AB_FOUND="1"
 
- 	   if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
-	      echo "Doing package build for $PBI_MAKEPORT"
-	   else
-	      echo "Doing source build for $PBI_MAKEPORT"
-	   fi
-
  	   # Unset the priority if set to 00 / 0
            if [ "${PBI_AB_PRIORITY}" = "00" -o "${PBI_AB_PRIORITY}" = "0" ] ; then 
 	   	unset PBI_AB_PRIORITY
@@ -6198,14 +6181,11 @@ start_next_ab_target()
 
   # We have something to build lets do it!
   pbi="$CUR_WORKING_PBI"
-  unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION
+  unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD
   . ${pbi}
 
   _cd=$(dirname $pbi | sed 's|./||')
   PBI_CONFDIR="$_cd"
-
-  # Get the prog version
-  get_pbi_progversion
 
   if [ -z "${PBI_MAKEPORT}" ] ; then
      PBI_MAKEPORT=$(dirname $pbi | sed 's|./||')
@@ -6217,7 +6197,16 @@ start_next_ab_target()
     PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
   fi
 
-  echo "==> Starting build process [$curBuilder]: $PBI_MAKEPORT"
+  # Get the prog version
+  get_pbi_progversion
+
+  if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
+     ttag="package"
+  else
+     ttag="source"
+  fi
+
+  echo "==> Starting $ttag build [$curBuilder]: $PBI_MAKEPORT"
   echo "$PBI_MAKEPORT" >${PBI_TMPDIR}/${curBuilder}.bPort
 
   # Remove this from the queue
@@ -6354,6 +6343,9 @@ ab_post_build()
 	sleep 1
 
 	if [ -e "${PBI_TMPDIR}/${build}.result" -a "`cat ${PBI_TMPDIR}/${build}.result`" = "0" ] ; then
+
+		echo "===> Build of ${_mp} was successfull! [$build]"
+
 		echo "$_pv" > "${_od}/pbi-version"
 		echo "OK" > "${_od}/pbi-result"
 
@@ -6382,6 +6374,7 @@ ab_post_build()
 		bzip2 "${_od}/build.log"
 
 	else
+		echo "===> Build of ${_mp} failed! [$build]"
 		echo "Failed" > "${_od}/pbi-result"
 		if [ -n "${PBI_AB_HELPS}" ] ; then
 			${PBI_AB_HELPS} "FAILED" "${_od}"
@@ -7135,7 +7128,7 @@ chroot_make_cleanup() {
 	     sleep 1
 	     # If we are running as a result of pbi_autobuild, let it do the ZFS cleanup
 	     if [ -z "${PBI_AB_TMPDIR}" ] ; then
-             	zfs destroy -r ${tank}${PBI_CHROOTDIR}
+             	zfs destroy -r "${tank}${PBI_CHROOTDIR}"
   	     	rmdir "${PBI_CHROOTDIR}" >/dev/null 2>/dev/null
 	     fi
 	     return
@@ -7209,6 +7202,12 @@ chroot_extract() {
 			fi
 	     		cp $pubKey ${PBI_CHROOTDIR}/$pubKey
 	   	fi
+
+		# Install pkgng into the chroot
+		pkg-static -c ${PBI_CHROOTDIR} install -y ports-mgmt/pkg
+		if [ $? -ne 0 ] ; then
+			exit_err "Failed installing pkgng into chroot"
+		fi
 
 	fi
 
