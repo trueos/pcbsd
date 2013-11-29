@@ -1668,7 +1668,7 @@ get_pbi_progversion() {
   	fi
 
 	# Check first if we have this pkg in PKGNG
-	if [ -n "$PBI_PKGNGBUILD" ] ; then
+	if [ -n "$PBI_PKGNGBUILD" -a -z "$PBI_AB_NOPKGBUILD" ] ; then
 		testPkgVer="`pkg-static rquery '%v' ${PBI_MAKEPORT}`"
 		if [ -n "$testPkgVer" ] ; then
 			PBI_PROGVERSION="$testPkgVer"
