@@ -46,6 +46,7 @@ public:
 
 private slots:
     void slotControllerStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+    void slotControllerLogLine(QString line);
     
     void on_sysUpdatesList_itemSelectionChanged();
 
