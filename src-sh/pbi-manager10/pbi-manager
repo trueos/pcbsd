@@ -1823,17 +1823,7 @@ set_make_options() {
 	# Make sure ldconfig is primed
 	/etc/rc.d/ldconfig start
 
-	if [ "$PBI_PKGNGBUILD" ] ; then
-		echo "Installing pkgng..."
-		pkgFetchURL=`grep "^packagesite:" /usr/local/etc/pkg.conf | awk '{print $2}' | sed 's|pkg+||g'`
-		cd /tmp
-		fetch -o pkg.txz ${pkgFetchURL}/Latest/pkg.txz
-		if [ $? -ne 0 ] ; then exit_err "Failed fetching pkgng..."; fi
-		tar xvf pkg.txz >/dev/null 2>/dev/null
-		./usr/local/sbin/pkg-static add pkg.txz
-		if [ $? -ne 0 ] ; then exit_err "Failed installing pkgng..."; fi
-		rm pkg.txz
-	else
+	if [ -z "$PBI_PKGNGBUILD" ] ; then
 		echo "Building pkgng..."
 		cd /usr/ports/ports-mgmt/pkg
 		make install clean
@@ -7209,6 +7199,12 @@ chroot_extract() {
 			fi
 	     		cp $pubKey ${PBI_CHROOTDIR}/$pubKey
 	   	fi
+
+		# Install pkgng into the chroot
+		pkg-static -c ${PBI_CHROOTDIR} install -y ports-mgmt/pkg
+		if [ $? -ne 0 ] ; then
+			exit_err "Failed installing pkgng into chroot"
+		fi
 
 	fi
 
