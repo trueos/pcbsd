@@ -6008,7 +6008,7 @@ do_pbi_autob() {
 		if [ $done -eq 1 ] ; then continue ; fi
 
 		# Builder idle, lets figure out the next build
-  		echo "==> Finding target for build process [$build]"
+  		#echo "==> Finding target for build process [$build]"
 		start_next_ab_target "$build"
 		if [ $? -eq 0 ] ; then 
 			# Nothing left to build, lets wait for any existing build to finish before exiting
