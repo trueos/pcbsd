@@ -1,5 +1,6 @@
 #include "syscontroller.h"
 #include "utils.h"
+#include "pcbsd-utils.h"
 #include <QDebug>
 
 _STRING_CONSTANT PC_UPDATE_COMMAND = "pc-updatemanager";
@@ -307,6 +308,69 @@ void CSysController::parseCheckFREEBSDLine(QString line)
 void CSysController::parsePatchUpdateLine(QString line)
 {
     SProgress progress;
+    static int total_steps = 0;
+    QString dl_speed;
+    long dl_size, dl_complete;
+
+    line= line.trimmed();
+
+    if (line.indexOf(SYS_PATCH_DOWNLOADING_WORD) == 0)
+    {
+        reportLogLine(QString("---------------------"));
+        reportLogLine(QString("Installing update ") + mvUpdatesToApply[mCurrentUpdate].mName);
+        reportLogLine(line.replace(SYS_PATCH_DOWNLOADING_WORD, "Downloading"));
+        progress.mMessage= tr("Preparing to download ") + mvUpdatesToApply[mCurrentUpdate].mName;
+        reportProgress(progress);
+        return;
+    }
+    else
+    if (line.indexOf(SYS_PATCH_FETCH) == 0)
+    {
+        return;
+    }
+    else
+    if (parseFetchOutput(line, dl_size, dl_complete, dl_speed))
+    {
+        progress.mMessage=tr("Downloading update (%1/%2 at %3)").arg(pcbsd::Utils::bytesToHumanReadable(dl_size),
+                                                                   pcbsd::Utils::bytesToHumanReadable(dl_complete),
+                                                                   dl_speed);
+        progress.mProgressMax= dl_size;
+        progress.mProgressCurr= dl_complete;
+        progress.mSubstate= eDownload;
+        reportProgress(progress);
+        return;
+    }
+    else
+    if (line.indexOf(SYS_PATCH_TOTAL_STEPS) == 0)
+    {
+        line.replace(SYS_PATCH_TOTAL_STEPS, "");
+        total_steps= line.toInt();
+        return;
+    }
+    else
+    if (line.indexOf(SYS_PATCH_SETSTEPS) == 0)
+    {
+        line.replace(SYS_PATCH_SETSTEPS, "");
+        progress.mMessage= tr("Installing update ") + mvUpdatesToApply[mCurrentUpdate].mName;
+        progress.mProgressMax= total_steps;
+        progress.mProgressCurr= line.toInt();
+        progress.mSubstate= eInstall;
+        reportProgress(progress);
+        return;
+    }
+    else
+    if (line.indexOf(SYS_PATCH_MSG) == 0)
+    {
+        line.replace(SYS_PATCH_MSG, "");
+        reportLogLine(line);
+        return;
+    }
+    else
+    if (line.indexOf(SYS_PATCH_FINISHED) == 0)
+    {
+        reportLogLine(QString("Finished install: ") + mvUpdatesToApply[mCurrentUpdate].mName);
+        return;
+    }
 
 }
 

@@ -266,8 +266,8 @@ void CPkgController::onReadUpdateLine(QString line)
         progress.mProgressMax= dl_list[1].toInt();
         progress.mProgressCurr= dl_list[3].toInt();
         QString speed= dl_list[5] + QString(" ") + dl_list[6];
-        long size= dl_list[3].toInt() * 1024;
-        long downloaded= dl_list[1].toInt() * 1024;
+        long size= dl_list[1].toInt() * 1024;
+        long downloaded= dl_list[3].toInt() * 1024;
 
         progress.mMessage= tr("[%1/%2] Downloading %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
                                                                                   QString::number(progress.mItemsCount),
