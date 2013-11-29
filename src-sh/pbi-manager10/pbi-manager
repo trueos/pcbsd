@@ -6048,7 +6048,6 @@ ab_get_build_list()
    do
 	# Figure out the target port for this build
 	unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD
-	PBI_AB_NOPKGBUILD=""
 
 	. ${pbi}
 
@@ -6123,12 +6122,6 @@ ab_get_build_list()
  	if [ "$?" = "0" ] ; then	
 	   AB_FOUND="1"
 
- 	   if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
-	      echo "Doing package build for $PBI_MAKEPORT"
-	   else
-	      echo "Doing source build for $PBI_MAKEPORT"
-	   fi
-
  	   # Unset the priority if set to 00 / 0
            if [ "${PBI_AB_PRIORITY}" = "00" -o "${PBI_AB_PRIORITY}" = "0" ] ; then 
 	   	unset PBI_AB_PRIORITY
@@ -6188,7 +6181,7 @@ start_next_ab_target()
 
   # We have something to build lets do it!
   pbi="$CUR_WORKING_PBI"
-  unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION
+  unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD
   . ${pbi}
 
   _cd=$(dirname $pbi | sed 's|./||')
@@ -6207,7 +6200,13 @@ start_next_ab_target()
     PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
   fi
 
-  echo "==> Starting build process [$curBuilder]: $PBI_MAKEPORT"
+  if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
+     ttag="package"
+  else
+     ttag="source"
+  fi
+
+  echo "==> Starting $ttag build [$curBuilder]: $PBI_MAKEPORT"
   echo "$PBI_MAKEPORT" >${PBI_TMPDIR}/${curBuilder}.bPort
 
   # Remove this from the queue
