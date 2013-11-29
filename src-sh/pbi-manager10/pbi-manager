@@ -6343,6 +6343,9 @@ ab_post_build()
 	sleep 1
 
 	if [ -e "${PBI_TMPDIR}/${build}.result" -a "`cat ${PBI_TMPDIR}/${build}.result`" = "0" ] ; then
+
+		echo "===> Build of ${_mp} was successfull! [$build]"
+
 		echo "$_pv" > "${_od}/pbi-version"
 		echo "OK" > "${_od}/pbi-result"
 
@@ -6371,6 +6374,7 @@ ab_post_build()
 		bzip2 "${_od}/build.log"
 
 	else
+		echo "===> Build of ${_mp} failed! [$build]"
 		echo "Failed" > "${_od}/pbi-result"
 		if [ -n "${PBI_AB_HELPS}" ] ; then
 			${PBI_AB_HELPS} "FAILED" "${_od}"
