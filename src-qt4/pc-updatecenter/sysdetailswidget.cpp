@@ -58,8 +58,6 @@ bool SysDetailsWidget::init(QString check_img, QString ok_img, QString avail_img
 
     connect(mUpdateController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(slotControllerStateChanged(CAbstractUpdateController::EUpdateControllerState)));
-    connect(mUpdateController, SIGNAL(logLinePresent(QString)),
-                this, SLOT(slotControllerLogLine(QString)));
 
     ui->sysUpdatesList->header()->resizeSection(0, 420);
 
@@ -138,11 +136,6 @@ void SysDetailsWidget::slotControllerStateChanged(CAbstractUpdateController::EUp
         ui->sysUpdatesStack->setCurrentIndex(1);
         ui->sysUpdateLog->clear();
     }
-}
-
-void SysDetailsWidget::slotControllerLogLine(QString line)
-{
-    ui->sysUpdateLog->append(line);
 }
 
 void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()

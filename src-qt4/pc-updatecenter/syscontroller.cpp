@@ -51,7 +51,6 @@ void CSysController::updateSelected(QVector<CSysController::SSystemUpdate> selec
 {
     mvUpdatesToApply= selectedUpdates;
     mCurrentUpdate= 0;
-    launchUpdate();
 }
 
 void CSysController::onCheckUpdates()
