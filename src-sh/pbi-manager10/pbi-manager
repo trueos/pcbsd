@@ -1679,7 +1679,7 @@ get_pbi_progversion() {
 			export PBI_PROGVERSION
 			return 0
 		fi
-		exit_err "Failed to get PBI_PROGVERSION"
+		exit_err "Failed to get PBI_PROGVERSION for ${PBI_MAKEPORT}"
 	fi
 
 	# Get the version from ports
@@ -6187,9 +6187,6 @@ start_next_ab_target()
   _cd=$(dirname $pbi | sed 's|./||')
   PBI_CONFDIR="$_cd"
 
-  # Get the prog version
-  get_pbi_progversion
-
   if [ -z "${PBI_MAKEPORT}" ] ; then
      PBI_MAKEPORT=$(dirname $pbi | sed 's|./||')
   fi	
@@ -6199,6 +6196,9 @@ start_next_ab_target()
   if [ $? -eq 0 ] ; then
     PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
   fi
+
+  # Get the prog version
+  get_pbi_progversion
 
   if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
      ttag="package"
