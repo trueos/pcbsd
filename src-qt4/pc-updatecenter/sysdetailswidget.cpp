@@ -61,6 +61,11 @@ bool SysDetailsWidget::init(QString check_img, QString ok_img, QString avail_img
 
     ui->sysUpdatesList->header()->resizeSection(0, 420);
 
+    QPalette palette = ui->sysUpdateLog->palette();
+    palette.setColor(QPalette::Base, Qt::black);
+    palette.setColor(QPalette::Text, Qt::white);
+    ui->sysUpdateLog->setPalette(palette);
+
     return true;
 }
 
@@ -70,6 +75,7 @@ void SysDetailsWidget::slotControllerStateChanged(CAbstractUpdateController::EUp
     if (CAbstractUpdateController::eUPDATES_AVAIL == new_state)
     {
         //if we have updates
+        ui->sysUpdatesStack->setCurrentIndex(0);
         ui->sysUpdatesList->clear();
         QVector<CSysController::SSystemUpdate> updates = mUpdateController->updates();
         for(int i=0; i<updates.count(); i++)
@@ -124,6 +130,12 @@ void SysDetailsWidget::slotControllerStateChanged(CAbstractUpdateController::EUp
 
         }//for all updates
     }//if updates are avail.
+    else
+    if (CAbstractUpdateController::eUPDATING == new_state)
+    {
+        ui->sysUpdatesStack->setCurrentIndex(1);
+        ui->sysUpdateLog->clear();
+    }
 }
 
 void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()
@@ -170,4 +182,24 @@ void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()
 
         ui->sysUpdateDetailsStack->setCurrentIndex(2);
     }
+}
+
+void SysDetailsWidget::on_sysInstallSelectedBtn_clicked()
+{
+    QVector<CSysController::SSystemUpdate> toUpdate;
+    QVector<CSysController::SSystemUpdate> updates = mUpdateController->updates();
+
+    for(int i=0; i < ui->sysUpdatesList->topLevelItemCount(); i++)
+    {
+        QTreeWidgetItem* item= ui->sysUpdatesList->topLevelItem(i);
+
+        if (item->checkState(0) == Qt::Checked)
+        {
+            QVariant v= item->data(0, Qt::UserRole);
+            int id= v.toInt();
+            toUpdate.push_back(updates[id]);
+        }
+    }
+    mUpdateController->updateSelected(toUpdate);
+
 }

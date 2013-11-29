@@ -49,6 +49,8 @@ private slots:
     
     void on_sysUpdatesList_itemSelectionChanged();
 
+    void on_sysInstallSelectedBtn_clicked();
+
 private:
     Ui::SysDetailsWidget *ui;
     CSysController*       mUpdateController;
