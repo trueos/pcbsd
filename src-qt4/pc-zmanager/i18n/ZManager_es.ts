@@ -1540,8 +1540,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Editar propiedades            </translation>
     </message>
     <message>
         <source>zfs Menu</source>
@@ -1550,8 +1549,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Confirmación</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
@@ -1560,8 +1558,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nuevo nombre</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
