@@ -363,8 +363,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte wählen Sie die zu installierende Software.Sie können nach der Installation über die Paketverwaltung (Desktopversion) oder den &quot;pkg&quot;-Befehl (Serverversion) Software hinzufügen oder entfernen.</translation>
     </message>
 </context>
 <context>
@@ -684,8 +683,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kein Boot-Ladeprogramm!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
