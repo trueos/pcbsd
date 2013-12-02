@@ -87,7 +87,7 @@ private:
     void saveLastLogin(QString, QString);
 
 signals:
-    void xLoginAttempt(QString, QString, QString);
+    void xLoginAttempt(QString, QString, QString, QString);
 
 };
 

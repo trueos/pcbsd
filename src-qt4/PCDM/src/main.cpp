@@ -75,10 +75,11 @@ int runSingleSession(int argc, char *argv[]){
     QString user = Backend::getALUsername();
     QString pwd = Backend::getALPassword();
     QString dsk = Backend::getLastDE(user);
+    QString lang = QString( getenv("LANG") ).section(".",0,0);
     if( user.isEmpty() || dsk.isEmpty() ){
 	 goodAL=FALSE;   
     }else{
-	desktop.loginToXSession(user,pwd, dsk);
+	desktop.loginToXSession(user,pwd, dsk,lang);
 	splash.close();
 	if(desktop.isRunning()){
 	  goodAL=TRUE; //flag this as a good login to skip the GUI
@@ -127,7 +128,7 @@ int runSingleSession(int argc, char *argv[]){
     //Setup the signals/slots to startup the desktop session
     //if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
     //else{ 
-	    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString)) ); 
+	    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString)) ); 
     //}
     //Setup the signals/slots for return information for the GUI
     QObject::connect( &desktop, SIGNAL(InvalidLogin()), &w, SLOT(slotLoginFailure()) );

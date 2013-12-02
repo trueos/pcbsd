@@ -280,12 +280,14 @@ void PCDMgui::slotStartLogin(QString displayname, QString password){
   }else{
     desktop = deSwitcher->currentItem();
   }
+  QLocale currLocale = this->locale();
+  QString lang = currLocale.name();
   //Disable user input while confirming login
   loginW->setEnabled(FALSE);
   if(!simpleDESwitcher){ deSwitcher->setEnabled(FALSE); }
   toolbar->setEnabled(FALSE);
   //Try to login
-  emit xLoginAttempt(username, password, desktop);
+  emit xLoginAttempt(username, password, desktop, lang);
   //Return signals are connected to the slotLogin[Success/Failure] functions
   
 }
