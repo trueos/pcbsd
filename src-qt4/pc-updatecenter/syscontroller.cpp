@@ -199,7 +199,9 @@ void CSysController::onCheckProcessfinished(int exitCode)
 
 void CSysController::onCancel()
 {
-
+    process().terminate();
+    process().waitForFinished();
+    check();
 }
 
 void CSysController::parseCheckPCBSDLine(QString line)
@@ -267,9 +269,6 @@ void CSysController::parseCheckPCBSDLine(QString line)
         upd = SSystemUpdate();
         return;
     }
-
-
-
 }
 
 void CSysController::parseCheckFREEBSDLine(QString line)
@@ -362,6 +361,7 @@ void CSysController::parsePatchUpdateLine(QString line)
         progress.mProgressMax= dl_size;
         progress.mProgressCurr= dl_complete;
         progress.mSubstate= eDownload;
+        progress.misCanCancel= true;
         reportProgress(progress);
         return;
     }
@@ -401,10 +401,16 @@ void CSysController::parsePatchUpdateLine(QString line)
 
 void CSysController::parseUpgradeLine(QString line)
 {
-
+    SProgress progress;
+    progress.mMessage = tr("Installing system upgrade");
+    reportProgress();
+    reportLogLine(line);
 }
 
 void CSysController::parseFreeBSDUpdateLine(QString line)
 {
-
+    SProgress progress;
+    progress.mMessage = tr("Installing system update");
+    reportProgress();
+    reportLogLine(line);
 }
