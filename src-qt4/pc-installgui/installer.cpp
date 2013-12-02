@@ -1621,7 +1621,7 @@ QStringList Installer::getUsersCfgSettings()
    userList << "userPass=" + fUserPW;
    userList << "userShell=" + fShell;
    userList << "userHome=/home/" + fUserName;
-   userList << "userGroups=wheel,operator,vboxusers";
+   userList << "userGroups=wheel,operator";
    userList << "commitUser";
    userList << "";
  
