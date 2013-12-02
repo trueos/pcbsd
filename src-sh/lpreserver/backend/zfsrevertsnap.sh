@@ -12,6 +12,7 @@ PROGDIR="/usr/local/share/lpreserver"
 . ${PROGDIR}/backend/functions.sh
 
 DATASET="${1}"
+SNAP="${2}"
  
 if [ -z "${DATASET}" ]; then
   exit_err "No dataset specified!"
