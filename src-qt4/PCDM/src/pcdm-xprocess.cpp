@@ -137,6 +137,11 @@ bool XProcess::startXSession(){
   //Log the DE startup outputs as well
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
+  //Setup the keyboard mapping for the user to match the PCDM keyboard map
+  QString lang, kMod, kLay, kVar;
+  Backend::readDefaultSysEnvironment(lang,kMod,kLay,kVar);
+  this->start("setxkbmap", QStringList() << "-model" << kMod << "-layout" << kLay << "-variant" << kVar);
+  this->waitForFinished();
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
