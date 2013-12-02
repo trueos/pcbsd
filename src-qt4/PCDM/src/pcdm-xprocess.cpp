@@ -68,6 +68,7 @@ void XProcess::waitForSessionClosed(){
 */
 
 bool XProcess::startXSession(){
+  disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   //Check that the necessary info to start the session is available
   if( xuser.isEmpty() || xcmd.isEmpty() || xhome.isEmpty() || xde.isEmpty() ){
     emit InvalidLogin();  //Make sure the GUI knows that it was a failure
@@ -140,20 +141,19 @@ bool XProcess::startXSession(){
   //Setup the keyboard mapping for the user to match the PCDM keyboard map
   QString lang, kMod, kLay, kVar;
   Backend::readDefaultSysEnvironment(lang,kMod,kLay,kVar);
-  this->start("setxkbmap", QStringList() << "-model" << kMod << "-layout" << kLay << "-variant" << kVar);
-  this->waitForFinished();
+  //this->start("setxkbmap", QStringList() << "-model" << kMod << "-layout" << kLay << "-variant" << kVar);
+  //this->waitForFinished();
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
-    disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
     qDebug() << "Run user ~/.xprofile";
     this->start("sh "+xhome+"/.xprofile &");//make sure to start it in parallel
     if(!this->waitForFinished(30000) ){
       //If it still has not finished this after 30 seconds, kill it
       this->terminate();
     }
-    connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   }
+  connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   this->start(cmd);
   return TRUE;
 }
