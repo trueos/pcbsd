@@ -277,19 +277,6 @@ sub-pbi-clean: pbi-manager/$(MAKEFILE) FORCE
 sub-pbi-install_subtargets: pbi-manager/$(MAKEFILE) FORCE
 	cd pbi-manager/ && $(MAKE) -f $(MAKEFILE) install
 
-sub-pbi10: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE)
-sub-pbi10-make_default: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) 
-sub-pbi10-make_first: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) first
-sub-pbi10-all: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) all
-sub-pbi10-clean: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) clean
-sub-pbi10-install_subtargets: pbi-manager10/$(MAKEFILE) FORCE
-	cd pbi-manager10/ && $(MAKE) -f $(MAKEFILE) install
-
 sub-meta: pc-metapkgmanager/$(MAKEFILE) FORCE
 	cd pc-metapkgmanager/ && $(MAKE) -f $(MAKEFILE)
 sub-meta-make_default: pc-metapkgmanager/$(MAKEFILE) FORCE
