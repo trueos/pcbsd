@@ -53,6 +53,12 @@ mount_dirs() {
    fi
    is_mounted "${pDir}/virtbase/tmp" || $NULLFS /tmp "${pDir}/virtbase/tmp"
    is_mounted "${pDir}/virtbase/usr/home" || $NULLFS /usr/home "${pDir}/virtbase/usr/home"
+
+   # Check if we need to mount linprocfs
+   if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
+      is_mounted "${pDir}/virtbase/compat/linux/proc" || mount -t linprocfs linproc "${pDir}/virtbase/compat/linux/proc"
+   fi
+
    for i in `ls -d /usr/home/* 2>/dev/null`
    do
       is_mounted "${i}" 
@@ -75,6 +81,7 @@ umount_pbidir() {
    is_mounted "${pDir}/virtbase/tmp" && umount ${pDir}/virtbase/tmp
    is_mounted "${pDir}/virtbase/dev" && umount ${pDir}/virtbase/dev
    is_mounted "${pDir}/virtbase/var/run" && umount ${pDir}/virtbase/var/run
+   is_mounted "${pDir}/virtbase/compat/linux/proc" && umount ${pDir}/virtbase/compat/linux/proc
    is_mounted "${pDir}/virtbase/compat/linux" && umount ${pDir}/virtbase/compat/linux
    for i in `ls -d ${pDir}/virtbase/usr/home/* 2>/dev/null`
    do
