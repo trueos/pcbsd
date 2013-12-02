@@ -184,6 +184,7 @@ void Backend::changeKbMap(QString model, QString layout, QString variant)
 QStringList Backend::languages()
 {
     QStringList _languages;
+    _languages << "Default - (en_US)"; //make sure this is always at the top of the list
     QString code, desc, line;
 
     QFile mFile;
@@ -252,6 +253,48 @@ QString Backend::getLastDE(QString user){
 void Backend::saveLoginInfo(QString user, QString desktop){
   writeSystemLastLogin(user,desktop); //save the system file (/usr/local/share/PCDM/.lastlogin)
   writeUserLastDesktop(user,desktop); //save the user file (~/.lastlogin)
+}
+
+void Backend::readDefaultSysEnvironment(QString &lang, QString &keymodel, QString &keylayout, QString &keyvariant){
+  //Set the default values
+    lang = "en_US";
+    keymodel = "pc104";
+    keylayout = "us";
+    keyvariant = "";
+  //Read the current inputs file and overwrite default values
+  QFile file("/usr/local/share/PCDM/.defaultInputs");
+  bool goodFile=false;
+  if(file.exists()){
+    if(file.open(QIODevice::ReadOnly | QIODevice::Text) ){
+      QTextStream in(&file);
+      while(!in.atEnd()){
+        QString line = in.readLine();
+	QString var = line.section("=",0,0).simplified();
+	QString val = line.section("=",1,1).simplified();
+	if(var=="Lang"){ lang = val;}
+	else if(var=="KeyModel"){ keymodel = val; }
+	else if(var=="KeyLayout"){ keylayout = val; }
+	else if(var=="KeyVariant"){ keyvariant = val; }
+      }
+      file.close();
+    }
+  }
+  if(!goodFile){
+    //Save our own defaults
+    saveDefaultSysEnvironment(lang, keymodel, keylayout, keyvariant);
+  }	
+}
+
+void Backend::saveDefaultSysEnvironment(QString lang, QString keymodel, QString keylayout, QString keyvariant){
+  QFile file("/usr/local/share/PCDM/.defaultInputs");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text) ){
+      QTextStream out(&file);
+      out << "Lang=" + lang + "\n";
+      out << "KeyModel=" + keymodel + " \n";
+      out << "KeyLayout=" + keylayout + " \n";
+      out << "KeyVariant=" + keyvariant + " \n";
+      file.close();
+    }
 }
 
 //****** PRIVATE FUNCTIONS ******

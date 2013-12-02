@@ -39,6 +39,11 @@ int runSingleSession(int argc, char *argv[]){
   Backend::checkLocalDirs();  // Create and fill "/usr/local/share/PCDM" if needed
   Backend::openLogFile("/var/log/PCDM.log");  
   //qDebug() << "Backend Checks Finished:" << QString::number(clock.elapsed())+" ms";
+  //Setup the initial system environment (locale, keyboard)
+  QString lang, kmodel, klayout, kvariant;
+  Backend::readDefaultSysEnvironment(lang,kmodel,klayout,kvariant);
+  setenv("LANG", lang.toUtf8(), 0);
+  Backend::changeKbMap(kmodel,klayout,kvariant);
   //Check for the flag to try and auto-login
   bool ALtriggered = FALSE;
   if(QFile::exists(TMPAUTOLOGINFILE)){ ALtriggered=TRUE; QFile::remove(TMPAUTOLOGINFILE); }
@@ -75,7 +80,6 @@ int runSingleSession(int argc, char *argv[]){
     QString user = Backend::getALUsername();
     QString pwd = Backend::getALPassword();
     QString dsk = Backend::getLastDE(user);
-    QString lang = QString( getenv("LANG") ).section(".",0,0);
     if( user.isEmpty() || dsk.isEmpty() ){
 	 goodAL=FALSE;   
     }else{
@@ -94,8 +98,7 @@ int runSingleSession(int argc, char *argv[]){
     QString appDir = "/usr/local/share/PCDM";
     // Load the translator
     QTranslator translator;
-    QLocale mylocale;
-    QString langCode = mylocale.name();
+    QString langCode = lang;
     //Check for a language change detected
     if ( ! changeLang.isEmpty() )       
        langCode = changeLang;
@@ -204,6 +207,8 @@ int main(int argc, char *argv[])
     int status;
     sleep(2);
     waitpid(sid,&status,0); //wait for the child (session) to finish
+    //NOTE: the parent will eventually become a login-watcher daemon process that
+    //   can spawn multiple child sessions on different TTY displays
   }
   qDebug() << "-- PCDM Session Ended --";
   if(QFile::exists("/var/run/nologin")){ neverquit = FALSE; } 

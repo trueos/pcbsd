@@ -54,6 +54,8 @@ public:
     static QString getLastUser();
     static QString getLastDE(QString);
     static void saveLoginInfo(QString, QString);
+    static void readDefaultSysEnvironment(QString &lang, QString &keymodel, QString &keylayout, QString &keyvariant);
+    static void saveDefaultSysEnvironment(QString lang, QString keymodel, QString keylayout, QString keyvariant);
     
 private:	
     static void loadXSessionsData();

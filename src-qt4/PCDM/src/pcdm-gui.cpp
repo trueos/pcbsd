@@ -431,6 +431,10 @@ void PCDMgui::slotLocaleChanged(QString langCode){
   retranslateUi();
   
   Backend::log("Current Locale after change: " + this->locale().name() );
+  //Now save the locale to the system file
+  QString lang, kMod, kLay, kVar;
+  Backend::readDefaultSysEnvironment(lang,kMod,kLay,kVar); //need the keyboard settings
+  Backend::saveDefaultSysEnvironment(langCode,kMod,kLay,kVar);
 }
 
 void PCDMgui::slotChangeKeyboardLayout(){

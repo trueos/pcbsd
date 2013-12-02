@@ -92,6 +92,7 @@ void widgetKeyboard::slotUpdateKbOnSys()
   }
   
   Backend::changeKbMap(model, layout, variant);
+  Backend::saveDefaultSysEnvironment( QString(getenv("LANG")) , model, layout, variant);
 }
 
 void widgetKeyboard::slotCurrentKbVariantChanged(int row)
