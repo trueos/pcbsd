@@ -141,8 +141,8 @@ bool XProcess::startXSession(){
   //Setup the keyboard mapping for the user to match the PCDM keyboard map
   QString lang, kMod, kLay, kVar;
   Backend::readDefaultSysEnvironment(lang,kMod,kLay,kVar);
-  //this->start("setxkbmap", QStringList() << "-model" << kMod << "-layout" << kLay << "-variant" << kVar);
-  //this->waitForFinished();
+  this->start("setxkbmap", QStringList() << "-model" << kMod << "-layout" << kLay << "-variant" << kVar);
+  this->waitForFinished();
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
