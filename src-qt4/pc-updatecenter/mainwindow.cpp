@@ -2,11 +2,13 @@
 #include "ui_mainwindow.h"
 
 #include "dialogconflict.h"
+#include "logviewdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QFile>
 #include <QPalette>
 #include <QMessageBox>
+#include <QApplication>
 
 #include "pcbsd-utils.h"
 
@@ -111,8 +113,20 @@ void MainWindow::init()
 
 }
 
+void MainWindow::refreshMenu()
+{
+    bool en_syslog= (mSysController.currentState() != CAbstractUpdateController::eUPDATING) && mSysController.hasLog();
+    ui->actionLast_system_update_log->setEnabled(en_syslog);
+    bool en_pkglog= (mPkgController.currentState() != CAbstractUpdateController::eUPDATING) && mPkgController.hasLog();
+    ui->actionLast_package_update_log->setEnabled(en_pkglog);
+    bool en_pbiglog= (mPBIController.currentState() != CAbstractUpdateController::eUPDATING) && mPBIController.hasLog();
+    ui->actionLast_software_update_log->setEnabled(en_pbiglog);
+}
+
 void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
+    refreshMenu();
+
     bool isUpdatesAvail= (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
                        ||(mPkgController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
                        ||(mPBIController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL);
@@ -193,4 +207,39 @@ void MainWindow::on_checkAllButton_clicked()
     mSysController.check();
     mPkgController.check();
     mPBIController.check();
+}
+
+void MainWindow::on_actionLast_system_update_log_triggered()
+{
+    LogViewDialog* dlg = new LogViewDialog(this);
+    dlg->showLog(&mSysController);
+}
+
+void MainWindow::on_actionLast_package_update_log_triggered()
+{
+    LogViewDialog* dlg = new LogViewDialog(this);
+    dlg->showLog(&mPkgController);
+}
+
+void MainWindow::on_actionLast_software_update_log_triggered()
+{
+    LogViewDialog* dlg = new LogViewDialog(this);
+    dlg->showLog(&mPBIController);
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    bool isUpdate= (mSysController.currentState() == CAbstractUpdateController::eUPDATING)
+                 ||(mPkgController.currentState() == CAbstractUpdateController::eUPDATING)
+                 ||(mPBIController.currentState() == CAbstractUpdateController::eUPDATING);
+    if (isUpdate)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, tr("Update process not finished"), tr("One or more update process is not finished. Exit anyway?"),
+                                        QMessageBox::Yes|QMessageBox::No);
+        if (reply == QMessageBox::No) {
+            return;
+        }
+    }
+    QApplication::exit();
 }

@@ -26,6 +26,8 @@ private:
 
     void init();
 
+    void refreshMenu();
+
     CSysController  mSysController;
     CPkgController  mPkgController;
     CPBIController  mPBIController;
@@ -39,6 +41,10 @@ private slots:
     void on_updateAllButton_clicked();
     void on_pushButton_clicked();
     void on_checkAllButton_clicked();
+    void on_actionLast_system_update_log_triggered();
+    void on_actionLast_package_update_log_triggered();
+    void on_actionLast_software_update_log_triggered();
+    void on_actionExit_triggered();
 };
 
 #endif // MAINWINDOW_H
