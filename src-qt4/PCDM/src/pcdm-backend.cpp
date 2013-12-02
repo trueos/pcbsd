@@ -184,7 +184,7 @@ void Backend::changeKbMap(QString model, QString layout, QString variant)
 QStringList Backend::languages()
 {
     QStringList _languages;
-    _languages << "Default - (en_US)"; //make sure this is always at the top of the list
+    _languages.append("Default - (en_US)"); //make sure this is always at the top of the list
     QString code, desc, line;
 
     QFile mFile;

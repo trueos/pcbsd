@@ -395,7 +395,7 @@ void PCDMgui::slotChangeLocale(){
 void PCDMgui::slotLocaleChanged(QString langCode){
   //Get the valid Locale code
   QString translationFile;
-  if(!QFile::exists(translationDir+"PCDM_"+langCode+".qm")){
+  if(!QFile::exists(translationDir+"PCDM_"+langCode+".qm") && langCode!="en_US"){
     langCode = langCode.section("_",0,0);
     if(!QFile::exists(translationDir+"PCDM_"+langCode+".qm")){
       if(!QFile::exists(translationDir+"qt_"+langCode+".qm")){

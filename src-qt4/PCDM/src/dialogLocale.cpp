@@ -78,6 +78,8 @@ QStringList widgetLocale::getLanguages(){
   for(int i=0; i<stL.length(); i++){
     stL[i] = stL[i].section("_",1,50).section(".qm",0,0).simplified();  
   }
+  //make sure that en_US is always available
+  stL.prepend("en_US");
   return stL;
 }
 
