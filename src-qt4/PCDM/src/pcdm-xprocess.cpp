@@ -38,7 +38,7 @@ XProcess::~XProcess(){
   this->close();
 }
 
-void XProcess::loginToXSession(QString username, QString password, QString desktop){
+void XProcess::loginToXSession(QString username, QString password, QString desktop, QString lang){
   //Setup the variables
   xuser = username;
   xpwd = password;
@@ -46,6 +46,7 @@ void XProcess::loginToXSession(QString username, QString password, QString deskt
   xcmd = Backend::getDesktopBinary(desktop);
   xshell = Backend::getUserShell(xuser);
   xde = desktop;
+  xlang = lang;
   //Now start the login process
   startXSession();
 }
@@ -162,9 +163,8 @@ void XProcess::slotCleanup(){
 void XProcess::setupSessionEnvironment(){
   // Setup any specialized environment variables
   QProcessEnvironment environ = this->processEnvironment();
-  // Get the current locale code
-  QLocale mylocale;
-  QString langCode = mylocale.name();
+  // Check the current locale code
+  QString langCode = xlang;
   if( langCode.toLower() == "c" ){ langCode = "en_US"; } // default to the US english (PCDM code default), LANG=C causes problems
   if(!environ.value("MM_CHARSET").isEmpty() ){ langCode.append( "."+environ.value("MM_CHARSET") ); }
   else{ langCode.append(".UTF-8"); }

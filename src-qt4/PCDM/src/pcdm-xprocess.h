@@ -36,14 +36,14 @@ class XProcess : public QProcess
 	
   
   public slots:
-        void loginToXSession(QString, QString, QString); //user, pwd, desktop
+        void loginToXSession(QString, QString, QString, QString); //user, pwd, desktop, lang
   	void checkPW(QString,QString); //user, pwd
 	//void setupDesktop(QString,QString,QString); //user, pwd, desktop
 	
   private:
         int fstatus; //fork status
         pid_t fpid;  //fork pid
-	QString xuser, xcmd, xhome, xpwd, xde, xshell;
+	QString xuser, xcmd, xhome, xpwd, xde, xshell, xlang;
   	bool startXSession();
 	
 	// Session environment setup
