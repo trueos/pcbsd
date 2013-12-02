@@ -1,15 +1,17 @@
 #-*- tab-width: 4; -*-
 # ex:ts=4
 #
-# $FreeBSD: Mk/bsd.linux-rpm.mk 329540 2013-10-06 09:08:22Z antoine $
+# $FreeBSD: head/Mk/bsd.linux-rpm.mk 329540 2013-10-06 09:08:22Z antoine $
 #
 
 # Variables:
 # LINUX_DIST		- Will be used to set some dist-specific presets.
-#					  Valid values: fedora
+#					  Valid values: fedora, centos
 # LINUX_DIST_VER	- Use depends upon the dist-specific presets.
 #					  Valid values for "fedora": all version numbers
 #					  e.g. 10 for fedora 10
+#					  Valid values for "centos": all version numbers
+#					  e.g. 6.2 for centos 6.2
 #					  This is used to set MASTER_SITE_{,SRC_}SUBDIR
 #					  if it isn't already set.
 # MASTER_SITE_SRC_SUBDIR
@@ -56,19 +58,33 @@ LINUX_RPM_ARCH?=	${ARCH}
 
 Linux_RPM_Post_Include=	bsd.linux-rpm.mk
 
+.if ${USE_LINUX} == "c6"
+LINUX_DIST?=		centos
+LINUX_DIST_VER?=	6.2
+.else
 LINUX_DIST?=		fedora
 LINUX_DIST_VER?=	10
+.endif
 .   if  !defined(OVERRIDE_LINUX_NONBASE_PORTS) && \
-        ${LINUX_DIST_VER} != 10
+        (${LINUX_DIST} == "fedora" && ${LINUX_DIST_VER} != 10)
 IGNORE=		bsd.linux-rpm.mk test failed: default package building at OSVERSION>=800076 was changed to linux-f10 ports, please define OVERRIDE_LINUX_NONBASE_PORTS to build other linux infrastructure ports
 .   endif
 
 # linux Fedora 10 infrastructure ports should be used with compat.linux.osrelease=2.6.16,
 # linux_base-f10 (or greater) port
-.  if ${LINUX_DIST_VER} == 10
+.  if ${LINUX_DIST} == "fedora" && ${LINUX_DIST_VER} == 10
 # let's check for apropriate compat.linux.osrelease
 .    if (${LINUX_OSRELEASE} != "2.6.16")
 IGNORE=		bsd.linux-rpm.mk test failed: the port should be used with compat.linux.osrelease=2.6.16, which is supported by FreeBSD 8 and above
+.    endif
+.  endif
+
+# linux CentOS 6 infrastructure ports should be used with compat.linux.osrelease=2.6.18,
+# linux_base-c6 (or greater) port
+.  if ${LINUX_DIST} == "centos" && ${LINUX_DIST_VER:M6.*}
+# let's check for apropriate compat.linux.osrelease
+.    if (${LINUX_OSRELEASE} != "2.6.18")
+IGNORE=		bsd.linux-rpm.mk test failed: the port should be used with compat.linux.osrelease=2.6.18, which is supported by FreeBSD 8 and above
 .    endif
 .  endif
 
@@ -92,6 +108,12 @@ MASTER_SITE_SRC_SUBDIR?=	${LINUX_DIST_VER}/SRPMS \
 				updates/${LINUX_DIST_VER}/SRPMS
 .        endif
 .      endif
+.    elif ${LINUX_DIST} == "centos"
+.      ifndef MASTER_SITES
+MASTER_SITES=			${MASTER_SITE_CENTOS_LINUX}
+MASTER_SITE_SUBDIR?=	${LINUX_DIST_VER}/os/${LINUX_RPM_ARCH:C/i.86/i386/}/Packages
+MASTER_SITE_SRC_SUBDIR?=${LINUX_DIST_VER}/os/Source/SPackages
+.      endif
 .    else
 IGNORE=	unknown LINUX_DIST in port Makefile
 .    endif
@@ -108,11 +130,11 @@ BIN_DISTFILES:=		${DISTFILES}
 SRC_DISTFILES?=		${DISTNAME}${SRC_SUFX}
 EXTRACT_ONLY?=		${BIN_DISTFILES}
 
-#.  if defined(PACKAGE_BUILDING)
-#DISTFILES+=		${SRC_DISTFILES}
-#MASTER_SITE_SUBDIR+=	${MASTER_SITE_SRC_SUBDIR}
-#ALWAYS_KEEP_DISTFILES=	yes
-#.  endif
+.  if defined(PACKAGE_BUILDING)
+DISTFILES+=		${SRC_DISTFILES}
+MASTER_SITE_SUBDIR+=	${MASTER_SITE_SRC_SUBDIR}
+ALWAYS_KEEP_DISTFILES=	yes
+.  endif
 
 EXTRACT_CMD?=			${TAR}
 EXTRACT_BEFORE_ARGS?=	-xf
@@ -141,9 +163,11 @@ linux-rpm-clean-portdocs:
 
 .    if ${USE_LINUX} == "f10" || ${USE_LINUX:L} == "yes"
 _LINUX_BASE_SUFFIX=		f10
+.    elif ${USE_LINUX} == "c6"
+_LINUX_BASE_SUFFIX=		c6
 .    else
 # other linux_base ports do not provide a pkg-plist file
-IGNORE=					uses AUTOMATIC_PLIST with an unsupported USE_LINUX, \"${USE_LINUX}\". Supported values are \"yes\" and \"f10\"
+IGNORE=					uses AUTOMATIC_PLIST with an unsupported USE_LINUX, \"${USE_LINUX}\". Supported values are \"yes\", \"f10\" and \"c6\"
 .    endif
 
 PLIST?=					${WRKDIR}/.PLIST.linux-rpm

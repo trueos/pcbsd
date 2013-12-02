@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <libgen.h>
 #include <paths.h>
 
 #define MAX_SIZE 9012
@@ -17,9 +18,9 @@ int main(int argc, char **argv)
     // Setup our vars
     char *progdir = NULL;
     char *progtarget = NULL;
-    char newpath[MAX_SIZE];
-    char newlibdir[MAX_SIZE];
     char newtarget[MAX_SIZE];
+    char pbimntdir[MAX_SIZE];
+    char pbime[MAX_SIZE];
 
     // Setup working variables
     char bfile[PATH_MAX];
@@ -87,76 +88,55 @@ int main(int argc, char **argv)
        printf("Missing PROGDIR:");
        return -1;
     }
+
+    // Remove any newline from progdir
+    char *ptr;
+    if( ( ptr = strchr(progdir, '\n')) != NULL )
+	*ptr = '\0'; 
+
     if ( progtarget == NULL ) {
        printf("Missing TARGET:");
        return -1;
     }
 
 
-    // Now check for .ldhints file
-    strcpy(tfilepath, bfile);
-    strcat(tfilepath, ".ldhints");
-
-    // Open ldhints file
-    tfile = fopen(tfilepath, "r");
-    if ( tfile != NULL ) {
-      if( (optline = fgets(buf, sizeof(buf), tfile)) != NULL ) {
-         if ( (strlen(buf) + strlen(progdir) + 10) > MAX_SIZE ) {
-           printf("Error: ldhints overflow!");
-           exit(2);
-         }
-         strncpy(newlibdir, buf, (strlen(buf) -1));
-         strcat(newlibdir, ":");  
-      }
-      fclose(tfile);
-    }
-
-    // Build the LDPATH
-    strncat(newlibdir, progdir, (strlen(progdir) -1 ));
-    strcat(newlibdir, "/lib");  
-
-    // Sanity check newpath size before allocating
-    if ( MAX_SIZE < ((strlen(progdir) + 10) * 3) + strlen(getenv("PATH")) ) {
-       printf("PATH size overflow...");
-       exit(2);
-    }
-
-    // Build the PATH
-    strncpy(newpath, progdir, (strlen(progdir) -1 ));
-    strcat(newpath, "/bin:");
-    strncat(newpath, progdir, (strlen(progdir) -1 ));
-    strcat(newpath, "/sbin:");
-    strncat(newpath, progdir, (strlen(progdir) -1 ));
-    strcat(newpath, "/libexec:");
-    strcat(newpath, getenv("PATH"));
-
-    // Set environment vars
-    setenv("PATH", newpath, 1);
-    setenv("LD_LIBRARY_PATH", newlibdir, 1);
-    setenv("LD_32_LIBRARY_PATH", newlibdir, 1);
-
     // Set the target
-    strncpy(newtarget, progdir, strlen(progdir) -1 );
+    strcpy(newtarget, "/usr/local" );
     strcat(newtarget, "/");
     strncat(newtarget, progtarget, strlen(progtarget) -1 );
 
     // Enable for debug
     //printf( "PATH: %s\n", newpath);
-    //printf( "LDPATH: %s\n", newlibdir);
     //printf( "Running: %s \n", newtarget);
     //return system(newtarget);
     //strncpy(argv[0], newtarget);
 
+    // Setup the mount-directory
+    strcpy(pbimntdir, "/usr/pbi/.mounts/");
+    strcat(pbimntdir, basename(progdir));
+
+    strcpy(pbime, "/usr/pbi/.pbime");
+
     // Build new target argv
-    char *targv[argc+1];
-    targv[0] = newtarget;
-    int i=1;
-    while(i < argc){
-      targv[i] = argv[i];
+    char *targv[argc+4];
+    targv[0] = pbime;
+    targv[1] = pbimntdir;
+    targv[2] = progdir;
+    targv[3] = newtarget;
+    int i=4;
+    int j=1;
+    while(j < argc){
+      targv[i] = argv[j];
       //printf( "Arg: %s \n", targv[i]);
       i++;
+      j++;
     }
     targv[i] = '\0';
+    //printf( "Arg: %s \n", targv[0]);
+    //printf( "Arg: %s \n", targv[1]);
+    //printf( "Arg: %s \n", targv[2]);
+    //printf( "Arg: %s \n", targv[3]);
 
-    return execv(newtarget, targv);
+    return execv(pbime, targv);
+    //return execv(newtarget, targv);
 }

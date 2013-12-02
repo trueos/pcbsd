@@ -247,5 +247,9 @@
         <source>You cannot make a copy of the currently running boot environment!</source>
         <translation>U kunt geen kopie maken van de thans draaiende opstartomgeving.</translation>
     </message>
+    <message>
+        <source>Boot Environment names may only be comprised of letters and numbers</source>
+        <translation>Namen van opstartomgeving mogen alleen bestaan uit letters en cijfers</translation>
+    </message>
 </context>
 </TS>

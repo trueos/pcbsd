@@ -260,13 +260,11 @@
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перевірка пакунків</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неможливо перевірити наявність оновлень!</translation>
     </message>
 </context>
 </TS>

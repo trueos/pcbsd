@@ -49,7 +49,7 @@ void ServiceManager::ProgramInit(QString chroot, QString IP)
     
     // Start checking the status of these services
     currentCheckRunningItem = new QTreeWidgetItemIterator(listServices);
-    checkRunning();
+    QTimer::singleShot(1000, this, SLOT(checkRunning()));
     
     // Start checking if services are enabled
     checkEnabled();
@@ -305,7 +305,6 @@ void ServiceManager::populateList()
  	}   
 
 	listServices->sortItems(2, Qt::AscendingOrder);
-
 }
 
 

@@ -8,19 +8,17 @@ USE_LINUX=	c6
 
 CATEGORIES=	security linux
 MAINTAINER=	emulation@FreeBSD.org
-COMMENT=	RFC 2222 SASL (Simple Authentication and Security Layer) (Linux CentOS ${LINUX_DIST_VER})
+COMMENT=	RFC 2222 SASL (Simple Authentication and Security Layer) (Linux CentOS 6)
 
 PKGNAMEPREFIX=	linux-${USE_LINUX}-
-MASTER_SITES=	http://vault.centos.org/${LINUX_DIST_VER}/os/i386/Packages/
 DISTNAME=	cyrus-sasl-lib-${PORTVERSION}-${RPMVERSION}
-DIST_SUBDIR=	rpm/${LINUX_RPM_ARCH}/centos/${LINUX_DIST_VER}
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_LINUX_RPM=	yes
 LINUX_RPM_ARCH=		i686
-LINUX_DIST_VER=	6.2
 USE_LDCONFIG=	yes
 BRANDELF_FILES=	usr/sbin/sasldblistusers2 usr/sbin/saslpasswd2
+SRC_DISTFILES=	cyrus-sasl-${PORTVERSION}-${RPMVERSION}.src.rpm
 DESCR=	${.CURDIR}/../${PORTNAME}/pkg-descr
 
 PLIST_DIRS=	etc/sasl2 usr/lib/sasl2

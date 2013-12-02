@@ -13,10 +13,10 @@ COMMENT=	P2P VoIP software
 
 CONFLICTS=	skype-devel-[0-9]*
 
-#OPTIONS_DEFINE=	VIDEO NVIDIA_GL
-#NVIDIA_GL_DESC=	libGL provided by NVidia binary drivers
+OPTIONS_DEFINE=	VIDEO NVIDIA_GL
+NVIDIA_GL_DESC= libGL provided by NVidia binary drivers
 
-#OPTIONS_DEFAULT=	VIDEO
+OPTIONS_DEFAULT= VIDEO
 
 NO_BUILD=	yes
 
@@ -36,10 +36,10 @@ NO_STAGE=	yes
 .include <bsd.port.pre.mk>
 
 .if ${PORT_OPTIONS:MNVIDIA_GL}
-#RUN_DEPENDS+=	${LINUXBASE}/usr/lib/libGL.so.1:${PORTSDIR}/x11/nvidia-driver
-#USE_LINUX_APPS+=xorglibs
+RUN_DEPENDS+=  ${LINUXBASE}/usr/lib/libGL.so.1:${PORTSDIR}/x11/nvidia-driver
+USE_LINUX_APPS+=xorglibs
 .else
-#USE_LINUX_APPS+=dri
+USE_LINUX_APPS+=dri
 .endif
 
 .if ${PORT_OPTIONS:MVIDEO}

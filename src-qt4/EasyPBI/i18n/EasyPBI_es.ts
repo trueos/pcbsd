@@ -425,7 +425,7 @@
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">Directorio de salida</translation>
+        <translation>Directorio de salida</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>

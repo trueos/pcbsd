@@ -226,10 +226,6 @@
         <translation>Sie müssen ein Passwort erstellen</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Fehler beim Ändern des Passworts...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Die Passwörter stimmen nicht überein. Die Eingaben müssen in beiden Feldern gleich sein.</translation>
     </message>

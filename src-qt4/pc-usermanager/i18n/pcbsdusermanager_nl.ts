@@ -226,10 +226,6 @@
         <translation>U moet een wachtwoord opgeven</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Fout bij het wijzigen van het wachtwoord...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>De wachtwoorden komen niet overeen. Beide velden moeten aan elkaar gelijk zijn.</translation>
     </message>

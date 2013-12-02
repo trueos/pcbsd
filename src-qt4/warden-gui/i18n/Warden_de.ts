@@ -147,8 +147,7 @@
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wenn dieser Parameter gesetzt ist, werden solche Benutzer als privilegiert behandelt und können die Systemdatei-Flags  unter den üblichen Einschränkungen von kern.securelevel ändern.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
@@ -172,12 +171,11 @@
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">Der eingesperrte root Benutzer darf das Quota des Jail-Dateisystems administrieren.</translation>
+        <translation>Der eingesperrte root-Benutzer darf das Quota des Jail-Dateisystems administrieren.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dies ermöglicht den Zugang zu anderen Protokoll-Stacks, die nicht Jail-Funktionalität hinzugefügt haben.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
@@ -213,28 +211,23 @@
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Standardadresse (erfordert VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-Standardrouter (erfordert VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Bridgeadresse (erfordert VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-Standardrouter (erfordert VNET)</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die folgenden Berechtigungen können aktiviert oder für diese Jail gesperrt werden. Für weitere Informationen über die verschiedenen Positionen mit der Maus fahren oder auf der Jail-man-Seite nachlesen.</translation>
     </message>
 </context>
 <context>
@@ -296,18 +289,15 @@
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Welche Version möchten Sie beziehen?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vorlagen-Spitzname</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spitznamen für die Vorlage eingeben:</translation>
     </message>
 </context>
 <context>

@@ -247,5 +247,9 @@
         <source>You cannot make a copy of the currently running boot environment!</source>
         <translation>Sie können keine Kopie der aktuell laufenden Boot-Umgebung erstellen!</translation>
     </message>
+    <message>
+        <source>Boot Environment names may only be comprised of letters and numbers</source>
+        <translation>Namen in der Boot-Umgebung dürfen nur aus Buchstaben und Zahlen bestehen</translation>
+    </message>
 </context>
 </TS>

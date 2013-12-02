@@ -227,10 +227,6 @@
         <translation>Anda harus menentukan password</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Eror mengganti password...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Password tidak cocok. Kedua kotak harus mengandung nilai yang sama.</translation>
     </message>

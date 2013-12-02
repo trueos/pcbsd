@@ -2,7 +2,7 @@
 # Makefile for building: pbi-manager
 #############################################################################
 
-PREFIX?= $(STAGEDIR)
+PREFIX?= /usr/local
 
 ####### Install
 

@@ -226,10 +226,6 @@
         <translation>Ви повинні вказати пароль</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Помилка зміни паролю...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Паролі не збігаються. Обидва поля повинні мати одне й те ж значення.</translation>
     </message>

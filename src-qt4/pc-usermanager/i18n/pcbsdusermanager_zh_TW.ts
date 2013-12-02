@@ -226,10 +226,6 @@
         <translation>請給一個密碼</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>更改密碼失敗...</translation>
-    </message>
-    <message>
         <source>Invalid password, please choose another.</source>
         <translation>此為無效的密碼。請輸入其他的字串。</translation>
     </message>

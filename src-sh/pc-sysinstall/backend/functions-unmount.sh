@@ -171,55 +171,52 @@ unmount_all_filesystems_failure()
 {
   cd /
 
-  # if we did a fresh install, start unmounting
-  if [ "${INSTALLMODE}" = "fresh" ]
-  then
+  # Start by unmounting any ZFS partitions
+  zfs_cleanup_unmount
 
-    # Lets read our partition list, and unmount each
-    ##################################################################
-    if [ -d "${PARTDIR}" ]
+  # Lets read our partition list, and unmount each
+  ##################################################################
+  for PART in `ls ${PARTDIR}`
+  do
+    PARTDEV=`echo $PART | sed 's|-|/|g'`    
+    PARTFS="`cat ${PARTDIR}/${PART} | cut -d '#' -f 1`"
+    PARTMNT="`cat ${PARTDIR}/${PART} | cut -d '#' -f 2`"
+    PARTENC="`cat ${PARTDIR}/${PART} | cut -d '#' -f 3`"
+    PARTLABEL="`cat ${PARTDIR}/${PART} | cut -d '#' -f 4`"
+
+    if [ "${PARTENC}" = "ON" ]
     then
-    for PART in `ls ${PARTDIR}`
-    do
-      PARTDEV=`echo $PART | sed 's|-|/|g'` 
-      PARTFS="`cat ${PARTDIR}/${PART} | cut -d '#' -f 1`"
-      PARTMNT="`cat ${PARTDIR}/${PART} | cut -d '#' -f 2`"
-      PARTENC="`cat ${PARTDIR}/${PART} | cut -d '#' -f 3`"
+      EXT=".eli"
+    else
+      EXT=""
+    fi
 
-      if [ "${PARTFS}" = "SWAP" ]
-      then
-        if [ "${PARTENC}" = "ON" ]
-        then
-          swapoff ${PARTDEV}.eli >/dev/null 2>/dev/null
-        else
-          swapoff ${PARTDEV} >/dev/null 2>/dev/null
-        fi
-      fi
+    if [ "${PARTFS}" = "SWAP" ]
+    then
+      rc_nohalt "swapoff ${PARTDEV}${EXT}"
+    fi
 
-      # Check if we've found "/" again, don't need to mount it twice
-      if [ "$PARTMNT" != "/" -a "${PARTMNT}" != "none" -a "${PARTFS}" != "ZFS" ]
-      then
-        umount -f ${PARTDEV} >/dev/null 2>/dev/null
-        umount -f ${FSMNT}${PARTMNT} >/dev/null 2>/dev/null
-      fi
-    done
+    # Check if we've found "/", and unmount that last
+    if [ "$PARTMNT" != "/" -a "${PARTMNT}" != "none" -a "${PARTFS}" != "ZFS" ]
+    then
+      echo_log "Unmounting: ${PARTDEV}${EXT}"
+      rc_halt "umount -f ${PARTDEV}${EXT}"
+    fi
+  done
 
-    # Last lets the /mnt partition
-    #########################################################
-    umount -f ${FSMNT} >/dev/null 2>/dev/null
+  # Last lets the /mnt partition
+  #########################################################
+  echo_log "Unmounting: ${FSMNT}"
+  rc_nohalt "umount -f ${FSMNT}"
 
-   fi
-  else
-    # We are doing a upgrade, try unmounting any of these filesystems
-    chroot ${FSMNT} /sbin/umount -a >/dev/null 2>/dev/null
-    umount -f ${FSMNT}/usr >/dev/null 2>/dev/null
-    umount -f ${FSMNT}/dev >/dev/null 2>/dev/null
-    umount -f ${FSMNT} >/dev/null 2>/dev/null 
-    sh ${TMPDIR}/.upgrade-unmount >/dev/null 2>/dev/null
-  fi
-   
-  # Unmount our CDMNT
-  umount ${CDMNT} >/dev/null 2>/dev/null
+  # Check if we need to unmount a media
+  case $INSTALLMEDIUM in
+     dvd|usb) echo_log "Unmounting DVD/USB media: ${CDMNT}"
+              sleep 5
+              rc_nohalt "umount -f ${CDMNT}" >/dev/null 2>/dev/null
+              ;;
+           *) ;;
+  esac
 
 };
 

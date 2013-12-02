@@ -227,10 +227,6 @@
         <translation>Morate določiti geslo</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Napaka med spreminjanjem gesla ...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Gesli se ne ujemata. Obe polji morata vsebovati enaki vrednosti.</translation>
     </message>

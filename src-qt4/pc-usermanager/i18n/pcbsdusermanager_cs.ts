@@ -227,10 +227,6 @@
         <translation>Musíte vložit heslo</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Chyba při změně hesla...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Hesla si neopovídají. Obě pole musí obsahovat stejné hodnoty.</translation>
     </message>

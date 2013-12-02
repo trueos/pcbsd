@@ -1,0 +1,118 @@
+#!/bin/sh
+
+NULLFS="/usr/pbi/.mount_nullfs"
+
+is_mounted() {
+   if [ ! -d "${1}" ] ; then return 1; fi
+   mount | grep -q "on ${1} (" 
+   return $?
+}
+
+check_pbidir() {
+  if [ -d "${1}/pbimeta" ] ; then return ; fi
+  echo "Error: Invalid PBI: ${1}"
+  exit 1
+}
+
+get_pdir() {
+  pDir="${1}"
+  if [ ! -d "${pDir}/virtbase" ] ; then
+    mkdir -p ${pDir}/virtbase
+  fi
+  if [ ! -d "${pDir}/run" ] ; then
+    mkdir -p ${pDir}/run
+  fi
+}
+
+mount_pbifile() {
+   if [ ! -d "$pDir" ] ; then 
+      mkdir -p "${pDir}"
+   else
+      # Check to see if it is already mounted
+      mount | grep -q "on ${pDir} (ufs,"
+      if [ $? -eq 0 ] ; then return; fi
+   fi
+   MD=`mdconfig -a -t vnode -f ${1}`
+   mount -r -t ufs /dev/${MD}.uzip "${pDir}"
+}
+
+mount_dirs() {
+   is_mounted "${pDir}/virtbase" || $NULLFS / "${pDir}/virtbase"
+   is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
+   is_mounted "${pDir}/virtbase/usr/local" || $NULLFS ${1}/local "${pDir}/virtbase/usr/local"
+   is_mounted "${pDir}/virtbase/var/run" || $NULLFS ${pDir}/run "${pDir}/virtbase/var/run"
+   is_mounted "${pDir}/virtbase/compat/linux" || $NULLFS ${1}/linux "${pDir}/virtbase/compat/linux"
+   if [ -d "${pDir}/virtbase/usr/local/etc/fonts" ] ; then
+      is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || $NULLFS /usr/local/etc/fonts "${pDir}/virtbase/usr/local/etc/fonts"
+   fi
+   if [ -d "${pDir}/virtbase/usr/local/lib/X11/fonts" ] ; then
+      is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" || $NULLFS /usr/local/lib/X11/fonts "${pDir}/virtbase/usr/local/lib/X11/fonts"
+   fi
+   if [ -d "${pDir}/virtbase/usr/local/lib/X11/icons" ] ; then
+      is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || $NULLFS /usr/local/lib/X11/icons "${pDir}/virtbase/usr/local/lib/X11/icons"
+   fi
+   is_mounted "${pDir}/virtbase/tmp" || $NULLFS /tmp "${pDir}/virtbase/tmp"
+   is_mounted "${pDir}/virtbase/usr/home" || $NULLFS /usr/home "${pDir}/virtbase/usr/home"
+
+   # Check if we need to mount linprocfs
+   if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
+      is_mounted "${pDir}/virtbase/compat/linux/proc" || mount -t linprocfs linproc "${pDir}/virtbase/compat/linux/proc"
+   fi
+
+   for i in `ls -d /usr/home/* 2>/dev/null`
+   do
+      is_mounted "${i}" 
+      if [ $? -eq 0 ] ;then
+         is_mounted "${pDir}/virtbase${i}" || $NULLFS ${i} "${pDir}/virtbase${i}"
+      fi
+
+   done
+
+   cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
+   chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
+}
+
+umount_pbidir() {
+   is_mounted "${pDir}/virtbase/usr/local/etc/fonts" && umount ${pDir}/virtbase/usr/local/etc/fonts
+   is_mounted "${pDir}/virtbase/usr/local/etc" && umount ${pDir}/virtbase/usr/local/etc
+   is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" && umount ${pDir}/virtbase/usr/local/lib/X11/fonts
+   is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" && umount ${pDir}/virtbase/usr/local/lib/X11/icons
+   is_mounted "${pDir}/virtbase/usr/local" && umount ${pDir}/virtbase/usr/local
+   is_mounted "${pDir}/virtbase/tmp" && umount ${pDir}/virtbase/tmp
+   is_mounted "${pDir}/virtbase/dev" && umount ${pDir}/virtbase/dev
+   is_mounted "${pDir}/virtbase/var/run" && umount ${pDir}/virtbase/var/run
+   is_mounted "${pDir}/virtbase/compat/linux/proc" && umount ${pDir}/virtbase/compat/linux/proc
+   is_mounted "${pDir}/virtbase/compat/linux" && umount ${pDir}/virtbase/compat/linux
+   for i in `ls -d ${pDir}/virtbase/usr/home/* 2>/dev/null`
+   do
+      is_mounted "${i}" && umount ${i}
+   done
+   is_mounted "${pDir}/virtbase/usr/home" && umount ${pDir}/virtbase/usr/home
+   is_mounted "${pDir}/virtbase" && umount ${pDir}/virtbase
+}
+
+
+# Doing an unmount?
+if [ "$1" = "umount" ] ; then
+   get_pdir "$2"
+   umount_pbidir "$2"
+   exit 0
+fi
+
+if [ -z "$1" -o -z "$2" ] ; then
+   echo "Missing args: mountdir / pbidir"
+   exit 1
+fi
+
+MNTBASEDIR="`dirname $2`"
+
+if [ ! -d "$MNTBASEDIR" ] ; then
+   mkdir -p ${MNTBASEDIR}
+   echo "Do not manually remove this directory!" > ${MNTBASEDIR}/DONOTDELETE
+fi
+
+# Lets begin the mount process
+get_pdir "$1"
+check_pbidir "${2}"
+mount_dirs "${2}"
+mount_dirs "${2}"

@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>Vaihda amerikkalaisen ja itse määrittelemäsi näppäinasettelun välillä</translation>
+        <translation>Vaihda näppäinasettelua</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -41,17 +41,15 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Käyttöjärjestelmää asennetaan! Tämä voi kestää pidemmänkin aikaa, riippuen valinnoistasi ja koneesi nopeudesta. Sinulle ilmoitetaan kun asennus on valmis.</translation>
+        <translation>Käyttöjärjestelmää asennetaan! Valinnoistasi ja tietokoneesi nopeudesta riippuen, tähän voi kulua pidemmänkin aikaa. Sinulle ilmoitetaan kun asennus on valmis.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennetaan /mnt-liitospisteeseen kiinnitettyyn tiedostojärjestelmään.</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Levylle luodaan seuraava konfiguraatio:</translation>
     </message>
     <message>
         <source>Disk:</source>
@@ -59,8 +57,7 @@
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peilataan:</translation>
     </message>
     <message>
         <source>Partition:</source>
@@ -68,8 +65,7 @@
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiedostojärjestelmä:</translation>
     </message>
     <message>
         <source>Size:</source>
@@ -81,8 +77,7 @@
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennetaan seuraavat meta-pkg:t:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
@@ -123,8 +118,7 @@
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lopeta</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -141,18 +135,15 @@
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennetaan paketteja... Tähän voi kulua aikaa...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaihda asennuskieltä</translation>
     </message>
     <message>
         <source>Customize the selected system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muokkaa valittuja asennuksia</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
@@ -160,34 +151,28 @@
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avaa näppäimistö näytölle</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peruuta asennus</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TrueOS pakettien valinnat</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD pakettien valinnat</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus on nyt valmis!Paina Lopeta käynnistääksesi tietokoneen uudelleen. Käynnistyksen jälkeen, voit poistaa asennuslevyn.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peruuta</translation>
     </message>
     <message>
         <source>Extracting system...</source>
@@ -196,13 +181,11 @@
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Levyjä ei kyetty tunnistamaan! Asennusohjelma lopetetaan.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitulle levylle ei kyetty ehdottamaan partitiota.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
@@ -211,43 +194,35 @@
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>Valittu levy / partitio on kooltaan pienempi kuin suositelty %1GB. Asennus voi epäonnistua...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataa asennuskonfiguraatio USB-tikulta</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lataa konfiguraatio USB:ltä</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työpöytä (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palvelin (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tallenna konfiguraatio USB:lle</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tämä tallentaa asennuskonfiguraation MSDOSFS/FAT32 formatoidulle USB-tikulle. Jatketaanko?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ole hyvä, ja kiinnitä USB-tikku nyt. Paina OK jatkaaksesi.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
@@ -256,53 +231,43 @@
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguraation tallennus USB-medialle epäonnistui. Varmista, että laite on toimiva ja tiedostojärjestelmä on formatoitu MSDOSFS/FAT32 muotoon.</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguraatio on tallennettu! Voit nyt poistaa USB-median turvallisesti.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tämä lataa asennuskonfiguraation sinun MSDOSFS/FAT32 formatoidulle USB-tikulle. Jatketaanko?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ole hyvä, ja kiinnitä USB-tikku nyt. Paina OK jatkaaksesi.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tallennetun konfiguraatio tiedoston lataaminen USB-medialta epäonnistui. Onko laite toimiva ja formatoitu MSDOSFS/FAT32 tiedostojärjestelmän muotoon?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguraatio ladattu! Voit nyt postaa USB-median turvallisesti.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguraatio tiedosto:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aloita asennus käyttämällä tätä konfiguraatio tiedostoa?</translation>
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palauta Life-Preserver varmuuskopiosta</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hallitse verkkoyhteyksiä</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
@@ -316,39 +281,32 @@
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suoritetaan palautusta Life-Preserver varmuuskopiosta. Paine Seuraava käynnistääksesi palautuksen avustajan.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aloita palautus nyt?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmäsi on nyt palautettu!Paina Lopeta uudelleenkäynnistämiseksi. Uudelleenkäynnistämisen jälkeen, voit poistaa asennusmedian.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmän palautus</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmääsi palautetaan. Tähän voi kulua jonkin aikaa, riippuen palautuksen koosta ja verkon tilasta.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennetaan meta-pakettia: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palautetaan järjestelmää: %1</translation>
     </message>
 </context>
 <context>
@@ -367,51 +325,42 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmääsi asennetaan parhaillaan! Käy hakemassa kahvia ja rentoudu. Asennusohjelma ilmoittaa, kun se on valmis.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Asennus on nyt valmis! Paina Lopeta käynnistääksesi uudelleen. Varmista, että poistat asennus median, ennen kuin käynnistät uuden järjestelmäsi.</translation>
     </message>
 </context>
 <context>
     <name>desktopSelection</name>
     <message>
         <source>System Package Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmän pakettien konfiguraatio</translation>
     </message>
     <message>
         <source>Available System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saatavilla olevat järjestelmän paketit</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tallenna</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peruuta</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ei työpöytää</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työpöytiä ei ole valittu! Ole hyvä, ja valitse vähintään yksi työpöytä jatkaaksesi.</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tarkastele paketteja</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
@@ -428,76 +377,62 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>dialogCheckHardware</name>
     <message>
         <source>Detected hardware devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Havaitut laitteet</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulje</translation>
     </message>
     <message>
         <source>Video driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Video-ohjain:</translation>
     </message>
     <message>
         <source>Video resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Videon resoluutio:</translation>
     </message>
     <message>
         <source>No ethernet detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ethernetiä ei tunnistettu</translation>
     </message>
     <message>
         <source>Ethernet device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ethernet-laite:</translation>
     </message>
     <message>
         <source>No wifi detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wifiä ei tunnistettu</translation>
     </message>
     <message>
         <source>Wifi device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wifi-laite:</translation>
     </message>
     <message>
         <source>No sound detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Äänilaitetta ei tunnistettu</translation>
     </message>
     <message>
         <source>Sound device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Äänilaite:</translation>
     </message>
 </context>
 <context>
     <name>dialogFSSize</name>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koko:</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Peruuta</translation>
     </message>
 </context>
 <context>
@@ -553,7 +488,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation>Asennus moodi</translation>
+        <translation>Asennustila</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
@@ -565,7 +500,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation>FreeBSD expertti (Komentoriviä käyttäen)</translation>
+        <translation>FreeBSD asiantuntija (Komentoriviä käyttämällä)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
@@ -577,7 +512,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Partition disk with GPT</source>
-        <translation>Tee GPT paritiointi</translation>
+        <translation>Osioi levy käyttäen GPT:tä</translation>
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
@@ -593,7 +528,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation>Olet valinnut experteille suunnatun käyttötilan. Tässä käyttötilassa voit käynnistää komentorivin ja antaa partitointikomennot käsin. Kun olet valmis, varmista että olet liittänyt tiedostojärjestelmän liitospisteeseen /mnt ennen asennuksen aloittamista.</translation>
+        <translation>Olet valinnut asiantuntijoille suunnatun käyttötilan. Tässä käyttötilassa, voit käynnistää komentorivin ja antaa osiointikomennot käsin. Kun olet valmis, varmista että olet liittänyt tiedostojärjestelmän liitospisteeseen /mnt ennen asennuksen aloittamista.</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
@@ -647,38 +582,31 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Levylle asennetaan seuraava konfiguraatio:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Levy:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peilaus:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partitio:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiedostojärjestelmä:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koko:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liitos:</translation>
     </message>
     <message>
         <source>Enable ZFS mirror/raidz mode</source>
@@ -712,13 +640,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Invalid Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liitos ei kelpaa</translation>
     </message>
     <message>
         <source>Mount point should start with &apos;/&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Liitospisteen tulisi alkaa &apos;/&apos;-merkillä</translation>
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
@@ -742,13 +668,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anna SWAP-partition koko</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koko (MB)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>
@@ -762,18 +686,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Swapin koko</translation>
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ole hyvä, ja valitse levy tai partitio, jolle haluat asentaa. Huomioi, että sinun tulee valita joko kokonainen levy, tai ensisijainen partitio, joka on kooltaan vähintään 20GB palvelimen asentamiseksi, tai 50 GB työpöydän asentamiseksi.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>

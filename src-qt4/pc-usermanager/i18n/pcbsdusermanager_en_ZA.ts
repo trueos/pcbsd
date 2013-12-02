@@ -226,10 +226,6 @@
         <translation>You must specify a password</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Error changing password...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>The passwords didn&apos;t match. Both boxes most contain the same value.</translation>
     </message>

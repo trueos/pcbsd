@@ -226,10 +226,6 @@
         <translation>Należy wpisać hasło</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Błąd przy zmianie hasła...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Hasła nie pasują. Oba pola muszą zawierać te same wartości.</translation>
     </message>

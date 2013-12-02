@@ -227,10 +227,6 @@
         <translation>يجب أن تحدد كلمة السر</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>خطأ تغيير كلمة السر...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>كلمات السر غير متطابقة. كل الصناديق يجب أن تحتوي على نفس القيمة.</translation>
     </message>

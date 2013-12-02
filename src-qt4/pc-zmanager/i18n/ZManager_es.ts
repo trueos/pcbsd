@@ -1540,8 +1540,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Editar propiedades            </translation>
     </message>
     <message>
         <source>zfs Menu</source>
@@ -1550,24 +1549,22 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Confirmación</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tomar nuevo snapshot</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nuevo nombre</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
+        <translation>Esta operación no se puede deshacer y provocará la pérdida de todos los datos añadidos después de la creación del snapshot.
+Todo snapshot creado después del actual será borrado junto cualquier sistema de archivos clonado que dependa del mismo.
             </translation>
     </message>
     <message>

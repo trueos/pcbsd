@@ -226,10 +226,6 @@
         <translation>Debe introducir una contraseña</translation>
     </message>
     <message>
-        <source>Error changing password...</source>
-        <translation>Error al cambiar de contraseña...</translation>
-    </message>
-    <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
         <translation>Las contraseñas no coinciden. Ambos campos deben tener el mismo contenido.</translation>
     </message>

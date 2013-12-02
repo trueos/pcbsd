@@ -3,8 +3,8 @@
 
 # Check if this is for the right version of FreeBSD
 verCheck="`grep '^#define __FreeBSD_version' /usr/include/sys/param.h | awk '{print $3}'`"
-if [ $verCheck -gt 1000000 ] ; then
-  # This version is for FreeBSD <= 10
+if [ $verCheck -lt 1000000 ] ; then
+  # This version is for FreeBSD >= 10
   exit 0
 fi
 
@@ -17,6 +17,7 @@ else
 fi
 
 DIR=`dirname $0`
+DIR=`realpath $DIR`
 cd ${DIR}
 
 # Install the app
@@ -41,6 +42,8 @@ ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi_update
 ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi_update_hashdir
 ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbid
 ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi-crashhandler
+ln -f ${LB}/sbin/pbi_create ${LB}/sbin/app
+ln -f ${LB}/sbin/pbi_create ${LB}/sbin/pbi
 
 # Set the new PREFIX / LOCALBASE
 if [ "$LB" != /usr/local ] ; then
@@ -123,3 +126,27 @@ make install DEFINES=""
 chown root:wheel pbiwrapper 
 chmod 644 pbiwrapper
 mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
+
+# Install the pbime wrapper
+cd ${DIR}/pbime && make
+install -o root -g wheel -m 4751 pbime ${LB}/share/pbi-manager/.pbime
+install -o root -g wheel -m 755 pbimount ${LB}/share/pbi-manager/.pbimount
+install -o root -g wheel -m 755 ldconfig ${LB}/share/pbi-manager/.ldconfig
+if [ "${LB}" = "/usr/local" ] ; then
+  install -o root -g wheel -m 4751 pbime /usr/pbi/.pbime
+  install -o root -g wheel -m 755 pbimount /usr/pbi/.pbimount
+  install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
+fi
+
+# Install the nullfs binary
+cd ${DIR}/mount_nullfs && make 
+install -o root -g wheel -m 755 mount_nullfs ${LB}/share/pbi-manager/.mount_nullfs
+if [ "${LB}" = "/usr/local" ] ; then
+  install -o root -g wheel -m 755 mount_nullfs /usr/pbi/.mount_nullfs
+fi
+
+# Install the MANPATH conf
+if [ ! -d "${LB}/etc/man.d" ] ; then
+   mkdir -p "${LB}/etc/man.d"
+fi
+cp ${DIR}/man.d/pbi.conf ${LB}/etc/man.d/pbi.conf
