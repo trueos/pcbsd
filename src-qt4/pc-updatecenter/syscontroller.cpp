@@ -403,7 +403,7 @@ void CSysController::parseUpgradeLine(QString line)
 {
     SProgress progress;
     progress.mMessage = tr("Installing system upgrade");
-    reportProgress();
+    reportProgress(progress);
     reportLogLine(line);
 }
 
@@ -411,6 +411,6 @@ void CSysController::parseFreeBSDUpdateLine(QString line)
 {
     SProgress progress;
     progress.mMessage = tr("Installing system update");
-    reportProgress();
+    reportProgress(progress);
     reportLogLine(line);
 }
