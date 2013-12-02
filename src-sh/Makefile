@@ -35,7 +35,6 @@ SUBTARGETS    =  \
 		sub-pcfbsd \
 		sub-pcfirst \
 		sub-pbi \
-		sub-pbi10 \
 		sub-install \
 		sub-deinfo \
 		sub-meta \
