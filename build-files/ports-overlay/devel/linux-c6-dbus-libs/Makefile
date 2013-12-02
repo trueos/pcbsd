@@ -8,17 +8,15 @@ USE_LINUX=	c6
 
 CATEGORIES=	devel linux
 MAINTAINER=	emulation@FreeBSD.org
-COMMENT=	Libraries for accessing D-BUS (Linux Fedora  ${LINUX_DIST_VER})
+COMMENT=	Libraries for accessing D-BUS (Linux CentOS 6)
 
 PKGNAMEPREFIX=	linux-${USE_LINUX}-
-MASTER_SITES=	http://vault.centos.org/${LINUX_DIST_VER}/os/i386/Packages/
 DISTNAME=	${PORTNAME}-${PORTVERSION}-${RPMVERSION}
-DIST_SUBDIR=	rpm/${LINUX_RPM_ARCH}/centos/${LINUX_DIST_VER}
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_LINUX_RPM=	yes
 LINUX_RPM_ARCH=		i686
-LINUX_DIST_VER=	6.2
+SRC_DISTFILES=	dbus-${PORTVERSION}-${RPMVERSION}${SRC_SUFX}
 USE_LDCONFIG=	yes
 DESCR=		${.CURDIR}/../dbus/pkg-descr
 

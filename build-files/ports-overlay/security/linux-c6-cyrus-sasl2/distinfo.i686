@@ -1,2 +1,4 @@
 SHA256 (rpm/i686/centos/6.2/cyrus-sasl-lib-2.1.23-13.el6.i686.rpm) = a8cfb59c143eaace8d37dcb579077d3137847698e14b82aead1085119b833e43
 SIZE (rpm/i686/centos/6.2/cyrus-sasl-lib-2.1.23-13.el6.i686.rpm) = 138636
+SHA256 (rpm/i686/centos/6.2/cyrus-sasl-2.1.23-13.el6.src.rpm) = 3f72ed97e7124ad9d32bca5d76923cd541a28f562e6d01fe9ab0a922b3f05401
+SIZE (rpm/i686/centos/6.2/cyrus-sasl-2.1.23-13.el6.src.rpm) = 1666315

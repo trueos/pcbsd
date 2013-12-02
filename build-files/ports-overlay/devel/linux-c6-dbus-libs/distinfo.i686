@@ -1,2 +1,4 @@
 SHA256 (rpm/i686/centos/6.2/dbus-libs-1.2.24-5.el6_1.i686.rpm) = 2d271d0a809eb6f98afbf721a79fb866b71fcb6751e4daf07d14bee171a5eb06
 SIZE (rpm/i686/centos/6.2/dbus-libs-1.2.24-5.el6_1.i686.rpm) = 131456
+SHA256 (rpm/i686/centos/6.2/dbus-1.2.24-5.el6_1.src.rpm) = 7da9666e85a4abb4b50481976af9b0c98b595d3b719304dd0f8ee16084d13463
+SIZE (rpm/i686/centos/6.2/dbus-1.2.24-5.el6_1.src.rpm) = 1717362

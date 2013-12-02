@@ -1,2 +1,4 @@
 SHA256 (rpm/i686/centos/6.2/expat-2.0.1-9.1.el6.i686.rpm) = 1dcb482783c4244e5c912abed25d1f252e3f9d94d9693633c62d173961848305
 SIZE (rpm/i686/centos/6.2/expat-2.0.1-9.1.el6.i686.rpm) = 79992
+SHA256 (rpm/i686/centos/6.2/expat-2.0.1-9.1.el6.src.rpm) = ebad5d1f9f550392e5adf33a6d17f14ce886919cf9518534e81a7595d3de5039
+SIZE (rpm/i686/centos/6.2/expat-2.0.1-9.1.el6.src.rpm) = 456871

@@ -6,3 +6,5 @@ SHA256 (rpm/i686/centos/6.2/nss-softokn-3.12.9-11.el6.i686.rpm) = 2169f3a012494f
 SIZE (rpm/i686/centos/6.2/nss-softokn-3.12.9-11.el6.i686.rpm) = 176284
 SHA256 (rpm/i686/centos/6.2/nss-softokn-freebl-3.12.9-11.el6.i686.rpm) = 1e38ee7da6701e2d302d6d480cd23a82ae857baffef9be5663f149e13a5dc7a9
 SIZE (rpm/i686/centos/6.2/nss-softokn-freebl-3.12.9-11.el6.i686.rpm) = 118928
+SHA256 (rpm/i686/centos/6.2/nss-3.12.10-16.el6.src.rpm) = 944a80fdcf7ac204c46988f3ab4f40991c2c453bf469aa9d2485a4744c4aad3d
+SIZE (rpm/i686/centos/6.2/nss-3.12.10-16.el6.src.rpm) = 4610435

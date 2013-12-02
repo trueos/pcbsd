@@ -24,7 +24,8 @@
 #					  (components), covered here.
 # OVERRIDE_LINUX_NONBASE_PORTS
 #			- This specifies a none-default linux infrastructure ports to use.
-#					  The valid value is "f10" to use Linux Fedora 10 ports.
+#					  The valid value is "f10" to use Linux Fedora 10 ports
+#					  and "c6" to use Linux CentOS 6 ports.
 #					  This is an user-only variable. Don't use it in any port,
 #					  it's meant to be used in make.conf.
 
@@ -39,16 +40,13 @@ Linux_APPS_Pre_Include=			bsd.linux-apps.mk
 
 Linux_APPS_Post_Include=	bsd.linux-apps.mk
 
-# OVERRIDE_LINUX_NONBASE_PORTS may be used only with LINUX_OSRELEASE=2.6.16
-.  if (${LINUX_OSRELEASE} == "2.6.18") && defined(OVERRIDE_LINUX_NONBASE_PORTS)
+.  if defined(OVERRIDE_LINUX_NONBASE_PORTS)
 .    if ${OVERRIDE_LINUX_NONBASE_PORTS} == "f10"
 LINUX_DIST_SUFFIX=	-f10
-.    else
-.		if ${OVERRIDE_LINUX_NONBASE_PORTS} == "c6"
+.    elif ${OVERRIDE_LINUX_NONBASE_PORTS} == "c6"
 LINUX_DIST_SUFFIX=	-c6
-.		else
-IGNORE=		valid values for OVERRIDE_LINUX_NONBASE_PORTS are: \"f10\"
-.		endif
+.    else
+IGNORE=		valid values for OVERRIDE_LINUX_NONBASE_PORTS are: \"f10\", \"c6\"
 .    endif
 .  else
 # default for OSVERSION >= 800076
@@ -59,7 +57,7 @@ WEB_AUTH=			nvu
 
 # Non-version specific components
 _LINUX_APPS_ALL=	allegro alsalib arts aspell atk cairo cups-libs curl dri esound expat fontconfig \
-					freealut gdkpixbuf gnutls gtk gtk2 hicontheme imlib jpeg libaudiofile \
+					freealut gdkpixbuf gnutls gtk2 hicontheme imlib jpeg libaudiofile \
 					libg2c libgcrypt libglade2 libglu libgpg-error libmng libogg \
 					libsigcpp20 libtasn1 libtheora libvorbis libxml2 mikmod naslibs \
 					ncurses-base openal openmotif openssl openssl-compat pango png scimgtk \
@@ -131,9 +129,7 @@ curl_f10_FILE=		${LINUXBASE}/usr/lib/libcurl.so.4.1.1
 curl_c6_FILE=		${LINUXBASE}/usr/lib/libcurl.so.4.1.1
 curl_DETECT=		${curl${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
 curl_PORT=		${PORTSDIR}/ftp/linux${LINUX_DIST_SUFFIX}-curl
-.  if ${LINUX_DIST_SUFFIX} == "-f10"
 curl_DEPENDS=		cyrus-sasl2 openldap
-.  endif
 
 cyrus-sasl2_f10_FILE=	${LINUXBASE}/usr/lib/libsasl2.so.2.0.22
 cyrus-sasl2_c6_FILE=	${LINUXBASE}/usr/lib/libsasl2.so.2.0.23
@@ -141,6 +137,7 @@ cyrus-sasl2_DETECT=	${cyrus-sasl2${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
 cyrus-sasl2_PORT=	${PORTSDIR}/security/linux${LINUX_DIST_SUFFIX}-cyrus-sasl2
 
 dbusglib_f10_FILE=	${LINUXBASE}/usr/lib/libdbus-glib-1.so.2
+dbusglib_c6_FILE=	${LINUXBASE}/usr/lib/libdbus-glib-1.so.2
 dbusglib_DETECT=	${dbusglib${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
 dbusglib_PORT=		${PORTSDIR}/devel/linux${LINUX_DIST_SUFFIX}-dbus-glib
 dbusglib_DEPENDS=	dbuslibs expat
@@ -178,13 +175,9 @@ freealut_PORT=		${PORTSDIR}/audio/linux${LINUX_DIST_SUFFIX}-freealut
 freealut_DEPENDS=	openal
 
 gdkpixbuf_f10_FILE=	${LINUXBASE}/usr/lib/libgdk_pixbuf.so.2
+gdkpixbuf_c6_FILE=	. # part of linux-c6-gtk2
 gdkpixbuf_DETECT=	${gdkpixbuf${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
 gdkpixbuf_PORT=		${PORTSDIR}/graphics/linux${LINUX_DIST_SUFFIX}-gdk-pixbuf
-
-gtk_f10_FILE=		${LINUXBASE}/usr/lib/libgtk-1.2.so.0.9.1
-gtk_DETECT=			${gtk${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
-gtk_PORT=			${PORTSDIR}/x11-toolkits/linux${LINUX_DIST_SUFFIX}-gtk
-gtk_DEPENDS=		xorglibs
 
 gnutls_f10_FILE=	${LINUXBASE}/usr/lib/libgnutls.so.26.4.6
 gnutls_DETECT=		${gnutls${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
@@ -198,6 +191,7 @@ gtk2_PORT=			${PORTSDIR}/x11-toolkits/linux${LINUX_DIST_SUFFIX}-gtk2
 gtk2_DEPENDS=		atk jpeg png pango tiff xorglibs
 
 hicontheme_f10_FILE=	${LINUXBASE}/usr/share/icons/hicolor
+hicontheme_c6_FILE=	${LINUXBASE}/usr/share/icons/hicolor
 hicontheme_DETECT=	${hicontheme${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
 hicontheme_PORT=	${PORTSDIR}/x11-themes/linux${LINUX_DIST_SUFFIX}-hicolor-icon-theme
 
@@ -262,6 +256,7 @@ libssh2_PORT=		${PORTSDIR}/security/linux${LINUX_DIST_SUFFIX}-libssh2
 libssh2_DEPENDS=	openssl
 
 libv4l_f10_FILE=	${LINUXBASE}/usr/lib/libv4l1.so.0
+libv4l_c6_FILE=		${LINUXBASE}/usr/lib/libv4l1.so.0
 libv4l_DETECT=		${libv4l${LINUX_DIST_SUFFIX:S/-/_/}_FILE}
 libv4l_PORT=		${PORTSDIR}/multimedia/linux${LINUX_DIST_SUFFIX}-libv4l
 

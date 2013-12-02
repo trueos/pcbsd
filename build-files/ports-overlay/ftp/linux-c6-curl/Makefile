@@ -10,21 +10,19 @@ USE_LINUX_APPS=	openldap libssh2
 
 CATEGORIES=	ftp linux
 MAINTAINER=	emulation@FreeBSD.org
-COMMENT=	Command line tool for transferring files with URL syntax (Linux CentOS ${LINUX_DIST_VER})
+COMMENT=	Command line tool for transferring files with URL syntax (Linux CentOS 6)
 
 PKGNAMEPREFIX=	linux-${USE_LINUX}-
-MASTER_SITES=	http://vault.centos.org/${LINUX_DIST_VER}/os/i386/Packages/
 DISTFILES=	curl-${PORTVERSION}-${RPMVERSION}.${LINUX_RPM_ARCH}.rpm \
 		libcurl-${PORTVERSION}-${RPMVERSION}.${LINUX_RPM_ARCH}.rpm
-DIST_SUBDIR=	rpm/${LINUX_RPM_ARCH}/centos/${LINUX_DIST_VER}
 
 CONFLICTS=	linux-curl-[0-9]* linux-f10-curl-[0-9]*
 
 ONLY_FOR_ARCHS=	i386 amd64
 USE_LINUX_RPM=	yes
 LINUX_RPM_ARCH=		i686
-LINUX_DIST_VER=	6.2
 BRANDELF_FILES=	usr/bin/curl
+SRC_DISTFILES=	curl-${PORTVERSION}-${RPMVERSION}.src.rpm
 USE_LDCONFIG=	yes
 
 PLIST_FILES=	usr/bin/curl usr/lib/libcurl.so.4 usr/lib/libcurl.so.4.1.1 \

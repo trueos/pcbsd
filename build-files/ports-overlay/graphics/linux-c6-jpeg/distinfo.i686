@@ -1,2 +1,4 @@
 SHA256 (rpm/i686/centos/6.2/libjpeg-6b-46.el6.i686.rpm) = 36099439b7dbc9323588f1999bff9b1738bb8b4df56149eb7ebb5b5226107665
 SIZE (rpm/i686/centos/6.2/libjpeg-6b-46.el6.i686.rpm) = 135732
+SHA256 (rpm/i686/centos/6.2/libjpeg-6b-46.el6.src.rpm) = fdd764341877b89de9ec1faa95e12ee7752faa995b52ddd81dc18e9966e929a4
+SIZE (rpm/i686/centos/6.2/libjpeg-6b-46.el6.src.rpm) = 632793

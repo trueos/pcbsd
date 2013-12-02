@@ -1,2 +1,4 @@
 SHA256 (rpm/i686/centos/6.2/libpng-1.2.46-1.el6_1.i686.rpm) = c277959c60a9e2749ac5c0c318a745d83d1e44a666823baa84629b986fc9f57b
 SIZE (rpm/i686/centos/6.2/libpng-1.2.46-1.el6_1.i686.rpm) = 188240
+SHA256 (rpm/i686/centos/6.2/libpng-1.2.46-1.el6_1.src.rpm) = be70d08a9072b93d8650ba226c9128a2b8da83391bc1ee2409720d12b5c407c4
+SIZE (rpm/i686/centos/6.2/libpng-1.2.46-1.el6_1.src.rpm) = 657825
