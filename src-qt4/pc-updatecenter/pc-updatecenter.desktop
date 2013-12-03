@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=pc-su pc-updatecenter
+Icon=/usr/local/share/pcbsd/icons/update-center.png
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Categories=System;
+Name=Update center (BETA)

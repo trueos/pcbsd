@@ -13,6 +13,8 @@ INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 
 TARGET = pc-updatecenter
+target.path=/usr/local/bin
+
 TEMPLATE = app
 
 
@@ -52,3 +54,18 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     res.qrc
+
+OTHER_FILES += \
+    pc-updatecenter.desktop
+
+doicons.path=/usr/local/share/pcbsd/icons/
+doicons.files=update-center.png
+
+desktop.path=/usr/local/share/applications/
+desktop.files=pc-updatecenter.desktop
+
+dotrans.path=/usr/local/share/pcbsd/i18n/
+#dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
+
+
+INSTALLS+= target doicons desktop dotrans
