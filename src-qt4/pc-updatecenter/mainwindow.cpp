@@ -1,3 +1,27 @@
+/**************************************************************************
+*   Copyright (C) 2013- by Yuri Momotyuk                                   *
+*   yurkis@gmail.com                                                      *
+*                                                                         *
+*   Permission is hereby granted, free of charge, to any person obtaining *
+*   a copy of this software and associated documentation files (the       *
+*   "Software"), to deal in the Software without restriction, including   *
+*   without limitation the rights to use, copy, modify, merge, publish,   *
+*   distribute, sublicense, and/or sell copies of the Software, and to    *
+*   permit persons to whom the Software is furnished to do so, subject to *
+*   the following conditions:                                             *
+*                                                                         *
+*   The above copyright notice and this permission notice shall be        *
+*   included in all copies or substantial portions of the Software.       *
+*                                                                         *
+*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       *
+*   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    *
+*   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*
+*   IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR     *
+*   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, *
+*   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
+*   OTHER DEALINGS IN THE SOFTWARE.                                       *
+***************************************************************************/
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -44,6 +68,7 @@ const QString PBI_DL_IMG=      ":/images/pbidownload.png";
 const QString PBI_INSTALL_IMG= ":/images/pbiinstall.png";
 const QString PBI_ERROR_IMG=   ":/images/pbierror.png";
 
+///////////////////////////////////////////////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -52,11 +77,13 @@ MainWindow::MainWindow(QWidget *parent) :
     init();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::init()
 {
     for (int i=0; i<ui->mainTab->count(); i++)
@@ -64,13 +91,6 @@ void MainWindow::init()
         if (i!=TOOLBOX_MAIN_INDEX)
             ui->mainTab->setTabEnabled(i, false);
     }
-
-#ifdef CONTROLLER_EMULATION_ENABLED
-   // mPkgController.setEmulateCheckFile("/home/yurkis/_pkgcheck.txt");
-//    mPkgController.setEmulateUpdateFile("/home/yurkis/_pkgupd.txt");
-    //mPkgController.setEmulateDelay(1);
-#endif
-
 
     mSysController.check();
     mPkgController.check();
@@ -113,6 +133,7 @@ void MainWindow::init()
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::refreshMenu()
 {
     bool en_syslog= (mSysController.currentState() != CAbstractUpdateController::eUPDATING) && mSysController.hasLog();
@@ -123,6 +144,16 @@ void MainWindow::refreshMenu()
     ui->actionLast_software_update_log->setEnabled(en_pbiglog);
 }
 
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::slotSingleInstance()
+{
+    this->hide();
+    this->showNormal();
+    this->activateWindow();
+    this->raise();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
     refreshMenu();
@@ -186,6 +217,7 @@ void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateController
     Q_UNUSED(new_state)
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_updateAllButton_clicked()
 {
     if (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
@@ -196,12 +228,13 @@ void MainWindow::on_updateAllButton_clicked()
         mPBIController.updateAll();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates installation</b><br><2.Warden support<br>2.Some error handling<br>3.Last update log view<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
+    QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates parsing unfinished</b><br><2.Warden support<br>2.Some error handling<br>3.Last update log view<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
 }
 
-
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_checkAllButton_clicked()
 {
     mSysController.check();
@@ -209,24 +242,28 @@ void MainWindow::on_checkAllButton_clicked()
     mPBIController.check();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_actionLast_system_update_log_triggered()
 {
     LogViewDialog* dlg = new LogViewDialog(this);
     dlg->showLog(&mSysController);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_actionLast_package_update_log_triggered()
 {
     LogViewDialog* dlg = new LogViewDialog(this);
     dlg->showLog(&mPkgController);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_actionLast_software_update_log_triggered()
 {
     LogViewDialog* dlg = new LogViewDialog(this);
     dlg->showLog(&mPBIController);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_actionExit_triggered()
 {
     bool isUpdate= (mSysController.currentState() == CAbstractUpdateController::eUPDATING)

@@ -61,6 +61,7 @@ _STRING_CONSTANT SYS_PATCH_SETSTEPS= "SETSTEPS:";
 _STRING_CONSTANT SYS_PATCH_MSG= "MSG:";
 _STRING_CONSTANT SYS_PATCH_FINISHED= "INSTALLFINISHED:";
 
+///////////////////////////////////////////////////////////////////////////////
 CSysController::CSysController()
 {
     misFREEBSDCheck= false;
@@ -71,6 +72,7 @@ CSysController::CSysController()
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::updateSelected(QVector<CSysController::SSystemUpdate> selectedUpdates)
 {
     mvUpdatesToApply= selectedUpdates;
@@ -78,6 +80,7 @@ void CSysController::updateSelected(QVector<CSysController::SSystemUpdate> selec
     launchUpdate();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::onCheckUpdates()
 {
     misFREEBSDCheck= false;
@@ -87,6 +90,15 @@ void CSysController::onCheckUpdates()
     mFilesToUpdate.clear();
 }
 
+///////////////////////////////////////////////////////////////////////////////
+void CSysController::onUpdateAll()
+{
+    mvUpdatesToApply = mvUpdates;
+    mCurrentUpdate= 0;
+    launchUpdate();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::checkShellCommand(QString &cmd, QStringList &args)
 {
     if (misFREEBSDCheck)
@@ -101,6 +113,7 @@ void CSysController::checkShellCommand(QString &cmd, QStringList &args)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::updateShellCommand(QString &cmd, QStringList &args)
 {
     if (mCurrentUpdate>=mvUpdatesToApply.size())
@@ -120,6 +133,7 @@ void CSysController::updateShellCommand(QString &cmd, QStringList &args)
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::onReadCheckLine(QString line)
 {    
     if (misFREEBSDCheck)
@@ -129,6 +143,7 @@ void CSysController::onReadCheckLine(QString line)
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::onReadUpdateLine(QString line)
 {
     line= line.trimmed();
@@ -149,11 +164,13 @@ void CSysController::onReadUpdateLine(QString line)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::onReadProcessChar(char character)
 {
     qDebug()<<character;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::onCheckProcessfinished(int exitCode)
 {
     if (!misFREEBSDCheck)
@@ -197,6 +214,25 @@ void CSysController::onCheckProcessfinished(int exitCode)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
+void CSysController::onUpdateProcessfinished(int exitCode)
+{
+    Q_UNUSED(exitCode);
+
+    if (currentState() != eUPDATING)
+        return;
+    mCurrentUpdate++;
+    if (mCurrentUpdate == mvUpdatesToApply.size())
+    {
+        check();
+    }
+    else
+    {
+        launchUpdate();
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::onCancel()
 {
     process().terminate();
@@ -204,6 +240,7 @@ void CSysController::onCancel()
     check();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseCheckPCBSDLine(QString line)
 {
     /*if (line == QString("Your system is up to date!"))
@@ -271,6 +308,7 @@ void CSysController::parseCheckPCBSDLine(QString line)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseCheckFREEBSDLine(QString line)
 {
     qDebug()<<line;
@@ -329,6 +367,7 @@ void CSysController::parseCheckFREEBSDLine(QString line)
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::parsePatchUpdateLine(QString line)
 {
     SProgress progress;
@@ -399,6 +438,7 @@ void CSysController::parsePatchUpdateLine(QString line)
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseUpgradeLine(QString line)
 {
     SProgress progress;
@@ -407,6 +447,7 @@ void CSysController::parseUpgradeLine(QString line)
     reportLogLine(line);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseFreeBSDUpdateLine(QString line)
 {
     SProgress progress;

@@ -133,3 +133,22 @@ void PBIDetailsWidget::on_updateSelectedPBIBtn_clicked()
 
     mUpdateController->updateSelected(ListToUpdate);
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void PBIDetailsWidget::on_pbiUpdateList_itemChanged(QTreeWidgetItem *item, int column)
+{
+    Q_UNUSED(item);
+    Q_UNUSED(column);
+    bool is_enable=false;
+    for(int i=0; i < ui->pbiUpdateList->topLevelItemCount(); i++)
+    {
+        QTreeWidgetItem* item= ui->pbiUpdateList->topLevelItem(i);
+
+        if (item->checkState(0) == Qt::Checked)
+        {
+            is_enable= true;
+            break;
+        }
+    }
+    ui->updateSelectedPBIBtn->setEnabled(is_enable);
+}

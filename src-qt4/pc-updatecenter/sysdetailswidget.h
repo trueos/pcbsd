@@ -26,6 +26,7 @@
 #define SYSDETAILSWIDGET_H
 
 #include <QWidget>
+#include <QTreeWidgetItem>
 #include "syscontroller.h"
 
 namespace Ui {
@@ -51,6 +52,8 @@ private slots:
     void on_sysUpdatesList_itemSelectionChanged();
 
     void on_sysInstallSelectedBtn_clicked();
+
+    void on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column);
 
 private:
     Ui::SysDetailsWidget *ui;

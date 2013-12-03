@@ -1,8 +1,33 @@
+/**************************************************************************
+*   Copyright (C) 2013- by Yuri Momotyuk                                   *
+*   yurkis@gmail.com                                                      *
+*                                                                         *
+*   Permission is hereby granted, free of charge, to any person obtaining *
+*   a copy of this software and associated documentation files (the       *
+*   "Software"), to deal in the Software without restriction, including   *
+*   without limitation the rights to use, copy, modify, merge, publish,   *
+*   distribute, sublicense, and/or sell copies of the Software, and to    *
+*   permit persons to whom the Software is furnished to do so, subject to *
+*   the following conditions:                                             *
+*                                                                         *
+*   The above copyright notice and this permission notice shall be        *
+*   included in all copies or substantial portions of the Software.       *
+*                                                                         *
+*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       *
+*   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    *
+*   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*
+*   IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR     *
+*   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, *
+*   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
+*   OTHER DEALINGS IN THE SOFTWARE.                                       *
+***************************************************************************/
+
 #include "indicatorwidget.h"
 #include "ui_indicatorwidget.h"
 
 #include <QPicture>
 
+///////////////////////////////////////////////////////////////////////////////
 IndicatorWidget::IndicatorWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::IndicatorWidget)
@@ -10,11 +35,13 @@ IndicatorWidget::IndicatorWidget(QWidget *parent) :
     ui->setupUi(this);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 IndicatorWidget::~IndicatorWidget()
 {
     delete ui;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 bool IndicatorWidget::init(QString check_img, QString ok_img, QString avail_img,
                            QString download_img, QString install_img, QString error_img,
                            CAbstractUpdateController *upd_controller)
@@ -48,6 +75,7 @@ bool IndicatorWidget::init(QString check_img, QString ok_img, QString avail_img,
     return true;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::stateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
     ui->stateImage->setPixmap(QPixmap(mStateImages[new_state]));
@@ -79,6 +107,7 @@ void IndicatorWidget::stateChanged(CAbstractUpdateController::EUpdateControllerS
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::progress(CAbstractUpdateController::SProgress progress)
 {
     ui->progress->setMinimum(progress.mProgressMin);
@@ -92,11 +121,13 @@ void IndicatorWidget::progress(CAbstractUpdateController::SProgress progress)
     ui->stateImage->setPixmap(QPixmap(pict_name));
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::updateError(QString message)
 {
     ui->msgLabel->setText(message);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::onCheck()
 {
     ui->progress->setVisible(false);
@@ -107,6 +138,7 @@ void IndicatorWidget::onCheck()
     ui->msgLabel->setText(tr("Checking for updates..."));
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::onUpdateAvail()
 {
     ui->progress->setVisible(false);
@@ -119,6 +151,7 @@ void IndicatorWidget::onUpdateAvail()
 
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::onFullyUpdated()
 {
     ui->progress->setVisible(false);
@@ -129,6 +162,7 @@ void IndicatorWidget::onFullyUpdated()
     ui->msgLabel->setText(tr("Is up to date!"));
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::onUpdateProgress()
 {
     ui->progress->setVisible(true);
@@ -142,6 +176,7 @@ void IndicatorWidget::onUpdateProgress()
     ui->msgLabel->setText(tr("Preparing update..."));
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void IndicatorWidget::onUpdateError()
 {
     ui->progress->setVisible(false);

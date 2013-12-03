@@ -27,6 +27,7 @@
 
 #include "pbicontroller.h"
 #include <QWidget>
+#include <QTreeWidgetItem>
 
 namespace Ui {
 class PBIDetailsWidget;
@@ -48,6 +49,8 @@ private slots:
     void slotControllerLogLine(QString line);
     
     void on_updateSelectedPBIBtn_clicked();
+
+    void on_pbiUpdateList_itemChanged(QTreeWidgetItem *item, int column);
 
 private:
     Ui::PBIDetailsWidget *ui;

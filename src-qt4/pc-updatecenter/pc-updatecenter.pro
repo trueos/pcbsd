@@ -38,7 +38,6 @@ HEADERS  += mainwindow.h \
     dialogconflict.h \
     utils.h \
     sysdetailswidget.h \
-    iconset.h \
     pkgdetailswidget.h \
     pbidetailswidget.h \
     logviewdialog.h

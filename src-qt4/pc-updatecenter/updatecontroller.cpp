@@ -1,3 +1,27 @@
+/**************************************************************************
+*   Copyright (C) 2013- by Yuri Momotyuk                                   *
+*   yurkis@gmail.com                                                      *
+*                                                                         *
+*   Permission is hereby granted, free of charge, to any person obtaining *
+*   a copy of this software and associated documentation files (the       *
+*   "Software"), to deal in the Software without restriction, including   *
+*   without limitation the rights to use, copy, modify, merge, publish,   *
+*   distribute, sublicense, and/or sell copies of the Software, and to    *
+*   permit persons to whom the Software is furnished to do so, subject to *
+*   the following conditions:                                             *
+*                                                                         *
+*   The above copyright notice and this permission notice shall be        *
+*   included in all copies or substantial portions of the Software.       *
+*                                                                         *
+*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       *
+*   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    *
+*   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*
+*   IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR     *
+*   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, *
+*   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
+*   OTHER DEALINGS IN THE SOFTWARE.                                       *
+***************************************************************************/
+
 #include "updatecontroller.h"
 
 #include <QDebug>
@@ -6,11 +30,9 @@
 const char* const EMULATION_PROC = "cat";
 const QStringList EMULATION_DEF_ARGS;
 
+///////////////////////////////////////////////////////////////////////////////
 CAbstractUpdateController::CAbstractUpdateController()
 {
-#ifdef CONTROLLER_EMULATION_ENABLED
-    mEmulationDelay= 0;
-#endif
     mCurrentState= eNOT_INITIALIZED;
     mUpdProc.setProcessChannelMode(QProcess::MergedChannels);
     connect(&mUpdProc, SIGNAL(readyReadStandardOutput()),
@@ -19,26 +41,31 @@ CAbstractUpdateController::CAbstractUpdateController()
             this, SLOT(slotProcessFinished(int,QProcess::ExitStatus)));
 }
 
+///////////////////////////////////////////////////////////////////////////////
 CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::currentState()
 {
     return mCurrentState;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 QString CAbstractUpdateController::updateMessage()
 {
     return mUpdateMasage;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 QStringList CAbstractUpdateController::updateLog()
 {
     return mLogMessages;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 bool CAbstractUpdateController::hasLog()
 {
     return (mLogMessages.size()!=0);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::parseProcessLine(CAbstractUpdateController::EUpdateControllerState state, QString line)
 {
     switch (state)
@@ -57,6 +84,7 @@ void CAbstractUpdateController::parseProcessLine(CAbstractUpdateController::EUpd
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpdateControllerState new_state)
 {
 
@@ -74,18 +102,21 @@ void CAbstractUpdateController::setCurrentState(CAbstractUpdateController::EUpda
     emit stateChanged(mCurrentState);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::reportProgress(CAbstractUpdateController::SProgress curr_progress)
 {
     mCurrentProgress= curr_progress;
     emit progress(mCurrentProgress);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::reportLogLine(QString line)
 {
     mLogMessages.append(line);
     emit logLinePresent(line);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::reportUpdatesAvail(QString message)
 {
     mUpdateMasage = message;
@@ -93,6 +124,7 @@ void CAbstractUpdateController::reportUpdatesAvail(QString message)
     emit updatesAvail(mUpdateMasage);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::reportError(QString error_message)
 {
     mErrorMessage = error_message;
@@ -100,19 +132,13 @@ void CAbstractUpdateController::reportError(QString error_message)
     emit updateError(mErrorMessage);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::launchUpdate()
 {
     QString proc;
     QStringList args;
     updateShellCommand(proc, args);
-#ifdef CONTROLLER_EMULATION_ENABLED
-    if (mEmulateUpd.length())
-    {
-        proc = EMULATION_PROC;
-        args = EMULATION_DEF_ARGS;
-        args<<mEmulateUpd;
-    }
-#endif
+
     mUpdProc.start(proc,args);
     if (!mUpdProc.waitForStarted())
     {
@@ -124,19 +150,13 @@ void CAbstractUpdateController::launchUpdate()
         setCurrentState(eUPDATING);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::launchCheck()
 {
     QString proc;
     QStringList args;
     checkShellCommand(proc, args);
-#ifdef CONTROLLER_EMULATION_ENABLED
-    if (mEmulateCheck.length())
-    {
-        proc = EMULATION_PROC;
-        args = EMULATION_DEF_ARGS;
-        args<<mEmulateCheck;
-    }
-#endif
+
     mUpdProc.start(proc,args);
     if (!mUpdProc.waitForStarted())
     {
@@ -147,12 +167,14 @@ void CAbstractUpdateController::launchCheck()
     setCurrentState(eCHECKING);
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::check()
 {
     onCheckUpdates();
     launchCheck();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::updateAll()
 {
     //TODO: correct current state check
@@ -162,6 +184,7 @@ void CAbstractUpdateController::updateAll()
     launchUpdate();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::cancel()
 {
     if (mCurrentProgress.misCanCancel)
@@ -170,6 +193,7 @@ void CAbstractUpdateController::cancel()
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::slotProcessRead()
 {
     /*qint64 size= mUpdProc.bytesAvailable();
@@ -183,16 +207,11 @@ void CAbstractUpdateController::slotProcessRead()
 
     while (mUpdProc.canReadLine())
     {
-#ifdef CONTROLLER_EMULATION_ENABLED
-        if (mEmulationDelay)
-        {
-           usleep(mEmulationDelay );
-        }
-#endif
         parseProcessLine(currentState(), mUpdProc.readLine().simplified());
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Q_UNUSED(exitStatus)

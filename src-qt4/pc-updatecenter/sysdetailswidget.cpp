@@ -210,3 +210,21 @@ void SysDetailsWidget::on_sysInstallSelectedBtn_clicked()
     mUpdateController->updateSelected(toUpdate);
 
 }
+
+void SysDetailsWidget::on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column)
+{
+    Q_UNUSED(item);
+    Q_UNUSED(column);
+    bool is_enable=false;
+    for(int i=0; i < ui->sysUpdatesList->topLevelItemCount(); i++)
+    {
+        QTreeWidgetItem* item= ui->sysUpdatesList->topLevelItem(i);
+
+        if (item->checkState(0) == Qt::Checked)
+        {
+            is_enable= true;
+            break;
+        }
+    }
+    ui->sysInstallSelectedBtn->setEnabled(is_enable);
+}

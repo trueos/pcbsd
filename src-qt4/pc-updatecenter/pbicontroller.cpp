@@ -1,3 +1,27 @@
+/**************************************************************************
+*   Copyright (C) 2013- by Yuri Momotyuk                                   *
+*   yurkis@gmail.com                                                      *
+*                                                                         *
+*   Permission is hereby granted, free of charge, to any person obtaining *
+*   a copy of this software and associated documentation files (the       *
+*   "Software"), to deal in the Software without restriction, including   *
+*   without limitation the rights to use, copy, modify, merge, publish,   *
+*   distribute, sublicense, and/or sell copies of the Software, and to    *
+*   permit persons to whom the Software is furnished to do so, subject to *
+*   the following conditions:                                             *
+*                                                                         *
+*   The above copyright notice and this permission notice shall be        *
+*   included in all copies or substantial portions of the Software.       *
+*                                                                         *
+*   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       *
+*   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    *
+*   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*
+*   IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR     *
+*   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, *
+*   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR *
+*   OTHER DEALINGS IN THE SOFTWARE.                                       *
+***************************************************************************/
+
 #include "pbicontroller.h"
 
 #include "pcbsd-utils.h"
@@ -11,10 +35,12 @@ _STRING_CONSTANT FETCHDONE= "FETCHDONE";
 _STRING_CONSTANT FETCH_WORLD= "FETCH";
 _STRING_CONSTANT DOWNLOADING_ERROR= "ERROR: ";
 
+///////////////////////////////////////////////////////////////////////////////
 CPBIController::CPBIController()
 {
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::updateSelected(QStringList generic_names_list)
 {
     mAppsToUpdate= generic_names_list;
@@ -24,11 +50,13 @@ void CPBIController::updateSelected(QStringList generic_names_list)
     launchUpdate();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onCheckUpdates()
 {
     mvUpdates.clear();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onUpdateAll()
 {
     QStringList upd_list;
@@ -40,6 +68,7 @@ void CPBIController::onUpdateAll()
     misWasFETCHDONE= false;
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onCancel()
 {
     process().terminate();
@@ -47,6 +76,7 @@ void CPBIController::onCancel()
     check();
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onReadCheckLine(QString line)
 {
     //Example:
@@ -69,6 +99,7 @@ void CPBIController::onReadCheckLine(QString line)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onReadUpdateLine(QString line)
 {
     SProgress progress;
@@ -142,6 +173,7 @@ void CPBIController::onReadUpdateLine(QString line)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onCheckProcessfinished(int exitCode)
 {
     if (!mvUpdates.size())
@@ -162,6 +194,7 @@ void CPBIController::onCheckProcessfinished(int exitCode)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::onUpdateProcessfinished(int exitCode)
 {
     SProgress progress;
@@ -199,6 +232,7 @@ void CPBIController::onUpdateProcessfinished(int exitCode)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////
 void CPBIController::updateShellCommand(QString &cmd, QStringList &args)
 {
     cmd= PBU_UPDATE_CMD;
