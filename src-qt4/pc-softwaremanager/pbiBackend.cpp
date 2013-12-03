@@ -132,8 +132,7 @@ QStringList PBIBackend::getRecentApps(){
   //Generate a string for today's date
   QDate date = QDate::currentDate();
   date = date.addDays(-10);
-  QString chk = date.toString(Qt::ISODate);
-  chk.remove("-"); chk.append(" 000000"); //don't specify a particular time
+  QString chk = date.toString("yyyyMMdd");
   //Now compare the latest apps to this date
   QStringList apps = APPHASH.keys();
   QStringList  unsorted;

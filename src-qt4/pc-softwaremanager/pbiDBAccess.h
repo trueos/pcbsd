@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QProcess>
 #include <QProcessEnvironment>
+#include <QDateTime>
 
 #include "extras.h"
 
