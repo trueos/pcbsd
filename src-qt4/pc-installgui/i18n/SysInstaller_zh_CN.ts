@@ -259,28 +259,23 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从Life-Preserver备份恢复</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>管理网络连接</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS数据集</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>原始ZFS布局将被恢复</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从Life-Preserver备份恢复。点击&quot;下一步&quot;开始恢复向导。</translation>
     </message>
     <message>
         <source>Start the restore now?</source>

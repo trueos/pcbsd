@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/pbiupdates.png</file>
+        <file>images/pkgupdates.png</file>
+        <file>images/sysupdater.png</file>
+        <file>images/sysupdates.png</file>
+        <file>images/view-refresh.png</file>
+        <file>images/pbiok.png</file>
+        <file>images/pkgok.png</file>
+        <file>images/syscheck.png</file>
+        <file>images/pbicheck.png</file>
+        <file>images/pkgcheck.png</file>
+        <file>images/sysok.png</file>
+        <file>images/install.png</file>
+        <file>update-center.png</file>
+        <file>images/application.png</file>
+        <file>images/pbidownload.png</file>
+        <file>images/pbierror.png</file>
+        <file>images/pbiinstall.png</file>
+        <file>images/sysdownload.png</file>
+        <file>images/syserror.png</file>
+        <file>images/sysinstall.png</file>
+        <file>images/pkgdownload.png</file>
+        <file>images/pkgerror.png</file>
+        <file>images/pkginstall.png</file>
+        <file>images/dialog-cancel.png</file>
+        <file>images/sysupdates-freebsd.png</file>
+        <file>images/sysupdates-patch.png</file>
+        <file>images/sysupdates-upgrade.png</file>
+        <file>images/beta.png</file>
+    </qresource>
+</RCC>

@@ -249,8 +249,8 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>引导环境名称只能由数字和字母组成
+</translation>
     </message>
 </context>
 </TS>

@@ -1320,79 +1320,65 @@ crash dump.
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消挂载</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>挂载</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建MBR分区表</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建GPT分区表</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建BSD分区表</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>删除分区表</translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加新slice</translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加新分区</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>销毁这个slice</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>销毁这个分区</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此操作无法被撤销。
+确定要销毁slice或分区吗？</translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>错误报告</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建新的zpool</translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重要信息</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
