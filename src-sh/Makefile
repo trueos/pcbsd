@@ -318,7 +318,6 @@ sub-pcthinclient-install_subtargets: pc-thinclient/$(MAKEFILE) FORCE
 make_default: sub-libsh-make_default \
 	sub-lpreserver-make_default \
 	sub-pbi-make_default \
-	sub-pbi10-make_default \
 	sub-about-make_default \
 	sub-install-make_default \
 	sub-meta-make_default \
@@ -342,7 +341,6 @@ make_default: sub-libsh-make_default \
 make_first: sub-libsh-make_first \
 	sub-lpreserver-make_first \
 	sub-pbi-make_first \
-	sub-pbi10-make_first \
 	sub-about-make_first \
 	sub-install-make_first \
 	sub-meta-make_first \
@@ -366,7 +364,6 @@ make_first: sub-libsh-make_first \
 all:	sub-libsh-all \
 	sub-lpreserver-all \
 	sub-pbi-all \
-	sub-pbi10-all \
 	sub-about-all \
 	sub-install-all \
 	sub-meta-all \
@@ -388,7 +385,6 @@ all:	sub-libsh-all \
 	FORCE
 
 clean: sub-pbi-clean \
-	sub-pbi10-clean \
 	sub-libsh-clean \
 	sub-lpreserver-clean \
 	sub-about-clean \
@@ -413,7 +409,6 @@ clean: sub-pbi-clean \
 
 install_subtargets: sub-libsh-install_subtargets \
 	sub-pbi-install_subtargets \
-	sub-pbi10-install_subtargets \
 	sub-lpreserver-install_subtargets \
 	sub-about-install_subtargets \
 	sub-install-install_subtargets \
