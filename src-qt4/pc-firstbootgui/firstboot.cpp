@@ -46,6 +46,21 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     keyModels = Scripts::Backend::keyModels();
     keyLayouts = Scripts::Backend::keyLayouts();
 
+    // If we have a saved keyboard layout from installation, use it first
+    QString kD;
+    if ( QFile::exists("/var/.wizardKeyboard") ) {
+      QFile kFile("/var/.wizardKeyboard");
+      if ( kFile.open(QIODevice::ReadOnly | QIODevice::Text) ) {
+         kD = kFile.readLine().simplified();
+         kFile.close();
+         
+         kbMod = kD.section(" ", 0, 0);
+         kbLay = kD.section(" ", 1, 1);
+         kbVar = kD.section(" ", 2, 2);
+	 Scripts::Backend::changeKbMap(kbMod, kbLay, kbVar);
+      } 
+    }
+
     // Load the timezones
     comboBoxTimezone->clear();
     QString curZone = Scripts::Backend::guessTimezone();
@@ -506,6 +521,43 @@ void Installer::saveSettings()
       sethostname(lineHostname->text().toLatin1(), lineHostname->text().length());
   }
 
+
+  // Save the PCDM default lang / inputs
+  QString curLang;
+  if ( comboLanguage->currentIndex() != -1 ) {
+    // Figure out the language code
+    curLang = languages.at(comboLanguage->currentIndex());
+          
+    // Grab the language code
+    curLang.truncate(curLang.lastIndexOf(")"));
+    curLang.remove(0, curLang.lastIndexOf("(") + 1);
+  }
+
+  system("mkdir -p /var/db/pcdm 2>/dev/null");
+  QFile pcdmfile("/var/db/pcdm/defaultInputs");
+  if (pcdmfile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+    QTextStream out(&pcdmfile);
+    out << "Lang=" << curLang << "\n";
+
+    if ( kbMod.isEmpty() )
+      out << "KeyModel=pc104\n";
+    else
+      out << "KeyModel=" << kbMod << "\n";
+
+    if ( kbLay.isEmpty() )
+      out << "KeyLayout=us\n";
+    else
+      out << "KeyLayout=" << kbLay << "\n";
+
+    if ( kbVar.isEmpty() )
+      out << "KeyVariant=";
+    else
+      out << "KeyVariant=" << kbVar;
+
+    pcdmfile.close();
+  } else {
+    qDebug() << "Error opening /var/db/pcdm/defaultInputs";
+  }
 }
 
 void Installer::slotKeyLayoutUpdated(QString mod, QString lay, QString var)

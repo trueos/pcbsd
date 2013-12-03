@@ -31,6 +31,7 @@ bin/pc-sysinstaller
 bin/pc-sysmanager
 bin/pc-systemupdatertray
 bin/pc-updategui
+bin/pc-updatecenter
 bin/pc-usermanager
 bin/pc-welcome
 bin/pc-xgui
@@ -69,6 +70,7 @@ share/pcbsd/scripts/openhandbook.sh
 share/pcbsd/scripts/set-lang.sh
 share/pcbsd/scripts/sound-dev-changed.sh
 share/pcbsd/scripts/portsnap-noterm.sh
+share/pcbsd/icons/update-center.pkg
 share/pcbsd/icons/system-software-update.png
 share/pcbsd/icons/hwinfo.png
 share/pcbsd/icons/mythtv.png
@@ -495,6 +497,7 @@ share/pcbsd/pc-controlpanel/items/tools/pbi-kbackup.desktop
 share/pcbsd/pc-controlpanel/items/tools/warden.desktop
 share/pcbsd/pc-controlpanel/items/tools/lifepreserver.desktop
 share/pcbsd/pc-controlpanel/items/tools/flash-player-properties.desktop
+share/pcbsd/pc-controlpanel/items/software/pc-updatecenter.desktop
 share/pcbsd/pc-controlpanel/items/software/pc-updategui.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-winecfg.desktop
 share/pcbsd/pc-controlpanel/items/software/pbi-q4wine.desktop
@@ -2691,6 +2694,7 @@ share/applications/softmanager.desktop
 share/applications/pcbsdpbu.desktop
 share/applications/pc-pkgmanager.desktop
 share/applications/pc-updategui.desktop
+share/applications/pc-updatecenter.desktop
 share/applications/pc-welcome.desktop
 share/applications/warden.desktop
 share/applications/EasyPBI.desktop

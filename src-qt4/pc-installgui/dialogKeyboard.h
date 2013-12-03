@@ -39,6 +39,7 @@ private:
     QStringList keyboardLayouts;
 
 signals:
+    void saved(QString, QString, QString);
 
 } ;
 #endif // DIALOGKEY_H
