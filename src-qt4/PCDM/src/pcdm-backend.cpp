@@ -229,6 +229,9 @@ void Backend::checkLocalDirs(){
   if(!mainDir.exists("themes")){ mainDir.mkdir("themes"); }
   //Check for sample files
   if(!mainDir.exists("pcdm.conf.sample")){ QFile::copy(":samples/pcdm.conf",base+"/pcdm.conf.sample"); } 
+  //Check for the PCDM runtime directory
+  mainDir.cd("/var/db/pcdm");
+  if(!mainDir.exists()){ mainDir.mkdir("/var/db/pcdm"); }
 }
 
 QString Backend::getLastUser(){
@@ -262,7 +265,7 @@ void Backend::readDefaultSysEnvironment(QString &lang, QString &keymodel, QStrin
     keylayout = "us";
     keyvariant = "";
   //Read the current inputs file and overwrite default values
-  QFile file("/usr/local/share/PCDM/.defaultInputs");
+  QFile file("/var/db/pcdm/defaultInputs");
   bool goodFile=false;
   if(file.exists()){
     if(file.open(QIODevice::ReadOnly | QIODevice::Text) ){
@@ -286,7 +289,7 @@ void Backend::readDefaultSysEnvironment(QString &lang, QString &keymodel, QStrin
 }
 
 void Backend::saveDefaultSysEnvironment(QString lang, QString keymodel, QString keylayout, QString keyvariant){
-  QFile file("/usr/local/share/PCDM/.defaultInputs");
+  QFile file("/var/db/pcdm/defaultInputs");
     if(file.open(QIODevice::WriteOnly | QIODevice::Text) ){
       QTextStream out(&file);
       out << "Lang=" + lang + "\n";
