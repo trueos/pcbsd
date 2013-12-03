@@ -175,7 +175,9 @@ void Backend::changeKbMap(QString model, QString layout, QString variant)
    QStringList args;
    QString prog;
    prog = "setxkbmap"; 
-   args << "-model" << model << "-layout" << layout << "-variant" << variant;
+   if(!model.isEmpty()){ args << "-model" << model; }
+   if(!layout.isEmpty()){ args << "-layout" << layout; }
+   if(!variant.isEmpty()){ args << "-variant" << variant; }
    Backend::log("setxkbmap: " + args.join(" "));
    kbp.start(prog, args);
    kbp.waitForFinished();
