@@ -93,8 +93,17 @@ void Installer::slotPushKeyLayout()
   wKey = new widgetKeyboard();
   wKey->programInit(keyModels, keyLayouts);
   wKey->setWindowModality(Qt::ApplicationModal);
+  connect(wKey, SIGNAL(saved(QString, QString, QString)), this, SLOT(slotSaveKeyLayout(QString, QString, QString)));
   wKey->show();
   wKey->raise();
+}
+
+void Installer::slotSaveKeyLayout(QString model, QString layout, QString variant)
+{
+  curKeyModel = model;
+  curKeyLayout = layout;
+  curKeyVariant = variant;
+  qDebug() << "Changed keyboard layout:" << curKeyModel << curKeyLayout << curKeyVariant;
 }
 
 void Installer::initInstall()
@@ -796,10 +805,16 @@ void Installer::slotChangeLanguage()
 
     // Change the default keyboard layout
     if ( langCode == "en" ) {
+       curKeyModel="pc104";
+       curKeyLayout="us";
+       curKeyVariant="";
        Scripts::Backend::changeKbMap("pc104", "us", "");
     } else {
        // TODO - At some point, add additional tests here and set more specific layouts
        // based upon the language selected
+       curKeyModel="pc105";
+       curKeyLayout=langCode;
+       curKeyVariant="";
        Scripts::Backend::changeKbMap("pc105", langCode, "" );
     }
     
@@ -1014,6 +1029,11 @@ void Installer::startConfigGen()
         lang.truncate(lang.lastIndexOf(")"));
         lang.remove(0, lang.lastIndexOf("(") + 1);
         cfgList << "runCommand=echo " + lang + " >/var/.wizardlang";
+      }
+
+      // If the user changed the keyboard layout, save it for first boot
+      if ( ! curKeyModel.isEmpty() ) {
+        cfgList << "runCommand=echo \"" + curKeyModel + " " + curKeyLayout + " " + curKeyVariant + "\" >/var/.wizardKeyboard";
       }
 
     } else {

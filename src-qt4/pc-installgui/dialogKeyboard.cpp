@@ -67,10 +67,12 @@ void widgetKeyboard::slotUpdateKbOnSys()
 {
   QString model, layout, variant;
 
-  if ( ! (comboBoxKeyboardModel->currentIndex() == -1) )
+  if ( comboBoxKeyboardModel->currentIndex() == -1 )
      return;
+
   if ( ! listKbLayouts->currentItem() )
      return;
+
   if ( ! listKbVariants->currentItem() )
      return;
 
@@ -91,6 +93,7 @@ void widgetKeyboard::slotUpdateKbOnSys()
   }
   
   Scripts::Backend::changeKbMap(model, layout, variant);
+  emit saved(model, layout, variant);
 }
 
 void widgetKeyboard::slotCurrentKbVariantChanged(int row)

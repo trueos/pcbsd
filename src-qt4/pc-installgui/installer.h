@@ -75,6 +75,8 @@ private slots:
     // Restore-related slots
     void slotSaveRestoreSettings(QStringList);
 
+    // Slot to save keyboard layout
+    void slotSaveKeyLayout(QString, QString, QString);
 
 private:
 
@@ -176,6 +178,9 @@ private:
     widgetKeyboard *wKey;
     QStringList keyModels;
     QStringList keyLayouts;
+    QString curKeyLayout;
+    QString curKeyModel;
+    QString curKeyVariant;
 
     // Disk setup wizard
     wizardDisk *wDisk;
