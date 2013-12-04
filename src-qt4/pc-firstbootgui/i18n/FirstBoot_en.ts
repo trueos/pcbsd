@@ -134,19 +134,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.cpp" line="182"/>
+        <location filename="../firstboot.cpp" line="197"/>
         <source>Please enter a hostname</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.cpp" line="187"/>
+        <location filename="../firstboot.cpp" line="202"/>
         <source>Hostname may only contain letters and numbers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.cpp" line="248"/>
-        <location filename="../firstboot.cpp" line="259"/>
-        <location filename="../firstboot.cpp" line="440"/>
+        <location filename="../firstboot.cpp" line="263"/>
+        <location filename="../firstboot.cpp" line="274"/>
+        <location filename="../firstboot.cpp" line="455"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>
