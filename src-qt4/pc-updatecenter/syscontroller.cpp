@@ -27,39 +27,39 @@
 #include "pcbsd-utils.h"
 #include <QDebug>
 
-_STRING_CONSTANT PC_UPDATE_COMMAND = "pc-updatemanager";
+__string_constant PC_UPDATE_COMMAND = "pc-updatemanager";
 //_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
-_STRING_CONSTANT FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
+__string_constant FBSD_UPDATE_COMMAND = "pc-fbsdupdatecheck";
 static const QStringList PC_UPDATE_ARGS(QStringList()<<"check");
 static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"update");
 //static const QStringList FBSD_UPDATE_ARGS (QStringList()<<"/home/yurkis/_sysbasesys_check.txt");
 
-_STRING_CONSTANT NAME_TAG = "NAME:";
-_STRING_CONSTANT TYPE_TAG = "TYPE:";
-_STRING_CONSTANT TAG_TAG = "TAG:";
-_STRING_CONSTANT VERSION_TAG = "VERSION:";
-_STRING_CONSTANT DEATILS_TAG = "DETAILS:";
-_STRING_CONSTANT DATE_TAG = "DATE:";
-_STRING_CONSTANT SIZE_TAG = "SIZE:";
-_STRING_CONSTANT CU_END_MARKER = "To install:";
-_STRING_CONSTANT PATCH_TYPE = "PATCH";
-_STRING_CONSTANT SYSUPDATE_TYPE = "SYSUPDATE";
-_STRING_CONSTANT STANDALONE_TAG = "STANDALONE:";
-_STRING_CONSTANT REQUIRESREBOOT_TAG = "REQUIRESREBOOT:";
+__string_constant NAME_TAG = "NAME:";
+__string_constant TYPE_TAG = "TYPE:";
+__string_constant TAG_TAG = "TAG:";
+__string_constant VERSION_TAG = "VERSION:";
+__string_constant DEATILS_TAG = "DETAILS:";
+__string_constant DATE_TAG = "DATE:";
+__string_constant SIZE_TAG = "SIZE:";
+__string_constant CU_END_MARKER = "To install:";
+__string_constant PATCH_TYPE = "PATCH";
+__string_constant SYSUPDATE_TYPE = "SYSUPDATE";
+__string_constant STANDALONE_TAG = "STANDALONE:";
+__string_constant REQUIRESREBOOT_TAG = "REQUIRESREBOOT:";
 
-_STRING_CONSTANT FILES_MODIFYED_LOCALLY = "been downloaded because the files have been modified locally:";
-_STRING_CONSTANT FILES_TO_DELETE = "The following files will be removed as part of updating to";
-_STRING_CONSTANT FILES_TO_UPDATE = "The following files will be updated as part of updating to";
+__string_constant FILES_MODIFYED_LOCALLY = "been downloaded because the files have been modified locally:";
+__string_constant FILES_TO_DELETE = "The following files will be removed as part of updating to";
+__string_constant FILES_TO_UPDATE = "The following files will be updated as part of updating to";
 
-_STRING_CONSTANT NETWORKING_PROBLEM= "No mirrors remaining, giving up.";
+__string_constant NETWORKING_PROBLEM= "No mirrors remaining, giving up.";
 
-_STRING_CONSTANT SYS_PATCH_DOWNLOADING_WORD= "DOWNLOADING:";
-_STRING_CONSTANT SYS_PATCH_FETCH= "FETCH";
-_STRING_CONSTANT SYS_PATCH_DL_FINISHED= "DOWNLOADFINISHED:";
-_STRING_CONSTANT SYS_PATCH_TOTAL_STEPS= "TOTALSTEPS:";
-_STRING_CONSTANT SYS_PATCH_SETSTEPS= "SETSTEPS:";
-_STRING_CONSTANT SYS_PATCH_MSG= "MSG:";
-_STRING_CONSTANT SYS_PATCH_FINISHED= "INSTALLFINISHED:";
+__string_constant SYS_PATCH_DOWNLOADING_WORD= "DOWNLOADING:";
+__string_constant SYS_PATCH_FETCH= "FETCH";
+__string_constant SYS_PATCH_DL_FINISHED= "DOWNLOADFINISHED:";
+__string_constant SYS_PATCH_TOTAL_STEPS= "TOTALSTEPS:";
+__string_constant SYS_PATCH_SETSTEPS= "SETSTEPS:";
+__string_constant SYS_PATCH_MSG= "MSG:";
+__string_constant SYS_PATCH_FINISHED= "INSTALLFINISHED:";
 
 ///////////////////////////////////////////////////////////////////////////////
 CSysController::CSysController()

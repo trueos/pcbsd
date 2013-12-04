@@ -28,14 +28,14 @@
 #include <QString>
 #include <QStringList>
 
-#define _STRING_CONSTANT static const char* const
+#define __string_constant static const char* const
 
 
 
 inline bool parseFetchOutput(QString line, long& size, long& downloaded, QString& speed)
 {
-    static const char* const SIZE_DL_MARKER = "SIZE:";
-    static const char* const DOWNLOADED_DL_MARKER = "DOWNLOADED:";
+    __string_constant SIZE_DL_MARKER = "SIZE:";
+    __string_constant DOWNLOADED_DL_MARKER = "DOWNLOADED:";
 
     //Example:
     // SIZE: 215710 DOWNLOADED: 3973 SPEED: 233 KB/s
