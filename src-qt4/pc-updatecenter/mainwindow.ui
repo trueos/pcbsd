@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>629</width>
-    <height>443</height>
+    <width>627</width>
+    <height>441</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,6 +64,9 @@
        </item>
       </layout>
      </widget>
+    </item>
+    <item>
+     <widget class="RebootWidget" name="RebootW" native="true"/>
     </item>
     <item>
      <widget class="QTabWidget" name="mainTab">
@@ -338,7 +341,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>629</width>
+     <width>627</width>
      <height>21</height>
     </rect>
    </property>
@@ -472,6 +475,12 @@
    <class>PBIDetailsWidget</class>
    <extends>QWidget</extends>
    <header location="global">pbidetailswidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>RebootWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">rebootwidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

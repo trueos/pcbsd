@@ -28,5 +28,7 @@
         <file>images/sysupdates-patch.png</file>
         <file>images/sysupdates-upgrade.png</file>
         <file>images/beta.png</file>
+        <file>images/system-log-out.png</file>
+        <file>images/system-reboot.png</file>
     </qresource>
 </RCC>

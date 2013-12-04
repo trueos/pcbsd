@@ -26,6 +26,7 @@
 #include "utils.h"
 #include "pcbsd-utils.h"
 #include <QDebug>
+#include <QRegExp>
 
 __string_constant PC_UPDATE_COMMAND = "pc-updatemanager";
 //_STRING_CONSTANT FBSD_UPDATE_COMMAND = "cat";
@@ -61,6 +62,10 @@ __string_constant SYS_PATCH_SETSTEPS= "SETSTEPS:";
 __string_constant SYS_PATCH_MSG= "MSG:";
 __string_constant SYS_PATCH_FINISHED= "INSTALLFINISHED:";
 
+__string_constant FILES_REQUIRED_REBOOT []= { "/boot/*", "/usr/lib/libc*" };
+
+const int FILES_REQUIRED_REBOOT_SIZE = sizeof(FILES_REQUIRED_REBOOT) / sizeof(char*);
+
 ///////////////////////////////////////////////////////////////////////////////
 CSysController::CSysController()
 {
@@ -69,7 +74,14 @@ CSysController::CSysController()
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     env.insert("PCFETCHGUI", "YES");
     process().setProcessEnvironment(env);
+    misFBSDRebootRequired= false;
+    misRebootRequired = false;
+}
 
+///////////////////////////////////////////////////////////////////////////////
+bool CSysController::rebootRequired()
+{
+    return misRebootRequired && (currentState()!= eUPDATING);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -150,6 +162,8 @@ void CSysController::onReadUpdateLine(QString line)
     if (mCurrentUpdate>=mvUpdatesToApply.size())
         return;
     ESysUpdate currUpdateType= mvUpdatesToApply[mCurrentUpdate].mType;
+    misRebootRequired |= mvUpdatesToApply[mCurrentUpdate].misRequiresReboot;
+
     switch(currUpdateType)
     {
         case ePATCH:
@@ -176,6 +190,7 @@ void CSysController::onCheckProcessfinished(int exitCode)
     if (!misFREEBSDCheck)
     {        
         misFREEBSDCheck= true;
+        misFBSDRebootRequired= false;
         launchCheck();
     }
     else
@@ -185,6 +200,7 @@ void CSysController::onCheckProcessfinished(int exitCode)
             SSystemUpdate entry;
             entry.mName= tr("Base system update");
             entry.mType= eFBSDUPDATE;
+            entry.misRequiresReboot= misFBSDRebootRequired;
             mvUpdates.push_back(entry);
         }
 
@@ -363,6 +379,19 @@ void CSysController::parseCheckFREEBSDLine(QString line)
     if(eFilesToUpdate == currCheckState)
     {
         mFilesToUpdate<<line;
+        // Check if reboot requuired.
+        // FILES_REQUIRED_REBOOT const array contains wildcards for files.
+        // Modification of that files requires system reboot
+        QRegExp rx;
+        rx.setPatternSyntax(QRegExp::WildcardUnix);
+        for (int i=0; i<FILES_REQUIRED_REBOOT_SIZE; i++)
+        {
+            rx.setPattern(FILES_REQUIRED_REBOOT[i]);
+            if (rx.exactMatch(line))
+            {
+                misFBSDRebootRequired= true;
+            }//if match
+        }//for all wildcard
     }
 
 }

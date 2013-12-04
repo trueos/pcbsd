@@ -92,6 +92,9 @@ void MainWindow::init()
             ui->mainTab->setTabEnabled(i, false);
     }
 
+    ui->RebootW->setVisible(false);
+    ui->RebootW->init(&mSysController, &mPkgController, &mPBIController);
+
     mSysController.check();
     mPkgController.check();
     mPBIController.check();    
@@ -157,6 +160,8 @@ void MainWindow::slotSingleInstance()
 void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
     refreshMenu();
+
+    ui->RebootW->setVisible(mSysController.rebootRequired());
 
     bool isUpdatesAvail= (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
                        ||(mPkgController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)

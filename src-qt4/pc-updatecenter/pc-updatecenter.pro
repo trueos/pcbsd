@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     sysdetailswidget.cpp \
     pkgdetailswidget.cpp \
     pbidetailswidget.cpp \
-    logviewdialog.cpp
+    logviewdialog.cpp \
+    rebootwidget.cpp
 
 HEADERS  += mainwindow.h \
     indicatorwidget.h \
@@ -42,7 +43,8 @@ HEADERS  += mainwindow.h \
     sysdetailswidget.h \
     pkgdetailswidget.h \
     pbidetailswidget.h \
-    logviewdialog.h
+    logviewdialog.h \
+    rebootwidget.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui \
@@ -50,7 +52,8 @@ FORMS    += mainwindow.ui \
     sysdetailswidget.ui \
     pkgdetailswidget.ui \
     pbidetailswidget.ui \
-    logviewdialog.ui
+    logviewdialog.ui \
+    rebootwidget.ui
 
 RESOURCES += \
     res.qrc
