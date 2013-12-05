@@ -60,7 +60,7 @@ int runSingleSession(int argc, char *argv[]){
   //qDebug() << "Config File Loaded:" << QString::number(clock.elapsed())+" ms";
   // Startup the main application
   QApplication a(argc,argv); 
-  
+  int retCode = 0; //used for UI/application return
   // Show our splash screen, so the user doesn't freak that that it takes a few seconds to show up
   QSplashScreen splash;
   if(!Config::splashscreen().isEmpty()){
@@ -140,9 +140,8 @@ int runSingleSession(int argc, char *argv[]){
     
     //qDebug() << "Showing GUI:" << QString::number(clock.elapsed())+" ms";
     w.show();
-    a.exec();
+    retCode = a.exec();
   }  // end of PCDM GUI running
-  int retcode = 0;
   //Wait for the desktop session to finish before exiting
   //if(USECLIBS){ desktop.startDesktop(); }
   //else{ 
@@ -155,7 +154,7 @@ int runSingleSession(int argc, char *argv[]){
     QCoreApplication::processEvents(QEventLoop::AllEvents,100);
   }
   //check for shutdown process
-  if(QFile::exists("/var/run/nologin")){
+  if(QFile::exists("/var/run/nologin") || retCode > 0){
     splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     QCoreApplication::processEvents();
     //Pause for a few seconds to prevent starting a new session during a shutdown
@@ -165,7 +164,7 @@ int runSingleSession(int argc, char *argv[]){
       QCoreApplication::processEvents(QEventLoop::AllEvents, 100); 
     }
     //set the return code for a shutdown
-    retcode = -1; //make sure it does not start a new session
+    retCode = -1; //make sure it does not start a new session
   }
   
   //Clean up Code
@@ -174,7 +173,7 @@ int runSingleSession(int argc, char *argv[]){
   delete &splash;
   
   
-  return retcode;
+  return retCode;
 }
 
 int main(int argc, char *argv[])
