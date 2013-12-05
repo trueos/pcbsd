@@ -96,6 +96,9 @@ void MainWindow::init()
     ui->RebootW->setVisible(false);
     ui->RebootW->init(&mSysController, &mPkgController, &mPBIController);
 
+    ui->jailIndicatorWidget->setVisible(false);
+    jailRefresh();
+
     mSysController.check();
     mPkgController.check();
     mPBIController.check();    
@@ -135,6 +138,37 @@ void MainWindow::init()
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
 
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::jailRefresh()
+{
+    static bool last_enabled= false;
+
+    ui->jailIndicatorWidget->setVisible(mJail.jailEnabled());
+
+    if (mJail.jailEnabled())
+    {
+        ui->jailIndicatorWidget->setJailName(mJail.jailName());
+        QString prefix= mJail.jailPrefix();
+        mSysController.setJailPrefix(prefix);
+        mPkgController.setJailPrefix(prefix);
+        mPBIController.setJailPrefix(prefix);
+    }
+    else
+    {
+        mSysController.removeJailPrefix();
+        mPkgController.removeJailPrefix();
+        mPBIController.removeJailPrefix();
+    }
+
+    if (last_enabled!=mJail.jailEnabled())
+    {
+        mSysController.check();
+        mPkgController.check();
+        mPBIController.check();
+        last_enabled = mJail.jailEnabled();
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -298,4 +332,5 @@ void MainWindow::on_actionJail_triggered()
 {
     JailsDialog* dlg = new JailsDialog(this);
     dlg->execDialog(&mJail);
+    jailRefresh();
 }

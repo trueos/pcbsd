@@ -50,6 +50,7 @@ private:
     Ui::MainWindow *ui;
 
     void init();
+    void jailRefresh();
 
     void refreshMenu();
 

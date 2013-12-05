@@ -53,6 +53,7 @@ public:
     void setJailEnabled(bool isEnabled);
 
     bool jailEnabled();
+    QString jailName();
     QString jailPrefix();
 
 private:

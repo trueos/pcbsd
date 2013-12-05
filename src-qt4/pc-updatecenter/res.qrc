@@ -30,5 +30,9 @@
         <file>images/beta.png</file>
         <file>images/system-log-out.png</file>
         <file>images/system-reboot.png</file>
+        <file>images/paused.png</file>
+        <file>images/running.png</file>
+        <file>images/cell.png</file>
+        <file>images/stopped.png</file>
     </qresource>
 </RCC>

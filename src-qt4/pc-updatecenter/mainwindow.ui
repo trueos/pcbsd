@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>625</width>
-    <height>439</height>
+    <width>623</width>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -64,6 +64,9 @@
        </item>
       </layout>
      </widget>
+    </item>
+    <item>
+     <widget class="JailIndicator" name="jailIndicatorWidget" native="true"/>
     </item>
     <item>
      <widget class="RebootWidget" name="RebootW" native="true"/>
@@ -341,7 +344,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>625</width>
+     <width>623</width>
      <height>21</height>
     </rect>
    </property>
@@ -363,7 +366,6 @@
     <property name="title">
      <string>Control</string>
     </property>
-    <addaction name="actionIgnored_updates"/>
     <addaction name="actionUpdate_set"/>
     <addaction name="actionSystem_branches"/>
    </widget>
@@ -426,14 +428,6 @@
     <string>System branches</string>
    </property>
   </action>
-  <action name="actionIgnored_updates">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Ignored updates</string>
-   </property>
-  </action>
   <action name="actionExit">
    <property name="enabled">
     <bool>false</bool>
@@ -481,6 +475,12 @@
    <class>RebootWidget</class>
    <extends>QWidget</extends>
    <header location="global">rebootwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>JailIndicator</class>
+   <extends>QWidget</extends>
+   <header location="global">jailindicator.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

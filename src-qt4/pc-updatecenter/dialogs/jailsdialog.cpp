@@ -55,6 +55,10 @@ int JailsDialog::execDialog(CJailsBackend *pBackend)
         ui->jailsTW->addTopLevelItem(item);
         if (i==0)
             ui->jailsTW->setCurrentItem(item);
+        if (mpJail->jailName().trimmed() == jails[i].mName.trimmed())
+        {
+            ui->jailsTW->setCurrentItem(item);
+        }
     }
     return exec();
 }
@@ -85,4 +89,5 @@ void JailsDialog::on_okBtn_clicked()
     }
 
     setResult(QDialog::Accepted);
+    close();
 }
