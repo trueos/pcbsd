@@ -12,22 +12,11 @@ i="1"
 do
 
 # Display Utility Menu
-dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 fdisk "Manually run fdisk" shell "Drop to emergency shell" chroot "Chroot into root partition" exit "Exit Utilities" 2>/tmp/UtilAnswer
+dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" chroot "Chroot into root partition" exit "Exit Utilities" 2>/tmp/UtilAnswer
 
 ANS="`cat /tmp/UtilAnswer`"
 
 case $ANS in
-      fdisk) clear 
-		MM_CHARSET="" ; export MM_CHARSET
-		LANG="" ; export LANG
-		LC_COLLATE="" ; export LC_COLLATE
-
-             dialog --title "Manual Fdisk" --msgbox "Here you can manually partition your drive in preparation for PC-BSD. When you are finished, please select the option to start the graphical installation." 10 40
-             /usr/sbin/sysinstall diskPartitionEditor 
-		MM_CHARSET="UTF-8" ; export MM_CHARSET
-		LANG="en_US.UTF-8" ; export LANG
-		LC_COLLATE="POSIX" ; export LC_COLLATE
-             clear ;;
       shell) clear ; echo "# PC-BSD Emergency Shell
 #
 # Please type 'exit' to return to the menu
