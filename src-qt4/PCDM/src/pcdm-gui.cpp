@@ -493,28 +493,35 @@ void PCDMgui::retranslateUi(){
     //Get the new desktop list (translated)
     QStringList deList = Backend::getAvailableDesktops();
     QString lastDE = Backend::getLastDE(loginW->currentUsername());
+    //Organize the desktop list alphabetically
+    QStringList DEL;
+    for(int i=0; i<deList.length(); i++){
+      //Check the icon
+        QString deIcon = Backend::getDesktopIcon(deList[i]);
+	if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
+        if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
+      QString entry = deList[i] +";;;"+deIcon+";;;"+Backend::getDesktopComment(deList[i]);
+      DEL << entry;
+      if(lastDE.isEmpty()){ lastDE = deList[i]; } //grab the highest-priority DE if empty
+    }
+    DEL.sort(); //make it alphabetical
     //Now fill the switcher
     if(!simpleDESwitcher){
       deSwitcher->removeAllItems();
-      for(int i=0; i<deList.length(); i++){
-        QString deIcon = Backend::getDesktopIcon(deList[i]);
-        if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
-        if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
-        //Now add the item back to the widget
-        deSwitcher->addItem( deList[i], deIcon, Backend::getDesktopComment(deList[i]) );
+      for(int i=0; i<DEL.length(); i++){
+	//Now add the item
+	deSwitcher->addItem( DEL[i].section(";;;",0,0), DEL[i].section(";;;",1,1), DEL[i].section(";;;",2,2) );
       }
       //Set the switcher to the last used desktop environment
       if( !lastDE.isEmpty() ){ deSwitcher->setCurrentItem(lastDE); }
 
     }else{
       //Simple switcher on the login widget
-      QStringList deIcons, deInfo;
-      for(int i=0; i<deList.length(); i++){ 
-	QString ico = Backend::getDesktopIcon(deList[i]);
-	if(ico.isEmpty()){ ico = currentTheme->itemIcon("desktop"); }
-	if(!QFile::exists(ico)){ ico = ":/images/desktop.png"; }
-        deIcons << ico;
-	deInfo << Backend::getDesktopComment(deList[i]);
+      QStringList deNames, deIcons, deInfo;
+      for(int i=0; i<DEL.length(); i++){
+        deNames << DEL[i].section(";;;",0,0);
+	deIcons << DEL[i].section(";;;",1,1);
+	deInfo << DEL[i].section(";;;",2,2);
       }
       loginW->setDesktops(deList, deIcons, deInfo);
       //Set the switcher to the last used desktop environment
