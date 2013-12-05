@@ -500,7 +500,7 @@ void PCDMgui::retranslateUi(){
         QString deIcon = Backend::getDesktopIcon(deList[i]);
 	if( deIcon.isEmpty() ){ deIcon = currentTheme->itemIcon("desktop"); } //set the default icon if none given
         if( !QFile::exists(deIcon) ){ deIcon = ":/images/desktop.png"; }
-      QString entry = deList[i] +";;;"+deIcon+";;;"+Backend::getDesktopComment(deList[i]);
+      QString entry = deList[i] +":::"+deIcon+":::"+Backend::getDesktopComment(deList[i]);
       DEL << entry;
       if(lastDE.isEmpty()){ lastDE = deList[i]; } //grab the highest-priority DE if empty
     }
@@ -510,7 +510,7 @@ void PCDMgui::retranslateUi(){
       deSwitcher->removeAllItems();
       for(int i=0; i<DEL.length(); i++){
 	//Now add the item
-	deSwitcher->addItem( DEL[i].section(";;;",0,0), DEL[i].section(";;;",1,1), DEL[i].section(";;;",2,2) );
+	deSwitcher->addItem( DEL[i].section(":::",0,0), DEL[i].section(":::",1,1), DEL[i].section(":::",2,2) );
       }
       //Set the switcher to the last used desktop environment
       if( !lastDE.isEmpty() ){ deSwitcher->setCurrentItem(lastDE); }
@@ -519,11 +519,11 @@ void PCDMgui::retranslateUi(){
       //Simple switcher on the login widget
       QStringList deNames, deIcons, deInfo;
       for(int i=0; i<DEL.length(); i++){
-        deNames << DEL[i].section(";;;",0,0);
-	deIcons << DEL[i].section(";;;",1,1);
-	deInfo << DEL[i].section(";;;",2,2);
+        deNames << DEL[i].section(":::",0,0);
+	deIcons << DEL[i].section(":::",1,1);
+	deInfo << DEL[i].section(":::",2,2);
       }
-      loginW->setDesktops(deList, deIcons, deInfo);
+      loginW->setDesktops(deNames, deIcons, deInfo);
       //Set the switcher to the last used desktop environment
       loginW->setCurrentDE(lastDE);
     }
