@@ -45,6 +45,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    void setJail(CJailsBackend jail);
     
 private:
     Ui::MainWindow *ui;
