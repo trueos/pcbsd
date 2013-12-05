@@ -240,6 +240,10 @@ void CSysController::onUpdateProcessfinished(int exitCode)
     mCurrentUpdate++;
     if (mCurrentUpdate == mvUpdatesToApply.size())
     {
+        if (misRebootRequired)
+        {
+            system("touch /tmp/.fbsdup-reboot");
+        }
         check();
     }
     else

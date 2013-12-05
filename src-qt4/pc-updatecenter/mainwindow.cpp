@@ -25,8 +25,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include "dialogconflict.h"
-#include "logviewdialog.h"
+#include "dialogs/dialogconflict.h"
+#include "dialogs/logviewdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QFile>
