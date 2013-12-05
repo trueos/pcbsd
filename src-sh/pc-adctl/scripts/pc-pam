@@ -883,10 +883,10 @@ pam_stop()
 
 	elif checkyesno pc_ldap_enable 2>/dev/null
 	then
-		auth='-auth:sufficient:${pam_ldap}'
-		account='-account:sufficient:${pam_ldap}'
-		session='-session:required:${pam_mkhomedir}'
-		password='-password:sufficient:${pam_ldap}'
+		auth="-auth:sufficient:${pam_ldap}"
+		account="-account:sufficient:${pam_ldap}"
+		session="-session:required:${pam_mkhomedir}"
+		password="-password:sufficient:${pam_ldap}"
 
 		do_pam_conf "${auth}" "${account}" "${session}" "${password}"
 		return $?
