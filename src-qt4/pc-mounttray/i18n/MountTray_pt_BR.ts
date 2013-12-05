@@ -168,7 +168,8 @@
     <message>
         <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
-        <translation type="unfinished">Incapaz de determinar qual usuário não-administrador que iniciou a aplicação Não é possível abrir o gerenciador de arquivos com permissões de administrador</translation>
+        <translation>Não foi possível determinar o usuário não-root que iniciou o aplicativo 
+Não é possível abrir o gerenciador de arquivos com permissões de root</translation>
     </message>
 </context>
 <context>

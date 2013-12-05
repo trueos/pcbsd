@@ -5,313 +5,251 @@
     <name>mainUI</name>
     <message>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD alglaadimise seadistus</translation>
     </message>
     <message>
         <source>Boot Environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alglaadimise keskkonnad</translation>
     </message>
     <message>
         <source>Create a new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali uus alglaadimiskeskkond</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eemalda valitud alglaadimiskeskkond</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eemalda</translation>
     </message>
     <message>
         <source>Make a copy of the selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tee koopia valitud alglaadimiskeskkonnast</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nimeta ümber valitud alglaadimiskeskkond</translation>
     </message>
     <message>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktiveeri valitud käivituskeskkond, mida vaikimisi alglaadimisel kasutada</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaikimisi</translation>
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aeg sekundites, pärast mida valitakse vaikimisi käivituskeskkond (0 tähendab, et automaatne alglaadimine ei toimu)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näita GRUB-i menüüd sekundite loendamise ajal</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fail</translation>
     </message>
     <message>
         <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hädaabiteenused</translation>
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ehita uuesti GRUB-i menüü</translation>
     </message>
     <message>
         <source>Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta GRUB-i vaikesätted</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nimi</translation>
     </message>
     <message>
         <source>Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jookseb</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kuupäev</translation>
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haakepunktid</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ruum</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB-i seadistus</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sätted</translation>
     </message>
     <message>
         <source>Timer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taimer</translation>
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> sekundit</translation>
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fondi fail</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fondi fail, mida GRUB kasutab</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali fondi fail GRUB-ile</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näita taimerit</translation>
     </message>
     <message>
         <source>Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Teemafail</translation>
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Teemafail, mida GRUB kasutab</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali teemafail GRUB-ile</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvesta praegused sätted</translation>
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laadi GRUB-i sätted uuesti</translation>
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kohandatud sissekanded</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvesta praegune sissekande seadistus</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laadi uuesti GRUB-i sissekannete fail</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulge</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane nimi</translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alglaadimiskeskkond selle nimega on juba olemas. Palun vali mõni muu nimi.</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Töötab</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Teostatakse alglaadimiskeskkonna muudatusi. Palun oota.</translation>
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uue alglaadimiskeskkonna nimi</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali uuele alglaadimiskeskkonnale nimi</translation>
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käivitatakse alglaadimiskeskkond</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ei saa ümber nimetada alglaadimiskeskkonda, mis parajasti töötab!</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali uus nimi sellele alglaadimiskeskkonnale</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ainukest alglaadimiskeskkonda ei saa eemaldada!</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ainus alglaadimiskeskkond</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ei saa eemaldada alglaadimiskeskkonda, mis parajasti töötab!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kinnita alglaadimiskeskkonna eemaldamine</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oled kindel, et soovid alglaadimiskeskkonda eemaldada?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali GRUB-i teemafail</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Teemafail (theme.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali GRUB-i fondi fail</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fondi fail (*.pf2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB-i menüüsüsteemi ehitamine. Palun oota.</translation>
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestamata muudatused</translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hetkel on GRUB-i seadistuses salvestamata muudatusi. Kas soovid väljuda sellegipoolest?</translation>
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hetkel töötavast alglaadimiskeskkonnast ei saa koopiat teha!</translation>
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alglaadimiskeskkonna nimes võib olla ainult tähti ja numbreid</translation>
     </message>
 </context>
 </TS>

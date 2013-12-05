@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">Um Ambiente de Inicialização com este nome já existe. Por favor, escolha um diferente.</translation>
+        <translation>Um Ambiente de Inicialização com este nome já existe, por favor escolha um diferente.</translation>
     </message>
     <message>
         <source>Working</source>

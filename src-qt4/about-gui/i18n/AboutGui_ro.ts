@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>Componentele FreeBSD de bază            </translation>
+        <translation>Componentele de bază FreeBSD</translation>
     </message>
     <message>
         <source>Arch:</source>

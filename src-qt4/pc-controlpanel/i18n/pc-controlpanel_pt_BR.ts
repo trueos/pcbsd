@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">Ambiente de trabalho</translation>
+        <translation>Ambiente de trabalho</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">Ambiente de trabalho não suportado</translation>
+        <translation>DE não suportado</translation>
     </message>
 </context>
 </TS>

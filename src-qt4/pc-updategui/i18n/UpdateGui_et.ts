@@ -5,7 +5,7 @@
     <name>mainWin</name>
     <message>
         <source>Update Manager</source>
-        <translation>UUendushaldur</translation>
+        <translation>Uuendushaldur</translation>
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uuenduste rakendamiseks on vajalik taaskäivitamine!</translation>
     </message>
 </context>
 </TS>

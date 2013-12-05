@@ -259,59 +259,49 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta Life Preserveri varukoopiast</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Halda võrguühendusi</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS-andmekogud:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Algne ZFS-i paigutus taastatakse</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taastatakse Life Preserveri varundus. Vajuta &quot;Järgmine&quot;, et taastamise viisardit käivitada.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alusta kohe taastamist?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteem on taastatud!
+Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib paigaldusmeedia välja võtta.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi taastamine</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi taastatakse, see võib võtta aega sõltuvalt varukoopia suurusest ja võrgu kiirusest.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meta-paki paigaldamine: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi taastamine: %1</translation>
     </message>
 </context>
 <context>
@@ -373,8 +363,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali tarkvara, mida paigaldada. Pärast installimist võid lisada/eemaldada tarkvata pakihalduri (töölaual) või &quot;pkg&quot; käsuga käsurealt (serveris).</translation>
     </message>
 </context>
 <context>
@@ -684,33 +673,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali ketas või partitsioon, millele soovid süsteemi paigaldada. Valida tuleb kas terve ketas või peamine partitsioon, mis on vähemalt 20 GB serveri puhul või 50 GB töölaua puhul.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paigaldamine SSD-le (lülitab saaleala/atime&apos;i välja)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alglaadurit ei ole!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Algsed andmekogud/haakepunktid taastatakse automaatselt.</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alglaadur (soovitatavalt GRUB)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oled valinud, et alglaadurit ei paigaldata. Hiljem tuleb alglaadur ise käsitsi paigaldada.</translation>
     </message>
 </context>
 <context>
@@ -826,106 +809,89 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varundusserver</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostinimi</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kasutajanimi</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH port</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kui salvestasid Life Preserveri võtme USB-pulgale, vali see allpool, vastasel juhul võib kasutada parooliga autentimist.</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serveri autentimine</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kasuta USB-võtit</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kasuta parooliga autentimist</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järgnevad süsteemid on sellel serveril varundatud. Vali, millist soovid taastada.</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta süsteemi valik</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taasta kokkuvõte</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteem on taastamiseks valmis. Vajuta &quot;Valmis&quot;, et jätkata.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Võtmeid ei leitud!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autentimisvõtmeid mälupulgalt ei leitud!
+Proovi mõnda muud USB-pulka või kasuta parooliga autentimist.</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ühendamine ebaõnnestus!</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varundusserveriga ei saanud ühendust!
+Kontrolli, kas server on kättesaadav ja kinnita oma kasutajanimi/parool.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varundusserveriga ei saanud ühendust!
+Kontrolli hostinime ja et varundusserver oleks kättesaadav.</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taastatakse asukohast:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali SSH-võti, mida kasutada</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Võtmefail:</translation>
     </message>
 </context>
 </TS>

@@ -174,7 +174,7 @@
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">Arquivos adicionais a serem incluídos no PBI</translation>
+        <translation>Arquivos adicionais a serem incluídos no PBI</translation>
     </message>
     <message>
         <source>Current Resources</source>
@@ -488,8 +488,7 @@
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salva o registro da compilação atual para o disco (muito útil quando precisar de ajuda para uma compilação que falhou)</translation>
     </message>
     <message>
         <source>Save Build Log</source>
@@ -509,8 +508,7 @@
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Barra de ferramentas</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
@@ -518,8 +516,7 @@
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir o editor de configurações EasyPBI</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
@@ -527,8 +524,7 @@
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obter/atualizar a árvore de ports FreeBSD</translation>
     </message>
     <message>
         <source>New</source>
@@ -548,7 +544,7 @@
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">Resumo</translation>
+        <translation>Sumário</translation>
     </message>
     <message>
         <source>License</source>
@@ -564,8 +560,7 @@
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abrir freshports.org para informações adicional dos ports</translation>
     </message>
     <message>
         <source>PBI Modules</source>
@@ -1274,7 +1269,7 @@
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">Sucesso    </translation>
+        <translation>Sucesso</translation>
     </message>
     <message>
         <source>The FreeBSD ports tree has been successfully updated</source>

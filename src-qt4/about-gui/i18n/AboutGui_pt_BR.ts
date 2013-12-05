@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>Versão do servidor X.org:</translation>
+        <translation>versão do servidor X.org:</translation>
     </message>
     <message>
         <source>System components...</source>
@@ -89,13 +89,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitários CLI do PC-BSD:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitários UI do PC-BSD:</translation>
     </message>
 </context>
 </TS>

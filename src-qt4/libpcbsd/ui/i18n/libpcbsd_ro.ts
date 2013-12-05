@@ -5,31 +5,26 @@
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog         </translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Închide            </translation>
     </message>
 </context>
 <context>
     <name>dialogMetaProgress</name>
     <message>
         <source>System-Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pachete de sistem            </translation>
     </message>
     <message>
         <source>Total Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Progres total            </translation>
     </message>
     <message>
         <source>Update Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Progres actualizare            </translation>
     </message>
     <message>
         <source>Meta-Package Changes</source>
