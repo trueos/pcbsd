@@ -109,7 +109,7 @@ generate_LDAP_nss_ldap_conf()
 	local pwencryption=$(ldap_get pwencryption)
 	local usersuffix=$(ldap_get usersuffix)
 	local groupsuffix=$(ldap_get groupsuffix)
-	local passwordsuffix=$(ldap_get passwordsuffix)
+	local passwordsuffix=$(ldap_get passwordstuff)
 	local machinesuffix=$(ldap_get machinesuffix)
 	local encryption_mode=$(ldap_get encryption_mode)
 	local certfile=$(ldap_get tls_cacertfile)
@@ -123,7 +123,7 @@ generate_LDAP_nss_ldap_conf()
 
 	tmp=$(mktemp /tmp/tmp.XXXXXX)
 	${cmd} \
-		-c -m "^host=${hostname}" \
+		-c -m "^host=${host}" \
 		-c -m "^base=${basedn}" \
 		-c -m "^rootbinddn=${rootbasedn}" \
 		-c -m "^pam_password=${pwencryption}" \
@@ -264,6 +264,27 @@ generate_LDAP_nss_ldap_conf()
 	then
 		ln -sf ${secret} "$(dirname ${secret})/ldap.secret"
 	fi
+
+	# Set the shadow options
+	cmd="${NSSLDAPCONF} -f ${conf}"
+
+	tmp=$(mktemp /tmp/tmp.XXXXXX)
+
+	if [ -z "${passwordsuffix}" ]
+	then
+		${cmd} -c -m "^nss_base_shadow=${basedn}" -o "${tmp}"
+	else
+		${cmd} -c -m "^nss_base_shadow=${passwordsuffix},${basedn}" -o "${tmp}"
+	fi
+	if [ "$?" != "0" ]
+	then
+		return 1
+	fi
+	if ! safe_save "${tmp}" "${conf}"
+	then
+		return 1
+	fi
+
 }
 
 generate_AD_nss_ldap_conf()
