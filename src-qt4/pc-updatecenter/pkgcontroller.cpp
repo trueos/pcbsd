@@ -25,33 +25,34 @@
 #include "pkgcontroller.h"
 
 #include "pcbsd-utils.h"
+#include "utils.h"
 
 #include <QDebug>
 #include <QFile>
 
-static const char* const FULLY_UPDATED_MESSAGE = "All packages are up to date!";
-static const char* const UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
-static const char* const UPDATES_AVAIL_SIZE_STRING = "The upgrade will require ";
-static const char* const UPDATES_AVAIL_SIZE_FREE_STR= "The upgrade will free ";
-static const char* const UPDATES_AVAIL_DL_SIZE_STRING = " to be downloaded";
-static const char* const UPDATES_AVAIL_END_STRING = "To start the upgrade run";
+__string_constant FULLY_UPDATED_MESSAGE = "All packages are up to date!";
+__string_constant UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
+__string_constant UPDATES_AVAIL_SIZE_STRING = "The upgrade will require ";
+__string_constant UPDATES_AVAIL_SIZE_FREE_STR= "The upgrade will free ";
+__string_constant UPDATES_AVAIL_DL_SIZE_STRING = " to be downloaded";
+__string_constant UPDATES_AVAIL_END_STRING = "To start the upgrade run";
 
-static const char* const INSTALLING  = "Installing";
-static const char* const UPGRADING   = "Upgrading";
-static const char* const REINSTALLING = "Reinstalling";
+__string_constant INSTALLING  = "Installing";
+__string_constant UPGRADING   = "Upgrading";
+__string_constant REINSTALLING = "Reinstalling";
 
-static const char* const FETCH = "FETCH:";
-static const char* const FETCH_DONE = "FETCHDONE";
-static const char* const SIZE_DL_MARKER = "SIZE:";
-static const char* const DOWNLOADED_DL_MARKER = "DOWNLOADED:";
-static const char* const DL_FETCH_START = "FETCH:";
-static const char* const DL_RESUME_DOWNLOAD= "Resuming download of:";
-static const char* const PKG_CONFLICTS_LIST= "PKGCONFLICTS: ";
-static const char* const PKG_CONFLICTS_REPLY= "PKGREPLY: ";
-static const char* const PKG_INSTALL_START_MARKER= "Upgrades have been requested for the following";
-static const char* const PKG_INSTALL_DONE = "... done";
+__string_constant FETCH = "FETCH:";
+__string_constant FETCH_DONE = "FETCHDONE";
+__string_constant SIZE_DL_MARKER = "SIZE:";
+__string_constant DOWNLOADED_DL_MARKER = "DOWNLOADED:";
+__string_constant DL_FETCH_START = "FETCH:";
+__string_constant DL_RESUME_DOWNLOAD= "Resuming download of:";
+__string_constant PKG_CONFLICTS_LIST= "PKGCONFLICTS: ";
+__string_constant PKG_CONFLICTS_REPLY= "PKGREPLY: ";
+__string_constant PKG_INSTALL_START_MARKER= "Upgrades have been requested for the following";
+__string_constant PKG_INSTALL_DONE = "... done";
 
-static const char* const PKG_NETWORK_ERROR = ": No address record";
+__string_constant PKG_NETWORK_ERROR = ": No address record";
 
 
 typedef enum{
@@ -246,6 +247,9 @@ void CPkgController::onReadUpdateLine(QString line)
 
     SProgress progress;
     QString log_line;
+    long dl_size;
+    long dl_complete;
+    QString dl_speed;
 
     progress.mItemNo = mCurrentPkgNo;
     progress.mItemsCount = mUpdData.mCommonPkgsCount;
@@ -281,30 +285,16 @@ void CPkgController::onReadUpdateLine(QString line)
         return;
     }
     else
-    if ( line.contains(SIZE_DL_MARKER) && line.contains(DOWNLOADED_DL_MARKER))
+    if (parseFetchOutput(line, dl_size, dl_complete, dl_speed))
     {
-        //downloading progress parsing
         log_line.clear();
         progress.misCanCancel= true;
-
-        //Example:
-        // SIZE: 215710 DOWNLOADED: 3973 SPEED: 233 KB/s
-        // ^0    ^1     ^2          ^3   ^4     ^5  ^6
-
-        //TODO: as eparate function (code duplication)
-        QStringList dl_list = line.split(" ");
-        progress.mProgressMax= dl_list[1].toInt();
-        progress.mProgressCurr= dl_list[3].toInt();
-        QString speed= dl_list[5] + QString(" ") + dl_list[6];
-        long size= dl_list[1].toInt() * 1024;
-        long downloaded= dl_list[3].toInt() * 1024;
-
         progress.mMessage= tr("[%1/%2] Downloading %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
                                                                                   QString::number(progress.mItemsCount),
                                                                                   mCurrentPkgName,
-                                                                                  pcbsd::Utils::bytesToHumanReadable(size),
-                                                                                  pcbsd::Utils::bytesToHumanReadable(downloaded),
-                                                                                  speed);
+                                                                                  pcbsd::Utils::bytesToHumanReadable(dl_complete),
+                                                                                  pcbsd::Utils::bytesToHumanReadable(dl_size),
+                                                                                  dl_speed);
     }
     else
     if (line.indexOf(PKG_CONFLICTS_LIST) == 0)

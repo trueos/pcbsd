@@ -70,6 +70,7 @@ public:
     QStringList filesToUpdate()      {return mFilesToUpdate;}
     QStringList filesToDelete()      {return mFilesToRemove;}
     QStringList fileslocalyModifyed(){return mFilesLocallyModifyed;}
+    bool        rebootRequired();
 
     void updateSelected(QVector<SSystemUpdate> selectedUpdates);
 
@@ -93,6 +94,8 @@ private:
     QStringList mFilesLocallyModifyed;
     QStringList mFilesToRemove;
     QStringList mFilesToUpdate;
+    bool        misFBSDRebootRequired;
+    bool        misRebootRequired;
 
     QVector<SSystemUpdate> mvUpdatesToApply;
     int                    mCurrentUpdate;

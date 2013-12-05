@@ -24,7 +24,7 @@
 
 #include "pcbsd-utils.h"
 
-#include "dialogconflict.h"
+#include "dialogs/dialogconflict.h"
 #include "pkgdetailswidget.h"
 #include "ui_pkgdetailswidget.h"
 

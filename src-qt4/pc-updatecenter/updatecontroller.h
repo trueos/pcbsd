@@ -83,6 +83,9 @@ public:
 public:
     CAbstractUpdateController();
 
+    void setJailPrefix(QString prefix);
+    void removeJailPrefix();
+
     EUpdateControllerState currentState();
     SProgress              currentProgress();
     QString                updateMessage();
@@ -129,6 +132,7 @@ private:
     QString                mErrorMessage;
     QProcess               mUpdProc;
     QStringList            mLogMessages;
+    QString                mJailPrefix;
 
 public: signals:
     void stateChanged(CAbstractUpdateController::EUpdateControllerState new_state);

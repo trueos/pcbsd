@@ -1107,7 +1107,7 @@
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">TextLabel</translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Create Dir</source>

@@ -28,12 +28,12 @@
 #include "utils.h"
 #include <QDebug>
 
-_STRING_CONSTANT PBU_UPDATE_CMD= "pbi_update";
-_STRING_CONSTANT AVAIL= "Available:";
-_STRING_CONSTANT DOWNLOAD_INDICATOR = "DOWNLOADED:";
-_STRING_CONSTANT FETCHDONE= "FETCHDONE";
-_STRING_CONSTANT FETCH_WORLD= "FETCH";
-_STRING_CONSTANT DOWNLOADING_ERROR= "ERROR: ";
+__string_constant PBU_UPDATE_CMD= "pbi_update";
+__string_constant AVAIL= "Available:";
+//__string_constant DOWNLOAD_INDICATOR = "DOWNLOADED:";
+__string_constant FETCHDONE= "FETCHDONE";
+__string_constant FETCH_WORLD= "FETCH";
+__string_constant DOWNLOADING_ERROR= "ERROR: ";
 
 ///////////////////////////////////////////////////////////////////////////////
 CPBIController::CPBIController()
@@ -103,10 +103,13 @@ void CPBIController::onReadCheckLine(QString line)
 void CPBIController::onReadUpdateLine(QString line)
 {
     SProgress progress;
+    long dl_size;
+    long dl_complete;
+    QString dl_speed;
     line= line.trimmed();
     QString log_message= line;
-    qDebug()<<line;
-    progress.mLogMessages = QStringList()<<line;
+
+    //progress.mLogMessages = QStringList()<<line;
     progress.mItemNo= mCurrentUpdate;
     progress.mItemsCount= mAppsToUpdate.size();
 
@@ -114,28 +117,16 @@ void CPBIController::onReadUpdateLine(QString line)
     current_app= current_app.left(current_app.lastIndexOf("-")); // remove arch
     current_app= current_app.left(current_app.lastIndexOf("-")); // remove ver
 
-    if (line.contains(DOWNLOAD_INDICATOR))
+    if (parseFetchOutput(line,dl_size, dl_complete, dl_speed))
     {
-        // parse download
         progress.misCanCancel=true;
-
-        //Example:
-        // SIZE: 215710 DOWNLOADED: 3973 SPEED: 233 KB/s
-        // ^0    ^1     ^2          ^3   ^4     ^5  ^6
-
-        QStringList dl_list = line.split(" ");
-        progress.mProgressMax= dl_list[1].toInt();
-        progress.mProgressCurr= dl_list[3].toInt();
-        QString speed= dl_list[5] + QString(" ") + dl_list[6];
-        long size= dl_list[3].toInt() * 1024;
-        long downloaded= dl_list[1].toInt() * 1024;
+        log_message.clear();
         progress.mMessage= tr("[%1/%2] Downloading update for %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
                                                                              QString::number(progress.mItemsCount),
                                                                              current_app,
-                                                                             pcbsd::Utils::bytesToHumanReadable(size),
-                                                                             pcbsd::Utils::bytesToHumanReadable(downloaded),
-                                                                             speed);
-        log_message.clear();
+                                                                             pcbsd::Utils::bytesToHumanReadable(dl_complete),
+                                                                             pcbsd::Utils::bytesToHumanReadable(dl_size),
+                                                                             dl_speed);
         reportProgress(progress);
         return;
     }

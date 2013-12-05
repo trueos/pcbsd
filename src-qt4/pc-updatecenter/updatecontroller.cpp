@@ -42,6 +42,18 @@ CAbstractUpdateController::CAbstractUpdateController()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void CAbstractUpdateController::setJailPrefix(QString prefix)
+{
+    mJailPrefix= prefix;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void CAbstractUpdateController::removeJailPrefix()
+{
+    mJailPrefix.clear();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 CAbstractUpdateController::EUpdateControllerState CAbstractUpdateController::currentState()
 {
     return mCurrentState;
@@ -139,6 +151,14 @@ void CAbstractUpdateController::launchUpdate()
     QStringList args;
     updateShellCommand(proc, args);
 
+    //if jail is present
+    if (mJailPrefix.length())
+    {
+        args.push_front(proc);
+        args.push_front(mJailPrefix);
+        proc = "chroot";
+    }
+
     mUpdProc.start(proc,args);
     if (!mUpdProc.waitForStarted())
     {
@@ -156,6 +176,14 @@ void CAbstractUpdateController::launchCheck()
     QString proc;
     QStringList args;
     checkShellCommand(proc, args);
+
+    //if jail is present
+    if (mJailPrefix.length())
+    {
+        args.push_front(proc);
+        args.push_front(mJailPrefix);
+        proc = "chroot";
+    }
 
     mUpdProc.start(proc,args);
     if (!mUpdProc.waitForStarted())

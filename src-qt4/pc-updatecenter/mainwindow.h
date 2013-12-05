@@ -31,6 +31,7 @@
 #include "syscontroller.h"
 #include "pkgcontroller.h"
 #include "pbicontroller.h"
+#include "jailsbackend.h"
 
 
 namespace Ui {
@@ -44,17 +45,22 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    void setJail(CJailsBackend jail);
     
 private:
     Ui::MainWindow *ui;
 
     void init();
+    void jailRefresh();
 
     void refreshMenu();
 
     CSysController  mSysController;
     CPkgController  mPkgController;
     CPBIController  mPBIController;
+
+    CJailsBackend   mJail;
 
 public slots:
     void slotSingleInstance();
@@ -72,6 +78,7 @@ private slots:
     void on_actionLast_package_update_log_triggered();
     void on_actionLast_software_update_log_triggered();
     void on_actionExit_triggered();
+    void on_actionJail_triggered();
 };
 
 #endif // MAINWINDOW_H

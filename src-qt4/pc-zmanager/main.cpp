@@ -10,13 +10,14 @@
 #define PREFIX QString("/usr/local")
 #endif
 
-
-
-
-
-
 int main(int argc, char *argv[])
 {
+    // Make sure we are running as root
+    if (getuid() != 0) {
+      qDebug("Error, needs to be run as root");
+      exit(1);
+    }
+
     QtSingleApplication a(argc, argv);
     if ( a.isRunning() )
       return !(a.sendMessage("show"));

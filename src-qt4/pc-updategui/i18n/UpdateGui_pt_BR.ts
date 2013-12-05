@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">Bu&amp;scar atualizações novamente</translation>
+        <translation type="unfinished">Re&amp;scan por atualizações</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
@@ -129,7 +129,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>Fe&amp;char</translation>
+        <translation>&amp;Fechar</translation>
     </message>
     <message>
         <source>System updates available!</source>
@@ -141,8 +141,7 @@
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizações do Sistema Básico</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
@@ -158,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reinicialização necessária para finalizar a atualização!</translation>
     </message>
 </context>
 </TS>
