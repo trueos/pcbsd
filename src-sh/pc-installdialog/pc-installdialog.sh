@@ -388,7 +388,7 @@ get_user_realname()
 {
     get_dlg_ans "--inputbox \"Enter the real name for $USERNAME\" 8 40"
     if [ -z "$ANS" ] ; then
-       exit_err "Invalid real name entered!"
+	ANS="$USERNAME"
     fi
     USERREALNAME="$ANS"
 }
