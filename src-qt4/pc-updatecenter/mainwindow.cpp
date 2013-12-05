@@ -85,6 +85,13 @@ MainWindow::~MainWindow()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void MainWindow::setJail(CJailsBackend jail)
+{
+    mJail= jail;
+    jailRefresh();
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWindow::init()
 {
     for (int i=0; i<ui->mainTab->count(); i++)
@@ -99,9 +106,12 @@ void MainWindow::init()
     ui->jailIndicatorWidget->setVisible(false);
     jailRefresh();
 
-    mSysController.check();
-    mPkgController.check();
-    mPBIController.check();    
+    if (!mJail.jailEnabled())
+    {
+        mSysController.check();
+        mPkgController.check();
+        mPBIController.check();
+    }
 
     ui->sysIndicator->init(SYS_CHECK_IMG, SYS_OK_IMG, SYS_AVAIL_IMG,
                            SYS_DL_IMG, SYS_INSTALL_IMG, SYS_ERROR_IMG,
@@ -144,6 +154,7 @@ void MainWindow::init()
 void MainWindow::jailRefresh()
 {
     static bool last_enabled= false;
+    static QString last_name;
 
     ui->jailIndicatorWidget->setVisible(mJail.jailEnabled());
 
@@ -162,12 +173,13 @@ void MainWindow::jailRefresh()
         mPBIController.removeJailPrefix();
     }
 
-    if (last_enabled!=mJail.jailEnabled())
+    if ((last_enabled!=mJail.jailEnabled()) || (last_name != mJail.jailName()))
     {
         mSysController.check();
         mPkgController.check();
         mPBIController.check();
         last_enabled = mJail.jailEnabled();
+        last_name = mJail.jailName();
     }
 }
 
@@ -277,7 +289,7 @@ void MainWindow::on_updateAllButton_clicked()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates parsing unfinished</b><br><2.Warden support<br>2.Some error handling<br>3.Last update log view<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
+    QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates parsing unfinished</b><br>2.Warden support untested<br>2.Some error handling<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
