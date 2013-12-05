@@ -265,6 +265,7 @@ void LoginWidget::setUsernames(QStringList uList){
 void LoginWidget::setDesktops(QStringList text, QStringList icon, QStringList info){
   if((text.length() != icon.length()) && (text.length() != info.length()) ){ qDebug() << "LoginWidget: Unequal text/icon desktop lists"; return; }
   listDE->clear();
+  desktopIcons.clear(); desktopInfo.clear();
   desktopIcons = icon; //save for later
   desktopInfo = info; //save for later
   for(int i=0; i<text.length(); i++){
