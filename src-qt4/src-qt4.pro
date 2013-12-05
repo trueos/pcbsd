@@ -32,8 +32,7 @@ SUBDIRS+= libpcbsd \
 	 pc-xgui \
 	 pc-zmanager \
 	 warden-gui \
-	 qsudo \
-         EasyPBI \ 
+	 qsudo \ 
          PCDM
 
 doins.path=/
