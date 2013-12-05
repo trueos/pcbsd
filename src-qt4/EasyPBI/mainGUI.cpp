@@ -712,6 +712,9 @@ void MainGUI::on_push_config_save_clicked(){
     //Refresh the port information if the main port changed
     currentModule->readPortInformation(settings->value("portsdir")+"/"+ui->line_makeport->text());
     refreshGUI("pbiconf");
+    ui->push_config_save->setEnabled(false); //make sure the save button goes inactive once saved
+  }else{
+    ui->push_config_save->setEnabled(false); //make sure the save button goes inactive once saved
   }
 }
 
