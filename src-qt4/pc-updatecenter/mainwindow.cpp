@@ -289,7 +289,7 @@ void MainWindow::on_updateAllButton_clicked()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates parsing unfinished</b><br><2.Warden support<br>2.Some error handling<br>3.Last update log view<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
+    QMessageBox::information(this, "Early beta","<b>This is early beta only for testing</b><br><br>Missed functionality:<br> <b>1.System updates parsing unfinished</b><br>2.Warden support untested<br>2.Some error handling<br><br>Please report bugs at http://trac.pcbsd.org<br> or on testing@mile list");
 }
 
 ///////////////////////////////////////////////////////////////////////////////
