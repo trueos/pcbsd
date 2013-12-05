@@ -22,6 +22,93 @@ ZPROPS="aclinherit(discard|noallow|restricted|passthrough|passthrough-x),aclmode
 
 PCSYS="/usr/local/sbin/pc-sysinstall"
 
+# The current ZPOOL type should default to single
+ZPOOL_TYPE="single"
+
+change_zpool()
+{
+  get_zpool_menu
+  gen_pc-sysinstall_cfg
+}
+
+get_zpool_menu()
+{
+  while :
+  do
+    dOpts="done \"Exit zpool menu\" single \"Convert to single-disk\""
+
+    diskTot=`${PCSYS} disk-list | wc -l | awk '{print $1}'`
+    if [ $diskTot -gt 1 ] ; then
+      dOpts="$dOpts mirror \"Convert to mirror\" raidz1 \"Convert to raidz1\""
+    fi
+    if [ $diskTot -gt 2 ] ; then
+      dOpts="$dOpts raidz2 \"Convert to raidz2\""
+    fi
+    if [ $diskTot -gt 3 ] ; then
+      dOpts="$dOpts raidz3 \"Convert to raidz3\""
+    fi
+
+    get_dlg_ans "--menu \"Current zpool: $ZPOOL_TYPE - $SYSDISK $ZPOOL_DISKS\" 20 50 10 ${dOpts}"
+    if [ -z "$ANS" ] ; then
+       exit_err "Invalid option selected!"
+    fi
+    case $ANS in
+       done) break ;;
+     single) ZPOOL_DISKS=""
+             ZPOOL_TYPE="single"
+             ;;
+     mirror) get_zpool_disks "mirror" "1" ;;
+     raidz1) get_zpool_disks "raidz1" "1" ;;
+     raidz2) get_zpool_disks "raidz2" "2" ;;
+     raidz3) get_zpool_disks "raidz3" "3" ;;
+          *) ;;
+    esac
+  done
+}
+
+get_zpool_disks() {
+  local type=$1
+  local min=$2
+
+  while :
+  do
+    dOpts=""
+
+    ${PCSYS} disk-list > /tmp/.dList.$$
+    while read i
+    do
+      # Get the disk dev
+      d=`echo $i | cut -d ':' -f 1`
+
+      # Dont need to list the existing target disk
+      if [ "$SYSDISK" = "$d" ] ; then continue ; fi
+
+      # Get the disk description
+      desc=`echo $i | cut -d ':' -f 2`
+      size="`${PCSYS} disk-info $d | grep size | cut -d '=' -f 2`MB"
+      dOpts="$dOpts $d \"$desc ($size)\" off"
+    done < /tmp/.dList.$$
+    rm /tmp/.dList.$$
+
+
+    get_dlg_ans_no_exit "--single-quoted --checklist \"Select at least $min additional disk(s) for $type\" 22 45 15 ${dOpts}"
+    if [ $? -ne 0 ] ; then break; fi
+
+     ANS=`echo $ANS | sed "s|'||g"`
+
+     count=`echo $ANS | wc -w | awk '{print $1}'`
+     if [ $count -lt $min ] ; then
+        echo "Please select at least $min additional disks!"
+	rtn
+        continue
+     fi
+
+     ZPOOL_DISKS="$ANS"
+     ZPOOL_TYPE="$type"
+     break
+  done
+}
+
 change_zfs()
 {
   get_zfs_layout
@@ -227,6 +314,26 @@ add_dataset()
 
     # Save the dataset
     ZFSLAYOUT="$ZFSLAYOUT,$ANS"
+}
+
+get_dlg_ans_no_exit()
+{
+  TANS="/tmp/.pcinsdialog.$$"
+  if [ -e "$TANS" ] ; then rm ${TANS}; fi
+  if [ -e "$TANS.dlg" ] ; then rm ${TANS}.dlg; fi
+  while :
+  do
+    echo "dialog --title \"$TITLE\" ${@}" >${TANS}.dlg
+    sh ${TANS}.dlg 2>${TANS}
+    local err=$?
+
+    if [ ! -e "$TANS" ] ; then
+       ANS=""
+       return $err
+    fi
+    ANS=`cat ${TANS}`
+    return $err
+  done
 }
 
 get_dlg_ans()
@@ -526,7 +633,14 @@ gen_pc-sysinstall_cfg()
    echo "# All sizes are expressed in MB" >> ${CFGFILE}
    echo "# Avail FS Types, UFS, UFS+S, UFS+SUJ, UFS+J, ZFS, SWAP" >> ${CFGFILE}
    echo "# UFS.eli, UFS+S.eli, UFS+SUJ, UFS+J.eli, ZFS.eli, SWAP.eli" >> ${CFGFILE}
-   echo "disk0-part=ZFS 0 ${ZFSLAYOUT}" >> ${CFGFILE}
+
+   # Doing a single disk zpool, or a mirror/raidz[1-3]?
+   if [ "$ZPOOL_TYPE" = "single" ] ; then
+     echo "disk0-part=ZFS 0 ${ZFSLAYOUT}" >> ${CFGFILE}
+   else
+     echo "disk0-part=ZFS 0 ${ZFSLAYOUT} (${ZPOOL_TYPE}: `echo $ZPOOL_DISKS | sed 's| |,|g'`)" >> ${CFGFILE}
+   fi
+
    echo "disk0-part=SWAP 2000 none" >> ${CFGFILE}
    echo "commitDiskLabel" >> ${CFGFILE}
    echo "" >> ${CFGFILE}
@@ -608,7 +722,7 @@ start_edit_menu_loop()
 
   while :
   do
-    dialog --title "PC-BSD Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zfs "Change ZFS layout" network "Change networking" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
+    dialog --title "PC-BSD Text Install - Edit Menu" --menu "Please select from the following options:" 18 40 10 disk "Change disk ($SYSDISK)" zpool "Change zpool settings" zfs "Change ZFS layout" network "Change networking" view "View install script" edit "Edit install script" back "Back to main menu" 2>/tmp/answer
     if [ $? -ne 0 ] ; then break ; fi
 
     ANS="`cat /tmp/answer`"
@@ -620,6 +734,8 @@ start_edit_menu_loop()
     network) change_networking 
 	     ;;
         zfs) change_zfs
+	     ;;
+      zpool) change_zpool
 	     ;;
        view) more ${CFGFILE}
              rtn
@@ -667,7 +783,7 @@ start_menu_loop()
 
 
 
-if [ ! -e "$CFGFILE" ] ; then
+if [ -e "$CFGFILE" ] ; then
    cp ${CFGFILE} ${CFGFILE}.bak
    rm ${CFGFILE}
 fi
