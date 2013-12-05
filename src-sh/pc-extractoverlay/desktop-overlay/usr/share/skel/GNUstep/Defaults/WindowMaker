@@ -45,7 +45,7 @@
   MenuTextFont = "Trebuchet MS,Luxi Sans:pixelsize=12";
   NoWindowOverDock = NO;
   WorkspaceBack = (
-    tpixmap,
+    spixmap,
     "/usr/local/share/wallpapers/pcbsd-default.jpg",
     gray20
   );
