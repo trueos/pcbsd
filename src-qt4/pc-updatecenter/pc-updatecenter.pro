@@ -25,11 +25,11 @@ SOURCES += main.cpp\
     syscontroller.cpp \
     pkgcontroller.cpp \
     pbicontroller.cpp \
-    dialogconflict.cpp \
+    dialogs/dialogconflict.cpp \
     sysdetailswidget.cpp \
     pkgdetailswidget.cpp \
     pbidetailswidget.cpp \
-    logviewdialog.cpp \
+    dialogs/logviewdialog.cpp \
     rebootwidget.cpp
 
 HEADERS  += mainwindow.h \
@@ -38,21 +38,21 @@ HEADERS  += mainwindow.h \
     syscontroller.h \
     pkgcontroller.h \
     pbicontroller.h \
-    dialogconflict.h \
+    dialogs/dialogconflict.h \
     utils.h \
     sysdetailswidget.h \
     pkgdetailswidget.h \
     pbidetailswidget.h \
-    logviewdialog.h \
+    dialogs/logviewdialog.h \
     rebootwidget.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui \
-    dialogconflict.ui \
+    dialogs/dialogconflict.ui \
     sysdetailswidget.ui \
     pkgdetailswidget.ui \
     pbidetailswidget.ui \
-    logviewdialog.ui \
+    dialogs/logviewdialog.ui \
     rebootwidget.ui
 
 RESOURCES += \
