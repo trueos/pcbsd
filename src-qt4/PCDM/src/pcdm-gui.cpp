@@ -351,7 +351,7 @@ void PCDMgui::slotShutdownComputer(){
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Shutting down computer");
     system("shutdown -p now");
-    close();
+    QCoreApplication::exit(1); //flag that this is not a normal GUI close
   }
 }
 
@@ -367,7 +367,7 @@ void PCDMgui::slotRestartComputer(){
   if(ret == QMessageBox::Yes){
     Backend::log("PCDM: Restarting computer");
     system("shutdown -r now");
-    close();
+    QCoreApplication::exit(1); //flag that this is not a normal GUI close
   }
 }
 
