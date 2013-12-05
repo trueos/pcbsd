@@ -22,60 +22,42 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef JAILSBACKEND_H
+#define JAILSBACKEND_H
 
-#include <QMainWindow>
-#include <QTreeWidgetItem>
+#include <QString>
+#include <QVector>
 
-#include "syscontroller.h"
-#include "pkgcontroller.h"
-#include "pbicontroller.h"
-#include "jailsbackend.h"
-
-
-namespace Ui {
-class MainWindow;
-}
-
-class MainWindow : public QMainWindow
+class CJailsBackend
 {
-    Q_OBJECT
-    
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    
+    typedef struct _SJailDescription
+    {
+        QString mName;
+        QString mType;
+        bool misStarted;
+        bool misEnabled;
+
+        _SJailDescription()
+        {
+            misStarted = false;
+            misEnabled = false;
+        }
+    }SJailDescription;
+
+    CJailsBackend();
+
+    static QVector<SJailDescription> jailsList();
+
+    bool setJail(QString name);
+    void setJailEnabled(bool isEnabled);
+
+    bool jailEnabled();
+    QString jailPrefix();
+
 private:
-    Ui::MainWindow *ui;
-
-    void init();
-
-    void refreshMenu();
-
-    CSysController  mSysController;
-    CPkgController  mPkgController;
-    CPBIController  mPBIController;
-
-    CJailsBackend   mJail;
-
-public slots:
-    void slotSingleInstance();
-
-private slots:
-
-    void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-
-private slots:
-
-    void on_updateAllButton_clicked();
-    void on_pushButton_clicked();
-    void on_checkAllButton_clicked();
-    void on_actionLast_system_update_log_triggered();
-    void on_actionLast_package_update_log_triggered();
-    void on_actionLast_software_update_log_triggered();
-    void on_actionExit_triggered();
-    void on_actionJail_triggered();
+    bool   misEnabled;
+    QString mName;
 };
 
-#endif // MAINWINDOW_H
+#endif // JAILSBACKEND_H

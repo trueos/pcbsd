@@ -27,6 +27,7 @@
 
 #include "dialogs/dialogconflict.h"
 #include "dialogs/logviewdialog.h"
+#include "dialogs/jailsdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QFile>
@@ -145,6 +146,12 @@ void MainWindow::refreshMenu()
     ui->actionLast_package_update_log->setEnabled(en_pkglog);
     bool en_pbiglog= (mPBIController.currentState() != CAbstractUpdateController::eUPDATING) && mPBIController.hasLog();
     ui->actionLast_software_update_log->setEnabled(en_pbiglog);
+
+    bool is_no_upd = (mSysController.currentState() != CAbstractUpdateController::eUPDATING)
+                  && (mPkgController.currentState() != CAbstractUpdateController::eUPDATING)
+                  && (mPBIController.currentState() != CAbstractUpdateController::eUPDATING);
+
+    ui->actionJail->setEnabled(is_no_upd);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -284,4 +291,11 @@ void MainWindow::on_actionExit_triggered()
         }
     }
     QApplication::exit();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionJail_triggered()
+{
+    JailsDialog* dlg = new JailsDialog(this);
+    dlg->execDialog(&mJail);
 }

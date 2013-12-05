@@ -301,8 +301,7 @@ void CSysController::parseCheckPCBSDLine(QString line)
         QStringList line_list = line.split("-");
         upd.mDate= QDate(line_list[2].toInt(),
                          line_list[0].toInt(),
-                         line_list[1].toInt());
-        qDebug()<<upd.mDate.toString("d MMM yyyy");
+                         line_list[1].toInt());        
         return;
     }
 
@@ -331,7 +330,7 @@ void CSysController::parseCheckPCBSDLine(QString line)
 ///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseCheckFREEBSDLine(QString line)
 {
-    qDebug()<<line;
+    //qDebug()<<line;
 
     typedef enum{
         eUndefined,

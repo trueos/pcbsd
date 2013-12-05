@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>627</width>
-    <height>441</height>
+    <width>625</width>
+    <height>439</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -341,7 +341,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>627</width>
+     <width>625</width>
      <height>21</height>
     </rect>
    </property>
@@ -444,7 +444,7 @@
   </action>
   <action name="actionJail">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Jail</string>
