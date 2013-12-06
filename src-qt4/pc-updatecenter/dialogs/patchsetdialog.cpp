@@ -29,6 +29,8 @@
 #include "pcbsd-utils.h"
 
 #include <QDebug>
+#include <QFile>
+#include <QMessageBox>
 
 using namespace pcbsd;
 
@@ -63,8 +65,11 @@ bool PatchsetDialog::execDilog(CJailsBackend jail)
         mFileName= jail.jailPrefix() + mFileName;
     }
 
-    //TODO: Check if file is avail
-
+    if (!QFile::exists(mFileName))
+    {
+        QMessageBox::critical(this, "File not found", tr("File %1 was not found").arg(mFileName));
+        return false;
+    }
 
     // Parse config file
     mCurrentPatchset= Utils::getConfFileValue(mFileName, PATCHSET_FIELD_NAME).trimmed();
