@@ -217,7 +217,42 @@ QStringList PBIModule::existingScripts(){
 // =============
 //      RESOURCES
 // =============
-	
+QStringList PBIModule::existingResources(){
+  QStringList out = filesInDir(basePath+"/resources");
+  return out;	
+}
+
+bool PBIModule::addResource(QString filePath, QString resourcePath){
+  if(resourcePath.isEmpty()){
+    resourcePath = filePath.section("/",-1); //same file name, in the base resources dir
+  }
+  bool ok = false;
+  if(QFile::exists(filePath)){
+    //Create an intermediary directories in the resources dir
+    QString rPath = basePath+"/resources/"+resourcePath.left(resourcePath.length() - resourcePath.section("/",-1).length());
+    QDir dir(rPath);
+    if(!dir.exists()){ 
+      ok = dir.mkPath(rPath); 
+      if(!ok){
+        qDebug() << "Error: Could not create directory: "<<rPath;
+	return ok;
+      }
+    }
+    //Now check if that file already exists
+    if(QFile::exists(basePath+"/resources/"+resourcePath)){
+      ok = QFile::remove(basePath+"/resources/"+resourcePath); //Overwrite existing file
+      if(!ok){
+        qDebug() << "Error: Could not remove existing file: "<<basePath+"/resources/"+resourcePath;
+	return ok;
+      }
+    }
+    ok = QFile::copy(filePath, basePath+"/resources/"+resourcePath);
+  }else{
+    qDebug() << "Error: File to add to resources does not exist: "<<filePath;
+  }
+  return ok;
+}
+
 // =============
 //           XDG
 // =============
@@ -226,9 +261,9 @@ QStringList PBIModule::existingScripts(){
 //  EXTERNAL-LINKS
 // =============
 
-// =============
-//  PRIVATE UTILITIES
-// =============
+// ===============
+//  GENERAL UTILITIES
+// ===============
 bool PBIModule::createFile(QString fileName, QStringList contents){
 //fileName = full path to file (I.E. /home/pcbsd/junk/junk.txt)
 //contents = list of lines to be written (one line per entry in the list - no newline needed at the end of an entry)
@@ -305,4 +340,18 @@ QStringList PBIModule::readFile(QString filePath){
   }
   //Return the contents (one entry per line)
   return contents;
+}
+
+QStringList PBIModule::filesInDir(QString dirPath){
+  //This is a recursive function for listing all the files in a directory (or subdirectories)
+  QStringList out;
+  QDir dir(dirPath);
+  if(dir.exists(dirPath)){
+    QStringList subdirs = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+    out << dir.entryList(QDir::Files | QDir::NoDotAndDotDot,QDir::Name);
+    for(int i=0, i<subdirs.length(); i++){
+      out << filesInDir(dirPath+"/"+subdirs[i]);
+    }
+  }
+  return out;	
 }

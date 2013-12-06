@@ -42,7 +42,9 @@ public:
 	QStringList existingScripts();
 	
 	//Resources
-
+	QStringList existingResources();
+	bool addResource(QString, QString);
+	
 	//XDG files
 	
 	//External Links
