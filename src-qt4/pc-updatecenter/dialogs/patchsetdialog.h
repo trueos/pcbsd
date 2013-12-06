@@ -22,65 +22,32 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef PATCHSETDIALOG_H
+#define PATCHSETDIALOG_H
 
-#include <QMainWindow>
-#include <QTreeWidgetItem>
-
-#include "syscontroller.h"
-#include "pkgcontroller.h"
-#include "pbicontroller.h"
+#include <QDialog>
+#include <QString>
 #include "jailsbackend.h"
 
-
 namespace Ui {
-class MainWindow;
+class PatchsetDialog;
 }
 
-class MainWindow : public QMainWindow
+class PatchsetDialog : public QDialog
 {
     Q_OBJECT
     
 public:
-    explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
-    ~MainWindow();
+    explicit PatchsetDialog(QWidget *parent = 0);
+    ~PatchsetDialog();
 
-    void setJail(CJailsBackend jail);
+    bool execDilog(CJailsBackend jail);
     
 private:
-    Ui::MainWindow *ui;
+    Ui::PatchsetDialog *ui;
 
-    void init();
-    void jailRefresh();
-
-    void refreshMenu();
-
-    CSysController  mSysController;
-    CPkgController  mPkgController;
-    CPBIController  mPBIController;
-
-    CJailsBackend   mJail;
-
-public slots:
-    void slotSingleInstance();
-
-private slots:
-
-    void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-
-private slots:
-
-    void on_updateAllButton_clicked();
-    void on_pushButton_clicked();
-    void on_checkAllButton_clicked();
-    void on_actionLast_system_update_log_triggered();
-    void on_actionLast_package_update_log_triggered();
-    void on_actionLast_software_update_log_triggered();
-    void on_actionExit_triggered();
-    void on_actionJail_triggered();
-    void on_actionSystem_branches_triggered();
-    void on_actionUpdate_set_triggered();
+    QString mFileName;
+    QString mCurrentPatchset;
 };
 
-#endif // MAINWINDOW_H
+#endif // PATCHSETDIALOG_H

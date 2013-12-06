@@ -29,6 +29,7 @@
 #include "dialogs/logviewdialog.h"
 #include "dialogs/jailsdialog.h"
 #include "dialogs/branchesdialog.h"
+#include "dialogs/patchsetdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QFile>
@@ -204,6 +205,7 @@ void MainWindow::refreshMenu()
 
     ui->actionJail->setEnabled(is_no_upd);
     ui->actionSystem_branches->setEnabled(is_no_upd && (!mJail.jailEnabled()));
+    ui->actionUpdate_set->setEnabled(is_no_upd);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -358,4 +360,16 @@ void MainWindow::on_actionSystem_branches_triggered()
 {
     BranchesDialog* dlg = new BranchesDialog(this);
     dlg->exec();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionUpdate_set_triggered()
+{
+    PatchsetDialog* dlg = new PatchsetDialog(this);
+    if (dlg->execDilog(mJail))
+    {
+        mSysController.check();
+        mPkgController.check();
+        mPBIController.check();
+    }
 }
