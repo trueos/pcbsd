@@ -22,64 +22,29 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QTreeWidgetItem>
+#ifndef BRANCHESDIALOG_H
+#define BRANCHESDIALOG_H
 
-#include "syscontroller.h"
-#include "pkgcontroller.h"
-#include "pbicontroller.h"
-#include "jailsbackend.h"
-
+#include <QDialog>
 
 namespace Ui {
-class MainWindow;
+class BranchesDialog;
 }
 
-class MainWindow : public QMainWindow
+class BranchesDialog : public QDialog
 {
     Q_OBJECT
     
 public:
-    explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
-    ~MainWindow();
+    explicit BranchesDialog(QWidget *parent = 0);
+    ~BranchesDialog();
 
-    void setJail(CJailsBackend jail);
-    
 private:
-    Ui::MainWindow *ui;
-
     void init();
-    void jailRefresh();
 
-    void refreshMenu();
-
-    CSysController  mSysController;
-    CPkgController  mPkgController;
-    CPBIController  mPBIController;
-
-    CJailsBackend   mJail;
-
-public slots:
-    void slotSingleInstance();
-
-private slots:
-
-    void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-
-private slots:
-
-    void on_updateAllButton_clicked();
-    void on_pushButton_clicked();
-    void on_checkAllButton_clicked();
-    void on_actionLast_system_update_log_triggered();
-    void on_actionLast_package_update_log_triggered();
-    void on_actionLast_software_update_log_triggered();
-    void on_actionExit_triggered();
-    void on_actionJail_triggered();
-    void on_actionSystem_branches_triggered();
+private:
+    Ui::BranchesDialog *ui;
 };
 
-#endif // MAINWINDOW_H
+#endif // BRANCHESDIALOG_H

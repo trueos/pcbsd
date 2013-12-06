@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     rebootwidget.cpp \
     dialogs/jailsdialog.cpp \
     jailsbackend.cpp \
-    jailindicator.cpp
+    jailindicator.cpp \
+    dialogs/branchesdialog.cpp
 
 HEADERS  += mainwindow.h \
     indicatorwidget.h \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     rebootwidget.h \
     dialogs/jailsdialog.h \
     jailsbackend.h \
-    jailindicator.h
+    jailindicator.h \
+    dialogs/branchesdialog.h
 
 FORMS    += mainwindow.ui \
     indicatorwidget.ui \
@@ -61,7 +63,8 @@ FORMS    += mainwindow.ui \
     dialogs/logviewdialog.ui \
     rebootwidget.ui \
     dialogs/jailsdialog.ui \
-    jailindicator.ui
+    jailindicator.ui \
+    dialogs/branchesdialog.ui
 
 RESOURCES += \
     res.qrc

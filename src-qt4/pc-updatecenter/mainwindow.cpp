@@ -28,6 +28,7 @@
 #include "dialogs/dialogconflict.h"
 #include "dialogs/logviewdialog.h"
 #include "dialogs/jailsdialog.h"
+#include "dialogs/branchesdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QFile>
@@ -202,6 +203,7 @@ void MainWindow::refreshMenu()
                   && (mPBIController.currentState() != CAbstractUpdateController::eUPDATING);
 
     ui->actionJail->setEnabled(is_no_upd);
+    ui->actionSystem_branches->setEnabled(is_no_upd && (!mJail.jailEnabled()));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -349,4 +351,11 @@ void MainWindow::on_actionJail_triggered()
     JailsDialog* dlg = new JailsDialog(this);
     dlg->execDialog(&mJail);
     jailRefresh();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionSystem_branches_triggered()
+{
+    BranchesDialog* dlg = new BranchesDialog(this);
+    dlg->exec();
 }

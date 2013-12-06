@@ -22,64 +22,65 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#include "branchesdialog.h"
+#include "ui_branchesdialog.h"
 
-#include <QMainWindow>
-#include <QTreeWidgetItem>
+#include <QListWidgetItem>
+#include <QFont>
 
-#include "syscontroller.h"
-#include "pkgcontroller.h"
-#include "pbicontroller.h"
-#include "jailsbackend.h"
+#include "pcbsd-utils.h"
+#include "utils.h"
 
+__string_constant BRANCHES_SEPARATOR = "----------------------------------";
 
-namespace Ui {
-class MainWindow;
+///////////////////////////////////////////////////////////////////////////////
+BranchesDialog::BranchesDialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::BranchesDialog)
+{
+    ui->setupUi(this);
+    init();
 }
 
-class MainWindow : public QMainWindow
+///////////////////////////////////////////////////////////////////////////////
+BranchesDialog::~BranchesDialog()
 {
-    Q_OBJECT
-    
-public:
-    explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
-    ~MainWindow();
+    delete ui;
+}
 
-    void setJail(CJailsBackend jail);
-    
-private:
-    Ui::MainWindow *ui;
+///////////////////////////////////////////////////////////////////////////////
+void BranchesDialog::init()
+{
+    QStringList upd_output = pcbsd::Utils::runShellCommand("pc-updatemanager branches");
+    bool is_branches_separator = false;
+    for (int i=0; i<upd_output.size(); i++)
+    {
+        QString line = upd_output[i].trimmed();
+        if (line.indexOf(BRANCHES_SEPARATOR) == 0)
+        {
+            is_branches_separator = true;
+            continue;
+        }
+        if (is_branches_separator)
+        {
+            if (!line.length())
+                break;
 
-    void init();
-    void jailRefresh();
+            QListWidgetItem* item = new QListWidgetItem(ui->branchesL);
 
-    void refreshMenu();
+            ui->branchesL->addItem(item);
 
-    CSysController  mSysController;
-    CPkgController  mPkgController;
-    CPBIController  mPBIController;
+            if (line[line.length()-1] == '*')
+            {
+                //current branch
+                QFont font = item->font();
+                font.setBold(true);
+                item->setFont(font);
+                line = line.replace(" *", "");
+                ui->branchesL->setCurrentItem(item);
+            }
 
-    CJailsBackend   mJail;
-
-public slots:
-    void slotSingleInstance();
-
-private slots:
-
-    void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-
-private slots:
-
-    void on_updateAllButton_clicked();
-    void on_pushButton_clicked();
-    void on_checkAllButton_clicked();
-    void on_actionLast_system_update_log_triggered();
-    void on_actionLast_package_update_log_triggered();
-    void on_actionLast_software_update_log_triggered();
-    void on_actionExit_triggered();
-    void on_actionJail_triggered();
-    void on_actionSystem_branches_triggered();
-};
-
-#endif // MAINWINDOW_H
+            item->setText(line);
+        }
+    }
+}
