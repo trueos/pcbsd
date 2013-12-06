@@ -15,9 +15,9 @@ echo "Datasets scheduled for snapshots:"
 echo "---------------------------------"
 for i in `grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $8}'`
 do
-   min=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $1}'`
-   hour=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $2}'`
-   count=`grep "${PROGDIR}/backend/runsnap.sh" /etc/crontab | awk '{print $9}'`
+   min=`grep "${PROGDIR}/backend/runsnap.sh ${i}" /etc/crontab | awk '{print $1}'`
+   hour=`grep "${PROGDIR}/backend/runsnap.sh ${i}" /etc/crontab | awk '{print $2}'`
+   count=`grep "${PROGDIR}/backend/runsnap.sh ${i}" /etc/crontab | awk '{print $9}'`
    time="Min: $min Hour: $hour";
    if [ "$min" = "0" -a "$hour" != '*' ] ; then time="daily@$hour" ; fi
    if [ "$min" = "0" -a "$hour" = '*' ] ; then time="hourly" ; fi
