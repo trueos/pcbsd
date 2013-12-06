@@ -12,6 +12,10 @@ PBIModule::PBIModule(){
   CIntValues << "PBI_BUILDKEY" << "PBI_PROGREVISION" << "PBI_AB_PRIORITY";
   //Valid Scripts
   scriptValues << "pre-pbicreate.sh" << "pre-install.sh" << "post-install.sh" << "pre-remove.sh";
+  //valid XDG values
+  xdgValues <<
+  //valid MIME values
+  mimeValues << 
 	
   HASH.clear(); //Make sure the hash is currently empty
 }
@@ -108,21 +112,17 @@ QStringList PBIModule::numberValues(){ //list all possible integer values
 	
 void PBIModule::loadConfig(){
 //Read the designated pbi.conf and store the variables
-  QFile file(basePath+"/pbi.conf");
-  if( !file.open(QIODevice::ReadOnly | QIODevice::Text)){
-    qDebug() << "Warning: Unable to load "+basePath+"/pbi.conf";
-    return;
-  }
-  QTextStream in(&file);
-  while(!in.atEnd()){
+  QStringList contents = readFile(basePath+"/pbi.conf");
+  for(int i=0; i<contents.length(); i++){
     //see if the current line conains a desired variable and save it
-    QString line = in.readLine();
+    QString line = contents[i];
     if(!line.startsWith("#") && !line.startsWith("export")){ //Ignore commented out lines
       //Pull apart the variable and the value
       QString var = line.section("=\"",0,0,QString::SectionSkipEmpty).trimmed();
       QString val = line.section("=\"",1,50).section("#",0,0,QString::SectionSkipEmpty).section(";",0,0,QString::SectionSkipEmpty).trimmed();
-        while( !val.endsWith("\"") && !in.atEnd() ){
-	  line = in.readLine();
+        while( !val.endsWith("\"") && i<contents.length() ){
+	  i++;
+	  line = contents[i];
 	  val.append("\n"+line.section("#",0,0).section(";",0,0).trimmed();
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
@@ -133,7 +133,6 @@ void PBIModule::loadConfig(){
       else{} //do nothing for extra lines
     }
   }
-  file.close();	
 }
 
 bool PBIModule::saveConfig(){
@@ -354,4 +353,34 @@ QStringList PBIModule::filesInDir(QString dirPath){
     }
   }
   return out;	
+}
+
+QStringList PBIModule::generateXDGFileContents(QString name, QString gName, QString exec, \
+		QString iconResourcePath, QString mimetype, bool runAsRoot, bool invisible, \
+		bool useTerminal){
+  QStringList contents;
+  contents << "#!/usr/bin/env";
+  contents << "[Desktop Entry]";
+  contents << "Value=1.0";
+  contents << "Type=Application";
+  contents << "Name="+name;
+  contents << "GenericName="+gName;
+  if(runAsRoot){
+    contents << "Exec=pc-su %%PBI_EXEDIR%%/"+exec;
+  }else{
+    contents << "Exec=%%PBI_EXEDIR%%/"+exec;
+  }
+  contents << "Path=%%PBI_APPDIR%%";
+  contents << "Icon=%%PBI_APPDIR%%/"+iconResourcePath;
+  contents << "StartupNotify=true";
+  if(invisible){
+    contents << "NoDisplay=true";
+  }
+  if(useTerminal){
+    contents << "Terminal=true";
+  }
+  if(!mimetype.isEmpty()){
+    contents << "MimeType="+mimetype;
+  }
+  return contents;
 }

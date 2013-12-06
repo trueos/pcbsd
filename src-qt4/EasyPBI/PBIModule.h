@@ -46,16 +46,43 @@ public:
 	bool addResource(QString, QString);
 	
 	//XDG files
+	QStringList validXdgText();
+	QString xdgText(QString);
+	QStringList xdgTextL(QStringList);
+	void setXdgText(QString,QString);
+	void setXdgTextL(QStringList, QStringList);
+	
+	QStringList validXdgEnables();
+	void xdgEnabled(QString);
+	void setXdgEnabled(QString, bool);
+	
+	QStringList listXdgDesktopFiles();
+	QStringList listXdgMenuFiles();
+	bool saveXdgDesktop(QString fileName);
+	bool saveXdgMenu(QString fileName);
+	bool removeXdgDesktop(QString fileName);
+	bool removeXdgMenu(QString fileName);
+	bool loadXdgDesktop(QString fileName);
+	bool loadXdgMenu(QString filename);
+	
+	QStringList listMimeFiles();
+	QStringList validMimeValues();
+	QString mimeText(QString);
+	QStringList mimeTextL(QStringList);
+	void setMimeText(QString, QString);
+	void setMimeTextL(QStringList, QStringList);
 	
 	//External Links
 
 	//General Utilities
-	bool createFile(QString,QStringList);
-	QStringList readFile(QString);
+	static bool createFile(QString,QStringList);
+	static QStringList readFile(QString);
+	static QStringList filesInDir(QString);
+	static QStringList generateXDGFileContents(QString,QString,QString,QString,QString, bool, bool, bool);
 
 private:
 	QHash<QString, QVariant> HASH;
-	QStringList CTextValues, CBoolValues, CIntValues, scriptValues;
+	QStringList CTextValues, CBoolValues, CIntValues, scriptValues, xdgValues, mimeValues;
 	QString basePath, version;
 
 signals:
