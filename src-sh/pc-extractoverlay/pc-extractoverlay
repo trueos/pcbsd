@@ -106,7 +106,7 @@ post_extract_setup()
   fi
 
   # See if we need to adjust pkg.conf
-  grep -q "ARCH" /usr/local/etc/pkg.conf
+  grep -q "ARCH" /usr/local/etc/pkg.conf 2>/dev/null
   if [ $? -eq 0 ] ; then
     ARCH=`uname -m`
     FBSDVER=`uname -r | cut -d '-' -f 1-2`

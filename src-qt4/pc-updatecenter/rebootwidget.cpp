@@ -2,6 +2,11 @@
 #include "ui_rebootwidget.h"
 
 #include <QProcess>
+#include <QDebug>
+#include "utils.h"
+
+__string_constant REBOOT_IMAGE = ":/images/system-reboot.png";
+__string_constant LOGOFF_IMAGE = ":/images/system-log-out.png";
 
 RebootWidget::RebootWidget(QWidget *parent) :
     QWidget(parent),
@@ -11,6 +16,8 @@ RebootWidget::RebootWidget(QWidget *parent) :
     mSysController= NULL;
     mPkgController= NULL;
     mPBIController = NULL;
+    misReboot= false;
+    misLogoff = false;
 }
 
 RebootWidget::~RebootWidget()
@@ -47,7 +54,7 @@ void RebootWidget::globalStateChanged(CAbstractUpdateController::EUpdateControll
 
     bool is_reboot_btn = false;
     if ((!mSysController) || (!mPkgController) || (!mPBIController))
-        return;
+        return;        
 
     is_reboot_btn = (mSysController->currentState() != CAbstractUpdateController::eUPDATING)
                  && (mPkgController->currentState() != CAbstractUpdateController::eUPDATING)
@@ -56,6 +63,19 @@ void RebootWidget::globalStateChanged(CAbstractUpdateController::EUpdateControll
 
     ui->restartButton->setVisible(is_reboot_btn);
 
-    bool this_visible = mSysController->rebootRequired() && (mSysController->currentState() != CAbstractUpdateController::eUPDATING);
-    setVisible(this_visible);
+    bool misReboot = mSysController->rebootRequired() && (mSysController->currentState() != CAbstractUpdateController::eUPDATING);
+    bool misLogoff = mPkgController->logoffRequired() && (mPkgController->currentState() != CAbstractUpdateController::eUPDATING);
+
+    setVisible((misReboot) || (misLogoff));
+
+    if (misLogoff && (!misReboot))
+    {
+        ui->IconLabel->setPixmap(QPixmap(LOGOFF_IMAGE));
+        ui->messageLabel->setText(tr("Please re-enter to desktop environment to prevent unexpected behaviour"));
+    }
+    if (misReboot)
+    {
+        ui->IconLabel->setPixmap(QPixmap(REBOOT_IMAGE));
+        ui->messageLabel->setText(tr("Your system should be restarted to finalize update"));
+    }
 }

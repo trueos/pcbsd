@@ -38,8 +38,8 @@ QMAKE_ARGS=	-recursive ${QMAKE_PRO}
 
 .include <bsd.port.pre.mk>
 
-.if ${OSVERSION} < 900030
-IGNORE=		requires FreeBSD 9.0 or later
+.if ${OSVERSION} < 1000000
+IGNORE=		requires FreeBSD 10 or later
 .endif
 
 do-configure:

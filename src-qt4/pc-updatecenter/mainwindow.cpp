@@ -220,9 +220,7 @@ void MainWindow::slotSingleInstance()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state)
 {
-    refreshMenu();
-
-    ui->RebootW->setVisible(mSysController.rebootRequired());
+    refreshMenu();    
 
     bool isUpdatesAvail= (mSysController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)
                        ||(mPkgController.currentState() == CAbstractUpdateController::eUPDATES_AVAIL)

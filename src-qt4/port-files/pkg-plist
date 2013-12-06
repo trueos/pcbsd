@@ -70,7 +70,7 @@ share/pcbsd/scripts/openhandbook.sh
 share/pcbsd/scripts/set-lang.sh
 share/pcbsd/scripts/sound-dev-changed.sh
 share/pcbsd/scripts/portsnap-noterm.sh
-share/pcbsd/icons/update-center.pkg
+share/pcbsd/icons/update-center.png
 share/pcbsd/icons/system-software-update.png
 share/pcbsd/icons/hwinfo.png
 share/pcbsd/icons/mythtv.png

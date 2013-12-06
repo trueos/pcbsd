@@ -26,7 +26,6 @@
 #define PKGCONTROLLER_H
 
 #include "updatecontroller.h"
-
 #include <QProcess>
 #include <QVector>
 
@@ -77,6 +76,7 @@ public:
     CPkgController();
 
     SUpdate updateData();
+    bool    logoffRequired();
 
 protected:
     virtual void onReadCheckLine(QString line);
@@ -103,6 +103,8 @@ private:
     QString mLastLine;
     QString mConflictList;
     QString mConflictsReply;
+    int     mCurrentDEIndex;
+    bool    misLogoffRequired;
 };
 
 #endif // PKGCONTROLLER_H

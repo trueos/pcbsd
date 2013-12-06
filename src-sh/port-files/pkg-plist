@@ -24,6 +24,8 @@ bin/pc-runxgui
 bin/pc-checkxdisplay
 bin/pc-installdialog
 bin/enable_user_pefs
+sbin/app
+sbin/pbi
 sbin/pc-sysinstall
 share/lpreserver/backend/zfsmon.sh
 share/lpreserver/backend/zfsrmsnap.sh
@@ -584,7 +586,12 @@ sbin/pbi_update_hashdir
 sbin/pbi_patch
 sbin/pbid
 etc/pbi.conf
+etc/man.d/pbi.conf
 etc/rc.d/pbid
+share/pbi-manager/.pbime
+share/pbi-manager/.pbimount
+share/pbi-manager/.ldconfig
+share/pbi-manager/.mount_nullfs
 share/pbi-manager/.pbiwrapper-i386
 share/pbi-manager/.pbiwrapper-amd64
 share/pbi-manager/module-examples/gimp/xdg-menu/gimp.desktop
