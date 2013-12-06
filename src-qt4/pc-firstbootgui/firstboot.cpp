@@ -189,9 +189,8 @@ void Installer::slotCheckRootPW()
 
 void Installer::slotCheckHost()
 {
-  QRegExp hostnameRegExp("^(([a-z0-9][a-z0-9-].*[a-z0-9])|([a-z0-9]+))$");
+  QRegExp hostnameRegExp("^(([a-zA-Z0-9][a-zA-Z0-9-].*[a-zA-Z0-9])|([a-zA-Z0-9]+))$");
   nextButton->setEnabled(false);
-  lineHostname->setText(lineHostname->text().toLower());
   if (lineHostname->text().isEmpty())
   {
      lineHostname->setToolTip(tr("Please enter a hostname"));
