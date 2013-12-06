@@ -66,7 +66,7 @@ QVector<CJailsBackend::SJailDescription> CJailsBackend::jailsList()
             QStringList item_list= val.split(" ", QString::SkipEmptyParts);
             item.mName = item_list[0];
             item.mType = item_list[3];
-            item.misStarted = (item_list[2].toLower() == "started");
+            item.misStarted = (item_list[2].toLower() == "running");
             item.misEnabled = (item_list[1].toLower() == "enabled");
             retVal.push_back(item);
         }
