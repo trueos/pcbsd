@@ -28,6 +28,8 @@
 #include "dialogs/dialogconflict.h"
 #include "dialogs/logviewdialog.h"
 #include "dialogs/jailsdialog.h"
+#include "dialogs/branchesdialog.h"
+#include "dialogs/patchsetdialog.h"
 
 #include <QTreeWidgetItem>
 #include <QFile>
@@ -70,11 +72,15 @@ const QString PBI_INSTALL_IMG= ":/images/pbiinstall.png";
 const QString PBI_ERROR_IMG=   ":/images/pbierror.png";
 
 ///////////////////////////////////////////////////////////////////////////////
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(CJailsBackend *jail, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    if (jail)
+    {
+        mJail = *jail;
+    }
     init();
 }
 
@@ -198,6 +204,8 @@ void MainWindow::refreshMenu()
                   && (mPBIController.currentState() != CAbstractUpdateController::eUPDATING);
 
     ui->actionJail->setEnabled(is_no_upd);
+    ui->actionSystem_branches->setEnabled(is_no_upd && (!mJail.jailEnabled()));
+    ui->actionUpdate_set->setEnabled(is_no_upd);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -345,4 +353,23 @@ void MainWindow::on_actionJail_triggered()
     JailsDialog* dlg = new JailsDialog(this);
     dlg->execDialog(&mJail);
     jailRefresh();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionSystem_branches_triggered()
+{
+    BranchesDialog* dlg = new BranchesDialog(this);
+    dlg->exec();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionUpdate_set_triggered()
+{
+    PatchsetDialog* dlg = new PatchsetDialog(this);
+    if (dlg->execDilog(mJail))
+    {
+        mSysController.check();
+        mPkgController.check();
+        mPBIController.check();
+    }
 }

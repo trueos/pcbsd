@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LogViewDialog</class>
- <widget class="QDialog" name="LogViewDialog">
+ <class>BranchesDialog</class>
+ <widget class="QDialog" name="BranchesDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>387</width>
-    <height>289</height>
+    <width>377</width>
+    <height>277</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Loast update log</string>
+   <string>System branches</string>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QTextEdit" name="logView">
-     <property name="readOnly">
-      <bool>true</bool>
+    <widget class="QLabel" name="desciptionLabel">
+     <property name="text">
+      <string>You may see and select system branches here</string>
      </property>
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>(current branch market dy bold font)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QListWidget" name="branchesL"/>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="cclippboardBtn">
-       <property name="text">
-        <string>Copy to clipboard</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="sfileBtn">
-       <property name="text">
-        <string>Save to file</string>
-       </property>
-      </widget>
-     </item>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -55,6 +51,16 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Change branch</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
        <property name="text">
         <string>Close</string>
        </property>
@@ -67,18 +73,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushButton_2</sender>
    <signal>clicked()</signal>
-   <receiver>LogViewDialog</receiver>
-   <slot>accept()</slot>
+   <receiver>BranchesDialog</receiver>
+   <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>319</x>
-     <y>271</y>
+     <x>333</x>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
-     <x>257</x>
-     <y>260</y>
+     <x>139</x>
+     <y>248</y>
     </hint>
    </hints>
   </connection>

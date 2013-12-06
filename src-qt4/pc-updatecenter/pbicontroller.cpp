@@ -121,6 +121,8 @@ void CPBIController::onReadUpdateLine(QString line)
     {
         progress.misCanCancel=true;
         log_message.clear();
+        progress.mProgressMax= dl_size;
+        progress.mProgressCurr= dl_complete;
         progress.mMessage= tr("[%1/%2] Downloading update for %3 (%4/%5 at %6)").arg(QString::number(progress.mItemNo+1),
                                                                              QString::number(progress.mItemsCount),
                                                                              current_app,

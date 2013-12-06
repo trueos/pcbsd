@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>437</height>
+    <width>621</width>
+    <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -344,7 +344,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>623</width>
+     <width>621</width>
      <height>21</height>
     </rect>
    </property>
@@ -414,7 +414,7 @@
   </action>
   <action name="actionUpdate_set">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Update set</string>
@@ -422,7 +422,7 @@
   </action>
   <action name="actionSystem_branches">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>System branches</string>
