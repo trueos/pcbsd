@@ -6,6 +6,9 @@
 #include <qlocale.h>
 #include <qtsingleapplication.h>
 
+#include <unistd.h>
+#include <sys/types.h>
+
 #ifndef PREFIX
 #define PREFIX QString("/usr/local")
 #endif
