@@ -8,14 +8,6 @@
         <translation>EasyPBI</translation>
     </message>
     <message>
-        <source>Module Editor</source>
-        <translation>Editor de módulo</translation>
-    </message>
-    <message>
-        <source>View and edit the current PBI module</source>
-        <translation>Visualizar e editar o módulo PBI atual</translation>
-    </message>
-    <message>
         <source>PBI Configuration</source>
         <translation>Configuração do PBI</translation>
     </message>
@@ -69,67 +61,7 @@
         <translation>Ícone</translation>
     </message>
     <message>
-        <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished">Diretório local a ser empacotado em um PBI (deve conter tudo o que for necessário para o programa funcionar)</translation>
-    </message>
-    <message>
-        <source>Package Directory</source>
-        <translation>Diretório do pacote</translation>
-    </message>
-    <message>
-        <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished">Selecione um diretório a ser empacotado em um PBI</translation>
-    </message>
-    <message>
-        <source>Select</source>
-        <translation>Selecionar</translation>
-    </message>
-    <message>
-        <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Port Build Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Special configuration options for any ports that need to be built.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Make Port Before</source>
-        <translation type="unfinished">Compilar o pacote antes</translation>
-    </message>
-    <message>
-        <source>Additional FreeBSD ports to be built before the main program</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -142,10 +74,6 @@
         <source>Remove additional FreeBSD port</source>
         <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Make Port After</source>
-        <translation type="unfinished">Compilar o pacote depois</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
@@ -430,15 +358,6 @@
         <source>Save this link to the PBI module</source>
         <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>PBI Builder</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">Usar o módulo atual para criar um PBI</translation>
     </message>
     <message>
         <source>Module Building</source>
@@ -832,6 +751,106 @@
     <message>
         <source>Do you wish to continue using it anyway?</source>
         <translation type="unfinished">Deseja continuar a usá-lo de qualquer maneira?</translation>
+    </message>
+    <message>
+        <source>Port/Package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a different FreeBSD package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Package Overrides (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Pkgs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>32-bit only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Repository Information (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tags</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comma-separated list of search tags for the application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>App Cat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Category where this application should be found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Icon URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set the type of application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Repository Management (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Revision #</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No TMPFS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build priority (higher is more urgent)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Create a new PBI module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load an existing PBI module</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
