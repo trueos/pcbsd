@@ -29,17 +29,11 @@ USE_PYTHON=	yes
 .include <bsd.port.pre.mk>
 
 .if ${OSVERSION} < 900030
-IGNORE=		requires FreeBSD 9.0 or later
+IGNORE=		requires FreeBSD 9.x
 .endif
 
 .if ${OSVERSION} > 1000000
-PLIST_FILES+=	share/pbi-manager/.pbime \
-		share/pbi-manager/.pbimount \
-		share/pbi-manager/.ldconfig \
-		share/pbi-manager/.mount_nullfs \
-		etc/man.d/pbi.conf \
-		sbin/app \
-		sbin/pbi
+IGNORE=		requires FreeBSD 9.x
 .endif
 
 do-install:

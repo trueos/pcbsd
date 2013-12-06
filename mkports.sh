@@ -45,29 +45,31 @@ cliREV=`get_last_rev_git "./src-sh"`
 guiREV=`get_last_rev_git "./src-qt4"`
 
 # Make the dist files
-rm ${distdir}/pcbsd-utils*.tar.bz2 2>/dev/null
-echo "Creating pcbsd-utils dist file for version: $cliREV"
-tar cvjf ${distdir}/pcbsd-utils-${cliREV}.tar.bz2 src-sh 2>/dev/null
-echo "Creating pcbsd-utils-qt4 dist file for version: $guiREV"
-tar cvjf ${distdir}/pcbsd-utils-qt4-${guiREV}.tar.bz2 src-qt4 2>/dev/null
+rm ${distdir}/pcbsd-utils9*.tar.bz2 2>/dev/null
+echo "Creating pcbsd-utils9 dist file for version: $cliREV"
+tar cvjf ${distdir}/pcbsd-utils9-${cliREV}.tar.bz2 src-sh 2>/dev/null
+echo "Creating pcbsd-utils9-qt4 dist file for version: $guiREV"
+tar cvjf ${distdir}/pcbsd-utils9-qt4-${guiREV}.tar.bz2 src-qt4 2>/dev/null
 
 # Copy ports files
-rm -rf ${portsdir}/sysutils/pcbsd-utils 2>/dev/null
-rm -rf ${portsdir}/sysutils/pcbsd-utils-qt4 2>/dev/null
-cp -r src-sh/port-files ${portsdir}/sysutils/pcbsd-utils
-cp -r src-qt4/port-files ${portsdir}/sysutils/pcbsd-utils-qt4
+rm -rf ${portsdir}/sysutils/pcbsd-utils9 2>/dev/null
+rm -rf ${portsdir}/sysutils/pcbsd-utils9-qt4 2>/dev/null
+cp -r src-sh/port-files ${portsdir}/sysutils/pcbsd-utils9
+cp -r src-qt4/port-files ${portsdir}/sysutils/pcbsd-utils9-qt4
 
 # Set the version numbers
-sed -i '' "s|CHGVERSION|${cliREV}|g" ${portsdir}/sysutils/pcbsd-utils/Makefile
-sed -i '' "s|CHGVERSION|${guiREV}|g" ${portsdir}/sysutils/pcbsd-utils-qt4/Makefile
+sed -i '' "s|CHGVERSION|${cliREV}|g" ${portsdir}/sysutils/pcbsd-utils9/Makefile
+sed -i '' "s|CHGVERSION|${guiREV}|g" ${portsdir}/sysutils/pcbsd-utils9-qt4/Makefile
+sed -i '' "s|pcbsd-utils|pcbsd-utils9|g" ${portsdir}/sysutils/pcbsd-utils9/Makefile
+sed -i '' "s|pcbsd-utils|pcbsd-utils9|g" ${portsdir}/sysutils/pcbsd-utils9-qt4/Makefile
 
 # Set the mirror to use
-sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/sysutils/pcbsd-utils/Makefile
-sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/sysutils/pcbsd-utils-qt4/Makefile
+sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/sysutils/pcbsd-utils9/Makefile
+sed -i '' "s|http://www.pcbsd.org/~kris/software/|${DURL}|g" ${portsdir}/sysutils/pcbsd-utils9-qt4/Makefile
 
 # Create the makesums / distinfo file
 cd ${distdir}
-sha256 pcbsd-utils-${cliREV}.tar.bz2 > ${portsdir}/sysutils/pcbsd-utils/distinfo
-echo "SIZE (pcbsd-utils-${cliREV}.tar.bz2) = `stat -f \"%z\" pcbsd-utils-${cliREV}.tar.bz2`" >> ${portsdir}/sysutils/pcbsd-utils/distinfo
-sha256 pcbsd-utils-qt4-${guiREV}.tar.bz2 > ${portsdir}/sysutils/pcbsd-utils-qt4/distinfo
-echo "SIZE (pcbsd-utils-qt4-${guiREV}.tar.bz2) = `stat -f \"%z\" pcbsd-utils-qt4-${guiREV}.tar.bz2`" >> ${portsdir}/sysutils/pcbsd-utils-qt4/distinfo
+sha256 pcbsd-utils9-${cliREV}.tar.bz2 > ${portsdir}/sysutils/pcbsd-utils9/distinfo
+echo "SIZE (pcbsd-utils9-${cliREV}.tar.bz2) = `stat -f \"%z\" pcbsd-utils9-${cliREV}.tar.bz2`" >> ${portsdir}/sysutils/pcbsd-utils9/distinfo
+sha256 pcbsd-utils9-qt4-${guiREV}.tar.bz2 > ${portsdir}/sysutils/pcbsd-utils9-qt4/distinfo
+echo "SIZE (pcbsd-utils9-qt4-${guiREV}.tar.bz2) = `stat -f \"%z\" pcbsd-utils9-qt4-${guiREV}.tar.bz2`" >> ${portsdir}/sysutils/pcbsd-utils9-qt4/distinfo
