@@ -32,6 +32,9 @@ private:
     CSysController* mSysController;
     CPkgController* mPkgController;
     CPBIController* mPBIController;
+
+    bool            misReboot;
+    bool            misLogoff;
 };
 
 #endif // REBOOTWIDGET_H

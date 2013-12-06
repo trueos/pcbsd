@@ -29,6 +29,7 @@
 
 #include <QDebug>
 #include <QFile>
+#include <QRegExp>
 
 __string_constant FULLY_UPDATED_MESSAGE = "All packages are up to date!";
 __string_constant UPDATES_AVAIL_STRING = "Upgrades have been requested for the following";
@@ -54,6 +55,21 @@ __string_constant PKG_INSTALL_DONE = "... done";
 
 __string_constant PKG_NETWORK_ERROR = ": No address record";
 
+typedef struct
+{
+    QString mDEName;
+    QStringList mPkgSet;
+}SDesktopCriticalPkgs;
+
+//============== This is list of packages that should cause logaut from desktop environment
+//TODO: Add MATE, XFCE. Check KDE and LXDE
+
+const SDesktopCriticalPkgs DESKTOP_CRITICAL_PKG[]={
+{QString("kde"), QStringList()<<"kde-runtime*"<<"kde-workspace*"<<"kdebindings*"<<"kdelibs*"<<"plasma-scriptengine*"},
+{QString("lxde"), QStringList()<<"lxpanel*"<<"lxde-meta*"<<"lxsession*"<<"lxde-common*"},
+};
+
+const int DESKTOP_CRITICAL_PKG_COUNT = sizeof(DESKTOP_CRITICAL_PKG) / sizeof(SDesktopCriticalPkgs);
 
 typedef enum{
     eCommonInfo,
@@ -90,12 +106,37 @@ CPkgController::CPkgController()
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     env.insert("PCFETCHGUI","YES"); //For readable download notifications
     process().setProcessEnvironment(env);
+    mCurrentDEIndex=-1;
+
+    // Get current DE
+    pcbsd::DesktopEnvironmentInfo currDE = pcbsd::Utils::currentDesktop();
+    if (currDE.Name.length())
+    {
+        for(int i=0; i<DESKTOP_CRITICAL_PKG_COUNT; i++)
+        {
+            if (DESKTOP_CRITICAL_PKG[i].mDEName.toLower().trimmed() == currDE.Name.trimmed().toLower())
+            {
+                mCurrentDEIndex = i;
+                qDebug()<<currDE.Name;
+                break;
+            }
+        }//for all DESKTOP_CRITICAL_PKG
+    }// if detected DE
+
+    misLogoffRequired= false;
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 CPkgController::SUpdate CPkgController::updateData()
 {
     return mUpdData;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+bool CPkgController::logoffRequired()
+{
+    return (currentState() != eUPDATING) && misLogoffRequired;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -347,6 +388,23 @@ void CPkgController::onReadUpdateLine(QString line)
 
         QString msg = line_list[0] + QString(" ") + state + QString(" ") + pkg_name;
         progress.mMessage = msg;
+
+        // Check for lofoff required packages
+        if (mCurrentDEIndex>=0)
+        {
+            QRegExp rx;
+            rx.setPatternSyntax(QRegExp::WildcardUnix);
+            for (int i=0; i<DESKTOP_CRITICAL_PKG[mCurrentDEIndex].mPkgSet.size(); i++)
+            {
+                rx.setPattern(DESKTOP_CRITICAL_PKG[mCurrentDEIndex].mPkgSet[i]);
+                if (rx.exactMatch(pkg_name))
+                {
+                    misLogoffRequired= true;
+                    qDebug()<<"Logoff required!";
+                    break;
+                }//if match
+            }//for all wildcard
+        }
 
         misWasInstalation= true;
         last_message= msg;

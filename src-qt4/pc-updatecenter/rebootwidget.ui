@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>546</width>
-    <height>44</height>
+    <width>544</width>
+    <height>42</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="messageLabel">
      <property name="text">
       <string>Your system should be restarted to finalize update</string>
      </property>
