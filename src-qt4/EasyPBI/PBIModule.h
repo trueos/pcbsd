@@ -53,7 +53,7 @@ public:
 
 private:
 	QHash<QString, QVariant> HASH;
-	QStringList CTextValues, CBoolValues, CIntValues;
+	QStringList CTextValues, CBoolValues, CIntValues, scriptValues;
 	QString basePath, version;
 
 signals:

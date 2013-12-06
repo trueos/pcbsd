@@ -4,11 +4,15 @@ PBIModule::PBIModule(){
   //Setup the possible values that are recognized
     // 10.x PBI format: 12/5/13
   version = "10.x"
+  //pbi.conf values
   CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON" \
 		<< "PBI_LICENCE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
 		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" << "PBI_MAKEOPTS";
   CBoolValues << "PBI_REQUIRESROOT" << "PBI_AB_NOTMPFS" << "PBI_AB_NOPKGBUILD";
   CIntValues << "PBI_BUILDKEY" << "PBI_PROGREVISION" << "PBI_AB_PRIORITY";
+  //Valid Scripts
+  scriptValues << "pre-pbicreate.sh" << "pre-install.sh" << "post-install.sh" << "pre-remove.sh";
+	
   HASH.clear(); //Make sure the hash is currently empty
 }
 
@@ -181,7 +185,35 @@ bool PBIModule::saveConfig(){
 // ==========
 //     SCRIPTS
 // ==========
-	
+QStringList PBIModule::readScript(QString var){
+  QStringList out;
+  if( scriptValues.contains(var) || QFile:exists(basePath+"/scripts/"+var) ){
+    out = readFile(basePath+"/scripts/"+var);
+  }	  
+  return out;
+}
+
+bool PBIModule::writeScript(QString var,QStringList val){
+  bool ok = false;
+  if( scriptValues.contains(var) || QFile:exists(basePath+"/scripts/"+var) ){
+    ok = createFile(basePath+"/scripts/"+var, val);
+  }
+  return ok;
+}
+
+QStringList PBIModule::validScripts(){
+  return scriptValues;
+}
+
+QStringList PBIModule::existingScripts(){
+  QStringList out;
+  QDir dir(basePath+"/scripts");
+  if(dir.exists()){
+    out = dir.entryList(QStringList() << "*.sh", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  }
+  return out;
+}
+
 // =============
 //      RESOURCES
 // =============
@@ -200,6 +232,16 @@ bool PBIModule::saveConfig(){
 bool PBIModule::createFile(QString fileName, QStringList contents){
 //fileName = full path to file (I.E. /home/pcbsd/junk/junk.txt)
 //contents = list of lines to be written (one line per entry in the list - no newline needed at the end of an entry)
+	
+  //Check if this is actually a file removal
+  if(contents.isEmpty() && QFile::exists(fileName)){
+    bool good = QFile::remove(fileName);
+    if(!good){
+      qDebug() << fileName+": Could not be deleted";
+    }
+    return good;
+  }
+  
   //Check that the parent directory exists, and create it if necessary
   QDir dir(fileName);
     dir.cdUp();
@@ -239,7 +281,7 @@ bool PBIModule::createFile(QString fileName, QStringList contents){
   }
   //Return success
   QString extra = QDir::homePath(); //remove this from the filename display
-  qDebug() << "Created:" << fileName.replace(extra,"~");
+  qDebug() << "Saved:" << fileName.replace(extra,"~");
   return true;;
 }
 
@@ -247,7 +289,7 @@ QStringList PBIModule::readFile(QString filePath){
   QStringList contents;
   //Check that the file exists first
   if(!QFile::exists(filePath)){ 
-    qDebug() << "Error: file to read does not exist:" << filePath;
+    qDebug() << "Warning: file to read does not exist:" << filePath;
     return contents; 
   }
   //Open the file for reading
