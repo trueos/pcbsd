@@ -9,12 +9,11 @@
 #include <sys/types.h>
 
 int main(int argc, char *argv[])
-{
+{        
     PCSingleApplication a(argc, argv);
 
-    MainWindow w;
-
-    QObject::connect(&a, SIGNAL(messageReceived(const QString &)), &w, SLOT(slotSingleInstance()));
+    CJailsBackend jail;
+    CJailsBackend* pJail = NULL;
 
     bool is_warden_found= false;
     QString jail_name;
@@ -33,13 +32,15 @@ int main(int argc, char *argv[])
         }
     }//for all args
     if (jail_name.length())
-    {
-        CJailsBackend jail;
+    {        
         jail.setJail(jail_name);
-        jail.setJailEnabled(true);
-        qDebug()<<"JAIL";
-        w.setJail(jail);
+        jail.setJailEnabled(true);        
+        pJail = &jail;
     }
+
+    MainWindow w(pJail);
+
+    QObject::connect(&a, SIGNAL(messageReceived(const QString &)), &w, SLOT(slotSingleInstance()));
 
     w.show();
 

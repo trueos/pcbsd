@@ -43,7 +43,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
     
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
     ~MainWindow();
 
     void setJail(CJailsBackend jail);

@@ -70,11 +70,15 @@ const QString PBI_INSTALL_IMG= ":/images/pbiinstall.png";
 const QString PBI_ERROR_IMG=   ":/images/pbierror.png";
 
 ///////////////////////////////////////////////////////////////////////////////
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(CJailsBackend *jail, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    if (jail)
+    {
+        mJail = *jail;
+    }
     init();
 }
 
