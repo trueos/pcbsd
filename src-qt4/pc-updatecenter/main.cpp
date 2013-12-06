@@ -5,6 +5,9 @@
 #include "pcbsd-ui.h"
 #include "jailsbackend.h"
 
+#include <unistd.h>
+#include <sys/types.h>
+
 int main(int argc, char *argv[])
 {
     PCSingleApplication a(argc, argv);
