@@ -78,9 +78,8 @@ void BranchesDialog::init()
                 item->setFont(font);
                 line = line.replace(" *", "");
                 ui->branchesL->setCurrentItem(item);
-            }
-
+            }//if current branch
             item->setText(line);
-        }
-    }
+        }//if branches list
+    }//for all lines
 }
