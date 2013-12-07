@@ -725,10 +725,6 @@
         <translation>Nowy kreator Celi</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Cela Linux (Używanie celi z systemem Linuks)</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>Proszę wybrać skrypt instalacyjny Linuksa do wykorzystania w tej celi.</translation>
     </message>
@@ -791,6 +787,10 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation>Ten kreator przeprowadzi cię przez proces tworzenia nowej Celi. Najpierw podaj nazwę hosta i adres IP który nie jest używany w twojej sieci. Jeśli chcesz używać IPv6 aby łączyć się z Celą, użyj okna IPv6 aby wprowadzić adres. Gdy zakończysz, kliknij Dalej aby kontynuować.</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

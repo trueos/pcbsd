@@ -725,10 +725,6 @@
         <translation>创建新Jail的引导程序</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Linux Jail（在jail里运行Linux）</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>请选择此Jail里要使用的Linux安装脚本。</translation>
     </message>
@@ -791,6 +787,10 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation>此向导将带你创建一个新的jail。首先，输入一个当前网络中未使用的主机名和IP地址。如果您打算使用IPv6登陆此jail，勾选IPv6并输入一个有效的IPv6地址。输入完毕，点击下一步继续。</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

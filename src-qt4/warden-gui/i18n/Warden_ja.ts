@@ -721,10 +721,6 @@
         <translation>Jail 作成ウィザード</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Linux Jail(Jail 内で Linux を実行する)</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>この Jail で使用する Linux インストールスクリプトを選択してください</translation>
     </message>
@@ -791,6 +787,10 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation>このウィザードの指示通りに Jail の新規作成を行います。最初に現在ネットワーク上で使用していない IP アドレスとホスト名を入力します。もし IPv6 アドレスを利用する場合にはチェックを入れて正しい IPv6 アドレスを入力して、「次へ」をクリックします。</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -896,11 +896,6 @@
             </translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation type="unfinished">
             </translation>
@@ -979,6 +974,10 @@
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

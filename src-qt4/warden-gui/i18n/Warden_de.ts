@@ -725,10 +725,6 @@
         <translation>Neuer Jail-Assistent</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Linux Jail (virtualisierte Umgebung)</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>Bitte wählen Sie das Linux Installationsskript für dieses Jail.</translation>
     </message>
@@ -791,6 +787,10 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation>Dieser Assistent begleitet Sie durch die Erstellung einer neuen Jail. Zuerst geben Sie einen Hostnamen und eine IP-Adresse ein, die aktuell im Netzwerk nicht verwendet wird. Wenn sie per IPv6 auf die Jail zugreifen wollen, wählen Sie die IPv6 Adressbox an und geben eine gültige IPv6-Adresse ein. Wenn Sie fertig sind klicken sie Weiter um fortzufahren.</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

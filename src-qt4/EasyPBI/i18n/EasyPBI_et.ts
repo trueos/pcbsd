@@ -712,103 +712,75 @@
         <translation>Kas kasutada sellegipoolest?</translation>
     </message>
     <message>
-        <source>Port/Package</source>
+        <source>PBI Builder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select a different FreeBSD package</source>
+        <source>Use the current module to build a PBI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Change</source>
+        <source>Module Editor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>View Package Overrides (optional)</source>
+        <source>View and edit the current PBI module</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add Pkgs</source>
+        <source>Build Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>View Repository Information (optional)</source>
+        <source>Package Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Tags</source>
+        <source>Select a directory to be packaged into a PBI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Comma-separated list of search tags for the application</source>
+        <source>Select</source>
+        <translation type="unfinished">Vali</translation>
+    </message>
+    <message>
+        <source>Main FreeBSD Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>App Type</source>
+        <source>Select a FreeBSD port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>App Cat</source>
+        <source>Change Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Category where this application should be found</source>
+        <source>Port Build Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>...</source>
+        <source>Special configuration options for any ports that need to be built.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Icon URL</source>
+        <source>Build options available for main FreeBSD port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Set the type of application</source>
+        <source>Make Port Before</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>View Repository Management (optional)</source>
+        <source>Additional FreeBSD ports to be built before the main program</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Build Key</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Revision #</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Priority</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No TMPFS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Create a new PBI module</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Load an existing PBI module</source>
+        <source>Make Port After</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

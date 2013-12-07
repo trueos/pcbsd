@@ -735,10 +735,6 @@
         <translation>Novo guia do Jail</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Jail Linux (rodar o Linux dentro de um jail)</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>Favor selecionar o script de instalação do Linux para este jail.</translation>
     </message>
@@ -801,6 +797,10 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation type="unfinished">Este assistente irá guiá-lo na criação de um novo jail. Primeiro, digite um nome da máquina e um endereço IP que não esteja em uso na rede. Se planeja usar IPv6 para acessar o jail, verifique a caixa do endereço IPv6 e insira um endereço IPv6 válido. Quando terminar, clique em Próximo para continuar.</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
