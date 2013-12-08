@@ -713,75 +713,75 @@
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished"></translation>
+        <translation>PBI-bouwer</translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik de huidige module om een PBI te bouwen</translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished"></translation>
+        <translation>Modulebewerker</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished"></translation>
+        <translation>Kijk en bewerk de huidige PBI-module</translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informatie over bouwsel</translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished"></translation>
+        <translation>Plaatselijke map die moet worden verpakt in een PBI (moet alles bevatten wat nodig is voor het programma om te draaien)</translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakketmap</translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies een map die moet worden verpakt in een PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">Kiezen</translation>
+        <translation>Kiezen</translation>
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Voornaamste FreeBSD-poort</translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished"></translation>
+        <translation>Kies een FreeBSD-poort</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Poort veranderen</translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Bouwopties voor poort</translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation type="unfinished"></translation>
+        <translation>Speciale instellingsopties voor te bouwen poorten.</translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished"></translation>
+        <translation>Bouwopties beschikbaar voor voornaamste FreeBSD-poort</translation>
     </message>
     <message>
         <source>Make Port Before</source>
-        <translation type="unfinished"></translation>
+        <translation>Maak poort ervoor</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation type="unfinished"></translation>
+        <translation>Extra FreeBSD-poorten die gebouwd moeten worden voor het hoofdprogramma</translation>
     </message>
     <message>
         <source>Make Port After</source>
-        <translation type="unfinished"></translation>
+        <translation>Maak poort erna</translation>
     </message>
 </context>
 <context>

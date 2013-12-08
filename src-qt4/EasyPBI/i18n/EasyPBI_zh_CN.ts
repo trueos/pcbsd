@@ -713,35 +713,43 @@
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select</source>
@@ -749,39 +757,48 @@
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Port Build Options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Special configuration options for any ports that need to be built.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Build options available for main FreeBSD port</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Make Port Before</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built before the main program</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Make Port After</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
