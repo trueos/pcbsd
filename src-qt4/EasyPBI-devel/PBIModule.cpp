@@ -1,9 +1,9 @@
-#include "PBImodule.h"
+#include "PBIModule.h"
 
 PBIModule::PBIModule(){
   //Setup the possible values that are recognized
     // 10.x PBI format: 12/5/13
-  version = "10.x"
+  version = "10.x";
   //pbi.conf values
   CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON" \
 		<< "PBI_LICENCE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
@@ -16,7 +16,8 @@ PBIModule::PBIModule(){
   xdgTextValues << "Value" << "Type" << "Name" << "GenericName" << "Exec" << "Path" << "Icon" << "Categories" << "MimeType";
   xdgBoolValues << "StartupNotify" << "Terminal" << "NoDisplay";
   //valid MIME values
-  mimeValues << "xmlns" << "type" << "pattern";
+     // NOTE: These are hard-coded in the file read/write below due to specific file format
+  mimeValues << "xmlns" << "type" << "pattern"; 
 	
   HASH.clear(); //Make sure the hash is currently empty
 }
@@ -32,8 +33,7 @@ bool PBIModule::loadModule(QString confpath){
   basePath = confpath.left(confpath.length()-9); //base directory path
   if(!QFile::exists(basePath)){ basePath.clear(); return false; }
   //This is good to go: now start to load all the different pieces of the module
-  this->loadConfig(); //pbi.conf
-  
+  this->loadConfig(); //pbi.conf (only piece that is loaded at all times)
   return true;
 }
 	
@@ -41,9 +41,9 @@ bool PBIModule::loadModule(QString confpath){
 //  CONFIGURATION VALUES
 // ==================
 QStringList PBIModule::textL(QStringList vars){ //a list of individual QString values
-  QString out;
+  QStringList out;
   for(int i=0; i<vars.length(); i++){
-    out << this->text(vars[i]);
+    out << text(vars[i]);
   }
   return out;
 }
@@ -51,7 +51,7 @@ QStringList PBIModule::textL(QStringList vars){ //a list of individual QString v
 void PBIModule::setTextL(QStringList vars, QStringList vals){ //set a list of QString values
   if( vars.length() != vals.length() ){ return; }
   for(int i=0; i<<vars.length(); i++){
-    this->setText(vars[i], vals[i]);
+    setText(vars[i], vals[i]);
   }
 }
 
@@ -124,7 +124,7 @@ void PBIModule::loadConfig(){
         while( !val.endsWith("\"") && i<contents.length() ){
 	  i++;
 	  line = contents[i];
-	  val.append("\n"+line.section("#",0,0).section(";",0,0).trimmed();
+	  val.append( "\n"+line.section("#",0,0).section(";",0,0).trimmed() );
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
       //Now check for text/bool/int values
@@ -187,7 +187,7 @@ bool PBIModule::saveConfig(){
 // ==========
 QStringList PBIModule::readScript(QString var){
   QStringList out;
-  if( scriptValues.contains(var) || QFile:exists(basePath+"/scripts/"+var) ){
+  if( scriptValues.contains(var) || QFile::exists(basePath+"/scripts/"+var) ){
     out = readFile(basePath+"/scripts/"+var);
   }	  
   return out;
@@ -195,7 +195,7 @@ QStringList PBIModule::readScript(QString var){
 
 bool PBIModule::writeScript(QString var,QStringList val){
   bool ok = false;
-  if( scriptValues.contains(var) || QFile:exists(basePath+"/scripts/"+var) ){
+  if( scriptValues.contains(var) || QFile::exists(basePath+"/scripts/"+var) ){
     ok = createFile(basePath+"/scripts/"+var, val);
   }
   return ok;
@@ -232,7 +232,7 @@ bool PBIModule::addResource(QString filePath, QString resourcePath){
     QString rPath = basePath+"/resources/"+resourcePath.left(resourcePath.length() - resourcePath.section("/",-1).length());
     QDir dir(rPath);
     if(!dir.exists()){ 
-      ok = dir.mkPath(rPath); 
+      ok = dir.mkpath(rPath); 
       if(!ok){
         qDebug() << "Error: Could not create directory: "<<rPath;
 	return ok;
@@ -262,7 +262,7 @@ QStringList PBIModule::validXdgText(){
 
 QString PBIModule::xdgText(QString var){
   QString out;
-  if(xdgTextValues.contains(var) && HASH.contains("XDG_"+var){
+  if(xdgTextValues.contains(var) && HASH.contains("XDG_"+var) ){
     out = HASH["XDG_"+var].toString();
   }
   return out;
@@ -297,7 +297,7 @@ QStringList PBIModule::validXdgEnables(){
   return xdgBoolValues;
 }
 
-void PBIModule::xdgEnabled(QString var){
+bool PBIModule::xdgEnabled(QString var){
   bool out = false;
   if(xdgBoolValues.contains(var) && HASH.contains("XDG_"+var)){
     out = HASH["XDG_"+var].toBool();
@@ -373,17 +373,18 @@ bool PBIModule::saveXdgMenu(QString fileName){
 }
 
 bool PBIModule::removeXdgDesktop(QString fileName){
-  createFile(basePath+"/xdg-desktop/"+fileName, QStringList() );
+  return createFile(basePath+"/xdg-desktop/"+fileName, QStringList() );
 }
 
 bool PBIModule::removeXdgMenu(QString fileName){
-  createFile(basePath+"/xdg-menu/"+fileName, QStringList() );	
+  return createFile(basePath+"/xdg-menu/"+fileName, QStringList() );	
 }
 
 bool PBIModule::loadXdgDesktop(QString fileName){
   clearXdgData();
   QStringList contents = readFile(basePath+"/xdg-desktop/"+fileName);
   if(contents.isEmpty()){ return false; }
+  QStringList extraLines;
   for(int i=0; i<contents.length(); i++){
     //Ignore specific/special lines
     if(contents[i].startsWith("#!/bin/sh") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
@@ -404,10 +405,11 @@ bool PBIModule::loadXdgDesktop(QString fileName){
   return true;
 }
 
-bool PBIModule::loadXdgMenu(QString filename){
+bool PBIModule::loadXdgMenu(QString fileName){
   clearXdgData();
   QStringList contents = readFile(basePath+"/xdg-menu/"+fileName);
   if(contents.isEmpty()){ return false; }
+  QStringList extraLines;
   for(int i=0; i<contents.length(); i++){
     //Ignore specific/special lines
     if(contents[i].startsWith("#!/bin/sh") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
@@ -481,7 +483,7 @@ bool PBIModule::saveMimeFile(QString fileName){
   }
   //Now create the file contents
   QStringList contents;
-  contents << "<?xml version=\"1.0\"?>"
+  contents << "<?xml version=\"1.0\"?>";
   QString xmlns = "http://www.freedesktop.org/standards/shared-mime-info";
   if(HASH.contains("MIME_xmlns")){ xmlns = HASH["MIME_xmlns"].toString(); }
   contents <<"<mime-info xmlns=\'"+xmlns+"\'>";
@@ -616,7 +618,7 @@ QStringList PBIModule::filesInDir(QString dirPath){
   if(dir.exists(dirPath)){
     QStringList subdirs = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
     out << dir.entryList(QDir::Files | QDir::NoDotAndDotDot,QDir::Name);
-    for(int i=0, i<subdirs.length(); i++){
+    for(int i=0; i<subdirs.length(); i++){
       out << filesInDir(dirPath+"/"+subdirs[i]);
     }
   }
@@ -626,16 +628,16 @@ QStringList PBIModule::filesInDir(QString dirPath){
 void PBIModule::clearXdgData(){
   for(int i=0; i<xdgTextValues.length(); i++){
     if(HASH.contains("XDG_"+xdgTextValues[i])){
-      HASH.removeAll("XDG_"+xdgTextValues[i]);
+      HASH.remove("XDG_"+xdgTextValues[i]);
     }
   }
   for(int i=0; i<xdgBoolValues.length(); i++){
     if(HASH.contains("XDG_"+xdgBoolValues[i])){
-      HASH.removeAll("XDG_"+xdgBoolValues[i]);
+      HASH.remove("XDG_"+xdgBoolValues[i]);
     }
   }
   if(HASH.contains("XDG_EXTRALINES")){
-    HASH.removeAll("XDG_EXTRALINES");
+    HASH.remove("XDG_EXTRALINES");
   }
 }
 

@@ -19,7 +19,8 @@ SOURCES += main.cpp\
 	newModuleDialog.cpp \
 	config.cpp \
 	preferencesDialog.cpp \
-	aboutDialog.cpp
+	aboutDialog.cpp \
+	PBIModule.cpp
 
 HEADERS  += mainGUI.h \
             modBuild.h \
@@ -27,7 +28,8 @@ HEADERS  += mainGUI.h \
 	    newModuleDialog.h \
 	    config.h \
 	    preferencesDialog.h \
-	    aboutDialog.h 
+	    aboutDialog.h \
+	    PBIModule.h
 
 FORMS    += mainGUI.ui \
 	    newModuleDialog.ui \

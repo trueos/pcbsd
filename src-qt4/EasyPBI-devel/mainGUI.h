@@ -51,10 +51,10 @@ private slots:
     void slotModTabChanged(int);
     //pbi.conf functions
     void on_push_change_makeport_clicked();
-    void on_push_change_progdir_clicked();
+    //void on_push_change_progdir_clicked();
     void slotAddMakeOption(QAction*);
-    void on_push_addportbefore_clicked();
-    void on_push_rmportbefore_clicked();
+    //void on_push_addportbefore_clicked();
+    //void on_push_rmportbefore_clicked();
     void on_push_addportafter_clicked();
     void on_push_rmportafter_clicked();
     void on_push_config_save_clicked();
@@ -102,7 +102,7 @@ private:
     ModBuild *currentModule;
     Config *settings;
     QLineEdit *line_module;
-    QRadioButton *radio_module_port, *radio_module_local;
+    //QRadioButton *radio_module_port, *radio_module_local;
     QMenu menu_addOpt, menu_elOpts, menu_validMenuCats, menu_bins, menu_el_bins;
 
     QString PBI_BUILDING_NOW;

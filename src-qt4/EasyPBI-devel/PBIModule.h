@@ -4,10 +4,12 @@
 #include <QObject>
 #include <QHash>
 #include <QString>
-#include <QStringLIst>
+#include <QStringList>
 #include <QVariant>
 #include <QFile>
 #include <QDir>
+#include <QTextStream>
+#include <QDebug>
 
 class PBIModule : public QObject{
 	Q_OBJECT
@@ -23,7 +25,7 @@ public:
 	void setTextL(QStringList, QStringList); //set a list of QString values
 	QString text(QString); //a single QString value
 	void setText(QString,QString); //set a single QString value
-	void textValues(); //list all the possible values
+	QStringList textValues(); //list all the possible values
 
 	bool isEnabled(QString); 
 	void setEnabled(QString, bool);
@@ -32,7 +34,8 @@ public:
 	int number(QString);
 	void setNumber(QString,int);
 	QStringList numberValues(); //list all possible integer values
-	
+
+	void loadConfig();
 	bool saveConfig();
 	
 	//Scripts
@@ -53,7 +56,7 @@ public:
 	void setXdgTextL(QStringList, QStringList);
 	
 	QStringList validXdgEnables();
-	void xdgEnabled(QString);
+	bool xdgEnabled(QString);
 	void setXdgEnabled(QString, bool);
 	
 	QStringList listXdgDesktopFiles();
@@ -94,3 +97,5 @@ private:
 signals:
 
 };
+
+#endif

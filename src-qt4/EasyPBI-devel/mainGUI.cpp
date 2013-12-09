@@ -37,19 +37,19 @@ MainGUI::MainGUI(QWidget *parent) :
 	line_module->setFocusPolicy(Qt::NoFocus);
 	ui->toolBar->addWidget(line_module);
 	ui->toolBar->addSeparator();
-	radio_module_port = new QRadioButton(tr("FreeBSD Port"),this);
-	radio_module_port->setEnabled(FALSE);
-	ui->toolBar->addWidget(radio_module_port);
-	radio_module_local = new QRadioButton(tr("Local Sources"),this);
-	radio_module_local->setEnabled(FALSE);
-	ui->toolBar->addWidget(radio_module_local);
+	//radio_module_port = new QRadioButton(tr("FreeBSD Port"),this);
+	//radio_module_port->setEnabled(FALSE);
+	//ui->toolBar->addWidget(radio_module_port);
+	//radio_module_local = new QRadioButton(tr("Local Sources"),this);
+	//radio_module_local->setEnabled(FALSE);
+	//ui->toolBar->addWidget(radio_module_local);
 	//Setup Module Editor
 	connect(ui->tabWidget, SIGNAL(currentChanged(int)),this,SLOT(slotModTabChanged(int)) ); //setup to refresh each tab once it is selected
 	// -- pbi.conf tab --
-	ui->push_change_progdir->setIcon(Backend::icon("load"));
+	//ui->push_change_progdir->setIcon(Backend::icon("load"));
 	ui->push_change_makeport->setIcon(Backend::icon("file"));
-	ui->push_addmakeopt->setIcon(Backend::icon("left"));
-	ui->push_addmakeopt->setMenu(&menu_addOpt);
+	//ui->push_addmakeopt->setIcon(Backend::icon("left"));
+	//ui->push_addmakeopt->setMenu(&menu_addOpt);
 	connect(&menu_addOpt,SIGNAL(triggered(QAction*)),this,SLOT(slotAddMakeOption(QAction*)) );
 	ui->push_config_save->setIcon(Backend::icon("save"));
 	// -- resources tab --
@@ -96,10 +96,10 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->line_progauthor,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_progversion,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_progweb,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->line_progdir,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      //connect(ui->line_progdir,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_makeport,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      connect(ui->edit_makeopts,SIGNAL(textChanged()),this,SLOT(slotOptionChanged()) );
+      //connect(ui->edit_makeopts,SIGNAL(textChanged()),this,SLOT(slotOptionChanged()) );
       connect(ui->check_requiresroot, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
       // Rwsources tab
       connect(ui->text_resources_script,SIGNAL(textChanged()),this,SLOT(slotResourceScriptChanged()) );
@@ -183,41 +183,41 @@ void MainGUI::refreshGUI(QString item){
   if( currentModule->path().isEmpty() ){ 
     ui->actionPackage_Module->setEnabled(FALSE);
     ui->actionRefresh_Module->setEnabled(FALSE);
-    if(PBI_BUILDING_NOW.isEmpty() ){ui->toolBox->setEnabled(FALSE); return; }
-    else{ 
-      ui->toolBox->setItemEnabled(0,FALSE);
-      ui->toolBox->setItemEnabled(1,TRUE);
-      ui->toolBox->setCurrentIndex(1); 
-      item="pbibuild";
-    }
+    //if(PBI_BUILDING_NOW.isEmpty() ){ui->toolBox->setEnabled(FALSE); return; }
+    //else{ 
+      //ui->toolBox->setItemEnabled(0,FALSE);
+      //ui->toolBox->setItemEnabled(1,TRUE);
+      //ui->toolBox->setCurrentIndex(1); 
+      //item="pbibuild";
+    //}
   }else{ 
-    ui->toolBox->setEnabled(TRUE); 
+    //ui->toolBox->setEnabled(TRUE); 
     ui->actionPackage_Module->setEnabled(TRUE);  
     ui->actionRefresh_Module->setEnabled(TRUE);
   }
   //Figure out the type of module that is loaded
-  bool isport = radio_module_port->isChecked();
+  //bool isport = radio_module_port->isChecked();
   //See if we should refresh everything (default)  
   bool doall = ( (item == "all") || item.isEmpty() );
   bool doeditor = (item == "editor"); //also add a flag to just refresh the editor
   //Refresh the desired tab(s)
   // ------PBI.CONF------
   if( doall || doeditor || (item == "pbiconf")){
-    if(isport){
+    //if(isport){
 	ui->line_progversion->setVisible(FALSE); ui->label_progversion->setVisible(FALSE);
-	ui->line_progdir->setVisible(FALSE); ui->push_change_progdir->setVisible(FALSE); ui->label_progdir->setVisible(FALSE);
+	//ui->line_progdir->setVisible(FALSE); ui->push_change_progdir->setVisible(FALSE); ui->label_progdir->setVisible(FALSE);
 	ui->line_makeport->setVisible(TRUE); ui->push_change_makeport->setVisible(TRUE); ui->label_makeport->setVisible(TRUE);
-	ui->edit_makeopts->setVisible(TRUE); ui->push_addmakeopt->setVisible(TRUE); ui->label_makeopts->setVisible(TRUE);
-	ui->list_portbefore->setVisible(TRUE); ui->push_addportbefore->setVisible(TRUE); ui->push_rmportbefore->setVisible(TRUE);ui->label_portbefore->setVisible(TRUE);
+	//ui->edit_makeopts->setVisible(TRUE); ui->push_addmakeopt->setVisible(TRUE); ui->label_makeopts->setVisible(TRUE);
+	//ui->list_portbefore->setVisible(TRUE); ui->push_addportbefore->setVisible(TRUE); ui->push_rmportbefore->setVisible(TRUE);ui->label_portbefore->setVisible(TRUE);
 	ui->list_portafter->setVisible(TRUE); ui->push_addportafter->setVisible(TRUE); ui->push_rmportafter->setVisible(TRUE); ui->label_portafter->setVisible(TRUE);
-    }else{
+    /*}else{
 	ui->line_progversion->setVisible(TRUE); ui->label_progversion->setVisible(TRUE);
-	ui->line_progdir->setVisible(TRUE); ui->push_change_progdir->setVisible(TRUE); ui->label_progdir->setVisible(TRUE);
+	//ui->line_progdir->setVisible(TRUE); ui->push_change_progdir->setVisible(TRUE); ui->label_progdir->setVisible(TRUE);
 	ui->line_makeport->setVisible(FALSE); ui->push_change_makeport->setVisible(FALSE); ui->label_makeport->setVisible(FALSE);
-	ui->edit_makeopts->setVisible(FALSE); ui->push_addmakeopt->setVisible(FALSE); ui->label_makeopts->setVisible(FALSE);
-	ui->list_portbefore->setVisible(FALSE); ui->push_addportbefore->setVisible(FALSE); ui->push_rmportbefore->setVisible(FALSE);ui->label_portbefore->setVisible(FALSE);
+	//ui->edit_makeopts->setVisible(FALSE); ui->push_addmakeopt->setVisible(FALSE); ui->label_makeopts->setVisible(FALSE);
+	//ui->list_portbefore->setVisible(FALSE); ui->push_addportbefore->setVisible(FALSE); ui->push_rmportbefore->setVisible(FALSE);ui->label_portbefore->setVisible(FALSE);
 	ui->list_portafter->setVisible(FALSE); ui->push_addportafter->setVisible(FALSE); ui->push_rmportafter->setVisible(FALSE); ui->label_portafter->setVisible(FALSE);
-    }
+    }*/
     //Display the variables from the currentModule structure
     // -- check boxes
     QString chk = currentModule->readValue("requiresroot").toLower();
@@ -228,12 +228,12 @@ void MainGUI::refreshGUI(QString item){
     ui->line_progversion->setText(currentModule->readValue("progversion"));
     ui->line_progweb->setText(currentModule->readValue("progweb"));
     ui->line_progauthor->setText(currentModule->readValue("progauthor"));
-    ui->line_progdir->setText(currentModule->readValue("packagedir"));
+    //ui->line_progdir->setText(currentModule->readValue("packagedir"));
     ui->line_makeport->setText(currentModule->readValue("makeport"));
-    ui->edit_makeopts->setPlainText(currentModule->readValue("makeoptions"));
+    //ui->edit_makeopts->setPlainText(currentModule->readValue("makeoptions"));
     // -- combo boxes (lists)
-    ui->list_portbefore->clear(); ui->list_portafter->clear(); ui->list_progicon->clear();
-    ui->list_portbefore->addItems( currentModule->readValue("makeportbefore").split(" ") );
+    //ui->list_portbefore->clear(); ui->list_portafter->clear(); ui->list_progicon->clear();
+    //ui->list_portbefore->addItems( currentModule->readValue("makeportbefore").split(" ") );
     ui->list_portafter->addItems( currentModule->readValue("makeportafter").split(" ") );
     QStringList icons = currentModule->currentIcons;
     if(icons.length() > 0){
@@ -353,11 +353,11 @@ void MainGUI::refreshGUI(QString item){
     //Enable/disable the buttons that require the FreeBSD ports tree
     if( settings->check("isportsavailable") ){
       ui->push_change_makeport->setEnabled(TRUE);
-      ui->push_addportbefore->setEnabled(TRUE);
+      //ui->push_addportbefore->setEnabled(TRUE);
       ui->push_addportafter->setEnabled(TRUE);
     }else{
       ui->push_change_makeport->setEnabled(FALSE);
-      ui->push_addportbefore->setEnabled(FALSE);
+      //ui->push_addportbefore->setEnabled(FALSE);
       ui->push_addportafter->setEnabled(FALSE);
     }
     //Check for a 64-bit system to enable the 32-bit build option
@@ -408,13 +408,13 @@ void MainGUI::on_actionRefresh_Module_triggered(){
   if(ok){ 
     qDebug() << "Loaded module:"<<modSel;	  
     line_module->setText(modSel.replace(QDir::homePath(),"~")); 
-    if(currentModule->isLocalPBI){ radio_module_local->toggle(); }
-    else{ 
-      radio_module_port->toggle(); //Port PBI
+    //if(currentModule->isLocalPBI){ radio_module_local->toggle(); }
+    //else{ 
+      //radio_module_port->toggle(); //Port PBI
       if( settings->check("isportsavailable") ){ 
         currentModule->readPortInformation(settings->value("portsdir")+"/"+currentModule->readValue("makeport"));
       }
-    }
+    //}
     refreshGUI("all");
   }
 }
@@ -474,7 +474,7 @@ void MainGUI::on_actionNew_Module_triggered(){
       currentModule->writeValue("progicon", oldIconPath.section("/",-1) );
       //Load Port info if appropriate
       if(currentModule->isPortPBI){
-        radio_module_port->toggle();
+        //radio_module_port->toggle();
 	//Use the port info if possible
 	if( settings->check("isportsAvailable") ){
 	  currentModule->readPortInformation(settings->value("portsdir")+"/"+modBase);
@@ -484,10 +484,10 @@ void MainGUI::on_actionNew_Module_triggered(){
 	  currentModule->writeValue("progauthor", currentModule->readValue("portauthor"));
 	  currentModule->writePBIconf();
 	}
-      }else if(currentModule->isLocalPBI){
-	radio_module_local->toggle();
+      }//else if(currentModule->isLocalPBI){
+	//radio_module_local->toggle();
 	      
-      }
+      //}
       //Now let the UI reflect the new module 
       line_module->setText( currentModule->path().replace(QDir::homePath(),"~") );      
     }
@@ -504,13 +504,13 @@ void MainGUI::on_actionLoad_Module_triggered(){
   if(ok){ 
     qDebug() << "Loaded module:"<<modSel;	  
     line_module->setText(modSel.replace(QDir::homePath(),"~")); 
-    if(currentModule->isLocalPBI){ radio_module_local->toggle(); }
-    else{ 
-      radio_module_port->toggle(); //Port PBI
+    //if(currentModule->isLocalPBI){ radio_module_local->toggle(); }
+    //else{ 
+      //radio_module_port->toggle(); //Port PBI
       if( settings->check("isportsavailable") ){ 
         currentModule->readPortInformation(settings->value("portsdir")+"/"+currentModule->readValue("makeport"));
       }
-    }
+    //}
     refreshGUI("all");
   }
 }
@@ -559,15 +559,15 @@ void MainGUI::on_push_change_makeport_clicked(){
   ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
   ui->push_config_save->setEnabled(TRUE);
 }
-
+/*
 void MainGUI::on_push_change_progdir_clicked(){
   //Prompt for a new directory
   QString dirSel = QFileDialog::getExistingDirectory(this, tr("Select Package Directory"), QDir::homePath());
   if(dirSel.isEmpty()){return;} //action cancelled or closed	
   //Save the port info to the GUI
-  ui->line_progdir->setText(dirSel);
+  //ui->line_progdir->setText(dirSel);
   ui->push_config_save->setEnabled(TRUE);
-}
+}*/
 
 void MainGUI::slotAddMakeOption(QAction* act){
   qDebug() << "Trying to add build option:" << act->text();
@@ -582,7 +582,7 @@ void MainGUI::slotAddMakeOption(QAction* act){
   else if(typ=="without"){chk.append("_UNSET"); isSet=FALSE;}
   else{ qDebug() << "Error: Unknown option type:"<<typ<<"option:"<<opt; return; }
   //Now read the current option settings
-  QStringList curr = ui->edit_makeopts->toPlainText().split("\n"); //split according to lines
+  QStringList curr; //= ui->edit_makeopts->toPlainText().split("\n"); //split according to lines
   bool found = FALSE;
   for(int i=0; i<curr.length(); i++){
     if(curr[i].contains(chk) ){ //look for optionsNG framework
@@ -616,10 +616,10 @@ void MainGUI::slotAddMakeOption(QAction* act){
     curr << chk+"= "+opt;
   }
   //Now put the new options list back onto the GUI
-  ui->edit_makeopts->setPlainText(curr.join("\n"));
+  //ui->edit_makeopts->setPlainText(curr.join("\n"));
   ui->push_config_save->setEnabled(TRUE);
 }
-
+/*
 void MainGUI::on_push_addportbefore_clicked(){
   if( !settings->check("isportsavailable") ){
     //No ports tree available
@@ -633,19 +633,19 @@ void MainGUI::on_push_addportbefore_clicked(){
     return;
   }
   //Save the port info to the GUI
-  if(ui->list_portbefore->count() == 1 && ui->list_portbefore->currentText().isEmpty() ){ ui->list_portbefore->clear(); }
-  ui->list_portbefore->addItem(portSel.remove(settings->value("portsdir")+"/"));
+  //if(ui->list_portbefore->count() == 1 && ui->list_portbefore->currentText().isEmpty() ){ ui->list_portbefore->clear(); }
+  //ui->list_portbefore->addItem(portSel.remove(settings->value("portsdir")+"/"));
   ui->push_config_save->setEnabled(TRUE);
 }
 
 void MainGUI::on_push_rmportbefore_clicked(){
-  int index = ui->list_portbefore->currentIndex();
-  if(index != -1){
-    ui->list_portbefore->removeItem(index);
-  }
-  ui->push_config_save->setEnabled(TRUE);
+  //int index = ui->list_portbefore->currentIndex();
+  //if(index != -1){
+    //ui->list_portbefore->removeItem(index);
+  //}
+  //ui->push_config_save->setEnabled(TRUE);
 }
-
+*/
 void MainGUI::on_push_addportafter_clicked(){
   if( !settings->check("isportsavailable") ){
     //No ports tree available
@@ -683,25 +683,25 @@ void MainGUI::on_push_config_save_clicked(){
     else{ currentModule->writeValue("requiresroot","false"); }
     //Module-dependant settings
     bool newport = FALSE;
-    if( radio_module_port->isChecked() ){ //FreeBSD port module
+    //if( radio_module_port->isChecked() ){ //FreeBSD port module
 	if(currentModule->readValue("makeport") != ui->line_makeport->text()){ newport=TRUE; }
 	currentModule->writeValue("makeport",ui->line_makeport->text());
-	currentModule->writeValue("makeoptions",ui->edit_makeopts->toPlainText());
+	//currentModule->writeValue("makeoptions",ui->edit_makeopts->toPlainText());
 	QString tmp;
-	for(int i=0; i < ui->list_portbefore->count(); i++){
-	  tmp.append(" "+ui->list_portbefore->itemText(i) );
-	}
-	currentModule->writeValue("makeportbefore",tmp.simplified());
+	//for(int i=0; i < ui->list_portbefore->count(); i++){
+	  //tmp.append(" "+ui->list_portbefore->itemText(i) );
+	//}
+	//currentModule->writeValue("makeportbefore",tmp.simplified());
 	tmp.clear();
 	for(int i=0; i < ui->list_portafter->count(); i++){
 	  tmp.append(" "+ui->list_portafter->itemText(i) );
 	}
 	currentModule->writeValue("makeportafter",tmp.simplified());
 	
-    }else{ //local sources module
-	currentModule->writeValue("packagedir",ui->line_progdir->text());
+    /*}else{ //local sources module
+	//currentModule->writeValue("packagedir",ui->line_progdir->text());
 	currentModule->writeValue("progversion",ui->line_progversion->text());
-    }
+    }*/
   //save the new settings to pbi.conf
   bool ok = currentModule->writePBIconf();
   if(!ok){
@@ -1357,7 +1357,7 @@ void MainGUI::on_push_build_start_clicked(){
   //Generate the PBI build command
   QString cmd;
   // -- PBI from ports
-  if(radio_module_port->isChecked()){
+  //if(radio_module_port->isChecked()){
     //Check that the ports tree is available
     if( !settings->check("isportsavailable") ){ 
       qDebug() << "Cannot build a PBI from ports without the FreeBSD ports tree available";
@@ -1384,7 +1384,7 @@ void MainGUI::on_push_build_start_clicked(){
     if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
     
   // -- PBI from local directory
-  }else if(radio_module_local->isChecked() ){
+  /*}else if(radio_module_local->isChecked() ){
 	//get the base command
 	cmd = settings->value("pbi_create");
 	//Setup the ports options if non-standard port location
@@ -1397,7 +1397,7 @@ void MainGUI::on_push_build_start_clicked(){
 	if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
 	//Now setup the directory to package
 	cmd += " "+ currentModule->readValue("packagedir");
-  }
+  }*/
   //Display the command created in hte terminal
   qDebug() << "Build PBI command created:"<<cmd;
   
@@ -1438,7 +1438,7 @@ void MainGUI::on_push_build_start_clicked(){
   PBI_BUILDING_NOW=outdir+":::"+currentModule->readValue("progname");
   //Start the Process
   qDebug() << "Starting the PBI build process...";
-  ui->toolBox->setItemText(0,tr("PBI Builder (Working)"));
+  //ui->toolBox->setItemText(0,tr("PBI Builder (Working)"));
   p->start(cmd);
 }
 
@@ -1501,7 +1501,7 @@ void MainGUI::slotPBIbuildFinished(int exitCode,QProcess::ExitStatus exitStatus)
   p->close();
   PBI_BUILDING_NOW.clear();
   PBI_BUILD_TERMINATED=FALSE;
-  ui->toolBox->setItemText(0,tr("PBI Builder (Finished)"));
+  //ui->toolBox->setItemText(0,tr("PBI Builder (Finished)"));
   delete p;
 }
 
