@@ -13,9 +13,10 @@ PBIModule::PBIModule(){
   //Valid Scripts
   scriptValues << "pre-pbicreate.sh" << "pre-install.sh" << "post-install.sh" << "pre-remove.sh";
   //valid XDG values
-  xdgValues <<
+  xdgTextValues << "Value" << "Type" << "Name" << "GenericName" << "Exec" << "Path" << "Icon" << "Categories" << "MimeType";
+  xdgBoolValues << "StartupNotify" << "Terminal" << "NoDisplay";
   //valid MIME values
-  mimeValues << 
+  mimeValues << "xmlns" << "type" << "pattern";
 	
   HASH.clear(); //Make sure the hash is currently empty
 }
@@ -255,7 +256,272 @@ bool PBIModule::addResource(QString filePath, QString resourcePath){
 // =============
 //           XDG
 // =============
+QStringList PBIModule::validXdgText(){
+  return xdgTextValues;
+}
 
+QString PBIModule::xdgText(QString var){
+  QString out;
+  if(xdgTextValues.contains(var) && HASH.contains("XDG_"+var){
+    out = HASH["XDG_"+var].toString();
+  }
+  return out;
+}
+
+QStringList PBIModule::xdgTextL(QStringList vars){
+  QStringList out;
+  for(int i=0; i<vars.length(); i++){
+    out << xdgText(vars[i]);
+  }
+  return out;
+}
+
+void PBIModule::setXdgText(QString var, QString val){
+  if(xdgTextValues.contains(var)){
+    HASH.insert("XDG_"+var, val);
+  }
+}
+
+void PBIModule::setXdgTextL(QStringList vars, QStringList vals){
+  if(vars.length() != vals.length()){ 
+    qDebug() << "Error: XDG text inputs are unequal lengths:" << vars << vals;
+    return; 
+  }
+  for(int i=0; i<vars.length(); i++){
+    setXdgText(vars[i], vals[i]);
+  }
+}
+
+	
+QStringList PBIModule::validXdgEnables(){
+  return xdgBoolValues;
+}
+
+void PBIModule::xdgEnabled(QString var){
+  bool out = false;
+  if(xdgBoolValues.contains(var) && HASH.contains("XDG_"+var)){
+    out = HASH["XDG_"+var].toBool();
+  }
+  return out;
+}
+
+void PBIModule::setXdgEnabled(QString var, bool val){
+  if(xdgBoolValues.contains(var) ){
+    HASH.insert("XDG_"+var, val);
+  }
+}
+
+	
+QStringList PBIModule::listXdgDesktopFiles(){
+  QStringList out;
+  QDir dir(basePath+"/xdg-desktop");
+  if(dir.exists()){
+    out = dir.entryList(QStringList() << "*.desktop", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  }
+  return out;
+}
+
+QStringList PBIModule::listXdgMenuFiles(){
+  QStringList out;
+  QDir dir(basePath+"/xdg-desktop");
+  if(dir.exists()){
+    out = dir.entryList(QStringList() << "*.desktop", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  }
+  return out;	
+}
+
+bool PBIModule::saveXdgDesktop(QString fileName){
+  if(fileName.isEmpty()){ return false; }
+  if(!fileName.endsWith(".desktop")){ fileName.append(".desktop"); }
+  QStringList contents;
+  contents << "#!/bin/sh";
+  contents << "[Desktop Entry]";	
+  for(int i=0; i<xdgTextValues.length(); i++){
+    if(HASH.contains("XDG_"+xdgTextValues[i])){
+      contents << xdgTextValues[i]+"="+HASH["XDG_"+xdgTextValues[i]].toString();
+    }
+  }
+  for(int i=0; i<xdgBoolValues.length(); i++){
+    if(HASH.contains("XDG_"+xdgBoolValues[i])){
+      QString val = "false";
+      if(HASH["XDG_"+xdgBoolValues[i]].toBool()){ val = "true"; }
+      contents << xdgBoolValues[i]+"="+val;
+    }
+  }
+  return createFile(basePath+"/xdg-desktop/"+fileName, contents);
+}
+
+bool PBIModule::saveXdgMenu(QString fileName){
+  if(fileName.isEmpty()){ return false; }
+  if(!fileName.endsWith(".desktop")){ fileName.append(".desktop"); }
+  QStringList contents;
+  contents << "#!/bin/sh";
+  contents << "[Desktop Entry]";	
+  for(int i=0; i<xdgTextValues.length(); i++){
+    if(HASH.contains("XDG_"+xdgTextValues[i])){
+      contents << xdgTextValues[i]+"="+HASH["XDG_"+xdgTextValues[i]].toString();
+    }
+  }
+  for(int i=0; i<xdgBoolValues.length(); i++){
+    if(HASH.contains("XDG_"+xdgBoolValues[i])){
+      if(HASH["XDG_"+xdgBoolValues[i]].toBool()){
+        contents << xdgBoolValues[i]+"=true";
+      }
+    }
+  }
+  return createFile(basePath+"/xdg-menu/"+fileName, contents);	
+}
+
+bool PBIModule::removeXdgDesktop(QString fileName){
+  createFile(basePath+"/xdg-desktop/"+fileName, QStringList() );
+}
+
+bool PBIModule::removeXdgMenu(QString fileName){
+  createFile(basePath+"/xdg-menu/"+fileName, QStringList() );	
+}
+
+bool PBIModule::loadXdgDesktop(QString fileName){
+  clearXdgData();
+  QStringList contents = readFile(basePath+"/xdg-desktop/"+fileName);
+  if(contents.isEmpty()){ return false; }
+  for(int i=0; i<contents.length(); i++){
+    //Ignore specific/special lines
+    if(contents[i].startsWith("#!/bin/sh") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
+    //Now check for known variables
+    QString var = contents[i].section("=",0,0).simplified();
+    QString val = contents[i].section("=",1,50).simplified();
+    if(xdgTextValues.contains(var)){
+      HASH.insert("XDG_"+var, val);
+    }else if(xdgBoolValues.contains(var)){
+      HASH.insert("XDG_"+var, var.toLower() == "true" );
+    }else{
+      extraLines << contents[i];
+    }
+  }
+  if( !extraLines.isEmpty() ){
+    HASH.insert("XDG_EXTRALINES",extraLines.join("\n"));
+  }
+  return true;
+}
+
+bool PBIModule::loadXdgMenu(QString filename){
+  clearXdgData();
+  QStringList contents = readFile(basePath+"/xdg-menu/"+fileName);
+  if(contents.isEmpty()){ return false; }
+  for(int i=0; i<contents.length(); i++){
+    //Ignore specific/special lines
+    if(contents[i].startsWith("#!/bin/sh") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
+    //Now check for known variables
+    QString var = contents[i].section("=",0,0).simplified();
+    QString val = contents[i].section("=",1,50).simplified();
+    if(xdgTextValues.contains(var)){
+      HASH.insert("XDG_"+var, val);
+    }else if(xdgBoolValues.contains(var)){
+      HASH.insert("XDG_"+var, var.toLower() == "true" );
+    }else{
+      extraLines << contents[i];
+    }
+  }
+  if( !extraLines.isEmpty() ){
+    HASH.insert("XDG_EXTRALINES",extraLines.join("\n"));
+  }
+  return true;	
+}
+
+	
+QStringList PBIModule::listMimeFiles(){
+  QStringList out;
+  QDir dir(basePath+"/xdg-mime");
+  if(dir.exists()){
+    out = dir.entryList(QStringList() << "*.xml", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  }
+  return out;	
+}
+
+QStringList PBIModule::validMimeValues(){
+  return mimeValues;
+}
+
+QString PBIModule::mimeText(QString var){
+  QString out;
+  if(mimeValues.contains(var) && HASH.contains("MIME_"+var)){
+    out = HASH["MIME_"+var].toString();
+  }
+  return out;
+}
+
+QStringList PBIModule::mimeTextL(QStringList vars){
+  QStringList out;
+  for(int i=0; i<vars.length(); i++){
+    out << mimeText(vars[i]);
+  }
+  return out;
+}
+
+void PBIModule::setMimeText(QString var, QString val){
+  if(mimeValues.contains(var)){
+    HASH.insert("MIME_"+var, val);
+  }
+}
+
+void PBIModule::setMimeTextL(QStringList vars, QStringList vals){
+  if(vars.length() != vals.length()){ return; }
+  for(int i=0; i<vars.length(); i++){
+    setMimeText(vars[i], vals[i]);
+  }
+}
+
+bool PBIModule::saveMimeFile(QString fileName){
+  if(fileName.isEmpty()){ return false; }
+  if(!fileName.endsWith(".xml")){ fileName.append(".xml"); }
+  //Check for type/pattern(s) first
+  if( !HASH.contains("MIME_type") || !HASH.contains("MIME_pattern") ){
+    qDebug() << "Error: Not enough information to create MIME file:" << fileName;
+    return false;
+  }
+  //Now create the file contents
+  QStringList contents;
+  contents << "<?xml version=\"1.0\"?>"
+  QString xmlns = "http://www.freedesktop.org/standards/shared-mime-info";
+  if(HASH.contains("MIME_xmlns")){ xmlns = HASH["MIME_xmlns"].toString(); }
+  contents <<"<mime-info xmlns=\'"+xmlns+"\'>";
+  contents <<" <mime-type type=\""+HASH["MIME_type"].toString()+"\">";
+  QStringList patterns = HASH["MIME_pattern"].toString().split(" ");
+  for(int i=0; i<patterns.length(); i++){
+    contents << "  <glob weight=\"100\" pattern=\""+patterns[i]+"\"/>";
+  }
+  contents << " </mime-type>";
+  contents << "</mime-info>";
+  //Now create the file
+  return createFile(basePath+"/xdg-mime/"+fileName, contents);
+}
+
+bool PBIModule::removeMimeFile(QString fileName){
+  return createFile(basePath+"/xdg-mime/"+fileName, QStringList() );
+}
+
+bool PBIModule::loadMimeFile(QString fileName){
+  QStringList contents = readFile(basePath+"/xdg-mime/"+fileName);
+  if(contents.isEmpty()){ return false; }
+  QStringList patterns;
+  for(int i=0; i<contents.length(); i++){
+    if(contents[i].contains("xml version=")){
+      continue; //ignore this line
+    }else if(contents[i].contains("<mime-info xmlns=\'")){
+      HASH.insert("MIME_xmlns", contents[i].section("=",1,1).section(">",0,0).remove("\'").remove("\"") );
+    }else if(contents[i].contains("<mime-type type=")){
+      HASH.insert("MIME_type", contents[i].section("=",1,1).section(">",0,0).remove("\'").remove("\"") );
+    }else if(contents[i].contains("<glob ")){
+      patterns << contents[i].section("=",2,2).section("/>",0,0).remove("\'").remove("\"");
+    }
+  }
+  if(!patterns.isEmpty()){
+    HASH.insert("MIME_pattern", patterns.join(" ") );
+  }
+  return true;
+}
+
+	
 // =============
 //  EXTERNAL-LINKS
 // =============
@@ -274,6 +540,8 @@ bool PBIModule::createFile(QString fileName, QStringList contents){
       qDebug() << fileName+": Could not be deleted";
     }
     return good;
+  }else if(contents.isEmpty()){
+    return true; //File to delete already does not exist 
   }
   
   //Check that the parent directory exists, and create it if necessary
@@ -355,32 +623,26 @@ QStringList PBIModule::filesInDir(QString dirPath){
   return out;	
 }
 
-QStringList PBIModule::generateXDGFileContents(QString name, QString gName, QString exec, \
-		QString iconResourcePath, QString mimetype, bool runAsRoot, bool invisible, \
-		bool useTerminal){
-  QStringList contents;
-  contents << "#!/usr/bin/env";
-  contents << "[Desktop Entry]";
-  contents << "Value=1.0";
-  contents << "Type=Application";
-  contents << "Name="+name;
-  contents << "GenericName="+gName;
-  if(runAsRoot){
-    contents << "Exec=pc-su %%PBI_EXEDIR%%/"+exec;
-  }else{
-    contents << "Exec=%%PBI_EXEDIR%%/"+exec;
+void PBIModule::clearXdgData(){
+  for(int i=0; i<xdgTextValues.length(); i++){
+    if(HASH.contains("XDG_"+xdgTextValues[i])){
+      HASH.removeAll("XDG_"+xdgTextValues[i]);
+    }
   }
-  contents << "Path=%%PBI_APPDIR%%";
-  contents << "Icon=%%PBI_APPDIR%%/"+iconResourcePath;
-  contents << "StartupNotify=true";
-  if(invisible){
-    contents << "NoDisplay=true";
+  for(int i=0; i<xdgBoolValues.length(); i++){
+    if(HASH.contains("XDG_"+xdgBoolValues[i])){
+      HASH.removeAll("XDG_"+xdgBoolValues[i]);
+    }
   }
-  if(useTerminal){
-    contents << "Terminal=true";
+  if(HASH.contains("XDG_EXTRALINES")){
+    HASH.removeAll("XDG_EXTRALINES");
   }
-  if(!mimetype.isEmpty()){
-    contents << "MimeType="+mimetype;
-  }
-  return contents;
+}
+
+void PBIModule::clearMimeData(){
+  for(int i=0; i<mimeValues.length(); i++){
+    if(HASH.contains("MIME_"+mimeValues[i])){
+      HASH.remove("MIME_"+mimeValues[i]);
+    }
+  }	  
 }
