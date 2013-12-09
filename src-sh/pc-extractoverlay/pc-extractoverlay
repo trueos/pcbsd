@@ -105,19 +105,19 @@ post_extract_setup()
     fi
   fi
 
-  # See if we need to adjust pkg.conf
-  grep -q "ARCH" /usr/local/etc/pkg.conf 2>/dev/null
+  # See if we need to adjust pcbsd.conf repo file
+  grep -q "ARCH" /usr/local/etc/pkg/repos/pcbsd.conf 2>/dev/null
   if [ $? -eq 0 ] ; then
     ARCH=`uname -m`
     FBSDVER=`uname -r | cut -d '-' -f 1-2`
-    sed -i '' "s|VERSION|$FBSDVER|g" /usr/local/etc/pkg.conf
+    sed -i '' "s|VERSION|$FBSDVER|g" /usr/local/etc/pkg/repos/pcbsd.conf
     if [ $? -ne 0 ] ; then
-       echo "WARNING: Failed setting VERSION in pkg.conf"
+       echo "WARNING: Failed setting VERSION in pcbsd.conf"
        status="1"
     fi
-    sed -i '' "s|ARCH|$ARCH|g" /usr/local/etc/pkg.conf
+    sed -i '' "s|ARCH|$ARCH|g" /usr/local/etc/pkg/repos/pcbsd.conf
     if [ $? -ne 0 ] ; then
-       echo "WARNING: Failed setting ARCH in pkg.conf"
+       echo "WARNING: Failed setting ARCH in pcbsd.conf"
        status="1"
     fi
   fi
