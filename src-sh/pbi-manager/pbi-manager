@@ -7191,17 +7191,8 @@ chroot_extract() {
 	if [ "$PBI_PKGNGBUILD" = "YES" ] ; then
 		mkdir -p ${PBI_CHROOTDIR}/usr/local/etc 2>/dev/null
 	   	cp /usr/local/etc/pkg.conf ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf
-		# Make sure we change pkgng ARCH to what we are building
-	        sed -i '' "s|amd64|$ARCH|g" ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf 	
-	        sed -i '' "s|i386|$ARCH|g" ${PBI_CHROOTDIR}/usr/local/etc/pkg.conf 	
-		# Now make sure to copy over the pubkey
-	   	local pubKey=`cat /usr/local/etc/pkg.conf | grep "^PUBKEY:" | awk '{print $2}'`
-	   	if [ -n "$pubKey" ] ; then
-			if [ ! -d "${PBI_CHROOTDIR}/`dirname $pubKey`" ] ; then
-				mkdir "${PBI_CHROOTDIR}/`dirname $pubKey`"
-			fi
-	     		cp $pubKey ${PBI_CHROOTDIR}/$pubKey
-	   	fi
+		# Copy over the pkg/repo and friends
+	   	cp -r /usr/local/etc/pkg ${PBI_CHROOTDIR}/usr/local/etc/
 
 		# Install pkgng into the chroot
 		pkg-static -c ${PBI_CHROOTDIR} install -y ports-mgmt/pkg
