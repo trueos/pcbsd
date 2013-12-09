@@ -71,6 +71,10 @@ public:
 	QStringList mimeTextL(QStringList);
 	void setMimeText(QString, QString);
 	void setMimeTextL(QStringList, QStringList);
+	bool saveMimeFile(QString fileName);
+	bool removeMimeFile(QString fileName);
+	bool loadMimeFile(QString fileName);
+	
 	
 	//External Links
 
@@ -78,11 +82,13 @@ public:
 	static bool createFile(QString,QStringList);
 	static QStringList readFile(QString);
 	static QStringList filesInDir(QString);
-	static QStringList generateXDGFileContents(QString,QString,QString,QString,QString, bool, bool, bool);
-
+	void clearXdgData();
+	void clearMimeData();
+	
 private:
 	QHash<QString, QVariant> HASH;
-	QStringList CTextValues, CBoolValues, CIntValues, scriptValues, xdgValues, mimeValues;
+	QStringList CTextValues, CBoolValues, CIntValues, scriptValues, mimeValues;
+	QStringList xdgTextValues, xdgBoolValues;
 	QString basePath, version;
 
 signals:
