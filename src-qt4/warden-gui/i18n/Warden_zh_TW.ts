@@ -727,10 +727,6 @@
         <translation>新 Jail 精靈</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Linux Jail (在 jail 執行 Linux)</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>請選取此 jail 要用的 Linux 安裝 script。</translation>
     </message>
@@ -793,6 +789,11 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation>本精靈會引領您創建新的 jail。首先輸入當前未在在網路使用的主機名稱和 IP 位址。如計劃以 IPv6 存取該 jail，請勾選 IPv6 位址方塊並輸入有效的 IPv6 位址。完成後按「下一步」繼續。</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

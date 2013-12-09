@@ -725,10 +725,6 @@
         <translation>Майстер створення в&apos;язниці</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within in a jail)</source>
-        <translation>Linux В&apos;язниця (Запуск Linux у в&apos;язниці)</translation>
-    </message>
-    <message>
         <source>Please select the Linux install script to use for this jail.</source>
         <translation>Будь ласка, оберіть інсталяційний скрипт Linux для використання в цій в&apos;язниці.</translation>
     </message>
@@ -791,6 +787,11 @@
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
         <translation>Цей майстер допоможе Вам створити нову в&apos;язницю. Спочатку введіть ім&apos;я хоста в&apos;язниці та IP адресу, що наразі не використовується у мережі. Якщо Ви плануєте використовувати протокол IPv6 для доступу до в&apos;язниці, відмітьте прапорець IPv6 та введіть IPv6 адресу. Натисніть &quot;Далі&quot; для продовження.</translation>
+    </message>
+    <message>
+        <source>Linux Jail (Run Linux within a jail)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>
