@@ -71,7 +71,7 @@ install_packages()
 
     # When doing a pkg install, if on local media, use a pkg.conf from /dist/
     if [ "${INSTALLMEDIUM}" != "ftp" ] ; then
-      PKGADD="pkg -C /mnt/pkg.conf install -y ${PKGNAME}"
+      PKGADD="pkg -R /mnt/repo-installer install -y ${PKGNAME}"
     else
       # Doing a network install, use the default pkg.conf
       PKGADD="pkg install -y ${PKGNAME}"
