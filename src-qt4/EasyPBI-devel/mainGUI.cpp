@@ -50,7 +50,7 @@ MainGUI::MainGUI(QWidget *parent) :
 	ui->push_change_makeport->setIcon(Backend::icon("file"));
 	//ui->push_addmakeopt->setIcon(Backend::icon("left"));
 	//ui->push_addmakeopt->setMenu(&menu_addOpt);
-	connect(&menu_addOpt,SIGNAL(triggered(QAction*)),this,SLOT(slotAddMakeOption(QAction*)) );
+	//connect(&menu_addOpt,SIGNAL(triggered(QAction*)),this,SLOT(slotAddMakeOption(QAction*)) );
 	ui->push_config_save->setIcon(Backend::icon("save"));
 	// -- resources tab --
 	ui->push_resources_savewrapper->setIcon(Backend::icon("save"));
@@ -101,7 +101,7 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       //connect(ui->edit_makeopts,SIGNAL(textChanged()),this,SLOT(slotOptionChanged()) );
       connect(ui->check_requiresroot, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
-      // Rwsources tab
+      // Resources tab
       connect(ui->text_resources_script,SIGNAL(textChanged()),this,SLOT(slotResourceScriptChanged()) );
       // XDG tab
       connect(ui->line_xdg_name,SIGNAL(textChanged(QString)),this,SLOT(slotXDGOptionChanged(QString)) );
@@ -154,15 +154,15 @@ void MainGUI::SetupDefaults(){
 	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
     //Pop up a warning about a missing ports tree
-    if( !settings->check("isPortsAvailable") ){
-	QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
-    }
+    //if( !settings->check("isPortsAvailable") ){
+	//QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
+    //}
     //Set a couple more internal flags
     PBI_BUILDING_NOW.clear();
     PBI_BUILD_TERMINATED=FALSE;
 }
 
-bool MainGUI::isValidPort(QString pPath, bool allowOverride){
+/*bool MainGUI::isValidPort(QString pPath, bool allowOverride){
   bool ok = FALSE;
   if( QFile::exists(pPath) && QFile::exists(pPath+"/Makefile") && QFile::exists(pPath+"/distinfo") ){
     ok = TRUE;
@@ -174,55 +174,62 @@ bool MainGUI::isValidPort(QString pPath, bool allowOverride){
     QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo."));
   }
   return ok;
+}*/
+
+void MainGUI::updateConfigVisibility(){
+  //Update the group visibility for the pbi.conf tab
+  ui->frame_pkgFix->setVisible(ui->group_config_overrides->isChecked());
+  ui->frame_repoInfo->setVisible(ui->group_config_repo->isChecked());
+  ui->frame_repoMgmt->setVisible(ui->group_config_repomgmt->isChecked());
 }
 
 void MainGUI::refreshGUI(QString item){
   //Enable/disable the interface appropriately
   
   //Stupid check to make sure that a module is actually loaded
-  if( currentModule->path().isEmpty() ){ 
+  if( MODULE.basepath().isEmpty() ){ 
     ui->actionPackage_Module->setEnabled(FALSE);
     ui->actionRefresh_Module->setEnabled(FALSE);
-    //if(PBI_BUILDING_NOW.isEmpty() ){ui->toolBox->setEnabled(FALSE); return; }
-    //else{ 
-      //ui->toolBox->setItemEnabled(0,FALSE);
-      //ui->toolBox->setItemEnabled(1,TRUE);
-      //ui->toolBox->setCurrentIndex(1); 
-      //item="pbibuild";
-    //}
   }else{ 
-    //ui->toolBox->setEnabled(TRUE); 
     ui->actionPackage_Module->setEnabled(TRUE);  
     ui->actionRefresh_Module->setEnabled(TRUE);
   }
-  //Figure out the type of module that is loaded
-  //bool isport = radio_module_port->isChecked();
   //See if we should refresh everything (default)  
   bool doall = ( (item == "all") || item.isEmpty() );
   bool doeditor = (item == "editor"); //also add a flag to just refresh the editor
   //Refresh the desired tab(s)
   // ------PBI.CONF------
   if( doall || doeditor || (item == "pbiconf")){
-    //if(isport){
-	ui->line_progversion->setVisible(FALSE); ui->label_progversion->setVisible(FALSE);
-	//ui->line_progdir->setVisible(FALSE); ui->push_change_progdir->setVisible(FALSE); ui->label_progdir->setVisible(FALSE);
-	ui->line_makeport->setVisible(TRUE); ui->push_change_makeport->setVisible(TRUE); ui->label_makeport->setVisible(TRUE);
-	//ui->edit_makeopts->setVisible(TRUE); ui->push_addmakeopt->setVisible(TRUE); ui->label_makeopts->setVisible(TRUE);
-	//ui->list_portbefore->setVisible(TRUE); ui->push_addportbefore->setVisible(TRUE); ui->push_rmportbefore->setVisible(TRUE);ui->label_portbefore->setVisible(TRUE);
-	ui->list_portafter->setVisible(TRUE); ui->push_addportafter->setVisible(TRUE); ui->push_rmportafter->setVisible(TRUE); ui->label_portafter->setVisible(TRUE);
-    /*}else{
-	ui->line_progversion->setVisible(TRUE); ui->label_progversion->setVisible(TRUE);
-	//ui->line_progdir->setVisible(TRUE); ui->push_change_progdir->setVisible(TRUE); ui->label_progdir->setVisible(TRUE);
-	ui->line_makeport->setVisible(FALSE); ui->push_change_makeport->setVisible(FALSE); ui->label_makeport->setVisible(FALSE);
-	//ui->edit_makeopts->setVisible(FALSE); ui->push_addmakeopt->setVisible(FALSE); ui->label_makeopts->setVisible(FALSE);
-	//ui->list_portbefore->setVisible(FALSE); ui->push_addportbefore->setVisible(FALSE); ui->push_rmportbefore->setVisible(FALSE);ui->label_portbefore->setVisible(FALSE);
-	ui->list_portafter->setVisible(FALSE); ui->push_addportafter->setVisible(FALSE); ui->push_rmportafter->setVisible(FALSE); ui->label_portafter->setVisible(FALSE);
-    }*/
+    //Update options visibility
+    updateConfigVisibility();
+    //Now reset the options to the current module values
+    // -- check boxes
+    ui->check_requiresroot->setChecked( MODULE.isEnabled("PBI_REQUIRESROOT") );
+    ui->check_config_nopkg->setChecked( MODULE.isEnabled("PBI_AB_NOPKGBUILD") );
+    ui->check_config_notmpfs->setChecked( MODULE.isEnabled("PBI_AB_NOTMPFS") );
+    // -- Text Values
+    ui->line_progname->setText( MODULE.text("PBI_PROGNAME") );
+    ui->line_progversion->setText( MODULE.text("PBI_PROGVERSION") );
+    ui->line_progweb->setText( MODULE.text("PBI_PROGWEB") );
+    ui->line_progauthor->setText( MODULE.text("PBI_PROGAUTHOR") );
+    ui->line_makeport->setText( MODULE.text("PBI_MAKEPORT") );
+    ui->line_config_license->setText( MODULE.text("PBI_LICENSE") );
+    ui->line_repoTags->setText( MODULE.text("PBI_TAGS") );
+    ui->line_repoCat->setText( MODULE.text("PBI_CATEGORY") );
+    ui->line_repoIconURL->setText( MODULE.text("PBI_ICONURL") );
+    // -- Combo Boxes (still text values)
+    ui->list_portafter->clear();
+    ui->list_portafter->addItems( MODULE.text("PBI_MKPORTAFTER").split("\n") );
+    // -- Integer Values
+    ui->spin_repoBuildKey->setValue( MODULE.number("PBI_BUILDKEY") );
+    ui->spin_repoPriority->setValue( MODULE.number("PBI_AB_PRIORITY") );
+    ui->spin_repoRevision->setValue( MODULE.number("PBI_PROGREVISION") );
+/*
     //Display the variables from the currentModule structure
     // -- check boxes
-    QString chk = currentModule->readValue("requiresroot").toLower();
-    if( (chk=="true") || (chk=="yes") ){ ui->check_requiresroot->setChecked(TRUE); }
-    else{ ui->check_requiresroot->setChecked(FALSE); }
+    //QString chk = currentModule->readValue("requiresroot").toLower();
+    //if( (chk=="true") || (chk=="yes") ){ ui->check_requiresroot->setChecked(TRUE); }
+    //else{ ui->check_requiresroot->setChecked(FALSE); }
     // -- line edits
     ui->line_progname->setText(currentModule->readValue("progname"));
     ui->line_progversion->setText(currentModule->readValue("progversion"));
@@ -235,6 +242,7 @@ void MainGUI::refreshGUI(QString item){
     //ui->list_portbefore->clear(); ui->list_portafter->clear(); ui->list_progicon->clear();
     //ui->list_portbefore->addItems( currentModule->readValue("makeportbefore").split(" ") );
     ui->list_portafter->addItems( currentModule->readValue("makeportafter").split(" ") );
+    */
     QStringList icons = currentModule->currentIcons;
     if(icons.length() > 0){
       for(int i=0; i<icons.length(); i++){
@@ -249,13 +257,7 @@ void MainGUI::refreshGUI(QString item){
     }else{
       ui->list_progicon->addItem(currentModule->readValue("progicon"));
     }
-    menu_addOpt.clear();
-    QStringList opts = currentModule->readValue("portoptions").split(" ",QString::SkipEmptyParts);
-    if(!opts.isEmpty()){
-      for(int i=0; i<opts.length(); i++){
-        menu_addOpt.addAction(opts[i]);
-      }
-    }
+    
     ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
   }
   // -----RESOURCES--------
@@ -552,9 +554,9 @@ void MainGUI::on_push_change_makeport_clicked(){
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Check if the port is valid
-  if( !isValidPort(portSel) ){
+  /*if( !isValidPort(portSel) ){
     return;
-  }
+  }*/
   //Save the port info to the GUI
   ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
   ui->push_config_save->setEnabled(TRUE);
@@ -655,9 +657,9 @@ void MainGUI::on_push_addportafter_clicked(){
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
   if(portSel.isEmpty()){return;} //action cancelled or closed	
   //Check if the port is valid
-  if( !isValidPort(portSel,TRUE) ){
+  /*if( !isValidPort(portSel,TRUE) ){
     return;
-  }
+  }*/
   //Save the port info to the GUI
   if(ui->list_portafter->count() == 1 && ui->list_portafter->currentText().isEmpty() ){ ui->list_portafter->clear(); }
   ui->list_portafter->addItem(portSel.remove(settings->value("portsdir")+"/"));

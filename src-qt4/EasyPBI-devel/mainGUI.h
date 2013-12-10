@@ -19,6 +19,7 @@
 #include "modBuild.h"
 #include "backend.h"
 #include "config.h"
+#include "PBIModule.h"
 
 namespace Ui {
     class MainGUI;
@@ -100,18 +101,20 @@ private slots:
 private:
     Ui::MainGUI *ui;
     ModBuild *currentModule;
+    PBIModule MODULE;
     Config *settings;
     QLineEdit *line_module;
     //QRadioButton *radio_module_port, *radio_module_local;
-    QMenu menu_addOpt, menu_elOpts, menu_validMenuCats, menu_bins, menu_el_bins;
+    QMenu menu_elOpts, menu_validMenuCats, menu_bins, menu_el_bins;
 
     QString PBI_BUILDING_NOW;
     bool PBI_BUILD_TERMINATED;
     QProcess *p;
 
     void SetupDefaults();
-    bool isValidPort(QString, bool allowOverride = FALSE);
+    //bool isValidPort(QString, bool allowOverride = FALSE);
     void checkMime();
+    void updateConfigVisibility();
 
 };
 
