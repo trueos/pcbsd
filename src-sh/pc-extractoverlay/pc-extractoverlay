@@ -27,6 +27,12 @@ do_ports_overlay()
   # Cleanup any extra port cruft that doesn't place nice with PC-BSD
   do_prune
 
+  # Since PKGNG requires this dir, but we can't ship an empty one
+  # with git, lets make sure it exists
+  if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
+     mkdir /usr/local/etc/pkg/fingerprints/pcbsd/revoked
+  fi
+
   echo -e "Extracting ports overlay data...\c"
   cd /
   tar xvmf ${distFile} 2>/dev/null
