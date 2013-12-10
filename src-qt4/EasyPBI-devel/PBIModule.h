@@ -1,7 +1,6 @@
 #ifndef _EASYPBI_PBI_MODULE_H
 #define _EASYPBI_PBI_MODULE_H
 
-#include <QObject>
 #include <QHash>
 #include <QString>
 #include <QStringList>
@@ -11,14 +10,17 @@
 #include <QTextStream>
 #include <QDebug>
 
-class PBIModule : public QObject{
-	Q_OBJECT
+class PBIModule{
+	
 public:
 	PBIModule();
 	~PBIModule();
 
-	//Overarching read
-	bool loadModule(QString);
+	//Initial read
+	bool loadModule(QString); //must give it the absolute path to a "pbi.conf" file
+
+	//Module directory path
+	QString modulePath();
 
 	//pbi.conf Values
 	QStringList textL(QStringList); //a list of individual QString values
@@ -46,7 +48,7 @@ public:
 	
 	//Resources
 	QStringList existingResources();
-	bool addResource(QString, QString);
+	bool addResource(QString filePath, QString resourcePath = "");
 	
 	//XDG files
 	QStringList validXdgText();

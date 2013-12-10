@@ -3,7 +3,7 @@
 PBIModule::PBIModule(){
   //Setup the possible values that are recognized
     // 10.x PBI format: 12/5/13
-  version = "10.x";
+  version = "10.x (12/5/13)";
   //pbi.conf values
   CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON" \
 		<< "PBI_LICENCE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
@@ -16,7 +16,7 @@ PBIModule::PBIModule(){
   xdgTextValues << "Value" << "Type" << "Name" << "GenericName" << "Exec" << "Path" << "Icon" << "Categories" << "MimeType";
   xdgBoolValues << "StartupNotify" << "Terminal" << "NoDisplay";
   //valid MIME values
-     // NOTE: These are hard-coded in the file read/write below due to specific file format
+     // NOTE: These values are hard-coded in the file read/write below due to specific file format
   mimeValues << "xmlns" << "type" << "pattern"; 
 	
   HASH.clear(); //Make sure the hash is currently empty
@@ -25,7 +25,7 @@ PBIModule::PBIModule(){
 PBIModule::~PBIModule(){}
 	
 // ==============
-//  Modules READ/WRITE
+//        Initial load
 // ==============
 bool PBIModule::loadModule(QString confpath){
   if(!confpath.endsWith("/pbi.conf")){ return false; }
@@ -37,6 +37,10 @@ bool PBIModule::loadModule(QString confpath){
   return true;
 }
 	
+QString PBIModule::modulePath(){
+  return basePath;
+}
+
 // ==================
 //  CONFIGURATION VALUES
 // ==================
@@ -150,7 +154,12 @@ bool PBIModule::saveConfig(){
   //Text Values
   for(int i=0; i<CTextValues.length(); i++){
     QString line = CTextValues[i]+"=\"";
-    if(HASH.contains(CTextValues[i])){ line.append( HASH[CTextValues[i]].toString() ); }
+    if(HASH.contains(CTextValues[i])){ 
+      QString val = HASH[CTextValues[i]].toString();
+        //special check for PBI_MAKEPORT format validity
+        if(CTextValues[i]=="PBI_MAKEPORT" && val.endsWith("/")){ val.chop(1); } //Make sure there is 
+      line.append( val ); 
+    }
     line.append("\""); //close out the quotes
     contents << line;
   }
