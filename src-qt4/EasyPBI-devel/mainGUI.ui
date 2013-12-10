@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>548</width>
-    <height>448</height>
+    <width>547</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -270,7 +270,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>501</width>
+             <width>500</width>
              <height>648</height>
             </rect>
            </property>
@@ -402,6 +402,9 @@
               <property name="checkable">
                <bool>true</bool>
               </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
               <layout class="QVBoxLayout" name="verticalLayout_10">
                <item>
                 <widget class="QFrame" name="frame_pkgFix">
@@ -457,7 +460,7 @@
                    </widget>
                   </item>
                   <item row="2" column="1">
-                   <widget class="QLineEdit" name="lineEdit_2"/>
+                   <widget class="QLineEdit" name="line_config_license"/>
                   </item>
                   <item row="3" column="0">
                    <widget class="QLabel" name="label_portafter">
@@ -512,9 +515,9 @@
                    </layout>
                   </item>
                   <item row="4" column="1">
-                   <widget class="QCheckBox" name="check_config_32only">
+                   <widget class="QCheckBox" name="check_config_nopkg">
                     <property name="text">
-                     <string>32-bit only</string>
+                     <string>Never use pre-built packages</string>
                     </property>
                    </widget>
                   </item>
@@ -533,7 +536,7 @@
                <bool>true</bool>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_5">
                <item>
@@ -637,6 +640,9 @@
               <property name="checkable">
                <bool>true</bool>
               </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
               <layout class="QVBoxLayout" name="verticalLayout_23">
                <item>
                 <widget class="QFrame" name="frame_repoMgmt">
@@ -669,7 +675,7 @@
                    </widget>
                   </item>
                   <item row="3" column="1">
-                   <widget class="QCheckBox" name="checkBox">
+                   <widget class="QCheckBox" name="check_config_notmpfs">
                     <property name="text">
                      <string>No TMPFS</string>
                     </property>
@@ -1645,7 +1651,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>548</width>
+     <width>547</width>
      <height>20</height>
     </rect>
    </property>

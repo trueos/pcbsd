@@ -20,7 +20,7 @@ public:
 	bool loadModule(QString); //must give it the absolute path to a "pbi.conf" file
 
 	//Module directory path
-	QString modulePath();
+	QString basepath();
 
 	//pbi.conf Values
 	QStringList textL(QStringList); //a list of individual QString values

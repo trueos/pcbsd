@@ -6,7 +6,7 @@ PBIModule::PBIModule(){
   version = "10.x (12/5/13)";
   //pbi.conf values
   CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON" \
-		<< "PBI_LICENCE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
+		<< "PBI_LICENSE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
 		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" << "PBI_MAKEOPTS";
   CBoolValues << "PBI_REQUIRESROOT" << "PBI_AB_NOTMPFS" << "PBI_AB_NOPKGBUILD";
   CIntValues << "PBI_BUILDKEY" << "PBI_PROGREVISION" << "PBI_AB_PRIORITY";
@@ -37,7 +37,7 @@ bool PBIModule::loadModule(QString confpath){
   return true;
 }
 	
-QString PBIModule::modulePath(){
+QString PBIModule::basepath(){
   return basePath;
 }
 
