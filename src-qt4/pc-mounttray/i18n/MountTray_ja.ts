@@ -32,7 +32,7 @@
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation>ディスクは既にいっぱいです。</translation>
+        <translation>ディスク使用量が限界に近づいています</translation>
     </message>
 </context>
 <context>
