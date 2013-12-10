@@ -3342,6 +3342,7 @@ pbi_add_run_script() {
 pbi_add_update_hashdir() {
 	if [ "${PBI_NOHASHDIR}" = "YES" ] ; then return 0 ; fi
 	if [ ! -e "${1}/${PBI_HASHLIST}" ] ; then return 0; fi
+	local hDir="${1}/local"
 
 	if [ "$PBI_VERBOSE" = "YES" ] ; then
 		echo "HASHCOUNT: `wc -l ${1}/${PBI_HASHLIST} | tr -d ' ' | cut -d '/' -f 1`"
@@ -3362,15 +3363,15 @@ pbi_add_update_hashdir() {
 		fi
 
 		# Make sure the target file hasnt been removed
-		if [ ! -e "${1}/${file}" ] ; then continue ; fi
+		if [ ! -e "${hDir}/${file}" ] ; then continue ; fi
 
 		# We dont need no stinking sym-links
-		if [ -h "${1}/${file}" ] ; then continue ; fi
+		if [ -h "${hDir}/${file}" ] ; then continue ; fi
 
 		if [ -f "${PBI_HASHDIR}/${hl}" ] ; then
-			use_hashfile "$hl" "${1}/$file"
+			use_hashfile "$hl" "${hDir}/$file"
 		else
-			mv_ln_hashfile "$hl" "${1}/$file"
+			mv_ln_hashfile "$hl" "${hDir}/$file"
 		fi
 	done < "${1}/${PBI_HASHLIST}"
 
