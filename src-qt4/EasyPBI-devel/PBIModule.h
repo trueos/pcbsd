@@ -82,6 +82,8 @@ public:
 	
 	
 	//External Links
+	void loadExternalLinks( QStringList& bin, QStringList& link, QStringList& type);
+	bool saveExternalLinks( QStringList bin, QStringList link, QStringList type);
 
 	//General Utilities
 	static bool createFile(QString,QStringList);
@@ -95,8 +97,6 @@ private:
 	QStringList CTextValues, CBoolValues, CIntValues, scriptValues, mimeValues;
 	QStringList xdgTextValues, xdgBoolValues;
 	QString basePath, version;
-
-signals:
 
 };
 

@@ -536,6 +536,43 @@ bool PBIModule::loadMimeFile(QString fileName){
 // =============
 //  EXTERNAL-LINKS
 // =============
+void PBIModule::loadExternalLinks( QStringList& bin, QStringList& link, QStringList& type){
+  //Empty the output variables
+  bin.clear();
+  link.clear();
+  type.clear();
+  //Read the file and parse the contents
+  QStringList contents = readFile(basePath+"/external-links");
+  for(int i=0; i<contents.length(); i++){
+    contents[i] = contents[i].replace("\t"," ").simplified();
+    if(!contents[i].startsWith("#") && !contents[i].isEmpty()){
+      bin << contents[i].section(" ",0,0,QString::SectionSkipEmpty);
+      link <<  contents[i].section(" ",1,1,QString::SectionSkipEmpty);
+      type <<  contents[i].section(" ",2,2,QString::SectionSkipEmpty);
+    }
+  }
+
+}
+
+bool PBIModule::saveExternalLinks( QStringList bin, QStringList link, QStringList type){
+  if( (bin.length() != link.length()) || (bin.length() != type.length()) ){
+    qDebug() << "Error: Unequal external-links list lengths";
+    return false;
+  }
+  //Create the file contents
+  QStringList contents;
+  contents << "# Files to be Sym-Linked into the default LOCALBASE";
+  contents << "# One per-line, relative to %%PBI_APPDIR%% and LOCALBASE";
+  contents << "# Defaults to keeping any existing files in LOCALBASE";
+  contents << "# Use action \"binary\" for binaries that need wrapper functionality\n";
+  contents << "# TARGET             LINK IN LOCALBASE         ACTION";
+  for(int i=0; i<bin.length(); i++){
+    contents << bin[i] + " \t " + link[i] + " \t " + type[i];
+  }
+  //Now save the contents to file
+  return createFile(basePath+"/external-links", contents);
+  
+}
 
 // ===============
 //  GENERAL UTILITIES
