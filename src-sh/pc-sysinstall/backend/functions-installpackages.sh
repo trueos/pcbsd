@@ -61,6 +61,13 @@ install_packages()
   # Install PKGNG into the chroot
   bootstrap_pkgng
 
+  # Update the repo database
+  echo "Updating pkgng database"
+  case "${INSTALLMEDIUM}" in
+    usb|dvd|local) run_chroot_cmd "pkg -R /mnt/repo-installer update -f" ;;
+                *) run_chroot_cmd "pkg update -f" ;;
+  esac
+
   # Lets start by cleaning up the string and getting it ready to parse
   get_value_from_cfg_with_spaces installPackages
   PACKAGES="${VAL}"
@@ -71,7 +78,20 @@ install_packages()
 
     # When doing a pkg install, if on local media, use a pkg.conf from /dist/
     if [ "${INSTALLMEDIUM}" != "ftp" ] ; then
-      PKGADD="pkg -R /mnt/repo-installer install -y ${PKGNAME}"
+      # Get the package file-name
+      PKGFILENAME=""
+      PKGFILENAME=`chroot ${FSMNT} pkg -R /mnt/repo-installer rquery '%n-%v' ${PKGNAME}`
+      if [ -z "$PKGFILENAME" ] ; then
+         echo_log "Warning: No such package in repo: ${PKGNAME}"
+	 sleep 2
+         continue
+      fi
+      if [ ! -e "${FSMNT}/mnt/All/${PKGFILENAME}.txz" ] ; then
+         echo_log "Warning: No such package file in repo: ${PKGFILENAME}"
+	 sleep 2
+         continue
+      fi
+      PKGADD="pkg add /mnt/All/${PKGFILENAME}.txz"
     else
       # Doing a network install, use the default pkg.conf
       PKGADD="pkg install -y ${PKGNAME}"
