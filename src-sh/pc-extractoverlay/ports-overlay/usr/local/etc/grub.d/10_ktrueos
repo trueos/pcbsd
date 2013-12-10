@@ -169,7 +169,7 @@ detect_beadm()
       # First part of this dataset
       cat > /tmp/.grubdataset.$$.1 << EOF
     insmod zfs
-    search -s -l $ztank
+    search --no-floppy -s -l $ztank
 EOF
 
       # Second part of loader to save

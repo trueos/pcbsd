@@ -29,6 +29,9 @@ export TEXTDOMAINDIR="/usr/local/share/locale"
 
 . "${datarootdir}/grub/grub-mkconfig_lib"
 
+# Set indicator that we haven't written device access yet
+haveDevAccess=0
+
 # Do this as early as possible, since other commands might depend on it.
 # (e.g. the `loadfont' command might need lvm or raid modules)
 for i in ${GRUB_PRELOAD_MODULES} ; do
@@ -134,7 +137,10 @@ fi
 if [ "x$gfxterm" = x1 ]; then
     if [ -n "$GRUB_FONT" ] ; then
        # Make the font accessible
-       prepare_grub_to_access_device `${grub_probe} --target=device "${GRUB_FONT}"`
+       if [ $haveDevAccess -ne 1 ] ; then
+		haveDevAccess=1
+       		prepare_grub_to_access_device `${grub_probe} --target=device "${GRUB_FONT}"`
+       fi
     cat << EOF
 if loadfont `make_system_path_relative_to_its_root "${GRUB_FONT}"` ; then
 EOF
@@ -157,7 +163,10 @@ if [ x\$feature_default_font_path = xy ] ; then
 else
 EOF
                 # Make the font accessible
-		prepare_grub_to_access_device `${grub_probe} --target=device "${font_path}"`
+       		if [ $haveDevAccess -ne 1 ] ; then
+			haveDevAccess=1
+			prepare_grub_to_access_device `${grub_probe} --target=device "${font_path}"`
+		fi
     cat << EOF
     font="`make_system_path_relative_to_its_root "${font_path}"`"
 fi
@@ -218,7 +227,10 @@ if [ "x$gfxterm" = x1 ]; then
 	&& is_path_readable_by_grub "$GRUB_THEME"; then
 	gettext_printf "Found theme: %s\n" "$GRUB_THEME" >&2
 
-	prepare_grub_to_access_device `${grub_probe} --target=device "$GRUB_THEME"`
+       	if [ $haveDevAccess -ne 1 ] ; then
+		haveDevAccess=1
+		prepare_grub_to_access_device `${grub_probe} --target=device "$GRUB_THEME"`
+        fi
 	cat << EOF
 insmod gfxmenu
 EOF
@@ -259,7 +271,10 @@ EOF
 	    *.jpg|*.jpeg)  reader=jpeg ;;
 	    *)             gettext "Unsupported image format" >&2; echo >&2; exit 1 ;;
 	esac
-	prepare_grub_to_access_device `${grub_probe} --target=device "$GRUB_BACKGROUND"`
+       	if [ $haveDevAccess -ne 1 ] ; then
+		haveDevAccess=1
+		prepare_grub_to_access_device `${grub_probe} --target=device "$GRUB_BACKGROUND"`
+	fi
 	cat << EOF
 insmod $reader
 background_image -m stretch `make_system_path_relative_to_its_root "$GRUB_BACKGROUND"`
