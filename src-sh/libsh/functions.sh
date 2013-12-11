@@ -454,7 +454,9 @@ check_pkg_conflicts()
 {
   # Lets test if we have any conflicts
   pkg-static ${1} 2>/tmp/.pkgConflicts.$$ >/tmp/.pkgConflicts.$$
-  if [ $? -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+  local _err=$?
+  if [ $_err -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+
  
   # Found conflicts, suprise suprise, yet another reason I hate packages
   # Lets start building a list of the old packages we can prompt to remove
@@ -463,6 +465,12 @@ check_pkg_conflicts()
   cat /tmp/.pkgConflicts.$$ | grep 'WARNING: locally installed' \
 	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' | sort | uniq \
 	> /tmp/.pkgConflicts.$$.2
+
+  if [ -z `tail /tmp/.pkgConflicts.$$.2` ] ; then
+     rm /tmp/.pkgConflicts.$$
+     return $_err
+  fi
+
   while read line
   do
     cList="$line $cList"
