@@ -18,22 +18,19 @@ PBIModule::PBIModule(){
   //valid MIME values
      // NOTE: These values are hard-coded in the file read/write below due to specific file format
   mimeValues << "xmlns" << "type" << "pattern"; 
-	
-  HASH.clear(); //Make sure the hash is currently empty
 }
 
 PBIModule::~PBIModule(){}
 	
 // ==============
-//        Initial load
+//  Initial load
 // ==============
 bool PBIModule::loadModule(QString confpath){
   if(!confpath.endsWith("/pbi.conf")){ return false; }
   //Get the base Path and make sure it exists
   basePath = confpath.left(confpath.length()-9); //base directory path
+  HASH.clear(); //Make sure we always start with a clean slate when loading a module
   if(!QFile::exists(basePath)){ basePath.clear(); return false; }
-  //This is good to go: now start to load all the different pieces of the module
-  this->loadConfig(); //pbi.conf (only piece that is loaded at all times)
   return true;
 }
 	
@@ -116,21 +113,22 @@ QStringList PBIModule::numberValues(){ //list all possible integer values
 }
 	
 void PBIModule::loadConfig(){
-//Read the designated pbi.conf and store the variables
+  //Read the designated pbi.conf and store the variables
   QStringList contents = readFile(basePath+"/pbi.conf");
   for(int i=0; i<contents.length(); i++){
     //see if the current line conains a desired variable and save it
     QString line = contents[i];
-    if(!line.startsWith("#") && !line.startsWith("export")){ //Ignore commented out lines
+    if(!line.startsWith("#") && !line.startsWith("export") && !line.isEmpty()){ //Ignore commented out lines
       //Pull apart the variable and the value
       QString var = line.section("=\"",0,0,QString::SectionSkipEmpty).trimmed();
       QString val = line.section("=\"",1,50).section("#",0,0,QString::SectionSkipEmpty).section(";",0,0,QString::SectionSkipEmpty).trimmed();
-        while( !val.endsWith("\"") && i<contents.length() ){
+        while( !val.endsWith("\"") && i<(contents.length()-1) ){
 	  i++;
 	  line = contents[i];
 	  val.append( "\n"+line.section("#",0,0).section(";",0,0).trimmed() );
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
+      qDebug() << "var="+var+"\t\tval="+val;
       //Now check for text/bool/int values
       if(CTextValues.contains(var)){ HASH.insert(var,val); }
       else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }
@@ -262,8 +260,12 @@ bool PBIModule::addResource(QString filePath, QString resourcePath){
   return ok;
 }
 
+bool PBIModule::removeResource(QString resourcePath){
+  return createFile(basePath+"/resources/"+resourcePath, QStringList() );	
+}
+
 // =============
-//           XDG
+//      XDG
 // =============
 QStringList PBIModule::validXdgText(){
   return xdgTextValues;

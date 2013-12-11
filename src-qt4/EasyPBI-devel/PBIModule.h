@@ -49,6 +49,7 @@ public:
 	//Resources
 	QStringList existingResources();
 	bool addResource(QString filePath, QString resourcePath = "");
+	bool removeResource(QString resourcePath);
 	
 	//XDG files
 	QStringList validXdgText();

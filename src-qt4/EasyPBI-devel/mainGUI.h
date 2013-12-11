@@ -20,6 +20,7 @@
 #include "backend.h"
 #include "config.h"
 #include "PBIModule.h"
+#include "ModuleUtils.h"
 
 namespace Ui {
     class MainGUI;
