@@ -453,7 +453,7 @@ check_ip()
 check_pkg_conflicts()
 {
   # Lets test if we have any conflicts
-  pkg-static ${1} 2>/tmp/.pkgConflicts.$$ >/tmp/.pkgConflicts.$$
+  pkg-static ${1} 2>&1 | tee /tmp/.pkgConflicts.$$
   local _err=$?
   if [ $_err -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
 
@@ -509,7 +509,21 @@ check_pkg_conflicts()
   do
      # Nuked!
      echo "Removing conflicting package: $bPkg"
+
+     # If EVENT_PIPE is set, unset it, seems to cause some weird crash in pkgng 1.2.3
+     if [ -n "$EVENT_PIPE" ] ; then
+        oEP="$EVENT_PIPE"
+        unset EVENT_PIPE
+     fi
+
+     # Delete the package now
      pkg delete -q -y -f ${bPkg}
+
+     # Reset EVENT_PIPE if we need to
+     if [ -n "$oEP" ] ; then
+        EVENT_PIPE="$oEP"; export EVENT_PIPE
+        unset oEP
+     fi
   done
 
   # Lets test if we still have any conflicts
