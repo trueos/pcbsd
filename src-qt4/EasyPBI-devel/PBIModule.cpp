@@ -128,7 +128,7 @@ void PBIModule::loadConfig(){
 	  val.append( "\n"+line.section("#",0,0).section(";",0,0).trimmed() );
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
-      qDebug() << "var="+var+"\t\tval="+val;
+      //qDebug() << "var="+var+"\t\tval="+val;
       //Now check for text/bool/int values
       if(CTextValues.contains(var)){ HASH.insert(var,val); }
       else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }
@@ -198,6 +198,10 @@ QStringList PBIModule::readScript(QString var){
     out = readFile(basePath+"/scripts/"+var);
   }	  
   return out;
+}
+
+bool PBIModule::removeScript(QString var){
+  return createFile(basePath+"/scripts/"+var, QStringList());  	
 }
 
 bool PBIModule::writeScript(QString var,QStringList val){
@@ -334,7 +338,7 @@ QStringList PBIModule::listXdgDesktopFiles(){
 
 QStringList PBIModule::listXdgMenuFiles(){
   QStringList out;
-  QDir dir(basePath+"/xdg-desktop");
+  QDir dir(basePath+"/xdg-menu");
   if(dir.exists()){
     out = dir.entryList(QStringList() << "*.desktop", QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
   }
@@ -345,7 +349,7 @@ bool PBIModule::saveXdgDesktop(QString fileName){
   if(fileName.isEmpty()){ return false; }
   if(!fileName.endsWith(".desktop")){ fileName.append(".desktop"); }
   QStringList contents;
-  contents << "#!/bin/sh";
+  contents << "#!/usr/bin/env";
   contents << "[Desktop Entry]";	
   for(int i=0; i<xdgTextValues.length(); i++){
     if(HASH.contains("XDG_"+xdgTextValues[i])){
@@ -354,9 +358,9 @@ bool PBIModule::saveXdgDesktop(QString fileName){
   }
   for(int i=0; i<xdgBoolValues.length(); i++){
     if(HASH.contains("XDG_"+xdgBoolValues[i])){
-      QString val = "false";
-      if(HASH["XDG_"+xdgBoolValues[i]].toBool()){ val = "true"; }
-      contents << xdgBoolValues[i]+"="+val;
+      if(HASH["XDG_"+xdgBoolValues[i]].toBool()){
+        contents << xdgBoolValues[i]+"=true";
+      }
     }
   }
   return createFile(basePath+"/xdg-desktop/"+fileName, contents);
@@ -366,7 +370,7 @@ bool PBIModule::saveXdgMenu(QString fileName){
   if(fileName.isEmpty()){ return false; }
   if(!fileName.endsWith(".desktop")){ fileName.append(".desktop"); }
   QStringList contents;
-  contents << "#!/bin/sh";
+  contents << "#!/usr/bin/env";
   contents << "[Desktop Entry]";	
   for(int i=0; i<xdgTextValues.length(); i++){
     if(HASH.contains("XDG_"+xdgTextValues[i])){
@@ -398,14 +402,14 @@ bool PBIModule::loadXdgDesktop(QString fileName){
   QStringList extraLines;
   for(int i=0; i<contents.length(); i++){
     //Ignore specific/special lines
-    if(contents[i].startsWith("#!/bin/sh") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
+    if(contents[i].startsWith("#") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
     //Now check for known variables
     QString var = contents[i].section("=",0,0).simplified();
     QString val = contents[i].section("=",1,50).simplified();
     if(xdgTextValues.contains(var)){
       HASH.insert("XDG_"+var, val);
     }else if(xdgBoolValues.contains(var)){
-      HASH.insert("XDG_"+var, var.toLower() == "true" );
+      HASH.insert("XDG_"+var, val.toLower() == "true" );
     }else{
       extraLines << contents[i];
     }
@@ -423,14 +427,14 @@ bool PBIModule::loadXdgMenu(QString fileName){
   QStringList extraLines;
   for(int i=0; i<contents.length(); i++){
     //Ignore specific/special lines
-    if(contents[i].startsWith("#!/bin/sh") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
+    if(contents[i].startsWith("#") || contents[i].startsWith("[Desktop Entry]") || contents[i].isEmpty() ){ continue; }
     //Now check for known variables
     QString var = contents[i].section("=",0,0).simplified();
     QString val = contents[i].section("=",1,50).simplified();
     if(xdgTextValues.contains(var)){
       HASH.insert("XDG_"+var, val);
     }else if(xdgBoolValues.contains(var)){
-      HASH.insert("XDG_"+var, var.toLower() == "true" );
+      HASH.insert("XDG_"+var, val.toLower() == "true" );
     }else{
       extraLines << contents[i];
     }
