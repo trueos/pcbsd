@@ -50,11 +50,12 @@ private slots:
     void on_actionPBI_Modules_triggered();
     void on_actionAbout_EasyPBI_triggered();
     //editor functions
+    void updateConfigVisibility();
     void slotModTabChanged(int);
     //pbi.conf functions
     void on_push_change_makeport_clicked();
     //void on_push_change_progdir_clicked();
-    void slotAddMakeOption(QAction*);
+    //void slotAddMakeOption(QAction*);
     //void on_push_addportbefore_clicked();
     //void on_push_rmportbefore_clicked();
     void on_push_addportafter_clicked();
@@ -101,12 +102,13 @@ private slots:
 
 private:
     Ui::MainGUI *ui;
-    ModBuild *currentModule;
+    //ModBuild *currentModule;
     PBIModule MODULE;
     Config *settings;
     QLineEdit *line_module;
     //QRadioButton *radio_module_port, *radio_module_local;
     QMenu menu_elOpts, menu_validMenuCats, menu_bins, menu_el_bins;
+    bool XDGUPDATING;
 
     QString PBI_BUILDING_NOW;
     bool PBI_BUILD_TERMINATED;
@@ -115,7 +117,6 @@ private:
     void SetupDefaults();
     //bool isValidPort(QString, bool allowOverride = FALSE);
     void checkMime();
-    void updateConfigVisibility();
 
 };
 

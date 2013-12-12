@@ -45,7 +45,7 @@ bool ModuleUtils::xdgExecUsesRoot(QString exec){
 QString ModuleUtils::pruneXdgLine(QString exec){
   if(exec.contains("%%PBI_EXEDIR%%") || exec.contains("%%PBI_APPDIR%%") ){
     QString sline = exec.section("%%",2,50);
-    if(sline.startsWith("/")){ sline.remove(1); }
+    if(sline.startsWith("/")){ sline = sline.remove(0,1); }
     return sline;
   }else{
     return exec;	  

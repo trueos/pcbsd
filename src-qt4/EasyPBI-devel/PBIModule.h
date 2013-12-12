@@ -42,6 +42,7 @@ public:
 	
 	//Scripts
 	QStringList readScript(QString);
+	bool removeScript(QString);
 	bool writeScript(QString,QStringList);
 	QStringList validScripts();
 	QStringList existingScripts();

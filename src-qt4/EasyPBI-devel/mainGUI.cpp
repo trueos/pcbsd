@@ -15,8 +15,6 @@ MainGUI::MainGUI(QWidget *parent) :
 	
        //Setup Initial state of GUI objects and connect signal/slots
        ui->setupUi(this);  //load the mainGUI.ui file
-	// Create the module class as necessary
-	currentModule = new ModBuild();
 	// Create the config class
 	settings = new Config();
 	//Setup the Menu items
@@ -37,20 +35,10 @@ MainGUI::MainGUI(QWidget *parent) :
 	line_module->setFocusPolicy(Qt::NoFocus);
 	ui->toolBar->addWidget(line_module);
 	ui->toolBar->addSeparator();
-	//radio_module_port = new QRadioButton(tr("FreeBSD Port"),this);
-	//radio_module_port->setEnabled(FALSE);
-	//ui->toolBar->addWidget(radio_module_port);
-	//radio_module_local = new QRadioButton(tr("Local Sources"),this);
-	//radio_module_local->setEnabled(FALSE);
-	//ui->toolBar->addWidget(radio_module_local);
 	//Setup Module Editor
 	connect(ui->tabWidget, SIGNAL(currentChanged(int)),this,SLOT(slotModTabChanged(int)) ); //setup to refresh each tab once it is selected
 	// -- pbi.conf tab --
-	//ui->push_change_progdir->setIcon(Backend::icon("load"));
 	ui->push_change_makeport->setIcon(Backend::icon("file"));
-	//ui->push_addmakeopt->setIcon(Backend::icon("left"));
-	//ui->push_addmakeopt->setMenu(&menu_addOpt);
-	//connect(&menu_addOpt,SIGNAL(triggered(QAction*)),this,SLOT(slotAddMakeOption(QAction*)) );
 	ui->push_config_save->setIcon(Backend::icon("save"));
 	// -- resources tab --
 	ui->push_resources_savewrapper->setIcon(Backend::icon("save"));
@@ -96,11 +84,22 @@ MainGUI::MainGUI(QWidget *parent) :
       connect(ui->line_progauthor,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_progversion,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_progweb,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      //connect(ui->line_progdir,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_config_license,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->line_makeport,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
       connect(ui->list_progicon,SIGNAL(currentIndexChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
-      //connect(ui->edit_makeopts,SIGNAL(textChanged()),this,SLOT(slotOptionChanged()) );
+      connect(ui->line_repoTags,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_repoType,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_repoCat,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->line_repoIconURL,SIGNAL(textChanged(QString)),this,SLOT(slotOptionChanged(QString)) );
+      connect(ui->spin_repoBuildKey,SIGNAL(valueChanged(QString)),this,SLOT(slotOptionChanged()) );
+      connect(ui->spin_repoPriority,SIGNAL(valueChanged(QString)),this,SLOT(slotOptionChanged()) );
+      connect(ui->spin_repoRevision,SIGNAL(valueChanged(QString)),this,SLOT(slotOptionChanged()) );
       connect(ui->check_requiresroot, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
+      connect(ui->check_config_nopkg, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
+      connect(ui->check_config_notmpfs, SIGNAL(clicked()),this,SLOT(slotOptionChanged()) );
+      connect(ui->group_config_overrides, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
+      connect(ui->group_config_repo, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
+      connect(ui->group_config_repomgmt, SIGNAL(clicked()), this, SLOT(updateConfigVisibility()) );
       // Resources tab
       connect(ui->text_resources_script,SIGNAL(textChanged()),this,SLOT(slotResourceScriptChanged()) );
       // XDG tab
@@ -205,19 +204,15 @@ void MainGUI::refreshGUI(QString item){
   //Refresh the desired tab(s)
   // ------PBI.CONF------
   if( doall || doeditor || (item == "pbiconf")){
-    qDebug() << "Update conf tab";
     //Update options visibility
     updateConfigVisibility();
     //Now reset the options to the current module values
-    qDebug() << "Load config";
     MODULE.loadConfig();
     // -- check boxes
-    qDebug() << "Set bool values";
     ui->check_requiresroot->setChecked( MODULE.isEnabled("PBI_REQUIRESROOT") );
     ui->check_config_nopkg->setChecked( MODULE.isEnabled("PBI_AB_NOPKGBUILD") );
     ui->check_config_notmpfs->setChecked( MODULE.isEnabled("PBI_AB_NOTMPFS") );
     // -- Text Values
-    qDebug() << "Set text values";
     ui->line_progname->setText( MODULE.text("PBI_PROGNAME") );
     ui->line_progversion->setText( MODULE.text("PBI_PROGVERSION") );
     ui->line_progweb->setText( MODULE.text("PBI_PROGWEB") );
@@ -227,18 +222,17 @@ void MainGUI::refreshGUI(QString item){
     ui->line_repoTags->setText( MODULE.text("PBI_TAGS") );
     ui->line_repoCat->setText( MODULE.text("PBI_CATEGORY") );
     ui->line_repoIconURL->setText( MODULE.text("PBI_ICONURL") );
+    ui->line_repoType->setText( MODULE.text("PBI_PROGTYPE") );
     // -- Combo Boxes (filled with individual items from text)
-    qDebug() << "Show mkportafter items";
     ui->list_portafter->clear();
     ui->list_portafter->addItems( MODULE.text("PBI_MKPORTAFTER").split("\n") );
     // -- Integer Values
-    qDebug() << "Show number values";
     ui->spin_repoBuildKey->setValue( MODULE.number("PBI_BUILDKEY") );
     ui->spin_repoPriority->setValue( MODULE.number("PBI_AB_PRIORITY") );
     ui->spin_repoRevision->setValue( MODULE.number("PBI_PROGREVISION") );
     // -- Combo Boxes (Select the proper item only)
-    qDebug() << "Show Icon list";
     QStringList icons = MODULE.existingResources().filter(".png");
+    ui->list_progicon->clear();
     if(icons.length() > 0){
       for(int i=0; i<icons.length(); i++){
         ui->list_progicon->addItem(QIcon(MODULE.basepath()+"/resources/"+icons[i]),icons[i]);
@@ -252,12 +246,11 @@ void MainGUI::refreshGUI(QString item){
     }else{
       ui->list_progicon->addItem( MODULE.text("PBI_PROGICON") );
     }
-    qDebug() << "Done with config";
+    //Now disable the save button
     ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
   }
   // -----RESOURCES--------
   if( doall || doeditor || (item == "resources")){
-    qDebug() << "Update Resources tab";
     //Get the all the current files in the resources category and add them to the list
     QStringList rs = MODULE.existingResources(); //currentModule->filesAvailable("resources");
     //disconnect the signal/slot connection to make sure we don't get an extra phantom refresh
@@ -272,12 +265,10 @@ void MainGUI::refreshGUI(QString item){
   }
   //------XDG------
   if( doall || doeditor || (item == "xdg")){
-    qDebug() << "Update XDG tab";
     slotXdgTypeChanged();
   }
   //------SCRIPTS-----
   if( doall || doeditor || (item == "scripts")){
-    qDebug() << "Update Scripts tab";
     //Update the list of available scripts and determine if one needs to be read
     bool loadScript = FALSE;
     QStringList good = MODULE.existingScripts();
@@ -313,7 +304,6 @@ void MainGUI::refreshGUI(QString item){
   }
   //------EXTERNAL-LINKS------
   if( doall || doeditor || (item == "external-links")){
-    qDebug() << "Update external links tab";
     //nothing to make visible/invisible here
     //Load the external-links file
     ui->tree_el_view->clear();
@@ -344,7 +334,6 @@ void MainGUI::refreshGUI(QString item){
   }
   //------PBI BUILDER--------
   if( doall || (item == "pbibuild")){
-    qDebug() << "Update PBI Build tab";
     if(PBI_BUILDING_NOW.isEmpty()){
       //only change things if there is nothing building at the moment
       if(ui->text_build_log->toPlainText().isEmpty()){ ui->push_build_save->setEnabled(FALSE); }
@@ -354,7 +343,6 @@ void MainGUI::refreshGUI(QString item){
   }
   //------OVERALL SETTINGS------
   if( doall || doeditor ){
-    qDebug() << "Update extra settings";
     //Enable/disable the buttons that require the FreeBSD ports tree
     if( settings->check("isportsavailable") ){
       ui->push_change_makeport->setEnabled(TRUE);
@@ -372,7 +360,6 @@ void MainGUI::refreshGUI(QString item){
     //Set the default focus on the "load" button
     this->setFocus();
   }
-  qDebug() << "Finished updating GUI";
 }
 /*----------------------------------
    MENU OPTIONS
@@ -417,7 +404,7 @@ void MainGUI::on_actionFreeBSD_Ports_triggered(){
   QString port;
   if(!line_module->text().isEmpty()){
 	//Get the currently selected port
-	port = currentModule->readValue("makeport");
+	port = MODULE.text("PBI_MAKEPORT");
   }
   QString target_url = "http://www.freshports.org/" + port;
   qDebug() << "Opening URL:" << target_url;  
@@ -464,8 +451,10 @@ void MainGUI::on_actionNew_Module_triggered(){
       line_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
     }
   }
+  //Move to the pbi.conf tab
+  ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);
   //Refresh the UI
-  refreshGUI("all");
+  refreshGUI("pbiconf");
   delete dlg;
 }
 
@@ -477,7 +466,10 @@ void MainGUI::on_actionLoad_Module_triggered(){
     qDebug() << "Loaded module:"<<modSel;
     line_module->setText(MODULE.basepath().replace(QDir::homePath(),"~")); 
   }
-  refreshGUI("all");
+  //Move to the pbi.conf tab
+  ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);
+  //Refresh the UI
+  refreshGUI("pbiconf");
 }
 
 /*----------------------------------
@@ -526,93 +518,7 @@ void MainGUI::on_push_change_makeport_clicked(){
   ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
   ui->push_config_save->setEnabled(TRUE);
 }
-/*
-void MainGUI::on_push_change_progdir_clicked(){
-  //Prompt for a new directory
-  QString dirSel = QFileDialog::getExistingDirectory(this, tr("Select Package Directory"), QDir::homePath());
-  if(dirSel.isEmpty()){return;} //action cancelled or closed	
-  //Save the port info to the GUI
-  //ui->line_progdir->setText(dirSel);
-  ui->push_config_save->setEnabled(TRUE);
-}*/
 
-void MainGUI::slotAddMakeOption(QAction* act){
-  qDebug() << "Trying to add build option:" << act->text();
-  QString opt = act->text();
-  if(opt.isEmpty() ){ return; } //Do nothing if nothing selected
-  //Check whther the option is set or unset
-  QString typ = opt.section("_",0,0,QString::SectionSkipEmpty).toLower(); //get the type
-  opt = opt.section("_",1,50,QString::SectionSkipEmpty); //trim off the type of setting
-  QString chk = currentModule->readValue("makeport").section("/",-1);
-  bool isSet;
-  if(typ == "with"){chk.append("_SET"); isSet=TRUE;}
-  else if(typ=="without"){chk.append("_UNSET"); isSet=FALSE;}
-  else{ qDebug() << "Error: Unknown option type:"<<typ<<"option:"<<opt; return; }
-  //Now read the current option settings
-  QStringList curr; //= ui->edit_makeopts->toPlainText().split("\n"); //split according to lines
-  bool found = FALSE;
-  for(int i=0; i<curr.length(); i++){
-    if(curr[i].contains(chk) ){ //look for optionsNG framework
-      found = TRUE;	    
-      QStringList cOpts = curr[i].split(" ",QString::SkipEmptyParts);
-      if( !cOpts.contains(opt) ){
-	//Not found, add it to the end of the list
-	cOpts << opt;
-	curr[i] = cOpts.join(" ");
-      }
-    }else if(curr[i].contains(opt)){ //look for legacy options framework
-      QStringList cOpts = curr[i].split(" ",QString::SkipEmptyParts);
-      int index = cOpts.indexOf(opt);
-      if(index != -1){ //option currently set somehow
-	found = TRUE; 
-        if(isSet){ //option should be set
-          if( cOpts[index].contains("WITH_"+opt) ){} //Already set
-	  else if( cOpts[index].contains("WITHOUT_"+opt) ){ cOpts[index] = "WITH_"+opt+"=true"; }
-	  else if( curr[i].contains(chk.replace("_SET","_UNSET")) ){ cOpts.removeAt(index); found=FALSE;} //Remove the inverse option if it is set
-        }else{ //options should be unset
-          if( cOpts[index].contains("WITHOUT_"+opt) ){} //Already set
-	  else if( cOpts[index].contains("WITH_"+opt) ){ cOpts[index] = "WITHOUT_"+opt+"=true"; }
-	  else if( curr[i].contains(chk.replace("_UNSET","_SET")) ){ cOpts.removeAt(index); found=FALSE;} //Remove the inverse option if it is set
-	}
-        curr[i] = cOpts.join(" "); //put the line back together
-      }
-    } //end checking different options frameworks
-  } // end loop over lines
-  if(!found){
-    //Append the option to the end on a new line
-    curr << chk+"= "+opt;
-  }
-  //Now put the new options list back onto the GUI
-  //ui->edit_makeopts->setPlainText(curr.join("\n"));
-  ui->push_config_save->setEnabled(TRUE);
-}
-/*
-void MainGUI::on_push_addportbefore_clicked(){
-  if( !settings->check("isportsavailable") ){
-    //No ports tree available
-    QMessageBox::warning(this,tr("EasyPBI: No FreeBSD Ports"), tr("The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location."));
-  }
-  //Prompt for a new port
-  QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
-  if(portSel.isEmpty()){return;} //action cancelled or closed	
-  //Check if the port is valid
-  if( !isValidPort(portSel,TRUE) ){
-    return;
-  }
-  //Save the port info to the GUI
-  //if(ui->list_portbefore->count() == 1 && ui->list_portbefore->currentText().isEmpty() ){ ui->list_portbefore->clear(); }
-  //ui->list_portbefore->addItem(portSel.remove(settings->value("portsdir")+"/"));
-  ui->push_config_save->setEnabled(TRUE);
-}
-
-void MainGUI::on_push_rmportbefore_clicked(){
-  //int index = ui->list_portbefore->currentIndex();
-  //if(index != -1){
-    //ui->list_portbefore->removeItem(index);
-  //}
-  //ui->push_config_save->setEnabled(TRUE);
-}
-*/
 void MainGUI::on_push_addportafter_clicked(){
   if( !settings->check("isportsavailable") ){
     //No ports tree available
@@ -641,45 +547,37 @@ void MainGUI::on_push_rmportafter_clicked(){
 
 void MainGUI::on_push_config_save_clicked(){
   //Save the current settings to the backend structures
-    //global settings for all modules
-    currentModule->writeValue("progname",ui->line_progname->text());
-    currentModule->writeValue("progweb",ui->line_progweb->text());
-    currentModule->writeValue("progauthor",ui->line_progauthor->text());
-    currentModule->writeValue("progicon",ui->list_progicon->currentText());
-    if(ui->check_requiresroot->isChecked()){ currentModule->writeValue("requiresroot", "true"); }
-    else{ currentModule->writeValue("requiresroot","false"); }
-    //Module-dependant settings
-    bool newport = FALSE;
-    //if( radio_module_port->isChecked() ){ //FreeBSD port module
-	if(currentModule->readValue("makeport") != ui->line_makeport->text()){ newport=TRUE; }
-	currentModule->writeValue("makeport",ui->line_makeport->text());
-	//currentModule->writeValue("makeoptions",ui->edit_makeopts->toPlainText());
-	QString tmp;
-	//for(int i=0; i < ui->list_portbefore->count(); i++){
-	  //tmp.append(" "+ui->list_portbefore->itemText(i) );
-	//}
-	//currentModule->writeValue("makeportbefore",tmp.simplified());
-	tmp.clear();
-	for(int i=0; i < ui->list_portafter->count(); i++){
-	  tmp.append(" "+ui->list_portafter->itemText(i) );
-	}
-	currentModule->writeValue("makeportafter",tmp.simplified());
-	
-    /*}else{ //local sources module
-	//currentModule->writeValue("packagedir",ui->line_progdir->text());
-	currentModule->writeValue("progversion",ui->line_progversion->text());
-    }*/
+  //Text Values
+  MODULE.setText("PBI_PROGNAME", ui->line_progname->text());
+  MODULE.setText("PBI_PROGVERSION", ui->line_progversion->text());
+  MODULE.setText("PBI_PROGWEB", ui->line_progweb->text());
+  MODULE.setText("PBI_PROGAUTHOR", ui->line_progauthor->text());
+  MODULE.setText("PBI_LICENSE", ui->line_config_license->text());
+  MODULE.setText("PBI_TAGS", ui->line_repoTags->text());
+  MODULE.setText("PBI_CATEGORY", ui->line_repoCat->text());
+  MODULE.setText("PBI_ICONURL", ui->line_repoIconURL->text());
+  MODULE.setText("PBI_PROGTYPE", ui->line_repoType->text());
+  //True/False values
+  MODULE.setEnabled("PBI_REQUIRESROOT", ui->check_requiresroot->isChecked());
+  MODULE.setEnabled("PBI_AB_NOPKGBUILD", ui->check_config_nopkg->isChecked());
+  MODULE.setEnabled("PBI_AB_NOTMPFS", ui->check_config_notmpfs->isChecked());
+  //Combo Boxes
+  QStringList addports;
+  for(int i=0; i<ui->list_portafter->count(); i++){ addports << ui->list_portafter->itemText(i); }
+  MODULE.setText("PBI_MKPORTAFTER", addports.join("\n") );
+  MODULE.setText("PBI_PROGICON", ui->list_progicon->currentText() );
+  //Number values
+  MODULE.setNumber("PBI_BUILDKEY", ui->spin_repoBuildKey->value() );
+  MODULE.setNumber("PBI_AB_PRIORITY", ui->spin_repoPriority->value() );
+  MODULE.setNumber("PBI_PROGREVISION", ui->spin_repoRevision->value() );
+  
   //save the new settings to pbi.conf
-  bool ok = currentModule->writePBIconf();
+  bool ok = MODULE.saveConfig();
   if(!ok){
     //Display a warning that the file could not be saved
-    qDebug() << "Error: pbi.conf could not be written:" << currentModule->path()+"/pbi.conf";
     QMessageBox::warning(this,tr("EasyPBI Error"), tr("The PBI configuration file could not be saved. Please check your file permissions before trying again."));
-  }else if(newport){
-    //Refresh the port information if the main port changed
-    currentModule->readPortInformation(settings->value("portsdir")+"/"+ui->line_makeport->text());
-    refreshGUI("pbiconf");
-    ui->push_config_save->setEnabled(false); //make sure the save button goes inactive once saved
+    //re-load the current PBI.conf into the backend
+    MODULE.loadConfig();
   }else{
     ui->push_config_save->setEnabled(false); //make sure the save button goes inactive once saved
   }
@@ -794,7 +692,8 @@ void MainGUI::slotResourceScriptChanged(){
   -------------------------------------------------
 */
 void MainGUI::slotXdgTypeChanged(){
-  //Update the file list appropriately
+  XDGUPDATING=true;
+  //Update the file list appropriately	
   if(ui->radio_xdg_desktop->isChecked()){
     //update the files available
     ui->list_xdg_files->clear();
@@ -827,7 +726,13 @@ void MainGUI::slotXdgTypeChanged(){
   //Select the first file in the list if one is available
   if( ui->list_xdg_files->count() > 0){ ui->list_xdg_files->setCurrentRow(0); }
   //Update the program icon list for new entries
-  //QStringList icons = currentModule->currentIcons;
+  ui->list_xdg_icon->clear();
+  QStringList icons = MODULE.existingResources().filter(".png");
+  if(icons.length() > 0){
+      for(int i=0; i<icons.length(); i++){
+        ui->list_xdg_icon->addItem(QIcon(MODULE.basepath()+"/resources/"+icons[i]),icons[i]);
+      }	    
+  }
 
   //Update the buttons that only need a refresh when the type changes (such as menu's)
   //Available binaries pushbuttons
@@ -849,11 +754,13 @@ void MainGUI::slotXdgTypeChanged(){
       menu_validMenuCats.addAction(cats[i]);
     }
   }
+  XDGUPDATING=false;
   //Now update read the currently selected file
   slotXdgFileChanged();
 }
 
 void MainGUI::slotXdgFileChanged(){	
+  if(XDGUPDATING){ return; }
   bool clearUI =FALSE;
   if(ui->list_xdg_files->currentRow() == -1){ clearUI=TRUE; }
 
@@ -958,13 +865,18 @@ void MainGUI::slotAddBin(QAction* act){
 
 void MainGUI::on_push_xdg_remove_clicked(){
   //Figure out if a file is selected
-  if( ui->list_xdg_files->currentItem()->text().isEmpty() ){ return; }
+  QString desktopFile = ui->list_xdg_files->currentItem()->text();
+  if( desktopFile.isEmpty() ){ return; }
   //Now remove the file
   bool ok = FALSE;
   if( ui->radio_xdg_desktop->isChecked() ){
-    ok = currentModule->removeDesktop();
+    ok = MODULE.removeXdgDesktop(desktopFile);
   }else if( ui->radio_xdg_menu->isChecked() ){
-    ok = currentModule->removeMenu();
+    //Check for a MIME type to remove as well
+    ui->line_xdg_mimepatterns->setText(""); //make sure we remove any MIME file
+    MODULE.loadXdgMenu(desktopFile); //load the file's mimetype
+    checkMime(); //perform the removal if appropriate
+    ok = MODULE.removeXdgMenu(desktopFile);
   }
   //Now inform the user if there was an error
   if(!ok){
@@ -978,49 +890,41 @@ void MainGUI::on_push_xdg_remove_clicked(){
 void MainGUI::on_push_xdg_savechanges_clicked(){
   //save the current UI settings to the module structure then save the file
   bool ok = FALSE;
+  QString desktopFile = ui->list_xdg_files->currentItem()->text();
+  if(desktopFile.isEmpty()){ return; }
+  //Make sure the backend is currently set for this file
+  if( ui->radio_xdg_desktop->isChecked() ){ MODULE.loadXdgDesktop(desktopFile); }
+  else if(ui->radio_xdg_menu->isChecked() ){ MODULE.loadXdgMenu(desktopFile); }
+  //Save the values into the backend module structure
+  MODULE.setXdgText("Value", "1.0");
+  MODULE.setXdgText("Type", "Application");
+  MODULE.setXdgText("Name", ui->line_xdg_name->text());
+  MODULE.setXdgText("GenericName", ui->line_xdg_name->text().toLower());
+  MODULE.setXdgText("Exec", ModuleUtils::generateXdgExec(ui->line_xdg_exec->text(), ui->check_xdg_requiresroot->isChecked()) );
+  MODULE.setXdgText("Icon", ModuleUtils::generateXdgPath(ui->list_xdg_icon->currentText()) );
+  MODULE.setXdgText("Path", ModuleUtils::generateXdgPath("") );
+  MODULE.setXdgEnabled("Terminal",ui->check_xdg_terminal->isChecked());
+  MODULE.setXdgEnabled("NoDisplay",ui->check_xdg_nodisplay->isChecked());
+  MODULE.setXdgEnabled("StartupNotify", true);
   if( ui->radio_xdg_desktop->isChecked() ){
-    currentModule->writeValue("desktopname",ui->line_xdg_name->text());
-    currentModule->writeValue("desktopgenericname",ui->line_xdg_name->text().toLower());
-    currentModule->writeValue("desktopexec",ui->line_xdg_exec->text());
-    currentModule->writeValue("desktopicon",ui->list_xdg_icon->currentText());
-    QString checked = "false";
-    if(ui->check_xdg_terminal->isChecked()){ checked="true"; }
-    currentModule->writeValue("desktopterminal",checked);
-    checked = "false";
-    if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
-    currentModule->writeValue("desktopnodisplay",checked);
-    checked = "false";
-    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
-    currentModule->writeValue("desktoprequiresroot", checked);
+    //clear the menu entry values
+    MODULE.setXdgText("Categories", "");
+    MODULE.setXdgText("MimeType", "");
     //Now save the file
-    ok = currentModule->writeDesktop();
-    
+    ok = MODULE.saveXdgDesktop(desktopFile);
   }else if( ui->radio_xdg_menu->isChecked() ){
-    currentModule->writeValue("menuname",ui->line_xdg_name->text());
-    currentModule->writeValue("menugenericname",ui->line_xdg_name->text().toLower());
-    currentModule->writeValue("menuexec",ui->line_xdg_exec->text());
-    currentModule->writeValue("menuicon",ui->list_xdg_icon->currentText());
-    currentModule->writeValue("menucategories", ui->line_xdg_menu->text());
-    QString checked = "false";
-    if(ui->check_xdg_terminal->isChecked()){ checked="true"; }
-    currentModule->writeValue("menuterminal",checked);
-    checked = "false";
-    if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
-    currentModule->writeValue("menunodisplay",checked);
-    checked = "false";
-    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
-    currentModule->writeValue("menurequiresroot", checked);
+    //Setup the menu entry values
+    MODULE.setXdgText("Categories", ui->line_xdg_menu->text());
     //Setup the mime type associations as appropriate
     checkMime();
     //Now save the file
-    ok = currentModule->writeMenu();    
+    ok = MODULE.saveXdgMenu(desktopFile);    
   }
   //Now inform the user if there was an error
   if(!ok){
     QMessageBox::warning(this, tr("EasyPBI Error"), tr("Could not save the changes to the XDG entry.")+"\n"+tr("Check the file permissions and try again") );
   }
   //Now refresh the GUI
-  //refreshGUI("xdg"); //refresh the entire tab
   slotXdgFileChanged(); //only update the proper half of the tab
 }
 
@@ -1031,12 +935,12 @@ void MainGUI::on_push_xdg_savenew_clicked(){
   QStringList cFiles;
   if(ui->radio_xdg_desktop->isChecked() ){
     filename = ui->line_xdg_exec->text().section("/",-1);
-    cFiles = currentModule->filesAvailable("xdg-desktop").replaceInStrings(".desktop","");
+    cFiles = MODULE.listXdgDesktopFiles().replaceInStrings(".desktop","");
   }else if(ui->radio_xdg_menu->isChecked() ){
     filename = ui->line_xdg_exec->text().section("/",-1);
-    cFiles = currentModule->filesAvailable("xdg-menu").replaceInStrings(".desktop","");
+    cFiles = MODULE.listXdgMenuFiles().replaceInStrings(".desktop","");
   }
-  if(filename.isEmpty()){ return;}
+  if(filename.isEmpty()){ return; }
   
   if(cFiles.indexOf(filename) != -1){
     int num = 1;
@@ -1045,49 +949,37 @@ void MainGUI::on_push_xdg_savenew_clicked(){
   }
   //save the current UI settings to the module structure then save the file
   bool ok = FALSE;
+  if(filename.isEmpty()){ return; }
+  //Make sure the backend structure is currently empty
+  MODULE.clearXdgData();
+  //Save the values into the backend module structure
+  MODULE.setXdgText("Value", "1.0");
+  MODULE.setXdgText("Type", "Application");
+  MODULE.setXdgText("Name", ui->line_xdg_name->text());
+  MODULE.setXdgText("GenericName", ui->line_xdg_name->text().toLower());
+  MODULE.setXdgText("Exec", ModuleUtils::generateXdgExec(ui->line_xdg_exec->text(), ui->check_xdg_requiresroot->isChecked()) );
+  MODULE.setXdgText("Icon", ModuleUtils::generateXdgPath(ui->list_xdg_icon->currentText()) );
+  MODULE.setXdgText("Path", ModuleUtils::generateXdgPath("") );
+  MODULE.setXdgEnabled("Terminal",ui->check_xdg_terminal->isChecked());
+  MODULE.setXdgEnabled("NoDisplay",ui->check_xdg_nodisplay->isChecked());
+  MODULE.setXdgEnabled("StartupNotify", true);
   if( ui->radio_xdg_desktop->isChecked() ){
-    currentModule->loadDesktop(filename+".desktop"); //get the new file ready
-    currentModule->writeValue("desktopname",ui->line_xdg_name->text());
-    currentModule->writeValue("desktopgenericname",ui->line_xdg_name->text().toLower());
-    currentModule->writeValue("desktopexec",ui->line_xdg_exec->text());
-    currentModule->writeValue("desktopicon",ui->list_xdg_icon->currentText());
-    QString checked = "false";
-    if(ui->check_xdg_terminal->isChecked()){ checked="true"; }
-    currentModule->writeValue("desktopterminal",checked);
-    checked = "false";
-    if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
-    currentModule->writeValue("desktopnodisplay",checked);
-    checked = "false";
-    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
-    currentModule->writeValue("desktoprequiresroot", checked);
+    //clear the menu entry values
+    MODULE.setXdgText("Categories", "");
+    MODULE.setXdgText("MimeType", "");
     //Now save the file
-    ok = currentModule->writeDesktop();
-    
+    ok = MODULE.saveXdgDesktop(filename);
   }else if( ui->radio_xdg_menu->isChecked() ){
-    currentModule->loadMenu(filename+".desktop"); //get the new file ready
-    //Update the MIME associations
+    //Setup the menu entry values
+    MODULE.setXdgText("Categories", ui->line_xdg_menu->text());
+    //Setup the mime type associations as appropriate
     checkMime();
-    //Save the MENU values
-    currentModule->writeValue("menuname",ui->line_xdg_name->text());
-    currentModule->writeValue("menugenericname",ui->line_xdg_name->text().toLower());
-    currentModule->writeValue("menuexec",ui->line_xdg_exec->text());
-    currentModule->writeValue("menuicon",ui->list_xdg_icon->currentText());
-    currentModule->writeValue("menucategories", ui->line_xdg_menu->text());
-    QString checked = "false";
-    if(ui->check_xdg_terminal->isChecked()){ checked="true"; }
-    currentModule->writeValue("menuterminal",checked);
-    checked = "false";
-    if(ui->check_xdg_nodisplay->isChecked()){ checked="true"; }
-    currentModule->writeValue("menunodisplay",checked);
-    checked = "false";
-    if(ui->check_xdg_requiresroot->isChecked()){ checked="true"; }
-    currentModule->writeValue("menurequiresroot", checked);
     //Now save the file
-    ok = currentModule->writeMenu();    
+    ok = MODULE.saveXdgMenu(filename);    
   }
   //Now inform the user if there was an error
   if(!ok){
-    QMessageBox::warning(this, tr("EasyPBI Error"), tr("Could not save the changes to the XDG entry.")+"\n"+tr("Check the file permissions and try again") );
+    QMessageBox::warning(this, tr("EasyPBI Error"), tr("Could not create the XDG entry.")+"\n"+tr("Check the file permissions and try again") );
   }
   //Now refresh the GUI
   refreshGUI("xdg");
@@ -1108,37 +1000,52 @@ void MainGUI::checkMime(){
       // and update/create the MIME file appropriately
       // The MENU mime type will also be appropriately set
 	
-    QString menumimetype = currentModule->readValue("menumimetype");
-    QString menumimepat = ui->line_xdg_mimepatterns->text();
-    QString cmimetype = currentModule->readValue("mimetype");
-    QString cmimepat = currentModule->readValue("mimepatterns");
-    if( menumimepat != cmimepat ){ //something different about the mime patterns
-	//  ---- Change the MIME file as well ----
-	  //Delete MIME file
-	if(menumimepat.isEmpty()){
-	  currentModule->removeMime();
-	  currentModule->writeValue("menumimetype",""); //set MENU value
-		
-	  //Create new MIME file
-	}else if( cmimetype.isEmpty() || (ui->line_xdg_exec->text() != currentModule->readValue("menuexec")) ){
-	  QString exec = ui->line_xdg_exec->text().simplified();
-	  menumimetype = "application/x-"+exec;
-	  QString newfile = exec+"-xdg.xml";
-	  currentModule->loadMime(newfile); //setup structure
-	  currentModule->writeValue("mimetype",menumimetype); //set mime type
-	  currentModule->writeValue("mimepatterns",menumimepat); //set mime patterns
-	  currentModule->writeMime(); //save the MIME file (using default mime info)
-		
-	  currentModule->writeValue("menumimetype",menumimetype); //set MENU value
-		
-	  //Overwrite existing MIME file
-	}else{
-	  currentModule->writeValue("mimepatterns", menumimepat); //overwrite mime patterns
-	  currentModule->writeMime(); //overwrite the MIME file
-		
-	  currentModule->writeValue("menumimetype",cmimetype); //set MENU value
+    //Get the current/desired values
+    QString newPatterns = ui->line_xdg_mimepatterns->text().simplified();
+    QString cmimetype = MODULE.xdgText("MimeType"); //in the desktop/menu file
+	
+    //Determine the action necessary
+    int stat = 0; //do nothing by default
+    if( newPatterns.isEmpty() && !cmimetype.isEmpty() ){ stat = 1; } //remove old mime file
+    else if( !newPatterns.isEmpty() && !cmimetype.isEmpty() ){stat = 2; } //update mime file
+    else if( !newPatterns.isEmpty() && cmimetype.isEmpty() ){stat = 3; } //new mime file
+    qDebug() << "CheckMime:" << QString::number(stat);
+    //Now perform the actions as appropriate
+    MODULE.clearMimeData(); //Make sure this backend is currently empty    
+    QString fileName;
+    if(stat == 0){ return; } //no action needed
+    else if(stat == 1 || stat == 2){ //need to find current MIME file
+      QStringList MF = MODULE.listMimeFiles();
+      for(int i=0; i<MF.length(); i++){
+        MODULE.loadMimeFile(MF[i]);
+	if(MODULE.mimeText("type") == cmimetype){
+	  if(stat == 1){ //remove old mime file
+	    MODULE.removeMimeFile(MF[i]);
+	    MODULE.clearMimeData();
+	    MODULE.setXdgText("MimeType","");
+	    return; //done now
+	  }else{ //stat ==2, update mime file
+	    //Check if there is anything that actually needs to be done
+	    if( MODULE.mimeText("pattern") == newPatterns ){ return; } //nothing to change
+	    fileName = MF[i]; //save this filename for later use
+          }
+	  break; //stop here, the file was already found and loaded
 	}
+      }
+    }else{
+      QString bin = ui->line_xdg_exec->text().section(" ",0,0,QString::SectionSkipEmpty).simplified();
+      if(bin.isEmpty()){ return; } //should never hit this - but just to make sure
+      //Generate a new mimetype
+      cmimetype = "application/x-"+bin;
+      MODULE.setXdgText("MimeType", cmimetype);
+      //Generate a new filename for this mime file
+      fileName = bin+"-xdg.xml";
     }
+    //Now need to save the current values into the file (new or old, depending on earlier)
+    MODULE.setMimeText("type", cmimetype);
+    MODULE.setMimeText("pattern", newPatterns);
+    //don't worry about xmlns - it will be auto generated if not set when creating the file, otherwise will use the current setting
+    MODULE.saveMimeFile(fileName);
 }
 
 void MainGUI::slotXDGOptionChanged(QString tmp){
@@ -1170,8 +1077,7 @@ void MainGUI::on_push_scripts_remove_clicked(){
   //Get the current file
   QString filename = ui->list_scripts_file->currentText();
   //Remove the file
-  QDir dir(currentModule->path()+"/scripts");
-  dir.remove(filename);
+  MODULE.removeScript(filename);
   //refresh the UI
   refreshGUI("scripts");
 }
@@ -1180,11 +1086,9 @@ void MainGUI::on_push_scripts_save_clicked(){
   //Get the current file text
   QStringList contents = ui->text_scripts_edit->toPlainText().split("\n");
   //get the current file
-  QString dir = currentModule->path() + "/scripts/";
-  bool ok = ModBuild::createDir(dir); //make sure the scripts directory exists
   QString filename = ui->list_scripts_file->currentText();
   //Save the file
-  ok = ModBuild::createFile(dir+filename,contents);
+  bool ok = MODULE.writeScript(filename,contents);
   //display a warning if error
   if(!ok){
     QMessageBox::warning(this,tr("Error Saving File"), tr("Could not save the script")+"\n"+tr("Please check the file permissions and try again") );
@@ -1207,10 +1111,21 @@ void MainGUI::on_push_el_add_clicked(){
   QString opts = ui->line_el_filetype->text();
   //check for valid inputs
   if( file.isEmpty() || linkto.isEmpty() || opts.isEmpty() ){ return; }
-  //Add the link
-  currentModule->addExternalLink(file, linkto, opts.split(",") );
-  //Save the file
-  currentModule->writeExternalLinks();
+  QStringList bins, links, types;
+  MODULE.loadExternalLinks(bins,links,types);
+  //Check for an identical link to just update
+  bool found = false;
+  for(int i=0; i<bins.length(); i++){
+    if(bins[i] == file && links[i]==linkto){
+      types[i] = opts;
+      found = true;
+      break;
+    }
+  }
+  if(!found){
+    bins << file; links << linkto; types << opts;
+  }
+  MODULE.saveExternalLinks(bins,links,types);
   //Refresh the UI
   refreshGUI("external-links");
 }
@@ -1221,10 +1136,18 @@ void MainGUI::on_push_el_remove_clicked(){
   if(line->columnCount() != 3){ return; }
   QString file = line->text(0);
   QString linkto = line->text(1);
-  //Remove the link
-  currentModule->removeExternalLink(file,linkto);
-  //Save the file
-  currentModule->writeExternalLinks();
+  //check for valid inputs
+  if( file.isEmpty() || linkto.isEmpty() ){ return; }
+  QStringList bins, links, types;
+  MODULE.loadExternalLinks(bins,links,types);
+  //Check for an identical link to remove
+  for(int i=0; i<bins.length(); i++){
+    if(bins[i] == file && links[i]==linkto){
+      bins.removeAt(i); links.removeAt(i); types.removeAt(i);
+      break;
+    }
+  }
+  MODULE.saveExternalLinks(bins,links,types);
   //Refresh the UI
   refreshGUI("external-links");
 }
@@ -1269,11 +1192,6 @@ void MainGUI::slotELSetType(QAction* act){
   //Add the new types to the UI
   ui->line_el_filetype->setText( types.join(",") );
 }
-/*------------------------------------------------
-   FREENAS PLUGINS EDITOR OPTIONS
-  -------------------------------------------------
-*/
-
 
 /*------------------------------------------------
    PBI BUILDER OPTIONS
@@ -1285,7 +1203,7 @@ void MainGUI::on_push_build_start_clicked(){
   QString outdir = settings->value("pbidir");
   if (outdir.isEmpty() ){gostatus=FALSE;}
   //QString sigfile = "";ui->linePBIDigSigFile->text(); //this one can be empty
-  QString modDir = currentModule->path();
+  QString modDir = MODULE.basepath();
   if(modDir.isEmpty()){gostatus=FALSE;}
   if(!gostatus){
     QMessageBox::warning(this,tr("Error"),tr("Invalid PBI Settings"));
@@ -1360,7 +1278,7 @@ void MainGUI::on_push_build_start_clicked(){
   ui->check_build_32->setEnabled(FALSE);
   ui->push_build_start->setEnabled(FALSE); //disable the button so they do not start more than 1 build at a time
   ui->text_build_log->clear(); //clear the display in case this is not the first run
-  ui->line_build_module->setText( currentModule->path().replace(QDir::homePath(), "~") );
+  ui->line_build_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
   ui->line_build_outputdir->setText(settings->value("pbidir"));
   //Setup Process connections
   p = new QProcess(this);
@@ -1373,7 +1291,7 @@ void MainGUI::on_push_build_start_clicked(){
   connect(p,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotPBIbuildFinished(int,QProcess::ExitStatus)) );
   connect(p,SIGNAL(error(QProcess::ProcessError)),this,SLOT(slotBuildError(QProcess::ProcessError)) );
   //Setup the flag for the finishing checks
-  PBI_BUILDING_NOW=outdir+":::"+currentModule->readValue("progname");
+  PBI_BUILDING_NOW=outdir+":::"+MODULE.text("PBI_PROGNAME").remove(" ").toLower();
   //Start the Process
   qDebug() << "Starting the PBI build process...";
   //ui->toolBox->setItemText(0,tr("PBI Builder (Working)"));
