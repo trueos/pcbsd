@@ -3,9 +3,10 @@ kern.ipc.shmseg=1024
 kern.ipc.shmmni=1024
 kern.maxproc=10000
 
-# Accept the firmware license
+# Accept the wifi firmware license
 legal.intel_ipw.license_ack=1
 legal.intel_iwi.license_ack=1
+legal.realtek.license_ack=1
 
 # Load File-System Support
 opensolaris_load="YES"
