@@ -77,6 +77,8 @@ private slots:
     void slotNGItemChanged();
     void slotNGReadInfo();
 
+    void slotReadEventPipe();
+
 private:
     // Generic pkg process handlers
     void prepPkgProcess();
@@ -154,6 +156,9 @@ private:
     QMenu *popup;
     dialogInfo *dIB;
     QActionGroup *viewGroup;
+
+    // Event pipe process
+    QProcess *eP;
 
 signals:
 

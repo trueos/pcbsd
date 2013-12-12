@@ -355,11 +355,24 @@ void mainWin::startPkgProcess() {
   } 
 
   qDebug() << cmd + " " + flags.join(" ");
+
+  // Create the EVENT_PIPE
+  if ( wDir.isEmpty() )
+    system("mkfifo /tmp/pkg-fifo");
+  else
+    system("mkfifo " + wDir.toLatin1() + "/tmp/pkg-fifo");
+
+  // Open and connect the EVENT_PIPE
+  eP = new QProcess();
+  connect( eP, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadEventPipe()) );
+  eP->start(QString("tail"), QStringList() << "-f" << wDir + "/tmp/pkg-fifo");
+  qDebug() << "Starting EVENT_PIPE" << wDir + "/tmp/pkg-fifo";
   
   // Setup the first process
   uProc = new QProcess();
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert("PCFETCHGUI", "YES");
+  env.insert("EVENT_PIPE", "/tmp/pkg-fifo");
   uProc->setProcessEnvironment(env);
   uProc->setProcessChannelMode(QProcess::MergedChannels);
 
@@ -529,6 +542,11 @@ void mainWin::slotPkgDone() {
 
   if ( uProc->exitCode() != 0 )
     pkgHasFailed=true;
+
+  // Close the event pipe
+  eP->kill();
+  qDebug() << "Stopping EVENT_PIPE";
+  system("rm " + wDir.toLatin1() + "/tmp/pkg-fifo");
 
   // Run the next command on the stack if necessary
   if (  pkgCmdList.size() > 1 ) {
@@ -1477,3 +1495,22 @@ void mainWin::closeEvent(QCloseEvent *event) {
   }
 }
 
+
+void mainWin::slotReadEventPipe()
+{
+   QString line;
+
+   while (eP->canReadLine()) {
+     line = eP->readLine().simplified();
+     qDebug() << line;
+
+     // No JSON in Qt4, once we move to Qt5, replace this
+     // with the new JSON parser
+     if ( line.indexOf("\"msg") != -1 ) {
+          line.remove(0, line.indexOf("\"msg") + 8);
+          line.truncate(line.lastIndexOf("\""));
+	  qDebug() << line;
+	  textStatus->setText(line);
+     }
+   }
+}
