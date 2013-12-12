@@ -372,7 +372,12 @@ void mainWin::startPkgProcess() {
   uProc = new QProcess();
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert("PCFETCHGUI", "YES");
-  env.insert("EVENT_PIPE", "/tmp/pkg-fifo");
+
+  // KPM 12-12-2013
+  // EVENT_PIPE causes segfaults in pkgng 1.2.3 :(
+  // Re-enable this when its fixed upstream
+  //env.insert("EVENT_PIPE", "/tmp/pkg-fifo");
+
   uProc->setProcessEnvironment(env);
   uProc->setProcessChannelMode(QProcess::MergedChannels);
 
@@ -1498,19 +1503,45 @@ void mainWin::closeEvent(QCloseEvent *event) {
 
 void mainWin::slotReadEventPipe()
 {
-   QString line;
+   QString line, tmp, file, dl, tot;
 
    while (eP->canReadLine()) {
      line = eP->readLine().simplified();
      qDebug() << line;
 
-     // No JSON in Qt4, once we move to Qt5, replace this
+     // KPM!!
+     // TODO 12-12-2013
+     // No JSON in Qt4, once we move to Qt5, replace this hack
      // with the new JSON parser
+
+     // Look for any "msg" lines
      if ( line.indexOf("\"msg") != -1 ) {
           line.remove(0, line.indexOf("\"msg") + 8);
           line.truncate(line.lastIndexOf("\""));
 	  qDebug() << line;
 	  textStatus->setText(line);
+	  continue;
      }
-   }
+
+     // Look for a download status update
+     if ( line.indexOf("\"INFO_FETCH") != -1 && line.indexOf("\"url\"") != -1 ) {
+          line.remove(0, line.indexOf("\"url") + 8);
+          line.truncate(line.lastIndexOf("}"));
+
+          // Get the file basename
+          file = line;
+          file.truncate(line.indexOf("\""));
+          QFileInfo tFile;
+          tFile.setFile(file);
+          file = tFile.baseName();
+
+          // Get the download / total
+          dl = line.section(":", 2, 2).section(",", 0, 0);
+          tot = line.section(":", 3, 3).section("}", 0, 0);
+
+          // Set the status update
+	  textStatus->setText(tr("Downloading") + " " + file + " (" + dl + "/" + tot + ")" );
+     }
+
+   } // End of while canReadLine()
 }
