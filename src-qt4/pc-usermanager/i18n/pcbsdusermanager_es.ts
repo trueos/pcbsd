@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation>Si usted sitúa el Directorio Personal fuera de &apos;/home/&apos; podrían producirse incompatibilidades con algunos programas. NO SE RECOMIENDA</translation>
+        <translation>Situar el Directorio Personal fuera de &apos;/home/&apos; podría producir incompatibilidades con algunos programas. NO SE RECOMIENDA</translation>
     </message>
     <message>
         <source>- The &apos;Home Directory&apos; field has not been filled in.</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation>- Situando el Directorio Personal fuera de &apos;/home/&apos; podría provocar incompatibilidades con algunos programas y NO SE RECOMIENDA.</translation>
+        <translation>- Situar el Directorio Personal fuera de &apos;/home/&apos; podría producir incompatibilidades con algunos programas. NO SE RECOMIENDA</translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>

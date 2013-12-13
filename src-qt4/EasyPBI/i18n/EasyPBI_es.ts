@@ -369,7 +369,7 @@
     </message>
     <message>
         <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>OPCIONAL: Construir un PBI de 32-bit en lugar de el regular de 64-bit</translation>
+        <translation>OPCIONAL: Construir un PBI de 32-bit en lugar del estándar de 64-bit</translation>
     </message>
     <message>
         <source>Build 32-bit</source>
@@ -549,7 +549,7 @@
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Seleccione Puerto</translation>
+        <translation>Seleccione el Puerto</translation>
     </message>
     <message>
         <source>EasyPBI: Invalid Port</source>
@@ -637,7 +637,7 @@
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">Error de compilación PBI</translation>
+        <translation>Error de construcción del PBI</translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
@@ -685,13 +685,11 @@
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Se requiere nivel de Administrador (Root)            </translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Actualizar el Módulo            </translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -716,43 +714,35 @@
     </message>
     <message>
         <source>PBI Builder</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Constructor del PBI          </translation>
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilice el módulo actual para construir un PBI</translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Editor de Módulos            </translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visualizar y editar el módulo PBI actual            </translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Información de Construcción         </translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>El directorio actual será empaquetado dentro de un PBI (debe contener todo lo necesario para ejecutar el programa)         </translation>
     </message>
     <message>
         <source>Package Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Directorio del Paquete           </translation>
     </message>
     <message>
         <source>Select a directory to be packaged into a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seleccione un directorio para empaquetarlo en un PBI          </translation>
     </message>
     <message>
         <source>Select</source>
@@ -760,18 +750,15 @@
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Puerto principal de FreeBSD            </translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seleccione un puerto FREEBSD          </translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cambiar de puerto</translation>
     </message>
     <message>
         <source>Port Build Options</source>

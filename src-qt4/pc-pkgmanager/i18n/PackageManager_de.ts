@@ -266,5 +266,9 @@
         <source>Unable to check for package updates!</source>
         <translation>Kann nicht auf Paket-Aktualisierungen prüfen!</translation>
     </message>
+    <message>
+        <source>Downloading</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

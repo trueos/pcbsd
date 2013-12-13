@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>Cambiar entre el diseño de EE.UU. y el diseño de usuario seleccionado</translation>
+        <translation>Cambiar entre la disposición de EE.UU. y la seleccionada por el usuario</translation>
     </message>
     <message>
         <source>&amp;Back</source>
