@@ -59,15 +59,15 @@ QStringList Backend::getPkgList(){
 
 QStringList Backend::getPkgInfo(QString pkgname){
   //Function to query the package repository and pull down information about a particular package
-  //Output: <name>, <port>, <maintainer>, <website>
-  QString cmd = "pkg rquery \"%n\\n%o\\n%m\\n%w\" "+pkgname;
+  //Output: <name>, <version>, <website>, <license>
+  QString cmd = "pkg rquery \"%n\\n%v\\n%w\\n%L\" "+pkgname;
   QStringList out = Backend::getCmdOutput(cmd);
   return out;
 }
 
 QStringList Backend::getPkgOpts(QString pkgname){
   //Function to query the package repository and pull down information about a particular package
-  //Output: <name>, <port>, <maintainer>, <website>
+  //Output: <option>=<on/off>
   QString cmd = "pkg rquery \"%Ok=%Ov\" "+pkgname;
   QStringList out = Backend::getCmdOutput(cmd);
   return out;

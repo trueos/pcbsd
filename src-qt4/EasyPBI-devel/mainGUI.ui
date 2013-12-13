@@ -590,6 +590,9 @@
                       <property name="text">
                        <string>...</string>
                       </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::InstantPopup</enum>
+                      </property>
                      </widget>
                     </item>
                    </layout>
@@ -613,6 +616,9 @@
                      <widget class="QToolButton" name="tool_repoType">
                       <property name="text">
                        <string>...</string>
+                      </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::InstantPopup</enum>
                       </property>
                      </widget>
                     </item>

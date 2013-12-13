@@ -1,5 +1,8 @@
 #include "ModuleUtils.h"
 
+// =====================
+//    VALID/RECOMMENDATIONS
+// =====================
 QStringList ModuleUtils::validXdgCategories(){
   QStringList out;
   out << "AudioVideo"<<"Development"<<"Education"<<"Game"<<"Graphics"<<"Network"<<"Office"<<"Science"<<"Settings"<<"System"<<"Utility";
@@ -37,6 +40,83 @@ QString ModuleUtils::recommendedXdgCategory(QString portCategory){
   return mc;	
 }
 
+QStringList ModuleUtils::validExternalLinkTypes(){
+  QStringList out;
+  out << "binary" << "linux" << "keep" << "replace" << "nocrash";
+  return out;
+}
+
+QString ModuleUtils::addExternalLinkType(QString current, QString newtype){
+  QStringList types = current.remove(" ").split(",");
+  bool ok = false;
+  for(int i=0; i<types.length(); i++){
+    //Check for special cases
+    if( (types[i] == "keep") && (newtype=="replace") ){
+      types[i] = newtype;
+      ok = true;
+      break;
+    }else if( (types[i] == "replace") && (newtype=="keep") ){
+      types[i] = newtype;
+      ok = true;
+      break;
+    }else if( (types[i]=="binary") && (newtype=="linux") ){
+      types[i] = newtype;
+      ok = true;
+      break;
+    }else if( (types[i]=="linux") && (newtype=="binary") ){
+      types[i] = newtype;
+      ok = true;
+      break;
+    }else if( types[i] == newtype ){
+      ok=true;
+      break;
+    }
+  }
+  if(!ok){ types << newtype; } //append the type to the list
+  return types.join(",");
+}
+
+QStringList ModuleUtils::validRepoCategories(){
+  QStringList out;
+  out << "Accessibility" << "Archivers" << "Astronomy" << "Audio" << "Benchmarks" << "Biology" \
+	<< "CAD" << "Communications" << "Converters" << "Databases" << "Desktop Utilities" \
+	<< "Development" << "Editors" << "Emulators" << "File Transfer" << "Finance" \
+	<< "Games" << "Graphics" << "IRC" << "Japanese" << "Java" << "Languages" \
+	<< "Mail" << "Math" << "Miscellaneous" << "Multimedia" << "Network" << "Network - IM"  \
+	<< "Network - Management" << "Network - P2P" << "News" << "Non-Port" << "Polish"  \
+	<< "Print" << "Science" << "Security" << "Shells" << "System Utilities" << "Text Processing" \
+	<< "Ports - Management" << "Web" << "X11" << "X11 - Clocks" << "X11 - File Managers"  \
+	<< "X11 - Fonts" << "X11 - Toolkits" << "X11 - Window Managers";
+  return out;
+}
+
+QString ModuleUtils::recommendedRepoCategory(QString portCategory){
+  QStringList cat = ModuleUtils::validRepoCategories();
+  QStringList pcat;  //WARNING: Make sure these correspond exactly to the "valid" categories above
+  pcat << "accessibility" << "archivers" << "astro" << "audio" << "benchmarks" << "biology" \
+	<< "cad" << "comms" << "converters" << "databases" << "deskutils" \
+	<< "devel" << "editors" << "emulators" << "ftp" << "finance" \
+	<< "games" << "graphics" << "irc" << "japanese" << "java" << "lang" \
+	<< "mail" << "math" << "misc" << "multimedia" << "net" << "net-im" \
+	<< "net-mgmt" << "net-p2p" << "news" << "nonport" << "polish" \
+	<< "print" << "science" << "security" << "shells" << "sysutils" << "textproc" \
+	<< "ports-mgmt" << "www" << "x11" << "x11-clocks" << "x11-fm" \
+	<< "x11-fonts" << "x11-toolkits" << "x11-wm";
+  int index = pcat.indexOf(portCategory.toLower());
+  if( index < 0 || index >= cat.length() ) { index = pcat.indexOf("nonport"); } 
+  return cat[index];
+}
+
+QStringList ModuleUtils::validRepoTypes(){
+  QStringList out;
+  out << "Graphical" << "Text" << "Server";
+  return out;
+}
+
+
+// =======================
+//     XDG SIMPLIFICATIONS
+// =======================
 bool ModuleUtils::xdgExecUsesRoot(QString exec){
   QString first = exec.section(" ",0,0,QString::SectionSkipEmpty);
   return ( (first == "pc-su") || first.contains("sudo") );

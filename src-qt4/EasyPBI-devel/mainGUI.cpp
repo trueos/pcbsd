@@ -15,17 +15,17 @@ MainGUI::MainGUI(QWidget *parent) :
 	
        //Setup Initial state of GUI objects and connect signal/slots
        ui->setupUi(this);  //load the mainGUI.ui file
+	XDGUPDATING=false;
 	// Create the config class
 	settings = new Config();
 	//Setup the Menu items
 	ui->actionExit->setIcon(Backend::icon("close"));
 	ui->actionRefresh_Module->setIcon(Backend::icon("refresh"));
 	//Setup the pushbutton menu lists
-	menu_elOpts.addAction("binary");
-	menu_elOpts.addAction("linux");
-	menu_elOpts.addAction("keep");
-	menu_elOpts.addAction("replace");
-	menu_elOpts.addAction("nocrash");
+	QStringList tmp = ModuleUtils::validExternalLinkTypes();
+	for(int i=0; i<tmp.length(); i++){ menu_elOpts.addAction(tmp[i]); }
+	tmp = ModuleUtils::validRepoTypes();
+	for(int i=0; i<tmp.length(); i++){ menu_validRepoTypes.addAction(tmp[i]); }
 	//Setup Toolbar
 	ui->actionNew_Module->setIcon(Backend::icon("new"));
 	ui->actionLoad_Module->setIcon(Backend::icon("load"));
@@ -40,6 +40,12 @@ MainGUI::MainGUI(QWidget *parent) :
 	// -- pbi.conf tab --
 	ui->push_change_makeport->setIcon(Backend::icon("file"));
 	ui->push_config_save->setIcon(Backend::icon("save"));
+	ui->tool_repoType->setIcon(Backend::icon("left"));
+	  ui->tool_repoType->setMenu(&menu_validRepoTypes);
+	  connect(&menu_validRepoTypes, SIGNAL(triggered(QAction*)), this, SLOT(slotSetRepoType(QAction*)) );
+	ui->tool_repoCat->setIcon(Backend::icon("left"));
+	  ui->tool_repoCat->setMenu(&menu_validRepoCats);
+	  connect(&menu_validRepoCats, SIGNAL(triggered(QAction*)), this, SLOT(slotSetRepoCat(QAction*)) );
 	// -- resources tab --
 	ui->push_resources_savewrapper->setIcon(Backend::icon("save"));
 	connect(ui->listw_resources, SIGNAL(itemSelectionChanged()), this, SLOT(slotResourceChanged()) );
@@ -51,8 +57,8 @@ MainGUI::MainGUI(QWidget *parent) :
 	ui->push_xdg_refresh->setIcon(Backend::icon("refresh"));
 	connect(ui->push_xdg_refresh, SIGNAL(clicked()), this, SLOT(slotXdgTypeChanged()) );
 	ui->push_xdg_exec->setIcon(Backend::icon("left"));
-	ui->push_xdg_exec->setMenu(&menu_bins);
-	connect(&menu_bins, SIGNAL(triggered(QAction*)), this, SLOT(slotAddBin(QAction*)) );
+	//ui->push_xdg_exec->setMenu(&menu_bins);
+	//connect(&menu_bins, SIGNAL(triggered(QAction*)), this, SLOT(slotAddBin(QAction*)) );
 	ui->push_xdg_savechanges->setIcon(Backend::icon("save"));
 	ui->push_xdg_menu->setIcon(Backend::icon("left"));
 	ui->push_xdg_menu->setMenu(&menu_validMenuCats);
@@ -66,8 +72,8 @@ MainGUI::MainGUI(QWidget *parent) :
 	connect(ui->list_scripts_file, SIGNAL(currentIndexChanged(int)), this, SLOT(slotScriptChanged(int)) );
 	// -- External links tab --
 	ui->push_el_file->setIcon(Backend::icon("left"));
-	ui->push_el_file->setMenu(&menu_el_bins);
-	connect(&menu_el_bins,SIGNAL(triggered(QAction*)),this,SLOT(slotELSetFile(QAction*)) );
+	//ui->push_el_file->setMenu(&menu_el_bins);
+	//connect(&menu_el_bins,SIGNAL(triggered(QAction*)),this,SLOT(slotELSetFile(QAction*)) );
 	ui->push_el_filetype->setIcon(Backend::icon("left"));
 	ui->push_el_filetype->setMenu(&menu_elOpts);
 	connect(&menu_elOpts,SIGNAL(triggered(QAction*)),this,SLOT(slotELSetType(QAction*)) );
@@ -163,20 +169,6 @@ void MainGUI::SetupDefaults(){
     updateConfigVisibility(); //on first run, always need to do this manually
 }
 
-/*bool MainGUI::isValidPort(QString pPath, bool allowOverride){
-  bool ok = FALSE;
-  if( QFile::exists(pPath) && QFile::exists(pPath+"/Makefile") && QFile::exists(pPath+"/distinfo") ){
-    ok = TRUE;
-  }
-  //Display a warning message
-  if(allowOverride){
-    ok = (QMessageBox::Apply == QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected does not appear to be a valid FreeBSD port.")+"\n\n"+tr("Do you wish to continue using it anyway?"), QMessageBox::Apply | QMessageBox::Cancel, QMessageBox::Cancel) ); 
-  }else{
-    QMessageBox::warning(this,tr("EasyPBI: Invalid Port"), tr("The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo."));
-  }
-  return ok;
-}*/
-
 void MainGUI::updateConfigVisibility(){
   //Update the group visibility for the pbi.conf tab
   ui->frame_pkgFix->setVisible(ui->group_config_overrides->isChecked());
@@ -246,6 +238,14 @@ void MainGUI::refreshGUI(QString item){
     }else{
       ui->list_progicon->addItem( MODULE.text("PBI_PROGICON") );
     }
+    //Update the available/recommended repo categories
+    menu_validRepoCats.clear();
+    QStringList tmp = ModuleUtils::validRepoCategories();
+    QString recCat = ModuleUtils::recommendedRepoCategory(MODULE.text("PBI_MAKEPORT").section("/",0,0,QString::SectionSkipEmpty) );
+    for(int i=0; i<tmp.length(); i++){
+      if(recCat == tmp[i]){ menu_validRepoCats.addAction(QIcon(Backend::icon("start")), tmp[i]); }
+      else{ menu_validRepoCats.addAction(tmp[i]); }
+    }
     //Now disable the save button
     ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
   }
@@ -268,39 +268,31 @@ void MainGUI::refreshGUI(QString item){
     slotXdgTypeChanged();
   }
   //------SCRIPTS-----
-  if( doall || doeditor || (item == "scripts")){
-    //Update the list of available scripts and determine if one needs to be read
-    bool loadScript = FALSE;
-    QStringList good = MODULE.existingScripts();
-    int currentIndex = ui->list_scripts_file->currentIndex();
-    for(int i=1; i< ui->list_scripts_file->count(); i++){ //Skip the first item (is nothing)
-      if( good.contains(ui->list_scripts_file->itemText(i) ) ){
-        if(i == currentIndex){ loadScript = TRUE; }
-        ui->list_scripts_file->setItemIcon(i,Backend::icon("file"));
-      }else{
-        ui->list_scripts_file->setItemIcon(i,Backend::icon("close"));
-      }
+  if( doall || doeditor || (item == "scripts")  ){
+    //Update the list of available scripts
+    QStringList exist = MODULE.existingScripts();
+    QStringList valid = MODULE.validScripts();
+    QString current="junk";
+    if(ui->list_scripts_file->count() > 0){
+	current = ui->list_scripts_file->currentText(); //get the current item before clearing it
     }
-    //Update the GUI appropriately
-    if(loadScript){
-      //Read and display the script
-      QStringList contents = MODULE.readScript(ui->list_scripts_file->currentText());
-      ui->text_scripts_edit->setPlainText(contents.join("\n"));
-      //Setup display items
-      ui->push_scripts_create->setVisible(FALSE);
-      ui->push_scripts_remove->setVisible(TRUE);
-      ui->push_scripts_save->setVisible(TRUE);
-      ui->text_scripts_edit->setVisible(TRUE);
-    }else{
-      //Setup display items
-      ui->push_scripts_create->setVisible(TRUE);
-      ui->push_scripts_remove->setVisible(FALSE);
-      ui->push_scripts_save->setVisible(FALSE);
-      ui->text_scripts_edit->setVisible(FALSE);
+    ui->list_scripts_file->clear();
+    ui->list_scripts_file->addItem("-- Installation Scripts --");
+    int index = 0;
+    for(int i=0; i<valid.length(); i++){
+      if(exist.contains(valid[i])){ 
+	 exist.removeAll(valid[i]); 
+	 ui->list_scripts_file->addItem(Backend::icon("file"), valid[i]);
+      }else{ ui->list_scripts_file->addItem(Backend::icon("close"), valid[i]); }
+      if(valid[i] == current){ index = i+1; }
     }
-    if(currentIndex == 0){ ui->push_scripts_create->setVisible(FALSE); }
-    ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
-    
+    //Now add the rest of the existing scripts (that are no longer valid)
+    for(int i=0; i<exist.length(); i++){
+      ui->list_scripts_file->addItem(Backend::icon("delete"), exist[i]);
+      if(exist[i] == current){ index = valid.length()+i+1; }
+    }
+    //Now reset to the appropriate item (will automatically load appropriately)
+    ui->list_scripts_file->setCurrentIndex(index);
   }
   //------EXTERNAL-LINKS------
   if( doall || doeditor || (item == "external-links")){
@@ -320,13 +312,13 @@ void MainGUI::refreshGUI(QString item){
     ui->line_el_linkto->clear();
     ui->line_el_filetype->clear();
     //update the available binaries
-    menu_el_bins.clear();
+    /*menu_el_bins.clear();
     QStringList cBins; //Not setup yet in the package framework
     if(!cBins.isEmpty()){
       for(int i=0; i<cBins.length(); i++){
         menu_el_bins.addAction(cBins[i]);
       } 
-    }
+    }*/
   }
   //------FREENAS PLUGINS-------
   if( doall || doeditor || (item == "freenas")){
@@ -510,10 +502,7 @@ void MainGUI::on_push_change_makeport_clicked(){
   //Prompt for a new port
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
   if(portSel.isEmpty()){return;} //action cancelled or closed	
-  //Check if the port is valid
-  /*if( !isValidPort(portSel) ){
-    return;
-  }*/
+
   //Save the port info to the GUI
   ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
   ui->push_config_save->setEnabled(TRUE);
@@ -527,10 +516,6 @@ void MainGUI::on_push_addportafter_clicked(){
   //Prompt for a new port
   QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
   if(portSel.isEmpty()){return;} //action cancelled or closed	
-  //Check if the port is valid
-  /*if( !isValidPort(portSel,TRUE) ){
-    return;
-  }*/
   //Save the port info to the GUI
   if(ui->list_portafter->count() == 1 && ui->list_portafter->currentText().isEmpty() ){ ui->list_portafter->clear(); }
   ui->list_portafter->addItem(portSel.remove(settings->value("portsdir")+"/"));
@@ -586,6 +571,14 @@ void MainGUI::on_push_config_save_clicked(){
 void MainGUI::slotOptionChanged(QString tmp){
   tmp.clear(); //just to remove compiler warning about unused variable
   ui->push_config_save->setEnabled(TRUE);	
+}
+
+void MainGUI::slotSetRepoType(QAction* act){
+  ui->line_repoType->setText(act->text());
+}
+
+void MainGUI::slotSetRepoCat(QAction* act){
+  ui->line_repoCat->setText(act->text());
 }
 
 /*------------------------------------------------
@@ -736,13 +729,13 @@ void MainGUI::slotXdgTypeChanged(){
 
   //Update the buttons that only need a refresh when the type changes (such as menu's)
   //Available binaries pushbuttons
-  menu_bins.clear();
+  /*menu_bins.clear();
   QStringList cBins; //not re-implemented yet
   if(!cBins.isEmpty()){
     for(int i=0; i<cBins.length(); i++){
       menu_bins.addAction(cBins[i]);
     } 
-  }
+  }*/
   //Menu categories
   QString recMenu = ModuleUtils::recommendedXdgCategory(MODULE.text("PBI_MAKEPORT").section("/",0,0) );
   QStringList cats = ModuleUtils::validXdgCategories();
@@ -1059,8 +1052,26 @@ void MainGUI::slotXDGOptionChanged(QString tmp){
   -------------------------------------------------
 */
 void MainGUI::slotScriptChanged(int index){
-  index=0; //just to remove the warning about unused variables
-  refreshGUI("scripts");
+  //Update the GUI appropriately
+    QStringList exist = MODULE.existingScripts();
+    if( exist.contains(ui->list_scripts_file->currentText()) ){
+      //Read and display the script
+      QStringList contents = MODULE.readScript(ui->list_scripts_file->currentText());
+      ui->text_scripts_edit->setPlainText(contents.join("\n"));
+      //Setup display items
+      ui->push_scripts_create->setVisible(FALSE);
+      ui->push_scripts_remove->setVisible(TRUE);
+      ui->push_scripts_save->setVisible(TRUE);
+      ui->text_scripts_edit->setVisible(TRUE);
+    }else{
+      //Setup display items
+      ui->push_scripts_create->setVisible(TRUE);
+      ui->push_scripts_remove->setVisible(FALSE);
+      ui->push_scripts_save->setVisible(FALSE);
+      ui->text_scripts_edit->setVisible(FALSE);
+    }
+    if(index == 0){ ui->push_scripts_create->setVisible(FALSE); }
+    ui->push_scripts_save->setEnabled(FALSE); //disable the save button until something changes
 }
 
 void MainGUI::on_push_scripts_create_clicked(){
@@ -1213,7 +1224,6 @@ void MainGUI::on_push_build_start_clicked(){
   //Generate the PBI build command
   QString cmd;
   // -- PBI from ports
-  //if(radio_module_port->isChecked()){
     //Check that the ports tree is available
     if( !settings->check("isportsavailable") ){ 
       qDebug() << "Cannot build a PBI from ports without the FreeBSD ports tree available";
@@ -1238,22 +1248,7 @@ void MainGUI::on_push_build_start_clicked(){
       }
     }
     if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
-    
-  // -- PBI from local directory
-  /*}else if(radio_module_local->isChecked() ){
-	//get the base command
-	cmd = settings->value("pbi_create");
-	//Setup the ports options if non-standard port location
-	if(settings->value("portsdir") != "/usr/ports"){ cmd += " -d " + settings->value("portsdir"); }
-	//Setup the output directory
-	cmd += " -o "+outdir;
-	//Load the module
-	cmd += " -c "+modDir;
-	//Sign the PBI 
-	if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
-	//Now setup the directory to package
-	cmd += " "+ currentModule->readValue("packagedir");
-  }*/
+
   //Display the command created in hte terminal
   qDebug() << "Build PBI command created:"<<cmd;
   
