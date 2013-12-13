@@ -25,6 +25,8 @@
 #include "sysdetailswidget.h"
 #include "ui_sysdetailswidget.h"
 
+#include <QDebug>
+
 const QString SYSUPDATE_PATCH_ICON = ":/images/sysupdates-patch.png";
 const QString SYSUPDATE_UPGRADE_ICON = ":/images/sysupdates-upgrade.png";
 const QString SYSUPDATE_FBSD_ICON = ":/images/sysupdates-freebsd.png";
@@ -140,11 +142,13 @@ void SysDetailsWidget::slotControllerStateChanged(CAbstractUpdateController::EUp
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void SysDetailsWidget::slotControllerLogLine(QString line)
 {
     ui->sysUpdateLog->append(line);
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()
 {
     QTreeWidgetItem* item = ui->sysUpdatesList->currentItem();
@@ -163,6 +167,10 @@ void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()
         ui->sysPadthDescription->setText(updates[id].mDetails);
         ui->sysPatchStandalone->setVisible(updates[id].misStandalone);
         ui->sysPatchRebootRequired->setVisible(updates[id].misRequiresReboot);
+
+        //if description is http url - show 'open in web browser' button
+        ui->openDeskriptionBtn->setVisible(updates[id].mDetails.trimmed().toLower().indexOf("http://")==0);
+
     }
     else
     if (updates[id].mType == CSysController::eSYSUPDATE)
@@ -191,6 +199,7 @@ void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()
     }
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void SysDetailsWidget::on_sysInstallSelectedBtn_clicked()
 {
     QVector<CSysController::SSystemUpdate> toUpdate;
@@ -211,6 +220,7 @@ void SysDetailsWidget::on_sysInstallSelectedBtn_clicked()
 
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void SysDetailsWidget::on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column)
 {
     Q_UNUSED(item);
@@ -227,4 +237,10 @@ void SysDetailsWidget::on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int 
         }
     }
     ui->sysInstallSelectedBtn->setEnabled(is_enable);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+void SysDetailsWidget::on_openDeskriptionBtn_clicked()
+{
+    QProcess::execute("xdg-open", QStringList()<<ui->sysPadthDescription->text().trimmed());\
 }

@@ -55,6 +55,8 @@ private slots:
 
     void on_sysUpdatesList_itemChanged(QTreeWidgetItem *item, int column);
 
+    void on_openDeskriptionBtn_clicked();
+
 private:
     Ui::SysDetailsWidget *ui;
     CSysController*       mUpdateController;

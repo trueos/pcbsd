@@ -718,23 +718,19 @@
     </message>
     <message>
         <source>Use the current module to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Das aktuelle Modul zum Erstellen eines PBI verwenden</translation>
     </message>
     <message>
         <source>Module Editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moduleditor</translation>
     </message>
     <message>
         <source>View and edit the current PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktuelles PBI-Modul anzeigen und bearbeiten</translation>
     </message>
     <message>
         <source>Build Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erstellungsinformation</translation>
     </message>
     <message>
         <source>Local directory to be packaged into a PBI (must contain everything necessary for program to run)</source>
@@ -757,18 +753,15 @@
     </message>
     <message>
         <source>Main FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haupt-FreeBSD-Port</translation>
     </message>
     <message>
         <source>Select a FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD-Port auswählen</translation>
     </message>
     <message>
         <source>Change Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port ändern</translation>
     </message>
     <message>
         <source>Port Build Options</source>
