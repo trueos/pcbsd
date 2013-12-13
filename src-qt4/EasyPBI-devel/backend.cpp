@@ -65,10 +65,10 @@ QStringList Backend::getPkgInfo(QString port){
   return out;
 }
 
-QStringList Backend::getPkgOpts(QString pkgname){
+QStringList Backend::getPkgOpts(QString port){
   //Function to query the package repository and pull down information about a particular package
   //Output: <option>=<on/off>
-  QString cmd = "pkg rquery \"%Ok=%Ov\" "+pkgname;
+  QString cmd = "pkg rquery \"%Ok=%Ov\" -e %o "+port;
   QStringList out = Backend::getCmdOutput(cmd);
   return out;
 }
