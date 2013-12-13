@@ -50,17 +50,17 @@ QStringList Backend::getCmdOutput(QString cmd){
 //  PACKAGE DATABASE TOOLS
 // ====================
 QStringList Backend::getPkgList(){
-  //Generate an alphabetized list of all available packages on the repo
-  //format: <category>/<pkgname>
+  //Generate an alphabetized list of all available packages/ports on the repo
+  //format: <category>/<pkgname> (port format)
   QString cmd = "pkg search -o \"/\"";
   QStringList result = getCmdOutput(cmd);
   return result;
 }
 
-QStringList Backend::getPkgInfo(QString pkgname){
+QStringList Backend::getPkgInfo(QString port){
   //Function to query the package repository and pull down information about a particular package
   //Output: <name>, <version>, <website>, <license>
-  QString cmd = "pkg rquery \"%n\\n%v\\n%w\\n%L\" "+pkgname;
+  QString cmd = "pkg rquery \"%n\\n%v\\n%w\\n%L\" -e %o "+port;
   QStringList out = Backend::getCmdOutput(cmd);
   return out;
 }

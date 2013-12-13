@@ -58,6 +58,7 @@ MainGUI::MainGUI(QWidget *parent) :
 	connect(ui->push_xdg_refresh, SIGNAL(clicked()), this, SLOT(slotXdgTypeChanged()) );
 	ui->push_xdg_exec->setIcon(Backend::icon("left"));
 	//ui->push_xdg_exec->setMenu(&menu_bins);
+	ui->push_xdg_exec->setEnabled(false);
 	//connect(&menu_bins, SIGNAL(triggered(QAction*)), this, SLOT(slotAddBin(QAction*)) );
 	ui->push_xdg_savechanges->setIcon(Backend::icon("save"));
 	ui->push_xdg_menu->setIcon(Backend::icon("left"));
@@ -73,6 +74,7 @@ MainGUI::MainGUI(QWidget *parent) :
 	// -- External links tab --
 	ui->push_el_file->setIcon(Backend::icon("left"));
 	//ui->push_el_file->setMenu(&menu_el_bins);
+	ui->push_el_file->setEnabled(false);
 	//connect(&menu_el_bins,SIGNAL(triggered(QAction*)),this,SLOT(slotELSetFile(QAction*)) );
 	ui->push_el_filetype->setIcon(Backend::icon("left"));
 	ui->push_el_filetype->setMenu(&menu_elOpts);
@@ -248,6 +250,19 @@ void MainGUI::refreshGUI(QString item){
     }
     //Now disable the save button
     ui->push_config_save->setEnabled(FALSE);  //disable the save button until something changes
+    //Load the current package information and display it on the UI
+    QStringList pkgInfo = Backend::getPkgInfo(MODULE.text("PBI_MAKEPORT"));
+    qDebug() << "pkg info:" << pkgInfo;
+    if(pkgInfo.length() >= 4){
+      if(ui->line_progname->text().isEmpty()){ ui->line_progname->setText( pkgInfo[0] ); }
+      ui->line_progversion->setPlaceholderText(pkgInfo[1]);
+      ui->line_progweb->setPlaceholderText(pkgInfo[2]);
+      ui->line_config_license->setPlaceholderText(pkgInfo[3]);
+    }else{
+      ui->line_progversion->setPlaceholderText("");
+      ui->line_progweb->setPlaceholderText("");
+      ui->line_config_license->setPlaceholderText("");
+    }
   }
   // -----RESOURCES--------
   if( doall || doeditor || (item == "resources")){
