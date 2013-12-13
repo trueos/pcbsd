@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>334</width>
-    <height>201</height>
+    <width>332</width>
+    <height>199</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,7 +41,7 @@
    <item>
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>(General updates patchset. Recommended formost users)</string>
+      <string>(General updates patchset. Recommended for most users)</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>

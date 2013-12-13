@@ -34,5 +34,6 @@
         <file>images/running.png</file>
         <file>images/cell.png</file>
         <file>images/stopped.png</file>
+        <file>images/internet-web-browser.png</file>
     </qresource>
 </RCC>
