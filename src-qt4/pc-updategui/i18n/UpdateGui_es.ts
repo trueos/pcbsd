@@ -153,13 +153,11 @@
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No se puede ejecutar freebsd-update, actualmente se esta ejecutando otro proceso!            </translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Para finalizar la actualización es necesario reiniciar!</translation>
     </message>
 </context>
 </TS>

@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Disable this networ&amp;k device</source>
-        <translation>Onemo&amp;goči to omrežno napravo</translation>
+        <translation>omogoči/onemogoči to omrežno napravo</translation>
     </message>
     <message>
         <source>Alt+K</source>

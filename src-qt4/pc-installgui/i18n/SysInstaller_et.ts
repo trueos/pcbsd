@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation>Ketas seadistatakse järgmiste sätetega:</translation>
+        <translation>Ketas seadistatakse järgnevalt:</translation>
     </message>
     <message>
         <source>Disk:</source>
@@ -89,7 +89,7 @@
     </message>
     <message>
         <source>Are you sure you want to abort this installation?</source>
-        <translation>Kas soovid kindlasti paigaldamist katkestada?</translation>
+        <translation>Kas soovid kindlasti paigaldamise katkestada?</translation>
     </message>
     <message>
         <source>Failed!</source>
@@ -297,7 +297,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation>Meta-paki paigaldamine: %1</translation>
+        <translation>Meta-paketi paigaldamine: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
@@ -601,7 +601,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Enable ZFS mirror/raidz mode</source>
-        <translation>Võimalda ZFS-i peegeldamine/RAID-Z</translation>
+        <translation>ZFS-i peegeldamine/RAID-Z</translation>
     </message>
     <message>
         <source>ZFS Virtual Device Mode</source>

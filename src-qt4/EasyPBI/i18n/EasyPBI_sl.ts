@@ -5,13 +5,11 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI            </translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Nastavitve            </translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>

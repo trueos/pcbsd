@@ -5,118 +5,95 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Podrobno            </translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verzija:           </translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;neznano&gt;            </translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Host:        </translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????            </translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD base            </translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arch:            </translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ident            </translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Strojna oprema            </translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CPU:            </translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mem,            </translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nazaj            </translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Namizna okolja:            </translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Prosim počakajte...)            </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime            </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verzija            </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zapri</translation>
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Testiram snapshote %1. Lahko je nestabilno!            </translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org server verzja:            </translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistemske komponente...            </translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Namizna okolja...            </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD CLI utilities:            </translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD UI utilities:            </translation>
     </message>
 </context>
 </TS>
