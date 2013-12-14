@@ -20,19 +20,17 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
 	ui->push_makeport->setIcon(Backend::icon("file"));
 	ui->push_pbicreate->setIcon(Backend::icon("file"));
 	ui->push_resetutils->setIcon(Backend::icon("refresh"));
-	ui->tool_otherPortsDir->setIcon(Backend::icon("load"));
-	ui->push_updatePorts->setIcon(Backend::icon("refresh"));
 	
 	//Setup the internal settings structure
 	settings = new Config();
 	settings->scanForExternalUtilities();	
 	settings->loadSettingsFile();
 	//initialize the QProcess
-	process = new QProcess(this);
+	/*process = new QProcess(this);
 	process->setProcessEnvironment( QProcessEnvironment::systemEnvironment() );
 	connect(process,SIGNAL(readyReadStandardOutput()),this,SLOT(updateStatusBar()) );
 	connect(process,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(processFinished(int,QProcess::ExitStatus)) );
-	//Put the current settings into the GUI
+	*///Put the current settings into the GUI
 	resetGUI();
 }
 
@@ -57,7 +55,7 @@ void PreferencesDialog::resetGUI(){
 	ui->line_suutility->setText(settings->value("su_cmd"));
 	ui->line_pbicreate->setText(settings->value("pbi_create"));
 	ui->line_makeport->setText(settings->value("pbi_makeport"));
-	//ports tab
+	/*//ports tab
 	ui->list_portsDirectories->clear();
 	QStringList pDirs; pDirs<< tr("Current User (~/EasyPBI/ports)") << tr("All Users (/usr/ports)") << tr("Other");
 	ui->list_portsDirectories->addItems(pDirs);
@@ -72,7 +70,7 @@ void PreferencesDialog::resetGUI(){
 	  ui->line_otherPortsDir->setText(portsdir);
 	}
 	ui->progressBar->setMaximum(0); ui->progressBar->setMinimum(0); //default to a "loading" indicator
-	updateGUI();
+	*/updateGUI();
 }
 
 void PreferencesDialog::updateGUI(){
@@ -82,7 +80,7 @@ void PreferencesDialog::updateGUI(){
 	else{ ui->groupBox_sig->setVisible(FALSE); }
 	if( ui->check_usepkgcache->isChecked() ){ ui->groupBox_pkgcache->setVisible(TRUE); }
 	else{ ui->groupBox_pkgcache->setVisible(FALSE); }
-	//ports tab
+	/*//ports tab
 	int pIndex = ui->list_portsDirectories->currentIndex();
 	if(pIndex == 2){
 	  ui->line_otherPortsDir->setVisible(TRUE); ui->tool_otherPortsDir->setVisible(TRUE);
@@ -122,6 +120,7 @@ void PreferencesDialog::updateGUI(){
 	  ui->push_fetchPorts->setEnabled(FALSE); ui->push_updatePorts->setEnabled(FALSE);
 	  ui->buttonBox->setEnabled(FALSE);
 	}
+	*/
 }
 
 //Save/Cancel buttons
@@ -138,12 +137,12 @@ void PreferencesDialog::on_buttonBox_accepted(){
     }
     badpkgs.removeDuplicates();
     settings->setList("skippkgs", badpkgs);
-    QString portsDir;
+    /*QString portsDir;
     int pIndex = ui->list_portsDirectories->currentIndex();
     if( pIndex == 0 ){portsDir = QDir::homePath()+"/EasyPBI/ports"; }
     else if( pIndex == 1){ portsDir = "/usr/ports"; }
     else{ portsDir = ui->line_otherPortsDir->text(); }    
-    settings->setValue("portsdir", portsDir );
+    settings->setValue("portsdir", portsDir ); */
     settings->setValue("moduledir", ui->line_moduledir->text() );
     settings->setValue("icondir", ui->line_icondir->text() );
     settings->setValue("defaulticon", ui->line_defaulticon->text() );
@@ -292,6 +291,7 @@ void PreferencesDialog::on_push_resetutils_clicked(){
 }
 
 // ======  Ports Tab ======
+/*
 void PreferencesDialog::on_list_portsDirectories_currentIndexChanged(int index){
   index = 0; //Remove compiler warning about unused variable
   updateGUI();	
@@ -413,4 +413,5 @@ void PreferencesDialog::fetchPorts(QString portsDir, bool isNew){
   //Now run the command
   process->start(cmd);
   qDebug() << "Ports fetch started: CMD:" << cmd;	
-}
+}*/
+
