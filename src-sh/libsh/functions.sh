@@ -452,10 +452,12 @@ check_ip()
 
 check_pkg_conflicts()
 {
+
+  if [ -z "$EVENT_PIPE" ] ; then unset EVENT_PIPE ; fi
+
   # Lets test if we have any conflicts
-  pkg-static ${1} 2>&1 | tee /tmp/.pkgConflicts.$$
-  local _err=$?
-  if [ $_err -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+  pkg-static ${1} 2>/tmp/.pkgConflicts.$$ >/tmp/.pkgConflicts.$$
+  if [ $? -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
 
  
   # Found conflicts, suprise suprise, yet another reason I hate packages
@@ -466,9 +468,12 @@ check_pkg_conflicts()
 	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' | sort | uniq \
 	> /tmp/.pkgConflicts.$$.2
 
-  if [ -z `tail /tmp/.pkgConflicts.$$.2` ] ; then
+  # Check how many conflicts we found
+  found=`wc -l /tmp/.pkgConflicts.$$.2 | awk '{print $1}'`
+  if [ "$found" = "0" ] ; then
      rm /tmp/.pkgConflicts.$$
-     return $_err
+     rm /tmp/.pkgConflicts.$$.2
+     return 0
   fi
 
   while read line
