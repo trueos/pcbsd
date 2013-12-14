@@ -440,14 +440,13 @@ void MainGUI::on_actionAbout_EasyPBI_triggered(){
 void MainGUI::on_actionNew_Module_triggered(){
   qDebug() << "New Module triggered";
   //Create and run the new dialog
-  NewModuleDialog* dlg = new NewModuleDialog(this, settings->value("portsdir"));
+  NewModuleDialog* dlg = new NewModuleDialog(this);
   dlg->setDefaultIconFile(settings->value("defaulticon"));
   dlg->exec();
   //Determine if the action was cancelled
   if( dlg->isAccepted ){
     //Now create the new module
-    QString modPath, modType, modBase, oldIconPath;
-    modType = dlg->moduleType; // "local" or "port"
+    QString modPath, modBase, oldIconPath;
     modBase = dlg->moduleData; //port cat/name
     oldIconPath = dlg->moduleIcon; //PNG icon to use for the program
     modPath = settings->value("moduledir"); //base directory to create modules in

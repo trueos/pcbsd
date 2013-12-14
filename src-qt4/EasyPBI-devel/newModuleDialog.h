@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include "ui_newModuleDialog.h"
 #include "backend.h"
+#include "pkgSelect.h"
 
 
 namespace Ui {
@@ -19,20 +20,18 @@ class NewModuleDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit NewModuleDialog(QWidget *parent = 0, QString portsDir = "");
+    explicit NewModuleDialog(QWidget *parent = 0);
     virtual ~NewModuleDialog();
 
     bool isAccepted;
     void setDefaultIconFile(QString);
-    QString moduleType, moduleIcon, moduleData, PORTS_DIR;
+    QString moduleIcon, moduleData;
 
 
 private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
-    void slotTypeChanged();
     void on_push_port_clicked();
-    void on_push_sources_clicked();
     void on_push_icon_clicked();
 
 private:

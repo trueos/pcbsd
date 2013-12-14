@@ -6,35 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>398</width>
-    <height>160</height>
+    <width>394</width>
+    <height>111</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Create a new Module</string>
   </property>
   <layout class="QFormLayout" name="formLayout">
-   <item row="5" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="0">
+   <property name="fieldGrowthPolicy">
+    <enum>QFormLayout::ExpandingFieldsGrow</enum>
+   </property>
+   <item row="1" column="0">
     <widget class="QLabel" name="label_port">
      <property name="text">
       <string>FreeBSD Port</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="1" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLineEdit" name="line_port">
@@ -55,35 +45,14 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QLineEdit" name="line_sources">
-       <property name="toolTip">
-        <string>Local directory to be packaged as a PBI</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="push_sources">
-       <property name="toolTip">
-        <string>Select a local directory to be packaged as a PBI</string>
-       </property>
-       <property name="text">
-        <string>Select</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_sources">
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_icon">
      <property name="text">
-      <string>Local Directory</string>
+      <string>Icon File</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="1">
+   <item row="2" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
       <widget class="QLineEdit" name="line_icon">
@@ -104,62 +73,20 @@
      </item>
     </layout>
    </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="label_icon">
-     <property name="text">
-      <string>Icon File</string>
+   <item row="3" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
-    </widget>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
-   <item row="0" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QRadioButton" name="radio_port">
-       <property name="toolTip">
-        <string>Create a PBI from an existing FreeBSD port</string>
-       </property>
-       <property name="text">
-        <string>FreeBSD Port</string>
-       </property>
-       <property name="icon">
-        <iconset resource="EasyPBI.qrc">
-         <normaloff>:/png/icons/freebsd.png</normaloff>:/png/icons/freebsd.png</iconset>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radio_local">
-       <property name="toolTip">
-        <string>Package a local directory as a PBI</string>
-       </property>
-       <property name="text">
-        <string>Local Sources</string>
-       </property>
-       <property name="icon">
-        <iconset resource="EasyPBI.qrc">
-         <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="5" column="1">
+   <item row="3" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
