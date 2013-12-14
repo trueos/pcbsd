@@ -453,8 +453,10 @@ check_ip()
 check_pkg_conflicts()
 {
   # Lets test if we have any conflicts
-  pkg-static ${1} 2>/tmp/.pkgConflicts.$$ >/tmp/.pkgConflicts.$$
-  if [ $? -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+  pkg-static ${1} 2>&1 | tee /tmp/.pkgConflicts.$$
+  local _err=$?
+  if [ $_err -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+
  
   # Found conflicts, suprise suprise, yet another reason I hate packages
   # Lets start building a list of the old packages we can prompt to remove
@@ -463,6 +465,12 @@ check_pkg_conflicts()
   cat /tmp/.pkgConflicts.$$ | grep 'WARNING: locally installed' \
 	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' | sort | uniq \
 	> /tmp/.pkgConflicts.$$.2
+
+  if [ -z `tail /tmp/.pkgConflicts.$$.2` ] ; then
+     rm /tmp/.pkgConflicts.$$
+     return $_err
+  fi
+
   while read line
   do
     cList="$line $cList"
@@ -501,7 +509,21 @@ check_pkg_conflicts()
   do
      # Nuked!
      echo "Removing conflicting package: $bPkg"
+
+     # If EVENT_PIPE is set, unset it, seems to cause some weird crash in pkgng 1.2.3
+     if [ -n "$EVENT_PIPE" ] ; then
+        oEP="$EVENT_PIPE"
+        unset EVENT_PIPE
+     fi
+
+     # Delete the package now
      pkg delete -q -y -f ${bPkg}
+
+     # Reset EVENT_PIPE if we need to
+     if [ -n "$oEP" ] ; then
+        EVENT_PIPE="$oEP"; export EVENT_PIPE
+        unset oEP
+     fi
   done
 
   # Lets test if we still have any conflicts

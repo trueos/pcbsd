@@ -38,9 +38,11 @@ do_ports_overlay()
   tar xvmf ${distFile} 2>/dev/null
   if [ $? -eq 0 ] ; then
     echo -e "DONE"
+    post_extract_setup
     exit 0
   else
     echo -e "FAILED"
+    post_extract_setup
     exit 1
   fi
 }
@@ -111,8 +113,8 @@ post_extract_setup()
     fi
   fi
 
-  # See if we need to adjust pcbsd.conf
-  grep -q "ARCH" /usr/local/etc/pkg/repos/pcbsd.conf
+  # See if we need to adjust pcbsd.conf repo file
+  grep -q "ARCH" /usr/local/etc/pkg/repos/pcbsd.conf 2>/dev/null
   if [ $? -eq 0 ] ; then
     ARCH=`uname -m`
     FBSDVER=`uname -r | cut -d '-' -f 1-2`
