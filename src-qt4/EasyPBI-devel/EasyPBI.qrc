@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="png">
+    <file>icons/search.png</file>
+    <file>icons/accept.png</file>
+    <file>icons/cancel.png</file>
     <file>icons/config.png</file>
     <file>icons/pcbsd.png</file>
     <file>icons/freebsd.png</file>

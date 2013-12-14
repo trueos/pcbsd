@@ -21,6 +21,7 @@
 #include "config.h"
 #include "PBIModule.h"
 #include "ModuleUtils.h"
+#include "pkgSelect.h"
 
 namespace Ui {
     class MainGUI;

@@ -34,12 +34,20 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLineEdit" name="line_search"/>
+      <widget class="QLineEdit" name="line_search">
+       <property name="placeholderText">
+        <string>Search</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QToolButton" name="tool_search">
        <property name="text">
         <string>...</string>
+       </property>
+       <property name="icon">
+        <iconset resource="EasyPBI.qrc">
+         <normaloff>:/png/icons/search.png</normaloff>:/png/icons/search.png</iconset>
        </property>
       </widget>
      </item>
@@ -77,12 +85,20 @@
        <property name="text">
         <string>Cancel</string>
        </property>
+       <property name="icon">
+        <iconset resource="EasyPBI.qrc">
+         <normaloff>:/png/icons/cancel.png</normaloff>:/png/icons/cancel.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="push_ok">
        <property name="text">
         <string>Accept</string>
+       </property>
+       <property name="icon">
+        <iconset resource="EasyPBI.qrc">
+         <normaloff>:/png/icons/accept.png</normaloff>:/png/icons/accept.png</iconset>
        </property>
       </widget>
      </item>

@@ -509,17 +509,14 @@ void MainGUI::slotModTabChanged(int newtab){
   -----------------------------------
 */
 void MainGUI::on_push_change_makeport_clicked(){
-  if( !settings->check("isportsavailable") ){
-    //No ports tree available
-    QMessageBox::warning(this,tr("EasyPBI: No FreeBSD Ports"), tr("The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location."));
-    return;
-  }
-  //Prompt for a new port
-  QString portSel = QFileDialog::getExistingDirectory(this, tr("Select Port"), settings->value("portsdir"));
-  if(portSel.isEmpty()){return;} //action cancelled or closed	
+  pkgSelect dlg(this);
+  dlg.exec();
+  if(!dlg.selected){ return; }
+  QString portSel = dlg.portSelected;  	  
+  if(portSel.isEmpty()){return;}	
 
   //Save the port info to the GUI
-  ui->line_makeport->setText(portSel.remove(settings->value("portsdir")+"/"));
+  ui->line_makeport->setText(portSel);
   ui->push_config_save->setEnabled(TRUE);
 }
 

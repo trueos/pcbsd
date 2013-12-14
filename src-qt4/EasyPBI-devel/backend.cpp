@@ -54,6 +54,7 @@ QStringList Backend::getPkgList(){
   //format: <category>/<pkgname> (port format)
   QString cmd = "pkg search -o \"/\"";
   QStringList result = getCmdOutput(cmd);
+  result.removeAll(""); //get rid of empty items
   return result;
 }
 
@@ -62,6 +63,7 @@ QStringList Backend::getPkgInfo(QString port){
   //Output: <name>, <version>, <website>, <license>
   QString cmd = "pkg rquery \"%n\\n%v\\n%w\\n%L\" -e %o "+port;
   QStringList out = Backend::getCmdOutput(cmd);
+  out.removeAll(""); //get rid of empty items
   return out;
 }
 
@@ -70,5 +72,6 @@ QStringList Backend::getPkgOpts(QString port){
   //Output: <option>=<on/off>
   QString cmd = "pkg rquery \"%Ok=%Ov\" -e %o "+port;
   QStringList out = Backend::getCmdOutput(cmd);
+  out.removeAll(""); //get rid of empty items
   return out;
 }
