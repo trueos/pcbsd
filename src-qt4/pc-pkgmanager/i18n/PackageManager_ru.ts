@@ -28,8 +28,7 @@
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступные обновления</translation>
     </message>
     <message>
         <source>System Package Manager</source>

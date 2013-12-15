@@ -9,8 +9,8 @@
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+            Конфигурация PBI</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
