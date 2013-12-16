@@ -25,12 +25,8 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
 	settings = new Config();
 	settings->scanForExternalUtilities();	
 	settings->loadSettingsFile();
-	//initialize the QProcess
-	/*process = new QProcess(this);
-	process->setProcessEnvironment( QProcessEnvironment::systemEnvironment() );
-	connect(process,SIGNAL(readyReadStandardOutput()),this,SLOT(updateStatusBar()) );
-	connect(process,SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(processFinished(int,QProcess::ExitStatus)) );
-	*///Put the current settings into the GUI
+	
+	//Put the current settings into the GUI
 	resetGUI();
 }
 
@@ -55,22 +51,7 @@ void PreferencesDialog::resetGUI(){
 	ui->line_suutility->setText(settings->value("su_cmd"));
 	ui->line_pbicreate->setText(settings->value("pbi_create"));
 	ui->line_makeport->setText(settings->value("pbi_makeport"));
-	/*//ports tab
-	ui->list_portsDirectories->clear();
-	QStringList pDirs; pDirs<< tr("Current User (~/EasyPBI/ports)") << tr("All Users (/usr/ports)") << tr("Other");
-	ui->list_portsDirectories->addItems(pDirs);
-	QString portsdir = settings->value("portsdir");
-	if(portsdir.endsWith("/")){ portsdir.chop(1); }
-	if(portsdir == (QDir::homePath()+"/EasyPBI/ports") ){
-	  ui->list_portsDirectories->setCurrentIndex(0); //User dir
-	}else if(portsdir == "/usr/ports"){
-	  ui->list_portsDirectories->setCurrentIndex(1); //system dir	
-	}else{
-	  ui->list_portsDirectories->setCurrentIndex(2); //other
-	  ui->line_otherPortsDir->setText(portsdir);
-	}
-	ui->progressBar->setMaximum(0); ui->progressBar->setMinimum(0); //default to a "loading" indicator
-	*/updateGUI();
+	updateGUI();
 }
 
 void PreferencesDialog::updateGUI(){
@@ -80,47 +61,6 @@ void PreferencesDialog::updateGUI(){
 	else{ ui->groupBox_sig->setVisible(FALSE); }
 	if( ui->check_usepkgcache->isChecked() ){ ui->groupBox_pkgcache->setVisible(TRUE); }
 	else{ ui->groupBox_pkgcache->setVisible(FALSE); }
-	/*//ports tab
-	int pIndex = ui->list_portsDirectories->currentIndex();
-	if(pIndex == 2){
-	  ui->line_otherPortsDir->setVisible(TRUE); ui->tool_otherPortsDir->setVisible(TRUE);
-	}else{
-	  ui->line_otherPortsDir->setVisible(FALSE); ui->tool_otherPortsDir->setVisible(FALSE);	
-	}
-	QString pDir;
-	switch (pIndex){
-	case 0: 
-		pDir = QDir::homePath()+"/EasyPBI/ports"; break;
-	case 1:
-		pDir = "/usr/ports"; break;
-	default:
-		pDir = ui->line_otherPortsDir->text();
-	}	
-	QString pUpdate;
-	if(!pDir.isEmpty()){ pUpdate = getLastPortsUpdate(pDir); } //check for existance and last update
-	if( !pUpdate.isEmpty() ){
-	  ui->push_fetchPorts->setVisible(FALSE);
-	  ui->push_updatePorts->setVisible(TRUE);
-	  ui->label_portsUpdated->setText( pUpdate );
-	}else{
-	  ui->push_fetchPorts->setVisible(TRUE);
-	  ui->push_updatePorts->setVisible(FALSE);
-	  ui->label_portsUpdated->setText( tr("Nonexistent") );
-	}
-	if(process->state() == QProcess::NotRunning){
-	  ui->list_portsDirectories->setEnabled(TRUE);
-	  ui->line_otherPortsDir->setEnabled(TRUE); ui->tool_otherPortsDir->setEnabled(TRUE);
-	  ui->label_status->setVisible(FALSE); ui->progressBar->setVisible(FALSE);
-	  ui->push_fetchPorts->setEnabled(TRUE); ui->push_updatePorts->setEnabled(TRUE);
-	  ui->buttonBox->setEnabled(TRUE);
-	}else{
-	  ui->list_portsDirectories->setEnabled(FALSE);
-	  ui->line_otherPortsDir->setEnabled(FALSE); ui->tool_otherPortsDir->setEnabled(FALSE);
-	  ui->label_status->setVisible(TRUE); ui->progressBar->setVisible(TRUE);
-	  ui->push_fetchPorts->setEnabled(FALSE); ui->push_updatePorts->setEnabled(FALSE);
-	  ui->buttonBox->setEnabled(FALSE);
-	}
-	*/
 }
 
 //Save/Cancel buttons
@@ -137,12 +77,6 @@ void PreferencesDialog::on_buttonBox_accepted(){
     }
     badpkgs.removeDuplicates();
     settings->setList("skippkgs", badpkgs);
-    /*QString portsDir;
-    int pIndex = ui->list_portsDirectories->currentIndex();
-    if( pIndex == 0 ){portsDir = QDir::homePath()+"/EasyPBI/ports"; }
-    else if( pIndex == 1){ portsDir = "/usr/ports"; }
-    else{ portsDir = ui->line_otherPortsDir->text(); }    
-    settings->setValue("portsdir", portsDir ); */
     settings->setValue("moduledir", ui->line_moduledir->text() );
     settings->setValue("icondir", ui->line_icondir->text() );
     settings->setValue("defaulticon", ui->line_defaulticon->text() );
@@ -289,129 +223,3 @@ void PreferencesDialog::on_push_resetutils_clicked(){
   ui->line_pbicreate->setText(settings->value("pbi_create"));
   ui->line_makeport->setText(settings->value("pbi_makeport"));
 }
-
-// ======  Ports Tab ======
-/*
-void PreferencesDialog::on_list_portsDirectories_currentIndexChanged(int index){
-  index = 0; //Remove compiler warning about unused variable
-  updateGUI();	
-}
-
-void PreferencesDialog::on_line_otherPortsDir_textChanged(QString text){
-  text.clear(); //Remove compiler warning about unused variable
-  updateGUI();	
-}
-void PreferencesDialog::on_tool_otherPortsDir_clicked(){
-  //Get the desired directory
-  QString seldir = QFileDialog::getExistingDirectory(this, tr("Select FreeBSD Ports Directory"), QDir::homePath() );
-  if(seldir.isEmpty()){ return; } //action cancelled
-  //Save the selection to the GUI
-  ui->line_otherPortsDir->setText(seldir);
-  updateGUI();
-}
-
-void PreferencesDialog::on_push_fetchPorts_clicked(){
-  int pIndex = ui->list_portsDirectories->currentIndex();
-  QString pDir;
-    if( pIndex == 0 ){pDir = QDir::homePath()+"/EasyPBI/ports"; }
-    else if( pIndex == 1){ pDir = "/usr/ports"; }
-    else{ pDir = ui->line_otherPortsDir->text(); }
-  fetchPorts(pDir,TRUE); //is a new ports directory
-  updateGUI();
-}
-
-void PreferencesDialog::on_push_updatePorts_clicked(){
-  int pIndex = ui->list_portsDirectories->currentIndex();
-  QString pDir;
-    if( pIndex == 0 ){pDir = QDir::homePath()+"/EasyPBI/ports"; }
-    else if( pIndex == 1){ pDir = "/usr/ports"; }
-    else{ pDir = ui->line_otherPortsDir->text(); }
-  fetchPorts(pDir,FALSE); //is an existing ports directory
-  updateGUI();
-}
-    
-void PreferencesDialog::updateStatusBar(){
-  QString tmp = process->readAllStandardOutput();
-  if(tmp.endsWith("\n")){ tmp.chop(1); }
-  tmp = tmp.section("\n",-1);
-  tmp = tmp.remove("\n").simplified();
-  //qDebug() << "Status Update:" << tmp;
-  ui->label_status->clear();
-  ui->label_status->setText(tmp);
-}
-
-void PreferencesDialog::processFinished(int exitCode,QProcess::ExitStatus status){
-  qDebug() << " - Ports update finished:" << exitCode << status;
-  //Inform the user of the result
-  if(exitCode == 0){
-    //Finished successfully
-    QMessageBox::information(this, tr("Success"), tr("The FreeBSD ports tree has been successfully updated") );
-  }else{
-    //Finished with error
-    QString msg = process->readAllStandardError();
-    if(msg.isEmpty()){ msg = process->readAllStandardOutput(); }
-    QMessageBox::information(this, tr("Failure"), QString(tr("The FreeBSD ports tree has failed to update.")+"\n"+tr("Last Message: %1") ).arg(msg) );
-  }
-  updateGUI(); //Update the interface times and such
-}
-
-QString PreferencesDialog::getLastPortsUpdate(QString ports){
-  QDir dir(ports);
-  QFileInfoList list = dir.entryInfoList(QDir::NoDotAndDotDot | QDir::Files | QDir::Dirs, QDir::Time); //sort by most recently changed
-  QString out;
-  if(list.length() > 2){ //good ports tree
-    out = list[0].lastModified().toString();
-  }
-  return out;
-}
-
-void PreferencesDialog::fetchPorts(QString portsDir, bool isNew){
-  bool needRoot = TRUE;
-  QString localPSDB = QDir::homePath()+"/EasyPBI/.portSnapDB";
-  if( portsDir.startsWith( QDir::homePath() )){ needRoot = FALSE; }
-  
-  // == Generate the System Command ==
-  QString cmd;
-  bool usePortsnap = FALSE;
-  //Graphical SU utility as needed
-  if(needRoot){ 
-    ui->label_status->setText(tr("Requesting Root Access")); //Put placeholder info
-    cmd = ui->line_suutility->text() + " \""; //use the switch-user utility
-  }
-  //Figure out whether to use portsnap or not
-  if( !isNew && QFile::exists(portsDir+"/.svn") ){
-    //Use Subversion
-    cmd.append("svn update "+portsDir);
-  }else{
-    //Use Portsnap
-    cmd.append("portsnap fetch ");
-    if(isNew){ cmd.append("extract "); }
-    else{ cmd.append("update "); }
-    cmd.append("-p "+portsDir);
-    if(!needRoot){ cmd.append(" -d "+localPSDB); }
-    usePortsnap=TRUE;
-    
-  }
-  if(needRoot){ cmd.append("\""); } //close the quotes
-  
-  //If using portsnap, make sure the intermediate file is there in the EasyPBI directory
-  if( usePortsnap ){
-    QString pspath = QDir::homePath()+"/EasyPBI/.portsnapNI.sh"; // Non-Interactive (NI) version of portsnap
-    if( !QFile::exists(pspath) ){
-      //Create the Non-Interactive version of portsnap if it does not exist yet
-      QString pscmd ="echo \"#!/bin/sh \n#Non-Interactive portsnap workaround for EasyPBI \ncat /usr/sbin/portsnap | sed 's|! -t 0|-z '1'|g' | /bin/sh -s \\$@\" > "+pspath+"; chmod 755 "+pspath;
-      //qDebug() << "system call:" << pscmd;
-      system(pscmd.toUtf8());
-    }
-    if(!needRoot && !QFile::exists(localPSDB)){
-      //Create the local portsnap database directory
-      QString tmpcmd = "mkdir "+localPSDB;
-      system(tmpcmd.toUtf8());
-    }
-    cmd.replace("portsnap",pspath);
-  }
-  //Now run the command
-  process->start(cmd);
-  qDebug() << "Ports fetch started: CMD:" << cmd;	
-}*/
-
