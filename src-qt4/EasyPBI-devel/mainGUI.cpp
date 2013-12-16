@@ -160,10 +160,6 @@ void MainGUI::SetupDefaults(){
     if( !chkOK ){
 	QMessageBox::warning(this, tr("Resources Unavailable"), tr("Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
     }
-    //Pop up a warning about a missing ports tree
-    //if( !settings->check("isPortsAvailable") ){
-	//QMessageBox::warning(this, tr("FreeBSD Ports Missing"), tr("The FreeBSD ports tree is missing from your system.")+"\n"+tr("Please open up the EasyPBI settings to correct this deficiency.") );
-    //}
     //Set a couple more internal flags
     PBI_BUILDING_NOW.clear();
     PBI_BUILD_TERMINATED=FALSE;
@@ -343,9 +339,13 @@ void MainGUI::refreshGUI(QString item){
   if( doall || (item == "pbibuild")){
     if(PBI_BUILDING_NOW.isEmpty()){
       //only change things if there is nothing building at the moment
+      ui->push_build_stop->setEnabled(false);
       if(ui->text_build_log->toPlainText().isEmpty()){ ui->push_build_save->setEnabled(FALSE); }
       else{ ui->push_build_save->setEnabled(TRUE); }
+    }else{
+      ui->push_build_stop->setEnabled(true);
     }
+    
     ui->push_build_start->setFocus();//make sure the focus starts out on the build button
   }
   //------OVERALL SETTINGS------
@@ -1235,32 +1235,6 @@ void MainGUI::on_push_build_start_clicked(){
   QString sigFile;
   if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ sigFile = settings->value("sigfile"); }
   QString cmd = ModuleUtils::generatePbiBuildCmd(MODULE.basepath(), outdir, sigFile);
-  /*// -- PBI from ports
-    //Check that the ports tree is available
-    if( !settings->check("isportsavailable") ){ 
-      qDebug() << "Cannot build a PBI from ports without the FreeBSD ports tree available";
-      return;
-    }
-    //Setup the pbi_makeport command from GUI settings
-    cmd = settings->value("pbi_makeport");
-    if(ui->check_build_32->isChecked()){ cmd += " -32"; }
-    cmd += " -c " + modDir;
-    if(settings->value("portsdir") != "/usr/ports"){ cmd += " -d " + settings->value("portsdir"); }
-    cmd += " -o " + outdir;
-    cmd += " --delbuild";
-    if( settings->check("usetmpfs") ){ cmd += " --tmpfs"; }
-    if( settings->check("usecache") ){ 
-      cmd += " --pkgdir " + settings->value("cachedir");
-      //Remove known "bad" packages (ones that routinely cause failures)
-      QDir cDir( settings->value("cachedir") );
-      QStringList filters = settings->list("skippkgs");
-      if(!filters.isEmpty()){
-        QStringList badFiles = cDir.entryList(filters, QDir::Files | QDir:: NoDotAndDotDot);
-        for(int i=0; i<badFiles.length(); i++){ cDir.remove(badFiles[i]); }
-      }
-    }
-    if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
-  */
   //Display the command created in hte terminal
   qDebug() << "Build PBI command created:"<<cmd;
   
@@ -1282,7 +1256,6 @@ void MainGUI::on_push_build_start_clicked(){
   //Setup the displays
   ui->push_build_stop->setEnabled(TRUE);
   ui->push_build_save->setEnabled(FALSE);
-  //ui->check_build_32->setEnabled(FALSE);
   ui->push_build_start->setEnabled(FALSE); //disable the button so they do not start more than 1 build at a time
   ui->text_build_log->clear(); //clear the display in case this is not the first run
   ui->line_build_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
@@ -1301,7 +1274,7 @@ void MainGUI::on_push_build_start_clicked(){
   PBI_BUILDING_NOW=outdir+":::"+MODULE.text("PBI_PROGNAME").remove(" ").toLower();
   //Start the Process
   qDebug() << "Starting the PBI build process...";
-  //ui->toolBox->setItemText(0,tr("PBI Builder (Working)"));
+  ui->tabWidget->setTabText(0,tr("Build PBI (Running)"));
   p->start(cmd);
 }
 
@@ -1360,11 +1333,10 @@ void MainGUI::slotPBIbuildFinished(int exitCode,QProcess::ExitStatus exitStatus)
   ui->push_build_start->setEnabled(TRUE);
   ui->push_build_save->setEnabled(TRUE);
   ui->push_build_stop->setEnabled(FALSE);
-  //ui->check_build_32->setEnabled(TRUE);
   p->close();
   PBI_BUILDING_NOW.clear();
   PBI_BUILD_TERMINATED=FALSE;
-  //ui->toolBox->setItemText(0,tr("PBI Builder (Finished)"));
+  ui->tabWidget->setTabText(0,tr("Build PBI (Done)"));
   delete p;
 }
 
