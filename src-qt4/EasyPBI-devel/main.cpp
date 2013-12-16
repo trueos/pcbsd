@@ -26,6 +26,16 @@ int main(int argc, char ** argv)
     QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &w, SLOT(slotSingleInstance()) );
     w.show();
 
+    //Look for additional input files and load the first pbi.conf
+    if(argc > 1){
+      QString input = argv[1];
+      if(input.endsWith("pbi.conf")){
+	//append the local path if necessary
+	QDir dir(input);
+	//Now load the module
+	w.loadModule(dir.absolutePath());
+      }
+    }
     int retCode = a.exec();
     return retCode;
 }

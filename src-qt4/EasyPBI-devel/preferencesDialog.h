@@ -34,7 +34,6 @@ private slots:
     void on_push_pbioutdir_clicked();
     void on_push_sigfile_clicked();
     void on_check_signpbi_stateChanged(int);
-    //void on_check_usepkgcache_stateChanged(int);
     // Paths Tab
     void on_push_moduledir_clicked();
     void on_push_icondir_clicked();

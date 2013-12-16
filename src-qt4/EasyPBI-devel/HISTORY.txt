@@ -33,3 +33,8 @@ New features: Packaging a local directory as a PBI, allow building 32-bit PBI's 
 APR 24, 2013:
 EasyPBI version 2.1 is tagged!
 Changes include: Combine the FreeBSD ports dialog into the EasyPBI Settings dialog, use portsnap for all FreeBSD ports fetching and updating, added the ability to flag xdg entries as requiring root, make all the "save" buttons dynamically enabled as appropriate. 
+
+DEC 16, 2013:
+EasyPBI version 2.2 is tagged!
+NOTE: This version requires the 10.x version of the PBI manager to build PBI's (included in PC-BSD 10.x).
+Changes include: Update to work with the 10.x version of the PBI manager backend. This includes moving from using the FreeBSD ports tree to using pkgNG packages for information and building (so the FreeBSD ports tree is no longer necessary). This slims down the EasyPBI options/interface quite a bit, so a fair number of options have been removed. Packaging a local PBI is now standardized by simply creating a custom FreeBSD package on your system first, then use EasyPBI to re-package it as a PBI.

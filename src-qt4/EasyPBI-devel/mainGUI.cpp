@@ -16,6 +16,7 @@ MainGUI::MainGUI(QWidget *parent) :
        //Setup Initial state of GUI objects and connect signal/slots
        ui->setupUi(this);  //load the mainGUI.ui file
 	XDGUPDATING=false;
+	lastModuleDir.clear();
 	// Create the config class
 	settings = new Config();
 	//Setup the Menu items
@@ -127,6 +128,21 @@ MainGUI::MainGUI(QWidget *parent) :
 MainGUI::~MainGUI()
 {
   qDebug() << "Shutting down EasyPBI normally";
+}
+
+void MainGUI::loadModule(QString confFile){
+  //Load a module that was specified on the CLI
+  if(confFile.isEmpty() || !QFile::exists(confFile) ){return;} //invalid file
+  bool ok = MODULE.loadModule(confFile);
+  if(ok){ 
+    qDebug() << "Loaded module:"<<confFile;
+    line_module->setText(MODULE.basepath().replace(QDir::homePath(),"~")); 
+    lastModuleDir = MODULE.basepath();
+  }
+  //Move to the pbi.conf tab
+  ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);
+  //Refresh the UI
+  refreshGUI("pbiconf");
 }
 
 void MainGUI::slotSingleInstance(){
@@ -421,7 +437,7 @@ void MainGUI::on_actionFreeBSD_Ports_triggered(){
 
 void MainGUI::on_actionPBI_Modules_triggered(){
   //Open the PC-BSD wiki to the module builders guide
-   QString target_url = "http://wiki.pcbsd.org/index.php/PBI_Module_Builder_Guide";
+   QString target_url = "http://wiki.pcbsd.org/index.php/PBI_Module_Builder_Guide/9.2";
    qDebug() << "Opening URL:" << target_url; 
    target_url.prepend("xdg-open ");
    system(target_url.toUtf8());
@@ -465,12 +481,15 @@ void MainGUI::on_actionNew_Module_triggered(){
 }
 
 void MainGUI::on_actionLoad_Module_triggered(){
-  QString modSel = QFileDialog::getOpenFileName(this, tr("Select PBI Module Configuration"), settings->value("moduledir"), tr("PBI Configuration (pbi.conf)") );
+  QString openDir = settings->value("moduledir");
+  if(!lastModuleDir.isEmpty()){ openDir = lastModuleDir; }
+  QString modSel = QFileDialog::getOpenFileName(this, tr("Select PBI Module Configuration"), openDir, tr("PBI Configuration (pbi.conf)") );
   if(modSel.isEmpty()){return;} //action cancelled or closed
   bool ok = MODULE.loadModule(modSel);
   if(ok){ 
     qDebug() << "Loaded module:"<<modSel;
     line_module->setText(MODULE.basepath().replace(QDir::homePath(),"~")); 
+    lastModuleDir = MODULE.basepath();
   }
   //Move to the pbi.conf tab
   ui->tabWidget->setCurrentWidget(ui->tab_pbi_conf);

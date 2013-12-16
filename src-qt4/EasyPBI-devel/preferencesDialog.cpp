@@ -95,50 +95,12 @@ void PreferencesDialog::on_push_sigfile_clicked(){
   //Save the selection to the GUI
   ui->line_sigfile->setText(seldir); 
 }
-/*
-void PreferencesDialog::on_push_addpkg_clicked(){
-  //Get the desired directory
-  QString seldir = QFileDialog::getOpenFileName(this, tr("Select the Package to Ignore"), settings->value("cachedir"), tr("Package Files (*.txz)") );
-  if(seldir.isEmpty()){ return; } //action cancelled
-  //get just the package name (ignore the version and extension)
-  QString pkg = seldir.remove(seldir.section("-",-1));
-  pkg.append("*");
-  //Save the selection to the GUI
-  ui->list_badpkg->addItem(pkg); 
-}
 
-void PreferencesDialog::on_push_rmpkg_clicked(){
-  //get the currently selected item
-  int row = ui->list_badpkg->currentRow();
-  if(row == -1){ return; } //nothing selected
-  //Remove it from the list
-  delete ui->list_badpkg->takeItem(row);
-}
-
-void PreferencesDialog::on_push_clearcache_clicked(){
-  //Verify that this is what the user really wants to do
-  QMessageBox verify(this);
-  verify.setText(tr("Are you sure you wish to clear the PBI package cache?"));
-  verify.setInformativeText(tr("This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source."));
-  verify.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-  verify.setDefaultButton(QMessageBox::Yes);
-  int ret = verify.exec();
-  if(ret != QMessageBox::Yes){return;}
-  //Remove all files/directories in the EasyPBI cache dir
-  QString cmd = "cd "+settings->value("cachedir")+"; rm -rf *";
-  system(cmd.toUtf8());
-}
-*/
 void PreferencesDialog::on_check_signpbi_stateChanged(int state){
   if(state == Qt::Checked){ ui->groupBox_sig->setVisible(TRUE); }
   else{ ui->groupBox_sig->setVisible(FALSE); }
 }
-/*
-void PreferencesDialog::on_check_usepkgcache_stateChanged(int state){
-  if(state == Qt::Checked){ ui->groupBox_pkgcache->setVisible(TRUE); }
-  else{ ui->groupBox_pkgcache->setVisible(FALSE); }
-}
-*/
+
 // ===== Paths Tab =====  
 void PreferencesDialog::on_push_moduledir_clicked(){
   //Get the desired directory

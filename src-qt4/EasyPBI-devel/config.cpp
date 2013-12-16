@@ -13,7 +13,7 @@ Config::Config() {
     detStruct << "" << "" << "" << "";
 	//defaultSettings=[ current version#, programDir, pbiOutputDir, moduleOutputDir, pkgCacheDir, iconFile, settingsFile, iconDir]
 	QString tmp = QDir::homePath()+"/EasyPBI/";
-    defaultSettings << "2.1" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
+    defaultSettings << "2.2" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
 	//TFstruct=[ is64-bitArch, portsAvailable, useDigitalSig, useTMPFS, usePkgCache, pbi_makeport_available, pbi_create_available, su_available ]
     TFstruct << FALSE << FALSE << FALSE << TRUE << TRUE << FALSE << FALSE << FALSE;
   }

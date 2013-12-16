@@ -117,7 +117,7 @@ void PBIModule::loadConfig(){
   QStringList contents = readFile(basePath+"/pbi.conf");
   for(int i=0; i<contents.length(); i++){
     //see if the current line conains a desired variable and save it
-    QString line = contents[i];
+    QString line = contents[i].simplified();
     if(!line.startsWith("#") && !line.startsWith("export") && !line.isEmpty()){ //Ignore commented out lines
       //Pull apart the variable and the value
       QString var = line.section("=\"",0,0,QString::SectionSkipEmpty).trimmed();
@@ -128,7 +128,7 @@ void PBIModule::loadConfig(){
 	  val.append( "\n"+line.section("#",0,0).section(";",0,0).trimmed() );
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
-      //qDebug() << "var="+var+"\t\tval="+val;
+      qDebug() << "var="+var+"\t\tval="+val;
       //Now check for text/bool/int values
       if(CTextValues.contains(var)){ HASH.insert(var,val); }
       else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }

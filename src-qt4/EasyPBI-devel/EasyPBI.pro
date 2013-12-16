@@ -14,7 +14,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainGUI.cpp \
-        modBuild.cpp \
 	backend.cpp \
 	newModuleDialog.cpp \
 	config.cpp \
@@ -25,7 +24,6 @@ SOURCES += main.cpp\
 	pkgSelect.cpp
 
 HEADERS  += mainGUI.h \
-            modBuild.h \
 	    backend.h \
 	    newModuleDialog.h \
 	    config.h \
