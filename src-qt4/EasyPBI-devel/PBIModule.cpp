@@ -599,9 +599,11 @@ bool PBIModule::createFile(QString fileName, QStringList contents){
   }
   
   //Check that the parent directory exists, and create it if necessary
-  QDir dir(fileName);
-    dir.cdUp();
+  QString pDir = fileName;
+  pDir.chop( fileName.section("/",-1).length() );
+  QDir dir(pDir);
     if(!dir.exists()){ 
+      qDebug() << "Create parent Directory:" << dir.absolutePath();
       if( !dir.mkpath(dir.absolutePath()) ){
         qDebug() << fileName+": Could not create containing directory";
 	return false;

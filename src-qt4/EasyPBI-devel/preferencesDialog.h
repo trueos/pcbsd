@@ -47,23 +47,11 @@ private slots:
     void on_push_pbicreate_clicked();
     void on_push_makeport_clicked();
     void on_push_resetutils_clicked();
-    //Ports Tab
-    void on_list_portsDirectories_currentIndexChanged(int);
-    void on_line_otherPortsDir_textChanged(QString);
-    void on_tool_otherPortsDir_clicked();
-    void on_push_fetchPorts_clicked();
-    void on_push_updatePorts_clicked();
-    void updateStatusBar();
-    void processFinished(int,QProcess::ExitStatus);
-    
+
 
 private:
     Ui::PreferencesDialog *ui;
     Config *settings;
-    QProcess *process;
-    
-    QString getLastPortsUpdate(QString);
-    void fetchPorts(QString, bool);
 
 };
 
