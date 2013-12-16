@@ -356,28 +356,28 @@ void mainWin::startPkgProcess() {
 
   qDebug() << cmd + " " + flags.join(" ");
 
+  system("rm /tmp/pkg-fifo 2>/dev/null");
+
   // Create the EVENT_PIPE
   if ( wDir.isEmpty() )
-    system("mkfifo /tmp/pkg-fifo");
+    system("mkfifo /tmp/pkg-fifo ; sleep 1");
   else
-    system("mkfifo " + wDir.toLatin1() + "/tmp/pkg-fifo");
+    system("mkfifo " + wDir.toLatin1() + "/tmp/pkg-fifo ; sleep 1");
 
   // Open and connect the EVENT_PIPE
   eP = new QProcess();
-  connect( eP, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadEventPipe()) );
-  eP->start(QString("tail"), QStringList() << "-f" << wDir + "/tmp/pkg-fifo");
-  qDebug() << "Starting EVENT_PIPE" << wDir + "/tmp/pkg-fifo";
-  
+  eP->setProcessChannelMode(QProcess::MergedChannels);
+  connect( eP, SIGNAL(readyRead()), this, SLOT(slotReadEventPipe()) );
+  connect( eP, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotReadEventPipe()) );
+  eP->start(QString("cat"), QStringList() << "-u" << wDir + "/tmp/pkg-fifo");
+  qDebug() << "Starting EVENT_PIPE";
+  eP->waitForStarted();
+
   // Setup the first process
   uProc = new QProcess();
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert("PCFETCHGUI", "YES");
-
-  // KPM 12-12-2013
-  // EVENT_PIPE causes segfaults in pkgng 1.2.3 :(
-  // Re-enable this when its fixed upstream
-  //env.insert("EVENT_PIPE", "/tmp/pkg-fifo");
-
+  env.insert("EVENT_PIPE", "/tmp/pkg-fifo");
   uProc->setProcessEnvironment(env);
   uProc->setProcessChannelMode(QProcess::MergedChannels);
 
@@ -949,11 +949,23 @@ void mainWin::slotStartNGChanges()
          
   pCmds.clear();
 
+  // Adding packages
   if ( ! pkgAddList.isEmpty() ) {
+
+    // Look for conflicts first
+    if ( wDir.isEmpty() )
+      pCmds << "pc-pkg" << "check-conflict" << pkgAddList.join(" ");
+    else
+      pCmds << "chroot" << wDir << "pc-pkg" << "check-conflict" << pkgAddList.join(" ");
+    pkgCmdList << pCmds;
+    pCmds.clear();
+
+    // Now spin up the install process
     if ( wDir.isEmpty() )
       pCmds << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
     else
       pCmds << "chroot" << wDir << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+
     pkgCmdList << pCmds;
   }
 
@@ -1504,10 +1516,11 @@ void mainWin::closeEvent(QCloseEvent *event) {
 void mainWin::slotReadEventPipe()
 {
    QString line, tmp, file, dl, tot;
+   bool ok, ok2;
 
    while (eP->canReadLine()) {
      line = eP->readLine().simplified();
-     qDebug() << line;
+     //qDebug() << line;
 
      // KPM!!
      // TODO 12-12-2013
@@ -1538,10 +1551,20 @@ void mainWin::slotReadEventPipe()
           // Get the download / total
           dl = line.section(":", 2, 2).section(",", 0, 0);
           tot = line.section(":", 3, 3).section("}", 0, 0);
+          dl = dl.simplified();
+          tot = tot.simplified();
+
+          dl.toLongLong(&ok);
+          tot.toLongLong(&ok2);
+          if ( ok && ok2) {
+            progressUpdate->setRange(0, tot.toLongLong(&ok) / 1024);
+            progressUpdate->setValue(dl.toLongLong(&ok) / 1024 );
+          }
 
           // Set the status update
-	  textStatus->setText(tr("Downloading") + " " + file + " (" + dl + "/" + tot + ")" );
+	  textStatus->setText(tr("Downloading") + " " + file + " (" + dl + " / " + tot + ")" );
      }
 
    } // End of while canReadLine()
+
 }

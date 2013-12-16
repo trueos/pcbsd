@@ -80,6 +80,9 @@ add_metapkgs() {
      		exit 1
   	fi
 
+        # Don't need this anymore
+        unset EVENT_PIPE
+
         # Time to run pkgng and let it install packages!
 	pkg install -yUf "$pkgName"
 
@@ -278,36 +281,20 @@ create_logfile() {
 	chmod 666 ${LOGFILE}
 }
 
+do_pkg_conflicts()
+{
+   fullopts="`echo $@ | sed 's|check-conflict||g'`"
+
+   echo "install -FUy $fullopts" > /tmp/err
+   # Lets check for any conflicts doing this install
+   check_pkg_conflicts "install -FUy $fullopts"
+   exit $?
+}
+
 intercept_pkg_dl()
 {
-   local count=0;
-   fullopts="$@"
-   op="$1"
-   
-   # Make sure we insert some flags we need
-   while [ $# -gt 0 ]; do
-     if [ $count -gt 0 ] ; then
-        # If we are already using -n, we can skip downloading anything
-	if [ "$1" = "-n" ] ; then
-           pkg $fullopts
-           exit $?
-	fi
-        flags="$flags $1"
-     else
-        flags="-U -n"
-     fi
-     count=`expr $count + 1`
-     shift
-   done
-
-   # Lets check for any conflicts doing this install
-   check_pkg_conflicts "${op} -FUy $flags"
-   if [ $? -ne 0 ] ; then
-  	exit 1
-   fi
-
    # Time to run pkgng and let it do its thing
-   pkg $fullopts 
+   pkg $@
    result=$?
 
    # Set PKG_CACHEDIR
@@ -346,7 +333,8 @@ get_file_dl()
 do_pc-pkg()
 {
    case $1 in
- install|upgrade) intercept_pkg_dl ${@} ;;
+         install) intercept_pkg_dl ${@} ;;
+  check-conflict) do_pkg_conflicts ${@} ;;
          getfile) get_file_dl ${@} ;;
                *) pkg ${@} 
                   exit $?
