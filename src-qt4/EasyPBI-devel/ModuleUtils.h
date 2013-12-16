@@ -29,6 +29,7 @@ public:
 	//General Module Utilities
 	static void compressModule(QString modulePath);
 	static PBIModule newModule(QString moduleDir, QString port, QString iconFile);
+	static QString generatePbiBuildCmd(QString confDir, QString outDir, QString sigFile);
 
 };
 

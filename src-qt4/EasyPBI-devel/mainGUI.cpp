@@ -1224,7 +1224,6 @@ void MainGUI::on_push_build_start_clicked(){
   bool gostatus = TRUE;
   QString outdir = settings->value("pbidir");
   if (outdir.isEmpty() ){gostatus=FALSE;}
-  //QString sigfile = "";ui->linePBIDigSigFile->text(); //this one can be empty
   QString modDir = MODULE.basepath();
   if(modDir.isEmpty()){gostatus=FALSE;}
   if(!gostatus){
@@ -1233,8 +1232,10 @@ void MainGUI::on_push_build_start_clicked(){
   }
   
   //Generate the PBI build command
-  QString cmd;
-  // -- PBI from ports
+  QString sigFile;
+  if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ sigFile = settings->value("sigfile"); }
+  QString cmd = ModuleUtils::generatePbiBuildCmd(MODULE.basePath(), outdir, sigFile);
+  /*// -- PBI from ports
     //Check that the ports tree is available
     if( !settings->check("isportsavailable") ){ 
       qDebug() << "Cannot build a PBI from ports without the FreeBSD ports tree available";
@@ -1259,7 +1260,7 @@ void MainGUI::on_push_build_start_clicked(){
       }
     }
     if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ cmd += " --sign " + settings->value("sigfile"); }
-
+  */
   //Display the command created in hte terminal
   qDebug() << "Build PBI command created:"<<cmd;
   
@@ -1267,7 +1268,7 @@ void MainGUI::on_push_build_start_clicked(){
   //  -- long time required, internet connection required, root permissions required
   QMessageBox verify(this);
   verify.setText(tr("Are you sure you wish to start the PBI build?"));
-  verify.setInformativeText(tr("This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled."));
+  verify.setInformativeText(tr("This requires an active internet connection and administrator privileges."));
   verify.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
   verify.setDefaultButton(QMessageBox::Yes);
   int ret = verify.exec();

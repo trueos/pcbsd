@@ -202,3 +202,13 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   MOD.saveConfig(); //create the new pbi.conf
   return MOD;
 }
+
+QString ModuleUtils::generatePbiBuildCmd(QString confDir, QString outDir, QString sigFile){
+  QString cmd = "pbi_makeport"; 
+  if(confDir.isEmpty()){ qDebug() << "Warning: a module must be supplied to build a PBII"; return ""; }
+  if(!confDir.isEmpty()){ cmd.append(" -c "+confDir); }
+  if(!outDir.isEmpty()){ cmd.append(" -o "+outDir); }
+  if(!sigFile.isEmpty()){ cmd.append(" --sign "+sigFile); }
+  cmd.append(" --pkgbuild");
+  return cmd;
+}
