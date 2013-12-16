@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # PROVIDE: pcdm
-# REQUIRE: LOGIN cleanvar moused syscons
+# REQUIRE: LOGIN cleanvar moused syscons dbus
 #
 # Add the following to /etc/rc.conf to start PCDM at boot time:
 #
@@ -23,11 +23,28 @@ load_rc_config ${name}
 
 pcdm_start()
 {
+  if ! checkyesno pcdm_enable ; then
+     return 0
+  fi
+  echo "Starting PCDM."
+
   (
-    if ! checkyesno pcdm_enable ; then
-	return 0
-    fi
-    echo "Starting PCDM."
+    iter=0
+    while ! ps -axoargs | grep "^/usr/libexec/getty " | grep -qv grep >/dev/null 2>&1; do
+	if [ ${iter} -eq 60 ]; then
+	    break
+	fi
+	sleep 1
+	iter=$(expr ${iter} + 1)
+    done
+    iter=0
+    while ! /usr/local/bin/lshal >/dev/null 2>&1 ; do
+	if [ ${iter} -eq 60 ]; then
+	    break
+	fi
+	sleep 1
+	iter=$(expr ${iter} + 1)
+    done
 
     #Start the PCDM login daemon
     ${command} ${pcdm_flags} 
