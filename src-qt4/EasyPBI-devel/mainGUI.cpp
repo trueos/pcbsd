@@ -361,8 +361,8 @@ void MainGUI::refreshGUI(QString item){
       ui->push_addportafter->setEnabled(FALSE);
     }
     //Check for a 64-bit system to enable the 32-bit build option
-    if( settings->check("is64bit") ){ ui->check_build_32->setVisible(TRUE); }
-    else{ ui->check_build_32->setVisible(FALSE); ui->check_build_32->setChecked(FALSE); }
+    //if( settings->check("is64bit") ){ ui->check_build_32->setVisible(TRUE); }
+    //else{ ui->check_build_32->setVisible(FALSE); ui->check_build_32->setChecked(FALSE); }
     
     //Set the default focus on the "load" button
     this->setFocus();
@@ -1234,7 +1234,7 @@ void MainGUI::on_push_build_start_clicked(){
   //Generate the PBI build command
   QString sigFile;
   if( settings->check("usesignature") && QFile::exists(settings->value("sigfile")) ){ sigFile = settings->value("sigfile"); }
-  QString cmd = ModuleUtils::generatePbiBuildCmd(MODULE.basePath(), outdir, sigFile);
+  QString cmd = ModuleUtils::generatePbiBuildCmd(MODULE.basepath(), outdir, sigFile);
   /*// -- PBI from ports
     //Check that the ports tree is available
     if( !settings->check("isportsavailable") ){ 
@@ -1282,7 +1282,7 @@ void MainGUI::on_push_build_start_clicked(){
   //Setup the displays
   ui->push_build_stop->setEnabled(TRUE);
   ui->push_build_save->setEnabled(FALSE);
-  ui->check_build_32->setEnabled(FALSE);
+  //ui->check_build_32->setEnabled(FALSE);
   ui->push_build_start->setEnabled(FALSE); //disable the button so they do not start more than 1 build at a time
   ui->text_build_log->clear(); //clear the display in case this is not the first run
   ui->line_build_module->setText( MODULE.basepath().replace(QDir::homePath(), "~") );
@@ -1360,7 +1360,7 @@ void MainGUI::slotPBIbuildFinished(int exitCode,QProcess::ExitStatus exitStatus)
   ui->push_build_start->setEnabled(TRUE);
   ui->push_build_save->setEnabled(TRUE);
   ui->push_build_stop->setEnabled(FALSE);
-  ui->check_build_32->setEnabled(TRUE);
+  //ui->check_build_32->setEnabled(TRUE);
   p->close();
   PBI_BUILDING_NOW.clear();
   PBI_BUILD_TERMINATED=FALSE;

@@ -144,19 +144,6 @@
               </property>
              </spacer>
             </item>
-            <item>
-             <widget class="QCheckBox" name="check_build_32">
-              <property name="statusTip">
-               <string>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</string>
-              </property>
-              <property name="layoutDirection">
-               <enum>Qt::LeftToRight</enum>
-              </property>
-              <property name="text">
-               <string>Build 32-bit</string>
-              </property>
-             </widget>
-            </item>
            </layout>
           </item>
           <item>
@@ -271,7 +258,7 @@
              <x>0</x>
              <y>0</y>
              <width>528</width>
-             <height>659</height>
+             <height>648</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1650,7 +1637,7 @@
      <x>0</x>
      <y>0</y>
      <width>575</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

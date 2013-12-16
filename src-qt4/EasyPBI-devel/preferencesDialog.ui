@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>477</height>
+    <width>461</width>
+    <height>381</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -105,139 +105,6 @@
              <string>Select</string>
             </property>
            </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="check_usetmpfs">
-         <property name="toolTip">
-          <string>Use system memory to speed up PBI build processes.</string>
-         </property>
-         <property name="text">
-          <string>Use TMPFS</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="Line" name="line_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="check_usepkgcache">
-         <property name="toolTip">
-          <string>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</string>
-         </property>
-         <property name="text">
-          <string>Use Package Caching</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_pkgcache">
-         <property name="title">
-          <string>Package Caching Options</string>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_7">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <item>
-             <widget class="QLabel" name="label_6">
-              <property name="text">
-               <string>Packages to Ignore</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QListWidget" name="list_badpkg">
-              <property name="toolTip">
-               <string>Listed packages will always be ignored during PBI builds.</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_8">
-              <item>
-               <widget class="QPushButton" name="push_addpkg">
-                <property name="toolTip">
-                 <string>Add a currently cached package to be ignored.</string>
-                </property>
-                <property name="text">
-                 <string>Add</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="EasyPBI.qrc">
-                  <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="push_rmpkg">
-                <property name="toolTip">
-                 <string>Remove the selected package from the ignore list.</string>
-                </property>
-                <property name="text">
-                 <string>Remove</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="EasyPBI.qrc">
-                  <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <item>
-             <widget class="QPushButton" name="push_clearcache">
-              <property name="toolTip">
-               <string>Delete all packages currently in the cache.</string>
-              </property>
-              <property name="text">
-               <string>Clear Cache</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
           </item>
          </layout>
         </widget>

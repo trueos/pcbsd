@@ -12,7 +12,6 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
 	//Setup the dialog icons
 	ui->push_pbioutdir->setIcon(Backend::icon("load"));
 	ui->push_sigfile->setIcon(Backend::icon("file"));
-	ui->push_clearcache->setIcon(Backend::icon("clear"));
 	ui->push_moduledir->setIcon(Backend::icon("load"));
 	ui->push_icondir->setIcon(Backend::icon("load"));
 	ui->push_defaulticon->setIcon(Backend::icon("file"));
@@ -40,10 +39,6 @@ void PreferencesDialog::resetGUI(){
 	ui->line_pbioutdir->setText(settings->value("pbidir"));
 	ui->check_signpbi->setChecked(settings->check("usesignature"));
 	ui->line_sigfile->setText(settings->value("sigfile"));
-	ui->check_usetmpfs->setChecked(settings->check("usetmpfs"));
-	ui->check_usepkgcache->setChecked(settings->check("usecache"));
-	ui->list_badpkg->clear();
-	ui->list_badpkg->addItems(settings->list("skippkgs"));
 	//paths tab
 	ui->line_moduledir->setText(settings->value("moduledir"));
 	ui->line_icondir->setText(settings->value("icondir"));
@@ -59,8 +54,6 @@ void PreferencesDialog::updateGUI(){
 	//pbi tab
 	if( ui->check_signpbi->isChecked() ){ ui->groupBox_sig->setVisible(TRUE); }
 	else{ ui->groupBox_sig->setVisible(FALSE); }
-	if( ui->check_usepkgcache->isChecked() ){ ui->groupBox_pkgcache->setVisible(TRUE); }
-	else{ ui->groupBox_pkgcache->setVisible(FALSE); }
 }
 
 //Save/Cancel buttons
@@ -69,14 +62,6 @@ void PreferencesDialog::on_buttonBox_accepted(){
     settings->setValue("pbidir", ui->line_pbioutdir->text() );
     settings->setCheck("usesignature", ui->check_signpbi->isChecked() );
     settings->setValue("sigfile", ui->line_sigfile->text() );
-    settings->setCheck("usetmpfs", ui->check_usetmpfs->isChecked() );
-    settings->setCheck("usecache", ui->check_usepkgcache->isChecked() );
-    QStringList badpkgs;
-    for(int i=0; i<ui->list_badpkg->count(); i++){
-      badpkgs << ui->list_badpkg->item(i)->text();
-    }
-    badpkgs.removeDuplicates();
-    settings->setList("skippkgs", badpkgs);
     settings->setValue("moduledir", ui->line_moduledir->text() );
     settings->setValue("icondir", ui->line_icondir->text() );
     settings->setValue("defaulticon", ui->line_defaulticon->text() );
@@ -110,7 +95,7 @@ void PreferencesDialog::on_push_sigfile_clicked(){
   //Save the selection to the GUI
   ui->line_sigfile->setText(seldir); 
 }
-
+/*
 void PreferencesDialog::on_push_addpkg_clicked(){
   //Get the desired directory
   QString seldir = QFileDialog::getOpenFileName(this, tr("Select the Package to Ignore"), settings->value("cachedir"), tr("Package Files (*.txz)") );
@@ -143,17 +128,17 @@ void PreferencesDialog::on_push_clearcache_clicked(){
   QString cmd = "cd "+settings->value("cachedir")+"; rm -rf *";
   system(cmd.toUtf8());
 }
-
+*/
 void PreferencesDialog::on_check_signpbi_stateChanged(int state){
   if(state == Qt::Checked){ ui->groupBox_sig->setVisible(TRUE); }
   else{ ui->groupBox_sig->setVisible(FALSE); }
 }
-
+/*
 void PreferencesDialog::on_check_usepkgcache_stateChanged(int state){
   if(state == Qt::Checked){ ui->groupBox_pkgcache->setVisible(TRUE); }
   else{ ui->groupBox_pkgcache->setVisible(FALSE); }
 }
-
+*/
 // ===== Paths Tab =====  
 void PreferencesDialog::on_push_moduledir_clicked(){
   //Get the desired directory
