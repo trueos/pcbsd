@@ -128,7 +128,7 @@ void PBIModule::loadConfig(){
 	  val.append( "\n"+line.section("#",0,0).section(";",0,0).trimmed() );
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
-      qDebug() << "var="+var+"\t\tval="+val;
+      //qDebug() << "var="+var+"\t\tval="+val;
       //Now check for text/bool/int values
       if(CTextValues.contains(var)){ HASH.insert(var,val); }
       else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }

@@ -1,6 +1,5 @@
 #include "mainGUI.h"
 #include "ui_mainGUI.h"
-#include "modBuild.h"
 #include "backend.h"
 #include "newModuleDialog.h"
 #include "preferencesDialog.h"
