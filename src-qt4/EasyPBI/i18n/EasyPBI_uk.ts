@@ -368,14 +368,6 @@
         <translation>Зібрати PBI</translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>Додатково: Зібрати 32-бітний модуль замість звичайного 64-бітного</translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>Зібрати 32-біт</translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>Скасувати поточний процес збирання</translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>Жодного модуля не завантажено</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>Порт FreeBSD</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Локальні джерела</translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>Скрипти встановлення</translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>Неможливо створити PBI модуль. Будь ласка, перевірте права доступу до каталогу та спробуйте ще.</translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>Обрати модуль</translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI: Немає портів FreeBSD</translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>Обрати порт</translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI: Невірний порт</translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>Обраний каталог не є вірним портом FreeBSD. Будь ласка, оберіть каталог порту, який містить відповідні Makefile та distinfo.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>Ви впевнені, що бажаєте почати збирання PBI?</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>PBI збирач (виконується)</translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>Зберегти протокол</translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>Будь ласка, перевірте журнал збирання, щоб знайти причину збою і відповідно змініть налаштування модуля</translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>PBI збирач (завершено)</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Почати створення нового елементу XDG</translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>Додати</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Обрати каталог пакунку</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>Відсутні порти FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>На вашій системі відсутнє дерево портів FreeBSD.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>Розпочати побудову PBI з поточного модуля (вимагає привілеїв адміністратора)</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Процес вимагає наявності активного з&apos;єднання з мережею internet та прав адміністратора. Час збирання залежить від конфігурації Вашої системи та кількості портів до збирання.</translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>Обраний каталог, скоріше за все, не є портом FreeBSD.</translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>Продовжити не зважаючи на це?</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>Обрати</translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>Локальний каталог для пакування як PBI</translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>Вибрати локальний каталог для пакування як PBI</translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>Локальний каталог</translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>Іконка PNG для PBI (потім можна буде змінити)</translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>Файл іконки</translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>Створити PBI модуль з існуючого порту FreeBSD</translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>Упакувати локальний каталог як PBI</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Локальні вихідні коди</translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Відсутні порти FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>На вашій системі не вдалося знайти дерево портів FreeBSD. Ви можете отримати дерево портів через меню EasyPBI або вручну в налаштуваннях EasyPBI вказати шлях до дерева портів, якщо воно розташоване в нестандартному місці.</translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>Вибрати порт</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Вибрати каталог пакунку</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>Вибрати файл з ключем OpenSSL</translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>Використовувати системну пам&apos;ять для пришвидшення процесу збирання PBI</translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>Використовувати TMPFS</translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>Значно пришвидшить процес збирання PBI шляхом запобігання компіляції вже попередньо скомпільованих портів.</translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>Використовувати кеш пакунків</translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>Параметри кешу пакунків</translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>Ігнорувати пакунки</translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>Перелік пакунків, які завжди ігноруватимуться під час збирання PBI.</translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>Додати в ігноровані щойно кешований пакунок.</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Додати</translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>Вилучити вибраний пакунок із переліку ігнорованих.</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Вилучити</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>Вилучити всі пакунки, які зараз є в кеші.</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Очистити кеш</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Файли підписів (*)</translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>Вибрати пакети для ігнорування</translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Файли пакетів (*.txz)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>Ви дійсно бажаєте очистити кеш PBI пакетів?</translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>Це спричинить вилучення всіх файлів та каталогів з каталогу кешу. Наступного разу, як ви запустите збирання PBI, почнеться компіляція всіх пакетів з вихідних кодів.</translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>Вибрати типовий каталог для модулів</translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>Це спричинить видалення будь-яких налаштувань шляхів до зовнішніх утиліт.</translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>Вибрати каталог портів FreeBSD</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>Порти FreeBSD</translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Дерево портів</translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>Останнє оновлення</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>Створити каталог</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Оновити</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Статус</translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>Зібрані PBI</translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Типова іконка</translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>Поточний користувач (~/EasyPBI/ports)</translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>Всі користувачі (/usr/ports)</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>Інш.</translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>Неіснуючий</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Успішно</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>Дерево портів FreeBSD було успішно оновлено</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Невдача</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>Дерево портів FreeBSD оновити не вдалося.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Останнє повідомлення: %1</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Запит прав доступу root&apos;а</translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>Будь ласка, перевірте правильність вашої EasyPBI компіляції</translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

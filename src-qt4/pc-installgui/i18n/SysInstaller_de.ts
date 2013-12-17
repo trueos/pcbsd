@@ -678,8 +678,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installation auf SSD (deaktiviert SWAP / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
@@ -692,13 +691,11 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bootloader (GRUB empfohlen)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sie haben keinen Bootloader zur Installation ausgewählt. Sie müssen Ihren eigene Loader manuell konfigurieren.</translation>
     </message>
 </context>
 <context>
@@ -809,28 +806,23 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte geben Sie zu Beginn den Hostnamen, Benutzernamen und Port des Backup-Servers an.</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Backup-Server</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Benutzername</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH-Port</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
@@ -885,20 +877,19 @@ Please try another USB stick or use password authentication.</source>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verbindung fehlgeschlagen!</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konnte keine Verbindung zum Backup-Server aufbauen!
+Bitte überprüfen Sie, ob der Server erreichbar ist, und überprüfen Sie Ihren Benutzernamen / Passwort.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konnte keine Verbindung zum Backup-Server aufbauen!
+Bitte überprüfen Sie, ob der Server erreichbar ist.</translation>
     </message>
     <message>
         <source>Will restore from:</source>

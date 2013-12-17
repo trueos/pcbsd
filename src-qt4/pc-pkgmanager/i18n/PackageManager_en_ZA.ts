@@ -268,8 +268,7 @@
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Downloading</translation>
     </message>
 </context>
 </TS>

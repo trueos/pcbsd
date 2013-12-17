@@ -368,14 +368,6 @@
         <translation>创建PBI</translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>可选项：编译一个32位而不是64位的PBI</translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>编译为32位</translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>撤销正在运行的编译进程</translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>没有载入的模块</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD Port</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>本地资源</translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>安装脚本</translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>无法创建PBI模块。请检查目录权限并重试。</translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>选择模块</translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI：没有FreeBSD Port</translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>选择Port</translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI：无效的Port</translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>选定的目录不是一个有效的FreeBSD port。请选择一个包含相应Makefile和distinfo的port目录。</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>确定要开始编译PBI？</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>PBI编译器（正在工作中）</translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>保存日志</translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>请检查编译日志查找失败原因并对模块做相应调整</translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>PBI编译器（已完成）</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>开始创建一个新的XDG条目</translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>添加</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>选择软件目录</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>FreeBSD Port缺失</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>您的系统中没有安装FreeBSD port树。</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>从当前模块中开始创建PBI(需要管理器权限)</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>此动作需要网络连接和管理员权限。创建PBI的时间长短会因系统参数及要编译的ports而不同。</translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>选定的目录不像是一个有效的FreeBSD port。</translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>您仍然要继续使用它吗？</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>选择</translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>要打包成PBI的本地目录</translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>选择要打包成PBI的本地目录</translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>本地目录</translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>PBI要使用的PNG图标文件（以后可更改）</translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>图标文件</translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>从已存在的FreeBSD port中创建PBI</translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>将本地目录打包成PBI</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>本地资源</translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI：没有FreeBSD Port</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>您的系统中没有发现FreeBSD Port树。您可以通过EasyPBI的菜单来获取port树，或者如果已安装在非标准位置，请通过EasyPBI设定手动指定其安装路径。</translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>选择Port</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>选择软件目录</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>浏览查找openssl钥匙文件</translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>使用系统内在以加速PBI编译进程。</translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>使用TMPFS</translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>通过阻止对已编译port的重新编译可以极大提高PBI编译速度。</translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>使用软件包缓存</translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>软件包(package)缓存选项</translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>被略过的软件包(package)</translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>下列软件包(package)在 PBI 构建期间会被略过。</translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>从缓存软件包中添加一个要被略过的软件包。</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>添加</translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>从要被略过的软件包列表中移除选择的软件包。</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>移除</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>从当前缓存中移除所有软件包。</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>清空缓存</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Signature Files (*)</translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>选择要略过的软件包</translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Package Files (*.txz)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>是否确定清空 PBI 软件包缓存？</translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>将会缓存目录中的所有文件和目录。下一次开始 PBI 构建，要从源码重建所有的软件包。</translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>选择模块的默认目录</translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>这会清除所有外部工具的路径设置。</translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>选择 FreeBSD Ports 目录</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD Ports</translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Ports Tree</translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>上次更新</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>文本标签</translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>创建目录</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>更新</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>状态</translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>PBI Builds</translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>默认图标</translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>当前用户 (~/EasyPBI/ports)</translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>所有用户 (/usr/ports)</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>其他</translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>Nonexistent</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Success</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>更新 FreeBSD ports tree 成功</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Failure</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>更新 FreeBSD ports tree 失败。</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>最后的消息: %1</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>需要 root 权限访问</translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>请检查 EasyPBI 是否正确地编译</translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

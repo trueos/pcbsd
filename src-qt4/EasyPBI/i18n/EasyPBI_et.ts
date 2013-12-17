@@ -368,14 +368,6 @@
         <translation>Ehita PBI</translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>VALIKULINE: ehita 32-bitine PBI tavapärase 64-bitise asemel</translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>Ehita 32-bitisena</translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>Katkesta hetkel töötav ehitamisprotsess</translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>Ühtegi moodulit pole laaditud</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD port</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Kohalik lähtekood</translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>Paigaldusskriptid</translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>PBI moodulit ei õnnestunud luua. Kontrolli kausta õigusi ja proovi uuesti.</translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>Vali moodul</translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI: FreeBSD porte pole</translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>Vali port</translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI: vigane port</translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>Valitud kaustas ei ole FreeBSD port. Vali pordi kaust, milles oleks sobiv Makefile ja distinfo.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>Kas oled kindel, et soovid PBI ehitamist alustada?</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>PBI ehitaja (töötab)</translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>Salvesta logi</translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>Leia ehitamise logist vea põhjus ja proovi moodulit vastavalt parandada.</translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>PBI ehitaja (lõpetatud)</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Alusta uue XDG-kirje loomist</translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>Lisa</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Vali paki kaust</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>FreeBSD pordid on puudu</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>FreeBSD portide puu on süsteemist puudu.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>Alusta PBI ehitamist käesolevast moodulist (vajab administraatori õigusi)</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Nõutud on internetiühendus ja administraatori õigused. PBI ehitamise aeg sõltub süsteemi jõudlusest ja kompileeritavatest portidest.</translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>Valitud kaust ei paista olevat sobiv FreeBSD port.</translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>Kas kasutada sellegipoolest?</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>Vali</translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>Kohalik kaust, mida PBI-ks pakkida</translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>Vali kohalik kaust, mida PBI-ks pakkida</translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>Kohalik kaust</translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>PNG-ikoon, mida PBI jaoks kasutada (saab hiljem muuta)</translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>Ikoonifail</translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>Loo PBI olemasolevast FreeBSD pordist</translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>Paki kohalik kaust PBI-ks</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Kohalik lähtekood</translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: FreeBSD porte pole</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>FreeBSD portide puud ei leitud süsteemist. Portide puu saab tõmmata EasyPBI menüüst või kui see on paigaldatud mitte-standardsesse asukohta, siis saab asukoha täpsustada EasyPBI sätete all.</translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>Vali port</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Vali paki kaust</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>Vali OpenSSL-i võtmefail</translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>Kasuta süsteemi mälu, et kiirendada PBI ehitamist</translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>Kasuta TMPFS-i</translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>Kiirendab PBI-de ehitamist vältides varem ehitatud portide uuesti ehitamist.</translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>Hoia pakid vahemälus</translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>Pakkide vahemälu valikud</translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>Pakid, mida ignoreerida</translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>Neid pakke ignoreeritakse PBI-de ehitamisel.</translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>Lisa hetkel vahemälus olev pakk ignoreeritavate nimekirja.</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Lisa</translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>Eemalda valitud pakk ignoreeritavate hulgast.</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Eemalda</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>Kustuta kõik pakid, mis on hetkel vahemälus.</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Tühjenda vahemälu</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Allkirjafailid (*)</translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>Vali pakk, mida ignoreerida</translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Pakifailid (*.txz)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>Kas soovid kindlasti PBI pakkide vahemälu tühjendada?</translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>See kustutab kõik failid ja alamkaustad vahemälu kaustast. Järgmise PBI ehitamisel ehitatakse kõik pakid lähtekoodist uuesti.</translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>Vali moodulite vaikekaust</translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>See eemaldab väliste tööriistade kohandatud asukohtade sätted.</translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>Vali FreeBSD portide kaust</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD pordid</translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Portide puu</translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>Viimane värskendus</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>Loo kaust</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Värskenda</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Olek</translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>Ehitatud PBI-d</translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Vaikimisi ikoon</translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>Praegune kasutaja (~/EasyPBI/ports)</translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>Kõik kasutajad (/usr/ports)</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>Muu</translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>Puudub</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Õnnestus</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>FreeBSD portide puu uuendati edukalt</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Tõrge</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>FreeBSD portide puud ei õnnestunud uuendada.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Viimane sõnum: %1</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Nõutud on juurkasutaja ligipääs</translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>Kontrolli, et EasyPBI kompileerimine tehti õigesti</translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

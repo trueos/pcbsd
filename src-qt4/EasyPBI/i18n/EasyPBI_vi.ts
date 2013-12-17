@@ -368,14 +368,6 @@
         <translation>Xây dựng PBI</translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>TÙY CHỌN: Xây dựng một PBI 32-bit thay vì thường xuyên 64-bit</translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>Xây dựng 32-bit</translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>Hủy quá trình xây dựng hiện đang chạy</translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>Mô-đun không tải</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD Cảng</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Các nguồn tin địa phương</translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>Scripts cài đặt</translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>Không có thể tạo ra PBI mô-đun. Hãy kiểm tra các thư mục cho phép và thử lại.</translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>Chọn số Mô-đun</translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI: Không có cổng FreeBSD</translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>Chọn số Cảng</translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI: Cảng không hợp lệ</translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>Thư mục được chọn không phải là một cổng FreeBSD hợp lệ. Vui lòng chọn một thư mục Cảng, trong đó có các Makefile và distinfo thích hợp.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>Bạn có chắc chắn bạn muốn để bắt đầu PBI xây dựng?</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>PBI Builder (làm việc)</translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>tiết kiệm Log</translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>Vui lòng kiểm tra xây dựng log để tìm ra nguyên nhân của sự thất bại và điều chỉnh mô-đun phù hợp</translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>PBI Builder (hoàn thành)</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Bắt đầu tạo một mục mới xdg</translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>Thêm</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Chọn số gói thư mục</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>FreeBSD cổng Thiếu</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>FreeBSD cây cổng là mất tích từ hệ thống của bạn.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>Bắt đầu xây dựng một PBI từ các mô-đun hiện tại (yêu cầu quyền quản trị)</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Điều này đòi hỏi một kết nối internet hoạt động và quyền quản trị. Thời gian cần thiết để xây dựng một PBI thay đổi tùy thuộc vào thông số kỹ thuật hệ thống và các cổng được biên soạn.</translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>Thư mục được lựa chọn không xuất hiện như một cổng FreeBSD hợp lệ.</translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>Bạn có muốn tiếp tục sử dụng nó không?</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>Chọn số</translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>Thư mục địa phương để được đóng gói như một PBI</translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>Chọn một thư mục địa phương để được đóng gói như một PBI</translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>Danh bạ địa phương</translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>PNG biểu tượng tập tin để sử dụng các PBI (có thể được thay đổi sau này)</translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>biểu tượng tập tin</translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>Tạo ra một PBI từ một cổng FreeBSD hiện</translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>Gói một thư mục địa phương như một PBI</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Các nguồn tin địa phương</translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Không có cổng FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>FreeBSD cổng cây không thể được tìm thấy trên hệ thống của bạn. Bạn có thể lấy cây cổng thông qua trình đơn EasyPBI hoặc tự thiết lập đường dẫn đến cây cổng trong các ưu đãi EasyPBI nếu nó được cài đặt ở một vị trí không chuẩn.</translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>Chọn số Cảng</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Chọn số gói Danh bạ</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>Duyệt các tập tin quan trọng openssl</translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>Sử dụng bộ nhớ hệ thống để tăng tốc độ PBI xây dựng quy trình.</translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>Sử dụng tmpfs</translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>Tăng tốc đáng kể các PBI xây dựng quy trình bằng cách ngăn ngừa tái lập cổng được xây dựng trước đó.</translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>Sử dụng gói Caching</translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>Gói tùy chọn Caching</translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>Gói để bỏ qua</translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>Gói niêm yết sẽ luôn luôn bị bỏ qua trong quá trình PBI xây dựng.</translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>Thêm một gói phần mềm hiện đang được lưu trữ để được bỏ qua.</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Thêm</translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>Loại bỏ các gói được lựa chọn từ danh sách bỏ qua.</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Hủy bỏ</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>Xóa tất cả các gói hiện trong bộ nhớ cache.</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Xóa cache</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Chữ ký tập tin (*)</translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>Chọn số các gói để bỏ qua</translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Tập tin gói (*. Txz)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>Bạn có chắc bạn muốn xóa các gói bộ nhớ cache PBI?</translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>Điều này sẽ xóa tất cả các tập tin và thư mục trong thư mục cache. Lần sau khi bạn bắt đầu một PBI xây dựng, nó sẽ bắt đầu xây dựng lại tất cả các gói từ mã nguồn.</translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>Chọn Mặc định Mô-đun Danh bạ</translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>Điều này sẽ loại bỏ bất kỳ cài đặt đường dẫn tùy biến cho các tiện ích bên ngoài.</translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>Chọn số kiểu FreeBSD cảng Danh bạ</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD cổng</translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Cổng Tree</translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>Cập nhật lần cuối</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>Văn bản Label</translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>Tạo Dir</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Cập nhật</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Tình trạng</translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>PBI xây dựng</translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Biểu tượng mặc định</translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>Người dùng hiện hành (~/EasyPBI/cổng)</translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>Tất cả người dùng (/usr/cổng)</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>khác</translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>không tồn tại</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>thành công</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>FreeBSD cây cổng đã được cập nhật thành công</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Thất bại</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>FreeBSD cây cổng đã không cập nhật.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Bài viết cuối: %1</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Yêu cầu truy cập Root</translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>Hãy kiểm tra xem EasyPBI biên dịch của bạn được thực hiện một cách chính xác</translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
