@@ -368,14 +368,6 @@
         <translation>PBI bouwen</translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>Naar keuze: bouw een 32-bit-PBI in plaats van de standaard 64-bit.</translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>32-bit bouwen</translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>Annuleer het thans draaiende bouwproces</translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>Geen module geladen</translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>FreeBSD-poort</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Lokale bronnen</translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>Installatiescripts</translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>Kon de PBI-module niet maken. Kijk a.u.b. de maprechten na en probeer het opnieuw.</translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>Module kiezen</translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI: geen FreeBSD-poorten</translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>Poort kiezen</translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI: ongeldige poort</translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>De gekozen map is geen geldige FreeBSD-poort. Kies a.u.b. een poortmap die de van toepassing zijnde Makefile en distinfo bevat.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>Weet u zeker dat u de PBI-bouw wil aanvangen?</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>PBI-bouwer (bezig)</translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>Logboek opslaan</translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>Kijk a.u.b. het bouwlogboek na om de oorzaak van de mislukking te vinden en de module dienovereenkomstig aan te passen</translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>PBI-bouwer (gereed)</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Begin een nieuw XDG-invoerveld te maken</translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>Toevoegen</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Kies pakketmap</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>FreeBSD-poorten ontbreken</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>De FreeBSD-poortenboom ontbreekt in uw systeem.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>Begin een PBI te bouwen vanuit de huidige module (vereist beheerdersrechten)</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Dit vereist een actieve internetverbinding en beheerdersrechten. De tijd die benodigd is om een PBI te bouwen verschilt, afhankelijk van systeemeigenschappen en te compileren poorten.</translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>De gekozen map lijkt geen geldige FreeBSD-poort te zijn.</translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>Wilt u hem toch gebruiken?</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>Kiezen</translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>Lokale map die als een PBI verpakt moet worden</translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>Kies een lokale map die als een PBI moet worden verpakt</translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>Lokale map</translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>PNG-pictogrambestand dat gebruikt moet worden voor de PBI (kan later worden gewijzigd)</translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>Pictogrambestand</translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>Maak een PBI vanuit een bestaande FreeBSD-poort</translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>Verpak een lokale map als een PBI</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Lokale bronnen</translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: geen FreeBSD-poorten</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>De FreeBSD-poortenboom kon niet in uw systeem worden aangetroffen. U kunt de poortenboom ophalen via het EasyPBI-menu of het pad naar de poortenboom handmatig instellen in de EasyPBI-voorkeuren, indien deze is geïnstalleerd op een niet-standaardlocatie.</translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>Poort kiezen</translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Pakketmap kiezen</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>Zoek naar het openssl-sleutelbestand</translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>Gebruik systeemgeheugen om PBI-bouwprocessen te versnellen.</translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>Gebruik TMPFS</translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>Versnelt het PBI-bouwproces aanzienlijk, door hercompilatie van eerder gebouwde poorten te voorkomen.</translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>Tijdelijke pakketopslag in geheugen gebruiken</translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>Opties voor tijdelijke pakketopslag in geheugen</translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>Te negeren pakketten</translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>Opgesomde pakketten zullen altijd worden genegeerd tijdens PBI-bouw.</translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>Voeg een te negeren pakket toe dat thans in de tijdelijke geheugenopslag zit.</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Toevoegen</translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>Verwijder het gekozen pakket uit de negeerlijst.</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Verwijderen</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>Verwijder alle pakketten die zich thans in de tijdelijke geheugenopslag bevinden.</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Tijdelijke geheugenopslag leegmaken</translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Handtekeningbestanden (*)</translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>Kies het te negeren pakket</translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Pakketbestanden (*.txz)</translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>Weet u zeker dat u de tijdelijke geheugenopslag voor PBI-pakketten wil ledigen?</translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>Dit zal alle bestanden en mappen verwijderen in de map voor tijdelijke geheugenopslag. De volgende keer dat u een PBI-bouw aanvangt, zal die beginnen om alle pakketten vanuit de bron te herbouwen.</translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>Kies standaard-modulemap</translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>Dit zal alle aangepaste padinstellingen verwijderen voor externe hulpmiddelen.</translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>Kies FreeBSD-poortenmap</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD-poorten</translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Poortenboom</translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>Laatste keer bijgewerkt</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>Map maken</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Bijwerken</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Status</translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>PBI-bouwsels</translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Standaardpictogram</translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>Huidige gebruiker (~/EasyPBI/ports)</translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>Alle gebruikers (/usr/ports)</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>Overig</translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>Niet-bestaand</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Succes</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>De FreeBSD-poortenboom is met succes bijgewerkt</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Mislukt</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>De FreeBSD-poortenboom kon niet worden bijgewerkt.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Laatste bericht: %1</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Root-toegang vereisen</translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>Kijk a.u.b. na of uw EasyPBI-compilatie juist werd uitgevoerd</translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

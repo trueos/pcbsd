@@ -368,14 +368,6 @@
         <translation>Construire PBI     </translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>OPȚIONAL: Construiți un PBI pe 32 de biți în locul unuia pe 64-biți            </translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>Construiți pe 32 de biți            </translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>Anulați procesul de construcție care rulează în prezent            </translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>Nici un modulul încărcat            </translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>Porturi FreeBSD            </translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Surse locale            </translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>Instalare scripturi            </translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>Nu am putut crea modulul PBI. Vă rugăm să verificați permisiunile directorului și încercați din nou.            </translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>Selectați module            </translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI: Niciun port FreeBSD</translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>Selectare port            </translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI: Port invalid</translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>Directorul selectat nu este un port FreeBSD valabil. Vă rugăm să selectați directorul portului care conține fișierele Makefile și distinfo corespunzătoare.</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>Sunteți sigur că doriți să porniți construirea PBI?</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>Constructor PBI (lucrează)            </translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>Slavare fișier jurnal </translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>Vă rugăm să verificați jurnalul de construcție pentru a găsi cauza eșecului și a ajusta modulul corespunzător</translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>Constructorul PBI (A terminat)</translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Începeți crearea unei noi intrării XDG            </translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>Adăugare            </translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Selectați directorul pachetelor            </translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>Porturile FreeBSD lipsesc            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>Copacul de porturi FreeBSD lipsește de pe sistemul dumneavoastră.</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>Începe construirea unui PBI din modulul curent (necesită privilegii de administrator)            </translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Acest lucru necesită o conexiune activă la Internet și drepturi de administrator. Timpul necesar pentru a construi un PBI variază în funcție de specificațiile de sistem și de porturi pentru a fie compilate.            </translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>Directorul selectat nu pare să fie un port FreeBSD valid.            </translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>Doriți să continuați să utilizați-l oricum?</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>Selectare </translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>Directorul local să fie împachetat ca un PBI            </translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>Selectați un director local să fie împachetate ca un PBI            </translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>Director local </translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>Pictograma fișierului PNG utilizată pentru PBI (poate fi shimbată ulterior)            </translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>Pictograma fișierului            </translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>Creați un PBI dintr-un port FreeBSD existent            </translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>Împachetați un director local ca PBI            </translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Surse locale            </translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Niciun port FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>Copacul de porturi FreeBSD nu a putut fi găsit pe sistemul dumneavoastră.Puteți descărca copacul de porturi prin intermediul meniul EasyPBI sau să setați manual calea către copaculul de portul din preferințele EasyPBI dacă nu este instalat într-o locație standard.</translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>Selectare port            </translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Selectați directorul pachetului            </translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>Răsfoiți pentru fișierul cheie openssl</translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>Utilizați memoria de sistem pentru a accelera procesul de construcție a PBI-ului.            </translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>Utilizați TMPFS            </translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>Foarte mult se accelerează procesul construcției PBI prin prevenirea recompilări porturilor construite anterior.            </translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>Folosiți caching-ul pachetului            </translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>Opțiuni caching pachet            </translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>Pachete de ignorat            </translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>Pachetele listate vor fi întotdeauna ignorate în timpul construcției PBI-ului.            </translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>Adăugați un pachet stocat în memoria cache pentru a fi ignorat.            </translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Adăugare            </translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>Înlăturați pachetul selectat din lista de ignorare.    </translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Îndepărtare</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>Sterge toate pachetele prezente în memoria cache.</translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Glorire memorie cache            </translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Semnătură fișiere (*)</translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>Selectați pachetul pentru ignorare</translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Pachet de fișiere (*.txz)            </translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>Sunteți sigur că doriți să ștergeți cache-ul pachetului PBI?</translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>Această operație va șterge toate fișierele și directoarele din directorul memorie cache. Data viitoare când veți începeți să construiți un PBI, acesta va începe să reconstruiască toate pachetele din surse.</translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>Selectați directorul implicit al modulelor            </translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>Acest lucru va elimina orice setările de cale personalizate pentru utilitățile externe.            </translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>Selectați directorul de porturi FreeBSD</translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>Porturi FreeBSD            </translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Copacul de porturi </translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>Ultima actualizare</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel            </translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>Creare director            </translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Actualizare  </translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Stare            </translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>Construiește PBI            </translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Pictogramă implicită            </translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>Utilizator curent (~/EasyPBI/ports)            </translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>Toți utilizatori (/usr/ports)</translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>Alte </translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>Inexistente            </translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Succes</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>Copacul de porturi FreeBSD a fost actualizat cu succes</translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Insucces</translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>Copacul de porturi FreeBSD nu a reușit să se actualizaze.</translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Ultimul mesaj: %1</translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Solicitantă acces root            </translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>Vă rugăm să verificați dacă compilarea EasyPBI a fost efectuată corect</translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

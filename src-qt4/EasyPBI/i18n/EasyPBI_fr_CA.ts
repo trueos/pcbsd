@@ -368,14 +368,6 @@
         <translation>Construire un PBI          </translation>
     </message>
     <message>
-        <source>OPTIONAL: Build a 32-bit PBI instead of the regular 64-bit</source>
-        <translation>OPTION: Construire un PBI 32-bit au lieu du régulier 64-bit            </translation>
-    </message>
-    <message>
-        <source>Build 32-bit</source>
-        <translation>Construire un 32-bit            </translation>
-    </message>
-    <message>
         <source>Cancel the currently running build process</source>
         <translation>Annuler le processus de construction en cours d&apos;exécution             </translation>
     </message>
@@ -492,14 +484,6 @@
         <translation>Aucun module chargé            </translation>
     </message>
     <message>
-        <source>FreeBSD Port</source>
-        <translation>Port FreeBSD</translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Source Locale</translation>
-    </message>
-    <message>
         <source>Installation Scripts</source>
         <translation>Scripts installations            </translation>
     </message>
@@ -536,10 +520,6 @@
         <translation>Impossible de créer le module PBI. Merci de vérifier les autorisations de répertoire et essayez à nouveau.            </translation>
     </message>
     <message>
-        <source>Select Module</source>
-        <translation>Sélectionner un Module      </translation>
-    </message>
-    <message>
         <source>EasyPBI: No FreeBSD Ports</source>
         <translation>EasyPBI: Pas Ports FreeBSD            </translation>
     </message>
@@ -550,14 +530,6 @@
     <message>
         <source>Select Port</source>
         <translation>Sélectionner un port            </translation>
-    </message>
-    <message>
-        <source>EasyPBI: Invalid Port</source>
-        <translation>EasyPBI: Port Invalide            </translation>
-    </message>
-    <message>
-        <source>The directory selected is not a valid FreeBSD port. Please select a port directory which contains the appropriate Makefile and distinfo.</source>
-        <translation>Le répertoire sélectionné n&apos;est pas un port valide FreeBSD. Veillez sélectionner un répertoire qui contient le port du Makefile approprié et distinfo.            </translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -616,10 +588,6 @@
         <translation>Êtes-vous sûr de vouloir démarrer ce PBI à construire?</translation>
     </message>
     <message>
-        <source>PBI Builder (Working)</source>
-        <translation>Constructeur de PBI (travail)            </translation>
-    </message>
-    <message>
         <source>Save Log</source>
         <translation>Sauvegarde du journal</translation>
     </message>
@@ -648,10 +616,6 @@
         <translation>Veillez vérifier le journal de construction pour trouver la cause de l&apos;échec et d&apos;ajuster en conséquence le module            </translation>
     </message>
     <message>
-        <source>PBI Builder (Finished)</source>
-        <translation>Construction du PBI (Terminé)            </translation>
-    </message>
-    <message>
         <source>Begin creating a new XDG entry</source>
         <translation>Commencer à créer une nouvelle entrée XDG </translation>
     </message>
@@ -666,18 +630,6 @@
     <message>
         <source>Add</source>
         <translation>Ajouter            </translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Sélectionner le répertoire d&apos;un paquet            </translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports Missing</source>
-        <translation>Ports FreeBSD manquant            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree is missing from your system.</source>
-        <translation>L&apos;arbre des ports FreeBSD est absent de votre système.            </translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -700,18 +652,6 @@
         <translation>Commencer à construire un PBI à partir du module courant (nécessite des privilèges d&apos;administrateur)</translation>
     </message>
     <message>
-        <source>This requires an active internet connection and administrator privileges. The time required to build a PBI varies depending upon system specifications and ports to be compiled.</source>
-        <translation>Cela nécessite une connexion Internet active et des privilèges d&apos;administrateur. Le temps nécessaire pour construire un PBI varie en fonction des spécifications du système et des ports à compiler.</translation>
-    </message>
-    <message>
-        <source>The directory selected does not appear to be a valid FreeBSD port.</source>
-        <translation>Le répertoire choisi ne semble pas être un port FreeBSD valide.    </translation>
-    </message>
-    <message>
-        <source>Do you wish to continue using it anyway?</source>
-        <translation>Vous souhaitez continuer à l&apos;utiliser quand même?</translation>
-    </message>
-    <message>
         <source>Port/Package</source>
         <translation type="unfinished"></translation>
     </message>
@@ -732,7 +672,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>32-bit only</source>
+        <source>Never use pre-built packages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -765,10 +705,6 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set the type of application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -811,6 +747,30 @@
         <source>Load an existing PBI module</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Select PBI Module Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Configuration (pbi.conf)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create the XDG entry.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This requires an active internet connection and administrator privileges.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Running)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,18 +795,6 @@
         <translation>Sélectionner            </translation>
     </message>
     <message>
-        <source>Local directory to be packaged as a PBI</source>
-        <translation>Répertoire local à empaqueter comme un PBI            </translation>
-    </message>
-    <message>
-        <source>Select a local directory to be packaged as a PBI</source>
-        <translation>Sélectionner un répertoire local à empaqueter comme un PBI            </translation>
-    </message>
-    <message>
-        <source>Local Directory</source>
-        <translation>Répertoire Local            </translation>
-    </message>
-    <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
         <translation>Icône du fichier PNG à utiliser pour le PBI (peut être modifié ultérieurement)            </translation>
     </message>
@@ -857,34 +805,6 @@
     <message>
         <source>Icon File</source>
         <translation>fichier Icône            </translation>
-    </message>
-    <message>
-        <source>Create a PBI from an existing FreeBSD port</source>
-        <translation>Créer un PBI à partir d&apos;un port FreeBSD existant             </translation>
-    </message>
-    <message>
-        <source>Package a local directory as a PBI</source>
-        <translation>Emballer dans un répertoire local en tant que PBI            </translation>
-    </message>
-    <message>
-        <source>Local Sources</source>
-        <translation>Sources Locale            </translation>
-    </message>
-    <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Pas Ports FreeBSD            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>L&apos;arbre de Ports logiciels FreeBSD n&apos;a pas pu être trouvé sur votre système. Vous pouvez chercher l&apos;arbre des ports à travers le menu EasyPBI ou régler manuellement le chemin de l&apos;arbre port dans les préférences EasyPBI si elle est installée dans un emplacement non standard.            </translation>
-    </message>
-    <message>
-        <source>Select Port</source>
-        <translation>Sélectionner un port            </translation>
-    </message>
-    <message>
-        <source>Select Package Directory</source>
-        <translation>Sélectionner le répertoire d&apos;un Paquet            </translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
@@ -936,58 +856,6 @@
     <message>
         <source>Browse for the openssl key file</source>
         <translation>Rechercher le fichier de clé openssl            </translation>
-    </message>
-    <message>
-        <source>Use system memory to speed up PBI build processes.</source>
-        <translation>Utiliser la mémoire système pour accélérer le processus de construction PBI.            </translation>
-    </message>
-    <message>
-        <source>Use TMPFS</source>
-        <translation>Utiliser TMPFS            </translation>
-    </message>
-    <message>
-        <source>Greatly speeds up the PBI build process by preventing re-compilation of previously built ports.</source>
-        <translation>Accélère considérablement le processus de construction de PBI en empêchant la ré-compilation de ports déjà construits.            </translation>
-    </message>
-    <message>
-        <source>Use Package Caching</source>
-        <translation>Utiliser la mise en cache de paquet            </translation>
-    </message>
-    <message>
-        <source>Package Caching Options</source>
-        <translation>Options de mise en cache de l&apos;emballage            </translation>
-    </message>
-    <message>
-        <source>Packages to Ignore</source>
-        <translation>Paquets à ignorer            </translation>
-    </message>
-    <message>
-        <source>Listed packages will always be ignored during PBI builds.</source>
-        <translation>Paquets listés seront toujours ignorés lors de constructions de PBI.            </translation>
-    </message>
-    <message>
-        <source>Add a currently cached package to be ignored.</source>
-        <translation>Ajouter un paquet actuellement en cache pour qu&apos;il soit ignoré.            </translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Ajouter            </translation>
-    </message>
-    <message>
-        <source>Remove the selected package from the ignore list.</source>
-        <translation>Supprimer le paquet sélectionné dans la liste des ignorés.            </translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Retirer</translation>
-    </message>
-    <message>
-        <source>Delete all packages currently in the cache.</source>
-        <translation>Supprimer tous les paquets dans le cache.            </translation>
-    </message>
-    <message>
-        <source>Clear Cache</source>
-        <translation>Vider le cache            </translation>
     </message>
     <message>
         <source>Local Paths</source>
@@ -1066,22 +934,6 @@
         <translation>Signature Fichiers (*)            </translation>
     </message>
     <message>
-        <source>Select the Package to Ignore</source>
-        <translation>Sélectionner le paquet à ignorer            </translation>
-    </message>
-    <message>
-        <source>Package Files (*.txz)</source>
-        <translation>Fichier paquet (*.txz)    </translation>
-    </message>
-    <message>
-        <source>Are you sure you wish to clear the PBI package cache?</source>
-        <translation>Êtes-vous sûr de vouloir effacer le cache des paquets PBI?            </translation>
-    </message>
-    <message>
-        <source>This will delete all the files and directories in the cache directory. The next time you start a PBI build, it will begin to rebuild all the packages from source.</source>
-        <translation>Ceci va supprimer tous les fichiers et répertoires du répertoire de cache. La prochaine fois que vous démarrez une construction PBI, il va commencer à reconstruire tous les paquets à partir des sources.            </translation>
-    </message>
-    <message>
         <source>Select Default Module Directory</source>
         <translation>Sélectionner le répertoire par défaut du module            </translation>
     </message>
@@ -1118,38 +970,6 @@
         <translation>Cela permettra d&apos;éliminer tous les paramètres du chemin pour les services externes.            </translation>
     </message>
     <message>
-        <source>Select FreeBSD Ports Directory</source>
-        <translation>Sélectionner le répertoire de Ports FreeBSD             </translation>
-    </message>
-    <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD Ports           </translation>
-    </message>
-    <message>
-        <source>Ports Tree</source>
-        <translation>Arbre des ports            </translation>
-    </message>
-    <message>
-        <source>Last Update</source>
-        <translation>Dernière mise à jour            </translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextÉtiquette            </translation>
-    </message>
-    <message>
-        <source>Create Dir</source>
-        <translation>Créer Dir            </translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Mise à jour            </translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Statut           </translation>
-    </message>
-    <message>
         <source>PBI Builds</source>
         <translation>Construire un PBI </translation>
     </message>
@@ -1172,46 +992,6 @@
     <message>
         <source>Default Icon</source>
         <translation>Défaut Icône            </translation>
-    </message>
-    <message>
-        <source>Current User (~/EasyPBI/ports)</source>
-        <translation>Utilisateur courrant (~/EasyPBI/ports)            </translation>
-    </message>
-    <message>
-        <source>All Users (/usr/ports)</source>
-        <translation>Tous les Utilisateurs (/usr/ports)            </translation>
-    </message>
-    <message>
-        <source>Other</source>
-        <translation>Autres            </translation>
-    </message>
-    <message>
-        <source>Nonexistent</source>
-        <translation>Nonexistant            </translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation>Succès            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has been successfully updated</source>
-        <translation>L&apos;arbre des Ports FreeBSD a été mis à jour            </translation>
-    </message>
-    <message>
-        <source>Failure</source>
-        <translation>Échec            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD ports tree has failed to update.</source>
-        <translation>L&apos;arbre des Ports FreeBSD n&apos;a pas réussi la mise à jour.            </translation>
-    </message>
-    <message>
-        <source>Last Message: %1</source>
-        <translation>Dernier message %1            </translation>
-    </message>
-    <message>
-        <source>Requesting Root Access</source>
-        <translation>Demande d&apos;accès root           </translation>
     </message>
 </context>
 <context>
@@ -1243,6 +1023,45 @@
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
         <translation>S&apos;il vous plaît vérifiez que votre compilation EasyPBI a été effectuée correctement            </translation>
+    </message>
+</context>
+<context>
+    <name>pkgSelect</name>
+    <message>
+        <source>Select a package</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available Packages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Accept</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No Packages Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No package found with that term</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
