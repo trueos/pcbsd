@@ -31,8 +31,9 @@ void pkgSelect::loadPackageList(){
   ui->treeWidget->clear();
   QTreeWidgetItem* cCat = new QTreeWidgetItem(QStringList() << "gobbledegook");
   for(int i=0; i<PL.length(); i++){
-    QString cat = PL[i].section("/",0,0,QString::SectionSkipEmpty);
+    QString cat = PL[i].section("/",0,0);
     QString pkg = PL[i].section("/",-1);
+    if(cat.isEmpty()){ cat = "uncategorized";  }
     if(cat != cCat->text(0)){
       //Create a new parent item for this category
       cCat = new QTreeWidgetItem(QStringList() << cat);
