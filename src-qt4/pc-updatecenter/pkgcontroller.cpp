@@ -54,7 +54,7 @@ __string_constant PKG_INSTALL_START_MARKER= "Upgrades have been requested for th
 __string_constant PKG_INSTALL_DONE = "... done";
 
 __string_constant PKG_NETWORK_ERROR = ": No address record";
-
+__string_constant PKG_COMMON_ERROR = "ERROR: Error";
 typedef struct
 {
     QString mDEName;
@@ -148,9 +148,17 @@ void CPkgController::onReadCheckLine(QString line)
 
     if (eCommonInfo == curChkrState)
     {
+        //qDebug()<<line;
         if (line.contains(PKG_NETWORK_ERROR))
         {
             reportError(tr("Error during update check. Check network connection"));
+            return;
+        }
+        if (line.indexOf(PKG_COMMON_ERROR) == 0)
+        {
+            line = line.replace(PKG_COMMON_ERROR,"");
+            reportError(tr("Error checking updates. Error code: %1").arg(line.left(line.indexOf(":"))));
+            return;
         }
         if ( line.contains(FULLY_UPDATED_MESSAGE))
         {
@@ -280,7 +288,7 @@ void CPkgController::onUpdateAll()
 void CPkgController::onReadUpdateLine(QString line)
 {
     static QString last_message;
-    qDebug()<<line;
+    //qDebug()<<line;
     line= line.trimmed();
 
     if (!line.length())
