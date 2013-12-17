@@ -10,6 +10,7 @@ TerminalOptions=
 Type=Application
 Categories=System;
 Name=Update center (BETA)
+Name[de]=Update Center (BETA)
 Name[en_GB]=Update center (BETA)
 Name[en_ZA]=Update center (BETA)
 Name[es]=Centro de Actualizaciones (BETA)
