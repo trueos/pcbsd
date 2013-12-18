@@ -1,5 +1,19 @@
 #!/bin/sh
 
+PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
+
+# Get the PACKAGE_SET to use for this pkgng repo
+PACKAGE_SET="PRODUCTION"
+_pkgChk="`sed -n 's/PACKAGE_SET: //p' ${PCBSD_ETCCONF} 2>/dev/null | awk '{print $1}'`"
+if [ -n "${_pkgChk}" ] ; then PACKAGE_SET="$_pkgChk" ; fi
+
+# Check the PACKAGE_SET variable
+case $PACKAGE_SET in
+   PRODUCTION|EDGE) ;;
+       *) echo "Warning: Invalid PACKAGE_SET!" 
+          PACKAGE_SET="PRODUCTION" ;; 
+esac
+
 do_prune()
 {
   PRUNEFILE="/usr/local/share/pcbsd/conf/prune-port-files"
@@ -118,6 +132,13 @@ post_extract_setup()
   if [ $? -eq 0 ] ; then
     ARCH=`uname -m`
     FBSDVER=`uname -r | cut -d '-' -f 1-2`
+
+    # If using the EDGE package set, set the right path
+    case $PACKAGE_SET in
+         EDGE) FBSDVER="$FBSDVER/edge";;
+            *) ;;
+    esac
+
     sed -i '' "s|VERSION|$FBSDVER|g" /usr/local/etc/pkg/repos/pcbsd.conf
     if [ $? -ne 0 ] ; then
        echo "WARNING: Failed setting VERSION in pcbsd.conf"
