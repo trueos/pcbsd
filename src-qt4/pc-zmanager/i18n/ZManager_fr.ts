@@ -1458,7 +1458,7 @@ OK pour procéder à la récupération?</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation>zfs Menu</translation>
+        <translation>Menu zfs</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1476,8 +1476,8 @@ OK pour procéder à la récupération?</translation>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation>Cette opération ne peut être annulée et fera toutes les données ajoutées après l&apos;instantané à perdre.
- Toutes les instantanés créés après celui-ci seront supprimés, ainsi que tous les systèmes de fichiers clone qui en dépendent. 
+        <translation>Cette opération ne peut être annulée et causera une perte de toutes les données ajoutées après l&apos;instantané.
+Toutes les instantanés créés après celui-ci seront supprimés, ainsi que tous les systèmes de fichiers clones qui en dépendent. 
 </translation>
     </message>
     <message>
