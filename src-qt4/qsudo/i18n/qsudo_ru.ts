@@ -14,8 +14,7 @@
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступ запрещен</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
