@@ -260,18 +260,15 @@
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package Vérification            </translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impossible de vérifier les mises à jour de paquets!</translation>
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Téléchargement</translation>
     </message>
 </context>
 </TS>

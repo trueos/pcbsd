@@ -71,6 +71,18 @@
         <source>Force IBUS keyboard input</source>
         <translation>キーボード入力に IBus を使用する</translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>
