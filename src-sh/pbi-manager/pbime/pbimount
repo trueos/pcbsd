@@ -68,8 +68,11 @@ mount_dirs() {
 
    done
 
+   sync
    cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
    chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
+   sleep 1
+   sync
 }
 
 umount_pbidir() {
