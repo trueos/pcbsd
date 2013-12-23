@@ -128,28 +128,25 @@ post_extract_setup()
   fi
 
   # See if we need to adjust pcbsd.conf repo file
-  grep -q "ARCH" /usr/local/etc/pkg/repos/pcbsd.conf 2>/dev/null
-  if [ $? -eq 0 ] ; then
-    ARCH=`uname -m`
-    FBSDVER=`uname -r | cut -d '-' -f 1-2`
-
-    # If using the EDGE package set, set the right path
-    case $PACKAGE_SET in
-         EDGE) FBSDVER="$FBSDVER/edge";;
-            *) ;;
-    esac
-
-    sed -i '' "s|VERSION|$FBSDVER|g" /usr/local/etc/pkg/repos/pcbsd.conf
-    if [ $? -ne 0 ] ; then
-       echo "WARNING: Failed setting VERSION in pcbsd.conf"
-       status="1"
-    fi
-    sed -i '' "s|ARCH|$ARCH|g" /usr/local/etc/pkg/repos/pcbsd.conf
-    if [ $? -ne 0 ] ; then
-       echo "WARNING: Failed setting ARCH in pcbsd.conf"
-       status="1"
-    fi
+  if [ ! -e "/usr/local/etc/pkg/repos/pcbsd.conf.dist" ];then
+     echo "WARNING: Missing /usr/local/etc/pkg/repos/pcbsd.conf.dist"
+     status="1"
+     return
   fi
+
+  ARCH=`uname -m`
+  FBSDVER=`uname -r | cut -d '-' -f 1-2`
+
+  # If using the EDGE package set, set the right path
+  case $PACKAGE_SET in
+       EDGE) FBSDVER="$FBSDVER/edge";;
+          *) ;;
+  esac
+
+  # Setup new pcbsd.conf repo file
+  cat /usr/local/etc/pkg/repos/pcbsd.conf.dist \
+	| sed "s|VERSION|$FBSDVER|g" \
+	| sed "s|ARCH|$ARCH|g" > /usr/local/etc/pkg/repos/pcbsd.conf
 }
 
 show_opts()
