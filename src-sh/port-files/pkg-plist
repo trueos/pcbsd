@@ -715,7 +715,6 @@ man/man8/pc-sysinstall.8.gz
 @dirrm share/pcbsd/metaset/pcbsd/Mate
 @dirrm share/pcbsd/metaset/pcbsd/GNOME
 @dirrm share/pcbsd/metaset/pcbsd/KDE
-@dirrm share/pcbsd/metaset/pcbsd/Compiz
 @dirrm share/pcbsd/metaset/pcbsd/Rekonq
 @dirrm share/pcbsd/metaset/pcbsd/KDE-L10N
 @dirrm share/pcbsd/metaset/pcbsd/Development
