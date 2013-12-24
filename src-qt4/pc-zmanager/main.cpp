@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <qtranslator.h>
 #include <qlocale.h>
-#include <qtsingleapplication.h>
+#include <QtSingleApplication>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
       exit(1);
     }
 
-    QtSingleApplication a(argc, argv);
+    QtSingleApplication a("Disk Manager",argc, argv);
     if ( a.isRunning() )
       return !(a.sendMessage("show"));
 

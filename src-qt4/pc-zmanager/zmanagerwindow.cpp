@@ -1586,7 +1586,7 @@ void ZManagerWindow::zpoolContextMenu(QPoint p)
 
     if(item!=NULL) {
         // FIRST DETERMINE IF THE ITEM IS A POOL OR A DEVICE
-        qDebug() << item->text(0);
+//        qDebug() << item->text(0);
         flags=0;
         if( (lastSelectedPool=getZpoolbyName(item->text(0),item->data(0,Qt::UserRole).toInt()) )) {
             flags=ITEM_ISPOOL;
@@ -2212,7 +2212,7 @@ void ZManagerWindow::zpoolDestroy(bool b)
     // TODO: ASK USER FOR CONFIRMATION BEFORE DESTROYING ANYTHING!
 
 
-    qDebug() << cmdline;
+//    qDebug() << cmdline;
 
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
@@ -2443,7 +2443,7 @@ void ZManagerWindow::zpoolExport(bool b)
 
     cmdline+="\""+lastSelectedPool->Name+"\"";
 
-    qDebug() << cmdline;
+//    qDebug() << cmdline;
 
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
@@ -2492,7 +2492,12 @@ void ZManagerWindow::zpoolImport(bool b)
 
     if(dlg.importReadOnly()) cmdline+=" -o readonly=on ";
 
-    if(dlg.importSetAltRoot()) cmdline+=" -R \""+dlg.getAltRoot()+"\" ";
+    if(dlg.importSetAltRoot())
+        cmdline+=" -R \""+dlg.getAltRoot()+"\" ";
+    else if(!dlg.importAutomount()) {
+        cmdline+=" -N ";
+    }
+    if(dlg.importForce()) cmdline+=" -f ";
 
     if(lastSelectedPool->Status&STATE_DESTROYED) cmdline+="-D ";
 
@@ -2500,7 +2505,7 @@ void ZManagerWindow::zpoolImport(bool b)
 
     cmdline+=" \""+ dlg.getName()+"\"";
 
-    qDebug() << cmdline;
+//    qDebug() << cmdline;
 
 
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
@@ -2552,13 +2557,13 @@ void ZManagerWindow::zpoolRename(bool b)
 
         cmdline+="\""+lastSelectedPool->Name+"\"";
 
-        qDebug() << cmdline;
+//        qDebug() << cmdline;
     QStringList a=pcbsd::Utils::runShellCommand(cmdline);
 
     if(!processzpoolErrors(a)) {
         cmdline="zpool import "+id+" \""+dlg.getName()+"\"";
 
-        qDebug() << cmdline;
+//        qDebug() << cmdline;
         a=pcbsd::Utils::runShellCommand(cmdline);
 
         if(!processzpoolErrors(a)) needRefresh=true;
@@ -2878,7 +2883,7 @@ void ZManagerWindow::on_fspoolList_currentItemChanged(QTreeWidgetItem *current, 
     while(it!=FileSystems.constEnd())
     {
 
-        if((*it).FullPath.startsWith(pool)) {
+        if( ((*it).FullPath.startsWith(pool+"/")) || ((*it).FullPath==pool))  {
 
             zprop_t *origin=getFileSystemProperty((zfs_t *)&(*it),"origin");
             if(origin && !origin->Value.isEmpty()) parent=getParentFileSystem(origin->Value);
@@ -2933,10 +2938,11 @@ void ZManagerWindow::on_fspoolList_currentItemChanged(QTreeWidgetItem *current, 
 
     it=FileSystems.constBegin();
 
+
     while(it!=FileSystems.constEnd())
     {
 
-        if((*it).FullPath.startsWith(pool)) {
+        if( ((*it).FullPath.startsWith(pool+"/")) || ((*it).FullPath==pool)) {
 
             zprop_t *origin=getFileSystemProperty((zfs_t *)&(*it),"origin");
             if(origin && !origin->Value.isEmpty()) parent=getParentFileSystem(origin->Value);
@@ -3006,7 +3012,7 @@ void ZManagerWindow::filesystemContextMenu(QPoint p)
 
     if(item!=NULL) {
         // FIRST DETERMINE THE FILESYSTEM OF THE ITEM
-        qDebug() << item->text(0);
+//        qDebug() << item->text(0);
         flags=0;
         if( (lastSelectedFileSystem=getFileSystembyPath(item->text(0)) )) {
             // YES, IT'S A VALID FILESYSTEM

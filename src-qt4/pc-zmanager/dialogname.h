@@ -20,6 +20,8 @@ public:
     void setName(QString t);
     void showOptions(bool show);
     bool importReadOnly();
+    bool importForce();
+    bool importAutomount();
     bool importSetAltRoot();
     QString getAltRoot();
 
@@ -35,7 +37,7 @@ public slots:
 private slots:
     void on_nameEdit_textChanged(const QString &arg1);
 
-    void on_checkAltRoot_stateChanged(int arg1);
+    void on_checkAltRoot_toggled(bool checked);
 
 private:
     Ui::DialogName *ui;
