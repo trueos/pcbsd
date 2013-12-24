@@ -790,8 +790,7 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cela Linux (W Celi dziala system Linux)</translation>
     </message>
 </context>
 </TS>

@@ -73,13 +73,11 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketsatz</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produktion (Pakete die vierteljährlich aktualisiert werden - Empfohlen)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
@@ -99,7 +97,7 @@
     </message>
     <message>
         <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>Task Progress...</source>

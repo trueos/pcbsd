@@ -223,7 +223,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation>Vali nimi, mille alla seadistuse fail salvestada.</translation>
+        <translation>Vali nimi, millega seadistuse fail salvestada.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
@@ -363,7 +363,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation>Vali tarkvara, mida paigaldada. Pärast installimist võid lisada/eemaldada tarkvata pakihalduri (töölaual) või &quot;pkg&quot; käsuga käsurealt (serveris).</translation>
+        <translation>Vali tarkvara, mida paigaldada. Pärast installimist saab tarkvara lisada/eemaldada pakihalduri kaudu (töölaual) või &quot;pkg&quot; käsuga käsurealt (serveris).</translation>
     </message>
 </context>
 <context>
