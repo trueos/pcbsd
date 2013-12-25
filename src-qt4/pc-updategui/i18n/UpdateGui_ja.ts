@@ -85,15 +85,15 @@
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation>アップデート開始: %1 (全 %3 個のうち %2 番め)</translation>
+        <translation>アップデート開始: %1 (%2 / %3)</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation>ダウンロード中: %1 (全 %3 個のうち %2 番めをアップデート)</translation>
+        <translation>ダウンロード中: %1 (%2 / %3をアップデート中)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
-        <translation>アップデート中: %1 (全 %3 個のうち %2 番め)</translation>
+        <translation>アップデート中: %1 (%2 / %3)</translation>
     </message>
     <message>
         <source>Patch: %1 (%2)</source>

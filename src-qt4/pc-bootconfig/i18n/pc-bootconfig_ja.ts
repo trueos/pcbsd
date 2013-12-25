@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation>その名前のブート環境設定は既に存在します。別の名前をつけてください。</translation>
+        <translation>その名前のブート環境設定は既に存在しますので別の名前をつけてください。</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
@@ -177,15 +177,15 @@
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation>そのブート環境設定が有効な状態では名前を変更できません。</translation>
+        <translation>そのブート環境設定が有効な状態では名前を変更できません!</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation>別のブート環境設定の名前を指定してください。</translation>
+        <translation>別のブート環境設定の名前を指定してください</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation>そのブート環境設定は削除できません。</translation>
+        <translation>そのブート環境設定は削除できません!</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
@@ -193,7 +193,7 @@
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation>現在有効なブート環境設定は削除できません。</translation>
+        <translation>現在有効なブート環境設定は削除できません!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
@@ -249,8 +249,7 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブート環境名は半角英数字だけかもしれません</translation>
     </message>
 </context>
 </TS>

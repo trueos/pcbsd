@@ -14,7 +14,8 @@
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation>ディスプレイの設定を完了しました。この設定を保存しますか?</translation>
+        <translation>ディスプレイの設定を完了しました。
+この設定を保存しますか?</translation>
     </message>
 </context>
 <context>
@@ -78,7 +79,8 @@ Keep these settings?</source>
     <message>
         <source>The settings you have specified will now be tested.
 If your screen does not appear, please wait and you will be returned to this screen.</source>
-        <translation>この設定値でテストを実行します。もし画面が表示されない場合には、しばらく待ってこの画面に戻るのを待ってください。</translation>
+        <translation>この設定値でテストを実行します。
+もし画面が表示されない場合には、しばらく待ってこの画面に戻るのを待ってください。</translation>
     </message>
     <message>
         <source>Video Card:</source>

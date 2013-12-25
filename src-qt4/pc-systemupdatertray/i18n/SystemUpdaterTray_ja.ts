@@ -25,13 +25,11 @@
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation>このシステムは完全にアップデートされました
-</translation>
+        <translation>このシステムは完全にアップデートされました</translation>
     </message>
     <message>
         <source>System updates available</source>
-        <translation>新しいシステムアップデートが有ります
-</translation>
+        <translation>新しいシステムアップデートが有ります</translation>
     </message>
     <message>
         <source>PBI updates available</source>

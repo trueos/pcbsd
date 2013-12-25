@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>あなたがお住まいの地域のタイムゾーンを選択してください。</translation>
+        <translation>あなたはどこにいますか? あなたがお住まいの地域のタイムゾーンを選択してください。</translation>
     </message>
     <message>
         <source>Root Password</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>The system or &quot;root&quot; password allows you to make changes to your operating system, and should be kept from non-trusted users. </source>
-        <translation>root パスワードはシステムの設定を変更する時に使用します。信用できないユーザーには教えないようにしましょう。 </translation>
+        <translation>システムまたは&quot;root&quot;パスワードはシステムの設定を変更する時に使用しますので信用できないユーザーには教えないようにしましょう。</translation>
     </message>
     <message>
         <source>Create a User</source>
@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
-        <translation>以下の無線ネットワークが見つかりました。接続先を一つ選ぶか、「次へ」をクリックして設定をスキップしてください。</translation>
+        <translation>以下の無線ネットワークが見つかりました。接続先を一つ選ぶか、&quot;次へ&quot;をクリックして設定をスキップしてください。</translation>
     </message>
     <message>
         <source>Setup is now complete! Press Finish to login to your new desktop.</source>

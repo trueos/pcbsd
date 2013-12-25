@@ -65,7 +65,7 @@
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation>Warden IP 管理サービス</translation>
+        <translation>Warden管理サービスの為のIPアドレス:</translation>
     </message>
     <message>
         <source>Checking...</source>

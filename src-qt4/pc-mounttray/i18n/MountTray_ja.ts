@@ -110,7 +110,7 @@
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
-        <translation>media ディレクトリーを開く</translation>
+        <translation>メディアディレクトリーを開く</translation>
     </message>
     <message>
         <source>User Detection Error</source>
