@@ -44,7 +44,7 @@ do_ports_overlay()
   # Since PKGNG requires this dir, but we can't ship an empty one
   # with git, lets make sure it exists
   if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
-     mkdir /usr/local/etc/pkg/fingerprints/pcbsd/revoked
+     mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked
   fi
 
   echo -e "Extracting ports overlay data...\c"
