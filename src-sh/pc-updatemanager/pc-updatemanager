@@ -427,6 +427,11 @@ finish_major_fbsd_update() {
      read tmp
   fi
 
+  # Remove this, causes all kinds of havok during the update
+  if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
+    mv /etc/pkg/FreeBSD.conf /etc/pkg/FreeBSD.conf.dist
+  fi
+
   # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
   pc-updatemanager pkgupdate -f
   if [ $? -ne 0 ] ; then
@@ -579,7 +584,10 @@ update_pkgs()
      exit_err "Invalid option $1 passed"
   fi
 
-  export EVENT_PIPE
+  # Update the DB first
+  pkg-static update -f
+
+  # Look for conflicts
   check_pkg_conflicts "upgrade -FUy $1"
   if [ $? -ne 0 ] ; then
      exit 1
