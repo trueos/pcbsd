@@ -46,23 +46,26 @@
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルとディレクトリが作成されるときにACLエントリが継承される方法を制御します。
+値は、discard、noallow、restricted、passthroughです。これらの値の説明については、ACLプロパティを参照してください。</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ACLエントリーは、chmodコマンドを動作中に変更された方法を制御します。
+値は破棄、groupmask、およびpassthroughです。
+これらの値の説明については、ACLプロパティを参照してください。</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを読み取るときにファイルのアクセス時間が更新されるかどうかを制御します。
+それはメーラーのようなユーティリティーを混乱させる可能性がありますが、
+このプロパティをオフにすると、ファイルを読み込む際に書き込みトラフィックを発生が回避され、
+パフォーマンスが大幅に向上する可能性があります。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
@@ -91,16 +94,21 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データの整合性を検証するために使用されるチェックサムを制御します。
+デフォルト値は、自動的に適切なアルゴリズムを選択するがonになっています。
+(現在は、fletcher4をしていますが、今後のリリースで変更される可能性があります)
+値をoffにするとユーザーデータの整合性チェックが無効になります。
+チェックサムを無効にするのは推奨されません。</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>有効またはデータセットの圧縮を無効にします。
+値は、on、off、lzjb、zle、gzipとgzip-Nです。
+現在、このプロパティにlzjb、gzip、あるいはgzip-Nを設定することは、このプロパティをonに設定するのと同じ効果があります。
+既存のデータを持つファイルシステムで圧縮を有効にすると、新しいデータのみを圧縮します。既存のデータは圧縮されていないままです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -119,8 +127,13 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステムごとにユーザーデータのコピー数を設定します。
+これらのコピーは、任意のプールレベルの冗長性を増やします。
+ユーザーデータの複数のコピーが使用するディスク容量は、
+対応するファイルとデータセットに蓄積され、クォータと予約に対してカウントされます。
+複数のコピーが有効になっているときだけでなく、使用されるプロパティが更新されます。
+既存のファイルシステム上では、このプロパティを変更すると、新しく書き込まれたデータのみに影響するため、
+ファイルシステムの作成時に、このプロパティを設定することを考慮してください。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
@@ -135,8 +148,14 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットの重複排除を構成します。
+デフォルト値はオフになっています。
+デフォルトの重複排除チェックサムはSHA256です。
+(これは将来変更される場合があります)  
+dedupを有効にするときに定義されたチェックサムは、既に設定されているチェックサムプロパティを上書きします。
+検証する値を設定すると、SHA256で確認する設定と同じ効果があります。
+検証するために設定した場合、ZFSはブロックの内容が同一であることを確認するために
+同じシグネチャを持つ2つのブロックの場合はbyte-to-byteの比較を行います。</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
@@ -151,8 +170,7 @@ system. The default value is on.</source>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>読み取り専用のファイルシステム、クローン、またはスナップショットがマウントされているかどうかを示すプロパティ。</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -161,16 +179,22 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このファイルシステムに使用されるマウントポイントを制御します。
+マウントポイントのプロパティがファイルシステムに変更がかかるのはファイルシステムに属しているマウントポイントが全てアンマウントされたときです。
+もし、新しい値がレガシーの場合はアンマウントされたままになります。
+それ以外の場合、もし、プロパティが以前はレガシー、またはnoneだった場合や、
+以前のマウント先のプロパティが変更された場合は自動的に新しい場所に再マウントされます。
+また、任意の共有ファイルシステムは、共有が解除されて、新しい場所で共有されます。</translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>一次キャッシュ(ARC)にキャッシュされる内容を制御します。
+可能な値は、すべて、なし、およびメタデータです。
+すべてに設定した場合、ユーザーデータとメタデータの両方がキャッシュされます。
+noneに設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
     <message>
         <source>Read-only property for cloned file systems or volumes that identifies
@@ -192,8 +216,8 @@ override the ancestor&apos;s quota, but rather imposes an additional limit.</sou
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットを変更できるかどうかを制御します。
+onに設定すると変更を行うことはできません。</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -219,8 +243,9 @@ pool.</source>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットが消費できるディスク容量を設定します。
+このプロパティは使用されている領域の量に強い制限が適用されます。
+この強い制限値には、スナップショットやクローンなどの下位データで使用されるディスクスペースは含まれていません。</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -232,8 +257,15 @@ the parent dataset&apos;s quotas and reservations.
 If refreservation is set, a snapshot is only allowed if enough free pool space
 is available outside of this reservation to accommodate the current number of
 referenced bytes in the dataset.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットやクローンなどの子孫は含まないデータセットに保証されているディスクスペースの最小量を設定します。
+使用されるディスク領域の量がこの値を下回る場合は
+refreservationをに指定された容量を占有しているかのようにデータセットが処理されます。
+refreservationの予約は、親データセットの割り当て制限と
+予約に対する親データセットのディスク使用領域およびカウントに計上されます。
+refreservationが設定されている場合、
+スナップショットは十分な空きプール領域が
+データセット内の参照予約されている
+現在のバイト数を除いて利用可能な場合のみ許可されています。</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
@@ -241,28 +273,33 @@ When the amount of disk space used is below this value, the dataset is treated a
 it were using the amount of space specified by its reservation. Reservations are
 accounted for in the parent dataset&apos;s disk space used, and count against the parent
 dataset&apos;s quotas and reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットとその子孫に対して保証のディスクスペースの最小量を設定します。
+使用されるディスク領域の量がこの値を下回る場合、
+その予約に指定された容量を使用していたかのようにデータセットは処理されます。
+予約は使用する親データセットのディスクスペースで考慮し、
+親データセットのクォータと予約にカウントされています。</translation>
     </message>
     <message>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>二次キャッシュ（L2ARC）にキャッシュされる内容を制御します。
+可能な値は、すべて、なし、およびメタデータです。すべてに設定した場合、ユーザーデータとメタデータの両方がキャッシュされます。
+noneに設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>setuidビットがファイルシステムにおいて名誉あるかどうかを制御します。</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステムがNFSを介して利用可能であり、
+どのようなオプションを使用するかどうかを制御します。
+ONに設定すると、zfs shareコマンドをオプションなしで起動されます。
+それ以外の場合は、zfs shareコマンドは、このプロパティの内容と同等のオプションを指定して呼び出されます。</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
@@ -321,18 +358,15 @@ from the supported software release.</source>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ボリュームの為にボリュームの論理サイズを指定します。</translation>
     </message>
     <message>
         <source>For volumes, specifies the block size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ボリュームの為にボリュームのブロックサイズを指定します。</translation>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットがjailに追加されているかどうかを示します。</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
@@ -357,8 +391,8 @@ previous snapshot.</source>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプロパティは、ユーザーの数に設定され、このスナップショットに保持しています。
+</translation>
     </message>
     <message>
         <source>Provide a hint to ZFS about handling of synchronous requests in this
@@ -703,8 +737,13 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>代替ルートディレクトリー。
+設定した場合、このディレクトリーはプール内の任意のマウントポイントに追加されます。
+どこにマウントされるか信頼できないプールや、典型的なパスが有効でない代替ブート環境を検査するときに使用することができます。
+altrootは永続プロパティではありません。
+それはシステムが稼働している間のみ有効です。  
+altrootを設定するとデフォルトでcachefile=noneが設定されますが、
+明示的に設定を使用して上書きした方がいいでしょう。</translation>
     </message>
     <message>
         <source>The current health of the pool.</source>
@@ -728,8 +767,9 @@ can be any number between 1 and the current version reported by
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ルートプールのデフォルトのブート可能データセットを識別します。
+このプロパティは、インストールおよびアップグレードプログラムを中心に
+設定されることが期待されています。</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the

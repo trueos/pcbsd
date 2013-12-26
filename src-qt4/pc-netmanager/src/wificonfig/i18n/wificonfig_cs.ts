@@ -271,7 +271,7 @@
     </message>
     <message>
         <source>Network Name</source>
-        <translation>Jméno sítě</translation>
+        <translation>Název sítě</translation>
     </message>
     <message>
         <source>Please enter the name of the network you wish to add</source>
