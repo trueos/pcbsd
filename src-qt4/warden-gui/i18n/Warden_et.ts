@@ -139,13 +139,11 @@
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Protsessil selle vangla sees on ligipääs System V IPC primitiividele.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla juurkasutajal on lubatud luua tooreid sokleid. Võimaldab käsud ping ja traceroute.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
@@ -292,40 +290,35 @@
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla šabloonid</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">Lisa uus vangla</translation>
+        <translation>Lisa uus vangla</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">Eemalda valitud vangla</translation>
+        <translation>Eemalda valitud vangla</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Välju</translation>
+        <translation>&amp;Välju</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi versioon</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Milline versioon tõmmata?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šablooni nimetus</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anna sellele šabloonile nimetus</translation>
     </message>
 </context>
 <context>
@@ -556,7 +549,7 @@
     </message>
     <message>
         <source>No snapshots available. You may create one below.</source>
-        <translation>Hetktõmmiseid ei ole saadaval. Neid võib luua allpool.</translation>
+        <translation>Hetktõmmiseid ei ole tehtud. Neid võib luua allpool.</translation>
     </message>
     <message>
         <source>Creating new snapshot... Please wait...</source>
@@ -648,7 +641,7 @@
     </message>
     <message>
         <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation>Uuemad hetktõmmised ja haagitud kloonid lähevad kaduma ja vangla taaskäivitatakse!</translation>
+        <translation>Uuemad hetktõmmised ja haagitud kloonid lähevad kaduma ning vangla taaskäivitatakse!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
@@ -676,23 +669,19 @@
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP-d:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadista vanglat</translation>
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakihaldur</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šabloonihaldur</translation>
     </message>
 </context>
 <context>
@@ -714,7 +703,7 @@
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation>Palun vali vangla tüüp, mida soovid luua.</translation>
+        <translation>Vali vangla tüüp, mida soovid luua.</translation>
     </message>
     <message>
         <source>Jail Type</source>
@@ -790,48 +779,39 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4-aadress</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6-aadress</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tavaline vangla (turvalisem, hea teenuste jaoks)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paigalda PKGNG ja PC-BSD tööriistad</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla versioon</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kasuta süsteemi versiooni (vaikimisi variant)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv6-aadress!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>See abiline aitab luua uue vangla. Esmalt vali vanglale hostinimi ja IP-aadress, mis ei ole juba võrgus kasutusel. Kui on plaanis IPv6 kaudu vanglale ligi pääseda, siis vali IPv6-aadress. Kui oled valmis, vajuta &quot;Edasi&quot;.</translation>
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linuxi vangla</translation>
     </message>
 </context>
 </TS>

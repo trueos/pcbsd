@@ -71,6 +71,21 @@
         <source>Fetch P&amp;orts Tree</source>
         <translation>Recoger P&amp;orts Tree</translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>

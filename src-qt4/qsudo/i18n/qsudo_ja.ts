@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation>このユーザーはシステムの管理者権限を持っていません。</translation>
+        <translation>このユーザーはシステムの管理者権限を持っていません!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>

@@ -334,10 +334,6 @@ share/pcbsd/metaset/pcbsd/Cinnamon/pkg-parent
 share/pcbsd/metaset/pcbsd/Cinnamon/desktop
 share/pcbsd/metaset/pcbsd/Cinnamon/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Cinnamon/pkg-desc
-share/pcbsd/metaset/pcbsd/Compiz/pkg-icon.png
-share/pcbsd/metaset/pcbsd/Compiz/ports-list
-share/pcbsd/metaset/pcbsd/Compiz/pkg-parent
-share/pcbsd/metaset/pcbsd/Compiz/pkg-desc
 share/pcbsd/metaset/pcbsd/Rekonq/pkg-desc
 share/pcbsd/metaset/pcbsd/Rekonq/pkg-icon.png
 share/pcbsd/metaset/pcbsd/Rekonq/ports-list
@@ -719,7 +715,6 @@ man/man8/pc-sysinstall.8.gz
 @dirrm share/pcbsd/metaset/pcbsd/Mate
 @dirrm share/pcbsd/metaset/pcbsd/GNOME
 @dirrm share/pcbsd/metaset/pcbsd/KDE
-@dirrm share/pcbsd/metaset/pcbsd/Compiz
 @dirrm share/pcbsd/metaset/pcbsd/Rekonq
 @dirrm share/pcbsd/metaset/pcbsd/KDE-L10N
 @dirrm share/pcbsd/metaset/pcbsd/Development

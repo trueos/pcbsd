@@ -50,6 +50,15 @@ void PBSystemTab::ProgramInit()
     //Load boot screen data
     loadBootData();
 
+    // Load the default package set value
+    if ( pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET") == "EDGE" ) {
+       radioEdge->setChecked(true);
+       radioProduction->setChecked(false);
+    } else {
+       radioProduction->setChecked(true);
+       radioEdge->setChecked(false);
+    }
+
     // Connect our various buttons
     connect(buttonGenerate, SIGNAL(clicked()), this, SLOT(startGenerateSheet()) );
     //connect(showBootCheck, SIGNAL(clicked()), this, SIGNAL(changed()));
@@ -295,6 +304,15 @@ void PBSystemTab::loadBootData()
 
 void PBSystemTab::slotMiscSave() {
     saveKernScreen();
+
+    // Save package set
+    if ( radioProduction->isChecked() )
+      pcbsd::Utils::setValPCBSDConf("PACKAGE_SET", "PRODUCTION");
+    else
+      pcbsd::Utils::setValPCBSDConf("PACKAGE_SET", "EDGE");
+
+    // Extract the ports overlay to grab a new package set repo config
+    QProcess::execute(QString("pc-extractoverlay"), QStringList() << "ports");
 }
 
 void PBSystemTab::slotClose() {

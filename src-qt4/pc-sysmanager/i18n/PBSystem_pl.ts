@@ -71,6 +71,20 @@
         <source>Fetch P&amp;orts Tree</source>
         <translation>Pobierz drzewo portów</translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation>Zestaw Pakietów</translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>

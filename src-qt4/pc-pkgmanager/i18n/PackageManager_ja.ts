@@ -5,13 +5,11 @@
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの変更を確認</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下の変更がシステムに加えられます。確認後OKをクリックして進めて下さい。</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
@@ -30,38 +28,31 @@
     </message>
     <message>
         <source>System Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムパッケージマネージャー</translation>
     </message>
     <message>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの追加と削除</translation>
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムパッケージ</translation>
     </message>
     <message>
         <source>Package Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの情報</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>説明</translation>
     </message>
     <message>
         <source>10 MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 MB</translation>
     </message>
     <message>
         <source>My Package 1.0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自分のパッケージ 1.0</translation>
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
@@ -69,8 +60,7 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オプション</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
@@ -78,38 +68,31 @@
     </message>
     <message>
         <source>Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの更新</translation>
     </message>
     <message>
         <source>Re&amp;scan packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの再読み込み(&amp;s)</translation>
     </message>
     <message>
         <source>&amp;Update packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの更新(&amp;U)</translation>
     </message>
     <message>
         <source>Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージ</translation>
     </message>
     <message>
         <source>Old Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以前のバージョン</translation>
     </message>
     <message>
         <source>New Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいバージョン</translation>
     </message>
     <message>
         <source>Installing updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インストールしている更新</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -121,8 +104,7 @@
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>表示(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -130,23 +112,19 @@
     </message>
     <message>
         <source>&amp;Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>基本(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>詳細(&amp;A)            </translation>
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートを確認しています</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージをアップデートしています (%1)</translation>
     </message>
     <message>
         <source>Available updates</source>
@@ -154,117 +132,95 @@
     </message>
     <message>
         <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アップデートはありません</translation>
     </message>
     <message>
         <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの更新を開始しています…</translation>
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>次に必要とされています:</translation>
     </message>
     <message>
         <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のパッケージは選択した変更による競合の原因を自動的に取り除くことが出来ます。続けますか？</translation>
     </message>
     <message>
         <source>Package Conflicts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの競合</translation>
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再試行する前に手動で競合を修正が必要かもしれません            </translation>
     </message>
     <message>
         <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージをダウンロードしています</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗しました!</translation>
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージ操作に失敗しました。出力の複製を /tmp/pkg-output.log に保存しました。</translation>
     </message>
     <message>
         <source>Finished!</source>
-        <translation>完了しました。</translation>
+        <translation>完了しました!</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの変更が完了しました!</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>読み込み中… お待ちください…</translation>
     </message>
     <message>
         <source>No changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更はありません</translation>
     </message>
     <message>
         <source>No changes to make!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>makeするための変更はありません!</translation>
     </message>
     <message>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のパッケージは削除されます。</translation>
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>上記のパッケージを必要とする以下のパッケージも削除されます:</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のパッケージがインストールされます:</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下の依存するパッケージもインストールされます:</translation>
     </message>
     <message>
         <source>Confirm package changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの変更を確認する</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ無し</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>何もデスクトップを選択していません! 少なくとも一つは保存する前に選択して下さい。</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージを見る</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージを並べています:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
@@ -272,58 +228,47 @@
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>依存関係</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージを見つける</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>検索</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>検索結果はありません</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>一番上から検索を続けますか?</translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>何もパッケージが見つかりませんでした。検索ワードを変えて検索し直して見て下さい。</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>実行中のプロセス</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージは現在変更されています。本当に終了しますか?</translation>
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージを確認</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージの更新の確認をすることが出来ませんでした!</translation>
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロード中</translation>
     </message>
 </context>
 </TS>

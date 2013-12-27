@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation>このリポジトリーはもうすぐ利用できるようになります(インターネット接続スピードに依存します)</translation>
+        <translation>このリポジトリーはもうすぐ利用できるようになります(インターネット接続速度に依存します)。</translation>
     </message>
     <message>
         <source>Repo Failure</source>
@@ -136,7 +136,7 @@
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation>AppCafe</translation>
+        <translation>AppCafe©</translation>
     </message>
     <message>
         <source>Installed</source>
@@ -356,7 +356,7 @@
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
-        <translation>PBI リストのインポートでエラーが発生しました。</translation>
+        <translation>PBIリストのインポートでエラーが発生しました</translation>
     </message>
     <message>
         <source>Please make sure that the file has not been corrupted and try again</source>
@@ -444,11 +444,11 @@
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation>アプリケーションデータベースを検索しています。お待ちください...</translation>
+        <translation>アプリケーションデータベースを検索しています。お待ちください…</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
-        <translation>%1 は見つかりません</translation>
+        <translation>見つかりませんでした: %1</translation>
     </message>
     <message>
         <source>Downloading file:</source>
@@ -527,7 +527,7 @@
     </message>
     <message>
         <source>No applications to install from this list.</source>
-        <translation>アプリケーションをリストからインストールできません</translation>
+        <translation>アプリケーションをリストからインストールできません。</translation>
     </message>
     <message>
         <source>Results:</source>
@@ -555,7 +555,7 @@
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>
-        <translation>PBI をダウンロードできませんでした。もう一度実行してください。</translation>
+        <translation>PBIをダウンロードできませんでしたのでもう一度実行してください</translation>
     </message>
     <message>
         <source>%1 Update Error:</source>
@@ -567,7 +567,7 @@
     </message>
     <message>
         <source>%1 Installation Error:</source>
-        <translation>%1 インストールエラー</translation>
+        <translation>%1 インストールエラー:</translation>
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>

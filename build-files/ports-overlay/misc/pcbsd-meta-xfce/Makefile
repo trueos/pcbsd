@@ -18,6 +18,8 @@ RUN_DEPENDS=	xfce>=0:${PORTSDIR}/x11-wm/xfce4 \
 		ristretto>=0:${PORTSDIR}/graphics/ristretto \
 		xfce4-wm-themes>=0:${PORTSDIR}/misc/xfce4-wm-themes \
 		xfce4-power-manager>=0:${PORTSDIR}/sysutils/xfce4-power-manager \
+		xfce4-mixer>=0:${PORTSDIR}/audio/xfce4-mixer \
+		xfce4-battery-plugin>=0:${PORTSDIR}/sysutils/xfce4-battery-plugin \
 		thunar-archive-plugin>=0:${PORTSDIR}/archivers/thunar-archive-plugin \
 
 NO_BUILD=	yes

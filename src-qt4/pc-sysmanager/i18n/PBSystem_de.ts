@@ -71,6 +71,19 @@
         <source>Fetch P&amp;orts Tree</source>
         <translation>Ports-Sammlung abrufen</translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation>Paketsatz</translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation>Produktion (Pakete die vierteljährlich aktualisiert werden - Empfohlen)</translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>
@@ -84,7 +97,7 @@
     </message>
     <message>
         <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>Task Progress...</source>

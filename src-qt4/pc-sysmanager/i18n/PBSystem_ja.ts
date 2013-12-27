@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>System Memory:</source>
-        <translation>システムメモリー</translation>
+        <translation>システムメモリー:</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -71,6 +71,18 @@
         <source>Force IBUS keyboard input</source>
         <translation>キーボード入力に IBus を使用する</translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation>パッケージセット</translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation>製品 (パッケージは定期的に更新されます ‐ おすすめ)</translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation>最先端 (パッケージは頻繁に更新されます - テスターと開発者向け)</translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>
@@ -100,11 +112,11 @@
 - Target server is unresponsive.</source>
         <translation>サーバーに接続できません。以下の理由が想定されます:
 - ネットワークがダウンしている
-- 指定されたサーバーが応答しない</translation>
+- 指定されたサーバーが応答しない。</translation>
     </message>
     <message>
         <source>Fetching Ports, this may take a while...</source>
-        <translation>ports を取得しています。しばらくお待ちください...</translation>
+        <translation>portsを取得していますので時間がかかるかもしれません…</translation>
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>

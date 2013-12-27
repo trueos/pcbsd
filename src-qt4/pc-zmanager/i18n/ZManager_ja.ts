@@ -5,74 +5,67 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダイアログ</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再帰的に全ての変更を適用する</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロパティ</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>値</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ソース</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザープロパティの追加</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>…</translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザープロパティの削除</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>親から継承する</translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更を元に戻す</translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルとディレクトリが作成されるときにACLエントリが継承される方法を制御します。
+値は、discard、noallow、restricted、passthroughです。これらの値の説明については、ACLプロパティを参照してください。</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ACLエントリーは、chmodコマンドを動作中に変更された方法を制御します。
+値は破棄、groupmask、およびpassthroughです。
+これらの値の説明については、ACLプロパティを参照してください。</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを読み取るときにファイルのアクセス時間が更新されるかどうかを制御します。
+それはメーラーのようなユーティリティーを混乱させる可能性がありますが、
+このプロパティをオフにすると、ファイルを読み込む際に書き込みトラフィックを発生が回避され、
+パフォーマンスが大幅に向上する可能性があります。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
@@ -101,16 +94,21 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データの整合性を検証するために使用されるチェックサムを制御します。
+デフォルト値は、自動的に適切なアルゴリズムを選択するがonになっています。
+(現在は、fletcher4をしていますが、今後のリリースで変更される可能性があります)
+値をoffにするとユーザーデータの整合性チェックが無効になります。
+チェックサムを無効にするのは推奨されません。</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>有効またはデータセットの圧縮を無効にします。
+値は、on、off、lzjb、zle、gzipとgzip-Nです。
+現在、このプロパティにlzjb、gzip、あるいはgzip-Nを設定することは、このプロパティをonに設定するのと同じ効果があります。
+既存のデータを持つファイルシステムで圧縮を有効にすると、新しいデータのみを圧縮します。既存のデータは圧縮されていないままです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -129,13 +127,17 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステムごとにユーザーデータのコピー数を設定します。
+これらのコピーは、任意のプールレベルの冗長性を増やします。
+ユーザーデータの複数のコピーが使用するディスク容量は、
+対応するファイルとデータセットに蓄積され、クォータと予約に対してカウントされます。
+複数のコピーが有効になっているときだけでなく、使用されるプロパティが更新されます。
+既存のファイルシステム上では、このプロパティを変更すると、新しく書き込まれたデータのみに影響するため、
+ファイルシステムの作成時に、このプロパティを設定することを考慮してください。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットが作成された日付と時刻を特定する読み取り専用のプロパティ。</translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.
@@ -146,25 +148,29 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットの重複排除を構成します。
+デフォルト値はオフになっています。
+デフォルトの重複排除チェックサムはSHA256です。
+(これは将来変更される場合があります)  
+dedupを有効にするときに定義されたチェックサムは、既に設定されているチェックサムプロパティを上書きします。
+検証する値を設定すると、SHA256で確認する設定と同じ効果があります。
+検証するために設定した場合、ZFSはブロックの内容が同一であることを確認するために
+同じシグネチャを持つ2つのブロックの場合はbyte-to-byteの比較を行います。</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスプロパティは現在FreeBSDではサポートされていません。</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロセスがこのファイルシステム内から実行できるかどうかを制御します。
+デフォルト値はONです。</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>読み取り専用のファイルシステム、クローン、またはスナップショットがマウントされているかどうかを示すプロパティ。</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -173,16 +179,22 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このファイルシステムに使用されるマウントポイントを制御します。
+マウントポイントのプロパティがファイルシステムに変更がかかるのはファイルシステムに属しているマウントポイントが全てアンマウントされたときです。
+もし、新しい値がレガシーの場合はアンマウントされたままになります。
+それ以外の場合、もし、プロパティが以前はレガシー、またはnoneだった場合や、
+以前のマウント先のプロパティが変更された場合は自動的に新しい場所に再マウントされます。
+また、任意の共有ファイルシステムは、共有が解除されて、新しい場所で共有されます。</translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>一次キャッシュ(ARC)にキャッシュされる内容を制御します。
+可能な値は、すべて、なし、およびメタデータです。
+すべてに設定した場合、ユーザーデータとメタデータの両方がキャッシュされます。
+noneに設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
     <message>
         <source>Read-only property for cloned file systems or volumes that identifies
@@ -204,8 +216,8 @@ override the ancestor&apos;s quota, but rather imposes an additional limit.</sou
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットを変更できるかどうかを制御します。
+onに設定すると変更を行うことはできません。</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -231,8 +243,9 @@ pool.</source>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットが消費できるディスク容量を設定します。
+このプロパティは使用されている領域の量に強い制限が適用されます。
+この強い制限値には、スナップショットやクローンなどの下位データで使用されるディスクスペースは含まれていません。</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -244,8 +257,15 @@ the parent dataset&apos;s quotas and reservations.
 If refreservation is set, a snapshot is only allowed if enough free pool space
 is available outside of this reservation to accommodate the current number of
 referenced bytes in the dataset.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットやクローンなどの子孫は含まないデータセットに保証されているディスクスペースの最小量を設定します。
+使用されるディスク領域の量がこの値を下回る場合は
+refreservationをに指定された容量を占有しているかのようにデータセットが処理されます。
+refreservationの予約は、親データセットの割り当て制限と
+予約に対する親データセットのディスク使用領域およびカウントに計上されます。
+refreservationが設定されている場合、
+スナップショットは十分な空きプール領域が
+データセット内の参照予約されている
+現在のバイト数を除いて利用可能な場合のみ許可されています。</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
@@ -253,38 +273,41 @@ When the amount of disk space used is below this value, the dataset is treated a
 it were using the amount of space specified by its reservation. Reservations are
 accounted for in the parent dataset&apos;s disk space used, and count against the parent
 dataset&apos;s quotas and reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットとその子孫に対して保証のディスクスペースの最小量を設定します。
+使用されるディスク領域の量がこの値を下回る場合、
+その予約に指定された容量を使用していたかのようにデータセットは処理されます。
+予約は使用する親データセットのディスクスペースで考慮し、
+親データセットのクォータと予約にカウントされています。</translation>
     </message>
     <message>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>二次キャッシュ（L2ARC）にキャッシュされる内容を制御します。
+可能な値は、すべて、なし、およびメタデータです。すべてに設定した場合、ユーザーデータとメタデータの両方がキャッシュされます。
+noneに設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>setuidビットがファイルシステムにおいて名誉あるかどうかを制御します。</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステムがNFSを介して利用可能であり、
+どのようなオプションを使用するかどうかを制御します。
+ONに設定すると、zfs shareコマンドをオプションなしで起動されます。
+それ以外の場合は、zfs shareコマンドは、このプロパティの内容と同等のオプションを指定して呼び出されます。</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>sharesmbプロパティは現在FreeBSDでは何も影響はありません。</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>.zfsディレクトリはファイルシステムのルートを非表示にするか表示するかを制御します。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
@@ -335,46 +358,41 @@ from the supported software release.</source>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ボリュームの為にボリュームの論理サイズを指定します。</translation>
     </message>
     <message>
         <source>For volumes, specifies the block size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ボリュームの為にボリュームのブロックサイズを指定します。</translation>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットがjailに追加されているかどうかを示します。</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプロパティはFreeBSDではサポートしていません。</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このファイルシステムはアンマウント後破壊される予定になっています。</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
 dataset, expressed as a multiplier.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このデータセットの空き領域を圧縮するための圧縮率は
+乗数として表現されます。</translation>
     </message>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>前回のスナップショット以降に
+このデータセットに書き込まれた参照領域の量。</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプロパティは、ユーザーの数に設定され、このスナップショットに保持しています。
+</translation>
     </message>
     <message>
         <source>Provide a hint to ZFS about handling of synchronous requests in this
@@ -408,379 +426,308 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプロパティはシステムが作成した後は変更できません。</translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザープロパティ</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>不明なプロパティか、情報が存在しません。
+詳しくはZFSのマニュアルを読んでください。</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[無効]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[継承]</translation>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[追加済み]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[変更済み]</translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザープロパティ</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスメニュー</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザープロパティを追加する</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ユーザープロパティを削除する</translation>
     </message>
 </context>
 <context>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダイアログ</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントするデバイス:</translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(デバイス)</translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントする場所:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>…</translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディレクトリーを選択</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダイアログ</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プール名:</translation>
     </message>
     <message>
         <source>Read only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>読み込みのみ</translation>
     </message>
     <message>
         <source>Change altroot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>altrootを変更する:</translation>
     </message>
 </context>
 <context>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダイアログ</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選択済み</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プール名:</translation>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定タイプ:</translation>
     </message>
     <message>
         <source>Striped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ストライプ</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ミラー</translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z (シングルパリティ)</translation>
     </message>
     <message>
         <source>Raid-Z2 (double parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z2 (ダブルパリティ)</translation>
     </message>
     <message>
         <source>Raid-Z3 (triple parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z3 (トリプルパリティ)</translation>
     </message>
     <message>
         <source>Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャッシュ</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログ</translation>
     </message>
     <message>
         <source>Spare</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>予備</translation>
     </message>
     <message>
         <source>Error Description Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エラーの説明はここです</translation>
     </message>
     <message>
         <source>Must provide a valid pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>有効なプール名を提供しなくてはいけません</translation>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正確に %1 デバイスを選択しなくてはいけません</translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>最低一つはデバイスを選択しなくてはいけません</translation>
     </message>
 </context>
 <context>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パーティションを追加する</translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいパーティションもしくはスライスを追加する</translation>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 ギガバイト</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイス:</translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ada0</translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できる最大の空きブロック:</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>合計サイズ:</translation>
     </message>
     <message>
         <source>Current layout:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>現在のレイアウト:</translation>
     </message>
     <message>
         <source>Designation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>指定</translation>
     </message>
     <message>
         <source>Start Sector</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開始セクター</translation>
     </message>
     <message>
         <source>Sector Count</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>セクター数</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サイズ</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>色</translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいパーティションのサイズ:</translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>バイト</translation>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キロバイト</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メガバイト</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ギガバイト</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>テラバイト</translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パーティションの種類:</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-zfs</translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-ufs</translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd</translation>
     </message>
     <message>
         <source>freebsd-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-boot</translation>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-swap</translation>
     </message>
     <message>
         <source>bios-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bios-boot</translation>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>efi</translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいファイルシステムを作成して初期化する</translation>
     </message>
     <message>
         <source>** FREE **</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>** 空き **</translation>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>空き領域はありません!</translation>
     </message>
 </context>
 <context>
     <name>DialogProp</name>
     <message>
         <source>Edit Pool Properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールのプロパティを編集する</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロパティ</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>値</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ストレージプールの合計サイズ。</translation>
     </message>
     <message>
         <source>Percentage of pool space used.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールの使用率。</translation>
     </message>
     <message>
         <source>Alternate root directory. If set, this directory is prepended to any
@@ -790,18 +737,21 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>代替ルートディレクトリー。
+設定した場合、このディレクトリーはプール内の任意のマウントポイントに追加されます。
+どこにマウントされるか信頼できないプールや、典型的なパスが有効でない代替ブート環境を検査するときに使用することができます。
+altrootは永続プロパティではありません。
+それはシステムが稼働している間のみ有効です。  
+altrootを設定するとデフォルトでcachefile=noneが設定されますが、
+明示的に設定を使用して上書きした方がいいでしょう。</translation>
     </message>
     <message>
         <source>The current health of the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールの現在の健康状態。</translation>
     </message>
     <message>
         <source>A unique identifier for the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールのユニークな識別子。</translation>
     </message>
     <message>
         <source>The current on-disk version of the pool. This can be increased, but
@@ -817,8 +767,9 @@ can be any number between 1 and the current version reported by
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ルートプールのデフォルトのブート可能データセットを識別します。
+このプロパティは、インストールおよびアップグレードプログラムを中心に
+設定されることが期待されています。</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the
@@ -943,499 +894,404 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいファイルシステム</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>名前:</translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>作成時に上書きするプロパティ:</translation>
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動マウントを阻止する (canmount=noauto)</translation>
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントポイント</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無し</translation>
     </message>
     <message>
         <source>legacy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">legacy</translation>
     </message>
     <message>
         <source>[path]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[パス]</translation>
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UTF-8のみを強制する (utf8only=on)</translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unicodeの正規化 =</translation>
     </message>
     <message>
         <source>formD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formD</translation>
     </message>
     <message>
         <source>formKCF</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formKCF</translation>
     </message>
     <message>
         <source>Copies =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>コピー =</translation>
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重複排除 (dedup=on)</translation>
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>圧縮 =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>off</translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>on</translation>
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lzjb</translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zle</translation>
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip</translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-1</translation>
     </message>
     <message>
         <source>gzip-2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-2</translation>
     </message>
     <message>
         <source>gzip-3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-3</translation>
     </message>
     <message>
         <source>gzip-4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-4</translation>
     </message>
     <message>
         <source>gzip-5</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-5</translation>
     </message>
     <message>
         <source>gzip-6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-6</translation>
     </message>
     <message>
         <source>gzip-7</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-7</translation>
     </message>
     <message>
         <source>gzip-8</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-8</translation>
     </message>
     <message>
         <source>gzip-9</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-9</translation>
     </message>
 </context>
 <context>
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDディスクマネージャー</translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスク</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイス</translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>状態</translation>
     </message>
     <message>
         <source>ZFS Pools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFSプール</translation>
     </message>
     <message>
         <source>Pool Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プール名</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>状態:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ラベル</translation>
     </message>
     <message>
         <source>Clear Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エラーを削除する</translation>
     </message>
     <message>
         <source>poolname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プール名</translation>
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFSファイルシステム</translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステム</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>状態</translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>再読込中…</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールは何もありませんので右クリックで新しく作成してください…</translation>
     </message>
     <message>
         <source> (No media in drive)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> (ドライブにメディアが入っていません)</translation>
     </message>
     <message>
         <source>Avaliable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できます</translation>
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスクがありません</translation>
     </message>
     <message>
         <source>ZPool: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZPool: </translation>
     </message>
     <message>
         <source>Sliced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スライス</translation>
     </message>
     <message>
         <source>Mounted: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントされている場所:</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できます</translation>
     </message>
     <message>
         <source>Unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アンマウントされました</translation>
     </message>
     <message>
         <source>Partitioned</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パーティションが作成されました</translation>
     </message>
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">(出力されました)
+</translation>
     </message>
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(破壊されました)
+</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オフライン</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オンライン</translation>
     </message>
     <message>
         <source>Degraded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>劣化しました</translation>
     </message>
     <message>
         <source>Faulted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>障害が発生しました</translation>
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>除去しました</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>利用できません</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>不明</translation>
     </message>
     <message>
         <source>Create new pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいプールを作成する</translation>
     </message>
     <message>
         <source>Rename pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールの名前を変更する</translation>
     </message>
     <message>
         <source>Destroy pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールを破壊する</translation>
     </message>
     <message>
         <source>Add devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスを追加する…</translation>
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ログデバイスを追加する…</translation>
     </message>
     <message>
         <source>Add cache devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>キャッシュデバイスを追加する…</translation>
     </message>
     <message>
         <source>Add spare devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>予備デバイスを追加する…</translation>
     </message>
     <message>
         <source>Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクラブ</translation>
     </message>
     <message>
         <source>Export pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールを書き出す</translation>
     </message>
     <message>
         <source>Import pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールを読み込む</translation>
     </message>
     <message>
         <source>Recover destroyed pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>破壊したプールを復旧する</translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロパティ…</translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイス及びミラーデバイスを追加する…</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ミラーから切り離す</translation>
     </message>
     <message>
         <source>Take offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オフラインにする</translation>
     </message>
     <message>
         <source>Bring online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>オンラインにする</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpoolメニュー</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスメニュー</translation>
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アンマウント</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウント</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MBRパーティションテーブルを作成する</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GPTパーティションテーブルを作成する</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>BSDパーティションテーブルを作成する</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パーティションテーブルを削除する</translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいスライスを追加する</translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいパーティションを追加する</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このスライスを破壊する</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このパーティションを破壊する</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>警告</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>この操作は元に戻せません。
+スライスもしくはパーティションを破壊してよろしいですか?</translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エラーレポート</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいzpoolを作成する</translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重要なお知らせ</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプールはリードオンリーでインポートされたので、この状態で破壊を試みても破壊されることは無いでしょう。</translation>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ミラーデバイスを次へ追加する </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
@@ -1444,13 +1300,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>破壊されたプールを回復…</translation>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールをインポート…</translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
@@ -1460,108 +1314,87 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプールはリードオンリーでインポートされたので名前の変更はできません。</translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpoolへデバイスを追加する</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpoolへログデバイスを追加する</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpoolへキャッシュデバイスを追加する</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpoolへ予備デバイスを追加する</translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[マウントされています]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[マウントされていません]</translation>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
-            </translation>
+        <translation> of </translation>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセット名を変更する</translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいデータセットを作成する</translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>クローンデータセットを作成する</translation>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットを破壊する</translation>
     </message>
     <message>
         <source>Promote filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステムをプロモーションする</translation>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットを作成する</translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スナップショットを破壊する</translation>
     </message>
     <message>
         <source>Rollback to this snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このスナップショットを巻き戻す</translation>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プロパティを編集する</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zfsメニュー</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>確認</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しいスナップショットを作成する</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新しい名前</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.

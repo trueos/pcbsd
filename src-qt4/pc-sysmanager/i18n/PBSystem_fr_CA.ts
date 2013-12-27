@@ -71,6 +71,18 @@
         <source>Fetch P&amp;orts Tree</source>
         <translation>Récupérer l&apos;arbre des P&amp;orts          </translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation>Ensemble de paquet</translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation>Production (paquets mis à jour trimestrielle - Recommandé)</translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation>Edge (Paquets mis à jour fréquemment - Pour les essais et le développement)</translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>

@@ -5,7 +5,7 @@
     <name>sndDialog</name>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation>デフォルトで使用するサウンドデバイスの変更と、再生テストを行います。</translation>
+        <translation>デフォルトで使用するサウンドデバイスの変更と再生テストを行います</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>

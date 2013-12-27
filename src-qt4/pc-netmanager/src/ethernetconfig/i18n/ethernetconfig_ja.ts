@@ -155,7 +155,7 @@
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation>IPアドレス(</translation>
+        <translation>IPアドレスが範囲外です! (</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>

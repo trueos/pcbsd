@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>Restored.</source>
-        <translation>修復完了</translation>
+        <translation>修復が完了しました。</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>
@@ -172,7 +172,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Restarted successfuly!</source>
-        <translation>再起動に成功しました。</translation>
+        <translation>再起動に成功しました!</translation>
     </message>
     <message>
         <source>Failure</source>
@@ -180,7 +180,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Failed to restart!</source>
-        <translation>再起動に失敗しました。</translation>
+        <translation>再起動に失敗しました!</translation>
     </message>
 </context>
 <context>

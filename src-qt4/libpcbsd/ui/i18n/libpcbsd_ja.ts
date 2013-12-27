@@ -33,7 +33,8 @@
     <message>
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
-        <translation>警告: パッケージ構成は変更済みです!もし、キャンセルすると変更が無効になります。キャンセルしますか?</translation>
+        <translation>警告: パッケージ構成は変更済みです!
+もし、キャンセルすると変更が無効になります。キャンセルしますか?</translation>
     </message>
 </context>
 <context>
@@ -111,7 +112,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation>起動中です... お待ちください...</translation>
+        <translation>読み込み中… お待ちください…</translation>
     </message>
     <message>
         <source>Performing system-package changes.</source>

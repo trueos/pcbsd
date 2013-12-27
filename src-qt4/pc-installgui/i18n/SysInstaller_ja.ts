@@ -187,7 +187,7 @@
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation>選択したディスク/パーティションは %1 Gバイト以下なので、インストールは失敗すると思われます...</translation>
+        <translation>選択したディスク及びパーティションは推奨の%1Gバイト以下です。インストールは失敗するかもしれません...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
@@ -359,7 +359,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>No Desktop</source>
-        <translation>No Desktop</translation>
+        <translation>デスクトップ無し</translation>
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
@@ -685,7 +685,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">オリジナルのシステムデータセット/マウントポイントは自動的にレストアされます。</translation>
+        <translation>オリジナルのシステムデータセット / マウントポイントは自動的にレストアされます。</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>

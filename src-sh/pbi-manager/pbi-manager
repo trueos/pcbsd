@@ -3351,9 +3351,17 @@ pbi_add_update_hashdir() {
 		echo -e "Merging with hashdir...\c"
 	fi
 	
+	inUseDir="/usr/pbi/.mounts/`basename $1`/virtbase/dev"
+
 	# Read the hashfile, and start making links to identical files
 	while read hl
 	do
+		# Is this PBI running?
+		if [ -d "$inUseDir" ] ; then
+			echo "hASHBUSY - Canceled"
+			return
+		fi
+
 		file="`echo $hl | sed 's/:::.*$//g'`"
 
 		# If we are trying to merge a PBI which was deleted, stop
@@ -4920,8 +4928,13 @@ do_pbid() {
 				fi
 				echo "Finished adding ${_hpbipath} to hash-dir: `date`" >> ${_pbid_log}
 				
-				# Now remove the trigger file
-				rm ${PBI_DBHASHQUEUEDIR}/${_hpbi}
+
+				inUseDir="/usr/pbi/.mounts/`basename $_hpbipath`/virtbase/dev"
+				# If the PBI isn't running, we can remove trigger
+				if [ ! -d "$inUseDir" ] ; then
+					# Now remove the trigger file
+					rm ${PBI_DBHASHQUEUEDIR}/${_hpbi}
+				fi
 
 			done
 			rm_tmpdir

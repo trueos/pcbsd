@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation>Nähtav nimi kirjele</translation>
+        <translation>Kirje nähtav nimi</translation>
     </message>
     <message>
         <source>Executable</source>
@@ -357,7 +357,7 @@
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation>Valmis otsitava PBI asukoht</translation>
+        <translation>Valminud PBI asukoht</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
@@ -653,18 +653,15 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/pakk</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali muu FreeBSD pakk</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muuda</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -673,8 +670,7 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa pakke</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>
@@ -698,18 +694,15 @@
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tüüp</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategooria</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategooria, millese see rakendus peaks kuuluma</translation>
     </message>
     <message>
         <source>...</source>
@@ -718,8 +711,7 @@
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikooni URL</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
@@ -728,68 +720,55 @@
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ehitamise võti</translation>
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versioon</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prioriteet</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ilma TMPFS-ita</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ehitamise võti: muuda seda, et PBI automaatselt uuesti ehitada</translation>
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa see number rakenduse versiooni lõppu (nt 1.0 -&gt; 1.0_#)</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ehitamise prioriteet (kõrgem number on tähtsam)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loo uus PBI moodul</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laadi olemasolev PBI moodul</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali PBI mooduli seadistus</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI seadistus (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG kirjet ei õnnestunud luua.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selle jaoks on vaja aktiivset internetiühendust ja administraatori õigusi.</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>

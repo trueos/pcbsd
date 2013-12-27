@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>保存(&amp;S)</translation>
+        <translation>保存 (&amp;S)</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>キャンセル(&amp;C)</translation>
+        <translation>キャンセル (&amp;C)</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation>閉じる(&amp;C)</translation>
+        <translation>閉じる (&amp;C)</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -63,19 +63,19 @@
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation>追加(&amp;A)</translation>
+        <translation>追加 (&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>削除(&amp;R)</translation>
+        <translation>削除 (&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>保存(&amp;S)</translation>
+        <translation>保存 (&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>キャンセル(&amp;C)</translation>
+        <translation>キャンセル (&amp;C)</translation>
     </message>
     <message>
         <source>Add IP</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
-        <translation>正しい IPv4/IPv6 アドレスを入力してください。</translation>
+        <translation>正しいIPv4/IPv6アドレスを入力してください!</translation>
     </message>
     <message>
         <source>Jail Configuration</source>
@@ -175,27 +175,27 @@
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation>無効な IPv4 アドレスです</translation>
+        <translation>無効なIPv4アドレスです!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation>無効な IPv4 ブリッジのアドレスです</translation>
+        <translation>無効なIPv4ブリッジのアドレスです!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation>無効な IPv4 ルーターのアドレスです</translation>
+        <translation>無効なIPv4ルーターのアドレスです!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation>無効な IPv6 アドレスです</translation>
+        <translation>無効なIPv6アドレスです!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation>無効な IPv6 ブリッジのアドレスです</translation>
+        <translation>無効なIPv6ブリッジのアドレスです!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation>無効な IPv6 ルーターのアドレスです</translation>
+        <translation>無効なIPv6ルーターのアドレスです!</translation>
     </message>
     <message>
         <source>Options</source>
@@ -238,7 +238,7 @@
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation>インポートした Jail の IP アドレス/ホスト名を変更した場合には、Jail 内にある全ての旧 IP アドレス/ホスト名の設定を変更する必要があります。 </translation>
+        <translation>インポートしたJailのIPアドレス/ホスト名を変更した場合には、Jail内にある全ての旧IPアドレス/ホスト名の設定を変更する必要があります。</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
@@ -516,11 +516,11 @@
     </message>
     <message>
         <source>Creating new snapshot... Please wait...</source>
-        <translation>スナップショットを作成しています... お待ちください...</translation>
+        <translation>スナップショットを作成しています… お待ちください…</translation>
     </message>
     <message>
         <source>Reverting snapshot... Please wait...</source>
-        <translation>スナップショットを復旧しています... お待ちください...</translation>
+        <translation>スナップショットを復旧しています… お待ちください…</translation>
     </message>
     <message>
         <source>Are you sure you want to revert to the snapshot:</source>
@@ -528,7 +528,7 @@
     </message>
     <message>
         <source>Removing snapshot... Please wait...</source>
-        <translation>スナップショットを削除中です... お待ちください...</translation>
+        <translation>スナップショットを削除中です… お待ちください…</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the snapshot:</source>
@@ -604,11 +604,11 @@
     </message>
     <message>
         <source>Cloning snapshot... Please wait...</source>
-        <translation>スナップショットのクローンを作成しています... お待ちください...</translation>
+        <translation>スナップショットのクローンを作成しています… お待ちください…</translation>
     </message>
     <message>
         <source>Removing clone... Please wait...</source>
-        <translation>クローンを削除しています... お待ちください...</translation>
+        <translation>クローンを削除しています… お待ちください…</translation>
     </message>
     <message>
         <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
@@ -678,7 +678,7 @@
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation>作成したい Jail の種類を選択してください。 </translation>
+        <translation>作成したい Jail の種類を選択してください。</translation>
     </message>
     <message>
         <source>Jail Type</source>
@@ -686,11 +686,11 @@
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
-        <translation>Ports Jail (セキュアではない。X アプリケーションを実行できます)</translation>
+        <translation>Ports Jail (セキュアではない。Xアプリケーションを実行できます)</translation>
     </message>
     <message>
         <source>Next enter the root password for this jail. </source>
-        <translation>次に、この Jail で使用する root パスワードを入力してください。 </translation>
+        <translation>次に、この Jail で使用する root パスワードを入力してください。</translation>
     </message>
     <message>
         <source>Root Password</source>
@@ -750,7 +750,7 @@
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation>その他の jail 設定を行います。注意: 「システムのソースコードを含める」を有効にするには /usr/src にソースコードが存在する必要があります。 </translation>
+        <translation>その他の jail 設定を行います。注意: 「システムのソースコードを含める」を有効にするには /usr/src にソースコードが存在する必要があります。</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
@@ -786,12 +786,11 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation>このウィザードの指示通りに Jail の新規作成を行います。最初に現在ネットワーク上で使用していない IP アドレスとホスト名を入力します。もし IPv6 アドレスを利用する場合にはチェックを入れて正しい IPv6 アドレスを入力して、「次へ」をクリックします。</translation>
+        <translation>このウィザードの指示通りにJailの新規作成を行います。最初に現在ネットワーク上で使用していないIPアドレスとホスト名を入力します。もしIPv6アドレスを利用する場合にはチェックを入れて正しい IPv6アドレスを入力して、「次へ」をクリックします。</translation>
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux Jail (jailの中でLinuxを実行します)</translation>
     </message>
 </context>
 </TS>

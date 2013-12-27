@@ -71,6 +71,18 @@
         <source>Fetch P&amp;orts Tree</source>
         <translation>Tõmba p&amp;ortide puu</translation>
     </message>
+    <message>
+        <source>Package Set</source>
+        <translation>Pakkide komplekt</translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation>Lõppversioonid (pakke uuendatakse kord kolme kuu tagant – soovitatav)</translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation>Arendusversioonid (pakke uuendatakse tihti – testimiseks ja arenduseks)</translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>
