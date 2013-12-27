@@ -289,7 +289,7 @@
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>Lis&amp;a</translation>
+        <translation>&amp;Lisa</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -353,11 +353,11 @@
     </message>
     <message>
         <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD kasutajahaldur - Täiendav režiim</translation>
+        <translation>PC-BSD kasutajahaldur - Täiendav vaade</translation>
     </message>
     <message>
         <source>Simple &amp;View</source>
-        <translation>Tavaline &amp;režiim</translation>
+        <translation>Tavaline V&amp;aade</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -553,7 +553,7 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Eemalda</translation>
+        <translation>&amp;Kustuta</translation>
     </message>
     <message>
         <source>&amp;Change Admin Password...</source>
@@ -565,7 +565,7 @@
     </message>
     <message>
         <source>A&amp;dvanced View</source>
-        <translation>Täien&amp;dav vaade</translation>
+        <translation>Täiendav v&amp;aade</translation>
     </message>
     <message>
         <source>Alt+D</source>
@@ -573,7 +573,7 @@
     </message>
     <message>
         <source>Can administrate s&amp;ystem</source>
-        <translation>Võimaldab &amp;süsteemi administreerida</translation>
+        <translation>Võib &amp;süsteemi administreerida</translation>
     </message>
     <message>
         <source>Alt+Y</source>

@@ -73,18 +73,15 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide komplekt</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lõppversioonid (pakke uuendatakse kord kolme kuu tagant – soovitatav)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arendusversioonid (pakke uuendatakse tihti – testimiseks ja arenduseks)</translation>
     </message>
 </context>
 <context>

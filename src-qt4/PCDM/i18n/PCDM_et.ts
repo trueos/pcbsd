@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation>Kasutajanimi või parool on vigane. Palun proovi uuesti.</translation>
+        <translation>Kasutajanimi või parool ei klapi. Palun proovi uuesti.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
