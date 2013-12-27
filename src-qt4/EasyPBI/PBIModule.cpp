@@ -673,8 +673,12 @@ QStringList PBIModule::filesInDir(QString dirPath){
     QStringList subdirs = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
     out << dir.entryList(QDir::Files | QDir::NoDotAndDotDot,QDir::Name);
     for(int i=0; i<subdirs.length(); i++){
-      out << filesInDir(dirPath+"/"+subdirs[i]);
-    }
+      QStringList subFiles = filesInDir(dirPath+"/"+subdirs[i]);
+      for(int j=0; j<subFiles.length(); j++){
+        //Make sure to prepend the subdirectory name
+        out << subdirs[i]+"/"+subFiles[j];
+      }
+  }
   }
   return out;	
 }
