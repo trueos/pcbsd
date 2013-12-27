@@ -6195,7 +6195,7 @@ start_next_ab_target()
 
   # We have something to build lets do it!
   pbi="$CUR_WORKING_PBI"
-  unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD
+  unset PBI_MAKEPORT PBI_BUILDKEY PBI_PROGVERSION PBI_REQUIRESROOT PBI_PROGNAME PBI_PROGWEB PBI_PROGAUTHOR PBI_PROGICON PBI_MKPORTBEFORE PBI_MKPORTAFTER PBI_MAKEOPTS PBI_EXCLUDELIST PBI_AB_PRIORITY PBI_HASH_EXCLUDES PBI_AB_NOTMPFS PBI_PROGREVISION PBI_AB_NOPKGBUILD PBI_PKGNGBUILD
   . ${pbi}
 
   _cd=$(dirname $pbi | sed 's|./||')
@@ -7209,10 +7209,25 @@ chroot_extract() {
 	   	cp -r /usr/local/etc/pkg ${PBI_CHROOTDIR}/usr/local/etc/
 
 		# Install pkgng into the chroot
-		pkg-static -c ${PBI_CHROOTDIR} install -y ports-mgmt/pkg
-		if [ $? -ne 0 ] ; then
-			exit_err "Failed installing pkgng into chroot"
-		fi
+		# This can fail when we run multiple builders at once,
+		# due to the pkgng DB being locked :(
+
+		# For now try multiple times, this should be revisited with
+		# a cleaner solution at some point
+		tries=0
+		while :
+		do
+			pkg-static -c ${PBI_CHROOTDIR} install -y ports-mgmt/pkg
+			if [ $? -eq 0 ] ; then break ; fi
+
+			if [ $tries -gt 10 ] ; then
+				exit_err "Failed installing pkgng into chroot"
+			else
+				echo "Pkgng is busy, trying again in 8 seconds"
+				sleep 8
+				tries=`tries expr + 1`
+			fi
+		done
 
 	fi
 
