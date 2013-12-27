@@ -40,18 +40,19 @@ bool DevCheck::isValid(QString node){
 QStringList DevCheck::devChildren(QString node){
   devDir.cd(DEVICEDIR);
   QStringList subdevs;
-  if(node.isEmpty()){
+  //if(node.isEmpty()){
     subdevs = devDir.entryList(devFilter, QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
-  }else{
-    subdevs = devDir.entryList(QStringList(node+"*"), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
-  }
+  //}else{
+    //subdevs = devDir.entryList(QStringList(node+"*"), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
+  //}
   //Clean up the list of children
   for(int i=0; i<subdevs.length(); i++){
-    if( (subdevs[i] == node) || subdevs[i].isEmpty() ){
+    if( (subdevs[i] == node) || subdevs[i].isEmpty() || !subdevs[i].startsWith(node) ){
       subdevs.removeAt(i);
       i--;
     }
   }
+  qDebug() << "[DEBUG] " <<node << "Device Children:" << subdevs;
   return subdevs;
 }
 
