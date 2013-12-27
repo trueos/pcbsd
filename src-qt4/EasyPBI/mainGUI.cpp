@@ -687,9 +687,9 @@ void MainGUI::on_push_resources_mkwrapper_clicked(){
   QString cFile = QInputDialog::getText(this, tr("New Wrapper Script"), tr("Filename")+":", QLineEdit::Normal, "",&ok);
   //Check for a valid input
   if(!ok || cFile.isEmpty()){ return; }
+  if(!cFile.endsWith(".sh")){ cFile.append(".sh"); }
   //Now create the new file
-  //currentModule->addResource(TRUE,cFile);
-  qDebug() << "Creating default wrapper script is not implemented currently";
+  MODULE.createFile(MODULE.basepath()+"/resources/bin/"+cFile, ModuleUtils::generateWrapperScriptTemplate());
   //Refresh the GUI
   refreshGUI("resources");
 }

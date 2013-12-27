@@ -228,7 +228,7 @@
     </message>
     <message>
         <source>Auto-Update</source>
-        <translation>Automaatne uuendus</translation>
+        <translation>Automaatne uuendamine</translation>
     </message>
     <message>
         <source>Browse For Apps</source>

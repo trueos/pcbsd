@@ -137,7 +137,7 @@ on an existing file system only affects newly written data.</source>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation>読み取り専用のデータセットが作成された日付と時刻を特定するプロパティ。</translation>
+        <translation>データセットが作成された日付と時刻を特定する読み取り専用のプロパティ。</translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.

@@ -154,7 +154,7 @@ int runSingleSession(int argc, char *argv[]){
     QCoreApplication::processEvents(QEventLoop::AllEvents,100);
   }
   //check for shutdown process
-  if( system("pgrep shutdown") == 0 || retCode > 0){
+  if( system("pgrep shutdown") == 0 || system("pgrep reboot") == 0 || system("pgrep halt") == 0 || retCode > 0){
     splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     QCoreApplication::processEvents();
     //Pause for a few seconds to prevent starting a new session during a shutdown

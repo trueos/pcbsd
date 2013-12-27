@@ -98,6 +98,7 @@ void PCDMgui::createGUIfromTheme(){
     toolbar->setVisible(TRUE);
     toolbar->setMovable(FALSE);
     toolbar->setFloatable(FALSE);
+    toolbar->setContextMenuPolicy(Qt::PreventContextMenu); //make sure no right-click menu
     //Set the default style and icon sizes
     QString tstyle = currentTheme->itemIcon("toolbar").toLower(); //use the theme style
     if(tstyle=="textonly"){ toolbar->setToolButtonStyle(Qt::ToolButtonTextOnly); }

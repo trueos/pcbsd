@@ -68,7 +68,7 @@
     </message>
     <message>
         <source>Package Updates</source>
-        <translation>Paki uuendused</translation>
+        <translation>Pakkide uuendused</translation>
     </message>
     <message>
         <source>Re&amp;scan packages</source>

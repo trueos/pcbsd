@@ -15,7 +15,7 @@ aboutDialog::aboutDialog(QWidget *parent, QString version) :
 	QString summary;
 	summary = QString(tr("EasyPBI version %1")).arg(version);
 	summary.append("\n"+tr("Create PBI's quickly and easily."));
-	summary.append("\n"+QString("Wiki Page: http://wiki.pcbsd.org/index.php/EasyPBI"));
+	summary.append("\n"+QString("Wiki Page: http://wiki.pcbsd.org/index.php/EasyPBI2/10.0"));
 	summary.append("\n"+QString("Current Developer: Ken Moore <ken@pcbsd.org>"));
 	ui->text_summary->setText(summary);
 	//Connect up the type changed slot

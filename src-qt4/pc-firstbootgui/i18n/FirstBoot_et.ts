@@ -5,7 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation>Vaheta US-paigutuse ja kasutaja valitud paigutuse vahel</translation>
+        <translation>Vali klaviatuuri klahvide asetus</translation>
     </message>
     <message>
         <source>&amp;Back</source>

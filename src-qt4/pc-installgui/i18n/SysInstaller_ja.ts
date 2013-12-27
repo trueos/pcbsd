@@ -359,7 +359,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>No Desktop</source>
-        <translation>No Desktop</translation>
+        <translation>デスクトップ無し</translation>
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
