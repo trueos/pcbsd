@@ -413,7 +413,7 @@ setup_gpart_partitions()
       else
         sleep 2
 	# MBR type
-        aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} -i ${CURPART} ${_wSlice}"
       fi
 
       # Run the gpart add command now
