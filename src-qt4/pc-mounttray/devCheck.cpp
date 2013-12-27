@@ -39,12 +39,7 @@ bool DevCheck::isValid(QString node){
 
 QStringList DevCheck::devChildren(QString node){
   devDir.cd(DEVICEDIR);
-  QStringList subdevs;
-  //if(node.isEmpty()){
-    subdevs = devDir.entryList(devFilter, QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
-  //}else{
-    //subdevs = devDir.entryList(QStringList(node+"*"), QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
-  //}
+  QStringList subdevs = devDir.entryList(devFilter, QDir::NoDotAndDotDot | QDir::NoSymLinks | QDir::System, QDir::NoSort);
   //Clean up the list of children
   for(int i=0; i<subdevs.length(); i++){
     if( (subdevs[i] == node) || subdevs[i].isEmpty() || !subdevs[i].startsWith(node) ){
@@ -52,7 +47,7 @@ QStringList DevCheck::devChildren(QString node){
       i--;
     }
   }
-  qDebug() << "[DEBUG] " <<node << "Device Children:" << subdevs;
+  //qDebug() << "[DEBUG] " <<node << "Device Children:" << subdevs;
   return subdevs;
 }
 
@@ -126,10 +121,10 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   bool isMounted = FALSE;
   if( !isCD ){
     QStringList tmp = output.split(",");
-    if( !tmp.filter("partition ").isEmpty() ){
+    //if( !tmp.filter("partition ").isEmpty() ){
       //Check for actual sub-devices (*s[#][a/b/c/....])
       if( devChildren(node).length() > 0 ){ hasPartitions = TRUE; }
-    }
+    //}
     if( !tmp.filter("last mounted on /").isEmpty() && (detType == "SATA")){
       isMounted = TRUE;
     }
