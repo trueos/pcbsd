@@ -40,8 +40,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>

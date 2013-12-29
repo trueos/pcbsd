@@ -97,8 +97,7 @@
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apa yang ingin Anda susun?</translation>
     </message>
 </context>
 </TS>

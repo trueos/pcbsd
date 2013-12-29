@@ -452,8 +452,7 @@
     <message>
         <source>
 - The &apos;Full Name&apos; field may not contain ! @ or :</source>
-        <translation>
-- Isian &apos;Nama Lengkap&apos; tidak boleh mengandung ! @ atau :</translation>
+        <translation>Isian &apos;Nama Lengkap&apos; tidak boleh mengandung ! @ atau :</translation>
     </message>
     <message>
         <source>

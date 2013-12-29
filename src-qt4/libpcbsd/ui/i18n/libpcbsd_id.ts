@@ -47,8 +47,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     <name>dialogWPAEnterprise</name>
     <message>
         <source>WPA-Enterprise Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi WPA-Enterprise</translation>
     </message>
     <message>
         <source>WPA Enterprise Configuration</source>
@@ -57,86 +56,70 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>EAP authentication method</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Metode asli EAP</translation>
     </message>
     <message>
         <source>EAP-TLS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP-TLS</translation>
     </message>
     <message>
         <source>EAP-TTLS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP-TTLS</translation>
     </message>
     <message>
         <source>EAP-PEAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EAP-PEAP</translation>
     </message>
     <message>
         <source>EAP Identity:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Identitas EAP:</translation>
     </message>
     <message>
         <source>CA Certificate:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sertifikat CA:</translation>
     </message>
     <message>
         <source>Client Certificate:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sertifikat Klien:</translation>
     </message>
     <message>
         <source>Private Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berkas Kunci Pribadi:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi:</translation>
     </message>
     <message>
         <source>Repeat Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ulangi Kata Sandi:</translation>
     </message>
     <message>
         <source>Show Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilkan Kunci</translation>
     </message>
     <message>
         <source>Key Management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelolaan Kunci</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
 </context>
 <context>
     <name>metaWidget</name>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang memuat... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Performing system-package changes.</source>
@@ -145,8 +128,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket sistem</translation>
     </message>
     <message>
         <source>The meta-pkg manager returned an error. For more details please look at the log file:</source>
@@ -155,23 +137,19 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>System packages updated successfully.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berhasil memperbaharui paket sistem.</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada Desktop</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada desktop yang dipilih! Silahkan pilih sebuah desktop sebelum menyimpan.</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lihat paket</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
@@ -180,8 +158,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mengunduh: %1</translation>
     </message>
 </context>
 </TS>
