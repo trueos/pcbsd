@@ -68,6 +68,14 @@ MainWindow::~MainWindow()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::initUI()
 {
+    //Make sure the conf file exists
+    if(!QFile::exists(DM_CONFIG_FILE)){
+      qDebug() << "Copying over the default configuration file:" << DM_CONFIG_FILE;
+      if( !QFile::copy(DM_CONFIG_FILE+".dist", DM_CONFIG_FILE) ){
+	QMessageBox::warning(this,tr("Missing Config File"), QString(tr("The PCDM configuration file could not be found: %1")).arg(DM_CONFIG_FILE)+"\n\n"+tr("This application will now close"));
+	exit(1);
+      }
+    }
     getUsers();
     ui->UsersList->clear();
     QString autoLogUser = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "AUTO_LOGIN_USER");
