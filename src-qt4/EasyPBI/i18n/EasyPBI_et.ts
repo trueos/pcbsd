@@ -665,8 +665,7 @@
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Täpsusta pakkide parameetreid (valikuline)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
@@ -674,23 +673,19 @@
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ära kasuta eelnevalt ehitatud pakke</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Täpsusta varamu infot (valikuline)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sildid</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komaga eraldatud sildid, mille järgi rakendust otsida saab</translation>
     </message>
     <message>
         <source>App Type</source>
@@ -715,8 +710,7 @@
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Täpsusta varamu haldamise sätteid (valikuline)</translation>
     </message>
     <message>
         <source>Build Key</source>
@@ -772,13 +766,11 @@
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ehita PBI (tegemisel)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ehita PBI (valmis)</translation>
     </message>
 </context>
 <context>
@@ -1038,13 +1030,11 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali pakk</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otsi</translation>
     </message>
     <message>
         <source>...</source>
@@ -1053,33 +1043,27 @@
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saadaolevad pakid</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katkesta</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nõustu</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakke pole saadaval</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otsimine lõpetatud</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ühtegi pakki sellise nimega ei leitud</translation>
     </message>
 </context>
 </TS>

@@ -109,7 +109,7 @@
          <x>0</x>
          <y>0</y>
          <width>585</width>
-         <height>340</height>
+         <height>336</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -266,7 +266,7 @@
      <x>0</x>
      <y>0</y>
      <width>601</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -332,6 +332,32 @@
    </property>
    <property name="text">
     <string>unsupported</string>
+   </property>
+  </action>
+  <action name="actionMate">
+   <property name="icon">
+    <iconset>
+     <normalon>:/images/images/mate.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Mate</string>
+   </property>
+   <property name="toolTip">
+    <string>Mate</string>
+   </property>
+  </action>
+  <action name="actionCinnamon">
+   <property name="icon">
+    <iconset>
+     <normalon>:/images/images/cinnamon.png</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Cinnamon</string>
+   </property>
+   <property name="toolTip">
+    <string>Cinnamon</string>
    </property>
   </action>
  </widget>

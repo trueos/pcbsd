@@ -15,18 +15,15 @@
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IP:</translation>
     </message>
     <message>
         <source>Provider</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Penyedia</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokasi</translation>
     </message>
 </context>
 <context>
@@ -53,7 +50,7 @@
     </message>
     <message>
         <source>Alt+C</source>
-        <translation>Alt+T</translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Local Network Adapters</source>
@@ -229,43 +226,35 @@
     </message>
     <message>
         <source>Public servers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server Publik</translation>
     </message>
     <message>
         <source>Computer Restart Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membutuhkan Restart Komputer</translation>
     </message>
     <message>
         <source>You must restart your computer to finish changing your hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda harus merestart komputer Anda untuk menyelesaikan penggantian nama host Anda</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dasar</translation>
     </message>
     <message>
         <source>Digest</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Intisari</translation>
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Host Sistem</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membolehkan DNS biasa</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membolehkan Gateway biasa</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
@@ -289,8 +278,7 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membolehkan proxy   </translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>

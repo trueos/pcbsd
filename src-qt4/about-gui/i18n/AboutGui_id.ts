@@ -73,33 +73,27 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mencoba snapshot %1. Kemungkinan tidak stabil!</translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server x.org versi :</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komponen-komponen sistem...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lingkungan desktop...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kegunaan PC-BSD CLI :</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kegunaan PC-BSD UI :            </translation>
     </message>
 </context>
 </TS>

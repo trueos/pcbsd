@@ -84,6 +84,8 @@ private slots:
         void on_actionUnsupported_triggered();
         void on_actionXFCE_triggered();
         void on_actionEnlightenment_triggered();
+        void on_actionMate_triggered();
+        void on_actionCinnamon_triggered();
         void on_actionGnome_triggered();
         void on_actionLXDE_triggered();
         void on_actionKDE_triggered();

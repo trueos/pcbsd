@@ -10,28 +10,23 @@
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenda muudatused rekursiivselt allapoole</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väli</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väärtus</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Allikas</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa kasutaja väli</translation>
     </message>
     <message>
         <source>...</source>
@@ -40,39 +35,38 @@
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eemalda kasutaja väli</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päri vanemalt</translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pööra muudatused tagasi</translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kuidas ACL-i kirjed päritakse, siis kui faile ja kaustu luuakse. Võimalikud valikud on
+discard, noallow, restricted ja passthrough. Nende valikute kirjeldused on olemas ACL-i väljade juures.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kuidas ACL-i kirjeid chmod-i kaudu muudetakse.
+Võimalikud valikud on discard, groupmask ja passthrough.Nende valikute kirjeldused on olemas ACL-i väljade juures.</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas failide ligipääsu aega uuendatakse, kui neid loetakse.
+Selle väljalülitamine vähendab kirjutamistega seotud võrguliiklust ja võib
+jõudlust oluliselt parandada, kuid võib segadusse ajada meiliprogramme ja
+muid sarnaseid programme.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
@@ -92,8 +86,15 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kui see on välja lülitatud, siis ei saa failisüsteemi haakida, samuti ei
+mõju sellele käsk &quot;zfs mount -a&quot;. Välja lülitamisel on sarnane mõju,
+kui määrata haakepunkti väljale väärtus &quot;none&quot;, ainult et andmekogul
+on endiselt tavaline haakepunkti väli, mida on võimalik pärida.
+Välja lülitamine lubab andmekogusid kasutada ainuüksi väljade
+edasi pärandamise mehhanismina. Haakimise väljalülitamisel on
+võimalik omada kahte andmekogu sama haakepunktiga nii, et mõlemad
+andmekogud ilmuvad samas kaustas, kuid neil on erinevad päritud
+omadused.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -101,8 +102,10 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, millist kontrollsummat kasutada andmete õigsuse kontrollimiseks. Vaikimisi
+on see väli sisse lülitatud (on), mis tähendab, et sobilik algoritm valitakse automaatselt
+(hetkel fletcher4, aga see võib tulevikus muutuda). Välja lülitades ei kontrollita andmete
+õigsust. Kontrollsummade välja lülitamine EI OLE soovitatav.</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,

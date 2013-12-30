@@ -205,17 +205,17 @@ get_autosize()
   get_disk_mediasize_mb "$2"
   local _aSize=$VAL
 
-  while read line
+  while read aline
   do
     # Check for data on this slice
-    echo $line | grep -q "^${_dTag}-part=" 2>/dev/null
+    echo $aline | grep -q "^${_dTag}-part=" 2>/dev/null
     if [ $? -ne 0 ] ; then continue ; fi
 
-    get_value_from_string "${line}"
-    STRING="$VAL"
+    get_value_from_string "${aline}"
+    ASTRING="$VAL"
 
     # Get the size of this partition
-    SIZE=`echo $STRING | tr -s '\t' ' ' | cut -d ' ' -f 2` 
+    SIZE=`echo $ASTRING | tr -s '\t' ' ' | cut -d ' ' -f 2`
     if [ $SIZE -eq 0 ] ; then continue ; fi
     _aSize=`expr $_aSize - $SIZE`
   done <${CFGF}

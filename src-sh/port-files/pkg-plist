@@ -538,6 +538,8 @@ share/pcbsd/pc-thinclient/resources/webui/login.php
 share/pcbsd/de-profiles/lxde.profile
 share/pcbsd/de-profiles/kde.profile
 share/pcbsd/de-profiles/gnome.profile
+share/pcbsd/de-profiles/mate.profile
+share/pcbsd/de-profiles/cinnamon.profile
 share/pcbsd/de-profiles/xfce.profile
 share/pcbsd/pc-updatemanager/conf/sysupdate.conf
 share/pcbsd/pc-updatemanager/conf/security.key

@@ -240,6 +240,8 @@ void MainWnd::setupDEChooser()
     DEChoiseMenu->addAction(ui->actionAll);
     DEChoiseMenu->addAction(ui->actionKDE);
     DEChoiseMenu->addAction(ui->actionGnome);
+    DEChoiseMenu->addAction(ui->actionMate);
+    DEChoiseMenu->addAction(ui->actionCinnamon);
     DEChoiseMenu->addAction(ui->actionXFCE);
     DEChoiseMenu->addAction(ui->actionLXDE);
     DEChoiseMenu->addAction(ui->actionEnlightenment);
@@ -266,6 +268,8 @@ SETUP_ACTION( actionGnome, "Gnome" );
 SETUP_ACTION( actionXFCE, "XFCE" );
 SETUP_ACTION( actionLXDE, "LXDE" );
 SETUP_ACTION( actionEnlightenment, "Enlightenment" );
+SETUP_ACTION( actionMate, "Mate" );
+SETUP_ACTION( actionCinnamon, "Cinnamon" );
 
 #undef SETUP_ACTION
 
@@ -367,6 +371,42 @@ void MainWnd::on_actionEnlightenment_triggered()
     mvEnabledDE.clear();
     mvEnabledDE.push_back("Enlightenment");
     mvEnabledDE.push_back("E16");
+
+    misDisplayDEName = false;
+
+    //refresh
+    on_toolButton_2_clicked();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_actionMate_triggered()
+{
+    ui->DEChooserButton->setIcon(ui->actionMate->icon());
+    if (mCurrentDE.mName.trimmed().compare("Mate", Qt::CaseInsensitive))
+        ui->DEGBox->setTitle(DETEXT + " " + tr ("(Mate)"));
+    else
+        ui->DEGBox->setTitle(DETEXT);
+
+    mvEnabledDE.clear();
+    mvEnabledDE.push_back("Mate");
+
+    misDisplayDEName = false;
+
+    //refresh
+    on_toolButton_2_clicked();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_actionCinnamon_triggered()
+{
+    ui->DEChooserButton->setIcon(ui->actionCinnamon->icon());
+    if (mCurrentDE.mName.trimmed().compare("Cinnamon", Qt::CaseInsensitive))
+        ui->DEGBox->setTitle(DETEXT + " " + tr ("(Cinnamon)"));
+    else
+        ui->DEGBox->setTitle(DETEXT);
+
+    mvEnabledDE.clear();
+    mvEnabledDE.push_back("Cinnamon");
 
     misDisplayDEName = false;
 

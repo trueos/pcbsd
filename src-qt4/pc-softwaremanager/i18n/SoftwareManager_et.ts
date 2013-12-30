@@ -332,7 +332,7 @@
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">Kasutaja peab olema grupis &quot;operator&quot;</translation>
+        <translation>Kasutaja peab olema grupis &quot;operator&quot;</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -484,18 +484,15 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toote leht</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kinnita paigaldamine</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kas soovid kindlasti selle rakenduse paigaldada?</translation>
     </message>
 </context>
 <context>
@@ -602,8 +599,7 @@
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Allalaadimine: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
