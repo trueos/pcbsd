@@ -9,11 +9,11 @@
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation>Konfigurasi PBI            </translation>
+        <translation>Konfigurasi PBI</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation>Pengaturan utama untuk PBI            </translation>
+        <translation>Pengaturan utama untuk PBI</translation>
     </message>
     <message>
         <source>Program Information</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Version</source>
-        <translation>Versi            </translation>
+        <translation>Versi</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
@@ -423,12 +423,11 @@
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dapatkan/perbaharui pohon FreeBSD port</translation>
     </message>
     <message>
         <source>New</source>
-        <translation>Baru            </translation>
+        <translation>Baru</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
@@ -760,8 +759,7 @@
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prioritas pembangunan (utamakan yang lebih tinggi)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -785,8 +783,7 @@
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ini membutuhkan koneksi internet aktif dan wewenang administrator.</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
@@ -813,8 +810,7 @@
     </message>
     <message>
         <source>Select a port from the local FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih sebuah port dari pohon port FreeBSD lokal</translation>
     </message>
     <message>
         <source>Select</source>
@@ -853,13 +849,11 @@
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tujuan lokal untuk menempatkan PBI yang telah dibangun.</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Telusuri sistem lokal untuk memilih tujuan keluaran PBI</translation>
     </message>
     <message>
         <source>Select</source>
@@ -872,8 +866,7 @@
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tandai PBI secara digital</translation>
     </message>
     <message>
         <source>Signature File</source>
@@ -881,13 +874,11 @@
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berkas lokal yang berisi kunci openssl</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Telusuri berkas kunci openssl</translation>
     </message>
     <message>
         <source>Local Paths</source>

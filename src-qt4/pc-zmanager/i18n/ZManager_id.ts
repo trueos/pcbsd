@@ -751,21 +751,18 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada ruang!</translation>
     </message>
 </context>
 <context>
     <name>DialogProp</name>
     <message>
         <source>Edit Pool Properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah peralatan pool</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan</translation>
     </message>
     <message>
         <source>Value</source>
@@ -774,13 +771,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran total tempat penyimpanan pool</translation>
     </message>
     <message>
         <source>Percentage of pool space used.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Persentase ruang pool digunakan.</translation>
     </message>
     <message>
         <source>Alternate root directory. If set, this directory is prepended to any
@@ -889,8 +884,7 @@ of the deduplication feature.</source>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jumlah blok dalam pool yang tidak disediakan</translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
@@ -916,8 +910,7 @@ lowing restrictions:
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan ini tidak ada nilai saat ini di FreeBSD.</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -943,13 +936,11 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem file baru</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama:</translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
@@ -1121,73 +1112,59 @@ crash dump.
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Clear Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus kesalahan</translation>
     </message>
     <message>
         <source>poolname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>nama pool</translation>
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem file ZFS</translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem file</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang menyegarkan...</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada pool tersedia, klik kanan untuk buat baru...</translation>
     </message>
     <message>
         <source> (No media in drive)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Tidak ada media dalam perangkat)</translation>
     </message>
     <message>
         <source>Avaliable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tersedia</translation>
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada disk</translation>
     </message>
     <message>
         <source>ZPool: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZPool:</translation>
     </message>
     <message>
         <source>Sliced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diiris</translation>
     </message>
     <message>
         <source>Mounted: </source>
@@ -1196,8 +1173,7 @@ crash dump.
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tersedia</translation>
     </message>
     <message>
         <source>Unmounted</source>
@@ -1206,8 +1182,7 @@ crash dump.
     </message>
     <message>
         <source>Partitioned</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disekat</translation>
     </message>
     <message>
         <source>(Exported)
@@ -1223,13 +1198,11 @@ crash dump.
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Degraded</source>
@@ -1243,53 +1216,43 @@ crash dump.
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dihapus</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak Tersedia</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak Diketahui</translation>
     </message>
     <message>
         <source>Create new pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat pool baru</translation>
     </message>
     <message>
         <source>Rename pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beri nama pool</translation>
     </message>
     <message>
         <source>Destroy pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hancurkan pool</translation>
     </message>
     <message>
         <source>Add devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah perangkat...</translation>
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah perangkat log</translation>
     </message>
     <message>
         <source>Add cache devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah perangkat cache...</translation>
     </message>
     <message>
         <source>Add spare devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah perangkat cadangan...</translation>
     </message>
     <message>
         <source>Scrub</source>
@@ -1298,23 +1261,19 @@ crash dump.
     </message>
     <message>
         <source>Export pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekspor pool</translation>
     </message>
     <message>
         <source>Import pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impor pool</translation>
     </message>
     <message>
         <source>Recover destroyed pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pulihkan pool yang dihancurkan</translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perlengkapan...</translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
@@ -1338,18 +1297,15 @@ crash dump.
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu zpool</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu perangkat</translation>
     </message>
     <message>
         <source>Unmount</source>
@@ -1363,69 +1319,57 @@ crash dump.
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat meja sekat MBR</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat meja sekat GPT</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat meja sekat BSD</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Meja Sekat</translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan irisan baru</translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan sekat baru</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hancurkan irisan ini</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hancurkan sekat ini</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peringatan</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Operasi ini tidak bisa diselesaikan.
+OK untuk menghancurkan irisan/sekat?</translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laporan Kesalahan</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat zpool baru</translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informasi Penting</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
@@ -1434,8 +1378,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lampirkan perangkat cermin ke</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
@@ -1449,8 +1392,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impor pool sebagai...</translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
@@ -1460,28 +1402,23 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool diimpor dalam read-only mode, sehingga tidak bisa diberi nama</translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan perangkat lainnya ke zpool</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan perangkat log ke zpool</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan perangkat cache ke zpool</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan perangkat cadangan ke zpool</translation>
     </message>
     <message>
         <source>[Mounted]</source>
@@ -1495,18 +1432,15 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
-            </translation>
+        <translation> dari </translation>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beri nama dataset</translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat dataset baru</translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
@@ -1515,8 +1449,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Musnahkan dataset</translation>
     </message>
     <message>
         <source>Promote filesystem</source>
@@ -1525,43 +1458,35 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambil snapshot</translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Musnahkan snapshot</translation>
     </message>
     <message>
         <source>Rollback to this snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Putar balik ke snapshot ini</translation>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah perlengkapan</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu zfs   </translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfirmasi</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambil sebuah snapshot baru</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Baru</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
