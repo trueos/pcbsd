@@ -791,9 +791,8 @@
         <translation>本精靈會引領您創建新的 jail。首先輸入當前未在在網路使用的主機名稱和 IP 位址。如計劃以 IPv6 存取該 jail，請勾選 IPv6 位址方塊並輸入有效的 IPv6 位址。完成後按「下一步」繼續。</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

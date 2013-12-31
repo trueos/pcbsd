@@ -51,5 +51,17 @@
         <source>Please enter the remote login password</source>
         <translation>Bitte das Anmeldepasswort für den entfernten Login eingeben</translation>
     </message>
+    <message>
+        <source>Missing Config File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The PCDM configuration file could not be found: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This application will now close</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

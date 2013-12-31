@@ -789,8 +789,8 @@
         <translation>Ten kreator przeprowadzi cię przez proces tworzenia nowej Celi. Najpierw podaj nazwę hosta i adres IP który nie jest używany w twojej sieci. Jeśli chcesz używać IPv6 aby łączyć się z Celą, użyj okna IPv6 aby wprowadzić adres. Gdy zakończysz, kliknij Dalej aby kontynuować.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation>Cela Linux (W Celi dziala system Linux)</translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

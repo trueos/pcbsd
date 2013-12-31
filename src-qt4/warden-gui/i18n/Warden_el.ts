@@ -976,9 +976,8 @@
             </translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

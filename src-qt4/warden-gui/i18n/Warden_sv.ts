@@ -790,9 +790,8 @@
         <translation>Denna guide kommer gå igenom skapandet av ett nytt jail. Först, ange ett hostname och IP adress som inte används på nätverket. Om du planerar att använda IPv6 för att komma åt jailet, kryssa i IPv6 adress boxen och ange en giltig IPv6 adress. När du är klar, klicka på nästa för att fortsätta.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -789,9 +789,8 @@
         <translation>此向导将带你创建一个新的jail。首先，输入一个当前网络中未使用的主机名和IP地址。如果您打算使用IPv6登陆此jail，勾选IPv6并输入一个有效的IPv6地址。输入完毕，点击下一步继续。</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -45,8 +45,7 @@
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autor do programa principal (ou mantenedor do port FreeBSD)            </translation>
     </message>
     <message>
         <source>Author</source>
@@ -62,18 +61,15 @@
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD para ser empacotado como um PBI            </translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adicione um port FreeBSD adicional            </translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remover um port FreeBSD adicional            </translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
@@ -86,11 +82,11 @@
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">Requer permissões de Root</translation>
+        <translation>Requer Permissões de Root</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">Salvar as definições atuais para o arquivo de configuração do PBI</translation>
+        <translation>Salvar as configurações atuais para o arquivo de configuração PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>

@@ -789,8 +789,8 @@
         <translation>Deze instelhulp zal u begeleiden bij het maken van een nieuwe Gevangenis. Voer eerst een systeemnaam en IP-adres in, die nog niet in gebruik zijn op het netwerk. Indien u voornemens bent om IPv6 te gebruiken bij het benaderen van de Gevangenis, vink dan het vakje aan voor IPv6-adres en voer een geldig IPv6-adres in. Wanneer u gereed bent klikt u op Volgende om door te gaan.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation>Linux Gevangenis (draai Linux vanuit een gevangenis)</translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

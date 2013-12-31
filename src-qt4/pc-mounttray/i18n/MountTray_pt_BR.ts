@@ -95,16 +95,15 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation type="unfinished">Dispositivo ocupado</translation>
+        <translation>Dispositivo ocupado</translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">Parece que o dispositivo está ocupado. Gostaria de desmontá-lo mesmo assim?</translation>
+        <translation>O dispositivo parece está ocupado. Gostaria de desmontá-lo mesmo assim?</translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTA: Isso geralmente não é recomendado a menos que você tenha certeza que não tem nenhum aplicativos usando o dispositivo.            </translation>
     </message>
 </context>
 <context>
@@ -180,7 +179,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">Monitorar o espaço no disco de armazenamento</translation>
+        <translation>Monitore o espaço de armazenamento em disco</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>

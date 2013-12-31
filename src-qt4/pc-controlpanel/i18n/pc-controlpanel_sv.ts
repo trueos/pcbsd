@@ -99,5 +99,21 @@
         <source>What do you want to configure?</source>
         <translation>Vad vill du konfigurera?</translation>
     </message>
+    <message>
+        <source>Mate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Mate)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>(Cinnamon)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
