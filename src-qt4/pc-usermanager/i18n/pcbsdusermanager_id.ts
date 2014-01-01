@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sandikan file:</translation>
     </message>
 </context>
 <context>
@@ -381,13 +380,11 @@
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan perubahan yang tertunda?</translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ada perubahan tertunda yang belum digunakan. Apakah Anda ingin menerapkannya sebelum keluar?</translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
@@ -541,8 +538,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sandikan file:</translation>
     </message>
 </context>
 <context>
@@ -620,13 +616,11 @@
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Direktori Home?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus direktori home untuk</translation>
     </message>
 </context>
 <context>
@@ -697,13 +691,11 @@
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Direktori Home?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus direktori home untuk</translation>
     </message>
 </context>
 </TS>

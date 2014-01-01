@@ -5,33 +5,27 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi suara</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dibawah ini Anda harus mengganti parangkat suara bawaan, dan mencoba playback suara</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mencoba Sound</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>No sound devices detected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada perangkat suara terdeteksi!</translation>
     </message>
 </context>
 </TS>

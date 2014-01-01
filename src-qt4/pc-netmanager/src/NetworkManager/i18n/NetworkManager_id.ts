@@ -5,13 +5,11 @@
     <name>DNSList</name>
     <message>
         <source>Public DNS servers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server DNS Publik</translation>
     </message>
     <message>
         <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda dapat memilih salah satu server DNS publik yang bukan server DNS dari ISP Anda</translation>
     </message>
     <message>
         <source>IP address</source>
@@ -250,40 +248,35 @@
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation>Membolehkan DNS biasa</translation>
+        <translation>Mengizinkan perubahan DNS</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation>Membolehkan Gateway biasa</translation>
+        <translation>Mengizinkan Perubahan Gateway</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 DNS yang ditentukan tidak valid</translation>
     </message>
     <message>
         <source>Invalid IPv6 Gateway specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Gateway yang ditentukan tidak valid</translation>
     </message>
     <message>
         <source>Invalid DNS specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DNS tidak valid</translation>
     </message>
     <message>
         <source>Invalid Gateway specified</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gateway tidak valid</translation>
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation>Membolehkan proxy   </translation>
+        <translation>Mengizinkan proxy   </translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda mungkin perlu login kembali untuk mendapatkan efek pengaturan proxy.</translation>
     </message>
 </context>
 </TS>

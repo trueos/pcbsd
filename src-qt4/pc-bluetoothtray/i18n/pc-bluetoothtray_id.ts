@@ -5,38 +5,31 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat Bluetooth baru Terdeteksi</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai Pengelola Bluetooth</translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restart Bluetooth</translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup Bluetooth Tray</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon Tunggu</translation>
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang merestart layanan Bluetooth</translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klik disini untuk mengatur konfigurasi perangkat Bluetooth</translation>
     </message>
 </context>
 </TS>

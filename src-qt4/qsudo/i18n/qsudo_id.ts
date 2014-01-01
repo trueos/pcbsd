@@ -5,33 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukan kata sandi Anda untuk menjalankan perintah ini dengan izin sistem</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meminta izin sistem</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Akses Ditolak</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna tidak memiliki izin administrator pada sistem ini!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Tidak Valid! Percobaan Tersisa: %1</translation>
     </message>
     <message>
         <source>Toggle command details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rincian Pengalihan Perintah</translation>
     </message>
 </context>
 </TS>

@@ -5,8 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tukar antara layout US dengan layout yang dipilih pengguna</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
@@ -22,13 +21,11 @@
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selamat datang di PC-BSD! Silahkan pilih bahasa Anda dan klik selanjutnya untuk melanjutkan.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menyesuaikan</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -36,8 +33,7 @@
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pemilihan Disk</translation>
     </message>
     <message>
         <source>Installation</source>
@@ -82,8 +78,7 @@
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meta-pkgs berikut akan diinstal:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
@@ -99,8 +94,7 @@
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gagal!</translation>
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
@@ -112,8 +106,7 @@
     </message>
     <message>
         <source>Restart the system now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restart sistem sekarang?</translation>
     </message>
     <message>
         <source>Installing system... This may take a while...</source>
@@ -121,74 +114,61 @@
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilihan:</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selesai</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dataset ZFS:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilkan diagnosa hardware yang sesuai</translation>
     </message>
     <message>
         <source>System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pemilihan Sistem</translation>
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menginstal Paket... Ini akan butuh beberapa saat...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah bahasa penginstalan</translation>
     </message>
     <message>
         <source>Customize the selected system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sesuaikan sistem yang dipilih</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilkan bantuan untuk layar ini</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilkan on-screen keyboard</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Batalkan instalasi</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pemilihan Paket TrueOS</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pemilihan Paket PC-BSD</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem Anda telah terinstal!
+Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -196,192 +176,156 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>mengekstrak sistem...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak diizinkan untuk mendeteksi perangkat disk! Instalasi akan keluar sekarang.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak diizinkan menyarankan partisi untuk disk yang dideteksi.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda terdeteksi sedang menjalankan versi 32bit. Jika sistem Anda tersedia untuk 64bit (sebagian besar sistem dibuat setelah 2005), Anda harus menjalankan versi 64bit</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>Disk/partisi yang dipilih kurang dari %1GB yang direkomendasikan. Instalasi mungkin gagal...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muat file konfigurasi instalasi dari USB</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muat konfigurasi dari USB</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan konfigurasi ke USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ini akan menyimpan konfigurasi instalasi Anda ke USB MSDOSFS/FAT32. Lanjutkan?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukkan USB sekarang, dan klik OK untuk lanjutkan.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukkan nickname yang Anda inginkan untuk menyimpan konfigurasi ini.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gagal menyimpan konfigurasi ke media USB. Apakah perangkat berfungsi dan diformat MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi disimpan! Anda sekarang bisa melepas USB.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ini akan memuat file konfigurasi instalasi USB MSDOSFS/FAT32 Anda. Lanjutkan?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukan USB sekarang, dan klik OK untuk lanjutkan.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gagal memuat file konfigurasi yang disimpan dari media USB. Apakah perangkat bekerja dan diformat MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi dimuat! Anda bisa melepas media USB dengan aman.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Config File:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai instalasi menggunakan file konfigurasi ini?</translation>
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kembalikan dari Life-Preserver backup</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kelola sambungan jaringan</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dataset ZFS:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layout original ZFS akan dikembalikan</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lakukan pengembalian dari backup Life Preserver. Klik selanjutnya untuk mulai mengembalikan wizard.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai pengembalian sekarang?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem Anda telah dikembalikan!
+Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpasang</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengembalian Sistem</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem Anda telah dikembalikan. ini mungkin akan butuh beberapa saat tergantung ukuran backup dan kondisi jaringan Anda.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menginstal paket meta: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengembalikan sistem: %1</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layar ini mengizinkan Anda untuk memilih bahasa yang ingin Anda gunakan saat instalasi.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layar ini mengizinkan Anda memilih jenis sistem yang ingin Anda instal. Dengan mengklik penyesuaian akan mengizinkan Anda untuk mengganti paket yang dipilih bagi sistem Anda.</translation>
     </message>
     <message>
         <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layar ini akan menampilkan pilihan dari disk yang dipilih saat ini. Dengan mengklik penyesuaian akan mengizinkan Anda untuk mengganti disk tujuan, sistem file dan lainnya.</translation>
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem Anda sedang diinstal sekarang! Ambil segelas kopi dan santailah, penginstal akan memberitahukan Anda ketika instalasi selesai.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem telah selesai diinstal! Klik Selesai untuk reboot, dan pastikan untuk melepas setiap media yang terpasang sebelum booting ke sistem baru Anda.</translation>
     </message>
 </context>
 <context>
@@ -400,7 +344,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Batal</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -412,26 +356,22 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lihat Paket</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dafta Paket untuk:</translation>
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih software yang akan diinstal. Pasca instalasi Anda juga harus menambahkan/menghapus software via Pengelola Paket (Desktop) atau perintah &quot;pkg&quot; (server).</translation>
     </message>
 </context>
 <context>
     <name>dialogCheckHardware</name>
     <message>
         <source>Detected hardware devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat hardware terdeteksi</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -439,43 +379,35 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Video driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Driver Video:</translation>
     </message>
     <message>
         <source>Video resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resolusi Video:</translation>
     </message>
     <message>
         <source>No ethernet detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada ethernet terdeteksi</translation>
     </message>
     <message>
         <source>Ethernet device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat Ethernet:</translation>
     </message>
     <message>
         <source>No wifi detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada wifi tersedia</translation>
     </message>
     <message>
         <source>Wifi device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat wifi:</translation>
     </message>
     <message>
         <source>No sound detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada sound terdeteksi</translation>
     </message>
     <message>
         <source>Sound device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat Sound:</translation>
     </message>
 </context>
 <context>
@@ -490,12 +422,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Batal</translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
@@ -509,7 +440,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Tutup</translation>
+        <translation>Tutup</translation>
     </message>
 </context>
 <context>
@@ -520,18 +451,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layout Keyboard</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Variasi</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Model Keyboard</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
@@ -539,50 +467,42 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Tutup</translation>
+        <translation>Tutup</translation>
     </message>
 </context>
 <context>
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard ini akan memandu Anda melalui proses pengaturan disk. Silahkan pilih mode pengaturan ingin Anda gunakan.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mode Pengaturan</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dasar (Baru untuk BSD atau mempartisi disk)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lanjutan (berpengalaman dengan sistem file)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ahli FreeBSD (mode manual CLI)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk dipilih</translation>
     </message>
     <message>
         <source>Selected Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partisi dipilih</translation>
     </message>
     <message>
         <source>Partition disk with GPT</source>
@@ -590,8 +510,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Di bawah ini Anda dapat menyesuaikan sistem file titik tautan. Untuk kebanyakan pengguna sistem default akan bekerja lebih baik.</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -599,73 +518,59 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda telah memilih mode Expert. Dalam mode ini, Anda dapat membuka jendela terminal dan menggunakan baris perintah secara manual partisi harddisk anda. Ketika Anda selesai, pastikan untuk menautkan sistem file Anda ke / mnt untuk memulai instalasi.</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buka terminal</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon periksa ringkasan disk di bawah ini dan klik Selesai untuk menyimpan pengaturan Anda.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan seluruh disk</translation>
     </message>
     <message>
         <source>ZFS Mounts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tautan ZFS</translation>
     </message>
     <message>
         <source>ZFS Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilihan ZFS</translation>
     </message>
     <message>
         <source>Resizing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah ukuran</translation>
     </message>
     <message>
         <source>Remove mount-point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus titik tautan</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this mount point?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin ingin menghapus titik tautan ini?</translation>
     </message>
     <message>
         <source>Enter mount-point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masukan titik tautan</translation>
     </message>
     <message>
         <source>Please enter the new mount-point:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon masukan titik tautan yang baru:</translation>
     </message>
     <message>
         <source>Editing:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengubah:</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menginstal ke sistem file yang ditautkan pada/mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
@@ -702,8 +607,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>ZFS Virtual Device Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS mode perangkat Virtual</translation>
     </message>
     <message>
         <source>Please select at least 1 other drive for mirroring</source>
@@ -712,8 +616,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilihan:</translation>
     </message>
     <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
@@ -722,18 +625,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dataset ZFS:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Invalid Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tautan tidak Valid</translation>
     </message>
     <message>
         <source>Mount point should start with &apos;/&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Titik tautan harus diawali dengan &apos;/&apos;</translation>
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
@@ -742,33 +642,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih 2 atau 4 perangkat tambahan untuk raidz1</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih 3, 5, atau 9 drive tambahan untuk raidz2</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih 4, 6, atau 10 drive tambahan untuk raidz3</translation>
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masukan ukuran SWAP</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran (MB)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Pool ZFS</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
@@ -777,101 +671,82 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah ukuran </translation>
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silakan pilih disk atau partisi yang ingin Anda instal. Harap dicatat bahwa Anda harus pilih seluruh disk atau partisi utama yang setidaknya 20GB untuk menginstal server atau 50GB untuk menginstal desktop.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menginstal SSD (Matikan SWAP/ atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada boot-loader!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dataset sistem original/ titik tautan akan dikembalikan secara otomatis.</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Boot-Loader (GRUB direkomendasikan)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda memilih untuk tidak menginstal boot-loader. Anda akan membutuhkan pengaturan loader Anda secara manual.</translation>
     </message>
 </context>
 <context>
     <name>wizardFreeBSD</name>
     <message>
         <source>Please enter the root password for this server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukan kata sandi root untuk server ini</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi (Ulangi)</translation>
     </message>
     <message>
         <source>Please create a user for this server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan buat pengguna untuk server ini</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Username</translation>
     </message>
     <message>
         <source>Default shell</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shell Default</translation>
     </message>
     <message>
         <source>Please enter a system hostname and remote login preference.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon masukkan hostname sistem dan pilihan login jarak jauh.</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Host</translation>
     </message>
     <message>
         <source>Enable remote SSH login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izinkan login SSH jarak jauh</translation>
     </message>
     <message>
         <source>Please select a network device to configure for this system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih perangkat jaringan untuk mengkonfigurasikan sistem ini.</translation>
     </message>
     <message>
         <source>Network Interface</source>
@@ -911,139 +786,116 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select any optional features to install.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih fitur pilihan untuk menginstal.</translation>
     </message>
     <message>
         <source>Install system sources (/usr/src)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instal sumber sistem (/usr/src)</translation>
     </message>
     <message>
         <source>Install ports tree (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instal pohon port (/usr/ports)</translation>
     </message>
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard ini akan memandu Anda ke pengaturan server baru Anda. Klik selanjutnya untuk memulai.</translation>
     </message>
 </context>
 <context>
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard ini akan memandu Anda melalui proses pengembalian sistem Anda dari backup Life-Preserver. Klik selanjutnya untuk memulai.</translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Untuk memulai silahkan masukan nama host, username, dan port server backup Anda.</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server Backup</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Host</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Pengguna</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH Port</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jika Anda menyimpan kunci Life-Preserver Anda ke USB, pilih di bawah ini, sebaliknya Anda mungkin ingin menggunakan keaslian kata sandi.</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keaslian Server</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan Kunci USB</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan keaslian kata sandi</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem berikut dibackup pada server ini, pilih salah satu yang ingin Anda pulihkan.</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Penyaringan Pengembalian Sistem</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ringkasan Pengembalian</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem siap untuk dikembalikan, klik Selesai untuk lanjutkan.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada kunci yang ditemukan!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada kunci yang asli yang bisa ditemukan pada memory!
+Mohon coba USB lain atau gunakan keaslian kata sandi.</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sambungan Gagal!</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tida bisa tersambung ke server backup!
+Mohon periksa server bisa dicapai dan verifikasi user/kata kunci Anda.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak bisa menyambung ke server backup!
+Mohon periksa nama host Anda dan server backup bisa dicapai.</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Akan mengembalikan dari:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih SSH key untuk digunakan</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File Kunci:</translation>
     </message>
 </context>
 </TS>

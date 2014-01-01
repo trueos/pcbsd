@@ -73,13 +73,11 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket set</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produksi (Paket diperbaharui setiap 3 bulan - Direkomendasikan)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
@@ -123,8 +121,7 @@
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mengunduh sumber FreeBSD...</translation>
     </message>
 </context>
 <context>

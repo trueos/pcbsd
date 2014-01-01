@@ -192,103 +192,83 @@
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket berikut yang membutuhkan paket di atas juga akan terhapus:</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket berikut akan diinstal:</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bantuan berikut juga akan diinstal:</translation>
     </message>
     <message>
         <source>Confirm package changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfirmasi perubahan paket</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada Desktop</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada desktop yang dipilih! Silahkan pilih satu desktop sebelum menyimpan.</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lihat Paket</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daftar paket untuk:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengunduh: %1</translation>
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bantuan-bantuan</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Temukan Paket</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cari</translation>
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada Hasil Pencarian</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda ingin melanjutkan pencarian dari atas?</translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada paket yang ditemukan dengan istilah pencarian tersebut. Mohon sesuaikan dan coba lagi.</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proses sedang berjalan</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket sedang diubah. Anda yakin ingin keluar?</translation>
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Periksa paket</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak diizinkan untuk periksa pembaharuan paket!</translation>
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mengunduh</translation>
     </message>
 </context>
 </TS>

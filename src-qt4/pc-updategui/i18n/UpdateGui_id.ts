@@ -5,23 +5,19 @@
     <name>mainWin</name>
     <message>
         <source>Update Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelola Pembaharuan</translation>
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mempersiapkan untuk memeriksa pembaharuan... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Tersedia</translation>
     </message>
     <message>
         <source>Select / Deselect All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih/Hapus Semua</translation>
     </message>
     <message>
         <source>Update Conflict</source>

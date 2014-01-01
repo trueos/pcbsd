@@ -41,8 +41,7 @@
     </message>
     <message>
         <source>Activate the selected boot environment to be used as the default during bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktifkan lingkungan boot yang dipilih untuk digunakan sebagai standar selama bootup</translation>
     </message>
     <message>
         <source>Default</source>
@@ -50,8 +49,7 @@
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jumlah waktu sebelum pilihan bawaan dimulai (0 mengaktifkan booting otomatis)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
@@ -67,8 +65,7 @@
     </message>
     <message>
         <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu Bangun Ulang GRBU</translation>
     </message>
     <message>
         <source>Restore GRUB Defaults</source>
@@ -88,8 +85,7 @@
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Titik Tautan</translation>
     </message>
     <message>
         <source>Space</source>
@@ -117,18 +113,15 @@
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File huruf untuk GRUB gunakan</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih file huruf untuk GRUB</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilkan Timer Countdown</translation>
     </message>
     <message>
         <source>Theme File</source>
@@ -136,13 +129,11 @@
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File tema untuk GRUB gunakan</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih file tema untuk GRUB</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
@@ -150,143 +141,115 @@
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muat ulang pengaturan GRUB</translation>
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sesuaikan Entri</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan konfigurasi entri saat ini</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muat ulang file entri GRUB</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama tidak valid</translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lingkungan Boot dengan nama tersebut sudah ada, silahkan pilih nama lain.</translation>
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bekerja</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Penampilan Lingkungan Boot berubah. Mohon tunggu.</translation>
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama BE baru</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih nama untuk lingkungan boot yang baru</translation>
     </message>
     <message>
         <source>Running Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menjalankan Lingkungan Boot</translation>
     </message>
     <message>
         <source>You cannot rename a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda tidak bisa memberi nama lingkungan boot yang sedang Anda jalankan!</translation>
     </message>
     <message>
         <source>Choose a new name for this boot environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih nama baru untuk lingkungan boot ini</translation>
     </message>
     <message>
         <source>You cannot remove your only boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda tidak bisa melepas lingkungan boot Anda satu-satunya!</translation>
     </message>
     <message>
         <source>Single Boot Environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lingkungan Boot Tunggal</translation>
     </message>
     <message>
         <source>You cannot remove a boot environment that you are currently running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda tidak melepas lingkungan boot yang saat ini sedang Anda jalankan!</translation>
     </message>
     <message>
         <source>Verify BE Removal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verifikasi Penghapus BE</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the following boot environment?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin ingin menghapus lingkungan boot berikut ini?</translation>
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih file tema GRUB</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File tema (tema.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih File Huruf GRUB</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File Huruf (*.pf2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membangun kembali sistem menu GRUB. Mohon tunggu.</translation>
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perubahan tidak tersimpan</translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda saat ini memiliki perubahan yang belum disimpan di konfigurasi GRUB. Apakah Anda ingin keluar?</translation>
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda tidak bisa menyalin lingkungan boot yang sedang berjalan saat ini!</translation>
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama lingkungan Boot hanya dapat terdiri dari huruf dan angka</translation>
     </message>
 </context>
 </TS>

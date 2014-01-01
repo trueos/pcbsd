@@ -5,8 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tukar antar layout US dan layout yang dipilih pengguna</translation>
     </message>
     <message>
         <source>&amp;Back</source>
@@ -94,13 +93,11 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Akan menyandikan direktori asal pengguna</translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menyandikan file pengguna</translation>
     </message>
     <message>
         <source>System Hostname</source>
@@ -108,8 +105,7 @@
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masukkan nama host yang valid, atau biarkan default</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
@@ -132,18 +128,15 @@
     </message>
     <message>
         <source>On this screen please enter the root password you wish to use. This password is used for full system access, and should be something secure.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Di layar ini silahkan masukkan kata sandi root yang ingin Anda gunakan. Kata sandi ini digunakan untuk seluruh akses sistem, dan harus aman.</translation>
     </message>
     <message>
         <source>On this screen you will need to create a user to log into your desktop. Additional users may be created in the Control Panel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pada layar ini Anda butuh membuat pengguna untuk masuk ke desktop Anda. Tambahan pengguna bisa dibuat di Control Panel.</translation>
     </message>
     <message>
         <source>On this screen you may connect to an available wifi network. If you have a hidden network, it may be added later in the Network Manager.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pada layar ini Anda harus tersambung ke salah satu jaringan wifi yang tersedia. Jika Anda memiliki jaringan tersembunyi, bisa ditambahkan di Pengelola Jaringan kemudian.</translation>
     </message>
     <message>
         <source>The computer setup is now finished! Click Finish to log into your new Desktop.</source>
@@ -220,8 +213,7 @@
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Anda harus mengetik ke kolom di bawah ini untuk mencoba pengaturan yang Anda pilih)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>

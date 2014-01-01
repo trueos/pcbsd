@@ -117,18 +117,15 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selanjutnya</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kembali</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selesai</translation>
     </message>
 </context>
 </TS>

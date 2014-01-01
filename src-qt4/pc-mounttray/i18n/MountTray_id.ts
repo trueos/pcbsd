@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tempat meningkatkan</translation>
     </message>
     <message>
         <source>Filesystem</source>
@@ -73,8 +72,7 @@
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 telah berhasil dilepaskan.</translation>
     </message>
     <message>
         <source>It is now safe to remove the device</source>
@@ -82,23 +80,19 @@
     </message>
     <message>
         <source>Error: %1 could not be unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kesalahan: %1 tidak bisa dilepaskan</translation>
     </message>
     <message>
         <source>%1 of disk space available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 ruang disk tersedia</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ditingkatkan pada %1</translation>
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File ISO telah sepenuhnya terlepas dari sistem.</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -106,20 +100,18 @@
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat sibuk. Apakah Anda ingin melepasnya?</translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CATATAN: Ini tidak direkomendasikan kecuali kalau Anda yakin tidak ada aplikasi yang menggunakan perangkat tersebut.</translation>
     </message>
 </context>
 <context>
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
-        <translation>Buka Petunjuk Media</translation>
+        <translation>Buka Direktori Media</translation>
     </message>
     <message>
         <source>Close Tray</source>
@@ -132,8 +124,8 @@
     <message>
         <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak bisa menentukan pengguna non-root yang memulai aplikasi 
+Tidak bisa membuka pengelola file dengan izin root</translation>
     </message>
     <message>
         <source>New Device</source>
@@ -145,8 +137,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Rescan Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memindai ulang perangkat</translation>
     </message>
     <message>
         <source>Please Wait</source>
@@ -154,8 +145,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pindai ulang perangkat yang terpasang pada sistem</translation>
     </message>
     <message>
         <source>More Options</source>

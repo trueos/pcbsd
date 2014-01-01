@@ -5,8 +5,7 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
@@ -15,43 +14,35 @@
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perlengkapan</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nilai</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sumber</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan perlengkapan pengguna</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus peralatan pengguna</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warisan dari orangtua</translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengembalikan perubahan</translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
@@ -1319,19 +1310,19 @@ crash dump.
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation>Buat meja sekat MBR</translation>
+        <translation>Buat meja partisi MBR</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation>Buat meja sekat GPT</translation>
+        <translation>Buat meja partisi GPT</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation>Buat meja sekat BSD</translation>
+        <translation>Buat meja partisi BSD</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation>Hapus Meja Sekat</translation>
+        <translation>Hapus Meja Partisi</translation>
     </message>
     <message>
         <source>Add new slice</source>
@@ -1339,7 +1330,7 @@ crash dump.
     </message>
     <message>
         <source>Add new partition</source>
-        <translation>Tambahkan sekat baru</translation>
+        <translation>Tambahkan partisi baru</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
@@ -1347,7 +1338,7 @@ crash dump.
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation>Hancurkan sekat ini</translation>
+        <translation>Hancurkan partisi ini</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -1492,8 +1483,9 @@ OK to proceed with recovery?</source>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Operasi ini tidak bisa diselesaikan dan akan menyebabkan semua data yang ditambahkan setelah snapshot akan hilang.
+Setiap snapshot yang dibuat setelah ini akan dihapus, bersamaan dengan sistem klon yang tergantung pada snapshot tersebut.
+</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:

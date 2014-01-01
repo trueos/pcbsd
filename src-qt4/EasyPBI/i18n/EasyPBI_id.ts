@@ -125,18 +125,15 @@
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat pembungkus naskah yang disesuaikan untuk biner program</translation>
     </message>
     <message>
         <source>Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembungkus Naskah</translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan pembungkus naskah</translation>
     </message>
     <message>
         <source>Save Script</source>
@@ -216,8 +213,7 @@
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategori Menu yang memungkinkan</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
@@ -321,23 +317,19 @@
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File PBI yang akan ditautkan ke sistem lokal (berhubungan ke direktori PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pendeteksi otomomatis binari untuk PBI ini</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokasi untuk tautan yang akan dibuat (berhubungan ke local base: normal/usr/local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bendera untuk menentukan jenis berkas</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
@@ -385,13 +377,11 @@
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan log yang dibangun saat ini ke disk (sangat berguna ketika meminta bantuan saat gagal membangun)</translation>
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan Log yang Dibangun</translation>
     </message>
     <message>
         <source>System</source>
@@ -503,8 +493,7 @@
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ada kesalahan mencoba untuk membuat struktur direktori EasyPBI lokal. Silakan periksa hak akses untuk direktori rumah Anda dan restart EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
@@ -536,8 +525,7 @@
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pohon FreeBSD Port tidak dapat ditemukan pada sistem Anda. Anda bisa mendapatkan pohon port melalui menu EasyPBI atau secara manual mengatur jalan ke pohon port di pilihan EasyPBI jika dipasang di lokasi non-standar.</translation>
     </message>
     <message>
         <source>Select Port</source>
@@ -557,8 +545,7 @@
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembungkus Naskah Baru</translation>
     </message>
     <message>
         <source>Filename</source>
@@ -626,8 +613,7 @@
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan periksa log yang dibangun untuk menemukan penyebab kegagalan dan atur dengan modul yang sesuai</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
@@ -639,8 +625,7 @@
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daftar spasi pemisah dari kumpulan berkas otomatis (Contoh: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
         <source>Add</source>
@@ -652,8 +637,7 @@
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membutuhkan Root</translation>
     </message>
     <message>
         <source>Refresh Module</source>
@@ -689,8 +673,7 @@
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jangan pernah gunakan paket sebelum dibangun</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
@@ -702,8 +685,7 @@
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daftar dipisahkan koma dari label pencarian untuk aplikasi tersebut</translation>
     </message>
     <message>
         <source>App Type</source>
@@ -711,8 +693,7 @@
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>App Cat</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
@@ -732,8 +713,7 @@
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membangun Kunci</translation>
     </message>
     <message>
         <source>Revision #</source>
@@ -749,13 +729,11 @@
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membangun Kunci: Ubah ini untuk memicu membangun kembali otomatis PBI</translation>
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah nomor ini ke versi aplikasi (Contoh: 1.0 -&gt; 1.0_#)</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
@@ -861,8 +839,7 @@
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Secara digital tanda tangani PBI yang dibuat untuk distribusi keikut sertaan yang jelas</translation>
     </message>
     <message>
         <source>Digitally Sign PBI</source>
@@ -882,24 +859,23 @@
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path Lokal</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation>Petunjuk tetap untuk semua PBI modul yang akan dibuat</translation>
+        <translation>Direktori standar untuk semua PBI modul yang akan dibuat</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation>Pilih petunjuk lokal untuk modul PBI</translation>
+        <translation>Pilih direktori lokal untuk modul PBI</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation>Petunjuk tetap yang dibuka ketika menambahkan ikon/berkas ke sebuah file</translation>
+        <translation>Direktori bawaan yang dibuka ketika menambahkan ikon/berkas ke sebuah file</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation>Pilih petunjuk lokal</translation>
+        <translation>Pilih direktori lokal</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
@@ -907,12 +883,11 @@
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation>Telusuri local system untuk sebuah ikon PNG tetap</translation>
+        <translation>Telusuri local system untuk sebuah ikon PNG bawaan</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan EasyPBI memindai ulang sistem untuk kegunaan yang tersedia.</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
@@ -924,8 +899,7 @@
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path penuh ke biner &quot;pbi_makeport&quot;</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
@@ -937,8 +911,7 @@
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path penuh ke biner &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -946,8 +919,7 @@
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path penuh ke kegunaan grafik &quot;ganti pengguna&quot; (pc-su, gksu, kdesu, qsu, dll..)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
@@ -991,18 +963,15 @@
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin ingin kembali ke path pendeteksi otomatis kegunaan?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ini akan menghapus setiap pengaturan penyesuaian path untuk kegunaan eksternal.</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI membangun</translation>
     </message>
     <message>
         <source>External Utilities</source>
@@ -1010,8 +979,7 @@
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path Pencarian Default</translation>
     </message>
     <message>
         <source>Modules</source>
@@ -1093,8 +1061,7 @@
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada paket ditemukan dengan istilah tersebut</translation>
     </message>
 </context>
 </TS>

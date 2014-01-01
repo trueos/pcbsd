@@ -5,42 +5,35 @@
     <name>dialogInfoBox</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
 </context>
 <context>
     <name>dialogMetaProgress</name>
     <message>
         <source>System-Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket Sistem</translation>
     </message>
     <message>
         <source>Total Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kemajuan Total</translation>
     </message>
     <message>
         <source>Update Progress</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kemajuan pembaharuan</translation>
     </message>
     <message>
         <source>Meta-Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perubahan Meta-Paket</translation>
     </message>
     <message>
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peringatan: Paket masih sedang dimodifikasi!Jika Anda batalkan sekarang paket bisa rusak. Batalkan?</translation>
     </message>
 </context>
 <context>
@@ -51,8 +44,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>WPA Enterprise Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi WPA Enterprise</translation>
     </message>
     <message>
         <source>EAP authentication method</source>
@@ -123,8 +115,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Performing system-package changes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Penampilan paket sistem berubah.</translation>
     </message>
     <message>
         <source>System Packages</source>
@@ -132,8 +123,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>The meta-pkg manager returned an error. For more details please look at the log file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelola meta-pkg menampilkan kesalahan. Untuk rincian selanjutnya silahkan lihat berkas log:</translation>
     </message>
     <message>
         <source>System packages updated successfully.</source>
@@ -153,8 +143,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daftar Paket utnuk:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>

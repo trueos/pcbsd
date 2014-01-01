@@ -175,13 +175,11 @@
     </message>
     <message>
         <source>Enable WPA authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membolehkan keaslian WPA</translation>
     </message>
     <message>
         <source>Configure &amp;WPA</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasikan WPA</translation>
     </message>
 </context>
 </TS>
