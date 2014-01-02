@@ -28,6 +28,57 @@ clear
 ###############################################################################
 # Start the script now
 
+cfg_second_card()
+{
+  # This is a script to try an xorg.conf file configured to use the second vgapci1 device
+  # For most systems this wont do anything, but on a number of newer hybrid
+  # intel/amd or intel/nvidia laptops this may fix a problem where the intel card (which works)
+  # is the secondary pcivga1 device, and the non-functional AMD/NVIDIA optimus  shows up first.
+
+  pciconf -lv > /tmp/.pciconf.$$
+  while read line
+  do
+    echo $line | grep -q "^vgapci"
+    if [ $? -eq 0 ] ; then curCard=`expr $curCard + 1` ; inCard=1;
+       busID="`echo $line | cut -d ':' -f 2-4`"
+       continue
+    fi
+
+    echo $line | grep -q "subclass"
+    if [ $? -eq 0 ] ; then inCard=0; continue; fi
+
+    if [ $inCard -eq 1 ] ; then
+       echo $line | grep -q "vendor"
+       if [ $? -eq 0 ]; then
+          case $curCard in
+             1) card1=`echo $line | cut -d "'" -f 2`
+                card1bus="$busID"
+                ;;
+             2) card2=`echo $line | cut -d "'" -f 2`
+                card2bus="$busID"
+	        ;;
+             *) ;;
+          esac
+       fi
+    fi
+  done < /tmp/.pciconf.$$
+  rm /tmp/.pciconf.$$
+
+  # No secondary card, return 1
+  if [ -z "$card2" ] ; then return 1; fi
+
+  # Found a second card, lets try an xorg config for it
+  cp ${PROGDIR}/cardDetect/XF86Config.default /etc/X11/xorg.conf
+  echo "
+Section \"Device\"
+        Identifier      \"Card0\"
+        BusID           \"${card2bus}\"
+EndSection
+  " >> /etc/X11/xorg.conf
+
+  return 0
+}
+
 # Init our tmpdir
 if [ ! -d "${XGUITMP}" ] ; then
 	mkdir -p ${XGUITMP}
@@ -114,14 +165,17 @@ do
       AUTORES="YES"
     fi
   elif [ "${ATTEMPT}" = "1" ] ; then
-    # Try running the driver detection again
-    rm /etc/X11/xorg.conf
-    echo "`clear`" >/dev/console
-    echo "Saved configuration failed... Running failsafe-detect..." >/dev/console
-    X -configure >/dev/null 2>&1
-    # Copy over the new xorg.conf
-    cp /root/xorg.conf.new /etc/X11/xorg.conf
+    # Failed to auto-start X with its own internal video detection
+    # Now lets try some magic
+    rm /etc/X11/xorg.conf 2>/dev/null
 
+    echo "`clear`" >/dev/console
+    echo "ERROR: Failed to start X with default video card... Trying secondary mode..." >/dev/console
+    cfg_second_card
+    if [ $? -ne 0 ] ; then
+      # Try the Intel driver, since nvidia/vesa will fail on optimus cards
+      cp ${PROGDIR}/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+    fi
   else
     # Still failed, drop to VESA failsafe
     echo "`clear`" >/dev/console
