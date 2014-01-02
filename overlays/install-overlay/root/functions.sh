@@ -29,7 +29,8 @@ cfg_second_card()
   while read line
   do
     echo $line | grep -q "^vgapci"
-    if [ $? -eq 0 ] ; then curCard=`expr $curCard + 1` ; inCard=1;
+    if [ $? -eq 0 ] ; then
+       curCard=`echo $line | cut -d "@" -f 1 | sed 's|vgapci||g'`
        busID="`echo $line | cut -d ':' -f 2-4`"
        continue
     fi
@@ -41,10 +42,10 @@ cfg_second_card()
        echo $line | grep -q "vendor"
        if [ $? -eq 0 ]; then
           case $curCard in
-             1) card1=`echo $line | cut -d "'" -f 2`
+             0) card1=`echo $line | cut -d "'" -f 2`
                 card1bus="$busID"
                 ;;
-             2) card2=`echo $line | cut -d "'" -f 2`
+             1) card2=`echo $line | cut -d "'" -f 2`
                 card2bus="$busID"
 	        ;;
              *) ;;
