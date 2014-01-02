@@ -25,6 +25,7 @@ cfg_second_card()
   # intel/amd or intel/nvidia laptops this may fix a problem where the intel card (which works)
   # is the secondary pcivga1 device, and the non-functional AMD/NVIDIA optimus  shows up first.
 
+  inCard=0
   pciconf -lv > /tmp/.pciconf.$$
   while read line
   do
@@ -32,6 +33,7 @@ cfg_second_card()
     if [ $? -eq 0 ] ; then
        curCard=`echo $line | cut -d "@" -f 1 | sed 's|vgapci||g'`
        busID="`echo $line | cut -d ':' -f 2-4`"
+       inCard=1
        continue
     fi
 
