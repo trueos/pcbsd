@@ -279,23 +279,19 @@
     </message>
     <message>
         <source>Configured Network Profiles</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Profil Jaringan Terkonfigurasi</translation>
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah jaringan</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi WPA</translation>
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atur kode negara</translation>
     </message>
 </context>
 <context>

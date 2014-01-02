@@ -5,179 +5,145 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan</translation>
     </message>
     <message>
         <source>Alt+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Jail Network Interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tatap Jaringan Jail</translation>
     </message>
     <message>
         <source>Jail Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direktori Jail</translation>
     </message>
     <message>
         <source>Temp Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direktori Sementara</translation>
     </message>
     <message>
         <source>Select Jail Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih Direktori Jail</translation>
     </message>
     <message>
         <source>Select Temp Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih Direktori Sementara</translation>
     </message>
 </context>
 <context>
     <name>dialogDisplayOutput</name>
     <message>
         <source>Command Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Output Perintah</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
 </context>
 <context>
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Batalkan</translation>
     </message>
     <message>
         <source>Add IP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah IP</translation>
     </message>
     <message>
         <source>IP Address:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IP:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukan alamat IPV4 atau IPV6 yang valid!</translation>
     </message>
     <message>
         <source>Jail Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi Jail</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPv4</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPV6</translation>
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias Penghubung IPv4</translation>
     </message>
     <message>
         <source>IPv6 Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias IPv6</translation>
     </message>
     <message>
         <source>IPv6 Bridge Aliases</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alias Penghubung IPv6</translation>
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izin</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proses dalam Jail memiliki akses ke sistem V IPC primitif.</translation>
     </message>
     <message>
         <source>The prison root is allowed to create raw sockets. Enables ping / traceroute.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prison root diijinkan untuk membuat soket mentah. Ijinkan pelacakan rute.</translation>
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
@@ -221,63 +187,51 @@
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPv4 tidak valid!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat penghubung IPv4 tidak valid!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat router IPv4 tidak valid!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPv6 tidak valid!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat penghubung IPv6 tidak valid!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat router IPv6 tidak valid!</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilihan</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktifkan dukungan VNET/VIMAGE</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat penghubung IPv4 (membutuhkan VNET)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Router Standar IPv4 (membutuhkan VNET)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat penghubung IPv6 (membutuhkan VNET)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Router standar IPv6 (membutuhkan VNET)</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
@@ -289,8 +243,7 @@
     <name>dialogImport</name>
     <message>
         <source>Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impor Jail</translation>
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
@@ -299,514 +252,413 @@
     </message>
     <message>
         <source>Change IP Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah alamat IP</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>999\.999\.999\.999;</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Change Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah Nama Host</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Batal</translation>
     </message>
 </context>
 <context>
     <name>dialogTemplates</name>
     <message>
         <source>Jail Templates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Template Jail</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah Jail baru</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove Jail yang dipilih</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>System Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versi Sistem</translation>
     </message>
     <message>
         <source>What version do you wish to fetch?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versi apa yang Anda inginkan?</translation>
     </message>
     <message>
         <source>Template Nickname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nickname Template</translation>
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masukan nickname untuk template ini:</translation>
     </message>
 </context>
 <context>
     <name>dialogWarden</name>
     <message>
         <source>The Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File</translation>
     </message>
     <message>
         <source>Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keluar</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keluar</translation>
     </message>
     <message>
         <source>New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Baru</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menyegarkan</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi</translation>
     </message>
     <message>
         <source>Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impor Jail</translation>
     </message>
     <message>
         <source>Stop this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hentikan Jail ini</translation>
     </message>
     <message>
         <source>Toggle Autostart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alihkan Autostart</translation>
     </message>
     <message>
         <source>Export jail to .wdn file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekspor Jail ke file .wdn</translation>
     </message>
     <message>
         <source>Delete Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Jail</translation>
     </message>
     <message>
         <source>Start this Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai Jail ini</translation>
     </message>
     <message>
         <source>Stopping Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menghentikan Jail</translation>
     </message>
     <message>
         <source>Stopping Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menghentikan Jail:</translation>
     </message>
     <message>
         <source>Starting Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memulai Jail</translation>
     </message>
     <message>
         <source>Starting Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memulai Jail:</translation>
     </message>
     <message>
         <source>Choose a directory to save the finished .wdn file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih direktori untuk menyimpan file .wdn yang telah selesai:</translation>
     </message>
     <message>
         <source>Exporting Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengekspor Jail</translation>
     </message>
     <message>
         <source>Exporting Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengekspor Jail:</translation>
     </message>
     <message>
         <source>Deleting Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menghapus Jail</translation>
     </message>
     <message>
         <source>Deleting Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menghapus Jail:</translation>
     </message>
     <message>
         <source>Select warden jail package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih paket jail Warden</translation>
     </message>
     <message>
         <source>Installed Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail terpasang</translation>
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah Jail baru</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Jail yang dipilih</translation>
     </message>
     <message>
         <source>Working on Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bekerja pada Jail</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alat</translation>
     </message>
     <message>
         <source>&lt;- Please select a jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;- Silahkan pilih sebuah Jail</translation>
     </message>
     <message>
         <source>Working on jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bekerja pada Jail:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin ingin menghapus Jail tersebut</translation>
     </message>
     <message>
         <source>Jail Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informasi Jail</translation>
     </message>
     <message>
         <source>Jail Type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jenis Jail:</translation>
     </message>
     <message>
         <source>Size on Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran Disk:</translation>
     </message>
     <message>
         <source>Network Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informasi Jaringan</translation>
     </message>
     <message>
         <source>Active Connections:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sambungan aktif:</translation>
     </message>
     <message>
         <source>Listening on Ports:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mendengarkan Port:</translation>
     </message>
     <message>
         <source>Jail Management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelolaan Jail</translation>
     </message>
     <message>
         <source>User Administrator</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Administrator Pengguna</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kegunaan</translation>
     </message>
     <message>
         <source>Export Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekspor Jail</translation>
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memuat...</translation>
     </message>
     <message>
         <source>Launch Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Luncurkan Terminal</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Periksa pembaharuan</translation>
     </message>
     <message>
         <source>Start at boot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai boot:</translation>
     </message>
     <message>
         <source>No jail selected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada Jail yang dipilih!</translation>
     </message>
     <message>
         <source>Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot</translation>
     </message>
     <message>
         <source>Start the selected jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai jail yang dipilih</translation>
     </message>
     <message>
         <source>Stop the selected jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hentikan Jail yang dipilih</translation>
     </message>
     <message>
         <source>Restore existing snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kembalikan snapshot</translation>
     </message>
     <message>
         <source>Delete the snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus snapshot</translation>
     </message>
     <message>
         <source>Loading snapshots...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memuat snapshot...</translation>
     </message>
     <message>
         <source>For snapshot support you must be using ZFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Untuk mendukung snapshot Anda harus menggunakan ZFS</translation>
     </message>
     <message>
         <source>No snapshots available. You may create one below.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada snapshot yang tersedia. Anda mungkin bisa membuatnya di bawah ini.</translation>
     </message>
     <message>
         <source>Creating new snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membuat snapshot baru... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Reverting snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengembalikan snapshot... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Are you sure you want to revert to the snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin ingin mengembalikan ke snapshot:</translation>
     </message>
     <message>
         <source>Removing snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menghapus snapshot... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Are you sure you want to remove the snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin ingin menghapus snapshot:</translation>
     </message>
     <message>
         <source>Updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Update tersedia!</translation>
     </message>
     <message>
         <source>Start update manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai pengelola update</translation>
     </message>
     <message>
         <source>Service Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelola layanan</translation>
     </message>
     <message>
         <source>Create a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat snapshot baru</translation>
     </message>
     <message>
         <source>Mount the snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tautkan snapshot</translation>
     </message>
     <message>
         <source>Unmount the snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lepaskan tautan snapshot</translation>
     </message>
     <message>
         <source>(Cloned)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(kloning)</translation>
     </message>
     <message>
         <source>Loading clones...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memuat clone...</translation>
     </message>
     <message>
         <source>Mounted on: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ditautkan pada:</translation>
     </message>
     <message>
         <source>Snapshot not mounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot tidak ditautkan</translation>
     </message>
     <message>
         <source>R&amp;estore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kembalikan</translation>
     </message>
     <message>
         <source>&amp;Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tautan</translation>
     </message>
     <message>
         <source>&amp;Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lepas tautan</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus</translation>
     </message>
     <message>
         <source>Cloning snapshot... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mengkloning snapshot... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Removing clone... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menghapus clone... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Any newer snapshots and mounted clones will be lost, and the jail will be restarted!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Setiap snapshot baru dan klon yang ditautkan akan hilang, dan Jail akan direstart!</translation>
     </message>
     <message>
         <source>Reverting snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengembalikan snapshot</translation>
     </message>
     <message>
         <source>Reverting to snapshot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengembalikan ke snapshot:</translation>
     </message>
     <message>
         <source>No valid network interface specified! Select one now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak ada jaringan valid ditemukan! Pilih sekarang?</translation>
     </message>
     <message>
         <source>Scheduled Snapshots</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Snapshot terjadwal</translation>
     </message>
     <message>
         <source>Snapshot Frequency</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Frekuensi snapshot</translation>
     </message>
     <message>
         <source>Days to keep</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hari untuk menyimpan</translation>
     </message>
     <message>
         <source>IPs:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPs:</translation>
     </message>
     <message>
         <source>Configure the jail</source>
@@ -815,164 +667,133 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelola Paket</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelola template</translation>
     </message>
 </context>
 <context>
     <name>dialogWorking</name>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang bekerja</translation>
     </message>
 </context>
 <context>
     <name>wizardNewJail</name>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama host</translation>
     </message>
     <message>
         <source>Jailbird</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jailbird</translation>
     </message>
     <message>
         <source>Please select the type of jail you want to create. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih jenis Jail yang ingin Anda buat.</translation>
     </message>
     <message>
         <source>Jail Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jenis Jail</translation>
     </message>
     <message>
         <source>Ports Jail (Insecure, allows running X applications)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Port (Tidak aman, izinkan menjalankan aplikasi X)</translation>
     </message>
     <message>
         <source>Next enter the root password for this jail. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selanjutnya masukan kata sandi root untuk Jail ini.</translation>
     </message>
     <message>
         <source>Root Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Root</translation>
     </message>
     <message>
         <source>Root Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata sandi root (konfirmasi)</translation>
     </message>
     <message>
         <source>Jail Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opsi Jail</translation>
     </message>
     <message>
         <source>Include system source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masukkan sumber sistem</translation>
     </message>
     <message>
         <source>Include ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Masukkan pohon port</translation>
     </message>
     <message>
         <source>Start jail at system bootup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai Jail pada bootup sistem</translation>
     </message>
     <message>
         <source>New Jail Wizard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard Jail Baru</translation>
     </message>
     <message>
         <source>Please select the Linux install script to use for this jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan pilih skrip instalasi Linux untuk digunakan pada Jail ini.</translation>
     </message>
     <message>
         <source>Select Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih naskah</translation>
     </message>
     <message>
         <source>Linux install files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File instalasi Linux (*)</translation>
     </message>
     <message>
         <source>Hostname already used!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama host telah digunakan!</translation>
     </message>
     <message>
         <source>IP already used!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP telah digunakan!</translation>
     </message>
     <message>
         <source>Invalid IP address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IP tidak valid!</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon tunggu sebentar dan atur pilihan lain untuk Jail ini. Perhatikan bahwa termasuk opsi sumber sistem harus ada di /usr/src.</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon tunggu sesaat dan atur pilihan lainnya untuk Jail ini.</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPv4</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPv6</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Tradisional (Aman, terbaik untuk layanan)</translation>
     </message>
     <message>
         <source>Install PKGNG and PC-BSD utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instal PKGNG dan Kegunna PC-BSD</translation>
     </message>
     <message>
         <source>Jail Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versi Jail</translation>
     </message>
     <message>
         <source>Use system version (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan versi sistem (standar)</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alamat IPv6 tidak valid!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>

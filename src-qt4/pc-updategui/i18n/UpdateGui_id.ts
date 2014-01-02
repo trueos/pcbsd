@@ -21,178 +21,143 @@
     </message>
     <message>
         <source>Update Conflict</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perbaharui Konflik</translation>
     </message>
     <message>
         <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lebih dari satu pembaharuan berdiri sendiri telah dipilih! Silahkan hapus seluruh pembaharuan lainnya dan coba lagi.</translation>
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Gagal!</translation>
     </message>
     <message>
         <source>Failed to install:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gagal menginstal:</translation>
     </message>
     <message>
         <source>Update Ready</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan siap</translation>
     </message>
     <message>
         <source>Please reboot to start the update to PC-BSD version &quot;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan reboot untuk mulai memperbaharui ke versi PC-BSD &quot;</translation>
     </message>
     <message>
         <source>This process may take a while, please do NOT interrupt the process.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proses ini mungkin butuh beberapa saat, mohon jangan menghentikan proses tersebut.</translation>
     </message>
     <message>
         <source>Updating:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memperbaharui:</translation>
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Memeriksa pembaharuan... Mohon tunggu...</translation>
     </message>
     <message>
         <source>Your system is fully updated!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem Anda telah diperbaharui sepenuhnya!</translation>
     </message>
     <message>
         <source>PC-BSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Versi:</translation>
     </message>
     <message>
         <source>This update must be installed by itself.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan ini harus diinstal dengan sendirinya.</translation>
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membuat backup untuk data Anda terlebih dahulu direkomendasikan.</translation>
     </message>
     <message>
         <source>This is a patch for your version of PC-BSD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ini adalah potongan dari versi PC-BSD Anda</translation>
     </message>
     <message>
         <source>Patch Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran Potongan:</translation>
     </message>
     <message>
         <source>System Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan sistem Paket</translation>
     </message>
     <message>
         <source>The following package updates are available:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan paket berikut tersedia:</translation>
     </message>
     <message>
         <source>Updates for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan untuk Jail:</translation>
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai memperbaharui: %1 (%2 dari %3)</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang Mengunduh: %1 (Perbaharui %2 dari %3)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang memperbaharui: %1 (%2 dari %3)</translation>
     </message>
     <message>
         <source>System Upgrade: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meningkatkan sistem: %1 (%2)</translation>
     </message>
     <message>
         <source>Patch: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Potongan: %1 (%2)</translation>
     </message>
     <message>
         <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peningkatan sistem menunggu untuk diinstal. Silahkan reboot untuk memulai!</translation>
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terjadi kesalahan yang tidak diketahui!</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pindai ulang untuk pembaharuan</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instal pembaharuan yang dipilih</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan sistem tersedia!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rincian Pembaharuan</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Sistem Dasar</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File berikut akan diperbaharui:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rincian Pembaharuan:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak bisa laksanakan freebsd-update, proses lain sedang berjalan!</translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reboot dibutuhkan untuk menyelesaikan pembaharuan!</translation>
     </message>
 </context>
 </TS>

@@ -45,36 +45,35 @@
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menginstal ke sistem file yang ditautkan pada /mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">disk akan diatur dengan konfigurasi sebagai berikut:</translation>
+        <translation>Disk akan diatur dengan konfigurasi sebagai berikut:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">Disk:</translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">Mirroring:</translation>
+        <translation>Mirroring:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">Partisi:</translation>
+        <translation>Partisi:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">Sistem-Berkas:</translation>
+        <translation>Sistem-Berkas:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Ukuran:</translation>
+        <translation>Ukuran:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">Mount:</translation>
+        <translation>Tautan:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
@@ -172,7 +171,7 @@ Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi</
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Batal</translation>
+        <translation>Batal</translation>
     </message>
     <message>
         <source>Extracting system...</source>
@@ -375,7 +374,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Tutup</translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>Video driver:</source>
@@ -414,7 +413,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     <name>dialogFSSize</name>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Ukuran:</translation>
+        <translation>Ukuran:</translation>
     </message>
     <message>
         <source>MB</source>
@@ -574,36 +573,35 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">disk akan diatur dengan konfigurasi sebagai berikut:</translation>
+        <translation>Disk akan diatur dengan konfigurasi sebagai berikut:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">Disk:</translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">Mirroring:</translation>
+        <translation>Mirroring:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">Partisi:</translation>
+        <translation>Partisi:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">Sistem-Berkas:</translation>
+        <translation>Sistem file:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">Ukuran:</translation>
+        <translation>Ukuran:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">Mount:</translation>
+        <translation>Tautan:</translation>
     </message>
     <message>
         <source>Enable ZFS mirror/raidz mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktifkan mirror ZFS/mode raidz</translation>
     </message>
     <message>
         <source>ZFS Virtual Device Mode</source>
@@ -611,8 +609,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>Please select at least 1 other drive for mirroring</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih setidaknya 1 drive lain untuk mirroring</translation>
     </message>
     <message>
         <source>Options:</source>
@@ -620,8 +617,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jika ini adalah instalasi ZFS disk tunggal, Anda bisa lanjutkan, karena itu silahkan pilih mirror/ mode raid dan disk dibawah ini.</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
@@ -637,8 +633,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Catatan: Gunakan mirror ZFS/raidz hanya bisa diaktifkan ketika melakukan instalasi disk penuh</translation>
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
@@ -666,8 +661,7 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daya ZFS ukuran blok 4K</translation>
     </message>
     <message>
         <source>(MB)</source>

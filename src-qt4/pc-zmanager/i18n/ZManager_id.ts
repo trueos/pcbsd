@@ -9,12 +9,11 @@
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Terapkan perubahan rekursif ke semua bantuan</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation>Perlengkapan</translation>
+        <translation>Peralatan</translation>
     </message>
     <message>
         <source>Value</source>
@@ -125,8 +124,7 @@ on an existing file system only affects newly written data.</source>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-Only yang mengidentifikasi tanggal dan waktu dataset telah dibuat.</translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.
@@ -142,8 +140,7 @@ are identical.</source>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan perangkat tidak didukung pada FreeBSD saat ini.</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
@@ -399,24 +396,21 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan ini tidak bisa diubah setelah sistem dibuat.</translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Pengguna</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan tidak dikenal atau informasi tidak tersedia.
+Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Tidak Valid]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
@@ -425,112 +419,92 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Ditambahkan]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Diubah]</translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Pengguna</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu perangkat</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambahkan peralatan baru pengguna</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus peralatan pengguna</translation>
     </message>
 </context>
 <context>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat untuk tautan:</translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Perangkat)</translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokasi tautan:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih direktori</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Pool:</translation>
     </message>
     <message>
         <source>Read only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Read Only</translation>
     </message>
     <message>
         <source>Change altroot:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ubah altroot:</translation>
     </message>
 </context>
 <context>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dipilih</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Pool:</translation>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jenis Konfigurasi:</translation>
     </message>
     <message>
         <source>Striped</source>
@@ -559,186 +533,150 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cache</translation>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Log</translation>
     </message>
     <message>
         <source>Spare</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cadangan</translation>
     </message>
     <message>
         <source>Error Description Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kesalahan Deskripsi Disini</translation>
     </message>
     <message>
         <source>Must provide a valid pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Harus menyediakan nama pool yang valid</translation>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Harus memilih satu perangkat</translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Harus memilih setidaknya satu perangkat</translation>
     </message>
 </context>
 <context>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah Partisi</translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah slice/partisi baru</translation>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 GB</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat:</translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ada0</translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Blok bebas terbesar yang tersedia:</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran total:</translation>
     </message>
     <message>
         <source>Current layout:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layout saat ini:</translation>
     </message>
     <message>
         <source>Designation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Penetapan</translation>
     </message>
     <message>
         <source>Start Sector</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai Sektor</translation>
     </message>
     <message>
         <source>Sector Count</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hitungan sektor</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warna</translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukuran partisi baru:</translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bytes</translation>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TB</translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jenis partisi:</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-zfs </translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-ufs</translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd</translation>
     </message>
     <message>
         <source>freebsd-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-boot</translation>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-swap</translation>
     </message>
     <message>
         <source>bios-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bios-boot</translation>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>efi</translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membuat dan menginisialisasikan sistem file baru</translation>
     </message>
     <message>
         <source>** FREE **</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>** BEBAS **</translation>
     </message>
     <message>
         <source>No free space!</source>
@@ -757,8 +695,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nilai</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
@@ -776,18 +713,21 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direktori root alternatif. Jika diatur, direktori ini ditambahkan ke setiap
+ titik tautan dalam pool. Ini bisa digunakan ketika menguji
+pool yang tidak diketahui dimana titik tautan tidak bisa dipercaya, atau di
+lingkungan boot alternatif, saat path tertentu tidak sah.
+altroot bukanlah peralatan yang persisten. Hanya valid selama
+sistem naik. Atur altroot bawaan untuk menggunakan cachefile=none, meskipun
+ini dapat diganti dengan pengaturan eksplisit.</translation>
     </message>
     <message>
         <source>The current health of the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kesehatan pool saat ini.</translation>
     </message>
     <message>
         <source>A unique identifier for the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pendeteksi unik untuk pool.</translation>
     </message>
     <message>
         <source>The current on-disk version of the pool. This can be increased, but
@@ -879,8 +819,7 @@ of the deduplication feature.</source>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jumlah ruang penyimpanan dalam pool yang telah ditempatkan.</translation>
     </message>
     <message>
         <source>If set to on, pool will be imported in read-only mode with the folâ
@@ -896,8 +835,7 @@ lowing restrictions:
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deretan komentar yang diatur oleh administrator.</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
@@ -945,23 +883,19 @@ crash dump.
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Titik tautan</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nihil</translation>
     </message>
     <message>
         <source>legacy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>warisan</translation>
     </message>
     <message>
         <source>[path]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[path]</translation>
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
@@ -970,136 +904,110 @@ crash dump.
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Normalisasi Unicode =</translation>
     </message>
     <message>
         <source>formD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formD</translation>
     </message>
     <message>
         <source>formKCF</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formKCF</translation>
     </message>
     <message>
         <source>Copies =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salinan =</translation>
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deduplikasi (dedup=on)</translation>
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Penekanan =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>off</translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>on</translation>
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lzjb</translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zle</translation>
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip</translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-1</translation>
     </message>
     <message>
         <source>gzip-2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-2</translation>
     </message>
     <message>
         <source>gzip-3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-3</translation>
     </message>
     <message>
         <source>gzip-4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-4</translation>
     </message>
     <message>
         <source>gzip-5</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-5</translation>
     </message>
     <message>
         <source>gzip-6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-6</translation>
     </message>
     <message>
         <source>gzip-7</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-7</translation>
     </message>
     <message>
         <source>gzip-8</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-8</translation>
     </message>
     <message>
         <source>gzip-9</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-9</translation>
     </message>
 </context>
 <context>
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengelola disk PCBSD</translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perangkat</translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keadaan</translation>
     </message>
     <message>
         <source>ZFS Pools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool ZFS</translation>
     </message>
     <message>
         <source>Pool Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Pool</translation>
     </message>
     <message>
         <source>Status:</source>
@@ -1159,8 +1067,7 @@ crash dump.
     </message>
     <message>
         <source>Mounted: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ditautkan:</translation>
     </message>
     <message>
         <source>Available</source>
@@ -1168,24 +1075,23 @@ crash dump.
     </message>
     <message>
         <source>Unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lepas tautan</translation>
     </message>
     <message>
         <source>Partitioned</source>
-        <translation>Disekat</translation>
+        <translation>Dipartisi</translation>
     </message>
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Diekspor)
+</translation>
     </message>
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(dihancurkan)
+</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -1197,13 +1103,11 @@ crash dump.
     </message>
     <message>
         <source>Degraded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diturunkan</translation>
     </message>
     <message>
         <source>Faulted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disalahkan </translation>
     </message>
     <message>
         <source>Removed</source>
@@ -1278,13 +1182,11 @@ crash dump.
     </message>
     <message>
         <source>Take offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Bring online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -1300,13 +1202,11 @@ crash dump.
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lepas tautan</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tautan</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
@@ -1326,7 +1226,7 @@ crash dump.
     </message>
     <message>
         <source>Add new slice</source>
-        <translation>Tambahkan irisan baru</translation>
+        <translation>Tambahkan slice baru</translation>
     </message>
     <message>
         <source>Add new partition</source>
@@ -1334,7 +1234,7 @@ crash dump.
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation>Hancurkan irisan ini</translation>
+        <translation>Hancurkan slice ini</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
@@ -1348,7 +1248,7 @@ crash dump.
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
         <translation>Operasi ini tidak bisa diselesaikan.
-OK untuk menghancurkan irisan/sekat?</translation>
+OK untuk menghancurkan slice/partisi?</translation>
     </message>
     <message>
         <source>Error report</source>
@@ -1364,22 +1264,19 @@ OK untuk menghancurkan irisan/sekat?</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool diimpor dalam mode read-only, karena jika dihancurkan pool akan dalam keadaan ketika pool diimpor, tidak perlu dihancurkan.</translation>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation>Lampirkan perangkat cermin ke</translation>
+        <translation>Lampirkan perangkar mirror ke</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool diimpor dalam mode read-only, karena jika diekspor pool akan dalam keadaan ketika pool diimpor, tidak perlu diekspor.</translation>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pulihkan pool yang dihancurkan sebagai...</translation>
     </message>
     <message>
         <source>Import pool as...</source>
@@ -1388,8 +1285,8 @@ OK untuk menghancurkan irisan/sekat?</translation>
     <message>
         <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
 OK to proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool ini telah dihancurkan, dan disk tersebut mungkin telah digunakan kembali. Mencoba untuk memulihkan akan menghancurkan setiap data baru yang bisa saja disimpan di perangkat yang sebelumnya digunakan kembali dan tidak bisa dipulihkan.
+OK untuk memproses dengan pemulihan?</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
@@ -1413,13 +1310,11 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Ditautkan]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Tidak Ditautkan]</translation>
     </message>
     <message>
         <source> of </source>
@@ -1435,8 +1330,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Buat dataset klon</translation>
     </message>
     <message>
         <source>Destroy dataset</source>
@@ -1444,8 +1338,7 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Promote filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Meningkatkan sistem file</translation>
     </message>
     <message>
         <source>Take a snapshot</source>
@@ -1461,11 +1354,11 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation>Ubah perlengkapan</translation>
+        <translation>Ubah peralatan</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation>Menu zfs   </translation>
+        <translation>Menu zfs</translation>
     </message>
     <message>
         <source>Confirmation</source>

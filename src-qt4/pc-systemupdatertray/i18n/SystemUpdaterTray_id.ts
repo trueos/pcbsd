@@ -81,18 +81,15 @@
     </message>
     <message>
         <source>Jail updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Jail Tersedia</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Jail Tersedia</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan jail yang penting tersedia. Klik disini untuk luncurkan Warden!</translation>
     </message>
     <message>
         <source>Display notifications</source>

@@ -388,8 +388,7 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengubah pengguna untuk Jail</translation>
     </message>
 </context>
 <context>

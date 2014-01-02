@@ -67,8 +67,7 @@
     </message>
     <message>
         <source>Could not create mount point at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tidak bisa membuat titik tautan pada %1</translation>
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
@@ -184,8 +183,7 @@ Tidak bisa membuka pengelola file dengan izin root</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lakukan pemeriksaan pada pemberitahuan perangkat</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>

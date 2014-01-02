@@ -81,8 +81,7 @@
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Paket sering diperbaharui - Untuk mencoba dan pembangunan)</translation>
     </message>
 </context>
 <context>

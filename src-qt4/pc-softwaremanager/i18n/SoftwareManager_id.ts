@@ -53,11 +53,11 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
-        <translation type="unfinished">Mirror Repositori</translation>
+        <translation>Miror Ruang Penyimpanan</translation>
     </message>
     <message>
         <source>Move Up</source>
@@ -113,18 +113,15 @@
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL Mirror baru</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukan URL untuk mirror tempat penyimpanan yang baru:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kesalahan Penggantian Mirror</translation>
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
@@ -139,15 +136,15 @@
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">Terinstal</translation>
+        <translation>Diinstal</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">Nama Program</translation>
+        <translation>Nama Program</translation>
     </message>
     <message>
         <source>Version</source>
@@ -155,7 +152,7 @@
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Status</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
@@ -179,7 +176,7 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">Versi:</translation>
+        <translation>Versi:</translation>
     </message>
     <message>
         <source>Author:</source>
@@ -187,7 +184,7 @@
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">Lisensi:</translation>
+        <translation>Lisensi:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
@@ -199,7 +196,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -207,7 +204,7 @@
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">Uninstall</translation>
+        <translation>Uninstal</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
@@ -255,7 +252,7 @@
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Pencarian</translation>
+        <translation>Pencarian</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
@@ -275,7 +272,7 @@
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Platform:</translation>
+        <translation>Platform:</translation>
     </message>
     <message>
         <source>Type:</source>
@@ -311,7 +308,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Keluar</translation>
+        <translation>Keluar</translation>
     </message>
     <message>
         <source>Repositories</source>
@@ -323,7 +320,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Kesalahan</translation>
+        <translation>Kesalahan!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
@@ -383,7 +380,7 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Update</translation>
+        <translation>Update</translation>
     </message>
     <message>
         <source>Desktop Icons</source>

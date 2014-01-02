@@ -27,8 +27,7 @@
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть            </translation>
     </message>
 </context>
 <context>
