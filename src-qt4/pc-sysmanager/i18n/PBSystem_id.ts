@@ -116,7 +116,7 @@
     </message>
     <message>
         <source>Fetching Ports, this may take a while...</source>
-        <translation>Mengambil Ports, mungkin berlangsung beberapa saat ...</translation>
+        <translation>Mengambil Ports, mungkin berlangsung beberapa saat...</translation>
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>

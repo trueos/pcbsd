@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Author</source>
-        <translation>Pencipta            </translation>
+        <translation>Pencipta</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
@@ -193,7 +193,7 @@
     </message>
     <message>
         <source>Executable</source>
-        <translation>dapat dijalankan</translation>
+        <translation>Dapat dijalankan</translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
@@ -209,7 +209,7 @@
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation>Kategori menu untuk item yang akan diletakkan</translation>
+        <translation>Kategori menu untuk item yang akan diletakkan.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
@@ -253,7 +253,7 @@
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation>Pilih sebuah naskah yang ingin Anda buat atau ubah</translation>
+        <translation>Pilih sebuah naskah yang ingin anda buat atau ubah</translation>
     </message>
     <message>
         <source>Create the selected script</source>
@@ -549,11 +549,11 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation>Nama Berkas</translation>
+        <translation>Nama berkas</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation>Tidak bisa menghapus entri XDG</translation>
+        <translation>Tidak bisa menghapus entri XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
@@ -561,7 +561,7 @@
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation>Tidak bisa menyimpan perubahan ke entri XDG</translation>
+        <translation>Tidak bisa menyimpan perubahan ke entri XDG.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
@@ -609,7 +609,7 @@
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation>Gagal membangun PBI</translation>
+        <translation>Gagal membangun PBI.</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
@@ -757,7 +757,7 @@
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation>Tidak bisa membuat entri XDG</translation>
+        <translation>Tidak bisa membuat entri XDG.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
@@ -867,7 +867,7 @@
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation>Pilih direktori lokal untuk modul PBI</translation>
+        <translation>Pilih direktori lokal untuk modul PBI.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
@@ -875,15 +875,15 @@
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation>Pilih direktori lokal</translation>
+        <translation>Pilih direktori lokal.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation>Ikon PNG tetap untuk digunakan pada modul PBI</translation>
+        <translation>Ikon PNG tetap untuk digunakan pada modul PBI.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation>Telusuri local system untuk sebuah ikon PNG bawaan</translation>
+        <translation>Telusuri local system untuk sebuah ikon PNG bawaan.</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
@@ -903,7 +903,7 @@
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation>Telusuri sistem untuk biner lokal</translation>
+        <translation>Telusuri sistem untuk biner lokal.</translation>
     </message>
     <message>
         <source>pbi_create</source>
@@ -987,7 +987,7 @@
     </message>
     <message>
         <source>Resources</source>
-        <translation>Sumber Daya</translation>
+        <translation>Sumber daya</translation>
     </message>
     <message>
         <source>Default Icon</source>

@@ -163,7 +163,7 @@
     </message>
     <message>
         <source>Packets:</source>
-        <translation>Paket</translation>
+        <translation>Paket:</translation>
     </message>
     <message>
         <source>Errors:</source>
@@ -330,7 +330,7 @@
     </message>
     <message>
         <source>Select a wireless network to connect.</source>
-        <translation>Pilih satu jaringan wireless untuk dikoneksikan</translation>
+        <translation>Pilih satu jaringan wireless untuk dikoneksikan.</translation>
     </message>
     <message>
         <source>No wireless networks found!</source>

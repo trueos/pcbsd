@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation>Masukkan nama host yang valid, atau biarkan default</translation>
+        <translation>Masukkan nama host yang valid, atau biarkan default.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>

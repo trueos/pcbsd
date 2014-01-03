@@ -167,7 +167,7 @@
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
         <translation>Sistem Anda telah terinstal!
-Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi</translation>
+Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -285,7 +285,7 @@ Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi</
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
         <translation>Sistem Anda telah dikembalikan!
-Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpasang</translation>
+Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpasang.</translation>
     </message>
     <message>
         <source>System Restore</source>

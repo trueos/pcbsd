@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation>Tip: Pastikan caps-lock sudah dimatikan</translation>
+        <translation>Tip: Pastikan caps-lock sudah dimatikan.</translation>
     </message>
     <message>
         <source>Restart</source>

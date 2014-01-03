@@ -46,31 +46,33 @@
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol bagaimana isi ACL diwariskan ketika file dan direktori dibuat. Nilai-nilainya adalah \ nmembuang, tidak diijinkan, terbatas, dan melewati. Untuk penjelasan nilai-nilai ini, lihat ACL Properties.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol bagaimana sebuah entri ACL diubah selama operasi chmod \ n.Nilai-nilainya adalah membuang, groupmask, dan melewati. Untuk keterangan \ nnilai-nilai ini, lihat ACL Properties.</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol apakah waktu akses untuk file diperbaharui ketika dibaca.
+Matikan peralatan ini untuk menghindari produksi lalu lintas tulisan ketika membaca file.
+dapat menghasilkan keuntungan kinerja yang signifikan, meskipun mungkin membingungkan mailer dan
+utilitas serupa.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi jumlah ruang disk yang tersedia untuk dataset
+dan semua anak-anaknya, dengan asumsi tidak ada kegiatan lain di pool. Karena ruang disk
+dibagi dalam pool, ruang yang tersedia dibatasi oleh berbagai faktor termasuk
+fisik ukuran pool, kuota, pemesanan, dan dataset lain dalam pool.</translation>
     </message>
     <message>
         <source>If this property is set to off, the file system cannot be mounted,
@@ -82,8 +84,14 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jika peralatan ini dimatikan, sistem file tidak bisa ditautkan,
+dan diabaikan oleh &apos;zfs mount -a&apos;. Matikan peralatan ini
+sama dengan mengatur peralatan titik tautan menjadi nihil, kecuali dataset masih memiliki peralatan titik tautan normal, yang bisa diwariskan
+Mematikan peralatan inimengijinkan dataset digunakan hanya untuk
+mekanisme peralatan warisan. Salah satu contoh pengaturan canmount = off adalah
+memiliki dua dataset dengan mountpoint yang sama, sehingga anak-anak
+kedua dataset muncul dalam direktori yang sama, tetapi mungkin memiliki perbedaan
+karakteristik yang diwarisi.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -91,16 +99,21 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol checksum digunakan untuk memverifikasi integritas data.Default
+nilai aktif, yang secara otomatis memilih algoritma 
+yang sesuai (Saat ini, fletcher4, tapi ini bisa berubah di masa depan).
+Nilai off menonaktifkan pemeriksaan integritas pada data pengguna. Menonaktifkan
+checksum TIDAK praktek yang disarankan.</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengaktifkan atau menonaktifkan kompresi untuk dataset. Nilai-nilai yang hidup, mati, lzjb, zle, gzip,
+dan gzip-N. Saat ini, pengaturan properti ini untuk lzjb, gzip, atau gzip-N memiliki kesamaan
+efek seperti mengaktifkan properti ini. Mengaktifkan kompresi pada sistem file dengan
+data yang ada hanya kompres data baru. Data yang ada tetap tidak terkompresi.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -108,8 +121,11 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi rasio kompresi dicapai untuk dataset,
+dinyatakan sebagai pengganda. Kompresi dapat diaktifkan dengan kompresi zfs set=on
+perintah dataset. Nilai ini dihitung dari ukuran logis dari semua file dan
+jumlah data fisik yang direferensikan. Ini mencakup penghematan eksplisit melalui penggunaan
+peralatan kompresi.</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -119,8 +135,13 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atur jumlah salinan data pengguna per sistem file. Salinan ini
+adalah tambahan untuk setiap kelebihan pool-level. Ruang disk digunakan oleh
+beberapa salinan data yang dibebankan ke file dan dataset yang sesuai
+,dan jumlah dibanding kuota dan reservasi. Lagipula,
+peralatan yang digunakan diperbaharui ketika beberapa salinan diaktifkan. Mempertimbangkan pengaturan
+peralatan ini ketika sistem file dibuat karena sedang mengganti peralatan ini
+pada sistem file yang ada hanya berdampak pada data baru ditulis.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
@@ -135,8 +156,14 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengkonfigurasi deduplikasi untuk dataset. Nilai default dimatikan.
+deduplikasi standar checksum adalah sha256 (ini dapat berubah dalam
+kemudian hari). Ketika dedup diaktifkan, checksum didefinisikan di sini menimpa
+peralatan checksum. Mengatur nilai untuk memverifikasi memiliki kesamaan
+efek dengan pengaturan sha256, memverifikasi.
+Jika diatur untuk memverifikasi, ZFS akan melakukan comparasi byte-to-byte dalam kondisi
+dua blok yang memiliki tanda tangan yang sama untuk memastikan isi blok
+identik.</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
@@ -145,14 +172,14 @@ are identical.</source>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol apakah proses bisa dilaksanakan dari dalam sistem file ini
+Nilai standar aktif.</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengindikasi diantara sistem file, klon, atau snapshot
+saat ini ditautkan.</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -161,24 +188,31 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol titik tautan digunakan untuk sistem file ini. Ketika properti mountpoint \ nberubah untuk sistem file, sistem file dan setiap bantuan yang mewarisi
+titik tautan yang dilepaskan. Jika nilai baru adalah warisan, maka tetap dilepaskan.
+Jika tidak, mereka secara otomatis dilepaskan kembali di lokasi baru jika peralatan itu
+sebelumnya warisan atau tidak, atau jika mereka dipasang sebelum properti itu berubah.
+Selain itu, setiap sistem berbagi file yang unshared dan berbagi di lokasi baru.</translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol yang di-cache dalam cache primer (ARC). Nilai yang mungkin adalah semua,
+nihil, dan metadata. Jika diatur ke semua, baik data pengguna dan metadata dicache. Jika
+diatur none, baik data pengguna atau metadata dicache. Jika diatur ke metadata, hanya
+metadata yang dicache.</translation>
     </message>
     <message>
         <source>Read-only property for cloned file systems or volumes that identifies
 the snapshot from which the clone was created. The origin cannot be
 destroyed (even with the -r or -f option) as long as a clone exists.
 Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-Only untuk sistem file yang telah diklon atau volum yang mengidentifikasi
+snapshot dari klon yang dibuat. Asal tidak dapat
+dihancurkan (bahkan dengan-r atau- opsi f) selama klon ada.
+File sistem Non-kloning memiliki asal nihil.</translation>
     </message>
     <message>
         <source>Limits the amount of disk space a dataset and its descendents can consume.
@@ -186,14 +220,16 @@ This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
 Setting a quota on a descendent of a dataset that already has a quota does not
 override the ancestor&apos;s quota, but rather imposes an additional limit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Batas jumlah ruang disk dataset dan bantuannya bisa digunakan.
+Peralatan ini mendesak batas keras pada jumlah ruang disk yang digunakan,
+termasuk semua ruang yang dipakai oleh bantuan, seperti sistem file, dan snapshot.
+Pengaturan kuota pada bantuan dataset yang telah memiliki kuota tidak menolak kuota bebet, melainkan memaksa batas tambahan.</translation>
     </message>
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol apakah dataset bisa dimodifikasi. Ketika diaktifkan,
+tidak ada modifikasi yang bisa dibuat.</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -205,22 +241,28 @@ Use of this property for general purpose file systems is strongly
 discouraged, and may adversely affect performance.
 The size specified must be a power of two greater than or equal to
 512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tentukan ukuran blok untuk file di sistem ini. Peralatan ini
+didesain semata-mata untuk digunakan dengan beban kerja database yang mengakses file catatan ukuran tetap. ZFS secara otomatis menyesuaikan ukuran blok
+berdasarkan optimalisasi algoritma internal untuk pola akses khusus.
+Kegunaan peralatan ini untuk tujuan umum sistem file menghalangi dengan kuat,
+dan mungkin memperburuk penampilan dampaknya.
+Ukuran yang ditentukan harus sebuah kekuatan yang dua kali lebih besar atau sama dengan 512 dan kurang dari atau sama dengan 128 Kbytes.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of data accessible by a
 dataset, which might or might not be shared with other datasets in the
 pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi jumlah data yang bisa diakses dengan
+sebuah dataset, yang mungkin atau tidak untuk dibagi dengan dataset lainnya di pool.
+</translation>
     </message>
     <message>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atur jumlah ruang disk yang bisa digunakan sebuah dataset. Peralatan ini
+memberlakukan batas keras pada jumlah ruang yang digunakan. Batas ini tidak
+termasuk ruang disk yang digunakan oleh bantuan lainnya, seperti snapshot dan klon.</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -266,44 +308,42 @@ options equivalent to the contents of this property.</source>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan sharesmb saat ini tidak berdampak pada FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol apakah direktori zfs tersembunyi atau tampak pada root sistem file.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi jenis dataset sebagai sistem file (sistem file atau klon), volum, atau snapshot.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi jumlah ruang disk yang digunakan oleh dataset dan semua tambahannya.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi jumlah ruang disk yang digunakan oleh
+anak-anak dari dataset ini, yang akan membebaskan semua anak-anak dataset
+yang dihancurkan.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 a dataset itself, which would be freed if the dataset was destroyed, after
 first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan read-only yang mengidentifikasi jumlah ruang disk yang digunakan oleh
+dataset, yang akan dikosongkan jika dataset dihancurkan, setelah
+penghancuran pertama setiap snapshot dan menghapus setiap syarat refreservation.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
 refreservation set on a dataset, which would be freed if the refreservation was
 removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan Read-only yang mengidentifikasi jumlah ruang disk yang digunakan oleh
+refreservation set pada dataset, yang akan dikosongkan jika syarat-syarat tersebut dihapus.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is consumed
@@ -311,58 +351,55 @@ by snapshots of a dataset. In particular, it is the amount of disk space that
 would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan read-only yang mengidentifikasi jumlah ruang disk yang digunakan
+oleh snapshot dataset. Khususnya, jumlah ruang disk yang
+akan dikosongkan jika semua snapshot dataset dihancurkan. Perlu diperhatikan bahwa
+nilai ini tidak hanya jumlah dari peralatan snapshot yang &apos;digunakan, karena
+ruang dapat digunakan bersama oleh beberapa snapshot.</translation>
     </message>
     <message>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengidentifikasi versi on-disk dari sistem file yang independen dari versi pool. Peralatan ini hanya bisa diatur ke versi lebih baru yang tersedia
+dari rilis software yang didukung.</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Untuk volum, tentukan ukuran volum yang logis.</translation>
     </message>
     <message>
         <source>For volumes, specifies the block size of the volume.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Untuk volum, tentukan ukuran blok volum.</translation>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengindikasi apakah dataset telah ditambahkan ke Jail.</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan ini tidak didukung pada FreeBSD.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem file ditandai untuk dihancurkan setelah dilepaskan.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
 dataset, expressed as a multiplier.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rasio kompresi dicapai untuk ruang yang direferensi dari dataset ini, yang disebut pengganda.</translation>
     </message>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jumlah ruang yang direferensikan ditulis pada dataset ini sejak snapshot sebelumnya
+</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Properti ini diatur ke jumlah pengguna yang berpegang pada snapshot ini.
+</translation>
     </message>
     <message>
         <source>Provide a hint to ZFS about handling of synchronous requests in this
@@ -414,8 +451,7 @@ Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>[Inherit]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Keturunan]</translation>
     </message>
     <message>
         <source>[Added]</source>
@@ -435,7 +471,7 @@ Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation>Tambahkan peralatan baru pengguna</translation>
+        <translation>Tambahkan peralatan pengguna baru</translation>
     </message>
     <message>
         <source>Delete user property</source>
@@ -513,23 +549,19 @@ Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mirror</translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z (persamaan tunggal)</translation>
     </message>
     <message>
         <source>Raid-Z2 (double parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z2 (persamaan ganda)</translation>
     </message>
     <message>
         <source>Raid-Z3 (triple parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z3 (persamaan rangkap tiga)</translation>
     </message>
     <message>
         <source>Cache</source>
@@ -644,7 +676,7 @@ Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation>freebsd-zfs </translation>
+        <translation>freebsd-zfs</translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
@@ -699,7 +731,7 @@ Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
-        <translation>Ukuran total tempat penyimpanan pool</translation>
+        <translation>Ukuran total tempat penyimpanan pool.</translation>
     </message>
     <message>
         <source>Percentage of pool space used.</source>
@@ -714,7 +746,7 @@ altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
         <translation>Direktori root alternatif. Jika diatur, direktori ini ditambahkan ke setiap
- titik tautan dalam pool. Ini bisa digunakan ketika menguji
+titik tautan dalam pool. Ini bisa digunakan ketika menguji
 pool yang tidak diketahui dimana titik tautan tidak bisa dipercaya, atau di
 lingkungan boot alternatif, saat path tertentu tidak sah.
 altroot bukanlah peralatan yang persisten. Hanya valid selama
@@ -815,7 +847,7 @@ of the deduplication feature.</source>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation>Jumlah blok dalam pool yang tidak disediakan</translation>
+        <translation>Jumlah blok dalam pool yang tidak disediakan.</translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
@@ -873,13 +905,11 @@ crash dump.
     </message>
     <message>
         <source>Properties override at creation time:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peralatan diganti pada saat pembuatan:</translation>
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mencegah tautan otomatis (canmount=noauto)</translation>
     </message>
     <message>
         <source>Mountpoint</source>
@@ -887,7 +917,7 @@ crash dump.
     </message>
     <message>
         <source>none</source>
-        <translation>Nihil</translation>
+        <translation>nihil</translation>
     </message>
     <message>
         <source>legacy</source>
@@ -899,8 +929,7 @@ crash dump.
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hanya daya UTF-8 (utf8only=on)</translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
@@ -1107,7 +1136,7 @@ crash dump.
     </message>
     <message>
         <source>Faulted</source>
-        <translation>Disalahkan </translation>
+        <translation>Disalahkan</translation>
     </message>
     <message>
         <source>Removed</source>
@@ -1115,11 +1144,11 @@ crash dump.
     </message>
     <message>
         <source>Unavailable</source>
-        <translation>Tidak Tersedia</translation>
+        <translation>Tidak tersedia</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Tidak Diketahui</translation>
+        <translation>Tidak diketahui</translation>
     </message>
     <message>
         <source>Create new pool</source>
@@ -1139,7 +1168,7 @@ crash dump.
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation>Tambah perangkat log</translation>
+        <translation>Tambah perangkat log...</translation>
     </message>
     <message>
         <source>Add cache devices...</source>
@@ -1151,8 +1180,7 @@ crash dump.
     </message>
     <message>
         <source>Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub</translation>
     </message>
     <message>
         <source>Export pool</source>
@@ -1172,13 +1200,11 @@ crash dump.
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lampirkan perangkat (mirror)...</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lepaskan dari mirror</translation>
     </message>
     <message>
         <source>Take offline</source>
@@ -1290,7 +1316,7 @@ OK untuk memproses dengan pemulihan?</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
-        <translation>Pool diimpor dalam read-only mode, sehingga tidak bisa diberi nama</translation>
+        <translation>Pool diimpor dalam read-only mode, sehingga tidak bisa diberi nama.</translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>

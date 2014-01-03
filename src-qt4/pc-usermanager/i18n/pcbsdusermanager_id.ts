@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation>- Meletakkan direktori home di luar &apos;/ home /&apos; dapat menyebabkan masalah kompatibilitas dengan beberapa program dan TIDAK DISARANKAN</translation>
+        <translation>- Meletakkan direktori home di luar &apos;/ home /&apos; dapat menyebabkan masalah kompatibilitas dengan beberapa program dan TIDAK DISARANKAN.</translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
@@ -388,7 +388,7 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation>Mengubah pengguna untuk Jail</translation>
+        <translation>Mengubah pengguna untuk Jail:</translation>
     </message>
 </context>
 <context>
@@ -564,7 +564,7 @@
     </message>
     <message>
         <source>&amp;Change Admin Password...</source>
-        <translation>&amp;Ubah Password Admin</translation>
+        <translation>&amp;Ubah Password Admin...</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -642,7 +642,7 @@
     </message>
     <message>
         <source>Invalid group name specified. Group names may contain only letters and number. Spaces are NOT permitted</source>
-        <translation>Nama kelompok yang ditentukan tidak sah. Nama kelompok hanya boleh mengandung huruf dan angka. Spasi TIDAK diperbolehkan.</translation>
+        <translation>Nama kelompok yang ditentukan tidak sah. Nama kelompok hanya boleh mengandung huruf dan angka. Spasi TIDAK diperbolehkan</translation>
     </message>
     <message>
         <source>The group &apos;</source>

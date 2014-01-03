@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>&lt;Unknown&gt;</translation>
+        <translation>&lt;Tidak diketahui&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation>Host:</translation>
+        <translation>Tuan rumah:</translation>
     </message>
     <message>
         <source>????</source>
@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>ident</source>
-        <translation>Identifikasi</translation>
+        <translation>identifikasi</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Perangkat Keras</translation>
+        <translation>Perangkat keras</translation>
     </message>
     <message>
         <source>CPU:</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Tampilan Desktop:</translation>
+        <translation>Tampilan desktop:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>Server x.org versi :</translation>
+        <translation>Server x.org versi:</translation>
     </message>
     <message>
         <source>System components...</source>
@@ -89,11 +89,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>Kegunaan PC-BSD CLI :</translation>
+        <translation>Kegunaan PC-BSD CLI:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>Kegunaan PC-BSD UI :            </translation>
+        <translation>Kegunaan PC-BSD UI:</translation>
     </message>
 </context>
 </TS>

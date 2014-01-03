@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation>Jalan Pintas</translation>
+        <translation>Jalan Pintas:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
@@ -276,7 +276,7 @@
     </message>
     <message>
         <source>Type:</source>
-        <translation>Jenis</translation>
+        <translation>Jenis:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
@@ -456,7 +456,7 @@
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation>Sedang mencari database aplikasi. Mohon tunggu...</translation>
+        <translation>Sedang mencari database aplikasi. Mohon tunggu....</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>

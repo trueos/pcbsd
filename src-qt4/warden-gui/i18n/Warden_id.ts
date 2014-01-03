@@ -152,38 +152,31 @@
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna istimewa di dalam Jail akan dapat me-mount dan unmount jenis sistem file yang ditandai sebagai jail-friendly.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna istimewa di dalam Jail akan dapat me-mount dan unmount jenis sistem file devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna istimewa di dalam Jail akan dapat me-mount dan unmount jenis sistem file nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna istimewa di dalam Jail akan dapat me-mount dan unmount jenis sistem file procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna istimewa di dalam Jail akan dapat me-mount dan unmount jenis sistem file zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prison root memungkinkan kuota administrator pada sistem file Jail(s).</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hal ini memungkinkan akses ke tumpukan protokol lain yang tidak memiliki fungsi Jail yang ditambahkan.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
@@ -235,8 +228,7 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izin berikut dapat diaktifkan atau dinonaktifkan untuk penjara ini. Untuk lebih jelasnya bawa setiap item atau lihat pada manual penjara. </translation>
     </message>
 </context>
 <context>
@@ -247,8 +239,7 @@
     </message>
     <message>
         <source>You have the option to change the IP / Hostname of the imported jail. Any internal references to the old IP / hostname may still need to be changed after importing. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda memiliki pilihan untuk mengubah IP / Hostname dari penjara impor. Referensi internal untuk IP lama / hostname mungkin masih perlu diubah setelah mengimpor.</translation>
     </message>
     <message>
         <source>Change IP Address</source>
@@ -662,8 +653,7 @@
     </message>
     <message>
         <source>Configure the jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasikan Jail</translation>
     </message>
     <message>
         <source>Package Manager</source>
@@ -797,13 +787,11 @@
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard ini akan memandu Anda melalui pembuatan Jail baru. Pertama, masukkan nama host dan alamat IP yang tidak sedang digunakan pada jaringan. Jika Anda berencana untuk menggunakan IPv6 untuk mengakses Jail, periksa kotak Alamat IPv6 dan masukan alamat IPv6 yang valid. Setelah selesai, klik Selanjutnya untuk melanjutkan. </translation>
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Linux (Jalankan Linux dalam Jail) - Percobaan!</translation>
     </message>
 </context>
 </TS>

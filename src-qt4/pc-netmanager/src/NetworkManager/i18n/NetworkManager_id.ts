@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>IP address</source>
-        <translation>Alamat IP:</translation>
+        <translation>Alamat IP</translation>
     </message>
     <message>
         <source>Provider</source>

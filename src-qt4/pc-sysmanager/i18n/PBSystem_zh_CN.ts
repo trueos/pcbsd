@@ -73,8 +73,7 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包裹集</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>

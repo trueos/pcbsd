@@ -283,31 +283,33 @@ dataset&apos;s quotas and reservations.</source>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, mida hoitakse sekundaarses vahemälus (L2ARC). Võimalikud väärtused on
+all, none ja metadata. Kui väärtus on all, siis hoitakse vahemälus nii kasutaja
+andmeid kui ka metaandmeid. Kui väärtus on metadata, siis hoitakse vahemälus
+ainult metaandmeid. Kui väärtus on none, siis ei hoita vahemälus ei kasutajate
+andmeid ega metaandmeid.</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas setuid-bitti failisüsteemis arvestatakse.</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas failisüsteem on kättesaadav NFS-i kaudu.
+Kui väärtus on &quot;on&quot;, siis käivitatakse käsk &quot;zfs share&quot; ilma
+lisavalikuteta. Vastasel juhul pannakse käsu lõppu valikud,
+mis on selle väljaga määratud.</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väljal sharesmb ei ole FreeBSD-s mõju.</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas kausta &quot;.zfs&quot; näidatakse failisüsteemi juurkaustas.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>

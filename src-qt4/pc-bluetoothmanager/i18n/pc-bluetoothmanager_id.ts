@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>No new Bluetooth devices discovered! Please put your device into &quot;discovery&quot; mode and rescan.</source>
-        <translation>Tidak ada perangkat Bluetooth baru ditemukan! Mohon letakkan perangkat Anda ke &quot;discovery&quot; mode dan telusuri ulang</translation>
+        <translation>Tidak ada perangkat Bluetooth baru ditemukan! Mohon letakkan perangkat Anda ke &quot;discovery&quot; mode dan telusuri ulang.</translation>
     </message>
     <message>
         <source>Reading saved Bluetooth devices. Please wait.</source>
