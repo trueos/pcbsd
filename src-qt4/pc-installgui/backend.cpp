@@ -323,7 +323,7 @@ QList<QStringList> Backend::hardDrives()
 
     Process p(QStringList() << "disk-list");
 
-    if (p.waitForFinished()) {
+    if (p.waitForFinished(90000)) {
         while (p.canReadLine()) {
             line = p.readLine();
 	    if ( line.isEmpty() ) 
