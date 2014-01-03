@@ -19,6 +19,7 @@ int main(int argc, char **argv)
     char *progdir = NULL;
     char *progtarget = NULL;
     char newtarget[MAX_SIZE];
+    char newlibdir[MAX_SIZE];
     char pbimntdir[MAX_SIZE];
     char pbime[MAX_SIZE];
 
@@ -99,6 +100,12 @@ int main(int argc, char **argv)
        return -1;
     }
 
+    // We still need to set LD_32_LIBRARY_PATH so that 32bit apps
+    // run on amd64
+    strncat(newlibdir, "/usr/local", (strlen("/usr/local") ));
+    strcat(newlibdir, "/lib");
+    setenv("LD_32_LIBRARY_PATH", newlibdir, 1);
+    //printf( "LD_32_LIBRARY_PATH: %s \n", newlibdir);
 
     // Set the target
     strcpy(newtarget, "/usr/local" );
