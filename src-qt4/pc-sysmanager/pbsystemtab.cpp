@@ -25,7 +25,7 @@
 void PBSystemTab::ProgramInit()
 {
     //Grab the username
-    username = QString::fromLocal8Bit(getenv("LOGNAME"));
+    username = QString::fromLocal8Bit(getenv("SUDO_USER"));
     
     // Set the Uname on the General Tab
     CheckUname();
@@ -120,29 +120,27 @@ void PBSystemTab::ReadUname()
 void PBSystemTab::startGenerateSheet()
 {
     SheetFileName="";
-        SheetFileName = QFileDialog::getSaveFileName(
+    qDebug() << "/usr/home/" + username + "/Desktop/pcbsd-diagnostic.txt",
+    SheetFileName = QFileDialog::getSaveFileName(
                     this,
-                    "save file dialog",
-                    "/home/" + username + "/Desktop",
+                    tr("Create diagnostic sheet"),
+                    "/usr/home/" + username + "/Desktop/pcbsd-diagnostic.txt",
                     "Text File (*.txt)");
 	
-      if ( ! SheetFileName.isEmpty() )
-     {
-	  if ( SheetFileName.indexOf(".txt", 0) == -1)
-	  {
-	      SheetFileName.append(".txt");
-	  }
-	if ( QFile::exists(SheetFileName ) )
-	{
-	    int answer = QMessageBox::warning( this, "Overwrite File", "Overwrite " + SheetFileName + "?", "&Yes", "&No", QString::null, 1, 1 );
-                   if ( answer == 0 ) {
-	      CreateSheetFile();		
-	    }
+    if ( SheetFileName.isEmpty() )
+	return;
+
+    if ( SheetFileName.indexOf(".txt", 0) == -1)
+       SheetFileName.append(".txt");
+
+    if ( QFile::exists(SheetFileName ) )
+    {
+       int answer = QMessageBox::warning( this, "Overwrite File", "Overwrite " + SheetFileName + "?", "&Yes", "&No", QString::null, 1, 1 );
+       if ( answer != 0 )
+          return;
+    }
 	    
-	} else {
-	    CreateSheetFile();  
-               }
-     }
+    CreateSheetFile();  
 	
 
 }
@@ -151,10 +149,11 @@ void PBSystemTab::startGenerateSheet()
 void PBSystemTab::CreateSheetFile()
 {
     
+        qDebug() << "Creating diagnostic sheet";
     	SheetGenScript = new QProcess( this );
 	QString prog = PREFIX + "/share/pcbsd/scripts/GenDiagSheet.sh";
 	QStringList args;
-	args << SheetFileName;
+	args << SheetFileName << username;
 	connect( SheetGenScript, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(finishedSheet()) );
 		
 	SheetGenScript->start(prog, args);

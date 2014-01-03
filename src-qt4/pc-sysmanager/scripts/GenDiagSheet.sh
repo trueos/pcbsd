@@ -42,4 +42,4 @@ Generated: $DATE
 
 " > ${1}
 
-
+chown ${2}:${2} ${1}
