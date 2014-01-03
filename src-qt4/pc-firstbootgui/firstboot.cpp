@@ -443,9 +443,6 @@ void Installer::slotQuickConnect(QString key,QString SSID){
   // Run the wifiQuickConnect function
   NetworkInterface::wifiQuickConnect(SSID,key,"wlan0");
  
-  // Restart the network 
-  system("/etc/rc.d/netif restart &");
- 
   // Move to finish screen
   installStackWidget->setCurrentIndex(5);
 

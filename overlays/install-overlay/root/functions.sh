@@ -16,16 +16,60 @@ detect_x()
     return
   fi
 
-  # Ignore X -configure for now, let startx handle it
-  # Now run the X auto-detection
-  #echo "Detecting X Setup..."
-  #sleep 5
-  #HOME="/root" ; export HOME
-  #X -configure >/dev/null 2>&1
-  # Copy over the new xorg.conf
-  #cp /root/xorg.conf.new /etc/X11/xorg.conf
-  # Use nvidia driver
-  #sed -i '' 's|"nv"|"nvidia"|g' /etc/X11/xorg.conf
+}
+
+cfg_second_card()
+{
+  # This is a script to try an xorg.conf file configured to use the second vgapci1 device
+  # For most systems this wont do anything, but on a number of newer hybrid
+  # intel/amd or intel/nvidia laptops this may fix a problem where the intel card (which works)
+  # is the secondary pcivga1 device, and the non-functional AMD/NVIDIA optimus  shows up first.
+
+  inCard=0
+  pciconf -lv > /tmp/.pciconf.$$
+  while read line
+  do
+    echo $line | grep -q "^vgapci"
+    if [ $? -eq 0 ] ; then
+       curCard=`echo $line | cut -d "@" -f 1 | sed 's|vgapci||g'`
+       busID="`echo $line | cut -d ':' -f 2-4`"
+       inCard=1
+       continue
+    fi
+
+    echo $line | grep -q "subclass"
+    if [ $? -eq 0 ] ; then inCard=0; continue; fi
+
+    if [ $inCard -eq 1 ] ; then
+       echo $line | grep -q "vendor"
+       if [ $? -eq 0 ]; then
+          case $curCard in
+             0) card1=`echo $line | cut -d "'" -f 2`
+                card1bus="$busID"
+                ;;
+             1) card2=`echo $line | cut -d "'" -f 2`
+                card2bus="$busID"
+	        ;;
+             *) ;;
+          esac
+       fi
+    fi
+  done < /tmp/.pciconf.$$
+  rm /tmp/.pciconf.$$
+
+  # No secondary card, return 1
+  if [ -z "$card2" ] ; then return 1; fi
+
+  # Found a second card, lets try an xorg config for it
+  cp /root/cardDetect/XF86Config.default /etc/X11/xorg.conf
+  echo "
+Section \"Device\"
+        Identifier      \"Card0\"
+        BusID           \"${card2bus}\"
+EndSection
+  " >> /etc/X11/xorg.conf
+
+  return 0
 
 }
 
@@ -35,12 +79,16 @@ start_xorg()
   startx
   if [ ! -e "/tmp/.xstarted" ]
   then
-    # Failed to start X with detected driver. Now try our detection mode.
-    echo "ERROR: Failed to start X with detected driver... Trying SAFE mode..."
-    rm /etc/X11/xorg.conf
-    X -configure >/dev/null 2>&1
-    # Copy over the new xorg.conf
-    cp /root/xorg.conf.new /etc/X11/xorg.conf
+    # Failed to auto-start X with its own internal video detection
+    # Now lets try some magic
+    rm /etc/X11/xorg.conf 2>/dev/null
+
+    echo "ERROR: Failed to start X with default video card... Trying secondary mode..."
+    cfg_second_card
+    if [ $? -ne 0 ] ; then
+      # Try the Intel driver, since nvidia/vesa will fail on optimus cards
+      cp /root/cardDetect/XF86Config.intel /etc/X11/xorg.conf
+    fi
 
     startx
     if [ ! -e "/tmp/.xstarted" ]

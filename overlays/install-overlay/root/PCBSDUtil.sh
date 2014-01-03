@@ -12,7 +12,7 @@ i="1"
 do
 
 # Display Utility Menu
-dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" chroot "Chroot into root partition" exit "Exit Utilities" 2>/tmp/UtilAnswer
+dialog --title "PC-BSD Utility Menu" --menu "Please select from the following options:" 20 55 15 shell "Drop to emergency shell" exit "Exit Utilities" 2>/tmp/UtilAnswer
 
 ANS="`cat /tmp/UtilAnswer`"
 
@@ -23,31 +23,6 @@ case $ANS in
 #############################################################"
 
               /bin/csh ;;
-     chroot) clear 
-             $ECHO "Enter the root partition of the drive you wish
-to chroot to. (Example: /dev/ad0s1a for an IDE drive.)
-Select Partition:\c"
-             read partition
-             if [ -e "$partition" ]
-             then
-                 mount $partition /mnt
-                 if [ "$?" = "0" ]
-                 then
-                     $ECHO "# PC-BSD chroot session
-#
-# Please type 'exit' to return to the menu
-#############################################################"
-                     chroot /mnt /bin/sh
-                     umount /mnt
-                     $ECHO "(Press Enter to continue)\c" ; read tmp
-                 else 
-                    $ECHO "Error mounting partition ($partition) (Press Enter to continue)\c" ; read tmp
-                 fi
-             else
-                $ECHO "Device doesn't exist! (Press Enter to continue)\c"; read tmp
-             fi
-
-             ;;
         exit) break ; exit 0 ;;
           *) ;;
 esac

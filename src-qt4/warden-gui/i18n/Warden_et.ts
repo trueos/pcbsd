@@ -810,8 +810,9 @@
         <translation>See abiline aitab luua uue vangla. Esmalt vali vanglale hostinimi ja IP-aadress, mis ei ole juba võrgus kasutusel. Kui on plaanis IPv6 kaudu vanglale ligi pääseda, siis vali IPv6-aadress. Kui oled valmis, vajuta &quot;Edasi&quot;.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation>Linuxi vangla</translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

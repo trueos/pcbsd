@@ -789,8 +789,9 @@
         <translation>このウィザードの指示通りにJailの新規作成を行います。最初に現在ネットワーク上で使用していないIPアドレスとホスト名を入力します。もしIPv6アドレスを利用する場合にはチェックを入れて正しい IPv6アドレスを入力して、「次へ」をクリックします。</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation>Linux Jail (jailの中でLinuxを実行します)</translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

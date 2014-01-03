@@ -789,8 +789,9 @@
         <translation>Dieser Assistent begleitet Sie durch die Erstellung einer neuen Jail. Zuerst geben Sie einen Hostnamen und eine IP-Adresse ein, die aktuell im Netzwerk nicht verwendet wird. Wenn sie per IPv6 auf die Jail zugreifen wollen, wählen Sie die IPv6 Adressbox an und geben eine gültige IPv6-Adresse ein. Wenn Sie fertig sind klicken sie Weiter um fortzufahren.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation>Linux Jail (Linux Emulation in einer Jail)</translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

@@ -26,6 +26,7 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 #include <sys/sysctl.h>
+#include <unistd.h>
 
 #include <net/if.h>
 #include <net/if_dl.h>
@@ -554,6 +555,9 @@ void NetworkInterface::wifiQuickConnect(QString SSID, QString netKey, QString De
 
        fileout.close();
      } 
+
+    // Flush to disk, so that when we restart network it picks up the changes
+    sync();
 
     Utils::restartNetworking();
    

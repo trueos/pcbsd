@@ -335,7 +335,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Available System Packages</source>
-        <translation>Saadaval süsteemi paketid</translation>
+        <translation>Saadaolevad süsteemi paketid</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -799,13 +799,11 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>See abiline aitab taastada süsteemi Life Preserveri varundusest. Vajuta &quot;Edasi&quot;, et jätkata.</translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esmalt sisesta varundusserveri hostinimi, kasutajanimi ja pordi number.</translation>
     </message>
     <message>
         <source>Backup Server</source>

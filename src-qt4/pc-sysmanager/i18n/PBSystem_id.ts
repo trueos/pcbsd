@@ -73,18 +73,15 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket set</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produksi (Paket diperbaharui setiap 3 bulan - Direkomendasikan)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Paket sering diperbaharui - Untuk mencoba dan pembangunan)</translation>
     </message>
 </context>
 <context>
@@ -119,12 +116,11 @@
     </message>
     <message>
         <source>Fetching Ports, this may take a while...</source>
-        <translation>Mengambil Ports, mungkin berlangsung beberapa saat ...</translation>
+        <translation>Mengambil Ports, mungkin berlangsung beberapa saat...</translation>
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mengunduh sumber FreeBSD...</translation>
     </message>
 </context>
 <context>

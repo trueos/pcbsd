@@ -498,7 +498,7 @@
        <item row="3" column="0">
         <widget class="QRadioButton" name="radioLinuxJail">
          <property name="text">
-          <string>Linux Jail (Run Linux within a jail)</string>
+          <string>Linux Jail (Run Linux within a jail) - Experimental!</string>
          </property>
         </widget>
        </item>

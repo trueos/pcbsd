@@ -5,148 +5,119 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direktori aktif</translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izinkan Direktori Aktif</translation>
     </message>
     <message>
         <source>Domain Name (DNS/Realm-Name)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Domain (DNS/Realm-Name)</translation>
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama NetBios</translation>
     </message>
     <message>
         <source>Workgroup Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Workgroup</translation>
     </message>
     <message>
         <source>Allow Trusted Domains</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izinkan Domain Terpercaya</translation>
     </message>
     <message>
         <source>Administrator Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Administrator</translation>
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Anministrator</translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Administrator (Korfirmasi)</translation>
     </message>
     <message>
         <source>LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LDAP</translation>
     </message>
     <message>
         <source>Enable LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktifkan LDAP</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Host</translation>
     </message>
     <message>
         <source>Base DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DN Basis</translation>
     </message>
     <message>
         <source>Allow Anon Binding</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izinkan mengikat segera</translation>
     </message>
     <message>
         <source>Root bind DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DN Ikat Root</translation>
     </message>
     <message>
         <source>Root bind password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Ikat Root</translation>
     </message>
     <message>
         <source>Password Encryption</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menyandikan Password</translation>
     </message>
     <message>
         <source>User Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna Suffix</translation>
     </message>
     <message>
         <source>Group Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grup Suffix</translation>
     </message>
     <message>
         <source>Password Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Suffix</translation>
     </message>
     <message>
         <source>Machine Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mesin Suffix</translation>
     </message>
     <message>
         <source>Encryption Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mode penyandian</translation>
     </message>
     <message>
         <source>Self Signed Certificate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sertifikat yang ditanda tangani sendiri</translation>
     </message>
     <message>
         <source>Auxiliary Parameters</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parameter Pembantu</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
     <message>
         <source>Active Directory Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi Direktori Aktif</translation>
     </message>
     <message>
         <source>The Active Directory passwords specified do not match!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Direktori Aktif tidak cocok!</translation>
     </message>
     <message>
         <source>AD and LDAP Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi AD dan LDAP</translation>
     </message>
 </context>
 </TS>

@@ -61,18 +61,15 @@
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layanan berikut tersedia pada sistem ini</translation>
     </message>
     <message>
         <source>Managing services for Warden IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengelola layanan untuk IP Warden:</translation>
     </message>
     <message>
         <source>Checking...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang memeriksa...</translation>
     </message>
 </context>
 <context>

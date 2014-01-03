@@ -5,63 +5,63 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengaturan Pengelola Login</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Login otomatis</translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktifkan login otomatis</translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna login otomatis</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Login jarak jauh</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Simpan</translation>
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permintaan Kata Sandi</translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mohon masukkan kata sandi login bagi pengguna ini</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengizinkan Remote Desktop (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lainnya</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengizinkan tombol &quot;tampilkan password&quot;</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Silahkan masukan kata sandi login jarak jauh</translation>
+    </message>
+    <message>
+        <source>Missing Config File</source>
+        <translation>File konfigurasi yang hilang</translation>
+    </message>
+    <message>
+        <source>The PCDM configuration file could not be found: %1</source>
+        <translation>File konfigurasi PCDM tidak bisa ditemukan: %1</translation>
+    </message>
+    <message>
+        <source>This application will now close</source>
+        <translation>Aplikasi ini akan ditutup sekarang</translation>
     </message>
 </context>
 </TS>

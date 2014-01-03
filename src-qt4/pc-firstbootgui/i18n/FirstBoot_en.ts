@@ -146,7 +146,7 @@
     <message>
         <location filename="../firstboot.cpp" line="262"/>
         <location filename="../firstboot.cpp" line="273"/>
-        <location filename="../firstboot.cpp" line="454"/>
+        <location filename="../firstboot.cpp" line="451"/>
         <source>&amp;Finish</source>
         <translation type="unfinished"></translation>
     </message>

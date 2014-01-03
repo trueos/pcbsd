@@ -789,8 +789,9 @@
         <translation>Цей майстер допоможе Вам створити нову в&apos;язницю. Спочатку введіть ім&apos;я хоста в&apos;язниці та IP адресу, що наразі не використовується у мережі. Якщо Ви плануєте використовувати протокол IPv6 для доступу до в&apos;язниці, відмітьте прапорець IPv6 та введіть IPv6 адресу. Натисніть &quot;Далі&quot; для продовження.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
-        <translation>Тюрма Linux(Запустити Linux в тюрмі)</translation>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

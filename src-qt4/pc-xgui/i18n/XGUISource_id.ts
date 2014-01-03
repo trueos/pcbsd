@@ -9,14 +9,13 @@
     </message>
     <message>
         <source>The previous attempt failed, please check your settings and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usaha sebelumnya gagal, mohon periksa pengaturan Anda dan coba lagi.</translation>
     </message>
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilan Anda telah diatur.
+Simpan pengaturan ini?</translation>
     </message>
 </context>
 <context>
@@ -152,18 +151,15 @@ Jika layar Anda tidak muncul, silahkan tunggu dan Anda akan dikembalikan ke laya
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resolusi:</translation>
     </message>
     <message>
         <source>Driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Driver:</translation>
     </message>
 </context>
 </TS>

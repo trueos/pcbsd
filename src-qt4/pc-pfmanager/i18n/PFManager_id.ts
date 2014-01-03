@@ -154,7 +154,7 @@
     </message>
     <message>
         <source>Restored.</source>
-        <translation>Dikembalikan</translation>
+        <translation>Dikembalikan.</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>

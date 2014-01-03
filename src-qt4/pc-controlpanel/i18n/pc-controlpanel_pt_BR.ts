@@ -99,5 +99,25 @@
         <source>Unsupported DE</source>
         <translation>DE não suportado</translation>
     </message>
+    <message>
+        <source>Mate</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Mate)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Cinnamon)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

@@ -99,5 +99,25 @@
         <source>What do you want to configure?</source>
         <translation>무엇을 설정하시겠습니까?</translation>
     </message>
+    <message>
+        <source>Mate</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Mate)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(Cinnamon)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

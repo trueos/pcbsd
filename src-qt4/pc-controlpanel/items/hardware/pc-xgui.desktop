@@ -101,6 +101,7 @@ PC-TryMessage[fr]=Programmer un lancement du gestionnaire d'affichage après le 
 PC-TryMessage[fr_CA]=Programmer un lancement du gestionnaire d'affichage après le prochain redémarrage ?
 PC-TryMessage[hr]=Hoćete li kod sledečeg starta koristiti asistenta za podešavanje zaslona?
 PC-TryMessage[hu]=Beütemezi a kijelző varázslót, hogy az a következő újraindítás után elinduljon?
+PC-TryMessage[id]=Jadwalkan display wizard bekerja setelah reboot selanjutnya?
 PC-TryMessage[it]=Pianificare la procedura guidata di visualizzazione da eseguire dopo il prossimo riavvio?
 PC-TryMessage[ja]=次の再起動時にディスプレイ設定ウィザードを起動しますか?
 PC-TryMessage[nl]=De scherminstelhulp uitvoeren na de volgende herstart?

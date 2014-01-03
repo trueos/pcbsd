@@ -5,19 +5,19 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">Alt+Esquerdo</translation>
+        <translation>Alt+Esquerdo</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">Alt+Direito</translation>
+        <translation>Alt+Direito</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">Alt+Cima</translation>
+        <translation>Alt+Acima</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">Alt+Baixo</translation>
+        <translation>Alt+Abaixo</translation>
     </message>
 </context>
 <context>
@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">Seleciona um usuário alternativo e limpa o campo de senha</translation>
+        <translation>Seleciona um usuário alternativo e limpa o campo de senha</translation>
     </message>
     <message>
         <source>Select this user</source>
@@ -36,11 +36,11 @@
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">Entrar</translation>
+        <translation>Entrar</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">Acessar o sistema com o atual usuário e senha</translation>
+        <translation>Acessar o sistema com o usuário e senha atuais</translation>
     </message>
     <message>
         <source>Password</source>
@@ -52,7 +52,7 @@
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation type="unfinished">Senha de login para o usuário selecionado</translation>
+        <translation>Senha de login para o usuário selecionado</translation>
     </message>
     <message>
         <source>Available users</source>
@@ -177,18 +177,18 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">Fe&amp;char</translation>
+        <translation>&amp;Fechar</translation>
     </message>
 </context>
 <context>
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">Selecionar localidade</translation>
+        <translation>Selecionar localidade</translation>
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">Localidade atual</translation>
+        <translation>Localidade atual</translation>
     </message>
     <message>
         <source>Apply</source>

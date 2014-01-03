@@ -77,48 +77,39 @@
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai Warden</translation>
     </message>
     <message>
         <source>Jail updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Jail Tersedia</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Jail Tersedia</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan jail yang penting tersedia. Klik disini untuk luncurkan Warden!</translation>
     </message>
     <message>
         <source>Display notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tampilkan pemberitahuan</translation>
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan paket tersedia</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan penting paket tersedia. Klik disini untuk menginstal!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mulai Pengelola Paket</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pembaharuan Paket Tersedia</translation>
     </message>
 </context>
 </TS>

@@ -799,7 +799,7 @@
         <translation type="unfinished">Este assistente irá guiá-lo na criação de um novo jail. Primeiro, digite um nome da máquina e um endereço IP que não esteja em uso na rede. Se planeja usar IPv6 para acessar o jail, verifique a caixa do endereço IPv6 e insira um endereço IPv6 válido. Quando terminar, clique em Próximo para continuar.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
         <translation type="unfinished">
             </translation>
     </message>

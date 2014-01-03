@@ -789,7 +789,7 @@
         <translation>Wizard này sẽ hướng dẫn bạn thông qua việc tạo ra một nhà tù mới. Đầu tiên, nhập địa chỉ IP và tên máy và không hiện đang sử dụng trên mạng. Nếu bạn có kế hoạch sử dụng IPv6 để truy cập vào tù, kiểm tra IPv6 hộp Address và nhập vào một địa chỉ IPv6 hợp lệ. Khi hoàn tất, nhấn Next để tiếp tục.</translation>
     </message>
     <message>
-        <source>Linux Jail (Run Linux within a jail)</source>
+        <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
         <translation type="unfinished">
             </translation>
     </message>

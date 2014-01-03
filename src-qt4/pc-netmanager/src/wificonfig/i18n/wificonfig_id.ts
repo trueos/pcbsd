@@ -163,7 +163,7 @@
     </message>
     <message>
         <source>Packets:</source>
-        <translation>Paket</translation>
+        <translation>Paket:</translation>
     </message>
     <message>
         <source>Errors:</source>
@@ -279,23 +279,19 @@
     </message>
     <message>
         <source>Configured Network Profiles</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Profil Jaringan Terkonfigurasi</translation>
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tambah jaringan</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurasi WPA</translation>
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atur kode negara</translation>
     </message>
 </context>
 <context>
@@ -334,7 +330,7 @@
     </message>
     <message>
         <source>Select a wireless network to connect.</source>
-        <translation>Pilih satu jaringan wireless untuk dikoneksikan</translation>
+        <translation>Pilih satu jaringan wireless untuk dikoneksikan.</translation>
     </message>
     <message>
         <source>No wireless networks found!</source>

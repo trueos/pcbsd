@@ -63,5 +63,20 @@
         <translation>원격 로그인 비밀번호를 입력하여 주시기 바랍니다
 </translation>
     </message>
+    <message>
+        <source>Missing Config File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The PCDM configuration file could not be found: %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>This application will now close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 </TS>

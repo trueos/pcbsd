@@ -51,5 +51,17 @@
         <source>Please enter the remote login password</source>
         <translation>Please enter the remote login password</translation>
     </message>
+    <message>
+        <source>Missing Config File</source>
+        <translation>Missing Config File</translation>
+    </message>
+    <message>
+        <source>The PCDM configuration file could not be found: %1</source>
+        <translation>The PCDM configuration file could not be found: %1</translation>
+    </message>
+    <message>
+        <source>This application will now close</source>
+        <translation>This application will now close</translation>
+    </message>
 </context>
 </TS>

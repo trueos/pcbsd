@@ -5,243 +5,198 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Left</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Right</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Up</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Down</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih pengguna alternatif dan hapus tempat pengisian kata sandi</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih Pengguna ini</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Login</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Login ke sistem dengan pengguna dan kata sandi saat ini</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tahan untuk melihat kata sandi yang baru saja dimasukkan</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kata Sandi Login untuk pengguna yang dipilih</translation>
     </message>
     <message>
         <source>Available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengguna yang tersedia</translation>
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Login ke %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lingkungan desktop yang tersedia</translation>
     </message>
 </context>
 <context>
     <name>PCDMgui</name>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keyboard Virtual</translation>
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokal</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ganti Lokal</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tata Letak Keyboard</translation>
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ganti tata letak Keyboard</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tip: Pastikan caps-lock sudah dimatikan.</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restart</translation>
     </message>
     <message>
         <source>Shut Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shut Down</translation>
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shutdown Komputer</translation>
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nama Pengguna/Kata Sandi tidak valid</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kombinasi Nama pengguna/kata sandi tidak valid, silahkan coba lagi.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem shutdown</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda akan mematikan sistem.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda yakin?</translation>
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem Restart</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anda akan merestart sistem.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistem sedang dimatikan</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pengaturan Keyboard</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tata Letak Kunci</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Variasi</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Model Keyboard</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Anda harus mengetik ke ruang dibawah ini untuk mencoba pengaturan yang Anda pilih.)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tutup</translation>
     </message>
 </context>
 <context>
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pilih Lokal</translation>
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokal Saat ini</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Batal</translation>
     </message>
 </context>
 </TS>

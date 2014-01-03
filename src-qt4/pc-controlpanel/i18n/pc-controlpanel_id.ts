@@ -97,8 +97,23 @@
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apa yang ingin Anda susun?</translation>
+    </message>
+    <message>
+        <source>Mate</source>
+        <translation>Mate</translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation>Cinnamon</translation>
+    </message>
+    <message>
+        <source>(Mate)</source>
+        <translation>(Mate)</translation>
+    </message>
+    <message>
+        <source>(Cinnamon)</source>
+        <translation>(Cinnamon)</translation>
     </message>
 </context>
 </TS>

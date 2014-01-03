@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">Re&amp;scan por atualizações</translation>
+        <translation>Re&amp;scan por Atualizações</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>

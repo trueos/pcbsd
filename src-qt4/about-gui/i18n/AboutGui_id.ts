@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>&lt;Unknown&gt;</translation>
+        <translation>&lt;Tidak diketahui&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation>Host:</translation>
+        <translation>Tuan rumah:</translation>
     </message>
     <message>
         <source>????</source>
@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>ident</source>
-        <translation>Identifikasi</translation>
+        <translation>identifikasi</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation>Perangkat Keras</translation>
+        <translation>Perangkat keras</translation>
     </message>
     <message>
         <source>CPU:</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation>Tampilan Desktop:</translation>
+        <translation>Tampilan desktop:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
@@ -73,33 +73,27 @@
     </message>
     <message>
         <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sedang mencoba snapshot %1. Kemungkinan tidak stabil!</translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server x.org versi:</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komponen-komponen sistem...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lingkungan desktop...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kegunaan PC-BSD CLI:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kegunaan PC-BSD UI:</translation>
     </message>
 </context>
 </TS>

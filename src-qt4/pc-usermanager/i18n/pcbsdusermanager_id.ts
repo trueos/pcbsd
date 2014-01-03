@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation>- Meletakkan direktori home di luar &apos;/ home /&apos; dapat menyebabkan masalah kompatibilitas dengan beberapa program dan TIDAK DISARANKAN</translation>
+        <translation>- Meletakkan direktori home di luar &apos;/ home /&apos; dapat menyebabkan masalah kompatibilitas dengan beberapa program dan TIDAK DISARANKAN.</translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sandikan file:</translation>
     </message>
 </context>
 <context>
@@ -381,18 +380,15 @@
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gunakan perubahan yang tertunda?</translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ada perubahan tertunda yang belum digunakan. Apakah Anda ingin menerapkannya sebelum keluar?</translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengubah pengguna untuk Jail:</translation>
     </message>
 </context>
 <context>
@@ -452,8 +448,7 @@
     <message>
         <source>
 - The &apos;Full Name&apos; field may not contain ! @ or :</source>
-        <translation>
-- Isian &apos;Nama Lengkap&apos; tidak boleh mengandung ! @ atau :</translation>
+        <translation>Isian &apos;Nama Lengkap&apos; tidak boleh mengandung ! @ atau :</translation>
     </message>
     <message>
         <source>
@@ -542,8 +537,7 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sandikan file:</translation>
     </message>
 </context>
 <context>
@@ -570,7 +564,7 @@
     </message>
     <message>
         <source>&amp;Change Admin Password...</source>
-        <translation>&amp;Ubah Password Admin</translation>
+        <translation>&amp;Ubah Password Admin...</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -621,13 +615,11 @@
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Direktori Home?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus direktori home untuk</translation>
     </message>
 </context>
 <context>
@@ -650,7 +642,7 @@
     </message>
     <message>
         <source>Invalid group name specified. Group names may contain only letters and number. Spaces are NOT permitted</source>
-        <translation>Nama kelompok yang ditentukan tidak sah. Nama kelompok hanya boleh mengandung huruf dan angka. Spasi TIDAK diperbolehkan.</translation>
+        <translation>Nama kelompok yang ditentukan tidak sah. Nama kelompok hanya boleh mengandung huruf dan angka. Spasi TIDAK diperbolehkan</translation>
     </message>
     <message>
         <source>The group &apos;</source>
@@ -698,13 +690,11 @@
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus Direktori Home?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hapus direktori home untuk</translation>
     </message>
 </context>
 </TS>

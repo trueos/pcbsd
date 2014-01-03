@@ -10,28 +10,23 @@
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakenda muudatused rekursiivselt allapoole</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väli</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väärtus</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Allikas</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa kasutaja väli</translation>
     </message>
     <message>
         <source>...</source>
@@ -40,39 +35,38 @@
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eemalda kasutaja väli</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Päri vanemalt</translation>
     </message>
     <message>
         <source>Revert changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pööra muudatused tagasi</translation>
     </message>
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kuidas ACL-i kirjed päritakse, siis kui faile ja kaustu luuakse. Võimalikud valikud on
+discard, noallow, restricted ja passthrough. Nende valikute kirjeldused on olemas ACL-i väljade juures.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kuidas ACL-i kirjeid chmod-i kaudu muudetakse.
+Võimalikud valikud on discard, groupmask ja passthrough.Nende valikute kirjeldused on olemas ACL-i väljade juures.</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas failide ligipääsu aega uuendatakse, kui neid loetakse.
+Selle väljalülitamine vähendab kirjutamistega seotud võrguliiklust ja võib
+jõudlust oluliselt parandada, kuid võib segadusse ajada meiliprogramme ja
+muid sarnaseid programme.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
@@ -92,8 +86,15 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kui see on välja lülitatud, siis ei saa failisüsteemi haakida, samuti ei
+mõju sellele käsk &quot;zfs mount -a&quot;. Välja lülitamisel on sarnane mõju,
+kui määrata haakepunkti väljale väärtus &quot;none&quot;, ainult et andmekogul
+on endiselt tavaline haakepunkti väli, mida on võimalik pärida.
+Välja lülitamine lubab andmekogusid kasutada ainuüksi väljade
+edasi pärandamise mehhanismina. Haakimise väljalülitamisel on
+võimalik omada kahte andmekogu sama haakepunktiga nii, et mõlemad
+andmekogud ilmuvad samas kaustas, kuid neil on erinevad päritud
+omadused.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -101,16 +102,19 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, millist kontrollsummat kasutada andmete õigsuse kontrollimiseks. Vaikimisi
+on see väli sisse lülitatud (on), mis tähendab, et sobilik algoritm valitakse automaatselt
+(hetkel fletcher4, aga see võib tulevikus muutuda). Välja lülitades ei kontrollita andmete
+õigsust. Kontrollsummade välja lülitamine EI OLE soovitatav.</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lülitab sisse või välja andmekogu andmete pakkimise. Võimalikud väärtused:on, off, lzjb, zle, gzip, gzip-N. Hetkel on valikud lzjb, gzip ja gzip-N sama mõjuga kui on.
+Andmete pakkimise sisselülitamisel failisüsteemis, kus on juba andmeid, pakitakse
+kokku ainult uued andmed. Olemasolevaid andmeid ei pakita kokku.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -118,8 +122,10 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab selle andmekogu andmete pakkimise tihedust.
+Pakkimise saab sisse lülitada käsuga &quot;zfs set compression=on&quot;.
+Väärtus väljendab viidatud failide loogilise ja füüsilise suuruse suhet.
+Selle hulka kuulub pakkimisest otseselt võidetud kettaruum.</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -134,8 +140,7 @@ on an existing file system only affects newly written data.</source>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab kuupäeva ja kellaaega, millal andmekogu loodi.</translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.
@@ -151,20 +156,19 @@ are identical.</source>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ei toeta hetkel välja devices.</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas protsesse on lubatud käivitada sellelt failisüsteemilt.
+Vaikimisi on see lubatud.</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab, kas süsteem, kloon või hetktõmmis onparajasti haagitud.
+</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -173,24 +177,31 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab selle failisüsteemi haakepunkti. Kui haakepunkti muudetakse, siis failisüsteem
+ja selle alamad haagitakse lahti. Kui uus väärtus on legacy, siis jäävad need haakimata.
+Muidu haagitakse need automaatselt uuesti uude asukohta, kui välja väärtus oli varasemalt
+legacy või none või kui failisüsteem oli haagitud enne haakepunkti muutmist.
+Lisaks sellele jagatakse jagatud kaustad uues asukohas.</translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
 none, and metadata. If set to all, both user data and metadata are cached. If
 set to none, neither user data nor metadata is cached. If set to metadata, only
 metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, mida hoitakse peamises vahemälus (ARC). Võimalikud väärtused on
+all, none ja metadata. Kui väärtus on all, siis hoitakse vahemälus nii kasutaja
+andmeid kui ka metaandmeid. Kui väärtus on metadata, siis hoitakse vahemälus
+ainult metaandmeid. Kui väärtus on none, siis ei hoita vahemälus ei kasutajate
+andmeid ega metaandmeid.</translation>
     </message>
     <message>
         <source>Read-only property for cloned file systems or volumes that identifies
 the snapshot from which the clone was created. The origin cannot be
 destroyed (even with the -r or -f option) as long as a clone exists.
 Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab kloonitud failisüsteemide või köidete puhul
+hetktõmmist, mille põhjal kloon loodi. Nii kaua, kuni originaalist on olemas
+kloone, ei saa originaali kustutada (isegi valikutega -r või -f).Failisüsteemide päritolu on none, kui need ei ole kloonitud.</translation>
     </message>
     <message>
         <source>Limits the amount of disk space a dataset and its descendents can consume.
@@ -198,14 +209,17 @@ This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
 Setting a quota on a descendent of a dataset that already has a quota does not
 override the ancestor&apos;s quota, but rather imposes an additional limit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Piirab kettaruumi, mida andmekogu ja selle järglased kasutada saavad.
+Väli määrab range piiri kettaruumi kasutusele, sealhulgas järglastele, nt
+failisüsteemidele ja hetktõmmistele. Kvoodi määramine andmekogule,
+millel juba kvoot olemas on, ei kirjuta üle kõrgemalt määratud sätteid,
+vaid rakendab kvoodi lisaks olemasolevale.</translation>
     </message>
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab selle, kas andmekogusid saab muuta. Kui see väli on &quot;on&quot;, 
+siis muudatusi teha ei saa.</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -217,22 +231,31 @@ Use of this property for general purpose file systems is strongly
 discouraged, and may adversely affect performance.
 The size specified must be a power of two greater than or equal to
 512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab soovitatava ploki suuruse failidele failisüsteemis. See on
+mõeldud ainult andmebaasidele, kus failidele toimub ligipääs
+kindla suurusega plokkide kaupa. ZFS muudab plokkide suurusi
+automaatselt vastavalt sisemiste algoritmide poolt leitud
+tüüpilistele kasutusmustritele.
+Üldotstarbeliste süsteemide jaoks ei ole selle välja kasutamine 
+soovitatav. See võib jõudlusele halvasti mõjuda.
+Ploki suurus peab olema kahe aste ning peab olema vahemikus
+512 baiti ja 128 kilobaiti (kaasa arvatud).</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of data accessible by a
 dataset, which might or might not be shared with other datasets in the
 pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab andmekogule kättesaadavate andmete
+mahtu. Need andmed võivad, aga ei pruugi olla jagatud teiste
+andmekogudega.</translation>
     </message>
     <message>
         <source>Sets the amount of disk space that a dataset can consume. This property
 enforces a hard limit on the amount of space used. This hard limit does
 not include disk space used by descendents, such as snapshots and clones.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Piirab kettaruumi, mida andmekogu ja selle järglased kasutada saavad.
+Väli määrab range piiri kettaruumi kasutusele, kuid sinna alla ei kuulu
+järglased, nt hetktõmmised ja kloonid.</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space that is guaranteed to a dataset, not
@@ -260,31 +283,33 @@ dataset&apos;s quotas and reservations.</source>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, mida hoitakse sekundaarses vahemälus (L2ARC). Võimalikud väärtused on
+all, none ja metadata. Kui väärtus on all, siis hoitakse vahemälus nii kasutaja
+andmeid kui ka metaandmeid. Kui väärtus on metadata, siis hoitakse vahemälus
+ainult metaandmeid. Kui väärtus on none, siis ei hoita vahemälus ei kasutajate
+andmeid ega metaandmeid.</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas setuid-bitti failisüsteemis arvestatakse.</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas failisüsteem on kättesaadav NFS-i kaudu.
+Kui väärtus on &quot;on&quot;, siis käivitatakse käsk &quot;zfs share&quot; ilma
+lisavalikuteta. Vastasel juhul pannakse käsu lõppu valikud,
+mis on selle väljaga määratud.</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väljal sharesmb ei ole FreeBSD-s mõju.</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab, kas kausta &quot;.zfs&quot; näidatakse failisüsteemi juurkaustas.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>

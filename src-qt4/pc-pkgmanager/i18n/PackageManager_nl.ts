@@ -268,8 +268,7 @@
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bezig met binnenhalen</translation>
     </message>
 </context>
 </TS>
