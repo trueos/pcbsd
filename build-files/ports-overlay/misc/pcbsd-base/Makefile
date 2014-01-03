@@ -120,6 +120,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		tk85>=0:${PORTSDIR}/x11-toolkits/tk85 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
+		aria2c:${PORTSDIR}/www/aria2 \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 
