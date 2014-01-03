@@ -1737,7 +1737,7 @@ get_pbi_progdir() {
 		get_pbi_progname
 	fi
 
-	tmp="`echo ${PBI_PROGNAME} | tr -d ' ' | tr '[A-Z]' '[a-z]'`"
+	tmp="`echo ${PBI_PROGNAME} | tr -d ' ' | tr '[A-Z]' '[a-z]' | sed 's|+||g'`"
 	if [ -z "${PBI_PROGDIRNAME}" ] ; then
 		PBI_PROGDIRNAME="${tmp}-${ARCH}"
 	fi
