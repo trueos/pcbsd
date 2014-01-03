@@ -193,7 +193,7 @@ void SysDetailsWidget::on_sysUpdatesList_itemSelectionChanged()
 
         ui->sysUpdateFilesTab->setTabText(0, tr("Files to update (%1)").arg(QString::number(mUpdateController->filesToUpdate().size())));
         ui->sysUpdateFilesTab->setTabText(1, tr("Files to remove (%1)").arg(QString::number(mUpdateController->filesToDelete().size())));
-        ui->sysUpdateFilesTab->setTabText(2, tr("Locally modifyed files (%1)").arg(QString::number(mUpdateController->fileslocalyModifyed().size())));
+        ui->sysUpdateFilesTab->setTabText(2, tr("Locally modified files (%1)").arg(QString::number(mUpdateController->fileslocalyModifyed().size())));
 
         ui->sysUpdateDetailsStack->setCurrentIndex(2);
     }

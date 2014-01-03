@@ -300,7 +300,7 @@
              </widget>
              <widget class="QWidget" name="tab_6">
               <attribute name="title">
-               <string>Locally modifyed files</string>
+               <string>Locally modified files</string>
               </attribute>
               <layout class="QHBoxLayout" name="horizontalLayout_12">
                <item>
