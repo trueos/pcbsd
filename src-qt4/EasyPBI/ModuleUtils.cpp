@@ -173,6 +173,7 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   }
   //Now check/create the specific module directory
   QString modName = port.section("/",-1);
+  QString pbiname = modName; //save this for later
   if(dir.exists(modName)){
     //change the module dir name (append a number)
     int add = 2;
@@ -199,6 +200,7 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   }
   //Now add the port info and create the pbi.conf file
   MOD.setText("PBI_MAKEPORT", port);
+  MOD.setText("PBI_PROGNAME", pbiname);
   MOD.saveConfig(); //create the new pbi.conf
   return MOD;
 }
