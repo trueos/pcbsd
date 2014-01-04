@@ -4,6 +4,8 @@ NULLFS="/usr/pbi/.mount_nullfs"
 
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
+   # Slow down the pace of nullfs mounts, this seems to fix the odd panic / hang
+   sleep 0.1
    mount | grep -q "on ${1} (" 
    return $?
 }
