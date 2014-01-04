@@ -274,8 +274,13 @@ the parent dataset&apos;s quotas and reservations.
 If refreservation is set, a snapshot is only allowed if enough free pool space
 is available outside of this reservation to accommodate the current number of
 referenced bytes in the dataset.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atur jumlah minimum ruang disk yang dijamin untuk sebuah dataset, tidak
+termasuk turunannya, seperti snapshot dan kloningan. Ketika jumlah ruang disk digunakan dibawah nilai ini, dataset dianggap sebagai jumlah ruang yang ditentukan oleh refreservation. Pemesanan Refreservation
+dicatat dalam ruang disk dataset induk yang digunakan, dan jumlah terhadap
+kuota dataset induk dan pemesanan
+.Jika refreservation diatur, snapshot hanya diperbolehkan jika pool memiliki ruang yang cukup
+tersedia di luar dari reservasi ini untuk mengakomodasi jumlah
+byte saat ini yang direferensikan dalam dataset.</translation>
     </message>
     <message>
         <source>Sets the minimum amount of disk space guaranteed to a dataset and its descendents.
@@ -283,28 +288,33 @@ When the amount of disk space used is below this value, the dataset is treated a
 it were using the amount of space specified by its reservation. Reservations are
 accounted for in the parent dataset&apos;s disk space used, and count against the parent
 dataset&apos;s quotas and reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atur jumlah minimum ruang disk yang dijamin untuk dataset dan turunannya.
+Ketika jumlah ruang disk yang digunakan dibawah nilai ini, dataset dianggap sebagaimana
+jika ia menggunakan jumlah ruang yang sesuai dengan reservasinya. Reservasinya
+dicatat untuk ruang disk yang digunakan dataset induk, dan jumlah terhadap kuota dataset induk
+dan reservasi.</translation>
     </message>
     <message>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol cache apa yang ada di cache kedua (L2ARC). Nilai yang mungkin adalah semua, tidak ada,
+dan metadata. Jika diatur ke semua, kedua data pengguna dan metadata dicache. Jika diatur ke tidak ada,
+data pengguna maupun metadata dicache. Jika diatur ke metadata, hanya metadata yang dicache.</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol apakah bit setuid dikenal di sistem file.</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol apakah sistem file tersedia melalui NFS dan apa
+opsi yang digunakan. Jika diaktifkan, perintah membagi zfs diminta
+tanpa pilihan. Jika tidak, perintah membagi zfs diminta dengan
+pilihan yang setara dengan isi peralatan ini.</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
@@ -408,8 +418,12 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sediakan sebuah petunjuk untuk ZFS tentang penanganan permintaan sinkronisasi dalam
+dataset ini. Jika logbias diatur ke latency (standar), ZFS akan menggunakan
+perangkat log pool (jika dikonfigurasi) untuk menangani permintaan pada latensi rendah
+Jika logbias diatur ke throughput, ZFS tidak akan menggunakan
+perangkat log pool yang terkonfigurasi. ZFS malah akan mengoptimalkan operasi sinkron
+untuk throughput pool global dan efisiensi penggunaan sumber daya.</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -428,8 +442,22 @@ disabled  Disables synchronous requests. File system transactions
           nous transaction demands of applications such as data-
           bases or NFS.  Administrators should only use this
           option when the risks are understood.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol perilaku permintaan sinkron (misalnya fsync(2),
+O_DSYNC). Properti ini menerima nilai berikut:
+Standar  ini adalah perilaku POSIX tertentu yang memastikan semua
+permintaan sinkron ditulis ke penyimpanan yang stabil dan
+semua perangkat yang memerah untuk memastikan data tidak di-cache oleh
+pengendali perangkat (ini adalah bawaan)
+.selalu    Semua transaksi sistem file ditulis dan diperah
+sebelum panggilan sistem mereka kembali. Ini memiliki 
+hukuman kinerja yang besar
+.dinonaktifkan  Menonaktifkan permintaan sinkron. Transaksi sistem file
+hanya berkomitmen untuk penyimpanan stabil secara berkala.
+opsi ini akan memberikan kinerja tertinggi. Namun,
+sangat berbahaya karena ZFS akan mengabaikan permintaan
+transaksi sinkron aplikasi seperti data-
+base atau NFS. Administrator hanya harus menggunakan opsi ini
+ketika semua risiko telah dipahami.</translation>
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
@@ -544,8 +572,7 @@ Baca manual ZFS untuk informasi lainnya.</translation>
     </message>
     <message>
         <source>Striped</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Berjalur</translation>
     </message>
     <message>
         <source>Mirror</source>
@@ -768,22 +795,28 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versi on-disk pool saat ini. Hal ini bisa ditingkatkan, tapi
+tidak pernah bisa diturunkan. Metode yang lebih baik dalam memperbaharui pool adalah dengan
+perintah &quot;zpool upgrade&quot;, meskipun peralatan ini bisa digunakan ketika
+versi khusus dibutuhkan untuk kompatibilitas dengan yang sebelumnya. Peralatan ini
+bisa jadi adalah setiap angka antara 1 dan versi saat ini yang dilaporkan oleh
+&quot;zpool upgrade -v&quot;.</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengidentifikasi dataset bawaan yang bisa dibooting untuk root pool. Peralatan ini
+diharapkan akan diatur terutama melalui instalasi dan upgrade
+program.</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol apakah pengguna non-hak istimewa diberikan akses didasarkan pada
+izin dataset yang didefinisikan pada dataset. Lihat zfs (8) untuk
+informasi selanjutnya tentang administrasi ZFS didelegasikan.</translation>
     </message>
     <message>
         <source>Controls automatic device replacement. If set to &quot;off&quot;, device
@@ -793,8 +826,13 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol penggantian perangkat otomatis. Jika diatur ke &quot;off&quot;, perangkat
+pengganti harus diprakarsai oleh administrator dengan menggunakan
+perintah &quot;ganti zpool &quot;. Jika diatur ke &quot;on&quot;, perangkat baru, ditemukan dalam
+lokasi fisik yang sama dengan perangkat sebelumnya milik
+pool, secara otomatis diformat dan diganti. Sifat bawaan
+adalah &quot;off&quot;.  Peralatan ini juga dapat disebut dengan nama kolomnya yang disingkat
+, &quot;ganti&quot;.</translation>
     </message>
     <message>
         <source>Controls the location of where the pool configuration is cached. Disâ
@@ -808,15 +846,25 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mengontrol lokasi dimana konfigurasi pool dicache. Disk yang
+meliputi semua pool pada sistem startup memerlukan salinan cache dari
+data konfigurasi yang disimpan pada sistem file root. Semua pools
+dalam cache ini secara otomatis diimpor saat booting sistem. Beberapa
+lingkungan, seperti menginstal dan mengelompokkan, perlu untuk mencache informasi ini
+di lokasi yang berbeda sehingga pool tidak otomatis diimpor.
+Pengaturan cache peralatan ini konfigurasi pool
+di lokasi yang berbeda yang nantinya dapat diimpor dengan &quot;zpool impor
+-c &quot;.  Atur ke nilai khusus &quot;none&quot; menciptakan pool sementara
+yang tidak pernah dicache, dan nilai khusus &apos;&apos; (string kosong) menggunakan
+lokasi default.</translation>
     </message>
     <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol apakah informasi tentang snapshot terkait dengan pool ini
+adalah output ketika &quot;daftar zfs&quot; dijalankan tanpa opsi -t.
+nilai bawaan tidak aktif.</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -826,24 +874,33 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrol ekspansi pool otomatis ketika LUN yang mendasari tumbuh.
+Jika diatur ke &quot;on&quot;, pool akan diubah ukurannya sesuai dengan ukuran
+perangkat yang diperluas. Jika perangkat adalah bagian dari mirror atau raidz maka semua
+perangkat dalam kelompok mirror/raidz harus diperluas sebelum 
+ruang baru tersedia untuk pool. Sifat bawaan adalah
+&quot;off&quot;. Peralatan ini juga dapat disebut dengan yang disingkat
+, memperluas.</translation>
     </message>
     <message>
         <source>Threshold for the number of block ditto copies. If the reference
 count for a deduplicated block increases above this number, a new
 ditto copy of this block is automatically stored. Default setting is
 0.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambang batas untuk jumlah salinan blok ditto. Jika referensi
+menghitung deduplikasi blok meningkat di atas angka ini,
+salinan ditto baru blok ini secara otomatis disimpan. Pengaturan standar adalah
+0.</translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rasio deduplikasi yang ditentukan untuk pool, dinyatakan sebagai pengganda. Untuk
+contoh, nilai 1.76 menunjukkan bahwa 1.76 unit data disimpan tetapi
+hanya 1 unit ruang disk yang benar-benar terpakai. Lihat zfs(8) untuk penjelasan
+fitur deduplikasi ini.</translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
@@ -862,8 +919,13 @@ lowing restrictions:
   Â·   To write to a read-only pool, a export and import of the pool
       is required.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jika diaktifkan, kolam renang akan diimpor dalam mode read-only denganpembatasan berikut:
+  Â   Data Synchronous dalam log tidak akan dapat diakses
+  Â · Peralatan pool tidak dapat diubah
+  Â · Datasets pool ini hanya dapat dipasang read-only
+  Â · Untuk menulis ke read-only pool, ekspor dan impor dari pool
+      diperlukan.
+</translation>
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
@@ -1294,7 +1356,7 @@ OK untuk menghancurkan slice/partisi?</translation>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation>Lampirkan perangkar mirror ke</translation>
+        <translation>Lampirkan perangkar mirror ke </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>

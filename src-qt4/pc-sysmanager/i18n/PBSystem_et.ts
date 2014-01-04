@@ -83,6 +83,10 @@
         <source>Edge (Packages updated frequently - For testing and development)</source>
         <translation>Arendusversioonid (pakke uuendatakse tihti – testimiseks ja arenduseks)</translation>
     </message>
+    <message>
+        <source>Create diagnostic sheet</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>

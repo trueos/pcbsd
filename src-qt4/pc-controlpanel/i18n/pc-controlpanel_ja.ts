@@ -100,24 +100,20 @@
         <translation>何を設定しますか?</translation>
     </message>
     <message>
-        <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MATE)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon)</translation>
+    </message>
+    <message>
+        <source>Mate</source>
+        <translation type="unfinished">MATE</translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished">Cinnamon</translation>
     </message>
 </context>
 </TS>
