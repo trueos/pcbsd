@@ -5,13 +5,11 @@
     <name>btmaingui</name>
     <message>
         <source>BlueTooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>BlueTooth upravitelj</translation>
     </message>
     <message>
         <source>Current Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trenutne postavke</translation>
     </message>
     <message>
         <source>Computer/Device ID</source>
@@ -25,13 +23,11 @@
     </message>
     <message>
         <source>Devices Connected:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spojeni uređaji:</translation>
     </message>
     <message>
         <source>Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odspoji uređaj</translation>
     </message>
     <message>
         <source>Start Tray Application</source>
@@ -40,13 +36,11 @@
     </message>
     <message>
         <source>Restart Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ponovno pokreni uslugu</translation>
     </message>
     <message>
         <source>New Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novi uređaji</translation>
     </message>
     <message>
         <source>Scan</source>
@@ -55,13 +49,11 @@
     </message>
     <message>
         <source>Add Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj uređaj</translation>
     </message>
     <message>
         <source>Saved Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremljeni uređaj</translation>
     </message>
     <message>
         <source>Initiate Pairing</source>
@@ -70,13 +62,11 @@
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguriraj</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni uređaj</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
@@ -105,18 +95,15 @@
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Upozorenje</translation>
     </message>
     <message>
         <source>No device has been selected. Please choose a device first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nijedan uređaj nije izabran. Molim najprije odaberite uređaj.</translation>
     </message>
     <message>
         <source>Invalid Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravne dozvole</translation>
     </message>
     <message>
         <source>This program must be run with root permissions to save device settings</source>
@@ -125,8 +112,7 @@
     </message>
     <message>
         <source>PIN Code (Examples: 0000, 1234, or none)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PIN kod (Primjeri: 0000, 1234, ili nijedan)</translation>
     </message>
     <message>
         <source>Link Key (Leave blank for automatic)</source>
@@ -135,8 +121,7 @@
     </message>
     <message>
         <source>Device Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracija uređaja</translation>
     </message>
     <message>
         <source>Invalid Pin length: Defaulting to none</source>
@@ -160,18 +145,15 @@
     </message>
     <message>
         <source>New Bluetooth Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo Bluetooth ime</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravno ime</translation>
     </message>
     <message>
         <source>Device name must not contain symbols</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime uređaja ne smije sadržavati simbole</translation>
     </message>
 </context>
 </TS>

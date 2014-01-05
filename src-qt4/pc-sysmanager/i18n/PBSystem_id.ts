@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Create diagnostic sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Buat lembar diagnostik</translation>
     </message>
 </context>
 <context>

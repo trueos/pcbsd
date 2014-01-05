@@ -87,7 +87,8 @@
     </message>
     <message>
         <source>Create diagnostic sheet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

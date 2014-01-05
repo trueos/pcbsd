@@ -5,13 +5,11 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktivni direktorij</translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omogući aktivni direktorij</translation>
     </message>
     <message>
         <source>Domain Name (DNS/Realm-Name)</source>
@@ -35,33 +33,27 @@
     </message>
     <message>
         <source>Administrator Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime administratora</translation>
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lozinka administratora</translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lozinka administratora (potvrdi)</translation>
     </message>
     <message>
         <source>LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LDAP</translation>
     </message>
     <message>
         <source>Enable LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omogući LDAP</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime računala</translation>
     </message>
     <message>
         <source>Base DN</source>
@@ -125,18 +117,15 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Spremi</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zatvori</translation>
     </message>
     <message>
         <source>Active Directory Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracija aktivnog direktorija</translation>
     </message>
     <message>
         <source>The Active Directory passwords specified do not match!</source>

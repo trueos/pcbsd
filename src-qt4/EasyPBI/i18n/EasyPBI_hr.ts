@@ -66,13 +66,11 @@
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj dodatni FREEBSD port</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni dodatni FREEBDS port</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
@@ -81,8 +79,7 @@
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zahtjeva administratorske dozvole za instalaciju ovog PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
@@ -91,18 +88,15 @@
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi trenutne postavke u PBI konfiguracijsku datoteku</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi konfiguraciju</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resursi</translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
@@ -111,8 +105,7 @@
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trenutni resursi</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
@@ -126,18 +119,15 @@
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj datoteku</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbriši izabranu datoteku iz PBI modula</translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbriši datoteku</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
@@ -156,23 +146,19 @@
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi skriptu</translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona resursa</translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opis resursa</translation>
     </message>
     <message>
         <source>XDG Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG unosi</translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
@@ -181,23 +167,19 @@
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi i uredi unose radne površine</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Radna površina</translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi i uredi unose izbornika</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbornik</translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
@@ -206,28 +188,23 @@
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbriši trenutnu stavku iz PBI modula</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pojedinosti unosa</translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vidljivo ime za stavku</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvršna</translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
@@ -251,8 +228,7 @@
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moguće kategorije izbornika</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
@@ -261,8 +237,7 @@
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otvori u terminalu</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
@@ -271,13 +246,11 @@
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi nevidljivim</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MIME uzorci</translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
@@ -286,13 +259,11 @@
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi novu stavku sa trenutnim postavkama</translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skripte</translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
@@ -301,43 +272,35 @@
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odaberite skriptu koju želite napraviti ili urediti</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravite izabranu skriptu</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi</translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbriši izabranu skriptu iz PBI modula</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi trenutni tekst kao izabranu skriptu</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sadržaj za izabranu skriptu</translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vanjske-poveznice</translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
@@ -346,38 +309,31 @@
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trenutni unosi</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka</translation>
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poveznica prema</translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrsta datoteke</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni trenutno izabranu poveznicu</translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni unos</translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj unos</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
@@ -406,8 +362,7 @@
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi ovu poveznicu u PBI modul</translation>
     </message>
     <message>
         <source>Module Building</source>
@@ -466,23 +421,19 @@
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sustav</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcije</translation>
     </message>
     <message>
         <source>Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacija</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>alatna traka</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
@@ -506,23 +457,19 @@
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novi</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klikni za napraviti novi PBI modul</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učitaj</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klikni za učitavanje postojećeg modula</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -531,18 +478,15 @@
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licenca</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Povijest</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD portovi</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
@@ -551,13 +495,11 @@
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI moduli</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otvori PC-BSD Wiki stranicu za PBI razvijatelje</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
@@ -586,18 +528,15 @@
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NIjedan modul nije učitan</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalacijske skripte</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška dozvola</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
@@ -606,8 +545,7 @@
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resursi nedostupni</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
@@ -616,8 +554,7 @@
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uspjeh</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
@@ -646,8 +583,7 @@
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izabrani port</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
@@ -656,13 +592,11 @@
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI konfiguracijska datoteka se ne može spremiti.Molim provjerite vaše datotečne dozvole prije nego pokušate ponovno.</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberite resurse</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
@@ -671,18 +605,15 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datotečno ime</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ne mogu ukloniti XDG unos.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provjeri dozvole datoteke i pokušaj ponovno</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
@@ -691,28 +622,23 @@
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška pri spremanju datoteke</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ne mogu spremiti skriptu</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim provjerite dozvole datoteke i pokušajte ponovno</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravne PBI postavke</translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
@@ -761,8 +687,7 @@
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategorija</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
@@ -771,8 +696,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -786,8 +710,7 @@
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Osvježi modul</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -801,13 +724,11 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/Paket</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi drugi FreeBSD paket</translation>
     </message>
     <message>
         <source>Change</source>
@@ -846,13 +767,11 @@
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrsta programa</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategorija programa</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
@@ -861,13 +780,11 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL ikone</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
@@ -886,8 +803,7 @@
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prioritet</translation>
     </message>
     <message>
         <source>No TMPFS</source>
@@ -911,13 +827,11 @@
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi novi PBI modul</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učitaj postojeći PBI modul</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
@@ -926,13 +840,11 @@
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI konfiguracija (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ne mogu napraviti XDG unos.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
@@ -954,13 +866,11 @@
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi novi modul</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Port</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
@@ -974,8 +884,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
@@ -984,23 +893,19 @@
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberite lokalnu PNG datoteke (preporučena veličina 64x64 piksela)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka ikone</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi PNG ikonu</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG ikona (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1027,8 +932,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
@@ -1057,8 +961,7 @@
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokalne putanje</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
@@ -1067,8 +970,7 @@
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi lokalni direktorij za PBI module.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
@@ -1077,8 +979,7 @@
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi lokalni direktorij.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
@@ -1137,8 +1038,7 @@
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi PBI izlazni direktorij</translation>
     </message>
     <message>
         <source>Select Digital Signature File</source>
@@ -1167,8 +1067,7 @@
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG slike (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
@@ -1212,18 +1111,15 @@
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moduli</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resursi</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zadana ikona</translation>
     </message>
 </context>
 <context>
@@ -1235,13 +1131,11 @@
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Licenca</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Povijest razvoja</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
@@ -1250,8 +1144,7 @@
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napavi PBI-je brzo i lako.</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
@@ -1268,43 +1161,35 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi paket</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traži</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupni paketi</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otkaži</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prihvati</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema dostupnih paketa</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traženje završeno</translation>
     </message>
     <message>
         <source>No package found with that term</source>

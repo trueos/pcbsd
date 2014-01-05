@@ -5,8 +5,7 @@
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Potvrdi promjene paketa</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
@@ -15,21 +14,18 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;U redu</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Otkaži</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupna ažuriranja</translation>
     </message>
     <message>
         <source>System Package Manager</source>
@@ -38,53 +34,43 @@
     </message>
     <message>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj / Ukloni pakete</translation>
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketi sustava</translation>
     </message>
     <message>
         <source>Package Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacija o paketu</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opis</translation>
     </message>
     <message>
         <source>10 MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 MB</translation>
     </message>
     <message>
         <source>My Package 1.0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moj paket 1.0</translation>
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>http://www.pcbsd.org</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcije</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Primjeni</translation>
     </message>
     <message>
         <source>Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriranja paketa</translation>
     </message>
     <message>
         <source>Re&amp;scan packages</source>
@@ -93,83 +79,67 @@
     </message>
     <message>
         <source>&amp;Update packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ažuriraj pakete</translation>
     </message>
     <message>
         <source>Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paket</translation>
     </message>
     <message>
         <source>Old Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stara inačica</translation>
     </message>
     <message>
         <source>New Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nova inačica</translation>
     </message>
     <message>
         <source>Installing updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaliram ažuriranja</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zatvori</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Datoteka</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Pogled</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Isključi</translation>
     </message>
     <message>
         <source>&amp;Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Osnovno</translation>
     </message>
     <message>
         <source>&amp;Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Napredno</translation>
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provjeravam za ažuriranja</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriranja paketa (%1)</translation>
     </message>
     <message>
         <source>Available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupna ažuriranja</translation>
     </message>
     <message>
         <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema dostupnih ažuriranja</translation>
     </message>
     <message>
         <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poćinjem ažuriranja paketa...</translation>
     </message>
     <message>
         <source>required by:</source>
@@ -193,13 +163,11 @@
     </message>
     <message>
         <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuziman pakete...</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neuspjeh!</translation>
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
@@ -208,8 +176,7 @@
     </message>
     <message>
         <source>Finished!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Završeno!</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
@@ -218,8 +185,7 @@
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učitavam... Molim pričekajte...</translation>
     </message>
     <message>
         <source>No changes</source>
@@ -233,8 +199,7 @@
     </message>
     <message>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slijedeći paketi će biti uklonjeni:</translation>
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
@@ -243,8 +208,7 @@
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slijedeći paketi će biti instalirani:</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
@@ -278,23 +242,19 @@
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimam: %1</translation>
     </message>
     <message>
         <source>Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zavisnosti</translation>
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nađi pakete</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traži</translation>
     </message>
     <message>
         <source>No Search Results</source>
@@ -328,13 +288,11 @@
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NIje moguće provjeriti ažuriranja paketa!</translation>
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimam</translation>
     </message>
 </context>
 </TS>
