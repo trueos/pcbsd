@@ -5,9 +5,9 @@ PBIModule::PBIModule(){
     // 10.x PBI format: 12/5/13
   version = "10.x (12/5/13)";
   //pbi.conf values
-  CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON" \
+  CTextValues << "PBI_PROGNAME" << "PBI_PROGWEB" << "PBI_PROGAUTHOR" << "PBI_PROGICON"  << "PBI_PROGVERSION" \
 		<< "PBI_LICENSE" << "PBI_TAGS" << "PBI_PROGTYPE" << "PBI_ICONURL" << "PBI_CATEGORY" \
-		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" << "PBI_MAKEOPTS" << "PBI_PROGVERSION";
+		<< "PBI_MAKEPORT" << "PBI_MKPORTAFTER" << "PBI_MKPORTBEFORE" << "PBI_MAKEOPTS";
   CBoolValues << "PBI_REQUIRESROOT" << "PBI_AB_NOTMPFS" << "PBI_AB_NOPKGBUILD";
   CIntValues << "PBI_BUILDKEY" << "PBI_PROGREVISION" << "PBI_AB_PRIORITY";
   //Valid Scripts
@@ -157,7 +157,7 @@ bool PBIModule::saveConfig(){
         //special check for PBI_MAKEPORT format validity
         if(CTextValues[i]=="PBI_MAKEPORT" && val.endsWith("/")){ val.chop(1); } //Make sure there is 
       line.append( val ); 
-    }
+    }else if( CTextValues[i] == "PBI_PROGVERSION" ){ continue; } //do not write an empty value for progversion
     line.append("\""); //close out the quotes
     contents << line;
   }
