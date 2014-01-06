@@ -5,33 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Postavke upravitelja prijave</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samoprijava</translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omogući samoprijavu</translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samoprijava korisnika</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Udaljena prijava</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi</translation>
     </message>
     <message>
         <source>Password Request</source>
@@ -40,43 +34,35 @@
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite lozinku prijave za ovoga korisnika</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omogući udaljenu radnu površinu (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ostalo</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omogući gumb &quot;pokaži lozinku&quot;</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite lozinku udaljene prijave</translation>
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nedostaje konfiguracijaska datoteka</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCDM konfiguracijska datoteka ne može biti nađena: %1</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj program će se sada zatvoriti</translation>
     </message>
 </context>
 </TS>

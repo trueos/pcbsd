@@ -5,41 +5,34 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kapacitet diska sustava</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Točka montiranja</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datotečni sustav</translation>
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Korišteno/Ukupno</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Postotak %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zatvori</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk(ovi) gotovo pun</translation>
     </message>
 </context>
 <context>
@@ -51,63 +44,51 @@
     </message>
     <message>
         <source>Eject</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbaci</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montiraj</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uspjeh</translation>
     </message>
     <message>
         <source>%1 mounted at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 montiran na %2</translation>
     </message>
     <message>
         <source>Error mounting %1 at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška pri montiranju %1 na %2</translation>
     </message>
     <message>
         <source>Error mounting %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška pri montiranju %1</translation>
     </message>
     <message>
         <source>Could not create mount point at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ne mogu napraviti točku montiranja na %1</translation>
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 je uspješno odmontiran.</translation>
     </message>
     <message>
         <source>It is now safe to remove the device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sada je sigurno ukloniti uređaj</translation>
     </message>
     <message>
         <source>Error: %1 could not be unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška: %1 se ne može odmontirati</translation>
     </message>
     <message>
         <source>%1 of disk space available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 prostora diska je dostupno</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montiram na %1</translation>
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
@@ -116,13 +97,11 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uređaj je zauzet</translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izgleda da je uređaj zauzet. Želite li ga ipak odmontirati?</translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
@@ -155,13 +134,11 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>New Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novi uređaj</translation>
     </message>
     <message>
         <source>%1 can now be accessed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 se sada može pristupiti</translation>
     </message>
     <message>
         <source>Rescan Devices</source>
@@ -170,8 +147,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim pričekajte</translation>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
@@ -180,33 +156,27 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Više opcija</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pogledaj upotrebu diska</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promjeni postavke</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učtaj ISO datoteku</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi ISO datoteku</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO datoteke (*.iso)</translation>
     </message>
 </context>
 <context>
@@ -223,8 +193,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provjeri obavijesti uređaja</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
@@ -233,13 +202,11 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otkaži</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Primjeni</translation>
     </message>
 </context>
 </TS>

@@ -790,8 +790,7 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux Jail (Verwenden von Linux in einer Jail) - Experimentell!</translation>
     </message>
 </context>
 </TS>

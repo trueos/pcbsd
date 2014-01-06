@@ -136,7 +136,7 @@
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation>AppCafe©</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>

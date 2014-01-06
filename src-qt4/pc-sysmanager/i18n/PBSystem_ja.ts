@@ -83,6 +83,11 @@
         <source>Edge (Packages updated frequently - For testing and development)</source>
         <translation>最先端 (パッケージは頻繁に更新されます - テスターと開発者向け)</translation>
     </message>
+    <message>
+        <source>Create diagnostic sheet</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>

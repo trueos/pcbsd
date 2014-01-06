@@ -673,8 +673,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte wählen Sie den Datenträger oder die Partition auf die Sie installieren möchten. Bitte beachten Sie, dass Sie entweder eine gesamten Datenträger oder eine primäre Partition auswählen müssen, die wenigstens 20GB für eine Installation als Server oder 50GB für eine Installation als Desktop haben.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
@@ -686,8 +685,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die originalen Datenmengen / Einhängpunkte des Systems werden automatisch wiederhergestellt werden.</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
@@ -801,8 +799,7 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diese Assistenz wird Sie durch den Prozess der Wiederherstellung Ihres Systems aus einer Datensicherung von einem Life-Preserver führen. Klicken Sie weiter, um zu beginnen. </translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
@@ -826,54 +823,45 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wenn Sie Ihren Schlüssel zum Life-Preserver auf einem USB-Stick gespeichert haben, wählen Sie ihn unten, anderenfalls möchten Sie vielleicht Passwortauthentifikation nutzen.</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server-Authentifikation</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wähle Sie den USB-Schlüssel</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wählen Sie die Passwortauthentifikation</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die folgenden Systeme sind auf diesem Server gesichert. Wählen Sie dasjenige aus, welches Sie wiederherstellen möchten.</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Auswahl der Systeme zur Wiederherstellung</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zusammenfassung der Wiederherstellung</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Das System ist fertig, um wiederhergestellt zu werden. Klicken Sie Fertig um fortzufahren.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keine Schlüssel gefunden!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Es kann auf dem Speicher-Stick keine Schlüssel zur Authentifikation gefunden werden!
+Bitte versuchen Sie es mit einem anderen USB-Stick oder verwenden Sie Passwortauthentifikation.</translation>
     </message>
     <message>
         <source>Connection failed!</source>
@@ -893,18 +881,15 @@ Bitte überprüfen Sie, ob der Server erreichbar ist.</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wird wiederhergestellt von:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wählen Sie den SSH-Schlüssel um ihn zu verwenden</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datei des Schlüssels:</translation>
     </message>
 </context>
 </TS>

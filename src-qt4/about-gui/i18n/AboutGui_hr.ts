@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>O</translation>
+        <translation>O progranu</translation>
     </message>
     <message>
         <source>Version:</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation>Komponente sustava:</translation>
+        <translation>Komponente sustava...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>

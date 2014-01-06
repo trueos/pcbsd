@@ -83,6 +83,10 @@
         <source>Edge (Packages updated frequently - For testing and development)</source>
         <translation>Edge (Paket sering diperbaharui - Untuk mencoba dan pembangunan)</translation>
     </message>
+    <message>
+        <source>Create diagnostic sheet</source>
+        <translation>Buat lembar diagnostik</translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>

@@ -86,12 +86,17 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Create diagnostic sheet</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PortsnapProgress</name>
     <message>
         <source>Portsnap Progress</source>
-        <translation>Portsnap Napredak</translation>
+        <translation>Portsnap napredak</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -123,8 +128,7 @@
     </message>
     <message>
         <source>Downloading FreeBSD sources...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimam FreeBSD izvore...</translation>
     </message>
 </context>
 <context>

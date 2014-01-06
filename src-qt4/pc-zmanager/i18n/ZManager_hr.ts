@@ -5,8 +5,7 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dijalog</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
@@ -20,13 +19,11 @@
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrijednost</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvor</translation>
     </message>
     <message>
         <source>Add user property</source>
@@ -35,8 +32,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
@@ -434,13 +430,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Dodano]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Izmjenjeno]</translation>
     </message>
     <message>
         <source>User property</source>
@@ -449,8 +443,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbornik uređaja</translation>
     </message>
     <message>
         <source>Add new user property</source>
@@ -467,41 +460,34 @@ Read ZFS manual for more information.</source>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dijalog</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uređaj koji treba montirati:</translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Uređaj)</translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lokacija montiranja:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi direktorij</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dijalog</translation>
     </message>
     <message>
         <source>Pool name:</source>
@@ -510,8 +496,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Read only</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samo čitanje</translation>
     </message>
     <message>
         <source>Change altroot:</source>
@@ -523,13 +508,11 @@ Read ZFS manual for more information.</source>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dijalog</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izabrani</translation>
     </message>
     <message>
         <source>Pool name:</source>
@@ -538,8 +521,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrsta konfiguracije:</translation>
     </message>
     <message>
         <source>Striped</source>
@@ -548,8 +530,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zrcalo</translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
@@ -593,21 +574,18 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mora izabrati točno %1 uređaja</translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mora izabrati najmanje jedan uređaj</translation>
     </message>
 </context>
 <context>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj particiju</translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
@@ -616,33 +594,27 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 GB</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uređaj:</translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ada0</translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Najveći dostupni slobodni blok:</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukupna veličina:</translation>
     </message>
     <message>
         <source>Current layout:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trenutni raspored:</translation>
     </message>
     <message>
         <source>Designation</source>
@@ -661,18 +633,15 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veličina</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Boja</translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veličina nove particije:</translation>
     </message>
     <message>
         <source>bytes</source>
@@ -681,43 +650,35 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TB</translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrsta particije:</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-zfs</translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-ufs</translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd</translation>
     </message>
     <message>
         <source>freebsd-boot</source>
@@ -726,8 +687,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-swap</translation>
     </message>
     <message>
         <source>bios-boot</source>
@@ -736,8 +696,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>efi</translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
@@ -751,8 +710,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema slobodnog prostora!</translation>
     </message>
 </context>
 <context>
@@ -769,8 +727,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrijednost</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
@@ -943,13 +900,11 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novi datotečni sustav</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime:</translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
@@ -963,8 +918,7 @@ crash dump.
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Točka montiranja</translation>
     </message>
     <message>
         <source>none</source>
@@ -978,8 +932,7 @@ crash dump.
     </message>
     <message>
         <source>[path]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[putanja]</translation>
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
@@ -1038,71 +991,58 @@ crash dump.
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip</translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-1</translation>
     </message>
     <message>
         <source>gzip-2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-2</translation>
     </message>
     <message>
         <source>gzip-3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-3</translation>
     </message>
     <message>
         <source>gzip-4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-4</translation>
     </message>
     <message>
         <source>gzip-5</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-5</translation>
     </message>
     <message>
         <source>gzip-6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-6</translation>
     </message>
     <message>
         <source>gzip-7</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-7</translation>
     </message>
     <message>
         <source>gzip-8</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-8</translation>
     </message>
     <message>
         <source>gzip-9</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-9</translation>
     </message>
 </context>
 <context>
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD upravitelj diskom</translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diskovi</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uređaj</translation>
     </message>
     <message>
         <source>State</source>
@@ -1121,8 +1061,7 @@ crash dump.
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status:</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1141,23 +1080,19 @@ crash dump.
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS datotečni sustavi</translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datotečni sustavi</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Osvježavam...</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
@@ -1171,13 +1106,11 @@ crash dump.
     </message>
     <message>
         <source>Avaliable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupno</translation>
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema diska</translation>
     </message>
     <message>
         <source>ZPool: </source>
@@ -1191,23 +1124,19 @@ crash dump.
     </message>
     <message>
         <source>Mounted: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montiran: </translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupno</translation>
     </message>
     <message>
         <source>Unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odmontiran</translation>
     </message>
     <message>
         <source>Partitioned</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Particioniran</translation>
     </message>
     <message>
         <source>(Exported)
@@ -1223,13 +1152,11 @@ crash dump.
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvanmrežno</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mrežno</translation>
     </message>
     <message>
         <source>Degraded</source>
@@ -1243,18 +1170,15 @@ crash dump.
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uklonjen</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nedostupan</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepoznat</translation>
     </message>
     <message>
         <source>Create new pool</source>
@@ -1273,8 +1197,7 @@ crash dump.
     </message>
     <message>
         <source>Add devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj uređaje...</translation>
     </message>
     <message>
         <source>Add log devices...</source>
@@ -1313,8 +1236,7 @@ crash dump.
     </message>
     <message>
         <source>Properties...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Svojstva...</translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
@@ -1338,8 +1260,7 @@ crash dump.
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <source>zpool Menu</source>
@@ -1348,38 +1269,31 @@ crash dump.
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>izbornik uređaja</translation>
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odmontiraj</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montiraj</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi MBR particijsku tablicu</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi GPT particijsku tablicu</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi BSD particijsku tablicu</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbriši particijsku tablicu</translation>
     </message>
     <message>
         <source>Add new slice</source>
@@ -1388,8 +1302,7 @@ crash dump.
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj novu particiju</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
@@ -1398,13 +1311,11 @@ crash dump.
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uništi ovu particiju</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Upozorenje</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
@@ -1424,8 +1335,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Važne informacije</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
@@ -1485,13 +1395,11 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Montiran]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Nije montiran]</translation>
     </message>
     <message>
         <source> of </source>
@@ -1540,18 +1448,15 @@ OK to proceed with recovery?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uredi svojstva</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zfs izbornik</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Potvrda</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>

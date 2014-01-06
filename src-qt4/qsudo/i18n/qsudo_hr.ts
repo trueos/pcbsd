@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite vašu korisničku lozinku da biste pokrenuli ovu naredbu sa dozvolama sustava</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
@@ -15,13 +14,11 @@
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pristup odbijen</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj korisnik nema administratorske dozvole na ovom sustavu!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>

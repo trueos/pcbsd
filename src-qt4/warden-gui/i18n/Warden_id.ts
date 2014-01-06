@@ -147,8 +147,7 @@
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ketika parameter ini diatur, pengguna diperlakukan istimewa, dan memungkinkan untuk memanipulasi subjek flag file sistem ke kendala biasa pada kern.securelevel.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
@@ -176,7 +175,7 @@
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation>Hal ini memungkinkan akses ke tumpukan protokol lain yang tidak memiliki fungsi Jail yang ditambahkan.</translation>
+        <translation>Hal ini memungkinkan akses ke tumpukan protokol lain yang tidak memiliki fungsi jail yang ditambahkan.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>

@@ -93,23 +93,19 @@
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Započinjem ažuriranja: %1 (%2 od %3)</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimam: %1 (Ažuriranje %2 od %3)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriram: %1 (%2 od %3)</translation>
     </message>
     <message>
         <source>System Upgrade: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nadogradnja sustava: %1 (%2)</translation>
     </message>
     <message>
         <source>Patch: %1 (%2)</source>
@@ -122,8 +118,7 @@
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Došlo je do nepoznate greške!</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
@@ -132,38 +127,31 @@
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;instaliral izabrana ažuriranja</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Zatvori</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupna su ažuriranja sustava!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pojedinosti ažuriranja</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriranja osnovnog sustava</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slijedeće će datoteke biti ažurirane:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pojedinosti ažuriranja:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>

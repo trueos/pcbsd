@@ -279,8 +279,7 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proxy omogućen</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>

@@ -20,8 +20,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>
@@ -30,8 +29,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <source>Make a copy of the selected boot environment</source>
@@ -40,8 +38,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Rename the currently selected boot environment</source>
@@ -55,8 +52,7 @@
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zadano</translation>
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
@@ -65,13 +61,11 @@
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prikaži GRUB izbornik tijekom odbrojavanja</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka</translation>
     </message>
     <message>
         <source>Emergency Services</source>
@@ -90,8 +84,7 @@
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime</translation>
     </message>
     <message>
         <source>Running</source>
@@ -100,28 +93,23 @@
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Mountpoints</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Točke montiranja</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prostor</translation>
     </message>
     <message>
         <source>GRUB Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB konfiguracija</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Postavke</translation>
     </message>
     <message>
         <source>Timer</source>
@@ -130,23 +118,19 @@
     </message>
     <message>
         <source> seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> sekunda</translation>
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka fonta</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka fonta koju će koristiti GRUB</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberite font za GRUB</translation>
     </message>
     <message>
         <source>Show Timer Countdown</source>
@@ -155,33 +139,27 @@
     </message>
     <message>
         <source>Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka teme</translation>
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka teme koju će koristiti GRUB</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberite temu za GRUB</translation>
     </message>
     <message>
         <source>Save the current settings configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi konfiguraciju trentnih postavki</translation>
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ponovno učitajte GRUB postavke</translation>
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prilagođeni unosi</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
@@ -195,13 +173,11 @@
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zatvori</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravno ime</translation>
     </message>
     <message>
         <source>A Boot Environment with that name already exists, please choose a different one.</source>
@@ -210,8 +186,7 @@
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Radim</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
@@ -220,8 +195,7 @@
     </message>
     <message>
         <source>New BE name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo BE ime</translation>
     </message>
     <message>
         <source>Choose a name for the new boot environment</source>
@@ -270,23 +244,19 @@
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izabrite GRUB datoteku teme</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka teme (theme.txt)</translation>
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberite GRUB datoteku fonta</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DAtoteka fonta (*.pf2)</translation>
     </message>
     <message>
         <source>Rebuilding GRUB menu system. Please wait.</source>
@@ -295,8 +265,7 @@
     </message>
     <message>
         <source>Unsaved Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nespremljene promjene</translation>
     </message>
     <message>
         <source>You currently have unsaved changes in the GRUB configuration. Do you want to quit anyway?</source>

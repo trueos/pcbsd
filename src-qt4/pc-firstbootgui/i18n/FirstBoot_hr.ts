@@ -77,18 +77,15 @@
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promjeni jezik instalacije</translation>
     </message>
     <message>
         <source>Set the system timezone</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Postavi vremensku zonu sustava</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prikaži pomoć za trenutni zaslon</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
@@ -112,51 +109,42 @@
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unesi valjano ima računala ili ostavi zadano.</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite ima računala</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ima računala može sadržavati samo slova i brojeve</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the system language you wish to use.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj zaslon vam sopušta da izaberete jezik sustava koji želite koristiti.</translation>
     </message>
     <message>
         <source>This screen lets you pick the default timezone for your computer.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj zaslon vam dopušta odabit zadane vremenske zone za ovo računalo.</translation>
     </message>
     <message>
         <source>On this screen please enter the root password you wish to use. This password is used for full system access, and should be something secure.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na ovaj zaslon unesite korjensku lozinku koju želite koristiti.Ova lozinka se koristi za potpuni pristup sustavu, i trebala bi biti nešto sigurno.</translation>
     </message>
     <message>
         <source>On this screen you will need to create a user to log into your desktop. Additional users may be created in the Control Panel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na ovom zaslonu morate napraviti korisnika za prijavu na vašu radnu površinu. Dodatni korisnici se mogu napraviti u Kontrolnoj ploči.</translation>
     </message>
     <message>
         <source>On this screen you may connect to an available wifi network. If you have a hidden network, it may be added later in the Network Manager.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Na ovom zaslonu se možete spojiti na dostupne wifi mreže.Ako imate skrivenu mrežu, ona može biti kasnije dodana u Mrežni upravitelj.</translation>
     </message>
     <message>
         <source>The computer setup is now finished! Click Finish to log into your new Desktop.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Postavljanjr računala je završeno! Kliknite na Završeno za prijavu na vašu novu Radnu površinu.    </translation>
     </message>
 </context>
 <context>

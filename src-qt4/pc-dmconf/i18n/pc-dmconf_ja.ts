@@ -53,18 +53,15 @@
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定ファイルがありません</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCDM の設定ファイル %1 が見つかりません。</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このアプリケーションを終了します。</translation>
     </message>
 </context>
 </TS>
