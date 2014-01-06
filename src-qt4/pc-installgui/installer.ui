@@ -199,7 +199,7 @@ background: transparent;</string>
                 <string notr="true">background-color: rgb(238, 238, 238);</string>
                </property>
                <property name="text">
-                <string>Load config from USB</string>
+                <string>&amp;Load config from USB</string>
                </property>
                <property name="icon">
                 <iconset resource="sysinstaller.qrc">
@@ -796,7 +796,7 @@ background: transparent;</string>
                   <string notr="true">background-color: rgb(238, 238, 238);</string>
                  </property>
                  <property name="text">
-                  <string>Save Config to USB</string>
+                  <string>&amp;Save Config to USB</string>
                  </property>
                  <property name="icon">
                   <iconset resource="sysinstaller.qrc">
@@ -1104,7 +1104,7 @@ background: transparent;</string>
                 <string notr="true">background-color: rgb(238, 238, 238);</string>
                </property>
                <property name="text">
-                <string>Save Config to USB</string>
+                <string>&amp;Save Config to USB</string>
                </property>
                <property name="icon">
                 <iconset resource="sysinstaller.qrc">
