@@ -30,7 +30,7 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     connect(pushSaveConfig, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
     connect(pushSaveConfig2, SIGNAL(clicked()), this, SLOT(slotSaveConfigUSB()));
 
-    abortButton->setText(tr("&Cancel"));
+    //abortButton->setText(tr("&Cancel"));
     backButton->setText(tr("&Back"));
     nextButton->setText(tr("&Next"));
 
