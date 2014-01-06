@@ -148,18 +148,23 @@ bool PBIModule::saveConfig(){
   contents << "#!/bin/sh";
   contents << "# "+version+" PBI Build Configuration";
   contents << "# Generated using EasyPBI\n";
-	
+  QStringList exportVariables;
   //Text Values
   for(int i=0; i<CTextValues.length(); i++){
-    QString line = CTextValues[i]+"=\"";
+    //Only set the variable if appropriate
     if(HASH.contains(CTextValues[i])){ 
+      QString line = CTextValues[i]+"=\"";
       QString val = HASH[CTextValues[i]].toString();
+      if(!val.isEmpty()){
         //special check for PBI_MAKEPORT format validity
         if(CTextValues[i]=="PBI_MAKEPORT" && val.endsWith("/")){ val.chop(1); } //Make sure there is 
-      line.append( val ); 
-    }else if( CTextValues[i] == "PBI_PROGVERSION" ){ continue; } //do not write an empty value for progversion
-    line.append("\""); //close out the quotes
-    contents << line;
+        line.append( val ); 
+	exportVariables << CTextValues[i]; //Make sure this variable is exported
+        line.append("\""); //close out the quotes
+        contents << line; //add this variable to the file
+      }
+    }
+    
   }
   //Boolian Values
   for(int i=0; i<CBoolValues.length(); i++){
@@ -167,6 +172,7 @@ bool PBIModule::saveConfig(){
     if(HASH.contains(CBoolValues[i]) && HASH[CBoolValues[i]].toBool() ){ line.append("YES"); }
     else{ line.append("NO"); }
     line.append("\""); //close out the quotes
+    exportVariables << CBoolValues[i];
     contents << line;
   }
   //Integer Values
@@ -176,12 +182,13 @@ bool PBIModule::saveConfig(){
     if(HASH.contains(CIntValues[i])){ val= HASH[CIntValues[i]].toInt(); }
     if(val > 0){ line.append( QString::number(val) ); } //only enter the value if greater than zero
     line.append("\""); //close out the quotes
+    exportVariables << CIntValues[i];
     contents << line;
   }
   
   //Export Line
   contents << "";
-  contents << "export "+CTextValues.join(" ")+" "+CBoolValues.join(" ")+" "+CIntValues.join(" ");
+  contents << "export "+exportVariables.join(" ");
   
   //Create the File
   bool ok = createFile(fileName, contents);
