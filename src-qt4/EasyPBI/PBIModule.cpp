@@ -181,7 +181,7 @@ bool PBIModule::saveConfig(){
     int val=-1;
     if(HASH.contains(CIntValues[i])){ val= HASH[CIntValues[i]].toInt(); }
     if(val > 0){ //only enter the value if greater than zero
-      line.append( QString::number(val) ); } 
+      line.append( QString::number(val) );
       line.append("\""); //close out the quotes
       exportVariables << CIntValues[i];
       contents << line;
