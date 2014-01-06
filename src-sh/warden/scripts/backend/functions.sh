@@ -799,15 +799,36 @@ tar xvf pkg.txz --exclude +MANIFEST --exclude +MTREE_DIRS 2>/dev/null
 pkg add pkg.txz
 rm pkg.txz
 
-echo "packagesite: pkg+http://pkg.cdn.pcbsd.org/${release}/${arch}" >/usr/local/etc/pkg.conf
-echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
-echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+# Create the pkg.conf file
+echo "PKG_CACHEDIR: /usr/local/tmp
+repos_dir: [
+                \"/usr/local/etc/pkg/repos\"
+           ]" > /usr/local/etc/pkg.conf
 
+# Create the repo dirs
+mkdir -p /usr/local/etc/pkg/repos 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
+
+# Save the repo configuration file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+# Save the fingerprint file
+echo "function: sha256
+fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+
+pkg update
 pkg install -y pcbsd-utils
 pc-extractoverlay ports
 
 exit $?
 __EOF__
+
 }
 
 make_bootstrap_pkgng_file_pluginjail()
@@ -832,9 +853,30 @@ rm pkg.txz
 
 mount -t devfs devfs /dev
 
-echo "packagesite: pkg+http://pkg.cdn.pcbsd.org/${release}/${arch}" >/usr/local/etc/pkg.conf
-echo "PUBKEY: /usr/local/etc/pkg-pubkey.cert" >>/usr/local/etc/pkg.conf
-echo "PKG_CACHEDIR: /usr/local/tmp" >>/usr/local/etc/pkg.conf
+# Create the pkg.conf file
+echo "PKG_CACHEDIR: /usr/local/tmp
+repos_dir: [ 
+                \"/usr/local/etc/pkg/repos\"
+           ]" > /usr/local/etc/pkg.conf
+
+# Create the repo dirs
+mkdir -p /usr/local/etc/pkg/repos 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/trusted 2>/dev/null
+mkdir -p /usr/local/etc/pkg/fingerprints/pcbsd/revoked 2>/dev/null
+
+# Save the repo configuration file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/${release}/${arch}\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf
+
+# Save the fingerprint file
+echo "function: sha256
+fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
+
+pkg update
 pkg install -y pcbsd-utils
 __EOF__
 

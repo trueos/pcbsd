@@ -7,74 +7,6 @@
 
 PCBSD_ETCCONF="/usr/local/etc/pcbsd.conf"
 
-download_cache_packages()
-{
-  if [ ! -e "/usr/local/etc/pkg.conf" ] ; then
-    exit_err "No /usr/local/etc/pkg.conf!"
-  fi
-
-  # Tickle pkg update first
-  pkg-static update
-  local ARCH="`uname -m`"
-
-  ${1} > /tmp/.pkgUpList.$$
-
-  while read line
-  do
-     lTag=`echo $line | awk '{print $1}'` 
-     case $lTag in
-    Upgrading|Downgrading) pkgList="`echo $line | awk '{print $2}' | sed 's|:||g'`-`echo $line | awk '{print $5}'`.txz $pkgList" ;;
- Reinstalling) pkgList="`echo $line | awk '{print $2}'`.txz $pkgList" ;;
-   Installing) pkgList="`echo $line | awk '{print $2}' | sed 's|:||g'`-`echo $line | awk '{print $3}'`.txz $pkgList" ;;
-                    *) continue ;;
-     esac
-
-  done < /tmp/.pkgUpList.$$
-  rm /tmp/.pkgUpList.$$
-
-  # Get the PKG_CACHEDIR
-  PKG_CACHEDIR="/var/cache/pkg"
-  cat /usr/local/etc/pkg.conf | grep -q "^PKG_CACHEDIR:"
-  if [ $? -eq 0 ] ; then
-    PKG_CACHEDIR="`grep '^PKG_CACHEDIR:' /usr/local/etc/pkg.conf | awk '{print $2}'`"
-  fi
-  if [ -z "$PKG_CACHEDIR" ] ; then
-     exit_err "Failed getting PKG_CACHEDIR"
-  fi
-  export PKG_CACHEDIR
-
-  # Where are the packages on our mirrors?
-  cat /usr/local/etc/pkg.conf | grep -q "^packagesite:"
-  if [ $? -ne 0 ] ; then
-     exit_err "Failed getting packagesite:"
-  fi
-  pkgUrl="`grep '^packagesite:' /usr/local/etc/pkg.conf | awk '{print $2}' | sed 's|pkg+||g'`"
-
-  if [ ! -d "$PKG_CACHEDIR/All" ] ; then
-     mkdir -p ${PKG_CACHEDIR}/All
-  fi
-
-  for i in $pkgList
-  do
-    # Does the package already exist?
-    if [ -e "${PKG_CACHEDIR}/All/${i}" ] ; then 
-	# Once bapt gives us a working rquery string, we can add a check here to skip
-	# re-downloading already valid files
-	#pName=`echo $i | sed 's|.txz$||g'`
-	# Check the sizes
-	#eSize=`pkg rquery "%sb" $pName`
-	#dSize=`ls -al `
-	#rm ${PKG_CACHEDIR}/All/${i} ; 
-    fi
-    get_file "${pkgUrl}/All/${i}" "${PKG_CACHEDIR}/All/${i}"
-    if [ $? -ne 0 ] ; then
-      echo "Failed downloading: ${pkgUrl}/All/${i}"
-      return 1
-    fi
-  done
-  return 0
-}
-
 get_mirror() {
 
   # Check if we already looked up a mirror we can keep using
@@ -520,9 +452,13 @@ check_ip()
 
 check_pkg_conflicts()
 {
+
+  if [ -z "$EVENT_PIPE" ] ; then unset EVENT_PIPE ; fi
+
   # Lets test if we have any conflicts
   pkg-static ${1} 2>/tmp/.pkgConflicts.$$ >/tmp/.pkgConflicts.$$
   if [ $? -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+
  
   # Found conflicts, suprise suprise, yet another reason I hate packages
   # Lets start building a list of the old packages we can prompt to remove
@@ -531,6 +467,15 @@ check_pkg_conflicts()
   cat /tmp/.pkgConflicts.$$ | grep 'WARNING: locally installed' \
 	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' | sort | uniq \
 	> /tmp/.pkgConflicts.$$.2
+
+  # Check how many conflicts we found
+  found=`wc -l /tmp/.pkgConflicts.$$.2 | awk '{print $1}'`
+  if [ "$found" = "0" ] ; then
+     rm /tmp/.pkgConflicts.$$
+     rm /tmp/.pkgConflicts.$$.2
+     return 0
+  fi
+
   while read line
   do
     cList="$line $cList"
@@ -569,7 +514,21 @@ check_pkg_conflicts()
   do
      # Nuked!
      echo "Removing conflicting package: $bPkg"
+
+     # If EVENT_PIPE is set, unset it, seems to cause some weird crash in pkgng 1.2.3
+     if [ -n "$EVENT_PIPE" ] ; then
+        oEP="$EVENT_PIPE"
+        unset EVENT_PIPE
+     fi
+
+     # Delete the package now
      pkg delete -q -y -f ${bPkg}
+
+     # Reset EVENT_PIPE if we need to
+     if [ -n "$oEP" ] ; then
+        EVENT_PIPE="$oEP"; export EVENT_PIPE
+        unset oEP
+     fi
   done
 
   # Lets test if we still have any conflicts

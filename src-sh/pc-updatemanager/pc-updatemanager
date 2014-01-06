@@ -427,17 +427,12 @@ finish_major_fbsd_update() {
      read tmp
   fi
 
-  # Lets pre-download all packages
-  echo "Downloading updated packages..."
-  download_cache_packages "pkg-static upgrade -fn"
-  if [ $? -ne 0 ] ; then
-     echo "Warning: Failed running 'pkg-static upgrade -fn'"
-     echo "Press ENTER to continue"
-     read tmp
+  # Remove this, causes all kinds of havok during the update
+  if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
+    mv /etc/pkg/FreeBSD.conf /etc/pkg/FreeBSD.conf.dist
   fi
 
   # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
-  SKIP_CACHE_PKGS="YES" ; export SKIP_CACHE_PKGS
   pc-updatemanager pkgupdate -f
   if [ $? -ne 0 ] ; then
      echo "Warning: Failed running 'pc-updatemanager pkgupdate -f'"
@@ -589,12 +584,10 @@ update_pkgs()
      exit_err "Invalid option $1 passed"
   fi
 
-  # If we aren't instructed to skip the package cache process
-  if [ -z "$SKIP_CACHE_PKGS" ] ; then
-    # Lets pre-download all the packages
-    download_cache_packages "pkg-static upgrade -U -n $1"
-  fi
+  # Update the DB first
+  pkg-static update -f
 
+  # Look for conflicts
   check_pkg_conflicts "upgrade -FUy $1"
   if [ $? -ne 0 ] ; then
      exit 1

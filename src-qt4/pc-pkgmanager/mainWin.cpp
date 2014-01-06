@@ -225,6 +225,9 @@ void mainWin::checkMPKGUpdates() {
   while(p.state() == QProcess::Starting || p.state() == QProcess::Running)
      QCoreApplication::processEvents();
 
+  if ( p.exitCode() != 0 )
+    QMessageBox::warning(this, tr("Package Check"), tr("Unable to check for package updates!"));
+
   while (p.canReadLine()) {
     line = p.readLine().simplified();
     qDebug() << line;
@@ -352,11 +355,29 @@ void mainWin::startPkgProcess() {
   } 
 
   qDebug() << cmd + " " + flags.join(" ");
-  
+
+  system("rm /tmp/pkg-fifo 2>/dev/null");
+
+  // Create the EVENT_PIPE
+  if ( wDir.isEmpty() )
+    system("mkfifo /tmp/pkg-fifo ; sleep 1");
+  else
+    system("mkfifo " + wDir.toLatin1() + "/tmp/pkg-fifo ; sleep 1");
+
+  // Open and connect the EVENT_PIPE
+  eP = new QProcess();
+  eP->setProcessChannelMode(QProcess::MergedChannels);
+  connect( eP, SIGNAL(readyRead()), this, SLOT(slotReadEventPipe()) );
+  connect( eP, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotReadEventPipe()) );
+  eP->start(QString("cat"), QStringList() << "-u" << wDir + "/tmp/pkg-fifo");
+  qDebug() << "Starting EVENT_PIPE";
+  eP->waitForStarted();
+
   // Setup the first process
   uProc = new QProcess();
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   env.insert("PCFETCHGUI", "YES");
+  env.insert("EVENT_PIPE", "/tmp/pkg-fifo");
   uProc->setProcessEnvironment(env);
   uProc->setProcessChannelMode(QProcess::MergedChannels);
 
@@ -526,6 +547,11 @@ void mainWin::slotPkgDone() {
 
   if ( uProc->exitCode() != 0 )
     pkgHasFailed=true;
+
+  // Close the event pipe
+  eP->kill();
+  qDebug() << "Stopping EVENT_PIPE";
+  system("rm " + wDir.toLatin1() + "/tmp/pkg-fifo");
 
   // Run the next command on the stack if necessary
   if (  pkgCmdList.size() > 1 ) {
@@ -923,11 +949,23 @@ void mainWin::slotStartNGChanges()
          
   pCmds.clear();
 
+  // Adding packages
   if ( ! pkgAddList.isEmpty() ) {
+
+    // Look for conflicts first
+    if ( wDir.isEmpty() )
+      pCmds << "pc-pkg" << "check-conflict" << pkgAddList.join(" ");
+    else
+      pCmds << "chroot" << wDir << "pc-pkg" << "check-conflict" << pkgAddList.join(" ");
+    pkgCmdList << pCmds;
+    pCmds.clear();
+
+    // Now spin up the install process
     if ( wDir.isEmpty() )
       pCmds << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
     else
       pCmds << "chroot" << wDir << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+
     pkgCmdList << pCmds;
   }
 
@@ -1201,11 +1239,13 @@ QString mainWin::getAddPkgs()
 	  for (int z=0; z < metaPkgList.count(); ++z)
 	    // See if any packages status have changed
 	    if ( ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "NO" && (*it)->checkState(0) == Qt::Checked ) || \
-	         ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "NO" && (*it)->checkState(0) == Qt::PartiallyChecked ) )
-		if ( tmp.isEmpty() )
+	         ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "NO" && (*it)->checkState(0) == Qt::PartiallyChecked ) ){
+		if ( tmp.isEmpty() ){
 			tmp = (*it)->text(0);
-		else
+		}else{
 			tmp = tmp + "," + (*it)->text(0);
+		}
+	    }
          ++it;
         }
 
@@ -1219,11 +1259,13 @@ QString mainWin::getDelPkgs()
         while (*it) {
 	  for (int z=0; z < metaPkgList.count(); ++z)
 	    // See if any packages status have changed
-	    if ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "YES" && (*it)->checkState(0) == Qt::Unchecked )
-		if ( tmp.isEmpty() )
+	    if ( (*it)->text(0) == metaPkgList.at(z).at(0) && metaPkgList.at(z).at(5) == "YES" && (*it)->checkState(0) == Qt::Unchecked ) {
+		if ( tmp.isEmpty() ){
 			tmp = (*it)->text(0);
-		else
+		}else{
 			tmp = tmp + "," + (*it)->text(0);
+		}
+	    }
          ++it;
         }
 
@@ -1247,21 +1289,24 @@ void mainWin::slotDeskPkgsChanged(QTreeWidgetItem *aItem, int __unused)
         disconnect(treeMetaPkgs, SIGNAL(itemChanged(QTreeWidgetItem *, int)), 0, 0);
 
 	if (aItem->childCount() == 0) {
-		if (aItem->checkState(0) == Qt::Checked && aItem->parent() )
-			if ( allChildrenPkgsChecked(aItem->parent()->text(0)))
+		if (aItem->checkState(0) == Qt::Checked && aItem->parent() ){
+			if ( allChildrenPkgsChecked(aItem->parent()->text(0))){
 				aItem->parent()->setCheckState(0, Qt::Checked);	
-			else
+			}else{
 				aItem->parent()->setCheckState(0, Qt::PartiallyChecked);	
-		if (aItem->checkState(0) == Qt::Unchecked && aItem->parent() )
+			}
+		}
+		if (aItem->checkState(0) == Qt::Unchecked && aItem->parent() ){
 			if ( ! allChildrenPkgsUnchecked(aItem->parent()->text(0)))
 				aItem->parent()->setCheckState(0, Qt::PartiallyChecked);	
-
+		}
 
 	} else {
-		if (aItem->checkState(0) == Qt::Checked )
+		if (aItem->checkState(0) == Qt::Checked ){
 			checkAllChildrenPkgs(aItem->text(0));
-		else
+		}else{
 			uncheckAllChildrenPkgs(aItem->text(0));
+		}
 	}
 	
 
@@ -1467,3 +1512,59 @@ void mainWin::closeEvent(QCloseEvent *event) {
   }
 }
 
+
+void mainWin::slotReadEventPipe()
+{
+   QString line, tmp, file, dl, tot;
+   bool ok, ok2;
+
+   while (eP->canReadLine()) {
+     line = eP->readLine().simplified();
+     //qDebug() << line;
+
+     // KPM!!
+     // TODO 12-12-2013
+     // No JSON in Qt4, once we move to Qt5, replace this hack
+     // with the new JSON parser
+
+     // Look for any "msg" lines
+     if ( line.indexOf("\"msg") != -1 ) {
+          line.remove(0, line.indexOf("\"msg") + 8);
+          line.truncate(line.lastIndexOf("\""));
+	  qDebug() << line;
+	  textStatus->setText(line);
+	  continue;
+     }
+
+     // Look for a download status update
+     if ( line.indexOf("\"INFO_FETCH") != -1 && line.indexOf("\"url\"") != -1 ) {
+          line.remove(0, line.indexOf("\"url") + 8);
+          line.truncate(line.lastIndexOf("}"));
+
+          // Get the file basename
+          file = line;
+          file.truncate(line.indexOf("\""));
+          QFileInfo tFile;
+          tFile.setFile(file);
+          file = tFile.baseName();
+
+          // Get the download / total
+          dl = line.section(":", 2, 2).section(",", 0, 0);
+          tot = line.section(":", 3, 3).section("}", 0, 0);
+          dl = dl.simplified();
+          tot = tot.simplified();
+
+          dl.toLongLong(&ok);
+          tot.toLongLong(&ok2);
+          if ( ok && ok2) {
+            progressUpdate->setRange(0, tot.toLongLong(&ok) / 1024);
+            progressUpdate->setValue(dl.toLongLong(&ok) / 1024 );
+          }
+
+          // Set the status update
+	  textStatus->setText(tr("Downloading") + " " + file + " (" + dl + " / " + tot + ")" );
+     }
+
+   } // End of while canReadLine()
+
+}
