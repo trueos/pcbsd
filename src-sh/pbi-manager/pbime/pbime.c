@@ -89,6 +89,9 @@ main(int argc, char *argv[])
 	if (chdir(newchroot) == -1 || chroot(".") == -1)
                 err(1, "Could not chroot to: %s", newchroot);
 
+	if (chdir(argv[4]) == -1 )
+                err(1, "Could not chdir to: %s", argv[4]);
+
 	/* Get the user name in the jail */
 	jusername = getpwuid(huid);
 	if (jusername == NULL || strcmp(husername->pw_name, jusername->pw_name) != 0)
@@ -96,8 +99,9 @@ main(int argc, char *argv[])
 	//if (chdir("/") == -1)
 	//	err(1, "chdir(): /");
 	lcap = login_getpwclass(jusername);
-	if (lcap = NULL)
-		err(1, "getpwclass: %s", jusername);
+	if (lcap == NULL) {
+	  err(1, "getpwclass: %s", jusername->pw_name);
+        }
 	ngroups = NGROUPS;
 	if (getgrouplist(jusername->pw_name, jusername->pw_gid, groups, &ngroups) != 0)	
 		err(1, "getgrouplist: %s", jusername->pw_name);
@@ -109,7 +113,7 @@ main(int argc, char *argv[])
 	    LOGIN_SETALL & ~LOGIN_SETGROUP & ~LOGIN_SETLOGIN) != 0)
 		err(1, "setusercontext");
 	login_close(lcap);
-	if (execvp(argv[3], argv + 3) == -1)
+	if (execvp(argv[3], argv + 4) == -1)
 		err(1, "execvp(): %s", argv[3]);
 	exit(0);
 }

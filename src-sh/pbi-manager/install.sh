@@ -111,6 +111,9 @@ if [ `uname -m` = "amd64" ] ; then
   chown root:wheel pbiwrapper 
   chmod 644 pbiwrapper
   mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-i386
+  if [ "${LB}" = "/usr/local" ] ; then
+     install -o root -g wheel -m 755 ${LB}/share/pbi-manager/.pbiwrapper-i386 /usr/pbi/.pbi-wrapper-i386
+  fi
 else
   touch ${LB}/share/pbi-manager/.pbiwrapper-amd64
 fi
@@ -126,6 +129,9 @@ make install DEFINES=""
 chown root:wheel pbiwrapper 
 chmod 644 pbiwrapper
 mv pbiwrapper ${LB}/share/pbi-manager/.pbiwrapper-`uname -m`
+if [ "${LB}" = "/usr/local" ] ; then
+   install -o root -g wheel -m 755 ${LB}/share/pbi-manager/.pbiwrapper-`uname -m` /usr/pbi/.pbi-wrapper-`uname -m`
+fi
 
 # Install the pbime wrapper
 cd ${DIR}/pbime && make
