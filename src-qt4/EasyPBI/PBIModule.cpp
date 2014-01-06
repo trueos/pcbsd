@@ -180,10 +180,12 @@ bool PBIModule::saveConfig(){
     QString line = CIntValues[i]+"=\"";
     int val=-1;
     if(HASH.contains(CIntValues[i])){ val= HASH[CIntValues[i]].toInt(); }
-    if(val > 0){ line.append( QString::number(val) ); } //only enter the value if greater than zero
-    line.append("\""); //close out the quotes
-    exportVariables << CIntValues[i];
-    contents << line;
+    if(val > 0){ //only enter the value if greater than zero
+      line.append( QString::number(val) ); } 
+      line.append("\""); //close out the quotes
+      exportVariables << CIntValues[i];
+      contents << line;
+    }
   }
   
   //Export Line
