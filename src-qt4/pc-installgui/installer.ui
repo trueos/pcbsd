@@ -1196,14 +1196,8 @@ background: transparent;</string>
         <widget class="QPushButton" name="pushHardware">
          <property name="minimumSize">
           <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
+           <width>0</width>
+           <height>0</height>
           </size>
          </property>
          <property name="toolTip">
