@@ -151,8 +151,7 @@ If you cancel now the packages may be corrupted. Cancel anyway?</source>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pogledaj pakete</translation>
     </message>
     <message>
         <source>Package Listing for:</source>

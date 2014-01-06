@@ -189,8 +189,7 @@
     </message>
     <message>
         <source>No changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema promjena</translation>
     </message>
     <message>
         <source>No changes to make!</source>
@@ -212,8 +211,7 @@
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slijedeće zavisnosti će također biti instalirane:</translation>
     </message>
     <message>
         <source>Confirm package changes</source>
@@ -258,8 +256,7 @@
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema rezultate pretraživanja</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>

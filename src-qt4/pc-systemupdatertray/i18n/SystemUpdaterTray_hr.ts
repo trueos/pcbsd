@@ -97,23 +97,19 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupna su ažuriranja paketa</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Važna ažuriranja paketa su dostupna. Kliknite ovdje da biste ih instalirali!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokreni Upravitelja paketima</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupna su ažuriranja paketa</translation>
     </message>
 </context>
 </TS>

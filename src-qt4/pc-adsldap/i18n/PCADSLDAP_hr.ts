@@ -18,8 +18,7 @@
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NetBIOS ime</translation>
     </message>
     <message>
         <source>Workgroup Name</source>

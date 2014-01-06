@@ -122,13 +122,11 @@
     </message>
     <message>
         <source>Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka fonta</translation>
     </message>
     <message>
         <source>Font file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka fonta koju će koristiti GRUB</translation>
     </message>
     <message>
         <source>Select a font file for GRUB</source>
@@ -145,8 +143,7 @@
     </message>
     <message>
         <source>Theme file for GRUB to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka teme koju će koristiti GRUB</translation>
     </message>
     <message>
         <source>Select a theme file for GRUB</source>
@@ -158,8 +155,7 @@
     </message>
     <message>
         <source>Re-load the GRUB settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ponovno učitajte GRUB postavke</translation>
     </message>
     <message>
         <source>Custom Entries</source>
@@ -190,8 +186,7 @@
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Radim</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
@@ -249,8 +244,7 @@
     </message>
     <message>
         <source>Select a GRUB Theme File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izabrite GRUB datoteku teme</translation>
     </message>
     <message>
         <source>Theme File (theme.txt)</source>
@@ -258,8 +252,7 @@
     </message>
     <message>
         <source>Select a GRUB Font File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberite GRUB datoteku fonta</translation>
     </message>
     <message>
         <source>Font File (*.pf2)</source>

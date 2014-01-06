@@ -10,8 +10,7 @@
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracija</translation>
     </message>
     <message>
         <source>Post-Install Actions</source>
@@ -20,13 +19,11 @@
     </message>
     <message>
         <source>Create Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi ikona radne površine</translation>
     </message>
     <message>
         <source>Create Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Napravi ikone izbornika</translation>
     </message>
     <message>
         <source>Register File Associations</source>
@@ -45,66 +42,55 @@
     </message>
     <message>
         <source>Download Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direktorij preuzimanja</translation>
     </message>
     <message>
         <source>Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direktorij preuzimanja</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repozitoriji</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Repository Mirrors</source>
-        <translation type="unfinished">Zrcala Repozitorija</translation>
+        <translation>Zrcala repozitorija</translation>
     </message>
     <message>
         <source>Move Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pomakni gore</translation>
     </message>
     <message>
         <source>Move Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pomakni dolje                         </translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj PBI repozitorij</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka repozitorija (*.rpo)</translation>
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repozitorij uspješno dodan</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj repozitorij bi trebao biti spreman za upotrebu za kratko vrijeme ( ovisno o vašoj internetskoj brzini)</translation>
     </message>
     <message>
         <source>Repo Failure</source>
@@ -113,8 +99,7 @@
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj repozitorij ne može biti dodan.</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
@@ -128,8 +113,7 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeste li sigurni da želite ukloniti ovaj PBI repozitorij?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
@@ -138,8 +122,7 @@
     </message>
     <message>
         <source>New Mirror URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL novog zrcala</translation>
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
@@ -158,32 +141,30 @@
     </message>
     <message>
         <source>Select Download Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi direktorij preuzimanja</translation>
     </message>
 </context>
 <context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
-        <translation type="unfinished">AppCafe</translation>
+        <translation>AppCafe</translation>
     </message>
     <message>
         <source>Installed</source>
-        <translation type="unfinished">Instaliran</translation>
+        <translation>Instaliran</translation>
     </message>
     <message>
         <source>Program Name</source>
-        <translation type="unfinished">Ime Programa</translation>
+        <translation>Ime programa</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inačica</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">Stanje</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
@@ -192,8 +173,7 @@
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sve</translation>
     </message>
     <message>
         <source>Perform actions on checked applications</source>
@@ -207,26 +187,23 @@
     </message>
     <message>
         <source>Application Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pojedinosti programa</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">Verzija:</translation>
+        <translation>Inačica:</translation>
     </message>
     <message>
         <source>Author:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Autor:</translation>
     </message>
     <message>
         <source>License:</source>
-        <translation type="unfinished">Licenca:</translation>
+        <translation>Licenca:</translation>
     </message>
     <message>
         <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prečaci:</translation>
     </message>
     <message>
         <source>Cancel any actions for this application</source>
@@ -235,16 +212,15 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni izabrani program</translation>
     </message>
     <message>
         <source>Uninstall</source>
-        <translation type="unfinished">Deinstaliraj</translation>
+        <translation>Deinstaliraj</translation>
     </message>
     <message>
         <source>Update the application to the most recent version</source>
@@ -253,13 +229,11 @@
     </message>
     <message>
         <source>Update the selected application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriraj izabrani program</translation>
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriraj program</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
@@ -283,27 +257,23 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Osobna mapa</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategorija</translation>
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Program</translation>
     </message>
     <message>
         <source>Search Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traži ovdje</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">Traži</translation>
+        <translation>Traži</translation>
     </message>
     <message>
         <source>View Recent Additions</source>
@@ -312,32 +282,27 @@
     </message>
     <message>
         <source>Browse By Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pregledaj po kategoriji</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veličina:</translation>
     </message>
     <message>
         <source>Application Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informacije o programu</translation>
     </message>
     <message>
         <source>Platform:</source>
-        <translation type="unfinished">Platforma:</translation>
+        <translation>Platforma:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vrsta:</translation>
     </message>
     <message>
         <source>Similar Applications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slični programi</translation>
     </message>
     <message>
         <source>Best Matches</source>
@@ -346,37 +311,31 @@
     </message>
     <message>
         <source>Other Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ostali rezultati</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguriraj</translation>
     </message>
     <message>
         <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uvezi PBI listu</translation>
     </message>
     <message>
         <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvezi PBI listu</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">&amp;Zatvori</translation>
+        <translation>&amp;Zatvori</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Repozitoriji</translation>
     </message>
     <message>
         <source>AppCafe Settings</source>
@@ -385,7 +344,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">Greška!</translation>
+        <translation>Greška!</translation>
     </message>
     <message>
         <source>The AppCafe must be run as root when in Warden compatibility mode</source>
@@ -399,8 +358,7 @@
     </message>
     <message>
         <source>The user must also be a part of the &quot;operator&quot; group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>korisnik također mora biti dio &quot;operator&quot; grupe</translation>
     </message>
     <message>
         <source>AppCafe Processes Running</source>
@@ -419,13 +377,11 @@
     </message>
     <message>
         <source>PBI List (*.pbilist)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI lista (*.pbilist)</translation>
     </message>
     <message>
         <source>Import Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška uvoza</translation>
     </message>
     <message>
         <source>There was an error importing the PBI list</source>
@@ -444,8 +400,7 @@
     </message>
     <message>
         <source>Export Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Greška izvoza</translation>
     </message>
     <message>
         <source>There was an error exporting the PBI list</source>
@@ -459,32 +414,27 @@
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished">Ažuriraj</translation>
+        <translation>Ažuriraj</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikone radne površine</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni</translation>
     </message>
     <message>
         <source>Menu Icons</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikone izbornika</translation>
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj (svi korisnici)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -503,18 +453,15 @@
     </message>
     <message>
         <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Radna površina/izbornik</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Radna površina</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbornik</translation>
     </message>
     <message>
         <source>None</source>
@@ -528,23 +475,19 @@
     </message>
     <message>
         <source>Are you sure you wish to remove this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeste li sigurni da želite ukloniti ovaj program?</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeste li sigurni da želite ukloniti ove programe?</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepoznato</translation>
     </message>
     <message>
         <source>Install Now!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaliraj sada!</translation>
     </message>
     <message>
         <source>Downgrade</source>
@@ -563,28 +506,23 @@
     </message>
     <message>
         <source>Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalirano: %1</translation>
     </message>
     <message>
         <source>Available: %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dostupno: %2</translation>
     </message>
     <message>
         <source>Downloading file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimam datoteku:</translation>
     </message>
     <message>
         <source>Downloading %1 file:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimam %1 datoteku:</translation>
     </message>
     <message>
         <source>Start the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokreni program</translation>
     </message>
     <message>
         <source>Product Page</source>
@@ -598,26 +536,22 @@
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeste li sigurni da želite instalirati ovaj program?</translation>
     </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaliram</translation>
     </message>
     <message>
         <source>Removing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uklanjam</translation>
     </message>
     <message>
         <source>Updating</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriram</translation>
     </message>
     <message>
         <source>Pending Download</source>
@@ -646,33 +580,27 @@
     </message>
     <message>
         <source>Results:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rezultati:</translation>
     </message>
     <message>
         <source>Unavailable Apps: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nedostupni programi: %1</translation>
     </message>
     <message>
         <source>Currently Installed: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trenutno instalirani: %1</translation>
     </message>
     <message>
         <source>Import Results</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uvezi rezultate</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeste li sigurni da želite instalirati ove programe?</translation>
     </message>
     <message>
         <source>%1 Download Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Greška preuzimanja:</translation>
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>
@@ -681,8 +609,7 @@
     </message>
     <message>
         <source>%1 Update Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 Greška ažuriranja:</translation>
     </message>
     <message>
         <source>The update process experienced an error and could not be completed</source>
@@ -691,8 +618,7 @@
     </message>
     <message>
         <source>%1 Installation Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>% 1 Greška instaliranja:</translation>
     </message>
     <message>
         <source>The installation process experienced an error and could not be completed</source>
@@ -711,8 +637,7 @@
     </message>
     <message>
         <source>%1 PBI Error:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 PBI greška:</translation>
     </message>
     <message>
         <source>The process experienced an error and could not be completed</source>
@@ -721,28 +646,23 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepoznato</translation>
     </message>
     <message>
         <source>Download Canceled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimanje odgođeno</translation>
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Preuzimam: %1%</translation>
     </message>
     <message>
         <source>Download Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimanje završeno</translation>
     </message>
     <message>
         <source>Download Starting</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preuzimanje započeto</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
@@ -762,7 +682,7 @@
     <message>
         <source>Update Downloading: %1%</source>
         <translation type="unfinished">
-             {1%?}</translation>
+            </translation>
     </message>
     <message>
         <source>Starting Update</source>
@@ -771,21 +691,18 @@
     </message>
     <message>
         <source>Starting Download</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Započinjem preuzimanje</translation>
     </message>
     <message>
         <source>Update Available: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriranje dostupno: %1</translation>
     </message>
 </context>
 <context>
     <name>ProcessManager</name>
     <message>
         <source>Unknown Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepoznata greška</translation>
     </message>
 </context>
 </TS>

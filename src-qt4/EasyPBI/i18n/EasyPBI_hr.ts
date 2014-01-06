@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation>Autor programa (ili održavalac FreeBSD porta)</translation>
+        <translation>Autor programa (ili održavatelj FreeBSD porta)</translation>
     </message>
     <message>
         <source>Author</source>
@@ -254,8 +254,7 @@
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi stavku kao trenutno ptokazanu</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
@@ -381,8 +380,7 @@
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izlazni direktorij</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
@@ -437,13 +435,11 @@
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI postavke</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otvori EasyPBI uređivač postavki</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
@@ -473,8 +469,7 @@
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sažetak</translation>
     </message>
     <message>
         <source>License</source>
@@ -503,8 +498,7 @@
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zatvori EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
@@ -518,13 +512,11 @@
     </message>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pogledaj dodatne infornacije o EasyPBI</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
@@ -549,8 +541,7 @@
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neki vanjski resursi nisu mogli biti nađeni, pa su neki EasyPBI servisi koji koriste te resurse deaktivirani.</translation>
     </message>
     <message>
         <source>Success</source>
@@ -563,8 +554,7 @@
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Greška dozvola</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
@@ -573,8 +563,7 @@
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Nema FreeBSD portova</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
@@ -583,12 +572,11 @@
     </message>
     <message>
         <source>Select Port</source>
-        <translation>Izabrani port</translation>
+        <translation>Izaberi port</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI greška</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
@@ -732,8 +720,7 @@
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promjeni</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -742,8 +729,7 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj pakete</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>
@@ -912,13 +898,11 @@
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI osobitosti</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI izlazni direktorij</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
@@ -1126,8 +1110,7 @@
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O EasyPBI</translation>
     </message>
     <message>
         <source>License</source>
@@ -1139,8 +1122,7 @@
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI inačica %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
@@ -1148,8 +1130,7 @@
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nije moguće otvoriti datoteku resursa: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>

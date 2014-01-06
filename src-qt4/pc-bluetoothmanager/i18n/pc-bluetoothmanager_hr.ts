@@ -13,13 +13,11 @@
     </message>
     <message>
         <source>Computer/Device ID</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Računalo/ID uređaja</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promijeni</translation>
     </message>
     <message>
         <source>Devices Connected:</source>

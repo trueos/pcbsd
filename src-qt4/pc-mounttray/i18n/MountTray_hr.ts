@@ -5,8 +5,7 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kapacitet diska sustava</translation>
     </message>
     <message>
         <source>Mount Point</source>
@@ -194,8 +193,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provjeri obavijesti uređaja</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>

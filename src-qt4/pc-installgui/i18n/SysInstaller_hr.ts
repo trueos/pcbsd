@@ -129,23 +129,19 @@
     </message>
     <message>
         <source>System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Odabir sustava</translation>
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaliram pakete... Ovo može potrajati...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promijeni jezik instalacije</translation>
     </message>
     <message>
         <source>Customize the selected system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prilagodi izabrani sustav</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
@@ -154,29 +150,25 @@
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokreni tipkovnicu na zaslonu</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otkaži instalaciju</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TrueOS odabir paketa</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD odabir paketa</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaš sustav je sada instaliran!
+ Klikni Završi za ponovno podizanje sustava.Nakon ponovnog podizanja možete morati izbaciti instalacijski medij.</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -184,8 +176,7 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raspakiram sustav...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
@@ -194,8 +185,7 @@
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nije moguće sugerirati particiju za otkriveni disk.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
@@ -204,43 +194,35 @@
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>Izabrani disk / particija je manji od preporučenog %1GB. Instalacija možda ne uspije...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učitaj konfiguracijsku datoteku instalacije sa USB-a</translation>
     </message>
     <message>
         <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učitaj konfiguracijsku datoteku sa USB-a</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poslužitelj (TrueOS)</translation>
     </message>
     <message>
         <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spremi konfiguracijsku datoteku na USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovo će spremiti vašu instalacijsku konfiguraciju na MSDOSFS/FAT32 formatirani USB. Nastaviti?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite USB sada, i kliknite U redu za nastavak.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
@@ -254,18 +236,15 @@
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracija spremljena! Sada možete sigurno ukloniti USB medij.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovo će učitati konfiguracijsku datoteku instalacije na vašem MSDOSFS/FAT32 formatiranom USB-u. Nastaviti?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite USB sada, i kliknite U redu za nastavak.            </translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
@@ -274,18 +253,15 @@
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracija učitana! Sada možete sigurno ukloniti USB medij.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguracijska datoteka:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokrenuti instalaciju koristeći ovu konfiguracijsku datoteku?</translation>
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
@@ -294,8 +270,7 @@
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Upravlja mrežnim spajanjima</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
@@ -304,8 +279,7 @@
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izvorni ZFS raspored će biti obnovljen</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
@@ -314,14 +288,13 @@
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Započni obnavljanje sada?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaš sustav je sada obnovljen!
+Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbaciti instalacijski medij.</translation>
     </message>
     <message>
         <source>System Restore</source>
@@ -330,46 +303,38 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaš se sustav sada obnavlja, to može potrajati ovisno o veličini vaše sigurnosne kopije i mrežnih uvjeta.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instaliram meta-paket: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obnavljam sustav: %1</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj zaslon vam omogućava da izaberete jezik na kojem želite izvesti instalaciju.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj zaslon vam omogućava da izaberete vrstu sustava koji želite instalirati. Klik na prilagođeno će vam omogućiti da promjenite izabrane pakete za vaš sustav.</translation>
     </message>
     <message>
         <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovaj zaslon će prikazati trenutno odabrane opcije diska. Klik na prilagodi će vam omogućiti da promjenite ciljani disk, datotečne sustave i još više.</translation>
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaš se sustav instalira! Uzmite šalicu kave i opustite se, instalcijski program će vas obavijestiti kada bude gotov.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sustav je završio instalaciju! Klik na Završi za ponovno podizanje sustava, i budite sigurni da ste izbacili instalacijski medij prije nego podignete svoj novi sustav.</translation>
     </message>
 </context>
 <context>
@@ -408,8 +373,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim izaberite software za instalaciju. Nakon instalacije također možete dodati / ukloniti software pomoću Upravitelja paketima (desktop) ili &quot;pkg&quot; naredbe (poslužitelj).</translation>
     </message>
 </context>
 <context>
@@ -424,7 +388,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Video driver:</source>
-        <translation>Video pokretač:</translation>
+        <translation>Video upravljački program:</translation>
     </message>
     <message>
         <source>Video resolution:</source>
@@ -684,28 +648,23 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim odaberite 2 ili 4 dodatna pogona za raidz1</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim odaberite 3, 5, ili 9 dodatnih pogona za raidz2</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim odaberite 4, 6, ili 10 dodatnih pogona za raidz3</translation>
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unesite SWAP veličinu</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veličina (MB)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>
@@ -719,18 +678,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veličina swapa</translation>
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim izaberite disk ili particiju na koju želite instalirati.Morate izabrati cijeli disk ili primarnu particiju veličine najmanje 20GB za poslužitelj ili 50GB za desktop instalaciju. </translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
@@ -876,18 +832,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime računala</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Korisničko ime</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH Port</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
