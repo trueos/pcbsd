@@ -48,6 +48,7 @@ main(int argc, char *argv[])
 	char newchroot[2048];
 	char mountscript[4096];
 	int jid, ngroups;
+        int argoffset;
 	uid_t huid;
 	struct passwd *husername, *jusername;
 	gid_t groups[NGROUPS];
@@ -89,8 +90,11 @@ main(int argc, char *argv[])
 	if (chdir(newchroot) == -1 || chroot(".") == -1)
                 err(1, "Could not chroot to: %s", newchroot);
 
-	if (chdir(argv[4]) == -1 )
-                err(1, "Could not chdir to: %s", argv[4]);
+        argoffset=4;
+	if (chdir(argv[4]) == -1 ) {
+                // Running with old pbi wrapper
+                argoffset=3;
+        }
 
 	/* Get the user name in the jail */
 	jusername = getpwuid(huid);
@@ -113,7 +117,7 @@ main(int argc, char *argv[])
 	    LOGIN_SETALL & ~LOGIN_SETGROUP & ~LOGIN_SETLOGIN) != 0)
 		err(1, "setusercontext");
 	login_close(lcap);
-	if (execvp(argv[3], argv + 4) == -1)
+	if (execvp(argv[3], argv + argoffset) == -1)
 		err(1, "execvp(): %s", argv[3]);
 	exit(0);
 }
