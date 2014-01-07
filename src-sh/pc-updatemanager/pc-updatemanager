@@ -432,6 +432,15 @@ finish_major_fbsd_update() {
     mv /etc/pkg/FreeBSD.conf /etc/pkg/FreeBSD.conf.dist
   fi
 
+  clear
+  echo "Starting networking..."
+  echo ""
+  # Enable networking
+  /etc/rc.d/devfs restart
+  /etc/rc.d/netif restart
+  sleep 8
+  clear
+
   # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
   pc-updatemanager pkgupdate -f
   if [ $? -ne 0 ] ; then
@@ -443,7 +452,7 @@ finish_major_fbsd_update() {
   # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
   grub-mkconfig -o /boot/grub/grub.cfg
   if [ $? -ne 0 ] ; then
-     echo "Warning: Failed running 'pc-updatemanager pkgupdate -f'"
+     echo "Warning: Failed running 'grub-mkconfig -o /boot/grub/grub.cfg'"
      echo "Press ENTER to continue"
      read tmp
   fi
@@ -475,7 +484,7 @@ start_major_fbsd_update() {
        }" > /usr/local/etc/pkg/repos/pcbsd.conf
 
   # Lets backup old pkgng
-  oPkg=`pkg info pkg | awk '{print $1}'`
+  oPkg=`pkg info pkg | head -n 1 | awk '{print $1}'`
   pkg create -o /usr/local/tmp/ ${oPkg}
   if [ -e "/usr/local/tmp/oldPkg.txz" ] ; then rm /usr/local/tmp/oldPkg.txz; fi
   mv /usr/local/tmp/${oPkg}.txz /usr/local/tmp/oldPkg.txz
