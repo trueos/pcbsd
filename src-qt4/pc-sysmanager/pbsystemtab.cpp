@@ -25,8 +25,9 @@
 void PBSystemTab::ProgramInit()
 {
     //Grab the username
-    username = QString::fromLocal8Bit(getenv("SUDO_USER"));
-    qDebug() << "Username:" << username;
+    username = QString::fromLocal8Bit(getenv("SUDO_USER")); //since the app is always run as root with sudo
+    if(username.isEmpty()){ username = QString::fromLocal8Bit(getenv("LOGNAME")); } //in case SUDO_USER is not set
+    //qDebug() << "Username:" << username;
     // Set the Uname on the General Tab
     CheckUname();
     // Set the PC-BSD Version on the General Tab
@@ -147,7 +148,7 @@ void PBSystemTab::CreateSheetFile()
 	QStringList args;
 	args << SheetFileName;
 	args << username;
-	qDebug() << "CMD: " << prog+" "+args.join(" ");
+	//qDebug() << "CMD: " << prog+" "+args.join(" ");
 	connect( SheetGenScript, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(finishedSheet()) );
 		
 	SheetGenScript->start(prog, args);

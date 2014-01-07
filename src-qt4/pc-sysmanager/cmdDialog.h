@@ -5,7 +5,7 @@
 #include <QString>
 #include <QWidget>
 
-#include "gitprogress.h"
+#include "longProc.h"
 
 namespace Ui{
 	class CMDDialog;
@@ -21,12 +21,11 @@ public:
 
 private:
 	Ui::CMDDialog *ui;
-	gitProc *PROC;
-	bool initPorts, initSource; //to keep track if only the first step was running
+	LongProc *PROC;
 
 private slots:
 	void NewMessage(QString);
-	void Finished(bool);
+	void Finished();
 	void CloseUI();
 };
 #endif

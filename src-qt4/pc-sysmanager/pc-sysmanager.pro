@@ -8,18 +8,18 @@ LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 HEADERS	+= pbsystemtab.h \
-	gitprogress.h \
 	updaterDialog.h \
-	cmdDialog.h
+	cmdDialog.h \
+	longProc.h
 
 SOURCES	+= main.cpp \
 	pbsystemtab.cpp \
-	gitprogress.cpp \
 	updaterDialog.cpp \
-	cmdDialog.cpp
+	cmdDialog.cpp \
+	longProc.cpp
+	
 
 FORMS	= pbsystemtab.ui \
-	gitprogress.ui \
 	updaterDialog.ui \
 	cmdDialog.ui
 
