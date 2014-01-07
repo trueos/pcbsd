@@ -16,7 +16,7 @@
 #include <pcbsd-ui.h>
 #include "updaterDialog.h"
 #include "ui_pbsystemtab.h"
-#include "portsnapprogress.h"
+#include "cmdDialog.h"
 #include "../config.h"
 
 /* Change this to switch the default patch tmpdir */
@@ -75,7 +75,7 @@ private:
     QString SheetFileName;
     QProcess *GetPBVer;
     QProcess *GetUname;
-    PortsnapProgress *portsnapUI;
+    CMDDialog *portsnapUI;
     QString username;
     bool miscChanged;
     bool kernelChanged;
@@ -146,4 +146,3 @@ signals:
 
 } ;
 #endif // PBSYSTEMTAB_H
-

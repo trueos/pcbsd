@@ -25,7 +25,7 @@
 void PBSystemTab::ProgramInit()
 {
     //Grab the username
-    username = QString::fromLocal8Bit(getenv("SUDO_USER"));
+    username = QString::fromLocal8Bit(getenv("LOGNAME"));
     
     // Set the Uname on the General Tab
     CheckUname();
@@ -120,27 +120,29 @@ void PBSystemTab::ReadUname()
 void PBSystemTab::startGenerateSheet()
 {
     SheetFileName="";
-    qDebug() << "/usr/home/" + username + "/Desktop/pcbsd-diagnostic.txt",
-    SheetFileName = QFileDialog::getSaveFileName(
+        SheetFileName = QFileDialog::getSaveFileName(
                     this,
-                    tr("Create diagnostic sheet"),
-                    "/usr/home/" + username + "/Desktop/pcbsd-diagnostic.txt",
+                    "save file dialog",
+                    "/home/" + username + "/Desktop",
                     "Text File (*.txt)");
 	
-    if ( SheetFileName.isEmpty() )
-	return;
-
-    if ( SheetFileName.indexOf(".txt", 0) == -1)
-       SheetFileName.append(".txt");
-
-    if ( QFile::exists(SheetFileName ) )
-    {
-       int answer = QMessageBox::warning( this, "Overwrite File", "Overwrite " + SheetFileName + "?", "&Yes", "&No", QString::null, 1, 1 );
-       if ( answer != 0 )
-          return;
-    }
+      if ( ! SheetFileName.isEmpty() )
+     {
+	  if ( SheetFileName.indexOf(".txt", 0) == -1)
+	  {
+	      SheetFileName.append(".txt");
+	  }
+	if ( QFile::exists(SheetFileName ) )
+	{
+	    int answer = QMessageBox::warning( this, "Overwrite File", "Overwrite " + SheetFileName + "?", "&Yes", "&No", QString::null, 1, 1 );
+                   if ( answer == 0 ) {
+	      CreateSheetFile();		
+	    }
 	    
-    CreateSheetFile();  
+	} else {
+	    CreateSheetFile();  
+               }
+     }
 	
 
 }
@@ -149,11 +151,10 @@ void PBSystemTab::startGenerateSheet()
 void PBSystemTab::CreateSheetFile()
 {
     
-        qDebug() << "Creating diagnostic sheet";
     	SheetGenScript = new QProcess( this );
 	QString prog = PREFIX + "/share/pcbsd/scripts/GenDiagSheet.sh";
 	QStringList args;
-	args << SheetFileName << username;
+	args << SheetFileName;
 	connect( SheetGenScript, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(finishedSheet()) );
 		
 	SheetGenScript->start(prog, args);
@@ -208,15 +209,15 @@ bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 
 void PBSystemTab::fetchSourcePressed()
 {
-    portsnapUI = new PortsnapProgress();
-    portsnapUI->init(false, Version);
+    portsnapUI = new CMDDialog(this);
+    portsnapUI->start("source"); //Version not implemented yet
     portsnapUI->show();
 }
 
 void PBSystemTab::fetchPortsPressed()
 {
-    portsnapUI = new PortsnapProgress();
-    portsnapUI->init(true, Version);
+    portsnapUI = new CMDDialog(this);
+    portsnapUI->start("ports"); //Version not implemented yet
     portsnapUI->show();
 }
 

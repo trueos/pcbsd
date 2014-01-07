@@ -579,7 +579,7 @@
   <include location="local">qmessagebox.h</include>
   <include location="local">qfile.h</include>
   <include location="local">qsettings.h</include>
-  <include location="local">portsnapprogress.h</include>
+  <include location="local">gitprogress.h</include>
   <include location="global">qregexp.h</include>
   <include location="global">pcbsd-utils.h</include>
  </includes>
