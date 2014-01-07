@@ -78,6 +78,7 @@ void CMDDialog::Finished(bool ok){
     ui->textEdit->appendPlainText("\n=============\nProcess Completed Unsuccessfully");
     ui->push_close->setEnabled(true); //enabled the close button
   }else if(initPorts){
+    initPorts = false; //make sure it doesn't fall into this catch again
     //ports tree initialized successfully - start the fetch process
     ui->textEdit->appendPlainText("\n=============\nFetching the Ports Tree....");
     bool ok = PROC->startPorts();
@@ -86,6 +87,7 @@ void CMDDialog::Finished(bool ok){
       ui->push_close->setEnabled(true); //they can now close the window
     }
   }else if(initSource){
+    initSource = false; //make sure it doesn't fall into this catch again
     //Source tree initialized successfully - start the fetch process
     ui->textEdit->appendPlainText("\n=============\nFetching the Source Tree....");
     bool ok = PROC->startPorts();

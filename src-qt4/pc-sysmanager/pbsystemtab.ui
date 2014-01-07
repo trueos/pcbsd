@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>417</height>
+    <width>467</width>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_7">
        <item row="0" column="0">
-        <layout class="QHBoxLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <spacer name="spacer7">
            <property name="orientation">
@@ -434,17 +434,10 @@
             <item>
              <widget class="QPushButton" name="fetchSourceBut">
               <property name="text">
-               <string>Fetch &amp;System Source</string>
+               <string>Fetch PC-BSD &amp;System Source</string>
               </property>
               <property name="shortcut">
                <string>Alt+S</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="fetchPortsBut">
-              <property name="text">
-               <string>Fetch P&amp;orts Tree</string>
               </property>
              </widget>
             </item>
@@ -463,10 +456,34 @@
             </item>
            </layout>
           </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QPushButton" name="fetchPortsBut">
+              <property name="text">
+               <string>Fetch PC-BSD P&amp;orts Tree</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="4" column="0">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -543,7 +560,7 @@
          <property name="title">
           <string>Package Set</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout">
+         <layout class="QGridLayout" name="gridLayout_20">
           <item row="0" column="0">
            <widget class="QRadioButton" name="radioProduction">
             <property name="text">
