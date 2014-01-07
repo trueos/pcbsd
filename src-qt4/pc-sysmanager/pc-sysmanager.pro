@@ -7,13 +7,21 @@ LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 
 INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
-HEADERS	+= pbsystemtab.h gitprogress.h updaterDialog.h cmdDialog.h
+HEADERS	+= pbsystemtab.h \
+	gitprogress.h \
+	updaterDialog.h \
+	cmdDialog.h
 
-SOURCES	+= main.cpp pbsystemtab.cpp gitprogress.cpp updaterDialog.cpp cmdDialog.cpp
+SOURCES	+= main.cpp \
+	pbsystemtab.cpp \
+	gitprogress.cpp \
+	updaterDialog.cpp \
+	cmdDialog.cpp
 
 FORMS	= pbsystemtab.ui \
 	gitprogress.ui \
-	updaterDialog.ui
+	updaterDialog.ui \
+	cmdDialog.ui
 
 RESOURCES = PBSystem.qrc 
 

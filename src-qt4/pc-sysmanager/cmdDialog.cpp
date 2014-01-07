@@ -69,11 +69,11 @@ void CMDDialog::start(QString cmdtype){
 }
 
 // =====================
-void NewMessage(QString msg){
+void CMDDialog::NewMessage(QString msg){
   ui->textEdit->appendPlainText("\n"+msg); //make sure it is on the next line each time	
 }
 
-void Finished(bool ok){
+void CMDDialog::Finished(bool ok){
   if(!ok){
     ui->textEdit->appendPlainText("\n=============\nProcess Completed Unsuccessfully");
     ui->push_close->setEnabled(true); //enabled the close button
@@ -98,6 +98,6 @@ void Finished(bool ok){
   }
 }
 
-void CloseUI(){
+void CMDDialog::CloseUI(){
   this->close();
 }
