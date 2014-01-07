@@ -25,8 +25,8 @@
 void PBSystemTab::ProgramInit()
 {
     //Grab the username
-    username = QString::fromLocal8Bit(getenv("LOGNAME"));
-    
+    username = QString::fromLocal8Bit(getenv("SUDO_USER"));
+    qDebug() << "Username:" << username;
     // Set the Uname on the General Tab
     CheckUname();
     // Set the PC-BSD Version on the General Tab
@@ -96,21 +96,7 @@ void PBSystemTab::CheckPBVer()
   QString utilsqt4 = pcbsd::Utils::runShellCommand("pkg info -f pcbsd-utils-qt4").filter("Version").join("").section(":",1,1).simplified();
   if(utilsqt4.isEmpty()){ utilsqt4 ="UNKNOWN"; }
   label_pcbsdgutils->setText(utilsqt4);
-  /*
- QStringList out = pcbsd::Utils::runShellCommand(QString("pkg info -f pcbsd-base");
- if (out.size()) {
-   for (int i=0; i<out.size(); i++)
-   {
-     if (out[i].contains("Version"))
-     {
-         pcVer = out[i];
-         pcVer.replace("Version        : ","");
-         labelPCBSD->setText(pcVer);
-         break;
-     }
-   }
- }
- */
+
   //Save the system architecture internally
  Arch = getLineFromCommandOutput("uname -m");
  
@@ -135,38 +121,33 @@ void PBSystemTab::startGenerateSheet()
         SheetFileName = QFileDialog::getSaveFileName(
                     this,
                     "save file dialog",
-                    "/home/" + username + "/Desktop",
+                    "/home/" + username + "/Desktop/systemDiagnostic.txt",
                     "Text File (*.txt)");
 	
-      if ( ! SheetFileName.isEmpty() )
-     {
-	  if ( SheetFileName.indexOf(".txt", 0) == -1)
-	  {
-	      SheetFileName.append(".txt");
-	  }
-	if ( QFile::exists(SheetFileName ) )
-	{
+      if ( ! SheetFileName.isEmpty() ){
+        if ( !SheetFileName.endsWith(".txt") ){ SheetFileName.append(".txt");  }
+	if ( QFile::exists(SheetFileName ) ){
 	    int answer = QMessageBox::warning( this, "Overwrite File", "Overwrite " + SheetFileName + "?", "&Yes", "&No", QString::null, 1, 1 );
                    if ( answer == 0 ) {
 	      CreateSheetFile();		
 	    }
-	    
 	} else {
 	    CreateSheetFile();  
-               }
+	}
      }
 	
-
 }
 
 
 void PBSystemTab::CreateSheetFile()
 {
-    
+	qDebug() << "Generating System Diagnostic Sheet";
     	SheetGenScript = new QProcess( this );
 	QString prog = PREFIX + "/share/pcbsd/scripts/GenDiagSheet.sh";
 	QStringList args;
 	args << SheetFileName;
+	args << username;
+	qDebug() << "CMD: " << prog+" "+args.join(" ");
 	connect( SheetGenScript, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(finishedSheet()) );
 		
 	SheetGenScript->start(prog, args);
@@ -175,11 +156,14 @@ void PBSystemTab::CreateSheetFile()
 
 void PBSystemTab::finishedSheet()
 {
-	ViewSheet = new QProcess( this );
-	QString prog = "kedit";
-	QStringList args;
-	args << SheetFileName;
-	ViewSheet->start(prog, args);
+	int exitcode = SheetGenScript->exitCode();
+	qDebug() << "Diagnostic Sheet Return Code:" << QString::number(exitcode);
+	if(exitcode != 0 || !QFile::exists(SheetFileName) ){
+	  QMessageBox::warning(this, tr("Error"), tr("Error Generating Diagnostic File"));
+	}else{
+	  QMessageBox::information(this, tr("Success"), QString(tr("Diagnostic File Created: %1")).arg(SheetFileName));
+	}
+		
 }
 
 

@@ -70,7 +70,6 @@ private:
     QString KernDefaultTag;
     QString KernTag[50];
     QString KernFileName[50];
-    QProcess *ViewSheet;
     QProcess *SheetGenScript;
     QString SheetFileName;
     QProcess *GetPBVer;
