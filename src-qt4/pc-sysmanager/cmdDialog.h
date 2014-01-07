@@ -18,7 +18,7 @@ public:
 	CMDDialog(QWidget *parent = 0);
 	~CMDDialog();
 
-	void start(QString cmdtype);
+	void start(QString cmdtype, QString branch = "");
 	bool isRunning();
 
 private:

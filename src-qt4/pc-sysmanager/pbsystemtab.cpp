@@ -212,7 +212,14 @@ void PBSystemTab::fetchSourcePressed()
     if(cmdDlg->isRunning() ){
       QMessageBox::warning(this, tr("Process Already Running"), tr("You already have a process running. Please wait for that one to finish first.") );
     }else{
-      cmdDlg->start("source"); //Version not implemented yet
+      //Get the current version branch of the source tree
+      QString version = pcbsd::Utils::runShellCommand("uname -r").join(" ");
+      QString branch;
+      if(version.contains("RELEASE")){ branch = "releng/"+version.section("-",0,0).simplified(); }
+      else if(version.contains("STABLE")){ branch = "stable/"+version.section("-",0,0).section(".",0,0).simplified(); }
+      else{ branch = "master"; } //CURRENT
+      
+      cmdDlg->start("source", branch); //Version not implemented yet
       cmdDlg->show();
     }
 }

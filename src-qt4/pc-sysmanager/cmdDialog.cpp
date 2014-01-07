@@ -16,7 +16,7 @@ CMDDialog::~CMDDialog(){
   delete PROC;	
 }
 
-void CMDDialog::start(QString cmdtype){
+void CMDDialog::start(QString cmdtype, QString branch){
   if(PROC->isRunning()){
     qDebug() << "ERROR: Process is already working: please wait until it is finished";
     return;
@@ -68,7 +68,7 @@ void CMDDialog::start(QString cmdtype){
     }
     //Now create the git update commands
     cmds << "git fetch --depth=1"; info << "Fetch new GIT info (this may take a while)"; dirs << "/usr/src/.git";
-    cmds << "git checkout master"; info << "Checkout the right version of the tree"; dirs << "/usr/src"; 
+    cmds << "git checkout "+branch; info << "Checkout the right version of the tree"; dirs << "/usr/src"; 
   }else{
     ui->textEdit->setPlainText("Unknown CMD Type: "+cmdtype);
     ui->push_close->setEnabled(true);
