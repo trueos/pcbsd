@@ -6,6 +6,10 @@ DATE="`date`"
 echo "PC-BSD $PCVER Diagnostic Sheet
 Generated: $DATE
 
+---------------PC-BSD Packages------------------------
+
+`pkg info 'pcbsd-*'`
+
 -----------------Dmesg Output-------------------------
 
 `dmesg`
