@@ -170,10 +170,6 @@
 Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib paigaldusmeedia eemaldada.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Katkesta</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Süsteemi lahtipakkimine...</translation>
     </message>
@@ -198,20 +194,12 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>Laadi paigaldamise sätete fail USB-mälupulgalt</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Laadi seadistus mälupulgalt</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Töölaud (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Server (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Salvesta seadistus USB-le</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -302,6 +290,14 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     <message>
         <source>Restoring system: %1</source>
         <translation>Süsteemi taastamine: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

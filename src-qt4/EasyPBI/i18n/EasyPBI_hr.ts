@@ -114,8 +114,7 @@
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopiraj dodatnu datoteku u PBI modul</translation>
     </message>
     <message>
         <source>Add File</source>
@@ -183,8 +182,7 @@
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Osvježi trenutnu listu (korisno ako su datoteke nedavno izmjenjene izvan EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
@@ -218,8 +216,7 @@
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vidljiva ikona za korištenje za stavku</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
@@ -485,8 +482,7 @@
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otvori freshports.org za dodatne informacije o portovima</translation>
     </message>
     <message>
         <source>PBI Modules</source>
@@ -502,8 +498,7 @@
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modul paketa</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -558,8 +553,7 @@
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ne mogu napraviti PBI modul. Molim provjerite dozvole direktorija i pokušajte ponovno.</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
@@ -670,8 +664,7 @@
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Počinjem stvarati novi XDG unos</translation>
     </message>
     <message>
         <source>Category</source>
@@ -761,8 +754,7 @@
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategorija gdje se ovaj program može naći</translation>
     </message>
     <message>
         <source>...</source>
@@ -911,8 +903,7 @@
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pregledaj lokalni sustav za odabir izlaznog PBI direktorija</translation>
     </message>
     <message>
         <source>Select</source>
@@ -925,13 +916,11 @@
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Digitalno potpiši PBI</translation>
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteka potpisa</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
@@ -967,8 +956,7 @@
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zadana PNG ikona koja se koristi za PBI module.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
@@ -1026,13 +1014,11 @@
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi datoteku digitalnog potpisa</translation>
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datoteke potpisa (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>

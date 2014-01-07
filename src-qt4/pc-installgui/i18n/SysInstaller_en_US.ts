@@ -25,11 +25,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="202"/>
-        <source>Load config from USB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../installer.ui" line="522"/>
         <source>Customize the selected system</source>
         <translation type="unfinished"></translation>
@@ -47,6 +42,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../installer.ui" line="202"/>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../installer.ui" line="478"/>
         <source>Restore from Life-Preserver backup</source>
         <translation type="unfinished"></translation>
@@ -54,6 +54,12 @@
     <message>
         <location filename="../installer.ui" line="684"/>
         <source>Disk Selection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../installer.ui" line="799"/>
+        <location filename="../installer.ui" line="1107"/>
+        <source>&amp;Save Config to USB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -73,48 +79,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1213"/>
+        <location filename="../installer.ui" line="1207"/>
         <source>Display hardware compatibility diagnostic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1236"/>
+        <location filename="../installer.ui" line="1230"/>
         <source>Manage network connectivity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1259"/>
+        <location filename="../installer.ui" line="1253"/>
         <source>Display help for the current screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1285"/>
+        <location filename="../installer.ui" line="1279"/>
         <source>Launch the on-screen keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1311"/>
+        <location filename="../installer.ui" line="1305"/>
         <source>Switch between US layout and user selected layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1353"/>
+        <location filename="../installer.ui" line="1347"/>
         <source>Cancel the installation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1359"/>
+        <location filename="../installer.ui" line="1353"/>
         <source>Ab&amp;ort</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1378"/>
+        <location filename="../installer.ui" line="1372"/>
         <location filename="../installer.cpp" line="34"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../installer.ui" line="1397"/>
+        <location filename="../installer.ui" line="1391"/>
         <location filename="../installer.cpp" line="35"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>
@@ -127,17 +133,6 @@
     <message>
         <location filename="../installer.ui" line="445"/>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../installer.ui" line="799"/>
-        <location filename="../installer.ui" line="1107"/>
-        <source>Save Config to USB</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../installer.cpp" line="33"/>
-        <source>&amp;Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

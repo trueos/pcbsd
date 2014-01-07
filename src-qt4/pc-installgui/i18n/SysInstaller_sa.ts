@@ -49,11 +49,6 @@
             </translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Change the installation language</source>
         <translation type="unfinished">
             </translation>
@@ -89,11 +84,6 @@
             </translation>
     </message>
     <message>
-        <source>Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Installation</source>
         <translation type="unfinished">
             </translation>
@@ -106,11 +96,6 @@
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -374,6 +359,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

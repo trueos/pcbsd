@@ -170,10 +170,6 @@
  Click Finish to reboot. After rebooting you may eject the install media.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Cancel</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Extracting system...</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Load installation config file from USB stick</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Load config from USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Server (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Save Config to USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -302,6 +290,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
     <message>
         <source>Restoring system: %1</source>
         <translation>Restoring system: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

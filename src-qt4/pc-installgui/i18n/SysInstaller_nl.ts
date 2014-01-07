@@ -170,10 +170,6 @@
  Klik op Voltooien om te herstarten. Daarna kunt u het installatiemedium laten uitwerpen.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Annuleren</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Systeem aan het uitpakken...</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Laad instellingenbestand voor installatie vanaf USB-staafje</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Instellingen laden vanaf USB-staafje</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Bureaublad (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Server (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Sla instellingen op USB op</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -312,6 +300,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">Paroolinõue</translation>
+        <translation>Sisesta parool</translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
@@ -53,18 +53,15 @@
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadistuse fail on puudu</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCDM-i seadistuse faili ei leitud: %1</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakendus suletakse</translation>
     </message>
 </context>
 </TS>

@@ -169,10 +169,6 @@
         <translation>Jou stelsel is nou geïnstalleer \ n!Klik klaar te herlaai. Na weer te begin kan jy verwyder die installasie media.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;kanselleer</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Onttrek stelsel ...            </translation>
     </message>
@@ -197,20 +193,12 @@
         <translation>Laai installasie config lêer van USB skyf</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Laai config van USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>lessenaar (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>rekenaar-bediener (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Red Config te USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -311,6 +299,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

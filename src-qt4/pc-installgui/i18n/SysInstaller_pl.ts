@@ -169,10 +169,6 @@
         <translation>Twój system został zainstalowany! Kliknij Zakończ aby zrestartować komputer. Po restarcie będziesz mógł wysunąć nośnik instalacyjny.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Anuluj</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Rozpakowywanie systemu...</translation>
     </message>
@@ -197,20 +193,12 @@
         <translation>Załaduj plik z konfiguracją instalacji z nośnika USB</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Ładuj konfigurację z USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Stacja Robocza (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Serwer (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Zapisz konfigurację na USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -308,6 +296,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

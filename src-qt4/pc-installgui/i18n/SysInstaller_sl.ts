@@ -170,10 +170,6 @@
 Klikni Končaj za ponovni zagon. Ob ponovnem zagonu odstrani namestitveni medij.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Prekliči</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Nalaganje sistema...</translation>
     </message>
@@ -198,20 +194,12 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu odstrani namestitveni medij.
         <translation>Naloži namestitveno konfiguracijsko datoteko iz USB ključka</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Naloži konfiguracijo iz USB pogona</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Delovna postaja (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Strežnik (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Shrani konfiguracijo na USB pogon</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -303,6 +291,14 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
     <message>
         <source>Restoring system: %1</source>
         <translation>Obnavljanje sistema: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

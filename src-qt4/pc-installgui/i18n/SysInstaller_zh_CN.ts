@@ -170,10 +170,6 @@
 点击完成以重启。重启后您可以把安装介质弹出。</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>正在解压系统……</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>从USB中载入安装配置文件</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>从USB中载入配置</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>桌面(PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>服务器(TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>将配置保存到USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -307,6 +295,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -14,8 +14,7 @@
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Svojstvo</translation>
     </message>
     <message>
         <source>Value</source>
@@ -27,8 +26,7 @@
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj svojstvo korisnika</translation>
     </message>
     <message>
         <source>...</source>
@@ -36,8 +34,7 @@
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ukloni svojstvo korisnika</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
@@ -147,8 +144,7 @@ are identical.</source>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Svojstvo uređaja nije trenutno podržano u FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
@@ -346,13 +342,11 @@ from the supported software release.</source>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovo svojstvo nije podržano u FreeBSD.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Datotečni sustav je označen za uništavanje nakon odmoniranja.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
@@ -409,8 +403,7 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Svojstvo korisnika</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
@@ -420,8 +413,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Neispravno]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
@@ -438,8 +430,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Svojstvo korisnika</translation>
     </message>
     <message>
         <source>Device Menu</source>
@@ -447,13 +438,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj svojstvo novoga korisnika</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izbriši svojstvo korisnika</translation>
     </message>
 </context>
 <context>
@@ -722,8 +711,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Svojstvo</translation>
     </message>
     <message>
         <source>Value</source>
@@ -873,8 +861,7 @@ lowing restrictions:
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ovo svojstvo nema vrijednost u FreeBSD.</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -922,8 +909,7 @@ crash dump.
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>nijedan</translation>
     </message>
     <message>
         <source>legacy</source>
@@ -981,13 +967,11 @@ crash dump.
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lzjb</translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zle</translation>
     </message>
     <message>
         <source>gzip</source>

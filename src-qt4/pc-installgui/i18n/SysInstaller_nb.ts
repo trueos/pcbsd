@@ -183,10 +183,6 @@
 Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjonsmediet.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Avbryt</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Pakker ut systemet...</translation>
     </message>
@@ -216,20 +212,12 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
             </translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Last inn oppsett fra USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Skrivebord (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Tjener (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Lagre oppsett til USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -330,6 +318,14 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
     <message>
         <source>Restoring system: %1</source>
         <translation>Gjenoppretter system: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

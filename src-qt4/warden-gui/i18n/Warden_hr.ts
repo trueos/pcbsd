@@ -63,13 +63,11 @@
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dodaj</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ukloni</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -81,23 +79,19 @@
     </message>
     <message>
         <source>Add IP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj IP</translation>
     </message>
     <message>
         <source>IP Address:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP adresa:</translation>
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Please enter a valid IPV4 or IPV6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Molim unesite valjanu IPV4 ili IPV6 adresu!</translation>
     </message>
     <message>
         <source>Jail Configuration</source>
@@ -106,23 +100,19 @@
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 adresa</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 adresa</translation>
     </message>
     <message>
         <source>Aliases</source>
@@ -151,8 +141,7 @@
     </message>
     <message>
         <source>Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dozvole</translation>
     </message>
     <message>
         <source>A process within the jail has access to System V IPC primitives.</source>
@@ -206,8 +195,7 @@
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravna IPv4 adresa!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
@@ -221,8 +209,7 @@
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravna IPv6 adresa!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
@@ -236,8 +223,7 @@
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opcije</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
@@ -343,8 +329,7 @@
     </message>
     <message>
         <source>Enter a nickname for this template:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unesi nadimak za ovaj predložak:</translation>
     </message>
 </context>
 <context>
@@ -487,8 +472,7 @@
     </message>
     <message>
         <source>Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warden</translation>
     </message>
     <message>
         <source>Are you sure you want to delete the jail</source>
@@ -507,18 +491,15 @@
     </message>
     <message>
         <source>Size on Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veličina na disku:</translation>
     </message>
     <message>
         <source>Network Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mrežne informacije</translation>
     </message>
     <message>
         <source>Active Connections:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktivne veze:</translation>
     </message>
     <message>
         <source>Listening on Ports:</source>
@@ -547,18 +528,15 @@
     </message>
     <message>
         <source>Loading...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Učitavam...</translation>
     </message>
     <message>
         <source>Launch Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokreni terminal</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Provjeri za ažuriranja</translation>
     </message>
     <message>
         <source>Start at boot:</source>
@@ -637,13 +615,11 @@
     </message>
     <message>
         <source>Updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ažuriranja su dostupna!</translation>
     </message>
     <message>
         <source>Start update manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokreni upravitelja ažuriranja</translation>
     </message>
     <message>
         <source>Service Manager</source>
@@ -677,8 +653,7 @@
     </message>
     <message>
         <source>Mounted on: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montirano na: </translation>
     </message>
     <message>
         <source>Snapshot not mounted</source>
@@ -687,28 +662,23 @@
     </message>
     <message>
         <source>R&amp;estore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O&amp;bnovi</translation>
     </message>
     <message>
         <source>&amp;Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Montiraj</translation>
     </message>
     <message>
         <source>&amp;Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Odmontiraj</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dodaj</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ukloni</translation>
     </message>
     <message>
         <source>Cloning snapshot... Please wait...</source>
@@ -767,13 +737,11 @@
     </message>
     <message>
         <source>Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Upravitelj paketima</translation>
     </message>
     <message>
         <source>Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Upravitelj predlošcima</translation>
     </message>
 </context>
 <context>
@@ -850,8 +818,7 @@
     </message>
     <message>
         <source>Select Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izaberi skriptu</translation>
     </message>
     <message>
         <source>Linux install files (*)</source>
@@ -860,18 +827,15 @@
     </message>
     <message>
         <source>Hostname already used!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ime računala se već koristi!</translation>
     </message>
     <message>
         <source>IP already used!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP se već koristi!</translation>
     </message>
     <message>
         <source>Invalid IP address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravna IP adresa!</translation>
     </message>
     <message>
         <source>Please take a moment and set any other options for this jail. Note that including the system source option requires that they be present in /usr/src. </source>
@@ -885,13 +849,11 @@
     </message>
     <message>
         <source>IPv4 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 adresa</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 adresa</translation>
     </message>
     <message>
         <source>Traditional Jail (Secure, best for services)</source>
@@ -915,8 +877,7 @@
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neispravna IPv6 adresa!</translation>
     </message>
     <message>
         <source>This wizard will walk you through creating a new jail. First, enter a hostname and IP address not currently in use on the network. If you plan to use IPv6 to access the jail, check the IPv6 Address box and input a valid IPv6 address. When finished, click Next to continue.</source>

@@ -428,7 +428,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Puudub</translation>
+        <translation>Kumbki</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

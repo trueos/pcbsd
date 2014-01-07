@@ -169,10 +169,6 @@
         <translation>系統已安裝好！ 按「完成」重新開機。重新開機後可退出安裝媒體。</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>正在抽取系統...</translation>
     </message>
@@ -197,20 +193,12 @@
         <translation>自 USB 碟載入安裝設定檔</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>自 USB 載入設定</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>桌面 (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>伺服器 (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>將設定儲存至 USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -311,6 +299,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

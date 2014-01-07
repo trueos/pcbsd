@@ -85,8 +85,7 @@
     </message>
     <message>
         <source>Create diagnostic sheet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koosta diagnostikaleht</translation>
     </message>
 </context>
 <context>

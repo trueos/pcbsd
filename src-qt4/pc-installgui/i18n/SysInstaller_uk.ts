@@ -170,10 +170,6 @@
  Натисніть Завершити для перезавантаження. Після перезавантаження ви можете витягти встановлювальний носій.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Видобування системи...</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Завантажити конфігурацію для встановлення з пристрою USB</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Завантажити конфігурацію з USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Стільниця (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Сервер (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Зберегти конфігурацію на USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -301,6 +289,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Restoring system: %1</source>
         <translation>Відновлення системи: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

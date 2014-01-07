@@ -181,10 +181,6 @@
             </translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation type="unfinished">
             </translation>
@@ -215,22 +211,12 @@
             </translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -344,6 +330,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

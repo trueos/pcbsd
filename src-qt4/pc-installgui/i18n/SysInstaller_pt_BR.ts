@@ -170,10 +170,6 @@
  Clique em Finalizar para reiniciar. Após a reinicialização, você pode ejetar a mídia de instalação.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Cancelar</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Extraindo o sistema...</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Carregar arquivo de configuração de instalação de um dispositivo USB</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Carregar configuração do USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Servidor (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Salvar configuração para USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -312,6 +300,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

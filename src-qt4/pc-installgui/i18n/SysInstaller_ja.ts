@@ -170,10 +170,6 @@
  「完了」をクリックして再起動してください。再起動中にインストールメディアを取り外して下さい。</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>キャンセル(&amp;C)</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>システムを展開しています...</translation>
     </message>
@@ -194,20 +190,12 @@
         <translation>USB メモリーからインストール設定を読み込む</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>USB メモリーから設定を読み取る</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>デスクトップ(PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>サーバー(TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>設定を USB メモリーに保存</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -302,6 +290,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Restoring system: %1</source>
         <translation>システムを復旧しています: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

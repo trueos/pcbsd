@@ -220,8 +220,7 @@
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide nimekiri metapakile:</translation>
     </message>
     <message>
         <source>Downloading: %1</source>
@@ -269,8 +268,7 @@
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laetakse alla</translation>
     </message>
 </context>
 </TS>

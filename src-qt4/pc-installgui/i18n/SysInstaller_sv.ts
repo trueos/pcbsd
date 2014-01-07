@@ -170,10 +170,6 @@
  Klicka på slutför för att starta om. Efter omstarten kan du ta ut ditt installationsmedia.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Avbryt</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Extraherar systemet...</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Ladda installationskonfigurationsfil från USB minne</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Ladda konfiguration från USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Skrivbord (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Server (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Spara konfiguration till USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -312,6 +300,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

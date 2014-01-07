@@ -171,10 +171,6 @@
  Klikni Završi za ponovno podizanje sustava.Nakon ponovnog podizanja možete morati izbaciti instalacijski medij.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Odustani</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Raspakiram sustav...</translation>
     </message>
@@ -201,20 +197,12 @@
         <translation>Učitaj konfiguracijsku datoteku instalacije sa USB-a</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Učitaj konfiguracijsku datoteku sa USB-a</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Poslužitelj (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Spremi konfiguracijsku datoteku na USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -312,6 +300,14 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
     <message>
         <source>Restoring system: %1</source>
         <translation>Obnavljam sustav: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

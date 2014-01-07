@@ -170,10 +170,6 @@
 Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>Batal</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>mengekstrak sistem...</translation>
     </message>
@@ -198,20 +194,12 @@ Klik Selesai untuk reboot. Setelah reboot Anda bisa melepaskan media instalasi.<
         <translation>Muat file konfigurasi instalasi dari USB</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Muat konfigurasi dari USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Server (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Simpan konfigurasi ke USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -302,6 +290,14 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     <message>
         <source>Restoring system: %1</source>
         <translation>Mengembalikan sistem: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

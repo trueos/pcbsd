@@ -170,10 +170,6 @@
 Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage, vous pouvez éjecter le média d&apos;installation.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Annuler</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Extraction du système...</translation>
     </message>
@@ -198,20 +194,12 @@ Cliquez sur Terminer pour redémarrer l&apos;ordinateur. Après le redémarrage,
         <translation>Charger le fichier de configuration de l&apos;installation depuis une clé USB</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Charger configuration de de l&apos;USB</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Bureau (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Serveur (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Sauvegarde de la configuration sur l&apos;USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -301,6 +289,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <message>
         <source>Restoring system: %1</source>
         <translation>La restauration du système: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

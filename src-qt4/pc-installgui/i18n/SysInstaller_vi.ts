@@ -170,10 +170,6 @@
 </translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Hủy bỏ</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Hệ chiết xuất...  </translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Nạp tập tin cài đặt cấu hình từ USB</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Nạp cấu hình từ USB   </translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Để bàn (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Máy chủ của (TrueOS)</translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Lưu cấu hình cho USB</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -312,6 +300,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>Restoring system: %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

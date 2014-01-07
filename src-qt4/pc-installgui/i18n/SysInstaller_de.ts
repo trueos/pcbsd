@@ -170,10 +170,6 @@
  Zum Neustarten bitte Fertig anklicken. Nach dem Neustart können Sie das Installationsmedium entfernen.</translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Abbrechen</translation>
-    </message>
-    <message>
         <source>Extracting system...</source>
         <translation>Extrahiere System...</translation>
     </message>
@@ -198,20 +194,12 @@
         <translation>Lade Installationskonfiguration von einem USB Stick</translation>
     </message>
     <message>
-        <source>Load config from USB</source>
-        <translation>Konfiguration von USB laden</translation>
-    </message>
-    <message>
         <source>Desktop (PC-BSD)</source>
         <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
         <translation>Server (TrueOS)            </translation>
-    </message>
-    <message>
-        <source>Save Config to USB</source>
-        <translation>Konfiguration auf USB Stick speichern</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
@@ -302,6 +290,14 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     <message>
         <source>Restoring system: %1</source>
         <translation>Wiederherstellen des Systems: %1</translation>
+    </message>
+    <message>
+        <source>&amp;Load config from USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Config to USB</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation>CATATAN: Ini tidak direkomendasikan kecuali kalau Anda yakin tidak ada aplikasi yang menggunakan perangkat tersebut.</translation>
+        <translation>CATATAN: Hal ini tidak direkomendasikan kecuali kalau anda yakin tidak ada aplikasi yang menggunakan perangkat tersebut.</translation>
     </message>
 </context>
 <context>
