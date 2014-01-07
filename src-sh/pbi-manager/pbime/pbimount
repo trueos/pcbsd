@@ -71,6 +71,14 @@ mount_dirs() {
    done
 
    sync
+
+   # Copy over the system command
+   cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/pbisyscmd"
+   cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/openwith"
+   cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/xdg-open"
+   chmod 755 "${pDir}/virtbase/usr/local/bin/pbisyscmd" 
+
+   # Copy the custom ldconfig
    cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
    chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
    sleep 1

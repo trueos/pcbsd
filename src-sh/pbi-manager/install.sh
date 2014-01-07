@@ -138,10 +138,14 @@ cd ${DIR}/pbime && make
 install -o root -g wheel -m 4751 pbime ${LB}/share/pbi-manager/.pbime
 install -o root -g wheel -m 755 pbimount ${LB}/share/pbi-manager/.pbimount
 install -o root -g wheel -m 755 ldconfig ${LB}/share/pbi-manager/.ldconfig
+install -o root -g wheel -m 755 pbisyslisten ${LB}/share/pbi-manager/.pbisyslisten
+install -o root -g wheel -m 755 pbisyscmd ${LB}/share/pbi-manager/.pbisyscmd
 if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 4751 pbime /usr/pbi/.pbime
   install -o root -g wheel -m 755 pbimount /usr/pbi/.pbimount
   install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
+  install -o root -g wheel -m 755 pbisyslisten /usr/pbi/.pbisyslisten
+  install -o root -g wheel -m 755 pbisyscmd /usr/pbi/.pbisyscmd
 fi
 
 # Install the nullfs binary
