@@ -68,6 +68,9 @@ void PBSystemTab::ProgramInit()
 
     connect(fetchSourceBut, SIGNAL( clicked() ), this, SLOT( fetchSourcePressed() ) );
     connect(fetchPortsBut, SIGNAL( clicked() ), this, SLOT( fetchPortsPressed() ) );
+    
+    cmdDlg = new CMDDialog(this);
+    cmdDlg->hide();
 }
 
 void PBSystemTab::CheckUname()
@@ -206,16 +209,22 @@ bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 
 void PBSystemTab::fetchSourcePressed()
 {
-    portsnapUI = new CMDDialog(this);
-    portsnapUI->start("source"); //Version not implemented yet
-    portsnapUI->show();
+    if(cmdDlg->isRunning() ){
+      QMessageBox::warning(this, tr("Process Already Running"), tr("You already have a process running. Please wait for that one to finish first.") );
+    }else{
+      cmdDlg->start("source"); //Version not implemented yet
+      cmdDlg->show();
+    }
 }
 
 void PBSystemTab::fetchPortsPressed()
 {
-    portsnapUI = new CMDDialog(this);
-    portsnapUI->start("ports"); //Version not implemented yet
-    portsnapUI->show();
+    if(cmdDlg->isRunning() ){
+      QMessageBox::warning(this, tr("Process Already Running"), tr("You already have a process running. Please wait for that one to finish first.") );
+    }else{
+      cmdDlg->start("ports"); //Version not implemented yet
+      cmdDlg->show();
+    }
 }
 
 
@@ -370,4 +379,12 @@ void PBSystemTab::checkProxy()
     proxy.setPassword(pcbsd::Utils::getProxyPass());
 
   QNetworkProxy::setApplicationProxy(proxy);
+}
+
+void PBSystemTab::closeEvent(QCloseEvent *event){
+    if(cmdDlg->isRunning()){
+      //Process Running - minimize the main window instead
+      event->ignore();
+      this->showMinimized();
+    }
 }

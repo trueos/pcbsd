@@ -11,6 +11,7 @@
 #include <QProgressDialog>
 #include <QTextStream>
 #include <QTimer>
+#include <QCloseEvent>
 
 #include <pcbsd-utils.h>
 #include <pcbsd-ui.h>
@@ -74,7 +75,7 @@ private:
     QString SheetFileName;
     QProcess *GetPBVer;
     QProcess *GetUname;
-    CMDDialog *portsnapUI;
+    CMDDialog *cmdDlg;
     QString username;
     bool miscChanged;
     bool kernelChanged;
@@ -139,6 +140,8 @@ private:
     QString SysUpdatesShown[501];
     metaWidget *pkgWidget;
 
+protected:
+	void closeEvent(QCloseEvent *event);
 
 signals:
   void changed();

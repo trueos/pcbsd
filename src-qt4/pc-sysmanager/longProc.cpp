@@ -7,8 +7,12 @@ LongProc::LongProc(){
   process->setProcessChannelMode(QProcess::MergedChannels);
   connect(process, SIGNAL(readyReadStandardOutput()), this, SLOT(parseUpdate()) );
   connect(process, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(procDone()) );
-  running = false;
+  running = false; stopped = false;
   cmdList.clear(); dirList.clear(); infoList.clear();
+  timer = new QTimer();
+	timer->setSingleShot(true);
+	timer->setInterval(10000); //10 second ping to make sure user knows it is still running
+  connect(timer, SIGNAL(timeout()), this, SLOT(procTimeout()) );
 }
 
 LongProc::~LongProc(){
@@ -33,11 +37,16 @@ bool LongProc::startCMDs(QStringList cmds, QStringList dirs, QStringList info){
   currentItem = 0;
   if( !infoList[currentItem].isEmpty() ){ emit ProcMessage("--- "+infoList[currentItem]+" ---"); }
   if( !dirList[currentItem].isEmpty() && QFile::exists(dirList[currentItem]) ){ process->setWorkingDirectory(dirList[currentItem]); }
+  timer->start();
   process->start(cmdList[currentItem]);
   running = true;
   return running;
 }
 
+void LongProc::stopProc(){
+  stopped = true;
+  process->terminate();
+}
 // ====================
 //   STATIC PUBLIC FUNCTIONS
 // ====================
@@ -60,24 +69,35 @@ void LongProc::parseUpdate(){
     //could add a check here to not send the message for empty lines
     emit ProcMessage(output);
   }
+  timer->start(); //reset the timer
 }
 
 void LongProc::procDone(){
   //Start the next command if there is one
   bool success = (process->exitCode() == 0);
-  if( currentItem+1 < cmdList.length() && success){
+  if( currentItem+1 < cmdList.length() && success && !stopped){
     currentItem++;
     if( !infoList[currentItem].isEmpty() ){ emit ProcMessage("\n--- "+infoList[currentItem]+" ---"); }
     if( !dirList[currentItem].isEmpty() && QFile::exists(dirList[currentItem]) ){ process->setWorkingDirectory(dirList[currentItem]); }
     process->start(cmdList[currentItem]);
+    timer->start(); //reset timer
   }else{
     //All finished
-    if(success){
-      emit ProcMessage(" ---- FINISHED ----");
+    if(stopped){
+      emit ProcMessage("\n ---- KILLED ----");
+      stopped=false; //reset flag
+    }else if(success){
+      emit ProcMessage("\n ---- FINISHED ----");
     }else{
-      emit ProcMessage(" ---- ERROR ----");
+      emit ProcMessage("\n ---- ERROR ----");
     }
     running = false;
     emit ProcFinished();
+    timer->stop();
   }
+}
+
+void LongProc::procTimeout(){
+  emit ProcMessage("."); //just to make sure that a quiet and long process still looks active to the user
+  timer->start(); //restart the timer
 }

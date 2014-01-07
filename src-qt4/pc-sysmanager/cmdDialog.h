@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QString>
 #include <QWidget>
+#include <QMessageBox>
 
 #include "longProc.h"
 
@@ -18,6 +19,7 @@ public:
 	~CMDDialog();
 
 	void start(QString cmdtype);
+	bool isRunning();
 
 private:
 	Ui::CMDDialog *ui;
@@ -27,5 +29,9 @@ private slots:
 	void NewMessage(QString);
 	void Finished();
 	void CloseUI();
+	void stopProcess();
+
+protected:
+	void closeEvent(QCloseEvent *event);
 };
 #endif
