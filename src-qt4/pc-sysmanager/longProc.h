@@ -1,5 +1,5 @@
-#ifndef _GIT_PROGRESS_H
-#define _GIT_PROGRESS_H
+#ifndef _LONG_PROGRESS_H
+#define _LONG_PROGRESS_H
 
 #include <QObject>
 #include <QProcess>
@@ -8,19 +8,18 @@
 #include <QStringList>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QTimer>
 
-class gitProc : public QObject{
+class LongProc : public QObject{
 	Q_OBJECT
 public:
 	
-	gitProc();
-	~gitProc();
+	LongProc();
+	~LongProc();
 	
 	//Quick-start functions for specific tasks
-	bool startInitPorts(); //initialize the ports tree
-	bool startPorts(); //fetch the ports tree
-	bool startInitSource(); //initialize the source fetching
-	bool startSource(); //fetch the source tree
+	bool startCMDs(QStringList cmds, QStringList dirs, QStringList info);
+	void stopProc();
 
 	//Information functions
 	bool isRunning(){ return running; } //so you can double check whether it is still running
@@ -30,15 +29,18 @@ public:
 
 private:
 	QProcess *process;
-	bool running;
-	gitProc *longProcess;
+	bool running, stopped;
+	QStringList cmdList, infoList, dirList;
+	int currentItem;
+	QTimer *timer;
 
 private slots:
 	void parseUpdate(); //New process message from internal worker
 	void procDone(); //internal worker finished
+	void procTimeout(); //internal timeout signal
 
 signals:
 	void ProcMessage(QString); //a new message while it is running
-	void ProcFinished(bool); //the process result (good/bad)
+	void ProcFinished();
 };
 #endif

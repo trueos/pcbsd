@@ -25,8 +25,9 @@
 void PBSystemTab::ProgramInit()
 {
     //Grab the username
-    username = QString::fromLocal8Bit(getenv("SUDO_USER"));
-    qDebug() << "Username:" << username;
+    username = QString::fromLocal8Bit(getenv("SUDO_USER")); //since the app is always run as root with sudo
+    if(username.isEmpty()){ username = QString::fromLocal8Bit(getenv("LOGNAME")); } //in case SUDO_USER is not set
+    //qDebug() << "Username:" << username;
     // Set the Uname on the General Tab
     CheckUname();
     // Set the PC-BSD Version on the General Tab
@@ -67,6 +68,9 @@ void PBSystemTab::ProgramInit()
 
     connect(fetchSourceBut, SIGNAL( clicked() ), this, SLOT( fetchSourcePressed() ) );
     connect(fetchPortsBut, SIGNAL( clicked() ), this, SLOT( fetchPortsPressed() ) );
+    
+    cmdDlg = new CMDDialog(this);
+    cmdDlg->hide();
 }
 
 void PBSystemTab::CheckUname()
@@ -147,7 +151,7 @@ void PBSystemTab::CreateSheetFile()
 	QStringList args;
 	args << SheetFileName;
 	args << username;
-	qDebug() << "CMD: " << prog+" "+args.join(" ");
+	//qDebug() << "CMD: " << prog+" "+args.join(" ");
 	connect( SheetGenScript, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(finishedSheet()) );
 		
 	SheetGenScript->start(prog, args);
@@ -205,16 +209,29 @@ bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 
 void PBSystemTab::fetchSourcePressed()
 {
-    portsnapUI = new CMDDialog(this);
-    portsnapUI->start("source"); //Version not implemented yet
-    portsnapUI->show();
+    if(cmdDlg->isRunning() ){
+      QMessageBox::warning(this, tr("Process Already Running"), tr("You already have a process running. Please wait for that one to finish first.") );
+    }else{
+      //Get the current version branch of the source tree
+      QString version = pcbsd::Utils::runShellCommand("uname -r").join(" ");
+      QString branch;
+      if(version.contains("RELEASE")){ branch = "releng/"+version.section("-",0,0).simplified(); }
+      else if(version.contains("STABLE")){ branch = "stable/"+version.section("-",0,0).section(".",0,0).simplified(); }
+      else{ branch = "master"; } //CURRENT
+      
+      cmdDlg->start("source", branch); //Version not implemented yet
+      cmdDlg->show();
+    }
 }
 
 void PBSystemTab::fetchPortsPressed()
 {
-    portsnapUI = new CMDDialog(this);
-    portsnapUI->start("ports"); //Version not implemented yet
-    portsnapUI->show();
+    if(cmdDlg->isRunning() ){
+      QMessageBox::warning(this, tr("Process Already Running"), tr("You already have a process running. Please wait for that one to finish first.") );
+    }else{
+      cmdDlg->start("ports"); //Version not implemented yet
+      cmdDlg->show();
+    }
 }
 
 
@@ -369,4 +386,12 @@ void PBSystemTab::checkProxy()
     proxy.setPassword(pcbsd::Utils::getProxyPass());
 
   QNetworkProxy::setApplicationProxy(proxy);
+}
+
+void PBSystemTab::closeEvent(QCloseEvent *event){
+    if(cmdDlg->isRunning()){
+      //Process Running - minimize the main window instead
+      event->ignore();
+      this->showMinimized();
+    }
 }

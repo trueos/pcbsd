@@ -4,8 +4,9 @@
 #include <QDialog>
 #include <QString>
 #include <QWidget>
+#include <QMessageBox>
 
-#include "gitprogress.h"
+#include "longProc.h"
 
 namespace Ui{
 	class CMDDialog;
@@ -17,16 +18,20 @@ public:
 	CMDDialog(QWidget *parent = 0);
 	~CMDDialog();
 
-	void start(QString cmdtype);
+	void start(QString cmdtype, QString branch = "");
+	bool isRunning();
 
 private:
 	Ui::CMDDialog *ui;
-	gitProc *PROC;
-	bool initPorts, initSource; //to keep track if only the first step was running
+	LongProc *PROC;
 
 private slots:
 	void NewMessage(QString);
-	void Finished(bool);
+	void Finished();
 	void CloseUI();
+	void stopProcess();
+
+protected:
+	void closeEvent(QCloseEvent *event);
 };
 #endif
