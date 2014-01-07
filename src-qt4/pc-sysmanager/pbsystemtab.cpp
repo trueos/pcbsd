@@ -84,8 +84,20 @@ void PBSystemTab::CheckUname()
 void PBSystemTab::CheckPBVer()
 {
  
- QString pcVer="";
- QStringList out = pcbsd::Utils::runShellCommand(QString("pkg info -f pcbsd-base"));
+  //Get pcbsd-base version
+  QString base = pcbsd::Utils::runShellCommand("pkg info -f pcbsd-base").filter("Version").join("").section(":",1,1).simplified();
+  if(base.isEmpty()){ base ="UNKNOWN"; }
+  label_pcbsdbase->setText(base);
+  //Get pcbsd-utils version
+  QString utils = pcbsd::Utils::runShellCommand("pkg info -f pcbsd-utils").filter("Version").join("").section(":",1,1).simplified();
+  if(utils.isEmpty()){ utils ="UNKNOWN"; }
+  label_pcbsdutils->setText(utils);
+  //Get pcbsd-utils-qt4 version
+  QString utilsqt4 = pcbsd::Utils::runShellCommand("pkg info -f pcbsd-utils-qt4").filter("Version").join("").section(":",1,1).simplified();
+  if(utilsqt4.isEmpty()){ utilsqt4 ="UNKNOWN"; }
+  label_pcbsdgutils->setText(utilsqt4);
+  /*
+ QStringList out = pcbsd::Utils::runShellCommand(QString("pkg info -f pcbsd-base");
  if (out.size()) {
    for (int i=0; i<out.size(); i++)
    {
@@ -98,8 +110,8 @@ void PBSystemTab::CheckPBVer()
      }
    }
  }
-
-
+ */
+  //Save the system architecture internally
  Arch = getLineFromCommandOutput("uname -m");
  
 }
