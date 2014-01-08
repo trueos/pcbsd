@@ -1,0 +1,41 @@
+#!/bin/sh
+
+if [ -z "$PBI_SYSPIPE" ] ; then exit 1; fi
+
+# Create the command return pipe
+RFIFO="`mktemp -u /tmp/.pbi-return-pipe-XXXXXXXXXXXXXXXX`"
+mkfifo ${RFIFO}
+if [ $? -ne 0 ] ; then
+   echo "Failed to create return pipe"
+   exit 1
+fi
+
+
+# Check for some common mime commands to open files with
+if [ "`basename $0`" = "openwith" ] ; then
+  echo "EXEC: ${RFIFO} openwith \"$@\"" > ${PBI_SYSPIPE}
+elif [ "`basename $0`" = "xdg-open" ] ; then
+  echo "EXEC: ${RFIFO} xdg-open \"$@\"" > ${PBI_SYSPIPE}
+else
+  # Send the raw command upstream
+  echo "EXEC: ${RFIFO} $@" > ${PBI_SYSPIPE}
+fi
+
+# Run the listener daemon loop, to keep an ear to the ground for output from the
+# system command we are running
+while :
+do
+   line="`cat ${RFIFO}`"
+   echo $line | grep -q "^CLOSE:"
+   if [ $? -eq 0 ]; then 
+      # Command finished! Cleanup and exit with the status
+      err="`echo $line | cut -d ' ' -f 2`"
+      rm ${RFIFO}
+      exit $err
+   fi
+
+   # Display the output
+   echo $line
+done
+
+exit 0

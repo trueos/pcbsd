@@ -2,6 +2,37 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>CMDDialog</name>
+    <message>
+        <source>CMD Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Ports Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please stop the current process before closing this window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PBSystemTab</name>
     <message>
         <source>General</source>
@@ -10,10 +41,6 @@
     <message>
         <source>PC-BSD System Configuration</source>
         <translation>PC-BSD系統設定</translation>
-    </message>
-    <message>
-        <source>PC-BSD Version:</source>
-        <translation>PC-BSD版本:</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -26,10 +53,6 @@
     <message>
         <source>Tasks</source>
         <translation>工作</translation>
-    </message>
-    <message>
-        <source>Fetch &amp;System Source</source>
-        <translation>取得系統原始碼(&amp;S)</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -48,10 +71,6 @@
         <translation>生成</translation>
     </message>
     <message>
-        <source>Base Version:</source>
-        <translation>Base版本:</translation>
-    </message>
-    <message>
         <source>&amp;Save</source>
         <translation>儲存(&amp;S)</translation>
     </message>
@@ -66,10 +85,6 @@
     <message>
         <source>System Tasks</source>
         <translation>系統工作</translation>
-    </message>
-    <message>
-        <source>Fetch P&amp;orts Tree</source>
-        <translation>擷取 P&amp;orts Tree</translation>
     </message>
     <message>
         <source>Package Set</source>
@@ -87,48 +102,60 @@
             </translation>
     </message>
     <message>
-        <source>Create diagnostic sheet</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-</context>
-<context>
-    <name>PortsnapProgress</name>
-    <message>
-        <source>Portsnap Progress</source>
-        <translation>Portsnap進度</translation>
+        <source>PC-BSD Versions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <source>Base:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <source>Backend Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Task Progress...</source>
-        <translation>作業進行中...</translation>
+        <source>Graphical Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update Failed!</source>
-        <translation>更新失敗!</translation>
+        <source>System Information</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to connect to server. Possible causes:
-- Your network is down
-- Target server is unresponsive.</source>
-        <translation>無法連線至伺服器。可能的原因:
-- 您的網路斷線
-- 您指定的伺服器沒有回應</translation>
+        <source>FreeBSD Version:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fetching Ports, this may take a while...</source>
-        <translation>正在取得Ports。這可能會耗費一段時間，請稍候...</translation>
+        <source>Fetch PC-BSD &amp;System Source</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading FreeBSD sources...</source>
-        <translation>正在下載 FreeBSD 源碼...</translation>
+        <source>Fetch PC-BSD P&amp;orts Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error Generating Diagnostic File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic File Created: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Already Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

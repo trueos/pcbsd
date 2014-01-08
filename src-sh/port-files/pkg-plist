@@ -588,6 +588,8 @@ etc/man.d/pbi.conf
 etc/rc.d/pbid
 share/pbi-manager/.pbime
 share/pbi-manager/.pbimount
+share/pbi-manager/.pbisyscmd
+share/pbi-manager/.pbisyslisten
 share/pbi-manager/.ldconfig
 share/pbi-manager/.mount_nullfs
 share/pbi-manager/.pbiwrapper-i386

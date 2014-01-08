@@ -29,8 +29,7 @@
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zahtjev za lozinku            </translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>

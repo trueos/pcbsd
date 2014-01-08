@@ -249,8 +249,7 @@
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omogući prilagođeni DNS</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>

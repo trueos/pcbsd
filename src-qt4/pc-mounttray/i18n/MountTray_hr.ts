@@ -105,8 +105,7 @@
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NAPOMENA: Ovo se uglavnom ne preporučuje osim ako niste sigurni da nemate programe koji koriste ovaj uređaj.</translation>
     </message>
 </context>
 <context>
@@ -197,8 +196,7 @@ Can not open the file manager with root permissions</source>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Maksimalno vrijeme između provjera (minute)</translation>
     </message>
     <message>
         <source>Cancel</source>

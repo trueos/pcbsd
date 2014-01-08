@@ -147,108 +147,87 @@
     </message>
     <message>
         <source>When this parameter is set, such users are treated as privileged, and may manipulate system file flags subject to the usual constraints on kern.securelevel.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kui see parameeter on seatud, siis käsitletakse selliseid kasutajaid privilegeerituna ning nad võivad muuta süsteemifailide lippe vastavalt kern.secureleveli piirangutele.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount file system types marked as jail-friendly.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Privilegeeritud kasutajad saavad vanglas haakida ja lahti haakida failisüsteeme, mis on märgitud vangla-sõbralikuks.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the devfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Privilegeeritud kasutajad saavad vanglas haakida ja lahti haakida failisüsteemi devfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the nullfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Privilegeeritud kasutajad saavad vanglas haakida ja lahti haakida failisüsteemi nullfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the procfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Privilegeeritud kasutajad saavad vanglas haakida ja lahti haakida failisüsteemi procfs.</translation>
     </message>
     <message>
         <source>Privileged users inside the jail will be able to mount and unmount the zfs file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Privilegeeritud kasutajad saavad vanglas haakida ja lahti haakida failisüsteemi zfs.</translation>
     </message>
     <message>
         <source>The prison root may administer quotas on the jail&apos;s filesystem(s).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vangla juurkasutaja saab muuta vangla failisüsteemi(de) kvoote.</translation>
     </message>
     <message>
         <source>This allows access to other protocol stacks that have not had jail functionality added to them.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>See lubab kasutada muid võrguprotokolle, millele pole vangla funktsionaalsust lisatud.</translation>
     </message>
     <message>
         <source>Invalid IPv4 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv4-aadress!</translation>
     </message>
     <message>
         <source>Invalid IPv4 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv4 silla aadress!</translation>
     </message>
     <message>
         <source>Invalid IPv4 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv4-ruuteri aadress!</translation>
     </message>
     <message>
         <source>Invalid IPv6 address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv6-aadress!</translation>
     </message>
     <message>
         <source>Invalid IPv6 bridge address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv6 silla aadress!</translation>
     </message>
     <message>
         <source>Invalid IPv6 router address!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vigane IPv6-ruuteri aadress!</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valikud</translation>
     </message>
     <message>
         <source>Enable VNET / VIMAGE support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Võimalda VNET/VIMAGE&apos;i tugi</translation>
     </message>
     <message>
         <source>IPv4 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv4 silla aadress (vajab VNET-i)</translation>
     </message>
     <message>
         <source>IPv4 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaikimisi IPv4-ruuter (vajab VNET-i)</translation>
     </message>
     <message>
         <source>IPv6 Bridge Address (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 silla aadress (vajab VNET-i)</translation>
     </message>
     <message>
         <source>IPv6 Default Router (Requires VNET)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaikimisi IPv6-ruuter (vajab VNET-i)</translation>
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järgmisi selle vangla õigusi saab sisse või välja lülitada. Lisainfot saab iga välja peale hiirega liikudes või vangla man-lehelt.</translation>
     </message>
 </context>
 <context>
@@ -811,8 +790,7 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linuxi vangla - eksperimentaalne!</translation>
     </message>
 </context>
 </TS>

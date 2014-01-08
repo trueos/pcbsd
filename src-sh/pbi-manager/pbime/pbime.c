@@ -1,7 +1,7 @@
 /*-
  * Copyright (c) 2003 Mike Barcroft <mike@FreeBSD.org>
  * Copyright (c) 2007 Bill Moran/Collaborative Fusion
- * Copyright (c) 2013 Kris Moore/PC-BSD Software <kris@pcbsd.org>
+ * Copyright (c) 2014 Kris Moore/PC-BSD Software <kris@pcbsd.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,6 +30,7 @@
 #include <sys/param.h>
 #include <sys/jail.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 #include <err.h>
 #include <errno.h>
@@ -42,17 +43,55 @@
 
 static void	usage(void);
 
+void ch_user(void);
+
+void ch_user(void)
+{
+	int jid, ngroups;
+	uid_t huid;
+	struct passwd *husername, *jusername;
+	gid_t groups[NGROUPS];
+	login_cap_t *lcap;
+
+	/* Get the current user ID and user name in the host system */
+	huid = getuid();
+	husername = getpwuid(huid);
+
+	/* Get the user name in the jail */
+	jusername = getpwuid(huid);
+	if (jusername == NULL || strcmp(husername->pw_name, jusername->pw_name) != 0)
+		err(1, "Username mapping failed");
+	lcap = login_getpwclass(jusername);
+	if (lcap == NULL) {
+	  err(1, "getpwclass: %s", jusername->pw_name);
+        }
+	ngroups = NGROUPS;
+	if (getgrouplist(jusername->pw_name, jusername->pw_gid, groups, &ngroups) != 0)	
+		err(1, "getgrouplist: %s", jusername->pw_name);
+	if (setgroups(ngroups, groups) != 0)
+		err(1, "setgroups");
+	if (setgid(jusername->pw_gid) != 0)
+		err(1, "setgid");
+	if (setusercontext(lcap, jusername, jusername->pw_uid,
+	    LOGIN_SETALL & ~LOGIN_SETGROUP & ~LOGIN_SETLOGIN) != 0)
+		err(1, "setusercontext");
+	login_close(lcap);
+}
+
 int
 main(int argc, char *argv[])
 {
 	char newchroot[2048];
 	char mountscript[4096];
-	int jid, ngroups;
+	char pipetemplate[] = "/tmp/.pbi-callback-XXXXXXXXXXXXXXXX";
+        char *pipedir;
+	char fifoin[MAXPATHLEN]; 
         int argoffset;
-	uid_t huid;
-	struct passwd *husername, *jusername;
-	gid_t groups[NGROUPS];
-	login_cap_t *lcap;
+
+	pid_t listen_pid;
+	pid_t app_pid;
+	int listen_status;
+	int app_status;
 
 	/* Is this a request to unmount? */
 	if ( argc == 3 ) {
@@ -66,9 +105,6 @@ main(int argc, char *argv[])
 	if (argc < 4)
 		usage();
 
-	/* Get the current user ID and user name in the host system */
-	huid = getuid();
-	husername = getpwuid(huid);
 
 	/* Run the mount script */
 	if ( (strlen("/usr/pbi/.pbimount") + strlen(argv[1]) + strlen(argv[2])) > 4090)
@@ -87,38 +123,72 @@ main(int argc, char *argv[])
 	if ( system(mountscript) != 0 )
                 err(1, "Failed mounting PBI");
 
-	if (chdir(newchroot) == -1 || chroot(".") == -1)
-                err(1, "Could not chroot to: %s", newchroot);
+	// Lets get our template directory
+	pipedir = mktemp(pipetemplate);
 
-        argoffset=4;
-	if (chdir(argv[4]) == -1 ) {
-                // Running with old pbi wrapper
-                argoffset=3;
-        }
+	// Set the environment variable
+	setenv("PBI_SYSPIPE", pipedir, 1);
+	
+	// Fork off a listener for system commands
+	listen_pid = fork();
+	if(listen_pid == 0) {
+		/* This is done by the child process. */
+		// drop priv
+		ch_user();
 
-	/* Get the user name in the jail */
-	jusername = getpwuid(huid);
-	if (jusername == NULL || strcmp(husername->pw_name, jusername->pw_name) != 0)
-		err(1, "Username mapping failed");
-	//if (chdir("/") == -1)
-	//	err(1, "chdir(): /");
-	lcap = login_getpwclass(jusername);
-	if (lcap == NULL) {
-	  err(1, "getpwclass: %s", jusername->pw_name);
-        }
-	ngroups = NGROUPS;
-	if (getgrouplist(jusername->pw_name, jusername->pw_gid, groups, &ngroups) != 0)	
-		err(1, "getgrouplist: %s", jusername->pw_name);
-	if (setgroups(ngroups, groups) != 0)
-		err(1, "setgroups");
-	if (setgid(jusername->pw_gid) != 0)
-		err(1, "setgid");
-	if (setusercontext(lcap, jusername, jusername->pw_uid,
-	    LOGIN_SETALL & ~LOGIN_SETGROUP & ~LOGIN_SETLOGIN) != 0)
-		err(1, "setusercontext");
-	login_close(lcap);
-	if (execvp(argv[3], argv + argoffset) == -1)
-		err(1, "execvp(): %s", argv[3]);
+		// Create the pipe file
+		strcpy(fifoin, "mkfifo ");
+		strcat(fifoin, pipedir);
+		if ( system(fifoin) == 0 ) {
+			// Start the listen process only if mkfifo is successful
+			exit(system("sh /usr/pbi/.pbisyslisten"));
+		}
+  	} else {
+
+		// Do the chroot
+		if (chdir(newchroot) == -1 || chroot(".") == -1)
+                	err(1, "Could not chroot to: %s", newchroot);
+
+		// drop priv
+		ch_user();
+
+		// Backwards compat check for old PBIs
+        	argoffset=4;
+		if (chdir(argv[4]) == -1 ) {
+        	        // Running with old pbi wrapper
+                	argoffset=3;
+ 	        }
+
+
+		// Fork off the PBI process, and have the parent wait for it to finish
+		app_pid = fork();
+		if(app_pid == 0) {
+			// Execute the PBI now
+			if (execvp(argv[3], argv + argoffset) == -1)
+				err(1, "execvp(): %s", argv[3]);
+			exit(0);
+		} else {
+     			/* This is run by the parent.  Wait for the child to terminate. */
+			pid_t tpid;
+			do {
+       				tpid = wait(&app_status);
+			} while(tpid != app_pid);
+
+			// Stop the listener
+			strcpy(fifoin, "echo 'CLOSE:' > ");
+			strcat(fifoin, pipedir);
+			system(fifoin);
+
+			// Remove the old pipefile
+			strcpy(fifoin, "rm ");
+			strcat(fifoin, pipedir);
+			system(fifoin);
+
+     			return app_status;
+		}
+
+  	}
+
 	exit(0);
 }
 
@@ -126,6 +196,6 @@ static void
 usage(void)
 {
 
-	fprintf(stderr, "usage: pbime mntdir pbidir command [...]\n");
+	fprintf(stderr, "usage: pbime mntdir pbidir command cwd [...]\n");
 	exit(1); 
 }

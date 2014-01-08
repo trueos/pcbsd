@@ -2,6 +2,37 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>CMDDialog</name>
+    <message>
+        <source>CMD Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Ports Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please stop the current process before closing this window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PBSystemTab</name>
     <message>
         <source>PC-BSD System Configuration</source>
@@ -16,24 +47,12 @@
         <translation>Genereeri</translation>
     </message>
     <message>
-        <source>PC-BSD Version:</source>
-        <translation>PC-BSD versioon:</translation>
-    </message>
-    <message>
-        <source>Base Version:</source>
-        <translation>Põhiversioon:</translation>
-    </message>
-    <message>
         <source>Alt+S</source>
         <translation>Alt+S</translation>
     </message>
     <message>
         <source>Tasks</source>
         <translation>Tegevused</translation>
-    </message>
-    <message>
-        <source>Fetch &amp;System Source</source>
-        <translation>&amp;Tõmba süsteemi lähtekood</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -68,10 +87,6 @@
         <translation>Süsteemi tegevused</translation>
     </message>
     <message>
-        <source>Fetch P&amp;orts Tree</source>
-        <translation>Tõmba p&amp;ortide puu</translation>
-    </message>
-    <message>
         <source>Package Set</source>
         <translation>Pakkide komplekt</translation>
     </message>
@@ -84,47 +99,60 @@
         <translation>Arendusversioonid (pakke uuendatakse tihti – testimiseks ja arenduseks)</translation>
     </message>
     <message>
-        <source>Create diagnostic sheet</source>
-        <translation>Koosta diagnostikaleht</translation>
-    </message>
-</context>
-<context>
-    <name>PortsnapProgress</name>
-    <message>
-        <source>Portsnap Progress</source>
-        <translation>Portsnapi edenemine</translation>
+        <source>PC-BSD Versions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Katkesta</translation>
+        <source>Base:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+K</translation>
+        <source>Backend Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Task Progress...</source>
-        <translation>Tegevuse edenemine...</translation>
+        <source>Graphical Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update Failed!</source>
-        <translation>Uuendamine ebaõnnestus!</translation>
+        <source>System Information</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to connect to server. Possible causes:
-- Your network is down
-- Target server is unresponsive.</source>
-        <translation>Serveriga ei õnnestunud ühendada. Võimalikud põhjused:
-- Võrguühendus on maas.
-- Server ei vasta.</translation>
+        <source>FreeBSD Version:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fetching Ports, this may take a while...</source>
-        <translation>Porte tõmmatakse, see võib aega võtta...</translation>
+        <source>Fetch PC-BSD &amp;System Source</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading FreeBSD sources...</source>
-        <translation>FreeBSD lähtekoodide allalaadimine...</translation>
+        <source>Fetch PC-BSD P&amp;orts Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error Generating Diagnostic File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic File Created: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Already Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

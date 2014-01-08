@@ -5,8 +5,7 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialoog</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
@@ -30,8 +29,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
@@ -313,27 +311,27 @@ mis on selle väljaga määratud.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab andmekogu tüüpi: failisüsteem (failisüsteem või kloon), köide või hetktõmmis.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab andmekogu ja selle järglaste poolt kasutatud kettaruumi.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab kettaruumi, mida selle andmekogu alamad
+kasutavad. See on ruum, mida saaks vabastada, kui kõik selle andmekogu
+alamad hävitada.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 a dataset itself, which would be freed if the dataset was destroyed, after
 first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Kirjutuskaitsega väli, mis näitab andmekogu poolt kasutatud kettaruumi.
+See on ruum, mida saaks vabastada, kui andmekogu hävitada, pärast seda,
+kui hetktõmmised eemaldada.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
@@ -348,8 +346,10 @@ by snapshots of a dataset. In particular, it is the amount of disk space that
 would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab, kui palju kettaruumi kasutab andmekogu hetktõmmis.
+See on kettaruum, mis vabaneks, kui kõik andmekogu hetktõmmised hävitataks.
+See väärtus ei pruugi olla hetktõmmiste kasutatud kettaruumi väljade summa, kuna
+hetktõmmised võivad kettaruumi jagada.</translation>
     </message>
     <message>
         <source>Identifies the on-disk version of a file system, which is independent of the
