@@ -8,21 +8,18 @@ LIBS	+= -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils
 INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 HEADERS	+= pbsystemtab.h \
-	updaterDialog.h \
 	cmdDialog.h \
 	longProc.h \
 	backend.h
 
 SOURCES	+= main.cpp \
 	pbsystemtab.cpp \
-	updaterDialog.cpp \
 	cmdDialog.cpp \
 	longProc.cpp \
 	backend.cpp
 	
 
 FORMS	= pbsystemtab.ui \
-	updaterDialog.ui \
 	cmdDialog.ui
 
 RESOURCES = PBSystem.qrc 
