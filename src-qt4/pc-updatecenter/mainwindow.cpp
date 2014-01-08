@@ -206,6 +206,7 @@ void MainWindow::refreshMenu()
     ui->actionJail->setEnabled(is_no_upd);
     ui->actionSystem_branches->setEnabled(is_no_upd && (!mJail.jailEnabled()));
     ui->actionUpdate_set->setEnabled(is_no_upd);
+    ui->actionExit->setEnabled(is_no_upd);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
