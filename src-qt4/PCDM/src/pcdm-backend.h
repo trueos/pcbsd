@@ -39,7 +39,7 @@ public:
     static QStringList keyModels();
     static QStringList keyLayouts();
     static QStringList keyVariants(const QString &layout, QStringList &savedKeyVariants);
-    static void changeKbMap(QString model, QString layout, QString variant);
+    static bool changeKbMap(QString model, QString layout, QString variant);
     static QStringList languages();
     static void openLogFile(QString);
     static void log(QString); 

@@ -31,6 +31,7 @@ void widgetKeyboard::slotClose()
 void widgetKeyboard::slotApply()
 {
   slotUpdateKbOnSys();
+  this->close();
 }
 
 void widgetKeyboard::connectKeyboardSlots()
