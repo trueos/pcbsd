@@ -2,6 +2,37 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>CMDDialog</name>
+    <message>
+        <source>CMD Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Ports Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please stop the current process before closing this window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PBSystemTab</name>
     <message>
         <source>PC-BSD System Configuration</source>
@@ -16,24 +47,12 @@
         <translation>كوّن</translation>
     </message>
     <message>
-        <source>PC-BSD Version:</source>
-        <translation>نُسخة PC-BSD:</translation>
-    </message>
-    <message>
-        <source>Base Version:</source>
-        <translation>التُسخة اﻷساسية:</translation>
-    </message>
-    <message>
         <source>Alt+S</source>
         <translation>Alt+S</translation>
     </message>
     <message>
         <source>Tasks</source>
         <translation>المهام</translation>
-    </message>
-    <message>
-        <source>Fetch &amp;System Source</source>
-        <translation>إجلب &amp;مصدر النظام</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -72,11 +91,6 @@
             </translation>
     </message>
     <message>
-        <source>Fetch P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Package Set</source>
         <translation type="unfinished">
             </translation>
@@ -92,49 +106,60 @@
             </translation>
     </message>
     <message>
-        <source>Create diagnostic sheet</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-</context>
-<context>
-    <name>PortsnapProgress</name>
-    <message>
-        <source>Portsnap Progress</source>
-        <translation>تقدم Portsnap</translation>
+        <source>PC-BSD Versions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>إلغاء</translation>
+        <source>Base:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <source>Backend Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Task Progress...</source>
-        <translation>اﻹنجاز فى المهمة...</translation>
+        <source>Graphical Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update Failed!</source>
-        <translation>فشل الترقية!</translation>
+        <source>System Information</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to connect to server. Possible causes:
-- Your network is down
-- Target server is unresponsive.</source>
-        <translation>غير قادر على الاتصال بالخادم. الأسباب المحتملة:
-- شبكة اتصالك معطلة
-- الخادم الهدف لا يستجيب.</translation>
+        <source>FreeBSD Version:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fetching Ports, this may take a while...</source>
-        <translation>جلب البورتس، هذا قد يستغرق بعض الوقت...</translation>
+        <source>Fetch PC-BSD &amp;System Source</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading FreeBSD sources...</source>
-        <translation type="unfinished">
-            </translation>
+        <source>Fetch PC-BSD P&amp;orts Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error Generating Diagnostic File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic File Created: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Already Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

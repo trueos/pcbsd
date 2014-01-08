@@ -293,11 +293,11 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished"></translation>
+        <translation>Muat konfigurasi dari USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished"></translation>
+        <translation>Simpan Konfigurasi ke USB</translation>
     </message>
 </context>
 <context>

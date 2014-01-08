@@ -153,13 +153,11 @@
     </message>
     <message>
         <source>Package Conflicts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sukobi paketa</translation>
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Možda ćete trebati ručno popraviti sukobe prije nego pokušate ponovno.</translation>
     </message>
     <message>
         <source>Downloading packages...</source>
@@ -193,8 +191,7 @@
     </message>
     <message>
         <source>No changes to make!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nema promjena za napraviti!</translation>
     </message>
     <message>
         <source>The following packages will be removed:</source>
@@ -215,8 +212,7 @@
     </message>
     <message>
         <source>Confirm package changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Potvrdi promjene pakate</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -230,8 +226,7 @@
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pogledaj pakete</translation>
     </message>
     <message>
         <source>Package Listing for:</source>

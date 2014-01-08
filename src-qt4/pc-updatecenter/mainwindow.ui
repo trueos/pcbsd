@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>PC-BSD Update center</string>
+   <string>PC-BSD Update Center</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
@@ -345,7 +345,7 @@
      <x>0</x>
      <y>0</y>
      <width>621</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -430,7 +430,7 @@
   </action>
   <action name="actionExit">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Exit</string>

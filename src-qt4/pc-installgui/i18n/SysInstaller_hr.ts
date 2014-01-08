@@ -303,11 +303,13 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
