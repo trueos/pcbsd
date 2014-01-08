@@ -153,11 +153,14 @@ main(int argc, char *argv[])
 		ch_user();
 
 		// Backwards compat check for old PBIs
-        	argoffset=4;
-		if (chdir(argv[4]) == -1 ) {
+		argoffset=5;
+		if ( (argc > 5) && (strcmp(argv[5], "args") == 0) )
+		{
+			chdir(argv[4]);
+		} else {
         	        // Running with old pbi wrapper
                 	argoffset=3;
- 	        }
+		}
 
 
 		// Fork off the PBI process, and have the parent wait for it to finish
