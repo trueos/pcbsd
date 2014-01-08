@@ -33,36 +33,18 @@ void PBSystemTab::ProgramInit()
     // Set the PC-BSD Version on the General Tab
     CheckPBVer();
 
-    // See if we need to setup a proxy
-    checkProxy();
-    
     //Get & Set CPU Type
     labelCPU->setText(pcbsd::Utils::sysctl("hw.model").simplified());
     
     //Get & Set RAM
     labelMemory->setText(pcbsd::Utils::bytesToHumanReadable(pcbsd::Utils::sysctlAsInt("hw.physmem")));
-    
-    // Read any kernel settings
-    //LoadKernSettings();
 
-    // Read any rc.conf settings
-    //loadServSettings();
+    //Load Misc tab data
+    loadMiscData();
 
-    //Load boot screen data
-    loadBootData();
-
-    // Load the default package set value
-    if ( pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET") == "EDGE" ) {
-       radioEdge->setChecked(true);
-       radioProduction->setChecked(false);
-    } else {
-       radioProduction->setChecked(true);
-       radioEdge->setChecked(false);
-    }
 
     // Connect our various buttons
     connect(buttonGenerate, SIGNAL(clicked()), this, SLOT(startGenerateSheet()) );
-    //connect(showBootCheck, SIGNAL(clicked()), this, SIGNAL(changed()));
 
     connect(pushMiscSave, SIGNAL( clicked() ), this, SLOT( slotMiscSave() ) );
 
@@ -75,13 +57,11 @@ void PBSystemTab::ProgramInit()
 
 void PBSystemTab::CheckUname()
 {
-	QString prog = "uname";
-        QStringList args;  
-	args << "-rm"; 
-		
-	GetUname = new QProcess( this );
-	connect( GetUname, SIGNAL(readyReadStandardOutput()), this, SLOT(ReadUname()) );
-	GetUname->start(prog, args);
+	QString line = Backend::shortCMD("","uname -rm").join("").simplified();
+	labelBASEVer->setText( line );
+	//Save the output version/architecture internally
+        Version= line.section(" ",0,0);
+	Arch = line.section(" ",1,1);
 }
 
 
@@ -101,22 +81,7 @@ void PBSystemTab::CheckPBVer()
   if(utilsqt4.isEmpty()){ utilsqt4 ="UNKNOWN"; }
   label_pcbsdgutils->setText(utilsqt4);
 
-  //Save the system architecture internally
- Arch = getLineFromCommandOutput("uname -m");
- 
 }
-
-
-void PBSystemTab::ReadUname()
-{    
-    if (GetUname->canReadLine() )
-    {
-        QString uname = GetUname->readLine().simplified();
-        labelBASEVer->setText( uname );
-        Version= uname.section(" ",0,0);
-    }
-}
-
 
 // Ask user where to save text file, then start the generation
 void PBSystemTab::startGenerateSheet()
@@ -142,7 +107,6 @@ void PBSystemTab::startGenerateSheet()
 	
 }
 
-
 void PBSystemTab::CreateSheetFile()
 {
 	qDebug() << "Generating System Diagnostic Sheet";
@@ -157,7 +121,6 @@ void PBSystemTab::CreateSheetFile()
 	SheetGenScript->start(prog, args);
 }
 
-
 void PBSystemTab::finishedSheet()
 {
 	int exitcode = SheetGenScript->exitCode();
@@ -170,32 +133,12 @@ void PBSystemTab::finishedSheet()
 		
 }
 
-
-void PBSystemTab::saveKernScreen()
-{
-     if ( checkForceIbus->isChecked() )
-     		pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"YES\"", 1);
-     else
-     		pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"NO\"", 1);
-
-}
-
-
-
 void PBSystemTab::showRebootRequired()
 {
     QMessageBox::information( this, "PC-BSD Notification",
     "Settings Updated!\n You must reboot for changes to take effect!" );
 }
 
-
-// Read the loader.conf, and load any settings we need
-/*void PBSystemTab::LoadKernSettings()
-{
-    if ( checkValue("/boot/loader.conf", "splash_pcx_load=", "YES" ) ) { showBootCheck->setChecked(true); }
-    else { showBootCheck->setChecked(false); }
-}
-*/
 // Checks the file for a string KEY, and sees if its set to VALUE
 bool PBSystemTab::checkValue( QString File, QString Key, QString Value )
 {
@@ -235,88 +178,31 @@ void PBSystemTab::fetchPortsPressed()
 }
 
 
-void PBSystemTab::loadBootData()
+void PBSystemTab::loadMiscData()
 {
-    /*//Trawl screens directory
-    QDir screens = QDir(PREFIX + "/share/pcbsd/splash-screens/");
-    if (! screens.exists())
-    {
-        QMessageBox::critical( 0, tr("File not found!"), PREFIX + "/share/pcbsd/splash-screens/ " + tr("doesn't exist!"), QMessageBox::Ok );
-	return;
+    // Load the default package set value
+    if ( pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET") == "EDGE" ) {
+       radioEdge->setChecked(true);
+       radioProduction->setChecked(false);
+    } else {
+       radioProduction->setChecked(true);
+       radioEdge->setChecked(false);
     }
-    screens.setFilter(QDir::Files);
-    QStringList screensList = screens.entryList();
-    
-    QRegExp screenMatcher = QRegExp("^loading-screen-(([a-z]|[A-Z]|_)+)\\.pcx$");
-    QStringList langList = QStringList();
-    QLocale langResolver;
-    codeMap = QMap<QString, QString>();
-    bool customPresent = false;
-    for (QStringList::Iterator it = screensList.begin(); it != screensList.end(); it++)
-    {
-	int pos  = screenMatcher.indexIn(*it);
-	if (pos > -1)
-	{
-	    QString code = screenMatcher.cap(1);
-	    if (code == "custom") { customPresent = true; }
-	    else
-	    { 
-                QLocale lang(code);
-		QString langName = langResolver.languageToString(lang.language());
-                if ( langName.isEmpty() )
-                {
-		    langName = "Splash Screen: " + code;
-                }
-		langList += langName;
-		codeMap[langName] = code;
-	    }
-	}
+    //Check if IBUS input is forced
+    if ( pcbsd::Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES")){
+	checkForceIbus->setChecked(TRUE);
+    }else{
+	checkForceIbus->setChecked(FALSE);
     }
-    
-    
-    //Populate select box
-    langList.sort();
-    splashSelect->addItems(langList);
-
-    int indexMod = 0;
-    
-    if (customPresent)
-    {
-	codeMap[tr("Custom")] = "custom";
-	splashSelect->addItem(tr("Custom"), 0);
-	indexMod = 1;
-    }
-    
-    //Load current, get info from registry - /PCBSD/splash-screen
-    QSettings settings;
-    QString selectedLang = settings.value("/PCBSD/splash-screen", langResolver.language()).toString();
-    
-    if (selectedLang == "custom") { splashSelect->setCurrentIndex(0); }
-    else
-    {
-	//If we don't have a splash for the user's language, default to english
-	QLocale tlocale(selectedLang);
-        QString testLangName = langResolver.languageToString(tlocale.language());
-	if (codeMap[testLangName] == "") selectedLang = "en";
-
-	QLocale tlocale2(selectedLang);
-	selectedLang = langResolver.languageToString(tlocale2.language());
-        if ( selectedLang.isEmpty() )
-        {
-	     selectedLang = "Splash Screen: " + selectedLang;
-        }
-
-	splashSelect->setCurrentIndex(langList.indexOf(selectedLang) + indexMod);
-    }
-*/
-    if ( pcbsd::Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES"))
-		checkForceIbus->setChecked(TRUE);
-    else
-		checkForceIbus->setChecked(FALSE);
 }
 
 void PBSystemTab::slotMiscSave() {
-    saveKernScreen();
+     //Save IBUS setting
+     if ( checkForceIbus->isChecked() ){
+	pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"YES\"", 1);
+     }else{
+	pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"NO\"", 1);
+     }
 
     // Save package set
     if ( radioProduction->isChecked() )
@@ -332,60 +218,9 @@ void PBSystemTab::slotClose() {
     close();
 }
 
-bool PBSystemTab::sanityCheckSettings()
-{
-  return true;
-}
-
-
-QString PBSystemTab::getLineFromCommandOutput( QString cmd )
-{
-        FILE *file = popen(cmd.toLatin1(),"r");
-    
-        char buffer[100];
- 
-        QString line = "";
-        char firstChar;
-
-        if ((firstChar = fgetc(file)) != -1){
-                line += firstChar;
-                line += fgets(buffer,100,file);
-        }
-        pclose(file);
-        return line.simplified();
-}
-
 void PBSystemTab::changeOpenTab(int tab)
 {
    tabWidget->setCurrentIndex(tab);
-}
-
-void PBSystemTab::checkProxy()
-{
-  bool ok;
-  int port;
-
-  // If no proxy set
-  if ( pcbsd::Utils::getProxyURL().isEmpty() )
-    return;
-
-  QNetworkProxy proxy;
-  if ( pcbsd::Utils::getProxyType() == "SOCKS5" )
-    proxy.setType(QNetworkProxy::Socks5Proxy);
-  else
-    proxy.setType(QNetworkProxy::HttpProxy);
-
-  proxy.setHostName(pcbsd::Utils::getProxyURL());
-
-  port = pcbsd::Utils::getProxyPort().toInt(&ok);
-  if ( ! pcbsd::Utils::getProxyPort().isEmpty() && ok )
-    proxy.setPort(port);
-  if ( ! pcbsd::Utils::getProxyUser().isEmpty() )
-    proxy.setUser(pcbsd::Utils::getProxyUser());
-  if ( ! pcbsd::Utils::getProxyPass().isEmpty() )
-    proxy.setPassword(pcbsd::Utils::getProxyPass());
-
-  QNetworkProxy::setApplicationProxy(proxy);
 }
 
 void PBSystemTab::closeEvent(QCloseEvent *event){
