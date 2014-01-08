@@ -100,8 +100,7 @@
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodatne datoteke koje će biti uključene u PBI</translation>
     </message>
     <message>
         <source>Current Resources</source>
@@ -109,8 +108,7 @@
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Trenutne datoteke koje će biti uključene u PBI</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>

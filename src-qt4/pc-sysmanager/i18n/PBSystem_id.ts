@@ -2,6 +2,37 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>CMDDialog</name>
+    <message>
+        <source>CMD Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Ports Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Getting PC-BSD Sources</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please stop the current process before closing this window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PBSystemTab</name>
     <message>
         <source>PC-BSD System Configuration</source>
@@ -16,24 +47,12 @@
         <translation>Buat</translation>
     </message>
     <message>
-        <source>PC-BSD Version:</source>
-        <translation>Versi PC-BSD:</translation>
-    </message>
-    <message>
-        <source>Base Version:</source>
-        <translation>Versi Dasar:</translation>
-    </message>
-    <message>
         <source>Alt+S</source>
         <translation>Alt+S</translation>
     </message>
     <message>
         <source>Tasks</source>
         <translation>Tugas</translation>
-    </message>
-    <message>
-        <source>Fetch &amp;System Source</source>
-        <translation>Ambil Sumber &amp;Sistem</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -68,10 +87,6 @@
         <translation>Sistem Task</translation>
     </message>
     <message>
-        <source>Fetch P&amp;orts Tree</source>
-        <translation>Ambil P&amp;orts Tree</translation>
-    </message>
-    <message>
         <source>Package Set</source>
         <translation>Paket set</translation>
     </message>
@@ -84,47 +99,60 @@
         <translation>Edge (Paket sering diperbaharui - Untuk mencoba dan pembangunan)</translation>
     </message>
     <message>
-        <source>Create diagnostic sheet</source>
-        <translation>Buat lembar diagnostik</translation>
-    </message>
-</context>
-<context>
-    <name>PortsnapProgress</name>
-    <message>
-        <source>Portsnap Progress</source>
-        <translation>Kemajuan Portsnap</translation>
+        <source>PC-BSD Versions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Cancel</source>
-        <translation>&amp;Batal</translation>
+        <source>Base:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Alt+C</source>
-        <translation>Alt+B</translation>
+        <source>Backend Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Task Progress...</source>
-        <translation>Kemajuan Tugas...</translation>
+        <source>Graphical Utilities:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update Failed!</source>
-        <translation>Update Gagal!</translation>
+        <source>System Information</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unable to connect to server. Possible causes:
-- Your network is down
-- Target server is unresponsive.</source>
-        <translation>Tidak dapat terhubung ke server. Kemungkinan yang terjadi:
-- Jaringan anda sedang mati
-- Server tujuan tidak merespon.</translation>
+        <source>FreeBSD Version:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Fetching Ports, this may take a while...</source>
-        <translation>Mengambil Ports, mungkin berlangsung beberapa saat...</translation>
+        <source>Fetch PC-BSD &amp;System Source</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Downloading FreeBSD sources...</source>
-        <translation>Sedang mengunduh sumber FreeBSD...</translation>
+        <source>Fetch PC-BSD P&amp;orts Tree</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error Generating Diagnostic File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Success</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Diagnostic File Created: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Process Already Running</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
