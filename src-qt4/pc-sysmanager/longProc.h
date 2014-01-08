@@ -6,7 +6,6 @@
 #include <QFile>
 #include <QString>
 #include <QStringList>
-#include <QCoreApplication>
 #include <QDebug>
 #include <QTimer>
 
@@ -23,9 +22,6 @@ public:
 
 	//Information functions
 	bool isRunning(){ return running; } //so you can double check whether it is still running
-	
-	//Quick function to run a command and return success/failure
-	static bool quickCMD(QString dir, QString cmd, QStringList args = QStringList()); 
 
 private:
 	QProcess *process;

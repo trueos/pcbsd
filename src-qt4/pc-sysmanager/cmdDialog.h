@@ -7,6 +7,7 @@
 #include <QMessageBox>
 
 #include "longProc.h"
+#include "backend.h"
 
 namespace Ui{
 	class CMDDialog;

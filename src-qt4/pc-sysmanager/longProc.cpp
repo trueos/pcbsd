@@ -47,18 +47,6 @@ void LongProc::stopProc(){
   stopped = true;
   process->terminate();
 }
-// ====================
-//   STATIC PUBLIC FUNCTIONS
-// ====================
-bool LongProc::quickCMD(QString dir, QString cmd, QStringList args){
-  //Run a quick command without looking for output other than success/failure
-  QProcess *proc = new QProcess;
-  if( !dir.isEmpty() && QFile::exists(dir) ){ proc->setWorkingDirectory(dir); }
-  if(args.isEmpty()){ proc->start(cmd); }
-  else{ proc->start(cmd, args); }
-  while(!proc->waitForFinished(300)){ QCoreApplication::processEvents(); }
-  return (proc->exitCode() == 0);
-}
 
 // ==============
 //     PRIVATE SLOTS

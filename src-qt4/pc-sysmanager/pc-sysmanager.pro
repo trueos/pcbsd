@@ -10,13 +10,15 @@ INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 HEADERS	+= pbsystemtab.h \
 	updaterDialog.h \
 	cmdDialog.h \
-	longProc.h
+	longProc.h \
+	backend.h
 
 SOURCES	+= main.cpp \
 	pbsystemtab.cpp \
 	updaterDialog.cpp \
 	cmdDialog.cpp \
-	longProc.cpp
+	longProc.cpp \
+	backend.cpp
 	
 
 FORMS	= pbsystemtab.ui \
