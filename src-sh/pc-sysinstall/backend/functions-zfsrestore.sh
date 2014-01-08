@@ -85,10 +85,13 @@ restore_zfs_from_remote()
   ZPFILE="${TMPDIR}/.zfs-restore-props"
 
   # First lets fetch the ZFS properties backup
-  ssh -p ${SSHPORT} ${SSHKEY} ${SSHUSER}@${SSHHOST} cat ${ZFSPROPS} > ${ZPFILE}
+  echo "ssh -p ${SSHPORT} ${SSHKEY} ${SSHUSER}@${SSHHOST} \"cat '$ZFSPROPS'\" > ${ZPFILE}" > ${TMPDIR}/.fetchProp
+  sh ${TMPDIR}/.fetchProp
   if [ $? -ne 0 ] ; then
+     rm ${TMPDIR}/.fetchProp
      exit_err "Unable to get ZFS properties file!"
   fi
+  rm ${TMPDIR}/.fetchProp
 
   get_value_from_cfg zfsRemoteDataset
   ZFSDATASET="$VAL"
