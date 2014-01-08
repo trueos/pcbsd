@@ -23,6 +23,7 @@ int main(int argc, char **argv)
     char pbimntdir[MAX_SIZE];
     char pbime[MAX_SIZE];
     char pbicwd[MAXPATHLEN];
+    char argsflag[16];
 
     // Setup working variables
     char bfile[PATH_MAX];
@@ -125,6 +126,9 @@ int main(int argc, char **argv)
 
     strcpy(pbime, "/usr/pbi/.pbime");
 
+    // Setup the args flag
+    strcpy(argsflag, "args");
+
     // Build new target argv
     char *targv[argc+5];
     targv[0] = pbime;
@@ -132,7 +136,8 @@ int main(int argc, char **argv)
     targv[2] = progdir;
     targv[3] = newtarget;
     targv[4] = getwd(pbicwd);
-    int i=5;
+    targv[5] = argsflag;
+    int i=6;
     int j=1;
     while(j < argc){
       targv[i] = argv[j];
@@ -146,6 +151,7 @@ int main(int argc, char **argv)
     //printf( "Arg: %s \n", targv[2]);
     //printf( "Arg: %s \n", targv[3]);
     //printf( "Arg: %s \n", targv[4]);
+    //printf( "Arg: %s \n", targv[5]);
 
     return execv(pbime, targv);
     //return execv(newtarget, targv);
