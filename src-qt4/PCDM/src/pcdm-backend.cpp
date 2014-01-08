@@ -184,8 +184,7 @@ bool Backend::changeKbMap(QString model, QString layout, QString variant)
    kbp.waitForFinished();
    bool ok = (kbp.exitCode() == 0);
    if(!ok){
-     qDebug() << "Change KB Map Failed: "<<prog+" "+args.join(" ");
-     qDebug() << kbp.readAllStandardOutput();
+     Backend::log("setxkbmap Failed: "+QString(kbp.readAllStandardOutput()) );
    }
    return ok;
 }

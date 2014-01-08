@@ -41,6 +41,8 @@ private:
     QStringList savedKeyVariants;
     QStringList keyboardModels;
     QStringList keyboardLayouts;
+    QString dLayout, dModel, dVariant; //original defaults
+    QString cLayout, cModel, cVariant; //current settiings
 
 signals:
 
