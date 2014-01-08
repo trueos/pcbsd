@@ -20,5 +20,5 @@ fi
 
 cd /root
 
-ssh ${SSHKEY} -p $SSHPORT -o StrictHostKeyChecking=no -o PasswordAuthentication=no -o NumberOfPasswordPrompts=0 $SSHUSER@$SSHHOST 'ls .lp-props* 2>/dev/null' 2>/dev/null
+ssh ${SSHKEY} -p $SSHPORT -o StrictHostKeyChecking=no -o PasswordAuthentication=no -o NumberOfPasswordPrompts=0 $SSHUSER@$SSHHOST 'ls .lp-props*' 2>/dev/null
 exit $?

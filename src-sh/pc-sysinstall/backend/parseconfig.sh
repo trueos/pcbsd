@@ -73,7 +73,7 @@ get_value_from_cfg installMode
 export INSTALLMODE="${VAL}"
 
 if [ "$INSTALLMODE" = "zfsrestore" ] ; then
-  file_sanity_check "sshHost sshPort sshUser sshKey zfsRemoteDataset"
+  file_sanity_check "sshHost sshPort sshUser zfsRemoteDataset"
 else
   file_sanity_check "installMode installType installMedium packageType"
   check_value installType "PCBSD FreeBSD"
