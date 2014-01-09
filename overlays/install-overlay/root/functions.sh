@@ -4,7 +4,18 @@
 
 detect_x() 
 {
-  # Check for VESA support
+  # First check if we are running as a VirtualBox guest
+  pciconf -lv | grep -q "VirtualBox"
+  if [ $? -eq 0 ] ; then cp /root/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf; fi
+
+  # Check if this system has a nvidia device, and run nvidia-xconfig
+  kldstat | grep -q 'nvidia'
+  if [ $? -eq 0 ] ; then
+     echo "Detected NVIDIA, creating xorg.conf"
+     nvidia-xconfig 2>/dev/null
+  fi
+
+  # Check if the user requested VESA mode
   xvesa="NO"
   v=`/bin/kenv xvesa 2>/dev/null`
   if [ $? -eq 0 ]; then
@@ -75,9 +86,9 @@ EndSection
 
 start_xorg()
 {
-  # First check if we are running as a VirtualBox guest
-  pciconf -lv | grep -q "VirtualBox"
-  if [ $? -eq 0 ] ; then cp /root/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf; fi
+
+  # Now run the X auto-detection
+  detect_x
 
   # Run X Now
   startx
