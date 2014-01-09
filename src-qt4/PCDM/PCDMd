@@ -5,6 +5,13 @@
 
 PCDMCONF="/usr/local/etc/pcdm.conf"
 BASEPCDMAUTHFILE="/tmp/.PCDMAuth"
+STOPFILE="/tmp/.PCDMstop"
+
+#Quick check that this is not the "stop" command
+if [ "${1}" = "stop" ]; then
+  touch ${STOPFILE}
+  exit
+fi
 
 XOPTS=""
 grep -q "^ENABLE_TCP_LISTEN=TRUE" ${PCDMCONF}
@@ -36,7 +43,7 @@ fi
 # Allow Auto-Login the first time PCDM starts
 touch /tmp/.PCDMAutoLogin
 # Now start the X Server
-while [ ! -e /var/run/nologin ]; do
+while [ ! -e /var/run/nologin -a ! -e ${STOPFILE} ]; do
   /usr/local/bin/pc-checkxdisplay
   # Randomize the authorization file location
   PCDMAUTHFILE=${BASEPCDMAUTHFILE}-`openssl rand -hex 10`
@@ -55,3 +62,6 @@ while [ ! -e /var/run/nologin ]; do
   #Now remove the authorization file
   rm ${PCDMAUTHFILE}
 done
+
+#Remove the stopfile if it exists
+rm ${STOPFILE}
