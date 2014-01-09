@@ -151,6 +151,9 @@ void MainWindow::init()
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
 
+    connect(ui->jailIndicatorWidget, SIGNAL(returnToHost()),
+            this, SLOT(slotReturnToHost()));
+
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
 
@@ -280,6 +283,13 @@ void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateController
             break;
     }
     Q_UNUSED(new_state)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::slotReturnToHost()
+{
+    mJail.setJailEnabled(false);
+    jailRefresh();
 }
 
 ///////////////////////////////////////////////////////////////////////////////

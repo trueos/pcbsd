@@ -68,6 +68,7 @@ public slots:
 private slots:
 
     void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+    void slotReturnToHost();
 
 private slots:
 
@@ -80,7 +81,7 @@ private slots:
     void on_actionExit_triggered();
     void on_actionJail_triggered();
     void on_actionSystem_branches_triggered();
-    void on_actionUpdate_set_triggered();
+    void on_actionUpdate_set_triggered();   
 };
 
 #endif // MAINWINDOW_H

@@ -16,7 +16,13 @@ public:
     ~JailIndicator();
 
     void setJailName(QString name);
+
+signals:
+    void returnToHost();
     
+private slots:
+    void on_returnToHostBtn_clicked();
+
 private:
     Ui::JailIndicator *ui;
 };
