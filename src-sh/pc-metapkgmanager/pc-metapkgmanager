@@ -50,10 +50,12 @@ display_usage() {
 usage: `basename $0` [options]
    
 Options:
-  add pkg1,pkg2		 -- Add the specified list of meta-packages
-  del pkg1,pkg2	  	 -- Delete the specified list of meta-packages
+  add mpkg1,mpkg2	 -- Add the specified list of meta-packages
+  del mpkg1,mpkg2  	 -- Delete the specified list of meta-packages
   list     	         -- List the available meta-packages
-  status <pkg>    	 -- List the status of the specified meta-packages
+  list-installed         -- Only list the installed meta-packages
+  pkgdeps <mpkg>	 -- List package dependancies for the specified meta-package
+  status <mpkg>    	 -- List the status of the specified meta-packages
   --pkgset <pkgset>	 -- Change default pkgset we are using
 
 EOF
@@ -168,6 +170,40 @@ del_metapkgs() {
 	  sh ${MPDIR}/${_dpkg}/post-remove.sh >/dev/null 2>/dev/null
 	fi
 
+}
+
+# Function to list installed metapkgs
+list_installed_metapkgs() {
+	if [ ! -d "${MPDIR}" ] ; then exit_err "No available meta-pkg dir" ; fi
+
+	# Start listing each meta-pkg
+	for i in `find ${MPDIR}/* -type d`
+	do
+		# Is this package ignored on this arch?
+		if [ -e "${i}/ignore-arch" ] ; then
+			if [ `cat ${i}/ignore-arch` = "$ARCH" ] ; then continue; fi
+		fi
+		MPNAME=`basename $i`
+		if [ ! -e "${MPDIR}/${MPNAME}/ports-list" ] ; then continue ; fi
+
+		stat_metapkg "$MPNAME" >/dev/null 2>/dev/null
+		if [ $? -eq 0 ] ; then
+		   if [ -z "$installed" ] ; then
+		     installed="$MPNAME"
+		   else
+		     installed="$installed $MPNAME"
+		   fi
+		fi
+	done
+	echo "$installed"
+}
+
+# List the package deps for the specified meta-pkg
+list_pkgdeps() {
+	if [ -z "$1" ] ; then exit_err "No meta-pkg specified!" ; fi
+	if [ ! -e "${MPDIR}/${1}/ports-list" ] ; then exit_err "No such meta-pkg: $1" ; fi
+        cat ${MPDIR}/$1/ports-list | cut -d ':' -f 1
+	exit 0
 }
 
 # Function to list available metapkgs
@@ -367,7 +403,9 @@ if [ $# -eq 0 ]; then display_usage; fi
 # Parse ye olde cli flags
 while [ $# -gt 0 ]; do
   case "$1" in
-      list) list_metapkgs ; exit 0 ;;
+       pkgdeps) list_pkgdeps "$2" ; exit 0 ;;
+          list) list_metapkgs ; exit 0 ;;
+list-installed) list_installed_metapkgs ; exit 0 ;;
        add) parse_metapkgs "$2" "add" "$3" ; exit 0 ;;
        del) parse_metapkgs "$2" "del" ; exit 0 ;;
     status) stat_metapkg "$2" ; exit 0 ;;
