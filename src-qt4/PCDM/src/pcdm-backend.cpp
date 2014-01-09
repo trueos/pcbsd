@@ -169,9 +169,10 @@ QStringList Backend::keyVariants(const QString &layout, QStringList &savedKeyVar
 }
 
 // Function which lets us run setxkbmap
-void Backend::changeKbMap(QString model, QString layout, QString variant)
+bool Backend::changeKbMap(QString model, QString layout, QString variant)
 {
    QProcess kbp;
+	kbp.setProcessChannelMode(QProcess::MergedChannels);
    QStringList args;
    QString prog;
    prog = "setxkbmap"; 
@@ -181,6 +182,11 @@ void Backend::changeKbMap(QString model, QString layout, QString variant)
    Backend::log("setxkbmap: " + args.join(" "));
    kbp.start(prog, args);
    kbp.waitForFinished();
+   bool ok = (kbp.exitCode() == 0);
+   if(!ok){
+     Backend::log("setxkbmap Failed: "+QString(kbp.readAllStandardOutput()) );
+   }
+   return ok;
 }
 
 QStringList Backend::languages()

@@ -20,17 +20,25 @@ void widgetKeyboard::programInit(QStringList kModel, QStringList kLayouts)
   connect(pushApply, SIGNAL(clicked()), this, SLOT(slotApply()));
   keyboardModels = kModel;
   keyboardLayouts = kLayouts;
+  //Load the current defaults
+  QString junk;
+  Backend::readDefaultSysEnvironment(junk, dModel, dLayout, dVariant);
   connectKeyboardSlots();
 }
 
 void widgetKeyboard::slotClose()
 {
+  //Close without changing the KBD layout
+  Backend::changeKbMap(dModel, dLayout, dVariant); //reset to initial defaults
   close();
 }
 
 void widgetKeyboard::slotApply()
 {
-  slotUpdateKbOnSys();
+  //slotUpdateKbOnSys();
+  Backend::changeKbMap(cModel, cLayout, cVariant); //use Current values
+  Backend::saveDefaultSysEnvironment( QString(getenv("LANG")) , cModel, cLayout, cVariant);
+  this->close();
 }
 
 void widgetKeyboard::connectKeyboardSlots()
@@ -42,7 +50,7 @@ void widgetKeyboard::connectKeyboardSlots()
 
   // Set the default keyboard stuff
   setKbDefaults();
-  slotCurrentKbLayoutChanged(0);
+  //slotCurrentKbLayoutChanged(0);
   groupKeyboard->setEnabled(true);
 
 
@@ -67,13 +75,17 @@ void widgetKeyboard::slotCurrentKbLayoutChanged(int row)
 void widgetKeyboard::slotUpdateKbOnSys()
 {
   QString model, layout, variant;
-
-  if ( ! (comboBoxKeyboardModel->currentIndex() == -1) )
+  //Backend::log("[DEBUG] Update Keyboard on system");
+  if ( comboBoxKeyboardModel->currentIndex() == -1 ){
+     Backend::log("[DEBUG] Invalid kbd model index");
      return;
-  if ( ! listKbLayouts->currentItem() )
+  }else if ( ! listKbLayouts->currentItem() ){
+     Backend::log("[DEBUG] Invalid kbd layout item");
      return;
-  if ( ! listKbVariants->currentItem() )
+  }else if ( ! listKbVariants->currentItem() ){
+     Backend::log("[DEBUG] Invalid kbd variant item");
      return;
+  }
 
   model = comboBoxKeyboardModel->currentText();
   model = model.remove(0, model.indexOf("- (") + 3 );
@@ -90,9 +102,10 @@ void widgetKeyboard::slotUpdateKbOnSys()
   } else {
     variant = "";
   }
-  
+  //Backend::log("[DEBUG] Current KBD settings: "+model+", "+layout+", "+variant);
   Backend::changeKbMap(model, layout, variant);
-  Backend::saveDefaultSysEnvironment( QString(getenv("LANG")) , model, layout, variant);
+  //Save the settings for later
+  cModel = model; cLayout = layout; cVariant = variant;
 }
 
 void widgetKeyboard::slotCurrentKbVariantChanged(int row)
@@ -109,8 +122,7 @@ void widgetKeyboard::setKbVariants(const QString &kbLayout)
     listKbVariants->clear();
 
     // Get the code we should search for
-    laycode = laycode.remove(0, laycode.indexOf("(") + 1);
-    laycode.truncate(laycode.indexOf(")") );
+    laycode = laycode.section("- (",1,1).section(")",0,0);
 
     listKbVariants->addItem("<none>");
     listKbVariants->addItems(Backend::keyVariants(laycode, savedKeyVariants));
@@ -126,11 +138,33 @@ void widgetKeyboard::slotSelectedKbItemChanged()
 // set the keyboard layout and variant defaults
 void widgetKeyboard::setKbDefaults()
 {
-	// Find the "us" key layout as the default
-	for ( int i = 0; i < listKbLayouts->count(); i++ )
-		if ( listKbLayouts->item(i)->text().indexOf("(us)") != -1 )
-    			listKbLayouts->setCurrentRow(i);
-
-
-    	comboBoxKeyboardModel->setCurrentIndex(2);
+  // Now update the GUI to reflect the current settings
+  for ( int i = 0; i < listKbLayouts->count(); i++ ){
+    if ( listKbLayouts->item(i)->text().contains("- ("+dLayout+")") ){
+      listKbLayouts->setCurrentRow(i);
+      break;
+    }
+  }
+  
+  for( int i=0; i<comboBoxKeyboardModel->count(); i++){
+    if( comboBoxKeyboardModel->itemText(i).contains("- ("+dModel+")") ){
+      comboBoxKeyboardModel->setCurrentIndex(i);
+      break;
+    }
+  }
+  //Now fill the list of layout variants
+  listKbVariants->clear();
+  listKbVariants->addItem("<none>");
+  listKbVariants->addItems(Backend::keyVariants(dLayout, savedKeyVariants));
+  //Now highlight the current variant
+  if(dVariant.isEmpty()){ 
+    listKbVariants->setCurrentRow(0); 
+  }else{
+    for(int i=1; i<listKbVariants->count(); i++){ //skip the first item (already accounted for)
+      if(listKbVariants->item(i)->text().contains("- ("+dVariant+")") ){
+	listKbVariants->setCurrentRow(i);
+	break;
+      }
+    }
+  }
 }
