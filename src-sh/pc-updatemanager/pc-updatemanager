@@ -408,9 +408,6 @@ start_pcbsd_patch() {
 rollback_update()
 {
   cp /tmp/pcbsd.conf.preUpdate.$$ /usr/local/etc/pkg/repos/pcbsd.conf
-  if [ "$PKGROLLBACK" = "YES" ] ; then
-
-  fi
 }
 
 # After installing the kernel and rebooting, this gets run
@@ -419,48 +416,290 @@ finish_major_fbsd_update() {
   PATH="${PATH}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
   export PATH
 
+  # Set some status variables
+  PKGSTATUS=0
+  USERPKGSTATUS=0
+  PBISTATUS=0
+  FREEBSDSTATUS=0
+  GRUBSTATUS=0
+  METASTATUS=0
+
+  # Clear any old summary files
+  rm /root/.failed-pkgs 2>/dev/null
+  rm /root/.failed-meta 2>/dev/null
+  rm /root/.failed-pbi 2>/dev/null
+  rm /root/.failed-freebsd 2>/dev/null
+  rm /root/.failed-grub 2>/dev/null
+
+  # Is this a desktop or server?
+  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
+     SYSTYPE="desktop"
+  else
+     SYSTYPE="server"
+  fi
+
+  # Remove all PBIs
+  clear
+  echo "Removing PBIs..."
+  while read pbi
+  do
+    echo "Removing: ${pbi}"
+    pbi_delete $pbi >/dev/null 2>/dev/null
+    if [ $? -ne 0 ] ; then
+       echo "Warning: Failed to remove: $pbi"
+       sleep 5
+    fi
+  done < /root/pcbsd-pbi-before-update
+  echo "Done!"
+
+  # Start the package cleanup process
+  clear
+  echo "Removing packages...This may take a while...\c"
+  pkg delete -afy
+  if [ $? -ne 0 ] ; then
+     echo "Warning: Failed to remove all packages"
+     sleep 5
+  fi
+  echo "Done!"
+
+  # Start the freebsd-update process
+  clear
   echo "Installing FreeBSD updates... Please wait..."
-  freebsd-update --non-interactive install
+  freebsd-update --non-interactive install | tee /root/.failed-freebsd
   if [ $? -ne 0 ] ; then
      echo "Warning: Failed running freebsd-update install!"
      echo "Press ENTER to continue"
+     FREEBSDSTATUS=1
      read tmp
   fi
+  clear
 
   # Remove this, causes all kinds of havok during the update
   if [ -e "/etc/pkg/FreeBSD.conf" ] ; then
     mv /etc/pkg/FreeBSD.conf /etc/pkg/FreeBSD.conf.dist
   fi
 
-  # Now its time to force a pkg-update of all packages to their new FreeBSD compiled versions
-  pc-updatemanager pkgupdate -f
+  clear
+  echo "Starting networking..."
+  echo ""
+  # Enable networking
+  /etc/rc.d/devfs restart
+  /etc/rc.d/netif restart
+  /etc/rc.d/devd start
+  /etc/rc.d/wpa_supplicant start
+  /etc/rc.d/dhclient start
+  sleep 8
+  clear
+
+  # This is super-lame, we can't just remove all packages *except* pkgng, so we have to re-bootstrap
+  # Lets extract the new pkgng we fetched earlier
+  echo "Boot-Strapping PKGNG..."
+  if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
+     mkdir "/usr/local/etc/pkg/fingerprints/pcbsd/revoked"
+  fi
+  cd /
+  tar xvpf /usr/local/tmp/pkg.txz /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
+  /usr/local/sbin/pkg-static install -y ports-mgmt/pkg
   if [ $? -ne 0 ] ; then
-     echo "Warning: Failed running 'pc-updatemanager pkgupdate -f'"
+     echo "Warning: Failed to re-install PKGNG..."
      echo "Press ENTER to continue"
      read tmp
   fi
 
-  # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
-  grub-mkconfig -o /boot/grub/grub.cfg
-  if [ $? -ne 0 ] ; then
-     echo "Warning: Failed running 'pc-updatemanager pkgupdate -f'"
-     echo "Press ENTER to continue"
-     read tmp
-  fi
+  # Lets update the pkgng repo
+  pkg-static update -f
 
-  echo "Updating overlay files..."
-  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
+  # Now lets begin re-installing packages
+  if [ "$SYSTYPE" = "desktop" ] ; then
+    echo "Installing desktop packages..."
+    pkg-static install -y pcbsd-base
+    if [ $? -ne 0 ] ; then
+       PKGSTATUS=1
+       echo "pcbsd-base" >> /root/.failed-pkgs
+       echo "Warning: Failed to install pcbsd-base!"
+       echo "You will need to manually install this package to re-enable the PC-BSD desktop"
+       echo "Press ENTER to continue"
+       read tmp
+    fi
     pc-extractoverlay desktop
   else
+    echo "Installing server packages..."
+    pkg-static install -y trueos-base
+    if [ $? -ne 0 ] ; then
+       PKGSTATUS=1
+       echo "trueos-base" >> /root/.failed-pkgs
+       echo "Warning: Failed to install trueos-base!"
+       echo "You will need to manually install this package for the TrueOS utils."
+       echo "Press ENTER to continue"
+       read tmp
+    fi
     pc-extractoverlay server
   fi
+
+  # Start pbid, so that by the time meta-packages are done, we have a full index
+  rm /var/db/pbi/index/*
+  /usr/local/etc/rc.d/pbid start >/dev/null 2>/dev/null
+
+  clear
+
+  clear
+  echo "Re-Installing meta-packages"
+  while read newmeta
+  do
+    pc-metapkgmanager add $newmeta
+    if [ $? -ne 0 ] ; then
+       METASTATUS=1
+       echo "$newmeta" >> /root/.failed-meta
+       echo "Warning: Failed to re-install meta-package: $newmeta"
+       echo "Press ENTER to continue"
+       read tmp
+    fi
+  done < /root/pcbsd-meta-before-update
+
+  # Now lets try re-installing any user-installed packages
+  clear
+  echo "Re-Installing user-installed packages"
+  while read userpkg
+  do
+    # Make sure package isn't already installed
+    pkg-static info -e ${userpkg}
+    if [ $? -eq 0 ] ; then continue ; fi
+
+    # Nope, lets try to load it now
+    pkg-static install -y ${userpkg}
+    if [ $? -ne 0 ] ; then
+       USERPKGSTATUS=1
+       echo "${userpkg}" >> /root/.failed-user-pkgs
+    fi
+  done < /root/pcbsd-userpkgs-before-update
+
+  # Now lets re-load any PBI files
+  clear
+  echo "Re-Installing PBIs"
+  while read newpbi
+  do
+    shortpbi="`echo $newpbi | rev | cut -d '-' -f 3- | rev`"
+    pbi_add -r $shortpbi
+    if [ $? -ne 0 ] ; then
+       PBISTATUS=1
+       echo "$shortpbi" >> /root/.failed-pbi
+       echo "Warning: Failed to re-install PBI: $shortpbi"
+       echo "Press ENTER to continue"
+       read tmp
+    fi
+  done < /root/pcbsd-pbi-before-update
+
+  # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
+  grub-mkconfig -o /boot/grub/grub.cfg | tee /root/.failed-grub
+  if [ $? -ne 0 ] ; then
+     GRUBSTATUS=1
+     echo "Warning: Failed running 'grub-mkconfig -o /boot/grub/grub.cfg'"
+     echo "Press ENTER to continue"
+     read tmp
+  fi
+
+
+  # Now lets show a summary
+  clear
+
+  echo "PC-BSD `uname -r` Upgrade Summary - (`date`)" > /root/pcbsd-update-summary
+  echo "-----------------------------------------------------" >> /root/pcbsd-update-summary
+
+  if [ $FREEBSDSTATUS -eq 0 ] ; then
+    echo "FreeBSD: The base-system updated successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "FreeBSD: The base-system failed to install:" >> /root/pcbsd-update-summary
+    cat /root/.failed-freebsd >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+
+  if [ $PKGSTATUS -eq 0 ] ; then
+    echo "PKG: All packages updated successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "PKG: The following packages failed to install:" >> /root/pcbsd-update-summary
+    cat /root/.failed-pkgs >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+
+  if [ $USERPKGSTATUS -eq 0 ] ; then
+    echo "USERPKG: All packages updated successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "USERPKG: The following user-packages failed to install:" >> /root/pcbsd-update-summary
+    cat /root/.failed-user-pkgs >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+
+  if [ $METASTATUS -eq 0 ] ; then
+    echo "META: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "META: The following meta-packages failed to install:" >> /root/pcbsd-update-summary
+    cat /root/.failed-meta >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+
+  if [ $PBISTATUS -eq 0 ] ; then
+    echo "PBI: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "PBI: The following meta-packages failed to install:" >> /root/pcbsd-update-summary
+    cat /root/.failed-pbi >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+
+  if [ $GRUBSTATUS -eq 0 ] ; then
+    echo "GRUB: The GRUB boot-loader menus re-built successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "GRUB: The GRUB boot-loader menus failed to rebuild:" >> /root/pcbsd-update-summary
+    cat /root/.failed-grub >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+  echo "Old system information: " >> /root/pcbsd-update-summary
+  echo "/root/pcbsd-pkg-before-update" >> /root/pcbsd-update-summary
+  echo "/root/pcbsd-pbi-before-update" >> /root/pcbsd-update-summary
+  echo "/root/pcbsd-meta-before-update" >> /root/pcbsd-update-summary
+
+  echo "" >> /root/pcbsd-update-summary
+
+  echo "This summary location: /root/pcbsd-update-summary" >> /root/pcbsd-update-summary
+
+  # Clear any old summary files
+  rm /root/.failed-pkgs 2>/dev/null
+  rm /root/.failed-user-pkgs 2>/dev/null
+  rm /root/.failed-meta 2>/dev/null
+  rm /root/.failed-pbi 2>/dev/null
+  rm /root/.failed-grub 2>/dev/null
+  rm /root/.failed-freebsd 2>/dev/null
+
+  more /root/pcbsd-update-summary
+
+  echo "Press ENTER to reboot"
+  read tmp
 
   exit 0
 }
 
+# Simple recursive loop to go through and get a list of all package deps for a top level package
+get_dep_origins()
+{
+  grep -q "^$1\$" "${2}.checked" 2>/dev/null
+  if [ $? -eq 0 ] ; then return; fi
+  echo "$1" >> ${2}.checked
+
+  local i
+  for i in `pkg query '%do' ${1}`
+  do
+     echo "$i" >> ${2}
+     get_dep_origins "$i" "$2"
+  done
+}
+
 start_major_fbsd_update() {
   local rel=`echo $1 | sed 's|fbsd-||g'`
-  PKGROLLBACK="NO"
 
   # Save the repo file
   cp /usr/local/etc/pkg/repos/pcbsd.conf /tmp/pcbsd.conf.preUpdate.$$
@@ -475,7 +714,7 @@ start_major_fbsd_update() {
        }" > /usr/local/etc/pkg/repos/pcbsd.conf
 
   # Lets backup old pkgng
-  oPkg=`pkg info pkg | awk '{print $1}'`
+  oPkg=`pkg info pkg | head -n 1 | awk '{print $1}'`
   pkg create -o /usr/local/tmp/ ${oPkg}
   if [ -e "/usr/local/tmp/oldPkg.txz" ] ; then rm /usr/local/tmp/oldPkg.txz; fi
   mv /usr/local/tmp/${oPkg}.txz /usr/local/tmp/oldPkg.txz
@@ -488,8 +727,50 @@ start_major_fbsd_update() {
      exit_err "Failed downloading pkgng update..."
   fi
 
-  # Lets install pkgng update
-  PKGROLLBACK="YES"
+  # Now lets build some lists of what is present on this system now
+  pkg info > /root/pcbsd-pkg-before-update
+  pbi_info > /root/pcbsd-pbi-before-update
+  pc-metapkgmanager list-installed > /root/pcbsd-meta-before-update
+
+  # Figure out a list of user-installed packages to try and re-install on the updated system
+  echo "Building a list of user-installed packages... Please wait..."
+  local mPkgFile="/tmp/.mPkgDList.$$"
+  local mOriginFile="/tmp/.mPkgOList.$$"
+  rm $mPkgFile 2>/dev/null
+  echo "ports-mgmt/pkg" >> ${mPkgFile}
+  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
+     echo "pcbsd-base" >> ${mPkgFile}
+  else
+     echo "trueos-base" >> ${mPkgFile}
+  fi
+  while read mpkg
+  do
+     pc-metapkgmanager pkgdeps $mpkg >/dev/null 2>/dev/null
+     if [ $? -ne 0 ] ; then continue ; fi
+     pc-metapkgmanager pkgdeps $mpkg >> $mPkgFile
+  done < /root/pcbsd-meta-before-update
+
+  # Now sort out the list of depends for our meta-pkgs
+  while read mpkg
+  do
+     #echo "Finding package dependencies of ${mpkg}.."
+     pkg query '%o' $mpkg >> ${mOriginFile}
+     get_dep_origins "$mpkg" "$mOriginFile"
+  done < ${mPkgFile}
+  rm ${mPkgFile}
+
+  echo "Building list of user-installed packages..."
+  # Sort the origins file
+  cat ${mOriginFile} | sort | uniq > ${mOriginFile}.new
+  mv ${mOriginFile}.new ${mOriginFile}
+
+  # Build a list of *all* package origins
+  pkg query -a '%o' | sort > ${mOriginFile}.system
+
+  # Save a list of packages that the user installed from elsewhere than our meta-packages
+  diff ${mOriginFile} ${mOriginFile}.system | grep '>' | awk '{print $2}' > /root/pcbsd-userpkgs-before-update
+  rm ${mOriginFile}.system
+  rm ${mOriginFile}
 
   # Download update files from freebsd-update
   freebsd-update --non-interactive -r "$rel" upgrade
