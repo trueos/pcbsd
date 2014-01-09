@@ -410,6 +410,7 @@ share/pcbsd/xorg-gui/cardDetect/XF86Config.compat
 share/pcbsd/xorg-gui/cardDetect/XF86Config.default
 share/pcbsd/xorg-gui/cardDetect/XF86Config.intel
 share/pcbsd/xorg-gui/cardDetect/XF86Config.vmware
+share/pcbsd/xorg-gui/cardDetect/xorg.conf.virtualbox
 share/pcbsd/xorg-gui/conf/xorg.conf.basic
 share/pcbsd/xorg-gui/conf/.fluxbox/init
 share/pcbsd/xorg-gui/conf/.fluxbox/keys
