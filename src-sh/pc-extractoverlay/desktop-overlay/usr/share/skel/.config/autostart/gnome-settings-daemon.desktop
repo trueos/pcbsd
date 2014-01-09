@@ -73,3 +73,4 @@ X-GNOME-Autostart-Phase=Initialization
 X-GNOME-Autostart-Notify=true
 X-GNOME-AutoRestart=true
 X-GNOME-Autostart-enabled=false
+X-MATE-Autostart-enabled=false

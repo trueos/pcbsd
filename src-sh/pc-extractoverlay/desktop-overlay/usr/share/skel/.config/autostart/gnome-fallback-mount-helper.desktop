@@ -118,3 +118,4 @@ OnlyShowIn=GNOME;Unity;
 X-GNOME-Autostart-Notify=true
 AutostartCondition=GNOME3 if-session gnome-fallback
 X-GNOME-Autostart-enabled=false
+X-MATE-Autostart-enabled=false
