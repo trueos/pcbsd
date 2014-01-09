@@ -113,3 +113,4 @@ X-GNOME-AutoRestart=false
 X-GNOME-Autostart-Notify=true
 X-GNOME-Autostart-enabled=false
 X-MATE-Autostart-enabled=false
+Hidden=true
