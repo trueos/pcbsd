@@ -412,7 +412,7 @@
     <item row="1" column="1" colspan="3">
      <widget class="QLabel" name="label_6">
       <property name="text">
-       <string>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</string>
+       <string>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</string>
       </property>
       <property name="wordWrap">
        <bool>true</bool>
