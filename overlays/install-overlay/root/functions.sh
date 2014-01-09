@@ -75,6 +75,10 @@ EndSection
 
 start_xorg()
 {
+  # First check if we are running as a VirtualBox guest
+  pciconf -lv | grep -q "VirtualBox"
+  if [ $? -eq 0 ] ; then cp /root/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf; fi
+
   # Run X Now
   startx
   if [ ! -e "/tmp/.xstarted" ]

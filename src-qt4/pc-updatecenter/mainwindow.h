@@ -41,12 +41,12 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
     ~MainWindow();
 
-    void setJail(CJailsBackend jail);
+    void setJail(CJailsBackend jail);    
     
 private:
     Ui::MainWindow *ui;
@@ -62,12 +62,15 @@ private:
 
     CJailsBackend   mJail;
 
+    bool misRegularUser;
+
 public slots:
     void slotSingleInstance();
 
 private slots:
 
     void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
+    void slotReturnToHost();
 
 private slots:
 
@@ -80,7 +83,7 @@ private slots:
     void on_actionExit_triggered();
     void on_actionJail_triggered();
     void on_actionSystem_branches_triggered();
-    void on_actionUpdate_set_triggered();
+    void on_actionUpdate_set_triggered();   
 };
 
 #endif // MAINWINDOW_H

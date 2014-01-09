@@ -14,7 +14,6 @@ COMMENT=	The meta-port pcbsd-meta-xfce-plugins
 
 RUN_DEPENDS=	xfce4-notes-plugin>=0:${PORTSDIR}/deskutils/xfce4-notes-plugin \
 		xfce4-weather-plugin>=0:${PORTSDIR}/misc/xfce4-weather-plugin \
-		xfce4-messenger-plugin>=0:${PORTSDIR}/net-im/xfce4-messenger-plugin \
 		xfce4-cpugraph-plugin>=0:${PORTSDIR}/sysutils/xfce4-cpugraph-plugin \
 		xfce4-fsguard-plugin>=0:${PORTSDIR}/sysutils/xfce4-fsguard-plugin \
 		xfce4-genmon-plugin>=0:${PORTSDIR}/sysutils/xfce4-genmon-plugin \

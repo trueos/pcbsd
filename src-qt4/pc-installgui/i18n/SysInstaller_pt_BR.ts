@@ -247,13 +247,11 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Restaurar através do backup do Life-Preserver</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Gerenciar a conectividade da rede</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
@@ -272,19 +270,17 @@
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar a restauração agora?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O seu sistema está restaurado!
+Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mídia de instalação.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restauração do sistema</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
@@ -688,13 +684,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Instalando no SSD (Desabilita SWAP / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sem gerenciador de inicialização!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
@@ -703,13 +697,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Gerenciador de inicialização (GRUB é recomendado)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Você escolheu não instalar um gerenciador de inicialização. Precisará configurar manualmente o seu próprio gerenciador.</translation>
     </message>
 </context>
 <context>
@@ -835,13 +827,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome de usuário</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Porta SSH</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
@@ -880,8 +870,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O sistema está pronto para ser restaurado, clique em Finalizar para continuar.</translation>
     </message>
     <message>
         <source>No keys found!</source>
@@ -896,8 +885,7 @@ Please try another USB stick or use password authentication.</source>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A conexão falhou!</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
@@ -918,8 +906,7 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selecione a chave SSH para usar</translation>
     </message>
     <message>
         <source>Key File:</source>

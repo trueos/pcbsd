@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>Reading items...</source>
-        <translation>Lendo items...</translation>
+        <translation>Lendo itens...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
@@ -101,23 +101,19 @@
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mate</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Mate)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon)</translation>
     </message>
 </context>
 </TS>

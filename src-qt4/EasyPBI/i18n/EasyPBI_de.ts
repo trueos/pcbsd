@@ -678,8 +678,7 @@
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quelleninformation anzeigen (optional)</translation>
     </message>
     <message>
         <source>Tags</source>
@@ -712,8 +711,7 @@
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quellenverwaltung anzeigen (optional)</translation>
     </message>
     <message>
         <source>Build Key</source>
@@ -727,13 +725,11 @@
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Priorität</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kein TMPFS</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
@@ -747,28 +743,23 @@
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erstellungspriorität (je höher, desto dringender)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neues PBI-Modul erstellen</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Existierendes PBI-Modul laden</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI-Moduleinstellungen auswählen</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI-Einstellungen (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
