@@ -41,12 +41,13 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
     ~MainWindow();
 
     void setJail(CJailsBackend jail);
+    void setAppFlags(bool isUserMode, bool isLockedJail);
     
 private:
     Ui::MainWindow *ui;
@@ -61,6 +62,8 @@ private:
     CPBIController  mPBIController;
 
     CJailsBackend   mJail;
+
+    bool misRegularUser;
 
 public slots:
     void slotSingleInstance();

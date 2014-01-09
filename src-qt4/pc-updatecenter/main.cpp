@@ -8,6 +8,34 @@
 #include <unistd.h>
 #include <sys/types.h>
 
+bool checkUserGroup(QString groupName)
+{
+   QString loginName = getlogin();
+   QStringList gNames;
+   if ( loginName == "root" )
+     return true;
+
+   QString tmp;
+   QFile iFile("/etc/group");
+   if ( ! iFile.open(QIODevice::ReadOnly | QIODevice::Text))
+     return true; //or FALSE?
+
+   while ( !iFile.atEnd() ) {
+     tmp = iFile.readLine().simplified();
+     if ( tmp.indexOf(groupName) == 0 ) {
+    gNames = tmp.section(":", 3, 3).split(",");
+    break;
+     }
+   }
+   iFile.close();
+
+   for ( int i = 0; i < gNames.size(); ++i )
+      if ( gNames.at(i).indexOf(loginName) == 0 )
+            return true;
+
+   return false;
+}
+
 int main(int argc, char *argv[])
 {        
     PCSingleApplication a(argc, argv);
@@ -38,20 +66,29 @@ int main(int argc, char *argv[])
         pJail = &jail;
     }
 
-    MainWindow w(pJail);
+    if (a.isRunning() && (!jail.jailEnabled()))
+    {
+        return !(a.sendMessage("show"));
+    }
 
-    QObject::connect(&a, SIGNAL(messageReceived(const QString &)), &w, SLOT(slotSingleInstance()));
+    MainWindow w(pJail);
 
     w.show();
 
+    QObject::connect(&a, SIGNAL(messageReceived(const QString &)), &w, SLOT(slotSingleInstance()));
+
     //Check for root
-    if (0 != geteuid())
+
+    bool isNotPriv = (0 != geteuid()) && jail.jailEnabled();
+    isNotPriv |= !(checkUserGroup("wheel") || checkUserGroup("operator"));
+
+    if (isNotPriv)
     {
         QMessageBox msg;
         msg.setText(w.tr("You should run this application as root"));
         msg.exec();
         exit(2);
-    }
+    }    
     
     return a.exec();
 }
