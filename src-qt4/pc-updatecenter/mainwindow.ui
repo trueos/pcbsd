@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>619</width>
-    <height>433</height>
+    <width>617</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -357,7 +357,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>619</width>
+     <width>617</width>
      <height>21</height>
     </rect>
    </property>
@@ -374,6 +374,8 @@
     <addaction name="actionLast_system_update_log"/>
     <addaction name="actionLast_package_update_log"/>
     <addaction name="actionLast_software_update_log"/>
+    <addaction name="separator"/>
+    <addaction name="actionBase_system_update_log"/>
    </widget>
    <widget class="QMenu" name="menuControl">
     <property name="title">
@@ -455,6 +457,11 @@
    </property>
    <property name="text">
     <string>Jail</string>
+   </property>
+  </action>
+  <action name="actionBase_system_update_log">
+   <property name="text">
+    <string>Base system update history</string>
    </property>
   </action>
  </widget>

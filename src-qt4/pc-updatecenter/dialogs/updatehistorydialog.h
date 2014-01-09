@@ -1,5 +1,5 @@
 /**************************************************************************
-*   Copyright (C) 2013- by Yuri Momotyuk                                   *
+*   Copyright (C) 2014- by Yuri Momotyuk                                   *
 *   yurkis@gmail.com                                                      *
 *                                                                         *
 *   Permission is hereby granted, free of charge, to any person obtaining *
@@ -22,69 +22,41 @@
 *   OTHER DEALINGS IN THE SOFTWARE.                                       *
 ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef UPDATEHISTORYDIALOG_H
+#define UPDATEHISTORYDIALOG_H
 
-#include <QMainWindow>
-#include <QTreeWidgetItem>
-
-#include "syscontroller.h"
-#include "pkgcontroller.h"
-#include "pbicontroller.h"
-#include "jailsbackend.h"
-
+#include "../syscontroller.h"
+#include <QDialog>
+#include <QStringList>
 
 namespace Ui {
-class MainWindow;
+class UpdateHistoryDialog;
 }
 
-class MainWindow : public QMainWindow
+class UpdateHistoryDialog : public QDialog
 {
     Q_OBJECT
-
-public:
-    explicit MainWindow(CJailsBackend* jail=0, QWidget *parent = 0);
-    ~MainWindow();
-
-    void setJail(CJailsBackend jail);    
     
+public:
+    explicit UpdateHistoryDialog(QWidget *parent = 0);
+    ~UpdateHistoryDialog();
+
+    void execDialog(CSysController* controller);
+    
+private slots:
+    void slotSelector_currentIndexChanged(int index);
+
 private:
-    Ui::MainWindow *ui;
+    Ui::UpdateHistoryDialog *ui;
 
-    void init();
-    void jailRefresh();
+    CSysController* mpController;
 
-    void refreshMenu();
+    QStringList mReleases;
+    QString     mInstalledRelease;
+    int         mInstalledPatch;
+    int         mCurrentPatch;
 
-    CSysController  mSysController;
-    CPkgController  mPkgController;
-    CPBIController  mPBIController;
-
-    CJailsBackend   mJail;
-
-    bool misRegularUser;
-
-public slots:
-    void slotSingleInstance();
-
-private slots:
-
-    void globalStateChanged(CAbstractUpdateController::EUpdateControllerState new_state);
-    void slotReturnToHost();
-
-private slots:
-
-    void on_updateAllButton_clicked();
-    void on_pushButton_clicked();
-    void on_checkAllButton_clicked();
-    void on_actionLast_system_update_log_triggered();
-    void on_actionLast_package_update_log_triggered();
-    void on_actionLast_software_update_log_triggered();
-    void on_actionExit_triggered();
-    void on_actionJail_triggered();
-    void on_actionSystem_branches_triggered();
-    void on_actionUpdate_set_triggered();   
-    void on_actionBase_system_update_log_triggered();
+    void fillHistoryList(QString release);
 };
 
-#endif // MAINWINDOW_H
+#endif // UPDATEHISTORYDIALOG_H

@@ -65,12 +65,23 @@ public:
             misRequiresReboot= false;
         }
     }SSystemUpdate;
+
+    typedef struct _SFbsdUpdatesDescription
+    {
+        QString mRelease;
+        int     mUpdateNo;
+        QString mDescription;
+
+        _SFbsdUpdatesDescription():mUpdateNo(-1){;}
+
+    }SFbsdUpdatesDescription;
     
     QVector<SSystemUpdate> updates() {return mvUpdates;}
     QStringList filesToUpdate()      {return mFilesToUpdate;}
     QStringList filesToDelete()      {return mFilesToRemove;}
     QStringList fileslocalyModifyed(){return mFilesLocallyModifyed;}
     bool        rebootRequired();
+    QVector<SFbsdUpdatesDescription> updateDescriptions(QString RelName = QString(), bool isForse = false);
 
     void updateSelected(QVector<SSystemUpdate> selectedUpdates);
 
@@ -100,13 +111,14 @@ private:
     QVector<SSystemUpdate> mvUpdatesToApply;
     int                    mCurrentUpdate;
 
+    QVector<SFbsdUpdatesDescription> mvFbsdUpdateDescriptions;
+
     void parseCheckPCBSDLine(QString line);
     void parseCheckFREEBSDLine(QString line);
 
     void parsePatchUpdateLine(QString line);
     void parseUpgradeLine(QString line);
     void parseFreeBSDUpdateLine(QString line);
-
 
 
 };

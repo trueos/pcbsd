@@ -62,6 +62,10 @@ __string_constant SYS_PATCH_SETSTEPS= "SETSTEPS:";
 __string_constant SYS_PATCH_MSG= "MSG:";
 __string_constant SYS_PATCH_FINISHED= "INSTALLFINISHED:";
 
+__string_constant UPDATE_DESCRIPTIONS_FETCH_COMMAND = "fetch -q -o-";
+__string_constant UPDATE_DESCRIPTIONS_URL = "http://fbsd-update.pcbsd.org/updates.desc";
+__string_constant UPDATE_DESCRIPTIONS_FIELDS_SEPARATOR = ":::";
+
 __string_constant FILES_REQUIRED_REBOOT []= { "/boot/*", "/usr/lib/libc*" };
 
 const int FILES_REQUIRED_REBOOT_SIZE = sizeof(FILES_REQUIRED_REBOOT) / sizeof(char*);
@@ -82,6 +86,40 @@ CSysController::CSysController()
 bool CSysController::rebootRequired()
 {
     return misRebootRequired && (currentState()!= eUPDATING);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QVector<CSysController::SFbsdUpdatesDescription> CSysController::updateDescriptions(QString RelName, bool isForse)
+{
+    QVector<CSysController::SFbsdUpdatesDescription> out;
+
+    QStringList fetch_out = pcbsd::Utils::runShellCommand(QString(UPDATE_DESCRIPTIONS_FETCH_COMMAND) + " " + UPDATE_DESCRIPTIONS_URL);
+
+    if (!mvFbsdUpdateDescriptions.size() || isForse)
+    {
+        mvFbsdUpdateDescriptions.clear();
+        for (int i=0; i<fetch_out.size(); i++)
+        {
+            SFbsdUpdatesDescription entry;
+            QStringList line_split = fetch_out[i].split(UPDATE_DESCRIPTIONS_FIELDS_SEPARATOR);
+            if (line_split.size() < 3)
+                continue;
+            entry.mRelease = line_split[0];
+            entry.mDescription = line_split[2];
+            entry.mUpdateNo = line_split[1].toInt();
+            mvFbsdUpdateDescriptions.push_back(entry);
+        }
+    }
+
+    //filter by RelName
+    for (int i=0; i<mvFbsdUpdateDescriptions.size(); i++)
+    {
+        if ((!RelName.length()) || RelName.trimmed().toUpper() == mvFbsdUpdateDescriptions[i].mRelease.trimmed().toUpper() )
+        {
+            out.push_back(mvFbsdUpdateDescriptions[i]);
+        }
+    }
+    return out;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

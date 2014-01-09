@@ -30,6 +30,7 @@
 #include "dialogs/jailsdialog.h"
 #include "dialogs/branchesdialog.h"
 #include "dialogs/patchsetdialog.h"
+#include "dialogs/updatehistorydialog.h"
 
 #include <unistd.h>
 #include <QTreeWidgetItem>
@@ -397,4 +398,11 @@ void MainWindow::on_actionUpdate_set_triggered()
         mPkgController.check();
         mPBIController.check();
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionBase_system_update_log_triggered()
+{
+    UpdateHistoryDialog* dlg = new UpdateHistoryDialog(this);
+    dlg->execDialog(&mSysController);
 }
