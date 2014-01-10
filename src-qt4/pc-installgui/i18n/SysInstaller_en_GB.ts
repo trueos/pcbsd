@@ -820,10 +820,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
         <translation>SSH Port</translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation>Server Authentication</translation>
     </message>
@@ -888,6 +884,10 @@ Please check your hostname and that the backup server is reachable.</translation
     <message>
         <source>Key File:</source>
         <translation>Key File:</translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

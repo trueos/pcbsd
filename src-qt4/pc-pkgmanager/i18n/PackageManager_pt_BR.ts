@@ -29,8 +29,7 @@
     </message>
     <message>
         <source>System Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Gerenciador de pacotes do sistema</translation>
     </message>
     <message>
         <source>Add / Remove Packages</source>
@@ -38,13 +37,11 @@
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pacotes do sistema</translation>
     </message>
     <message>
         <source>Package Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informação do pacote</translation>
     </message>
     <message>
         <source>Description</source>
@@ -88,8 +85,7 @@
     </message>
     <message>
         <source>Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pacote</translation>
     </message>
     <message>
         <source>Old Version</source>
@@ -135,8 +131,7 @@
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Verificando se há atualizações</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
@@ -158,13 +153,11 @@
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>requerido por:</translation>
     </message>
     <message>
         <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os seguintes pacotes estão causando conflitos com as alterações selecionadas e podem ser removidos automaticamente. Continuar?</translation>
     </message>
     <message>
         <source>Package Conflicts</source>
@@ -185,17 +178,15 @@
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Os comandos do pacote falharam. Uma cópia da saída foi salva em /tmp/pkg-output.log</translation>
     </message>
     <message>
         <source>Finished!</source>
-        <translation>Terminado!</translation>
+        <translation>Concluído!</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">As alterações do pacote estão completas!</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
@@ -203,11 +194,11 @@
     </message>
     <message>
         <source>No changes</source>
-        <translation type="unfinished">Sem alterações</translation>
+        <translation>Sem alterações</translation>
     </message>
     <message>
         <source>No changes to make!</source>
-        <translation type="unfinished">Não há alterações a fazer!</translation>
+        <translation>Não há alterações a fazer!</translation>
     </message>
     <message>
         <source>The following packages will be removed:</source>
@@ -224,7 +215,7 @@
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
-        <translation type="unfinished">As seguintes dependências também serão instaladas:</translation>
+        <translation>As seguintes dependências também serão instaladas:</translation>
     </message>
     <message>
         <source>Confirm package changes</source>
@@ -277,8 +268,7 @@
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nenhum pacote foi encontrado com esse termo de busca. Por favor, ajuste-o e tente novamente.</translation>
     </message>
     <message>
         <source>Processes Running</source>
@@ -301,8 +291,7 @@
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baixando</translation>
     </message>
 </context>
 </TS>

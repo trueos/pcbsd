@@ -818,10 +818,6 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
         <translation>SSH Port</translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>Jika Anda menyimpan kunci Life-Preserver Anda ke USB, pilih di bawah ini, sebaliknya Anda mungkin ingin menggunakan keaslian kata sandi.</translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation>Keaslian Server</translation>
     </message>
@@ -886,6 +882,10 @@ Mohon periksa nama host Anda dan server backup bisa dicapai.</translation>
     <message>
         <source>Key File:</source>
         <translation>File Kunci:</translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

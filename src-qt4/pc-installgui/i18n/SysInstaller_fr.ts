@@ -819,10 +819,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>SSH Port     </translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>Si vous avez enregistré votre clé de bouée de sauvetage sur une clé USB, sélectionnez-la ci-dessous, sinon vous pouvez utiliser l&apos;authentification par mot de passe.</translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation>Authentification Serveur  </translation>
     </message>
@@ -884,6 +880,10 @@ Please check your hostname and that the backup server is reachable.</source>
     <message>
         <source>Key File:</source>
         <translation>Fichier de clé:     </translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
