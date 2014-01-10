@@ -39,11 +39,22 @@ mount_pbifile() {
 }
 
 mount_dirs() {
+
+   # Check some of the common items to mount into the PBI container
    is_mounted "${pDir}/virtbase" || $NULLFS / "${pDir}/virtbase"
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
    is_mounted "${pDir}/virtbase/usr/local" || $NULLFS ${1}/local "${pDir}/virtbase/usr/local"
    is_mounted "${pDir}/virtbase/var/run" || $NULLFS ${pDir}/run "${pDir}/virtbase/var/run"
    is_mounted "${pDir}/virtbase/compat/linux" || $NULLFS ${1}/linux "${pDir}/virtbase/compat/linux"
+
+   # Sort out the items to mount into the PBI container
+   for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
+   do
+     if [ "$i" = "/" ] ; then continue ; fi
+     is_mounted "${pDir}/virtbase${i}" || $NULLFS ${i} "${pDir}/virtbase${i}"
+   done
+
+   # Mount any system-wide fonts / cursors / icons into the PBI container
    if [ -d "${pDir}/virtbase/usr/local/etc/fonts" ] ; then
       is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || $NULLFS /usr/local/etc/fonts "${pDir}/virtbase/usr/local/etc/fonts"
    fi
@@ -53,22 +64,11 @@ mount_dirs() {
    if [ -d "${pDir}/virtbase/usr/local/lib/X11/icons" ] ; then
       is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || $NULLFS /usr/local/lib/X11/icons "${pDir}/virtbase/usr/local/lib/X11/icons"
    fi
-   is_mounted "${pDir}/virtbase/tmp" || $NULLFS /tmp "${pDir}/virtbase/tmp"
-   is_mounted "${pDir}/virtbase/usr/home" || $NULLFS /usr/home "${pDir}/virtbase/usr/home"
 
-   # Check if we need to mount linprocfs
+   # Check if we need to mount linprocfs in the PBI container
    if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
       is_mounted "${pDir}/virtbase/compat/linux/proc" || mount -t linprocfs linproc "${pDir}/virtbase/compat/linux/proc"
    fi
-
-   for i in `ls -d /usr/home/* 2>/dev/null`
-   do
-      is_mounted "${i}" 
-      if [ $? -eq 0 ] ;then
-         is_mounted "${pDir}/virtbase${i}" || $NULLFS ${i} "${pDir}/virtbase${i}"
-      fi
-
-   done
 
    sync
 
@@ -81,27 +81,17 @@ mount_dirs() {
    # Copy the custom ldconfig
    cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
    chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
-   sleep 1
+   sleep 0.2
    sync
 }
 
 umount_pbidir() {
-   is_mounted "${pDir}/virtbase/usr/local/etc/fonts" && umount ${pDir}/virtbase/usr/local/etc/fonts
-   is_mounted "${pDir}/virtbase/usr/local/etc" && umount ${pDir}/virtbase/usr/local/etc
-   is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" && umount ${pDir}/virtbase/usr/local/lib/X11/fonts
-   is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" && umount ${pDir}/virtbase/usr/local/lib/X11/icons
-   is_mounted "${pDir}/virtbase/usr/local" && umount ${pDir}/virtbase/usr/local
-   is_mounted "${pDir}/virtbase/tmp" && umount ${pDir}/virtbase/tmp
-   is_mounted "${pDir}/virtbase/dev" && umount ${pDir}/virtbase/dev
-   is_mounted "${pDir}/virtbase/var/run" && umount ${pDir}/virtbase/var/run
-   is_mounted "${pDir}/virtbase/compat/linux/proc" && umount ${pDir}/virtbase/compat/linux/proc
-   is_mounted "${pDir}/virtbase/compat/linux" && umount ${pDir}/virtbase/compat/linux
-   for i in `ls -d ${pDir}/virtbase/usr/home/* 2>/dev/null`
+   for i in `mount | grep "on ${pDir}" | tail -r | awk '{print $3}'`
    do
-      is_mounted "${i}" && umount ${i}
+     echo "Unmounting ${i}"
+     umount -f ${i}
+     sleep 0.1
    done
-   is_mounted "${pDir}/virtbase/usr/home" && umount ${pDir}/virtbase/usr/home
-   is_mounted "${pDir}/virtbase" && umount ${pDir}/virtbase
 }
 
 
@@ -127,5 +117,4 @@ fi
 # Lets begin the mount process
 get_pdir "$1"
 check_pbidir "${2}"
-mount_dirs "${2}"
 mount_dirs "${2}"
