@@ -22,6 +22,7 @@ RUN_DEPENDS=	qt4-assistant>=0:${PORTSDIR}/devel/qt4-assistant \
 		qt4-rcc>=0:${PORTSDIR}/devel/qt4-rcc \
 		qt4-doc>=0:${PORTSDIR}/misc/qt4-doc \
 		qt4-qmake>=0:${PORTSDIR}/devel/qmake4 \
+		qtcreator:${PORTSDIR}/devel/qtcreator \
 		cmake>=0:${PORTSDIR}/devel/cmake \
 		cmake-gui>=0:${PORTSDIR}/devel/cmake-gui \
 		gmake>=0:${PORTSDIR}/devel/gmake \
