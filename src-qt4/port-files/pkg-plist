@@ -2500,7 +2500,6 @@ share/EasyPBI/i18n/EasyPBI_af.qm
 share/pcbsd/scripts/fastest_cvsup
 share/pcbsd/scripts/find-install-media.sh
 share/pcbsd/scripts/GenDiagSheet.sh
-share/pcbsd/scripts/portsnap.sh
 share/pcbsd/splash-screens/loading-screen-de.pcx
 share/pcbsd/splash-screens/loading-screen-ja.pcx
 share/pcbsd/splash-screens/loading-screen-ru.pcx
