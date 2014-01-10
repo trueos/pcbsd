@@ -112,6 +112,7 @@ private:
     int                    mCurrentUpdate;
 
     QVector<SFbsdUpdatesDescription> mvFbsdUpdateDescriptions;
+    QString mCurrentFbsdDescription;
 
     void parseCheckPCBSDLine(QString line);
     void parseCheckFREEBSDLine(QString line);
@@ -119,6 +120,8 @@ private:
     void parsePatchUpdateLine(QString line);
     void parseUpgradeLine(QString line);
     void parseFreeBSDUpdateLine(QString line);
+
+    QString fbsdUpdateDescription(QString line);
 
 
 };

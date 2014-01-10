@@ -93,10 +93,9 @@ QVector<CSysController::SFbsdUpdatesDescription> CSysController::updateDescripti
 {
     QVector<CSysController::SFbsdUpdatesDescription> out;
 
-    QStringList fetch_out = pcbsd::Utils::runShellCommand(QString(UPDATE_DESCRIPTIONS_FETCH_COMMAND) + " " + UPDATE_DESCRIPTIONS_URL);
-
     if (!mvFbsdUpdateDescriptions.size() || isForse)
     {
+        QStringList fetch_out = pcbsd::Utils::runShellCommand(QString(UPDATE_DESCRIPTIONS_FETCH_COMMAND) + " " + UPDATE_DESCRIPTIONS_URL);
         mvFbsdUpdateDescriptions.clear();
         for (int i=0; i<fetch_out.size(); i++)
         {
@@ -138,6 +137,8 @@ void CSysController::onCheckUpdates()
     mFilesLocallyModifyed.clear();
     mFilesToRemove.clear();
     mFilesToUpdate.clear();
+    mCurrentFbsdDescription = tr("Base system update");
+    updateDescriptions();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -236,7 +237,7 @@ void CSysController::onCheckProcessfinished(int exitCode)
         if (mFilesToRemove.size() || mFilesToUpdate.size())
         {
             SSystemUpdate entry;
-            entry.mName= tr("Base system update");
+            entry.mName = mCurrentFbsdDescription;
             entry.mType= eFBSDUPDATE;
             entry.misRequiresReboot= misFBSDRebootRequired;
             mvUpdates.push_back(entry);
@@ -304,7 +305,7 @@ void CSysController::parseCheckPCBSDLine(QString line)
     /*if (line == QString("Your system is up to date!"))
     {
         setCurrentState(eFULLY_UPDATED);
-    }*/
+    }*/    
     static SSystemUpdate upd;
     line= line.trimmed();
 
@@ -368,8 +369,6 @@ void CSysController::parseCheckPCBSDLine(QString line)
 ///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseCheckFREEBSDLine(QString line)
 {
-    //qDebug()<<line;
-
     typedef enum{
         eUndefined,
         eFilesModifyedLocally,
@@ -392,17 +391,20 @@ void CSysController::parseCheckFREEBSDLine(QString line)
 
     if (line.contains(FILES_MODIFYED_LOCALLY))
     {
-        currCheckState= eFilesModifyedLocally;
+        currCheckState= eFilesModifyedLocally;        
         return;
     }
     else if (line.contains(FILES_TO_DELETE))
     {
         currCheckState= eFilesToDelete;
+        mCurrentFbsdDescription= fbsdUpdateDescription(line);
         return;
     }
     else if (line.contains(FILES_TO_UPDATE))
-    {
+    {        
         currCheckState= eFilesToUpdate;
+        mCurrentFbsdDescription= fbsdUpdateDescription(line);
+
         return;
     }
 
@@ -524,4 +526,28 @@ void CSysController::parseFreeBSDUpdateLine(QString line)
     progress.mMessage = tr("Installing system update");
     reportProgress(progress);
     reportLogLine(line);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+QString CSysController::fbsdUpdateDescription(QString line)
+{
+    // Example line: "The following files will be updated as part of updating to 10.0-RELEASE-p3:"
+    line = line.trimmed();
+    QString release = line.right(line.length() - line.lastIndexOf(" "));
+    release = release.left(release.lastIndexOf("-")).trimmed();
+    QString patch = line.right(line.length() - line.lastIndexOf("-")).replace("-p","").replace(':',"");
+    int patch_num = patch.toInt();
+    QVector<SFbsdUpdatesDescription> descrs = updateDescriptions(release);
+
+    QString ret = tr("Base system update");
+
+    for(int i=0; i<descrs.size(); i++)
+    {
+        if (descrs[i].mUpdateNo == patch_num)
+        {
+            ret = descrs[i].mDescription;
+            break;
+        }
+    }
+    return ret;
 }
