@@ -85,6 +85,12 @@ MainGUI::MainGUI(QWidget *parent) :
 	
       SetupDefaults(); //load program defaults
       refreshGUI("all"); //make items visible/invisible as necessary
+
+      //Change output palette (white on black)
+      QPalette palette = ui->text_build_log->palette();
+      palette.setColor(QPalette::Base, Qt::black);
+      palette.setColor(QPalette::Text, Qt::white);
+      ui->text_build_log->setPalette(palette);
       
       //Connect "option changed" signals to the respective slot
       // PBI tab

@@ -73,6 +73,12 @@ void mainWin::ProgramInit(QString ch)
   }
 
   initMetaWidget();
+
+  //Change output palette (white on black)
+  QPalette palette = textDisplayOut->palette();
+  palette.setColor(QPalette::Base, Qt::black);
+  palette.setColor(QPalette::Text, Qt::white);
+  textDisplayOut->setPalette(palette);
 }
 
 void mainWin::slotViewChanged()
