@@ -441,8 +441,9 @@ finish_major_fbsd_update() {
   # Remove all PBIs
   clear
   echo "Removing PBIs..."
-  while read pbi
+  while read line
   do
+    pbi=`echo $line | cut -d ' ' -f 1`
     echo "Removing: ${pbi}"
     pbi_delete $pbi >/dev/null 2>/dev/null
     if [ $? -ne 0 ] ; then
@@ -576,11 +577,21 @@ finish_major_fbsd_update() {
   # Now lets re-load any PBI files
   clear
   echo "Re-Installing PBIs"
-  while read newpbi
+  while read line
   do
+    newpbi=`echo $line | cut -d ' ' -f 1`
+    user=`echo $line | cut -d ' ' -f 2`
     shortpbi="`echo $newpbi | rev | cut -d '-' -f 3- | rev`"
-    pbi_add -r $shortpbi
-    if [ $? -ne 0 ] ; then
+
+    # Re-install the PBI as user or root depending on how it was installed
+    if [ "$user" != "root" ] ; then
+      su $user -c "pbi_add -r $shortpbi"
+      result=$?
+    else
+      pbi_add -r $shortpbi
+      result=$?
+    fi
+    if [ $result -ne 0 ] ; then
        PBISTATUS=1
        echo "$shortpbi" >> /root/.failed-pbi
        echo "Warning: Failed to re-install PBI: $shortpbi"
@@ -642,9 +653,9 @@ finish_major_fbsd_update() {
   echo "" >> /root/pcbsd-update-summary
 
   if [ $PBISTATUS -eq 0 ] ; then
-    echo "PBI: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
+    echo "PBI: All PBIs updated successfully!" >> /root/pcbsd-update-summary
   else
-    echo "PBI: The following meta-packages failed to install:" >> /root/pcbsd-update-summary
+    echo "PBI: The following PBIs failed to install:" >> /root/pcbsd-update-summary
     cat /root/.failed-pbi >> /root/pcbsd-update-summary
   fi
 
@@ -729,8 +740,21 @@ start_major_fbsd_update() {
 
   # Now lets build some lists of what is present on this system now
   pkg info > /root/pcbsd-pkg-before-update
-  pbi_info > /root/pcbsd-pbi-before-update
+  pbi_info > /root/pcbsd-pbi-before-update.tmp
   pc-metapkgmanager list-installed > /root/pcbsd-meta-before-update
+
+  # Figure out which user had installed which PBIs and save this list
+  while read line
+  do
+     insBy=`pbi_info -v $line | grep "InstalledBy:" | cut -d ' ' -f 2`
+     if [ -z "$insBy" ] ; then
+        echo "Unable to get UserName for installed PBI: $line"
+        continue
+     fi
+     echo "$line $insBy" >> /root/pcbsd-pbi-before-update
+  done < /root/pcbsd-pbi-before-update.tmp
+  touch /root/pcbsd-pbi-before-update
+  rm /root/pcbsd-pbi-before-update.tmp
 
   # Figure out a list of user-installed packages to try and re-install on the updated system
   echo "Building a list of user-installed packages... Please wait..."
