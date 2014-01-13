@@ -293,13 +293,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</transl
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Load config from USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save Config to USB</translation>
     </message>
 </context>
 <context>
@@ -887,8 +885,7 @@ Please check your hostname and that the backup server is reachable.</translation
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</translation>
     </message>
 </context>
 </TS>
