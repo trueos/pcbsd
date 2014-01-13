@@ -333,7 +333,7 @@ if [ -e "/etc/localtime" ] ; then
 fi
 
 # Setup TrueOS PKGNG repo / utilities only if on TRUEOS
-if [ "$VANILLA" != "YES" -a -e "${JAILDIR}/etc/rc.delay" ] ; then
+if [ "$VANILLA" != "YES" -a -e "${JAILDIR}/etc/rc.conf.pcbsd" ] ; then
   bootstrap_pkgng "${JAILDIR}"
   if [ $? -ne 0 ] ; then
      echo "You can manually re-try by running # warden bspkgng ${JAILNAME}"
