@@ -183,8 +183,6 @@ main(int argc, char *argv[])
 		app_pid = fork();
 		if(app_pid == 0) {
 			// Execute the PBI now
-			printf( "newargv[0]: %s \n", newargv[0]);
-			printf( "newargv[1]: %s \n", newargv[1]);
 			if (execvp(argv[3], newargv) == -1)
 				err(1, "execvp(): %s", argv[3]);
 			exit(0);
