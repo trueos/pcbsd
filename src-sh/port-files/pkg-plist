@@ -704,7 +704,6 @@ man/man8/pc-sysinstall.8.gz
 @dirrm share/pcbsd/metaset/pcbsd/KDE-Calligra
 @dirrm share/pcbsd/metaset/pcbsd/IceWM
 @dirrm share/pcbsd/metaset/pcbsd/XFCE
-@dirrm share/pcbsd/metaset/pcbsd/Development-IDE
 @dirrm share/pcbsd/metaset/pcbsd/XBMC
 @dirrm share/pcbsd/metaset/pcbsd/Awesome
 @dirrm share/pcbsd/metaset/pcbsd/Hardware-Drivers
