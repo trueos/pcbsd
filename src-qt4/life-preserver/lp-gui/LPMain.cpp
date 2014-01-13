@@ -196,10 +196,15 @@ void LPMain::updateTabs(){
       ui->label_finishedstat->setText(POOLDATA.finishedStatus);
       ui->label_finishedstat->setVisible(true);
     }
-    if(POOLDATA.runningStatus.isEmpty()){ ui->label_runningstat->setVisible(false); }
-    else{
+    if(POOLDATA.runningStatus.isEmpty()){ 
+      ui->label_runningstat->setVisible(false);
+      ui->action_startScrub->setEnabled(true);
+      ui->action_stopScrub->setEnabled(false);
+    }else{
       ui->label_runningstat->setText(POOLDATA.runningStatus);
       ui->label_runningstat->setVisible(true);
+      ui->action_startScrub->setEnabled(false); //Something already running
+      ui->action_stopScrub->setEnabled(POOLDATA.runningStatus.contains("scrub", Qt::CaseInsensitive));
     }	    
     if(POOLDATA.errorStatus.isEmpty()){ ui->label_errorstat->setVisible(false); }
     else{
