@@ -280,9 +280,6 @@ share/pcbsd/metaset/pcbsd/XFCE/pkg-desc
 share/pcbsd/metaset/pcbsd/XFCE/pkg-parent
 share/pcbsd/metaset/pcbsd/XFCE/ports-list
 share/pcbsd/metaset/pcbsd/XFCE/pkg-icon.png
-share/pcbsd/metaset/pcbsd/Development-IDE/pkg-parent
-share/pcbsd/metaset/pcbsd/Development-IDE/pkg-icon.png
-share/pcbsd/metaset/pcbsd/Development-IDE/pkg-desc
 share/pcbsd/metaset/pcbsd/XBMC/pkg-icon.png
 share/pcbsd/metaset/pcbsd/XBMC/pkg-parent
 share/pcbsd/metaset/pcbsd/XBMC/ports-list
