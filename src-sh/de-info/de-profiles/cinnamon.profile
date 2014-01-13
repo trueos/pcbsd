@@ -7,7 +7,7 @@ DE_TERMINAL_TITLE="-t"
 DE_TERMINAL_COMMAND="-e"
 
 active() {
-if [ "$DESKTOP_SESSION" = "cinnamon" ] || [ "$DESKTOP_SESSION" = "32Cinnamon" ] || [ "$DESKTOP_SESSION" = "openbox-cinnamon"  ] ; then
+if [ "$DESKTOP_SESSION" = "cinnamon" ] || [ "$DESKTOP_SESSION" = "32Cinnamon" ] || [ "$DESKTOP_SESSION" = "openbox-cinnamon"  ] || [ ! -z $CINNAMON_VERSION ]; then
 DE_ACTIVE=1
 fi  
 
