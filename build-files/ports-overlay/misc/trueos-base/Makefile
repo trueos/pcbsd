@@ -15,7 +15,6 @@ COMMENT=	PC-BSD / TrueOS Command-Line Utilities
 
 RUN_DEPENDS=    pkg-static:${PORTSDIR}/ports-mgmt/pkg \
 		pc-metapkgmanager:${PORTSDIR}/sysutils/pcbsd-utils \
-		rpm:${PORTSDIR}/archivers/rpm5 \
 		xdg-desktop-icon:${PORTSDIR}/devel/xdg-utils \
 		bsdstats>=0:${PORTSDIR}/sysutils/bsdstats \
 		unrar:${PORTSDIR}/archivers/unrar \
