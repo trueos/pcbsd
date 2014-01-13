@@ -1086,7 +1086,7 @@ list_templates()
            ARCH="i386"
         fi
         VER=`file "$i/bin/sh" | cut -d ',' -f 5 | awk '{print $3}'`
-        if [ -e "$i/etc/rc.delay" ] ; then
+        if [ -e "$i/etc/rc.conf.pcbsd" ] ; then
            TYPE="TrueOS"
         else
            TYPE="FreeBSD"

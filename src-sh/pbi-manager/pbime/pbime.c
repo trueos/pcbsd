@@ -85,7 +85,9 @@ main(int argc, char *argv[])
 	char mountscript[4096];
 	char pipetemplate[] = "/tmp/.pbi-callback-XXXXXXXXXXXXXXXX";
         char *pipedir;
+	char *newargv[1024];
 	char fifoin[MAXPATHLEN]; 
+	char newlibdir[MAXPATHLEN];
         int argoffset;
 
 	pid_t listen_pid;
@@ -162,12 +164,26 @@ main(int argc, char *argv[])
                 	argoffset=3;
 		}
 
+		// Setup the newargv with right stack
+		for ( int i = argoffset; i<argc; i++)
+		{
+			newargv[i-argoffset] = argv[i];
+			if ( i > 1020 ) {
+				err(1, "Too many args...");
+			}
+		}
+		newargv[0] = argv[3];
+
+		// Make sure 32bit compat is enabled
+		strncat(newlibdir, "/usr/local", (strlen("/usr/local") ));
+		strcat(newlibdir, "/lib");
+		setenv("LD_32_LIBRARY_PATH", newlibdir, 1);
 
 		// Fork off the PBI process, and have the parent wait for it to finish
 		app_pid = fork();
 		if(app_pid == 0) {
 			// Execute the PBI now
-			if (execvp(argv[3], argv + argoffset) == -1)
+			if (execvp(argv[3], newargv) == -1)
 				err(1, "execvp(): %s", argv[3]);
 			exit(0);
 		} else {
