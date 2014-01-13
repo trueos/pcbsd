@@ -4887,7 +4887,7 @@ do_pbid() {
 			# If we failed to get an index try again sooner
 			# This is useful if the user has just installed and has not setup
 			# the network yet. We want to fetch indexes quickly after net
-			# comes up so they dont need to wait 15 min or whatever its set to
+			# comes up so they dont need to wait 15 min for the next check
 			if [ ! -e "${PBI_DBINDEXDIR}/${_iMd5}-index" ] ; then qslp=1; fi
 		done
 
@@ -4952,7 +4952,7 @@ do_pbid() {
 
 		# Done with our check, lets go back to sleep now
 		if [ $qslp -eq 1 ] ; then
-			sleep 60
+			sleep 10
 		else
 			sleep ${PBIDSLEEP}
 		fi
