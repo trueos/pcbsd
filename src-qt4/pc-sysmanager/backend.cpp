@@ -91,7 +91,6 @@ void Backend::generateSourceUpdateCMDS(QString branch, QStringList &cmds, QStrin
     Backend::emptyDir("/usr/src");
     //cmds << "rm -rf /usr/src/*"; info << "Removing the old source tree"; dirs << ""; //Clean the old ports tree
     cmds << "git init"; info << "Initialize GIT"; dirs << "/usr/src"; //setup git
-    cmds << "git remote remove origin"; info << ""; dirs <<"/usr/src"; //just in case it re-uses an old git setup
     cmds << "git remote add origin "+URL; info << ""; dirs << "/usr/src/.git"; //setup PC-BSD git repo
   }
   //Now update the tree with git
