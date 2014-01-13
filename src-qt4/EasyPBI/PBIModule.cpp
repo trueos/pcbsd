@@ -168,12 +168,12 @@ bool PBIModule::saveConfig(){
   }
   //Boolian Values
   for(int i=0; i<CBoolValues.length(); i++){
-    QString line = CBoolValues[i]+"=\"";
-    if(HASH.contains(CBoolValues[i]) && HASH[CBoolValues[i]].toBool() ){ line.append("YES"); }
-    else{ line.append("NO"); }
-    line.append("\""); //close out the quotes
-    exportVariables << CBoolValues[i];
-    contents << line;
+    if(HASH.contains(CBoolValues[i]) && HASH[CBoolValues[i]].toBool() ){ 
+	QString line = CBoolValues[i]+"=\"YES\"";
+        exportVariables << CBoolValues[i];
+        contents << line;   
+    }
+    
   }
   //Integer Values
   for(int i=0; i<CIntValues.length(); i++){
