@@ -31,6 +31,7 @@ class Backend {
 public:
     static QStringList getAvailableDesktops();
     static QString getDesktopComment(QString);
+    static QString getNLDesktopName(QString);
     static QString getDesktopIcon(QString);
     static QString getDesktopBinary(QString);
     static QStringList getSystemUsers();

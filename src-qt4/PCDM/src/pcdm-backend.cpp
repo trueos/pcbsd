@@ -11,7 +11,7 @@
 #include "pcdm-config.h"
 #include "pcbsd-utils.h"
 
-QStringList displaynameList,usernameList,homedirList,usershellList,instXNameList,instXBinList,instXCommentList,instXIconList;
+QStringList displaynameList,usernameList,homedirList,usershellList,instXNameList,instXBinList,instXCommentList,instXIconList,instXDEList;
 QString logFile;
 QString saveX,saveUsername, lastUser, lastDE;
 
@@ -26,6 +26,14 @@ QString Backend::getDesktopComment(QString xName){
   int index = instXNameList.indexOf(xName);
   if(index == -1){ Backend::log("PCDM: Invalid Desktop Name: " + xName); return ""; }
   return instXCommentList[index];
+}
+
+QString Backend::getNLDesktopName(QString xName){
+  //Get the non-localized desktop name from the localized version
+  if(instXNameList.isEmpty()){ loadXSessionsData(); }
+  int index = instXNameList.indexOf(xName);
+  if(index == -1){ Backend::log("PCDM: Invalid Desktop Name: " +xName); return ""; }
+  return instXDEList[index];	
 }
 
 QString Backend::getDesktopIcon(QString xName){
@@ -314,6 +322,7 @@ void Backend::loadXSessionsData(){
   //Clear the current variables
   instXNameList.clear(); instXBinList.clear(); 
   instXCommentList.clear(); instXIconList.clear();
+  instXDEList.clear();
   //Load the default paths/locale
   QString xDir = Config::xSessionsDir();
   QStringList paths = QString(getenv("PATH")).split(":");
@@ -348,6 +357,7 @@ void Backend::loadXSessionsData(){
 	instXBinList << tmp[0];
 	instXNameList << tmp[1];
 	instXCommentList << tmp[2];
+	instXDEList << tmp[5]; //Non-localized name of the DE
 	//Check to make sure we have a valid icon
 	if(!tmp[3].isEmpty() && !QFile::exists(tmp[3]) ){ tmp[3] = ""; }
 	instXIconList << tmp[3];
@@ -405,7 +415,7 @@ QStringList Backend::readXSessionsFile(QString filePath, QString locale){
   }
   //Format the results into the output list
   output.clear();
-  output << exec << lname << lcomm << icon << tryexec;
+  output << exec << lname << lcomm << icon << tryexec << name;
   return output;
 
 }

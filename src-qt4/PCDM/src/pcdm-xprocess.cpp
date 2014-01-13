@@ -180,6 +180,7 @@ void XProcess::setupSessionEnvironment(){
   environ.insert("SHLVL","0"); //Set the proper shell level
   environ.insert("HOME",xhome); //Set the users home directory
   environ.insert("SHELL",xshell); //Set the user's default shell
+  environ.insert("PCDM_SESSION", Backend::getNLDesktopName(xde).toUpper() ); //List the desktop environment that is being started
   this->setProcessEnvironment(environ);
   this->setWorkingDirectory(xhome); //set the current directory to the user's home directory
 }
