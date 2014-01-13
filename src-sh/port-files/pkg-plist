@@ -453,13 +453,6 @@ share/pcbsd/metaset/pcbsd/KDE-Network/pkg-icon.png
 share/pcbsd/metaset/pcbsd/KDE-Network/pkg-desc
 share/pcbsd/metaset/pcbsd/KDE-Network/pkg-parent
 share/pcbsd/metaset/pcbsd/KDE-Network/ports-list
-share/pcbsd/metaset/pcbsd/MythTV/pkg-parent
-share/pcbsd/metaset/pcbsd/MythTV/ports-list
-share/pcbsd/metaset/pcbsd/MythTV/pkg-desc
-share/pcbsd/metaset/pcbsd/MythTV/pkg-icon.png
-share/pcbsd/metaset/pcbsd/MythTV/post-remove.sh
-share/pcbsd/metaset/pcbsd/MythTV/post-install.sh
-share/pcbsd/metaset/pcbsd/MythTV/dl-only
 share/pcbsd/metaset/pcbsd/Misc/pkg-desc
 share/pcbsd/metaset/pcbsd/Misc/pkg-icon.png
 share/pcbsd/pc-xdgutil/applications.menu
@@ -742,7 +735,6 @@ man/man8/pc-sysinstall.8.gz
 @dirrm share/pcbsd/metaset/pcbsd/Development-VCS
 @dirrm share/pcbsd/metaset/pcbsd/Desktops
 @dirrm share/pcbsd/metaset/pcbsd/KDE-Network
-@dirrm share/pcbsd/metaset/pcbsd/MythTV
 @dirrm share/pcbsd/metaset/pcbsd/Misc
 @dirrm share/pcbsd/metaset/pcbsd
 @dirrm share/pcbsd/metaset
