@@ -14,14 +14,12 @@ COMMENT=	The meta-port pcbsd-meta-xfce-plugins
 
 RUN_DEPENDS=	xfce4-notes-plugin>=0:${PORTSDIR}/deskutils/xfce4-notes-plugin \
 		xfce4-weather-plugin>=0:${PORTSDIR}/misc/xfce4-weather-plugin \
-		xfce4-messenger-plugin>=0:${PORTSDIR}/net-im/xfce4-messenger-plugin \
 		xfce4-cpugraph-plugin>=0:${PORTSDIR}/sysutils/xfce4-cpugraph-plugin \
 		xfce4-fsguard-plugin>=0:${PORTSDIR}/sysutils/xfce4-fsguard-plugin \
 		xfce4-genmon-plugin>=0:${PORTSDIR}/sysutils/xfce4-genmon-plugin \
 		xfce4-netload-plugin>=0:${PORTSDIR}/sysutils/xfce4-netload-plugin \
 		xfce4-systemload-plugin>=0:${PORTSDIR}/sysutils/xfce4-systemload-plugin \
 		xfce4-clipman-plugin>=0:${PORTSDIR}/x11/xfce4-clipman-plugin \
-		xfce4-screenshooter-plugin>=0:${PORTSDIR}/x11/xfce4-screenshooter-plugin \
 		xfce4-verve-plugin>=0:${PORTSDIR}/x11/xfce4-verve-plugin \
 		xfce4-dev-tools>=0:${PORTSDIR}/devel/xfce4-dev-tools \
 		xfce4-xkb-plugin>=0:${PORTSDIR}/deskutils/xfce4-xkb-plugin \

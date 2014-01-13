@@ -17,3 +17,8 @@ void JailIndicator::setJailName(QString name)
 {
     ui->jailNameLabel->setText(name);
 }
+
+void JailIndicator::on_returnToHostBtn_clicked()
+{
+    emit (returnToHost());
+}

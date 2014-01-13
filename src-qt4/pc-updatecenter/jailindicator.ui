@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>398</width>
-    <height>44</height>
+    <height>50</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -74,6 +74,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="returnToHostBtn">
+     <property name="text">
+      <string>Return to host</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -292,13 +292,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантажити конфігурацію з USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти конфігурацію на USB</translation>
     </message>
 </context>
 <context>
@@ -819,10 +817,6 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation>Порт SSH</translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>В разі якщо Ви зберегли Ваш ключ Life-Preserver на пристрої USB оберіть цей пристрій нижче. В іншому разі буде необхідна аутентифікація за паролем.</translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation>Аутентифікація на сервері</translation>
     </message>
@@ -887,6 +881,10 @@ Please check your hostname and that the backup server is reachable.</source>
     <message>
         <source>Key File:</source>
         <translation>Файл ключа:</translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
+        <translation>В разі якщо Ви зберегли ключ  Life-Preserver на пристрої USB, вставте будь ласка цей пристрій. В іншому випадку Ви можете використати аутентифікацію за паролем.</translation>
     </message>
 </context>
 </TS>

@@ -5,31 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished"></translation>
+        <translation>CMD Output</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Close</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Getting PC-BSD Ports Tree</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Getting PC-BSD Sources</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Process Running</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Please stop the current process before closing this window.</translation>
     </message>
 </context>
 <context>
@@ -100,94 +100,59 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished"></translation>
+        <translation>PC-BSD Versions</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished"></translation>
+        <translation>Base:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished"></translation>
+        <translation>Backend Utilities:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished"></translation>
+        <translation>Graphical Utilities:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished"></translation>
+        <translation>System Information</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeBSD Version:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Fetch PC-BSD &amp;System Source</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Fetch PC-BSD P&amp;orts Tree</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished"></translation>
+        <translation>Error Generating Diagnostic File</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Success</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Diagnostic File Created: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Process Already Running</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>updaterStatus</name>
-    <message>
-        <source>Installing Updates</source>
-        <translation>Installing Updates</translation>
-    </message>
-    <message>
-        <source>The system is currently installing the following updates:</source>
-        <translation>The system is currently installing the following updates:</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Update</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>Size</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Status</translation>
-    </message>
-    <message>
-        <source>ID</source>
-        <translation>ID</translation>
-    </message>
-    <message>
-        <source>Update Progress</source>
-        <translation>Update Progress</translation>
-    </message>
-    <message>
-        <source> of </source>
-        <translation> of </translation>
+        <translation>You already have a process running. Please wait for that one to finish first.</translation>
     </message>
 </context>
 </TS>

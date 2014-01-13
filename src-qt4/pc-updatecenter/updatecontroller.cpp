@@ -25,6 +25,7 @@
 #include "updatecontroller.h"
 
 #include <QDebug>
+#include <QCoreApplication>
 #include <unistd.h>
 
 const char* const EMULATION_PROC = "cat";
@@ -243,6 +244,8 @@ void CAbstractUpdateController::slotProcessRead()
 void CAbstractUpdateController::slotProcessFinished(int exitCode, QProcess::ExitStatus exitStatus)
 {
     Q_UNUSED(exitStatus)
+
+    slotProcessRead();
 
     switch (currentState())
     {

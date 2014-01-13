@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>621</width>
-    <height>435</height>
+    <width>617</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,7 +90,7 @@
         <item>
          <widget class="QStackedWidget" name="mainStatesStack">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_5">
            <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -236,7 +236,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QGroupBox" name="groupBox_2">
+             <widget class="QGroupBox" name="packagesIndicatorGB">
               <property name="title">
                <string>Packages</string>
               </property>
@@ -248,7 +248,7 @@
              </widget>
             </item>
             <item>
-             <widget class="Line" name="line_2">
+             <widget class="Line" name="pkgIndictorLine">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -272,6 +272,19 @@
                <enum>Qt::Horizontal</enum>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QPushButton" name="updateAllButton">
@@ -344,8 +357,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>621</width>
-     <height>22</height>
+     <width>617</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -361,6 +374,8 @@
     <addaction name="actionLast_system_update_log"/>
     <addaction name="actionLast_package_update_log"/>
     <addaction name="actionLast_software_update_log"/>
+    <addaction name="separator"/>
+    <addaction name="actionBase_system_update_log"/>
    </widget>
    <widget class="QMenu" name="menuControl">
     <property name="title">
@@ -442,6 +457,11 @@
    </property>
    <property name="text">
     <string>Jail</string>
+   </property>
+  </action>
+  <action name="actionBase_system_update_log">
+   <property name="text">
+    <string>Base system update history</string>
    </property>
   </action>
  </widget>

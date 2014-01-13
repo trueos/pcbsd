@@ -112,54 +112,54 @@ void MainWnd::setupGroup(QGroupList** List, QWidget* Parrent)
 	layout->addWidget(*List);
 	Parrent->setLayout(layout); 
         //qDebug() << "SetupGroup";
-        QObject::connect(*List, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(on_itemActivated(QListWidgetItem*)));
+    QObject::connect(*List, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(on_itemActivated(QListWidgetItem*)));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWnd::fillGroups()
 {
         //qDebug() << "Running fillGroups";
-        mRefreshMutex.lock();
+    mRefreshMutex.lock();
 
-        bool isVisible;
+    bool isVisible;
 
-        ui->centralWidget->setEnabled(false);
-        ui->statusBar->showMessage(tr("Reading items..."));
-        QApplication::processEvents();
+    ui->centralWidget->setEnabled(false);
+    ui->statusBar->showMessage(tr("Reading items..."));
+    QApplication::processEvents();
 
-        bool isSu = misWheelGroup || misOperatorGroup;
-        bool isSudo = misWheelGroup || misOperatorGroup;
+    bool isSu = misWheelGroup || misOperatorGroup;
+    bool isSudo = misWheelGroup || misOperatorGroup;
 
-        InstalledPBIs.refresh();        
+    InstalledPBIs.refresh();
 
-        isVisible = (bool)SoftwareList->read(SOFTWARE_DIR, mvEnabledDE, isSudo, isSu);
+    isVisible = (bool)SoftwareList->read(SOFTWARE_DIR, mvEnabledDE, isSudo, isSu);
 	ui->SoftwareGBox->setVisible(isVisible);
 	ui->SoftwareLine->setVisible(isVisible);
 
-        isVisible = (bool)SystemList->read(SYSTEM_DIR, mvEnabledDE, isSudo, isSu);
+    isVisible = (bool)SystemList->read(SYSTEM_DIR, mvEnabledDE, isSudo, isSu);
 	ui->SystemGBox->setVisible(isVisible);
 	ui->SystemLine->setVisible(isVisible);
 
-        isVisible = (bool)HardwareList->read(HARDWARE_DIR, mvEnabledDE, isSudo, isSu);
+    isVisible = (bool)HardwareList->read(HARDWARE_DIR, mvEnabledDE, isSudo, isSu);
 	ui->HardwareGBox->setVisible(isVisible);
 	ui->HardwareLine->setVisible(isVisible);
 
-        isVisible = (bool)NetworkingList->read(NETWORKING_DIR, mvEnabledDE, isSudo, isSu);
+    isVisible = (bool)NetworkingList->read(NETWORKING_DIR, mvEnabledDE, isSudo, isSu);
 	ui->NetworkingGBox->setVisible(isVisible);
 	ui->NetworkingLine->setVisible(isVisible);
 
-        isVisible = (bool)ToolsList->read(TOOLS_DIR, mvEnabledDE, isSudo, isSu);
+    isVisible = (bool)ToolsList->read(TOOLS_DIR, mvEnabledDE, isSudo, isSu);
 	ui->ToolsGBox->setVisible(isVisible);
 	ui->ToolsLine->setVisible(isVisible);
 
-        isVisible = (bool)DEList->read(DE_DIR, mvEnabledDE, isSudo, isSu);
-        ui->DEGBox->setVisible(isVisible);
-        ui->DELine->setVisible(isVisible);
+    isVisible = (bool)DEList->read(DE_DIR, mvEnabledDE, isSudo, isSu);
+    ui->DEGBox->setVisible(isVisible);
+    ui->DELine->setVisible(isVisible);
 
-        ui->statusBar->clearMessage();
-        ui->centralWidget->setEnabled(true);
+    ui->statusBar->clearMessage();
+    ui->centralWidget->setEnabled(true);
 
-        if( NetworkingList->sizeHintForRow(0) > 0 ) {
+    if( NetworkingList->sizeHintForRow(0) > 0 ) {
           SystemList->setGridSize(QSize(NetworkingList->sizeHintForColumn(0), NetworkingList->sizeHintForRow(0)));
           SoftwareList->setGridSize(QSize(NetworkingList->sizeHintForColumn(0), NetworkingList->sizeHintForRow(0)));
           HardwareList->setGridSize(QSize(NetworkingList->sizeHintForColumn(0), NetworkingList->sizeHintForRow(0)));
@@ -174,9 +174,9 @@ void MainWnd::fillGroups()
           NetworkingList->update();
           //qDebug() << NetworkingList->sizeHintForRow(0);
           //qDebug() << NetworkingList->sizeHintForColumn(0);
-        } 
+    }
 
-        mRefreshMutex.unlock();
+    mRefreshMutex.unlock();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -198,32 +198,32 @@ void MainWnd::on_lineEdit_textChanged(QString Text)
 	isVisible = SoftwareList->setFilter(Text);
 	ui->SoftwareGBox->setVisible(isVisible);
 	ui->SoftwareLine->setVisible(isVisible);
-		SoftwareList->setDisplayDEName(misDisplayDEName);
+    SoftwareList->setDisplayDEName(misDisplayDEName);
 
 	isVisible = SystemList->setFilter(Text);
 	ui->SystemGBox->setVisible(isVisible);
 	ui->SystemLine->setVisible(isVisible);
-        SystemList->setDisplayDEName(misDisplayDEName);
+    SystemList->setDisplayDEName(misDisplayDEName);
 
 	isVisible = NetworkingList->setFilter(Text);
 	ui->NetworkingGBox->setVisible(isVisible);
 	ui->NetworkingLine->setVisible(isVisible);
-        NetworkingList->setDisplayDEName(misDisplayDEName);
+    NetworkingList->setDisplayDEName(misDisplayDEName);
 
 	isVisible = ToolsList->setFilter(Text);
 	ui->ToolsGBox->setVisible(isVisible);
 	ui->ToolsLine->setVisible(isVisible);
-        ToolsList->setDisplayDEName(misDisplayDEName);
+    ToolsList->setDisplayDEName(misDisplayDEName);
 
 	isVisible = HardwareList->setFilter(Text);
 	ui->HardwareGBox->setVisible(isVisible);
 	ui->HardwareLine->setVisible(isVisible);
-        HardwareList->setDisplayDEName(misDisplayDEName);
+    HardwareList->setDisplayDEName(misDisplayDEName);
 
-        isVisible = DEList->setFilter(Text);
-        ui->DEGBox->setVisible(isVisible);
-        ui->DELine->setVisible(isVisible);
-        DEList->setDisplayDEName(misDisplayDEName);
+    isVisible = DEList->setFilter(Text);
+    ui->DEGBox->setVisible(isVisible);
+    ui->DELine->setVisible(isVisible);
+    DEList->setDisplayDEName(misDisplayDEName);
 
 }
 

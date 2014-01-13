@@ -2,7 +2,7 @@
 
 # PROVIDE: pcdm
 # REQUIRE: LOGIN cleanvar moused syscons dbus
-#
+# KEYWORD: shutdown
 # Add the following to /etc/rc.conf to start PCDM at boot time:
 #
 # pcdm_enable="YES"
@@ -17,6 +17,7 @@ rcvar=pcdm_enable
 command="/usr/local/sbin/PCDMd"
 pidfile="/var/run/PCDMd.pid"
 start_cmd="${name}_start"
+stop_cmd="${name}_stop"
 
 load_rc_config ${name}
 : ${pcdm_enable:=no} #default to not start pcdm automatically
@@ -50,6 +51,12 @@ pcdm_start()
     ${command} ${pcdm_flags} 
   ) &
 
+}
+
+pcdm_stop()
+{
+  #Send the PCDM daemon the signal not to start a new session after this one finishes
+  ${command} stop
 }
 
 run_rc_command "$1"

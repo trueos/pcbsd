@@ -57,9 +57,9 @@ private:
 	QGroupList* NetworkingList;
 	QGroupList* ToolsList;
 	QGroupList* HardwareList;
-        QGroupList* DEList;
+    QGroupList* DEList;
 
-        QFileSystemWatcher mDirWatcher;
+    QFileSystemWatcher mDirWatcher;
 
 	void setupGroups();
 	void setupGroup(QGroupList** List, QWidget* Parrent);

@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation type="unfinished">Definir quaisquer entradas de área de trabalho/menu e quaiquer tipos MIME</translation>
+        <translation type="unfinished">Definir quaisquer entradas de área de trabalho/menu e quaisquer tipos MIME</translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
@@ -177,7 +177,7 @@
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">Atualizar a lista atual (útil se os arquivos foram modificados fora do EasyPBI recentemente)</translation>
+        <translation type="unfinished">Atualizar a lista atual (útil se os arquivos foram modificados recentemente fora do EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
@@ -230,7 +230,7 @@
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">Sinalizar este item para que não seja exibido para todos</translation>
+        <translation type="unfinished">Marcar este item para que não seja exibido para todos</translation>
     </message>
     <message>
         <source>Make Invisible</source>
@@ -574,7 +574,7 @@
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">Nome do arquivo</translation>
+        <translation>Nome do arquivo</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
@@ -688,8 +688,7 @@
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Selecione um pacote do FreeBSD diferente</translation>
     </message>
     <message>
         <source>Change</source>
@@ -708,18 +707,15 @@
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nunca usar pacotes pré-compilados</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visualizar informação do repositório (opcional)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Marcações</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
@@ -738,18 +734,15 @@
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Categoria em que este aplicativo deve ser encontrado</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL do ícone</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
@@ -763,18 +756,15 @@
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Revisão #</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prioridade</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sem TMPFS</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
@@ -793,13 +783,11 @@
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar um novo módulo PBI</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregar um módulo PBI existente</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
@@ -808,28 +796,23 @@
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuração do PBI (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não foi possível criar uma entrada XDG.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Isto requer uma conexão ativa à internet e privilégios de administrador. </translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criando PBI (Executando)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Criando PBI (Pronto)</translation>
     </message>
 </context>
 <context>
@@ -990,8 +973,7 @@
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Caminho completo para o binário &quot;pbi_create&quot;</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
@@ -1085,7 +1067,7 @@
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">Ícone padrão</translation>
+        <translation>Ícone padrão</translation>
     </message>
 </context>
 <context>
@@ -1100,7 +1082,7 @@
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">Histórico de desenvolvimento</translation>
+        <translation>Histórico de desenvolvimento</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
@@ -1125,48 +1107,39 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selecione um pacote</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pesquisar</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pacotes disponíveis</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aceitar</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não há pacotes disponíveis</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pesquisa concluída</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nenhum pacote foi encontrado com este termo</translation>
     </message>
 </context>
 </TS>

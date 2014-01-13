@@ -30,12 +30,16 @@
 #include "dialogs/jailsdialog.h"
 #include "dialogs/branchesdialog.h"
 #include "dialogs/patchsetdialog.h"
+#include "dialogs/updatehistorydialog.h"
 
+#include <unistd.h>
 #include <QTreeWidgetItem>
 #include <QFile>
 #include <QPalette>
 #include <QMessageBox>
 #include <QApplication>
+
+#include <QDebug>
 
 #include "pcbsd-utils.h"
 
@@ -100,6 +104,8 @@ void MainWindow::setJail(CJailsBackend jail)
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::init()
 {
+    misRegularUser = getuid() != 0;
+
     for (int i=0; i<ui->mainTab->count(); i++)
     {
         if (i!=TOOLBOX_MAIN_INDEX)
@@ -115,7 +121,8 @@ void MainWindow::init()
     if (!mJail.jailEnabled())
     {
         mSysController.check();
-        mPkgController.check();
+        if (!misRegularUser)
+            mPkgController.check();
         mPBIController.check();
     }
 
@@ -151,8 +158,20 @@ void MainWindow::init()
     connect(&mPBIController, SIGNAL(stateChanged(CAbstractUpdateController::EUpdateControllerState)),
             this, SLOT(globalStateChanged(CAbstractUpdateController::EUpdateControllerState)));
 
+    connect(ui->jailIndicatorWidget, SIGNAL(returnToHost()),
+            this, SLOT(slotReturnToHost()));
 
     ui->mainStatesStack->setCurrentIndex(MAIN_INDICATORS_IDX);
+
+    if (misRegularUser)
+    {
+        ui->pkgIndicator->setVisible(false);
+        ui->packagesIndicatorGB->setVisible(false);
+        ui->pkgIndictorLine->setVisible(false);
+        ui->actionJail->setEnabled(false);
+        ui->actionSystem_branches->setEnabled(false);
+        ui->actionUpdate_set->setEnabled(false);
+    }
 
 }
 
@@ -203,17 +222,18 @@ void MainWindow::refreshMenu()
                   && (mPkgController.currentState() != CAbstractUpdateController::eUPDATING)
                   && (mPBIController.currentState() != CAbstractUpdateController::eUPDATING);
 
-    ui->actionJail->setEnabled(is_no_upd);
-    ui->actionSystem_branches->setEnabled(is_no_upd && (!mJail.jailEnabled()));
-    ui->actionUpdate_set->setEnabled(is_no_upd);
+    ui->actionJail->setEnabled(is_no_upd && (!misRegularUser));
+    ui->actionSystem_branches->setEnabled(is_no_upd && (!mJail.jailEnabled()) && (!misRegularUser));
+    ui->actionUpdate_set->setEnabled(is_no_upd && (!misRegularUser));
     ui->actionExit->setEnabled(is_no_upd);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::slotSingleInstance()
-{
+{    
     this->hide();
     this->showNormal();
+    //setWindowState( (windowState() & ~Qt::WindowMinimized ) | Qt::WindowActive );
     this->activateWindow();
     this->raise();
 }
@@ -280,6 +300,13 @@ void MainWindow::globalStateChanged(CAbstractUpdateController::EUpdateController
             break;
     }
     Q_UNUSED(new_state)
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::slotReturnToHost()
+{
+    mJail.setJailEnabled(false);
+    jailRefresh();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -371,4 +398,11 @@ void MainWindow::on_actionUpdate_set_triggered()
         mPkgController.check();
         mPBIController.check();
     }
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWindow::on_actionBase_system_update_log_triggered()
+{
+    UpdateHistoryDialog* dlg = new UpdateHistoryDialog(this);
+    dlg->execDialog(&mSysController);
 }

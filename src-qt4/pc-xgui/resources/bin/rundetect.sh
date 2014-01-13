@@ -147,6 +147,11 @@ do
   AUTORES="NO"
 
   if [ "${ATTEMPT}" = "0" ] ; then
+
+    # First check if we are running as a VirtualBox guest
+    pciconf -lv | grep -q "VirtualBox"
+    if [ $? -eq 0 ] ; then cp ${PROGDIR}/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf; fi
+
     # Check if we are supposed to run in vesa mode
     xvesa="NO"
     v=`kenv xvesa`

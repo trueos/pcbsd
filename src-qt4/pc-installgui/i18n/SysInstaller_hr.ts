@@ -841,11 +841,6 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
         <translation>SSH Port</translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation type="unfinished">
             </translation>
@@ -920,6 +915,11 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>Key File:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
         <translation type="unfinished">
             </translation>
     </message>

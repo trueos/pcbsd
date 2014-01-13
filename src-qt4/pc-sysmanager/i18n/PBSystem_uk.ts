@@ -5,31 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Виведення команди</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Зупинити</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримання дерева портів PC-BSD</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримання вихідніх кодів базової системи PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Процес запущено</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Будь ласка зупиніть поточний процес перед тим як закрити вікно.</translation>
     </message>
 </context>
 <context>
@@ -88,109 +88,71 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Набір пакунків</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (Найбільш повно протестований набір. Оновлюється щоквартально. - Рекомендовано)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Оновлюються досить частот та містить найсвіжіші зміни. Призначений передусім для розробників та тестерів)</translation>
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished"></translation>
+        <translation>Версії PC-BSD</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished"></translation>
+        <translation>База:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished"></translation>
+        <translation>Утиліти командного рядка:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished"></translation>
+        <translation>Графічні утиліти:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Інформація про систему</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Версія FreeBSD:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримати вихідні коди базової системи PC-BSD</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished"></translation>
+        <translation>Отримати дерево портів PC-BSD</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка генерації діагностичного звіту</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Успіх</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Створено файл діагностичного звіту : %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished"></translation>
+        <translation>Процес досі виконується</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>updaterStatus</name>
-    <message>
-        <source>Installing Updates</source>
-        <translation>Встановлення оновлень</translation>
-    </message>
-    <message>
-        <source>The system is currently installing the following updates:</source>
-        <translation>Наразі в системі встановлюються наступні оновлення:</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>Оновлення</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>Розмір</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Стан</translation>
-    </message>
-    <message>
-        <source>ID</source>
-        <translation>ID</translation>
-    </message>
-    <message>
-        <source>Update Progress</source>
-        <translation>Поступ оновлення</translation>
-    </message>
-    <message>
-        <source> of </source>
-        <translation> з </translation>
+        <translation>Наразі виконується активний процес. Будь ласка зачекайте поки він не закінчиться.</translation>
     </message>
 </context>
 </TS>

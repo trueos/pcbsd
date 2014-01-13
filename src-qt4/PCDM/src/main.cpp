@@ -26,6 +26,7 @@
 #define TMPLANGFILE QString("/tmp/.PCDMLang")
 #define TMPAUTOLOGINFILE QString("/tmp/.PCDMAutoLogin")
 #define TMPAUTHFILE QString("/tmp/.PCDMAuth")
+#define TMPSTOPFILE QString("/tmp/.PCDMstop")
 //Make sure that prefix is set
 //#ifndef prefix
 //#define prefix "/usr/local/"
@@ -154,7 +155,7 @@ int runSingleSession(int argc, char *argv[]){
     QCoreApplication::processEvents(QEventLoop::AllEvents,100);
   }
   //check for shutdown process
-  if( system("pgrep shutdown") == 0 || system("pgrep reboot") == 0 || system("pgrep halt") == 0 || retCode > 0){
+  if( QFile::exists(TMPSTOPFILE) || QFile::exists("/var/run/nologin") || retCode > 0){
     splash.showMessage(QObject::tr("System Shutting Down"), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
     QCoreApplication::processEvents();
     //Pause for a few seconds to prevent starting a new session during a shutdown
@@ -210,7 +211,7 @@ int main(int argc, char *argv[])
     //   can spawn multiple child sessions on different TTY displays
   }
   qDebug() << "-- PCDM Session Ended --";
-  if(QFile::exists("/var/run/nologin")){ neverquit = FALSE; } 
+  if(QFile::exists("/var/run/nologin") || QFile::exists(TMPSTOPFILE) ){ neverquit = FALSE; } 
  }
  return 0;
 }

@@ -820,10 +820,6 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
         <translation>SSH-Port</translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>Wenn Sie Ihren Schlüssel zum Life-Preserver auf einem USB-Stick gespeichert haben, wählen Sie ihn unten, anderenfalls möchten Sie vielleicht Passwortauthentifikation nutzen.</translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation>Server-Authentifikation</translation>
     </message>
@@ -888,6 +884,11 @@ Bitte überprüfen Sie, ob der Server erreichbar ist.</translation>
     <message>
         <source>Key File:</source>
         <translation>Datei des Schlüssels:</translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

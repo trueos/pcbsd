@@ -28,6 +28,7 @@
 #include <QFile>
 #include <QCoreApplication>
 #include <QTextStream>
+#include <QDebug>
 
 static const char* const GENERIC_NAME_FIELD = "PBI Information for:";
 static const char* const NAME_FIELD         = "Name:";
@@ -69,14 +70,27 @@ int CInstalledPBI::refresh()
     QProcess* loadPBIs = new QProcess();
     loadPBIs->setProcessChannelMode(QProcess::MergedChannels);
     loadPBIs->start(QString("pbi_info"), QStringList() << "-v");
+
+    int timeoutMs = 5000;
+    const int waitTaime = 200;
+    bool isTimeoutEnded = false;
+
     while(loadPBIs->state() == QProcess::Starting || loadPBIs->state() == QProcess::Running) {
-      loadPBIs->waitForFinished(200);
+      loadPBIs->waitForFinished(waitTaime);
       QCoreApplication::processEvents();
+      if (timeoutMs<=0)
+      {
+          isTimeoutEnded = true;
+          qDebug()<<"Timeout while pbi_info!";
+          break;
+      }
     }
-    QString line;
+
     while ( loadPBIs->canReadLine() )
     {
         Str = loadPBIs->readLine().simplified();
+        if (isTimeoutEnded)
+            qDebug()<<Str;
         if (Str.contains(GENERIC_NAME_FIELD))
         {
             if (Entry.mName.length())

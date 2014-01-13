@@ -653,28 +653,23 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порт/Пакунок</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обрати інший пакунок FreeBSD</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Змінити</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Переглянути переназначення пакунку (опція)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати пакунки</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>

@@ -1060,7 +1060,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <location filename="../wizardRestore.ui" line="415"/>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -820,10 +820,6 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <translation>SSH port</translation>
     </message>
     <message>
-        <source>If you saved your Life-Preserver key onto a USB stick, select it below, otherwise you may wish to use password authentication.</source>
-        <translation>Kui salvestasid Life Preserveri võtme USB-pulgale, vali see allpool, vastasel juhul võib kasutada parooliga autentimist.</translation>
-    </message>
-    <message>
         <source>Server Authentication</source>
         <translation>Serveri autentimine</translation>
     </message>
@@ -888,6 +884,11 @@ Kontrolli hostinime ja et varundusserver oleks kättesaadav.</translation>
     <message>
         <source>Key File:</source>
         <translation>Võtmefail:</translation>
+    </message>
+    <message>
+        <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

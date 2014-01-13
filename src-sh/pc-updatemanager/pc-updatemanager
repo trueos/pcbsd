@@ -408,9 +408,6 @@ start_pcbsd_patch() {
 rollback_update()
 {
   cp /tmp/pcbsd.conf.preUpdate.$$ /usr/local/etc/pkg/repos/pcbsd.conf
-  if [ "$PKGROLLBACK" = "YES" ] ; then
-
-  fi
 }
 
 # After installing the kernel and rebooting, this gets run
@@ -421,6 +418,7 @@ finish_major_fbsd_update() {
 
   # Set some status variables
   PKGSTATUS=0
+  USERPKGSTATUS=0
   PBISTATUS=0
   FREEBSDSTATUS=0
   GRUBSTATUS=0
@@ -558,6 +556,24 @@ finish_major_fbsd_update() {
     fi
   done < /root/pcbsd-meta-before-update
 
+  # Now lets try re-installing any user-installed packages
+  clear
+  echo "Re-Installing user-installed packages"
+  while read userpkg
+  do
+    # Make sure package isn't already installed
+    pkg-static info -e ${userpkg}
+    if [ $? -eq 0 ] ; then continue ; fi
+
+    # Nope, lets try to load it now
+    pkg-static install -y ${userpkg}
+    if [ $? -ne 0 ] ; then
+       USERPKGSTATUS=1
+       echo "${userpkg}" >> /root/.failed-user-pkgs
+    fi
+  done < /root/pcbsd-userpkgs-before-update
+
+  # Now lets re-load any PBI files
   clear
   echo "Re-Installing PBIs"
   while read newpbi
@@ -572,7 +588,6 @@ finish_major_fbsd_update() {
        read tmp
     fi
   done < /root/pcbsd-pbi-before-update
-
 
   # Last but not least, lets make sure to re-stamp GRUB in case any loader.conf.pcbsd modules changed
   grub-mkconfig -o /boot/grub/grub.cfg | tee /root/.failed-grub
@@ -608,6 +623,15 @@ finish_major_fbsd_update() {
 
   echo "" >> /root/pcbsd-update-summary
 
+  if [ $USERPKGSTATUS -eq 0 ] ; then
+    echo "USERPKG: All packages updated successfully!" >> /root/pcbsd-update-summary
+  else
+    echo "USERPKG: The following user-packages failed to install:" >> /root/pcbsd-update-summary
+    cat /root/.failed-user-pkgs >> /root/pcbsd-update-summary
+  fi
+
+  echo "" >> /root/pcbsd-update-summary
+
   if [ $METASTATUS -eq 0 ] ; then
     echo "META: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
   else
@@ -633,6 +657,7 @@ finish_major_fbsd_update() {
     cat /root/.failed-grub >> /root/pcbsd-update-summary
   fi
 
+  echo "" >> /root/pcbsd-update-summary
   echo "Old system information: " >> /root/pcbsd-update-summary
   echo "/root/pcbsd-pkg-before-update" >> /root/pcbsd-update-summary
   echo "/root/pcbsd-pbi-before-update" >> /root/pcbsd-update-summary
@@ -644,6 +669,7 @@ finish_major_fbsd_update() {
 
   # Clear any old summary files
   rm /root/.failed-pkgs 2>/dev/null
+  rm /root/.failed-user-pkgs 2>/dev/null
   rm /root/.failed-meta 2>/dev/null
   rm /root/.failed-pbi 2>/dev/null
   rm /root/.failed-grub 2>/dev/null
@@ -657,9 +683,23 @@ finish_major_fbsd_update() {
   exit 0
 }
 
+# Simple recursive loop to go through and get a list of all package deps for a top level package
+get_dep_origins()
+{
+  grep -q "^$1\$" "${2}.checked" 2>/dev/null
+  if [ $? -eq 0 ] ; then return; fi
+  echo "$1" >> ${2}.checked
+
+  local i
+  for i in `pkg query '%do' ${1}`
+  do
+     echo "$i" >> ${2}
+     get_dep_origins "$i" "$2"
+  done
+}
+
 start_major_fbsd_update() {
   local rel=`echo $1 | sed 's|fbsd-||g'`
-  PKGROLLBACK="NO"
 
   # Save the repo file
   cp /usr/local/etc/pkg/repos/pcbsd.conf /tmp/pcbsd.conf.preUpdate.$$
@@ -692,8 +732,45 @@ start_major_fbsd_update() {
   pbi_info > /root/pcbsd-pbi-before-update
   pc-metapkgmanager list-installed > /root/pcbsd-meta-before-update
 
-  # Lets install pkgng update
-  PKGROLLBACK="YES"
+  # Figure out a list of user-installed packages to try and re-install on the updated system
+  echo "Building a list of user-installed packages... Please wait..."
+  local mPkgFile="/tmp/.mPkgDList.$$"
+  local mOriginFile="/tmp/.mPkgOList.$$"
+  rm $mPkgFile 2>/dev/null
+  echo "ports-mgmt/pkg" >> ${mPkgFile}
+  if [ -e "/usr/local/bin/pc-softwaremanager" ] ; then
+     echo "pcbsd-base" >> ${mPkgFile}
+  else
+     echo "trueos-base" >> ${mPkgFile}
+  fi
+  while read mpkg
+  do
+     pc-metapkgmanager pkgdeps $mpkg >/dev/null 2>/dev/null
+     if [ $? -ne 0 ] ; then continue ; fi
+     pc-metapkgmanager pkgdeps $mpkg >> $mPkgFile
+  done < /root/pcbsd-meta-before-update
+
+  # Now sort out the list of depends for our meta-pkgs
+  while read mpkg
+  do
+     #echo "Finding package dependencies of ${mpkg}.."
+     pkg query '%o' $mpkg >> ${mOriginFile}
+     get_dep_origins "$mpkg" "$mOriginFile"
+  done < ${mPkgFile}
+  rm ${mPkgFile}
+
+  echo "Building list of user-installed packages..."
+  # Sort the origins file
+  cat ${mOriginFile} | sort | uniq > ${mOriginFile}.new
+  mv ${mOriginFile}.new ${mOriginFile}
+
+  # Build a list of *all* package origins
+  pkg query -a '%o' | sort > ${mOriginFile}.system
+
+  # Save a list of packages that the user installed from elsewhere than our meta-packages
+  diff ${mOriginFile} ${mOriginFile}.system | grep '>' | awk '{print $2}' > /root/pcbsd-userpkgs-before-update
+  rm ${mOriginFile}.system
+  rm ${mOriginFile}
 
   # Download update files from freebsd-update
   freebsd-update --non-interactive -r "$rel" upgrade

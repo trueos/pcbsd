@@ -98,9 +98,6 @@ if [ $? -eq 0 ]; then
   exit
 fi
 
-# Now run the X auto-detection
-detect_x
-
 # Now start xorg
 start_xorg
 
