@@ -1,10 +1,10 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 PC-PBIName=wine
-Exec=%PBI_PREFIX%/.sbin/winecfg
+Exec=%PBI_PREFIX%/bin/winecfg
 Type=Application
 Path=%PBI_PREFIX%/
-Icon=%PBI_PREFIX%/wine.png
+Icon=%PBI_PREFIX%/local/wine.png
 Name=Wine Configuration
 Name[af]=Wine Opset
 Name[ar]=إعدادات Wine
