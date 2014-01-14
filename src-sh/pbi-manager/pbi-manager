@@ -7223,8 +7223,9 @@ chroot_extract() {
 			if [ $tries -gt 10 ] ; then
 				exit_err "Failed installing pkgng into chroot"
 			else
-				echo "Pkgng is busy, trying again in 8 seconds"
-				sleep 8
+				sleepRand="`jot -r 1 1 90`"
+				echo "Pkgng is busy, trying again in $sleepRand seconds"
+				sleep $sleepRand
 				tries=`tries expr + 1`
 			fi
 		done
