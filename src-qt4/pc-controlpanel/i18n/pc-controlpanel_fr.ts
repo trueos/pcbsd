@@ -101,23 +101,19 @@
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mate      </translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon      </translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Mate)    </translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon)     </translation>
     </message>
 </context>
 </TS>

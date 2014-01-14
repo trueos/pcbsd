@@ -5,38 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CMD Output    </translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arrêt</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obtenir arbre des ports PC-BSD</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obtenir Sources PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Processus en exécution</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&apos;il vous plaît arrêter le processus en cours avant de fermer cette fenêtre.</translation>
     </message>
 </context>
 <context>
@@ -107,73 +100,59 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Versions</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Base:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Backend Utilitaires:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitaires graphiques:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Système Information</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Version:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fetch PC-BSD et Système Source</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fetch PC-BSD arbre des P&amp;orts</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erreur génération du fichier de diagnostic</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Succès</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fichier de diagnostic créer: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Processus déjà en marche</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vous avez déjà un processus en cours. S&apos;il vous plaît attendre pour que l&apos;un de finir premier.</translation>
     </message>
 </context>
 </TS>

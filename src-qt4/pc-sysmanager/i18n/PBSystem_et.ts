@@ -5,38 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CMD väljund</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peata</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulge</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD portide puu tõmbamine</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD lähtekoodi tõmbamine</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Protsess töötab</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peata käimasolev tegevus enne selle akna sulgemist.</translation>
     </message>
 </context>
 <context>
@@ -107,73 +100,59 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD versioonid</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Baas:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käsurea tööriistad:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Graafilised tööriistad:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Süsteemi info</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD versioon:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tõmba PC-BSD &amp;süsteemi lähtekood</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tõmba PC-BSD p&amp;ortide puu</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viga</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viga diagnostikafaili tegemisel</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valmis</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diagnostikafail loodud: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Protsess juba töötab</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Üks protsess juba töötab. Palun oota, kuni see lõpetab.</translation>
     </message>
 </context>
 </TS>

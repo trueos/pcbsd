@@ -292,13 +292,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Charger la configuration de USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Enregistrer la configuration USB</translation>
     </message>
 </context>
 <context>
@@ -883,8 +881,7 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Si vous avez enregistré votre clé de bouée de sauvetage sur une clé USB, insérez-le maintenant et sélectionnez la clé USB, sinon vous pouvez utiliser l&apos;authentification par mot de passe.</translation>
     </message>
 </context>
 </TS>
