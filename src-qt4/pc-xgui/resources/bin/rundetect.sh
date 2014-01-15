@@ -69,11 +69,16 @@ cfg_second_card()
   # No secondary card, return 1
   if [ -z "$card2" ] ; then return 1; fi
 
+  # Is this secondary an Intel chipset?
+  echo "$card2" | grep -q -i -e "intel"
+  if [ $? -ne 0 ] ; then return 1 ; fi
+
   # Found a second card, lets try an xorg config for it
   cp ${PROGDIR}/cardDetect/XF86Config.default /etc/X11/xorg.conf
   echo "
 Section \"Device\"
         Identifier      \"Card0\"
+        Driver          \"intel\"
         BusID           \"${card2bus}\"
 EndSection
   " >> /etc/X11/xorg.conf
@@ -163,26 +168,24 @@ do
       echo "Using failsafe VESA 1024x768 mode..." >/dev/console
       cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
     else
-      # Check if this system has a nvidia device, and run nvidia-xconfig
-      kldstat | grep -q 'nvidia'
-      if [ $? -eq 0 ] ; then
-	 echo "Detected NVIDIA, creating xorg.conf"
-         nvidia-xconfig 2>/dev/null
+      cfg_second_card
+      if [ $? -ne 0 ] ; then
+        # Check if this system has a nvidia device, and run nvidia-xconfig
+        kldstat | grep -q 'nvidia'
+        if [ $? -eq 0 ] ; then
+	   echo "Detected NVIDIA, creating xorg.conf"
+           nvidia-xconfig 2>/dev/null
+        fi
       fi
       AUTORES="YES"
     fi
   elif [ "${ATTEMPT}" = "1" ] ; then
-    # Failed to auto-start X with its own internal video detection
-    # Now lets try some magic
+    # Failed to start X
+    # Now lets have it try some magic itself
     rm /etc/X11/xorg.conf 2>/dev/null
 
     echo "`clear`" >/dev/console
     echo "ERROR: Failed to start X with default video card... Trying secondary mode..." >/dev/console
-    cfg_second_card
-    if [ $? -ne 0 ] ; then
-      # Try the Intel driver, since nvidia/vesa will fail on optimus cards
-      cp ${PROGDIR}/cardDetect/XF86Config.intel /etc/X11/xorg.conf
-    fi
   else
     # Still failed, drop to VESA failsafe
     echo "`clear`" >/dev/console
