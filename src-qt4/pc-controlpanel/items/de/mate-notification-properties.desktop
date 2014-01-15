@@ -1,6 +1,14 @@
 [Desktop Entry]
-Name=Pop-Up Notifications
 PC-RequiredDE=Mate
+Exec=mate-notification-properties
+Icon=mate-notification-properties
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Settings;DesktopSettings;
+OnlyShowIn=MATE;
+
+Name=Pop-Up Notifications
 Name[af]=Popup Kennisgevings
 Name[ar]=تنبيهات منبثقة
 Name[ca]=Notificacions emergents
@@ -10,7 +18,7 @@ Name[de]=Popup-Benachrichtigungen
 Name[el]=Αναδυόμενες ειδοποιήσεις
 Name[es]=Notificaciones emergentes
 Name[es_CL]=Notificación emergente
-Name[et]=Hüpikteavitused
+Name[et]=Teated
 Name[eu]=Laster-leiho jakinarazpenak
 Name[fr]=Bulles de notification
 Name[gl]=Notificacións emerxentes
@@ -41,7 +49,7 @@ Comment[de]=Legen Sie Ihre Popup-Benachrichtigungseinstellungen fest
 Comment[el]=Ρύθμιση των προτιμήσεων των αναδυόμενων ειδοποιήσεων
 Comment[es]=Configurar las preferencias de sus notificaciones emergentes
 Comment[es_CL]=Selecciona preferencias para las notificaciónes
-Comment[et]=Määra hüpikteavituse eelistused
+Comment[et]=Seadista teateakende sätteid
 Comment[eu]=Ezarri laster-leiho jakinarazpenen hobespenak
 Comment[fr]=Configurer les préférences des bulles de notification
 Comment[gl]=Estabelece as súas preferencias de notificacións emerxentes
@@ -62,11 +70,3 @@ Comment[sv]=Konfigurera dina inställningar för popupnotifieringar
 Comment[tr]=Bİldirim balonları tercihlerinizi tanımlayın
 Comment[uk]=Налаштувати спливні сповіщення
 Comment[zh_CN]=设置您的弹出通知首选项
-Exec=mate-notification-properties
-Icon=mate-notification-properties
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=GTK;Settings;DesktopSettings;
-OnlyShowIn=MATE;
-
