@@ -168,7 +168,7 @@
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation>Asennus on nyt valmis!Paina Lopeta käynnistääksesi tietokoneen uudelleen. Käynnistyksen jälkeen, voit poistaa asennuslevyn.</translation>
+        <translation>Asennus on nyt valmis! Paina Lopeta käynnistääksesi tietokoneen uudelleen. Käynnistyksen jälkeen voit poistaa asennuslevyn.</translation>
     </message>
     <message>
         <source>Extracting system...</source>
