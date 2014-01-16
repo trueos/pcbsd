@@ -734,7 +734,7 @@ void dialogWarden::slotExportJail()
     exportFile = QFileDialog::getExistingDirectory(
                     this,
 		    tr("Choose a directory to save the finished .wdn file:"),
-                    "/home",
+                    "/root",
                     QFileDialog::ShowDirsOnly );
     
     if ( exportFile.isEmpty() )
@@ -743,37 +743,32 @@ void dialogWarden::slotExportJail()
     }
     
       // Lauch the command output dialog
-    /*
-      dialogOutput = new dialogDisplayOutput(0, "Exporting Jail", Qt::WStyle_Customize | Qt::WShowModal);
+      dialogOutput = new dialogDisplayOutput();
+      dialogOutput->setModal(true);
       dialogOutput->programInit(FALSE);
-      dialogOutput->setDialogCaption("Exporting Jail: " + popupip);
+      dialogOutput->setDialogCaption(tr("Exporting Jail:") + " " + popupip);
       dialogOutput->setDialogText("");
+      tmp = tr("Exporting Jail:") + " " + popupip + "\n";
+      dialogOutput->appendDialogText(tmp);
       dialogOutput->show();
-      */
-
-            // Launch our working dialog to prevent further action until we are finished
-      workingDialog = new dialogWorking();
-      workingDialog->setModal(true);
-      workingDialog->programInit();
-      tmp = tr("Exporting Jail");
-      workingDialog->setDialogTitle(tmp);
-      tmp = tr("Exporting Jail:") + " " + popupip;
-      workingDialog->setDialogText(tmp);
-      workingDialog->show();
     
-          // Now start the script to stop this jail
+      // Now start the script to stop this jail
       exportJailProc = new QProcess( this );
       QString program = "warden";
       QStringList args;
       args << "export" << popupip << "--dir=" + exportFile;
       
       // Connect the exited signal and start the process 
-      // connect( exportJailProc, SIGNAL(readyReadStdout ()), this, SLOT(slotReadDisplayOutput() ) );
-      connect( exportJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishedWorking() ) );
+      connect( exportJailProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadExportOutput() ) );
+      connect( exportJailProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotFinishedExport() ) );
       exportJailProc->start(program, args);
    
 }
 
+void dialogWarden::slotFinishedExport()
+{
+  dialogOutput->setCloseHide( false );
+}
 
 void dialogWarden::slotListJailPkgs()
 {
@@ -859,14 +854,10 @@ void dialogWarden::runCommand( QString command )
 }
 
 
-void dialogWarden::slotReadDisplayOutput()
+void dialogWarden::slotReadExportOutput()
 {
-    
     while ( exportJailProc->canReadLine() )
-    {
 	dialogOutput->appendDialogText(exportJailProc->readLine());
-    }
-
 }
 
 

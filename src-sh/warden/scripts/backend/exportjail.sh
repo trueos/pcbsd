@@ -12,6 +12,8 @@ EXPORTNAME="$1"
 JAILNAME="$1"
 OUTDIR="$2"
 
+if [ -z "${OUTDIR}" ]; then OUTDIR="$WTMP" ; fi
+
 if [ -z "${EXPORTNAME}" ]
 then
   echo "ERROR: No jail specified to export!"
@@ -35,9 +37,11 @@ fi
 set_warden_metadir
 
 # First check if this jail is running, and stop it
+echo "Checking jail status..."
 ${PROGDIR}/scripts/backend/checkstatus.sh "${EXPORTNAME}"
 if [ "$?" = "0" ]
 then
+  echo "Stopping jail for export..."
   ${PROGDIR}/scripts/backend/stopjail.sh "${EXPORTNAME}"
 fi
 
@@ -63,11 +67,12 @@ get_ip_and_netmask "${IP6}"
 IP6="${JIP}"
 MASK6="${JMASK}"
 
-echo "Creating compressed archive of ${EXPORTNAME}... Please Wait..." >&1
+echo "Creating compressed archive of ${EXPORTNAME}... Please Wait..."
 tar cvJf "${WTMP}/${EXPORTNAME}.txz" -C "${JAILDIR}" . 2>${WTMP}/${EXPORTNAME}.files
 
 cd ${WTMP}
 
+echo "Creating jail metadata..."
 LINES="`wc -l ${EXPORTNAME}.files | sed -e 's, ,,g' | cut -d '.' -f 1`"
 
 # Finished, now make the header info
@@ -108,13 +113,12 @@ do
   rm $mFile
 done
 
-if [ ! -z "${OUTDIR}" ]
-then
-  mkdir -p ${OUTDIR} 2>/dev/null
-  mv ${EXPORTNAME}.wdn ${OUTDIR}/
-  echo "Created ${EXPORTNAME}.wdn in ${OUTDIR}" >&1
-else 
-  echo "Created ${EXPORTNAME}.wdn in ${WTMP}" >&1
+if [ ! -d "$OUTDIR" ] ; then
+  mkdir -p ${OUTDIR}
 fi
+if [ "$OUTDIR" != "$WTMP" ] ; then
+  mv ${EXPORTNAME}.wdn ${OUTDIR}/
+fi
+echo "Created ${EXPORTNAME}.wdn in ${OUTDIR}" >&1
 
 exit 0
