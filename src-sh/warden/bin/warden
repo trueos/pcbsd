@@ -989,7 +989,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
 
               #Sanity check on the IP
               if ! is_ipv4 "${IP4}" ; then
-                 exit_err "Invalid IPv4 address!"
+                 exit_err "Invalid IPv4 address: $IP4"
               fi
 
               for i in `ls -d ${JDIR}/.*.meta 2>/dev/null`
@@ -1000,7 +1000,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
               done 
            fi
 
-           # Check if we have a new IPv4 address for this import
+           # Check if we have a new IPv6 address for this import
            echo "${i}" | grep '\-\-ipv6=' >/dev/null 2>/dev/null
            if [ "$?" = "0" ]
            then

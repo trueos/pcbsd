@@ -33,9 +33,9 @@ void dialogImport::slotButtonOk()
     QString IP, host;
     IP="OFF"; host="OFF";
     if (groupIP->isChecked() )
-      IP = "--ip=" + lineIP->text();
+      IP = lineIP->text();
     if (groupHostname->isChecked() )
-      host = "--host=" + lineHostname->text();
+      host = lineHostname->text();
     
     emit import(IP, host);
     close();

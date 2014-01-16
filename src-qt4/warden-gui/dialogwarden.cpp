@@ -1059,8 +1059,13 @@ void dialogWarden::slotImportConfigDone(const QString &IP, const QString &Host)
       importJailProc = new QProcess( this );
       QString program = "warden";
       QStringList args;
-      args << "import" << importFile << IP << Host;
+      args << "import" << importFile;
+      if ( ! IP.isEmpty() )
+        args << "--ipv4=" + IP + "/24";
+      if ( ! Host.isEmpty() )
+        args << "--host=" + Host;
 
+      qDebug() << args;
       
       // Connect the exited signal and start the process 
       importJailProc->setProcessChannelMode(QProcess::MergedChannels);
