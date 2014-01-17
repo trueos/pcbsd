@@ -64,12 +64,12 @@
         <translation>A következő szolgáltatások állnak rendelkezésre ezen a rendszeren</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Szolgáltatások kezelése ehhez a Warden IP-hez:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Ellenőrzés…</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

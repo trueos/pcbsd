@@ -466,11 +466,6 @@
             اختر دليل ليحفظ فيه ملف الإفراج:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>
-            تصدير السجن</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>
             تصدير السجن:</translation>

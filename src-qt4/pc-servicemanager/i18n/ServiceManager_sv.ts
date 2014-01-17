@@ -64,12 +64,12 @@
         <translation>Följande tjänster är tillgängliga på det här systemet</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Hantera tjänster för Warden IP:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Kontrollerar...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -411,10 +411,6 @@
         <translation>Izaberite direktorij za spremanje .wdn datoteke:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Izvozim Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Izvozim Jail:</translation>
     </message>

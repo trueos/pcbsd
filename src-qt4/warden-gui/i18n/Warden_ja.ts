@@ -371,10 +371,6 @@
         <translation>.wdn ファイルを保存するディレクトリーを選択してください:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Jail をエクスポート中</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Jail をエクスポート中:</translation>
     </message>

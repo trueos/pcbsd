@@ -64,12 +64,12 @@
         <translation>Следующие службы доступны на этой системе</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Управление службами для Warden IP:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Проверка...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

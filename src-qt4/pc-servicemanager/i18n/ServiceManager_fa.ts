@@ -64,12 +64,12 @@
         <translation>سرویس های زیر برای این سیستم موجود هستند</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>مدیریت کردن سرویس ها برای سرپرست IP:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>در حال بررسی ...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

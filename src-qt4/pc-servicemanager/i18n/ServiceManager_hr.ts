@@ -64,13 +64,12 @@
         <translation>Slijedeći servisi su dostupni na ovom sistemu</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Provjera...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

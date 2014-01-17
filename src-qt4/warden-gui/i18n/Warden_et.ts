@@ -379,10 +379,6 @@
         <translation>Vali kaust, kuhu valmis .wdn-failid salvestada:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Vangla eksportimine</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Vangla eksportimine:</translation>
     </message>

@@ -418,10 +418,6 @@
         <translation>Выберите каталог для сформированного .wdn файла:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Экспорт Jail&apos;а</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Экспорт Jail&apos;а:</translation>
     </message>

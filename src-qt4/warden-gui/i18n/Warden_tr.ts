@@ -418,10 +418,6 @@
         <translation>Tamamlanmış .wdn dosyasının kayıt edileceği dizini seçin:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Jail Aktarılıyor</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Jail Aktarılıyor:</translation>
     </message>

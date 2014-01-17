@@ -379,10 +379,6 @@
         <translation>Kies een map om het voltooide .wdn-bestand in op te slaan:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Gevangenis aan het exporteren</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Gevangenis aan het uitvoeren:</translation>
     </message>

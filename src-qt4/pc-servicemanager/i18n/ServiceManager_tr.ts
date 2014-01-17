@@ -64,12 +64,12 @@
         <translation>Bu sistemde aşağıdaki servisler hazır bulunmaktadır</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Servisleri yönetin, Warden IP:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Kontrol ediliyor...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -64,12 +64,12 @@
         <translation>Layanan berikut tersedia pada sistem ini</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Mengelola layanan untuk IP Warden:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Sedang memeriksa...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

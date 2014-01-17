@@ -379,10 +379,6 @@
         <translation>Pilih direktori untuk menyimpan file .wdn yang telah selesai:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Mengekspor Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Mengekspor Jail:</translation>
     </message>

@@ -418,10 +418,6 @@
         <translation>Избери папка, където да запише готовият .wdn файл:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Експортиране на Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Експортиране на Jail:</translation>
     </message>

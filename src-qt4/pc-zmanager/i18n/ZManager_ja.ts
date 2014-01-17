@@ -353,8 +353,9 @@ space can be shared by multiple snapshots.</source>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールのバージョンとは独立したファイルシステムのディスク上のバージョンを識別します。
+このプロパティはサポートされるソフトウェアのリリースから提供されて以降のバージョンに設定することができます。
+</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
@@ -775,8 +776,9 @@ programs.</source>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>非特権ユーザがデータセットで定義されたデータセットの権限に基づいて
+アクセスを許可されるかどうかを制御します。
+ZFSの委任管理の詳細については、zfs(8)を参照してください。</translation>
     </message>
     <message>
         <source>Controls automatic device replacement. If set to &quot;off&quot;, device
@@ -786,8 +788,14 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動デバイス交換を制御します。
+&quot;off&quot;に設定すると、デバイスの交換は&quot;zpool replace&quot;コマンドを使用して、
+管理者が初期化しなければいけません。
+&quot;on&quot;に設定すると、プールに以前属していたデバイスと
+物理的に同じ場所で検出された新しいデバイスは、
+自動的にフォーマットされ、置き換えられます。
+デフォルトの動作は&quot;off&quot;です。
+このプロパティは、列名の短縮&quot;replace&quot;で参照できます。</translation>
     </message>
     <message>
         <source>Controls the location of where the pool configuration is cached. Disâ
@@ -808,8 +816,9 @@ the default location.</source>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;zfs list&quot;が-tオプションなしで実行したときにこのプールに関連付けられている
+スナップショットの情報が出力されているかどうかを制御します。
+デフォルト値はoffです。</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -819,34 +828,41 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>基盤となるLUNが増大する際に自動プール拡張を制御します。
+&quot;on&quot;に設定すると、プールは拡張する装置の大きさに応じて変更されます。
+デバイスがミラーやraidzの一部である場合、
+新しいスペースがプールに利用可能になる前に、
+そのミラー/raidzグループ内のすべてのデバイスが拡張されている必要があります。
+デフォルトの動作は&quot;off&quot;です。
+このプロパティは、列名の短縮expandによって参照することができます。</translation>
     </message>
     <message>
         <source>Threshold for the number of block ditto copies. If the reference
 count for a deduplicated block increases above this number, a new
 ditto copy of this block is automatically stored. Default setting is
 0.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブロック同上コピー数の閾値。
+参照はこの数以上の重複排除されたブロックが大きくなるため、
+カウントした場合、このブロックの新しい同上のコピーが自動的に保存されます。
+デフォルト設定は0です。</translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールに指定の重複排除率は乗数で表されます。
+たとえば、1.76という値は、データの1.76単位が保存されましたが、
+ディスクスペースの唯一の1単位が実際に消費されたことを示しています。
+重複排除機能の詳細については、zfs(8)を参照してください。</translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>割り当てられていないプール内のブロック数。</translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>物理的に割り当てられているプール内のストレージスペースの量。</translation>
     </message>
     <message>
         <source>If set to on, pool will be imported in read-only mode with the folâ
@@ -862,13 +878,11 @@ lowing restrictions:
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>管理者が設定した任意のコメント文字列。</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプロパティは現在のFreeBSDには値がありません。</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -1400,8 +1414,9 @@ OK to proceed with recovery?</source>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>この操作はデータが消えるため元に戻せません。
+スナップショットに加えて依存するクローンファイルシステムも削除されます。
+</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:

@@ -64,12 +64,12 @@
         <translation>Các dịch vụ có sẵn trên hệ thống này  </translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Quản lý dịch vụ cho IP Warden:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Kiểm tra...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

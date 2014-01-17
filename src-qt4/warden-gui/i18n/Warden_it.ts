@@ -418,10 +418,6 @@
         <translation>Selezionare una directory per salvare il file .wdn completato:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Esportando Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Esportando Jail:</translation>
     </message>

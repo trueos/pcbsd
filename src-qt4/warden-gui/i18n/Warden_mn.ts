@@ -469,11 +469,6 @@
             </translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation type="unfinished">
             </translation>

@@ -379,10 +379,6 @@
         <translation>Wybierz katalog do zapisania gotowego pliku .wdn:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Eksportowanie Celi</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Eksportowanie Celi:</translation>
     </message>

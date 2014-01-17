@@ -381,10 +381,6 @@
         <translation>選擇要儲存完成的 .wdn 檔的目錄:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>匯出 Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>匯出 Jail:</translation>
     </message>

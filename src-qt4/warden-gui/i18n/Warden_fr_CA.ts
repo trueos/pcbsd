@@ -379,10 +379,6 @@
         <translation>Choisissez un dossier pour enregistrer le fichier terminer .wdn:            </translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exportation Jail            </translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exportation Jail:            </translation>
     </message>

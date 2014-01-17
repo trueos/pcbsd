@@ -64,12 +64,12 @@
         <translation>Următoarele servicii sunt disponibile pe acest sistem            </translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Managementul serviciilor IP pentru Warden:            </translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Verifică...   </translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

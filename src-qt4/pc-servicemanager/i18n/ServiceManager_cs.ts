@@ -64,12 +64,12 @@
         <translation>Následující služby jsou k dispozici na tomto systému</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Spravuji služby pro Warden IP:  </translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Testuji...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

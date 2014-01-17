@@ -385,10 +385,6 @@
         <translation>Escolha um diretório para salvar o arquivo . wdn finalizado:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exportando o Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exportando o Jail:</translation>
     </message>
