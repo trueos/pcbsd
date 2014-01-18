@@ -92,11 +92,11 @@
     </message>
     <message>
         <source>IP: </source>
-        <translation>IP:</translation>
+        <translation>IP: </translation>
     </message>
     <message>
         <source>Netmask: </source>
-        <translation>Võrgumask:</translation>
+        <translation>Võrgumask: </translation>
     </message>
     <message>
         <source>Configure </source>
