@@ -76,7 +76,7 @@ if [ "$INSTALLMODE" = "zfsrestore" ] ; then
   file_sanity_check "sshHost sshPort sshUser zfsRemoteDataset"
 else
   file_sanity_check "installMode installType installMedium packageType"
-  check_value installType "PCBSD FreeBSD"
+  check_value installType "PCBSD FreeBSD GhostBSD"
   check_value installMedium "dvd usb ftp rsync image local"
   check_value packageType "uzip tar rsync split dist zfs livecd"
   if_check_value_exists mirrorbal "load prefer round-robin split"
