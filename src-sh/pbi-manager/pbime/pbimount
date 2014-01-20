@@ -88,7 +88,7 @@ mount_dirs() {
 umount_pbidir() {
    for i in `mount | grep "on ${pDir}" | tail -r | awk '{print $3}'`
    do
-     echo "Unmounting ${i}"
+     #echo "Unmounting ${i}"
      umount -f ${i}
      sleep 0.1
    done
