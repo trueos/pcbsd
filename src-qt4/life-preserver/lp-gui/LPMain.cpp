@@ -4,6 +4,15 @@
 
 LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   ui->setupUi(this); //load the Qt-designer UI file
+  //Initialize the system watcher
+  watcher = new QFileSystemWatcher(this);
+    //Make sure the lpreserver log directory exists and watch it
+    if(!QFile::exists("/var/log/lpreserver")){
+      qDebug() << "Creating the lpreserver log directory (/var/log/lpreserver)";
+      QDir dir;
+      dir.mkpath("/var/log/lpreserver");
+    }
+    watcher->addPath("/var/log/lpreserver/");
   //Initialize the waitbox pointer
   waitBox = 0;
   //Create the basic/advanced view options
@@ -50,6 +59,8 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   
   //Make sure the status tab is shown initially
   ui->tabWidget->setCurrentWidget(ui->tab_status);
+  //Now connect the watcher to the update slot
+  connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(updateTabs()) );
 }
 
 LPMain::~LPMain(){

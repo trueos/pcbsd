@@ -14,6 +14,7 @@
 #include <QDateTime>
 #include <QTimer>
 #include <QFileDialog>
+#include <QFileSystemWatcher>
 
 #include "LPBackend.h"
 #include "LPContainers.h"
@@ -41,6 +42,7 @@ private:
 	bool poolSelected;
 	LPDataset POOLDATA;
 	QMessageBox *waitBox;
+	QFileSystemWatcher *watcher;
 
 	void showErrorDialog(QString title, QString message, QString errors);
 	void showWaitBox(QString message);
