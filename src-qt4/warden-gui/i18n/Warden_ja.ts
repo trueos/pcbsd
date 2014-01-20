@@ -395,10 +395,6 @@
         <translation>選択した Jail を削除</translation>
     </message>
     <message>
-        <source>Working on Jail</source>
-        <translation>動作中の Jail</translation>
-    </message>
-    <message>
         <source>Info</source>
         <translation>情報</translation>
     </message>
@@ -657,6 +653,10 @@
     <message>
         <source>Template Manager</source>
         <translation>テンプレートマネージャー</translation>
+    </message>
+    <message>
+        <source>Working on Jail</source>
+        <translation type="unfinished">選択中の Jail</translation>
     </message>
 </context>
 <context>

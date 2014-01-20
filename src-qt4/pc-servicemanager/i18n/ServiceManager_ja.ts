@@ -69,8 +69,7 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Warden Jail 内サービスの管理</translation>
     </message>
 </context>
 <context>
