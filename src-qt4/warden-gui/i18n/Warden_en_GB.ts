@@ -379,10 +379,6 @@
         <translation>Choose a directory to save the finished .wdn file:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exporting Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exporting Jail:</translation>
     </message>

@@ -5,38 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>コマンド出力</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>停止</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDのPorts Treeを取得しています</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDのソースを取得しています</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>実行しています</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このウィンドウを閉じる前に現在実行しているプロセスを停止してください。</translation>
     </message>
 </context>
 <context>
@@ -107,73 +100,59 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDバージョン</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ベース:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>バックエンドユーティリティー:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>グラフィカルユーティリティー:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システム情報</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSDバージョン</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDのソースを取得する</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDのPorts Treeを取得する</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>診断ファイル生成エラー</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>成功しました</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>診断ファイルを作成しました: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>既に処理は実行しています</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>既に処理を実行しています。完了するまでお待ちください。</translation>
     </message>
 </context>
 </TS>

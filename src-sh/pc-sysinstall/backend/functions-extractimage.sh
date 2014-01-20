@@ -132,6 +132,14 @@ start_extract_uzip_tar()
         exit_err "ERROR: Failed extracting the tar image"
       fi
       ;;
+    livecd) 
+      cd /
+      find * -print -depth |grep -v uzip | grep -v media/ | grep -v proc/ | grep -v dist |  cpio -pudmv ${FSMNT}  >&1 2>&1
+      if [ "$?" != "0" ]
+      then
+        exit_err "ERROR: Failed to copy files"
+      fi
+      ;;
   esac
 
   # Check if this was a FTP download and clean it up now

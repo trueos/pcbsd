@@ -64,12 +64,13 @@
         <translation>De volgende diensten zijn beschikbaar op dit systeem</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Diensten voor Cipier IP aan het beheren:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Aan het controleren...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

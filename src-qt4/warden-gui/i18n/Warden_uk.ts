@@ -379,10 +379,6 @@
         <translation>Обрати директорію для збереження .wdn-файлу:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Експортувати В&apos;язницю</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Експортування В&apos;язниці</translation>
     </message>

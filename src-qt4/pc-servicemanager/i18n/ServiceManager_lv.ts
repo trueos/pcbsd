@@ -64,12 +64,13 @@
         <translation>Sekojošie servisi ir pieejami uz šīs sistēmas</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Pārvalda servisus priekš Warden IP:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Pārbauda...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

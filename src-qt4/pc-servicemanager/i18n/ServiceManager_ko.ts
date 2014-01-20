@@ -65,12 +65,12 @@
             </translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
+        <source>Checking...</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Checking...</source>
+        <source>Managing services for Warden Jail:</source>
         <translation type="unfinished">
             </translation>
     </message>

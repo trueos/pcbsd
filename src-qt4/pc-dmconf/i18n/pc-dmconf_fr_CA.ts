@@ -53,18 +53,15 @@
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Config File Manquantes</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Le fichier de configuration de PCDM n&apos;as pu être trouvé: %1</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cette demande va maintenant être fermer</translation>
     </message>
 </context>
 </TS>

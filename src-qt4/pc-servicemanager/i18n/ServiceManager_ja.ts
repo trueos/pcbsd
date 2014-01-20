@@ -64,12 +64,12 @@
         <translation>以下のサービスはシステムが利用しています</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Warden管理サービスの為のIPアドレス:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>チェックしています...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">Warden Jail 内サービスの管理</translation>
     </message>
 </context>
 <context>

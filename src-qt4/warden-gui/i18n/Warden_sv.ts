@@ -380,10 +380,6 @@
         <translation>Välj en katalog att spara den färdiga .wdn filen i:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exporterar Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exporterar Jail:</translation>
     </message>

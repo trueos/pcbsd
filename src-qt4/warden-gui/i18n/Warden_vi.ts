@@ -379,10 +379,6 @@
         <translation>Chọn một thư mục để lưu các tập tin thành phẩm .wdn:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Xuất khẩu Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Xuất khẩu Jail:</translation>
     </message>

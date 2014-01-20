@@ -379,10 +379,6 @@
         <translation>选择磁盘路径以保存完成的.wdn文件:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>导出Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>导出Jail：</translation>
     </message>

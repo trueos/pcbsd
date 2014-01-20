@@ -1,7 +1,5 @@
 [Desktop Entry]
-Name=Cinnamon Settings
 PC-RequiredDE=CINNAMON
-Comment=Fine-tune Cinnamon settings
 Exec=cinnamon-settings
 Icon=preferences-system
 Terminal=false
@@ -9,3 +7,19 @@ Type=Application
 Encoding=UTF-8
 Categories=GNOME;GTK;Settings;DesktopSettings;
 StartupNotify=false
+Name=Cinnamon Settings
+Name[en_GB]=Cinnamon Settings
+Name[en_ZA]=Cinnamon Settings
+Name[et]=Cinnamoni sätted
+Name[fr]=Cinnamon Paramètres
+Name[fr_CA]=Cinnamon Paramètres
+Name[ja]=Cinnamonの設定
+Name[uk]=Налаштування Cinnamon
+Comment=Fine-tune Cinnamon settings
+Comment[en_GB]=Fine-tune Cinnamon settings
+Comment[en_ZA]=Fine-tune Cinnamon settings
+Comment[et]=Kohanda Cinnamoni sätteid
+Comment[fr]=Peaufinez les Paramètres Cinnamon
+Comment[fr_CA]=Peaufinez les Paramètres Cinnamon 
+Comment[ja]=Cinnamon設定の微調整
+Comment[uk]=Налаштування Cinnamon під власні потреби

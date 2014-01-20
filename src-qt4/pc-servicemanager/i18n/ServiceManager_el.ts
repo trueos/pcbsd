@@ -64,12 +64,13 @@
         <translation>Οι ακόλουθες υπηρεσίες είναι διαθέσιμες σε αυτό το σύστημα            </translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Διαχείριση των υπηρεσιών για Warden IP:            </translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Έλεγχος ...            </translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

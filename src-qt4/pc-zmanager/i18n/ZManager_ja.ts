@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>…</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
@@ -46,16 +46,16 @@
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation>ファイルとディレクトリが作成されるときにACLエントリが継承される方法を制御します。
-値は、discard、noallow、restricted、passthroughです。これらの値の説明については、ACLプロパティを参照してください。</translation>
+        <translation>ファイルとディレクトリーが作成されるときに ACL エントリーが継承される方法を制御します。
+値は、discard、noallow、restricted、および passthrough です。これらの値の説明については、ACL プロパティを参照してください。</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation>ACLエントリーは、chmodコマンドを動作中に変更された方法を制御します。
-値は破棄、groupmask、およびpassthroughです。
-これらの値の説明については、ACLプロパティを参照してください。</translation>
+        <translation>ACLエントリーは、chmod コマンドを動作中に変更された方法を制御します。
+値は discard、groupmask、および passthrough です。
+これらの値の説明については、ACL プロパティを参照してください。</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
@@ -63,30 +63,9 @@ Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
         <translation>ファイルを読み取るときにファイルのアクセス時間が更新されるかどうかを制御します。
-それはメーラーのようなユーティリティーを混乱させる可能性がありますが、
-このプロパティをオフにすると、ファイルを読み込む際に書き込みトラフィックを発生が回避され、
+このプロパティをオフにすると、メーラーのようなユーティリティーを混乱させる可能性
+もありますが、ファイルを読み込む際に書き込みトラフィックの発生が回避され、
 パフォーマンスが大幅に向上する可能性があります。</translation>
-    </message>
-    <message>
-        <source>Read-only property that identifies the amount of disk space available to a dataset
-and all its children, assuming no other activity in the pool. Because disk space is
-shared within a pool, available space can be limited by various factors including
-physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>If this property is set to off, the file system cannot be mounted,
-and is ignored by &apos;zfs mount -a&apos;.  Setting this property to off is
-similar to setting the mountpoint property to none, except that the
-dataset still has a normal mountpoint property, which can be inherited
-Setting this property to off allows datasets to be used solely as a
-mechanism to inherit properties. One example of setting canmount=off is
-to have two datasets with the same mountpoint, so that the children of
-both datasets appear in the same directory, but might have different
-inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -96,7 +75,7 @@ value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
         <translation>データの整合性を検証するために使用されるチェックサムを制御します。
 デフォルト値は、自動的に適切なアルゴリズムを選択するがonになっています。
-(現在は、fletcher4をしていますが、今後のリリースで変更される可能性があります)
+(現在は、fletcher4 が選択されますが、今後のリリースで変更される可能性があります)
 値をoffにするとユーザーデータの整合性チェックが無効になります。
 チェックサムを無効にするのは推奨されません。</translation>
     </message>
@@ -116,8 +95,10 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>この読み取り専用プロパティはデータセットの圧縮率をその倍率で示します。
+圧縮はデータセットコマンド &apos;zfs set compression=on&apos; で有効にできます。
+この値は全ファイルの論理的サイズと物理データの総量によって計算されます。
+計算結果には圧縮機能を使用して圧縮されたデータ含まれます。</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -149,13 +130,13 @@ If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
         <translation>データセットの重複排除を構成します。
-デフォルト値はオフになっています。
-デフォルトの重複排除チェックサムはSHA256です。
+デフォルト値は off になっています。
+デフォルトの重複排除チェックサムは sha256 です。
 (これは将来変更される場合があります)  
-dedupを有効にするときに定義されたチェックサムは、既に設定されているチェックサムプロパティを上書きします。
-検証する値を設定すると、SHA256で確認する設定と同じ効果があります。
-検証するために設定した場合、ZFSはブロックの内容が同一であることを確認するために
-同じシグネチャを持つ2つのブロックの場合はbyte-to-byteの比較を行います。</translation>
+dedup を有効にするときに定義されたチェックサムは、既に設定されているチェックサムプロパティを上書きします。
+検証する値を設定すると、sha256 で確認する設定と同じ効果があります。
+verify に設定した場合、ZFS はブロックの内容が同一であることを確認するために
+同じシグネチャを持つ2つのブロックの場合は1バイトずつの比較を行います。</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
@@ -165,12 +146,12 @@ dedupを有効にするときに定義されたチェックサムは、既に設
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
         <translation>プロセスがこのファイルシステム内から実行できるかどうかを制御します。
-デフォルト値はONです。</translation>
+デフォルト値は on です。</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation>読み取り専用のファイルシステム、クローン、またはスナップショットがマウントされているかどうかを示すプロパティ。</translation>
+        <translation>ファイルシステム、クローン、またはスナップショットがマウントされているかどうかを示す読み取り専用のプロパティ。</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -182,7 +163,7 @@ In addition, any shared file systems are unshared and shared in the new location
         <translation>このファイルシステムに使用されるマウントポイントを制御します。
 マウントポイントのプロパティがファイルシステムに変更がかかるのはファイルシステムに属しているマウントポイントが全てアンマウントされたときです。
 もし、新しい値がレガシーの場合はアンマウントされたままになります。
-それ以外の場合、もし、プロパティが以前はレガシー、またはnoneだった場合や、
+それ以外の場合、もし、プロパティが以前はレガシー、または none だった場合や、
 以前のマウント先のプロパティが変更された場合は自動的に新しい場所に再マウントされます。
 また、任意の共有ファイルシステムは、共有が解除されて、新しい場所で共有されます。</translation>
     </message>
@@ -210,14 +191,17 @@ This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
 Setting a quota on a descendent of a dataset that already has a quota does not
 override the ancestor&apos;s quota, but rather imposes an additional limit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットとその子孫が消費できるディスク容量を制限します。
+このプロパティは、ファイルシステムやスナップショットなどの子孫によって
+消費すべての領域を含む、使用されるディスク容量に固定の制限値を強制します。
+既にクォータは、データセットの子孫でクォータを設定すると、
+先祖のクォータを上書きではなく、追加的な制限を課しません。</translation>
     </message>
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
         <translation>データセットを変更できるかどうかを制御します。
-onに設定すると変更を行うことはできません。</translation>
+on に設定すると変更を行うことはできません。</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -353,8 +337,9 @@ space can be shared by multiple snapshots.</source>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールのバージョンとは独立したファイルシステムのディスク上のバージョンを識別します。
+このプロパティはサポートされるソフトウェアのリリースから提供されて以降のバージョンに設定することができます。
+</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
@@ -401,8 +386,12 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このデータセットの同期要求の取り扱いについてZFSへのヒントを提供します。
+logbiasがlatency（デフォルト）に設定されている場合、
+ZFSは低遅延で要求を処理するために、プールログデバイスを使用します。
+logbiasがthroughputに設定されている場合、
+ZFSは設定されたプールのログデバイスを使用することはありません。
+ZFSは代わりにグローバルプールのスループットと資源の有効利用のための同期操作を最適化します。</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -470,6 +459,34 @@ Read ZFS manual for more information.</source>
         <source>Delete user property</source>
         <translation>ユーザープロパティを削除する</translation>
     </message>
+    <message>
+        <source>Read-only property that identifies the amount of disk space available to a dataset
+and all its children, assuming no other activity in the pool. Because disk space is
+shared within a pool, available space can be limited by various factors including
+physical pool size, quotas, reservations, and other datasets within the pool.</source>
+        <translation type="unfinished">この読み取り専用プロパティは自分以外からのプール内への書き込みが無い場合に、
+データセットとその子孫で利用可能なディスク容量を表します。それはディスクスペースが
+プール内で共有され、利用可能なディスク容量は物理的なディスク容量、プールの容量、
+クオータ、データ使用量そしてプール内の他のデータセットの制約を受けるためです。</translation>
+    </message>
+    <message>
+        <source>If this property is set to off, the file system cannot be mounted,
+and is ignored by &apos;zfs mount -a&apos;.  Setting this property to off is
+similar to setting the mountpoint property to none, except that the
+dataset still has a normal mountpoint property, which can be inherited
+Setting this property to off allows datasets to be used solely as a
+mechanism to inherit properties. One example of setting canmount=off is
+to have two datasets with the same mountpoint, so that the children of
+both datasets appear in the same directory, but might have different
+inherited characteristics.</source>
+        <translation type="unfinished">このプロパティが off に設定されると、このファイルシステムはマウントできなくなり、
+&apos;zfs mount -a&apos; でも無視されるようになります。　このプロパティを off に設定するのは
+ mountpoint プロパティが設定されたままであることを除けば mountpoint プロパティを
+none に設定することと同じになります。このプロパティを off に設定することは、
+プロパティの値を子孫に継承するために使えます。一例として canmount=off を同一の
+マウントポイントを使用する2つのデータセットに設定すると、それらの子孫は同じ
+ディレクトリーに登場しますが、別々の特徴を継承できるようになります。</translation>
+    </message>
 </context>
 <context>
     <name>DialogMount</name>
@@ -514,7 +531,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Change altroot:</source>
-        <translation>altrootを変更する:</translation>
+        <translation>altroot を変更する:</translation>
     </message>
 </context>
 <context>
@@ -775,8 +792,9 @@ programs.</source>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>非特権ユーザがデータセットで定義されたデータセットの権限に基づいて
+アクセスを許可されるかどうかを制御します。
+ZFSの委任管理の詳細については、zfs(8)を参照してください。</translation>
     </message>
     <message>
         <source>Controls automatic device replacement. If set to &quot;off&quot;, device
@@ -786,8 +804,14 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>自動デバイス交換を制御します。
+&quot;off&quot;に設定すると、デバイスの交換は&quot;zpool replace&quot;コマンドを使用して、
+管理者が初期化しなければいけません。
+&quot;on&quot;に設定すると、プールに以前属していたデバイスと
+物理的に同じ場所で検出された新しいデバイスは、
+自動的にフォーマットされ、置き換えられます。
+デフォルトの動作は&quot;off&quot;です。
+このプロパティは、列名の短縮&quot;replace&quot;で参照できます。</translation>
     </message>
     <message>
         <source>Controls the location of where the pool configuration is cached. Disâ
@@ -808,8 +832,9 @@ the default location.</source>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&quot;zfs list&quot;が-tオプションなしで実行したときにこのプールに関連付けられている
+スナップショットの情報が出力されているかどうかを制御します。
+デフォルト値はoffです。</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -819,34 +844,41 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>基盤となるLUNが増大する際に自動プール拡張を制御します。
+&quot;on&quot;に設定すると、プールは拡張する装置の大きさに応じて変更されます。
+デバイスがミラーやraidzの一部である場合、
+新しいスペースがプールに利用可能になる前に、
+そのミラー/raidzグループ内のすべてのデバイスが拡張されている必要があります。
+デフォルトの動作は&quot;off&quot;です。
+このプロパティは、列名の短縮expandによって参照することができます。</translation>
     </message>
     <message>
         <source>Threshold for the number of block ditto copies. If the reference
 count for a deduplicated block increases above this number, a new
 ditto copy of this block is automatically stored. Default setting is
 0.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ブロック同上コピー数の閾値。
+参照はこの数以上の重複排除されたブロックが大きくなるため、
+カウントした場合、このブロックの新しい同上のコピーが自動的に保存されます。
+デフォルト設定は0です。</translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールに指定の重複排除率は乗数で表されます。
+たとえば、1.76という値は、データの1.76単位が保存されましたが、
+ディスクスペースの唯一の1単位が実際に消費されたことを示しています。
+重複排除機能の詳細については、zfs(8)を参照してください。</translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>割り当てられていないプール内のブロック数。</translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>物理的に割り当てられているプール内のストレージスペースの量。</translation>
     </message>
     <message>
         <source>If set to on, pool will be imported in read-only mode with the folâ
@@ -862,13 +894,11 @@ lowing restrictions:
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>管理者が設定した任意のコメント文字列。</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプロパティは現在のFreeBSDには値がありません。</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -1110,13 +1140,7 @@ crash dump.
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">(出力されました)
-</translation>
-    </message>
-    <message>
-        <source>(Destroyed)
-</source>
-        <translation>(破壊されました)
+        <translation>(エクスポートされました)
 </translation>
     </message>
     <message>
@@ -1134,10 +1158,6 @@ crash dump.
     <message>
         <source>Faulted</source>
         <translation>障害が発生しました</translation>
-    </message>
-    <message>
-        <source>Removed</source>
-        <translation>除去しました</translation>
     </message>
     <message>
         <source>Unavailable</source>
@@ -1161,19 +1181,19 @@ crash dump.
     </message>
     <message>
         <source>Add devices...</source>
-        <translation>デバイスを追加する…</translation>
+        <translation>デバイスを追加する...</translation>
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation>ログデバイスを追加する…</translation>
+        <translation>ログデバイスを追加する...</translation>
     </message>
     <message>
         <source>Add cache devices...</source>
-        <translation>キャッシュデバイスを追加する…</translation>
+        <translation>キャッシュデバイスを追加する...</translation>
     </message>
     <message>
         <source>Add spare devices...</source>
-        <translation>予備デバイスを追加する…</translation>
+        <translation>予備デバイスを追加する...</translation>
     </message>
     <message>
         <source>Scrub</source>
@@ -1193,11 +1213,11 @@ crash dump.
     </message>
     <message>
         <source>Properties...</source>
-        <translation>プロパティ…</translation>
+        <translation>プロパティ...</translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation>デバイス及びミラーデバイスを追加する…</translation>
+        <translation>デバイス及びミラーデバイスを追加する...</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
@@ -1237,11 +1257,11 @@ crash dump.
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation>GPTパーティションテーブルを作成する</translation>
+        <translation>GPT パーティションテーブルを作成する</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation>BSDパーティションテーブルを作成する</translation>
+        <translation>BSD パーティションテーブルを作成する</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
@@ -1300,11 +1320,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation>破壊されたプールを回復…</translation>
+        <translation>破壊されたプールを回復...</translation>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation>プールをインポート…</translation>
+        <translation>プールをインポート...</translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
@@ -1400,8 +1420,19 @@ OK to proceed with recovery?</source>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>この操作はスナップショットが作成された後に追加されたデータが消えるため元に戻せません。
+この後に作成されたスナップショットに加えて、依存するクローンファイルシステムも削除されます。
+</translation>
+    </message>
+    <message>
+        <source>(Destroyed)
+</source>
+        <translation type="unfinished">(破棄されました)
+</translation>
+    </message>
+    <message>
+        <source>Removed</source>
+        <translation type="unfinished">削除しました</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:

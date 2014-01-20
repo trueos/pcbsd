@@ -673,48 +673,39 @@
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не використовувати зазделегіть зібрані пакунки</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перегляд інформації репозиторію (опція)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мітки</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Мітки пошуку для додатку розділені комою</translation>
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати тип</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Категорія</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Категорія в якій має міститися додаток</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL іконки</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>

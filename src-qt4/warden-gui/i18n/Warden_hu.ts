@@ -418,10 +418,6 @@
         <translation>Válassza ki a befejezett .wdn-fájl mentési könyvtárát:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Jail exportálása</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Jail exportálása:</translation>
     </message>

@@ -55,7 +55,7 @@ void ServiceManager::ProgramInit(QString chroot, QString IP)
     checkEnabled();
 
     if ( ! wDir.isEmpty() )
-      textTopLabel->setText(tr("Managing services for Warden IP:") + " " +  wIP);
+      textTopLabel->setText(tr("Managing services for Warden Jail:") + " " +  wIP);
 }
 
 void ServiceManager::setButtonsAllEnabled(bool enabled)

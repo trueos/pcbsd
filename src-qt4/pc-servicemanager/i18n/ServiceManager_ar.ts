@@ -64,11 +64,12 @@
         <translation>الخدمات التالية متاحة علي هذا النظام</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>خدمات إدارة حارس IP:</translation>
+        <source>Checking...</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Checking...</source>
+        <source>Managing services for Warden Jail:</source>
         <translation type="unfinished">
             </translation>
     </message>

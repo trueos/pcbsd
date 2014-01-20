@@ -64,12 +64,13 @@
         <translation>此系統有以下服務提供</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>為 Warden IP 管理服務:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>正在檢查...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

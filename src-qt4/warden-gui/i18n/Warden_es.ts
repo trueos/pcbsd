@@ -380,10 +380,6 @@
         <translation>Seleccione un directorio para guardar el archivo final .wdn:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exportando Jaula</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exportando Jaula:</translation>
     </message>

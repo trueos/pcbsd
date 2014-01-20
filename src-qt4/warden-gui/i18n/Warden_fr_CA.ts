@@ -379,10 +379,6 @@
         <translation>Choisissez un dossier pour enregistrer le fichier terminer .wdn:            </translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exportation Jail            </translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exportation Jail:            </translation>
     </message>
@@ -790,8 +786,7 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux Jail (Tourner Linux dans un Jail ) - Expérimental!</translation>
     </message>
 </context>
 </TS>

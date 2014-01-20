@@ -375,10 +375,6 @@
         <translation>Verzeichnis auswählen, um die fertige .wdn Datei zu speichern:</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>Exportiere Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>Exportiere Jail:</translation>
     </message>

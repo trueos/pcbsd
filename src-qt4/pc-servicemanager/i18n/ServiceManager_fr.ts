@@ -64,12 +64,12 @@
         <translation>Les services suivants sont disponibles sur ce système</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Gestion des services IP pour Warden:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Vérification...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation>Configurer les services pour Warden Jail:</translation>
     </message>
 </context>
 <context>

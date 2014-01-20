@@ -418,10 +418,6 @@
         <translation>انتخاب یک شاخه برای ذخیره کردن فایل پایانی  .wdn</translation>
     </message>
     <message>
-        <source>Exporting Jail</source>
-        <translation>ریختن Jail</translation>
-    </message>
-    <message>
         <source>Exporting Jail:</source>
         <translation>ریختن Jail:</translation>
     </message>

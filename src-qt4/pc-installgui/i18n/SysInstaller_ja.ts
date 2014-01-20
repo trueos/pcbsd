@@ -293,13 +293,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USBメモリーから設定を読み込む</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>USBメモリーへ設定を保存する</translation>
     </message>
 </context>
 <context>
@@ -887,8 +885,7 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>もし、USBメモリーへLife-Preserverの鍵を保存したのであれば、今すぐ接続して選択してください。もしくはパスワード認証することも出来ます。</translation>
     </message>
 </context>
 </TS>

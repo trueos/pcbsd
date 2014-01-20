@@ -50,7 +50,6 @@ private slots:
     void slotListJailPkgs();
     void slotDeleteJail();
     void slotFinishedWorking();
-    void slotReadDisplayOutput();
     void slotFinishedOutput();
     void slotReadPkgsOutput();
     void slotClickedNewJail();
@@ -72,6 +71,8 @@ private slots:
     void slotUpdate();
     void slotShowDialogCloseButton();
     void slotServiceGUI();
+    void slotReadExportOutput();
+    void slotFinishedExport();
 
     void slotCheckForUpdates();
     void slotCheckUpdateReturn();

@@ -370,18 +370,15 @@ from the supported software release.</source>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Näitab, kas andmekogu on vanglasse lisatud.</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ei toeta seda välja.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failisüsteem on märgitud hävitamiseks pärast lahti haakimist.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this

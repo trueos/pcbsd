@@ -56,15 +56,15 @@
     </message>
     <message>
         <source>Available users</source>
-        <translation type="unfinished">Kasutajad</translation>
+        <translation>Kasutajad</translation>
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">Logi sisse masinasse %1</translation>
+        <translation>Logi sisse masinasse %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">Töölauakeskkonnad</translation>
+        <translation>Töölauakeskkonnad</translation>
     </message>
 </context>
 <context>
@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">Veendu, et suurklahvilukk oleks maas.</translation>
+        <translation>Veendu, et suurklahvilukk oleks maas.</translation>
     </message>
     <message>
         <source>Restart</source>

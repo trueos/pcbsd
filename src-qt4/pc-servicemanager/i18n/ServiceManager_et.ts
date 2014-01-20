@@ -64,12 +64,13 @@
         <translation>Need on süsteemis olemasolevad teenused</translation>
     </message>
     <message>
-        <source>Managing services for Warden IP:</source>
-        <translation>Teenuste haldamine Wardeni IP-le:</translation>
-    </message>
-    <message>
         <source>Checking...</source>
         <translation>Kontrollimine...</translation>
+    </message>
+    <message>
+        <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

@@ -109,11 +109,11 @@
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">MATE</translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">Cinnamon</translation>
+        <translation>Cinnamon</translation>
     </message>
 </context>
 </TS>
