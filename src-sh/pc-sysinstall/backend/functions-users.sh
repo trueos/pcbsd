@@ -43,7 +43,18 @@ check_autologin()
 
     # Add the auto-login user line
     sed -i.bak "s/AutoLoginEnable=false/AutoLoginEnable=true/g" ${FSMNT}/usr/local/kde4/share/config/kdm/kdmrc
-
+  elif [ -a "${INSTALLTYPE}" = "GhostBSD" ]
+  then
+    if [ -n "${VAL}" ]
+    then
+      AUTOU="${VAL}"
+      # Adding the auto-login user line
+      sed -i "" "/default_user/s/ghostbsd/${AUTOU}/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
+    else
+      # Remmoving the auto-login & ghostbsd user line
+      sed -i "" "/AutomaticLoginEnable/s/true/false/g" ${FSMNT}/usr/local/etc/gdm/custom.conf
+      ( echo 'g/AutomaticLogin=ghostbsd/d' ; echo 'wq' ) | ex -s ${FSMNT}/etc/rc.conf
+    fi
   fi
 };
 
