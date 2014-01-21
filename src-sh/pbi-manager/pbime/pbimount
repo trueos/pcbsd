@@ -2,10 +2,11 @@
 
 NULLFS="/usr/pbi/.mount_nullfs"
 
+MNTSLEEP="sleep 0.2"
+
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
    # Slow down the pace of nullfs mounts, this seems to fix the odd panic / hang
-   sleep 0.1
    mount | grep -q "on ${1} (" 
    return $?
 }
@@ -43,26 +44,29 @@ mount_dirs() {
    # Check some of the common items to mount into the PBI container
    is_mounted "${pDir}/virtbase" || $NULLFS / "${pDir}/virtbase"
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
-   is_mounted "${pDir}/virtbase/usr/local" || $NULLFS ${1}/local "${pDir}/virtbase/usr/local"
-   is_mounted "${pDir}/virtbase/var/run" || $NULLFS ${pDir}/run "${pDir}/virtbase/var/run"
-   is_mounted "${pDir}/virtbase/compat/linux" || $NULLFS ${1}/linux "${pDir}/virtbase/compat/linux"
+   is_mounted "${pDir}/virtbase/usr/local" || ($MNTSLEEP ; $NULLFS ${1}/local "${pDir}/virtbase/usr/local" )
+   is_mounted "${pDir}/virtbase/var/run" || ($MNTSLEEP ; $NULLFS ${pDir}/run "${pDir}/virtbase/var/run" )
+   is_mounted "${pDir}/virtbase/compat/linux" || ($MNTSLEEP ; $NULLFS ${1}/linux "${pDir}/virtbase/compat/linux" )
 
    # Sort out the items to mount into the PBI container
    for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
    do
      if [ "$i" = "/" ] ; then continue ; fi
-     is_mounted "${pDir}/virtbase${i}" || $NULLFS ${i} "${pDir}/virtbase${i}"
+     is_mounted "${pDir}/virtbase${i}" || ($MNTSLEEP ; $NULLFS ${i} "${pDir}/virtbase${i}" )
    done
 
    # Mount any system-wide fonts / cursors / icons into the PBI container
    if [ -d "${pDir}/virtbase/usr/local/etc/fonts" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || $NULLFS /usr/local/etc/fonts "${pDir}/virtbase/usr/local/etc/fonts"
+      is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || ($MNTSLEEP ; $NULLFS /usr/local/etc/fonts "${pDir}/virtbase/usr/local/etc/fonts" )
    fi
    if [ -d "${pDir}/virtbase/usr/local/lib/X11/fonts" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" || $NULLFS /usr/local/lib/X11/fonts "${pDir}/virtbase/usr/local/lib/X11/fonts"
+      is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" || ($MNTSLEEP ; $NULLFS /usr/local/lib/X11/fonts "${pDir}/virtbase/usr/local/lib/X11/fonts" )
    fi
    if [ -d "${pDir}/virtbase/usr/local/lib/X11/icons" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || $NULLFS /usr/local/lib/X11/icons "${pDir}/virtbase/usr/local/lib/X11/icons"
+      is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || ($MNTSLEEP ; $NULLFS /usr/local/lib/X11/icons "${pDir}/virtbase/usr/local/lib/X11/icons" )
+   fi
+   if [ -d "${pDir}/virtbase/usr/local/share/icons" ] ; then
+      is_mounted "${pDir}/virtbase/usr/local/share/icons" || ($MNTSLEEP ; $NULLFS /usr/local/share/icons "${pDir}/virtbase/usr/local/share/icons" )
    fi
 
    # Check if we need to mount linprocfs in the PBI container
@@ -72,6 +76,7 @@ mount_dirs() {
 
    sync
 
+   sleep 0.1
    # Copy over the system command
    cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/pbisyscmd"
    cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/openwith"
@@ -81,7 +86,6 @@ mount_dirs() {
    # Copy the custom ldconfig
    cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
    chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
-   sleep 0.2
    sync
 }
 
