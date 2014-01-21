@@ -117,6 +117,12 @@ void CPBIController::onReadUpdateLine(QString line)
     current_app= current_app.left(current_app.lastIndexOf("-")); // remove arch
     current_app= current_app.left(current_app.lastIndexOf("-")); // remove ver
 
+    if (line.indexOf(DOWNLOADING_ERROR) ==0 )
+    {
+        reportError(line.replace(DOWNLOADING_ERROR,"").trimmed());
+        return;
+    }
+
     if (parseFetchOutput(line,dl_size, dl_complete, dl_speed))
     {
         progress.misCanCancel=true;
