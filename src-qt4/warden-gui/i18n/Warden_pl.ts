@@ -786,8 +786,7 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cela Linux (Linux działający w celi) - eksperymentalnie!</translation>
     </message>
 </context>
 </TS>
