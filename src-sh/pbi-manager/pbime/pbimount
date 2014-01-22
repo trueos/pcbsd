@@ -39,10 +39,29 @@ mount_pbifile() {
    mount -r -t ufs /dev/${MD}.uzip "${pDir}"
 }
 
+check_nvidia_linux()
+{
+   # Check if this PBI even has a linux compat layer with GL support
+   if [ ! -d "${1}/linux/usr/lib" ] ; then return; fi
+   ls ${1}/linux/usr/lib/libGL* 2>/dev/null >/dev/null
+   if [ $? -ne 0 ] ; then return ; fi
+
+   # Ok, we have linux compat in the PBI, is the system using nvidia?
+   pkg info -e nvidia-driver
+   if [ $? -ne 0 ] ; then return ; fi
+
+   # We have nvidia, lets do our linux lib population now
+   for i in `pkg info -l nvidia-driver 2>/dev/null | grep 'compat/linux/usr/lib' | awk '{print $1}'`
+   do
+      cp ${i} ${1}/linux/usr/lib/
+   done
+}
+
 mount_dirs() {
 
    # Check some of the common items to mount into the PBI container
-   is_mounted "${pDir}/virtbase" || $NULLFS / "${pDir}/virtbase"
+   is_mounted "${pDir}/virtbase" || ( $NULLFS / "${pDir}/virtbase" ; check_nvidia_linux "${1}" )
+
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
    is_mounted "${pDir}/virtbase/usr/local" || ($MNTSLEEP ; $NULLFS ${1}/local "${pDir}/virtbase/usr/local" )
    is_mounted "${pDir}/virtbase/var/run" || ($MNTSLEEP ; $NULLFS ${pDir}/run "${pDir}/virtbase/var/run" )
@@ -86,6 +105,7 @@ mount_dirs() {
    # Copy the custom ldconfig
    cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
    chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
+
    sync
 }
 
