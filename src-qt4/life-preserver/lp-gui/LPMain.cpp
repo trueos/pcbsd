@@ -4,6 +4,11 @@
 
 LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   ui->setupUi(this); //load the Qt-designer UI file
+  //Initialize the auto-refresh timer
+  timer = new QTimer(this);
+	timer->setSingleShot(true);
+	timer->setInterval(60000); // 1 minute timer
+	connect(timer, SIGNAL(timeout()), this, SLOT(updateTabs()) );
   //Initialize the system watcher
   watcher = new QFileSystemWatcher(this);
     //Make sure the lpreserver log directory exists and watch it
@@ -60,7 +65,7 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
   //Make sure the status tab is shown initially
   ui->tabWidget->setCurrentWidget(ui->tab_status);
   //Now connect the watcher to the update slot
-  connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(updateTabs()) );
+  connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(autoRefresh()) );
 }
 
 LPMain::~LPMain(){
@@ -400,6 +405,13 @@ void LPMain::openConfigGUI(){
   if(change){
     updateTabs();
   }	
+}
+
+void LPMain::autoRefresh(){
+  //This slot makes sure that the GUI is not refreshed too frequently
+  if(!timer->isActive()){
+    timer->start(); //start countdown to GUI refresh 
+  }	  
 }
 
 // -----------------------------------------------

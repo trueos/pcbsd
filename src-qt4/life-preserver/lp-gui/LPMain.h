@@ -43,6 +43,7 @@ private:
 	LPDataset POOLDATA;
 	QMessageBox *waitBox;
 	QFileSystemWatcher *watcher;
+	QTimer *timer;
 
 	void showErrorDialog(QString title, QString message, QString errors);
 	void showWaitBox(QString message);
@@ -59,6 +60,7 @@ private slots:
 	void setFileVisibility();
 	void restoreFiles();
 	void openConfigGUI();
+	void autoRefresh();
 	// -- Menu Actions --
 	//File Menu
 	void menuAddPool(QAction*);
