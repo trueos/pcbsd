@@ -85,7 +85,7 @@
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
-        <translation type="unfinished">Este repositório deverá estar pronto para uso em breve (dependendo da velocidade da sua conexão de internet).</translation>
+        <translation>Este repositório deverá estar pronto para ser usado em breve (dependendo da velocidade da sua conexão à internet).</translation>
     </message>
     <message>
         <source>Repo Failure</source>
@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>This repo could not be removed.</source>
-        <translation type="unfinished">Este repositório não pôde ser removido.</translation>
+        <translation>Este repositório não pôde ser removido.</translation>
     </message>
     <message>
         <source>New Mirror URL</source>
@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Update Application</source>
-        <translation type="unfinished">Atualizar aplicativo</translation>
+        <translation>Atualizar aplicativo</translation>
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
@@ -236,7 +236,7 @@
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished">Início</translation>
+        <translation>Início</translation>
     </message>
     <message>
         <source>Category</source>
@@ -484,13 +484,11 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Página do produto</translation>
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificar a instalação</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
@@ -529,7 +527,7 @@
     </message>
     <message>
         <source>No applications to install from this list.</source>
-        <translation type="unfinished">Não há aplicativos nesta lista para instalar.</translation>
+        <translation>Não há aplicativos nesta lista para instalar.</translation>
     </message>
     <message>
         <source>Results:</source>
@@ -618,11 +616,11 @@
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
-        <translation type="unfinished">Instalação cancelada (irá remover)</translation>
+        <translation>Instalação cancelada (irá remover)</translation>
     </message>
     <message>
         <source>Removal Canceled (will reinstall)</source>
-        <translation type="unfinished">Remoção cancelada (irá reinstalar)</translation>
+        <translation>Remoção cancelada (irá reinstalar)</translation>
     </message>
     <message>
         <source>Update&apos;s cannot be canceled</source>

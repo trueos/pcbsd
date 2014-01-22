@@ -175,7 +175,7 @@
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">Não foi possível detectar quaisquer unidades de disco! A instalação será encerrada agora.</translation>
+        <translation>Não foi possível detectar quaisquer unidades de disco! A instalação será encerrada agora.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
@@ -211,7 +211,7 @@
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">Por favor, digite o apelido para esta configuração que você deseja salvar.</translation>
+        <translation type="unfinished">Por favor, digite o nome para esta configuração que você deseja salvar.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
@@ -247,7 +247,7 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">Restaurar através do backup do Life-Preserver</translation>
+        <translation>Restaurar através do backup do Life-Preserver</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
@@ -265,8 +265,7 @@
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Realizando uma restauração a partir do backup do Life-Preserver. Clique em Próximo para iniciar o assistente de restauração.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
@@ -284,8 +283,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O seu sistema está sendo restaurado, isso pode demorar um pouco dependendo do tamanho do seu backup de das condições da rede.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
@@ -294,8 +292,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurando o sistema: %1</translation>
     </message>
     <message>
         <source>&amp;Load config from USB</source>
@@ -324,7 +321,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation>Seu sistema está sendo instalado! Pegue um copo de café e relaxe, e o instalador o notificará quando estiver finalizado.</translation>
+        <translation>Seu sistema está sendo instalado! Pegue um copo de café e relaxe, o instalador irá notificá-lo quando estiver finalizado.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
@@ -335,11 +332,11 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     <name>desktopSelection</name>
     <message>
         <source>System Package Configuration</source>
-        <translation>Sistema de configuração de pacotes</translation>
+        <translation>Configuração dos pacotes do sistema</translation>
     </message>
     <message>
         <source>Available System Packages</source>
-        <translation>Sistema de pacotes disponíveis</translation>
+        <translation>Pacotes do sistema disponíveis</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -367,8 +364,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selecione o software a ser instalado. Após a instalação, você poderá também adicionar / remover softwares através do Gerenciador de Pacotes (desktop) ou pelo comando &quot;pkg&quot; (servidor).</translation>
     </message>
 </context>
 <context>
@@ -684,11 +680,11 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">Instalando no SSD (Desabilita SWAP / atime)</translation>
+        <translation>Instalando no SSD (Desabilita SWAP / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">Sem gerenciador de inicialização!</translation>
+        <translation>Sem gerenciador de inicialização!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
@@ -697,11 +693,11 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">Gerenciador de inicialização (GRUB é recomendado)</translation>
+        <translation>Gerenciador de inicialização (GRUB é recomendado)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">Você escolheu não instalar um gerenciador de inicialização. Precisará configurar manualmente o seu próprio gerenciador.</translation>
+        <translation>Você optou por não instalar um gerenciador de inicialização. Será necessário configurar manualmente o seu próprio gerenciador.</translation>
     </message>
 </context>
 <context>
@@ -807,8 +803,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Este assistente irá guiá-lo através do processo de restauração do seu sistema a partir de um backup do Life-Preserver. Clique em Próximo para iniciar. </translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
@@ -817,8 +812,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servidor de backup</translation>
     </message>
     <message>
         <source>Host Name</source>
@@ -840,13 +834,11 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usar chave USB</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Usar senha de autenticação</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
@@ -869,8 +861,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Nenhuma chave foi encontrada!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
@@ -885,8 +876,8 @@ Please try another USB stick or use password authentication.</source>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não foi possível conectar ao servidor de backup!
+Confira se o servidor está acessível e verifique o seu usuário/senha.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
@@ -896,8 +887,7 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restaurará a partir de:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>

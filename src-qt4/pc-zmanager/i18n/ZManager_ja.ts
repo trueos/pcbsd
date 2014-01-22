@@ -74,9 +74,9 @@ value is on, which automatically selects an appropriate algorithm
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
         <translation>データの整合性を検証するために使用されるチェックサムを制御します。
-デフォルト値は、自動的に適切なアルゴリズムを選択するがonになっています。
+デフォルト値は、自動的に適切なアルゴリズムを選択するが on になっています。
 (現在は、fletcher4 が選択されますが、今後のリリースで変更される可能性があります)
-値をoffにするとユーザーデータの整合性チェックが無効になります。
+値を off にするとユーザーデータの整合性チェックが無効になります。
 チェックサムを無効にするのは推奨されません。</translation>
     </message>
     <message>
@@ -84,10 +84,10 @@ checksums is NOT a recommended practice.</source>
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation>有効またはデータセットの圧縮を無効にします。
-値は、on、off、lzjb、zle、gzipとgzip-Nです。
-現在、このプロパティにlzjb、gzip、あるいはgzip-Nを設定することは、このプロパティをonに設定するのと同じ効果があります。
-既存のデータを持つファイルシステムで圧縮を有効にすると、新しいデータのみを圧縮します。既存のデータは圧縮されていないままです。</translation>
+        <translation>データセットの圧縮の有無を設定します。値は、on、off、lzjb、zle、gzip と
+gzip-N です。現在、このプロパティに lzjb、gzip、あるいは gzip-N を設定すると、
+このプロパティに on を設定することと同じ効果があります。既存のデータを持つ
+ファイルシステムで圧縮を有効にすると、新しいデータのみを圧縮します。既存のデータは圧縮されないままです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -95,8 +95,8 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation>この読み取り専用プロパティはデータセットの圧縮率をその倍率で示します。
-圧縮はデータセットコマンド &apos;zfs set compression=on&apos; で有効にできます。
+        <translation>この読み取り専用プロパティはデータセットの圧縮率をその乗数で示します。
+圧縮はデータセットコマンド &apos;zfs set compression=on&apos; で有効になります。
 この値は全ファイルの論理的サイズと物理データの総量によって計算されます。
 計算結果には圧縮機能を使用して圧縮されたデータ含まれます。</translation>
     </message>
@@ -129,24 +129,18 @@ effect as the setting sha256,verify.
 If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
-        <translation>データセットの重複排除を構成します。
-デフォルト値は off になっています。
-デフォルトの重複排除チェックサムは sha256 です。
-(これは将来変更される場合があります)  
-dedup を有効にするときに定義されたチェックサムは、既に設定されているチェックサムプロパティを上書きします。
-検証する値を設定すると、sha256 で確認する設定と同じ効果があります。
-verify に設定した場合、ZFS はブロックの内容が同一であることを確認するために
-同じシグネチャを持つ2つのブロックの場合は1バイトずつの比較を行います。</translation>
+        <translation>データセットの重複除去を構成します。デフォルト値は off です。
+デフォルトの重複排除チェックサムは sha256 です。(これは将来
+変更される場合があります)  dedup を有効にするときに定義されたチェックサムは、
+既に設定されている checksum プロパティを上書きします。verify に設定すると
+sha256,verify と同じ効果があります。
+verify に設定した場合、2つのブロックが同じシグネチャを持つ場合には
+ブロックの内容が同一であることを確認するために ZFS は1バイトずつの
+比較を行います。</translation>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation>デバイスプロパティは現在FreeBSDではサポートされていません。</translation>
-    </message>
-    <message>
-        <source>Controls whether processes can be executed from within this file
-system. The default value is on.</source>
-        <translation>プロセスがこのファイルシステム内から実行できるかどうかを制御します。
-デフォルト値は on です。</translation>
+        <translation>現在 FreeBSD では devices プロパティはサポートされていません。</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
@@ -178,14 +172,6 @@ metadata is cached.</source>
 noneに設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
     <message>
-        <source>Read-only property for cloned file systems or volumes that identifies
-the snapshot from which the clone was created. The origin cannot be
-destroyed (even with the -r or -f option) as long as a clone exists.
-Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Limits the amount of disk space a dataset and its descendents can consume.
 This property enforces a hard limit on the amount of disk space used,
 including all space consumed by descendents, such as file systems and snapshots.
@@ -202,26 +188,6 @@ override the ancestor&apos;s quota, but rather imposes an additional limit.</sou
 no modifications can be made.</source>
         <translation>データセットを変更できるかどうかを制御します。
 on に設定すると変更を行うことはできません。</translation>
-    </message>
-    <message>
-        <source>Specifies a suggested block size for files in the file system. This
-property is designed solely for use with database workloads that
-access files in fixed-size records.  ZFS automatically tunes block
-sizes according to internal algorithms optimized for typical access
-patterns.
-Use of this property for general purpose file systems is strongly
-discouraged, and may adversely affect performance.
-The size specified must be a power of two greater than or equal to
-512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Read-only property that identifies the amount of data accessible by a
-dataset, which might or might not be shared with other datasets in the
-pool.</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Sets the amount of disk space that a dataset can consume. This property
@@ -269,60 +235,26 @@ and metadata. If set to all, both user data and metadata are cached. If set to n
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
         <translation>二次キャッシュ（L2ARC）にキャッシュされる内容を制御します。
 可能な値は、すべて、なし、およびメタデータです。すべてに設定した場合、ユーザーデータとメタデータの両方がキャッシュされます。
-noneに設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
-    </message>
-    <message>
-        <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation>setuidビットがファイルシステムにおいて名誉あるかどうかを制御します。</translation>
-    </message>
-    <message>
-        <source>Controls whether a file system is available over NFS and what
-options are used. If set to on, the zfs share command is invoked
-with no options. Otherwise, the zfs share command is invoked with
-options equivalent to the contents of this property.</source>
-        <translation>ファイルシステムがNFSを介して利用可能であり、
-どのようなオプションを使用するかどうかを制御します。
-ONに設定すると、zfs shareコマンドをオプションなしで起動されます。
-それ以外の場合は、zfs shareコマンドは、このプロパティの内容と同等のオプションを指定して呼び出されます。</translation>
+none に設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation>sharesmbプロパティは現在FreeBSDでは何も影響はありません。</translation>
+        <translation>現在 FreeBSD では sharesmb プロパティは無効です。</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation>.zfsディレクトリはファイルシステムのルートを非表示にするか表示するかを制御します。</translation>
+        <translation>.zfs ディレクトリーはファイルシステムのルートを非表示にするか表示するかを制御します。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Read-only property that identifies the amount of disk space that is used by
-children of this dataset, which would be freed if all the dataset&apos;s children
-were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Read-only property that identifies the amount of disk space that is used by
-a dataset itself, which would be freed if the dataset was destroyed, after
-first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットの種類を示す読み取り専用のプロパティ。filesystem(ファイルシステムまたはクローン)、volume、または snapshot のいずれかです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
 refreservation set on a dataset, which would be freed if the refreservation was
 removed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>refreservationをデータセットにセットし、refreservationを取り外した場合に
+解放されるディスク領域の量を特定する読み取り専用のプロパティ。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is consumed
@@ -330,16 +262,19 @@ by snapshots of a dataset. In particular, it is the amount of disk space that
 would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>データセットのスナップショットによって消費される
+ディスク領域の量を特定する読み取り専用のプロパティ。
+特にこのデータセットのスナップショットのすべてが破壊された場合に
+解放されることになるディスク領域の量です。
+領域は複数のスナップショットで共有できるので、この値は単純にスナップショットの合計ではないことに注意してください。</translation>
     </message>
     <message>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
         <translation>プールのバージョンとは独立したファイルシステムのディスク上のバージョンを識別します。
-このプロパティはサポートされるソフトウェアのリリースから提供されて以降のバージョンに設定することができます。
-</translation>
+このプロパティはサポートされるソフトウェアのリリースから提供されて
+以降のバージョンに設定することができます。</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
@@ -392,26 +327,6 @@ ZFSは低遅延で要求を処理するために、プールログデバイス�
 logbiasがthroughputに設定されている場合、
 ZFSは設定されたプールのログデバイスを使用することはありません。
 ZFSは代わりにグローバルプールのスループットと資源の有効利用のための同期操作を最適化します。</translation>
-    </message>
-    <message>
-        <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
-O_DSYNC). This property accepts the following values:
-standard  This is the POSIX specified behavior of ensuring all
-          synchronous requests are written to stable storage and
-          all devices are flushed to ensure data is not cached by
-          device controllers (this is the default).
-always    All file system transactions are written and flushed
-          before their system calls return. This has a large
-          performance penalty.
-disabled  Disables synchronous requests. File system transactions
-          are only committed to stable storage periodically. This
-          option will give the highest performance.  However, it
-          is very dangerous as ZFS would be ignoring the synchro-
-          nous transaction demands of applications such as data-
-          bases or NFS.  Administrators should only use this
-          option when the risks are understood.</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
@@ -479,13 +394,124 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">このプロパティが off に設定されると、このファイルシステムはマウントできなくなり、
-&apos;zfs mount -a&apos; でも無視されるようになります。　このプロパティを off に設定するのは
- mountpoint プロパティが設定されたままであることを除けば mountpoint プロパティを
-none に設定することと同じになります。このプロパティを off に設定することは、
-プロパティの値を子孫に継承するために使えます。一例として canmount=off を同一の
-マウントポイントを使用する2つのデータセットに設定すると、それらの子孫は同じ
-ディレクトリーに登場しますが、別々の特徴を継承できるようになります。</translation>
+        <translation>このプロパティが off に設定されると、このファイルシステムは
+マウントできなくなり、&apos;zfs mount -a&apos; でも無視されます。　この
+プロパティを off に設定するのは mountpoint プロパティが
+設定されたままであることを除けば mountpoint プロパティを
+none に設定することと同じになります。このプロパティを off に
+設定することは、プロパティの値を継承するために使えます。一例
+として canmount=off を同一のマウントポイントを使用する
+2つのデータセットに設定すると、それらの子孫は同じディレクトリーに
+登場しますが、別々の特徴を継承できるようになります。</translation>
+    </message>
+    <message>
+        <source>Controls whether processes can be executed from within this file
+system. The default value is on.</source>
+        <translation type="unfinished">このファイルシステムに含まれるプログラムのプロセスを実行できるかを制御します。
+デフォルト値は on です。</translation>
+    </message>
+    <message>
+        <source>Controls whether a file system is available over NFS and what
+options are used. If set to on, the zfs share command is invoked
+with no options. Otherwise, the zfs share command is invoked with
+options equivalent to the contents of this property.</source>
+        <translation type="unfinished">ファイルシステムが NFS を介して利用可能であり、どのようなオプションを
+使用するかを制御します。on に設定すると、zfs share コマンドがオプション無しで
+起動されます。それ以外の場合には、zfs share コマンドはこのプロパティの内容と
+同等のオプションを指定して呼び出されます。</translation>
+    </message>
+    <message>
+        <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
+        <translation type="unfinished">データセットとその子孫が消費したディスクスペースの総量を示す読み取り専用のプロパティです。</translation>
+    </message>
+    <message>
+        <source>Read-only property that identifies the amount of disk space that is used by
+children of this dataset, which would be freed if all the dataset&apos;s children
+were destroyed.</source>
+        <translation type="unfinished">データセットの子が消費したディスクスペースの総量を示す読み取り専用の
+プロパティです。すべての子データセットが破棄されると解放されます。</translation>
+    </message>
+    <message>
+        <source>Read-only property that identifies the amount of disk space that is used by
+a dataset itself, which would be freed if the dataset was destroyed, after
+first destroying any snapshots and removing any refreservation reservations.</source>
+        <translation type="unfinished">データセット自身が消費したディスクスペースの総量を示す
+読み取り専用のプロパティです。データセットとすべての
+スナップショットと refreservation 予約が破棄されると解放されます。</translation>
+    </message>
+    <message>
+        <source>Read-only property for cloned file systems or volumes that identifies
+the snapshot from which the clone was created. The origin cannot be
+destroyed (even with the -r or -f option) as long as a clone exists.
+Non-cloned file systems have an origin of none.</source>
+        <translation type="unfinished">クローンされたファイルシステムやボリュームがどのスナップショットから
+クローンされたかを示す読み取り専用のプロパティです。クローンが存在する限り、
+クローン元は破棄できません(-r や -f オプションを付けても)。
+クローンされていないファイルシステムでは origin の値は none となります。</translation>
+    </message>
+    <message>
+        <source>Specifies a suggested block size for files in the file system. This
+property is designed solely for use with database workloads that
+access files in fixed-size records.  ZFS automatically tunes block
+sizes according to internal algorithms optimized for typical access
+patterns.
+Use of this property for general purpose file systems is strongly
+discouraged, and may adversely affect performance.
+The size specified must be a power of two greater than or equal to
+512 and less than or equal to 128 Kbytes.</source>
+        <translation type="unfinished">ファイルシステムの推奨ブロックサイズを指定します。このプロパティは
+固定サイズレコードでファイルにアクセスするデータベース処理のために
+作られたものです。  ZFS は内部のアルゴリズムによって一般的な
+アクセスパターンに合わせて自動的にブロックサイズを調整します。
+一般的なファイルシステムの用途でこのプロパティを使用することは
+性能に悪影響を及ぼす可能性があるため、特に推奨されません。
+サイズの値は 512以上128Kバイト以下の2の累乗の値で設定しなければなりません。</translation>
+    </message>
+    <message>
+        <source>Read-only property that identifies the amount of data accessible by a
+dataset, which might or might not be shared with other datasets in the
+pool.</source>
+        <translation type="unfinished">データセットがアクセス可能なデータの総量を示す読み取り専用の
+プロパティです。これはプール内に存在する他のデータセットと
+共有されることがあります。</translation>
+    </message>
+    <message>
+        <source>Controls whether the setuid bit is honored in a file system.</source>
+        <translation type="unfinished">ファイルシステム内の setuid ビットの有効/無効を制御します。</translation>
+    </message>
+    <message>
+        <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
+O_DSYNC). This property accepts the following values:
+standard  This is the POSIX specified behavior of ensuring all
+          synchronous requests are written to stable storage and
+          all devices are flushed to ensure data is not cached by
+          device controllers (this is the default).
+always    All file system transactions are written and flushed
+          before their system calls return. This has a large
+          performance penalty.
+disabled  Disables synchronous requests. File system transactions
+          are only committed to stable storage periodically. This
+          option will give the highest performance.  However, it
+          is very dangerous as ZFS would be ignoring the synchro-
+          nous transaction demands of applications such as data-
+          bases or NFS.  Administrators should only use this
+          option when the risks are understood.</source>
+        <translation type="unfinished">同期リクエスト (例: fsync(2), O_DSYNC) の動作を制御します。
+このプロパティは以下の値を受け付けます:
+standard  これは POSIX の規定する動作で、全ての同期リクエスト
+          が固定ストレージにデータを書き込まれたことを確認すると、
+          全デバイスをフラッシュしてデバイスコントローラーに
+          キャッシュされないようにします(これはデフォルトです)。
+always    全てのファイルシステムトランザクションはシステムコールが
+          値を返す前に書き込みとフラッシュを行います。これは
+          パフォーマンス上不利になります。
+disabled  同期リクエストを無効化します。ファイルシステムトランザクションは
+          固定ストレージに対して常に周期的に書き込みを行うようになります。
+          このオプションはパフォーマンスが最も高くなります。  しかし、
+          ZFS がデータベース、NFSなどのアプリケーションからの
+          同期トランザクション要求を無視するようになるため、
+          とても危険です。管理者はリスクを理解している場合のみ
+          このオプションを使用して下さい。</translation>
     </message>
 </context>
 <context>
@@ -777,8 +803,12 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ディスク上の現在のプールのバージョン。
+これは上げることは出来ますが、下げることは出来ません。
+特定のバージョンは下位互換性のために必要な場合には、このプロパティを使用することができますが
+プールを更新する好ましい方法は &quot;zpool upgrade&quot; コマンドです。
+このプロパティは &quot;zpool upgrade -v&quot; によって1から最新までのバージョンを
+確認することができます。</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This
@@ -1123,7 +1153,7 @@ crash dump.
     </message>
     <message>
         <source>Mounted: </source>
-        <translation>マウントされている場所:</translation>
+        <translation>マウントされている場所: </translation>
     </message>
     <message>
         <source>Available</source>
