@@ -5,8 +5,7 @@
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Confirmar alterações de pacotes</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
@@ -70,8 +69,7 @@
     </message>
     <message>
         <source>Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizações de pacotes</translation>
     </message>
     <message>
         <source>Re&amp;scan packages</source>
@@ -131,12 +129,11 @@
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation type="unfinished">Verificando se há atualizações</translation>
+        <translation>Verificando se há atualizações</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Atualizações de pacotes (%1)</translation>
     </message>
     <message>
         <source>Available updates</source>
@@ -148,8 +145,7 @@
     </message>
     <message>
         <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciando a atualização de pacotes...</translation>
     </message>
     <message>
         <source>required by:</source>
@@ -161,7 +157,7 @@
     </message>
     <message>
         <source>Package Conflicts</source>
-        <translation type="unfinished">Conflitos de pacotes</translation>
+        <translation>Conflitos de pacotes</translation>
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
@@ -219,8 +215,7 @@
     </message>
     <message>
         <source>Confirm package changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Confirmar alterações de pacotes</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -251,7 +246,7 @@
     </message>
     <message>
         <source>Find Packages</source>
-        <translation type="unfinished">Encontrar pacotes</translation>
+        <translation>Encontrar pacotes</translation>
     </message>
     <message>
         <source>Search</source>
@@ -259,7 +254,7 @@
     </message>
     <message>
         <source>No Search Results</source>
-        <translation type="unfinished">Não há resultados de pesquisa</translation>
+        <translation>Não há resultados de pesquisa</translation>
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>

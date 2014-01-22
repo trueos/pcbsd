@@ -10,7 +10,7 @@
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">Parar</translation>
+        <translation>Parar</translation>
     </message>
     <message>
         <source>Close</source>
@@ -126,8 +126,7 @@
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informação do sistema</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>

@@ -656,7 +656,7 @@
     </message>
     <message>
         <source>Working on Jail</source>
-        <translation type="unfinished">選択中の Jail</translation>
+        <translation>Jailの動作</translation>
     </message>
 </context>
 <context>

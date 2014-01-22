@@ -653,18 +653,15 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/Pakiet</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wybierz inny pakiet FreeBSD</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zmień</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -673,23 +670,19 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dodaj Pakiety</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nigdy nie używaj zbudowanych wcześniej pakietów</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Przejrzyj informacje Repozytorium (opcjonalnie)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagi</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>

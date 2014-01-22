@@ -169,7 +169,7 @@
     </message>
     <message>
         <source>Working</source>
-        <translation type="unfinished">Em operação</translation>
+        <translation>Em operação</translation>
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
