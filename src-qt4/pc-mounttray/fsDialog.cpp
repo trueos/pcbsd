@@ -30,7 +30,7 @@ void FSDialog::generateUI(){
       QString name = fsList[i].section("::",0,0);
       QString filesystem = fsList[i].section("::",1,1);
       //Don't show NULLFS filesystem (prevent showing all the PBI mountpoints)
-      if(filesystem.toLower()=="nullfs"){ continue; }
+      //if(filesystem.toLower()=="nullfs"){ continue; }
       double totalK = fsList[i].section("::",2,2).toDouble();
       double usedK = fsList[i].section("::",3,3).toDouble();
       int percent = fsList[i].section("::",4,4).toInt();

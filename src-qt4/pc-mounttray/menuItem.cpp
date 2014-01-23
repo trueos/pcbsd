@@ -2,7 +2,7 @@
 #include "menuItem.h"
 
 
-MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString newtype, QString newfs) : QWidgetAction(parent)
+MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString newtype, QString newfs, QString user) : QWidgetAction(parent)
 {
   AMFILE= QDir::homePath() + "/.pc-automounttray";   //File to save/load all the devices to be automounted
   //Set the device info variables
@@ -10,6 +10,7 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   device = newdevice;
   devType = newtype;
   filesystem = newfs;
+  currentUser = user;
   //Create the layout
   QGridLayout* layout = new QGridLayout();
   QHBoxLayout* hlayout = new QHBoxLayout();
@@ -222,8 +223,9 @@ void MenuItem::mountItem(){
   //Prepare the commands to run
   QString cmd1 = "mkdir " + mntpoint;
   QString cmd2 = fstype + " " +fsopts + " " + device + " " + mntpoint;
-  QString cmd3 = "chmod 777 " + mntpoint; //to set full user/root access
-  
+  cmd2 = "su -m "+currentUser+" -c \""+cmd2+"\""; //add command to run as user
+  QString cmd3 = "chmod 755 " + mntpoint; //to set full user/root access
+  QString cmd4 = "chown "+currentUser+":"+currentUser+" "+mntpoint; //make the current user the owner
   qDebug() << "Mounting device" << device << "on" << mntpoint << "("<<filesystem<<")";
   if(DEBUG_MODE){ qDebug() << " - command:" << cmd2; }
   
@@ -233,7 +235,8 @@ void MenuItem::mountItem(){
   QStringList output = pcbsd::Utils::runShellCommand(cmd1);
   if( output.join(" ").simplified().isEmpty() ){
     //directory created, run the next commands
-    system(cmd3.toUtf8()); //set directory permissions before mounting device
+    system(cmd4.toUtf8()); //set directory permissions before mounting device
+    system(cmd3.toUtf8()); //set directory ownership to the user
     output = pcbsd::Utils::runShellCommand(cmd2);
     if( output.join(" ").simplified().isEmpty() ){
       title = tr("Success");

@@ -25,7 +25,7 @@ class MenuItem : public QWidgetAction
 	Q_OBJECT
 
   public:
-	MenuItem(QWidget* parent = 0, QString newdevice="", QString newlabel="", QString newtype="", QString newfs="");
+	MenuItem(QWidget* parent = 0, QString newdevice="", QString newlabel="", QString newtype="", QString newfs="", QString user="");
 	~MenuItem();
 	
 	QString device;
@@ -35,6 +35,7 @@ class MenuItem : public QWidgetAction
         QString maxSize;  //number in KB saved as a QString
         QString currentSize; //number in KB saved as a QString
         QString AMFILE;
+  	QString currentUser; //username of current user (for setting mount dir ownership)
 	
   	//Setters
 	void updateItem();
@@ -58,7 +59,6 @@ class MenuItem : public QWidgetAction
   	QPushButton* pushMount;
   	QCheckBox* checkAutomount;
 
-	//void mountItem();
   	void unmountItem(bool force = false);
         void updateSizes();
         QString getSizeDisplay(int);

@@ -50,11 +50,12 @@ QStringList FSWatcher::getFSmountpoints(){
     if(dfout[i].startsWith("devfs")){}
     else if(dfout[i].startsWith("procfs")){}
     else if(dfout[i].startsWith("linprocfs")){}
+    else if(dfout[i].startsWith("linsysfs")){}
     else{
       //Now parse out the info  
       dfout[i].replace("\t"," ");
       QString fs = dfout[i].section("  ",1,1,QString::SectionSkipEmpty).simplified();
-      if(fs != "zfs" && fs!="cd9660"){  //ignore zfs filesystems (already taken care of)
+      if(fs != "zfs" && fs!="cd9660" && fs!="nullfs"){  //ignore zfs filesystems (already taken care of)
         QString name = dfout[i].section("  ",6,6,QString::SectionSkipEmpty).simplified();
         QString total = dfout[i].section("  ",2,2,QString::SectionSkipEmpty).simplified();
         QString used = dfout[i].section("  ",3,3,QString::SectionSkipEmpty).simplified();
