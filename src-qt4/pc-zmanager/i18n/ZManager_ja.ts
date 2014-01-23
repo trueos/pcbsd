@@ -407,35 +407,34 @@ none に設定することと同じになります。このプロパティを of
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">このファイルシステムに含まれるプログラムのプロセスを実行できるかを制御します。
-デフォルト値は on です。</translation>
+        <translation>このファイルシステムに含まれるプログラムのプロセスを起動できるかを制御します。デフォルト値は on です。</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
 options are used. If set to on, the zfs share command is invoked
 with no options. Otherwise, the zfs share command is invoked with
 options equivalent to the contents of this property.</source>
-        <translation type="unfinished">ファイルシステムが NFS を介して利用可能であり、どのようなオプションを
+        <translation>ファイルシステムが NFS で利用可能か否か、どのようなオプションを
 使用するかを制御します。on に設定すると、zfs share コマンドがオプション無しで
 起動されます。それ以外の場合には、zfs share コマンドはこのプロパティの内容と
 同等のオプションを指定して呼び出されます。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">データセットとその子孫が消費したディスクスペースの総量を示す読み取り専用のプロパティです。</translation>
+        <translation>データセットとその子孫が消費したディスクスペースの総量を示す読み取り専用のプロパティです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">データセットの子が消費したディスクスペースの総量を示す読み取り専用の
+        <translation>データセットの子が消費したディスクスペースの総量を示す読み取り専用の
 プロパティです。すべての子データセットが破棄されると解放されます。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 a dataset itself, which would be freed if the dataset was destroyed, after
 first destroying any snapshots and removing any refreservation reservations.</source>
-        <translation type="unfinished">データセット自身が消費したディスクスペースの総量を示す
+        <translation>データセット自身が消費したディスクスペースの総量を示す
 読み取り専用のプロパティです。データセットとすべての
 スナップショットと refreservation 予約が破棄されると解放されます。</translation>
     </message>
@@ -444,7 +443,7 @@ first destroying any snapshots and removing any refreservation reservations.</so
 the snapshot from which the clone was created. The origin cannot be
 destroyed (even with the -r or -f option) as long as a clone exists.
 Non-cloned file systems have an origin of none.</source>
-        <translation type="unfinished">クローンされたファイルシステムやボリュームがどのスナップショットから
+        <translation>クローンされたファイルシステムやボリュームがどのスナップショットから
 クローンされたかを示す読み取り専用のプロパティです。クローンが存在する限り、
 クローン元は破棄できません(-r や -f オプションを付けても)。
 クローンされていないファイルシステムでは origin の値は none となります。</translation>
@@ -459,25 +458,27 @@ Use of this property for general purpose file systems is strongly
 discouraged, and may adversely affect performance.
 The size specified must be a power of two greater than or equal to
 512 and less than or equal to 128 Kbytes.</source>
-        <translation type="unfinished">ファイルシステムの推奨ブロックサイズを指定します。このプロパティは
-固定サイズレコードでファイルにアクセスするデータベース処理のために
-作られたものです。  ZFS は内部のアルゴリズムによって一般的な
-アクセスパターンに合わせて自動的にブロックサイズを調整します。
+        <translation>ファイルシステムの推奨ブロックサイズを指定します。この
+プロパティは固定サイズレコードでファイルにアクセスする
+データベース処理のために作られたものです。  ZFS は内部の
+アルゴリズムによって一般的なアクセスパターンに合わせて
+自動的にブロックサイズを調整します。
 一般的なファイルシステムの用途でこのプロパティを使用することは
 性能に悪影響を及ぼす可能性があるため、特に推奨されません。
-サイズの値は 512以上128Kバイト以下の2の累乗の値で設定しなければなりません。</translation>
+サイズの値は 512以上128Kバイト以下の2の累乗の値で
+設定しなければなりません。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of data accessible by a
 dataset, which might or might not be shared with other datasets in the
 pool.</source>
-        <translation type="unfinished">データセットがアクセス可能なデータの総量を示す読み取り専用の
+        <translation>データセットがアクセス可能なデータの総量を示す読み取り専用の
 プロパティです。これはプール内に存在する他のデータセットと
 共有されることがあります。</translation>
     </message>
     <message>
         <source>Controls whether the setuid bit is honored in a file system.</source>
-        <translation type="unfinished">ファイルシステム内の setuid ビットの有効/無効を制御します。</translation>
+        <translation>ファイルシステム内の setuid ビットの有効/無効を制御します。</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -496,7 +497,7 @@ disabled  Disables synchronous requests. File system transactions
           nous transaction demands of applications such as data-
           bases or NFS.  Administrators should only use this
           option when the risks are understood.</source>
-        <translation type="unfinished">同期リクエスト (例: fsync(2), O_DSYNC) の動作を制御します。
+        <translation>同期リクエスト (例:  fsync(2), O_DSYNC) の動作を制御します。
 このプロパティは以下の値を受け付けます:
 standard  これは POSIX の規定する動作で、全ての同期リクエスト
           が固定ストレージにデータを書き込まれたことを確認すると、
@@ -510,7 +511,7 @@ disabled  同期リクエストを無効化します。ファイルシステム�
           このオプションはパフォーマンスが最も高くなります。  しかし、
           ZFS がデータベース、NFSなどのアプリケーションからの
           同期トランザクション要求を無視するようになるため、
-          とても危険です。管理者はリスクを理解している場合のみ
+          とても危険です。  管理者はリスクを理解している場合のみ
           このオプションを使用して下さい。</translation>
     </message>
 </context>
@@ -530,7 +531,7 @@ disabled  同期リクエストを無効化します。ファイルシステム�
     </message>
     <message>
         <source>Mount location:</source>
-        <translation>マウントする場所:</translation>
+        <translation>マウント位置:</translation>
     </message>
     <message>
         <source>...</source>
@@ -1391,10 +1392,6 @@ OK to proceed with recovery?</source>
         <translation>[マウントされていません]</translation>
     </message>
     <message>
-        <source> of </source>
-        <translation> of </translation>
-    </message>
-    <message>
         <source>Rename dataset</source>
         <translation>データセット名を変更する</translation>
     </message>
@@ -1481,6 +1478,10 @@ Any snapshots created after this one will be deleted, along with any clone files
 
 </source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> of </source>
+        <translation type="unfinished"> / </translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause data loss.
