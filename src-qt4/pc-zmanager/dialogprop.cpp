@@ -129,13 +129,13 @@ void DialogProp::InitAllProperties()
     AllProperties.append(tmp);
 //     cachefile
     tmp.Name="cachefile";
-    tmp.Description=tr("Controls the location of where the pool configuration is cached. Dis‐\n"
-                       "covering all pools on system startup requires a cached copy of the\n"
+    tmp.Description=tr("Controls the location of where the pool configuration is cached.\n"
+                       "Discovering all pools on system startup requires a cached copy of the\n"
                        "configuration data that is stored on the root file system. All pools\n"
                        "in this cache are automatically imported when the system boots. Some\n"
                        "environments, such as install and clustering, need to cache this\n"
-                       "information in a different location so that pools are not automati‐\n"
-                       "cally imported. Setting this property caches the pool configuration\n"
+                       "information in a different location so that pools are not automatically\n"
+                       "imported. Setting this property caches the pool configuration\n"
                        "in a different location that can later be imported with \"zpool import\n"
                        "-c\".  Setting it to the special value \"none\" creates a temporary pool\n"
                        "that is never cached, and the special value '' (empty string) uses\n"
@@ -239,16 +239,16 @@ void DialogProp::InitAllProperties()
 //     readonly
 
     tmp.Name="readonly";
-    tmp.Description=tr("If set to on, pool will be imported in read-only mode with the fol‐\n"
-                       "lowing restrictions:\n"
+    tmp.Description=tr("If set to on, pool will be imported in read-only mode with the\n"
+                       "following restrictions:\n"
 
-                       "  ·   Synchronous data in the intent log will not be accessible\n"
+                       "  *   Synchronous data in the intent log will not be accessible\n"
 
-                       "  ·   Properties of the pool can not be changed\n"
+                       "  *   Properties of the pool can not be changed\n"
 
-                       "  ·   Datasets of this pool can only be mounted read-only\n"
+                       "  *   Datasets of this pool can only be mounted read-only\n"
 
-                       "  ·   To write to a read-only pool, a export and import of the pool\n"
+                       "  *   To write to a read-only pool, a export and import of the pool\n"
                        "      is required.\n");
     tmp.Flags=PROP_READONLY;    // CAN ONLY BE SET WHILE IMPORTING
     tmp.ValidOptions.clear();
