@@ -25,6 +25,8 @@ void PFAddDlg::init(void)
     // Default check the Allow button
     rbAllow->setChecked(true);
     
+    //First define the "Custom" service
+    cbServices->addItem("Custom");
     // Add all services
     for ( services::items_cit it = services::getInstance()->items().begin(); 
           it != services::getInstance()->items().end(); it++ )
