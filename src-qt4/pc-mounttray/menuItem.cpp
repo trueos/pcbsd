@@ -223,9 +223,9 @@ void MenuItem::mountItem(){
   //Prepare the commands to run
   QString cmd1 = "mkdir " + mntpoint;
   QString cmd2 = fstype + " " +fsopts + " " + device + " " + mntpoint;
-  cmd2 = "su -m "+currentUser+" -c \""+cmd2+"\""; //add command to run as user
+  //cmd2 = "su -m "+currentUser+" -c \""+cmd2+"\""; //add command to run as user
   QString cmd3 = "chmod 755 " + mntpoint; //to set full user/root access
-  QString cmd4 = "chown "+currentUser+":"+currentUser+" "+mntpoint; //make the current user the owner
+  //QString cmd4 = "chown "+currentUser+":"+currentUser+" "+mntpoint; //make the current user the owner
   qDebug() << "Mounting device" << device << "on" << mntpoint << "("<<filesystem<<")";
   if(DEBUG_MODE){ qDebug() << " - command:" << cmd2; }
   
@@ -235,8 +235,8 @@ void MenuItem::mountItem(){
   QStringList output = pcbsd::Utils::runShellCommand(cmd1);
   if( output.join(" ").simplified().isEmpty() ){
     //directory created, run the next commands
-    system(cmd4.toUtf8()); //set directory permissions before mounting device
-    system(cmd3.toUtf8()); //set directory ownership to the user
+    //system(cmd4.toUtf8()); //set directory ownershipt before mounting device
+    system(cmd3.toUtf8()); //set directory permissions
     output = pcbsd::Utils::runShellCommand(cmd2);
     if( output.join(" ").simplified().isEmpty() ){
       title = tr("Success");
