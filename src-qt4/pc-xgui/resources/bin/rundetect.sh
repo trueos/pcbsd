@@ -83,6 +83,9 @@ Section \"Device\"
 EndSection
   " >> /etc/X11/xorg.conf
 
+  echo "Hybrid video detected! Using Intel chipset..."
+  sleep 3
+
   return 0
 }
 
