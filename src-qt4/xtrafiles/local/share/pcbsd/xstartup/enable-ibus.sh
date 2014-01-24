@@ -14,7 +14,7 @@ ibus_initialize() {
 }
 
 # Check if this lang needs ibus
-case ${GDM_LANG} in
+case ${LANG} in
   ja_JP*)
   ibus_initialize "anthy"
   ENABLE="YES"
