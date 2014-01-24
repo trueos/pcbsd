@@ -847,29 +847,6 @@ est &quot;off&quot;. Cette propriété peut également être désigné par son r
 nom de colonne, &quot;remplacer&quot;.</translation>
     </message>
     <message>
-        <source>Controls the location of where the pool configuration is cached. Disâ
-covering all pools on system startup requires a cached copy of the
-configuration data that is stored on the root file system. All pools
-in this cache are automatically imported when the system boots. Some
-environments, such as install and clustering, need to cache this
-information in a different location so that pools are not automatiâ
-cally imported. Setting this property caches the pool configuration
-in a different location that can later be imported with &quot;zpool import
--c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
-that is never cached, and the special value &apos;&apos; (empty string) uses
-the default location.</source>
-        <translation>Contrôle l&apos;emplacement où la configuration de pool qui est mise en cache. Disa??\Ncouvrant toutes les pool au démarrage du système exige une copie en cache de la
-les données de configuration qui sont stockées sur le système de fichiers racine. Toutes les piscines
-dans ce cache sont importés automatiquement au démarrage du système. Certains
-environnements, tels que l&apos;installation et le clustering, doivent mettre en cache cette
-informations dans un emplacement différent de sorte que les pool ne sont pas Automatique??
-ment importé. La définition de cette propriété met en cache le pool de configuration
-dans un emplacement différent qui peut ensuite être importé avec &quot;zpool import
--c &quot;. Mise à la valeur spéciale&quot; none &quot;crée un pool temporaire
-qui n&apos;est jamais mis en cache, et la valeur spéciale&apos;&apos; (chaîne vide) utilise
-l&apos;emplacement par défaut.</translation>
-    </message>
-    <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
@@ -922,30 +899,26 @@ de la fonction de déduplication.  </translation>
         <translation>Quantité d&apos;espace de stockage dans le pool qui a été alloué physiquement.</translation>
     </message>
     <message>
-        <source>If set to on, pool will be imported in read-only mode with the folâ
-lowing restrictions:
-  Â·   Synchronous data in the intent log will not be accessible
-  Â·   Properties of the pool can not be changed
-  Â·   Datasets of this pool can only be mounted read-only
-  Â·   To write to a read-only pool, a export and import of the pool
-      is required.
-</source>
-        <translation>Si il est activé, le pool sera importé en mode lecture seule avec le Fola??
-restrictions après:
-Â · données synchrones dans le journal d&apos;intention ne seront pas accessibles
-Â · Propriétés de ces pool peuvent pas être modifiés
-Â · Données de ce pool ne peut être monté en lecture seule
-Â · Pour écrire à un pool en lecture seule, une exportation et l&apos;importation de ce pool
-est nécessaire.
-</translation>
-    </message>
-    <message>
         <source>An arbitrary comment string set by the administrator.</source>
         <translation>Une chaine de commentaire arbitraire défini par l&apos;administrateur.</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
         <translation>Cette propriété a actuellement aucune valeur sur FreeBSD</translation>
+    </message>
+    <message>
+        <source>Controls the location of where the pool configuration is cached.
+Discovering all pools on system startup requires a cached copy of the
+configuration data that is stored on the root file system. All pools
+in this cache are automatically imported when the system boots. Some
+environments, such as install and clustering, need to cache this
+information in a different location so that pools are not automatically
+imported. Setting this property caches the pool configuration
+in a different location that can later be imported with &quot;zpool import
+-c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
+that is never cached, and the special value &apos;&apos; (empty string) uses
+the default location.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -963,6 +936,17 @@ have yet to be committed to disk would be blocked.
 panic
 Prints out a message to the console and generates a system
 crash dump.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If set to on, pool will be imported in read-only mode with the
+following restrictions:
+  *   Synchronous data in the intent log will not be accessible
+  *   Properties of the pool can not be changed
+  *   Datasets of this pool can only be mounted read-only
+  *   To write to a read-only pool, a export and import of the pool
+      is required.
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1383,12 +1367,6 @@ OK pour détruire la tranche / partition?</translation>
         <translation>Importer le pool comme...</translation>
     </message>
     <message>
-        <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-OK to proceed with recovery?</source>
-        <translation>Ce Pool a été détruit, et ses disques ont été réutilisés. Tenter de récupérer toutes les nouvelles données qui pourraient avoir été stockés dans des dispositifs qui ont été réutilisés et ne peuvent pas être récupérées.
-OK pour procéder à la récupération?</translation>
-    </message>
-    <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
         <translation>Le pool a été importé en mode lecture seule, elle ne peut pas être renommé.</translation>
     </message>
@@ -1496,6 +1474,11 @@ Any snapshots created after this one will be deleted, along with any clone files
         <source>An error was detected while executing &apos;zfs&apos;:
 
 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+OK to proceed with recovery?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
