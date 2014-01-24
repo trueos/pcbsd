@@ -274,7 +274,7 @@ bool Installer::autoGenPartitionLayout(QString target, bool isDisk)
   if ( Arch == "amd64" ) {
     // Add the main zfs pool with standard partitions
     fsType= "ZFS";
-    fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lz4),/usr(canmount=off),/usr/home,/usr/jails,/usr/obj(compress=lz4),/usr/pbi,/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)" << fsType << tmp.setNum(totalSize) << "" << "";
+    fileSystem << targetDisk << targetSlice << "/,/tmp(compress=lz4),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=off),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)" << fsType << tmp.setNum(totalSize) << "" << "";
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
     
