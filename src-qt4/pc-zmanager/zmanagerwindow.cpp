@@ -2481,7 +2481,7 @@ void ZManagerWindow::zpoolImport(bool b)
         if(lastSelectedPool->Status&STATE_DESTROYED) {
             // SHOW A WARNING
 
-            QMessageBox msg(QMessageBox::Warning,tr("Warning"),tr("This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could've been stored in the devices that were reused and cannot be recovered.\nOK to proceed with recovery?"),QMessageBox::Yes|QMessageBox::No);
+            QMessageBox msg(QMessageBox::Warning,tr("Warning"),tr("This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could've been stored in the devices that were reused and cannot be recovered.\nProceed with recovery?"),QMessageBox::Yes|QMessageBox::No);
             int result=msg.exec();
 
             if(result!=QMessageBox::Yes) return;
