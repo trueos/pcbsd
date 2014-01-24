@@ -839,21 +839,6 @@ column name, &quot;replace&quot;.</source>
             </translation>
     </message>
     <message>
-        <source>Controls the location of where the pool configuration is cached. Disâ
-covering all pools on system startup requires a cached copy of the
-configuration data that is stored on the root file system. All pools
-in this cache are automatically imported when the system boots. Some
-environments, such as install and clustering, need to cache this
-information in a different location so that pools are not automatiâ
-cally imported. Setting this property caches the pool configuration
-in a different location that can later be imported with &quot;zpool import
--c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
-that is never cached, and the special value &apos;&apos; (empty string) uses
-the default location.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
@@ -898,18 +883,6 @@ of the deduplication feature.</source>
             </translation>
     </message>
     <message>
-        <source>If set to on, pool will be imported in read-only mode with the folâ
-lowing restrictions:
-  Â·   Synchronous data in the intent log will not be accessible
-  Â·   Properties of the pool can not be changed
-  Â·   Datasets of this pool can only be mounted read-only
-  Â·   To write to a read-only pool, a export and import of the pool
-      is required.
-</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>An arbitrary comment string set by the administrator.</source>
         <translation type="unfinished">
             </translation>
@@ -918,6 +891,20 @@ lowing restrictions:
         <source>This property has currently no value on FreeBSD.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Controls the location of where the pool configuration is cached.
+Discovering all pools on system startup requires a cached copy of the
+configuration data that is stored on the root file system. All pools
+in this cache are automatically imported when the system boots. Some
+environments, such as install and clustering, need to cache this
+information in a different location so that pools are not automatically
+imported. Setting this property caches the pool configuration
+in a different location that can later be imported with &quot;zpool import
+-c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
+that is never cached, and the special value &apos;&apos; (empty string) uses
+the default location.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -935,6 +922,17 @@ have yet to be committed to disk would be blocked.
 panic
 Prints out a message to the console and generates a system
 crash dump.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If set to on, pool will be imported in read-only mode with the
+following restrictions:
+  *   Synchronous data in the intent log will not be accessible
+  *   Properties of the pool can not be changed
+  *   Datasets of this pool can only be mounted read-only
+  *   To write to a read-only pool, a export and import of the pool
+      is required.
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1453,12 +1451,6 @@ OK to destroy the slice/partition?</source>
             </translation>
     </message>
     <message>
-        <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-OK to proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
         <translation type="unfinished">
             </translation>
@@ -1583,6 +1575,11 @@ Todo snapshot creado después del actual será borrado junto cualquier sistema d
         <source>An error was detected while executing &apos;zfs&apos;:
 
 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+OK to proceed with recovery?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

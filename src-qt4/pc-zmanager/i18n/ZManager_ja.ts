@@ -253,8 +253,9 @@ none に設定すると、ユーザーデータやメタデータのいずれも
         <source>Read-only property that identifies the amount of disk space that is used by a
 refreservation set on a dataset, which would be freed if the refreservation was
 removed.</source>
-        <translation>refreservationをデータセットにセットし、refreservationを取り外した場合に
-解放されるディスク領域の量を特定する読み取り専用のプロパティ。</translation>
+        <translation>refreservation プロパティがデータセットにセットされている場合に、
+refreservation を削除すると解放されるディスク領域の量を示す
+読み取り専用のプロパティです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is consumed
@@ -286,11 +287,11 @@ from the supported software release.</source>
     </message>
     <message>
         <source>Indicates whether a dataset has been added to a jail.</source>
-        <translation>データセットがjailに追加されているかどうかを示します。</translation>
+        <translation>データセットが jail に追加されているかどうかを示します。</translation>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation>このプロパティはFreeBSDではサポートしていません。</translation>
+        <translation>このプロパティは FreeBSD ではサポートしていません。</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
@@ -305,8 +306,8 @@ dataset, expressed as a multiplier.</source>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation>前回のスナップショット以降に
-このデータセットに書き込まれた参照領域の量。</translation>
+        <translation>前回のスナップショット以降にこのデータセットに書き込まれた
+参照領域の量。</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
@@ -321,12 +322,12 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation>このデータセットの同期要求の取り扱いについてZFSへのヒントを提供します。
-logbiasがlatency（デフォルト）に設定されている場合、
-ZFSは低遅延で要求を処理するために、プールログデバイスを使用します。
-logbiasがthroughputに設定されている場合、
-ZFSは設定されたプールのログデバイスを使用することはありません。
-ZFSは代わりにグローバルプールのスループットと資源の有効利用のための同期操作を最適化します。</translation>
+        <translation>このデータセットの同期リクエストの取り扱いについて ZFS へのヒントを
+提供します。  logbias が latency(デフォルト)に設定されている場合、
+ZFS は低遅延で要求を処理するために、プールログデバイスを使用します(設定済みの場合)。
+logbias が throughput に設定されている場合、ZFS は設定されたプールの
+ログデバイスを使用することはありません。  ZFS は代わりにグローバルプールの
+スループットと資源の有効利用のために同期リクエストを最適化します。</translation>
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
@@ -379,8 +380,8 @@ Read ZFS manual for more information.</source>
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">この読み取り専用プロパティは自分以外からのプール内への書き込みが無い場合に、
-データセットとその子孫で利用可能なディスク容量を表します。それはディスクスペースが
+        <translation>データセットとその子が利用可能なディスク容量を示す読み取り専用のプロパティです。
+ただし、他に書き込みが行われない場合に限ります。それはディスクスペースが
 プール内で共有され、利用可能なディスク容量は物理的なディスク容量、プールの容量、
 クオータ、データ使用量そしてプール内の他のデータセットの制約を受けるためです。</translation>
     </message>
@@ -535,7 +536,7 @@ disabled  同期リクエストを無効化します。ファイルシステム�
     </message>
     <message>
         <source>...</source>
-        <translation>…</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Directory</source>
@@ -574,10 +575,6 @@ disabled  同期リクエストを無効化します。ファイルシステム�
     <message>
         <source>Pool name:</source>
         <translation>プール名:</translation>
-    </message>
-    <message>
-        <source>Configuration type:</source>
-        <translation>設定タイプ:</translation>
     </message>
     <message>
         <source>Striped</source>
@@ -620,12 +617,16 @@ disabled  同期リクエストを無効化します。ファイルシステム�
         <translation>有効なプール名を提供しなくてはいけません</translation>
     </message>
     <message>
-        <source>Must select exactly %1 devices</source>
-        <translation>正確に %1 デバイスを選択しなくてはいけません</translation>
-    </message>
-    <message>
         <source>Must select at least one device</source>
         <translation>最低一つはデバイスを選択しなくてはいけません</translation>
+    </message>
+    <message>
+        <source>Configuration type:</source>
+        <translation type="unfinished">構成:</translation>
+    </message>
+    <message>
+        <source>Must select exactly %1 devices</source>
+        <translation type="unfinished">%1 台のデバイスを選択しなくてはいけません</translation>
     </message>
 </context>
 <context>
@@ -845,21 +846,6 @@ column name, &quot;replace&quot;.</source>
 このプロパティは、列名の短縮&quot;replace&quot;で参照できます。</translation>
     </message>
     <message>
-        <source>Controls the location of where the pool configuration is cached. Disâ
-covering all pools on system startup requires a cached copy of the
-configuration data that is stored on the root file system. All pools
-in this cache are automatically imported when the system boots. Some
-environments, such as install and clustering, need to cache this
-information in a different location so that pools are not automatiâ
-cally imported. Setting this property caches the pool configuration
-in a different location that can later be imported with &quot;zpool import
--c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
-that is never cached, and the special value &apos;&apos; (empty string) uses
-the default location.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
@@ -912,24 +898,26 @@ of the deduplication feature.</source>
         <translation>物理的に割り当てられているプール内のストレージスペースの量。</translation>
     </message>
     <message>
-        <source>If set to on, pool will be imported in read-only mode with the folâ
-lowing restrictions:
-  Â·   Synchronous data in the intent log will not be accessible
-  Â·   Properties of the pool can not be changed
-  Â·   Datasets of this pool can only be mounted read-only
-  Â·   To write to a read-only pool, a export and import of the pool
-      is required.
-</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>An arbitrary comment string set by the administrator.</source>
         <translation>管理者が設定した任意のコメント文字列。</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
         <translation>このプロパティは現在のFreeBSDには値がありません。</translation>
+    </message>
+    <message>
+        <source>Controls the location of where the pool configuration is cached.
+Discovering all pools on system startup requires a cached copy of the
+configuration data that is stored on the root file system. All pools
+in this cache are automatically imported when the system boots. Some
+environments, such as install and clustering, need to cache this
+information in a different location so that pools are not automatically
+imported. Setting this property caches the pool configuration
+in a different location that can later be imported with &quot;zpool import
+-c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
+that is never cached, and the special value &apos;&apos; (empty string) uses
+the default location.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -950,6 +938,17 @@ crash dump.
 </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>If set to on, pool will be imported in read-only mode with the
+following restrictions:
+  *   Synchronous data in the intent log will not be accessible
+  *   Properties of the pool can not be changed
+  *   Datasets of this pool can only be mounted read-only
+  *   To write to a read-only pool, a export and import of the pool
+      is required.
+</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DialogfsCreate</name>
@@ -967,7 +966,7 @@ crash dump.
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation>自動マウントを阻止する (canmount=noauto)</translation>
+        <translation>自動マウントしない (canmount=noauto)</translation>
     </message>
     <message>
         <source>Mountpoint</source>
@@ -975,11 +974,11 @@ crash dump.
     </message>
     <message>
         <source>none</source>
-        <translation>無し</translation>
+        <translation>none</translation>
     </message>
     <message>
         <source>legacy</source>
-        <translation type="unfinished">legacy</translation>
+        <translation>legacy</translation>
     </message>
     <message>
         <source>[path]</source>
@@ -987,11 +986,11 @@ crash dump.
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation>UTF-8のみを強制する (utf8only=on)</translation>
+        <translation>UTF-8 のみ使用可 (utf8only=on)</translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation>Unicodeの正規化 =</translation>
+        <translation>Unicode の正規化 =</translation>
     </message>
     <message>
         <source>formD</source>
@@ -1007,7 +1006,7 @@ crash dump.
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
-        <translation>重複排除 (dedup=on)</translation>
+        <translation>重複除去 (dedup=on)</translation>
     </message>
     <message>
         <source>Compression =</source>
@@ -1074,7 +1073,7 @@ crash dump.
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation>PC-BSDディスクマネージャー</translation>
+        <translation>PC-BSD ディスクマネージャー</translation>
     </message>
     <message>
         <source>Disks</source>
@@ -1090,7 +1089,7 @@ crash dump.
     </message>
     <message>
         <source>ZFS Pools</source>
-        <translation>ZFSプール</translation>
+        <translation>ZFS プール</translation>
     </message>
     <message>
         <source>Pool Name</source>
@@ -1114,7 +1113,7 @@ crash dump.
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation>ZFSファイルシステム</translation>
+        <translation>ZFS ファイルシステム</translation>
     </message>
     <message>
         <source>Filesystems</source>
@@ -1126,11 +1125,11 @@ crash dump.
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation>再読込中…</translation>
+        <translation>再読込中...</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
-        <translation>プールは何もありませんので右クリックで新しく作成してください…</translation>
+        <translation>利用可能なプールが無いので、右クリックで新しく作成してください...</translation>
     </message>
     <message>
         <source> (No media in drive)</source>
@@ -1268,7 +1267,7 @@ crash dump.
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation>zpoolメニュー</translation>
+        <translation>zpool メニュー</translation>
     </message>
     <message>
         <source>Device Menu</source>
@@ -1284,7 +1283,7 @@ crash dump.
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation>MBRパーティションテーブルを作成する</translation>
+        <translation>MBR パーティションテーブルを作成する</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
@@ -1338,16 +1337,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
-        <translation>このプールはリードオンリーでインポートされたので、この状態で破壊を試みても破壊されることは無いでしょう。</translation>
-    </message>
-    <message>
-        <source>Attach mirror devices to </source>
-        <translation>ミラーデバイスを次へ追加する </translation>
+        <translation>このプールは読み取り専用モードでインポートされたので、この状態でプールの破壊を試みても破壊されることは無いでしょう。</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このプールは読み取り専用モードでインポートされたので、この状態でプールのエクスポートを試みてもインポートされたままの状態になるため、エクスポートされないでしょう。</translation>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
@@ -1358,38 +1352,32 @@ OK to destroy the slice/partition?</source>
         <translation>プールをインポート...</translation>
     </message>
     <message>
-        <source>This pool had been destroyed, and its disks my have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-OK to proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
         <translation>このプールはリードオンリーでインポートされたので名前の変更はできません。</translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation>zpoolへデバイスを追加する</translation>
+        <translation>zpool へデバイスを追加する</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation>zpoolへログデバイスを追加する</translation>
+        <translation>zpool へログデバイスを追加する</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation>zpoolへキャッシュデバイスを追加する</translation>
+        <translation>zpool へキャッシュデバイスを追加する</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation>zpoolへ予備デバイスを追加する</translation>
+        <translation>zpool へ予備デバイスを追加する</translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation>[マウントされています]</translation>
+        <translation>[マウント済み]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation>[マウントされていません]</translation>
+        <translation>[未マウント]</translation>
     </message>
     <message>
         <source>Rename dataset</source>
@@ -1454,12 +1442,16 @@ Any snapshots created after this one will be deleted, along with any clone files
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">(破棄されました)
+        <translation>(破棄されました)
 </translation>
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">削除しました</translation>
+        <translation>削除済み</translation>
+    </message>
+    <message>
+        <source> of </source>
+        <translation> / </translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:
@@ -1480,8 +1472,13 @@ Any snapshots created after this one will be deleted, along with any clone files
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> of </source>
-        <translation type="unfinished"> / </translation>
+        <source>Attach mirror devices to </source>
+        <translation type="unfinished">ミラーデバイスを追加する </translation>
+    </message>
+    <message>
+        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+OK to proceed with recovery?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause data loss.
