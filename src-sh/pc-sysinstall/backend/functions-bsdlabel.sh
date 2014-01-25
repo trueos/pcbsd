@@ -403,10 +403,15 @@ setup_gpart_partitions()
       # Create the partition
       if [ "${_pType}" = "gpt" ] ; then
         sleep 2
-	aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_pDisk}"
+        if [ -a "${INSTALLTYPE}" = "GhostBSD" ]
+        then
+          aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
+        else
+	  aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_pDisk}"
+	fi
       elif [ "${_pType}" = "gptslice" ]; then
         sleep 2
-        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
       elif [ "${_pType}" = "apm" ]; then
         sleep 2
         aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
