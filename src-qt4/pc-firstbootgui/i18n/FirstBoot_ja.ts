@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation>ユーザーのファイルを暗号化</translation>
+        <translation>ユーザーのファイルを暗号化する</translation>
     </message>
     <message>
         <source>System Hostname</source>
