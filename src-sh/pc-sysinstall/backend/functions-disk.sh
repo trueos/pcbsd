@@ -805,6 +805,7 @@ run_gpart_gpt_part()
     slice=`echo "${1}:${3}:gpt" | sed 's|/|-|g'`
   else
     slice=`echo "${1}:${3}:gptslice" | sed 's|/|-|g'`
+  fi
 
   # Lets save our slice, so we know what to look for in the config file later on
   if [ -z "$WORKINGSLICES" ]
