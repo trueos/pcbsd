@@ -800,7 +800,11 @@ run_gpart_gpt_part()
   rc_halt "gpart bootcode -b /boot/boot ${DISK}p${slicenum}"
 
   # Set the slice to the format we'll be using for gpart later
-  slice=`echo "${1}:${3}:gptslice" | sed 's|/|-|g'`
+  if [ -a "${INSTALLTYPE}" = "GhostBSD" ]
+  then
+    slice=`echo "${1}:${3}:gpt" | sed 's|/|-|g'`
+  else
+    slice=`echo "${1}:${3}:gptslice" | sed 's|/|-|g'`
 
   # Lets save our slice, so we know what to look for in the config file later on
   if [ -z "$WORKINGSLICES" ]
