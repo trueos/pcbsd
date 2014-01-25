@@ -406,7 +406,7 @@ setup_gpart_partitions()
 	aCmd="gpart add -a 4k ${SOUT} -t ${PARTYPE} ${_pDisk}"
       elif [ "${_pType}" = "gptslice" ]; then
         sleep 2
-        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_wSlice}"
+        aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
       elif [ "${_pType}" = "apm" ]; then
         sleep 2
         aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
