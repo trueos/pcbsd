@@ -45,13 +45,13 @@
     </message>
     <message>
         <location filename="../firstboot.ui" line="560"/>
-        <location filename="../firstboot.ui" line="838"/>
+        <location filename="../firstboot.ui" line="835"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../firstboot.ui" line="593"/>
-        <location filename="../firstboot.ui" line="855"/>
+        <location filename="../firstboot.ui" line="852"/>
         <source>Password (Repeat)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -61,74 +61,74 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="792"/>
+        <location filename="../firstboot.ui" line="789"/>
         <source>Create a User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="808"/>
+        <location filename="../firstboot.ui" line="805"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="821"/>
+        <location filename="../firstboot.ui" line="818"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../firstboot.ui" line="865"/>
         <location filename="../firstboot.ui" line="868"/>
-        <location filename="../firstboot.ui" line="871"/>
         <source>Will encrypt users home-directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="882"/>
+        <location filename="../firstboot.ui" line="874"/>
         <source>Encrypt user files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1060"/>
+        <location filename="../firstboot.ui" line="1052"/>
         <source>Connect to a Wireless Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1092"/>
+        <location filename="../firstboot.ui" line="1084"/>
         <source>&amp;Rescan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1108"/>
+        <location filename="../firstboot.ui" line="1100"/>
         <source>The following wireless networks were found. Click the one you wish to connect to. If you wish to skip, click &quot;Next&quot; below. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1215"/>
+        <location filename="../firstboot.ui" line="1207"/>
         <source>Setup is now complete! Press Finish to login to your new desktop.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1285"/>
+        <location filename="../firstboot.ui" line="1277"/>
         <source>Display help for the current screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1311"/>
+        <location filename="../firstboot.ui" line="1303"/>
         <source>Launch the on-screen keyboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1337"/>
+        <location filename="../firstboot.ui" line="1329"/>
         <source>Switch between US layout and user selected layout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1388"/>
+        <location filename="../firstboot.ui" line="1380"/>
         <location filename="../firstboot.cpp" line="41"/>
         <source>&amp;Back</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../firstboot.ui" line="1404"/>
+        <location filename="../firstboot.ui" line="1396"/>
         <location filename="../firstboot.cpp" line="42"/>
         <source>&amp;Next</source>
         <translation type="unfinished"></translation>

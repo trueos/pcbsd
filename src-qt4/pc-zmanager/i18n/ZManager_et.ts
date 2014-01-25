@@ -926,7 +926,20 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>If set to on, pool will be imported in read-only mode with the
+following restrictions:
+  *   Synchronous data in the intent log will not be accessible
+  *   Properties of the pool can not be changed
+  *   Datasets of this pool can only be mounted read-only
+  *   To write to a read-only pool, a export and import of the pool
+      is required.
+</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -944,17 +957,6 @@ have yet to be committed to disk would be blocked.
 panic
 Prints out a message to the console and generates a system
 crash dump.
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>If set to on, pool will be imported in read-only mode with the
-following restrictions:
-  *   Synchronous data in the intent log will not be accessible
-  *   Properties of the pool can not be changed
-  *   Datasets of this pool can only be mounted read-only
-  *   To write to a read-only pool, a export and import of the pool
-      is required.
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1604,7 +1606,7 @@ Any snapshots created after this one will be deleted, along with any clone files
     </message>
     <message>
         <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-OK to proceed with recovery?</source>
+Proceed with recovery?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
