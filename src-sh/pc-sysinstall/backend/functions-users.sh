@@ -43,7 +43,7 @@ check_autologin()
 
     # Add the auto-login user line
     sed -i.bak "s/AutoLoginEnable=false/AutoLoginEnable=true/g" ${FSMNT}/usr/local/kde4/share/config/kdm/kdmrc
-  elif [ -a "${INSTALLTYPE}" = "GhostBSD" ]
+  elif [ "${INSTALLTYPE}" = "GhostBSD" ]
   then
     if [ -n "${VAL}" ]
     then
