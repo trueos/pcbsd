@@ -403,7 +403,7 @@ setup_gpart_partitions()
       # Create the partition
       if [ "${_pType}" = "gpt" ] ; then
         sleep 2
-        if [ -a "${INSTALLTYPE}" = "GhostBSD" ]
+        if [ "${INSTALLTYPE}" = "GhostBSD" ]
         then
           aCmd="gpart add ${SOUT} -t ${PARTYPE} ${_pDisk}"
         else
