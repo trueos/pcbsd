@@ -914,13 +914,40 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">自動デバイス交換を制御します。
-&quot;off&quot; に設定すると、デバイスの交換は &quot;zpool replace&quot; コマンドを
-使用して、管理者が初期化しなければいけません。
+        <translation>自動デバイス交換を制御します。
+&quot;off&quot; に設定すると、デバイスの交換は管理者が&quot;zpool replace&quot; コマンドで行います。
 &quot;on&quot; に設定すると、プールに以前属していたデバイスと
-物理的に同じ場所で検出された新しいデバイスは自動的にフォーマットされ、
-置き換えられます。デフォルトの動作は &quot;off&quot; です。  
+物理的に同じ場所で検出された新しいデバイスは自動的に
+フォーマットして交換されます。デフォルトの動作は &quot;off&quot; です。  
 このプロパティは短縮名 &quot;replace&quot; も使用できます。</translation>
+    </message>
+    <message>
+        <source>Threshold for the number of block ditto copies. If the reference
+count for a deduplicated block increases above this number, a new
+ditto copy of this block is automatically stored. Default setting is
+0.</source>
+        <translation>ブロック ditto コピー数の閾値です。重複除去されたブロックの
+参照カウント数がこの値より増加すると、このブロックの
+新しい ditto コピーがストアされます。
+デフォルト設定値は0です。</translation>
+    </message>
+    <message>
+        <source>If set to on, pool will be imported in read-only mode with the
+following restrictions:
+  *   Synchronous data in the intent log will not be accessible
+  *   Properties of the pool can not be changed
+  *   Datasets of this pool can only be mounted read-only
+  *   To write to a read-only pool, a export and import of the pool
+      is required.
+</source>
+        <translation>on に設定すると、プールが読み取り専用モードでインポートされます。
+ただし以下の制限があります:
+  *   インテントログ内の同期データにはアクセスできません
+  *   プールのプロパティを変更することはできません
+  *   このプールのデータセットは、読み取り専用でマウントできます
+  *   読み取り専用のプールに書き込むには、プールのエクスポートと
+      インポートが必要です。
+</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -940,33 +967,6 @@ Prints out a message to the console and generates a system
 crash dump.
 </source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Threshold for the number of block ditto copies. If the reference
-count for a deduplicated block increases above this number, a new
-ditto copy of this block is automatically stored. Default setting is
-0.</source>
-        <translation type="unfinished">ブロック ditto コピー数の閾値です。重複除去されたブロックの参照カウント数が
-この値より増加すると、このブロックの新しい ditto コピーがストアされます。
-デフォルト設定値は0です。</translation>
-    </message>
-    <message>
-        <source>If set to on, pool will be imported in read-only mode with the
-following restrictions:
-  *   Synchronous data in the intent log will not be accessible
-  *   Properties of the pool can not be changed
-  *   Datasets of this pool can only be mounted read-only
-  *   To write to a read-only pool, a export and import of the pool
-      is required.
-</source>
-        <translation type="unfinished">on に設定すると、プールが読み取り専用モードでインポートされます。
-ただし以下の制限があります:
-  *   インテントログ内の同期データにはアクセスできません
-  *   プールのプロパティを変更することはできません
-  *   このプールのデータセットは、読み取り専用でマウントできます
-  *   読み取り専用のプールに書き込むには、プールのエクスポートと
-      インポートが必要です。
-</translation>
     </message>
 </context>
 <context>
@@ -1342,7 +1342,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation>新しいzpoolを作成する</translation>
+        <translation>新しい zpool を作成する</translation>
     </message>
     <message>
         <source>Important information</source>
@@ -1473,8 +1473,14 @@ Any snapshots created after this one will be deleted, along with any clone files
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">(エクスポート済)
+        <translation>(エクスポート済)
 </translation>
+    </message>
+    <message>
+        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+Proceed with recovery?</source>
+        <translation>プールは既に破壊されていますが、ディスクが再利用されている場合があります。回復を行うと機器が再利用されていた場合に書き込まれたデータの回復が不可能になります。
+回復しますか?</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:
@@ -1492,11 +1498,6 @@ Any snapshots created after this one will be deleted, along with any clone files
         <source>An error was detected while executing &apos;zfs&apos;:
 
 </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-Proceed with recovery?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

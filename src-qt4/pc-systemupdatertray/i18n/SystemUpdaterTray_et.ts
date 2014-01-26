@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>System restart required to finish updates</source>
-        <translation>Süsteemi taaskäivitamine on vajalik uuendamise lõpetamiseks</translation>
+        <translation>Uuendamise lõpetamiseks on vajalik süsteemi taaskäivitamine</translation>
     </message>
     <message>
         <source>Start the Warden</source>

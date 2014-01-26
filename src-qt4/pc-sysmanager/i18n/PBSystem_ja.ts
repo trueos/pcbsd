@@ -100,7 +100,7 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation>PC-BSDバージョン</translation>
+        <translation>PC-BSD のバージョン</translation>
     </message>
     <message>
         <source>Base:</source>
@@ -120,15 +120,15 @@
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation>FreeBSDバージョン</translation>
+        <translation>FreeBSD のバージョン:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation>PC-BSDのソースを取得する</translation>
+        <translation>PC-BSD のソースを取得する(&amp;S)</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation>PC-BSDのPorts Treeを取得する</translation>
+        <translation>PC-BSD の Ports Treeを取得する(&amp;O)</translation>
     </message>
     <message>
         <source>Error</source>

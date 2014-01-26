@@ -220,7 +220,7 @@
     </message>
     <message>
         <source>Open the browser page for the selected application</source>
-        <translation>Ava valitud rakenduse veebileht brauseris</translation>
+        <translation>Ava valitud rakenduse lehekülg</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -380,7 +380,7 @@
     </message>
     <message>
         <source>Update</source>
-        <translation>Uuendus</translation>
+        <translation>Uuenda</translation>
     </message>
     <message>
         <source>Desktop Icons</source>
@@ -428,7 +428,7 @@
     </message>
     <message>
         <source>None</source>
-        <translation>Kumbki</translation>
+        <translation>Puuduvad</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
@@ -468,7 +468,7 @@
     </message>
     <message>
         <source>Available: %2</source>
-        <translation>Saadaval %2</translation>
+        <translation>Saadaval: %2</translation>
     </message>
     <message>
         <source>Downloading file:</source>
@@ -484,7 +484,7 @@
     </message>
     <message>
         <source>Product Page</source>
-        <translation>Toote leht</translation>
+        <translation>Toote lehekülg</translation>
     </message>
     <message>
         <source>Verify Installation</source>

@@ -1562,6 +1562,12 @@ Todo snapshot creado después del actual será borrado junto cualquier sistema d
             </translation>
     </message>
     <message>
+        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+Proceed with recovery?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
         <source>An error was detected while executing &apos;%1&apos;:
 
 </source>
@@ -1577,11 +1583,6 @@ Todo snapshot creado después del actual será borrado junto cualquier sistema d
         <source>An error was detected while executing &apos;zfs&apos;:
 
 </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-Proceed with recovery?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
