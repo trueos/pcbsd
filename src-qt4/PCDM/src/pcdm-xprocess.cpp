@@ -142,7 +142,7 @@ bool XProcess::startXSession(){
    //  - Setup to run the user's <home-dir>/.xprofile startup script
   if(QFile::exists(xhome+"/.xprofile")){
     qDebug() << "Run user ~/.xprofile";
-    this->start("sh "+xhome+"/.xprofile &");//make sure to start it in parallel
+    this->start("sh "+xhome+"/.xprofile");//Cannot start in parallel if it sets env variables
     if(!this->waitForFinished(30000) ){
       //If it still has not finished this after 30 seconds, kill it
       this->terminate();
