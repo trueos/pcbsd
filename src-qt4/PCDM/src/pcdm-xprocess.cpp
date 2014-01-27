@@ -152,7 +152,7 @@ bool XProcess::startXSession(){
     }else{
       //Could not create script file, fallback on running them seperately
       Backend::log(" --Run user ~/.xprofile");
-      QString xpro = "sh "+xhome+"/.xprofile";
+      QString xpro = ". "+xhome+"/.xprofile";
       this->start(xpro);
       this->waitForFinished(3000);
     }
