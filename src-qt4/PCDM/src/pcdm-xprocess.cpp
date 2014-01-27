@@ -140,11 +140,24 @@ bool XProcess::startXSession(){
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
+  Backend::log("Starting session:");
   if(QFile::exists(xhome+"/.xprofile")){
-    qDebug() << "Run user ~/.xprofile";
-    cmd.prepend(". "+xhome+"/.xprofile; ");
-    //Make sure it has executable permissions
-    QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner);
+    //Make sure the file is executable
+    QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther );
+    //Need to run a couple commands in sequence: so put them in a script file
+    QStringList contents;
+    contents << ". "+xhome+"/.xprofile";
+    contents << cmd; //end with the actual command for the DE
+    if( Backend::writeFile(xhome+"/.pcdmsessionstart", contents) ){
+      //script created fine, change the command to just run it
+      cmd = "sh "+xhome+"/.pcdmsessionstart";
+    }else{
+      //Could not create script file, fallback on running them seperately
+      Backend::log(" --Run user ~/.xprofile");
+      QString xpro = "sh "+xhome+"/.xprofile";
+      this->start(xpro);
+      this->waitForFinished(3000);
+    }
   }
   connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   this->start(cmd);
