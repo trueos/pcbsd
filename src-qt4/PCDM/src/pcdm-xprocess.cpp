@@ -143,9 +143,12 @@ bool XProcess::startXSession(){
   Backend::log("Starting session:");
   if(QFile::exists(xhome+"/.xprofile")){
     Backend::log(" --Run user ~/.xprofile");
-    cmd.prepend("sh "+xhome+"/.xprofile; ");
+    //cmd.prepend("sh "+xhome+"/.xprofile; ");
+    QString xpro = "sh "+xhome+"/.xprofile";
     //Make sure it has executable permissions
-    QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther);
+    //QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther);
+    this->start(xpro);
+    this->waitForFinished(3000);
   }
   connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   Backend::log(" --CMD: "+cmd);
