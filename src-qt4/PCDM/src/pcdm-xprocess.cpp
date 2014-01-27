@@ -140,13 +140,15 @@ bool XProcess::startXSession(){
   this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
+  Backend::log("Starting session:");
   if(QFile::exists(xhome+"/.xprofile")){
-    qDebug() << "Run user ~/.xprofile";
+    Backend::log(" --Run user ~/.xprofile");
     cmd.prepend(". "+xhome+"/.xprofile; ");
     //Make sure it has executable permissions
     QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner);
   }
   connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
+  Backend::log(" --CMD: "+cmd);
   this->start(cmd);
   return TRUE;
 }
