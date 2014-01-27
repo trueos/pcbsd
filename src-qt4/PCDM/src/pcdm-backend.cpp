@@ -316,6 +316,41 @@ void Backend::saveDefaultSysEnvironment(QString lang, QString keymodel, QString 
     }
 }
 
+bool Backend::writeFile(QString fileName, QStringList contents){
+  //Open the file with .tmp extension
+  QFile file(fileName+".tmp");
+  if( !file.open(QIODevice::WriteOnly | QIODevice::Text) ){
+    qDebug() << fileName+".tmp: Failure -- Could not open file";
+    return false;
+  }
+  //Write the file
+  QTextStream ofile(&file); //start the output stream
+  for(int i=0; i<contents.length(); i++){
+    ofile << contents[i];
+    ofile << "\n";
+  }
+  //Close the File
+  file.close();
+  //Remove any existing file with the final name/location
+  if( QFile::exists(fileName) ){
+    if( !QFile::remove(fileName) ){
+      qDebug() << fileName+": Error -- Could not overwrite existing file";
+      QFile::remove(fileName+".tmp");
+      return false;
+    }
+  }
+  //Move the temporary file into its final location
+  if( !file.rename(fileName) ){
+    qDebug() << fileName+": Error: Could not rename "+fileName+".tmp as "+fileName;
+    return false;
+  }
+  //Return success
+  QString extra = QDir::homePath(); //remove this from the filename display
+  qDebug() << "Saved:" << fileName.replace(extra,"~");
+  return true;;	
+}
+
+
 //****** PRIVATE FUNCTIONS ******
 
 void Backend::loadXSessionsData(){
@@ -508,3 +543,5 @@ void Backend::writeUserLastDesktop(QString user, QString desktop){
     file2.close();
   }
 }
+
+
