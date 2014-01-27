@@ -142,9 +142,11 @@ bool XProcess::startXSession(){
    //  - Setup to run the user's <home-dir>/.xprofile startup script
   Backend::log("Starting session:");
   if(QFile::exists(xhome+"/.xprofile")){
+    //Make sure the file is executable
+    QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther );
     //Need to run a couple commands in sequence: so put them in a script file
     QStringList contents;
-    contents << "sh "+xhome+"/.xprofile";
+    contents << ". "+xhome+"/.xprofile";
     contents << cmd; //end with the actual command for the DE
     if( Backend::writeFile(xhome+"/.pcdmsessionstart", contents) ){
       //script created fine, change the command to just run it
@@ -152,7 +154,7 @@ bool XProcess::startXSession(){
     }else{
       //Could not create script file, fallback on running them seperately
       Backend::log(" --Run user ~/.xprofile");
-      QString xpro = ". "+xhome+"/.xprofile";
+      QString xpro = "sh "+xhome+"/.xprofile";
       this->start(xpro);
       this->waitForFinished(3000);
     }
