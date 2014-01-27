@@ -43,7 +43,7 @@ check_autologin()
 
     # Add the auto-login user line
     sed -i.bak "s/AutoLoginEnable=false/AutoLoginEnable=true/g" ${FSMNT}/usr/local/kde4/share/config/kdm/kdmrc
-  elif [ -a "${INSTALLTYPE}" = "GhostBSD" ]
+  elif [ "${INSTALLTYPE}" = "GhostBSD" ]
   then
     if [ -n "${VAL}" ]
     then
@@ -198,7 +198,12 @@ setup_users()
 
   done <${CFGF}
 
-
+# If it is GhostBSD remove the ghostbsd live user.
+  if [ "${INSTALLTYPE}" = "GhostBSD" ]
+  then
+    rc_halt "pw userdel -n ghostbsd -r"
+  fi
+  
   # Check if we need to enable a user to auto-login to the desktop
   check_autologin
 

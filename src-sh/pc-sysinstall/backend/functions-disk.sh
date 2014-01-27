@@ -774,33 +774,16 @@ run_gpart_gpt_part()
   # Stop any journaling
   stop_gjournal "${slice}"
 
-  # Make sure we have disabled swap on this drive
-  if [ -e "${slice}b" ]
-  then
-   swapoff ${slice}b >/dev/null 2>/dev/null
-   swapoff ${slice}b.eli >/dev/null 2>/dev/null
+  if [ "${_intBOOT}" = "GRUB" ] ; then
+    rc_halt "gpart modify -t bios-boot ${DISK}"
+    # Doing a GRUB stamp? Lets save it for post-install
+    echo "${DISK}" >> ${TMPDIR}/.grub-install
+  else
+    rc_halt "gpart modify -t freebsd-boot -i ${slicenum} ${DISK}"
+    echo_log "Stamping boot sector on ${DISK}"
+    rc_halt "gpart bootcode -b /boot/pmbr ${DISK}"
   fi
-
-  # Modify partition type
-  echo_log "Running gpart modify on ${DISK}"
-  rc_halt "gpart modify -t freebsd -i ${slicenum} ${DISK}"
-  sleep 2
-
-  # Clean up old partition
-  echo_log "Cleaning up $slice"
-  rc_halt "dd if=/dev/zero of=${DISK}p${slicenum} count=1024"
-
-  sleep 4
-
-  # Init the MBR partition
-  rc_halt "gpart create -s BSD ${DISK}p${slicenum}"
-
-  # Stamp the bootloader
-  sleep 4
-  rc_halt "gpart bootcode -b /boot/boot ${DISK}p${slicenum}"
-
-  # Set the slice to the format we'll be using for gpart later
-  slice=`echo "${1}:${3}:gptslice" | sed 's|/|-|g'`
+  slice=`echo "${1}:${3}:gpt" | sed 's|/|-|g'`
 
   # Lets save our slice, so we know what to look for in the config file later on
   if [ -z "$WORKINGSLICES" ]
