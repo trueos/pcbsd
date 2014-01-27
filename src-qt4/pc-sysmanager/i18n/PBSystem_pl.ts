@@ -5,38 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CMD - Wyjście</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobierz drzewo portów PC-BSD</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pobieranie zasobów PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proces działa</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proszę zatrzymać bierzący proces przez zamknięciem tego okna.</translation>
     </message>
 </context>
 <context>

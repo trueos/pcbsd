@@ -686,58 +686,47 @@
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oddzielona przecinkami lista tagów do wyszukiwania tej aplikacji</translation>
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Typ aplikacji</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katalog aplikacji</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoria w której aplikacja powinna być znajdowana</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL ikony</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pokaż zarządzanie repozytorium (opcjonalnie)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Klucz budowania</translation>
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wersja #</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Priorytet</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Brak TMPFS</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>

@@ -96,9 +96,10 @@ dataset command. The value is calculated from the logical size of all files and 
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
         <translation>この読み取り専用プロパティはデータセットの圧縮率をその乗数で示します。
-圧縮はデータセットコマンド &apos;zfs set compression=on&apos; で有効になります。
+圧縮はデータセットコマンド zfs set compression=on で有効になります。
 この値は全ファイルの論理的サイズと物理データの総量によって計算されます。
-計算結果には圧縮機能を使用して圧縮されたデータ含まれます。</translation>
+計算結果には圧縮機能を使用して圧縮されたデータ含まれます。
+</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -130,9 +131,9 @@ If set to verify, ZFS will do a byte-to-byte comparsion in case of
 two blocks having the same signature to make sure the block contents
 are identical.</source>
         <translation>データセットの重複除去を構成します。デフォルト値は off です。
-デフォルトの重複排除チェックサムは sha256 です。(これは将来
-変更される場合があります)  dedup を有効にするときに定義されたチェックサムは、
-既に設定されている checksum プロパティを上書きします。verify に設定すると
+デフォルトの重複除去チェックサムは sha256 です。(これは将来
+変更される場合があります)  重複除去を有効にするとチェックサムは、
+既に定義されている checksum プロパティを上書きします。verify に設定すると
 sha256,verify と同じ効果があります。
 verify に設定した場合、2つのブロックが同じシグネチャを持つ場合には
 ブロックの内容が同一であることを確認するために ZFS は1バイトずつの
@@ -145,7 +146,8 @@ verify に設定した場合、2つのブロックが同じシグネチャを持
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation>ファイルシステム、クローン、またはスナップショットがマウントされているかどうかを示す読み取り専用のプロパティ。</translation>
+        <translation>ファイルシステム、クローン、またはスナップショットが
+マウントされているかどうかを示す読み取り専用のプロパティ。</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -233,7 +235,7 @@ dataset&apos;s quotas and reservations.</source>
         <source>Controls what is cached in the secondary cache (L2ARC). Possible values are all, none,
 and metadata. If set to all, both user data and metadata are cached. If set to none,
 neither user data nor metadata is cached. If set to metadata, only metadata is cached.</source>
-        <translation>二次キャッシュ（L2ARC）にキャッシュされる内容を制御します。
+        <translation>二次キャッシュ(L2ARC)にキャッシュされる内容を制御します。
 可能な値は、すべて、なし、およびメタデータです。すべてに設定した場合、ユーザーデータとメタデータの両方がキャッシュされます。
 none に設定すると、ユーザーデータやメタデータのいずれもがキャッシュされます。メタデータに設定すると、メタデータのみがキャッシュされます。</translation>
     </message>
@@ -247,7 +249,7 @@ none に設定すると、ユーザーデータやメタデータのいずれも
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation>データセットの種類を示す読み取り専用のプロパティ。filesystem(ファイルシステムまたはクローン)、volume、または snapshot のいずれかです。</translation>
+        <translation>ファイルシステムとしてのデータセットタイプの種類(ファイルシステムまたはクローン)、ボリューム、またはスナップショットを示す読み取り専用のプロパティです。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by a
@@ -264,7 +266,7 @@ would be freed if all of this dataset&apos;s snapshots were destroyed. Note that
 this value is not simply the sum of the snapshots&apos; used properties, because
 space can be shared by multiple snapshots.</source>
         <translation>データセットのスナップショットによって消費される
-ディスク領域の量を特定する読み取り専用のプロパティ。
+ディスク領域の量を特定する読み取り専用のプロパティです。
 特にこのデータセットのスナップショットのすべてが破壊された場合に
 解放されることになるディスク領域の量です。
 領域は複数のスナップショットで共有できるので、この値は単純にスナップショットの合計ではないことに注意してください。</translation>
@@ -408,7 +410,8 @@ none に設定することと同じになります。このプロパティを of
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation>このファイルシステムに含まれるプログラムのプロセスを起動できるかを制御します。デフォルト値は on です。</translation>
+        <translation>このファイルシステムに含まれるプログラムのプロセスを
+起動できるかを制御します。デフォルト値は on です。</translation>
     </message>
     <message>
         <source>Controls whether a file system is available over NFS and what
@@ -428,8 +431,9 @@ options equivalent to the contents of this property.</source>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation>データセットの子が消費したディスクスペースの総量を示す読み取り専用の
-プロパティです。すべての子データセットが破棄されると解放されます。</translation>
+        <translation>データセットの子が消費したディスクスペースの総量を示す
+読み取り専用のプロパティです。
+すべての子データセットが破棄されると解放されます。</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
@@ -622,11 +626,11 @@ disabled  同期リクエストを無効化します。ファイルシステム�
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">構成:</translation>
+        <translation>構成タイプ:</translation>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">%1 台のデバイスを選択しなくてはいけません</translation>
+        <translation>必ず %1 台のデバイスを選択してください</translation>
     </message>
 </context>
 <context>
@@ -782,12 +786,12 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation>代替ルートディレクトリー。
-設定した場合、このディレクトリーはプール内の任意のマウントポイントに追加されます。
-どこにマウントされるか信頼できないプールや、典型的なパスが有効でない代替ブート環境を検査するときに使用することができます。
-altrootは永続プロパティではありません。
+        <translation>代替ルートディレクトリーです。これが設定された場合、ディレクトリー名がプール内の
+マウントポイントに追加されます。どこにマウントされるか信頼できないプールや、
+典型的なパスが有効でない代替ブート環境を検査するときに使用することができます。
+altroot は永続プロパティではありません。
 それはシステムが稼働している間のみ有効です。  
-altrootを設定するとデフォルトでcachefile=noneが設定されますが、
+altroot を設定するとデフォルトで cachefile=none が設定されますが、
 明示的に設定を使用して上書きした方がいいでしょう。</translation>
     </message>
     <message>
@@ -805,12 +809,12 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation>ディスク上の現在のプールのバージョン。
-これは上げることは出来ますが、下げることは出来ません。
-特定のバージョンは下位互換性のために必要な場合には、このプロパティを使用することができますが
-プールを更新する好ましい方法は &quot;zpool upgrade&quot; コマンドです。
-このプロパティは &quot;zpool upgrade -v&quot; によって1から最新までのバージョンを
-確認することができます。</translation>
+        <translation>ディスク上の現在のプールのバージョンです。この値は増加させることは出来ますが、
+減少させることは出来ません。下位互換性のために特定のバージョンを指定する必要が
+ある場合には、このプロパティで設定することができますが、プールのアップデートには
+&quot;zpool upgrade&quot; コマンドを使用する方がより望ましいです。このプロパティには
+1から &quot;zpool upgrade -v&quot; で表示される最新バージョンまでのどの番号でも
+指定できます。</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This
@@ -824,34 +828,17 @@ programs.</source>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation>非特権ユーザがデータセットで定義されたデータセットの権限に基づいて
+        <translation>非特権ユーザーがデータセットで定義されたデータセットの権限に基づいて
 アクセスを許可されるかどうかを制御します。
-ZFSの委任管理の詳細については、zfs(8)を参照してください。</translation>
-    </message>
-    <message>
-        <source>Controls automatic device replacement. If set to &quot;off&quot;, device
-replacement must be initiated by the administrator by using the
-&quot;zpool replace&quot; command. If set to &quot;on&quot;, any new device, found in the
-same physical location as a device that previously belonged to the
-pool, is automatically formatted and replaced. The default behavior
-is &quot;off&quot;.  This property can also be referred to by its shortened
-column name, &quot;replace&quot;.</source>
-        <translation>自動デバイス交換を制御します。
-&quot;off&quot;に設定すると、デバイスの交換は&quot;zpool replace&quot;コマンドを使用して、
-管理者が初期化しなければいけません。
-&quot;on&quot;に設定すると、プールに以前属していたデバイスと
-物理的に同じ場所で検出された新しいデバイスは、
-自動的にフォーマットされ、置き換えられます。
-デフォルトの動作は&quot;off&quot;です。
-このプロパティは、列名の短縮&quot;replace&quot;で参照できます。</translation>
+ZFS の委任管理の詳細については、zfs(8) を参照してください。</translation>
     </message>
     <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation>&quot;zfs list&quot;が-tオプションなしで実行したときにこのプールに関連付けられている
+        <translation>&quot;zfs list&quot; が -t オプションなしで実行したときにこのプールに関連付けられている
 スナップショットの情報が出力されているかどうかを制御します。
-デフォルト値はoffです。</translation>
+デフォルト値は off です。</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -861,33 +848,23 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation>基盤となるLUNが増大する際に自動プール拡張を制御します。
-&quot;on&quot;に設定すると、プールは拡張する装置の大きさに応じて変更されます。
-デバイスがミラーやraidzの一部である場合、
-新しいスペースがプールに利用可能になる前に、
-そのミラー/raidzグループ内のすべてのデバイスが拡張されている必要があります。
-デフォルトの動作は&quot;off&quot;です。
-このプロパティは、列名の短縮expandによって参照することができます。</translation>
-    </message>
-    <message>
-        <source>Threshold for the number of block ditto copies. If the reference
-count for a deduplicated block increases above this number, a new
-ditto copy of this block is automatically stored. Default setting is
-0.</source>
-        <translation>ブロック同上コピー数の閾値。
-参照はこの数以上の重複排除されたブロックが大きくなるため、
-カウントした場合、このブロックの新しい同上のコピーが自動的に保存されます。
-デフォルト設定は0です。</translation>
+        <translation>基盤となる LUN が増大する場合に行われる自動プール拡張を制御します。
+&quot;on&quot; に設定すると、プールは拡張する装置の大きさに応じて変更されます。
+デバイスがミラーや raidz の一部である場合、新しいスペースがプールで
+利用できるようになるためには、そのミラー/raidz グループ内の
+すべてのデバイスが拡張されている必要があります。
+デフォルトの動作は &quot;off&quot; です。  このプロパティは短縮名 expand も使用できます。
+</translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation>プールに指定の重複排除率は乗数で表されます。
-たとえば、1.76という値は、データの1.76単位が保存されましたが、
-ディスクスペースの唯一の1単位が実際に消費されたことを示しています。
-重複排除機能の詳細については、zfs(8)を参照してください。</translation>
+        <translation>プールに指定の重複除去比は乗数で表されます。
+たとえば、1.76 という値は、データの 1.76 単位が保存されましたが、
+1 単位のディスクスペースだけが実際に消費されたことを示しています。
+重複排除機能の詳細については、zfs(8) を参照してください。</translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
@@ -917,7 +894,60 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished"></translation>
+        <translation>プールの設定がキャッシュされている場所の位置を制御します。
+システム起動時にすべてのプールを発見すると、ルートファイルシステムに
+保存されているコンフィギュレーションデータのキャッシュコピーが必要になります。
+システムのブート時にこのキャッシュ内のすべてのプールが自動的に
+インポートされます。
+このようなインストールやクラスタリングなどの一部の環境では、
+プールが自動的にインポートされないように、別の場所にこの情報をキャッシュする必要があります。
+このプロパティを設定すると、後で &quot;zpool import -c&quot; を
+使用してインポートすることができる別の場所にあるプール構成を
+キャッシュします。  特殊な値 &quot;none&quot; に設定すると、キャッシュされません
+一時的なプールを作成し、特別な値 &apos;&apos;(空文字列) がデフォルトの場所を使用しています。</translation>
+    </message>
+    <message>
+        <source>Controls automatic device replacement. If set to &quot;off&quot;, device
+replacement must be initiated by the administrator by using the
+&quot;zpool replace&quot; command. If set to &quot;on&quot;, any new device, found in the
+same physical location as a device that previously belonged to the
+pool, is automatically formatted and replaced. The default behavior
+is &quot;off&quot;.  This property can also be referred to by its shortened
+column name, &quot;replace&quot;.</source>
+        <translation>自動デバイス交換を制御します。
+&quot;off&quot; に設定すると、デバイスの交換は管理者が&quot;zpool replace&quot; コマンドで行います。
+&quot;on&quot; に設定すると、プールに以前属していたデバイスと
+物理的に同じ場所で検出された新しいデバイスは自動的に
+フォーマットして交換されます。デフォルトの動作は &quot;off&quot; です。  
+このプロパティは短縮名 &quot;replace&quot; も使用できます。</translation>
+    </message>
+    <message>
+        <source>Threshold for the number of block ditto copies. If the reference
+count for a deduplicated block increases above this number, a new
+ditto copy of this block is automatically stored. Default setting is
+0.</source>
+        <translation>ブロック ditto コピー数の閾値です。重複除去されたブロックの
+参照カウント数がこの値より増加すると、このブロックの
+新しい ditto コピーがストアされます。
+デフォルト設定値は0です。</translation>
+    </message>
+    <message>
+        <source>If set to on, pool will be imported in read-only mode with the
+following restrictions:
+  *   Synchronous data in the intent log will not be accessible
+  *   Properties of the pool can not be changed
+  *   Datasets of this pool can only be mounted read-only
+  *   To write to a read-only pool, a export and import of the pool
+      is required.
+</source>
+        <translation>on に設定すると、プールが読み取り専用モードでインポートされます。
+ただし以下の制限があります:
+  *   インテントログ内の同期データにはアクセスできません
+  *   プールのプロパティを変更することはできません
+  *   このプールのデータセットは、読み取り専用でマウントできます
+  *   読み取り専用のプールに書き込むには、プールのエクスポートと
+      インポートが必要です。
+</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -935,17 +965,6 @@ have yet to be committed to disk would be blocked.
 panic
 Prints out a message to the console and generates a system
 crash dump.
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>If set to on, pool will be imported in read-only mode with the
-following restrictions:
-  *   Synchronous data in the intent log will not be accessible
-  *   Properties of the pool can not be changed
-  *   Datasets of this pool can only be mounted read-only
-  *   To write to a read-only pool, a export and import of the pool
-      is required.
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1168,12 +1187,6 @@ following restrictions:
         <translation>パーティションが作成されました</translation>
     </message>
     <message>
-        <source>(Exported)
-</source>
-        <translation>(エクスポートされました)
-</translation>
-    </message>
-    <message>
         <source>Offline</source>
         <translation>オフライン</translation>
     </message>
@@ -1231,11 +1244,11 @@ following restrictions:
     </message>
     <message>
         <source>Export pool</source>
-        <translation>プールを書き出す</translation>
+        <translation>プールをエクスポートする</translation>
     </message>
     <message>
         <source>Import pool</source>
-        <translation>プールを読み込む</translation>
+        <translation>プールをインポートする</translation>
     </message>
     <message>
         <source>Recover destroyed pool</source>
@@ -1247,7 +1260,7 @@ following restrictions:
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation>デバイス及びミラーデバイスを追加する...</translation>
+        <translation>デバイス(ミラーデバイス)を追加する...</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
@@ -1329,7 +1342,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation>新しいzpoolを作成する</translation>
+        <translation>新しい zpool を作成する</translation>
     </message>
     <message>
         <source>Important information</source>
@@ -1417,7 +1430,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation>zfsメニュー</translation>
+        <translation>zfs メニュー</translation>
     </message>
     <message>
         <source>Confirmation</source>
@@ -1454,6 +1467,22 @@ Any snapshots created after this one will be deleted, along with any clone files
         <translation> / </translation>
     </message>
     <message>
+        <source>Attach mirror devices to </source>
+        <translation>ミラーデバイスの追加 </translation>
+    </message>
+    <message>
+        <source>(Exported)
+</source>
+        <translation>(エクスポート済)
+</translation>
+    </message>
+    <message>
+        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+Proceed with recovery?</source>
+        <translation>プールは既に破壊されていますが、ディスクが再利用されている場合があります。回復を行うと機器が再利用されていた場合に書き込まれたデータの回復が不可能になります。
+回復しますか?</translation>
+    </message>
+    <message>
         <source>An error was detected while executing &apos;%1&apos;:
 
 </source>
@@ -1469,15 +1498,6 @@ Any snapshots created after this one will be deleted, along with any clone files
         <source>An error was detected while executing &apos;zfs&apos;:
 
 </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Attach mirror devices to </source>
-        <translation type="unfinished">ミラーデバイスを追加する </translation>
-    </message>
-    <message>
-        <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
-OK to proceed with recovery?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

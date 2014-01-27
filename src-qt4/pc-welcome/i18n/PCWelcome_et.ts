@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Õnnetus ei hüüa tulles. Kettaseadmed võivad krahhida ja failid võivad kaotsi minna. PC-BSD-s on rakendus nimega Life Preserver, millega saab sünkroniseerida faile FreeNAS-süsteemi või mõne muu võrgus asuva andmeserveriga.</translation>
+        <translation>Õnnetus ei hüüa tulles. Kettaseadmed võivad krahhida ja failid kaotsi minna. PC-BSD-s on rakendus nimega Life Preserver, millega saab sünkroniseerida faile FreeNAS-süsteemi või mõne muu võrgus asuva andmeserveriga.</translation>
     </message>
     <message>
         <source>Stay up to date</source>

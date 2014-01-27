@@ -91,6 +91,12 @@ do
      NEWLINE=" <Unknown Device>"
   fi
 
+  # Check for garbage that we can't sort
+  echo $NEWLINE | sort >/dev/null 2>/dev/null
+  if [ $? -ne 0 ] ; then
+     NEWLINE=" <Unknown Device>"
+  fi
+
   if [ -n "${FLAGS_MD}" ] && echo "${DEV}" | grep -E '^md[0-9]+' >/dev/null 2>/dev/null
   then
 	NEWLINE=" <Memory Disk>"

@@ -297,7 +297,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation>USBメモリーへ設定を保存する</translation>
+        <translation>USB メモリーに設定を保存する(&amp;S)</translation>
     </message>
 </context>
 <context>

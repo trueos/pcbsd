@@ -27,7 +27,7 @@
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/modules/images/backgroundimage.jpg);</string>
+       <string notr="true">background-color: rgb(245, 245, 245);</string>
       </property>
       <property name="currentIndex">
        <number>3</number>
@@ -785,9 +785,6 @@ background: transparent;</string>
               <property name="autoFillBackground">
                <bool>false</bool>
               </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;</string>
-              </property>
               <property name="title">
                <string>Create a User</string>
               </property>
@@ -872,11 +869,6 @@ background: transparent;</string>
                  </property>
                  <property name="autoFillBackground">
                   <bool>false</bool>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">border-width: 1px;
-background-color: rgb(250, 250, 250);
-</string>
                  </property>
                  <property name="text">
                   <string>Encrypt user files</string>
