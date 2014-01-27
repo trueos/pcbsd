@@ -143,7 +143,7 @@ bool XProcess::startXSession(){
   Backend::log("Starting session:");
   if(QFile::exists(xhome+"/.xprofile")){
     Backend::log(" --Run user ~/.xprofile");
-    cmd.prepend(". "+xhome+"/.xprofile; ");
+    cmd.prepend("sh "+xhome+"/.xprofile; ");
     //Make sure it has executable permissions
     QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther);
   }
