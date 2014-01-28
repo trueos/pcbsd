@@ -64,6 +64,8 @@ class MenuItem : public QWidgetAction
         QString getSizeDisplay(int);
         bool checkSavedAutoMount();
         QStringList systemCMD(QString);
+  
+	bool umount(bool force, QString mntpoint);
   	
   private slots:
   	void slotMountClicked();
