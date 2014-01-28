@@ -310,8 +310,15 @@ fi
 detectDE()
 {
   UR_PROCS=`ps -ax -o comm` #Get the current running processes
-  #Now scan the running procs for DE-specific indicators
-  if [ -n "`echo "${UR_PROCS}" | grep startxfce`" ]; then DE=xfce;
+  #Check for the PCDM_SESSION environment variable first
+  if [ "${PCDM_SESSION}" = "KDE" ]; then DE=kde;
+  elif [ "${PCDM_SESSION}" = "LXDE" ]; then DE=lxde;
+  elif [ "${PCDM_SESSION}" = "MATE" ]; then DE=mate;
+  elif [ "${PCDM_SESSION}" = "GNOME" ]; then DE=gnome;
+  elif [ "${PCDM_SESSION}" = "CINNAMON" ]; then DE=gnome;
+  elif [ "${PCDM_SESSION}" = "XFCE" ]; then DE=xfce;
+  #otherwise scan the running procs for DE-specific indicators
+  elif [ -n "`echo "${UR_PROCS}" | grep startxfce`" ]; then DE=xfce;
   elif [ -n "`echo "${UR_PROCS}" | grep gnome-session`" ]; then DE=gnome;
   elif [ -n "`echo "${UR_PROCS}" | grep mate-session`" ]; then DE=mate;
   elif [ -n "`echo "${UR_PROCS}" | grep lxsession`" ]; then DE=lxde;
