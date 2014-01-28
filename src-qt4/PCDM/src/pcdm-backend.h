@@ -13,6 +13,7 @@
 #include <QDir>
 #include <QProcess>
 #include <QFile>
+#include <QTextStream>
 
 #include "pcdm-config.h"
 #include "pcbsd-utils.h"
@@ -57,6 +58,8 @@ public:
     static void saveLoginInfo(QString, QString);
     static void readDefaultSysEnvironment(QString &lang, QString &keymodel, QString &keylayout, QString &keyvariant);
     static void saveDefaultSysEnvironment(QString lang, QString keymodel, QString keylayout, QString keyvariant);
+    
+    static bool writeFile(QString fileName, QStringList contents);
     
 private:	
     static void loadXSessionsData();
