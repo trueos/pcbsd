@@ -245,13 +245,11 @@
     </message>
     <message>
         <source>You cannot make a copy of the currently running boot environment!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Du kan inte göra en kopia av nuvarande bootmiljön som körs!</translation>
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bootmiljönamn får bara bestå av bokstäver och nummer</translation>
     </message>
 </context>
 </TS>

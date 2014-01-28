@@ -157,8 +157,7 @@
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Omstart krävs för att uppdateringen ska bli klar!</translation>
     </message>
 </context>
 </TS>

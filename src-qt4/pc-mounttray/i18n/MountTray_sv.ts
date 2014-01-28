@@ -95,18 +95,15 @@
     </message>
     <message>
         <source>Device Busy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enhet Upptagen</translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enheten verkar vara upptagen. Vill du avmontera den ändå?</translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>OBS: Detta rekommenderas generellt inte om du inte är säker på att du inte har några program som använder enheten.</translation>
     </message>
 </context>
 <context>

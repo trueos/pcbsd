@@ -227,8 +227,7 @@
     </message>
     <message>
         <source>The following permissions can be enabled or disabled for this jail. For more details hover over each item or refer to the jail manpage.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Följande rättigheter kan bli aktiverade eller avaktiverade för denna jail. För mer detaljer håll musen över varje objekt eller hänvisa till jail manualen.</translation>
     </message>
 </context>
 <context>
@@ -787,8 +786,7 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux Jail (Kör Linux innuti en jail) - Experimentell!</translation>
     </message>
 </context>
 </TS>
