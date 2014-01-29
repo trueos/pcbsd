@@ -5,10 +5,11 @@ DE_FILEMAN="pcmanfm %s"
 DE_TERMINAL="lxterminal"
 DE_TERMINAL_TITLE="-T"
 DE_TERMINAL_COMMAND="-e"
+DE_SESSION_NAME="LXDE"
 
 active()
 {
-if [ "$DESKTOP_SESSION" = "LXDE" ] ; then
+if [ "$DESKTOP_SESSION" = "LXDE" ] || [ "$PCDM_SESSION" = "$DE_SESSION_NAME" ]; then
 DE_ACTIVE=1
 fi
 }

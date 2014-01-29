@@ -7,10 +7,11 @@ DE_TERMINAL_TITLE="--caption"
 DE_TERMINAL_COMMAND="-e"
 DE_TERMINAL_SEPARATE_ARGS="YES"
 DE_FILEMAN="dolphin %s"
+DE_SESSION_NAME="KDE"
 
 active() {
 
- if [ -n "$KDE_SESSION_UID" ] || [ "${XDG_CURRENT_DESKTOP}" == "KDE" ] ; then
+ if [ -n "$KDE_SESSION_UID" ] || [ "${XDG_CURRENT_DESKTOP}" == "KDE" ] || [ "$DE_SESSION_NAME" == "$PCDM_SESSION" ] ; then
     DE_ACTIVE=1
  fi
 

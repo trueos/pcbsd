@@ -5,9 +5,10 @@ DE_FILEMAN="nautilus %s"
 DE_TERMINAL="gnome-terminal"
 DE_TERMINAL_TITLE="-t"
 DE_TERMINAL_COMMAND="-e"
+DE_SESSION_NAME="GNOME"
 
 active() {
-if [ "$DESKTOP_SESSION" = "gnome" ] || [ "$DESKTOP_SESSION" = "02gnome" ] || [ "$DESKTOP_SESSION" = "openbox-gnome"  ] ; then
+if [ "$PCDM_SESSION" = "$DE_SESSION_NAME" ]; then
 DE_ACTIVE=1
 fi  
 

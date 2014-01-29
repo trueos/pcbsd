@@ -6,12 +6,13 @@ DE_FILEMAN="thunar %s"
 DE_TERMINAL="xfce4-terminal"
 DE_TERMINAL_TITLE="-T"
 DE_TERMINAL_COMMAND="-e"
+DE_SESSION_NAME="XFCE"
 
-active()
-{
-if [ "$DESKTOP_SESSION" = "xfce4" -o "$DESKTOP_SESSION" = "04xfce" ]; then
+active() {
+if [ "$PCDM_SESSION" = "$DE_SESSION_NAME" ]; then
 DE_ACTIVE=1
-fi
+fi  
+
 }
 
 installed()

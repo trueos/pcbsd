@@ -5,9 +5,11 @@ DE_FILEMAN="nautilus %s"
 DE_TERMINAL="gnome-terminal"
 DE_TERMINAL_TITLE="-t"
 DE_TERMINAL_COMMAND="-e"
+DE_SESSION_NAME="CINNAMON"
 
 active() {
-if [ "$DESKTOP_SESSION" = "cinnamon" ] || [ "$DESKTOP_SESSION" = "32Cinnamon" ] || [ "$DESKTOP_SESSION" = "openbox-cinnamon"  ] || [ ! -z $CINNAMON_VERSION ]; then
+#if [ "$DESKTOP_SESSION" = "cinnamon" ] || [ "$DESKTOP_SESSION" = "32Cinnamon" ] || [ "$DESKTOP_SESSION" = "openbox-cinnamon"  ] || [ ! -z $CINNAMON_VERSION ]; then
+if [ "$PCDM_SESSION" = "$DE_SESSION_NAME" ]; then
 DE_ACTIVE=1
 fi  
 
