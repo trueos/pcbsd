@@ -931,7 +931,7 @@
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">Välj Standard Modulskatalog</translation>
+        <translation>Välj Standard Modulskatalog</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
@@ -959,7 +959,7 @@
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">Är du säker på att du vill gå tillbaka till de automatiskt upptäckta verktygsökvägen?</translation>
+        <translation>Är du säker på att du vill gå tillbaka till de automatiskt upptäckta verktygsökvägarna?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
@@ -991,7 +991,7 @@
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">Välj digital signaturfil</translation>
+        <translation>Välj digital signaturfil</translation>
     </message>
 </context>
 <context>
