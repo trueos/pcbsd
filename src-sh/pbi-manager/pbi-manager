@@ -1980,7 +1980,7 @@ pbi_addrepo_init() {
 # Extract the repo and add it to the DB
 add_pbi_repo() {
 	init_tmpdir
-	tar xvf "${PBI_ADDREPO_FILE}" -C ${PBI_TMPDIR} >/dev/null 2>/dev/null
+	tar xf "${PBI_ADDREPO_FILE}" -C ${PBI_TMPDIR} >/dev/null 2>/dev/null
 	if [ "$?" != "0" ] ; then
 		exit_err "Failed to read ${PBI_ADDREPO_FILE}"
 	fi
@@ -2055,7 +2055,7 @@ make_pbi_repo() {
 |g' > ${PBI_TMPDIR}/.mkrepo/repo-mirror
 
 
-	tar cvzf ${PBI_MKREPO_OUTDIR}/pbi-repo.rpo -C ${PBI_TMPDIR}/.mkrepo . >/dev/null 2>/dev/null
+	tar czf ${PBI_MKREPO_OUTDIR}/pbi-repo.rpo -C ${PBI_TMPDIR}/.mkrepo . >/dev/null 2>/dev/null
 	echo "New PBI Repo created: ${PBI_MKREPO_OUTDIR}/pbi-repo.rpo"
 
 	rm_tmpdir
@@ -2719,7 +2719,7 @@ patch_extract_new_files()
 {
 	if [ ! -e "${PBI_EXTRACTDIR}/PBI-newFiles.tar" ] ; then return; fi
 	echo "Installing new files..."
-	tar xvf "${PBI_EXTRACTDIR}/PBI-newFiles.tar" -C "${PBI_PATCHWRKDIR}" >/dev/null 2>/dev/null 
+	tar xf "${PBI_EXTRACTDIR}/PBI-newFiles.tar" -C "${PBI_PATCHWRKDIR}" >/dev/null 2>/dev/null
 	if [ "$?" != "0" ] ; then
 		echo "Warning: Error during new file extraction, PBI may not function correctly."
 	fi
@@ -3049,7 +3049,7 @@ open_header_tmp() {
 	mkdir -p "${PBI_HEADER_TMPDIR}"
 	
 	# Extract the header files 
-	tar xvf "${PBI_FILENAME}" -C "${PBI_HEADER_TMPDIR}" >/dev/null 2>/dev/null
+	tar xf "${PBI_FILENAME}" -C "${PBI_HEADER_TMPDIR}" >/dev/null 2>/dev/null
 	if [ "$?" != "0" ] ; then exit_err "Failed to read PBI header! Possible corrupt PBI, or wrong PBI version for this OS." ; fi
 
 }
@@ -3467,7 +3467,7 @@ pbi_add_register_app() {
 
 	mkdir -p "${dir}"
 	
-        tar cvf - -C "${PBI_HEADER_TMPDIR}" . 2>/dev/null | tar xvf - -C "$dir" 2>/dev/null
+        tar cf - -C "${PBI_HEADER_TMPDIR}" . 2>/dev/null | tar xvf - -C "$dir" 2>/dev/null
 
 	# If this was a patch, use the original path
 	if [ -n "${PBI_ORIGPROGDIRPATH}" ] ; then
@@ -3602,16 +3602,15 @@ pbi_extract_archive() {
 	pbi_find_archive_header	
 
 	echo "Extracting to: ${PBI_EXTRACTDIR}"
-	tar="xvf -"
 
 	if [ "$PBI_VERBOSE" = "YES" ] ; then
+		tar="xvf -"
 		echo "TOTALFILES: ${PBI_ARCHIVE_COUNT}"
-		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}"
-		err="$?"
 	else
-		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" >/dev/null 2>/dev/null
-		err="$?"
+		tar="xf -"
 	fi
+	tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" 2>/dev/null
+	err="$?"
 	
 	if [ "$err" != "0" ] ; then exit_err "Failed extracting ${PBI_FILENAME}" ; fi
 
@@ -4257,12 +4256,12 @@ mk_stage_dir() {
 		mv ${cpDir} ${PBI_STAGEDIR}/local
 		ln -s ${PBI_STAGEDIR}/local /usr/local
 	else
-	  	# Now copy the stagedir
-	  	tar cvf - ${_excOpts} --exclude .stagedir \
+		# Now copy the stagedir
+		tar cf - ${_excOpts} --exclude .stagedir \
 		--exclude .pkgdb --exclude .ld-elf.hints --exclude make.conf \
 		--exclude make.conf.bak --exclude .keepports \
 		-C "${cpDir}" . 2>/dev/null \
-		| tar xvpf - -C ${PBI_STAGEDIR}/local 2>/dev/null
+		| tar xpf - -C ${PBI_STAGEDIR}/local 2>/dev/null
 	fi
 
 	cd ${PBI_PROGDIRPATH}
@@ -4316,15 +4315,15 @@ clean_stage_dir() {
 copy_resource_dir() {
 	if [ -d "${PBI_CONFDIR}/${PBI_RESOURCE_DIR}" ] ; then
 		echo "Copying ${PBI_CONFDIR}/${PBI_RESOURCE_DIR} -> ${PBI_STAGEDIR}"
-		tar cvf - -C ${PBI_CONFDIR}/${PBI_RESOURCE_DIR} --exclude .svn . 2>/dev/null \
-		| tar xvpf - -C ${PBI_STAGEDIR} 2>/dev/null
+		tar cf - -C ${PBI_CONFDIR}/${PBI_RESOURCE_DIR} --exclude .svn . 2>/dev/null \
+		| tar xpf - -C ${PBI_STAGEDIR} 2>/dev/null
 	fi
 }
 
 # Check if tar supports lzma compression
 test_tar_lzma() {
 	touch /tmp/.pbilzma.$$ >/dev/null 2>/dev/null
-	tar cvJf /tmp/.pbilzma.tar.$$ /tmp/.pbilzma.$$ >/dev/null 2>/dev/null
+	tar cJf /tmp/.pbilzma.tar.$$ /tmp/.pbilzma.$$ >/dev/null 2>/dev/null
 	_exitcode=$?
 	rm /tmp/.pbilzma.$$ >/dev/null 2>/dev/null
 	rm /tmp/.pbilzma.tar.$$ >/dev/null 2>/dev/null
@@ -4347,13 +4346,13 @@ mk_archive_file() {
 	PBI_CREATE_ARCHIVE="${PBI_CREATE_OUTDIR}/.PBI.$$.tbz"
 	if test_tar_lzma ; then _tcmp="J" ; else _tcmp="j" ; fi
 	echo "Creating compressed archive..."
-	tar cv${_tcmp}f "${PBI_CREATE_ARCHIVE}" ${_excOpts} -C ${PBI_STAGEDIRMNT} . 2>/dev/null 
+	tar c${_tcmp}f "${PBI_CREATE_ARCHIVE}" ${_excOpts} -C ${PBI_STAGEDIRMNT} . 2>/dev/null
 }
 
 # Start creating the header archive
 mk_header_file() {
 	PBI_HEADER_ARCHIVE="${PBI_CREATE_OUTDIR}/.PBI-header.$$.tbz"
-	tar cvjf ${PBI_HEADER_ARCHIVE} -C ${PBI_HEADERDIR} . >/dev/null 2>/dev/null
+	tar cjf ${PBI_HEADER_ARCHIVE} -C ${PBI_HEADERDIR} . >/dev/null 2>/dev/null
 }
 
 # Start copying pbi details into header file
@@ -6530,7 +6529,7 @@ make_pbi_patchfile()
 	_nFileList="$VAL"
 	if [ -n "$_nFileList" ] ; then
 		echo "Saving new files archive..."
-		tar cvf "$_pbiPatchDir/PBI-newFiles.tar" \
+		tar cf "$_pbiPatchDir/PBI-newFiles.tar" \
 			-C "$_pbiNewDir/$_pbiNewPrefix" -T "$_nFileList" >/dev/null 2>/dev/null
 		rm "$_nFileList"
 	fi
@@ -6549,7 +6548,7 @@ make_pbi_patchfile()
 	# Make the file archive
 	if test_tar_lzma ; then _tcmp="J" ; else _tcmp="j" ; fi
 	echo "Creating compressed archive..."
-	tar cv${_tcmp}f "${_pbiPatchArchiveFile}" -C ${_pbiPatchDir} . 2>/dev/null 
+	tar c${_tcmp}f "${_pbiPatchArchiveFile}" -C ${_pbiPatchDir} . 2>/dev/null
 
 	# Make the header file
 	if [ -e "$_pbiPatchHeaderDir" ] ; then rm -rf "$_pbiPatchHeaderDir"; fi
@@ -6573,7 +6572,7 @@ make_pbi_patchfile()
 	sign_pbi_files "${_pbiPatchHeaderDir}"
 
 	# Make the header tmpfile
-	tar cvjf "${_pbiPatchHeaderFile}" -C ${_pbiPatchHeaderDir} . 2>/dev/null 
+	tar cjf "${_pbiPatchHeaderFile}" -C ${_pbiPatchHeaderDir} . 2>/dev/null
 	if [ "$?" != "0" ] ; then
 		echo "Warning: TAR returned error creating header archive!"
 	fi
@@ -7108,8 +7107,8 @@ auto_copy_linuxbase()
 	if [ -d "/compat/linux/usr/lib" ] ; then
 		mkdir ${PBI_PROGDIRPATH}/linuxlib
 		echo "Copying /compat/linux -> ${PBI_STAGEDIRMNT}/linux"
-		tar cvf - -C /compat/linux . 2>/dev/null | \
-		tar xvf - -C ${PBI_STAGEDIRMNT}/linux 2>/dev/null
+		tar cf - -C /compat/linux . 2>/dev/null | \
+		tar xf - -C ${PBI_STAGEDIRMNT}/linux 2>/dev/null
 	fi
 }
 
@@ -7183,7 +7182,7 @@ chroot_extract() {
 	   if [ $? -ne 0 ] ; then exit_err "Failed creating clean ZFS base snapshot"; fi
 	else
 	   echo "Creating chroot environment..."
-	   tar cvf - -C ${PBI_WORLDCHROOT} . | tar xvf - -C "${PBI_CHROOTDIR}" 2>/dev/null
+	   tar cf - -C ${PBI_WORLDCHROOT} . | tar xf - -C "${PBI_CHROOTDIR}" 2>/dev/null
 	   [ $? -ne 0 ] && exit_err "Failed copying chroot environment!"
 	fi
 
@@ -7278,7 +7277,7 @@ EOF
 	if [ -n "${PBI_CONFDIR}" ] ; then
 		mkdir -p "${PBI_CHROOTDIR}/pbimodule"
 		echo "Copying ${PBI_CONFDIR} -> ${PBI_CHROOTDIR}/pbimodule"
-	 	tar cvf - -C "${PBI_CONFDIR}" . 2>/dev/null | tar xvf - -C "${PBI_CHROOTDIR}/pbimodule" 2>/dev/null
+		tar cf - -C "${PBI_CONFDIR}" . 2>/dev/null | tar xf - -C "${PBI_CHROOTDIR}/pbimodule" 2>/dev/null
 	fi
 
 	# Copy over the ssl priv key if used
@@ -7368,7 +7367,7 @@ mk_chroot_file() {
  	  # Extract dist files
           for i in $dFiles
           do
-            tar xvpf ${i} -C ${PBI_WORLDCHROOT} 2>/dev/null
+            tar xpf ${i} -C ${PBI_WORLDCHROOT} 2>/dev/null
             if [ $? -ne 0 ] ; then exit_err "Failed extracting freebsd environment"; fi
             rm ${i}
           done
@@ -7507,7 +7506,7 @@ mk_chroot_file() {
 	# Copy the source since some ports need kern sources
 	echo "Copying FreeBSD sources to chroot environment"
 	mkdir -p ${PBI_BUILDTARGET}/usr/src >/dev/null 2>/dev/null
-	tar cvf - -C "${PBI_BUILDSRC}" --exclude "\.svn/" . 2>/dev/null | tar xvf - -C "${PBI_BUILDTARGET}/usr/src" 2>/dev/null
+	tar cf - -C "${PBI_BUILDSRC}" --exclude "\.svn/" . 2>/dev/null | tar xf - -C "${PBI_BUILDTARGET}/usr/src" 2>/dev/null
 	cd
 
 	# Cleanup after ourselves
