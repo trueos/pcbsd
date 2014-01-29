@@ -7728,7 +7728,7 @@ do_port_build()
   fi
 
   # Parse the pkg deps 
-  for _port in `make -C $_lPort PORTSDIR=${PORTSDIR} all-depends-list|sed 's,^${PORTSDIR}/,,g'`
+  for _port in `make -C $_lPort PORTSDIR=${PORTSDIR} missing`
   do
     if [ -z "${_port}" ] ; then continue ; fi
 
