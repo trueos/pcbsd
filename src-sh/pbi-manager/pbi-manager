@@ -1805,7 +1805,6 @@ set_make_options() {
 	echo "PACKAGE_BUILDING=yes" >> ${MAKE_CONF}
 	echo "BATCH=yes" >> ${MAKE_CONF}
 	echo "NO_IGNORE=yes" >> ${MAKE_CONF}
-	echo "PACKAGE_BUILDING=yes" >> ${MAKE_CONF}
 	echo "WITH_PKGNG=yes" >> ${MAKE_CONF}
 
 	echo "WRKDIRPREFIX=/usr/wrkdirprefix" >> ${MAKE_CONF}
