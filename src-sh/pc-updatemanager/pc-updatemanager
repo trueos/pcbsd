@@ -444,9 +444,25 @@ finish_major_fbsd_update() {
   while read line
   do
     pbi=`echo $line | cut -d ' ' -f 1`
+    user=`echo $line | cut -d ' ' -f 2`
+
     echo "Removing: ${pbi}"
-    pbi_delete $pbi >/dev/null 2>/dev/null
-    if [ $? -ne 0 ] ; then
+    if [ "$user" != "root" ] ; then
+      su $user -c "pbi_icon del-desktop $pbi"
+      su $user -c "pbi_icon del-menu $pbi"
+      su $user -c "pbi_icon del-mime $pbi"
+      su $user -c "pbi_icon del-pathlnk $pbi"
+      su $user -c "pbi_delete $pbi"
+      result=$?
+    else
+      pbi_icon del-desktop $pbi
+      pbi_icon del-menu $pbi
+      pbi_icon del-mime $pbi
+      pbi_icon del-pathlnk $pbi
+      pbi_delete $pbi >/dev/null 2>/dev/null
+      result=$?
+    fi
+    if [ $result -ne 0 ] ; then
        echo "Warning: Failed to remove: $pbi"
        sleep 5
     fi
@@ -597,6 +613,19 @@ finish_major_fbsd_update() {
        echo "Warning: Failed to re-install PBI: $shortpbi"
        echo "Press ENTER to continue"
        read tmp
+    else
+       # Re-add menu / desktop stuff
+       if [ "$user" != "root" ] ; then
+         su $user -c "pbi_icon add-pathlnk $shortpbi"
+         su $user -c "pbi_icon add-desktop $shortpbi"
+         su $user -c "pbi_icon add-menu $shortpbi"
+         su $user -c "pbi_icon add-mime $shortpbi"
+       else
+         pbi_icon add-pathlnk $shortpbi
+         pbi_icon add-desktop $shortpbi
+         pbi_icon add-menu $shortpbi
+         pbi_icon add-mime $shortpbi
+       fi
     fi
   done < /root/pcbsd-pbi-before-update
 
