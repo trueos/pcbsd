@@ -279,15 +279,27 @@ void MenuItem::unmountItem(bool force){
       return;
     }
   }
+  
+  //Unmount all the NULLFS mountpoints first (in case it has been mounted into a PBI container)
+  QStringList nullfs = systemCMD("mount").filter(mountpoint).filter("nullfs");
+  bool ok= true;
+  for(int i=0; i<nullfs.length() && ok; i++){
+    QString nfspoint = nullfs[i].section(" on ",1,10).section("(",0,0).simplified();
+    ok = umount(force, nfspoint);
+  }
+  //If successful, also unmount the main mountpoint
+  if(ok){
+    ok = umount(force, mountpoint);
+  }
   //Make sure there are no spaces in the mounpoint path
-  QString cmd1 = "umount \"" + mountpoint +"\"";
-  if(force){ cmd1.replace("umount ","umount -f "); }
-  QString cmd2 = "rmdir \"" + mountpoint +"\"";
-  qDebug() << "Unmounting device from" << mountpoint;
+  //QString cmd1 = "umount \"" + mountpoint +"\"";
+  //if(force){ cmd1.replace("umount ","umount -f "); }
+  //QString cmd2 = "rmdir \"" + mountpoint +"\"";
+  //qDebug() << "Unmounting device from" << mountpoint;
   //Run the commands
-  QStringList output;
+  //QStringList output;
   QString result, title;
-  bool ok = FALSE;
+  /*bool ok = umount(force, mountpoint);
   output = pcbsd::Utils::runShellCommand(cmd1);
   if(output.join(" ").simplified().isEmpty()){
     //unmounting successful, remove the mount point directory
@@ -298,7 +310,8 @@ void MenuItem::unmountItem(bool force){
       qDebug() << "pc-mounttray: Error removing mountpoint:" << mountpoint;
       qDebug() << " - Error message:" << output;
     }
-    ok = TRUE;
+    ok = TRUE;*/
+  if(ok){
     title = QString( tr("%1 has been successfully unmounted.") ).arg(devLabel->text());
     if(devType == "ISO"){
       result = tr("The ISO file has been completely detached from the system.");
@@ -314,10 +327,10 @@ void MenuItem::unmountItem(bool force){
 	return;
       }
     }
-    qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
-    qDebug() << " - Error message:" << output;
+    //qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
+    //qDebug() << " - Error message:" << output;
     title = QString( tr("Error: %1 could not be unmounted") ).arg(devLabel->text());
-    result = output.join(" ");
+    //result = output.join(" ");
   }
   //emit the proper signals
   if(ok){
@@ -405,3 +418,31 @@ QStringList MenuItem::systemCMD(QString command){
    QStringList out = outstr.split("\n");
    return out;
 }
+
+bool MenuItem::umount(bool force, QString mntpoint){
+  QString cmd1 = "umount \"" + mntpoint +"\"";
+  if(force){ cmd1.replace("umount ","umount -f "); }
+  QString cmd2 = "rmdir \"" + mountpoint +"\"";
+  qDebug() << "Unmounting device from" << mntpoint;
+  //Run the commands
+  QStringList output;
+  QString result, title;
+  bool ok = FALSE;
+  output = systemCMD(cmd1);
+  if(output.join(" ").simplified().isEmpty()){
+    //unmounting successful, remove the mount point directory
+    if(mountpoint != "/mnt" && mountpoint != "/media"){ //make sure not to remove base directories
+      output = systemCMD(cmd2);
+    }
+    if(!output.join(" ").simplified().isEmpty()){
+      qDebug() << "pc-mounttray: Error removing mountpoint:" << mountpoint;
+      qDebug() << " - Error message:" << output;
+    }
+    ok = TRUE;
+  }else{
+    qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
+    qDebug() << " - Error message:" << output;
+  }
+  return ok;
+}
+
