@@ -1,12 +1,11 @@
 #!/bin/sh
 
 NULLFS="/usr/pbi/.mount_nullfs"
-
+MNTLOCK="/usr/pbi/.mntLock"
 MNTSLEEP="sleep 0.2"
 
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
-   # Slow down the pace of nullfs mounts, this seems to fix the odd panic / hang
    mount | grep -q "on ${1} (" 
    return $?
 }
@@ -57,7 +56,38 @@ check_nvidia_linux()
    done
 }
 
+do_mount_lock() {
+
+   # At this point we have waited 15 seconds, if another mount still hasn't finished
+   # by now then there are other serious problems
+   if [ $1 -gt 10 ] ; then
+      exit 1
+   fi
+
+   # Check if we have another mount going now
+   if [ -e "${MNTLOCK}" ] ; then
+      pgrep -qF ${MNTLOCK} 2>/dev/null
+      if [ $? -ne 0 ] ; then
+         # Expired run it seems
+         rm -f ${MNTLOCK} 2>/dev/null
+      else
+	 # Another mount is running, wait a bit for it to finish
+	 sleep 1.5
+	 do_mount_lock "`expr $1 + 1`"
+	 return
+      fi
+   fi
+
+   echo "$$" > ${MNTLOCK}
+}
+
+undo_mount_lock() {
+  rm -f ${MNTLOCK} >/dev/null 2>/dev/null
+}
+
 mount_dirs() {
+
+   do_mount_lock "1"
 
    # Check some of the common items to mount into the PBI container
    is_mounted "${pDir}/virtbase" || ( $NULLFS / "${pDir}/virtbase" ; check_nvidia_linux "${1}" )
@@ -93,6 +123,8 @@ mount_dirs() {
       is_mounted "${pDir}/virtbase/compat/linux/proc" || mount -t linprocfs linproc "${pDir}/virtbase/compat/linux/proc"
    fi
 
+   undo_mount_lock
+
    sync
 
    sleep 0.1
@@ -105,6 +137,9 @@ mount_dirs() {
    # Copy the custom ldconfig
    cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
    chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
+
+   # Start devfs to ensure /dev/* get proper permissions
+   chroot "${pDir}/virtbase" /etc/rc.d/devfs start >/dev/null 2>/dev/null
 
    sync
 }
