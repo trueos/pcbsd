@@ -20,6 +20,8 @@ pkgSelect::pkgSelect(QWidget *parent) : QDialog(parent), ui(new Ui::pkgSelect) {
 	
   //Now fill the GUI
   loadPackageList();
+  //Now make sure the ok button has focus
+  //QTimer::singleShot(0, ui->line_search, SLOT(setFocus()));
 }
 
 pkgSelect::~pkgSelect(){
@@ -54,7 +56,8 @@ void pkgSelect::loadPackageList(){
 }
 
 void pkgSelect::slotCheckPkg(){
-  ui->push_ok->setEnabled(!ui->treeWidget->currentItem()->whatsThis(0).isEmpty());
+  bool ok = !ui->treeWidget->currentItem()->whatsThis(0).isEmpty();
+  ui->push_ok->setEnabled(ok);
 }
 
 void pkgSelect::slotSearch(){

@@ -568,6 +568,7 @@ void MainGUI::on_push_rmportafter_clicked(){
 void MainGUI::on_push_config_save_clicked(){
   //Save the current settings to the backend structures
   //Text Values
+  MODULE.setText("PBI_MAKEPORT", ui->line_makeport->text());
   MODULE.setText("PBI_PROGNAME", ui->line_progname->text());
   MODULE.setText("PBI_PROGVERSION", ui->line_progversion->text());
   MODULE.setText("PBI_PROGWEB", ui->line_progweb->text());
