@@ -923,7 +923,7 @@
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">Välj PBI output katalog</translation>
+        <translation>Välj PBI utkatalog</translation>
     </message>
     <message>
         <source>Signature Files (*)</source>

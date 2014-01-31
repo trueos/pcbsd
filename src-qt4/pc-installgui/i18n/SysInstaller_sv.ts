@@ -835,7 +835,7 @@ Klicka på Avsluta för att starta om. Efter omstarten kan du ta ut installation
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">Återställ Systemval</translation>
+        <translation>Återställ System Urval</translation>
     </message>
     <message>
         <source>Restore Summary</source>

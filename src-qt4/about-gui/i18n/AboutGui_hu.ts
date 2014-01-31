@@ -81,22 +81,22 @@
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
+        <translation>Rendszer komponensek...
             </translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
+        <translation>Asztali környezetek...
             </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
+        <translation>PC-BSD CLI eszközök
             </translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
+        <translation>PC-BSD UI eszközök
             </translation>
     </message>
 </context>

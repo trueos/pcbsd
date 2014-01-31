@@ -37,7 +37,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>If your computer is connected via network cable it will be auto-configured with DHCP. Wireless users may search for and connect to wifi networks by clicking the wireless tray icon:</source>
-        <translation>Jos tietokoneesi on kytketty verkkokaapelilla, se hakee IP-osoitteen automaattisesti DHCP:tä käyttäen. Langattomiin verkkoihin yhdistäminen tehdään painamalla langattomien verkkojen ikonia.</translation>
+        <translation>Jos tietokoneeseesi on kytketty verkkokaapeli, se hakee IP-osoitteen automaattisesti DHCP:tä käyttäen. Langattomiin verkkoihin voit yhdistää klikkaamalla langattomien verkkojen ikonia.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -53,7 +53,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Looking for additional software? PC-BSD includes the &quot;AppCafe&quot; which lets you search for and install applications with ease.</source>
-        <translation>Etsitkö ohjelmistoja? PC-BSD:n mukana tulee AppCafe-ohjelma, jonka avulla voit helposti etsiä ja asentaa sovelluksia.</translation>
+        <translation>Haluatko asentaa ohjelmia? PC-BSD:n mukana tulee AppCafe-ohjelma, jonka avulla voit helposti etsiä ja asentaa uusia sovelluksia.</translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Accidents happen. Disk drives can crash, files can be lost forever. PC-BSD includes the Life-Preserver application, which makes it easy to synchronize your user data to a remote FreeNAS system or other networked data server.</source>
-        <translation>Vahinkoja tapahtuu. Kovalevyt voivat hajota, tiedostot voivat kadota lopullisesti. PC-BSD sisältää Life-Preserver -sovelluksen, jonka avulla voit helposti synkronisoida tiedostojasi FreeNAS-järjestelmään, tai toiseen tiedostopalvelimeen.</translation>
+        <translation>Vahinkoja tapahtuu. Kovalevyt voivat hajota, tiedostot voivat kadota lopullisesti. PC-BSD sisältää Life-Preserver -sovelluksen, jonka avulla voit helposti synkronisoida tiedostojasi FreeNAS-järjestelmän, tai jonkin toisen tiedostopalvelimen kanssa.</translation>
     </message>
     <message>
         <source>Stay up to date</source>

@@ -93,32 +93,32 @@
     </message>
     <message>
         <source>Will encrypt users home-directory</source>
-        <translation type="unfinished">
+        <translation>Titkositja a felhasználó home könyvtárát
             </translation>
     </message>
     <message>
         <source>Encrypt user files</source>
-        <translation type="unfinished">
+        <translation>Felhasználói fájlok titikositása
             </translation>
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
+        <translation>Rendszer hostneve
             </translation>
     </message>
     <message>
         <source>Enter a valid hostname, or leave default.</source>
-        <translation type="unfinished">
+        <translation>Adjon meg egy érvényes hostnevet, vagy hagyja üresen a mezőt.
             </translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
+        <translation>Kérem írjon be egy hostnevet
             </translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
+        <translation>A hostnév csak betűket és számokat tartalmazhat
             </translation>
     </message>
 </context>
