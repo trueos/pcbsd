@@ -96,6 +96,9 @@ mount_dirs() {
    is_mounted "${pDir}/virtbase/dev" || (mount -t devfs devfs "${pDir}/virtbase/dev" ; $MNTSLEEP )
    is_mounted "${pDir}/virtbase/usr/local" || ($NULLFS ${1}/local "${pDir}/virtbase/usr/local" ; $MNTSLEEP )
    is_mounted "${pDir}/virtbase/var/run" || ($NULLFS ${pDir}/run "${pDir}/virtbase/var/run" ; $MNTSLEEP )
+   if [ -d "/var/run/dbus" ] ; then
+     is_mounted "${pDir}/virtbase/var/run/dbus" || ( mkdir ${pDir}/virtbase/var/run/dbus 2>/dev/null ; $NULLFS /var/run/dbus "${pDir}/virtbase/var/run/dbus" ; $MNTSLEEP )
+   fi
    is_mounted "${pDir}/virtbase/compat/linux" || ($NULLFS ${1}/linux "${pDir}/virtbase/compat/linux" ; $MNTSLEEP )
 
    # Sort out the items to mount into the PBI container
