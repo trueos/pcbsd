@@ -61,10 +61,19 @@ QStringList Backend::getPkgList(){
 QStringList Backend::getPkgInfo(QString port){
   //Function to query the package repository and pull down information about a particular package
   //Output: <name>, <version>, <website>, <license>
-  QString cmd = "pkg rquery \"%n\\n%v\\n%w\\n%L\" -e %o "+port;
+  QString cmd = "pkg rquery \"%n\\n%v\\n%w\" -e %o "+port; //general info
+  QString cmd2 = "pkg rquery %L -e %o "+port; //License info
+  QStringList info;
+  //Get the general info
   QStringList out = Backend::getCmdOutput(cmd);
-  out.removeAll(""); //get rid of empty items
-  return out;
+  for(int i=0; i<3; i++){
+    if(i < out.length()){ info << out[i]; }
+    else{ info << ""; }
+  }
+  //Now get the licence
+  QString lic = Backend::getCmdOutput(cmd2).join(" ");
+  info << lic;
+  return info;
 }
 
 QStringList Backend::getPkgOpts(QString port){
