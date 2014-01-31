@@ -306,6 +306,12 @@ void Backend::readDefaultSysEnvironment(QString &lang, QString &keymodel, QStrin
 
 void Backend::saveDefaultSysEnvironment(QString lang, QString keymodel, QString keylayout, QString keyvariant){
   QFile file("/var/db/pcdm/defaultInputs");
+  //Make sure the containing directory exists
+  if(!QFile::exists("/var/db/pcdm")){
+    QDir dir;
+    dir.mkpath("/var/db/pcdm");
+  }
+  //Now save the file
     if(file.open(QIODevice::WriteOnly | QIODevice::Text) ){
       QTextStream out(&file);
       out << "Lang=" + lang + "\n";
