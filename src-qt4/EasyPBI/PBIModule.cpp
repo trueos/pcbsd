@@ -129,6 +129,8 @@ void PBIModule::loadConfig(){
 	}
 	if(val.endsWith("\"")){ val.chop(1); } //remove the ending quote
       //qDebug() << "var="+var+"\t\tval="+val;
+      //Make sure the MKPORTAFTER list is split up
+      if( (var=="PBI_MKPORTAFTER" || var=="PBI_MKPORTBEFORE") && !val.isEmpty()){ val = val.replace("\n"," ").simplified().split(" ").join("\n"); }
       //Now check for text/bool/int values
       if(CTextValues.contains(var)){ HASH.insert(var,val); }
       else if(CBoolValues.contains(var)){ HASH.insert(var, (val.toLower()=="yes" || val.toLower()=="true") ); }
