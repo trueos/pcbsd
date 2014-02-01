@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>Version:</source>
-        <translation>Verzija:           </translation>
+        <translation>Različica:           </translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>

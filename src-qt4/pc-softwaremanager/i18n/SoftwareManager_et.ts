@@ -623,8 +623,7 @@
     </message>
     <message>
         <source>Update Downloading: %1%</source>
-        <translation type="unfinished">
-             {1%?}</translation>
+        <translation>Uuenduse allalaadimine: %1%</translation>
     </message>
     <message>
         <source>Starting Update</source>

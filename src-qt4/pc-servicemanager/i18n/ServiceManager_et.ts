@@ -69,8 +69,7 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wardeni vangla haldusteenused</translation>
     </message>
 </context>
 <context>

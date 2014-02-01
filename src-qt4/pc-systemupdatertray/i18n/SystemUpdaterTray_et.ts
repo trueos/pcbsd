@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation>Saadaolevad süsteemi uuendused</translation>
+        <translation>Süsteemi uuendused on saadaval</translation>
     </message>
     <message>
         <source>Software Updates Available</source>

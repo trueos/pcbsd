@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation>O progranu</translation>
+        <translation>O programu</translation>
     </message>
     <message>
         <source>Version:</source>

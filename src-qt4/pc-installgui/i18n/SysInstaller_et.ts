@@ -293,13 +293,11 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Laadi seadistus USB-pulgalt</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Salvesta seadistus USB-pulgale</translation>
     </message>
 </context>
 <context>
@@ -887,8 +885,7 @@ Kontrolli hostinime ja et varundusserver oleks kättesaadav.</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kui oled salvestanud oma Life-Preserveri võtme USB-pulgale, ühenda see arvutisse ja vali USB-võti. Muul juhul võib kasutada parooliga autentimist.</translation>
     </message>
 </context>
 </TS>
