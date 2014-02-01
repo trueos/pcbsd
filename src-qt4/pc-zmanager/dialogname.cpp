@@ -9,6 +9,7 @@ DialogName::DialogName(QWidget *parent) :
 {
     ui->setupUi(this);
     isValid=false;
+    ui->checkNoMount->setChecked(true);
 }
 
 DialogName::~DialogName()
@@ -58,17 +59,23 @@ void DialogName::on_nameEdit_textChanged(const QString &arg1)
     }
 }
 
-void DialogName::on_checkAltRoot_stateChanged(int arg1)
-{
-    Q_UNUSED(arg1);
-
-    ui->editAltRoot->setEnabled(ui->checkAltRoot->isChecked());
-}
 
 bool DialogName::importReadOnly()
 {
     return ui->checkReadOnly->isChecked();
 }
+
+
+bool DialogName::importForce()
+{
+    return ui->checkForce->isChecked();
+}
+
+bool DialogName::importAutomount()
+{
+    return ui->checkAutoMount->isChecked();
+}
+
 
 bool DialogName::importSetAltRoot()
 {
@@ -84,4 +91,9 @@ QString DialogName::getAltRoot()
 void DialogName::showOptions(bool show)
 {
     ui->frame->setVisible(show);
+}
+
+void DialogName::on_checkAltRoot_toggled(bool checked)
+{
+    ui->editAltRoot->setEnabled(checked);
 }
