@@ -558,12 +558,32 @@ Lisez le manuel ZFS pour plus d&apos;informations.</translation>
         <translation>Nom Pool:</translation>
     </message>
     <message>
-        <source>Read only</source>
-        <translation>Lecture seule</translation>
+        <source>Do not mount any filesystems</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Change altroot:</source>
-        <translation>Changer altroot:</translation>
+        <source>Read only pool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mount with alternative root:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mount all filesystems automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mounting behavior:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Force operation if error (use with caution)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
