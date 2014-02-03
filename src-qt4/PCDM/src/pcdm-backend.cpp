@@ -223,8 +223,11 @@ QStringList Backend::languages()
 }
 
 void Backend::openLogFile(QString logFilePath){
-  //If a log file exists, remove it
-  if(QFile::exists(logFilePath)){ QFile::remove(logFilePath); }
+  //If a log file exists, move it to *.old
+  if(QFile::exists(logFilePath)){ 
+    if(QFile::exists(logFilePath+".old")){ QFile::remove(logFilePath+".old"); }
+    QFile::rename(logFilePath, logFilePath+".old"); 
+  }
   //save the path to the logfile
   logFile = logFilePath;
 }

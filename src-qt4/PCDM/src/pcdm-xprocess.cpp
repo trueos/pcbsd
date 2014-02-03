@@ -28,7 +28,7 @@ XProcess::XProcess() : QProcess(0) {
   pam_started = FALSE;
   pam_session_open = FALSE;
   //Setup the finished signal/slot
-  connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
+  //connect( this, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
 }
 
 XProcess::~XProcess(){
@@ -68,7 +68,7 @@ void XProcess::waitForSessionClosed(){
 */
 
 bool XProcess::startXSession(){
-  disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
+  //disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
   //Check that the necessary info to start the session is available
   if( xuser.isEmpty() || xcmd.isEmpty() || xhome.isEmpty() || xde.isEmpty() ){
     emit InvalidLogin();  //Make sure the GUI knows that it was a failure
@@ -98,6 +98,9 @@ bool XProcess::startXSession(){
 
   // Get the environment before we drop priv
   this->setProcessEnvironment( QProcessEnvironment::systemEnvironment() ); //current environment
+  //Emit the last couple logs before dropping privileges
+  Backend::log("Starting session:");
+  Backend::log(" - Session Log: ~/.pcdm-startup.log");
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
@@ -131,16 +134,16 @@ bool XProcess::startXSession(){
   //  - Add the DE startup command to the end
   cmd.append("dbus-launch --exit-with-session "+xcmd);
   //cmd.append(xcmd);
-  //cmd.append("; kill -l KILL"); //to clean up the session afterwards
+
   //Backend::log("Startup command: "+cmd);
   // Setup the process environment
   setupSessionEnvironment();
   //Log the DE startup outputs as well
+  this->setProcessChannelMode(QProcess::MergedChannels);
   this->setStandardOutputFile(xhome+"/.pcdm-startup.log",QIODevice::Truncate);
-  this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
+  //this->setStandardErrorFile(xhome+"/.pcdm-startup.err",QIODevice::Truncate);
   // Startup the process(s)
    //  - Setup to run the user's <home-dir>/.xprofile startup script
-  Backend::log("Starting session:");
   if(QFile::exists(xhome+"/.xprofile")){
     //Make sure the file is executable
     QFile::setPermissions(xhome+"/.xprofile", QFile::permissions(xhome+"/.xprofile") | QFile::ExeOwner | QFile::ExeGroup | QFile::ExeOther );
@@ -148,12 +151,12 @@ bool XProcess::startXSession(){
     QStringList contents;
     contents << ". "+xhome+"/.xprofile";
     contents << cmd; //end with the actual command for the DE
+    contents << "exit $?"; //Make sure we return the DE return value
     if( Backend::writeFile(xhome+"/.pcdmsessionstart", contents) ){
       //script created fine, change the command to just run it
       cmd = "sh "+xhome+"/.pcdmsessionstart";
     }else{
       //Could not create script file, fallback on running them seperately
-      Backend::log(" --Run user ~/.xprofile");
       QString xpro = "sh "+xhome+"/.xprofile";
       this->start(xpro);
       this->waitForFinished(3000);
@@ -165,6 +168,7 @@ bool XProcess::startXSession(){
 }
 
 void XProcess::slotCleanup(){
+  Backend::log("Session Finished\n - Return Code: "+ QString::number(this->exitCode()) );
   pam_shutdown(); //make sure that PAM shuts down properly
   //Now remove this user's access to the Xserver
   QString xhostcmd = "xhost -si:localuser:"+xuser;
