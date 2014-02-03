@@ -65,7 +65,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		mc:${PORTSDIR}/misc/mc \
 		numlockx:${PORTSDIR}/x11/numlockx \
 		swapexd:${PORTSDIR}/sysutils/swapexd \
-		epdfview:${PORTSDIR}/graphics/epdfview \
+		mupdf:${PORTSDIR}/graphics/mupdf \
 		pciutils>=0:${PORTSDIR}/sysutils/pciutils \
 		gpg:${PORTSDIR}/security/gnupg \
 		idesk:${PORTSDIR}/x11/idesk \
