@@ -63,6 +63,7 @@ int CDEList::refresh(bool isAll)
     while ( deinfo->canReadLine() )
     {
         Str = deinfo->readLine().simplified();
+	//qDebug() << "de-info line:" << Str;
         if (Str.contains(DE_NAME))
         {
             if (Entry.mName.length())

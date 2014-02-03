@@ -27,6 +27,7 @@
 
 #include <QString>
 #include <QVector>
+#include <QDebug>
 
 //! Class that holds info about DE
 struct CDEInfo
