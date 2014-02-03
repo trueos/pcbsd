@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation>PBI-Einstellungen</translation>
+        <translation>Konfiguration zu PBI</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Program Information</source>
-        <translation>Programminformationen</translation>
+        <translation>Programminformation</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
@@ -45,15 +45,15 @@
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation>Autor des Hauptprogramms (oder stattdessen FreeBSD-Portbetreuer)</translation>
+        <translation>Autorin oder Autor des Hauptprogramms (oder stattdessen der Betreuerin oder des Betreuers des Ports von FreeBSD)</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation>Autor</translation>
+        <translation>Autorin oder Autor</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation>Symbol, das für das Programm benutzt wird (PNG Ressource verfügbar)</translation>
+        <translation>Symbol, das für das Programm benutzt wird (verfügbar Quelle für PNG)</translation>
     </message>
     <message>
         <source>Icon</source>
@@ -61,55 +61,55 @@
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation>FreeBSD-Port der als PBI verpackt werden soll</translation>
+        <translation>Port von FreeBSD, der als PBI gepackt werden soll</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation>Zusätzliche FreeBSD-Ports hinzufügen</translation>
+        <translation>Fügen Sie zusätzliche Port von FreeBSD hinzu</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation>Zusätzlichen FreeBSD-Port entfernen</translation>
+        <translation>Entfernen Sie den zusätzlichen Port von FreeBSD</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation>Zusätzliche FreeBSD-Ports, die nach dem Hauptprogramm erstellt werden sollen</translation>
+        <translation>Zusätzliche Ports von FreeBSD, um nach dem Hauptprogramm gebaut zu werden</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation>Erfordert Administratorechte zur Installation dieses PBIs</translation>
+        <translation>Erfordert administrative Berechtigungen, um dieses PBI zu installieren</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation>Erfordert Rootrechte</translation>
+        <translation>Erfordert Berechtigungen für Root</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation>Aktuelle Einstellungen in PBI-Einstellungsdatei speichern</translation>
+        <translation>Speiche die aktuellen Einstellungen in die Konfigurationsdatei des PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation>Einstellungen speichern</translation>
+        <translation>Speiche Konfiguration</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation>Resourcen</translation>
+        <translation>Quellen</translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation>Zusätzliche Dateien die zum PBI hinzugefügt werden sollen</translation>
+        <translation>Zusätzliche Dateien, um in das PBI eingebaut zu werden</translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation>Aktuelle Resourcen</translation>
+        <translation>Aktuelle Ressourcen</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation>Aktuelle Dateien die in das PBI eingefügt werden</translation>
+        <translation>Aktuelle Dateien, um in das PBI eingebaut zu werden</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation>Zusätzliche Datei in das PBI-Modul kopieren</translation>
+        <translation>Kopiere eine zusätzliche Datei in das PBI-Modul</translation>
     </message>
     <message>
         <source>Add File</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation>Ausgewählte Datei aus dem PBI-Modul entfernen</translation>
+        <translation>Löschen der ausgewählten Datei aus dem PBI-Modul</translation>
     </message>
     <message>
         <source>Delete File</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation>Ein benutzerdefiniertes Wrapper-Skript für ein Programm erstellen</translation>
+        <translation>Erstellen eines angepassten Wrapper-Skriptes für die Binärdatei des Programms</translation>
     </message>
     <message>
         <source>Wrapper Script</source>
@@ -133,7 +133,7 @@
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation>Wrapper-Skript speichern</translation>
+        <translation>Speichere das Wrapper-Skript</translation>
     </message>
     <message>
         <source>Save Script</source>
@@ -141,11 +141,11 @@
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation>Resourcen-Symbol</translation>
+        <translation>Symbol der Ressource</translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation>Resourcen-Beschreibung</translation>
+        <translation>Beschreibung der Ressource</translation>
     </message>
     <message>
         <source>XDG Entries</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation>Arbeitsplatzeinträge erstellen und ändern</translation>
+        <translation>Arbeitsplatzeinträge erstellen und bearbeiten</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation>Menüeinträge erstellen und ändern</translation>
+        <translation>Menüeinträge erstellen und bearbeiten</translation>
     </message>
     <message>
         <source>Menu</source>
@@ -173,11 +173,11 @@
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation>Liste aktualisieren (hilfreich, wenn kürzlich außerhalb von EasyPBI Dateien geändert wurden)</translation>
+        <translation>Aktualisieren der gegenwärtigen Liste (hilfreich, wenn Dateien kürzlich außerhalb von EasyPBI geändert wurden)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation>Aktuellen Eintrag aus dem PBI-Modul löschen</translation>
+        <translation>Löschen des aktuellen Elementes für das PBI-Modul</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation>Sichtbarer Name für den Eintrag</translation>
+        <translation>Sichtbarer Name für das Element</translation>
     </message>
     <message>
         <source>Executable</source>
@@ -197,19 +197,19 @@
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation>Binär-Programm, das ausgeführt werden soll, wenn diese Einstellung aktiviert wird</translation>
+        <translation>Binärdatei, das ausgeführt wird, wenn das Element aktiviert</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation>Automatisch erkannte Binär-Programme für das PBI</translation>
+        <translation>Automatisches Erkannten von Binärdateien für das PBI</translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation>Sichtbares Symbol für den Eintrag verwenden</translation>
+        <translation>Sichtbares Symbol, um es für das Element zu verwenden</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation>Menükategorie in die der Eintrag eingeordnet werden soll.</translation>
+        <translation>Menükategorie für das Element, um eingeordnet zu werden.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
@@ -217,7 +217,7 @@
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation>Anwendung in einer Terminal-Sitzung starten</translation>
+        <translation>Starten der Anwendung in einer Session des Terminals</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
@@ -225,7 +225,7 @@
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation>Markiere diese Einstellung als: Nicht anzeigen</translation>
+        <translation>Markiere dieses Element, um nicht überall angezeigt zu werden</translation>
     </message>
     <message>
         <source>Make Invisible</source>
@@ -237,11 +237,11 @@
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation>Speichere diese Einstellung als: Momentan anzeigen</translation>
+        <translation>Speichere das Element wie aktuell angezeigt</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation>Erzeuge ein neues Objekt mit den momentanen Einstellungen</translation>
+        <translation>Erzeuge ein neues Element mit den aktuellen Einstellungen</translation>
     </message>
     <message>
         <source>Scripts</source>
@@ -253,11 +253,11 @@
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation>Wählen Sie ein Skript, welches Sie erzeugen oder ändern wollen</translation>
+        <translation>Wählen Sie ein Skript, das Sie erzeugen oder bearbeiten wollen</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation>Das ausgewählte Skript erstellen</translation>
+        <translation>Erstelle das ausgewählte Skript</translation>
     </message>
     <message>
         <source>Create</source>
@@ -265,11 +265,11 @@
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation>Ausgewähltes Skript aus dem PBI-Modul entfernen</translation>
+        <translation>Entferne des ausgewähltes Skriptes aus dem PBI-Modul</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation>Den aktuellen Text als ausgewähltes Skript speichern</translation>
+        <translation>Speicher den aktuellen Text als ausgewähltes Skript</translation>
     </message>
     <message>
         <source>Save</source>
@@ -277,7 +277,7 @@
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation>Inhalt für das ausgewählte Skript</translation>
+        <translation>Inhalte für das ausgewählte Skript</translation>
     </message>
     <message>
         <source>External-Links</source>
@@ -285,7 +285,7 @@
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation>Dateien, die mit dem lokalen System verknüpft sind</translation>
+        <translation>Dateien, um in das lokale System verknüpft zu sein</translation>
     </message>
     <message>
         <source>Current Entries</source>
@@ -301,11 +301,11 @@
     </message>
     <message>
         <source>File Type</source>
-        <translation>Dateiart</translation>
+        <translation>Dateityp</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation>Aktuell ausgewählte Verknüpfung entfernen</translation>
+        <translation>Entfernen der aktuell ausgewählte Verknüpfung</translation>
     </message>
     <message>
         <source>Remove Entry</source>
@@ -321,11 +321,11 @@
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation>Automatische Erkennung der Programme für dieses PBI</translation>
+        <translation>Automatische Erkennung der Binärdaten für dieses PBI</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation>Verzeichnis in dem die Verknüpfung erzeugt werden soll (relativ zur lokalen Basis: normalerweise /usr/local/)</translation>
+        <translation>Ort für die Verknüpfung, um erzeugt zu werden (relativ zur lokalen Basis: normalerweise /usr/local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>

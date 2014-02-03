@@ -5,139 +5,113 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Left</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Right</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Up</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Down</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбор</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбрать другого пользователя и очистить поле пароля</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выбрать этого пользователя</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Логин</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Войти в систему с текущим пользователем и паролем</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зажмите чтобы просмотреть введённый пароль</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Логин, пароль для выбранного пользователя</translation>
     </message>
     <message>
         <source>Available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступные пользователи</translation>
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Войти в %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступные окружения рабочего стола</translation>
     </message>
 </context>
 <context>
     <name>PCDMgui</name>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Виртуальная клавиатура</translation>
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Локаль</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сменить локаль</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Раскладка клавиатуры</translation>
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Изменить раскладку клавиатуры</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Система</translation>
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Подсказка: Убедитесь что Caps-Lock не включён</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезагрузка</translation>
     </message>
     <message>
         <source>Shut Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выключить</translation>
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выключить компьютер</translation>
     </message>
     <message>
         <source>Invalid Username/Password</source>

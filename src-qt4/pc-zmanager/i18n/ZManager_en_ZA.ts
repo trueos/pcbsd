@@ -559,31 +559,31 @@ Read ZFS manual for more information.</translation>
     </message>
     <message>
         <source>Do not mount any filesystems</source>
-        <translation type="unfinished"></translation>
+        <translation>Do not mount any filesystems</translation>
     </message>
     <message>
         <source>Read only pool</source>
-        <translation type="unfinished"></translation>
+        <translation>Read only pool</translation>
     </message>
     <message>
         <source>Import options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Import options:</translation>
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mount with alternative root:</translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Mount all filesystems automatically</translation>
     </message>
     <message>
         <source>Mounting behavior:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mounting behavior:</translation>
     </message>
     <message>
         <source>Force operation if error (use with caution)</source>
-        <translation type="unfinished"></translation>
+        <translation>Force operation if error (use with caution)</translation>
     </message>
 </context>
 <context>
@@ -1500,8 +1500,8 @@ Any snapshots created after this one will be deleted, along with any clone files
     <message>
         <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
 Proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
+Proceed with recovery?</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:
