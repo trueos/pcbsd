@@ -38,6 +38,7 @@ void mainWin::ProgramInit(QString ch)
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
+  connect(action_Configuration, SIGNAL( triggered(bool) ), this, SLOT( slotConfigClicked() ) );
   connect(tool_search, SIGNAL( clicked() ), this, SLOT( slotSearchPackages() ) );
   connect(line_search, SIGNAL( returnPressed()), this, SLOT( slotSearchPackages()) );
 	
@@ -1573,4 +1574,18 @@ void mainWin::slotReadEventPipe()
 
    } // End of while canReadLine()
 
+}
+
+void mainWin::slotConfigClicked()
+{
+   configD = new dialogConfig();
+   connect(configD, SIGNAL(ok()),this, SLOT(slotConfigFinished()) );
+   configD->programInit();
+   configD->show();
+}
+
+void mainWin::slotConfigFinished()
+{
+   // Changed view, lets refresh
+   initMetaWidget();
 }
