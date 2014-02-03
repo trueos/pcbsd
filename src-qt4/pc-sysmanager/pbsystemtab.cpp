@@ -180,14 +180,6 @@ void PBSystemTab::fetchPortsPressed()
 
 void PBSystemTab::loadMiscData()
 {
-    // Load the default package set value
-    if ( pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET") == "EDGE" ) {
-       radioEdge->setChecked(true);
-       radioProduction->setChecked(false);
-    } else {
-       radioProduction->setChecked(true);
-       radioEdge->setChecked(false);
-    }
     //Check if IBUS input is forced
     if ( pcbsd::Utils::getConfFileValue(QString(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh"), QString("FORCEIBUS=") ) == QString("YES")){
 	checkForceIbus->setChecked(TRUE);
@@ -203,15 +195,6 @@ void PBSystemTab::slotMiscSave() {
      }else{
 	pcbsd::Utils::setConfFileValue(PREFIX + "/share/pcbsd/xstartup/enable-ibus.sh", "FORCEIBUS", "FORCEIBUS=\"NO\"", 1);
      }
-
-    // Save package set
-    if ( radioProduction->isChecked() )
-      pcbsd::Utils::setValPCBSDConf("PACKAGE_SET", "PRODUCTION");
-    else
-      pcbsd::Utils::setValPCBSDConf("PACKAGE_SET", "EDGE");
-
-    // Extract the ports overlay to grab a new package set repo config
-    QProcess::execute(QString("pc-extractoverlay"), QStringList() << "ports");
 }
 
 void PBSystemTab::slotClose() {
