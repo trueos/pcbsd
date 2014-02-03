@@ -62,6 +62,7 @@ MainWnd::MainWnd(QWidget *parent) :
     {
         mCurrentDE = *InstalledDEList.active();
         mvEnabledDE.push_back(mCurrentDE.mName);
+	qDebug() << "Current DE: " << mCurrentDE.mName;
     }    
 
     DETEXT = tr("Desktop environment");
@@ -275,12 +276,14 @@ SETUP_ACTION( actionCinnamon, "Cinnamon" );
 
         if (!InstalledDEList.active())
 	{
+		qDebug() << "Unsupported DE";
 		ui->actionUnsupported->setText(Unsupported + Current);
 		ui->DEChooserButton->setIcon(ui->actionUnsupported->icon());
 		ui->actionUnsupported->setVisible(true);
-	}
-	else
+	}else{
+		qDebug() << "Supported DE";
 		ui->actionUnsupported->setVisible(false);
+	}
 
         ui->DEChooserButton->setVisible(InstalledDEList.size()>1);
 
