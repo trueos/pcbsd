@@ -168,6 +168,9 @@ private:
     // Config dialog
     dialogConfig *configD;
 
+    // Indicator of package process type
+    QString pkgProcessType;
+
 signals:
 
 } ;
