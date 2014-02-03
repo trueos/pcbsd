@@ -985,9 +985,9 @@ void mainWin::slotStartNGChanges()
 
     // Now spin up the install process
     if ( wDir.isEmpty() )
-      pCmds << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+      pCmds << "pkg" << "install" << "-y" << pkgAddList.join(" ");
     else
-      pCmds << "chroot" << wDir << "pc-pkg" << "install" << "-y" << pkgAddList.join(" ");
+      pCmds << "chroot" << wDir << "pkg" << "install" << "-y" << pkgAddList.join(" ");
 
     pkgCmdList << pCmds;
   }
