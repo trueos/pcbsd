@@ -38,6 +38,7 @@ void mainWin::ProgramInit(QString ch)
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
+  connect(action_Configuration, SIGNAL( triggered(bool) ), this, SLOT( slotConfigClicked() ) );
   connect(tool_search, SIGNAL( clicked() ), this, SLOT( slotSearchPackages() ) );
   connect(line_search, SIGNAL( returnPressed()), this, SLOT( slotSearchPackages()) );
 	
@@ -287,6 +288,9 @@ void mainWin::slotCloseClicked() {
 void mainWin::slotUpdatePkgsClicked() {
   dPackages = false;
   uPackages = false;
+
+  // Set the type of pkg command
+  pkgProcessType="update";
 
   // Init the pkg process
   prepPkgProcess();
@@ -566,6 +570,11 @@ void mainWin::slotPkgDone() {
 	return;
   }
 
+  // Eventually we will have more stuff to do after running a package command
+  //if ( pkgProcessType == "update" )
+  //{
+  //}
+
   // Nothing left to run! Lets wrap up
   QFile sysTrig( SYSTRIGGER );
   if ( sysTrig.open( QIODevice::WriteOnly ) ) {
@@ -605,6 +614,12 @@ void mainWin::initMetaWidget()
   groupInfo->setVisible(false);
   //Make sure the search box is disabled at startup
   tool_search->setEnabled(false);
+
+  // We will refresh the update tab after, clear it out for now
+  buttonRescanPkgs->setEnabled(false);
+  pushUpdatePkgs->setEnabled(false);
+  listViewUpdatesPkgs->clear();
+  groupUpdatesPkgs->setTitle(tr("Reading package database..."));
 
   // Running in basic mode
   if ( stackedPkgView->currentIndex() == 0 )
@@ -946,6 +961,7 @@ void mainWin::slotStartNGChanges()
   QStringList pCmds;
   
   if ( ! pkgRemoveList.isEmpty() ) {
+    pkgProcessType="delete";
     if ( wDir.isEmpty() )
       pCmds << "pkg" << "delete" << "-R" << "-y" << pkgRemoveList.join(" ");
     else
@@ -957,6 +973,7 @@ void mainWin::slotStartNGChanges()
 
   // Adding packages
   if ( ! pkgAddList.isEmpty() ) {
+    pkgProcessType="add";
 
     // Look for conflicts first
     if ( wDir.isEmpty() )
@@ -1177,6 +1194,7 @@ void mainWin::startMetaChanges()
   QStringList pCmds;
 
   if ( ! delPkgs.isEmpty() ) {
+    pkgProcessType="deletemeta";
     if ( wDir.isEmpty() )
       pCmds << "pc-metapkgmanager" << "del" << delPkgs;
     else  
@@ -1187,6 +1205,7 @@ void mainWin::startMetaChanges()
   pCmds.clear();
 
   if ( ! addPkgs.isEmpty() ) {
+    pkgProcessType="addmeta";
     if ( wDir.isEmpty() )
       pCmds << "pc-metapkgmanager" << "add" << addPkgs;
     else  
@@ -1573,4 +1592,18 @@ void mainWin::slotReadEventPipe()
 
    } // End of while canReadLine()
 
+}
+
+void mainWin::slotConfigClicked()
+{
+   configD = new dialogConfig();
+   connect(configD, SIGNAL(ok()),this, SLOT(slotConfigFinished()) );
+   configD->programInit();
+   configD->show();
+}
+
+void mainWin::slotConfigFinished()
+{
+   // Changed view, lets refresh
+   initMetaWidget();
 }

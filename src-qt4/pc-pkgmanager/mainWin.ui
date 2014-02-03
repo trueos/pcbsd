@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>913</width>
     <height>644</height>
    </rect>
   </property>
@@ -458,7 +458,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>913</width>
      <height>22</height>
     </rect>
    </property>
@@ -466,6 +466,8 @@ p, li { white-space: pre-wrap; }
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="action_Configuration"/>
+    <addaction name="separator"/>
     <addaction name="action_Quit"/>
    </widget>
    <widget class="QMenu" name="menu_View">
@@ -492,7 +494,7 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Basic</string>
+    <string>&amp;Basic (Meta-Packages)</string>
    </property>
   </action>
   <action name="action_Advanced">
@@ -500,7 +502,17 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>&amp;Advanced</string>
+    <string>&amp;Advanced (All Packages)</string>
+   </property>
+  </action>
+  <action name="action_Preferences">
+   <property name="text">
+    <string>&amp;Configuration</string>
+   </property>
+  </action>
+  <action name="action_Configuration">
+   <property name="text">
+    <string>&amp;Configuration</string>
    </property>
   </action>
  </widget>

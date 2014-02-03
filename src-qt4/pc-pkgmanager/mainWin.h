@@ -16,6 +16,7 @@
 #include <pcbsd-utils.h>
 #include <pcbsd-ui.h>
 #include "dialogConfirm.h"
+#include "dialogConfig.h"
 #include "ui_mainWin.h"
 #include "../config.h"
 
@@ -78,6 +79,10 @@ private slots:
     void slotNGReadInfo();
 
     void slotReadEventPipe();
+
+    // Configuration dialog
+    void slotConfigClicked();
+    void slotConfigFinished();
 
 private:
     // Generic pkg process handlers
@@ -159,6 +164,12 @@ private:
 
     // Event pipe process
     QProcess *eP;
+
+    // Config dialog
+    dialogConfig *configD;
+
+    // Indicator of package process type
+    QString pkgProcessType;
 
 signals:
 
