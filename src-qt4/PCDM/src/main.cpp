@@ -38,7 +38,8 @@ int runSingleSession(int argc, char *argv[]){
   //QTime clock;
   //clock.start();
   Backend::checkLocalDirs();  // Create and fill "/usr/local/share/PCDM" if needed
-  Backend::openLogFile("/var/log/PCDM.log");  
+  Backend::openLogFile("/var/log/PCDM.log"); 
+  qDebug() << "PCDM Log File: /var/log/PCDM.log";
   //qDebug() << "Backend Checks Finished:" << QString::number(clock.elapsed())+" ms";
   //Setup the initial system environment (locale, keyboard)
   QString lang, kmodel, klayout, kvariant;
