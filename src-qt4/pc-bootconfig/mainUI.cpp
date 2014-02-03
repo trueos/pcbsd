@@ -347,7 +347,10 @@ void mainUI::on_tool_BEactivate_clicked(){
     G_defaultBE = index;
     bool ok = saveGRUBdefaults(G_themeFile, G_fontFile, G_timer, G_showMenu, G_defaultBE);
     //Update GRUB config
-    if(ok){ on_action_rebuildGRUBmenu_triggered(); }
+    if(ok){ 
+      on_action_rebuildGRUBmenu_triggered(); //For GRUB bootloader
+      beadmActivate( ui->tree_BE->currentItem()->text(0) ); //for other bootloaders
+    }
     //Update GUI
     updateBEList();
   }
