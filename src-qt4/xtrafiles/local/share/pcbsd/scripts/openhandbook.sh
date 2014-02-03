@@ -3,7 +3,7 @@
 hDir="/usr/local/share/pcbsd/doc"
 hFile="handbook"
 
-apps="okular epdfview xpdf"
+apps="okular mupdf xpdf"
 
 # Find a valid PDF viewer
 for app in $apps
