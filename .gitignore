@@ -1206,3 +1206,11 @@ src-qt4/pc-zmanager/ui_dialognewpool.h
 src-qt4/pc-zmanager/ui_dialogpartition.h
 src-qt4/pc-zmanager/ui_dialogprop.h
 src-qt4/pc-zmanager/ui_zmanagerwindow.h
+src-qt4/pc-pkgmanager/ui_dialogConfig.h
+src-qt4/pc-sysmanager/pc-sysmanager
+src-qt4/pc-sysmanager/ui_cmdDialog.h
+src-sh/pbi-manager/install
+src-sh/pbi-manager/mount_nullfs/mount_nullfs
+src-sh/pbi-manager/pbime/pbime
+src-sh/warden/install
+
