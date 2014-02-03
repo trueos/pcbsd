@@ -53,6 +53,10 @@ Installer::Installer(QWidget *parent) : QMainWindow(parent)
     // Start on the first screen
     installStackWidget->setCurrentIndex(0);
     backButton->setVisible(false);
+
+    // Update the status bar
+    // This makes the status text more "visible" instead of using the blue background
+    statusBar()->setStyleSheet("background: white");
 }
 
 Installer::~Installer()

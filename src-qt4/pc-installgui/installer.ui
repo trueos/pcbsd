@@ -10,6 +10,11 @@
     <height>542</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <strikeout>false</strikeout>
+   </font>
+  </property>
   <property name="windowTitle">
    <string notr="true">PC-BSD</string>
   </property>
