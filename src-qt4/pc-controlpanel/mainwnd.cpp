@@ -23,6 +23,7 @@
 ***************************************************************************/
 
 #include <QDebug>
+#include <QToolTip>
 #include "mainwnd.h"
 #include "ui_mainwnd.h"
 #include "deinfo.h"
@@ -71,6 +72,10 @@ MainWnd::MainWnd(QWidget *parent) :
     setupDEChooser();
     fillGroups();
 
+    QPalette tP;
+    tP.setColor(QPalette::Inactive, QPalette::ToolTipBase, QColor("white"));
+    tP.setColor(QPalette::Inactive, QPalette::ToolTipText, QColor("black"));
+    QToolTip::setPalette(tP);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

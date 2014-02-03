@@ -166,7 +166,7 @@ void wificonfigwidgetbase::updateWPASupp()
            if ( WEPHex[curItem] )
              streamout << " wep_key" + tmp.setNum(WEPIndex[curItem]) + "=\"" + WEPKey[curItem] + "\"\n";
            else
-             streamout << " wep_key" + tmp.setNum(WEPIndex[curItem]) + "=\"" + WEPKey[curItem] + "\"\n";
+             streamout << " wep_key" + tmp.setNum(WEPIndex[curItem]) + "=" + WEPKey[curItem] + "\n";
 
          } else if (SSIDEncType[curItem] == WPA_ENCRYPTION ) {
 
