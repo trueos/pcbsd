@@ -87,18 +87,6 @@
         <translation>Systemuppgifter</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>Paket Set</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>Produktion (Paketen uppdaterade kvartalsvis - Rekommenderat)</translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation>Senaste (Paketen uppdateras frekvent - För testning och utveckling)</translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation>PC-BSD Versioner</translation>
     </message>

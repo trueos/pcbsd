@@ -87,20 +87,6 @@
         <translation>Zadania systemowe</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>Zestaw Pakietów</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation type="unfinished">
             </translation>

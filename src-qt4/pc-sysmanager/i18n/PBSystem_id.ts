@@ -94,18 +94,6 @@
         <translation>Sistem Task</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>Paket set</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>Produksi (Paket diperbaharui setiap 3 bulan - Direkomendasikan)</translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation>Edge (Paket sering diperbaharui - Untuk mencoba dan pembangunan)</translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation type="unfinished">
             </translation>
