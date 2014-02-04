@@ -87,18 +87,6 @@
         <translation>System Tasks</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>Package Set</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>Production (Packages updated quarterly - Recommended)</translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation>Edge (Packages updated frequently - For testing and development)</translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation>PC-BSD Versions</translation>
     </message>

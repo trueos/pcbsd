@@ -2,6 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>dialogConfig</name>
+    <message>
+        <source>Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Package Set</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Production (Packages updated quarterly - Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edge (Packages updated frequently - For testing and development)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Ok</source>
+        <translation type="unfinished">&amp;Ok</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Anuluj</translation>
+    </message>
+</context>
+<context>
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
@@ -109,14 +136,6 @@
     <message>
         <source>&amp;Quit</source>
         <translation>&amp;Wyjście</translation>
-    </message>
-    <message>
-        <source>&amp;Basic</source>
-        <translation>&amp;Podstawowy</translation>
-    </message>
-    <message>
-        <source>&amp;Advanced</source>
-        <translation>&amp;Zaawansowane</translation>
     </message>
     <message>
         <source>Checking for updates</source>
@@ -269,6 +288,22 @@
     <message>
         <source>Downloading</source>
         <translation>Pobieranie</translation>
+    </message>
+    <message>
+        <source>&amp;Basic (Meta-Packages)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Advanced (All Packages)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Reading package database...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>Willkommen bei PC-BSD! Bitte wählen Sie ihre Sprache und klicken Sie auf weiter.</translation>
+        <translation>Willkommen bei PC-BSD! Bitte wählen Sie Ihre Sprache und klicken Sie auf weiter.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation>Ihr System wird jetzt installiert! Dieser Vorgang kann abhängig von den gewählten Optionen und der Systemgeschwindigkeit eine Weile dauern. Sie werden informiert, wenn die Installation abgeschlossen ist.</translation>
+        <translation>Ihr System wird jetzt installiert! Dieser Vorgang kann, abhängig von den gewählten Optionen und der Systemgeschwindigkeit, eine Weile dauern. Sie werden informiert, wenn die Installation abgeschlossen ist.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>

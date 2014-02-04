@@ -87,19 +87,6 @@
         <translation>Systemaufgaben</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>Paketsatz</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>Produktion (Pakete die vierteljährlich aktualisiert werden - Empfohlen)</translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation>PC-BSD-Versionen</translation>
     </message>

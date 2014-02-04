@@ -87,18 +87,6 @@
         <translation>キーボード入力に IBus を使用する</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>パッケージセット</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>製品 (パッケージは定期的に更新されます ‐ おすすめ)</translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation>最先端 (パッケージは頻繁に更新されます - テスターと開発者向け)</translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation>PC-BSD のバージョン</translation>
     </message>

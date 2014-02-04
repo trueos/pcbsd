@@ -87,18 +87,6 @@
         <translation>Системні завдання</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>Набір пакунків</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>Production (Найбільш повно протестований набір. Оновлюється щоквартально. - Рекомендовано)</translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation>Edge (Оновлюються досить частот та містить найсвіжіші зміни. Призначений передусім для розробників та тестерів)</translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation>Версії PC-BSD</translation>
     </message>

@@ -94,20 +94,6 @@
         <translation>系统任务</translation>
     </message>
     <message>
-        <source>Package Set</source>
-        <translation>软件包裹集</translation>
-    </message>
-    <message>
-        <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PC-BSD Versions</source>
         <translation type="unfinished">
             </translation>
