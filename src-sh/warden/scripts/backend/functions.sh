@@ -872,6 +872,14 @@ echo "pcbsd: {
                enabled: true
               }" > /usr/local/etc/pkg/repos/pcbsd.conf
 
+# Create the repo.dist file
+echo "pcbsd: {
+               url: \"http://pkg.cdn.pcbsd.org/VERSION/ARCH\",
+               signature_type: \"fingerprints\",
+               fingerprints: \"/usr/local/etc/pkg/fingerprints/pcbsd\",
+               enabled: true
+              }" > /usr/local/etc/pkg/repos/pcbsd.conf.dist
+
 # Save the fingerprint file
 echo "function: sha256
 fingerprint: b2b9e037f938cf20ba68aa85ac88c15889c729a7f6b70c25069774308e760a03" > /usr/local/etc/pkg/fingerprints/pcbsd/trusted/pkg.cdn.pcbsd.org.20131209
