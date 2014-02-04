@@ -18,7 +18,6 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   devLabel = new QLabel;
     devLabel->setToolTip(device);
     devLabel->setText(newlabel);
-    
   devIcon = new QLabel;
     devIcon->setToolTip(device);
   currentSpace = new QProgressBar;
@@ -113,6 +112,9 @@ bool MenuItem::isMounted(){
   bool mounted=false;
   for(int i=0; i<chk.length(); i++){
     mounted = chk[i].contains(device) || chk[i].contains(devLabel->text()) || chk[i].contains(devLabel->text().replace(" ","-"));
+    if(!mounted && chk[i].startsWith("/dev/fuse on ") ){
+      //No method of probing fuse devices to find the original parent (yet)
+    }
     if(mounted){ 
       //Save the mountpoint if it is mounted
       mountpoint = chk[i].section(" on ",1,10).section("(",0,0).simplified();
