@@ -169,7 +169,7 @@ void MountTray::slotTrayActivated(QSystemTrayIcon::ActivationReason reason) {
      for(int i=0; i<deviceList.length(); i++){
         deviceList[i]->updateItem();
      }
-     trayIcon->contextMenu()->popup(QCursor::pos());
+     trayIcon->contextMenu()->popup( QCursor::pos() );
    }
 }
 
@@ -383,6 +383,8 @@ void MountTray::slotOpenISO(){
 void MountTray::slotSingleInstance()
 {
   trayIcon->show();
+  //Also pop-up the mount tray settings dialog
+  slotOpenSettings();
 }
 
 void MountTray::slotDisplayPopup(QString title, QString msg, QString device){
