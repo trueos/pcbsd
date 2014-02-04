@@ -127,6 +127,11 @@ bool wizardNewJail::validatePage()
             button(QWizard::NextButton)->setEnabled(false);
             return false;
 	 }
+         if ( lineHost->text().contains(" ") ) {
+            button(QWizard::NextButton)->setEnabled(false);
+            labelMessage->setText(tr("Hostname cannot contain spaces!"));
+            return false;
+	 }
 
 	 // Check if this IP / Host is already used
          for (int i = 0; i < usedHosts.size(); ++i)
