@@ -183,8 +183,8 @@
         <property name="inputMask">
          <string notr="true"/>
         </property>
-        <property name="alignment">
-         <set>Qt::AlignHCenter</set>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
@@ -249,16 +249,6 @@
       </property>
      </spacer>
     </item>
-    <item row="5" column="1">
-     <widget class="QLabel" name="labelMessage">
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
     <item row="6" column="1" colspan="3">
      <spacer name="verticalSpacer_2">
       <property name="orientation">
@@ -271,6 +261,29 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLabel" name="labelMessage">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
