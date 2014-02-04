@@ -71,6 +71,7 @@ QString DevCheck::devLabel(QString node, QString filesystem){
     }
     index = glout.indexOf("Geom name: "+node, index); //move to the next index if there is one
   }
+  dlabel.replace("%20", " "); //quick check to make sure it does not have that special character
   return dlabel;
 }
 
@@ -100,9 +101,18 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   QString camctl;
   if(detType == "USB" && QFile::exists(fullDev)){
     //make sure that it is not a SCSI device
-    camctl = pcbsd::Utils::runShellCommand( QString("camcontrol inquiry ")+node ).join(" ");
-    if(camctl.contains(" Fixed Direct Access SCSI")){ detType = "SCSI"; } //USB devices do not have any output
+    camctl = pcbsd::Utils::runShellCommand( QString("camcontrol inquiry ")+node.section("s",0,0) ).join(" ");
+    if(camctl.contains(" Fixed Direct Access SCSI")){ detType = "SCSI"; }
     if(camctl.contains("camcontrol")){ camctl.clear(); } //error or invalid device type
+  }else if(detType == "SATA" && QFile::exists(fullDev)){
+    camctl = pcbsd::Utils::runShellCommand( QString("camcontrol identify ")+node.section("s",0,0) ).join(" ");
+    if(camctl.contains("camcontrol")){ camctl.clear(); } //error or invalid device type
+  }
+  if(!camctl.isEmpty()){
+    //Alternate Device name for label later
+    camctl = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
+    QString partition = node.section("s",1,1);
+    if(!partition.isEmpty()){ camctl.append("-"+partition); }
   }
   //Make sure we quit before running commands on any invalid device nodes
   if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
@@ -182,13 +192,14 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   //Now get the device label (if there is one) using glabel
   bool hasLabel = FALSE;
   QString glabel;
-  if(!isCD){ glabel = devLabel(node, filesys); }
+  //Don't use glabel for SATA devices right now because it is inconsistent
+  if(!isCD && filesys!="NTFS"){ glabel = devLabel(node, filesys); }
   //Check to see if we have a label, otherwise assign one
   if( !glabel.isEmpty() ){ dlabel = glabel; hasLabel = TRUE; } //glabel
   else if(!dlabel.isEmpty()){ hasLabel = TRUE; } //file -s label
   else if( !camctl.isEmpty() ){ 
     //not necessarily a "detected" label, but just an alternate fallback name
-    dlabel = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
+    dlabel = camctl;
   }else{
     //Assign a device label
     if(isCD){
