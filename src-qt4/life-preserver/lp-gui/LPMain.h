@@ -15,6 +15,7 @@
 #include <QTimer>
 #include <QFileDialog>
 #include <QFileSystemWatcher>
+#include <QSettings>
 
 #include "LPBackend.h"
 #include "LPContainers.h"
@@ -44,6 +45,7 @@ private:
 	QMessageBox *waitBox;
 	QFileSystemWatcher *watcher;
 	QTimer *timer;
+	QSettings *settings;
 
 	void showErrorDialog(QString title, QString message, QString errors);
 	void showWaitBox(QString message);

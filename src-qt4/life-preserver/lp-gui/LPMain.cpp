@@ -29,7 +29,10 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
 	ui->menuView->addAction(WAAdv);
   connect(viewBasic, SIGNAL(toggled(bool)), this, SLOT(viewChanged()) );
   //Now set the default view type
-  viewBasic->setChecked(true); //will automatically call the "viewChanged" function
+  settings = new QSettings(QSettings::UserScope, "PC-BSD", "Life-Preserver-GUI", this);
+  bool basicMode = settings->value("viewmode", true).toBool(); //basic by default
+  if(basicMode){ viewBasic->setChecked(true); } //will automatically call the "viewChanged" function
+  else{ viewAdvanced->setChecked(true); } //will automatically call the "viewChanged" function
   //Create the filesystem model and tie it to the treewidget
   fsModel = new QFileSystemModel(this);
 	fsModel->setReadOnly(true);
@@ -143,6 +146,8 @@ void LPMain::updatePoolList(){
     poolSelected=false;
     ui->combo_pools->addItem("No Managed Pools!");
     ui->combo_pools->setCurrentIndex(0);
+    //Reset to Basic View
+    viewBasic->setChecked(true);
   }
   qDebug() << "[DEBUG] Update pool menu options";
   //Now update the add/remove pool menu's
@@ -174,6 +179,7 @@ void LPMain::updatePoolList(){
 void LPMain::viewChanged(){
   ui->menuView->hide();
   ui->menubar->clear();
+  settings->setValue("viewmode", viewBasic->isChecked()); //save value for later
   if(viewBasic->isChecked()){
     ui->menubar->addMenu(ui->menuFile);
     ui->menubar->addMenu(ui->menuView);
