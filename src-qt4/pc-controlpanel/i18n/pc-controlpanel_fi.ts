@@ -5,7 +5,7 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation>PC-BSD hallintapaneeli</translation>
+        <translation>PC-BSD:n hallintapaneeli</translation>
     </message>
     <message>
         <source>Software and updates</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">Verkko</translation>
+        <translation>Verkkotyökalut</translation>
     </message>
     <message>
         <source>Desktop environment</source>
@@ -61,11 +61,11 @@
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">(käytössä oleva)</translation>
+        <translation>(Nykyinen)</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">Ei tuettu työpöytäympäristö</translation>
+        <translation>Tukematon työpöytäympäristö</translation>
     </message>
     <message>
         <source>(All installed)</source>
@@ -93,31 +93,27 @@
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">Luetaan kohtia...</translation>
+        <translation>Päivitys käynnissä...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Mitä haluat määrittää?</translation>
+        <translation>Mitä haluat konfiguroida?</translation>
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mate</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Mate)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon)</translation>
     </message>
 </context>
 </TS>

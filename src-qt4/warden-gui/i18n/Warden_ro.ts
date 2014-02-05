@@ -941,5 +941,9 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Hostname cannot contain spaces!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

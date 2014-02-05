@@ -5,11 +5,11 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation>Ole hyvä ja kirjoita salasanasi ajaaksesi tämän komennon järjestelmän oikeuksilla</translation>
+        <translation>Ole hyvä, ja kirjoita oma salasanasi ajaaksesi tämä komento pääkäyttäjän oikeuksilla</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation>Järjestelmän oikeuksia pyydetään</translation>
+        <translation>Pääkäyttäjän oikeuksia pyydetään</translation>
     </message>
     <message>
         <source>Access Denied</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Toggle command details</source>
-        <translation>Vaihda komennon yksityiskohtia</translation>
+        <translation>Muokkaa komentoa</translation>
     </message>
 </context>
 </TS>

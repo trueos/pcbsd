@@ -5,27 +5,27 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished"></translation>
+        <translation>Набір пакунків</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation>Production (Найбільш сабільний набір. Оновлюється щоквартально. Рекомендовано.)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished"></translation>
+        <translation>Edge (Часті оновлення. Найновіші функції. Для тестерів та розробників)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">Ок</translation>
+        <translation>Ок</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">Відміна</translation>
+        <translation>Відміна</translation>
     </message>
 </context>
 <context>
@@ -291,19 +291,19 @@
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished"></translation>
+        <translation>Простий (Мета пакунки)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished"></translation>
+        <translation>Розширений (Всі пакунки)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished"></translation>
+        <translation>Читання бази даних пакунків...</translation>
     </message>
 </context>
 </TS>

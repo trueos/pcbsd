@@ -788,5 +788,9 @@
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
         <translation>В&apos;язниця Linux (Запуск оточення Linux у в&apos;язниці) - Експериментально!</translation>
     </message>
+    <message>
+        <source>Hostname cannot contain spaces!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

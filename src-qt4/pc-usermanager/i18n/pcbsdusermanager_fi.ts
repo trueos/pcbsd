@@ -5,120 +5,107 @@
     <name>AddDlgCode</name>
     <message>
         <source>New Group</source>
-        <translation type="unfinished">Uusi &amp;ryhmä</translation>
+        <translation>Uusi ryhmä</translation>
     </message>
     <message>
         <source>Good Input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hyvä syöte</translation>
     </message>
     <message>
         <source>This field can only accept letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tähän kenttään vain kirjaimia ja numeroita</translation>
     </message>
     <message>
         <source>This username is already in use, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tämä käyttäjänimi on jo käytössä. Ole hyvä, ja valitse joku toinen.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasanat vastaavat toisiaan</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasanat eriävät toisistaan</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Huono syöte</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tähän kenttään ei kelpaa ! @ eikä :</translation>
     </message>
     <message>
         <source>Directory will be used</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hakemistoa tullaan käyttämään</translation>
     </message>
     <message>
         <source>Invalid Path!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Polku ei kelpaa</translation>
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hakemistoa ei ole olemassa, mutta se luodaan</translation>
     </message>
     <message>
         <source>Requested path is a file (not a directory!)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pyydetty polku on tiedosto (ei hakemisto)</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Käyttäjänimi-kenttä on tyhjä</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field may only contain letters and numbers (not spaces).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Käyttäjänimi voi sisältää vain kirjaimia ja numeroita (ilman välilyöntejä).</translation>
     </message>
     <message>
         <source>
 - The username you have chosen is already in use, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Valitsemasi käyttäjänimi on jo käytössä. Ole hyvä, ja valitse joku toinen.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Koko nimi -kenttä on tyhjä.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Koko nimi -kenttä ei voi sisältää ! @ eikä :</translation>
     </message>
     <message>
         <source>
 - Both password fields must be filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Molemmat salasanakentät tulee täyttää.</translation>
     </message>
     <message>
         <source>
 - Passwords don&apos;t match, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Salasanat eivät täsmää. Ole hyvä, ja yritä uudelleen.</translation>
     </message>
     <message>
         <source>
 - Invalid password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Virheellinen salasana</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virhe!</translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varoitus!</translation>
     </message>
     <message>
         <source>The field is empty</source>
@@ -126,40 +113,35 @@
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kotikansion sijoittaminen /home/-polun ulkopuolelle voi aiheuttaa yhteensopivuusongelmia joidenkin ohjelmien kanssa. Ei suositeltavaa!</translation>
     </message>
     <message>
         <source>- The &apos;Home Directory&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Kotihakemisto kenttää ei ole täytetty.</translation>
     </message>
     <message>
         <source>- The value entered as &apos;Home Directory&apos; is not a valid path.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Kotihakemiston kentän asetettu arvo ei kelpaa poluksi.</translation>
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Kotikansion sijoittaminen /home/-polun ulkopuolelle voi aiheuttaa yhteensopivuusongelmia joidenkin ohjelmien kanssa. Ei suositeltavaa!</translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Tiedosto valittu kotihakemistoksi, arvon tulee olla hakemisto.</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seuraavat virheet havaittiin, kun käyttäjää yritettiin lisätä:
+</translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seuraava, ei kriittinen, virhe havaittiin kun käyttäjää yritettiin lisätä. Haluatko silti jatkaa?
+</translation>
     </message>
 </context>
 <context>
@@ -182,7 +164,7 @@
     </message>
     <message>
         <source>Full Name:</source>
-        <translation>Kokonimi:</translation>
+        <translation>Koko nimi:</translation>
     </message>
     <message>
         <source>New &amp;Group</source>
@@ -226,51 +208,42 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salaa tiedostot:</translation>
     </message>
 </context>
 <context>
     <name>ChangePassCode</name>
     <message>
         <source>Change Password for &apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaihda käyttäjän &apos;</translation>
     </message>
     <message>
         <source>&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&apos; salasanaa</translation>
     </message>
     <message>
         <source>You must specify a password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sinun tulee antaa salasana</translation>
     </message>
     <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasanat eivät vastanneet. Molempien kenttien tulee sisältää sama arvo.</translation>
     </message>
     <message>
         <source>Invalid password, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virheellinen salasana. Ole hyvä, ja valitse toinen.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasanat vastaavat</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasanat eivät vastaa toisiaan</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Huono syöte</translation>
     </message>
 </context>
 <context>
@@ -308,7 +281,7 @@
     <name>MainDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>PC-BSD käyttäjähallinta</translation>
+        <translation>PC-BSD:n käyttäjienhallinta</translation>
     </message>
     <message>
         <source>&amp;Users</source>
@@ -348,7 +321,7 @@
     </message>
     <message>
         <source>Full Name:</source>
-        <translation>Kokonimi:</translation>
+        <translation>Koko nimi:</translation>
     </message>
     <message>
         <source>Chan&amp;ge Password...</source>
@@ -380,7 +353,7 @@
     </message>
     <message>
         <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD käyttäjähallinta - Monipuolinen tila</translation>
+        <translation>PC-BSD:n käyttäjienhallinta - Monipuolinen tila</translation>
     </message>
     <message>
         <source>Simple &amp;View</source>
@@ -395,40 +368,34 @@
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">PC-BSD käyttäjähallinta</translation>
+        <translation>PC-BSD käyttäjienhallinta</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulje</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käytä</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suorita odottavat muutokset</translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kaikkia muutoksia ei ole suoritettu. Haluatko että ne suoritetaan ennenkuin ohjelma suljetaan?</translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muokataan jail-käyttäjiä:</translation>
     </message>
 </context>
 <context>
     <name>SimpleAddCode</name>
     <message>
         <source>Good Input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hyvä syöte</translation>
     </message>
     <message>
         <source>This field can only accept letters and numbers</source>

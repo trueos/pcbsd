@@ -5,12 +5,11 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Äänilaitteet</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation>Alla voit vaihtaa oletus äänilaitetta ja testata äänentoistoa</translation>
+        <translation>Alla voit vaihtaa oletusäänilaitetta, ja testata äänentoistoa</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>
@@ -18,8 +17,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Käytä</translation>
     </message>
     <message>
         <source>&amp;Close</source>

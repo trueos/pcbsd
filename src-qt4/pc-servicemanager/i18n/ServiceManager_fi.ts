@@ -5,7 +5,7 @@
     <name>ServiceManager</name>
     <message>
         <source>Service Manager</source>
-        <translation>Palvelunhallinta</translation>
+        <translation>Palveluidenhallinta</translation>
     </message>
     <message>
         <source>Service Name</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Running</source>
-        <translation>Päällä</translation>
+        <translation>Käynnissä</translation>
     </message>
     <message>
         <source>Stopped</source>
@@ -41,23 +41,19 @@
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käytössä</translation>
     </message>
     <message>
         <source>Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ota käyttöön</translation>
     </message>
     <message>
         <source>Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poista käytöstä</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Poissa käytöstä</translation>
     </message>
     <message>
         <source>Unknown</source>
@@ -65,7 +61,7 @@
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation>Seuraavat palvelut ovat mahdollisia tässä järjestelmässä</translation>
+        <translation>Seuraavat palvelut on asennettu tähän järjestelmään</translation>
     </message>
     <message>
         <source>Checking...</source>
@@ -85,8 +81,7 @@
     </message>
     <message>
         <source>Service Action in progress...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palvelun toimintoa suoritetaan</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -98,13 +93,11 @@
     </message>
     <message>
         <source>The specified command failed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komennon suoritus epäonnistui</translation>
     </message>
     <message>
         <source>Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valmis</translation>
     </message>
     <message>
         <source>Close</source>
