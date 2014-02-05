@@ -177,6 +177,17 @@ QString Utils::getValFromCSHFile(QString envFile, QString envVal)
      line = stream.readLine();
      if ( line.indexOf("setenv " + envVal + " ") == 0 ) {
 	line.replace("setenv " + envVal + " ", "");
+
+	// Remove the ' or " from variable
+	if ( line.indexOf("'") == 0 ) {
+	   line = line.section("'", 1, 1);
+	   line = line.section("'", 0, 0);
+	}
+	if ( line.indexOf('"') == 0 ) {
+	   line = line.section('"', 1, 1);
+	   line = line.section('"', 0, 0);
+	}
+
         confFile.close();
 	return line;
      }
@@ -244,7 +255,7 @@ bool Utils::setValCSHFile(QString envFile, QString envName, QString envVal)
      line = stream.readLine();
      if ( line.indexOf("setenv " + envName + " ") == 0 ) {
 	if ( ! envVal.isEmpty() && ! added )
-	  shConf << "setenv " + envName + " " + envVal;
+	  shConf << "setenv " + envName + " '" + envVal + "'";
 	added = true;
      } else {
 	shConf << line;
@@ -254,7 +265,7 @@ bool Utils::setValCSHFile(QString envFile, QString envName, QString envVal)
   confFile.close();
 
   if (! added && ! envVal.isEmpty() )
-    shConf << "setenv "  + envName + " " + envVal;
+    shConf << "setenv "  + envName + " '" + envVal + "'";
 
   if ( confFile.open( QIODevice::WriteOnly ) ) {
         QTextStream stream( &confFile );
