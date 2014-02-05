@@ -7052,6 +7052,7 @@ mk_pbi_groups_file()
 			echo "Warning: No entry for \"$group\" in GIDs file..."
 			continue
 		fi
+		touch ${PBI_STAGEDIRMNT}/${PBI_INS_GROUPSFILE}
 		grep -q "^$group:" ${PBI_STAGEDIRMNT}/${PBI_INS_GROUPSFILE}
 		if [ $? -ne 0 ] ; then
 			echo "Saving gid details for group: $group"
@@ -7073,6 +7074,7 @@ mk_pbi_users_file()
 			echo "Warning: No entry for \"$user\" in UIDs file..."
 			continue
 		fi
+		touch ${PBI_STAGEDIRMNT}/${PBI_INS_USERSFILE}
 		grep -q "^$user:" ${PBI_STAGEDIRMNT}/${PBI_INS_USERSFILE}
 		if [ $? -ne 0 ] ; then
 			echo "Saving uid details for user: $user"
