@@ -897,9 +897,9 @@ void mainWin::applyNGChanges()
          pkgRDepList.clear();
 	 QProcess p;
          if ( wDir.isEmpty() )
-           p.start("pkg", QStringList() << "rquery" << "%n-%v:::%rn-%rv" << rmPkgs.at(i));
+           p.start("pkg", QStringList() << "query" << "%n-%v:::%rn-%rv" << rmPkgs.at(i));
          else
-           p.start("chroot", QStringList() << wDir << "pkg" << "rquery" << "%n-%v:::%rn-%rv" << rmPkgs.at(i) );
+           p.start("chroot", QStringList() << wDir << "pkg" << "query" << "%n-%v:::%rn-%rv" << rmPkgs.at(i) );
          while(p.state() == QProcess::Starting || p.state() == QProcess::Running) {
            p.waitForFinished(200);
            QCoreApplication::processEvents();
@@ -915,7 +915,7 @@ void mainWin::applyNGChanges()
              QString pName = rDeps.at(r).section(":::", 1, 1); 
 	     // Is this package installed?
 	     if ( pkgList.indexOf(pName) != -1 )
-               confirmText+= pName + " ";
+               confirmText+= pName + "\n";
          }
       }
    }
