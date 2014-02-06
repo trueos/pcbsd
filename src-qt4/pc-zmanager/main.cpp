@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <qtranslator.h>
 #include <qlocale.h>
-#include <QtSingleApplication>
+#include <qtsingleapplication.h>
 
 #include <unistd.h>
 #include <sys/types.h>
