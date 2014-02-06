@@ -34,7 +34,6 @@ void PCBSDUserManager::setupUMDialogs()
 {
     layout = new QGridLayout(widgetUserContainer);
     changesMade = false;
-
     //Init GUI
     if (getuid() == 0) //Check for root
     {
@@ -43,13 +42,20 @@ void PCBSDUserManager::setupUMDialogs()
        connect(pushClose, SIGNAL(clicked()), this, SLOT(slotClose()));
        connect(pushSave, SIGNAL(clicked()), this, SLOT(slotSave()));
 
+       //Setup all the classes
        back = new UserManagerBackend(wDir);
        advancedGui = new mainDlgCode();
        advancedGui->programInit(back, wDir);
        simpleGui = new SimpleDlgCode();
        simpleGui->programInit(back, wDir);
-       layout->addWidget(simpleGui);
- 
+       //Now load the appropriate GUI
+       settings = new QSettings("PC-BSD", "UserManager", this);
+       if(settings->value("basicview",true).toBool()){
+	 switchToSimple();
+       }else{
+	 switchToAdvanced();
+       }
+       //Connect Signals/Slots
        connect(advancedGui, SIGNAL(changed( bool )), this, SLOT(configChanged()));
        connect(simpleGui, SIGNAL(changed()), this, SLOT(configChanged()));
        connect(simpleGui, SIGNAL(advancedView()), this, SLOT(switchToAdvanced()));
@@ -73,6 +79,7 @@ void PCBSDUserManager::switchToAdvanced()
     layout->addWidget(advancedGui);
     advancedGui->setParent(widgetUserContainer);
     advancedGui->show();
+    settings->setValue("basicview",false);
 }
 
 void PCBSDUserManager::switchToSimple()
@@ -81,6 +88,7 @@ void PCBSDUserManager::switchToSimple()
     simpleGui->setParent(widgetUserContainer);
     layout->addWidget(simpleGui);
     simpleGui->show();
+    settings->setValue("basicview", true);
 }
 
 void PCBSDUserManager::configChanged()
