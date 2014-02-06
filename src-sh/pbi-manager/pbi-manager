@@ -1670,6 +1670,12 @@ get_pbi_progversion() {
 	# Check first if we have this pkg in PKGNG
 	if [ -n "$PBI_PKGNGBUILD" -a -z "$PBI_AB_NOPKGBUILD" ] ; then
 		testPkgVer="`pkg-static rquery '%v' ${PBI_MAKEPORT}`"
+		if [ -z "$testPkgVer" ] ; then
+			# Try one more time, just in case PKGNG was busy, silly database locking
+			sleepRand="`jot -r 1 1 90`"
+			sleep $sleepRand
+			testPkgVer="`pkg-static rquery '%v' ${PBI_MAKEPORT}`"
+		fi
 		if [ -n "$testPkgVer" ] ; then
 			PBI_PROGVERSION="$testPkgVer"
 			# If we have a REVISION, use it as well
