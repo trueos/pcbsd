@@ -6991,6 +6991,11 @@ do_pbi_make() {
 	# Auto-generate a external_links directive from plist info
 	mk_auto_ext_linksfile
 
+	# Cleanup any package leftovers
+	if [ -d "/usr/local/tmp/All" ] ; then
+		rm -rf /usr/local/tmp/All
+	fi
+
   	# Break here if we are only doing a build
 	if [ "${PBI_BUILDONLY}" = "YES" ] ; then exit_trap; fi
 
