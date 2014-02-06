@@ -51,7 +51,7 @@ QStringList UserManagerBackend::getAllUsers(int minId, int maxId) {
     QMap<QString, User>::Iterator it;
 
     for ( it = userList.begin(); it != userList.end(); ++it ) {
-	if ( (! it->getDeleted()) && (((it->getUid() >= minId) || (minId == -1)) && (it->getUid() <= maxId) || (maxId == -1) || (it->getUid() < 0)) ) {
+	if ( ( (! it->getDeleted()) && ((it->getUid() >= minId) || (minId == -1)) && ((it->getUid() <= maxId) || (maxId == -1)) ) || (it->getUid() < 0) ) {
 	    result.append(it->getUsername());
 	}
     }
