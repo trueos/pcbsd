@@ -28,6 +28,7 @@
 #define _PCBSDUSERMANAGER_H_
 
 #include <QDialog>
+#include <QSettings>
 
 #include "maindlgcode.h"
 #include "usermanagerback.h"
@@ -64,6 +65,7 @@ private:
     UserManagerBackend *back;
     SimpleDlgCode *simpleGui;
     QGridLayout *layout;
+    QSettings *settings;
     bool changesMade;
     QString wDir;
     QString wIP;
