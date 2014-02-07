@@ -327,7 +327,7 @@ check_worldports() {
 	mkdir ${PXEWORLD}/usr/local/etc 2>/dev/null
 	cp /etc/resolv.conf ${PXEWORLD}/etc/
 	cp /usr/local/etc/pkg.conf ${PXEWORLD}/usr/local/etc/
-	cp /usr/local/etc/pkg-pubkey.cert ${PXEWORLD}/usr/local/etc/
+	cp -r /usr/local/etc/pkg ${PXEWORLD}/usr/local/etc/
 
 	# Start by adding pcbsd-utils
 	rc_halt "pkg -c ${PXEWORLD} install -y pcbsd-utils"
