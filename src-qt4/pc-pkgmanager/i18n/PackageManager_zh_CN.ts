@@ -5,144 +5,117 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>配置</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包集合</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>生产环境(软件包每季度更新——推荐)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>前沿技术(软件包频繁更新——适用于测试和开发)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确认软件包更改</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统将进行以下更改。请确认并点击确定以继续。</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可用的更新</translation>
     </message>
     <message>
         <source>System Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统软件包管理器</translation>
     </message>
     <message>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加/删除软件包</translation>
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统软件包</translation>
     </message>
     <message>
         <source>Package Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包信息</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>描述</translation>
     </message>
     <message>
         <source>10 MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 MB</translation>
     </message>
     <message>
         <source>My Package 1.0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>我的软件包 1.0</translation>
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>http://www.pcbsd.org</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选项</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>应用(&amp;A)</translation>
     </message>
     <message>
         <source>Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包更新</translation>
     </message>
     <message>
         <source>Re&amp;scan packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重新扫描软件包(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Update packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新软件包(&amp;U)</translation>
     </message>
     <message>
         <source>Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包</translation>
     </message>
     <message>
         <source>Old Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>旧版本</translation>
     </message>
     <message>
         <source>New Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新版本</translation>
     </message>
     <message>
         <source>Installing updates</source>

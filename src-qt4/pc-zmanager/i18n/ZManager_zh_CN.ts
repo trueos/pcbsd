@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>将此更改递归保存到所有的子条目中</translation>
     </message>
     <message>
         <source>Property</source>
@@ -38,8 +37,7 @@
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从父项中继承</translation>
     </message>
     <message>
         <source>Revert changes</source>
@@ -48,8 +46,8 @@
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>控制当文件和目录创建时ACL条目如何继承。可选值包括
+discard，noallow，restricted，和passthrough。要查看这些值的描述，请参看ACL属性。</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.

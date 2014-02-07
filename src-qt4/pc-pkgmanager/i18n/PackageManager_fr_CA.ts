@@ -5,31 +5,27 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ensemble de Paquet</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (Paquets mis à jour trimestrielle - Recommandé)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bord (Paquets mis à jour fréquemment - Pour les essais et le développement)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Ok</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Annuler</translation>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context>
@@ -275,7 +271,7 @@
     </message>
     <message>
         <source>Processes Running</source>
-        <translation>Processus en cours       </translation>
+        <translation>Processus en cours</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
@@ -291,27 +287,23 @@
     </message>
     <message>
         <source>Downloading</source>
-        <translation>Téléchargement     </translation>
+        <translation>Téléchargement</translation>
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp; Basic (méta-paquets)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Avancée (tous les paquets)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configuration</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lecture de la base de données paquet...</translation>
     </message>
 </context>
 </TS>

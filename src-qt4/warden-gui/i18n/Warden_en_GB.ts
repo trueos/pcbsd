@@ -790,8 +790,7 @@
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname cannot contain spaces!</translation>
     </message>
 </context>
 </TS>

@@ -17,13 +17,11 @@
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Использовано/Всего            </translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процент %</translation>
     </message>
     <message>
         <source>Close</source>
@@ -34,8 +32,7 @@
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Диск почти полный</translation>
     </message>
 </context>
 <context>

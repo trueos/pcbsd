@@ -790,8 +790,7 @@
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Värdnamnet kan inte innehålla mellanslag!</translation>
     </message>
 </context>
 </TS>

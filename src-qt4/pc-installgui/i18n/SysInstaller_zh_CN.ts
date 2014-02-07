@@ -267,44 +267,37 @@
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>现在开始恢复？</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您的系统现在已恢复！
+点击完成以重启。重启之后你可以弹出安装介质。</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统恢复</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您的系统正在恢复中，所需时间的长短取决于您的备份大小以及网络状况。</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在安装元数据包：%1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在恢复系统：%1</translation>
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从USB中载入配置(&amp;L)</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>将配置保存到USB(&amp;S)</translation>
     </message>
 </context>
 <context>
@@ -366,8 +359,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>请选择要安装的软件。系统安装完毕后您也可以通过软件管理器(桌面系统)或&quot;pkg&quot;命令(服务器系统)添加/删除软件。</translation>
     </message>
 </context>
 <context>
@@ -677,33 +669,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>请选择系统要安装到的磁盘或分区。请注意，所选磁盘或主分区容量必须不小于20GB(安装服务器)，或50GB(安装桌面)。</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安装到SSD(禁用交换分区/atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有启动器！</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>原始系统数据信/挂载点将被自动恢复。</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>启动器(推荐GRUB)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>您已选择不安装启动器。您需要自行创建您的启动器。</translation>
     </message>
 </context>
 <context>
@@ -809,116 +795,97 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此向导指引你从Life-Preserver备份中恢复您的系统，点击下一步开始。 </translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>要开始，请输入备份服务器的主机名，用户名和端口号。</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>备份服务器</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>主机名</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH端口号</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>服务器验证</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>使用USB密钥</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>使用密码认证</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此服务器上有以下备份系统，请选择要恢复的。 </translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>恢复系统选项</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>恢复概要</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统恢复已就绪，点击完成以继续。</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>未找到密钥！</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>记忆棒中未发现认证密钥！
+请尝试其它USB或使用密码认证。</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>连接失败！</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无法连接到备份服务器！
+请检查服务器是否通畅并验证用户名和密码。</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无法连接到备份服务器！
+请检查主机名以及备份服务器是否通畅。</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>将从以下位置恢复：</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择要使用的SSH密钥</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>密钥文件：</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>如果您 将Life-Preserver密钥保存到了USB上，将其插入并选择USB密钥，不然的话请使用密钥认证。</translation>
     </message>
 </context>
 </TS>
