@@ -3905,8 +3905,10 @@ mk_extlink_entries() {
 					_mTar=`echo $tar | sed 's|^man/||g'`
 					_dTar="\$PBI_MANDIR/${_mTar}"
 					echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-					echo "if [ ! -d \"\$_bd\" ] ; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-					echo "ln ${_lop} $PBI_PROGDIRPATH/local/${src} \$PBI_MANDIR/${_mTar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "if [ ! -d \"\$_bd\" ]; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "if [ -e \"\$PBI_PROGDIRPATH/local/$src\" ]; then" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "  ln ${_lop} $PBI_PROGDIRPATH/local/${src} \$PBI_MANDIR/${_mTar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
 				else
 					_dTar="\$SYS_LOCALBASE/${tar}"
 					echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
