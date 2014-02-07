@@ -786,13 +786,11 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux Jail(在jail内运行Linux) - 实验性的！</translation>
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>主机名不可包含空格！</translation>
     </message>
 </context>
 </TS>
