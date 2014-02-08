@@ -9,23 +9,23 @@
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation>إحباط</translation>
+        <translation>أ&amp;حبط</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation>رجوع</translation>
+        <translation>&amp;رجوع</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation>التالي</translation>
+        <translation>ال&amp;تالي</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation>مرحبا بك في نظام PC-BSD ! يرجى اختيار لغتك ثم الضغط على زر التالي للإستمرار.</translation>
+        <translation>مرحبا بك في نظام PC-BSD ! إختر لغتك ثم إضغط على زر التالي للإستمرار.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation>تخصيص             </translation>
+        <translation>&amp;خصص</translation>
     </message>
     <message>
         <source>Summary</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation>اختيار القرص            </translation>
+        <translation>اختيار القرص</translation>
     </message>
     <message>
         <source>Installation</source>
@@ -136,8 +136,7 @@
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>يثبت الحزم... قد يأخذ هذا بعض الوقت...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
@@ -161,8 +160,7 @@
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>إلغاء التثبيت</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
@@ -182,13 +180,11 @@
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>يستخرج النظام ...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تعذر كشف أية أقراص. برنامج التثبيت سوف يغلق الآن.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
@@ -197,18 +193,15 @@
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>اكتشفنا أنك تستخدم نسخة 32 بت. إذا كان النظام الخاص بك قادرا على تشغيل 64 بت (معظم النظم المبنية بعد عام 2005)، فيجب أن تشغل نسخة 64 بت.</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>القرص أو القسم المحدد أصغر سعة من المطلوب وهو 1% جيجابايت. فشل التثبيت...</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تحميل ملف تكوين التثبيت من إصبع US</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
@@ -227,8 +220,7 @@
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>فضلا أدخل إصبع USB الآن، ثم اضغط على موافق للمتابعة.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
@@ -252,8 +244,7 @@
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>فضلا أدخل إصبع USB الآن، ثم اضغط على موافق للمتابعة.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
@@ -328,8 +319,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>يستعيد النظام: %1</translation>
     </message>
     <message>
         <source>&amp;Load config from USB</source>
@@ -346,28 +336,23 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">هذه الشاشة تسمح لك باختيار اللغة التي ترغب في التثبيت بها.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>هذه الشاشة تسمح لك باختيار نوع النظام الذي ترغب في تثبيته. أنقر فوق خصص لتغيير الحزم المحددة لنظامك</translation>
     </message>
     <message>
         <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>هذه الشاشة لعرض خيارات القرص المحدد حاليا. سوف أنقر فوق خصص لتغيير القرص الهدف، ونظم الملفات وغير ذلك</translation>
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>يتم تثبيت النظام الآن! إشرب فنجانا من القهوة واسترخ، وسوف يخطرك المثبت عندما يتم الانتهاء من ذلك.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تم تثبيت النظام الآن! أنقر فوق أنه لإعادة التشغيل. يجب عليك إخراج أي وسائط تثبيت قبل الولوج إلى النظام الجدي</translation>
     </message>
 </context>
 <context>
@@ -382,11 +367,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation>حفظ</translation>
+        <translation>إ&amp;حفظ</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>أ&amp;لغ</translation>
     </message>
     <message>
         <source>No Desktop</source>
@@ -421,8 +406,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أ&amp;غلق</translation>
     </message>
     <message>
         <source>Video driver:</source>
@@ -477,28 +461,25 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>موافق&amp;</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>أ&amp;لغ</translation>
     </message>
 </context>
 <context>
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أغل&amp;ق</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">أغل&amp;ق</translation>
     </message>
 </context>
 <context>
@@ -528,51 +509,42 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;طبق</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أ&amp;غلق</translation>
     </message>
 </context>
 <context>
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>هذا المعالج سوف يمشي معك خلال عملية الإعداد القرص. الرجاء اختيار طريقة الإعداد التي ترغب في استخدامها.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>وضع الإعداد</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الأساسي (جديد BSD أو تقسيم القرص)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>متقدم (لذوي الخبرة مع أنظمة الملفات)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>خبراء FreeBSD (وضع دليل CLI</translation>
     </message>
     <message>
         <source>Selected Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>القرص المحدد</translation>
     </message>
     <message>
         <source>Selected Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>القسم المحدد</translation>
     </message>
     <message>
         <source>Partition disk with GPT</source>
@@ -585,11 +557,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;إضافة</translation>
+        <translation>&amp;أضف</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;حذف</translation>
+        <translation>إ&amp;حذف</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
@@ -597,11 +569,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation>&amp;تشغيل الطرفية</translation>
+        <translation>&amp;شغل الطرفية</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>رجاءاً إختر ملخص القرص أدناه ثم أضغط إنهاء لحفظ إعداداتك.   </translation>
+        <translation>رجاءاً إختر ملخص القرص أدناه ثم أضغط أنه لحفظ إعداداتك.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -853,18 +825,15 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation>
-            عنوان IPv6</translation>
+        <translation>عنوان IPv</translation>
     </message>
     <message>
         <source>IPv6 Gateway</source>
-        <translation>
-            بوابة IPv6</translation>
+        <translation>بوابة IPv6</translation>
     </message>
     <message>
         <source>IPv6 Nameserver</source>
-        <translation>
-إسم خادم IPv6            </translation>
+        <translation>إسم خادم IPv</translation>
     </message>
     <message>
         <source>000.000.000.000; </source>

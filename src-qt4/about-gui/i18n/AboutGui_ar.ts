@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>قاعدة FreeBsd</translation>
+        <translation>مبني على FreeBsd</translation>
     </message>
     <message>
         <source>Arch:</source>
@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>Version du serveur X.org:</translation>
+        <translation>إصدار الخادم X.org:</translation>
     </message>
     <message>
         <source>System components...</source>

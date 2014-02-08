@@ -50,7 +50,7 @@ Keep these settings?</source>
     </message>
     <message>
         <source>24bits</source>
-        <translation>24bits</translation>
+        <translation>24 بت</translation>
     </message>
     <message>
         <source>Video Driver</source>
@@ -160,8 +160,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>السواقة:</translation>
     </message>
 </context>
 </TS>
