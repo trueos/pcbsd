@@ -6,6 +6,7 @@ Type=Application
 Categories=System;
 Name=Package Manager
 Name[af]=Pakket Bestuurder
+Name[ar]=مدير الحزم
 Name[bs]=Upravljač paketa
 Name[de]=Paketverwaltung
 Name[el]=Διαχειριστής πακέτων

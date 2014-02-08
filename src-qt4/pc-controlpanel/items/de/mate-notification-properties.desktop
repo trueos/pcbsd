@@ -10,7 +10,7 @@ OnlyShowIn=MATE;
 
 Name=Pop-Up Notifications
 Name[af]=Popup Kennisgevings
-Name[ar]=تنبيهات منبثقة
+Name[ar]=الإشعارات المنبثقة
 Name[ca]=Notificacions emergents
 Name[cs]=Automaticky otevíraná oznámení
 Name[da]=Pop op-påmindelser
@@ -44,7 +44,7 @@ Name[uk]=Спливаючі нотифікації
 Name[zh_CN]=弹出通知
 Comment=Set your pop-up notification preferences
 Comment[af]=Stel u popup kennisgeving voorkeure
-Comment[ar]=حدد تفضيلات التنبيهات
+Comment[ar]=تفضيلات الإشعارات المنبثقة
 Comment[ca]=Establiu les preferències de les notificacions emergents
 Comment[cs]=Nastaví předvolby automaticky otevíraných oznámení
 Comment[da]=Angiv dine præferencer for pop op-påmindelser
