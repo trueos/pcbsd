@@ -1,5 +1,5 @@
 DE_NAME="Gnome"
-XDG="YES"
+XDG="NO"
 DE_SU="gksu %s"
 DE_FILEMAN="nautilus %s"
 DE_TERMINAL="gnome-terminal"

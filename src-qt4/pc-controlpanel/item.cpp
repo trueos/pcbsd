@@ -339,12 +339,10 @@ bool QCPItem::launch()
             return true;
     }
 
-    /*if (misXDGLaunch)
+    if (misXDGLaunch)
         return launchXDG();
     else
-        return launchOwn();*/
-
-    return launchXDG();
+        return launchOwn();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
