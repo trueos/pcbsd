@@ -382,7 +382,7 @@
     </message>
     <message>
         <source>Choose a directory to save the finished .wdn file:</source>
-        <translation>Escolha um diretório para salvar o arquivo . wdn finalizado:</translation>
+        <translation>Escolha um diretório para salvar o arquivo .wdn finalizado:</translation>
     </message>
     <message>
         <source>Exporting Jail:</source>

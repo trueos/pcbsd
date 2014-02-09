@@ -119,128 +119,103 @@
     </message>
     <message>
         <source>Installing updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安装更新</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>文件(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查看(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>退出(&amp;Q)</translation>
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在检查更新</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包更新(%1)</translation>
     </message>
     <message>
         <source>Available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可用更新</translation>
     </message>
     <message>
         <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有可用的更新</translation>
     </message>
     <message>
         <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>开始软件更新</translation>
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>被以下软件需要：</translation>
     </message>
     <message>
         <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包与选定的更改之间有冲突，可以被自动删除。继续？</translation>
     </message>
     <message>
         <source>Package Conflicts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包冲突</translation>
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重试之前你需要手动处理冲突。</translation>
     </message>
     <message>
         <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在下载软件包……</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失败！</translation>
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包命令失败。一份输出拷贝保存在了/tmp/pkg-output.log</translation>
     </message>
     <message>
         <source>Finished!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>完成！</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包更改完成！</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在载入……请稍候……</translation>
     </message>
     <message>
         <source>No changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有更改</translation>
     </message>
     <message>
         <source>No changes to make!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有更改！</translation>
     </message>
     <message>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包将被删除：</translation>
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包需要以上软件包也要被删除：</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包将被安装：</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>

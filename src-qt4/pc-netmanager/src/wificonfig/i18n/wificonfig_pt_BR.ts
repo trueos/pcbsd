@@ -107,7 +107,7 @@
     </message>
     <message>
         <source>Netmask:</source>
-        <translation>Máscara de Rede:</translation>
+        <translation>Máscara de rede:</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
@@ -135,7 +135,7 @@
     </message>
     <message>
         <source>Configuration info</source>
-        <translation>Informações de Configuração</translation>
+        <translation>Informações de configuração</translation>
     </message>
     <message>
         <source>Mac/Ether:</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Traffic info</source>
-        <translation>Informações de Tráfego</translation>
+        <translation>Informação de tráfego</translation>
     </message>
     <message>
         <source>Packets:</source>

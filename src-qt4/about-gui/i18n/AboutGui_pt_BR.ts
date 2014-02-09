@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation>versão do servidor X.org:</translation>
+        <translation>Versão do servidor X.org:</translation>
     </message>
     <message>
         <source>System components...</source>
