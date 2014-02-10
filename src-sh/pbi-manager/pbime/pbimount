@@ -2,7 +2,7 @@
 
 NULLFS="/usr/pbi/.mount_nullfs"
 MNTLOCK="/usr/pbi/.mntLock"
-MNTSLEEP="sleep 0.1"
+MNTSLEEP="sleep 0.18"
 
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
