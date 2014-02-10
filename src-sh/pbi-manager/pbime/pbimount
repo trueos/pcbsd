@@ -106,7 +106,7 @@ mount_dirs() {
    fi
 
    # Sort out the items to mount into the PBI container
-   for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
+   for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" -e "(fusefs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
    do
      if [ "$i" = "/" ] ; then continue ; fi
      is_mounted "${pDir}/virtbase${i}" || ($NULLFS ${i} "${pDir}/virtbase${i}" ; $MNTSLEEP )
