@@ -2,11 +2,11 @@
 
 NULLFS="/usr/pbi/.mount_nullfs"
 MNTLOCK="/usr/pbi/.mntLock"
-MNTSLEEP="sleep 0.18"
+MNTSLEEP="sleep 0.3"
 
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
-   sync
+   sync ; sleep 0.1
    mount | grep -q "on ${1} (" 
    return $?
 }
