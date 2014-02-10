@@ -6340,6 +6340,7 @@ start_ext_ab() {
 
 	# Add some header info to log file
 	echo "Starting build: `date`" >${_od}/build.log
+	echo "For ${_mp} - ${PBI_PROGVERSION}"
 	echo "Build Command:" >>${_od}/build.log
 	echo "pbi_makeport ${_flags} ${_mp}" >>${_od}/build.log
 	echo "------------------------------------------------------" >>${_od}/build.log
@@ -6364,9 +6365,9 @@ ab_post_build()
 
 	if [ -e "${PBI_TMPDIR}/${build}.result" -a "`cat ${PBI_TMPDIR}/${build}.result`" = "0" ] ; then
 
-		echo "===> Build of ${_mp} was successfull! [$build]"
+		echo "===> Build of ${_mp} (${_pv}) was successfull! [$build]"
 
-		echo "$_pv" > "${_od}/pbi-version"
+		echo "${_pv}" > "${_od}/pbi-version"
 		echo "OK" > "${_od}/pbi-result"
 
 		# Save the mdate file
