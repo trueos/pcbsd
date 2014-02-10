@@ -18,8 +18,7 @@
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Obtendo Árvore de Ports do PC-BSD</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
@@ -28,13 +27,11 @@
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Processo em execução</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, pare o processo atual antes de fechar esta janela.</translation>
     </message>
 </context>
 <context>
@@ -73,7 +70,7 @@
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation>Você pode também gerar um relatório com informações sobre o seu sistema. Este relatório pode ser usado por técnicos para resolução de problemas.</translation>
+        <translation>Você também pode gerar um relatório com informações sobre o seu sistema. Este relatório pode ser usado por técnicos para resolução de problemas.</translation>
     </message>
     <message>
         <source>&amp;Save</source>

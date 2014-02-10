@@ -183,8 +183,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificando notificações do dispositivo</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
