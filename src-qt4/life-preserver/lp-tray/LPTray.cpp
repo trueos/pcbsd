@@ -128,6 +128,8 @@ void LPTray::slotSingleInstance(){
   if(msgdlg->isVisible()){ 
     msgdlg->raise(); 
     msgdlg->show();
+  }else{
+    startGUI();
   }
 }
 
