@@ -96,6 +96,7 @@ mount_dirs() {
    is_mounted "${pDir}/virtbase" || ( $NULLFS / "${pDir}/virtbase" ; $MNTSLEEP ; check_nvidia_linux "${1}" )
 
    is_mounted "${pDir}/virtbase/dev" || (mount -t devfs devfs "${pDir}/virtbase/dev" ; $MNTSLEEP )
+   is_mounted "${pDir}/virtbase/dev/fd" || (mount -t fdescfs fdesc "${pDir}/virtbase/dev/fd" ; $MNTSLEEP )
    is_mounted "${pDir}/virtbase/usr/local" || ($NULLFS ${1}/local "${pDir}/virtbase/usr/local" ; $MNTSLEEP )
    is_mounted "${pDir}/virtbase/var/run" || ($NULLFS ${pDir}/run "${pDir}/virtbase/var/run" ; $MNTSLEEP )
    if [ -d "/var/run/dbus" ] ; then
