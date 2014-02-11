@@ -4,10 +4,12 @@ NULLFS="/usr/pbi/.mount_nullfs"
 MNTLOCK="/usr/pbi/.mntLock"
 MNTSLEEP="sleep 0.3"
 
+# Grab list of current mounted file-systems
+mntOutput="`mount`"
+
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
-   sync ; sleep 0.1
-   mount | grep -q "on ${1} (" 
+   echo ${mntOutput} | grep -q "on ${1} ("
    return $?
 }
 
