@@ -44,6 +44,10 @@ display_de_info()
       XDG="YES"
     fi
       echo "XDG compatible: $XDG"
+      
+      if [ -n "$DE_CONFIG_APP" ] ; then
+      echo "Configuration app: $DE_CONFIG_APP"
+      fi
       echo "Sudo command: $DE_SU"  
       echo "File manager: $DE_FILEMAN"
       echo "Terminal: $DE_TERMINAL"
@@ -130,6 +134,10 @@ for PROF in `ls $PROFILES_PREFIX/*.profile`
   do
   DE_NAME=""
   XDG=""
+  DE_CONFIG_APP=""
+  DE_METAPACKAGE=""
+  DE_INSTALL_FILE=""
+  DE_SESSION_NAME=""
   DE_TERMINAL=$DEFAULT_TERMINAL
   DE_FILEMAN=""
   DE_TERMINAL=$DEFAULT_TERMINAL

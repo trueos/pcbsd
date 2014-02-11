@@ -5,6 +5,8 @@ DE_SESSION_NAME="KDE"
 DE_METAPACKAGE="KDE"
 DE_INSTALL_FILE="_startkde4  _startkde"
 
+DE_CONFIG_APP="systemsettings"
+
 DE_SU="kdesu %s"
 DE_TERMINAL="konsole"
 DE_TERMINAL_TITLE="--caption"
