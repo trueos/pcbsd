@@ -237,6 +237,7 @@ setup_fstab()
   then
     echo "procfs			/proc			procfs		rw		0	0" >> ${FSTAB}
     echo "linprocfs		/compat/linux/proc	linprocfs	rw		0	0" >> ${FSTAB}
+    echo "fdesc			/dev/fd		fdescfs		rw	0	0" >> ${FSTAB}
   fi
 
   # If we have a dedicated /boot, run the post-install setup of it now
