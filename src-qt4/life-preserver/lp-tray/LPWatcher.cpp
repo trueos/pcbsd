@@ -37,6 +37,9 @@ LPWatcher::LPWatcher() : QObject(){
     connect(watcher, SIGNAL(fileChanged(QString)),this,SLOT(fileChanged(QString)) );
   timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(checkPoolStatus()) );
+  iniTimer = new QTimer();
+    connect(iniTimer, SIGNAL(timeout()), this, SLOT(endInitPhase()) );
+    iniTimer->setSingleShot(true);
   //initialize the log file reader
   logfile = new QFile(FILE_LOG, this);
   LFSTREAM = new QTextStream(logfile);
@@ -56,21 +59,13 @@ LPWatcher::~LPWatcher(){
 //    PUBLIC FUNCTIONS
 // -----------------------------------
 void LPWatcher::start(){
-  if(!logfile->exists()){
-    QString dir = FILE_LOG;
-	  dir.chop( dir.section("/",-1).count()+1 );
-    if(!QFile::exists(dir)){ system( QString("mkdir -p "+dir).toUtf8() ); }
-    system( QString("touch "+FILE_LOG).toUtf8() );
-  }
-  //Read the current state of the log file
-  logfile->open(QIODevice::ReadOnly | QIODevice::Text);
-  readLogFile(true); //do this quietly the first time through
-  //Now start up the log file watcher
-  watcher->addPath(FILE_LOG);
+  INIT=true;
+  setupLogFile();
   //Now check for any current errors in the LPbackend
   checkPoolStatus();
   //And start up the error file watcher
   if(!timer->isActive()){ timer->start(sysCheckTime); }
+  iniTimer->start(30000); //30 seconds of initialization phase
 }
 
 void LPWatcher::stop(){
@@ -142,9 +137,30 @@ bool LPWatcher::hasError(){
   return (LOGS.value(20)=="ERROR" || LOGS.contains(30) || LOGS.value(40)=="ERROR" || LOGS.value(50)=="ERROR" || LOGS.value(60)=="ERROR");
 }
 
+bool LPWatcher::initPhase(){
+  return INIT;
+}
 // -------------------------------------
 //    PRIVATE FUNCTIONS
 // -------------------------------------
+void LPWatcher::setupLogFile(){
+ //Tray now has user permissions and cannot create files/dirs in /var
+ /*if(!logfile->exists()){
+    QString dir = FILE_LOG;
+	  dir.chop( dir.section("/",-1).count()+1 );
+    if(!QFile::exists(dir)){ system( QString("mkdir -p "+dir).toUtf8() ); }
+    system( QString("touch "+FILE_LOG).toUtf8() );
+  }*/
+	
+  //Read the current state of the log file
+  if(logfile->exists()){
+    logfile->open(QIODevice::ReadOnly | QIODevice::Text);
+    readLogFile(true); //do this quietly the first time through
+    //Now start up the log file watcher
+    watcher->addPath(FILE_LOG);	
+  }
+}
+
 void LPWatcher::readLogFile(bool quiet){
   QStringList reppools = listReplicatedPools();
   QTextStream in(logfile);
@@ -385,6 +401,9 @@ void LPWatcher::fileChanged(QString file){
 }
 
 void LPWatcher::checkPoolStatus(){
+  if(watcher->files().isEmpty()){
+    setupLogFile(); //try it now - might have been created in the meantime
+  }
   //Now check zpool status for bad/running statuses
   QStringList zstat = getCmdOutput("zpool status");
     //parse the output
@@ -577,4 +596,8 @@ void LPWatcher::checkPoolStatus(){
   else if(newresilver){ emit MessageAvailable("resilver"); }
   else if(newscrub){ emit MessageAvailable("scrub"); }
   else{ emit StatusUpdated(); }
+}
+
+void LPWatcher::endInitPhase(){
+  INIT=false;
 }
