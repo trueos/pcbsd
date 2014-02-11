@@ -41,6 +41,8 @@ qt4-iconengines-\*.txz
 qt4-imageformats-\*.txz
 qt4-inputmethods-\*.txz
 nvidia-driver-\*.txz
+nvidia-settings-\*.txz
+nvidia-xconfig-\*.txz
 xwd-\*.txz
 xvkbd-\*.txz
 fribidi-\*.txz
