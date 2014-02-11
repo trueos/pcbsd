@@ -52,12 +52,54 @@ display_de_info()
       echo "Terminal command separate args: $DE_TERMINAL_SEPARATE_ARGS"
 }
 
+check_instaled()
+{
+  if [ -n "$DE_METAPACKAGE" ]
+  then
+    pc-metapkgmanager status $DE_METAPACKAGE | grep "is installed" >/dev/null
+    if [ $? -eq 0 ] ; then
+      DE_INSTALLED=1
+    fi
+  fi
+  if [ -n "$DE_INSTALL_FILE"  ]
+  then
+    for I_FILE in $DE_INSTALL_FILE
+    do
+      which $I_FILE >/dev/null 2>/dev/null
+      if [ $? -eq 0 ] ; then
+	DE_INSTALLED=1 
+      fi
+    done
+  fi 
+  
+  if [ -n "$DE_METAPACKAGE" ] && [ -n "$DE_INSTALL_FILE" ]
+  then      
+    installed
+  fi
+}
+
+check_active()
+{
+  if [ -n "$DE_SESSION_NAME" ]
+  then
+    if [ "$DE_SESSION_NAME" == "$PCDM_SESSION" ] ; then
+      DE_ACTIVE=1
+  fi
+  else
+    active  
+  fi
+}
+
 parse_all()
 {
   for PROF in `ls $PROFILES_PREFIX/*.profile`
   do
   DE_NAME=""
   XDG=""
+  DE_CONFIG_APP=""
+  DE_METAPACKAGE=""
+  DE_INSTALL_FILE=""
+  DE_SESSION_NAME=""
   DE_SU=$DEFAULT_SUDO
   DE_FILEMAN=""
   DE_TERMINAL=$DEFAULT_TERMINAL
@@ -67,11 +109,11 @@ parse_all()
   DE_INSTALLED=0
   DE_ACTIVE=0
 
-  . $PROF
+  . $PROF  
 
-  active
-  installed
-
+  check_instaled
+  check_active
+  
   if  [ $DE_ACTIVE -eq 1 ] ||  ( [ $DE_INSTALLED -eq 1 ] && [ $SHOW_INSTALLED -eq 1 ] ) || [ $SHOW_ALL -eq 1 ]
   then
     display_de_info
@@ -100,7 +142,7 @@ for PROF in `ls $PROFILES_PREFIX/*.profile`
 
   . $PROF
 
-  active
+  check_active
 
   if [ $DE_ACTIVE -eq 1 ] ; then
     if [ $SHOW_TERMINAL -eq 1 ] ; then
@@ -117,6 +159,7 @@ for PROF in `ls $PROFILES_PREFIX/*.profile`
   done
 
 }
+
 
 
 if [ "$1" = "-help" ] || [ "$1" = "--help" ] || [ "$1" = "-?" ] 
