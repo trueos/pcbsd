@@ -442,7 +442,7 @@ void MainGUI::on_actionFreeBSD_Ports_triggered(){
 
 void MainGUI::on_actionPBI_Modules_triggered(){
   //Open the PC-BSD wiki to the module builders guide
-   QString target_url = "http://wiki.pcbsd.org/index.php/PBI_Module_Builder_Guide/9.2";
+   QString target_url = "http://wiki.pcbsd.org/index.php/PBI_Module_Builder_Guide/10.0";
    qDebug() << "Opening URL:" << target_url; 
    target_url.prepend("xdg-open ");
    system(target_url.toUtf8());
