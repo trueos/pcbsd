@@ -384,18 +384,6 @@
         <translation>Spara bygg-loggen</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>System</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>Alternativ</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Information</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Verktygsfält</translation>
     </message>
@@ -470,10 +458,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>Komprimera aktuell modul för distribuering</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>Om EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -771,6 +755,34 @@
         <source>Build PBI (Done)</source>
         <translation>Bygg PBI (Klar)</translation>
     </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -967,7 +979,7 @@
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">PBI Byggen</translation>
+        <translation>PBI Byggen</translation>
     </message>
     <message>
         <source>External Utilities</source>

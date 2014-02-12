@@ -5,8 +5,7 @@
     <name>DialogFSProp</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>النافذة</translation>
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
@@ -15,38 +14,31 @@
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الخاصية</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>القيم</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>المصدر</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أضف خاصية للمستخدم</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>إمسح خاصية المستخدم</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ورث من المستوى الأب</translation>
     </message>
     <message>
         <source>Revert changes</source>
@@ -350,8 +342,7 @@ from the supported software release.</source>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>هذه الخاصية غير مدعومة FreeBSD</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
@@ -408,8 +399,7 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>لا يمكن تعديل هذه الخاصية بعد إنشاء النظام</translation>
     </message>
     <message>
         <source>User Property</source>
@@ -434,18 +424,15 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[مضاف]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[معدل]</translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>خاصية المستخدم</translation>
     </message>
     <message>
         <source>Device Menu</source>
@@ -641,8 +628,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 ج.ب.</translation>
     </message>
     <message>
         <source>Device:</source>
@@ -656,13 +642,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أكبر كتلة حرة المتاحة</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الحجم الكلي:</translation>
     </message>
     <message>
         <source>Current layout:</source>
@@ -686,83 +670,67 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الحجم</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>اللون</translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>حجم القسم الجديد:</translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>باي</translation>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>كيلو بايت</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ميجا بايت</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>جيجا بايت</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تيرا بايت</translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>نوع القسم:</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-zfs</translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">freebsd-ufs</translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">freebsd</translation>
     </message>
     <message>
         <source>freebsd-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-boot</translation>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-swap</translation>
     </message>
     <message>
         <source>bios-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bios-boot</translation>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>efi</translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
@@ -771,13 +739,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>** FREE **</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>** حر **</translation>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>لا توجد مساحة حرة (فارغة)!</translation>
     </message>
 </context>
 <context>
@@ -789,13 +755,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الخاصية</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>القيمة</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
@@ -968,13 +932,11 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>نظام ملفات جديد</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الإسم:</translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
@@ -1038,38 +1000,31 @@ crash dump.
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الضغط =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>إيقاف</translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تشغيل</translation>
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lzjb</translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zle</translation>
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip</translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-1</translation>
     </message>
     <message>
         <source>gzip-2</source>
@@ -1116,23 +1071,19 @@ crash dump.
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>مدير الأقراص PCBS</translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الأقراص</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الجهاز</translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الحالة</translation>
     </message>
     <message>
         <source>ZFS Pools</source>

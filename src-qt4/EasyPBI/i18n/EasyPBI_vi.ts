@@ -384,18 +384,6 @@
         <translation>Tiết kiệm xây dựng Đăng nhập</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>Hệ thống</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>Tùy chọn</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Các thông tin</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Thanh công cụ</translation>
     </message>
@@ -470,10 +458,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>Nén các mô-đun hiện tại để phân phối</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>về EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -800,6 +784,34 @@
         <source>Build PBI (Done)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

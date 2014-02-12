@@ -97,23 +97,19 @@
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تحديثات الحزم متاحة</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تتوفر تحديثات حزم هامة. انقر هنا لتثبيتها!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>بداية مدير الحزم</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تحديثات الحزم متاحة</translation>
     </message>
 </context>
 </TS>

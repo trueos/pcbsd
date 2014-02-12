@@ -155,8 +155,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الوضوح:</translation>
     </message>
     <message>
         <source>Driver:</source>
