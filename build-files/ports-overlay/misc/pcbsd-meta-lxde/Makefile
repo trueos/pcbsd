@@ -18,7 +18,8 @@ RUN_DEPENDS=	lxde-meta>=0:${PORTSDIR}/x11/lxde-meta \
 		obkey>=0:${PORTSDIR}/x11-wm/obkey \
 		leafpad>=0:${PORTSDIR}/editors/leafpad \
 		lxappearance>=0:${PORTSDIR}/x11-themes/lxappearance \
-		lxmenu-data>=0:${PORTSDIR}/x11/lxmenu-data
+		lxmenu-data>=0:${PORTSDIR}/x11/lxmenu-data \
+		xscreensaver:${PORTSDIR}/x11/xscreensaver
 
 NO_BUILD=	yes
 
