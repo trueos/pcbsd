@@ -5,8 +5,7 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>التبديل بين تخطيط الولايات المتحدة وتخطيط المستخدم المحدد</translation>
     </message>
     <message>
         <source>&amp;Back</source>
@@ -78,8 +77,7 @@
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">تغيير لغة التثبيت</translation>
     </message>
     <message>
         <source>Set the system timezone</source>

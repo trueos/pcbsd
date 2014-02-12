@@ -2,7 +2,7 @@
 
 NULLFS="/usr/pbi/.mount_nullfs"
 MNTLOCK="/usr/pbi/.mntLock"
-MNTSLEEP="sleep 0.3"
+MNTSLEEP="sleep 0.5"
 
 # Grab list of current mounted file-systems
 mntOutput="`mount`"
@@ -136,7 +136,7 @@ mount_dirs() {
 
    undo_mount_lock
 
-   sleep 0.2
+   sleep 1
    sync
 
    # Copy over the system command

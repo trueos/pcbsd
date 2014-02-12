@@ -386,18 +386,6 @@
         <translation>儲存建置日誌</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>系統</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>選項</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>資訊</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>工具列</translation>
     </message>
@@ -472,10 +460,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>壓縮當前模組以方便分發</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>關於 EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -802,6 +786,34 @@
         <source>Build PBI (Done)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

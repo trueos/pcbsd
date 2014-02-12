@@ -90,157 +90,157 @@
 <context>
     <name>LPWatcher</name>
     <message>
-        <location filename="../LPWatcher.cpp" line="165"/>
+        <location filename="../LPWatcher.cpp" line="181"/>
         <source>New snapshot of %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="166"/>
+        <location filename="../LPWatcher.cpp" line="182"/>
         <source>Creating snapshot for %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="181"/>
+        <location filename="../LPWatcher.cpp" line="197"/>
         <source>Replication Starting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="182"/>
+        <location filename="../LPWatcher.cpp" line="198"/>
         <source>Starting replication for %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="185"/>
+        <location filename="../LPWatcher.cpp" line="201"/>
         <source>Replication Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="196"/>
+        <location filename="../LPWatcher.cpp" line="212"/>
         <source>Finished Replication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="197"/>
+        <location filename="../LPWatcher.cpp" line="213"/>
         <source>Finished replication for %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="221"/>
+        <location filename="../LPWatcher.cpp" line="237"/>
         <source>Replication Failed for %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="221"/>
+        <location filename="../LPWatcher.cpp" line="237"/>
         <source>Logfile available at: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="224"/>
+        <location filename="../LPWatcher.cpp" line="240"/>
         <source>Replication Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="228"/>
+        <location filename="../LPWatcher.cpp" line="244"/>
         <source>Replication Error Log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="279"/>
+        <location filename="../LPWatcher.cpp" line="295"/>
         <source>Replicating %1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="416"/>
+        <location filename="../LPWatcher.cpp" line="435"/>
         <source>Scrub repaired %1 bad blocks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="417"/>
+        <location filename="../LPWatcher.cpp" line="436"/>
         <source>Scrub repaired %1 blocks in %2 with %3 errors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="421"/>
+        <location filename="../LPWatcher.cpp" line="440"/>
         <source>Scrub completed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="422"/>
+        <location filename="../LPWatcher.cpp" line="441"/>
         <source>Scrub completed without needing repairs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="434"/>
-        <location filename="../LPWatcher.cpp" line="435"/>
+        <location filename="../LPWatcher.cpp" line="453"/>
+        <location filename="../LPWatcher.cpp" line="454"/>
         <source>Scrub cancelled for %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="446"/>
-        <location filename="../LPWatcher.cpp" line="447"/>
+        <location filename="../LPWatcher.cpp" line="465"/>
+        <location filename="../LPWatcher.cpp" line="466"/>
         <source>Scrubbing %1: %2 (%3 remaining)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="472"/>
-        <location filename="../LPWatcher.cpp" line="474"/>
+        <location filename="../LPWatcher.cpp" line="491"/>
+        <location filename="../LPWatcher.cpp" line="493"/>
         <source>Resilvering: %1 (%2 remaining)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="473"/>
+        <location filename="../LPWatcher.cpp" line="492"/>
         <source>Resilvering Started: %1 remaining </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="496"/>
-        <location filename="../LPWatcher.cpp" line="497"/>
+        <location filename="../LPWatcher.cpp" line="515"/>
+        <location filename="../LPWatcher.cpp" line="516"/>
         <source>Resilver completed in %1 with %2 errors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="500"/>
-        <location filename="../LPWatcher.cpp" line="501"/>
+        <location filename="../LPWatcher.cpp" line="519"/>
+        <location filename="../LPWatcher.cpp" line="520"/>
         <source>Resilver completed successfully in %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="532"/>
+        <location filename="../LPWatcher.cpp" line="551"/>
         <source>The pool is in a degraded state. See additional device error(s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="533"/>
+        <location filename="../LPWatcher.cpp" line="552"/>
         <source>%1 is degraded.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="537"/>
+        <location filename="../LPWatcher.cpp" line="556"/>
         <source>The device is faulty, and should be replaced.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="538"/>
+        <location filename="../LPWatcher.cpp" line="557"/>
         <source>%1 is faulty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="542"/>
+        <location filename="../LPWatcher.cpp" line="561"/>
         <source>The device was removed, and should be either be re-attached or replaced.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="543"/>
+        <location filename="../LPWatcher.cpp" line="562"/>
         <source>%1 was removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="547"/>
+        <location filename="../LPWatcher.cpp" line="566"/>
         <source>The device is unavailable and should be re-added to the pool.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWatcher.cpp" line="548"/>
+        <location filename="../LPWatcher.cpp" line="567"/>
         <source>%1 is unavailable.</source>
         <translation type="unfinished"></translation>
     </message>

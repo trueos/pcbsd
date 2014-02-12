@@ -24,6 +24,8 @@
 
 #include <QDebug>
 #include <QToolTip>
+#include <QPainter>
+
 #include "mainwnd.h"
 #include "ui_mainwnd.h"
 #include "deinfo.h"
@@ -44,6 +46,8 @@
 
 #define PBI_INSTALLED_DIRECTORY "/var/db/pbi/installed"
 
+#define DE_CONFIG_APP_MARK ":/images/images/config.png"
+
 static QString DETEXT;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -62,8 +66,7 @@ MainWnd::MainWnd(QWidget *parent) :
     if (InstalledDEList.active())
     {
         mCurrentDE = *InstalledDEList.active();
-        mvEnabledDE.push_back(mCurrentDE.mName);
-	qDebug() << "Current DE: " << mCurrentDE.mName;
+        mvEnabledDE.push_back(mCurrentDE.Name);
     }    
 
     DETEXT = tr("Desktop environment");
@@ -71,6 +74,8 @@ MainWnd::MainWnd(QWidget *parent) :
     DEChoiseMenu = new QMenu("", this);
     setupDEChooser();
     fillGroups();
+
+    refreshDEConfigureApp();
 
     QPalette tP;
     tP.setColor(QPalette::Inactive, QPalette::ToolTipBase, QColor("white"));
@@ -100,8 +105,6 @@ void MainWnd::changeEvent(QEvent *e)
 ///////////////////////////////////////////////////////////////////////////////
 void MainWnd::setupGroups()
 {
-
-    //qDebug() << "Running setup groups";
     setupGroup(&SoftwareList, ui->SoftwareGBox);
     setupGroup(&SystemList, ui->SystemGBox);
     setupGroup(&HardwareList, ui->HardwareGBox);
@@ -117,14 +120,12 @@ void MainWnd::setupGroup(QGroupList** List, QWidget* Parrent)
 	(*List)=new QGroupList(Parrent);
 	layout->addWidget(*List);
 	Parrent->setLayout(layout); 
-        //qDebug() << "SetupGroup";
     QObject::connect(*List, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(on_itemActivated(QListWidgetItem*)));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWnd::fillGroups()
 {
-        //qDebug() << "Running fillGroups";
     mRefreshMutex.lock();
 
     bool isVisible;
@@ -178,8 +179,6 @@ void MainWnd::fillGroups()
           ToolsList->update();
           DEList->update();
           NetworkingList->update();
-          //qDebug() << NetworkingList->sizeHintForRow(0);
-          //qDebug() << NetworkingList->sizeHintForColumn(0);
     }
 
     mRefreshMutex.unlock();
@@ -237,6 +236,7 @@ void MainWnd::on_lineEdit_textChanged(QString Text)
 void MainWnd::on_toolButton_2_clicked()
 {
 	fillGroups();
+    //InstalledDEList.active()->
 	on_lineEdit_textChanged(ui->lineEdit->text());
 }
 
@@ -262,35 +262,33 @@ void MainWnd::setupDEChooser()
     if (InstalledDEList.byName(DEName))\
     {\
         ui->action_name->setVisible(true);\
-        if (InstalledDEList.byName(DEName)->misActive){\
+        if (InstalledDEList.byName(DEName)->isActive){\
             ui->action_name->setText(QString(DEName) + Current);\
             ui->DEChooserButton->setIcon(ui->action_name->icon());}\
         else\
             ui->action_name->setText(QString(DEName));\
         }else{ui->action_name->setVisible(false);}
 
-SETUP_ACTION( actionKDE, "KDE" );
-SETUP_ACTION( actionGnome, "Gnome" );
-SETUP_ACTION( actionXFCE, "XFCE" );
-SETUP_ACTION( actionLXDE, "LXDE" );
-SETUP_ACTION( actionEnlightenment, "Enlightenment" );
-SETUP_ACTION( actionMate, "Mate" );
-SETUP_ACTION( actionCinnamon, "Cinnamon" );
+    SETUP_ACTION( actionKDE, "KDE" );
+    SETUP_ACTION( actionGnome, "Gnome" );
+    SETUP_ACTION( actionXFCE, "XFCE" );
+    SETUP_ACTION( actionLXDE, "LXDE" );
+    SETUP_ACTION( actionEnlightenment, "Enlightenment" );
+    SETUP_ACTION( actionMate, "Mate" );
+    SETUP_ACTION( actionCinnamon, "Cinnamon" );
 
 #undef SETUP_ACTION
 
-        if (!InstalledDEList.active())
+    if (!InstalledDEList.active())
 	{
-		qDebug() << "Unsupported DE";
 		ui->actionUnsupported->setText(Unsupported + Current);
 		ui->DEChooserButton->setIcon(ui->actionUnsupported->icon());
 		ui->actionUnsupported->setVisible(true);
-	}else{
-		qDebug() << "Supported DE";
-		ui->actionUnsupported->setVisible(false);
+    }else{
+        ui->actionUnsupported->setVisible(false);
 	}
 
-        ui->DEChooserButton->setVisible(InstalledDEList.size()>1);
+    ui->DEChooserButton->setVisible(InstalledDEList.size()>1);
 
 }
 
@@ -302,7 +300,7 @@ void MainWnd::on_actionAll_triggered()
     mvEnabledDE.clear();
     for (int i=0; i<InstalledDEList.size(); i++)
     {
-        mvEnabledDE.push_back(InstalledDEList[i].mName);
+        mvEnabledDE.push_back(InstalledDEList[i].Name);
     }
 
     ui->DEGBox->setTitle(DETEXT + " " + tr ("(All installed)"));
@@ -317,7 +315,7 @@ void MainWnd::on_actionAll_triggered()
 void MainWnd::on_actionKDE_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionKDE->icon());
-    if (mCurrentDE.mName.trimmed().compare("KDE", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("KDE", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(KDE)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -327,6 +325,7 @@ void MainWnd::on_actionKDE_triggered()
 
     misDisplayDEName = false;
 
+
     //refresh
     on_toolButton_2_clicked();
 }
@@ -335,7 +334,7 @@ void MainWnd::on_actionKDE_triggered()
 void MainWnd::on_actionLXDE_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionLXDE->icon());
-    if (mCurrentDE.mName.trimmed().compare("LXDE", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("LXDE", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(LXDE)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -353,7 +352,7 @@ void MainWnd::on_actionLXDE_triggered()
 void MainWnd::on_actionGnome_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionGnome->icon());
-    if (mCurrentDE.mName.trimmed().compare("gnome", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("gnome", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Gnome)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -371,7 +370,7 @@ void MainWnd::on_actionGnome_triggered()
 void MainWnd::on_actionEnlightenment_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionEnlightenment->icon());
-    if (mCurrentDE.mName.trimmed().compare("Enlightenment", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("Enlightenment", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Enlightenment)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -390,7 +389,7 @@ void MainWnd::on_actionEnlightenment_triggered()
 void MainWnd::on_actionMate_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionMate->icon());
-    if (mCurrentDE.mName.trimmed().compare("Mate", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("Mate", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Mate)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -408,7 +407,7 @@ void MainWnd::on_actionMate_triggered()
 void MainWnd::on_actionCinnamon_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionCinnamon->icon());
-    if (mCurrentDE.mName.trimmed().compare("Cinnamon", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("Cinnamon", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Cinnamon)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -426,7 +425,7 @@ void MainWnd::on_actionCinnamon_triggered()
 void MainWnd::on_actionXFCE_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionXFCE->icon());
-    if (mCurrentDE.mName.trimmed().compare("XFCE", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("XFCE", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(XFCE)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -446,7 +445,7 @@ void MainWnd::on_actionUnsupported_triggered()
 
 	misDisplayDEName = false;
 	//refresh
-	on_toolButton_2_clicked();
+	on_toolButton_2_clicked();    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -497,4 +496,83 @@ bool MainWnd::checkUserGroup(QString groupName)
             return true;
 
    return false;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::refreshDEConfigureApp()
+{
+    //ui->deLaunchConfigApp->setIcon( ui->DEChooserButton->icon() );
+    if (mvEnabledDE.size() != 1)
+    {
+        ui->deLaunchConfigApp->setVisible(false);
+        return;
+    }
+
+    pcbsd::DesktopEnvironmentInfo* de = InstalledDEList.byName(mvEnabledDE[0]);
+    if (!de)
+    {
+        ui->deLaunchConfigApp->setVisible(false);
+        return;
+    }
+
+
+
+    if (!de->ConfigurationApplication.length())
+    {
+        ui->deLaunchConfigApp->setVisible(false);
+        return;
+    }
+
+    //make icon
+    QPixmap orig(ui->deLaunchConfigApp->iconSize());
+
+    int sx = ui->deLaunchConfigApp->iconSize().width();
+    int sy = ui->deLaunchConfigApp->iconSize().height();
+
+    QPixmap pix;
+    orig.fill(Qt::transparent);
+    QPainter painter(&orig);
+    painter.drawPixmap(0, 0, sx, sy, ui->DEChooserButton->icon().pixmap(sx, sy));
+    pix.load(DE_CONFIG_APP_MARK);
+    painter.drawPixmap(orig.width() - pix.width(), orig.height() - pix.height() , pix);
+    ui->deLaunchConfigApp->setIcon(QIcon(orig));
+
+    ui->deLaunchConfigApp->setVisible(true);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_DEChooserButton_triggered(QAction *arg1)
+{
+    Q_UNUSED(arg1);
+    refreshDEConfigureApp();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_deLaunchConfigApp_clicked()
+{
+    if (mvEnabledDE.size() != 1)
+    {
+        ui->deLaunchConfigApp->setVisible(false);
+        return;
+    }
+
+    pcbsd::DesktopEnvironmentInfo* de = InstalledDEList.byName(mvEnabledDE[0]);
+    if (!de)
+    {
+        return;
+    }
+
+    if (!de->ConfigurationApplication.length())
+    {
+        return;
+    }
+
+    QProcess process;
+
+    //TODO: smarter args parsing (including quotes)
+    QStringList proc_args = de->ConfigurationApplication.split(" ",QString::SkipEmptyParts);
+
+    QString proc = proc_args[0];
+    proc_args.pop_front();
+    process.startDetached(proc, proc_args);
 }

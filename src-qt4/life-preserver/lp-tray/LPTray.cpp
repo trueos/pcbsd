@@ -128,7 +128,7 @@ void LPTray::slotSingleInstance(){
   if(msgdlg->isVisible()){ 
     msgdlg->raise(); 
     msgdlg->show();
-  }else{
+  }else if(!watcher->initPhase()){
     startGUI();
   }
 }

@@ -1,377 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fr_CA">
+<TS version="2.0">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished"></translation>
+        <translation>Outil de rapport de bogues PC-BSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="34"/>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît sélectionnez le composant où l&apos;erreur se produit.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="69"/>
-        <location filename="../mainwindow.ui" line="143"/>
         <source>FreeBSD base system</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeBSD système de base</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <location filename="../mainwindow.ui" line="212"/>
         <source>PC-BSD base system</source>
-        <translation type="unfinished"></translation>
+        <translation>PC-BSD système de base</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
         <source>Xorg server</source>
-        <translation type="unfinished"></translation>
+        <translation>Xorg seveur</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <location filename="../mainwindow.ui" line="387"/>
         <source>Desktop environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Environnement Bureau</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="100"/>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished"></translation>
+        <translation>Logiciels FreeBSD (ports/packages)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="107"/>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished"></translation>
+        <translation>PC-BSD logiciels (pbi)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="174"/>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Soumettre un rapport de bogue en utilisant le mécanisme SEND-PR de FreeBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Envoyer un email à la liste de bogues de diffusion FreeBSD. Visitez le site Web suivant pour vous abonner ou consulter les archives de cette liste&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="243"/>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Soumettre un rapport de bogue en utilisant le mécanisme de trac de PC-BSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="263"/>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer un e-mail à la liste de test PC-BSD. Visitez le site Web suivant pour vous abonnez ou consulter les archives de cette liste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="284"/>
         <source>X.org server</source>
-        <translation type="unfinished"></translation>
+        <translation>Xorg serveur</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="315"/>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Soumettre un rapport de bogue en utilisant le mécanisme de bugzilla de freedesktop</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="335"/>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Envoyer un mail à la liste de diffusion de test xorg. Visitez le site Web suivant pour vous abonner ou consulter les archives de cette liste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="355"/>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Si vous pensez que ce problème est propre à FreeBSD s&apos;il vous plaît signaler bug à freebsd-x11 maillist</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="372"/>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Si vous pensez que ce problème est spécifique à PC-BSD, s&apos;il vous plaît rapporter vous à la mailling liste de test</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="393"/>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît sélectionner quel environnement de bureau provoque le problème:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="404"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="409"/>
         <source>New Column</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle Colonne</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="414"/>
         <source>New Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvel Article</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="423"/>
         <source>Gnome</source>
-        <translation type="unfinished"></translation>
+        <translation>Gnome</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="454"/>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Envoyer un e-mail à la liste de courrier freebsd-gnome</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="471"/>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Envoyer un e-mail à la mailing liste de test PC-BSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="499"/>
         <source>KDE</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="530"/>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Soumettre un rapport de bogue pour le bug tracker de KDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="550"/>
         <source>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Si vous pensez que ce problème est propre à FreeBSD s&apos;il vous plaît signaler le à la liste de diffusion kde-freebsd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="570"/>
-        <location filename="../mainwindow.ui" line="669"/>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Si vous pensez que ce problème est spécifique à PC-BSD s&apos;il vous plaît rapport à la liste de diffusion test de pcbsd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="601"/>
         <source>XFCE</source>
-        <translation type="unfinished"></translation>
+        <translation>XFCE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="632"/>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Vous pouvez signaler un bug à XFCE site bugzilla</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="649"/>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Si vous pensez que ce problème est propre à FreeBSD s&apos;il vous plaît rapporter à la liste de diffusion kde-freebsd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="700"/>
         <source>LXDE</source>
-        <translation type="unfinished"></translation>
+        <translation>LXDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="731"/>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Vous pouvez signaler un bogue à l&apos;LXDE bugs sur SourceForge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="751"/>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Si vous pensez que ce problème est spécifique à PC-BSD s&apos;il vous plaît rapport à la liste de diffusion de tests de pcbsd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="782"/>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished"></translation>
+        <translation>Environnement de bureau non pris en charge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="806"/>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Vous pouvez rapporter un bug à votre bug tracker / liste préférée de l&apos;environnement de bureau</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="820"/>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Si vous pensez que ce problème est PC-BSD spécifique s&apos;il vous plaît rapport à la liste des tests de pcbsd mail</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="848"/>
         <source>FreeBSD software</source>
-        <translation type="unfinished"></translation>
+        <translation>Logiciel FreeBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="879"/>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Vous pouvez signaler des problèmes à freebsd-ports-bugs liste de diffusion</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="907"/>
-        <location filename="../mainwindow.ui" line="940"/>
         <source>PBI software</source>
-        <translation type="unfinished"></translation>
+        <translation>Logiciel PBI</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="913"/>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;il vous plaît sélectionner le logiciel PBI avec bug</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="921"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Icône</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="926"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Application</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="931"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="971"/>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Vous pouvez essayer de rapporter un bug sur le site du logiciel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="988"/>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Si vous pensez que ce problème est spécifique à PC-BSD s&apos;il vous plaît rapport à la pcbsd pbi-bugs liste de diffusion</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="148"/>
         <source>PBI software: </source>
-        <translation type="unfinished"></translation>
+        <translation>Logiciel PBI</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="280"/>
         <source>Not listed here?</source>
-        <translation type="unfinished"></translation>
+        <translation>Non classé ici?</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
-        <location filename="../showinfodialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialogue</translation>
     </message>
     <message>
-        <location filename="../showinfodialog.ui" line="42"/>
         <source>Copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier au presse-papiers</translation>
     </message>
     <message>
-        <location filename="../showinfodialog.ui" line="62"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
     <name>Toolbox</name>
     <message>
-        <location filename="../toolbox.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="23"/>
         <source>Toolbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Boite à Outils</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="81"/>
         <source>Take screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Prenez une capture d&apos;écran</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="117"/>
-        <location filename="../toolbox.ui" line="120"/>
         <source>dmesg output</source>
-        <translation type="unfinished"></translation>
+        <translation>dmesg sortie</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="125"/>
         <source>Xorg log</source>
-        <translation type="unfinished"></translation>
+        <translation>Xorg log</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="130"/>
         <source>Diagnostic report</source>
-        <translation type="unfinished"></translation>
+        <translation>Rapport de Diagnostic</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="133"/>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished"></translation>
+        <translation>PCBSD rapport de diagnostic</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="138"/>
         <source>lsusb output</source>
-        <translation type="unfinished"></translation>
+        <translation>Isusb sortie</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="143"/>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished"></translation>
+        <translation>Liste des périphériques PCI - PCIConf</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="148"/>
         <source>Xorg version</source>
-        <translation type="unfinished"></translation>
+        <translation>Xorg version</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="153"/>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeBSD version (uname -a)</translation>
     </message>
 </context>
 <context>
     <name>WebURL</name>
     <message>
-        <location filename="../weburl.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="../weburl.ui" line="76"/>
         <source>Launch web browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer le navigateur</translation>
     </message>
 </context>
 <context>
     <name>maillist</name>
     <message>
-        <location filename="../maillist.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Forme</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="38"/>
-        <location filename="../maillist.ui" line="74"/>
-        <location filename="../maillist.ui" line="120"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="62"/>
         <source>Send message to</source>
-        <translation type="unfinished"></translation>
+        <translation>Envoyer un message à</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="97"/>
         <source>Compose email</source>
-        <translation type="unfinished"></translation>
+        <translation>Composer un courriel</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="108"/>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished"></translation>
+        <translation>Visitez le site Web suivant pour vous abonner ou consulter les archives.</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="146"/>
         <source>Launch web browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer le navigateur</translation>
     </message>
 </context>
 </TS>
