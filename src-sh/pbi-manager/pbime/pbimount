@@ -156,11 +156,17 @@ mount_dirs() {
 }
 
 umount_pbidir() {
-   for i in `mount | grep "on ${pDir}" | tail -r | awk '{print $3}'`
+   for i in `mount | grep "on ${pDir}/virtbase/usr/local" | tail -r | awk '{print $3}'`
    do
      #echo "Unmounting ${i}"
      umount -f ${i}
-     sleep 0.1
+     sleep 0.5
+   done
+   for i in `mount | grep "on ${pDir}/virtbase/compat/linux" | tail -r | awk '{print $3}'`
+   do
+     #echo "Unmounting ${i}"
+     umount -f ${i}
+     sleep 0.5
    done
 }
 
