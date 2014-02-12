@@ -28,23 +28,7 @@
 #include <QString>
 #include <QVector>
 #include <QDebug>
-
-//! Class that holds info about DE
-struct CDEInfo
-{
-public:
-    QString mName;          ///< De name 'Gnome', 'KDE', etc
-    QString mSudoCommand;   ///< native sudo command 'gtksu %s' for example
-    bool    misInstalled;   ///< True if DE installed
-    bool    misActive;      ///< True if DE is active now
-    bool    misXDG;         ///< True if DE is XDG compatible
-
-    CDEInfo(){
-        misInstalled=false;
-        misActive=false;
-        misXDG=false;
-    }
-};
+#include "pcbsd-utils.h"
 
 //! Class that holds list of desktop environments
 class CDEList
@@ -56,7 +40,7 @@ public:
       @param isAll- true if we want to fill list by all supported DEs outwice
                      it fills by installed DEs
     */
-    int refresh(bool isAll=false);
+    int refresh(/*bool isAll=false*/);
 
     /**
       Returns count of DE's descriptions in list
@@ -66,7 +50,7 @@ public:
             return mvDE.size();
         }
 
-    CDEInfo& operator[](int idx)
+    pcbsd::DesktopEnvironmentInfo& operator[](int idx)
         {
             return mvDE[idx];
         }
@@ -76,7 +60,7 @@ public:
 
       @return Pointer to description of active DE or NULL if active DE unknown
     */
-    CDEInfo* active();
+    pcbsd::DesktopEnvironmentInfo* active();
 
     /**
       Returns DE description bu DE name
@@ -85,10 +69,10 @@ public:
 
       @return Pointer to DE description. NULL if not found
     */
-    CDEInfo* byName(QString Name);
+    pcbsd::DesktopEnvironmentInfo* byName(QString Name);
 
 protected:
-    QVector <CDEInfo> mvDE;
+    QVector <pcbsd::DesktopEnvironmentInfo> mvDE;
 };
 
 ///////////////////////////////////////////////////////

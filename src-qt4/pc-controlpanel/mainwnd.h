@@ -72,7 +72,7 @@ private:
         QMenu* DEChoiseMenu;
 
         QVector<QString> mvEnabledDE;
-        CDEInfo          mCurrentDE;
+        pcbsd::DesktopEnvironmentInfo   mCurrentDE;
         bool             misDisplayDEName;
 
         bool             misWheelGroup;

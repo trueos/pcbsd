@@ -62,8 +62,7 @@ MainWnd::MainWnd(QWidget *parent) :
     if (InstalledDEList.active())
     {
         mCurrentDE = *InstalledDEList.active();
-        mvEnabledDE.push_back(mCurrentDE.mName);
-	qDebug() << "Current DE: " << mCurrentDE.mName;
+        mvEnabledDE.push_back(mCurrentDE.Name);
     }    
 
     DETEXT = tr("Desktop environment");
@@ -237,6 +236,7 @@ void MainWnd::on_lineEdit_textChanged(QString Text)
 void MainWnd::on_toolButton_2_clicked()
 {
 	fillGroups();
+    //InstalledDEList.active()->
 	on_lineEdit_textChanged(ui->lineEdit->text());
 }
 
@@ -262,20 +262,20 @@ void MainWnd::setupDEChooser()
     if (InstalledDEList.byName(DEName))\
     {\
         ui->action_name->setVisible(true);\
-        if (InstalledDEList.byName(DEName)->misActive){\
+        if (InstalledDEList.byName(DEName)->isActive){\
             ui->action_name->setText(QString(DEName) + Current);\
             ui->DEChooserButton->setIcon(ui->action_name->icon());}\
         else\
             ui->action_name->setText(QString(DEName));\
         }else{ui->action_name->setVisible(false);}
 
-SETUP_ACTION( actionKDE, "KDE" );
-SETUP_ACTION( actionGnome, "Gnome" );
-SETUP_ACTION( actionXFCE, "XFCE" );
-SETUP_ACTION( actionLXDE, "LXDE" );
-SETUP_ACTION( actionEnlightenment, "Enlightenment" );
-SETUP_ACTION( actionMate, "Mate" );
-SETUP_ACTION( actionCinnamon, "Cinnamon" );
+    SETUP_ACTION( actionKDE, "KDE" );
+    SETUP_ACTION( actionGnome, "Gnome" );
+    SETUP_ACTION( actionXFCE, "XFCE" );
+    SETUP_ACTION( actionLXDE, "LXDE" );
+    SETUP_ACTION( actionEnlightenment, "Enlightenment" );
+    SETUP_ACTION( actionMate, "Mate" );
+    SETUP_ACTION( actionCinnamon, "Cinnamon" );
 
 #undef SETUP_ACTION
 
@@ -302,7 +302,7 @@ void MainWnd::on_actionAll_triggered()
     mvEnabledDE.clear();
     for (int i=0; i<InstalledDEList.size(); i++)
     {
-        mvEnabledDE.push_back(InstalledDEList[i].mName);
+        mvEnabledDE.push_back(InstalledDEList[i].Name);
     }
 
     ui->DEGBox->setTitle(DETEXT + " " + tr ("(All installed)"));
@@ -317,7 +317,7 @@ void MainWnd::on_actionAll_triggered()
 void MainWnd::on_actionKDE_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionKDE->icon());
-    if (mCurrentDE.mName.trimmed().compare("KDE", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("KDE", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(KDE)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -335,7 +335,7 @@ void MainWnd::on_actionKDE_triggered()
 void MainWnd::on_actionLXDE_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionLXDE->icon());
-    if (mCurrentDE.mName.trimmed().compare("LXDE", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("LXDE", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(LXDE)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -353,7 +353,7 @@ void MainWnd::on_actionLXDE_triggered()
 void MainWnd::on_actionGnome_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionGnome->icon());
-    if (mCurrentDE.mName.trimmed().compare("gnome", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("gnome", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Gnome)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -371,7 +371,7 @@ void MainWnd::on_actionGnome_triggered()
 void MainWnd::on_actionEnlightenment_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionEnlightenment->icon());
-    if (mCurrentDE.mName.trimmed().compare("Enlightenment", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("Enlightenment", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Enlightenment)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -390,7 +390,7 @@ void MainWnd::on_actionEnlightenment_triggered()
 void MainWnd::on_actionMate_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionMate->icon());
-    if (mCurrentDE.mName.trimmed().compare("Mate", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("Mate", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Mate)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -408,7 +408,7 @@ void MainWnd::on_actionMate_triggered()
 void MainWnd::on_actionCinnamon_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionCinnamon->icon());
-    if (mCurrentDE.mName.trimmed().compare("Cinnamon", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("Cinnamon", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(Cinnamon)"));
     else
         ui->DEGBox->setTitle(DETEXT);
@@ -426,7 +426,7 @@ void MainWnd::on_actionCinnamon_triggered()
 void MainWnd::on_actionXFCE_triggered()
 {
     ui->DEChooserButton->setIcon(ui->actionXFCE->icon());
-    if (mCurrentDE.mName.trimmed().compare("XFCE", Qt::CaseInsensitive))
+    if (mCurrentDE.Name.trimmed().compare("XFCE", Qt::CaseInsensitive))
         ui->DEGBox->setTitle(DETEXT + " " + tr ("(XFCE)"));
     else
         ui->DEGBox->setTitle(DETEXT);

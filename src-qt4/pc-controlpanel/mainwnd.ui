@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>601</width>
-    <height>434</height>
+    <width>599</width>
+    <height>432</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,6 +71,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QToolButton" name="deLaunchConfigApp">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -108,7 +115,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>585</width>
+         <width>583</width>
          <height>336</height>
         </rect>
        </property>
@@ -265,8 +272,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>601</width>
-     <height>22</height>
+     <width>599</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

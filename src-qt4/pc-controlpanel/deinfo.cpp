@@ -23,14 +23,6 @@
 ***************************************************************************/
 
 #include "deinfo.h"
-#include <QProcess>
-#include <QStringList>
-
-static const char* const DE_NAME = "DE name:";
-static const char* const DE_ACTIVE = "Current DE:";
-static const char* const DE_XDG = "XDG compatible:";
-static const char* const DE_INSTALLED = "Installed:";
-static const char* const DE_SUDO = "Sudo command:";
 
 ///////////////////////////////////////////////////////////////////////////////
 #define TRY_GET_VALUE_STR(val_name, field)\
@@ -43,66 +35,33 @@ if (Str.contains(val_name)){\
                             Entry.field = Str.replace(val_name,"").trimmed().toLower() == QString(true_val).toLower();\
                                           continue;}\
 
-int CDEList::refresh(bool isAll)
+///////////////////////////////////////////////////////////////////////////////
+int CDEList::refresh(/*bool isAll*/)
 {
     mvDE.clear();
 
-    QStringList flags;
-    if (isAll)
-        flags<<"-a";
-    else
-        flags<<"-i";
-
-    QProcess* deinfo = new QProcess();
-    deinfo->setProcessChannelMode(QProcess::MergedChannels);
-    deinfo->start(QString("/usr/local/bin/de-info"), flags);
-    deinfo->waitForFinished(-1);
-    CDEInfo Entry;
-    QString Str;
-
-    while ( deinfo->canReadLine() )
-    {
-        Str = deinfo->readLine().simplified();
-	//qDebug() << "de-info line:" << Str;
-        if (Str.contains(DE_NAME))
-        {
-            if (Entry.mName.length())
-            {
-                mvDE.push_back(Entry);
-                Entry = CDEInfo();
-            }
-            Entry.mName = Str.replace(DE_NAME,"").trimmed();
-            continue;
-        }//if found 'DE name'
-
-        TRY_GET_VALUE_BOOL(DE_ACTIVE, misActive, "yes");
-        TRY_GET_VALUE_BOOL(DE_INSTALLED, misInstalled, "yes");
-        TRY_GET_VALUE_STR(DE_SUDO, mSudoCommand);
-    }//while process output reading
-
-    if (Entry.mName.length())
-        mvDE.push_back(Entry);
+    mvDE = pcbsd::Utils::installedDesktops();
 
     return mvDE.size();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-CDEInfo* CDEList::active()
+pcbsd::DesktopEnvironmentInfo* CDEList::active()
 {
     for(int i =0; i<mvDE.size(); i++)
     {
-        if (mvDE[i].misActive)
+        if (mvDE[i].isActive)
             return &mvDE[i];
     }
     return NULL;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-CDEInfo* CDEList::byName(QString Name)
+pcbsd::DesktopEnvironmentInfo* CDEList::byName(QString Name)
 {
     for (int i =0; i<mvDE.size(); i++)
     {
-        if (!mvDE[i].mName.compare(Name.trimmed(), Qt::CaseInsensitive))
+        if (!mvDE[i].Name.compare(Name.trimmed(), Qt::CaseInsensitive))
             return &mvDE[i];
     }
     return NULL;
