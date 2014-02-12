@@ -68,7 +68,7 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
     misSubstFound = false;
     misUseXDG = false;
     if (InstalledDEList.active())
-        misUseXDG = InstalledDEList.active()->misXDG;
+        misUseXDG = InstalledDEList.active()->isXDG;
 
     misXDGLaunch = false;
 
