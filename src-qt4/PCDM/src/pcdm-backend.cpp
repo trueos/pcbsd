@@ -468,8 +468,16 @@ void Backend::readSystemUsers(){
   //make sure the lists are empty
   usernameList.clear(); displaynameList.clear(); homedirList.clear();
   //Get all the users from the file "/etc/passwd"
-  QStringList uList = pcbsd::Utils::runShellCommand("cat /etc/passwd");
-
+  QStringList uList;
+  QFile PWF("/etc/passwd");
+  if( PWF.open(QIODevice::ReadOnly | QIODevice::Text) ){
+    QTextStream in(&PWF);
+      in.setCodec( "UTF-8" );
+    while( !in.atEnd() ){
+      uList << QString( in.readLine() );
+    }
+    PWF.close();    
+  }
   //Remove all users that have:
   for(int i=0; i<uList.length(); i++){
     bool bad = FALSE;

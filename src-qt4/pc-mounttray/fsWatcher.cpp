@@ -51,6 +51,7 @@ QStringList FSWatcher::getFSmountpoints(){
     else if(dfout[i].startsWith("procfs")){}
     else if(dfout[i].startsWith("linprocfs")){}
     else if(dfout[i].startsWith("linsysfs")){}
+    else if(dfout[i].startsWith("fdescfs")){}
     else{
       //Now parse out the info  
       dfout[i].replace("\t"," ");

@@ -258,7 +258,7 @@
              <x>0</x>
              <y>0</y>
              <width>528</width>
-             <height>648</height>
+             <height>659</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1637,18 +1637,18 @@
      <x>0</x>
      <y>0</y>
      <width>575</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>System</string>
+     <string>File</string>
     </property>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Options</string>
+     <string>Configure</string>
     </property>
     <addaction name="actionPreferences"/>
     <addaction name="separator"/>
@@ -1660,7 +1660,7 @@
      <bool>false</bool>
     </property>
     <property name="title">
-     <string>Information</string>
+     <string>Help</string>
     </property>
     <addaction name="actionAbout_EasyPBI"/>
     <addaction name="separator"/>
@@ -1719,6 +1719,9 @@
    </property>
    <property name="statusTip">
     <string>Open up the EasyPBI settings editor</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+S</string>
    </property>
   </action>
   <action name="actionGet_Ports">
@@ -1803,11 +1806,18 @@
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="EasyPBI.qrc">
+     <normaloff>:/png/icons/window-close.png</normaloff>:/png/icons/window-close.png</iconset>
+   </property>
    <property name="text">
-    <string>Close EasyPBI</string>
+    <string>Quit</string>
    </property>
    <property name="statusTip">
     <string>Close EasyPBI</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Q</string>
    </property>
   </action>
   <action name="actionPackage_Module">
@@ -1828,10 +1838,13 @@
      <normaloff>:/png/icons/EasyPBIicon.png</normaloff>:/png/icons/EasyPBIicon.png</iconset>
    </property>
    <property name="text">
-    <string>About EasyPBI</string>
+    <string>About</string>
    </property>
    <property name="statusTip">
     <string>View additional information about EasyPBI</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+A</string>
    </property>
   </action>
   <action name="actionRefresh_Module">

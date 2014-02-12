@@ -24,6 +24,7 @@ public:
 	QStringList getAllCurrentMessages();
 	bool isRunning();
 	bool hasError();
+	bool initPhase();
 
 public slots:
 	void start();
@@ -37,13 +38,15 @@ private:
 	QHash<unsigned int,QString> LOGS;
 	//File system watcher
 	QFileSystemWatcher *watcher;
-	QTimer *timer;
+	QTimer *timer, *iniTimer;
 	int sysCheckTime;
 	QFile *logfile, *repfile;
 	QTextStream *LFSTREAM, *RFSTREAM;
 	//Replication size variables
 	QString repTotK, lastSize;
+	bool INIT;
 
+	void setupLogFile();
 	void readLogFile(bool quiet = false);
 	void readReplicationFile(); //always sends quiet signals
 
@@ -59,6 +62,7 @@ private:
 private slots:
 	void fileChanged(QString); //file system watcher saw a change
 	void checkPoolStatus(); //check for serious system errors
+	void endInitPhase();
 
 signals:
 	void MessageAvailable(QString type);
