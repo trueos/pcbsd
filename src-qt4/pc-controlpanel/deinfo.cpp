@@ -1,6 +1,6 @@
 /**************************************************************************
-*   Copyright (C) 2011 by Yuri Momotyuk                                   *
-*   yurkis@gmail.com                                                      *
+*   Copyright (C) 2011-2014 by Yuri Momotyuk                              *
+*   yurkis@pcbsd.org                                                      *
 *                                                                         *
 *   Permission is hereby granted, free of charge, to any person obtaining *
 *   a copy of this software and associated documentation files (the       *
@@ -23,17 +23,6 @@
 ***************************************************************************/
 
 #include "deinfo.h"
-
-///////////////////////////////////////////////////////////////////////////////
-#define TRY_GET_VALUE_STR(val_name, field)\
-if (Str.contains(val_name)){\
-                            Entry.field = Str.replace(val_name,"").trimmed();\
-                                          continue;}\
-
-#define TRY_GET_VALUE_BOOL(val_name, field, true_val)\
-if (Str.contains(val_name)){\
-                            Entry.field = Str.replace(val_name,"").trimmed().toLower() == QString(true_val).toLower();\
-                                          continue;}\
 
 ///////////////////////////////////////////////////////////////////////////////
 int CDEList::refresh(/*bool isAll*/)

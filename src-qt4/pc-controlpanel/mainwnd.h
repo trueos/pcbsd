@@ -64,21 +64,23 @@ private:
 	void setupGroups();
 	void setupGroup(QGroupList** List, QWidget* Parrent);
 	void fillGroups();
-        void setupDEChooser();
+    void setupDEChooser();
 
-        bool checkUserGroup(QString groupName);
+    bool checkUserGroup(QString groupName);
+
+    void refreshDEConfigureApp();
 
         //CDEList mDEList;
-        QMenu* DEChoiseMenu;
+    QMenu* DEChoiseMenu;
 
-        QVector<QString> mvEnabledDE;
-        pcbsd::DesktopEnvironmentInfo   mCurrentDE;
-        bool             misDisplayDEName;
+    QVector<QString> mvEnabledDE;
+    pcbsd::DesktopEnvironmentInfo   mCurrentDE;
+    bool             misDisplayDEName;
 
-        bool             misWheelGroup;
-        bool             misOperatorGroup;
+    bool             misWheelGroup;
+    bool             misOperatorGroup;
 
-        QMutex          mRefreshMutex;
+    QMutex          mRefreshMutex;
 
 private slots:
         void on_actionUnsupported_triggered();
@@ -95,6 +97,8 @@ private slots:
         void on_itemActivated ( QListWidgetItem* item );
 
         void onDirectoryChanged(const QString & path);
-    };
+        void on_DEChooserButton_triggered(QAction *arg1);
+        void on_deLaunchConfigApp_clicked();
+};
 
 #endif // MAINWND_H
