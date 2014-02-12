@@ -479,21 +479,6 @@
             </translation>
     </message>
     <message>
-        <source>System</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation type="unfinished">
             </translation>
@@ -585,11 +570,6 @@
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -962,6 +942,34 @@
         <source>Build PBI (Done)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

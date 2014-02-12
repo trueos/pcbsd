@@ -86,8 +86,7 @@
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>واجهات سطح المكتب ...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>

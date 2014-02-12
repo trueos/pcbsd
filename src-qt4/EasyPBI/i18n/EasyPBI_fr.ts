@@ -384,18 +384,6 @@
         <translation>Enregistrer l&apos;historique de construction</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>Système            </translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>Options            </translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Information            </translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Barre d&apos;outils            </translation>
     </message>
@@ -470,10 +458,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>Comprimer le module en cours de distribution            </translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>À propos de EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -770,6 +754,34 @@
     <message>
         <source>Build PBI (Done)</source>
         <translation>Construire PBI (Terminé)</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

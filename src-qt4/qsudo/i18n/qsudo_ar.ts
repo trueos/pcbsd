@@ -5,28 +5,23 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>رجاء أدخل كلمة سر المستخدم لتشغيل هذا الأمر بأذونات النظام</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>الحاجة إلى أذونات النظام</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">رفض الوصول</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>هذا المستخدم ليس لديه صلاحيات المدير على هذا النظام</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>كلمة سر خاطئة. المحاولات المتبقية: %1</translation>
     </message>
     <message>
         <source>Toggle command details</source>
