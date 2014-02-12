@@ -1352,7 +1352,7 @@ spacing: 1px;
      <x>0</x>
      <y>0</y>
      <width>509</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1400,6 +1400,9 @@ spacing: 1px;
    <property name="text">
     <string>&amp;Quit</string>
    </property>
+   <property name="shortcut">
+    <string>Shift+Q</string>
+   </property>
   </action>
   <action name="actionRepositories">
    <property name="text">
@@ -1409,10 +1412,13 @@ spacing: 1px;
   <action name="actionAppCafe_Settings">
    <property name="icon">
     <iconset resource="SoftwareManager.qrc">
-     <normaloff>:/icons/preferences-system.png</normaloff>:/icons/preferences-system.png</iconset>
+     <normaloff>:/icons/config.png</normaloff>:/icons/config.png</iconset>
    </property>
    <property name="text">
     <string>AppCafe Settings</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+S</string>
    </property>
   </action>
  </widget>

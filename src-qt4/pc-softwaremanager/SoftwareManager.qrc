@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>icons/config.png</file>
     <file>icons/add-root.png</file>
     <file>icons/remove-root.png</file>
     <file>icons/export.png</file>
