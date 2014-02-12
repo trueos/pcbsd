@@ -424,32 +424,7 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
     <item row="1" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushClose">
-        <property name="text">
-         <string>&amp;Close</string>
-        </property>
-        <property name="icon">
-         <iconset resource="pc-pkgmanager.qrc">
-          <normaloff>:/window-close.png</normaloff>:/window-close.png</iconset>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QHBoxLayout" name="horizontalLayout_3"/>
     </item>
    </layout>
   </widget>
@@ -459,15 +434,13 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>913</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="action_Configuration"/>
-    <addaction name="separator"/>
     <addaction name="action_Quit"/>
    </widget>
    <widget class="QMenu" name="menu_View">
@@ -477,13 +450,27 @@ p, li { white-space: pre-wrap; }
     <addaction name="action_Basic"/>
     <addaction name="action_Advanced"/>
    </widget>
+   <widget class="QMenu" name="menuConfigure">
+    <property name="title">
+     <string>Configure</string>
+    </property>
+    <addaction name="action_Configuration"/>
+   </widget>
    <addaction name="menu_File"/>
+   <addaction name="menuConfigure"/>
    <addaction name="menu_View"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_Quit">
+   <property name="icon">
+    <iconset resource="pc-pkgmanager.qrc">
+     <normaloff>:/window-close3.png</normaloff>:/window-close3.png</iconset>
+   </property>
    <property name="text">
     <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Q</string>
    </property>
   </action>
   <action name="action_Basic">
@@ -511,8 +498,15 @@ p, li { white-space: pre-wrap; }
    </property>
   </action>
   <action name="action_Configuration">
+   <property name="icon">
+    <iconset resource="pc-pkgmanager.qrc">
+     <normaloff>:/config.png</normaloff>:/config.png</iconset>
+   </property>
    <property name="text">
-    <string>&amp;Configuration</string>
+    <string>Settings</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+S</string>
    </property>
   </action>
  </widget>
