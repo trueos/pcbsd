@@ -511,6 +511,14 @@
         <source>Are you sure you want to install this application?</source>
         <translation>이 응용프로그램의 설치를 원하십니까?</translation>
     </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>

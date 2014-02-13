@@ -87,24 +87,14 @@ MainWindow::MainWindow(QWidget *parent) :
     // pcbsd version
     Ver = pcbsd::Utils::runShellCommand("uname -r").at(0);
     ui->VersionLabel->setText(Ver+" ("+Arch+")");
-    ui->UnstableLabel->setVisible(false);
-    Ver = Ver.trimmed();
-    int idx = Ver.lastIndexOf("-");
-    if (idx>=0)
+
+    QString PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
+    if (PkgSet.toUpper().trimmed() == "EDGE")
     {
-        QString SnapDate = Ver.mid(idx+1);
-        if (SnapDate.length() == 8)
-        {
-            int year = SnapDate.left(4).toInt();
-            int month= SnapDate.mid(4,2).toInt();
-            int day= SnapDate.right(2).toInt();
-            QString SnapshotText = QString(
-                        tr("Testing snapshot %1. May be unstable!")).arg(
-                        QDate(year,month,day).toString(Qt::SystemLocaleShortDate));
-            ui->UnstableLabel->setText(SnapshotText);
-            ui->UnstableLabel->setVisible(true);
-        }
+        PkgSet+=QString(" ") + tr("(unstable)");
     }
+    ui->PkgSetLabel->setText(PkgSet);
+
 
     // CPU
     ui->CPUInfoLabel->setText(pcbsd::Utils::sysctl("hw.model"));

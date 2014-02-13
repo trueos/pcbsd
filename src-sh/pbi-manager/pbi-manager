@@ -4541,9 +4541,6 @@ do_pbi_delete() {
 	load_info_from_dir "${PBI_DBAPPDIR}/${PBI_DELETENAME}"
 	PBI_PROGDIRPATH="${PBI_ORIGPROGDIRPATH}"
 
-	# Unmount the PBI if its mounted
-	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
-
 	get_username_from_file "${PBI_DBAPPDIR}/${PBI_DELETENAME}/pbi_name"
 	if [ "$FILEUSER" != `whoami` -a `id -u` != "0" ] ; then
 		exit_err "Permission denied to modify PBI installed by: $FILEUSER"
@@ -4551,6 +4548,12 @@ do_pbi_delete() {
 
 	# Set the dirty flag that we are removing this PBI
 	touch ${PBI_DBAPPDIR}/${PBI_DELETENAME}/.pbiDeleted
+
+	# Unmount the PBI if its mounted
+	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
+
+	# Sleep 5 before nuking dirs
+	sleep 5
 
 	check_preremove_script
 	run_remove_script

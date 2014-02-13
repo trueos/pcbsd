@@ -104,6 +104,8 @@ bool XProcess::startXSession(){
   //Now allow this user access to the Xserver
   QString xhostcmd = "xhost si:localuser:"+xuser;
   system(xhostcmd.toUtf8());
+  //And finally set the login user before dropping priv
+  setlogin( xuser.toUtf8() );
   //QWidget *wid = new QWidget();
   if (setgid(pw->pw_gid) < 0) {
       qDebug() << "setgid() failed!";

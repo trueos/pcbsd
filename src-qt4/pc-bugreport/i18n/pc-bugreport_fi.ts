@@ -5,103 +5,83 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD:n bugien raportointi</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitse se komponentti, joka on toiminut virheellisesti.</translation>
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD perusjärjestelmä</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD perusjärjestelmä</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg palvelin</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työpöytäympäristö</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ohjelmistot (ports/packages)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD ohjelmistot (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Lähetä virheraportti käyttäen FreeBSD:n SEND-PR mekanismia</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Lähetä sähköposti FreeBSD:n bugien postituslistalle. Vieraile seuraavalla nettisivulla kirjautuaksesi listalle, tai lukeaksesi listan posteja&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Lähetä virheraportti käyttäen PC-BSD:n track mekanismia</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lähetä sähköposti PC-BSD:n testaus postituslistalle. Vieraile seruraavalla nettisivulla kirjautuaksesi listalle, tai lukeaksesi listan posteja.</translation>
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org palvelin</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Lähetä virheraportti käyttäen freedesktop:in bugzilla mekanismia</translation>
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Lähetä sähköposti xorg testaus postituslistalle. Vieraile seuraavalla nettisivulla kirjautuaksesi, tai lukeaksesi listan posteja.</translation>
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Jos ajattelet, että virheen syy on FreeBSD:ssä, ole hyvä ja raportoi virheestä freebsd-x11 postituslistalle</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4. Jos ajattelet, että ongelman syy on PC-BSD:ssä, ole hyvä ja raportoi postituslistalle</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ole hyvä, ja valitse missä työpöytäympäristössä huomasit virheen:</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>New Column</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uusi sarake</translation>
     </message>
     <message>
         <source>New Item</source>
@@ -110,260 +90,211 @@
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Lähetä sähköposti freebsd-gnome postituslistalle</translation>
     </message>
     <message>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Lähetä sähköposti PC-BSD testaus postituslistalle</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Lähetä virheraportti KDE bug tracker:iin</translation>
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Jos olet sitä mieltä, että ongelma koskee FreeBSD:tä, raportoi kde-freebsd postituslistalle.</translation>
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Jos olet sitä mieltä, että ongelma koskee PC-BSD:tä, raportoi PCBSD testing postituslistalle.</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Voit ilmoittaa virheestä XFCE bugzilla -sivuille.</translation>
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Jos olet sitä mieltä, että ongelma koskee FreeBSD:tä, raportoi kde-freebsd postituslistalle.</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Voit raportoida virheestä SourceForge:n LXDE bug tracker:iin</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Jos olet sitä mieltä, että ongelma koskee PC-BSD:tä, raportoi PCBSD testing -postituslistalle</translation>
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tukematon työpöytäympäristö</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Voit raportoida virheen suosikki työtpöytäympäristösi bug tracker:iin / postituslistalle.</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Jos ajattelet, että ongelma on PC-BSD:ssä, raportoi PCBSD testing -postituslistalle</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD ohjelmistot</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Voit raportoida ongelmista freebsd-ports-bugs -postituslistalle.</translation>
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI ohjelmisto</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitse PBI-ohjelmisto jossa on virhe</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kuvake</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sovellus</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versio</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Voit yrittää raportoida virheestä ohjelmiston nettisivuille.</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Jos ajattelet, että ongelma koskee PC_BSD:tä, raportoi PCBSD testing -postituslistalle</translation>
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI ohjelmisto:</translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Puuttuu listauksesta?</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialogi</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopioi leikepöydälle</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulje</translation>
     </message>
 </context>
 <context>
     <name>Toolbox</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lomake</translation>
     </message>
     <message>
         <source>Toolbox</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Työkalulaatikko</translation>
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ota näytönkaappaus</translation>
     </message>
     <message>
         <source>dmesg output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>dmesg tuloste</translation>
     </message>
     <message>
         <source>Xorg log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg loki</translation>
     </message>
     <message>
         <source>Diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diagnostiikan raportti</translation>
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD diagnostiikan raportti</translation>
     </message>
     <message>
         <source>lsusb output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isusb tuloste</translation>
     </message>
     <message>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCI laitteiden lista - PCIConf</translation>
     </message>
     <message>
         <source>Xorg version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg versio</translation>
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD versio (uname -a)</translation>
     </message>
 </context>
 <context>
     <name>WebURL</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lomake</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käynnistä nettiselain</translation>
     </message>
 </context>
 <context>
     <name>maillist</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lomake</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tekstikenttä</translation>
     </message>
     <message>
         <source>Send message to</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vastaanottaja</translation>
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjoita sähköposti</translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vieraile seuraavalla sivulla kirjautuaksesi, tai lukeaksesi arkistoja.</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käynnistä nettiselain</translation>
     </message>
 </context>
 </TS>
