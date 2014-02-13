@@ -3612,12 +3612,13 @@ pbi_extract_archive() {
 	if [ "$PBI_VERBOSE" = "YES" ] ; then
 		tar="xvf -"
 		echo "TOTALFILES: ${PBI_ARCHIVE_COUNT}"
+		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}"
+		err="$?"
 	else
 		tar="xf -"
+		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" 2>/dev/null
+		err="$?"
 	fi
-	tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" 2>/dev/null
-	err="$?"
-	
 	if [ "$err" != "0" ] ; then exit_err "Failed extracting ${PBI_FILENAME}" ; fi
 
 	if [ "$PBI_VERBOSE" = "YES" ] ; then echo "Extraction Finished!" ; fi
