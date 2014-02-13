@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>Restart</source>
-        <translation>khởi động lại   </translation>
+        <translation>khởi động lại</translation>
     </message>
     <message>
         <source>Running</source>
@@ -37,15 +37,15 @@
     </message>
     <message>
         <source>TAG</source>
-        <translation>TAG      </translation>
+        <translation>TAG</translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation>kích hoạt      </translation>
+        <translation>kích hoạt</translation>
     </message>
     <message>
         <source>Enable Service</source>
-        <translation>Kích hoạt dịch vụ            </translation>
+        <translation>Kích hoạt dịch vụ</translation>
     </message>
     <message>
         <source>Disable Service</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>The following services are available on this system</source>
-        <translation>Các dịch vụ có sẵn trên hệ thống này  </translation>
+        <translation>Các dịch vụ có sẵn trên hệ thống này</translation>
     </message>
     <message>
         <source>Checking...</source>
@@ -69,15 +69,14 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quản lý dịch vụ cho tù Warden:</translation>
     </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation>Vụ       </translation>
+        <translation>Vụ</translation>
     </message>
     <message>
         <source>Service Action in progress...</source>
@@ -85,7 +84,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Huỷ </translation>
+        <translation>&amp;Huỷ</translation>
     </message>
     <message>
         <source>Failed</source>

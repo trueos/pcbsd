@@ -37,73 +37,59 @@
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Створити повідомлення про ваду, використовуючи SEND-PR з FreeBSD</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Надіслати листа в список розсилки FreeBSD bugs. Завітайте до наступної сторінки щоб підписатися та переглянути архіви списку розсилки/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Створити повідомлення про ваду, використовуючи баг трекер PC-BSD</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Надіслати листа в список розсилки PC-BSD testing. Завітайте до наступної сторінки щоб підписатися та переглянути архіви списку розсилки</translation>
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сервер X.org</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Створити повідомлення про ваду, використовуючи баг трекер проекту freedesktop</translation>
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Надіслати листа в список розсилки xorg testing. Завітайте до наступної сторінки щоб підписатися та переглянути архіви списку розсилки</translation>
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Якщо Ви вважаєте що проблема є специфічною до FreeBSD, напишіть про неї у список розсилки freebsd-x11</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4. Якщо Ви вважаєте що проблема є специфічною до PC-BSD, напишіть про неї у список розсилки testing</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Будь ласка оберіть стільницю, що містить ваду</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>New Column</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Column</translation>
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Item</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
