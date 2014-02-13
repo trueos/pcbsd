@@ -4552,6 +4552,9 @@ do_pbi_delete() {
 	# Unmount the PBI if its mounted
 	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
 
+	# Sleep 5 before nuking dirs
+	sleep 5
+
 	check_preremove_script
 	run_remove_script
  	remove_pbidir
