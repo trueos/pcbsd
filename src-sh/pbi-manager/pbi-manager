@@ -3603,14 +3603,15 @@ pbi_extract_archive() {
 	pbi_find_archive_header	
 
 	echo "Extracting to: ${PBI_EXTRACTDIR}"
-	tar="xvf -"
 
 	if [ "$PBI_VERBOSE" = "YES" ] ; then
+		tar="xvf -"
 		echo "TOTALFILES: ${PBI_ARCHIVE_COUNT}"
 		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}"
 		err="$?"
 	else
-		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" >/dev/null 2>/dev/null
+		tar="xf -"
+		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" 2>/dev/null
 		err="$?"
 	fi
 	
