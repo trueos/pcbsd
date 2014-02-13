@@ -4538,6 +4538,9 @@ do_pbi_delete() {
 	# Unmount the PBI if its mounted
 	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
 
+	# Give a few seconds before we nuke the dirs
+	sleep 5
+
 	get_username_from_file "${PBI_DBAPPDIR}/${PBI_DELETENAME}/pbi_name"
 	if [ "$FILEUSER" != `whoami` -a `id -u` != "0" ] ; then
 		exit_err "Permission denied to modify PBI installed by: $FILEUSER"
