@@ -5,31 +5,27 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package Set</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (Packages updated quarterly - Recommended)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Packages updated frequently - For testing and development)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Ok</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Cancel</translation>
+        <translation>&amp;Cancel</translation>
     </message>
 </context>
 <context>
@@ -124,10 +120,6 @@
     <message>
         <source>Installing updates</source>
         <translation>Installing updates</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>&amp;Close</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -295,23 +287,35 @@
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Basic (Meta-Packages)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Advanced (All Packages)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configuration</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reading package database...</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

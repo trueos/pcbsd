@@ -14,7 +14,7 @@
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation>Sua tela foi configurada. 
+        <translation>Sua tela foi configurada.
 Manter estas configurações?</translation>
     </message>
 </context>

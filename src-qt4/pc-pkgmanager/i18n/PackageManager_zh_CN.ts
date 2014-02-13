@@ -5,269 +5,213 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>配置</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包集合</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>生产环境(软件包每季度更新——推荐)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>前沿技术(软件包频繁更新——适用于测试和开发)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确认软件包更改</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统将进行以下更改。请确认并点击确定以继续。</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>确定(&amp;O)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消(&amp;C)</translation>
     </message>
 </context>
 <context>
     <name>mainWin</name>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可用的更新</translation>
     </message>
     <message>
         <source>System Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统软件包管理器</translation>
     </message>
     <message>
         <source>Add / Remove Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加/删除软件包</translation>
     </message>
     <message>
         <source>System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系统软件包</translation>
     </message>
     <message>
         <source>Package Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包信息</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>描述</translation>
     </message>
     <message>
         <source>10 MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>10 MB</translation>
     </message>
     <message>
         <source>My Package 1.0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>我的软件包 1.0</translation>
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>http://www.pcbsd.org</translation>
     </message>
     <message>
         <source>Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选项</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>应用(&amp;A)</translation>
     </message>
     <message>
         <source>Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包更新</translation>
     </message>
     <message>
         <source>Re&amp;scan packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重新扫描软件包(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Update packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更新软件包(&amp;U)</translation>
     </message>
     <message>
         <source>Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包</translation>
     </message>
     <message>
         <source>Old Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>旧版本</translation>
     </message>
     <message>
         <source>New Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新版本</translation>
     </message>
     <message>
         <source>Installing updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安装更新</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>文件(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查看(&amp;V)</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>退出(&amp;Q)</translation>
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在检查更新</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包更新(%1)</translation>
     </message>
     <message>
         <source>Available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可用更新</translation>
     </message>
     <message>
         <source>No available updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有可用的更新</translation>
     </message>
     <message>
         <source>Starting package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>开始软件更新</translation>
     </message>
     <message>
         <source>required by:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>被以下软件需要：</translation>
     </message>
     <message>
         <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包与选定的更改之间有冲突，可以被自动删除。继续？</translation>
     </message>
     <message>
         <source>Package Conflicts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包冲突</translation>
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>重试之前你需要手动处理冲突。</translation>
     </message>
     <message>
         <source>Downloading packages...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在下载软件包……</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失败！</translation>
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包命令失败。一份输出拷贝保存在了/tmp/pkg-output.log</translation>
     </message>
     <message>
         <source>Finished!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>完成！</translation>
     </message>
     <message>
         <source>Package changes complete!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件包更改完成！</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>正在载入……请稍候……</translation>
     </message>
     <message>
         <source>No changes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有更改</translation>
     </message>
     <message>
         <source>No changes to make!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有更改！</translation>
     </message>
     <message>
         <source>The following packages will be removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包将被删除：</translation>
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包需要以上软件包也要被删除：</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下软件包将被安装：</translation>
     </message>
     <message>
         <source>The following dependances will also be installed:</source>
@@ -378,6 +322,22 @@
         <source>Reading package database...</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

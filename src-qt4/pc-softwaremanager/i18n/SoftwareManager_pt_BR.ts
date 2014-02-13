@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>The full error is displayed in the AppCafe terminal output.</source>
-        <translation type="unfinished">A mensagem completa de erro é exibida na saída do terminal do AppCafe</translation>
+        <translation type="unfinished">A mensagem completa de erro é exibida na saída do terminal do AppCafe.</translation>
     </message>
     <message>
         <source>Select Download Directory</source>
@@ -456,7 +456,7 @@
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation>Pesquisando dados do aplicativo. Por favor aguarde...</translation>
+        <translation>Pesquisando dados do aplicativo. Por favor aguarde....</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
@@ -493,6 +493,14 @@
     <message>
         <source>Are you sure you want to install this application?</source>
         <translation>Tem certeza que deseja instalar este aplicativo?</translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

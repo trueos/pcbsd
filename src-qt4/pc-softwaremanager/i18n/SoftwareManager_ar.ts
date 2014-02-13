@@ -602,6 +602,14 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>

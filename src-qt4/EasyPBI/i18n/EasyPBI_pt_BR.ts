@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation>Autor do programa principal (ou mantenedor do port FreeBSD)            </translation>
+        <translation>Autor do programa principal (ou mantenedor do port FreeBSD)</translation>
     </message>
     <message>
         <source>Author</source>
@@ -61,15 +61,15 @@
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation>Port FreeBSD para ser empacotado como um PBI            </translation>
+        <translation>Port FreeBSD a ser empacotado como um PBI</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation>Adicione um port FreeBSD adicional            </translation>
+        <translation>Adicione um port FreeBSD adicional</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation>Remover um port FreeBSD adicional            </translation>
+        <translation>Remover um port FreeBSD adicional</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
@@ -402,18 +402,6 @@
         <translation type="unfinished">Salvar o log de empacotamento</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>Opções</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Informação</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Barra de ferramentas</translation>
     </message>
@@ -488,10 +476,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation type="unfinished">Compactar o módulo atual para distribuição</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>Sobre o EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -804,7 +788,7 @@
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">Isto requer uma conexão ativa à internet e privilégios de administrador. </translation>
+        <translation type="unfinished">Isto requer uma conexão ativa à internet e privilégios de administrador.</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
@@ -813,6 +797,41 @@
     <message>
         <source>Build PBI (Done)</source>
         <translation type="unfinished">Criando PBI (Pronto)</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -932,7 +951,7 @@
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">Selecione um diretório local</translation>
+        <translation>Selecione um diretório local.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>

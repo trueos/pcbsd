@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>ident</source>
-        <translation>tunniste</translation>
+        <translation>Tunniste</translation>
     </message>
     <message>
         <source>Hardware</source>

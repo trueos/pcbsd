@@ -15,13 +15,13 @@ QIcon Backend::icon(QString icon){
   else if(icon=="save"){ iconPath.append("standardbutton-save-32.png"); }
   else if(icon=="help"){ iconPath.append("standardbutton-help-32.png"); }
   else if(icon=="open"){ iconPath.append("standardbutton-open-32.png"); }
-  else if(icon=="close"){ iconPath.append("standardbutton-close-32.png"); }
   else if(icon=="file"){ iconPath.append("file-32.png"); }
   else if(icon=="trash"){ iconPath.append("trash-32.png"); }
   else if(icon=="clear"){ iconPath.append("standardbutton-clear-128.png"); }
   else if(icon=="start"){ iconPath.append("media-play-32.png"); }
   else if(icon=="stop"){ iconPath.append("media-stop-32.png"); }
   //EasyPBI embedded resources (EasyPBI.qrc)
+  else if(icon=="close"){ iconPath = ":/png/icons/window-close.png"; }
   else if(icon=="easypbi"){ iconPath = ":/png/icons/EasyPBIicon.png"; }
   else if(icon=="freebsd"){ iconPath = ":/png/icons/freebsd.png"; }
   else if(icon=="pcbsd"){iconPath = ":/png/icons/pcbsd.png"; }

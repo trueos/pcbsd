@@ -5,31 +5,27 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuration</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ensemble de Paquet</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (paquets mis à jour trimestrielle - Recommandé)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bord (Paquets mis à jour fréquemment - Pour les essais et le développement)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Ok</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Annuler</translation>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context>
@@ -124,10 +120,6 @@
     <message>
         <source>Installing updates</source>
         <translation>Installer les mises à jour</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -283,7 +275,7 @@
     </message>
     <message>
         <source>Package Check</source>
-        <translation>Package Vérification            </translation>
+        <translation>Package Vérification</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
@@ -295,23 +287,35 @@
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Basic (méta-paquets)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Avancée (tous les paquets)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configuration    </translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lecture de la base de données paquet...</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

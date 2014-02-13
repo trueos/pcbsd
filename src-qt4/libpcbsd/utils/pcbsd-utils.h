@@ -50,6 +50,7 @@ public:
     bool    isInstalled;   ///< True if DE installed
     bool    isActive;      ///< True if DE is active now
     bool    isXDG;         ///< True if DE is XDG compatible
+    QString ConfigurationApplication;
     QString TerminalCommand;
     QString TerminalTitleKey;
     QString TerminalCommandKey;

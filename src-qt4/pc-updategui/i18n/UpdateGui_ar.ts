@@ -117,33 +117,27 @@
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>حصل خطأ غير معروف!</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أعد ال&amp;مسح عن التحديثات</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;ثبت التحديثات المحددة</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>أ&amp;غلق</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>توجد تحديثات للنظام!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تفاصيل التحديث</translation>
     </message>
     <message>
         <source>Base System Updates</source>

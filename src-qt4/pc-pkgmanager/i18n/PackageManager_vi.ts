@@ -5,31 +5,27 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>cấu hình</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gói Set</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sản xuất (gói cập nhật hàng quý - Đê)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rìa (gói cập nhật thường xuyên - Để thử nghiệm và phát triển)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Ok   </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Hủy bỏ</translation>
+        <translation>&amp;Hủy bỏ</translation>
     </message>
 </context>
 <context>
@@ -124,10 +120,6 @@
     <message>
         <source>Installing updates</source>
         <translation>cập nhật cài đặt</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation>&amp;Đóng</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -283,38 +275,47 @@
     </message>
     <message>
         <source>Package Check</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra gói</translation>
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể kiểm tra các bản cập nhật gói!</translation>
     </message>
     <message>
         <source>Downloading</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tải về</translation>
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp; Basic (Meta-Gói)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Và nâng cao (Tất cả các gói)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Cấu hình</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đọc cơ sở dữ liệu gói...</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

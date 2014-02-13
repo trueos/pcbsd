@@ -2,12 +2,14 @@
 
 NULLFS="/usr/pbi/.mount_nullfs"
 MNTLOCK="/usr/pbi/.mntLock"
-MNTSLEEP="sleep 0.1"
+MNTSLEEP="sleep 0.5"
+
+# Grab list of current mounted file-systems
+mntOutput="`mount`"
 
 is_mounted() {
    if [ ! -d "${1}" ] ; then return 1; fi
-   sync
-   mount | grep -q "on ${1} (" 
+   echo ${mntOutput} | grep -q "on ${1} ("
    return $?
 }
 
@@ -94,6 +96,7 @@ mount_dirs() {
    is_mounted "${pDir}/virtbase" || ( $NULLFS / "${pDir}/virtbase" ; $MNTSLEEP ; check_nvidia_linux "${1}" )
 
    is_mounted "${pDir}/virtbase/dev" || (mount -t devfs devfs "${pDir}/virtbase/dev" ; $MNTSLEEP )
+   is_mounted "${pDir}/virtbase/dev/fd" || (mount -t fdescfs fdesc "${pDir}/virtbase/dev/fd" ; $MNTSLEEP )
    is_mounted "${pDir}/virtbase/usr/local" || ($NULLFS ${1}/local "${pDir}/virtbase/usr/local" ; $MNTSLEEP )
    is_mounted "${pDir}/virtbase/var/run" || ($NULLFS ${pDir}/run "${pDir}/virtbase/var/run" ; $MNTSLEEP )
    if [ -d "/var/run/dbus" ] ; then
@@ -106,7 +109,7 @@ mount_dirs() {
    fi
 
    # Sort out the items to mount into the PBI container
-   for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
+   for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" -e "(fusefs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
    do
      if [ "$i" = "/" ] ; then continue ; fi
      is_mounted "${pDir}/virtbase${i}" || ($NULLFS ${i} "${pDir}/virtbase${i}" ; $MNTSLEEP )
@@ -133,7 +136,7 @@ mount_dirs() {
 
    undo_mount_lock
 
-   sleep 0.2
+   sleep 1
    sync
 
    # Copy over the system command
@@ -153,11 +156,17 @@ mount_dirs() {
 }
 
 umount_pbidir() {
-   for i in `mount | grep "on ${pDir}" | tail -r | awk '{print $3}'`
+   for i in `mount | grep "on ${pDir}/virtbase/usr/local" | tail -r | awk '{print $3}'`
    do
      #echo "Unmounting ${i}"
      umount -f ${i}
-     sleep 0.1
+     sleep 0.5
+   done
+   for i in `mount | grep "on ${pDir}/virtbase/compat/linux" | tail -r | awk '{print $3}'`
+   do
+     #echo "Unmounting ${i}"
+     umount -f ${i}
+     sleep 0.5
    done
 }
 

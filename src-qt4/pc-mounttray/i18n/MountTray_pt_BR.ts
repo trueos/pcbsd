@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation>NOTA: Isso geralmente não é recomendado a menos que você tenha certeza que não tem nenhum aplicativos usando o dispositivo.            </translation>
+        <translation>NOTA: Geralmente isto não é recomendado, a menos que tenha certeza de que não há quaisquer aplicativos usando o dispositivo.</translation>
     </message>
 </context>
 <context>
@@ -183,8 +183,7 @@ Não é possível abrir o gerenciador de arquivos com permissões de root</trans
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificando notificações do dispositivo</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>

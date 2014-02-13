@@ -384,18 +384,6 @@
         <translation>保存编译日志</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>系统</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>选项</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>信息</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>工具栏</translation>
     </message>
@@ -470,10 +458,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>将当前模块压缩以分发</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>关于简易PBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -653,151 +637,156 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/软件包</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择一个其它的FreeBSD软件包</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>更改</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查看包裹覆盖(可选)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>添加软件包</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>从未使用的预编译软件包</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查看软件仓库信息(可选)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>标签</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>程序的以逗号分隔的可查找标签列表</translation>
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>程序类型</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>程序类别</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此程序可被查找的类别</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>图标URL</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查看软件仓库管理(可选)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>编译密钥</translation>
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>版本修订号</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>优先级</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无临时文件系统</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>编译密钥：更改此密钥以触发此PBI的自动重新编译</translation>
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>将此数字添加到程序的版本号后面(例：1.0 -&gt; 1.0_# )</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>编译优先级(越高越紧急)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>创建一个新的PBI模块</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>载入已存在的PBI模块</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择PBI模块配置</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI配置(pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无法创建XDG条目。</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此动作需要有互联网连接和管理员权限。</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
+        <translation>编译PBI(正在运行中)</translation>
+    </message>
+    <message>
+        <source>Build PBI (Done)</source>
+        <translation>编译PBI(完成)</translation>
+    </message>
+    <message>
+        <source>Configure</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Build PBI (Done)</source>
+        <source>Help</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -1059,48 +1048,39 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>选择一个软件包</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查找</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可选的软件包</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>撤消</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>接受</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>无可用软件包</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>查找完毕</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>没有符合此搜索的软件包</translation>
     </message>
 </context>
 </TS>

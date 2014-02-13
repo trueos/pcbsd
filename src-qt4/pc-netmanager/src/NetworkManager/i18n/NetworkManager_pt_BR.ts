@@ -140,7 +140,7 @@
     </message>
     <message>
         <source>Enable wireless / wired failover via lagg0 interface</source>
-        <translation>Habilitar failover sem fio/cabeado usando a interface lagg0</translation>
+        <translation>Habilitar failover sem fio / cabeado usando a interface lagg0</translation>
     </message>
     <message>
         <source>Proxy</source>
@@ -168,7 +168,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation>Nome de Usuário</translation>
+        <translation>Nome de usuário</translation>
     </message>
     <message>
         <source>Password</source>

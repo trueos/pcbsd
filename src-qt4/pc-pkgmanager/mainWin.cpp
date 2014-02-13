@@ -33,7 +33,6 @@ void mainWin::ProgramInit(QString ch)
   //Grab the username
   //username = QString::fromLocal8Bit(getenv("LOGNAME"));
   connect(pushUpdatePkgs, SIGNAL(clicked()), this, SLOT(slotUpdatePkgsClicked()));
-  connect(pushClose, SIGNAL(clicked()), this, SLOT(slotCloseClicked()));
   connect(pushCloseAdv, SIGNAL(clicked()), this, SLOT(slotCloseAdvClicked()));
   connect(buttonRescanPkgs, SIGNAL(clicked()), this, SLOT(slotRescanPkgsClicked()));
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );

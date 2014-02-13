@@ -1670,6 +1670,12 @@ get_pbi_progversion() {
 	# Check first if we have this pkg in PKGNG
 	if [ -n "$PBI_PKGNGBUILD" -a -z "$PBI_AB_NOPKGBUILD" ] ; then
 		testPkgVer="`pkg-static rquery '%v' ${PBI_MAKEPORT}`"
+		if [ -z "$testPkgVer" ] ; then
+			# Try one more time, just in case PKGNG was busy, silly database locking
+			sleepRand="`jot -r 1 1 90`"
+			sleep $sleepRand
+			testPkgVer="`pkg-static rquery '%v' ${PBI_MAKEPORT}`"
+		fi
 		if [ -n "$testPkgVer" ] ; then
 			PBI_PROGVERSION="$testPkgVer"
 			# If we have a REVISION, use it as well
@@ -3899,8 +3905,10 @@ mk_extlink_entries() {
 					_mTar=`echo $tar | sed 's|^man/||g'`
 					_dTar="\$PBI_MANDIR/${_mTar}"
 					echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-					echo "if [ ! -d \"\$_bd\" ] ; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
-					echo "ln ${_lop} $PBI_PROGDIRPATH/local/${src} \$PBI_MANDIR/${_mTar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "if [ ! -d \"\$_bd\" ]; then mkdir -p \"\${_bd}\"; fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "if [ -e \"\$PBI_PROGDIRPATH/local/$src\" ]; then" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "  ln ${_lop} $PBI_PROGDIRPATH/local/${src} \$PBI_MANDIR/${_mTar}" >> "${dir}/${PBI_INS_PATHSCRIPT}"
+					echo "fi" >> "${dir}/${PBI_INS_PATHSCRIPT}"
 				else
 					_dTar="\$SYS_LOCALBASE/${tar}"
 					echo "_bd=\"\`dirname ${_dTar}\`\"" >> "${dir}/${PBI_INS_PATHSCRIPT}"
@@ -4533,9 +4541,6 @@ do_pbi_delete() {
 	load_info_from_dir "${PBI_DBAPPDIR}/${PBI_DELETENAME}"
 	PBI_PROGDIRPATH="${PBI_ORIGPROGDIRPATH}"
 
-	# Unmount the PBI if its mounted
-	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
-
 	get_username_from_file "${PBI_DBAPPDIR}/${PBI_DELETENAME}/pbi_name"
 	if [ "$FILEUSER" != `whoami` -a `id -u` != "0" ] ; then
 		exit_err "Permission denied to modify PBI installed by: $FILEUSER"
@@ -4543,6 +4548,9 @@ do_pbi_delete() {
 
 	# Set the dirty flag that we are removing this PBI
 	touch ${PBI_DBAPPDIR}/${PBI_DELETENAME}/.pbiDeleted
+
+	# Unmount the PBI if its mounted
+	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
 
 	check_preremove_script
 	run_remove_script
@@ -6209,14 +6217,16 @@ start_next_ab_target()
     PBI_MAKEPORT="`echo $PBI_MAKEPORT | sed 's|/$||g'`"
   fi
 
-  # Get the prog version
-  get_pbi_progversion
-
   if [ "$PBI_AB_PKGBUILD" = "YES" -a -z "$PBI_AB_NOPKGBUILD"  ] ; then
      ttag="package"
+     PBI_PKGNGBUILD="YES"
   else
      ttag="source"
+     unset PBI_PKGNGBUILD
   fi
+
+  # Get the prog version
+  get_pbi_progversion
 
   echo "==> Starting $ttag build [$curBuilder]: $PBI_MAKEPORT"
   echo "$PBI_MAKEPORT" >${PBI_TMPDIR}/${curBuilder}.bPort
@@ -6332,6 +6342,7 @@ start_ext_ab() {
 
 	# Add some header info to log file
 	echo "Starting build: `date`" >${_od}/build.log
+	echo "For ${_mp} - ${PBI_PROGVERSION}" >>${_od}/build.log
 	echo "Build Command:" >>${_od}/build.log
 	echo "pbi_makeport ${_flags} ${_mp}" >>${_od}/build.log
 	echo "------------------------------------------------------" >>${_od}/build.log
@@ -6356,9 +6367,9 @@ ab_post_build()
 
 	if [ -e "${PBI_TMPDIR}/${build}.result" -a "`cat ${PBI_TMPDIR}/${build}.result`" = "0" ] ; then
 
-		echo "===> Build of ${_mp} was successfull! [$build]"
+		echo "===> Build of ${_mp} (${_pv}) was successfull! [$build]"
 
-		echo "$_pv" > "${_od}/pbi-version"
+		echo "${_pv}" > "${_od}/pbi-version"
 		echo "OK" > "${_od}/pbi-result"
 
 		# Save the mdate file
@@ -6990,6 +7001,11 @@ do_pbi_make() {
 
 	# Auto-generate a external_links directive from plist info
 	mk_auto_ext_linksfile
+
+	# Cleanup any package leftovers
+	if [ -d "/usr/local/tmp/All" ] ; then
+		rm -rf /usr/local/tmp/All
+	fi
 
   	# Break here if we are only doing a build
 	if [ "${PBI_BUILDONLY}" = "YES" ] ; then exit_trap; fi

@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation>Conjunto de dados ZFS: &lt;br&gt;</translation>
+        <translation>Conjunto de dados ZFS:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
@@ -756,7 +756,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Máscara de Rede</translation>
+        <translation>Máscara de rede</translation>
     </message>
     <message>
         <source>Nameserver (DNS)</source>

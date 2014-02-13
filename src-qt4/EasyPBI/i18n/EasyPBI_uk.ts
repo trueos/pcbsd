@@ -384,18 +384,6 @@
         <translation>Зберегти протокол збирання</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>Система</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>Налаштування</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Інформація</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>toolBar</translation>
     </message>
@@ -470,10 +458,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>Стиснути поточний модуль для розповсюдження</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>Про EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -770,6 +754,34 @@
     <message>
         <source>Build PBI (Done)</source>
         <translation>Збирання PBI (Закінчено)</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation>Налаштувати</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Допомога</translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation>Shift+S</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>Вийти</translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation>Shift+Q</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Про Easy PBI</translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation>Shift+A</translation>
     </message>
 </context>
 <context>

@@ -40,22 +40,47 @@ if [ "$USERHOMEDIR" != "`realpath ${USERHOMEDIR}`" ] ; then
   USERHOMEDIR=`realpath $USERHOMEDIR`
 fi
 
+# Check if PEFS is enabled here
+if [ -e "${USERHOMEDIR}/.pefs.db" ] ; then
+   if [ ! -e "${USERHOMEDIR}/.profile" ] ; then
+      echo "ERROR: PEFS is already enabled on ${USERHOMEDIR}, but directory is still encrypted!"
+      echo "Add your PEFS key to ${USERHOMDIR} before trying again."
+      exit 1
+   fi
+fi
+
 echo "Encrypting ${USERHOMEDIR}"
 
 mkdir ${USERHOMEDIR}.$$
-tar cvf - -C "${USERHOMEDIR}" . 2>/dev/null | tar xvpf - -C "${USERHOMEDIR}.$$" 2>/dev/null
-rm -rf ${USERHOMEDIR}/* 2>/dev/null
-rm -rf ${USERHOMEDIR}/.* 2>/dev/null
-chown ${USER}:${USER} ${USERHOMEDIR}
 
-pefs mount ${USERHOMEDIR} ${USERHOMEDIR}
+echo "Moving homedir contents ${USERHOMEDIR} -> ${USERHOMEDIR}.$$"
+mv ${USERHOMEDIR}/* ${USERHOMEDIR}.$$/
+mv ${USERHOMEDIR}/.* ${USERHOMEDIR}.$$/
+
+# If already had pefs enabled, remove old pefs.db file
+if [ -e ${USERHOMEDIR}.$$/.pefs.db ] ; then
+   rm ${USERHOMEDIR}.$$/.pefs.db
+fi
+
+mount | grep -q "on ${USERHOMEDIR} (pefs"
+if [ $? -ne 0 ] ; then
+  chown ${USER}:${USER} ${USERHOMEDIR}
+  pefs mount ${USERHOMEDIR} ${USERHOMEDIR}
+else
+  pefs flushkeys ${USERHOMEDIR}
+fi
+
 echo "${USERPW}" | pefs addkey -v -j - ${USERHOMEDIR}
 echo "${USERPW}" | pefs addchain -v -j - -Z ${USERHOMEDIR}
 
 mv ${USERHOMEDIR}/.pefs.db /tmp/.pefs.db.$$
-tar cvf - -C "${USERHOMEDIR}.$$" . 2>/dev/null | tar xvpf - -C "${USERHOMEDIR}" 2>/dev/null
 
-umount ${USERHOMEDIR}
+# Copy files back to homedir
+echo "Moving homedir contents back from ${USERHOMEDIR}.$$ -> ${USERHOMEDIR}"
+mv ${USERHOMEDIR}.$$/* ${USERHOMEDIR}/
+mv ${USERHOMEDIR}.$$/.* ${USERHOMEDIR}/
+
+umount -f ${USERHOMEDIR}
 
 mv /tmp/.pefs.db.$$ ${USERHOMEDIR}/.pefs.db
 chown ${USER}:${USER} ${USERHOMEDIR}/.pefs.db

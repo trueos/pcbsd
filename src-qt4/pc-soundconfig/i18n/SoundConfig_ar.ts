@@ -5,33 +5,27 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>تكوين الصوت</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>يمكنك تغيير جهاز الصوت الافتراضي واختبار تشغيل الصوت أدناه</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;جرب الصوت</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;طبق</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;أغلق</translation>
     </message>
     <message>
         <source>No sound devices detected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>لا توجد أجهزة صوت مكتشفة!</translation>
     </message>
 </context>
 </TS>
