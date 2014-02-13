@@ -112,4 +112,4 @@ icons.files=pc-bugreport.png
 dotrans.path=/usr/local/share/pcbsd/i18n/
 dotrans.extra=cd i18n && lrelease-qt4 -nounfinished *.ts && cp *.qm $(INSTALL_ROOT)/usr/local/share/pcbsd/i18n/
 
-INSTALLS += target desktop icons dotran
+INSTALLS += target desktop icons dotrans
