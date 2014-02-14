@@ -2,6 +2,7 @@
 # Script to install gentoo i386 release into a jail
 # Author: Kris Moore <kris@pcbsd.org>
 
+JDIR="$1"
 SELF="gentoo-stage3-i486"
 SELFDIR="${JDIR}/.${SELF}"
 INDEXFILE="latest-stage3-i486.txt"
@@ -214,17 +215,10 @@ error()
 
 main()
 {
-    case "${1}" in
-      get_distfiles) shift; get_distfiles "$@" ;; 
-      template_install) shift; template_install "$@" ;;
-      jail_configure) shift; jail_configure "$@" ;;
-      error) shift; error "$@" ;;
-    esac
-
-    if [ "$?" != "0" ] ; then
-      touch "${ERRORFILE}"
-    fi
+    get_distfiles
+    template_install "$1"
+    jail_configure "$3"
 }
 
-
+# Arg1 = Directory # Arg2 = IP # Arg3 = Meta dir
 main "$@"

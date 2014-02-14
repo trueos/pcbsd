@@ -14,6 +14,7 @@ setup_linux_jail()
 
   mkdir -p ${JMETADIR}
   echo "${HOST}" > ${JMETADIR}/host
+  echo "${HOST}" > ${JMETADIR}/id
 
   if [ "${IP4}" != "OFF" ] ; then
     echo "${IP4}/${MASK4}" > ${JMETADIR}/ipv4
