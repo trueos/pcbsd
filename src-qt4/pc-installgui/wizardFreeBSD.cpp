@@ -42,7 +42,7 @@ void wizardFreeBSD::programInit(bool trueOS)
 
 
    if ( trueOS ) {
-      comboShell->addItem("/bin/bash");
+      comboShell->addItem("/usr/local/bin/bash");
    }
 }
 
