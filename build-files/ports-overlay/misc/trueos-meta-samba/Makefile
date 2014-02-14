@@ -12,7 +12,7 @@ DISTFILES=	# none
 MAINTAINER=	kris@pcbsd.org
 COMMENT=	The meta-port trueos-meta-samba
 
-RUN_DEPENDS=	samba36>=0:${PORTSDIR}/net/samba36
+RUN_DEPENDS=	samba41>=0:${PORTSDIR}/net/samba41
 
 NO_BUILD=	yes
 
