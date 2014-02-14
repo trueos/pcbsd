@@ -232,9 +232,11 @@ void MainWindow::fillDEList()
         {QString("gnome"),QString(":/images/gnome.png"), EGNOME_PAGE},
         {QString("xfce"),QString(":/images/xfce.png"), EXFCE_PAGE},
         {QString("lxde"),QString(":/images/lxde.png"), ELXDE_PAGE},
+        {QString("cinnamon"),QString(":/images/cinnamon.png"), EUNSUPPORTED_DE_PAGE},
+        {QString("mate"),QString(":/images/mate.png"), EUNSUPPORTED_DE_PAGE},
     };
 
-    const int DE_SIZE = 4;
+    const int DE_SIZE = 6;
 
     bool hasActiveDesktop = false;
 

@@ -13,5 +13,7 @@
         <file>images/lxde.png</file>
         <file>images/unsupported_de.png</file>
         <file>pc-bugreport.png</file>
+        <file>images/cinnamon.png</file>
+        <file>images/mate.png</file>
     </qresource>
 </RCC>
