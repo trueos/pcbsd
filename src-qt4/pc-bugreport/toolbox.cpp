@@ -3,7 +3,9 @@
 #include "showinfodialog.h"
 
 #include <QFile>
+#include <QDir>
 #include <QProcess>
+#include <QDate>
 
 #define PREFIX "/usr/local/"
 static const QString KSANPSHOT_FILE(PREFIX"bin/ksnapshot");
@@ -68,7 +70,20 @@ void Toolbox::on_actionDmesg_triggered()
 
 void Toolbox::on_actionDiagnostic_report_triggered()
 {
-
+	//Generate the diagnostic file on the user desktop
+	QString filename = QDir::homePath()+"/Desktop/diagnostic-"+QDate::currentDate().toString("yyyyMMdd")+".txt";
+	QString username = getenv("LOGNAME");
+	QString cmd = "/usr/local/share/pcbsd/scripts/GetDiagSheet.sh "+filename+" "+username;
+	QProcess p;
+	p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
+	p.start(cmd);
+	while(p.waitForFinished(200)){
+	  QApplication::processEvents();
+	}
+	//Now show the info dialog for the newly generated diagnostic file
+	ShowInfoDialog *dlg = new ShowInfoDialog(this);
+	dlg->show(filename);
+	
 }
 
 void Toolbox::on_actionPCIConf_triggered()
