@@ -72,10 +72,6 @@
         <translation>關閉</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>正在測試 snapshot %1。可能會不穩定！</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org 伺服器版本：</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI 工具程式：</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

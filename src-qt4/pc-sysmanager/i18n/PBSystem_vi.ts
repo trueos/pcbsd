@@ -5,38 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CMD Output</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thôi</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đóng</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt cổng PC-BSD cây</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt nguồn PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>quá trình chạy</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy dừng quá trình hiện tại trước khi đóng cửa sổ này.</translation>
     </message>
 </context>
 <context>
@@ -59,11 +52,11 @@
     </message>
     <message>
         <source>Tasks</source>
-        <translation>Các tác vụ</translation>
+        <translation>Các tác vu</translation>
     </message>
     <message>
         <source>CPU Type:</source>
-        <translation>CPU Type:    </translation>
+        <translation>CPU Type:</translation>
     </message>
     <message>
         <source>System Memory:</source>
@@ -71,7 +64,7 @@
     </message>
     <message>
         <source>Misc</source>
-        <translation>nhiều     </translation>
+        <translation>nhiều</translation>
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
@@ -95,73 +88,59 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Phiên bản</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>căn cứ:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Backend tiện ích:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đồ họa tiện ích:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hệ thống thông tin</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Version:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lấy PC-BSD &amp;Hệ thống nguồn</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lấy PC-BSD P&amp;Orts cây</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lôi</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo tập tin lỗi chẩn đoán</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thành công</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chẩn đoán tập tin tạo: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đa la quá trình chạy</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn đã sẵn sàng một quá trình chạy. Xin vui lòng chờ một đó để hoàn thành đầu tiên.  </translation>
     </message>
 </context>
 </TS>

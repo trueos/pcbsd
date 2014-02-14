@@ -112,7 +112,12 @@
             </translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
     </message>

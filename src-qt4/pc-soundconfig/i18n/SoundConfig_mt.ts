@@ -5,33 +5,27 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurazzjoni Sound</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hawn taħt tista &apos;tbiddel l-apparat tal-ħoss default, u test daqq ħoss</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ħoss Test</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Applika</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
     <message>
         <source>No sound devices detected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-ebda apparat tal-ħoss skoperti!</translation>
     </message>
 </context>
 </TS>

@@ -5,118 +5,99 @@
     <name>MainWindow</name>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dwar</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verżjoni:</translation>
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Unknown&gt;</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ospitanti:</translation>
     </message>
     <message>
         <source>????</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>????</translation>
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD bażi</translation>
     </message>
     <message>
         <source>Arch:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arkitettura:</translation>
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indent </translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ħardwer</translation>
     </message>
     <message>
         <source>CPU:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CPU:</translation>
     </message>
     <message>
         <source>Mem.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mem.</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dahar</translation>
     </message>
     <message>
         <source>Desktop environments:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambjenti desktop:</translation>
     </message>
     <message>
         <source>(Please wait...)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Jekk jogħġbok stenna ...)</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem  </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verżjoni:</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq</translation>
     </message>
     <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org verżjoni server:</translation>
     </message>
     <message>
         <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Komponenti tas-sistema...</translation>
     </message>
     <message>
         <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambjenti desktop...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitajiet CLI PC-BSD:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitajiet UI PC-BSD:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation>Pakkett sett:</translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation>(mhux stabbli)</translation>
     </message>
 </context>
 </TS>

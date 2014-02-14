@@ -5,8 +5,7 @@
     <name>mainUI</name>
     <message>
         <source>PC-BSD Bootup Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD:n käynnistyksen konfigurointi</translation>
     </message>
     <message>
         <source>Boot Environments</source>

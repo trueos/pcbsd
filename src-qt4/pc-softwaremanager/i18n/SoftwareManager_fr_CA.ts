@@ -494,6 +494,14 @@
         <source>Are you sure you want to install this application?</source>
         <translation>Êtes-vous sûr que vous voulez installer cette application?    </translation>
     </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation>Shift+Q</translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation>Shift+S</translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>

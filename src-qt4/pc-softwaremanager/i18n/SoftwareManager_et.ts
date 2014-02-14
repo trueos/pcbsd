@@ -494,6 +494,16 @@
         <source>Are you sure you want to install this application?</source>
         <translation>Kas soovid kindlasti selle rakenduse paigaldada?</translation>
     </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>

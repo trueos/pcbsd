@@ -122,10 +122,6 @@
         <translation>Встановлення оновленнь</translation>
     </message>
     <message>
-        <source>&amp;Close</source>
-        <translation>Закрити</translation>
-    </message>
-    <message>
         <source>&amp;File</source>
         <translation>Файл</translation>
     </message>
@@ -304,6 +300,22 @@
     <message>
         <source>Reading package database...</source>
         <translation>Читання бази даних пакунків...</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation>Налаштувати</translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation>Shift+Q</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Налаштування</translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation>Shift+S</translation>
     </message>
 </context>
 </TS>

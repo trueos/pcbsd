@@ -3612,12 +3612,13 @@ pbi_extract_archive() {
 	if [ "$PBI_VERBOSE" = "YES" ] ; then
 		tar="xvf -"
 		echo "TOTALFILES: ${PBI_ARCHIVE_COUNT}"
+		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}"
+		err="$?"
 	else
 		tar="xf -"
+		tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" 2>/dev/null
+		err="$?"
 	fi
-	tail +$PBI_SKIP_ARCHLINES "${PBI_FILENAME}" | tar ${tar} -C "${PBI_EXTRACTDIR}" 2>/dev/null
-	err="$?"
-	
 	if [ "$err" != "0" ] ; then exit_err "Failed extracting ${PBI_FILENAME}" ; fi
 
 	if [ "$PBI_VERBOSE" = "YES" ] ; then echo "Extraction Finished!" ; fi
@@ -4541,9 +4542,6 @@ do_pbi_delete() {
 	load_info_from_dir "${PBI_DBAPPDIR}/${PBI_DELETENAME}"
 	PBI_PROGDIRPATH="${PBI_ORIGPROGDIRPATH}"
 
-	# Unmount the PBI if its mounted
-	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
-
 	get_username_from_file "${PBI_DBAPPDIR}/${PBI_DELETENAME}/pbi_name"
 	if [ "$FILEUSER" != `whoami` -a `id -u` != "0" ] ; then
 		exit_err "Permission denied to modify PBI installed by: $FILEUSER"
@@ -4551,6 +4549,12 @@ do_pbi_delete() {
 
 	# Set the dirty flag that we are removing this PBI
 	touch ${PBI_DBAPPDIR}/${PBI_DELETENAME}/.pbiDeleted
+
+	# Unmount the PBI if its mounted
+	/usr/pbi/.pbime umount "/usr/pbi/.mounts/`basename $PBI_PROGDIRPATH`"
+
+	# Sleep 5 before nuking dirs
+	sleep 5
 
 	check_preremove_script
 	run_remove_script

@@ -786,13 +786,11 @@
     </message>
     <message>
         <source>Linux Jail (Run Linux within a jail) - Experimental!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Linux tù (Chạy Linux trong một nhà tù) - thử nghiệm!</translation>
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên máy không thể chứa khoảng trắng?</translation>
     </message>
 </context>
 </TS>

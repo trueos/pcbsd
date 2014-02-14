@@ -384,18 +384,6 @@
         <translation>Tiết kiệm xây dựng Đăng nhập</translation>
     </message>
     <message>
-        <source>System</source>
-        <translation>Hệ thống</translation>
-    </message>
-    <message>
-        <source>Options</source>
-        <translation>Tùy chọn</translation>
-    </message>
-    <message>
-        <source>Information</source>
-        <translation>Các thông tin</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Thanh công cụ</translation>
     </message>
@@ -470,10 +458,6 @@
     <message>
         <source>Compress the current module for distribution</source>
         <translation>Nén các mô-đun hiện tại để phân phối</translation>
-    </message>
-    <message>
-        <source>About EasyPBI</source>
-        <translation>về EasyPBI</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
@@ -653,153 +637,151 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cảng/gói</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một gói FreeBSD khác nhau</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>thay đổi</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem trọn gói Ghi đè (không bắt buộc)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm vào pkgs</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không bao giờ sử dụng các gói được xây dựng trước</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem Repository Thông tin (tùy chọn)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tags</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Danh sách bằng dấu phẩy của các tags tìm kiếm các ứng dụng</translation>
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại ứng dụng</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ứng dụng Cát</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thể loại mà ứng dụng này được tìm thấy </translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL biểu tượng</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xem Quản lý kho lưu trữ (tùy chọn)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng chính</translation>
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>xét lại #</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ưu tiên</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No TMPFS</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng chính: Thay đổi này để kích hoạt tự động xây dựng lại của PBI</translation>
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thêm con số này với các phiên bản ứng dụng (Ví dụ: 1,0 -&gt; 1.0_ #)</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng ưu tiên (cao hơn là cấp bách hơn)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tạo ra một mô-đun PBI mới</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nạp một mô-đun PBI hiện</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn PBI Mô-đun cấu hình</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI cấu hình (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể tạo các mục nhập xdg.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Điều này đòi hỏi một kết nối internet và quản trị đặc quyền hoạt động.</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng PBI (Chạy)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xây dựng PBI (Done)</translation>
+    </message>
+    <message>
+        <source>Configure</source>
+        <translation>cấu hình</translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation>Giúp</translation>
+    </message>
+    <message>
+        <source>Shift+S</source>
+        <translation>Shift +S</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>bỏ thuốc lá</translation>
+    </message>
+    <message>
+        <source>Shift+Q</source>
+        <translation>Shift+Q</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>về</translation>
+    </message>
+    <message>
+        <source>Shift+A</source>
+        <translation>Shift+A</translation>
     </message>
 </context>
 <context>
@@ -822,7 +804,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation>Chọn số</translation>
+        <translation>Chon số</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
@@ -830,7 +812,7 @@
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation>Chọn tập tin PNG địa phương (kích thước 64x64 điểm ảnh được đề nghị)</translation>
+        <translation>Chọn tập tin PNG địa phương (kích thước 64x64 điểm ảnh được đề nghi)</translation>
     </message>
     <message>
         <source>Icon File</source>
@@ -1059,48 +1041,39 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn một gói</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tìm kiếm</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gói có sẵn</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chịu</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có gói sẵn</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tìm kiếm hoàn thành</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không tìm thấy gói với thuật ngữ</translation>
     </message>
 </context>
 </TS>

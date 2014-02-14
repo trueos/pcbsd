@@ -72,10 +72,6 @@
         <translation>Bezárás</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>%1. tesztelési pillanatkép. Instabil lehet!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.Org-kiszolgáló verziója:</translation>
     </message>
@@ -97,6 +93,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI eszközök
+            </translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
             </translation>
     </message>
 </context>

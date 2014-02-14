@@ -72,10 +72,6 @@
         <translation>Затвори</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Тестване на запазено състояние %1. Може да е нестабилно!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Версия на X.org server:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI инструменти:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

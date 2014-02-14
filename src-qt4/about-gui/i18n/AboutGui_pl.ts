@@ -72,10 +72,6 @@
         <translation>Zamknij</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Sprzawdzanie obrazu systemu %1. Może występować niestabilość!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Wersja serwera X.org:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>Narzędzia UI PC-BSD:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

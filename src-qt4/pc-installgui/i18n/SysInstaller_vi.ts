@@ -247,69 +247,57 @@
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khôi phục lại từ Life-Preserver sao lưu</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quản lý kết nối mạng</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS bộ dữ liệu:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bố trí ZFS gốc sẽ được khôi phục  </translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thực hiện một khôi phục lại từ một bản sao lưu Life-Preserver. Kích Next để bắt đầu trình hướng dẫn khôi phục.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bắt đầu khôi phục lại bây giờ?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống của bạn bây giờ được khôi phục!
+Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có thể đẩy cài đặt phương tiện truyền thông.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khôi phục hệ thống </translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống của bạn đang được phục hồi, điều này có thể mất một thời gian tùy thuộc vào kích thước của sao lưu và điều kiện mạng của bạn.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt siêu gói: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khôi phục hệ thống: %1</translation>
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Và nạp cấu hình từ USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lưu Config để USB</translation>
     </message>
 </context>
 <context>
@@ -371,8 +359,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vui lòng chọn các phần mềm để cài đặt. Sau khi cài đặt bạn cũng có thể thêm / gỡ bỏ các phần mềm thông qua Package Manager (máy tính để bàn) hoặc &quot;pkg&quot; lệnh (máy chủ).</translation>
     </message>
 </context>
 <context>
@@ -682,33 +669,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy chọn ổ đĩa hoặc phân vùng mà bạn muốn cài đặt vào. Xin lưu ý rằng bạn phải lựa chọn hoặc toàn bộ ổ đĩa hoặc một phân vùng chính ít nhất là 20GB cho một máy chủ cài đặt hoặc 50GB cho một máy tính để bàn cài đặt.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cài đặt vào ổ cứng SSD (Vô hiệu hóa SWAP / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không khởi động-loader!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các bộ dữ liệu hệ thống ban đầu / mount-điểm sẽ được tự động phục hồi.</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khởi động Loader (đề nghị GRUB)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bạn đã chọn không cài đặt một khởi động-loader. Bạn sẽ cần phải tự thiết lập bộ tải của riêng bạn.</translation>
     </message>
 </context>
 <context>
@@ -814,116 +795,97 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wizard này sẽ dẫn bạn mặc dù quá trình phục hồi hệ thống của bạn từ một bản sao lưu Life-Preserver. Kích Next để bắt đầu.</translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Để bắt đầu hãy nhập tên máy, tên người dùng và cổng của máy chủ sao lưu của bạn.</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>sao lưu máy chủ</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lưu trữ tên</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tên người dùng</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH Port</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>máy chủ xác thực</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sử dụng USB</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sử dụng xác thực mật khẩu</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Các hệ thống sau được sao lưu trên máy chủ này, chọn một trong những bạn muốn khôi phục.</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khôi phục hệ thống lựa chọn</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>khôi phục Tóm tắt</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống đã sẵn sàng để được phục hồi, nhấn Finish để tiếp tục.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có phím tìm thấy!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không có phím Auth có thể được tìm thấy trên đó thẻ nhớ!
+Hãy thử một thanh USB hoặc sử dụng xác thực mật khẩu.</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kết nối không thành công!</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể kết nối với máy chủ sao lưu
+Hãy kiểm tra xem máy chủ có thể truy cập và xác minh người dùng / mật khẩu.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Không thể kết nối với máy chủ sao lưu
+Vui lòng kiểm tra tên máy của bạn và máy chủ sao lưu có thể truy cập.</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sẽ khôi phục lại từ:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chọn khóa SSH để sử dụng</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chính File:</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nếu bạn đã lưu chính Life-Preserver của bạn vào một ổ đĩa USB, chèn nó bây giờ và chọn USB, nếu không bạn có thể muốn sử dụng xác thực mật khẩu.</translation>
     </message>
 </context>
 </TS>

@@ -68,10 +68,6 @@
         <translation>Aizvērt</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Pārbauda momentuzņēmumu %1. Var būt nestabils!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org servera versija:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>Host:</source>
         <translation>Resursdators:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

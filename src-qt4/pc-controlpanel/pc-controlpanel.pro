@@ -5,7 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
-LIBS	 += -lQtSolutions_SingleApplication-head
+LIBS	 += -L../libpcbsd -L/usr/local/lib -lpcbsd-ui -lpcbsd-utils -lQtSolutions_SingleApplication-head
+INCLUDEPATH	+= ../libpcbsd/utils ../libpcbsd/ui /usr/local/include
 
 TARGET = pc-controlpanel
 target.path = /usr/local/bin/

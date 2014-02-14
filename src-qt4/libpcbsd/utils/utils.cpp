@@ -836,6 +836,7 @@ static int de_info(bool isCurrent, QVector<DesktopEnvironmentInfo>& retVal)
     static const char* const DE_SUDO = "Sudo command:";
     static const char* const DE_FILE_MANAGER = "File manager:";
     static const char* const DE_TERMINAL = "Terminal:";
+    static const char* const DE_CONFIG_APP = "Configuration app:";
 
     retVal.clear();
 
@@ -870,6 +871,7 @@ static int de_info(bool isCurrent, QVector<DesktopEnvironmentInfo>& retVal)
         TRY_GET_VALUE_STR(DE_SUDO, SudoCommand);
         TRY_GET_VALUE_STR(DE_FILE_MANAGER, FileManager);
         TRY_GET_VALUE_STR(DE_TERMINAL, TerminalCommand);
+	TRY_GET_VALUE_STR(DE_CONFIG_APP, ConfigurationApplication);
         //TODO: another fields
     }//while process output reading
 

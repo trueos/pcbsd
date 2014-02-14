@@ -72,10 +72,6 @@
         <translation>Tutup</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Sedang mencoba snapshot %1. Kemungkinan tidak stabil!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Server x.org versi:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>Kegunaan PC-BSD UI:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

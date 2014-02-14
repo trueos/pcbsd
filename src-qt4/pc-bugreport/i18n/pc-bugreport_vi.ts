@@ -1,377 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="vi_VN">
+<TS version="2.0">
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.ui" line="14"/>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished"></translation>
+        <translation>PC-BSD công cụ báo cáo lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="34"/>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vui lòng chọn các thành phần mà các lỗi xảy ra.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="69"/>
-        <location filename="../mainwindow.ui" line="143"/>
         <source>FreeBSD base system</source>
-        <translation type="unfinished"></translation>
+        <translation>Hệ thống cơ bản FreeBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <location filename="../mainwindow.ui" line="212"/>
         <source>PC-BSD base system</source>
-        <translation type="unfinished"></translation>
+        <translation>Hệ thống cơ bản PC-BSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
         <source>Xorg server</source>
-        <translation type="unfinished"></translation>
+        <translation>Xorg server</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <location filename="../mainwindow.ui" line="387"/>
         <source>Desktop environment</source>
-        <translation type="unfinished"></translation>
+        <translation>Môi trường máy tính để bàn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="100"/>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished"></translation>
+        <translation>Phần mềm FreeBSD (cảng/gói)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="107"/>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished"></translation>
+        <translation>Phần mềm PC-BSD (PBI)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="174"/>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Gửi một báo cáo lỗi sử dụng cơ chế GỬI-PR FreeBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="194"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Gửi email đến các lỗi FreeBSD danh sách gửi thư. Truy cập vào trang web sau để đăng ký hoặc đọc các tài liệu lưu trữ của danh sách này&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="243"/>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Gửi một báo cáo lỗi sử dụng sử dụng cơ chế trac PC-BSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="263"/>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished"></translation>
+        <translation>Gửi email đến các PC-BSD danh sách thử nghiệm gửi thư. Truy cập vào trang web sau để đăng ký hoặc đọc các tài liệu lưu trữ của danh sách này</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="284"/>
         <source>X.org server</source>
-        <translation type="unfinished"></translation>
+        <translation>máy chủ X.org</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="315"/>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Gửi một báo cáo lỗi sử dụng sử dụng cơ chế bugzilla freedesktop của</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="335"/>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Gửi email vào danh sách gửi thư thử nghiệm Xorg. Truy cập vào trang web sau để đăng ký hoặc đọc các tài liệu lưu trữ của danh sách này</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="355"/>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished"></translation>
+        <translation>3. Nếu bạn nghĩ rằng vấn đề đó là FreeBSD cụ thể xin vui lòng báo cáo lỗi cho freebsd-x11 maillist</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="372"/>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>4. Nếu bạn nghĩ rằng vấn đề đó là PC-BSD cụ thể, xin vui lòng báo cáo danh sách kiểm tra email</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="393"/>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy chọn máy tính để bàn môi trường gây ra vấn đề:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="404"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="409"/>
         <source>New Column</source>
-        <translation type="unfinished"></translation>
+        <translation>Cột mới</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="414"/>
         <source>New Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Mục mới</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="423"/>
         <source>Gnome</source>
-        <translation type="unfinished"></translation>
+        <translation>Gnome</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="454"/>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Gửi email đến danh sách email freebsd-gnome</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="471"/>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Gửi email đến các PC-BSD danh sách thử nghiệm gửi thư</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="499"/>
         <source>KDE</source>
-        <translation type="unfinished"></translation>
+        <translation>KDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="530"/>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Gửi một báo cáo lỗi để kiểm tra lỗi KDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="550"/>
         <source>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Nếu bạn nghĩ rằng vấn đề đó là FreeBSD cụ thể xin vui lòng báo cáo tothe danh sách gửi thư kde-freebsd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="570"/>
-        <location filename="../mainwindow.ui" line="669"/>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>3.Nếu bạn nghĩ rằng vấn đề đó là PC-BSD cụ thể xin vui lòng báo cáo danh sách gửi thư thử nghiệm PCBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="601"/>
         <source>XFCE</source>
-        <translation type="unfinished"></translation>
+        <translation>XFCE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="632"/>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Bạn có thể thông báo lỗi để XFCE trang web bugzilla</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="649"/>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Nếu bạn nghĩ rằng vấn đề đó là FreeBSD cụ thể xin vui lòng báo cáo danh sách gửi thư kde-freebsd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="700"/>
         <source>LXDE</source>
-        <translation type="unfinished"></translation>
+        <translation>LXDE</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="731"/>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Bạn có thể thông báo lỗi để theo dõi lỗi LXDE tại SourceForge</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="751"/>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2.If bạn nghĩ rằng vấn đề đó là PC-BSD cụ thể xin vui lòng báo cáo danh sách gửi thư thử nghiệm PCBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="782"/>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished"></translation>
+        <translation>Không được hỗ trợ unvironment máy tính để bàn</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="806"/>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Bạn có thể thông báo lỗi để lỗi theo dõi danh sách yêu thích của bạn môi trường máy tính để bàn / mail</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="820"/>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished"></translation>
+        <translation>2.If bạn nghĩ rằng vấn đề đó là PC-BSD cụ thể xin vui lòng báo cáo danh sách kiểm tra PCBSD email</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="848"/>
         <source>FreeBSD software</source>
-        <translation type="unfinished"></translation>
+        <translation>Phần mềm FreeBSD</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="879"/>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Bạn có thể báo cáo các vấn đề để freebsd-port-lỗi danh sách gửi thư</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="907"/>
-        <location filename="../mainwindow.ui" line="940"/>
         <source>PBI software</source>
-        <translation type="unfinished"></translation>
+        <translation>Phần mềm PBI</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="913"/>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished"></translation>
+        <translation>Hãy chọn phần mềm PBI với lỗi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="921"/>
         <source>Icon</source>
-        <translation type="unfinished"></translation>
+        <translation>biểu tượng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="926"/>
         <source>Application</source>
-        <translation type="unfinished"></translation>
+        <translation>ứng dụng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="931"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Phiên bản</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="971"/>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished"></translation>
+        <translation>1. Bạn có thể thử để báo lỗi tại trang web của phần mềm</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="988"/>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished"></translation>
+        <translation>2.If bạn nghĩ rằng vấn đề đó là PC-BSD cụ thể xin vui lòng báo cáo PCBSD PBI-bugs danh sách gửi thư</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="148"/>
         <source>PBI software: </source>
-        <translation type="unfinished"></translation>
+        <translation>Phần mềm PBI:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="280"/>
         <source>Not listed here?</source>
-        <translation type="unfinished"></translation>
+        <translation>Không được liệt kê ở đây?</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
-        <location filename="../showinfodialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Thoại</translation>
     </message>
     <message>
-        <location filename="../showinfodialog.ui" line="42"/>
         <source>Copy to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Sao chép vào clipboard</translation>
     </message>
     <message>
-        <location filename="../showinfodialog.ui" line="62"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Đóng</translation>
     </message>
 </context>
 <context>
     <name>Toolbox</name>
     <message>
-        <location filename="../toolbox.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Hình thức</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="23"/>
         <source>Toolbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Hộp công cụ</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="81"/>
         <source>Take screenshot</source>
-        <translation type="unfinished"></translation>
+        <translation>Có ảnh chụp màn hình</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="117"/>
-        <location filename="../toolbox.ui" line="120"/>
         <source>dmesg output</source>
-        <translation type="unfinished"></translation>
+        <translation>dmesg output</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="125"/>
         <source>Xorg log</source>
-        <translation type="unfinished"></translation>
+        <translation>Xorg log</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="130"/>
         <source>Diagnostic report</source>
-        <translation type="unfinished"></translation>
+        <translation>báo cáo chẩn đoán</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="133"/>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished"></translation>
+        <translation>Báo cáo chẩn đoán PCBSD</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="138"/>
         <source>lsusb output</source>
-        <translation type="unfinished"></translation>
+        <translation>lsusb output</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="143"/>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished"></translation>
+        <translation>Danh sách các thiết bị PCI - PCIConf</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="148"/>
         <source>Xorg version</source>
-        <translation type="unfinished"></translation>
+        <translation>Phiên bản Xorg</translation>
     </message>
     <message>
-        <location filename="../toolbox.ui" line="153"/>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished"></translation>
+        <translation>FreeBSD phiên bản (uname -a)</translation>
     </message>
 </context>
 <context>
     <name>WebURL</name>
     <message>
-        <location filename="../weburl.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Hình thức</translation>
     </message>
     <message>
-        <location filename="../weburl.ui" line="76"/>
         <source>Launch web browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Khởi chạy trình duyệt web</translation>
     </message>
 </context>
 <context>
     <name>maillist</name>
     <message>
-        <location filename="../maillist.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation>Hình thức</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="38"/>
-        <location filename="../maillist.ui" line="74"/>
-        <location filename="../maillist.ui" line="120"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="62"/>
         <source>Send message to</source>
-        <translation type="unfinished"></translation>
+        <translation>Gửi tin nhắn đến</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="97"/>
         <source>Compose email</source>
-        <translation type="unfinished"></translation>
+        <translation>Soạn email</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="108"/>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished"></translation>
+        <translation>Truy cập vào trang web sau để đăng ký hoặc xem tài liệu lưu trữ.</translation>
     </message>
     <message>
-        <location filename="../maillist.ui" line="146"/>
         <source>Launch web browser</source>
-        <translation type="unfinished"></translation>
+        <translation>Khởi chạy trình duyệt web</translation>
     </message>
 </context>
 </TS>
