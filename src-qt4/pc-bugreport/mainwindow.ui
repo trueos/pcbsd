@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
-    <height>437</height>
+    <width>616</width>
+    <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -156,8 +156,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>602</width>
-         <height>334</height>
+         <width>600</width>
+         <height>333</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -225,8 +225,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>602</width>
-         <height>334</height>
+         <width>600</width>
+         <height>333</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -297,8 +297,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>589</width>
-         <height>205</height>
+         <width>600</width>
+         <height>333</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -436,8 +436,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>343</width>
-         <height>104</height>
+         <width>600</width>
+         <height>333</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -512,8 +512,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>96</width>
-         <height>628</height>
+         <width>600</width>
+         <height>333</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -547,7 +547,7 @@
         <item>
          <widget class="QLabel" name="label_10">
           <property name="text">
-           <string>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</string>
+           <string>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -614,8 +614,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>302</width>
-         <height>388</height>
+         <width>279</width>
+         <height>381</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -713,8 +713,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>96</width>
-         <height>537</height>
+         <width>89</width>
+         <height>521</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -795,8 +795,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>569</width>
-         <height>79</height>
+         <width>526</width>
+         <height>77</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -861,8 +861,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>395</width>
-         <height>58</height>
+         <width>365</width>
+         <height>57</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -953,8 +953,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>309</width>
-         <height>351</height>
+         <width>286</width>
+         <height>347</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_23">
