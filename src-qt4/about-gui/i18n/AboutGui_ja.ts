@@ -72,10 +72,6 @@
         <translation>閉じる</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>テスト中のスナップショット %1 です。不安定です!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.orgサーババージョン:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI ユーティリティー:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

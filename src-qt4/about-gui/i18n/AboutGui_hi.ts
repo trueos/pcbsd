@@ -88,11 +88,6 @@
             </translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>सेन्पशोट %1 का परिक्षण किया जा रहा है। अस्थिर हो सकता है!
-            </translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org सर्वर संस्करण
             </translation>
@@ -114,6 +109,16 @@
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
     </message>

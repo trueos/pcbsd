@@ -72,10 +72,6 @@
         <translation>Закрити</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Тестова збірка від %1. Може бути нестабільною!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Версія сервера X.org:</translation>
     </message>
@@ -94,6 +90,14 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>Графічні утиліти PC-BSD:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation>Набір пакунків:</translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation>(не стабільний)</translation>
     </message>
 </context>
 </TS>

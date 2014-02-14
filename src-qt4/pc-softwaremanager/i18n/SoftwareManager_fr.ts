@@ -488,19 +488,19 @@
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation>Vérification de l&apos;installation      </translation>
+        <translation>Vérification de l&apos;installation</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation>Êtes-vous sûr que vous voulez installer cette application?            </translation>
+        <translation>Êtes-vous sûr que vous voulez installer cette application?</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+Q</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Shift+S</translation>
     </message>
 </context>
 <context>

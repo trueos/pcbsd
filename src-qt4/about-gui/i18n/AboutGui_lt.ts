@@ -78,11 +78,6 @@
         <translation>Uždaryti            </translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org serverio versija:            </translation>
     </message>
@@ -103,6 +98,16 @@
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
     </message>

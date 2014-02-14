@@ -72,10 +72,6 @@
         <translation>닫기</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>스냅샷 %1 시험. 불안정할 수 있습니다!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org 서버 버전:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI 유틸리티:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>
