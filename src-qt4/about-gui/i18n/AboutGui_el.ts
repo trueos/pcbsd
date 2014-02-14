@@ -72,10 +72,6 @@
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Έλεγχος στιγμιότυπου %1. Μπορεί να είναι ασταθές!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Έκδοση εξυπηρετητή X.org:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>Εργαλεία του PC-BSD με γραφικό περιβάλλον:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

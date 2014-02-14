@@ -68,10 +68,6 @@
         <translation>أغلق</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>إختبار اللقطة %1. قد يكون غير مستقر!</translation>
-    </message>
-    <message>
         <source>Version</source>
         <translation>الإصدار</translation>
     </message>
@@ -95,6 +91,16 @@
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
     </message>

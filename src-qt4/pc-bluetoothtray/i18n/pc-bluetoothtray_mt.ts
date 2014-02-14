@@ -5,38 +5,31 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device New Bluetooth Skoperti</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Bluetooth Maniger</translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nerġgħu Servizzi Bluetooth</translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq Bluetooth Tray</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok Stenna</translation>
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Istartjar mill-ġdid Servizzi Bluetooth</translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikklikkja hawn biex jiġi kkonfigurat konfigurazzjonijiet mezz Bluetooth</translation>
     </message>
 </context>
 </TS>

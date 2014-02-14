@@ -5,143 +5,115 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontroll Panil PCBSD</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Software u l-aġġornamenti</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>sistema ta &apos;ġestjoni</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ħardwer</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Networking</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambjent desktop</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>għodod</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kollha</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE </translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>Enlightenment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enlightenment</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>unsupported</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>mingħajr irfid</translation>
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(kurrenti)</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>mingħajr irfid DE</translation>
     </message>
     <message>
         <source>(All installed)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(All installata)</translation>
     </message>
     <message>
         <source>(KDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(KDE)</translation>
     </message>
     <message>
         <source>(LXDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(LXDE)</translation>
     </message>
     <message>
         <source>(Gnome)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Gnome)</translation>
     </message>
     <message>
         <source>(Enlightenment)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Enlightenment)</translation>
     </message>
     <message>
         <source>(XFCE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(XFCE)</translation>
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Qari oġġetti...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dak tagħmel inti tixtieq li jiġi kkonfigurat?</translation>
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mate</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Mate)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon)</translation>
     </message>
 </context>
 </TS>

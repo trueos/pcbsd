@@ -5,259 +5,209 @@
     <name>Installer</name>
     <message>
         <source>Switch between US layout and user selected layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Switch bejn tqassim Istati Uniti u magħżul mill-utent tqassim</translation>
     </message>
     <message>
         <source>Ab&amp;ort</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tab&amp;ortixxi</translation>
     </message>
     <message>
         <source>&amp;Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;dahar</translation>
     </message>
     <message>
         <source>&amp;Next</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Jmiss</translation>
     </message>
     <message>
         <source>Welcome to PC-BSD! Please select your language and click next to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Merħba għall PC-BSD! Jekk jogħġbok agħżel il-lingwa tiegħek u ikklikkja li jmiss biex tkompli.</translation>
     </message>
     <message>
         <source>&amp;Customize</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Customize</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sommarju</translation>
     </message>
     <message>
         <source>Disk Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selezzjoni disk</translation>
     </message>
     <message>
         <source>Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni</translation>
     </message>
     <message>
         <source>Your system is now being installed! This process may take a while, depending upon the installation options chosen, and system speed. You will be notified when the installation is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema tiegħek issa qed installat! Dan il-proċess jista &apos;jieħu waqt, jiddependi fuq l-għażliet installazzjoni magħżula, u l-veloċità tas-sistema. Inti ser tkun notifikat meta l-installazzjoni tkun lest.</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni għall-fajl sistema immuntati fi/mnt</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-disk se tkun setup mal-konfigurazzjoni li ġej:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mirroring:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partizzjoni:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FileSystem:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daqs:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muntanja:</translation>
     </message>
     <message>
         <source>The following meta-pkgs will be installed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-pkgs metadata li ġejjin se tkun installata:</translation>
     </message>
     <message>
         <source>PC-BSD Installer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni PC-BSD</translation>
     </message>
     <message>
         <source>Start the installation now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tibda l-installazzjoni issa?</translation>
     </message>
     <message>
         <source>Are you sure you want to abort this installation?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Int żgur li trid abort din l-installazzjoni?</translation>
     </message>
     <message>
         <source>Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naqset!</translation>
     </message>
     <message>
         <source>The installer has encountered an error and has been halted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-installatur ltaqgħet ma &apos;żball u twaqqfet.</translation>
     </message>
     <message>
         <source>Do you want to generate an error report?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Do inti tixtieq li jiġġeneraw rapport żball?</translation>
     </message>
     <message>
         <source>Restart the system now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nerġgħu-sistema issa?</translation>
     </message>
     <message>
         <source>Installing system... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Installazzjoni... Dan jista &apos;jieħu waqt...</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>għażliet:</translation>
     </message>
     <message>
         <source>&amp;Finish</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Finlandiża</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Datasets:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Display hardware compatibility diagnostic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kompatibilità hardware Display dijanjostiku</translation>
     </message>
     <message>
         <source>System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selezzjoni sistema</translation>
     </message>
     <message>
         <source>Installing packages... This may take a while...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni pakketti... Dan jista &apos;jieħu waqt...</translation>
     </message>
     <message>
         <source>Change the installation language</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibdel il-lingwa installazzjoni</translation>
     </message>
     <message>
         <source>Customize the selected system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Customize-sistema magħżula</translation>
     </message>
     <message>
         <source>Display help for the current screen</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Għajnuna Display għall-iskrin attwali</translation>
     </message>
     <message>
         <source>Launch the on-screen keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tniedi l-keyboard fuq l-iskrin</translation>
     </message>
     <message>
         <source>Cancel the installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tikkanċella l-installazzjoni</translation>
     </message>
     <message>
         <source>TrueOS Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TrueOS Pakkett Selezzjoni</translation>
     </message>
     <message>
         <source>PC-BSD Package Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Pakkett Selezzjoni</translation>
     </message>
     <message>
         <source>Your system is now installed!
  Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema tiegħek issa hija installata!
+Ikklikkja Finlandiża biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw media.</translation>
     </message>
     <message>
         <source>Extracting system...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema estrattazzjoni...</translation>
     </message>
     <message>
         <source>Unable to detect any disk drives! The install will now exit.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mhux biex jinstabu xi disk drives! Il jinstallaw issa se ħruġ.</translation>
     </message>
     <message>
         <source>Unable to suggest a partition for the detected disk.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kapaċi li jissuġġerixxu partition għall-disk skoperti.</translation>
     </message>
     <message>
         <source>Detected that you are running the 32bit version. If your system is 64bit capable (most systems made after 2005), you really should be running the 64bit version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skoperti li inti taħdem l-verżjoni 32bit. Jekk is-sistema tiegħek huwa 64bit kapaċi (aktar sistemi magħmula wara l-2005), inti verament għandhom tkun qed tmexxi l-verżjoni 64bit</translation>
     </message>
     <message>
         <source>The selected disk / partition is less than recommended %1GB. The installation may fail...</source>
-        <translation type="unfinished">
-             {1G?}</translation>
+        <translation>Il-disk magħżula / partition huwa inqas minn% rakkomandat 1GB. L-installazzjoni jista &apos;jonqos {1G?}</translation>
     </message>
     <message>
         <source>Load installation config file from USB stick</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħbija installazzjoni fajl konfigurazzjoni mill-USB stick</translation>
     </message>
     <message>
         <source>Desktop (PC-BSD)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop (PC-BSD)</translation>
     </message>
     <message>
         <source>Server (TrueOS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Server (TrueOS)</translation>
     </message>
     <message>
         <source>This will save your installation configuration to a MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan se jiffrankaw konfigurazzjoni installazzjoni tiegħek ma &apos;stikka USB MSDOSFS/FAT32 formattjati. Kompli?</translation>
     </message>
     <message>
         <source>Please insert a USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daħħal USB stick issa, u kklikkja OK biex tkompli.</translation>
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>

@@ -72,10 +72,6 @@
         <translation>Закрыть</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Тестирование снимка %1. Может быть нестабильным!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Версия X.org сервера:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>Графические утилиты PC-BSD</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

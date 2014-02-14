@@ -72,10 +72,6 @@
         <translation>Sulge</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Testversioon %1. Võib olla ebastabiilne!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.Org serveri versioon:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD kasutajaliidese tööriistad:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

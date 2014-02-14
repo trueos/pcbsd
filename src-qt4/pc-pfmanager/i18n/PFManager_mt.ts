@@ -5,239 +5,196 @@
     <name>AddDlg</name>
     <message>
         <source>Add a port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid port</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid</translation>
     </message>
     <message>
         <source>Service:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servizz:</translation>
     </message>
     <message>
         <source>Policy:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Politika:</translation>
     </message>
     <message>
         <source>Protocol:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Protokoll:</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Blokk</translation>
     </message>
     <message>
         <source>Allow</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>jippermettu</translation>
     </message>
     <message>
         <source>Interface:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>interfaċċa:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port:</translation>
     </message>
     <message>
         <source>Direction:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direzzjoni:</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkanċella</translation>
     </message>
 </context>
 <context>
     <name>MainDialog</name>
     <message>
         <source>Firewall Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Firewall Maniġer</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ġenerali</translation>
     </message>
     <message>
         <source>General settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Settings ġenerali</translation>
     </message>
     <message>
         <source>Enable Firewall on startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jippermettu Firewall fuq l-istartjar</translation>
     </message>
     <message>
         <source>Firewall</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Firewall</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bidu</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nerġgħu</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>konfigurazzjoni</translation>
     </message>
     <message>
         <source>Restore default configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore konfigurazzjoni default</translation>
     </message>
     <message>
         <source>Exceptions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eċċezzjonijiet</translation>
     </message>
     <message>
         <source>Add entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid dħul</translation>
     </message>
     <message>
         <source>Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servizz</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Policy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Politika</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Interfaċċa</translation>
     </message>
     <message>
         <source>Edit entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dħul Edit</translation>
     </message>
     <message>
         <source>Delete entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar dħul</translation>
     </message>
 </context>
 <context>
     <name>PFAddDlg</name>
     <message>
         <source>incoming</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>deħlin</translation>
     </message>
     <message>
         <source>outgoing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ħierġa</translation>
     </message>
     <message>
         <source>TCP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TCP</translation>
     </message>
     <message>
         <source>UDP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UDP</translation>
     </message>
 </context>
 <context>
     <name>PFManagerDlg</name>
     <message>
         <source>Question</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mistoqsija</translation>
     </message>
     <message>
         <source>Restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restawrata.</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fajl konfigurazzjoni successfuly restawrata.</translation>
     </message>
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan se itfi l-firewall kompletament.
+Int żgur?</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>suċċess</translation>
     </message>
     <message>
         <source>Restarted successfuly!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reġgħu bdew successfuly!</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nuqqas</translation>
     </message>
     <message>
         <source>Failed to restart!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naqas li terġa &apos;tibda!</translation>
     </message>
 </context>
 <context>
     <name>RcConfig</name>
     <message>
         <source>Error opening the specified rc.conf file.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żball ftuħ tal-fajl rc.conf speċifikat.</translation>
     </message>
 </context>
 <context>
     <name>services</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unknown</translation>
     </message>
 </context>
 </TS>

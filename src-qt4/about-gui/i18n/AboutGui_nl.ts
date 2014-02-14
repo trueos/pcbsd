@@ -72,10 +72,6 @@
         <translation>Sluiten</translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Momentopname %1 aan het uitproberen. Kan onstabiel zijn!</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Versie van X.org-server:</translation>
     </message>
@@ -94,6 +90,16 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>Grafische hulpmiddelen van PC-BSD:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

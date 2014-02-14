@@ -72,10 +72,6 @@
         <translation>Fermer            </translation>
     </message>
     <message>
-        <source>Testing snapshot %1. May be unstable!</source>
-        <translation>Test de l&apos;instantané %1. Risque d&apos;instabilité !            </translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Version du serveur X.org : </translation>
     </message>
@@ -94,6 +90,14 @@
     <message>
         <source>PC-BSD UI utilities:</source>
         <translation>PC-BSD UI utilités:</translation>
+    </message>
+    <message>
+        <source>Package set:</source>
+        <translation>Ensemble de packets:</translation>
+    </message>
+    <message>
+        <source>(unstable)</source>
+        <translation>(instable)</translation>
     </message>
 </context>
 </TS>
