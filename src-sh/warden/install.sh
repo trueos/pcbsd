@@ -22,25 +22,8 @@ cd ${DIR}
 cp bin/warden ${LB}/bin/warden
 chmod 755 ${LB}/bin/warden
 
-# Save existing settings 
-if [ -e "${LB}/etc/warden.conf" ] ; then
-  NIC=`grep '^NIC:' ${LB}/etc/warden.conf | awk '{print $2}'`
-  WTMP=`grep '^WTMP:' ${LB}/etc/warden.conf | awk '{print $2}'`
-  JDIR=`grep '^JDIR:' ${LB}/etc/warden.conf | awk '{print $2}'`
-  ONIC=`grep '^NIC:' conf/warden.conf`
-  OWTMP=`grep '^WTMP:' conf/warden.conf`
-  OJDIR=`grep '^JDIR:' conf/warden.conf`
-fi
-
-cp conf/warden.conf ${LB}/etc/warden.conf
-chmod 644 ${LB}/etc/warden.conf
-
-# Save the settings
-if [ -n "$NIC" ] ; then
-   sed -i '' "s|$ONIC|NIC: $NIC|g" ${LB}/etc/warden.conf
-   sed -i '' "s|$OWTMP|WTMP: $WTMP|g" ${LB}/etc/warden.conf
-   sed -i '' "s|$OJDIR|JDIR: $JDIR|g" ${LB}/etc/warden.conf
-fi
+cp conf/warden.conf ${LB}/etc/warden.conf.dist
+chmod 644 ${LB}/etc/warden.conf.dist
 
 if [ -d "${PROGDIR}/linux-installs" ] ; then
   rm -rf ${PROGDIR}/linux-installs
