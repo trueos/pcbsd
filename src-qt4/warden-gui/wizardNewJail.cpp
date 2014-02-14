@@ -134,15 +134,16 @@ bool wizardNewJail::validatePage()
 	 }
 
 	 // Check if this IP / Host is already used
-         for (int i = 0; i < usedHosts.size(); ++i)
-            if ( usedHosts.at(i) == lineHost->text() ) {
+         for (int i = 0; i < usedHosts.size(); ++i) {
+            if ( usedHosts.at(i).toLower() == lineHost->text().toLower() ) {
                button(QWizard::NextButton)->setEnabled(false);
                lineHost->setPalette(badPal);
                labelMessage->setText(tr("Hostname already used!"));
                return false;
 	    }
+	 }
          for (int i = 0; i < usedIP.size(); ++i)
-            if ( usedIP.at(i) == lineIP->text() ) {
+            if ( usedIP.at(i).contains(lineIP->text() + "/24") ) {
                button(QWizard::NextButton)->setEnabled(false);
                lineIP->setPalette(badPal);
                labelMessage->setText(tr("IP already used!"));
