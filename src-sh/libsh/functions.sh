@@ -457,7 +457,9 @@ check_pkg_conflicts()
 
   # Lets test if we have any conflicts
   pkg-static ${1} | tee /tmp/.pkgConflicts.$$
-  if [ $? -eq 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
+
+  cat /tmp/.pkgConflicts.$$ | grep -q "WARNING: locally installed"
+  if [ $? -ne 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
 
  
   # Found conflicts, suprise suprise, yet another reason I hate packages
