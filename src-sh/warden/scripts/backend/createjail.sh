@@ -90,8 +90,6 @@ esac
 # See if we need to create a default template
 # If using a ARCHIVEFILE we can skip this step
 if [ -z "$TEMPLATE" -a -z "$ARCHIVEFILE" ] ; then
-  which uname
-  uname -r
   DEFTEMPLATE="`uname -r | cut -d '-' -f 1-2`-${ARCH}"
   echo "DEF: $DEFTEMPLATE"
 
@@ -269,11 +267,16 @@ if [ "$PORTS" = "YES" ]
 then
   echo "Fetching ports..."
   mkdir -p "${JAILDIR}/usr/ports"
-  cat /usr/sbin/portsnap | sed 's|! -t 0|-z '1'|g' | /bin/sh -s "fetch" "extract" "update" "-p" "${JAILDIR}/usr/ports" >/dev/null 2>/dev/null
-  if [ $? -eq 0 ] ; then
-    echo "Done"
+  cd ${JAILDIR}
+  SYSVER="$(uname -r | cut -d '-' -f 1-2)"
+  get_file_from_mirrors "/${SYSVER}/${ARCH}/dist/ports.txz" "ports.txz" "iso"
+  if [ $? -ne 0 ] ; then
+    echo "Error while downloading the ports tree."
   else
-    echo "Failed! Please run \"portsnap fetch extract update\" within the jail."
+    echo "Extracting ports.. May take a while.."
+    tar xvf ports.txz -C "${JAILDIR}" 2>/dev/null
+    rm ports.txz
+    echo "Done"
   fi
 fi
 
