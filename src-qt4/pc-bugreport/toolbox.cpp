@@ -6,6 +6,8 @@
 #include <QDir>
 #include <QProcess>
 #include <QDate>
+#include <QDebug>
+#include <QMessageBox>
 
 #define PREFIX "/usr/local/"
 static const QString KSANPSHOT_FILE(PREFIX"bin/ksnapshot");
@@ -70,20 +72,28 @@ void Toolbox::on_actionDmesg_triggered()
 
 void Toolbox::on_actionDiagnostic_report_triggered()
 {
+	qDebug() << "Generate Diagnostic Sheet";
 	//Generate the diagnostic file on the user desktop
 	QString filename = QDir::homePath()+"/Desktop/diagnostic-"+QDate::currentDate().toString("yyyyMMdd")+".txt";
 	QString username = getenv("LOGNAME");
-	QString cmd = "/usr/local/share/pcbsd/scripts/GetDiagSheet.sh "+filename+" "+username;
+	QString cmd = "/usr/local/share/pcbsd/scripts/GenDiagSheet.sh "+filename+" "+username;
 	QProcess p;
 	p.setProcessEnvironment(QProcessEnvironment::systemEnvironment());
+	//qDebug() << " - cmd:" << cmd;
+	if(QFile::exists(filename)){ QFile::remove(filename); } //remove any old file first
 	p.start(cmd);
 	while(p.waitForFinished(200)){
 	  QApplication::processEvents();
 	}
-	//Now show the info dialog for the newly generated diagnostic file
-	ShowInfoDialog *dlg = new ShowInfoDialog(this);
-	dlg->show(filename);
-	
+	if(QFile::exists(filename)){
+	  qDebug() << " - success";
+	  //Now show the info dialog for the newly generated diagnostic file
+	  ShowInfoDialog *dlg = new ShowInfoDialog(this);
+	  dlg->show(filename);
+	}else{
+	  qDebug() << " - failure";
+	  QMessageBox::warning(this, tr("Failure"), tr("Failed to create diagnostic sheet"));
+	}
 }
 
 void Toolbox::on_actionPCIConf_triggered()
