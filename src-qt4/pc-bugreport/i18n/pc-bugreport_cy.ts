@@ -134,11 +134,6 @@
             </translation>
     </message>
     <message>
-        <source>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
         <translation type="unfinished">
             </translation>
@@ -318,6 +313,14 @@
         <source>FreeBSD version  (uname -a)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to create diagnostic sheet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

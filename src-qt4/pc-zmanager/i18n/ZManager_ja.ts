@@ -559,38 +559,31 @@ disabled  同期リクエストを無効化します。ファイルシステム�
     </message>
     <message>
         <source>Do not mount any filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルシステムをマウントしないで下さい</translation>
     </message>
     <message>
         <source>Read only pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>プールのみを読み込む</translation>
     </message>
     <message>
         <source>Import options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>インポートオプション:</translation>
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>代替のルートでマウントする</translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>全てのファイルシステムを自動マウントする</translation>
     </message>
     <message>
         <source>Mounting behavior:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントの挙動:</translation>
     </message>
     <message>
         <source>Force operation if error (use with caution)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エラーが起きた場合は強制に行う (気をつけて使用して下さい)</translation>
     </message>
 </context>
 <context>

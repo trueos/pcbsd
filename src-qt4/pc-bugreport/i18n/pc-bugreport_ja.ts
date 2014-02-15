@@ -5,365 +5,299 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDバグ報告ツール</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>どの部分でエラーが発生したか選択して下さい。</translation>
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD基本システム</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD基本システム</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorgサーバー</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ環境</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSDソフトウェア (ports/packages)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDソフトウェア (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. FreeBSDのsend-pr機構を使ってバグ報告を提出します</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. FreeBSD bugsメーリングリストにメールを送信します。以下のウェブページで購読や過去のメーリングリストの内容を読むことができます&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. PC-BSDのtrac機構を使ってバグ報告を提出します</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD testingメーリングリストにメールを送信します。以下のウェブページで購読や過去のメーリングリストの内容を読むことができます</translation>
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.orgサーバー</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. freedesktopのbugzilla機構を使ってバグ報告を提出します</translation>
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. xorg testingメーリングリストにメールを送信します。以下のウェブページで購読や過去のメーリングリストの内容を読むことができます</translation>
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. もし問題がFreeBSD特有のものであればfreebsd-x11メーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4. もし問題がPC-BSD特有のものであればtestingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>問題の原因となるデスクトップ環境を選択して下さい:</translation>
     </message>
     <message>
         <source>1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1</translation>
     </message>
     <message>
         <source>New Column</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新規コラム</translation>
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新規アイテム</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. freebsd-gnomeメーリングリストへメールを送信します</translation>
     </message>
     <message>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. PC-BSD testingメーリングリストへメールを送信します</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. KDE bug trackerへバグを提出します</translation>
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3.もし問題がPC-BSD特有のものであればPC-BSD testingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. XFCE bugzillaサイトでバグを報告することができます</translation>
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. もし問題がFreeBSD特有のものであればkde-freebsdメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. SourceForgeのLXDE bug trackerでバグを報告することができます</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.もし問題がFreeBSD特有のものであればPCBSD testingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サポートされていないデスクトップ環境</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. お気に入りのデスクトップ環境のbug trackerまたはメーリングリストへバグを報告したほうがいいでしょう</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.もし問題がPC-BSD特有のものと考えられるのであればPCBSD testingメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSDソフトウェア</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. freebsd-ports-bugsメーリングリストへバグを報告することができます</translation>
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIソフトウェア</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIソフトウェアとバグを選択して下さい</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アイコン</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>アプリケーション</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>バージョン</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. ソフトウェアのサイトでバグを報告することができます</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.もし問題がPC-BSD特有のものと考えられるのであればPCBSD pbi-bugsメーリングリストへバグを報告して下さい</translation>
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIソフトウェア: </translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このリストの中にない?</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダイアログ</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>クリップボードへコピー</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる</translation>
     </message>
 </context>
 <context>
     <name>Toolbox</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <source>Toolbox</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ツールボックス</translation>
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリーンショットを撮る</translation>
     </message>
     <message>
         <source>dmesg output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>dmesgの出力</translation>
     </message>
     <message>
         <source>Xorg log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorgのログ</translation>
     </message>
     <message>
         <source>Diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>診断レポート</translation>
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD診断レポート</translation>
     </message>
     <message>
         <source>lsusb output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lsusbの出力</translation>
     </message>
     <message>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCIデバイス一覧 - PCIConf</translation>
     </message>
     <message>
         <source>Xorg version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorgのバージョン</translation>
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSDのバージョン  (uname -a)</translation>
+    </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to create diagnostic sheet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WebURL</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ウェブブラウザの起動</translation>
     </message>
 </context>
 <context>
     <name>maillist</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>フォーム</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>テキストラベル</translation>
     </message>
     <message>
         <source>Send message to</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メッセージを送信する</translation>
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>メールを書く</translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>以下のウェブページで購読や過去のメーリングリストの内容を読むことができます</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ウェブブラウザを起動する</translation>
     </message>
 </context>
 </TS>

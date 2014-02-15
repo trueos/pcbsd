@@ -108,10 +108,6 @@
         <translation>1. Skicka en felrapport till KDE buggtracker</translation>
     </message>
     <message>
-        <source>2. If you think that problem is FreeBSD specific please report tothe  kde-freebsd mailing list</source>
-        <translation>2. Om du tror att felet är FreeBSD specifikt, skicka rapporten till kde-freebsd sändlistan</translation>
-    </message>
-    <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
         <translation>3. Om du tror att felet är PC-BSD specifikt, skicka rapporten till PCBSD testing sändlistan</translation>
     </message>
@@ -256,6 +252,14 @@
     <message>
         <source>FreeBSD version  (uname -a)</source>
         <translation>FreeBSD version (uname -a)</translation>
+    </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to create diagnostic sheet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
