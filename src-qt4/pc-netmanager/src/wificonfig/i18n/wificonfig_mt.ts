@@ -5,558 +5,459 @@
     <name>dialogWPAPersonal</name>
     <message>
         <source>WPA Personal Config</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA Personali konfigurazzjoni</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Network Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Key</translation>
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Key (Irrepeti)</translation>
     </message>
     <message>
         <source>Show Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Key</translation>
     </message>
     <message>
         <source>WPA Personal Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA personali Konfigurazzjoni</translation>
     </message>
 </context>
 <context>
     <name>wepConfig</name>
     <message>
         <source>WEP Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WEP Konfigurazzjoni</translation>
     </message>
     <message>
         <source>Network Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Key</translation>
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Key (Irrepeti)</translation>
     </message>
     <message>
         <source>Key Index</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indiċi Key</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Hex Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hex Key</translation>
     </message>
     <message>
         <source>Plaintext</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plaintext</translation>
     </message>
     <message>
         <source>Show Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Show Key</translation>
     </message>
     <message>
         <source>Wireless Network Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wireless Network Key</translation>
     </message>
 </context>
 <context>
     <name>wificonfigwidgetbase</name>
     <message>
         <source>Wireless Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurazzjoni wireless</translation>
     </message>
     <message>
         <source>&amp;General</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;General</translation>
     </message>
     <message>
         <source>O&amp;btain IP automatically (DHCP)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O&amp;btain IP awtomatikament (DHCP)</translation>
     </message>
     <message>
         <source>Alt+B</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <source>Alt+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>Assign static IP address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>assenja indirizz IP statiċi</translation>
     </message>
     <message>
         <source>IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP:</translation>
     </message>
     <message>
         <source>Netmask:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netmask:</translation>
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>999\.999\.999\.999;</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Avvanzata</translation>
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Use hardware defau&amp;lt MAC address</translation>
     </message>
     <message>
         <source>Alt+L</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+L</translation>
     </message>
     <message>
         <source>Custom MAC address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Custom MAC address</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Info</translation>
     </message>
     <message>
         <source>Configuration info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Info konfigurazzjoni</translation>
     </message>
     <message>
         <source>Mac/Ether:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mac/Ether:</translation>
     </message>
     <message>
         <source>Gateway:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gateway:</translation>
     </message>
     <message>
         <source>IPv6:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6:</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status:</translation>
     </message>
     <message>
         <source>Media:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Media:</translation>
     </message>
     <message>
         <source>Traffic info</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Traffic info</translation>
     </message>
     <message>
         <source>Packets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketti:</translation>
     </message>
     <message>
         <source>Errors:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żbalji:</translation>
     </message>
     <message>
         <source>In:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>In:</translation>
     </message>
     <message>
         <source>Out:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Out:</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq</translation>
     </message>
     <message>
         <source>Disable this wireless device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jiskonnettjaw din apparat bla wajers</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Applika</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;OK</translation>
     </message>
     <message>
         <source>Alt+O</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+O</translation>
     </message>
     <message>
         <source>Missing Fields</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fields nieqsa</translation>
     </message>
     <message>
         <source>You must enter an IP and Netmask to continue!
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Int trid tidħol IP u netmask li tkompli!
+</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <source>IP Address is out of range! (</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indirizz IP huwa barra mill-firxa! (</translation>
     </message>
     <message>
         <source>) Fields must be between 0-255.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>) Fields għandu jkun bejn 0-255.</translation>
     </message>
     <message>
         <source>Netmask is out of range! (</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netmask huwa barra mill-firxa! (</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neħħi</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żball</translation>
     </message>
     <message>
         <source>You already have a wireless network with this SSID! Please remove it first.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inti diġà għandhom netwerk wireless ma &apos;dan SSID! Jekk jogħġbok neħħi l-ewwel.
+</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edit</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unknown Wireless Device</translation>
     </message>
     <message>
         <source>(Higher connections are given priority)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Konnessjonijiet ogħla jingħataw prijorità)</translation>
     </message>
     <message>
         <source>Available Wireless Networks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netwerks Wireless disponibbli</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scan</translation>
     </message>
     <message>
         <source>Add Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid Magħżula</translation>
     </message>
     <message>
         <source>Add Hidden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid Hidden</translation>
     </message>
     <message>
         <source>Network Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Isem</translation>
     </message>
     <message>
         <source>Please enter the name of the network you wish to add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok ikteb l-isem tan-netwerk inti tixtieq iżżid</translation>
     </message>
     <message>
         <source>Configured Network Profiles</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurati Network Profili</translation>
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid &amp;network</translation>
     </message>
     <message>
         <source>WPA Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA Konfigurazzjoni</translation>
     </message>
     <message>
         <source>Set Country Code</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Set Kodiċi tal-Pajjiż</translation>
     </message>
 </context>
 <context>
     <name>wifiscanssid</name>
     <message>
         <source>Scan for Wireless networks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scan għal netwerks mingħajr fili</translation>
     </message>
     <message>
         <source>Available wireless networks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netwerks mingħajr fili disponibbli</translation>
     </message>
     <message>
         <source>&amp;Rescan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Rescan</translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkanċella</translation>
     </message>
     <message>
         <source>Scanning for wireless networks...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skanjar għal netwerks mingħajr fili...</translation>
     </message>
     <message>
         <source>Select a wireless network to connect.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel netwerk wireless għall-konnessjoni.</translation>
     </message>
     <message>
         <source>No wireless networks found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebda networks mingħajr fili misjuba!</translation>
     </message>
     <message>
         <source>No selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru selezzjoni</translation>
     </message>
     <message>
         <source>Error: You must select a network to connect!
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żball:! Trid tagħżel netwerk li jgħaqqdu
+</translation>
     </message>
 </context>
 <context>
     <name>wifiselectiondialog</name>
     <message>
         <source>Select Wireless Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel Network Wireless</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <source>Selected Wireless Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Magħżula Network Wireless</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scan</translation>
     </message>
     <message>
         <source>Using BSSID</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Using BSSID</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disabled</translation>
     </message>
     <message>
         <source>WEP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WEP</translation>
     </message>
     <message>
         <source>WPA Personal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA Personal</translation>
     </message>
     <message>
         <source>WPA Enterprise</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA Enterprise</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kkonfigurat</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add</translation>
     </message>
     <message>
         <source>No SSID!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No SSID!</translation>
     </message>
     <message>
         <source>Error: You must select a wireless network to connect!
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żball: Trid tagħżel netwerk wireless li jgħaqqdu!
+</translation>
     </message>
     <message>
         <source>Invalid BSSID!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalid BSSID!</translation>
     </message>
     <message>
         <source>Error: The specified BSSID appears invalid. It must be in the format xx:xx:xx:xx:xx:xx
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żball: Il BSSID speċifikat jidher invalida. Dan għandu jkun fil-format xx:xx:xx:xx:xx:xx
+</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <source>WEP is selected, but not configured!
 Please configure your WEP key before saving!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WEP hija magħżula, iżda mhux konfigurati!
+Jekk jogħġbok kkonfigurat ewlenin WEP tiegħek qabel iffrankar!</translation>
     </message>
     <message>
         <source>WPA-Personal is selected, but not configured!
 Please configure your WPA key before saving!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA-personali hija magħżula, iżda mhux konfigurati!
+Jekk jogħġbok kkonfigurat ċavetta WPA tiegħek qabel iffrankar!</translation>
     </message>
     <message>
         <source>WPA-Enterprise is selected, but not configured!
 Please configure your WPA settings before saving!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA-Intrapriża hija magħżula, iżda mhux konfigurati!
+Jekk jogħġbok kkonfigurat l-issettjar WPA tiegħek qabel iffrankar!</translation>
     </message>
     <message>
         <source>WEP (Configured)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WEP (Konfigurati)</translation>
     </message>
     <message>
         <source>WPA Personal (Configured)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA Personali (Konfigurati)</translation>
     </message>
     <message>
         <source>WPA Enterprise (Configured)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>WPA-Intrapriża (Konfigurati)</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħlief</translation>
     </message>
     <message>
         <source>Network Security</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sigurtà tan-Netwerks</translation>
     </message>
 </context>
 </TS>

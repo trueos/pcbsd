@@ -452,7 +452,7 @@
     </message>
     <message>
         <source>Downgrade</source>
-        <translation type="unfinished">Taasta eelmine versioon</translation>
+        <translation>Taasta eelmine versioon</translation>
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>

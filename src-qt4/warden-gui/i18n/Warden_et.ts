@@ -790,8 +790,7 @@
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostinimi ei või sisaldada tühikuid!</translation>
     </message>
 </context>
 </TS>

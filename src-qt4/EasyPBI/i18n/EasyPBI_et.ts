@@ -757,13 +757,11 @@
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadista</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Abi</translation>
     </message>
     <message>
         <source>Shift+S</source>
@@ -772,8 +770,7 @@
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välju</translation>
     </message>
     <message>
         <source>Shift+Q</source>
@@ -782,8 +779,7 @@
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Programmi kohta</translation>
     </message>
     <message>
         <source>Shift+A</source>

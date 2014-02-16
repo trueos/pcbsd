@@ -255,11 +255,11 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Misslyckades</translation>
     </message>
     <message>
         <source>Failed to create diagnostic sheet</source>
-        <translation type="unfinished"></translation>
+        <translation>Misslyckades att skapa ett diagnostisk blad</translation>
     </message>
 </context>
 <context>
