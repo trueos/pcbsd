@@ -94,16 +94,6 @@
             </translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>New Column</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>New Item</source>
         <translation type="unfinished">
             </translation>
@@ -237,6 +227,22 @@
         <source>Not listed here?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>MATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

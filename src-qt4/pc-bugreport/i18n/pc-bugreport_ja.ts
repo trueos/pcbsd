@@ -76,14 +76,6 @@
         <translation>問題の原因となるデスクトップ環境を選択して下さい:</translation>
     </message>
     <message>
-        <source>1</source>
-        <translation>1</translation>
-    </message>
-    <message>
-        <source>New Column</source>
-        <translation>新規コラム</translation>
-    </message>
-    <message>
         <source>New Item</source>
         <translation>新規アイテム</translation>
     </message>
@@ -190,6 +182,22 @@
     <message>
         <source>Not listed here?</source>
         <translation>このリストの中にない?</translation>
+    </message>
+    <message>
+        <source>MATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -5,1340 +5,1075 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI</translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Konfigurazzjoni</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Settings ewlenin għall-PBI</translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Informazzjoni program</translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem uffiċjali tal-programm mira</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem</translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verżjoni tal-programm li għandhom jiġu ppakkjati</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verżjoni</translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>URL tal-websajt prinċipali għall-programm mira</translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Website</translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Awtur tal-programm prinċipali (jew FreeBSD manutenzjoni port minflok)</translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Awtur</translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona li se jintużaw għall-programm (riżorsi PNG disponibbli)</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona</translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD li jiġu ppakkjati bħala PBI</translation>
     </message>
     <message>
         <source>Add additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid port FreeBSD addizzjonali</translation>
     </message>
     <message>
         <source>Remove additional FreeBSD port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neħħi port FreeBSD addizzjonali</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Addizzjonali ports FreeBSD li jinbnew wara l-programm prinċipali</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jeħtieġu permessi amministratur biex jinstallaw dan PBI</translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jirrikjedi Root Permessi</translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salv l-settings attwali għall-fajl konfigurazzjoni PBI</translation>
     </message>
     <message>
         <source>Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħlief Konfigurazzjoni</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżorsi</translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>files addizzjonali li għandhom jiġu inklużi fil-PBI</translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżorsi kurrenti</translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Files attwali li għandhom jiġu inklużi fil-PBI</translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopja file addizzjonali fil-modulu PBI</translation>
     </message>
     <message>
         <source>Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid File</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar il-file magħżul mill-modulu PBI</translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar File</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq b&apos;kitba ppakkjar custom għal binarja programm</translation>
     </message>
     <message>
         <source>Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wrapper Script</translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salv l- wrapper script</translation>
     </message>
     <message>
         <source>Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salv l- Script</translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżorsi Ikona</translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deskrizzjoni tar-Riżorsi</translation>
     </message>
     <message>
         <source>XDG Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XDG Entries</translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stabbilit xi entrati desktop / menu, u xi tipi MIME</translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq u jeditjaw entrati desktop</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq u entrati editja menu</translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu</translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riffriskar il-lista attwali (utli jekk il-fajls modifikati reċentement barra ta &apos;EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iħassar il-punt kurrenti mill-modulu PBI</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neħħi</translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>dħul Dettalji</translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem viżibbli għall-oġġett</translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eżekutibbli</translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binarju jitmexxew meta l-oġġett huwa attivat</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binaries Auto-individwati għall-PBI</translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona viżibbli għall-użu għall-oġġett</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategorija Menu għall-oġġett li għandha tiġi allokata.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategoriji Menu possibbli</translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tibda l-applikazzjoni f&apos;sessjoni terminal</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Miftuħa Terminal</translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Flag dan il-punt m&apos;għandhomx ikunu murija fil-livelli kollha</translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Għamla Inviżibbli</translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MIME Patterns</translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salv l-oġġett kif attwalment muri</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toħloq oġġett ġdid mal-settings kurrenti</translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scripts</translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni addizzjonali / tinbena skripts</translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel b&apos;kitba li tixtieq toħloq jew editja</translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq l-iskrittura magħżul</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq</translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar l-iskrittura magħżul mill-modulu PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħlief-test attwali bħala l-iskrittura magħżula</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħlief</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontenut għall-iskrittura magħżul</translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esterni-Links</translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FIles li jkunu marbuta fis-sistema lokali</translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entries kurrenti</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File</translation>
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Link To</translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File Type</translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neħħi bħalissa link magħżula</translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neħħi Dħul</translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid Dħul</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File PBI li jiġu sym-linked fis-sistema lokali (relattiv għall-direttorju PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Binaries Auto-misjuba għal dan PBI</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Post għall-link li jinħolqu (relattiv għall-bażi lokali: normalment /usr/local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Flags biex jiddeterminaw it-tip file</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>flags disponibbli għas-link ġdid</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħlief dan link għall-modulu PBI</translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modulu Building</translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Turi l-modulu li bħalissa qed jintużaw biex tinbena PBI</translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru PBI bħalissa qed jinbnew</translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Output Direttorju</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Post għall-PBI lest li jkun jinsab</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Displays kwalunkwe output minn proċess build PBI</translation>
     </message>
     <message>
         <source>Build PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lbni PBI</translation>
     </message>
     <message>
         <source>Cancel the currently running build process</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tikkanċella l-jibnu proċess bħalissa għaddej</translation>
     </message>
     <message>
         <source>Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkanċella Build</translation>
     </message>
     <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salv l-log kurrenti jibnu għal disk (utli ħafna meta jitolbu għajnuna ma &apos;akkumulu fallew)</translation>
     </message>
     <message>
         <source>Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħlief Ibni Log</translation>
     </message>
     <message>
         <source>toolBar</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>toolBar</translation>
     </message>
     <message>
         <source>EasyPBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI Settings</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiftaħ il-settings editur EasyPBI</translation>
     </message>
     <message>
         <source>Get FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Get FreeBSD Ports</translation>
     </message>
     <message>
         <source>Fetch/update the FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jġibu/taġġorna l-FreeBSD ports tree</translation>
     </message>
     <message>
         <source>New</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New</translation>
     </message>
     <message>
         <source>Click to create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikklikkja biex jinħoloq modulu PBI ġdida</translation>
     </message>
     <message>
         <source>Load</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħbija</translation>
     </message>
     <message>
         <source>Click to load an existing module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikklikkja biex jgħabbi modulu eżistenti</translation>
     </message>
     <message>
         <source>Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sommarju</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>License</translation>
     </message>
     <message>
         <source>History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Storja</translation>
     </message>
     <message>
         <source>FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Ports</translation>
     </message>
     <message>
         <source>Open up freshports.org for additional port information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jiftħu freshports.org għal informazzjoni addizzjonali port</translation>
     </message>
     <message>
         <source>PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Modules</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tiftaħ il-paġna Wiki PC-BSD għall-iżviluppaturi PBI</translation>
     </message>
     <message>
         <source>Close EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq EasyPBI</translation>
     </message>
     <message>
         <source>Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkett Modulu</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jikkompressa-modulu kurrenti għad-distribuzzjoni</translation>
     </message>
     <message>
         <source>View additional information about EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View informazzjoni addizzjonali dwar EasyPBI</translation>
     </message>
     <message>
         <source>No Module Loaded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru Modulu Mgħobbija</translation>
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Skripts installazzjoni</translation>
     </message>
     <message>
         <source>Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Permessi Error</translation>
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma kien hemm żball tipprova toħloq l-istruttura lokali direttorju EasyPBI. Jekk jogħġbok iċċekkja l-permessi għall-direttorju dar tiegħek u jerġgħu jibdew EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżorsi Mhux disponibbli</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xi riżorsi esterni ma setgħux jiġu misjuba, sabiex is-servizzi EasyPBI li jużaw dawn ir-riżorsi ġew diżattivata.</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success</translation>
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopja tal-modulu kurrenti ġie ppakkjat b&apos;suċċess fil-direttorju modulu.</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Permessi Error</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma kellekx joħolqu modulu PBI. Jekk jogħġbok iċċekkja l-permessi tad-direttorju u erġa &apos;pprova.</translation>
     </message>
     <message>
         <source>EasyPBI: No FreeBSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI: Nru FreeBSD Ports</translation>
     </message>
     <message>
         <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-Ports tree FreeBSD ma setgħux jiġu misjuba fis-sistema tiegħek. Inti tista jġibu l-tree Ports permezz tal-menu EasyPBI jew manwalment stabbiliti l-passaġġ għall-siġra port fil-preferenzi EasyPBI jekk ikun installat f&apos;post mhux standard.</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħżel Port</translation>
     </message>
     <message>
         <source>EasyPBI Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI Error</translation>
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-file konfigurazzjoni PBI ma jistgħu jiġu salvati. Jekk jogħġbok iċċekkja permessi fajl tiegħek qabel tipprova mill-ġdid.</translation>
     </message>
     <message>
         <source>Select Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżorsi tagħżel</translation>
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Wrapper Script</translation>
     </message>
     <message>
         <source>Filename</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filename</translation>
     </message>
     <message>
         <source>Could not remove the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma tista &apos;tneħħi l-entrata XDG.</translation>
     </message>
     <message>
         <source>Check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkja l-permessi fajl u erġa &apos;pprova</translation>
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma tista &apos;tiffranka l-bidliet għall-entrata XDG.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saving Error File</translation>
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma tista &apos;tiffranka l-iskrittura</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok iċċekkja l-permessi fajl u erġa &apos;pprova</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error</translation>
     </message>
     <message>
         <source>Invalid PBI Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Settings PBI invalida</translation>
     </message>
     <message>
         <source>Are you sure you wish to start the PBI build?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Int żgur li jixtiequ jibdew l PBI tibni?</translation>
     </message>
     <message>
         <source>Save Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Save Log</translation>
     </message>
     <message>
         <source>Log Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Log Files</translation>
     </message>
     <message>
         <source>PBI Build Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Ibni Suċċess</translation>
     </message>
     <message>
         <source>The PBI finished building successfully</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il PBI lest bini b&apos;suċċess</translation>
     </message>
     <message>
         <source>PBI Build Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Ibni Nuqqas</translation>
     </message>
     <message>
         <source>The PBI failed to build.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il PBI naqas milli jibnu.</translation>
     </message>
     <message>
         <source>Please check the build log to find the cause of the failure and adjust the module accordingly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok iċċekkja l-log jibnu biex tinstab il-kawża tal-falliment u aġġusta l-modulu xieraq</translation>
     </message>
     <message>
         <source>Begin creating a new XDG entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tibda ħolqien ta &apos;dħul XDG ġdida</translation>
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kategorija</translation>
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista sseparati l-ispazju ta &apos;assoċjazzjonijiet tal-fajl awtomatiku (Eżempju: * Test junk * Junk * TEST)</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applikazzjoni jeħtieġ privileġġi amministratur li jimxu</translation>
     </message>
     <message>
         <source>Requires Root</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>jirrikjedi Root</translation>
     </message>
     <message>
         <source>Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riffriskar Modulu</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok tiftaħ il-settings EasyPBI biex tikkoreġi dan in-nuqqas.</translation>
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nibdew nibnu PBI mill-modulu attwali (teħtieġ privileġġi amministratur)</translation>
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/Pakkett</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel pakkett FreeBSD differenti</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Change</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View Pakkett tipprevali (mhux obbligatorju)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Add Pkgs</translation>
     </message>
     <message>
         <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Qatt tuża pakketti pre-mibnija</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View Repository Informazzjoni (mhux obbligatorju)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tags</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista comma-sseparati tal tags tiftix għall-applikazzjoni</translation>
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>App Type</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>App Cat</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kategorija fejn din l-applikazzjoni għandha tinstab</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icon URL</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View Repository Management (mhux obbligatorju)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibni Key</translation>
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Revision #</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prijorità</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>No TMPFS</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibni Key: Bidla dan biex jiġu xprunati awtomatiku jerġgħu jinbnew mill-PBI</translation>
     </message>
     <message>
         <source>Append this number to the application version (Example: 1.0 -&gt; 1.0_#)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tehmeż dan in-numru għall-verżjoni applikazzjoni (Eżempju: 1.0 -&gt; 1.0_ #)</translation>
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibni prijorità (ogħla huwa aktar urġenti)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq modulu PBI ġdida</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħbija modulu PBI eżistenti</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel PBI Modulu Konfigurazzjoni</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Konfigurazzjoni (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma kellekx joħolqu l-entrata XDG.</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan jeħtieġ konnessjoni bl-internet u amministratur privileġġi attivi.</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibni PBI (Running)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibni PBI (Magħmul)</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kkonfigurat</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Help</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quit</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+Q</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dwar</translation>
     </message>
     <message>
         <source>Shift+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+A</translation>
     </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
     <message>
         <source>Create a new Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq modulu l-ġdid</translation>
     </message>
     <message>
         <source>FreeBSD Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Port</translation>
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port FreeBSD li tixtieq li tibni bħala PBI</translation>
     </message>
     <message>
         <source>Select a port from the local FreeBSD ports tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel port mill-ports FreeBSD siġra lokali</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħżel</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File ikona PNG li juża għall-PBI (jistgħu jinbidlu aktar tard)</translation>
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħżel file PNG lokali (daqs tal-pixel 64x64 rakkomandat)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikona File</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel PNG Ikona</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG Ikona (*.png)</translation>
     </message>
 </context>
 <context>
     <name>PreferencesDialog</name>
     <message>
         <source>EasyPBI Preferences</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Preferenzi EasyPBI</translation>
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Output Dir</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju lokali għall mibnija PBI li jitqiegħdu.</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browse sistema lokali li tagħżel direttorju output PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diġitalment jiffirma kull tal PBI li huma maħluqa għad-distribuzzjoni tbagħbis evidenti</translation>
     </message>
     <message>
         <source>Digitally Sign PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diġitalment Sign PBI</translation>
     </message>
     <message>
         <source>Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Firma File</translation>
     </message>
     <message>
         <source>Local file that contains the openssl key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File lokali li fiha ċ-ċavetta OpenSSL</translation>
     </message>
     <message>
         <source>Browse for the openssl key file</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browse għall-file ċavetta OpenSSL</translation>
     </message>
     <message>
         <source>Local Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Local Paths</translation>
     </message>
     <message>
         <source>Default directory for all PBI modules to be created</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju default għall-moduli kollha PBI li jinħolqu</translation>
     </message>
     <message>
         <source>Select a local directory for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel direttorju lokali għall-moduli PBI.</translation>
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju Default tiftaħ meta żżid ikoni/files ta &apos;modulu</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel direttorju lokali.</translation>
     </message>
     <message>
         <source>Default PNG icon to use for PBI modules.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Default ikona PNG għall-użu għall-moduli PBI.</translation>
     </message>
     <message>
         <source>Browse local system for a default PNG icon.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browse sistema lokali għal ikona PNG default.</translation>
     </message>
     <message>
         <source>Have EasyPBI re-scan the system for available utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Have EasyPBI mill-ġdid scan-sistema għall-utilitajiet disponibbli.</translation>
     </message>
     <message>
         <source>Auto-Detect</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Auto-Jindunaw</translation>
     </message>
     <message>
         <source>pbi_makeport</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_makeport</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_makeport&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Full path għall-&quot;pbi_makeport&quot; binarju</translation>
     </message>
     <message>
         <source>Browse system for the local binary.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Browse sistema għall-binarju lokali.</translation>
     </message>
     <message>
         <source>pbi_create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>pbi_create</translation>
     </message>
     <message>
         <source>Full path to the &quot;pbi_create&quot; binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Full path to għall-&quot;pbi_create&quot; binarju</translation>
     </message>
     <message>
         <source>Switch User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilità Switch Utent</translation>
     </message>
     <message>
         <source>Full path to the graphical &quot;switch user&quot; utility (pc-su, gksu, kdesu, qsu, etc..)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Full path għall-grafika &quot;utent switch&quot; utilità (pc-su, gksu, kdesu, qsu, eċċ.)</translation>
     </message>
     <message>
         <source>Select PBI Output Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel PBI Output Direttorju</translation>
     </message>
     <message>
         <source>Select Digital Signature File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel Digital Firma File</translation>
     </message>
     <message>
         <source>Signature Files (*)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Signature Files (*)</translation>
     </message>
     <message>
         <source>Select Default Module Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel Default Modulu Direttorju</translation>
     </message>
     <message>
         <source>Select Default Directory To Find Icon Files</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel Default Direttorju To Find Ikona Files</translation>
     </message>
     <message>
         <source>Select Default Icon FIle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel Default Ikona FIle</translation>
     </message>
     <message>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PNG Images (*.png)</translation>
     </message>
     <message>
         <source>Select Graphical Switch-User Utility</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel Graphical Utilità Switch-Utent</translation>
     </message>
     <message>
         <source>Select &apos;pbi_create&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel &quot;pbi_create&quot; File Location</translation>
     </message>
     <message>
         <source>Select &apos;pbi_makeport&apos; File Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tagħżel &apos;pbi_makeport&apos; File Location</translation>
     </message>
     <message>
         <source>Are you sure you wish to return to the automatically detected utility paths?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inti żgur tixtieq li jirritornaw għall-mogħdijiet ta &apos;utilità skoperti awtomatikament?</translation>
     </message>
     <message>
         <source>This will remove any customized path settings for the external utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan għandu jneħħi kull settings passaġġ apposta għall-utilitajiet esterni.</translation>
     </message>
     <message>
         <source>PBI Builds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Builds</translation>
     </message>
     <message>
         <source>External Utilities</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>External Utilities</translation>
     </message>
     <message>
         <source>Default Search Paths</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Default Fittex Paths</translation>
     </message>
     <message>
         <source>Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Moduli</translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżorsi</translation>
     </message>
     <message>
         <source>Default Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Default Ikona</translation>
     </message>
 </context>
 <context>
     <name>aboutDialog</name>
     <message>
         <source>About EasyPBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dwar EasyPBI</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>License</translation>
     </message>
     <message>
         <source>Development History</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Storja iżvilupp</translation>
     </message>
     <message>
         <source>EasyPBI version %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>EasyPBI Verżjoni %1</translation>
     </message>
     <message>
         <source>Create PBI&apos;s quickly and easily.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq l PBI malajr u faċilment.</translation>
     </message>
     <message>
         <source>Unable to open resource file: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mhux biex tiftaħ file riżorsa: %1</translation>
     </message>
     <message>
         <source>Please check that your EasyPBI compilation was performed correctly</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok iċċekkja li l-kumpilazzjoni EasyPBI tiegħek sar b&apos;mod korrett</translation>
     </message>
 </context>
 <context>
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel pakkett</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fittex</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketti disponibbli</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkanċella</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aċċetta</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru Pakketti Disponibbli</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fittex rfinuti</translation>
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebda pakkett sabet ma &apos;dak it-terminu</translation>
     </message>
 </context>
 </TS>

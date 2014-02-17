@@ -76,14 +76,6 @@
         <translation>Hãy chọn máy tính để bàn môi trường gây ra vấn đề:</translation>
     </message>
     <message>
-        <source>1</source>
-        <translation>1</translation>
-    </message>
-    <message>
-        <source>New Column</source>
-        <translation>Cột mới</translation>
-    </message>
-    <message>
         <source>New Item</source>
         <translation>Mục mới</translation>
     </message>
@@ -190,6 +182,22 @@
     <message>
         <source>Not listed here?</source>
         <translation>Không được liệt kê ở đây?</translation>
+    </message>
+    <message>
+        <source>MATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cinnamon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
