@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>616</width>
-    <height>435</height>
+    <width>614</width>
+    <height>433</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -156,8 +156,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>600</width>
-         <height>333</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -225,8 +225,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>600</width>
-         <height>333</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -297,8 +297,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>600</width>
-         <height>333</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -436,8 +436,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>600</width>
-         <height>333</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -512,8 +512,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>600</width>
-         <height>333</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -614,8 +614,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>279</width>
-         <height>381</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -713,8 +713,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>89</width>
-         <height>521</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_16">
@@ -777,6 +777,85 @@
     </item>
    </layout>
   </widget>
+  <widget class="QWizardPage" name="wizardPage_10">
+   <property name="title">
+    <string>MATE</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_24">
+    <item>
+     <widget class="Toolbox" name="widget_12" native="true"/>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="scrollArea_11">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_11">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>598</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_25">
+        <item>
+         <widget class="Line" name="line_23">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_27">
+          <property name="text">
+           <string>1. You can report a bug on MATE GitHub bug tracker related to MATE component</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="WebURL" name="MATEGitHubWidget" native="true"/>
+        </item>
+        <item>
+         <widget class="Line" name="line_24">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_28">
+          <property name="text">
+           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="maillist" name="PCBSDTestingLW_8" native="true"/>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>236</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QWizardPage" name="wizardPage_11">
    <property name="title">
     <string>Unsupported desktop unvironment</string>
@@ -795,8 +874,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>526</width>
-         <height>77</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -861,8 +940,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>365</width>
-         <height>57</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_22">
@@ -953,8 +1032,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>286</width>
-         <height>347</height>
+         <width>598</width>
+         <height>331</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_23">
