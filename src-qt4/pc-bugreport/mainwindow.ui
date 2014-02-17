@@ -401,12 +401,12 @@
       </property>
       <column>
        <property name="text">
-        <string>1</string>
+        <string/>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>New Column</string>
+        <string>Desktop environment</string>
        </property>
       </column>
       <item>
@@ -839,6 +839,85 @@
         </item>
         <item>
          <spacer name="verticalSpacer_10">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>236</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage_Cinnamon">
+   <property name="title">
+    <string>Cinnamon</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_26">
+    <item>
+     <widget class="Toolbox" name="widget_13" native="true"/>
+    </item>
+    <item>
+     <widget class="QScrollArea" name="scrollArea_12">
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_12">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>598</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_27">
+        <item>
+         <widget class="Line" name="line_25">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_29">
+          <property name="text">
+           <string>1. You can report a bug using Cinnamon bug tracker on GitHub</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="WebURL" name="CinnamonBugTrackerWidget" native="true"/>
+        </item>
+        <item>
+         <widget class="Line" name="line_26">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_30">
+          <property name="text">
+           <string>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="maillist" name="PCBSDTestingLW_9" native="true"/>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_11">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>

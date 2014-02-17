@@ -35,4 +35,6 @@
 
 #define MATE_GITHUB_URL "https://github.com/mate-desktop", GITHUB_IMAGE
 
+#define CINNAMON_BUGTRACKER_GITHUB "https://github.com/linuxmint/Cinnamon/issues", GITHUB_IMAGE
+
 #endif // REPORT_PLACES_H
