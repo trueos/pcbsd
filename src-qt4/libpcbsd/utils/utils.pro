@@ -12,11 +12,13 @@ VERSION		= 0.9.8
 
 HEADERS	+= pcbsd-netif.h \
 	pcbsd-utils.h \
-        pcbsd-hardware.h 
+        pcbsd-hardware.h \
+	pcbsd-DLProcess.h
 
 SOURCES	+= utils.cpp \
         hardware.cpp \
-        netif.cpp
+        netif.cpp \
+	pcbsd-DLProcess.cpp
 
 include.path=/usr/local/include/
 include.files=pcbsd-*.h
