@@ -128,6 +128,16 @@ mount_dirs() {
       is_mounted "${pDir}/virtbase/usr/local/share/icons" || ($NULLFS /usr/local/share/icons "${pDir}/virtbase/usr/local/share/icons" ; $MNTSLEEP )
    fi
 
+   # Support for some font packages(example: japanese/font-vlgothic)
+   for fontdir in /usr/local/share/font-*
+   do
+      subdir=`basename $fontdir`
+      if [ ! -d "${pDir}/virtbase/usr/local/share/$subdir" ]; then
+         mkdir "${pDir}/virtbase/usr/local/share/$subdir"
+      fi
+      is_mounted "${pDir}/virtbase/usr/local/share/$subdir" || ($NULLFS /usr/local/share/$subdir "${pDir}/virtbase/usr/local/share/$subdir" ; $MNTSLEEP )
+   done
+
    # Check if we need to mount linprocfs in the PBI container
    if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
       is_mounted "${pDir}/virtbase/compat/linux/proc" || (mount -t linprocfs linproc "${pDir}/virtbase/compat/linux/proc" ; $MNTSLEEP )

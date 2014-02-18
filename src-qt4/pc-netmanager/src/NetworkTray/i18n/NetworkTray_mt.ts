@@ -5,157 +5,128 @@
     <name>NetworkTray</name>
     <message>
         <source>Configure </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kkonfigurat</translation>
     </message>
     <message>
         <source>Start the Network Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-Maniġer tan-Netwerk</translation>
     </message>
     <message>
         <source>Restart the Network</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nerġgħu-Netwerk</translation>
     </message>
     <message>
         <source>IP:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP:</translation>
     </message>
     <message>
         <source>IPv6:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6:</translation>
     </message>
     <message>
         <source>Mac/Ether:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mac/Ether:</translation>
     </message>
     <message>
         <source>Media:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Midja:</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status:</translation>
     </message>
     <message>
         <source>No connection detected.&lt;br&gt; Check your cable connection and try again!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebda konnessjoni skoperti. &lt;br&gt; Iċċekkja konnessjoni tal-kejbil tiegħek u erġa &apos;pprova!</translation>
     </message>
     <message>
         <source>SSID:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSID:</translation>
     </message>
     <message>
         <source>Connection Strength:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konnessjoni Qawwa:</translation>
     </message>
     <message>
         <source>Connection Speed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veloċità Konnessjoni:</translation>
     </message>
     <message>
         <source>No wireless connection detected.&lt;br&gt; Double-click to start the wireless configuration wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebda konnessjoni wireless skoperti. &lt;br&gt; Double-click biex tibda l-Wizard konfigurazzjoni wireless.</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mezz Wireless mhux magħruf</translation>
     </message>
     <message>
         <source>Device Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem mezz:</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mhux magħruf</translation>
     </message>
     <message>
         <source>Close the Network Monitor</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq il-Monitor Network</translation>
     </message>
     <message>
         <source>Click here to configure wireless connections</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikklikkja hawn biex kkonfigurat konnessjonijiet wireless</translation>
     </message>
     <message>
         <source>No Wireless Network Connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru Konnessjoni Wireless Network</translation>
     </message>
     <message>
         <source>Connecting to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inqarrbu l</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok Stenna</translation>
     </message>
 </context>
 <context>
     <name>netKey</name>
     <message>
         <source>Please Enter Network Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok Ikteb Network Key</translation>
     </message>
     <message>
         <source>SSID</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSID</translation>
     </message>
     <message>
         <source>Network Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Key</translation>
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Key (Irrepeti)</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applika</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkanċella</translation>
     </message>
     <message>
         <source>Network Key Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Network Żball Key</translation>
     </message>
     <message>
         <source>Error: The entered network keys do not match!
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żball:! L-imfietaħ tan-netwerk daħlu ma jaqblux
+</translation>
     </message>
     <message>
         <source>Show network key as text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uri netwerk ewlenin bħala test</translation>
     </message>
 </context>
 </TS>

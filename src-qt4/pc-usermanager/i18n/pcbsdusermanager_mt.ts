@@ -5,833 +5,696 @@
     <name>AddDlgCode</name>
     <message>
         <source>New Group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Grupp</translation>
     </message>
     <message>
         <source>Good Input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Input tajba</translation>
     </message>
     <message>
         <source>This field can only accept letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-qasam tista &apos;taċċetta biss ittri u numri</translation>
     </message>
     <message>
         <source>This username is already in use, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan username huwa diġà fl-użu, jekk jogħġbok agħżel ieħor.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwords logħba</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwords ma jaqblux</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Input invalida</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-qasam ma jistax ikun fiha! @ Jew:</translation>
     </message>
     <message>
         <source>Directory will be used</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju se jintużaw</translation>
     </message>
     <message>
         <source>Invalid Path!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path invalida!</translation>
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju ma teżistix, iżda se jsir</translation>
     </message>
     <message>
         <source>Requested path is a file (not a directory!)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path Mitlub huwa fajl (mhux direttorju!)</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Username&apos; ma ġietx mimlija pulzieri.</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field may only contain letters and numbers (not spaces).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>\ N - Il-qasam &apos;Username&apos;  jista &apos;jkun fih biss ittri u numri (mhux spazji).</translation>
     </message>
     <message>
         <source>
 - The username you have chosen is already in use, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-username inti għażilt huwa diġà fl-użu, jekk jogħġbok agħżel ieħor.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Isem sħiħ&apos; ma tkunx ġiet mimlija pulzieri.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Isem sħiħ&apos; ma jistax ikun fihom! @ Jew:</translation>
     </message>
     <message>
         <source>
 - Both password fields must be filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Iż-żewġ oqsma password għandhom jimtlew.</translation>
     </message>
     <message>
         <source>
 - Passwords don&apos;t match, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Passwords ma jaqblux, jekk jogħġbok erġa &apos;pprova.</translation>
     </message>
     <message>
         <source>
 - Invalid password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Password invalida</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error!</translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warning!</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-qasam huwa vojt</translation>
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tqegħid direttorju home barra &apos;/home/&apos; jistgħu jikkawżaw problemi ta&apos; kompatibilità ma &apos;xi programmi. NOT RECOMMENDED</translation>
     </message>
     <message>
         <source>- The &apos;Home Directory&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Il-qasam &apos;Home Direttorju&apos; ma tkunx ġiet mimlija pulzieri</translation>
     </message>
     <message>
         <source>- The value entered as &apos;Home Directory&apos; is not a valid path.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Il-valur jiddaħħal bħala kontribuzzjonijiet &apos;Home Direttorju&apos; mhijiex triq valida.</translation>
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Direttorju home Tqegħid barra &apos;/home/&apos; jistgħu jikkawżaw problemi ta&apos; kompatibilità ma &apos;xi programmi u NOT RECOMMENDED.</translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- A file ġiet magħżula bħala &apos;Home Direttorju&apos;, dan il-valur irid ikun direttorju.</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-iżbalji li ġejjin seħħew waqt li jipprova biex iżżid utent ġdid:
+</translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-iżbalji mhux kritiċi li ġejjin seħħew waqt li jipprova biex iżżid utent ġdid, inti tixtieq li tkompli?
+</translation>
     </message>
 </context>
 <context>
     <name>AddUserUI</name>
     <message>
         <source>Add User</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid User</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-qasam huwa vojt</translation>
     </message>
     <message>
         <source>Home Directory:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Home Direttorju:</translation>
     </message>
     <message>
         <source>Shell:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shell:</translation>
     </message>
     <message>
         <source>Full Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem sħiħ:</translation>
     </message>
     <message>
         <source>New &amp;Group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New&amp;Grupp</translation>
     </message>
     <message>
         <source>Alt+G</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+G</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Username:</translation>
     </message>
     <message>
         <source>Confirm Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkonferma Password:</translation>
     </message>
     <message>
         <source>Primary Group:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grupp primarja:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Password:</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>Alt+O</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+O</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ikkanċella</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kriptaġġ Files:</translation>
     </message>
 </context>
 <context>
     <name>ChangePassCode</name>
     <message>
         <source>Change Password for &apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bidla Password għal &apos;</translation>
     </message>
     <message>
         <source>&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&apos;</translation>
     </message>
     <message>
         <source>You must specify a password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Int trid tispeċifika password</translation>
     </message>
     <message>
         <source>The passwords didn&apos;t match. Both boxes most contain the same value.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-passwords ma kienux jaqblu ma. Iż-żewġ kaxxi aktar ikollhom l-istess valur.</translation>
     </message>
     <message>
         <source>Invalid password, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Password invalida, jekk jogħġbok agħżel ieħor.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>logħba Passwords</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwords ma jkunux pariġġ</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Input invalida</translation>
     </message>
 </context>
 <context>
     <name>ChangePassDialog</name>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bidla Password</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Password:</translation>
     </message>
     <message>
         <source>Confirm Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkonferma Password:</translation>
     </message>
     <message>
         <source>O&amp;k</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O&amp;k</translation>
     </message>
     <message>
         <source>Alt+K</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+K</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ikkanċella</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
 </context>
 <context>
     <name>MainDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD User Manager</translation>
     </message>
     <message>
         <source>&amp;Users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Utenti</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Remove</translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>Home Directory:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Home Direttorju:</translation>
     </message>
     <message>
         <source>Primary Group:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grupp primarja:</translation>
     </message>
     <message>
         <source>Shell:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shell:</translation>
     </message>
     <message>
         <source>User ID:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User ID:</translation>
     </message>
     <message>
         <source>Full Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem sħiħ:</translation>
     </message>
     <message>
         <source>Chan&amp;ge Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chan&amp;ge Password...</translation>
     </message>
     <message>
         <source>Alt+G</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+G</translation>
     </message>
     <message>
         <source>&amp;Groups</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Gruppi</translation>
     </message>
     <message>
         <source>A&amp;dd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A&amp;dd</translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+D</translation>
     </message>
     <message>
         <source>Available:  </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponibbli:</translation>
     </message>
     <message>
         <source>Members:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Membri:</translation>
     </message>
     <message>
         <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD User Manager - Avvanzata Modalità</translation>
     </message>
     <message>
         <source>Simple &amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sempliċi&amp;View</translation>
     </message>
     <message>
         <source>Alt+V</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+V</translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD User Manager</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applika</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applika tibdiliet pendenti?</translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hemm bidliet pendenti li ma ġewx applikati. Tixtieq li tapplika għalihom qabel jaqtagħhom?</translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Editjar Utenti għal Jail:</translation>
     </message>
 </context>
 <context>
     <name>SimpleAddCode</name>
     <message>
         <source>Good Input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Good Input</translation>
     </message>
     <message>
         <source>This field can only accept letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-qasam tista &apos;taċċetta biss ittri u numri</translation>
     </message>
     <message>
         <source>This username is already in use, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan username huwa diġà fl-użu, jekk jogħġbok agħżel ieħor.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwords logħba</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passwords ma jkunux pariġġ</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalid input</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-qasam ma jistax ikun fiha! @ Jew:</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Username&apos; ma tkunx ġiet mimlija pulzieri.</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field may only contain letters and numbers (not spaces).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Username&apos; jista &apos;jkun fih biss ittri u numri (mhux spazji).</translation>
     </message>
     <message>
         <source>
 - The username you have chosen is already in use, please choose another.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-username inti għażilt huwa diġà fl-użu, jekk jogħġbok agħżel ieħor.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field has not been filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Isem sħiħ&apos; ma tkunx ġiet mimlija pulzieri.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Il-qasam &apos;Isem sħiħ&apos; ma jistax ikun fihom! @ Jew:</translation>
     </message>
     <message>
         <source>
 - Both password fields must be filled in.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Iż-żewġ oqsma password għandhom jimtlew.</translation>
     </message>
     <message>
         <source>
 - Passwords don&apos;t match, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Passwords ma jkunux pariġġ, jekk jogħġbok erġa &apos;pprova.</translation>
     </message>
     <message>
         <source>
 - Invalid password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>
+- Password invalida</translation>
     </message>
     <message>
         <source>Error!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error!</translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warning!</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-qasam huwa vojt</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-iżbalji li ġejjin seħħew waqt li jipprova biex iżżid utent ġdid:
+</translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-iżbalji mhux kritiċi li ġejjin seħħew waqt li jipprova biex iżżid utent ġdid, inti tixtieq li tkompli?
+</translation>
     </message>
 </context>
 <context>
     <name>SimpleAddDlg</name>
     <message>
         <source>Add User</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>żid User</translation>
     </message>
     <message>
         <source>O&amp;k</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O&amp;k</translation>
     </message>
     <message>
         <source>Alt+K</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+K</translation>
     </message>
     <message>
         <source>Ca&amp;ncel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ca&amp;ncel</translation>
     </message>
     <message>
         <source>Alt+N</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <source>Confirm Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkonferma Password:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Password:</translation>
     </message>
     <message>
         <source>Full Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem sħiħ:</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Username:</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-qasam huwa vojt</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kriptaġġ Files:</translation>
     </message>
 </context>
 <context>
     <name>SimpleDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD User Manager</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Neħħi</translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>&amp;Change Admin Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Bidla Admin Password...</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+C</translation>
     </message>
     <message>
         <source>A&amp;dvanced View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A&amp;dvanced View</translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+D</translation>
     </message>
     <message>
         <source>Can administrate s&amp;ystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tista &apos;tamministra s&amp;ystem</translation>
     </message>
     <message>
         <source>Alt+Y</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Y</translation>
     </message>
     <message>
         <source>C&amp;hange Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>C&amp;hange Password...</translation>
     </message>
     <message>
         <source>Alt+H</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <source>Full Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem sħiħ:</translation>
     </message>
 </context>
 <context>
     <name>SimpleDlgCode</name>
     <message>
         <source>Good Input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Good Input</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-qasam ma jistax ikun fiha! @ Jew:</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-qasam huwa vojt</translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar Home Direttorju?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar il-direttorju dar għall-</translation>
     </message>
 </context>
 <context>
     <name>mainDlgCode</name>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-qasam huwa vojt</translation>
     </message>
     <message>
         <source>New User</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Utent</translation>
     </message>
     <message>
         <source>You must specify a name for your group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Int trid tispeċifika l-isem għall-grupp tiegħek</translation>
     </message>
     <message>
         <source>Error adding group...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error żżid grupp...</translation>
     </message>
     <message>
         <source>Invalid group name specified. Group names may contain only letters and number. Spaces are NOT permitted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem tal-grupp invalida speċifikat. Ismijiet tal-gruppi jista &apos;jkun fih biss ittri u numru. Spazji mhumiex permessi</translation>
     </message>
     <message>
         <source>The group &apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-grupp &apos;</translation>
     </message>
     <message>
         <source>&apos; already exists, please choose a different name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&apos;diġà jeżisti, jekk jogħġbok agħżel isem differenti</translation>
     </message>
     <message>
         <source>New Group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Grupp</translation>
     </message>
     <message>
         <source>Please enter a name for your new group</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daħħal isem għal grupp ġdid tiegħek</translation>
     </message>
     <message>
         <source>Directory will be used</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju se jintużaw</translation>
     </message>
     <message>
         <source>Invalid Path!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Path invalida!</translation>
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju ma teżistix, iżda se jsir</translation>
     </message>
     <message>
         <source>Requested path is a file (not a directory!)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Passaġġ Mitlub huwa fajl (mhux direttorju!)</translation>
     </message>
     <message>
         <source>Good Input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Good Input</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-qasam ma jistax ikun fiha! @ jew</translation>
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tqegħid direttorju home barra &apos;/home/&apos; jistgħu jikkawżaw problemi ta&apos; kompatibilità ma &apos;xi programmi. NOT RECOMMENDED</translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar Home Direttorju?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar il-direttorju dar għall-</translation>
     </message>
 </context>
 </TS>

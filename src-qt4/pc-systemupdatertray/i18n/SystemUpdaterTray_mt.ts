@@ -5,138 +5,111 @@
     <name>UpdaterTray</name>
     <message>
         <source>Check for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkja għall-aġġornamenti</translation>
     </message>
     <message>
         <source>Run at startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mexxi fuq l-istartjar</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Aġġornament Maniġer</translation>
     </message>
     <message>
         <source>Checking for updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkjar għall-aġġornamenti...</translation>
     </message>
     <message>
         <source>Failed to contact the update server!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naqas li tikkuntattja l-server aġġornament!</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema tiegħek huwa aġġornat b&apos;mod sħiħ</translation>
     </message>
     <message>
         <source>System updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti tas-sistema disponibbli</translation>
     </message>
     <message>
         <source>PBI updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI aġġornamenti disponibbli</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-AppCafe</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quit  </translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Aġġornamenti Disponibbli</translation>
     </message>
     <message>
         <source>Software Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Software Aġġornamenti Disponibbli</translation>
     </message>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-Maniġer Aġġornament</translation>
     </message>
     <message>
         <source>Important system updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti tas-sistema importanti huma disponibbli. Ikklikkja hawn biex jinstallaw minnhom!</translation>
     </message>
     <message>
         <source>Software updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti tas-softwer huma disponibbli. Ikklikkja hawn biex jinstallaw minnhom!</translation>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nerġgħu Meħtieġa</translation>
     </message>
     <message>
         <source>Please restart your computer to complete the pending updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok terġa &apos;tibda kompjuter tiegħek biex jitlesta l-aġġornamenti pendenti</translation>
     </message>
     <message>
         <source>System restart required to finish updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jistartja sistema meħtieġa biex jintemm aġġornamenti</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-Gwardjan</translation>
     </message>
     <message>
         <source>Jail updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti Jail disponibbli</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail Aġġornamenti Disponibbli</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti jail importanti huma disponibbli. Ikklikkja hawn biex tniedi l-Warden!</translation>
     </message>
     <message>
         <source>Display notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notifiki display</translation>
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti Pakkett disponibbli</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti pakkett importanti huma disponibbli. Ikklikkja hawn biex jinstallaw minnhom!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-Maniġer Pakkett</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkett Aġġornamenti Disponibbli</translation>
     </message>
 </context>
 </TS>

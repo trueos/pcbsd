@@ -211,837 +211,681 @@ Ikklikkja Finlandiża biex reboot. Wara rebooting inti tista jitfgħuha l-jinsta
     </message>
     <message>
         <source>Please enter the nickname you want to save this configuration as.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok daħħal il-laqam inti tixtieq li jiffrankaw din il-konfigurazzjoni kif.</translation>
     </message>
     <message>
         <source>Failed saving config to USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naqset iffrankar konfigurazzjoni għall-midja USB. Hija l-apparat tax-xogħol u fformattjati MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration saved! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurazzjoni salvati! Inti tista &apos;issa sikur tneħħi l-USB midja.</translation>
     </message>
     <message>
         <source>This will load a installation configuration file your MSDOSFS/FAT32 formatted USB stick. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan se tagħbija konfigurazzjoni installazzjoni fajl MSDOSFS/FAT32 ifformattjat tiegħek stick USB. Kompli?</translation>
     </message>
     <message>
         <source>Please insert the USB stick now, and click OK to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok daħħal il-USB stick issa, u kklikkja OK biex tkompli.</translation>
     </message>
     <message>
         <source>Failed loading saved config file from the USB media. Is the device working and formatted MSDOSFS/FAT32?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħbija naqset salvati fajl konfigurazzjoni mill-USB midja. Hija l-apparat tax-xogħol u fformattjati MSDOSFS/FAT32?</translation>
     </message>
     <message>
         <source>Configuration loaded! You may now safely remove the USB media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurazzjoni mgħobbija! Inti tista &apos;issa sikur tneħħi l-USB midja.</translation>
     </message>
     <message>
         <source>Config File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfigurazzjoni File:</translation>
     </message>
     <message>
         <source>Start the install using this config file?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-jinstallaw jużaw dan il-fajl konfigurazzjoni?</translation>
     </message>
     <message>
         <source>Restore from Life-Preserver backup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore minn Life-Preserver backup</translation>
     </message>
     <message>
         <source>Manage network connectivity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Manage konnettività tan-netwerk</translation>
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS ġabra tad-dejta:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>It-tqassim ZFS oriġinali se jiġu restawrati</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jwettqu terġa minn backup Life-Preserver. Ikklikkja jmiss li tibda l-Wizard jirrestawraw.</translation>
     </message>
     <message>
         <source>Start the restore now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ibda l-jirrestawraw issa?</translation>
     </message>
     <message>
         <source>Your system is now restored!
 Click Finish to reboot. After rebooting you may eject the install media.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema tiegħek issa hi restawrata!
+Ikklikkja Finish biex reboot. Wara rebooting inti tista jitfgħuha l-jinstallaw media.</translation>
     </message>
     <message>
         <source>System Restore</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Restore</translation>
     </message>
     <message>
         <source>Your system is now being restored, this may take a while depending upon the size of your backup and network conditions.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema tiegħek issa qed restawrata, dan jista &apos;jieħu waqt li jiddependi fuq id-daqs tal tiegħek kundizzjonijiet backup u tan-netwerk.</translation>
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni-pakkett meta: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Restawrar: %1</translation>
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tagħbija konfigurazzjoni minn USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save konfigurazzjoni għal USB</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>This screen allows you to select the language you wish to perform the install with.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan screen jippermettilek li tagħżel il-lingwa li inti tixtieq li twettaq l-jinstallaw ma.</translation>
     </message>
     <message>
         <source>This screen allows you to select the type of system you wish to install. Clicking customize will allow you to change the selected packages for your system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan screen jippermettilek li jagħżlu l-tip ta &apos;sistema tixtieq li tinstalla. Tikklikkja customize inti se tippermetti li jibdlu l-pakketti magħżula għas-sistema tiegħek</translation>
     </message>
     <message>
         <source>This screen will display the currently selected disk options. Clicking customize will allow you to change the target disk, file-systems and more.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan iskrin se juru l-għażliet disk kurrentement magħżul. Customize tikklikkja inti se tippermetti li jibdlu l-mira disk, sistemi fajl u aktar.</translation>
     </message>
     <message>
         <source>Your system is now installing! Go grab a cup of coffee and relax, the installer will notify you when it is finished.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema tiegħek issa hija installazzjoni! Mur grab tazza tal-kafè u jirrilassaw, l-installatur se javżak meta huwa lest.</translation>
     </message>
     <message>
         <source>The system is now finished installing! Click Finish to reboot, and be sure to eject any install media before booting into your new system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Is-sistema issa huwa lest installazzjoni! Ikklikkja Finish biex reboot, u kun żgur li eject kwalunkwe jinstallaw media qabel booting fis-sistema l-ġdida tiegħek.</translation>
     </message>
 </context>
 <context>
     <name>desktopSelection</name>
     <message>
         <source>System Package Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Pakkett Konfigurazzjoni</translation>
     </message>
     <message>
         <source>Available System Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketti Sistema Disponibbli</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ħlief</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ikkanċella</translation>
     </message>
     <message>
         <source>No Desktop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru Desktop</translation>
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru desktops ġew magħżula! Jekk jogħġbok agħżel desktop inqas wieħed biex dan ikompli.</translation>
     </message>
     <message>
         <source>View Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketti View</translation>
     </message>
     <message>
         <source>Package Listing for:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkett Listing:</translation>
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel l-software biex jinstallaw. Post-jinstallaw inti tista &apos;wkoll żżid / tneħħi softwer permezz tal-Manager Pakkett (desktop) jew &quot;pkg&quot; kmand (server).</translation>
     </message>
 </context>
 <context>
     <name>dialogCheckHardware</name>
     <message>
         <source>Detected hardware devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mezzi hardware misjuba</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
     <message>
         <source>Video driver:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sewwieq Video:</translation>
     </message>
     <message>
         <source>Video resolution:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Riżoluzzjoni Video:</translation>
     </message>
     <message>
         <source>No ethernet detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru ethernet skoperti</translation>
     </message>
     <message>
         <source>Ethernet device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apparat Ethernet:</translation>
     </message>
     <message>
         <source>No wifi detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru Wifi skoperti</translation>
     </message>
     <message>
         <source>Wifi device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mezz Wifi:</translation>
     </message>
     <message>
         <source>No sound detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebda ħoss skoperti</translation>
     </message>
     <message>
         <source>Sound device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apparat tal-ħoss:</translation>
     </message>
 </context>
 <context>
     <name>dialogFSSize</name>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daqs:</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ikkanċella</translation>
     </message>
 </context>
 <context>
     <name>dialogHelp</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
 </context>
 <context>
     <name>dialogInfoBox</name>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tastiera Settings</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Layout Key</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varjant</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mudell tastiera</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Inti tista tip fl-ispazju t&apos;hawn taħt biex tittestja settings magħżula tiegħek.)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Applika</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq  </translation>
     </message>
 </context>
 <context>
     <name>wizardDisk</name>
     <message>
         <source>This wizard will walk you through the disk setup process. Please choose the setup mode you wish to use.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan Wizard se jimxu miegħek permezz tal-proċess setup disk. Jekk jogħġbok jagħżlu l-mod setup li tixtieq tuża.</translation>
     </message>
     <message>
         <source>Setup Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modalità setup</translation>
     </message>
     <message>
         <source>Basic (New to BSD or disk partitioning)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bażiku (New biex BSD jew disk partizzjoni)</translation>
     </message>
     <message>
         <source>Advanced (Experienced with file-systems)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Advanced (esperjenza bil-sistemi fajl)</translation>
     </message>
     <message>
         <source>FreeBSD Experts (CLI manual mode)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esperti FreeBSD (mod manwali CLI)</translation>
     </message>
     <message>
         <source>Selected Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Magħżula Disk</translation>
     </message>
     <message>
         <source>Selected Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partition magħżula</translation>
     </message>
     <message>
         <source>Partition disk with GPT</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk partition ma GPT</translation>
     </message>
     <message>
         <source>Below you may adjust the file-system mount points. For most users the defaults will work best. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hawn taħt inti tista &apos;taġġusta l-fajl sistema impunjazzjoni punti. Għal ħafna utenti l-nuqqasijiet se jaħdmu aħjar.</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Neħħi</translation>
     </message>
     <message>
         <source>You have chosen Expert mode. In this mode you are able to launch a terminal window and use the command-line to manually partition your disk. When you are finished, make sure to mount your filesystems to /mnt to begin the installation. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inti ghazielt modalità Esperti. F&apos;din il-modalità inti tista &apos;tniedi tieqa terminal u jużaw il-linja ta&apos; kmand li manwalment partition disk tiegħek. Meta inti lest, kun żgur li jintramaw filesystems tiegħek għal / mnt biex tibda l-installazzjoni.</translation>
     </message>
     <message>
         <source>&amp;Launch terminal</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tnedija terminal</translation>
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok iċċekkja s-sommarju disk hawn taħt u kklikkja finitura biex jiffrankaw settings tiegħek.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uża disk kollu</translation>
     </message>
     <message>
         <source>ZFS Mounts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Mounts</translation>
     </message>
     <message>
         <source>ZFS Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Options</translation>
     </message>
     <message>
         <source>Resizing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resizing</translation>
     </message>
     <message>
         <source>Remove mount-point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neħħi impunjazzjoni-punt</translation>
     </message>
     <message>
         <source>Are you sure you want to remove this mount point?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Int żgur li trid tneħħi dan il-punt impunjazzjoni?</translation>
     </message>
     <message>
         <source>Enter mount-point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikteb impunjazzjoni-punt</translation>
     </message>
     <message>
         <source>Please enter the new mount-point:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok daħħal l-muntatura punt ġdid:</translation>
     </message>
     <message>
         <source>Editing:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Editjar:</translation>
     </message>
     <message>
         <source>Installing to file-system mounted at /mnt</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni għall-fajl sistema immuntati fi /mn</translation>
     </message>
     <message>
         <source>The disk will be setup with the following configuration:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-disk se tkun setup mal-konfigurazzjoni li ġej:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk:</translation>
     </message>
     <message>
         <source>Mirroring:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mirroring:</translation>
     </message>
     <message>
         <source>Partition:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partizzjoni:</translation>
     </message>
     <message>
         <source>FileSystem:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FileSystem:</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Size:</translation>
     </message>
     <message>
         <source>Mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mount:</translation>
     </message>
     <message>
         <source>Enable ZFS mirror/raidz mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jippermettu ZFS mera/mode raidz</translation>
     </message>
     <message>
         <source>ZFS Virtual Device Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Modalità Device Virtual</translation>
     </message>
     <message>
         <source>Please select at least 1 other drive for mirroring</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel mill-inqas 1 drive ieħor għall tirrifletti</translation>
     </message>
     <message>
         <source>Options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Options:</translation>
     </message>
     <message>
         <source>If this is a single disk ZFS install, you can continue, otherwise please select the mirror / raid mode and disks below. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk dan huwa ZFS disk wieħed jinstallaw, inti tista &apos;tkompli, inkella jekk jogħġbok agħżel l-modalità mera / raid u diski hawn taħt.</translation>
     </message>
     <message>
         <source>ZFS Datasets:&lt;br&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Datasets:&lt;br&gt;</translation>
     </message>
     <message>
         <source>Invalid Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Invalida Mount</translation>
     </message>
     <message>
         <source>Mount point should start with &apos;/&apos;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Punt Mount għandhom jibdew bl &apos;/&apos;</translation>
     </message>
     <message>
         <source>Note: Using ZFS mirror/raidz can only be enabled when doing full-disk installations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nota: Bl-użu ZFS mera/raidz jistgħu jkunu ffaċilitati meta tagħmel installazzjonijiet full-disk biss</translation>
     </message>
     <message>
         <source>Please select 2 or 4 additional drives for raidz1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel 2 jew 4 drives addizzjonali għall raidz1</translation>
     </message>
     <message>
         <source>Please select 3, 5, or 9 additional drives for raidz2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel 3, 5, jew 9 drives addizzjonali għall raidz2</translation>
     </message>
     <message>
         <source>Please select 4, 6, or 10 additional drives for raidz3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel 4, 6, jew 10 drives addizzjonali għall raidz3</translation>
     </message>
     <message>
         <source>Enter SWAP size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikteb daqs SWAP</translation>
     </message>
     <message>
         <source>Size (MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Size (MB)</translation>
     </message>
     <message>
         <source>ZFS pool name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS pool name</translation>
     </message>
     <message>
         <source>Force ZFS 4K block size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Daqs blokk seħħ ZFS 4K</translation>
     </message>
     <message>
         <source>(MB)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(MB)</translation>
     </message>
     <message>
         <source>Swap Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Swap Size</translation>
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel il-disk jew diviżorju tixtieq tinstalla fuq. Jekk jogħġbok innota li inti trid tagħżel la disk kollu jew partition primarja li hija mill-inqas 20GB għal server jinstallaw jew 50GB għal desktop tinstalla.</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installazzjoni għal SSD (SWAP tiddiżattiva / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru boot-loader!</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dejtasets sistema oriġinali / impunjazzjoni punti se jiġu restawrati awtomatikament.</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Boot-Karigatur (GRUB rakkomandat)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Inti ghazielt biex ma jinstallaw boot-loader. Ikollok bżonn li manwalment setup loader tiegħek.</translation>
     </message>
 </context>
 <context>
     <name>wizardFreeBSD</name>
     <message>
         <source>Please enter the root password for this server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok daħħal il-password għerq għall-dan is-server</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Password</translation>
     </message>
     <message>
         <source>Password (Repeat)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Password (Irrepeti)</translation>
     </message>
     <message>
         <source>Please create a user for this server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please create a user for this server</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Username</translation>
     </message>
     <message>
         <source>Default shell</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Qoxra default</translation>
     </message>
     <message>
         <source>Please enter a system hostname and remote login preference.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok daħħal hostname sistema u l-preferenza login remoti.</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname</translation>
     </message>
     <message>
         <source>Enable remote SSH login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jippermettu login SSH remot</translation>
     </message>
     <message>
         <source>Please select a network device to configure for this system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel apparat tan-network biex jiġi kkonfigurat għal din is-sistema.</translation>
     </message>
     <message>
         <source>Network Interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Interfaċċa network</translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Indirizz IP</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <source>Nameserver (DNS)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nameserver (DNS)</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <source>IPv6 Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Address</translation>
     </message>
     <message>
         <source>IPv6 Gateway</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Gateway</translation>
     </message>
     <message>
         <source>IPv6 Nameserver</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPv6 Nameserver</translation>
     </message>
     <message>
         <source>000.000.000.000; </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>000.000.000.000;</translation>
     </message>
     <message>
         <source>Please select any optional features to install.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok agħżel xi karatteristiċi mhux obbligatorji biex tinstalla.</translation>
     </message>
     <message>
         <source>Install system sources (/usr/src)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installa sorsi tas-sistema (/usr/src)</translation>
     </message>
     <message>
         <source>Install ports tree (/usr/ports)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installa portijiet siġar (/usr/portijiet)</translation>
     </message>
     <message>
         <source>This wizard will walk you though the setup of your new server. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan Wizard se jimxu miegħek għalkemm il-setup tal-server ġdida tiegħek. Ikklikkja li jmiss biex tibda.</translation>
     </message>
 </context>
 <context>
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan Wizard se jimxu miegħek għalkemm il-proċess ta &apos;restawr sistema tiegħek minn backup Life-Preserver. Ikklikkja jmiss li tibda</translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Biex tibda jekk jogħġbok niżżel l-hostname, username u l-port ta &apos;server backup tiegħek.</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Backup Server</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Host Name</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>User Name</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH Port</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Awtentikazzjoni Server</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uża USB ewlenin</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uża awtentikazzjoni password</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Is-sistemi li ġejjin huma sostnuti fuq dan is-server, tagħżel l-waħda inti tixtieq li terġa.</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Sistema Għażla</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restore Sommarju</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Is-sistema hija lesta li jiġu restawrati, ikklikkja Finish biex tkompli.</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru ċwievet misjuba!</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru keys Auth tista &apos;tinstab fuq dak stick memorja!
+Erġa USB stick jew użu ieħor awtentikazzjoni password.</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konnessjoni naqset!</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma kellekx jgħaqqdu l-server backup!
+Jekk jogħġbok iċċekkja li s-server huwa jista &apos;jintlaħaq u tivverifika l-utent tiegħek/password.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma kellekx jgħaqqdu l-server backup!
+Jekk jogħġbok iċċekkja hostname tiegħek u li s-server backup huwa jista &apos;jintlaħaq.</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Se jirrestawraw minn:</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħżel iċ-ċavetta SSH għall-użu</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>File Key:   </translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk inti ffrankati tiegħek ewlenin Life-Preserver għal fuq USB drive, daħħal issa u tagħżel USB ewlenin, inkella inti tista &apos;tixtieq li jużaw awtentikazzjoni password.</translation>
     </message>
 </context>
 </TS>

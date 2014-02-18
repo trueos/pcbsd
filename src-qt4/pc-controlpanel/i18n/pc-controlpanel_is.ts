@@ -5,143 +5,115 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD Rialú Painéal</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bogearraí agus nuashonruithe</translation>
     </message>
     <message>
         <source>System management</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bainistíocht Córas</translation>
     </message>
     <message>
         <source>Hardware</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Crua-earraí</translation>
     </message>
     <message>
         <source>Networking</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Líonra</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop timpeallacht</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uirlisí</translation>
     </message>
     <message>
         <source>All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gach</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>Enlightenment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enlightenment</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>unsupported</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gan tacaíocht</translation>
     </message>
     <message>
         <source>(current)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Reatha)</translation>
     </message>
     <message>
         <source>Unsupported DE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gan tacaíocht DE</translation>
     </message>
     <message>
         <source>(All installed)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Gach suiteáilte)</translation>
     </message>
     <message>
         <source>(KDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(KDE)</translation>
     </message>
     <message>
         <source>(LXDE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(LXDE)</translation>
     </message>
     <message>
         <source>(Gnome)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Gnome)</translation>
     </message>
     <message>
         <source>(Enlightenment)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Enlightenment)</translation>
     </message>
     <message>
         <source>(XFCE)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(XFCE)</translation>
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Míreanna Léitheoireachta...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cad ba mhaith leat a chumrú?</translation>
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mate</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Mate)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon) </translation>
     </message>
 </context>
 </TS>

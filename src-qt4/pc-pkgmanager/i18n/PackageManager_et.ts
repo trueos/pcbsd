@@ -5,8 +5,7 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadistus</translation>
     </message>
     <message>
         <source>Package Set</source>
@@ -25,11 +24,11 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Olgu</translation>
+        <translation>&amp;Olgu</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Katkesta</translation>
+        <translation>&amp;Katkesta</translation>
     </message>
 </context>
 <context>

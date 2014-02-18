@@ -8,6 +8,7 @@
 #define BSD_BUG_IMAGE ":/images/fbsd-pr.png"
 #define KDE_IMAGE ":/images/kde.png"
 #define LXDE_IMAGE ":/images/lxde.png"
+#define GITHUB_IMAGE ":/images/github.png"
 
 #define FREEBSD_SEND_PR "http://www.freebsd.org/send-pr.html", BSD_BUG_IMAGE
 #define FREEBSD_BUGS_MAILLIST  "freebsd-bugs", "http://lists.freebsd.org/mailman/listinfo/freebsd-bugs", "freebsd-bugs@freebsd.org"
@@ -31,5 +32,9 @@
 #define FREEBSD_PORTS_BUGS_MAILLIST "freebsd-ports-bugs", "http://lists.freebsd.org/mailman/listinfo/freebsd-ports-bugs", "freebsd-ports-bugs@freebsd.org"
 
 #define PCBSD_PBI_BUGS_MAILLIST "pbi-bugs", "http://lists.pcbsd.org/mailman/listinfo/pbi-bugs", "pbi-bugs@lists.pcbsd.org"
+
+#define MATE_GITHUB_URL "https://github.com/mate-desktop", GITHUB_IMAGE
+
+#define CINNAMON_BUGTRACKER_GITHUB "https://github.com/linuxmint/Cinnamon/issues", GITHUB_IMAGE
 
 #endif // REPORT_PLACES_H

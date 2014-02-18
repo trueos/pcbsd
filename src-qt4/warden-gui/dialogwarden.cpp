@@ -889,10 +889,12 @@ void dialogWarden::slotClickedNewJail()
 
       // Build list of used jail IP / Hosts
       QTreeWidgetItemIterator it( listJails );
+      int i = 0;
       while (*it) {
-         uI << (*it)->text(0);
-         uH << (*it)->text(2);
+         uH << (*it)->text(0);
+         uI << jailDetails.at(i).at(3);
          ++it;
+         i++;
       }
       newJailWizard->setHostIPUsed(uH, uI);
       

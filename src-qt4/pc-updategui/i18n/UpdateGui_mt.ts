@@ -5,198 +5,159 @@
     <name>mainWin</name>
     <message>
         <source>Update Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Maniġer aġġornament</translation>
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tħejjija sabiex jikkontrolla għal aġġornamenti... Jekk jogħġbok Stenna...</translation>
     </message>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponibbli Aġġornamenti</translation>
     </message>
     <message>
         <source>Select / Deselect All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Select/Deselect Kollha</translation>
     </message>
     <message>
         <source>Update Conflict</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament Kunflitt</translation>
     </message>
     <message>
         <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament Aktar minn stand-alone ġiet magħżula! Jekk jogħġbok unselect kollha aġġornamenti oħra u erġa &apos;pprova.</translation>
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament rnexxielhomx!</translation>
     </message>
     <message>
         <source>Failed to install:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Naqset milli jinstallaw:</translation>
     </message>
     <message>
         <source>Update Ready</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament Ready</translation>
     </message>
     <message>
         <source>Please reboot to start the update to PC-BSD version &quot;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok reboot biex jibda l-aġġornament għall-verżjoni PC-BSD &quot;</translation>
     </message>
     <message>
         <source>This process may take a while, please do NOT interrupt the process.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan il-proċess jista &apos;jieħu waqt, jekk jogħġbok ma jinterrompux il-proċess.</translation>
     </message>
     <message>
         <source>Updating:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament:</translation>
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iċċekkjar għall-aġġornamenti... Jekk jogħġbok Stenna...</translation>
     </message>
     <message>
         <source>Your system is fully updated!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Your sistema hija kompletament aġġornata!</translation>
     </message>
     <message>
         <source>PC-BSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Version:</translation>
     </message>
     <message>
         <source>This update must be installed by itself.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan l-aġġornament għandu jkun installat minnu stess</translation>
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħolqien ta &apos;backup tad-data tiegħek ewwel huwa rakkomandat.</translation>
     </message>
     <message>
         <source>This is a patch for your version of PC-BSD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Din hija garża għall-verżjoni tiegħek ta &apos;PC-BSD</translation>
     </message>
     <message>
         <source>Patch Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Garża Daqs:</translation>
     </message>
     <message>
         <source>System Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema Pakkett Aġġornamenti</translation>
     </message>
     <message>
         <source>The following package updates are available:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-aġġornamenti pakkett li ġejjin huma disponibbli:</translation>
     </message>
     <message>
         <source>Updates for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornamenti għall Jail:</translation>
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bidu Update: %1 (%2 ta %3)</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tniżżil: %1 (Aġġornament %2 ta %3)</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament: %1 (% 2 ta %3)</translation>
     </message>
     <message>
         <source>System Upgrade: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Taġġorna Sistema: %1 (%2)</translation>
     </message>
     <message>
         <source>Patch: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Garża: %1 (%2)</translation>
     </message>
     <message>
         <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A upgrade sistema qed jistenna li jiġi installat. Jekk jogħġbok reboot biex tibda!</translation>
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żball mhux magħruf seħħet!</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Re&amp;scan għall-Aġġornamenti</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Installa aġġornamenti magħżula</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema aġġornamenti disponibbli!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aġġornament Dettalji</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Base Sistema Aġġornamenti</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-fajls li ġejjin se tkun aġġornata:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dettalji Aġġornament:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma tista &apos;tmexxi FreeBSD-aġġornament, proċess ieħor ikun diġà għaddej!</translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Reboot meħtieġa għall-aġġornament biex jintemm!</translation>
     </message>
 </context>
 </TS>

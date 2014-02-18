@@ -20,6 +20,8 @@ typedef enum{
     EKDE_PAGE,
     EXFCE_PAGE,
     ELXDE_PAGE,
+    EMATE_PAGE,
+    ECINNAMON_PAGE,
     EUNSUPPORTED_DE_PAGE,
     EFREEBSDSOFT_PAGE,
     EPBISELECT_PAGE,
@@ -68,6 +70,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->FreeBSDPortsBugsLW->setup(FREEBSD_PORTS_BUGS_MAILLIST);
 
     ui->PCBSDTPBIBugsLW->setup(PCBSD_PBI_BUGS_MAILLIST);
+
+    ui->MATEGitHubWidget->setup(MATE_GITHUB_URL);
+    ui->PCBSDTestingLW_8->setup(PCBSD_TESTING_MAILLIST);
+
+    ui->CinnamonBugTrackerWidget->setup(CINNAMON_BUGTRACKER_GITHUB);
+    ui->PCBSDTestingLW_9->setup(PCBSD_TESTING_MAILLIST);
 
 	QObject::connect(this, SIGNAL(currentIdChanged(int)),
 					 this, SLOT(on_MainWindow_currentIdChanged(int)));
@@ -157,6 +165,8 @@ int MainWindow::nextId() const
         case EKDE_PAGE:
         case EPBIIREPORT_PAGE:
         case EFREEBSDSOFT_PAGE:
+        case EMATE_PAGE:
+        case ECINNAMON_PAGE:
             return -1;
     }
     return curr+1;
@@ -183,6 +193,8 @@ void MainWindow::on_MainWindow_currentIdChanged(int id)
             case EUNSUPPORTED_DE_PAGE:
             case EPBIIREPORT_PAGE:
             case EFREEBSDSOFT_PAGE:
+            case EMATE_PAGE:
+            case ECINNAMON_PAGE:
 				pMainWindow->setupButtons(true);
 				break;
             case EPBISELECT_PAGE:
@@ -232,8 +244,8 @@ void MainWindow::fillDEList()
         {QString("gnome"),QString(":/images/gnome.png"), EGNOME_PAGE},
         {QString("xfce"),QString(":/images/xfce.png"), EXFCE_PAGE},
         {QString("lxde"),QString(":/images/lxde.png"), ELXDE_PAGE},
-        {QString("cinnamon"),QString(":/images/cinnamon.png"), EUNSUPPORTED_DE_PAGE},
-        {QString("mate"),QString(":/images/mate.png"), EUNSUPPORTED_DE_PAGE},
+        {QString("cinnamon"),QString(":/images/cinnamon.png"), ECINNAMON_PAGE},
+        {QString("mate"),QString(":/images/mate.png"), EMATE_PAGE},
     };
 
     const int DE_SIZE = 6;

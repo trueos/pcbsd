@@ -1150,6 +1150,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
          IP4="OFF"
          IP6="OFF"
          SRC="NO"
+         SOURCE="NO"
          PORTS="NO"
          AUTOSTART="NO"
          VANILLA="NO"
@@ -1167,7 +1168,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
                           IP6="${1}"
                           ;;
 
-             --src) SRC="YES" ;;
+             --src) SRC="YES" ; SOURCE="YES" ;;
              --ports) PORTS="YES" ;;
              --startauto) AUTOSTART="YES" ;;
              --vanilla) VANILLA="YES" ;;
@@ -1234,6 +1235,7 @@ defaultrouter-ipv6) DEFAULTROUTER="${4}"
           export IP4
           export IP6
           export SRC
+          export SOURCE
           export PORTS
           export AUTOSTART
           export JAILTYPE

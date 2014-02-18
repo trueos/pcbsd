@@ -93,8 +93,7 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Συλλογή πακέτων:</translation>
     </message>
     <message>
         <source>(unstable)</source>

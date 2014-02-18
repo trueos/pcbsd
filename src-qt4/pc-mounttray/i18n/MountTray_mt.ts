@@ -5,241 +5,197 @@
     <name>FSDialog</name>
     <message>
         <source>System Disk Capacity</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kapaċità Disk Sistema</translation>
     </message>
     <message>
         <source>Mount Point</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mount Point</translation>
     </message>
     <message>
         <source>Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filesystem</translation>
     </message>
     <message>
         <source>Used/Total</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Used/Total</translation>
     </message>
     <message>
         <source>Percent %</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Percent %</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħlaq</translation>
     </message>
 </context>
 <context>
     <name>FSWatcher</name>
     <message>
         <source>Disk(s) Almost Full</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disk (i) Kważi sħiħ</translation>
     </message>
 </context>
 <context>
     <name>MenuItem</name>
     <message>
         <source>Auto-mount this device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Auto-mmuntati dan l-apparat</translation>
     </message>
     <message>
         <source>Eject</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>jitfgħuha</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mount</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Success</translation>
     </message>
     <message>
         <source>%1 mounted at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 mmuntati fuq %2</translation>
     </message>
     <message>
         <source>Error mounting %1 at %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żball immuntar %1 fil %2</translation>
     </message>
     <message>
         <source>Error mounting %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żball immuntar %1</translation>
     </message>
     <message>
         <source>Could not create mount point at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ma kellekx joħolqu punti mmuntati għal %1</translation>
     </message>
     <message>
         <source>%1 has been successfully unmounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 tkun ġiet-b&apos;suċċess mhux immuntati.</translation>
     </message>
     <message>
         <source>It is now safe to remove the device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Issa huwa sikur biex tneħħi l-apparat</translation>
     </message>
     <message>
         <source>Error: %1 could not be unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żball: %1 ma setgħux jinżammu unmounted</translation>
     </message>
     <message>
         <source>%1 of disk space available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 ta &apos;spazju disk disponibbli</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mounted at %1</translation>
     </message>
     <message>
         <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-fajl ISO tkun ġiet-kompletament Sejħa jinqalgħu mis-sistema.</translation>
     </message>
     <message>
         <source>Device Busy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device Busy</translation>
     </message>
     <message>
         <source>The device appears to be busy. Would you like to unmount it anyway?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>L-apparat jidher li tkun busy. Tixtieq unmount hija xorta waħda?</translation>
     </message>
     <message>
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTA: Dan mhuwiex rakkomandat Ġeneralment Sakemm inti huma sikuri li inti ma għandekx xi applikazzjonijiet li qed jużaw l-apparat.</translation>
     </message>
 </context>
 <context>
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Open Media Direttorju</translation>
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tray Agħlaq</translation>
     </message>
     <message>
         <source>User Detection Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sejbien User Żball</translation>
     </message>
     <message>
         <source>Unable to determine the non-root user who started the application 
 Can not open the file manager with root permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mhux biex determinati l-utent mhux root Have you bdiet l-implimentazzjoni
+Ma tistax tiftaħ il-maniġer fajl permessi root</translation>
     </message>
     <message>
         <source>New Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apparat ġdid</translation>
     </message>
     <message>
         <source>%1 can now be accessed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 issa jistgħu jiġu aċċessati</translation>
     </message>
     <message>
         <source>Rescan Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apparati rescan</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk jogħġbok Stenna</translation>
     </message>
     <message>
         <source>Rescanning devices attached to the system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Strumenti mwaħħlin mas-sistema Rescanning</translation>
     </message>
     <message>
         <source>More Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>iktar Għażliet</translation>
     </message>
     <message>
         <source>View Disk Usage</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>View Disk Usage</translation>
     </message>
     <message>
         <source>Change Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bidla Settings</translation>
     </message>
     <message>
         <source>Load ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħbija ISO File</translation>
     </message>
     <message>
         <source>Select ISO File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Agħżel ISO File</translation>
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO Files (*.iso)</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Impunjazzjoni Tray Settings</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monitor spazju għall-ħażna disk</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wettaq kontroll dwar in-notifiki apparat</translation>
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħin massimu bejn il-kontrolli (minuti)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikkanċella</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Applika</translation>
     </message>
 </context>
 </TS>
