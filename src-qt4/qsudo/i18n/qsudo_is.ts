@@ -5,33 +5,27 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bí cinnte a chur isteach do phasfhocal úsáideora a rith seo a ordú leis na gceadanna de chóras</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ceadanna córas Iarratais</translation>
     </message>
     <message>
         <source>Access Denied</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>DIÚLTAÍM acces</translation>
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ní úsáideoir seo go bhfuil ceadanna Administrator ar an gcóras seo!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Focal faire neamhbhailí! Trialacha fágtha: %1</translation>
     </message>
     <message>
         <source>Toggle command details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Athraigh na sonraí ordú</translation>
     </message>
 </context>
 </TS>

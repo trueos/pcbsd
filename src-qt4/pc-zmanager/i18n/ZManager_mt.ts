@@ -802,18 +802,21 @@ alternate boot environment, where the typical paths are not valid.
 altroot is not a persistent property. It is valid only while the
 system is up.  Setting altroot defaults to using cachefile=none, though
 this may be overridden using an explicit setting.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direttorju root alternattiv. Jekk stabbiliti, dan id-direttorju huwa prepended lil xi
+impunjazzjoni punti fil-pool. Dan jista &apos;jintuża meta jeżaminaw
+mhux magħruf pool fejn il-postijiet muntatura ma jistgħux jiġu fdati, jew fi
+ambjent boot supplenti, fejn il-mogħdijiet tipiċi mhumiex validi.
+altroot mhijiex proprjetà persistenti. Huwa validu biss waqt li l-
+sistema hija up. Twaqqif altroot nuqqasijiet li jużaw cachefile = xejn, għalkemm
+din tista &apos;tkun surpassata użu f&apos;ambjent espliċita.</translation>
     </message>
     <message>
         <source>The current health of the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Is-saħħa attwali tal-pool.</translation>
     </message>
     <message>
         <source>A unique identifier for the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Identifikatur uniku għall-pool.</translation>
     </message>
     <message>
         <source>The current on-disk version of the pool. This can be increased, but
@@ -822,22 +825,28 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-kurrent verżjoni fuq disk tal-pool. Dan jista &apos;jiżdied, imma
+qatt ma naqas. Il-metodu preferut ta &apos;aġġornament pools huwa ma&apos; l-
+&quot;zpool upgrade&quot; kmand, għalkemm din il-proprjetà tista &apos;tintuża meta
+verżjoni speċifika hija meħtieġa għall-kompatibilità b&apos;lura. Din il-proprjetà
+jista &apos;jkun kull numru bejn 1 u l-verżjoni attwali rrapportata mill
+&quot;zpool-upgrade v&quot;.</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This
 property is expected to be set mainly by the installation and upgrade
 programs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jidentifika l-default dataset bootable għall-pool għerq. Dan
+proprjetà hija mistennija li tiġi stabbilita prinċipalment mill-installazzjoni u jaġġornaw
+programmi.</translation>
     </message>
     <message>
         <source>Controls whether a non-privileged user is granted access based on the
 dataset permissions defined on the dataset. See zfs(8) for more
 information on ZFS delegated administration.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrolli dwar jekk l-utent mhux privileġġjata jingħata aċċess ibbażat fuq l-
+permessi settijiet tad-data definit fuq il-dataset. Ara ZFS(8) għal aktar
+informazzjoni dwar ZFS delegata amministrazzjoni.</translation>
     </message>
     <message>
         <source>Controls automatic device replacement. If set to &quot;off&quot;, device
@@ -847,15 +856,20 @@ same physical location as a device that previously belonged to the
 pool, is automatically formatted and replaced. The default behavior
 is &quot;off&quot;.  This property can also be referred to by its shortened
 column name, &quot;replace&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrolli sostituzzjoni awtomatiku. Jekk ssettjat għal &quot;mitfi&quot;, apparat
+sostituzzjoni għandha tinbeda mill-amministratur billi tuża l-
+&quot;zpool ibdel&quot; kmand. Jekk ssettjat għal &quot;fuq&quot;, kull mezz ġdid, misjuba fil-
+istess lokazzjoni fiżika bħala mezz li qabel kienu jaqgħu taħt
+pool, huwa awtomatikament ifformattjat u sostitwiti. L-imġiba default
+huwa &quot;off&quot;. Din il-proprjetà tista &apos;wkoll tkun magħrufa minn \ imqassar tagħha n isem kolonna, &quot;jissostitwixxu&quot;.</translation>
     </message>
     <message>
         <source>Controls whether information about snapshots associated with this
 pool is output when &quot;zfs list&quot; is run without the -t option. The
 default value is off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrolli dwar jekk informazzjoni dwar Snapshots assoċjati ma &apos;dan
+pool huwa output meta &quot;lista ZFS&quot; hija mmexxija mingħajr l-għażla l-t. Il-
+valur ta &apos;default off.</translation>
     </message>
     <message>
         <source>Controls automatic pool expansion when the underlying LUN is grown.
@@ -865,44 +879,47 @@ devices within that mirror/raidz group must be expanded before the
 new space is made available to the pool. The default behavior is
 &quot;off&quot;.  This property can also be referred to by its shortened column
 name, expand.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontrolli espansjoni pool awtomatiku meta l-Lun sottostanti hija mkabbra.
+Jekk ssettjat għal &quot;fuq&quot;, il-pool se tingħata daqs ieħor skond id-daqs tal-
+apparat estiża. Jekk il-mezz huwa parti allura kull \ n mera jew raidz apparati f&apos;dak il-grupp mera / raidz għandhom jiġu estiżi qabel l-
+ispazju ġdida ssir disponibbli lill-pool. L-imġieba default \ n &quot;off&quot;. Din il-proprjetà tista &apos;wkoll tkun magħrufa mill-kolonna imqassar tagħha 
+isem, jespandu.</translation>
     </message>
     <message>
         <source>Threshold for the number of block ditto copies. If the reference
 count for a deduplicated block increases above this number, a new
 ditto copy of this block is automatically stored. Default setting is
 0.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Threshold għan-numru ta &apos;kopji Ditto blokk. Jekk ir-referenza
+jgħoddu għal żidiet blokk deduplicated hawn fuq dan in-numru, a
+ġdida Kopja ditto ta &apos;dan il-blokk huwa awtomatikament maħżuna. Setting default
+0.</translation>
     </message>
     <message>
         <source>The deduplication ratio specified for a pool, expressed as a multiplier. For
 example, a value of 1.76 indicates that 1.76 units of data were stored but
 only 1 unit of disk space was actually consumed. See zfs(8) for a description
 of the deduplication feature.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-proporzjon deduplication speċifikata għal pool, espress bħala multiplikatur. Għal
+eżempju, valur ta &apos;1.76 jindika li 1.76 unitajiet ta&apos; data kienu maħżuna imma
+biss unità 1 ta &apos;spazju disk kienet attwalment ikkunsmati. Ara ZFS (8) għal deskrizzjoni
+tal-karatteristika deduplication.</translation>
     </message>
     <message>
         <source>Number of blocks within the pool that are not allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Numru ta &apos;blokki fil-pool li mhumiex allokati.</translation>
     </message>
     <message>
         <source>Amount of storage space within the pool that has been physically allocated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ammont ta &apos;spazju għall-ħażna ġewwa l-pool li ġie allokat fiżikament.</translation>
     </message>
     <message>
         <source>An arbitrary comment string set by the administrator.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>String kumment arbitrarju stabbiliti mill-amministratur.</translation>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Din il-proprjetà bħalissa għandha l-ebda valur fuq FreeBSD.</translation>
     </message>
     <message>
         <source>Controls the location of where the pool configuration is cached.
@@ -916,8 +933,17 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jikkontrolla l-post ta &apos;fejn il-konfigurazzjoni pool huwa Cached.
+Niskopru pools kollha fuq l-istartjar tas-sistema teħtieġ kopja Cached tal-
+dejta ta &apos;konfigurazzjoni li hija maħżuna fuq il-fajl sistema għeruq. Puls kollha 
+f&apos;dan cache huma awtomatikament importati meta l-boots tas-sistema. Xi
+ambjenti, bħal jinstallaw u clustering, jeħtieġ li cache dan 
+informazzjoni f&apos;post differenti sabiex pools mhumiex awtomatikament
+importati. Twaqqif din il-proprjetà ħażniet sigrieti-konfigurazzjoni pool
+f&apos;post differenti li aktar tard jistgħu jiġu importati &quot;zpool importazzjoni
+-c &quot;. Twaqqif għall-valur speċjali&quot; xejn &quot;toħloq temporanju pool
+li hija qatt ma Cached, u l-valur speċjali&apos;&apos; (string vojt) użi
+il-post default.</translation>
     </message>
     <message>
         <source>If set to on, pool will be imported in read-only mode with the
@@ -928,8 +954,13 @@ following restrictions:
   *   To write to a read-only pool, a export and import of the pool
       is required.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jekk stabbiliti biex fuq, pool se jiġu importati fil-modalità jinqraw-biss bil-
+restrizzjonijiet li ġejjin:
+* Data sinkroniċi fil-log intenzjoni mhux se jkun aċċessibbli
+* Properties tal-pool ma tistax tinbidel
+* Ġabra tad-dejta ta &apos;din il-ġabra tista&apos; biss jinqraw-biss \ n mmuntati * Biex tikteb lil read-only pool, esportazzjoni u l-importazzjoni tal-pool
+hija meħtieġa.
+</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -955,632 +986,514 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Filesystem</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem:</translation>
     </message>
     <message>
         <source>Properties override at creation time:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Properties jwarrab fil-ħin ħolqien:</translation>
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prevenzjoni auto mount (canmount = noauto)</translation>
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mountpoint</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>xejn</translation>
     </message>
     <message>
         <source>legacy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>legat</translation>
     </message>
     <message>
         <source>[path]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[path]</translation>
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Forza UTF-8 biss (utf8only = fuq)</translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Normalizzazzjoni Unicode =</translation>
     </message>
     <message>
         <source>formD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formD</translation>
     </message>
     <message>
         <source>formKCF</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>formKCF</translation>
     </message>
     <message>
         <source>Copies =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kopji =</translation>
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Deduplication (dedup = fuq)</translation>
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Compression =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>off</translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>on</translation>
     </message>
     <message>
         <source>lzjb</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lzjb</translation>
     </message>
     <message>
         <source>zle</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zle</translation>
     </message>
     <message>
         <source>gzip</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip</translation>
     </message>
     <message>
         <source>gzip-1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-1</translation>
     </message>
     <message>
         <source>gzip-2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-2</translation>
     </message>
     <message>
         <source>gzip-3</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-3</translation>
     </message>
     <message>
         <source>gzip-4</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-4</translation>
     </message>
     <message>
         <source>gzip-5</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-5</translation>
     </message>
     <message>
         <source>gzip-6</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-6</translation>
     </message>
     <message>
         <source>gzip-7</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-7</translation>
     </message>
     <message>
         <source>gzip-8</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-8</translation>
     </message>
     <message>
         <source>gzip-9</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>gzip-9</translation>
     </message>
 </context>
 <context>
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD Disk Manager</translation>
     </message>
     <message>
         <source>Disks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disks</translation>
     </message>
     <message>
         <source>Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device</translation>
     </message>
     <message>
         <source>State</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>State</translation>
     </message>
     <message>
         <source>ZFS Pools</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Pools  </translation>
     </message>
     <message>
         <source>Pool Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool Isem</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status:</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Clear Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Clear Error</translation>
     </message>
     <message>
         <source>poolname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>poolname</translation>
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZFS Filesystems</translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Filesystems</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Refreshing...</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ebda pools disponibbli, ikklikkja dritt li toħloq waħda ġdida</translation>
     </message>
     <message>
         <source> (No media in drive)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Nru midja drive)</translation>
     </message>
     <message>
         <source>Avaliable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponibbli</translation>
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nru disk</translation>
     </message>
     <message>
         <source>ZPool: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZPool:</translation>
     </message>
     <message>
         <source>Sliced</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sliced</translation>
     </message>
     <message>
         <source>Mounted: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mounted:</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Disponibbli</translation>
     </message>
     <message>
         <source>Unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unmounted</translation>
     </message>
     <message>
         <source>Partitioned</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partitioned</translation>
     </message>
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Exported)
+</translation>
     </message>
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Destroyed)
+</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Degraded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Degraded</translation>
     </message>
     <message>
         <source>Faulted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Faulted</translation>
     </message>
     <message>
         <source>Removed</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removed</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unavailable</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unknown</translation>
     </message>
     <message>
         <source>Create new pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq pool ġdida</translation>
     </message>
     <message>
         <source>Rename pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Semmi pool</translation>
     </message>
     <message>
         <source>Destroy pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eqred pool</translation>
     </message>
     <message>
         <source>Add devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid apparat...</translation>
     </message>
     <message>
         <source>Add log devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid log apparat...</translation>
     </message>
     <message>
         <source>Add cache devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid cache apparat...</translation>
     </message>
     <message>
         <source>Add spare devices...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid spare apparat...</translation>
     </message>
     <message>
         <source>Scrub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scrub</translation>
     </message>
     <message>
         <source>Export pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Esportazzjoni pool</translation>
     </message>
     <message>
         <source>Import pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importazzjoni pool</translation>
     </message>
     <message>
         <source>Recover destroyed pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tirkupra pool meqruda</translation>
     </message>
     <message>
         <source>Properties...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Properties...</translation>
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Waħħal (mera) apparat...</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aqla minn mera</translation>
     </message>
     <message>
         <source>Take offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħu offline</translation>
     </message>
     <message>
         <source>Bring online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wassal online</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remove</translation>
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zpool Menu</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Device Menu</translation>
     </message>
     <message>
         <source>Unmount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unmount</translation>
     </message>
     <message>
         <source>Mount</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mount</translation>
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq tabella partition MBR</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq tabella partition GPT</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq tabella partition BSD</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħassar Partition Tabella</translation>
     </message>
     <message>
         <source>Add new slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid porzjon ġdid</translation>
     </message>
     <message>
         <source>Add new partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid partition ġdid</translation>
     </message>
     <message>
         <source>Destroy this slice</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eqred dan porzjon</translation>
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eqred dan partition</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <source>This operation cannot be undone.
 OK to destroy the slice/partition?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Din l-operazzjoni ma tistax tiġi.
+undone OK li jeqirdu l-porzjon / partition?</translation>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error report</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq zpool ġdida</translation>
     </message>
     <message>
         <source>Important information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagħrif importanti</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to destroy the pool will leave the pool in the state it was when imported, not necessarily destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-pool kien importat fil-modalità jinqraw-biss, għalhekk attentat li jeqirdu l-pool se jħallu l-pool fl-istat li kien meta importata, mhux neċessarjament meqruda.</translation>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Waħħal apparat mera li</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-pool kien importat fil-modalità jinqraw-biss, għalhekk attentat biex jesportaw il-pool se jħallu l-pool fl-istat li kien meta importata, mhux neċessarjament esportati.</translation>
     </message>
     <message>
         <source>Recover destroyed pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tirkupra pool meqruda bħala...</translation>
     </message>
     <message>
         <source>Import pool as...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pool importazzjoni kif...</translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, it cannot be renamed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Il-pool kien importat fil-modalità jinqraw-biss, ma jistax jingħata l-isem.</translation>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid aktar apparat biex zpool</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid apparat log mal zpool</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid apparat cache biex zpool</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żid apparat ta &apos;rikambju li zpool</translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Mounted]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Not Mounted]</translation>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>of</translation>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Semmi dataset</translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq new dataset</translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Oħloq klonu dataset</translation>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eqred dataset</translation>
     </message>
     <message>
         <source>Promote filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Promote filesystem</translation>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tieħu stampa</translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eqred snapshot</translation>
     </message>
     <message>
         <source>Rollback to this snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Żmantellament għal din l-istampa</translation>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Proprjetajiet Edit</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zfs Menu</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>konferma</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ħu stampa ġdida</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Isem il-ġdid</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Din l-operazzjoni ma tistax tkun undone u se jikkawżaw data kollha miżjudin wara l-istampa li tintilef.
+Kwalunkwe Snapshots maħluqa wara dan wieħed se jitħassru, flimkien ma &apos;kwalunkwe filesystems klonu li jiddependu fuqhom.
+</translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
 Proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dan pool kienu ġew meqruda, u diski tagħha jistgħu jkunu użati mill-ġdid. Jippruvaw li tirkupra se jeqred kwalunkwe data ġdida li jistgħu stajt ġew maħżuna fil-mezzi li ġew użati mill-ġdid u ma jistgħux jiġu rkuprati.
+Ipproċedi bl-irkupru?</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:

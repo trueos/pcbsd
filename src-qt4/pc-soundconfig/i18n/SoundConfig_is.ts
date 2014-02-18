@@ -5,33 +5,27 @@
     <name>sndDialog</name>
     <message>
         <source>Sound Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cumraíocht Sound</translation>
     </message>
     <message>
         <source>Below you may change the default sound device, and test sound playback</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thíos is féidir leat athrú ar an gléas Fuaim réamhshocraithe, agus tástála</translation>
     </message>
     <message>
         <source>&amp;Test sound</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tástáil Son</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Cuir iarratas</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dún</translation>
     </message>
     <message>
         <source>No sound devices detected!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uimh gléas Fuaim a braitheadh​​!</translation>
     </message>
 </context>
 </TS>

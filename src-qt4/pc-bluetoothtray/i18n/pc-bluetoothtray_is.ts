@@ -5,38 +5,31 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nua Braitheadh ​​gléas Bluetooth</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tosaigh an Bainisteoir Bluetooth</translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seirbhísí Bluetooth Atosaigh</translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dún tráidire Bluetooth</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Do thoil go fóill</translation>
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Restarting seirbhísí Bluetooth</translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cliceáil anseo do chumrú gléas Bluetooth</translation>
     </message>
 </context>
 </TS>

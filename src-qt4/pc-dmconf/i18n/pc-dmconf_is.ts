@@ -5,78 +5,63 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Socrú Bainisteoir Ceangal</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Logáil Uathoibríoch</translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cumasaigh logáil isteach uathoibríoch</translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Úsáideoir Auto logála</translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ceangal Cianda</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sábháil</translation>
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pasfhocal teastáil</translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Thoil dul isteach an focal faire a logáil isteach chun an t-úsáideoir</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gníomhachtaigh Deisce Cianda (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>éagsúla ar</translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gníomhachtaigh &quot;Taispeáin phasfhocal&quot; a bhrú</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cuir isteach an focal faire don nasc iargúlta</translation>
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iarraidh Cumraíocht Comhad</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>The PCDM níorbh fhéidir an comhad cumraíochta a fháil:% 1</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beidh an t-iarratas dhúnadh anois</translation>
     </message>
 </context>
 </TS>
