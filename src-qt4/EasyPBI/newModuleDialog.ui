@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>394</width>
-    <height>111</height>
+    <width>442</width>
+    <height>103</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,12 +34,26 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="push_port">
-       <property name="toolTip">
-        <string>Select a port from the local FreeBSD ports tree</string>
-       </property>
+      <widget class="QToolButton" name="push_port">
        <property name="text">
-        <string>Select</string>
+        <string>Port</string>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="push_package">
+       <property name="text">
+        <string>Pkg</string>
+       </property>
+       <property name="icon">
+        <iconset resource="EasyPBI.qrc">
+         <normaloff>:/png/icons/search.png</normaloff>:/png/icons/search.png</iconset>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
        </property>
       </widget>
      </item>
@@ -62,12 +76,15 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="push_icon">
+      <widget class="QToolButton" name="push_icon">
        <property name="toolTip">
         <string>Select a local PNG file (64x64 pixel size recommended)</string>
        </property>
        <property name="text">
         <string>Select</string>
+       </property>
+       <property name="toolButtonStyle">
+        <enum>Qt::ToolButtonTextBesideIcon</enum>
        </property>
       </widget>
      </item>

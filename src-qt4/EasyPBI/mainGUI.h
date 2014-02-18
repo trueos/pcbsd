@@ -55,12 +55,15 @@ private slots:
     void slotModTabChanged(int);
     //pbi.conf functions
     void on_push_change_makeport_clicked();
-    void on_push_addportafter_clicked();
-    void on_push_rmportafter_clicked();
+    void on_tool_addportafter_clicked();
+    void on_tool_rmportafter_clicked();
+    void on_tool_config_addportbefore_clicked();
+    void on_tool_config_rmportbefore_clicked();
     void on_push_config_save_clicked();
     void slotOptionChanged(QString tmp="");
     void slotSetRepoType(QAction* act);
     void slotSetRepoCat(QAction* act);
+    void slotSetPortOpt(QAction* act);
     //resources functions
     void slotResourceChanged();
     void on_push_resources_add_clicked();
@@ -104,7 +107,7 @@ private:
     PBIModule MODULE;
     Config *settings;
     QLineEdit *line_module;
-    QMenu menu_elOpts, menu_validMenuCats, menu_validRepoCats, menu_validRepoTypes;
+    QMenu menu_elOpts, menu_validMenuCats, menu_validRepoCats, menu_validRepoTypes, menu_portopts;
     bool XDGUPDATING;
     QString lastModuleDir;
 
@@ -114,6 +117,7 @@ private:
 
     void SetupDefaults();
     void checkMime();
+    QString getPortPackage();
 
 };
 

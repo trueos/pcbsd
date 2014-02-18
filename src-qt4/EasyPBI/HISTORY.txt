@@ -38,3 +38,7 @@ DEC 16, 2013:
 EasyPBI version 2.2 is tagged!
 NOTE: This version requires the 10.x version of the PBI manager to build PBI's (included in PC-BSD 10.x).
 Changes include: Update to work with the 10.x version of the PBI manager backend. This includes moving from using the FreeBSD ports tree to using pkgNG packages for information and building (so the FreeBSD ports tree is no longer necessary). This slims down the EasyPBI options/interface quite a bit, so a fair number of options have been removed. Packaging a local PBI is now standardized by simply creating a custom FreeBSD package on your system first, then use EasyPBI to re-package it as a PBI.
+
+FEB 18, 2014:
+EasyPBI version 2.3 is tagged!
+Changes include: Add ability for EasyPBI to build PBI's directly from ports again. Add item that shows current package compilation options. Add in option to set port-build compilation options and extra build dependencies (not used for packages). Add ability to create a new module from either ports or packages. Clean up a bug in the default wrapper script for 10.x PBI's.

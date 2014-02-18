@@ -13,7 +13,7 @@ Config::Config() {
     detStruct << "" << "" << "" << "";
 	//defaultSettings=[ current version#, programDir, pbiOutputDir, moduleOutputDir, pkgCacheDir, iconFile, settingsFile, iconDir]
 	QString tmp = QDir::homePath()+"/EasyPBI/";
-    defaultSettings << "2.2" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
+    defaultSettings << "2.3" << tmp << tmp+"PBI/" << tmp+"Modules/" << tmp+".cache/" << tmp+"defaulticon.png" << tmp+".preferences" << QDir::homePath();
 	//TFstruct=[ is64-bitArch, portsAvailable, useDigitalSig, useTMPFS, usePkgCache, pbi_makeport_available, pbi_create_available, su_available ]
     TFstruct << FALSE << FALSE << FALSE << TRUE << TRUE << FALSE << FALSE << FALSE;
   }
@@ -105,7 +105,7 @@ void Config::loadSettingsFile(){
     else if( line.startsWith("<pbioutdir>") ){ valueStruct[0] = readSavedValue("<pbioutdir>",line); }
     else if( line.startsWith("<moduleoutdir>") ){ valueStruct[1] = readSavedValue("<moduleoutdir>",line); }
     else if( line.startsWith("<cachedir>") ){ valueStruct[2] = readSavedValue("<cachedir>",line); }
-    else if( line.startsWith("<portstdir>") ){ valueStruct[3] = readSavedValue("<portsdir>",line); }
+    else if( line.startsWith("<portsdir>") ){ valueStruct[3] = readSavedValue("<portsdir>",line); }
     else if( line.startsWith("<icondir>") ){ valueStruct[4] = readSavedValue("<icondir>",line); }
     else if( line.startsWith("<defaulticon>") ){ valueStruct[5] = readSavedValue("<defaulticon>",line); }
     else if( line.startsWith("<sigfile>") ){ valueStruct[6] = readSavedValue("<sigfile>",line); }

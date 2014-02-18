@@ -205,13 +205,13 @@ PBIModule ModuleUtils::newModule(QString moduleDir, QString port, QString iconFi
   return MOD;
 }
 
-QString ModuleUtils::generatePbiBuildCmd(QString confDir, QString outDir, QString sigFile){
+QString ModuleUtils::generatePbiBuildCmd(QString confDir, QString outDir, QString sigFile, bool packageBuild){
   QString cmd = "pbi_makeport"; 
   if(confDir.isEmpty()){ qDebug() << "Warning: a module must be supplied to build a PBII"; return ""; }
   if(!confDir.isEmpty()){ cmd.append(" -c "+confDir); }
   if(!outDir.isEmpty()){ cmd.append(" -o "+outDir); }
   if(!sigFile.isEmpty()){ cmd.append(" --sign "+sigFile); }
-  cmd.append(" --pkgbuild");
+  if(packageBuild){ cmd.append(" --pkgbuild"); }
   return cmd;
 }
 
@@ -222,7 +222,7 @@ QStringList ModuleUtils::generateWrapperScriptTemplate(){
 	out << "# REMINDER: Add this file to the external-links for the PBI as well!";
 	out << "";
 	out << "#Setup some internal script variables";
-	out << "PROGDIR=`pwd | cut -d / -f 1-4`   #Base PBI directory (/usr/pbi/myapplication-<arch>)";
+	out << "PROGDIR=`/usr/local`   #Base PBI directory inside container";
 	out << "APPBINARY=bin/SAMPLE   #application binary";
 	out << "";
 	out << "#--- DO SOMETHING HERE ---";

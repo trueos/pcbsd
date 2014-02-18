@@ -258,7 +258,7 @@
              <x>0</x>
              <y>0</y>
              <width>528</width>
-             <height>659</height>
+             <height>822</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -472,12 +472,9 @@
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="push_addportafter">
-                      <property name="statusTip">
-                       <string>Add additional FreeBSD port</string>
-                      </property>
+                     <widget class="QToolButton" name="tool_addportafter">
                       <property name="text">
-                       <string/>
+                       <string>...</string>
                       </property>
                       <property name="icon">
                        <iconset resource="EasyPBI.qrc">
@@ -486,12 +483,9 @@
                      </widget>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="push_rmportafter">
-                      <property name="statusTip">
-                       <string>Remove additional FreeBSD port</string>
-                      </property>
+                     <widget class="QToolButton" name="tool_rmportafter">
                       <property name="text">
-                       <string/>
+                       <string>...</string>
                       </property>
                       <property name="icon">
                        <iconset resource="EasyPBI.qrc">
@@ -501,12 +495,126 @@
                     </item>
                    </layout>
                   </item>
-                  <item row="4" column="1">
-                   <widget class="QCheckBox" name="check_config_nopkg">
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_11">
                     <property name="text">
-                     <string>Never use pre-built packages</string>
+                     <string>Pkg Setup</string>
                     </property>
                    </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QComboBox" name="combo_config_pkgopts">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="group_config_ports">
+              <property name="title">
+               <string>Legacy Port-Build Options (optional)</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_24">
+               <item>
+                <widget class="QFrame" name="frame_ports">
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QFormLayout" name="formLayout_6">
+                  <property name="fieldGrowthPolicy">
+                   <enum>QFormLayout::ExpandingFieldsGrow</enum>
+                  </property>
+                  <item row="0" column="1">
+                   <widget class="QCheckBox" name="check_config_nopkg">
+                    <property name="text">
+                     <string>Build directly from source</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_10">
+                    <property name="text">
+                     <string>Build Dependencies</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_7">
+                    <item>
+                     <widget class="QComboBox" name="list_config_mkportbefore">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_config_addportbefore">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/plus.png</normaloff>:/png/icons/plus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_config_rmportbefore">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="EasyPBI.qrc">
+                        <normaloff>:/png/icons/minus.png</normaloff>:/png/icons/minus.png</iconset>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_9">
+                    <property name="text">
+                     <string>Make Options</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <layout class="QHBoxLayout" name="horizontalLayout_15">
+                    <item>
+                     <widget class="QPlainTextEdit" name="text_config_makeopts"/>
+                    </item>
+                    <item>
+                     <widget class="QToolButton" name="tool_config_setmkopt">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                      <property name="popupMode">
+                       <enum>QToolButton::InstantPopup</enum>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </widget>
@@ -1637,7 +1745,7 @@
      <x>0</x>
      <y>0</y>
      <width>575</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

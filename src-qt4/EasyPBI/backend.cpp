@@ -34,9 +34,10 @@ QIcon Backend::icon(QString icon){
   return QIcon(iconPath);
 }
 
-QStringList Backend::getCmdOutput(QString cmd){
+QStringList Backend::getCmdOutput(QString cmd, QString dir){
   QProcess *proc = new QProcess;
   proc->setProcessChannelMode(QProcess::MergedChannels);
+  if( !dir.isEmpty() && QFile::exists(dir) ){ proc->setWorkingDirectory(dir); }
   proc->start(cmd);
   while(!proc->waitForFinished(300)){
     QCoreApplication::processEvents();
@@ -82,5 +83,24 @@ QStringList Backend::getPkgOpts(QString port){
   QString cmd = "pkg rquery \"%Ok=%Ov\" -e %o "+port;
   QStringList out = Backend::getCmdOutput(cmd);
   out.removeAll(""); //get rid of empty items
+  return out;
+}
+//================
+//       PORT TOOLS
+// ================
+QStringList Backend::getPortOpts(QString portPath){
+  //output format: <option>:::<on/off>:::<description>
+  QString cmd = "make showconfig";
+  QStringList list = Backend::getCmdOutput(cmd, portPath);
+  //Now parse the output
+  QStringList out;
+    for(int i=0; i<list.length(); i++){
+      if(list[i].startsWith("===>")){ continue; } //comment
+      else if(list[i].simplified().isEmpty()){ continue; }
+      QString opt = list[i].section("=",0,0).simplified();
+      QString val = list[i].section(":",0,0).section("=",1,1).simplified();
+      QString desc = list[i].section(":",1,50).simplified();
+      out << opt+":::"+val+":::"+desc;
+    }
   return out;
 }
