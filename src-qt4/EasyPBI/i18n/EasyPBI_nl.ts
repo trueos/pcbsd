@@ -64,14 +64,6 @@
         <translation>FreeBSD-poort die in een PBI moet worden verpakt</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Extra FreeBSD-poort toevoegen</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Extra FreeBSD-poort verwijderen</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Extra FreeBSD-poorten die gebouwd moeten worden na het voornaamste programma</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Kon de PBI-module niet maken. Kijk a.u.b. de maprechten na en probeer het opnieuw.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: geen FreeBSD-poorten</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>De FreeBSD-poortenboom kon niet in uw systeem worden aangetroffen. U kunt de porrtenboom ophalen via het EasyPBI-menu of het pad naar de poortenboomhandmatig instellen in de EasyPBI-voorkeuren, indien dit is geïnstalleerd op een niet-standaardlocatie.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Poort kiezen</translation>
     </message>
@@ -657,11 +641,6 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Never use pre-built packages</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -820,6 +799,34 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -834,10 +841,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>FreeBSD-poort die u als een PBI wil bouwen</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Kies een poort vanuit de lokale FreeBSD-poortenboom</translation>
     </message>
     <message>
         <source>Select</source>
@@ -862,6 +865,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG-pictogram (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Poort kiezen</translation>
     </message>
 </context>
 <context>

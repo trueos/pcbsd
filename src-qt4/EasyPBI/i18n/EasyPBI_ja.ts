@@ -64,14 +64,6 @@
         <translation>PBI でパッケージする FreeBSD port の名前</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>FreeBSD port を追加</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>追加した FreeBSD port を削除</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>対象プログラムより後にビルドされる FreeBSD ports</translation>
     </message>
@@ -496,14 +488,6 @@
         <translation>PBI モジュールを作成できません。パーミッションを作成してからやり直してください。</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: FreeBSD ports がありません</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>このシステム内に FreeBSD ports ツリーが存在しません。EasyPBI のメニューから ports ツリーを取得するか、ports ツリーが標準的ではない場所にある場合には、 EasyPBI の設定画面で ports ツリーのパスを手動で指定してください。</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>port を選択</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>パッケージの追加</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>未使用の作成済みパッケージ</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>リポジトリーの情報を確認する(オプション)</translation>
     </message>
@@ -783,6 +763,34 @@
         <source>Shift+A</source>
         <translation>Shift+A</translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -797,10 +805,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>PBI としてビルドする FreeBSD ports</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>FreeBSD ports ツリーから port を選択</translation>
     </message>
     <message>
         <source>Select</source>
@@ -825,6 +829,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG アイコン (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">port を選択</translation>
     </message>
 </context>
 <context>

@@ -65,14 +65,6 @@
             </translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>اضافه کردن پورت اضافی در FreeBSD </translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>حذف پورت اضافی در FreeBSD  </translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>پورت FreeBSD اضافی كه پس از برنامه های اصلی ساخته شده است</translation>
     </message>
@@ -505,14 +497,6 @@
         <translation>ماژول PBI ایجاد نشد. لطفا مجوزهای دایرکتوری را چک کنید و دوباره سعی کنید.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: هیچ پورت FreeBSD </translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>شاخه پورت FreeBSD برروي سيستم شما پيدا نشد.شما مي توانيد اين شاخه ها را به صورت دستي و از منوي EasyPBI دريافت كنيد و يا اگر اين پورت ها را در شاخه پيش فرض نصب نكرده ايد با استفاده از EasyPBI اين مسير را تغيير دهيد.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>انتخاب پورت</translation>
     </message>
@@ -673,11 +657,6 @@
             </translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation type="unfinished">
             </translation>
@@ -832,6 +811,34 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -847,11 +854,6 @@
     </message>
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -884,6 +886,18 @@
         <source>PNG icon (*.png)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">انتخاب پورت</translation>
     </message>
 </context>
 <context>

@@ -71,8 +71,11 @@ muid sarnaseid programme.</translation>
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjutuskaitsega väli, mis näitab andmekogule ja selle alamatele kättesaadavat
+kettaruumi arvestamata muid tegevusi salvestusruumis. Kuna kettaruum
+on salvestusruumis jagatud, siis võib kättesaadav ruum olla piiratud füüsilise
+ketta suuruse tõttu, samuti kvootide, reserveeritud ruumi ja teiste andmekogude
+tõttu.</translation>
     </message>
     <message>
         <source>If this property is set to off, the file system cannot be mounted,
@@ -133,8 +136,9 @@ dataset, and counts against quotas and reservations. In addition, the
 used property is updated when multiple copies are enabled. Consider setting
 this property when the file system is created because changing this property
 on an existing file system only affects newly written data.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Määrab, mitu koopiat failisüsteemi kohta tehakse kasutaja andmetest.
+Need koopiad tehakse lisaks salvestusruumi tasemel tehtud koopiatele.
+</translation>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
@@ -355,8 +359,9 @@ hetktõmmised võivad kettaruumi jagada.</translation>
         <source>Identifies the on-disk version of a file system, which is independent of the
 pool version. This property can only be set to a later version that is available
 from the supported software release.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Määrab kettal oleva failisüstemi versiooni, mis on sõltumatu salvestusruumi
+versioonist. Selle välja väärtus peab olema suurem toetatud tarkvara
+väljalaske versioonist.</translation>
     </message>
     <message>
         <source>For volumes, specifies the logical size of the volume.</source>
@@ -383,14 +388,14 @@ from the supported software release.</source>
     <message>
         <source>The compression ratio achieved for the referenced space of this
 dataset, expressed as a multiplier.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Selle andmekogu poolt viidatud andmete pakkimistihedus
+väljendatuna kordajana.</translation>
     </message>
     <message>
         <source>The amount of referenced space written to this dataset since the
 previous snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viidatud kettaruumi maht, mis on andmekogusse kirjutatud alates
+eelmise hetktõmmise tegemisest.</translation>
     </message>
     <message>
         <source>This property is set to the number of user holds on this snapshot.
@@ -405,8 +410,13 @@ pool log devices (if configured) to handle the requests at low
 latency. If logbias is set to throughput, ZFS will not use configured
 pool log devices.  ZFS will instead optimize synchronous operations
 for global pool throughput and efficient use of resources.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Vihjab ZFS-ile, et selles andmekogus töödeldakse sünkroonseid päringuid.
+Kui välja logbias väärtus on latency (vaikimisi on), siis kasutab ZFS
+andmekogu logimisseadmeid (kui need on seadistatud), et töödelda
+päringuid madala latentsiga. Kui välja logbias väärtus on throughput,
+siis ei kasuta ZFS seadistatud andmekogu logimisseadmeid. Selle asemel
+optimeerib ZFS sünkroonsed tegevused läbilaskevõime suurendamiseks
+ja ressursside efektiivseks kasutamseks.</translation>
     </message>
     <message>
         <source>Controls the behavior of synchronous requests (e.g.  fsync(2),
@@ -430,100 +440,83 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seda välja ei saa muuta pärast süsteemi loomist.</translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kasutaja väli</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tundmatu väli või ei ole selle kohta infot saadaval.
+Rohkem infot leiab ZFS-i kasutusjuhendist.</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Vigane]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Päritud]</translation>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Lisatud]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Muudetud]</translation>
     </message>
     <message>
         <source>User property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kasutaja väli</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadme menüü</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa uus kasutaja väli</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kustuta kasutaja väli</translation>
     </message>
 </context>
 <context>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialoog</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seade, mida haakida:</translation>
     </message>
     <message>
         <source>(Device)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Seade)</translation>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haakimise asukoht:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali kaust</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialoog</translation>
     </message>
     <message>
         <source>Pool name:</source>
@@ -532,61 +525,50 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Do not mount any filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ära haagi ühtegi failisüsteemi</translation>
     </message>
     <message>
         <source>Read only pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Kirjutuskaitsega andmekogu</translation>
     </message>
     <message>
         <source>Import options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Importimise valikud:</translation>
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Haagi alternatiivse juurkaustaga:</translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haagi kõik failisüsteemid automaatselt</translation>
     </message>
     <message>
         <source>Mounting behavior:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käitumine haakimisel:</translation>
     </message>
     <message>
         <source>Force operation if error (use with caution)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vii tegevus vea korral lõpuni (kasuta ettevaatlikult)</translation>
     </message>
 </context>
 <context>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialoog</translation>
     </message>
     <message>
         <source>Selected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitud</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Andmekogu nimi:</translation>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadistamise tüüp:</translation>
     </message>
     <message>
         <source>Striped</source>
@@ -595,28 +577,23 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Peegel</translation>
     </message>
     <message>
         <source>Raid-Z (single parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Raid-Z (ühekordne paarsus)</translation>
     </message>
     <message>
         <source>Raid-Z2 (double parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z2 (topeltpaarsus)            </translation>
     </message>
     <message>
         <source>Raid-Z3 (triple parity)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Raid-Z3 (kolmekordne paarsus)</translation>
     </message>
     <message>
         <source>Cache</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vahemälu</translation>
     </message>
     <message>
         <source>Log</source>
@@ -625,13 +602,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Spare</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Varu</translation>
     </message>
     <message>
         <source>Error Description Here</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vea kirjeldus siia</translation>
     </message>
     <message>
         <source>Must provide a valid pool name</source>
@@ -640,51 +615,42 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Must select exactly %1 devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valida tuleb täpselt %1 seadet</translation>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valida tuleb vähemalt üks seade</translation>
     </message>
 </context>
 <context>
     <name>DialogPartition</name>
     <message>
         <source>Add Partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lisa partitsioon</translation>
     </message>
     <message>
         <source>Add new slice/partition</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lisa uus lõik/partitsioon</translation>
     </message>
     <message>
         <source>100 GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>100 GB</translation>
     </message>
     <message>
         <source>Device:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seade:</translation>
     </message>
     <message>
         <source>ada0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ada0</translation>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suurim kättesaadav vaba plokk:</translation>
     </message>
     <message>
         <source>Total Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suurus kokku:</translation>
     </message>
     <message>
         <source>Current layout:</source>
@@ -698,136 +664,110 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Start Sector</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Algussektor</translation>
     </message>
     <message>
         <source>Sector Count</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sektoreid</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suurus</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Värv</translation>
     </message>
     <message>
         <source>New partition Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uue partitsiooni suurus:</translation>
     </message>
     <message>
         <source>bytes</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>baiti</translation>
     </message>
     <message>
         <source>kB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TB</translation>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Partitsiooni tüüp:</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-zfs</translation>
     </message>
     <message>
         <source>freebsd-ufs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-ufs</translation>
     </message>
     <message>
         <source>freebsd</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd</translation>
     </message>
     <message>
         <source>freebsd-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-boot</translation>
     </message>
     <message>
         <source>freebsd-swap</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>freebsd-swap</translation>
     </message>
     <message>
         <source>bios-boot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bios-boot</translation>
     </message>
     <message>
         <source>efi</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>efi</translation>
     </message>
     <message>
         <source>Create and initialize a new filesystem</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loo ja vorminda uus failisüsteem</translation>
     </message>
     <message>
         <source>** FREE **</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>** VABA **</translation>
     </message>
     <message>
         <source>No free space!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vaba ruumi ei ole!</translation>
     </message>
 </context>
 <context>
     <name>DialogProp</name>
     <message>
         <source>Edit Pool Properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Muuda salvestusruumi väljasid</translation>
     </message>
     <message>
         <source>Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väli</translation>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Väärtus</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestusruumi kogumaht.</translation>
     </message>
     <message>
         <source>Percentage of pool space used.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestusruumi kasutus protsentuaalselt.</translation>
     </message>
     <message>
         <source>Alternate root directory. If set, this directory is prepended to any
@@ -842,13 +782,11 @@ this may be overridden using an explicit setting.</source>
     </message>
     <message>
         <source>The current health of the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestusruumi hetkeseisund.</translation>
     </message>
     <message>
         <source>A unique identifier for the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestusruumi unikaalne identifikaator.</translation>
     </message>
     <message>
         <source>The current on-disk version of the pool. This can be increased, but
@@ -857,8 +795,11 @@ never decreased. The preferred method of updating pools is with the
 specific version is needed for backwards compatibility. This property
 can be any number between 1 and the current version reported by
 &quot;zpool upgrade -v&quot;.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestusruumi hetkel kettal olev versioon. Seda saab suuurendada, aga
+mitte kunagi vähendada. Salvestusruume uuendatakse eelistatult käsuga
+&quot;zpool upgrade&quot;, kuigi seda välja saab kasutada siis, kui tagasiühilduvuseks
+on vaja kindlat versiooni. Selle välja väärtus on vahemikus 1 kuni väärtus,
+mille tagastab &quot;zpool upgrade -v&quot;.</translation>
     </message>
     <message>
         <source>Identifies the default bootable dataset for the root pool. This

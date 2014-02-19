@@ -64,14 +64,6 @@
         <translation>Port FreeBSD li jiġu ppakkjati bħala PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Żid port FreeBSD addizzjonali</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Neħħi port FreeBSD addizzjonali</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Addizzjonali ports FreeBSD li jinbnew wara l-programm prinċipali</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Ma kellekx joħolqu modulu PBI. Jekk jogħġbok iċċekkja l-permessi tad-direttorju u erġa &apos;pprova.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Nru FreeBSD Ports</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>Il-Ports tree FreeBSD ma setgħux jiġu misjuba fis-sistema tiegħek. Inti tista jġibu l-tree Ports permezz tal-menu EasyPBI jew manwalment stabbiliti l-passaġġ għall-siġra port fil-preferenzi EasyPBI jekk ikun installat f&apos;post mhux standard.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Tagħżel Port</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Add Pkgs</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Qatt tuża pakketti pre-mibnija</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>View Repository Informazzjoni (mhux obbligatorju)</translation>
     </message>
@@ -783,6 +763,34 @@
         <source>Shift+A</source>
         <translation>Shift+A</translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -797,10 +805,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Port FreeBSD li tixtieq li tibni bħala PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Agħżel port mill-ports FreeBSD siġra lokali</translation>
     </message>
     <message>
         <source>Select</source>
@@ -825,6 +829,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG Ikona (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Tagħżel Port</translation>
     </message>
 </context>
 <context>

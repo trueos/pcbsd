@@ -5,148 +5,119 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Active Directory</translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kveikt á virkum Directory</translation>
     </message>
     <message>
         <source>Domain Name (DNS/Realm-Name)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Domain Nafn (DNS/Realm-Name)</translation>
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NetBIOS Nafn</translation>
     </message>
     <message>
         <source>Workgroup Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vinnuhópur Nafn</translation>
     </message>
     <message>
         <source>Allow Trusted Domains</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Leyfa treyst lén</translation>
     </message>
     <message>
         <source>Administrator Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>stjórnandi Nafn</translation>
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>stjórnandi Lykilorð</translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stjórnandi Lykilorð (aftur)</translation>
     </message>
     <message>
         <source>LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LDAP</translation>
     </message>
     <message>
         <source>Enable LDAP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virkja LDAP</translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname</translation>
     </message>
     <message>
         <source>Base DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Base DN</translation>
     </message>
     <message>
         <source>Allow Anon Binding</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Leyfa Anon Binding</translation>
     </message>
     <message>
         <source>Root bind DN</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rót binda DN</translation>
     </message>
     <message>
         <source>Root bind password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rót binda lykilorð</translation>
     </message>
     <message>
         <source>Password Encryption</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lykilorð Encryption</translation>
     </message>
     <message>
         <source>User Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notandi Suffix</translation>
     </message>
     <message>
         <source>Group Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hópur Suffix</translation>
     </message>
     <message>
         <source>Password Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lykilorð Suffix</translation>
     </message>
     <message>
         <source>Machine Suffix</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vél Suffix</translation>
     </message>
     <message>
         <source>Encryption Mode</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dulkóðun Mode</translation>
     </message>
     <message>
         <source>Self Signed Certificate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sjálf undirritað vottorð</translation>
     </message>
     <message>
         <source>Auxiliary Parameters</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tengd Breytur</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sparaðu</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Loka</translation>
     </message>
     <message>
         <source>Active Directory Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Active Directory Samskipan</translation>
     </message>
     <message>
         <source>The Active Directory passwords specified do not match!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virku lykilorð Listinn tilgreind passa ekki!</translation>
     </message>
     <message>
         <source>AD and LDAP Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>AD and LDAP Samskipan</translation>
     </message>
 </context>
 </TS>

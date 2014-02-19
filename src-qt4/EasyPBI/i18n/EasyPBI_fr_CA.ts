@@ -64,14 +64,6 @@
         <translation>Port FreeBSD à être emballé dans un PBI            </translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Ajouter un port FreeBSD additionnel            </translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Supprimer un port FreeBSD ajouté            </translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>D&apos;autres ports FreeBSD à construire après le programme principal            </translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Impossible de créer le module PBI. Merci de vérifier les autorisations de répertoire et essayez à nouveau.            </translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Pas Ports FreeBSD            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>L&apos;arbre de Ports logiciels de FreeBSD n&apos;a pas pu être trouvé sur votre système. Vous pouvez chercher l&apos;arbre des ports à travers le menu EasyPBI ou régler manuellement le chemin de l&apos;arbre de port dans les préférences EasyPBI si elle est installée dans un emplacement non standard.            </translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Sélectionner un port            </translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Ajouter Pkgs</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Ne jamais utiliser de paquetages pré-compilés</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Voir Information de répertoire (facultatif)</translation>
     </message>
@@ -783,6 +763,34 @@
         <source>Shift+A</source>
         <translation>Shift+A</translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -797,10 +805,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Port FreeBSD que vous souhaitez construire en tant que PBI            </translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Sélectionner un port locale de l&apos;arbre des ports FreeBSD             </translation>
     </message>
     <message>
         <source>Select</source>
@@ -825,6 +829,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG icône (*.png)            </translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Sélectionner un port            </translation>
     </message>
 </context>
 <context>

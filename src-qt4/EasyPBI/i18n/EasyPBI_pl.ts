@@ -64,14 +64,6 @@
         <translation>Port FreeBSD do spakowania jako PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Dodaj dodatkowy port FreeBSD</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Usuń dodatkowy port FreeBSD</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Dodatkowe porty FreeBSD do budowy po głównym programie</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Nie można stworzyć modułu PBI. Proszę sprawdzić uprawnienia katalogów i spróbować ponownie.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: brak portów FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>Drzewo portów FreeBSD nie zostało znalezione w twoim systemie.Możesz pobrać drzewo portów przez menu EasyPBI lub ręcznie określić ścieżkę do drzewa w ustawieniach EasyPBI jeśli zostało ono zainstalowane w niestandardowej lokalizacji.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Wybierz Port</translation>
     </message>
@@ -657,10 +641,6 @@
         <translation>Dodaj Pakiety</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Nigdy nie używaj zbudowanych wcześniej pakietów</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Przejrzyj informacje Repozytorium (opcjonalnie)</translation>
     </message>
@@ -802,6 +782,34 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -816,10 +824,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Port FreeBSD który chcesz budować jako PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Wybierz port z lokalnego drzewa portów FreeBSD</translation>
     </message>
     <message>
         <source>Select</source>
@@ -844,6 +848,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>Ikona PNG (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Wybierz Port</translation>
     </message>
 </context>
 <context>
