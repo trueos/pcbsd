@@ -751,15 +751,15 @@ finish_major_fbsd_update() {
     else
        # Re-add menu / desktop stuff
        if [ "$user" != "root" ] ; then
-         su $user -c "pbi_icon add-pathlnk $shortpbi"
-         su $user -c "pbi_icon add-desktop $shortpbi"
-         su $user -c "pbi_icon add-menu $shortpbi"
-         su $user -c "pbi_icon add-mime $shortpbi"
+         su $user -c "pbi_icon add-pathlnk $shortpbi" >/dev/null 2>/dev/null
+         su $user -c "pbi_icon add-desktop $shortpbi" >/dev/null 2>/dev/null
+         su $user -c "pbi_icon add-menu $shortpbi" >/dev/null 2>/dev/null
+         su $user -c "pbi_icon add-mime $shortpbi" >/dev/null 2>/dev/null
        else
-         pbi_icon add-pathlnk $shortpbi
-         pbi_icon add-desktop $shortpbi
-         pbi_icon add-menu $shortpbi
-         pbi_icon add-mime $shortpbi
+         pbi_icon add-pathlnk $shortpbi >/dev/null 2>/dev/null
+         pbi_icon add-desktop $shortpbi >/dev/null 2>/dev/null
+         pbi_icon add-menu $shortpbi >/dev/null 2>/dev/null
+         pbi_icon add-mime $shortpbi >/dev/null 2>/dev/null
        fi
     fi
   done < /root/pcbsd-pbi-before-update
