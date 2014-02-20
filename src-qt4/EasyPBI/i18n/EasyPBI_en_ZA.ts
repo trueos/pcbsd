@@ -64,14 +64,6 @@
         <translation>FreeBSD port to be packaged as a PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Add additional FreeBSD port</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Remove additional FreeBSD port</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Additional FreeBSD ports to be built after the main program</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Could not create PBI module. Please check the directory permissions and try again.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: No FreeBSD Ports</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Select Port</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Add Pkgs</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Never use pre-built packages</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>View Repository Information (optional)</translation>
     </message>
@@ -757,38 +737,59 @@
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configure</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Help</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quit</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+Q</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>About</translation>
     </message>
     <message>
         <source>Shift+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+A</translation>
+    </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation>Pkg Setup</translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation>Legacy Port-Build Options (optional)</translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation>Build directly from source</translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation>Build Dependencies</translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation>Make Options</translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation>Enable %1</translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation>Disable %1</translation>
     </message>
 </context>
 <context>
@@ -804,10 +805,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>FreeBSD port that you wish to build as a PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Select a port from the local FreeBSD ports tree</translation>
     </message>
     <message>
         <source>Select</source>
@@ -832,6 +829,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG icon (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation>Pkg</translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation>Select Port</translation>
     </message>
 </context>
 <context>

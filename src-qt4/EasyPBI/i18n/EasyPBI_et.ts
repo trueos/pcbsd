@@ -64,14 +64,6 @@
         <translation>FreeBSD port, mida PBI-ks pakendada</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Lisa veel FreeBSD porte</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Eemalda FreeBSD port</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>FreeBSD pordid, mida ehitada lisaks pärast põhiprogrammi</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>PBI moodulit ei õnnestunud luua. Kontrolli kausta õigusi ja proovi uuesti.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: FreeBSD porte pole</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>FreeBSD portide puud ei leitud süsteemist. Portide puu saab tõmmata EasyPBI menüüst või kui see on paigaldatud mitte-standardsesse asukohta, siis saab asukoha täpsustada EasyPBI sätete all.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Vali port</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Lisa pakke</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Ära kasuta eelnevalt ehitatud pakke</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Täpsusta varamu infot (valikuline)</translation>
     </message>
@@ -786,6 +766,41 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -800,10 +815,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>FreeBSD port, mida soovid PBI-na ehitada</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Vali port kohalikust FreeBSD portide puust</translation>
     </message>
     <message>
         <source>Select</source>
@@ -828,6 +839,20 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG-ikoon (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Vali port</translation>
     </message>
 </context>
 <context>

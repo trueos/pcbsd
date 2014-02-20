@@ -32,8 +32,7 @@ RUN_DEPENDS=	mysql-server>=0:${PORTSDIR}/databases/mysql55-server \
 		pear>=0:${PORTSDIR}/devel/pear \
 		py27-django>=0:${PORTSDIR}/www/py-django \
 		apache22>=0:${PORTSDIR}/www/apache22 \
-		py27-MySQLdb55>=0:${PORTSDIR}/databases/py-MySQLdb55 \
-		p5-DBD-mysql55>=0:${PORTSDIR}/databases/p5-DBD-mysql55
+		py27-MySQLdb55>=0:${PORTSDIR}/databases/py-MySQLdb55
 
 NO_BUILD=	yes
 

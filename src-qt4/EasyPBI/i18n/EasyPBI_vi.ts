@@ -64,14 +64,6 @@
         <translation>Cảng FreeBSD để được đóng gói như một PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Bổ sung thêm Cảng FreeBSD</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Loại bỏ thêm Cảng FreeBSD</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Cổng FreeBSD bổ sung sẽ được xây dựng sau khi chương trình chính</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Không có thể tạo ra PBI mô-đun. Hãy kiểm tra các thư mục cho phép và thử lại.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Không có cổng FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>FreeBSD cổng cây không thể được tìm thấy trên hệ thống của bạn. Bạn có thể lấy cây cổng thông qua trình đơn EasyPBI hoặc tự thiết lập đường dẫn đến cây Cảng trong các ưu đãi EasyPBI nếu nó được cài đặt ở một vị trí không chuẩn.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Chọn số Cảng</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Thêm vào pkgs</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Không bao giờ sử dụng các gói được xây dựng trước</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Xem Repository Thông tin (tùy chọn)</translation>
     </message>
@@ -783,6 +763,34 @@
         <source>Shift+A</source>
         <translation>Shift+A</translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation>Cấu hình Pkg</translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation>Legacy Port-Build Options (tùy chọn)</translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation>Xây dựng trực tiếp từ nguồn</translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation>Xây dựng phụ thuộc</translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation>làm cho Tùy chọn</translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation>Cho phép %1</translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation>Vô hiệu hóa %1</translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -797,10 +805,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Cổng FreeBSD rằng bạn muốn xây dựng như một PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Chọn số một cổng từ FreeBSD cổng cây địa phương</translation>
     </message>
     <message>
         <source>Select</source>
@@ -825,6 +829,18 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG biểu tượng (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation>Pkg</translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation>Chọn số Cảng</translation>
     </message>
 </context>
 <context>

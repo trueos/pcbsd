@@ -64,14 +64,6 @@
         <translation>Portul FreBSD care va fi împachetat ca un PBI            </translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Adăugare port suplimentar FreeBSD            </translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Îndepărtare port suplimentar FreeBSD            </translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Porturi suplimentare FreeBSD care să fie construite înainte de programul principal            </translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Nu am putut crea modulul PBI. Vă rugăm să verificați permisiunile directorului și încercați din nou.            </translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Niciun port FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>Copacul de porturi FreeBSD nu a putut fi găsit pe sistemul dumneavoastră.Puteți descărca copacul de porturi prin intermediul meniul EasyPBI sau să setați manual calea către copaculul de portul din preferințele EasyPBI dacă nu este instalat într-o locație standard.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Selectare port            </translation>
     </message>
@@ -657,11 +641,6 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Never use pre-built packages</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -820,6 +799,41 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -834,10 +848,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Portul FreeBSD pe care doriți să-l construiți ca un PBI            </translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Selectați un port din copac de porturile locale FreeBSD            </translation>
     </message>
     <message>
         <source>Select</source>
@@ -862,6 +872,20 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>Pictogramă PNG (*.png)            </translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Selectare port            </translation>
     </message>
 </context>
 <context>

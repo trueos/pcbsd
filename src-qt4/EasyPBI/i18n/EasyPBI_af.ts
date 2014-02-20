@@ -64,14 +64,6 @@
         <translation>FreeBSD hawe te verpak word as &apos;n PBI            </translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Voeg nuwe FreeBSD hawe            </translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Verwyder bykomende FreeBSD hawe            </translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Bykomende FreeBSD hawens gebou moet word na die hoofprogram</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Kon nie skep PBI module. Gaan asseblief die gids regte en probeer weer            </translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Geen FreeBSD Hawe            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>Die FreeBSD Hawens boom kon nie gevind word op jou stelsel. Jy kan die hawens boom gaan haal deur die EasyPBI spyskaart of met die hand stel die pad na die poort boom in die EasyPBI voorkeure as dit geïnstalleer is in &apos;n nie-standaard plek.            </translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Kies Hawe            </translation>
     </message>
@@ -658,11 +642,6 @@
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Never use pre-built packages</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -821,6 +800,41 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -835,10 +849,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>FreeBSD hawe wat jy wil op te bou as &apos;n PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Kies &apos;n hawe van die plaaslike FreeBSD hawens boom            </translation>
     </message>
     <message>
         <source>Select</source>
@@ -863,6 +873,20 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG ikoon (*.png)            </translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Kies Hawe            </translation>
     </message>
 </context>
 <context>

@@ -64,14 +64,6 @@
         <translation>Порт FreeBSD, який буде упаковано як PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Додати порт FreeBSD</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Вилучити додатковий порт FreeBSD</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>Додаткові порти FreeBSD, які мають бути зібрані після головної програми</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Неможливо створити PBI модуль. Будь ласка, перевірте права доступу до каталогу та спробуйте ще.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Немає портів FreeBSD</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>На вашій системі не вдалося знайти дерево портів FreeBSD. Ви можете отримати дерево портів через меню EasyPBI або вручну в налаштуваннях EasyPBI вказати шлях до дерева портів, якщо воно розташоване в нестандартному місці.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Обрати порт</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Додати пакунки</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Не використовувати зазделегіть зібрані пакунки</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Перегляд інформації репозиторію (опція)</translation>
     </message>
@@ -783,6 +763,41 @@
         <source>Shift+A</source>
         <translation>Shift+A</translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -797,10 +812,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>Порт FreeBSD, який ви бажаєте зібрати як PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Обрати порт з локального дерева портів FreeBSD</translation>
     </message>
     <message>
         <source>Select</source>
@@ -825,6 +836,20 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>Іконка PNG (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Обрати порт</translation>
     </message>
 </context>
 <context>

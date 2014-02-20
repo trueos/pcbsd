@@ -64,14 +64,6 @@
         <translation>要打包成PBI的FreeBSD port</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>添加额外的FreeBSD port</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>移除额外的FreeBSD port</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>在主程序后要编译的额外FreeBSD port</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>无法创建PBI模块。请检查目录权限并重试。</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI：没有FreeBSD Port</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>无法在您的系统中找到FreeBSD Port树。您可以通过EasyPBI的菜单获取port树，或者如果其安装在非标准位置下，请在EasyPBI的设置中手动指定安装路径。</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>选择Port</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>添加软件包</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>从未使用的预编译软件包</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>查看软件仓库信息(可选)</translation>
     </message>
@@ -790,6 +770,41 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -804,10 +819,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>您要创建为PBI的FreeBSD port</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>从本地FreeBSD port树中选择一个port</translation>
     </message>
     <message>
         <source>Select</source>
@@ -832,6 +843,20 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>PNG图标（*.png）</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">选择Port</translation>
     </message>
 </context>
 <context>

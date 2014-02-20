@@ -5,239 +5,196 @@
     <name>AddDlg</name>
     <message>
         <source>Add a port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bæta við höfn</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>bæta</translation>
     </message>
     <message>
         <source>Service:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>þjónusta:</translation>
     </message>
     <message>
         <source>Policy:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>stefna:</translation>
     </message>
     <message>
         <source>Protocol:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Siðareglur:</translation>
     </message>
     <message>
         <source>Block</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>blokk</translation>
     </message>
     <message>
         <source>Allow</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>leyfa</translation>
     </message>
     <message>
         <source>Interface:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tengi:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port:</translation>
     </message>
     <message>
         <source>Direction:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>átt:</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ok</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hætta</translation>
     </message>
 </context>
 <context>
     <name>MainDialog</name>
     <message>
         <source>Firewall Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Firewall Manager</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Almenna</translation>
     </message>
     <message>
         <source>General settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Almennar stillingar</translation>
     </message>
     <message>
         <source>Enable Firewall on startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virkja Firewall ræsingu</translation>
     </message>
     <message>
         <source>Firewall</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Firewall</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Byrja</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endurr</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hættu</translation>
     </message>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samskipan</translation>
     </message>
     <message>
         <source>Restore default configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endurheimta sjálfgefna stelling</translation>
     </message>
     <message>
         <source>Exceptions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Undantekningar</translation>
     </message>
     <message>
         <source>Add entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bæta færslu</translation>
     </message>
     <message>
         <source>Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>þjónusta</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Policy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>stefna</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>tengi</translation>
     </message>
     <message>
         <source>Edit entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Breyta færslu</translation>
     </message>
     <message>
         <source>Delete entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Eyða færslu</translation>
     </message>
 </context>
 <context>
     <name>PFAddDlg</name>
     <message>
         <source>incoming</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Innhringingar</translation>
     </message>
     <message>
         <source>outgoing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>útsímtöl</translation>
     </message>
     <message>
         <source>TCP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TCP</translation>
     </message>
     <message>
         <source>UDP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>UDP</translation>
     </message>
 </context>
 <context>
     <name>PFManagerDlg</name>
     <message>
         <source>Question</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Spurning</translation>
     </message>
     <message>
         <source>Restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>skila aftur.</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samsk skrá successfuly aftur.</translation>
     </message>
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þetta mun slökkva á eldvegg alveg.
+Ertu viss?</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velgengni</translation>
     </message>
     <message>
         <source>Restarted successfuly!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endurræst successfuly!</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bilun</translation>
     </message>
     <message>
         <source>Failed to restart!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mistókst að endurræsa!</translation>
     </message>
 </context>
 <context>
     <name>RcConfig</name>
     <message>
         <source>Error opening the specified rc.conf file.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Villa Opnun tilgreinda rc.conf skrá.</translation>
     </message>
 </context>
 <context>
     <name>services</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unknown</translation>
     </message>
 </context>
 </TS>

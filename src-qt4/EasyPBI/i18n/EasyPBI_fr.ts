@@ -64,14 +64,6 @@
         <translation>FreeBSD port à être présenté comme un PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Ajouter port FreeBSD supplémentaire</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Retirer port supplémentaire FreeBSD</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>D&apos;autres ports de FreeBSD à construire après le programme principal</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Impossible de créer ce module de PBI. S&apos;il vous plaît vérifier les autorisations de répertoire et essayez à nouveau.            </translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Pas de ports FreeBSD.            </translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>L&apos;arbre des ports FreeBSD n&apos;a pas été trouvé sur votre système. Vous pouvez chercher l&apos;arbre des ports à travers le menu EasyPBI ou régler manuellement le chemin de l&apos;arbre de port dans les préférences EasyPBI si elle est installée dans un emplacement non standard.            </translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Sélectionner le Port</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Ajouter Pkgs</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Ne jamais utiliser de paquetages pré-compilés</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Voir Information de répertoire (facultatif)</translation>
     </message>
@@ -783,6 +763,34 @@
         <source>Shift+A</source>
         <translation>Shift+A</translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation>Configuration de Pkg</translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation>Legacy Port-options de construction (facultatif)</translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation>Construire directement de la source</translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation>Construire les dépendances</translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation>Créer des Options</translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation>Activer %1</translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation>Désactiver %1</translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -799,10 +807,6 @@
         <translation>Port FreeBSD que vous souhaitez construire en tant que PBI</translation>
     </message>
     <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Sélectionnez un port locale de l&apos;arbre des ports FreeBSD </translation>
-    </message>
-    <message>
         <source>Select</source>
         <translation>Sélectionner            </translation>
     </message>
@@ -812,19 +816,31 @@
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation>Sélectionnez un fichier local au format PNG (format 64x64 pixels recommandé)            </translation>
+        <translation>Sélectionnez un fichier local au format PNG (format 64x64 pixels recommandé)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation>Icône Fichier            </translation>
+        <translation>Icône Fichier</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation>Sélectionnez l&apos; icône PNG            </translation>
+        <translation>Sélectionnez l&apos; icône PNG</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation>Icône PNG (*.png)        </translation>
+        <translation>Icône PNG (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation>Pkg</translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation>Sélectionner le Port</translation>
     </message>
 </context>
 <context>
@@ -835,19 +851,19 @@
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation>Sortie PBI Dir            </translation>
+        <translation>Sortie PBI Dir</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Répertoire local pour construire le PBI est à placer.            </translation>
+        <translation>Répertoire local pour construire le PBI est à placer.</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation>Parcourir le système local et choisir un répertoire de sortie PBI            </translation>
+        <translation>Parcourir le système local et choisir un répertoire de sortie PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Sélectionner      </translation>
+        <translation>Sélectionner</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>

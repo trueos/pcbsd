@@ -64,14 +64,6 @@
         <translation>FreeBSD port untuk dikemas sebagai PBI</translation>
     </message>
     <message>
-        <source>Add additional FreeBSD port</source>
-        <translation>Tambah FreeBSD port tambahan</translation>
-    </message>
-    <message>
-        <source>Remove additional FreeBSD port</source>
-        <translation>Hapus FreeBSD port tambahan</translation>
-    </message>
-    <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
         <translation>FreeBSD ports tambahan yang akan dibangun setelah program utama</translation>
     </message>
@@ -504,14 +496,6 @@
         <translation>Tidak bisa membuat modul PBI. Mohon periksa izin petunjuk dan coba lagi.</translation>
     </message>
     <message>
-        <source>EasyPBI: No FreeBSD Ports</source>
-        <translation>EasyPBI: Tidak ada FreeBSD Ports</translation>
-    </message>
-    <message>
-        <source>The FreeBSD Ports tree could not be found on your system. You may fetch the ports tree through the EasyPBI menu or manually set the path to the port tree in the EasyPBI preferences if it is installed in a non-standard location.</source>
-        <translation>Pohon FreeBSD Port tidak dapat ditemukan pada sistem Anda. Anda bisa mendapatkan pohon port melalui menu EasyPBI atau secara manual mengatur jalan ke pohon port di pilihan EasyPBI jika dipasang di lokasi non-standar.</translation>
-    </message>
-    <message>
         <source>Select Port</source>
         <translation>Pilih Port</translation>
     </message>
@@ -656,10 +640,6 @@
         <translation>Tambah Pkgs</translation>
     </message>
     <message>
-        <source>Never use pre-built packages</source>
-        <translation>Jangan pernah gunakan paket sebelum dibangun</translation>
-    </message>
-    <message>
         <source>View Repository Information (optional)</source>
         <translation>Lihat Informasi Tempat Penyimpanan (optional)</translation>
     </message>
@@ -790,6 +770,41 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Pkg Setup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Legacy Port-Build Options (optional)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build directly from source</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Build Dependencies</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Make Options</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Enable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -804,10 +819,6 @@
     <message>
         <source>FreeBSD port that you wish to build as a PBI</source>
         <translation>FreeBSD port yang ingin Anda bangun sebagai PBI</translation>
-    </message>
-    <message>
-        <source>Select a port from the local FreeBSD ports tree</source>
-        <translation>Pilih sebuah port dari pohon port FreeBSD lokal</translation>
     </message>
     <message>
         <source>Select</source>
@@ -832,6 +843,20 @@
     <message>
         <source>PNG icon (*.png)</source>
         <translation>Ikon PNG (*.png)</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Pkg</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Select Port</source>
+        <translation type="unfinished">Pilih Port</translation>
     </message>
 </context>
 <context>
