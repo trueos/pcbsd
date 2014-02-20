@@ -607,3 +607,46 @@ init_rep_task() {
   fi
 
 }
+
+## Function to remove the oldest life-preserver snapshot on the target
+## zpool, used by zfsmon.sh when the disk space gets low
+do_pool_cleanup()
+{
+  # Is this zpool managed by life-preserver?
+  grep -q "${PROGDIR}/backend/runsnap.sh ${1} " /etc/crontab
+  if [ $? -ne 0 ] ; then return ; fi
+
+  # Before we start pruning, check if any replication is running
+  local pidFile="${DBDIR}/.reptask-`echo ${1} | sed 's|/|-|g'`"
+  if [ -e "${pidFile}" ] ; then
+     pgrep -F ${pidFile} >/dev/null 2>/dev/null
+     if [ $? -eq 0 ] ; then return; fi
+  fi
+
+  # Get the list of snapshots for this zpool
+  snapList=$(snaplist "${1}")
+
+  # Do any pruning
+  for snap in $snapList
+  do
+     # Only remove snapshots which are auto-created by life-preserver
+     cur="`echo $snap | cut -d '-' -f 1`"
+     if [ "$cur" != "auto" ] ; then continue; fi
+
+     echo_log "Pruning old snapshot: $snap"
+     rmZFSSnap "${1}" "$snap"
+     if [ $? -ne 0 ] ; then
+       haveMsg=1
+       echo_log "ERROR: (Low Disk Space) Failed pruning snapshot $snap on ${1}"
+       queue_msg "ERROR: (Low Disk Space) Failed pruning snapshot $snap on ${1} @ `date` \n\r`cat $CMDLOG`"
+     else
+       queue_msg "(Low Disk Space) Auto-pruned snapshot: $snap on ${1} @ `date`\n\r`cat $CMDLOG`"
+       haveMsg=1
+     fi
+
+     # We only prune a single snapshot at this time, so lets end
+     break
+  done
+
+  return 0
+}
