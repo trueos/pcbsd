@@ -1178,9 +1178,6 @@ update_pkgs()
   exit $result
 }
 
-# Check if we have an update folder for the version we are on
-if [ ! -d "${AVAILDIR}/${SYSVER}" ] ; then mkdir -p ${AVAILDIR}/${SYSVER} ; fi
-
 if [ "`id -u`" = "0" ] ; then
   # Make the installed directory for this version
   if [ ! -d "${INSDIR}/${SYSVER}" ] ; then mkdir -p ${INSDIR}/${SYSVER} ; fi
