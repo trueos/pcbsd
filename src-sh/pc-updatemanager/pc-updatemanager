@@ -998,6 +998,23 @@ start_major_fbsd_update() {
   exit 0
 }
 
+## Do a fetch of a pristine /etc directory for the three way etcmerge
+fetch_clean_etc()
+{
+  echo "Fetching pristine /etc for merging..."
+  baseTmp="/usr/local/tmp/base.txz.$$"
+  get_file_from_mirrors "/$SYSVER/$ARCH/dist/base.txz" "$baseTmp" "iso"
+  if [ $? -ne 0 ] ; then return 1 ; fi
+
+  rm -rf "/var/db/etc/"
+  echo "Extracting pristine /etc for merging..."
+  tar xvpf ${baseTmp} -C /var/db ./etc >/dev/null 2>/dev/null
+  local err=$?
+  rm ${baseTmp}
+  return $err
+}
+
+## Verify that ISO is suitable for upgrading with
 verify_iso_data()
 {
   if [ ! -e "${ISOTMP}" ] ; then
@@ -1043,12 +1060,13 @@ verify_iso_data()
      fi
   done
 
-  # Lastly we need to check for the pristine /etc for use by etcmerge
-  if [ ! -e "/var/db/etc/rc" ] ; then
-       umount /mnt/iso-update
-       mdconfig -d -u $MD
-       rollback_update
-       exit_err "Missing etcmerge directory: /var/db/etc"
+  # Lets fetch a pristine /etc for merging, don't trust an old one in /var/db
+  fetch_clean_etc
+  if [ $? -ne 0 ] ; then
+     umount /mnt/iso-update
+     mdconfig -d -u $MD
+     rollback_update
+     exit_err "Missing etcmerge directory: /var/db/etc"
   fi
 
   # Make sure we have /sbin/etcmerge copied over
