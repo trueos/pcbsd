@@ -765,31 +765,31 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Cấu hình Pkg</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legacy Port-Build Options (tùy chọn)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished"></translation>
+        <translation>Xây dựng trực tiếp từ nguồn</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Xây dựng phụ thuộc</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished"></translation>
+        <translation>làm cho Tùy chọn</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Cho phép %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Vô hiệu hóa %1</translation>
     </message>
 </context>
 <context>
@@ -832,15 +832,15 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished"></translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Chọn số Cảng</translation>
+        <translation>Chọn số Cảng</translation>
     </message>
 </context>
 <context>

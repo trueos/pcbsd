@@ -737,66 +737,59 @@
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configure</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Help</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Quit</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+Q</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>About</translation>
     </message>
     <message>
         <source>Shift+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+A</translation>
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Pkg Setup</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legacy Port-Build Options (optional)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished"></translation>
+        <translation>Build directly from source</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Build Dependencies</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Make Options</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable %1</translation>
     </message>
 </context>
 <context>
@@ -839,15 +832,15 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished"></translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Select Port</translation>
+        <translation>Select Port</translation>
     </message>
 </context>
 <context>

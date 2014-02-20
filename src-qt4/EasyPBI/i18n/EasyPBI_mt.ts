@@ -765,31 +765,31 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurazzjoni Pkg</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legacy Port jibnu Options (mhux obbligatorju)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished"></translation>
+        <translation>Jibnu direttament minn sors</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Lbni Dipendenzi</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Għamla Għażliet</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Jippermettu %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Jiskonnettja l %1</translation>
     </message>
 </context>
 <context>
@@ -832,15 +832,15 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished"></translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Tagħżel Port</translation>
+        <translation>Tagħżel Port</translation>
     </message>
 </context>
 <context>

@@ -93,13 +93,11 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Package set:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(unstable)</translation>
     </message>
 </context>
 </TS>

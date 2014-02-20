@@ -520,8 +520,7 @@ Rohkem infot leiab ZFS-i kasutusjuhendist.</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvestusruumi nimi:</translation>
     </message>
     <message>
         <source>Do not mount any filesystems</source>
@@ -529,7 +528,7 @@ Rohkem infot leiab ZFS-i kasutusjuhendist.</translation>
     </message>
     <message>
         <source>Read only pool</source>
-        <translation type="unfinished">Kirjutuskaitsega andmekogu</translation>
+        <translation>Kirjutuskaitsega salvestusruum</translation>
     </message>
     <message>
         <source>Import options:</source>
@@ -564,7 +563,7 @@ Rohkem infot leiab ZFS-i kasutusjuhendist.</translation>
     </message>
     <message>
         <source>Pool name:</source>
-        <translation type="unfinished">Andmekogu nimi:</translation>
+        <translation>Salvestusruumi nimi:</translation>
     </message>
     <message>
         <source>Configuration type:</source>

@@ -765,31 +765,31 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>pkgセットアップ</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legacy Port-Buildオプション (オプション)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished"></translation>
+        <translation>ソースコードから直接構築する</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>構築依存関係</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished"></translation>
+        <translation>makeオプション</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1を有効にする</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1を無効にする</translation>
     </message>
 </context>
 <context>
@@ -832,15 +832,15 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished"></translation>
+        <translation>pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">port を選択</translation>
+        <translation>portを選択</translation>
     </message>
 </context>
 <context>

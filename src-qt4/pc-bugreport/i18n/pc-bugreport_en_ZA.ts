@@ -5,380 +5,307 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD bug reporting tool</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please select the component where the error occurs.</translation>
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD base system</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD base system</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg server</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Desktop environment</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD software (ports/packages)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD software (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</translation>
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org server</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</translation>
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</translation>
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4. If you think that problem is PC-BSD specific, please report to testing mail list</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please select which desktop environment causes the issue:</translation>
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>New Item</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Send an email to the freebsd-gnome mail list</translation>
     </message>
     <message>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Send an email to the PC-BSD testing mailing list</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Submit a bug report to the KDE bug tracker</translation>
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You can report a bug to XFCE bugzilla site</translation>
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You can report a bug to the LXDE bug tracker at SourceForge</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</translation>
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Unsupported desktop unvironment</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You may report a bug to your favorite desktop environment bug tracker / mail list</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD software</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You can report issues to freebsd-ports-bugs mailing lists</translation>
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI software</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please select PBI software with bug</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icon</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Application</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You can try to report a bug at software site</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</translation>
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI software: </translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Not listed here?</translation>
     </message>
     <message>
         <source>MATE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You can report a bug on MATE GitHub bug tracker related to MATE component</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. You can report a bug using Cinnamon bug tracker on GitHub</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copy to clipboard</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Close</translation>
     </message>
 </context>
 <context>
     <name>Toolbox</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>Toolbox</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toolbox</translation>
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Take screenshot</translation>
     </message>
     <message>
         <source>dmesg output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>dmesg output</translation>
     </message>
     <message>
         <source>Xorg log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg log</translation>
     </message>
     <message>
         <source>Diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diagnostic report</translation>
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCBSD diagnostic report</translation>
     </message>
     <message>
         <source>lsusb output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lsusb output</translation>
     </message>
     <message>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCI devices list - PCIConf</translation>
     </message>
     <message>
         <source>Xorg version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg version</translation>
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD version  (uname -a)</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failure</translation>
     </message>
     <message>
         <source>Failed to create diagnostic sheet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Failed to create diagnostic sheet</translation>
     </message>
 </context>
 <context>
     <name>WebURL</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Launch web browser</translation>
     </message>
 </context>
 <context>
     <name>maillist</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Send message to</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Send message to</translation>
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Compose email</translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Visit the following web page to subscribe or view archives.</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Launch web browser</translation>
     </message>
 </context>
 </TS>

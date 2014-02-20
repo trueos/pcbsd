@@ -765,31 +765,31 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration de Pkg</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legacy Port-options de construction (facultatif)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished"></translation>
+        <translation>Construire directement de la source</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Construire les dépendances</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer des Options</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver %1</translation>
     </message>
 </context>
 <context>
@@ -832,15 +832,15 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished"></translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Sélectionner un port            </translation>
+        <translation>Sélectionner un port</translation>
     </message>
 </context>
 <context>

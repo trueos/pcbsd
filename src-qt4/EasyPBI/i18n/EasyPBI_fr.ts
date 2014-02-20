@@ -765,31 +765,31 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration de Pkg</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished"></translation>
+        <translation>Legacy Port-options de construction (facultatif)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished"></translation>
+        <translation>Construire directement de la source</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Construire les dépendances</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer des Options</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Activer %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver %1</translation>
     </message>
 </context>
 <context>
@@ -816,31 +816,31 @@
     </message>
     <message>
         <source>Select a local PNG file (64x64 pixel size recommended)</source>
-        <translation>Sélectionnez un fichier local au format PNG (format 64x64 pixels recommandé)            </translation>
+        <translation>Sélectionnez un fichier local au format PNG (format 64x64 pixels recommandé)</translation>
     </message>
     <message>
         <source>Icon File</source>
-        <translation>Icône Fichier            </translation>
+        <translation>Icône Fichier</translation>
     </message>
     <message>
         <source>Select PNG Icon</source>
-        <translation>Sélectionnez l&apos; icône PNG            </translation>
+        <translation>Sélectionnez l&apos; icône PNG</translation>
     </message>
     <message>
         <source>PNG icon (*.png)</source>
-        <translation>Icône PNG (*.png)        </translation>
+        <translation>Icône PNG (*.png)</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished"></translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Sélectionner le Port</translation>
+        <translation>Sélectionner le Port</translation>
     </message>
 </context>
 <context>
@@ -851,19 +851,19 @@
     </message>
     <message>
         <source>PBI Output Dir</source>
-        <translation>Sortie PBI Dir            </translation>
+        <translation>Sortie PBI Dir</translation>
     </message>
     <message>
         <source>Local directory for built PBI&apos;s to be placed.</source>
-        <translation>Répertoire local pour construire le PBI est à placer.            </translation>
+        <translation>Répertoire local pour construire le PBI est à placer.</translation>
     </message>
     <message>
         <source>Browse local system to select a PBI output directory</source>
-        <translation>Parcourir le système local et choisir un répertoire de sortie PBI            </translation>
+        <translation>Parcourir le système local et choisir un répertoire de sortie PBI</translation>
     </message>
     <message>
         <source>Select</source>
-        <translation>Sélectionner      </translation>
+        <translation>Sélectionner</translation>
     </message>
     <message>
         <source>Digitally sign any PBI&apos;s that are created for tamper-evident distribution</source>
