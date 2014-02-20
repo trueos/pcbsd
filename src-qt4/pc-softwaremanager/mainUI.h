@@ -20,6 +20,8 @@
 #include <QScrollBar>
 #include <QFileDialog>
 #include <QCloseEvent>
+#include <QDesktopServices>
+#include <QUrl>
 
 /* Local Includes */
 #include "pbiBackend.h"
@@ -54,15 +56,19 @@ private slots:
   void on_actionAppCafe_Settings_triggered();
   //INSTALLED TAB
   void slotRefreshInstallTab();
+  void slotCheckSelectedItems();
   void slotPBIStatusUpdate(QString);
-  void on_group_install_showinfo_toggled(bool);
+  void on_tool_install_details_clicked();
+  void on_tool_install_back_clicked();
   void on_tool_install_gotobrowserpage_clicked();
   void on_tool_install_toggleall_clicked();
   void on_tree_install_apps_itemSelectionChanged();
+  void on_tree_install_apps_itemDoubleClicked(QTreeWidgetItem *item);
   void on_check_install_autoupdate_clicked();
   void on_tool_install_update_clicked();
   void on_tool_install_remove_clicked();
   void on_tool_install_cancel_clicked();
+  void on_tool_install_maintainer_clicked();
   void slotActionAddDesktop();
   void slotActionRemoveDesktop();
   void slotActionAddPath();
@@ -78,8 +84,8 @@ private slots:
   void slotActionRemove();
   void slotActionCancel();
   void slotStartApp(QAction*);
-  void slotUpdateSelectedPBI(bool statusonly=false);
-  
+  void slotUpdateSelectedPBI();
+  void updateInstallDetails(QString appID);
   //BROWSER TAB
   void slotDisableBrowser(bool shownotification = TRUE);
   void slotEnableBrowser();

@@ -39,5 +39,6 @@
     <file>icons/xdg_menu.png</file>
     <file>icons/xdg_mime.png</file>
     <file>icons/xdg_paths.png</file>
+    <file>icons/email.png</file>
   </qresource>
 </RCC>

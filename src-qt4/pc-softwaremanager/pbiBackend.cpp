@@ -418,10 +418,17 @@ QStringList PBIBackend::PBIInfo( QString pbiID, QStringList infoList){
     else if(infoList[i]=="website"){ output << PBIHASH[pbiID].website; }
     else if(infoList[i]=="arch"){ output << PBIHASH[pbiID].arch; }
     else if(infoList[i]=="path"){ output << PBIHASH[pbiID].path; }
-    else if(infoList[i]=="icon"){ output << PBIHASH[pbiID].icon; }
-    else if(infoList[i]=="license"){ output << PBIHASH[pbiID].license; }
+    else if(infoList[i]=="icon"){ 
+	QString icon = PBIHASH[pbiID].icon;
+	if( QFile::exists(icon) ){ output << icon; }
+	else{ output << ""; }
+    }else if(infoList[i]=="license"){ output << PBIHASH[pbiID].license; }
     else if(infoList[i]=="metaid"){ output << PBIHASH[pbiID].metaID; }
     else if(infoList[i]=="status"){ output << currentAppStatus(pbiID); }
+    else if(infoList[i]=="maintainer"){ output << PBIHASH[pbiID].maintainer; }
+    else if(infoList[i]=="description"){ output << PBIHASH[pbiID].description; }
+    else if(infoList[i]=="date"){ output << PBIHASH[pbiID].mdate; }
+    else if(infoList[i]=="fbsdversion"){ output << PBIHASH[pbiID].fbsdversion; }
     //Now the boolians
     else if(infoList[i]=="requiresroot"){ 
       if(PBIHASH[pbiID].rootInstall){output<<"true";}
@@ -536,7 +543,7 @@ QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
 	  break;
         case InstalledPBI::REMOVING:
 	  if(sRemove){ output = tr("Removal Canceled (will reinstall)"); }
-          else{ output = tr("Removing"); }
+          else{ output = tr("Removing Application"); }
 	  break;
         case InstalledPBI::UPDATING:
 	  if(sUpdate){ output = tr("Update's cannot be canceled"); }
@@ -812,7 +819,7 @@ bool PBIBackend::loadSettings(){
    output = "pbi_update";
    if(enable){ output.append(" --enable-auto"); }
    else{ output.append(" --disable-auto"); }
-   output.append(" "+pbiID);
+   output.append(" "+PBIHASH[pbiID].metaID);
    output = addRootCMD(output, PBIHASH[pbiID].rootInstall);
    return output;   	 
  }
@@ -1210,7 +1217,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
    InstalledPBI pbi = PBIHASH[pbiID];
    //Get the associated appID
    QString appID = pbi.metaID;
-   QStringList info = sysDB->installedPbiInfo(pbiID); //info[name,version,arch,date,author,web,path,icon]
+   QStringList info = sysDB->installedPbiInfo(pbiID);
    if(useDB && !info.isEmpty()){
      //Now get additional database info
      bool autoUp = sysDB->installedPbiAutoUpdate(pbiID);
@@ -1227,6 +1234,9 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
      if(pbi.website.endsWith("/")){ pbi.website.chop(1); }
      pbi.path    = info[6];
      pbi.icon    = info[7];
+     pbi.maintainer = info[8];
+     pbi.description = info[9];
+     pbi.fbsdversion = info[10];
      if(appID.isEmpty()){ 
        appID = Extras::nameToID(pbi.name); 
        pbi.metaID = appID;
@@ -1240,7 +1250,9 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
      pbi.autoUpdate  = autoUp;
      pbi.desktopIcons= desktop;
      pbi.menuIcons   = menu;
-     
+     //Clean up the mdate to make it human-readable
+     QDate date(pbi.mdate.left(4).toInt(), pbi.mdate.mid(4,2).toInt(), pbi.mdate.right(2).toInt() );
+     pbi.mdate =date.toString(Qt::SystemLocaleShortDate); //put it in the current locale format (short version)
    }else{
      //Pull basic info from the pre-loaded App database instead
      // This is for application entries still in a pending state and not fully installed

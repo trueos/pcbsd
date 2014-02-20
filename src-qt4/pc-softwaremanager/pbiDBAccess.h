@@ -59,10 +59,11 @@ private:
 	QStringList repoList;
 	QDir *DBDir;
 	QProcess *proc;
+
 	QString readOneLineFile(QString);
 	QString getIDFromNum(QString);
 	QString runCMD(QString);
-	
+	QString cleanupDescription(QStringList tmp);
 };
 
 #endif

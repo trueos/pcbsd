@@ -77,6 +77,7 @@ void MainUI::ProgramInit()
 
    //Make sure we start on the installed tab
    ui->tabWidget->setCurrentWidget(ui->tab_installed);
+   ui->stackedWidget->setCurrentWidget(ui->page_install_list);
 }
 
 void MainUI::slotSingleInstance(){
@@ -159,8 +160,8 @@ void MainUI::initializeInstalledTab(){
   ui->tool_install_performaction->setMenu(actionMenu);
   ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
   //Now setup any defaults for the installed tab
-  ui->tool_install_gotobrowserpage->setEnabled(FALSE); //disable it until the browser is ready
   ui->tree_install_apps->setIconSize(QSize(22,22));
+  connect(ui->tree_install_apps, SIGNAL(itemClicked(QTreeWidgetItem*, int)), this, SLOT(slotCheckSelectedItems()) );
   slotRefreshInstallTab();
 }
 
@@ -272,6 +273,17 @@ void MainUI::slotRefreshInstallTab(){
   }
   slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
+  slotCheckSelectedItems();
+}
+
+void MainUI::slotCheckSelectedItems(){
+  bool chkd = false;
+  for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
+    if(ui->tree_install_apps->topLevelItem(i)->checkState(0) == Qt::Checked){
+      chkd = true; break;
+    }
+  }
+  ui->tool_install_performaction->setEnabled(chkd);
 }
 
 void MainUI::slotPBIStatusUpdate(QString pbiID){
@@ -283,12 +295,13 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
       QString stat = PBI->PBIInfo(pbiID,QStringList()<<"status").join("");
       ui->tree_install_apps->topLevelItem(i)->setText(2,stat);
       // See if we need to update the download progress bar
-      QString appID;
-      if(ui->tree_install_apps->topLevelItemCount() > 0){
-         appID = ui->tree_install_apps->currentItem()->whatsThis(0);
-      }
+      QString appID = ui->tree_install_apps->currentItem()->whatsThis(0);
       if ( appID == pbiID ) {
-	slotUpdateSelectedPBI(true);; //only update status
+	slotUpdateSelectedPBI();
+	//If the details page is currently visible, update it too
+	if(ui->stackedWidget->currentWidget() == ui->page_install_details){
+	  updateInstallDetails(appID);
+	}
       }
     }else{
       //Just check/update the icon if necessary
@@ -299,12 +312,22 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
   }
 }
 
-void MainUI::on_group_install_showinfo_toggled(bool show){
+void MainUI::on_tool_install_details_clicked(){
+  //Get the current item
+  QString appID;
   if(ui->tree_install_apps->topLevelItemCount() > 0){
-    ui->group_install_info->setVisible(show);
-  }else{
-    ui->group_install_info->setVisible(FALSE);	 
+    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
   }
+  if(appID.isEmpty()){return;}
+  //Update the info on the details page
+  updateInstallDetails(appID);
+  //Now show the page
+  ui->stackedWidget->setCurrentWidget(ui->page_install_details);
+}
+
+void MainUI::on_tool_install_back_clicked(){
+  //List page should always be current based upon backend
+  ui->stackedWidget->setCurrentWidget(ui->page_install_list);
 }
 
 void MainUI::on_tool_install_gotobrowserpage_clicked(){
@@ -320,11 +343,27 @@ void MainUI::on_tool_install_toggleall_clicked(){
     if(checkall){ ui->tree_install_apps->topLevelItem(i)->setCheckState(0,Qt::Checked); }
     else{ui->tree_install_apps->topLevelItem(i)->setCheckState(0,Qt::Unchecked); }
   }
+  slotCheckSelectedItems();
 }
 
 void MainUI::on_tree_install_apps_itemSelectionChanged(){
   //When an installed PBI is clicked on
   slotUpdateSelectedPBI();
+  if(ui->stackedWidget->currentWidget() != ui->page_install_list){
+    ui->stackedWidget->setCurrentWidget(ui->page_install_list);
+  }
+  slotCheckSelectedItems();
+}
+
+void MainUI::on_tree_install_apps_itemDoubleClicked(QTreeWidgetItem *item){
+ //Make sure it is a valid/installed application
+ QString appID = item->whatsThis(0);
+  appID = PBI->isInstalled(appID);
+  if(appID.isEmpty()){ return; } //invalid item
+  //Update the info on the details page
+  updateInstallDetails(appID);
+  //Now show the page
+  ui->stackedWidget->setCurrentWidget(ui->page_install_details);
 }
 
 void MainUI::on_check_install_autoupdate_clicked(){
@@ -338,6 +377,14 @@ void MainUI::on_check_install_autoupdate_clicked(){
   bool enabled = ui->check_install_autoupdate->isChecked();
   //Now have the backend make the change
   PBI->enableAutoUpdate(appID, enabled);
+  //Now ask if the user also wants to start updating it now
+  if(enabled && !PBI->upgradeAvailable(appID).isEmpty()){
+    if( QMessageBox::Yes == QMessageBox::question(this, tr("Start Update?"), tr("Do you wish to start updating this application right now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+      PBI->upgradePBI(QStringList() << appID);
+    }
+  }
+  //Now force the info on the page to be updated in a moment (need time for database to update)
+  QTimer::singleShot(200, this, SLOT(on_tool_install_details_clicked()) );
 }
 
 void MainUI::on_tool_install_update_clicked(){
@@ -372,6 +419,29 @@ void MainUI::on_tool_install_cancel_clicked(){
   if(appID.isEmpty()){return;}
   PBI->cancelActions(QStringList() << appID);
   
+}
+
+void MainUI::on_tool_install_maintainer_clicked(){
+  //Get the current item
+  QString appID;
+  if(ui->tree_install_apps->topLevelItemCount() > 0){
+    appID = ui->tree_install_apps->currentItem()->whatsThis(0);
+  }
+  if(appID.isEmpty()){return;}
+  //Get the maintainer email
+  QString email = PBI->PBIInfo(appID, QStringList() << "maintainer").join("");
+  if(email.isEmpty()){ return; }
+  qDebug() << "Launching email to:" << email;
+  //Get the command from the action
+  QString cmd = "mailto:"+email;
+  QStringList info = PBI->PBIInfo(appID, QStringList() << "name" << "date" << "version" << "arch" << "fbsdversion" );
+  //Add a sample subject
+  cmd.append("?subject="+info[0]+" port question");
+  //Add the info to the body of the email
+  cmd.append("&body=");
+  cmd.append("-----------\nPBI Information:\nName: "+info[0] + "\nDate Created: "+info[1] +"\nVersion: "+info[2] +"\nArchitecture: "+info[3] +"\nFreeBSD Version: "+info[4] );
+  //Startup the command externally
+  QProcess::execute("xdg-open \""+cmd+"\"");
 }
 
 // === SELECTED PBI ACTIONS ===
@@ -463,28 +533,34 @@ void MainUI::slotStartApp(QAction* act){
   QProcess::execute(cmd);
 }
 
-void MainUI::slotUpdateSelectedPBI(bool statusonly){
+void MainUI::slotUpdateSelectedPBI(){
+  //Get the currently selected app
   QString appID;
   if(ui->tree_install_apps->topLevelItemCount() > 0){
     appID = ui->tree_install_apps->currentItem()->whatsThis(0);
   }
+  //See if this one is actually installed
+  appID = PBI->isInstalled(appID);
   if(appID.isEmpty()){
-    ui->group_install_info->setVisible(FALSE);
-    return;
+    ui->tool_install_details->setEnabled(false);
   }else{
-    ui->group_install_info->setVisible( ui->group_install_showinfo->isChecked() );	  
+    ui->tool_install_details->setEnabled(true);	  
   }
-  if(!statusonly){
-    //Get the PBI info for that item
+    
+}
+
+void MainUI::updateInstallDetails(QString appID){
+  //Get the information to update the details page
+  //Get the PBI info for that item
     QStringList vals; 
-    vals << "name" << "icon" << "author" << "website" << "version" << "license";
+    vals << "name" << "icon" << "author" << "website" << "version" << "license" << "description" << "maintainer" << "date" << "arch";
     QStringList bools;
     bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons" << "requiresroot";
     vals = PBI->PBIInfo(appID,vals);
     bools = PBI->PBIInfo(appID,bools);
     //Make sure the info lists are not empty
     if(vals.isEmpty() || bools.isEmpty()){
-      ui->group_install_info->setVisible(FALSE);
+      ui->tool_install_details->setEnabled(false);
       return; 
     }
     //Load a default icon if none found
@@ -502,7 +578,7 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
       else{ shortcuts = tr("None"); }
     //Now display that info on the UI
     ui->label_install_app->setText(vals[0]);
-    ui->label_install_icon->setPixmap( QPixmap(vals[1]) );
+    ui->label_install_icon->setPixmap( QPixmap(vals[1]).scaled(64,64, Qt::KeepAspectRatio, Qt::SmoothTransformation) );
     if(vals[3].isEmpty()){ 
       ui->label_install_author->setText(vals[2]); 
       ui->label_install_author->setToolTip("");
@@ -510,8 +586,12 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
       ui->label_install_author->setText("<a href="+vals[3]+">"+vals[2]+"</a>"); 
       ui->label_install_author->setToolTip(vals[3]); //show website URL as tooltip
     }
-    ui->label_install_license->setText(vals[5]);
     ui->label_install_version->setText(vals[4]);
+    ui->label_install_license->setText(vals[5]);
+    ui->text_install_description->setPlainText(vals[6]);
+    ui->tool_install_maintainer->setVisible( vals[7].contains("@") );
+    ui->label_install_date->setText(vals[8]);
+    ui->label_install_arch->setText(vals[9]);
     ui->label_install_shortcuts->setText(shortcuts);
     ui->check_install_autoupdate->setChecked(autoupdate);
   
@@ -554,12 +634,13 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
 	ui->tool_install_startApp->setVisible(FALSE);
       }   
     }
-  }
+
   //Update the current status indicators
   QString stat = PBI->currentAppStatus(appID,true); //get the raw status
-  if(stat.isEmpty() || stat == "DLSTART"  || stat == "DLDONE"){
+  QString statF = PBI->currentAppStatus(appID, false); //get the non-raw status
+  if( stat.isEmpty() && statF.isEmpty() ){
     //Not currently running - hide the display indicators
-    ui->group_install_appStat->setVisible(FALSE);
+    ui->group_install_appStat->setVisible(false);
   }else if(stat.startsWith("DLSTAT::")){
     //Currently downloading - show download status indicators
     QString percent = stat.section("::",1,1);
@@ -572,8 +653,8 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
     if(percent == "??"){
       ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(0);
     }else{
-      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(100);
-      ui->progress_install_DL->setValue( int(percent.toFloat()) );
+      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(1000);
+      ui->progress_install_DL->setValue( int(percent.toFloat()*10) );
     }
     if(speed == "??"){ ui->label_install_DL->setVisible(FALSE); }
     else{
@@ -582,7 +663,8 @@ void MainUI::slotUpdateSelectedPBI(bool statusonly){
     }
   }else{
     //Currently installing/removing/updating - show last message from process
-    ui->label_install_status->setText(stat);
+    if(!statF.isEmpty()){ ui->label_install_status->setText(statF); }
+    else{ ui->label_install_status->setText(stat); }
     ui->group_install_appStat->setVisible(TRUE);
       ui->progress_install_DL->setVisible(FALSE);
       ui->label_install_DL->setVisible(FALSE);
@@ -615,7 +697,6 @@ void MainUI::initializeBrowserTab(){
 void MainUI::slotDisableBrowser(bool shownotification){
   if(shownotification){ qDebug() << "No Repo Available: De-activating the Browser"; }
   ui->tabWidget->setCurrentWidget(ui->tab_installed);
-  ui->tool_install_gotobrowserpage->setEnabled(FALSE);
   ui->tab_browse->setEnabled(FALSE);
   slotDisplayStats();
 }
@@ -625,7 +706,6 @@ void MainUI::slotEnableBrowser(){
   //Now create the browser home page
   slotUpdateBrowserHome();
   //And allow the user to go there
-  ui->tool_install_gotobrowserpage->setEnabled(TRUE);
   ui->tab_browse->setEnabled(TRUE);
   slotDisplayStats();
 }
@@ -916,6 +996,9 @@ void MainUI::on_tabWidget_currentChanged(){
   if(ui->tabWidget->currentWidget() == ui->tab_browse){
     //Refresh the app page if that is the one currently showing
     if(ui->stacked_browser->currentWidget() == ui->page_app){ on_tool_browse_app_clicked(); }	  
+  }else{
+    //Always return to the installed list
+    ui->stackedWidget->setCurrentWidget(ui->page_install_list);
   }
 }
 

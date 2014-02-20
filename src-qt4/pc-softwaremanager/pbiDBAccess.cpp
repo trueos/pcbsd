@@ -124,7 +124,7 @@ QStringList PBIDBAccess::installed(){
 }
 
 QStringList PBIDBAccess::installedPbiInfo(QString pbiID){
-  //Output format: output[ name, version, arch, date created, author, website, installpath, iconpath]
+  //Output format: output[ name, version, arch, date created, author, website, installpath, iconpath, maintainer, description, fbsdversion]
   QStringList output;
   QString path = DBPath+"installed/"+pbiID;
   bool ok = DBDir->cd(path);
@@ -132,12 +132,21 @@ QStringList PBIDBAccess::installedPbiInfo(QString pbiID){
     output << readOneLineFile(path+"/pbi_name");
     output << readOneLineFile(path+"/pbi_version");
     output << readOneLineFile(path+"/pbi_arch");
-    output << readOneLineFile(path+"/pbi_mdate");
+    //Get the latest date (remove the time) for this PBI (mdate and patchmdate seem to vary in use)
+    QString mdate = readOneLineFile(path+"/pbi_mdate").section(" ",0,0).simplified();
+    QString pdate = readOneLineFile(path+"/pbi_patchmdate").section(" ",0,0).simplified();
+    if( !pdate.isEmpty() && (pdate > mdate) ){
+      output << pdate; //use the date it was patched
+    }else{
+      output <<  mdate; //use the date it was initially created
+    }
     output << readOneLineFile(path+"/pbi_author");
     output << readOneLineFile(path+"/pbi_web");
     output << readOneLineFile(path+"/pbi_installedpath");
-    if(DBDir->exists("pbi_icon.png")){ output << path+"/pbi_icon.png"; }
-    else{ output << ""; }
+    output << path+"/pbi_icon.png";
+    output << readOneLineFile(path+"/pbi_maintainer");
+    output << cleanupDescription( readOneLineFile(path+"/pbi_desc").split("\n") );
+    output << readOneLineFile(path+"/pbi_fbsdver");
   }
   return output;
 }
@@ -225,28 +234,13 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   output << list[6]; //APP-TYPE
   output << list[7]; //TAGS
   //Cleanup the description (try to format the text properly)
-  QStringList tmp = list[8].split("<br>");
-  //if(DEBUG){ qDebug() << "Raw Description:\n" << list[8]; }
-  for(int i=1; i<tmp.length(); i++){
-    tmp[i-1] = tmp[i-1].simplified();
-    if(tmp[i-1].isEmpty() || tmp[i].isEmpty() ){}
-    else if(tmp[i-1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){}
-    else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){}
-    else{
-      //if(DEBUG){ qDebug() << " - Bad Line Break:\n" << tmp[i-1] << "<br>" << tmp[i]; }
-      //Bad line break, combine it with the previous line
-      tmp[i-1].append(" "+tmp[i]);
-      tmp.removeAt(i);
-      i--;
-    }
-  }
-  output << tmp.join("\n"); //DESCRIPTION
+  output << cleanupDescription( list[8].split("<br>") ); //DESCRIPTION
   if(list[9]=="YES"){ list[9]="true"; } //change to the same true/false syntax as elsewhere
   output << list[9]; //REQUIRESROOT
   output << list[10]; //DATE ADDED (just a number - not human-readable)
   output << list[11]; //MAINTAINER EMAIL
   //Cleanup the short description (remove any line breaks)
-  tmp = list[12].split("<br>", QString::SkipEmptyParts);
+  QStringList tmp = list[12].split("<br>", QString::SkipEmptyParts);
   list[12] = tmp.join(" ").simplified();
   output << list[12]; //SHORT DESCRIPTION
   return output;
@@ -370,7 +364,8 @@ QString PBIDBAccess::readOneLineFile(QString path){
   if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
     QTextStream in(&file);
     while(!in.atEnd()){
-      output.append(in.readLine());
+      if(!output.isEmpty()){ output.append("\n"); }
+      output.append( in.readLine() ); 
     }
     file.close();
   }
@@ -401,4 +396,26 @@ QString PBIDBAccess::runCMD(QString cmd){
   if(output.endsWith("\n")){ output.chop(1); }
   output = output.simplified();
   return output;
+}
+
+QString PBIDBAccess::cleanupDescription(QStringList tmp){
+  for(int i=1; i<tmp.length(); i++){
+    //tmp[i-1] = tmp[i-1].simplified();
+    tmp[i] = tmp[i].simplified();
+    if( tmp[i].startsWith("WWW: ") ){
+      //Remove the website URL from the end, it is already accounted for elsewhere
+      tmp.removeAt(i);
+      i--;
+    }else if(tmp[i-1].isEmpty() || tmp[i].isEmpty() ){}
+    else if(tmp[i-1].endsWith(".") || tmp[i-1].endsWith(":") || tmp[i-1].endsWith(";") || tmp[i-1].endsWith("?") || tmp[i-1].endsWith("!") ){}
+    else if( tmp[i].startsWith("*") || tmp[i].startsWith("0") || tmp[i].startsWith("-") || tmp[i].startsWith("o ") ){}
+    else{
+      //if(DEBUG){ qDebug() << " - Bad Line Break:\n" << tmp[i-1] << "<br>" << tmp[i]; }
+      //Bad line break, combine it with the previous line
+      tmp[i-1].append(" "+tmp[i]);
+      tmp.removeAt(i);
+      i--;
+    }
+  }
+  return tmp.join("\n");
 }

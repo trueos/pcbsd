@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>509</width>
-    <height>553</height>
+    <width>475</width>
+    <height>623</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,69 +41,186 @@
        <attribute name="title">
         <string>Installed</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QFrame" name="frame">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QTreeWidget" name="tree_install_apps">
-             <property name="iconSize">
-              <size>
-               <width>16</width>
-               <height>16</height>
-              </size>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="geometry">
+         <rect>
+          <x>6</x>
+          <y>6</y>
+          <width>451</width>
+          <height>535</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="page_install_list">
+         <layout class="QVBoxLayout" name="verticalLayout_21">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QToolButton" name="tool_install_toggleall">
+              <property name="statusTip">
+               <string>Check/Uncheck all applications</string>
+              </property>
+              <property name="text">
+               <string>All</string>
+              </property>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/dialog-ok.png</normaloff>:/icons/dialog-ok.png</iconset>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_install_performaction">
+              <property name="statusTip">
+               <string>Perform actions on checked applications</string>
+              </property>
+              <property name="text">
+               <string>Actions</string>
+              </property>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/preferences-system.png</normaloff>:/icons/preferences-system.png</iconset>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+              <property name="arrowType">
+               <enum>Qt::NoArrow</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTreeWidget" name="tree_install_apps">
+            <property name="iconSize">
+             <size>
+              <width>16</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="indentation">
+             <number>0</number>
+            </property>
+            <attribute name="headerCascadingSectionResizes">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="headerDefaultSectionSize">
+             <number>120</number>
+            </attribute>
+            <column>
+             <property name="text">
+              <string>Program Name</string>
              </property>
-             <property name="indentation">
-              <number>0</number>
+            </column>
+            <column>
+             <property name="text">
+              <string>Version</string>
              </property>
-             <attribute name="headerCascadingSectionResizes">
-              <bool>true</bool>
-             </attribute>
-             <attribute name="headerDefaultSectionSize">
-              <number>120</number>
-             </attribute>
-             <column>
+            </column>
+            <column>
+             <property name="text">
+              <string>Status</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QToolButton" name="tool_install_gotobrowserpage">
               <property name="text">
-               <string>Program Name</string>
+               <string>Find in Repository</string>
               </property>
-             </column>
-             <column>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/edit-find.png</normaloff>:/icons/edit-find.png</iconset>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_install_details">
               <property name="text">
-               <string>Version</string>
+               <string>Application Details</string>
               </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Status</string>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/go-next.png</normaloff>:/icons/go-next.png</iconset>
               </property>
-             </column>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="page_install_details">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="styleSheet">
+             <string notr="true">QFrame{background-color: rgba(250,250,250,170);}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <property name="spacing">
+              <number>2</number>
+             </property>
+             <property name="margin">
+              <number>2</number>
+             </property>
              <item>
-              <widget class="QToolButton" name="tool_install_toggleall">
-               <property name="statusTip">
-                <string>Check/Uncheck all applications</string>
-               </property>
+              <widget class="QToolButton" name="tool_install_back">
                <property name="text">
-                <string>All</string>
+                <string>Back</string>
                </property>
                <property name="icon">
                 <iconset resource="SoftwareManager.qrc">
-                 <normaloff>:/icons/dialog-ok.png</normaloff>:/icons/dialog-ok.png</iconset>
+                 <normaloff>:/icons/go-previous.png</normaloff>:/icons/go-previous.png</iconset>
                </property>
                <property name="toolButtonStyle">
                 <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -111,447 +228,415 @@
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer">
+              <spacer name="horizontalSpacer_7">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
+                 <width>0</width>
                  <height>20</height>
                 </size>
                </property>
               </spacer>
              </item>
              <item>
-              <widget class="QToolButton" name="tool_install_performaction">
+              <widget class="QToolButton" name="tool_install_remove">
+               <property name="toolTip">
+                <string>Remove the selected application</string>
+               </property>
                <property name="statusTip">
-                <string>Perform actions on checked applications</string>
+                <string>Remove the selected application</string>
                </property>
                <property name="text">
-                <string>Actions</string>
+                <string>Uninstall</string>
                </property>
                <property name="icon">
                 <iconset resource="SoftwareManager.qrc">
-                 <normaloff>:/icons/preferences-system.png</normaloff>:/icons/preferences-system.png</iconset>
+                 <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
                </property>
                <property name="toolButtonStyle">
                 <enum>Qt::ToolButtonTextBesideIcon</enum>
                </property>
-               <property name="arrowType">
-                <enum>Qt::NoArrow</enum>
-               </property>
               </widget>
              </item>
             </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="group_install_showinfo">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="statusTip">
-           <string/>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QGroupBox::indicator:unchecked{
-image: url(:icons/arrow-down.png);
-}
-QGroupBox::indicator:checked{
-image: url(:icons/arrow-up.png);
-}
-QGroupBox::title{
-spacing: 1px;
-}</string>
-          </property>
-          <property name="title">
-           <string>Application Details</string>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_17">
-           <item>
-            <widget class="QGroupBox" name="group_install_info">
-             <property name="styleSheet">
-              <string notr="true">QGroupBox#group_install_info{ 
-background: rgba( 245,242,240,150); 
-border: 1px solid grey;
-border-radius: 5px;
-}</string>
-             </property>
-             <property name="title">
-              <string/>
-             </property>
-             <property name="flat">
-              <bool>true</bool>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_3">
-              <property name="leftMargin">
-               <number>3</number>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_install_icon">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
               </property>
-              <property name="topMargin">
-               <number>3</number>
+              <property name="maximumSize">
+               <size>
+                <width>64</width>
+                <height>64</height>
+               </size>
               </property>
-              <property name="rightMargin">
-               <number>3</number>
+              <property name="text">
+               <string/>
               </property>
-              <property name="bottomMargin">
-               <number>0</number>
+              <property name="pixmap">
+               <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
               </property>
-              <item row="1" column="1" rowspan="2">
-               <layout class="QFormLayout" name="formLayout">
-                <property name="fieldGrowthPolicy">
-                 <enum>QFormLayout::ExpandingFieldsGrow</enum>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_install_app">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                  <underline>true</underline>
+                 </font>
                 </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>Version:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QLabel" name="label_install_version">
-                  <property name="text">
-                   <string notr="true">x.xx.x</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_3">
-                  <property name="text">
-                   <string>Author:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QLabel" name="label_install_author">
-                  <property name="text">
-                   <string notr="true">&lt;a href=&quot;http://www.pcbsd.org&quot;&gt;PC_BSD&lt;/a&gt;</string>
-                  </property>
-                  <property name="openExternalLinks">
-                   <bool>true</bool>
-                  </property>
-                  <property name="textInteractionFlags">
-                   <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_4">
-                  <property name="text">
-                   <string>License:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QLabel" name="label_install_license">
-                  <property name="text">
-                   <string notr="true">BSD</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_2">
-                  <property name="text">
-                   <string>Shortcuts:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1">
-                 <widget class="QLabel" name="label_install_shortcuts">
-                  <property name="text">
-                   <string notr="true">Desktop, Menu</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="1" column="0">
-               <layout class="QVBoxLayout" name="verticalLayout_13">
-                <item>
-                 <widget class="QLabel" name="label_install_icon">
-                  <property name="maximumSize">
-                   <size>
-                    <width>64</width>
-                    <height>64</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
-                  </property>
-                  <property name="scaledContents">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="3" rowspan="3">
-               <layout class="QVBoxLayout" name="verticalLayout_10">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                  <item>
-                   <widget class="QToolButton" name="tool_install_startApp">
-                    <property name="statusTip">
-                     <string>Start the application</string>
-                    </property>
-                    <property name="text">
-                     <string>...</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="SoftwareManager.qrc">
-                      <normaloff>:/icons/application.png</normaloff>:/icons/application.png</iconset>
-                    </property>
-                    <property name="popupMode">
-                     <enum>QToolButton::InstantPopup</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_7">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>0</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QToolButton" name="tool_install_cancel">
-                    <property name="toolTip">
-                     <string>Cancel any actions for this application</string>
-                    </property>
-                    <property name="statusTip">
-                     <string>Cancel any actions for this application</string>
-                    </property>
-                    <property name="text">
-                     <string>...</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="SoftwareManager.qrc">
-                      <normaloff>:/icons/dialog-cancel.png</normaloff>:/icons/dialog-cancel.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QToolButton" name="tool_install_remove">
-                    <property name="toolTip">
-                     <string>Remove the selected application</string>
-                    </property>
-                    <property name="statusTip">
-                     <string>Remove the selected application</string>
-                    </property>
-                    <property name="text">
-                     <string>Uninstall</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="SoftwareManager.qrc">
-                      <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QToolButton" name="tool_install_update">
-                    <property name="toolTip">
-                     <string>Update the application to the most recent version</string>
-                    </property>
-                    <property name="statusTip">
-                     <string>Update the selected application</string>
-                    </property>
-                    <property name="text">
-                     <string>Update Application</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="SoftwareManager.qrc">
-                      <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
-                    </property>
-                    <property name="toolButtonStyle">
-                     <enum>Qt::ToolButtonIconOnly</enum>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <widget class="Line" name="line_2">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::MinimumExpanding</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QToolButton" name="tool_install_gotobrowserpage">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="statusTip">
-                   <string>Open the browser page for the selected application</string>
-                  </property>
-                  <property name="text">
-                   <string>Product Page</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="SoftwareManager.qrc">
-                    <normaloff>:/icons/appcafe.png</normaloff>:/icons/appcafe.png</iconset>
-                  </property>
-                  <property name="toolButtonStyle">
-                   <enum>Qt::ToolButtonTextBesideIcon</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="check_install_autoupdate">
-                  <property name="statusTip">
-                   <string>Automatically update the selected application when an update is available</string>
-                  </property>
-                  <property name="text">
-                   <string>Auto-Update</string>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="SoftwareManager.qrc">
-                    <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="0" column="0" colspan="3">
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QLabel" name="label_install_app">
-                  <property name="font">
-                   <font>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                    <underline>true</underline>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string notr="true">Application</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item row="3" column="0" colspan="4">
-               <widget class="QGroupBox" name="group_install_appStat">
-                <property name="title">
-                 <string/>
+                <property name="text">
+                 <string notr="true">Application</string>
                 </property>
-                <property name="flat">
-                 <bool>true</bool>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_18">
-                 <item>
-                  <widget class="Line" name="line_3">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_install_status">
-                   <property name="text">
-                    <string notr="true">TextLabel</string>
-                   </property>
-                   <property name="wordWrap">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_9">
-                   <item>
-                    <widget class="QProgressBar" name="progress_install_DL">
-                     <property name="value">
-                      <number>24</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="label_install_DL">
-                     <property name="minimumSize">
-                      <size>
-                       <width>80</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string notr="true">label</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
                </widget>
               </item>
-              <item row="1" column="2" rowspan="2">
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+              <item>
+               <widget class="QLabel" name="label_install_author">
+                <property name="text">
+                 <string notr="true">&lt;a href=&quot;http://www.pcbsd.org&quot;&gt;PC_BSD&lt;/a&gt;</string>
                 </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                 </property>
-               </spacer>
+                <property name="openExternalLinks">
+                 <bool>true</bool>
+                </property>
+                <property name="textInteractionFlags">
+                 <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse</set>
+                </property>
+               </widget>
               </item>
              </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame_2">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <property name="margin">
+              <number>2</number>
+             </property>
+             <item>
+              <layout class="QFormLayout" name="formLayout_7">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::ExpandingFieldsGrow</enum>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>Created:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_5">
+                 <property name="text">
+                  <string>Architecture:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_install_date">
+                 <property name="text">
+                  <string notr="true">Build Date</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_install_arch">
+                 <property name="text">
+                  <string notr="true">arch</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label">
+                 <property name="text">
+                  <string>Version:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_install_version">
+                 <property name="text">
+                  <string notr="true">x.xx.x</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout">
+               <property name="fieldGrowthPolicy">
+                <enum>QFormLayout::ExpandingFieldsGrow</enum>
+               </property>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_4">
+                 <property name="text">
+                  <string>License:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_install_license">
+                 <property name="text">
+                  <string notr="true">BSD</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_2">
+                 <property name="text">
+                  <string>Shortcuts:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_install_shortcuts">
+                 <property name="text">
+                  <string notr="true">Desktop, Menu</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPlainTextEdit" name="text_install_description">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <property name="margin">
+             <number>1</number>
+            </property>
+            <item>
+             <widget class="QToolButton" name="tool_install_startApp">
+              <property name="statusTip">
+               <string>Start the application</string>
+              </property>
+              <property name="text">
+               <string>Start Application</string>
+              </property>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/application.png</normaloff>:/icons/application.png</iconset>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::InstantPopup</enum>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QToolButton" name="tool_install_maintainer">
+              <property name="text">
+               <string>Contact Maintainer</string>
+              </property>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/email.png</normaloff>:/icons/email.png</iconset>
+              </property>
+              <property name="popupMode">
+               <enum>QToolButton::InstantPopup</enum>
+              </property>
+              <property name="toolButtonStyle">
+               <enum>Qt::ToolButtonTextBesideIcon</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="check_install_autoupdate">
+              <property name="statusTip">
+               <string>Automatically update the selected application when an update is available</string>
+              </property>
+              <property name="text">
+               <string>Auto-Update</string>
+              </property>
+              <property name="icon">
+               <iconset resource="SoftwareManager.qrc">
+                <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="group_install_appStat">
+            <property name="title">
+             <string>Current Operations</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_18">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <item>
+                <widget class="QToolButton" name="tool_install_cancel">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>Cancel any actions for this application</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>Cancel any actions for this application</string>
+                 </property>
+                 <property name="text">
+                  <string>Cancel Operations</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="SoftwareManager.qrc">
+                   <normaloff>:/icons/dialog-cancel.png</normaloff>:/icons/dialog-cancel.png</iconset>
+                 </property>
+                 <property name="toolButtonStyle">
+                  <enum>Qt::ToolButtonIconOnly</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QToolButton" name="tool_install_update">
+                 <property name="toolTip">
+                  <string>Update the application to the most recent version</string>
+                 </property>
+                 <property name="statusTip">
+                  <string>Update the selected application</string>
+                 </property>
+                 <property name="text">
+                  <string>Update</string>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="SoftwareManager.qrc">
+                   <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
+                 </property>
+                 <property name="toolButtonStyle">
+                  <enum>Qt::ToolButtonIconOnly</enum>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_install_status">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string notr="true">TextLabel</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <widget class="QProgressBar" name="progress_install_DL">
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_install_DL">
+                 <property name="minimumSize">
+                  <size>
+                   <width>80</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string notr="true">label</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
       </widget>
       <widget class="QWidget" name="tab_browse">
        <attribute name="icon">
@@ -751,8 +836,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>70</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -802,8 +887,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>49</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -827,8 +912,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>86</width>
+                 <height>16</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -1227,7 +1312,7 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>447</width>
+                    <width>413</width>
                     <height>61</height>
                    </rect>
                   </property>
@@ -1288,8 +1373,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>55</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1326,8 +1411,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>55</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1351,8 +1436,8 @@ spacing: 1px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>509</width>
-     <height>21</height>
+     <width>475</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1424,6 +1509,7 @@ spacing: 1px;
  </widget>
  <resources>
   <include location="SoftwareManager.qrc"/>
+  <include location="../../../../.designer/backup/SoftwareManager.qrc"/>
  </resources>
  <connections/>
 </ui>
