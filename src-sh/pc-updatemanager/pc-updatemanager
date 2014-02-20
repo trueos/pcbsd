@@ -59,10 +59,14 @@ DBDIR="/var/db/pc-updatemanager"
 INSDIR="${DBDIR}/installed"
 IGNDIR="${DBDIR}/ignored"
 
+ISOTMP="/usr/local/tmp/pcbsd-update.iso"
 
 ######################################################################
 # Done with config values
 ######################################################################
+
+# Files we always want to upgrade in /etc
+ETCCLOBBER="mail/sendmail.cf mail/freebsd.cf"
 
 show_usage() {
         echo "$0 - Usage
@@ -407,7 +411,6 @@ start_pcbsd_patch() {
 
 rollback_update()
 {
-  cp /tmp/pcbsd.conf.preUpdate.$$ /usr/local/etc/pkg/repos/pcbsd.conf
 }
 
 # After installing the kernel and rebooting, this gets run
@@ -438,6 +441,26 @@ finish_major_fbsd_update() {
      SYSTYPE="server"
   fi
 
+  # Lets Mount the image image now
+  clear
+  MD=`mdconfig -a -t vnode -f ${ISOTMP}` ; export MD
+  if [ ! -d "/mnt/iso-update" ] ; then mkdir -p "/mnt/iso-update"; fi
+  mount -t cd9660 /dev/$MD /mnt/iso-update
+  if [ $? -ne 0 ] ; then
+     # This should never happen, but just in case the user removed the ISO
+     # file or something causes mdconfig / mount to fail, lets roll back
+     rm /var/.freebsd-update-finish
+     rm -rf /boot/kernel
+     mv /boot/kernel.preUpgrade /boot/kernel
+
+     echo "ERROR: Could not mount ${ISOTMP}... Did the file get removed?"
+     echo "The update will now be canceled. Please try again later."
+     echo "Press ENTER to continue"
+     read tmp
+     reboot
+     exit 1
+  fi
+
   # Remove all PBIs
   clear
   echo "Removing PBIs..."
@@ -448,17 +471,17 @@ finish_major_fbsd_update() {
 
     echo "Removing: ${pbi}"
     if [ "$user" != "root" ] ; then
-      su $user -c "pbi_icon del-desktop $pbi"
-      su $user -c "pbi_icon del-menu $pbi"
-      su $user -c "pbi_icon del-mime $pbi"
-      su $user -c "pbi_icon del-pathlnk $pbi"
-      su $user -c "pbi_delete $pbi"
+      su $user -c "pbi_icon del-desktop $pbi" >/dev/null 2>/dev/null
+      su $user -c "pbi_icon del-menu $pbi" >/dev/null 2>/dev/null
+      su $user -c "pbi_icon del-mime $pbi" >/dev/null 2>/dev/null
+      su $user -c "pbi_icon del-pathlnk $pbi" >/dev/null 2>/dev/null
+      su $user -c "pbi_delete $pbi" >/dev/null 2>/dev/null
       result=$?
     else
-      pbi_icon del-desktop $pbi
-      pbi_icon del-menu $pbi
-      pbi_icon del-mime $pbi
-      pbi_icon del-pathlnk $pbi
+      pbi_icon del-desktop $pbi >/dev/null 2>/dev/null
+      pbi_icon del-menu $pbi >/dev/null 2>/dev/null
+      pbi_icon del-mime $pbi >/dev/null 2>/dev/null
+      pbi_icon del-pathlnk $pbi >/dev/null 2>/dev/null
       pbi_delete $pbi >/dev/null 2>/dev/null
       result=$?
     fi
@@ -471,7 +494,7 @@ finish_major_fbsd_update() {
 
   # Start the package cleanup process
   clear
-  echo "Removing packages...This may take a while...\c"
+  echo "Removing packages...This may take a while..."
   pkg delete -afy
   if [ $? -ne 0 ] ; then
      echo "Warning: Failed to remove all packages"
@@ -479,16 +502,106 @@ finish_major_fbsd_update() {
   fi
   echo "Done!"
 
-  # Start the freebsd-update process
+
+  # Setup temp logfile
+  if [ -e "/root/.failed-freebsd" ] ; then rm /root/.failed-freebsd; fi
   clear
-  echo "Installing FreeBSD updates... Please wait..."
-  freebsd-update --non-interactive install | tee /root/.failed-freebsd
+
+  # We need to be sure and removal the immutable flags
+  echo "Preparing filesystem..."
+  chflags -R noschg /
+
+  distFiles="base doc games lib32"
+  for i in $distFiles
+  do
+    echo -e "Updating world: $i...\c"
+    tar -xvp -f /mnt/iso-update/dist/${i}.txz --exclude ./proc --exclude ./etc/ -C / >> /tmp/.extract.$$ 2>> /tmp/.extract.$$
+    if [ $? -ne 0 ] ; then
+       FREEBSDSTATUS=1
+       echo -e "Warning!"
+       cat /tmp/.extract.$$ >> /root/.failed-freebsd
+       sleep 5
+    else
+       echo -e "Done"
+    fi
+  done
+  rm /tmp/.extract.$$
+
+  # Now time to do all the etcmerge stuff
+  TMPETC="/root/etc-update"
+  if [ -d "$TMPETC" ] ; then rm -rf $TMPETC ; fi
+  mkdir -p $TMPETC
+
+  tar -xvp -f /mnt/iso-update/dist/base.txz -C ${TMPETC} ./etc >/dev/null 2>/dev/null
+  mv ${TMPETC}/etc ${TMPETC}/etc-new
+
+  # Can nuke these two, will be re-generated during etcmerge
+  rm ${TMPETC}/etc-new/spwd.db
+  rm ${TMPETC}/etc-new/pwd.db
+
+  echo "Merging /etc..."
+  /sbin/etcmerge -d ${TMPETC} init  >> /root/.failed-freebsd 2>> /root/.failed-freebsd
+  cd $TMPETC
+
+  # Lets copy the files we always want to clobber
+  for i in ${ETCCLOBBER}
+  do
+     # If this file existed on system, save copy of old version
+     if [ -e "/etc/$i" ] ; then
+        cp /etc/${i} etc-merged/${i}.preUpgrade
+     fi
+     # Overwrite the new version
+     if [ -e "etc-merged/${i}" ] ; then
+        cp etc-new/${i} etc-merged/${i}
+     fi
+  done
+
+  # Lets resolve the conflicts found, use the *new* strings by default
+  # Copy the old file to /etc/<file>.preUpgrade
+  for i in $(cat *.conflicts 2> /dev/null); do
+     if [ ! -e "etc-merged/${i}" ] ; then continue ; fi
+     if egrep -q '^(<<<<<<< |=======$|>>>>>>> )' etc-merged/$i; then
+	cp /etc/${i} etc-merged/${i}.preUpgrade
+
+	# Lets parse out the old, bring in new changes
+	rem=0
+        while read line
+	do
+	  echo "$line" | egrep -q '^<<<<<<< '
+	  if [ $? -eq 0 ] ; then rem=1 ; continue ; fi
+
+	  echo "$line" | egrep -q '^=======$'
+	  if [ $? -eq 0 ] ; then rem=0 ; continue ; fi
+
+	  echo "$line" | egrep -q '^>>>>>>> '
+	  if [ $? -eq 0 ] ; then rem=0 ; continue ; fi
+
+	  if [ $rem -eq 0 ] ; then echo "$line" >> etc-merged/${i}.new ; fi
+	done < etc-merged/${i}
+
+	# Copy the fixed file
+	cp -p etc-merged/${i}.new etc-merged/${i}
+	rm etc-merged/${i}.new
+     fi
+  done
+
+  # Now install the merged /etc/ stuff
+  cd $TMPETC
+  /sbin/etcmerge -d ${TMPETC} install >> /root/.failed-freebsd 2>>/root/.failed-freebsd
   if [ $? -ne 0 ] ; then
-     echo "Warning: Failed running freebsd-update install!"
-     echo "Press ENTER to continue"
      FREEBSDSTATUS=1
-     read tmp
+     echo "Warning: Failed etcmerge install..."
+     sleep 5
   fi
+
+  # Save the etc-new directory as the old one now
+  rm -rf /var/db/etc
+  cp -r etc-new /var/db/etc
+
+  # Cleanup
+  rm -rf ${TMPETC}
+  rm /sbin/etcmerge
+
   clear
 
   # Remove this, causes all kinds of havok during the update
@@ -514,17 +627,29 @@ finish_major_fbsd_update() {
   if [ ! -d "/usr/local/etc/pkg/fingerprints/pcbsd/revoked" ] ; then
      mkdir "/usr/local/etc/pkg/fingerprints/pcbsd/revoked"
   fi
-  cd /
-  tar xvpf /usr/local/tmp/pkg.txz /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
-  /usr/local/sbin/pkg-static install -y ports-mgmt/pkg
+  cd /mnt/iso-update/dist/packages/All
+  pkgFile=`ls pkg-[1-9]*`
+  tar xvpf $pkgFile -C / /usr/local/sbin/pkg-static >/dev/null 2>/dev/null
+  /usr/local/sbin/pkg-static add -f $pkgFile
   if [ $? -ne 0 ] ; then
      echo "Warning: Failed to re-install PKGNG..."
      echo "Press ENTER to continue"
      read tmp
   fi
 
-  # Lets update the pkgng repo
+
+  # Lets create our fake pcbsd.conf file
+  echo "pcbsd: {
+  url: \"file:///mnt/iso-update/dist/packages\",
+  enabled: true
+}" >  /usr/local/etc/pkg/repos/pcbsd.conf
+
+  # Now update pkgng
   pkg-static update -f
+  if [ $? -ne 0 ] ; then
+     echo "Failed updating pkgng repo..."
+     sleep 5
+  fi
 
   # Now lets begin re-installing packages
   if [ "$SYSTYPE" = "desktop" ] ; then
@@ -558,19 +683,24 @@ finish_major_fbsd_update() {
   /usr/local/etc/rc.d/pbid start >/dev/null 2>/dev/null
 
   clear
-
-  clear
   echo "Re-Installing meta-packages"
   while read newmeta
   do
-    pc-metapkgmanager add $newmeta
-    if [ $? -ne 0 ] ; then
-       METASTATUS=1
-       echo "$newmeta" >> /root/.failed-meta
-       echo "Warning: Failed to re-install meta-package: $newmeta"
-       echo "Press ENTER to continue"
-       read tmp
-    fi
+    pkgDeps="`pc-metapkgmanager pkgdeps $newmeta`"
+    for i in $pkgDeps
+    do
+      pkg-static info -e ${i}
+      if [ $? -eq 0 ] ; then continue ; fi
+
+      pkg-static install -y ${i}
+      if [ $? -ne 0 ] ; then
+         METASTATUS=1
+         echo "$newmeta" >> /root/.failed-meta
+         echo "Warning: Failed to re-install meta-package: $newmeta (${i})"
+         echo "Press ENTER to continue"
+         read tmp
+      fi
+    done
   done < /root/pcbsd-meta-before-update
 
   # Now lets try re-installing any user-installed packages
@@ -589,6 +719,11 @@ finish_major_fbsd_update() {
        echo "${userpkg}" >> /root/.failed-user-pkgs
     fi
   done < /root/pcbsd-userpkgs-before-update
+
+  cd /
+
+  # Now lets do the overlay extraction (This cleans up the fake pcbsd.conf)
+  pc-extractoverlay ports
 
   # Now lets re-load any PBI files
   clear
@@ -652,16 +787,12 @@ finish_major_fbsd_update() {
     cat /root/.failed-freebsd >> /root/pcbsd-update-summary
   fi
 
-  echo "" >> /root/pcbsd-update-summary
-
   if [ $PKGSTATUS -eq 0 ] ; then
-    echo "PKG: All packages updated successfully!" >> /root/pcbsd-update-summary
+    echo "    PKG: All packages updated successfully!" >> /root/pcbsd-update-summary
   else
-    echo "PKG: The following packages failed to install:" >> /root/pcbsd-update-summary
+    echo "    PKG: The following packages failed to install:" >> /root/pcbsd-update-summary
     cat /root/.failed-pkgs >> /root/pcbsd-update-summary
   fi
-
-  echo "" >> /root/pcbsd-update-summary
 
   if [ $USERPKGSTATUS -eq 0 ] ; then
     echo "USERPKG: All packages updated successfully!" >> /root/pcbsd-update-summary
@@ -670,30 +801,24 @@ finish_major_fbsd_update() {
     cat /root/.failed-user-pkgs >> /root/pcbsd-update-summary
   fi
 
-  echo "" >> /root/pcbsd-update-summary
-
   if [ $METASTATUS -eq 0 ] ; then
-    echo "META: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
+    echo "   META: All meta-packages updated successfully!" >> /root/pcbsd-update-summary
   else
-    echo "META: The following meta-packages failed to install:" >> /root/pcbsd-update-summary
+    echo "   META: The following meta-packages failed to install:" >> /root/pcbsd-update-summary
     cat /root/.failed-meta >> /root/pcbsd-update-summary
   fi
 
-  echo "" >> /root/pcbsd-update-summary
-
   if [ $PBISTATUS -eq 0 ] ; then
-    echo "PBI: All PBIs updated successfully!" >> /root/pcbsd-update-summary
+    echo "    PBI: All PBIs updated successfully!" >> /root/pcbsd-update-summary
   else
-    echo "PBI: The following PBIs failed to install:" >> /root/pcbsd-update-summary
+    echo "    PBI: The following PBIs failed to install:" >> /root/pcbsd-update-summary
     cat /root/.failed-pbi >> /root/pcbsd-update-summary
   fi
 
-  echo "" >> /root/pcbsd-update-summary
-
   if [ $GRUBSTATUS -eq 0 ] ; then
-    echo "GRUB: The GRUB boot-loader menus re-built successfully!" >> /root/pcbsd-update-summary
+    echo "   GRUB: The GRUB boot-loader menus re-built successfully!" >> /root/pcbsd-update-summary
   else
-    echo "GRUB: The GRUB boot-loader menus failed to rebuild:" >> /root/pcbsd-update-summary
+    echo "   GRUB: The GRUB boot-loader menus failed to rebuild:" >> /root/pcbsd-update-summary
     cat /root/.failed-grub >> /root/pcbsd-update-summary
   fi
 
@@ -716,6 +841,12 @@ finish_major_fbsd_update() {
   rm /root/.failed-freebsd 2>/dev/null
 
   more /root/pcbsd-update-summary
+
+  # Cleanup time
+  cd /
+  umount /mnt/iso-update 2>/dev/null
+  mdconfig -d -u $MD 2>/dev/null
+  rm ${ISOTMP} 2>/dev/null
 
   echo "Press ENTER to reboot"
   read tmp
@@ -741,30 +872,42 @@ get_dep_origins()
 start_major_fbsd_update() {
   local rel=`echo $1 | sed 's|fbsd-||g'`
 
-  # Save the repo file
-  cp /usr/local/etc/pkg/repos/pcbsd.conf /tmp/pcbsd.conf.preUpdate.$$
+  # Do the disk-space check
+  rZpool="`mount | grep 'on / ' | awk '{print $1}' | cut -d '/' -f 1`"
+  poolFree="`zpool list -H -o free $rZpool`"
 
-  # Set the new pcbsd.conf file to the new repo
-  local arch=`uname -m`
-  echo "pcbsd: {
-        url: "http://pkg.cdn.pcbsd.org/$rel/$arch",
-        signature_type: "fingerprints",
-        fingerprints: "/usr/local/etc/pkg/fingerprints/pcbsd",
-        enabled: true
-       }" > /usr/local/etc/pkg/repos/pcbsd.conf
+  # is space in GB?
+  echo "$poolFree" | grep -q "G"
+  if [ $? -eq 0 ] ; then
+     poolFree="`echo $poolFree | sed 's|G||g'`"
+     if [ $poolFree -lt 10 ] ; then
+        exit_err "Need at least 20GB of free space to continue"
+     fi
+  fi
 
-  # Lets backup old pkgng
-  oPkg=`pkg info pkg | head -n 1 | awk '{print $1}'`
-  pkg create -o /usr/local/tmp/ ${oPkg}
-  if [ -e "/usr/local/tmp/oldPkg.txz" ] ; then rm /usr/local/tmp/oldPkg.txz; fi
-  mv /usr/local/tmp/${oPkg}.txz /usr/local/tmp/oldPkg.txz
+  # Is space in MB?
+  echo "$poolFree" | grep -q "M"
+  if [ $? -eq 0 ] ; then
+     poolFree="`echo $poolFree | sed 's|M||g'`"
+     if [ $poolFree -lt 10000 ] ; then
+        exit_err "Need at least 20GB of free space to continue"
+     fi
+  fi
 
-  # Lets download the new pkgng for this release
-  if [ -e "/usr/local/tmp/pkg.txz" ] ; then rm /usr/local/tmp/pkg.txz; fi
-  get_file_from_mirrors "/packages/$rel/$arch/Latest/pkg.txz" "/usr/local/tmp/pkg.txz" "pkg"
-  if [ $? -ne 0 ] ; then
-     rollback_update
-     exit_err "Failed downloading pkgng update..."
+  # Grab the ISO file from the mirrors
+  get_file_from_mirrors "/$rel/$ARCH/latest.iso" "$ISOTMP" "iso"
+  get_file_from_mirrors "/$rel/$ARCH/latest.iso.md5" "${ISOTMP}.md5" "iso"
+
+  # Verify the ISO file is good for an update
+  verify_iso_data
+
+  # Lets auto-create a new boot-environment before updating
+  if [ -z "$NOBEADM" ] ; then
+    beadm create ${SYSVER}-beforeUpdate
+    if [ $? -ne 0 ] ; then
+       echo "WARNING: Unable to create a new boot-enviroment!"
+       sleep 10
+    fi
   fi
 
   # Now lets build some lists of what is present on this system now
@@ -825,29 +968,98 @@ start_major_fbsd_update() {
   rm ${mOriginFile}.system
   rm ${mOriginFile}
 
-  # Download update files from freebsd-update
-  freebsd-update --non-interactive -r "$rel" upgrade
-  if [ $? -ne 0 ] ; then
-     rollback_update
-     exit_err "Failed running \"freebsd-update -r $rel upgrade\"..."
+  # Now install the updated kernel
+  if [ -d "/boot/kernel.preUpgrade" ] ; then
+     rm -rf /boot/kernel.preUpgrade
   fi
+  mv /boot/kernel /boot/kernel.preUpgrade
+
+  echo "Updating kernel..."
+  tar xf /mnt/iso-update/dist/kernel.txz -C / 2>/dev/null >/dev/null
+  if [ $? -ne 0 ] ; then
+       rm -rf /boot/kernel
+       mv /boot/kernel.preUpgrade /boot/kernel
+       umount /mnt/iso-update
+       mdconfig -d -u $MD
+       rollback_update
+       exit_err "Kernel update failed! (Old kernel restored)"
+  fi
+
+  # Unmount / cleanup ISO
+  umount /mnt/iso-update
+  mdconfig -d -u $MD
 
   # Touch our marker that we will need to reboot before doing other updates
+  touch /var/.freebsd-update-finish
   touch /tmp/.fbsdup-reboot
 
-  # Now install freebsd-update files
-  freebsd-update --non-interactive install
-  if [ $? -ne 0 ] ; then
+  echo "Major update staged!"
+  echo "Please reboot the system for the updater to continue."
+  exit 0
+}
+
+verify_iso_data()
+{
+  if [ ! -e "${ISOTMP}" ] ; then
      rollback_update
-     exit_err "Failed running \"freebsd-update install\"..."
+     exit_err "ISO fails checksum..."
   fi
 
-  # Remove backup repo file
-  rm /tmp/pcbsd.conf.preUpdate.$$
+  # Check that the MD5 matches
+  echo "Checking ISO checksum..."
+  if [ "`md5 -q $ISOTMP`" != "`cat ${ISOTMP}.md5`" ] ; then
+     rollback_update
+     exit_err "ISO fails checksum..."
+  fi
 
-  echo "Major update finished!" 
-  echo "Please reboot the system for changes to take effect." 
-  exit 0
+  # Now we need to "mount" the ISO, check its contents
+  MD=`mdconfig -a -t vnode -f ${ISOTMP}` ; export MD
+  if [ ! -d "/mnt/iso-update" ] ; then mkdir -p "/mnt/iso-update"; fi
+  mount -t cd9660 /dev/$MD /mnt/iso-update
+  if [ $? -ne 0 ] ; then
+     mdconfig -d -u $MD
+     rollback_update
+     exit_err "ISO failed mount..."
+  fi
+
+  # Now we are mounted, verify the dist files exist and can be read
+  distFiles="base doc games kernel lib32"
+  for i in $distFiles
+  do
+     if [ ! -e "/mnt/iso-update/dist/${i}.txz" ] ; then
+       umount /mnt/iso-update
+       mdconfig -d -u $MD
+       rollback_update
+       exit_err "ISO missing distfile: /dist/${i}.txz"
+     fi
+
+     echo "Verifying distfile: ${i}.txz"
+     tar tf "/mnt/iso-update/dist/${i}.txz" >/dev/null 2>/dev/null
+     if [ $? -ne 0 ] ; then
+       umount /mnt/iso-update
+       mdconfig -d -u $MD
+       rollback_update
+       exit_err "ISO corrupt distfile: /dist/${i}.txz"
+     fi
+  done
+
+  # Lastly we need to check for the pristine /etc for use by etcmerge
+  if [ ! -e "/var/db/etc/rc" ] ; then
+       umount /mnt/iso-update
+       mdconfig -d -u $MD
+       rollback_update
+       exit_err "Missing etcmerge directory: /var/db/etc"
+  fi
+
+  # Make sure we have /sbin/etcmerge copied over
+  cp ${PROGDIR}/etcmerge /sbin/etcmerge
+  if [ $? -ne 0 ] ; then
+       umount /mnt/iso-update
+       mdconfig -d -u $MD
+       rollback_update
+       exit_err "Failed setting up etcmerge..."
+  fi
+  chmod 755 /sbin/etcmerge
 }
 
 do_install() {
