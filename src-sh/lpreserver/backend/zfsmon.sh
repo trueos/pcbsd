@@ -26,20 +26,21 @@ haveMsg=0
 # Remove the old du alert flag
 if [ -e "${DBDIR}/zpool-alert-du" ] ; then rm ${DBDIR}/zpool-alert-du ; fi
 
-zpool list  | grep -v "^NAME" > /tmp/.lPreserver-df.$$
-while read line
+# Do the disk-space check
+for zpool in `zpool list -H | awk '{print $1}'`
 do
-   cap=`echo $line | awk '{print $5}' | cut -d '%' -f 1`
-   zpool=`echo $line | awk '{print $1}'`
-   if [ $(is_num "$cap") ] ; then
-      if [ $cap -gt $DUWARN ] ; then
- 	 queue_msg "Warning! ${zpool} is currently at ${cap}% capacity!"	
-         echo "$cap" > $DBDIR/zpool-alert-du
-         haveMsg=1
-      fi
-   fi
-done< /tmp/.lPreserver-df.$$
-rm /tmp/.lPreserver-df.$$
+  poolCap="`zpool list -H -o capacity $zpool | cut -d '%' -f 1`"
+
+  if [ $poolCap -gt $DUWARN ] ; then
+     queue_msg "Warning! ${zpool} is currently at ${poolCap}% capacity!"
+     echo "$poolCap" > $DBDIR/zpool-alert-du
+     haveMsg=1
+  fi
+
+  # See if we can do any auto-cleanup of this pool
+  if [ $poolCap -gt 85 ] ; then do_pool_cleanup "$zpool"; fi
+
+done
 
 # Lets check free disk space on the pools
 if [ $haveMsg -eq 1 ] ; then
