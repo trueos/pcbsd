@@ -54,6 +54,7 @@ private slots:
   void on_actionExport_PBI_List_triggered();
   void on_actionQuit_triggered();
   void on_actionAppCafe_Settings_triggered();
+  void on_actionInstall_From_File_triggered();
   //INSTALLED TAB
   void slotRefreshInstallTab();
   void slotCheckSelectedItems();

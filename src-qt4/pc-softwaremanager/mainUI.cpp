@@ -125,6 +125,21 @@ void MainUI::on_actionAppCafe_Settings_triggered(){
   PBI->openConfigurationDialog();
 }
 
+void MainUI::on_actionInstall_From_File_triggered(){
+  QStringList files = QFileDialog::getOpenFileNames(this, tr("Install PBI"), QDir::homePath(), tr("PBI Application (*.pbi)") );
+  if(files.isEmpty()){ return; } //cancelled
+  //Verify that they want to install these applications
+  QStringList names;
+  for(int i=0; i<files.length(); i++){ names << files[i].section("/",-1); }
+  names.sort();
+  if( QMessageBox::Yes == QMessageBox::question(this, tr("Verify Installation"), tr("Are you ready to begin installing these PBI's?")+"\n"+tr("NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.")+"\n\n"+names.join("\n"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+    //This might take a while, so don't allow the user to run this action again until it is done (thread safe though)
+    ui->actionInstall_From_File->setEnabled(false);
+    PBI->installPBIFromFile(files);
+    ui->actionInstall_From_File->setEnabled(true);
+  }
+}
+
 // =========================
 // ===== INSTALLED TAB =====
 // =========================
@@ -163,6 +178,8 @@ void MainUI::initializeInstalledTab(){
   ui->tree_install_apps->setIconSize(QSize(22,22));
   connect(ui->tree_install_apps, SIGNAL(itemClicked(QTreeWidgetItem*, int)), this, SLOT(slotCheckSelectedItems()) );
   slotRefreshInstallTab();
+  qDebug() << "Detailed shortcuts button not implemented yet";
+  ui->tool_install_shortcuts->setEnabled(false);
 }
 
 void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){

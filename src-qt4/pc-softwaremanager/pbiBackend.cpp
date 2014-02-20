@@ -293,6 +293,21 @@ void PBIBackend::installApp(QStringList appID){
   emit LocalPBIChanges();
 }
 
+void PBIBackend::installPBIFromFile(QStringList files){
+  qDebug() << "Install PBI files requested for:" << files;
+  for(int i=0; i<files.length(); i++){
+    if(!files[i].endsWith(".pbi")){ continue; } //invalid file
+    //Now load the info about this PBI
+    bool root = PBIFileNeedsRoot(files[i]);
+    //Now create the commands
+    QString cmd = addRootCMD("pc-pbigui "+files[i], root);
+    //Don't bother integrating it furthur, the pc-pbigui will handle it all better
+    //  and if it actually gets installed it will automatically get detected/added to the AppCafe list
+    PENDINGOTHER << "EXTERNAL:::"+cmd;
+  }
+  QTimer::singleShot(0,this,SLOT(checkProcesses()) );
+}
+
 void PBIBackend::addDesktopIcons(QStringList pbiID, bool allusers){ // add XDG desktop icons
   for(int i=0; i<pbiID.length(); i++){
     if(PBIHASH.contains(pbiID[i])){
@@ -860,15 +875,24 @@ bool PBIBackend::loadSettings(){
    return output;
  }
  
- QStringList PBIBackend::removePbiCMD(QString pbiID, QStringList list){
+QStringList PBIBackend::removePbiCMD(QString pbiID, QStringList list){
    //Used for removing any pending CMD's for a particular pbiID
    QStringList output;
    for(int i=0; i<list.length(); i++){
      if(!list[i].startsWith(pbiID)){ output << list[i]; }	   
    }
    return output;
- }
- 
+}
+
+bool PBIBackend::PBIFileNeedsRoot(QString filepath){
+  //Used to grab information from a stand-along *.pbi file
+  bool root = false;
+  QStringList info = Extras::getCmdOutput("pbi_add -i "+filepath);
+  //Only check if it needs root
+  root = !info.filter("RootInstall:").join("").contains("NO");
+  return root;
+}
+
 void PBIBackend::queueInstall(QString appID, QString version){
   //This function assumes that the new app/version combination is not already installed on the system
   //  and that upgrading is not an option (fresh download/install)	
@@ -994,10 +1018,12 @@ void PBIBackend::queueInstall(QString appID, QString version){
      cOther = PENDINGOTHER[0].section(":::",0,0); //should be a pbiID -ONLY-
      QString cmd = PENDINGOTHER[0].section(":::",1,50);
      PENDINGOTHER.removeAt(0);	  
-     if( !cmd.isEmpty() && PBIHASH.contains(cOther) ){
+     if( !cmd.isEmpty() && (PBIHASH.contains(cOther) || cOther=="EXTERNAL") ){
        //Update the PBI status
-       PBIHASH[cOther].setStatus(InstalledPBI::WORKING);
-       emit PBIStatusChange(cOther);
+       if(cOther!="EXTERNAL"){
+         PBIHASH[cOther].setStatus(InstalledPBI::WORKING);
+         emit PBIStatusChange(cOther);
+       }
        //Start the process
        PMAN->startProcess(ProcessManager::OTHER,cmd);
      }else{

@@ -31,6 +31,8 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QProcessEnvironment>
+#include <QProcess>
+#include <QCoreApplication>
 
 class Extras{
 
@@ -147,6 +149,19 @@ public:
    //qDebug() << "Size calculation:" << sizeK << output;
    return output;
  }
+ 
+static QStringList getCmdOutput(QString cmd, QString dir = ""){
+  QProcess *proc = new QProcess;
+  proc->setProcessChannelMode(QProcess::MergedChannels);
+  if( !dir.isEmpty() && QFile::exists(dir) ){ proc->setWorkingDirectory(dir); }
+  proc->start(cmd);
+  while(!proc->waitForFinished(300)){
+    QCoreApplication::processEvents();
+  }
+  QStringList out = QString(proc->readAllStandardOutput()).split("\n");	
+  delete proc;	
+  return out;
+}
  
 };
 

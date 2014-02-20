@@ -51,6 +51,7 @@ public:
 	void upgradePBI(QStringList pbiID); //start upgrade process for list of PBI's
 	void removePBI(QStringList pbiID); //start the removal process
 	void installApp(QStringList appID); //[install/upgrade/downgrade] application from the repo (as appropriate)
+	void installPBIFromFile(QStringList files); //[install/upgrade/downgrade] application from file
 	void addDesktopIcons(QStringList pbiID, bool allusers); // add XDG desktop icons
 	void addMenuIcons(QStringList pbiID, bool allusers); // add XDG menu icons
 	void addPaths(QStringList pbiID, bool allusers); // create path links
@@ -120,6 +121,7 @@ private:
 	QString generateDownloadCMD(QString appID, QString version="");
 	QString generateInstallCMD(QString appID, QString pbiID);
 	QStringList removePbiCMD(QString pbiID, QStringList list);
+	bool PBIFileNeedsRoot(QString filepath);
 	
 	//Internal functions for queuing up actions
 	void queueInstall(QString appID, QString version="");
