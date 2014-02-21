@@ -137,8 +137,7 @@
     </message>
     <message>
         <source>Update Details</source>
-        <translation>
-            Подробности обновления</translation>
+        <translation>Подробности обновления</translation>
     </message>
     <message>
         <source>Base System Updates</source>

@@ -194,10 +194,6 @@
         <translation>Inačica:</translation>
     </message>
     <message>
-        <source>Author:</source>
-        <translation>Autor:</translation>
-    </message>
-    <message>
         <source>License:</source>
         <translation>Licenca:</translation>
     </message>
@@ -209,10 +205,6 @@
         <source>Cancel any actions for this application</source>
         <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -230,15 +222,6 @@
     <message>
         <source>Update the selected application</source>
         <translation>Ažuriraj izabrani program</translation>
-    </message>
-    <message>
-        <source>Update Application</source>
-        <translation>Ažuriraj program</translation>
-    </message>
-    <message>
-        <source>Open the browser page for the selected application</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -525,11 +508,6 @@
         <translation>Pokreni program</translation>
     </message>
     <message>
-        <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Verify Installation</source>
         <translation type="unfinished">
             </translation>
@@ -548,16 +526,72 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architecture:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contact Maintainer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Application (*.pbi)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you ready to begin installing these PBI&apos;s?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Update?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to start updating this application right now?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
         <translation>Instaliram</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation>Uklanjam</translation>
     </message>
     <message>
         <source>Updating</source>
@@ -706,6 +740,10 @@
     <message>
         <source>Update Available: %1</source>
         <translation>Ažuriranje dostupno: %1</translation>
+    </message>
+    <message>
+        <source>Removing Application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

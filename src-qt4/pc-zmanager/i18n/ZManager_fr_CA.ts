@@ -559,38 +559,31 @@ Lisez le manuel ZFS pour plus d&apos;informations.</translation>
     </message>
     <message>
         <source>Do not mount any filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ne montez pas les systèmes de fichiers</translation>
     </message>
     <message>
         <source>Read only pool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lecture seule pool</translation>
     </message>
     <message>
         <source>Import options:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Options d&apos;importation:</translation>
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monter avec l&apos;alternative root</translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Monter les systèmes de fichier automatiquement</translation>
     </message>
     <message>
         <source>Mounting behavior:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Comportement de montage:</translation>
     </message>
     <message>
         <source>Force operation if error (use with caution)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Forcer l&apos;opération en cas d&apos;erreur (utiliser avec prudence)</translation>
     </message>
 </context>
 <context>
@@ -945,8 +938,17 @@ in a different location that can later be imported with &quot;zpool import
 -c&quot;.  Setting it to the special value &quot;none&quot; creates a temporary pool
 that is never cached, and the special value &apos;&apos; (empty string) uses
 the default location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contrôles de l&apos;emplacement où la configuration de pool est mise en cache.
+Découvrir tous les pools au démarrage du système nécessite une copie en cache de la
+les données de configuration qui sont stockées sur le système de fichiers racine. Toutes les piscines
+dans ce cache sont importés automatiquement au démarrage du système. Certains
+environnements, tels que l&apos;installation et le clustering, doivent mettre en cache
+informations dans un emplacement différent de sorte que les pools ne sont pas automatiquement
+importés. Définition de cette propriété met en cache de la configuration du pool
+à un autre endroit qui peut ensuite être importé avec &quot;zpool import
+-c &quot;. Réglage à la valeur spéciale&quot; none &quot;crée un pool temporaire
+qui n&apos;est jamais mis en cache, et la valeur spéciale&apos;&apos; (chaîne vide) utilise
+l&apos;emplacement par défaut</translation>
     </message>
     <message>
         <source>If set to on, pool will be imported in read-only mode with the
@@ -957,8 +959,14 @@ following restrictions:
   *   To write to a read-only pool, a export and import of the pool
       is required.
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Si réglé sur, le pool sera importé en mode lecture seule avec le
+restrictions suivantes:
+* Données synchrones dans le journal d&apos;intention ne seront pas accessibles
+* Propriétés des pools ne peuvent être modifiés
+* Les ensembles de données de ce pool ne peuvent être montés en lecture seule
+* Pour écrire en lecture seule ce pool, une exportation et l&apos;importation de ce pool
+est nécessaire.
+</translation>
     </message>
     <message>
         <source>Controls the system behavior in the event of catastrophic pool failure
@@ -1477,21 +1485,21 @@ OK pour détruire la tranche / partition?</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation>Nouveau nom </translation>
+        <translation>Nouveau nom</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.
 Any snapshots created after this one will be deleted, along with any clone filesystems that depend on them.
 </source>
         <translation>Cette opération ne peut être annulée et fera toutes les données ajoutées après l&apos;instantané à perdre.
- Toutes les instantanés créés après celui-ci seront supprimés, ainsi que tous les systèmes de fichiers clone qui en dépendent. 
+Toutes les instantanés créés après celui-ci seront supprimés, ainsi que tous les systèmes de fichiers clone qui en dépendent.
 </translation>
     </message>
     <message>
         <source>This pool had been destroyed, and its disks may have been reused. Attempting to recover will destroy any new data that could&apos;ve been stored in the devices that were reused and cannot be recovered.
 Proceed with recovery?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ce pool a été détruite, et ses disques peut avoir été réutilisés. Tenter de le récupérer va détruire de nouvelles données qui pourraient avoir été stockée dans les dispositifs qui ont été réutilisés et ne peuvent pas être récupérés.
+Procéder au recouvrement?</translation>
     </message>
     <message>
         <source>An error was detected while executing &apos;%1&apos;:

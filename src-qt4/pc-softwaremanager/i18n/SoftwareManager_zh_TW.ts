@@ -179,10 +179,6 @@
         <translation>版本：</translation>
     </message>
     <message>
-        <source>Author:</source>
-        <translation>作者：</translation>
-    </message>
-    <message>
         <source>License:</source>
         <translation>授權條款：</translation>
     </message>
@@ -193,10 +189,6 @@
     <message>
         <source>Cancel any actions for this application</source>
         <translation>取消此應用程式所有動作</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -213,14 +205,6 @@
     <message>
         <source>Update the selected application</source>
         <translation>更新所選應用程式</translation>
-    </message>
-    <message>
-        <source>Update Application</source>
-        <translation>更新應用程式</translation>
-    </message>
-    <message>
-        <source>Open the browser page for the selected application</source>
-        <translation>為所選應用程式開啟瀏覽頁</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -483,11 +467,6 @@
         <translation>啟動應用程式</translation>
     </message>
     <message>
-        <source>Product Page</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Verify Installation</source>
         <translation type="unfinished">
             </translation>
@@ -507,16 +486,72 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architecture:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contact Maintainer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Application (*.pbi)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you ready to begin installing these PBI&apos;s?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Update?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to start updating this application right now?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
         <translation type="unfinished">安裝</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation>移除</translation>
     </message>
     <message>
         <source>Updating</source>
@@ -649,6 +684,10 @@
     <message>
         <source>Update Available: %1</source>
         <translation>有更新提供：%1</translation>
+    </message>
+    <message>
+        <source>Removing Application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

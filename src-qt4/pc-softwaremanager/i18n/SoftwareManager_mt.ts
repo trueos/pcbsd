@@ -179,10 +179,6 @@
         <translation>Version:</translation>
     </message>
     <message>
-        <source>Author:</source>
-        <translation>Author:</translation>
-    </message>
-    <message>
         <source>License:</source>
         <translation>License:</translation>
     </message>
@@ -193,10 +189,6 @@
     <message>
         <source>Cancel any actions for this application</source>
         <translation>Ikkanċella għal azzjonijiet eventwali għal din l-applikazzjoni</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -213,14 +205,6 @@
     <message>
         <source>Update the selected application</source>
         <translation>Taġġorna l-applikazzjoni magħżula</translation>
-    </message>
-    <message>
-        <source>Update Application</source>
-        <translation>Aġġornament Applikazzjoni</translation>
-    </message>
-    <message>
-        <source>Open the browser page for the selected application</source>
-        <translation>Iftaħ il-paġna browser għall-applikazzjoni magħżula</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -483,10 +467,6 @@
         <translation>Tibda l-applikazzjoni</translation>
     </message>
     <message>
-        <source>Product Page</source>
-        <translation>Prodott Page</translation>
-    </message>
-    <message>
         <source>Verify Installation</source>
         <translation>Ivverifika Installazzjoni</translation>
     </message>
@@ -502,16 +482,72 @@
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architecture:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contact Maintainer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Application (*.pbi)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you ready to begin installing these PBI&apos;s?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Update?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to start updating this application right now?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
         <translation>Installazzjoni</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation>It-tneħħija</translation>
     </message>
     <message>
         <source>Updating</source>
@@ -644,6 +680,10 @@
     <message>
         <source>Update Available: %1</source>
         <translation>Aġġornament Disponibbli: %1</translation>
+    </message>
+    <message>
+        <source>Removing Application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

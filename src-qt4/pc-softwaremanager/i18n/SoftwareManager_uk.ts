@@ -179,10 +179,6 @@
         <translation>Версія:</translation>
     </message>
     <message>
-        <source>Author:</source>
-        <translation>Автор:</translation>
-    </message>
-    <message>
         <source>License:</source>
         <translation>Ліцензія:</translation>
     </message>
@@ -193,10 +189,6 @@
     <message>
         <source>Cancel any actions for this application</source>
         <translation>Відмінити будь-які поточні дії з цим додаткрм</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -213,14 +205,6 @@
     <message>
         <source>Update the selected application</source>
         <translation>Оновити обраний додаток</translation>
-    </message>
-    <message>
-        <source>Update Application</source>
-        <translation>Оновити додаток</translation>
-    </message>
-    <message>
-        <source>Open the browser page for the selected application</source>
-        <translation>Відкрити сторінку огляду для обраного додатку</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -483,10 +467,6 @@
         <translation>Запустити додаток</translation>
     </message>
     <message>
-        <source>Product Page</source>
-        <translation>Переглянути опис</translation>
-    </message>
-    <message>
         <source>Verify Installation</source>
         <translation>Перевірка встановлення</translation>
     </message>
@@ -502,16 +482,72 @@
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architecture:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contact Maintainer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Application (*.pbi)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you ready to begin installing these PBI&apos;s?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Update?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to start updating this application right now?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
         <translation>Встановлення</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation>Видалення</translation>
     </message>
     <message>
         <source>Updating</source>
@@ -644,6 +680,10 @@
     <message>
         <source>Update Available: %1</source>
         <translation>Наявне оновлення: %1</translation>
+    </message>
+    <message>
+        <source>Removing Application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

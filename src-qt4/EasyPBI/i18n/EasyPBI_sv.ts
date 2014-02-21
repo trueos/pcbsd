@@ -765,8 +765,7 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pkg Inställning</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>

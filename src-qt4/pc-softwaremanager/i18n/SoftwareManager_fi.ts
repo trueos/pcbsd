@@ -203,10 +203,6 @@
         <translation>Versio:</translation>
     </message>
     <message>
-        <source>Author:</source>
-        <translation>Tekijä:</translation>
-    </message>
-    <message>
         <source>License:</source>
         <translation>Lisenssi:</translation>
     </message>
@@ -218,10 +214,6 @@
     <message>
         <source>Cancel any actions for this application</source>
         <translation>Peru kaikki sovellusta koskevat toiminnot</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -238,14 +230,6 @@
     <message>
         <source>Update the selected application</source>
         <translation>Päivitä valitus sovellukset</translation>
-    </message>
-    <message>
-        <source>Update Application</source>
-        <translation>Päivitä sovellus</translation>
-    </message>
-    <message>
-        <source>Open the browser page for the selected application</source>
-        <translation>Avaa sovellusta koskeva selaimen sivu</translation>
     </message>
     <message>
         <source>Automatically update the selected application when an update is available</source>
@@ -537,10 +521,6 @@
         <translation>Käynnistä sovellus</translation>
     </message>
     <message>
-        <source>Product Page</source>
-        <translation>Tuotesivu</translation>
-    </message>
-    <message>
         <source>Verify Installation</source>
         <translation>Vahvista asennus</translation>
     </message>
@@ -558,16 +538,72 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Find</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Created:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Architecture:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Contact Maintainer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Operations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Install PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PBI Application (*.pbi)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you ready to begin installing these PBI&apos;s?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start Update?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you wish to start updating this application right now?</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBIBackend</name>
     <message>
         <source>Installing</source>
         <translation>Asennus käynnissä</translation>
-    </message>
-    <message>
-        <source>Removing</source>
-        <translation>Poisto käynnissä</translation>
     </message>
     <message>
         <source>Updating</source>
@@ -709,6 +745,10 @@
     <message>
         <source>Update Available: %1</source>
         <translation>Päivitys saatavilla: %1</translation>
+    </message>
+    <message>
+        <source>Removing Application</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

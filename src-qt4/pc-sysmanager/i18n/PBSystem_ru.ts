@@ -135,8 +135,7 @@
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
