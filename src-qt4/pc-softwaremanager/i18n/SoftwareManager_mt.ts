@@ -484,63 +484,63 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Dahar</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Sib</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidu</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>Maħluqa:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Arkitettura:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Shortcuts</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuntatt manutenzjoni</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>Operazzjonijiet kurrenti</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikkanċella Operazzjonijiet</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>Installa PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBI Applikazzjoni (*. PBI)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished"></translation>
+        <translation>Inti lest li tibda l-installazzjoni dawn l PBI?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished"></translation>
+        <translation>NOTA: Ikollok bżonn li manwalment żid ikoni desktop / menu permezz tal-AppCafe wara.</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ibda Aġġornament?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Do inti tixtieq li tibda aġġornament din l-applikazzjoni dritt issa?</translation>
     </message>
 </context>
 <context>
@@ -683,7 +683,7 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished"></translation>
+        <translation>It-tneħħija Applikazzjoni</translation>
     </message>
 </context>
 <context>

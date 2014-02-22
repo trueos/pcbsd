@@ -484,63 +484,63 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>lưng</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Tìm</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>bắt đầu</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>tạo ra:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished"></translation>
+        <translation>kiến trúc:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Các phím tắt</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Liên hệ với Maintainer</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>Vận hành hiện tại</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>hủy bỏ Vận hành</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>cài đặt PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBI ứng dụng (* PBI.)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn đã sẵn sàng để bắt đầu cài đặt các của PBI?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished"></translation>
+        <translation>Chú ý: Bạn sẽ cần phải tự thêm các biểu tượng máy tính để bàn / menu thông qua các AppCafe sau đó.</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu cập nhật?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bạn có muốn bắt đầu cập nhật ứng dụng này ngay bây giờ?</translation>
     </message>
 </context>
 <context>
@@ -683,7 +683,7 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished"></translation>
+        <translation>loại bỏ ứng dụng</translation>
     </message>
 </context>
 <context>

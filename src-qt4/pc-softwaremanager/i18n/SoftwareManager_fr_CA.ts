@@ -472,7 +472,7 @@
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation>Êtes-vous sûr que vous voulez installer cette application?    </translation>
+        <translation>Êtes-vous sûr que vous voulez installer cette application?</translation>
     </message>
     <message>
         <source>Shift+Q</source>
@@ -484,63 +484,63 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Retour</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>Trouver</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Débuter</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>Créé le:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished"></translation>
+        <translation>Architecture:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Raccourcis</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Contactez le Responsable</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler l&apos;opération</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler les opérations</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>Installer PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBI Application (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished"></translation>
+        <translation>Êtes-vous prêt à commencer l&apos;installation de ces PBI?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished"></translation>
+        <translation>REMARQUE: Vous aurez besoin d&apos;ajouter manuellement des icônes de bureau/menu par AppCafe après</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished"></translation>
+        <translation>Commencez la mise à jour?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished"></translation>
+        <translation>Voulez-vous commencer à mettre à jour cette application maintenant?</translation>
     </message>
 </context>
 <context>
@@ -683,7 +683,7 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Retirer l&apos;Application</translation>
     </message>
 </context>
 <context>

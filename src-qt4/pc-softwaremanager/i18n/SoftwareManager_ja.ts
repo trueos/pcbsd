@@ -484,63 +484,63 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>戻る</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished"></translation>
+        <translation>見つける</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>開始</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished"></translation>
+        <translation>作成:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished"></translation>
+        <translation>アーキテクチャー:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>メンテナー連絡先</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>現在の操作</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished"></translation>
+        <translation>操作を止める</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>PBIをインストールする</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished"></translation>
+        <translation>PBIアプリケーション (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished"></translation>
+        <translation>これらのPBIをインストールしてよろしいですか?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished"></translation>
+        <translation>注意: AppCafeの後に手動でデスクトップ及びメニューアイコンの追加が必要になるでしょう。</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished"></translation>
+        <translation>アップデートを開始してよろしいですか?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished"></translation>
+        <translation>このアプリケーションを今すぐアップデートしてよろしいですか?</translation>
     </message>
 </context>
 <context>
@@ -683,7 +683,7 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished"></translation>
+        <translation>アプリケーションを削除しています</translation>
     </message>
 </context>
 <context>
