@@ -528,7 +528,7 @@
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation>これらのPBIをインストールしてよろしいですか?</translation>
+        <translation>これらの PBI をインストールしてよろしいですか?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>

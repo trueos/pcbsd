@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ferramenta de relatório de erros do PC-BSD</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -15,18 +14,15 @@
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sistema básico do FreeBSD</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Sistema básico do PC-BSD</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servidor Xorg</translation>
     </message>
     <message>
         <source>Desktop environment</source>
@@ -35,18 +31,15 @@
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Software do FreeBSD (ports/pacotes)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Software do PC-BSD (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Enviar um relatório de erros usando o mecanismo SEND-PR do FreeBSD</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -65,13 +58,11 @@
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Servidor X.org</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Enviar um relatório de erros usando o mecanismo bugzilla do freedesktop</translation>
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
@@ -95,13 +86,11 @@
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo item</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
@@ -115,8 +104,7 @@
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
@@ -130,8 +118,7 @@
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
@@ -145,8 +132,7 @@
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
@@ -160,8 +146,7 @@
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambiente de trabalho não suportado</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
@@ -175,8 +160,7 @@
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Software FreeBSD</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
@@ -185,33 +169,27 @@
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Software PBI</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, selecione o software PBI com erro</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ícone</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicativo</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Você pode tentar reportar um erro no site do software</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
@@ -220,18 +198,15 @@
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Software PBI: </translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não está listado aqui?</translation>
     </message>
     <message>
         <source>MATE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
@@ -240,8 +215,7 @@
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
@@ -253,18 +227,15 @@
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Copiar para a área de transferência</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fechar</translation>
     </message>
 </context>
 <context>
@@ -281,53 +252,43 @@
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Capturar a imagem da tela</translation>
     </message>
     <message>
         <source>dmesg output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saída dmesg</translation>
     </message>
     <message>
         <source>Xorg log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Registro do Xorg</translation>
     </message>
     <message>
         <source>Diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Relatório de diagnóstico</translation>
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Relatório de diagnóstico do PCBSD</translation>
     </message>
     <message>
         <source>lsusb output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saída lsusb</translation>
     </message>
     <message>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lista de dispositivos PCI - PCIConf</translation>
     </message>
     <message>
         <source>Xorg version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão do Xorg</translation>
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão do FreeBSD  (uname -a)</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falha</translation>
     </message>
     <message>
         <source>Failed to create diagnostic sheet</source>
@@ -344,8 +305,7 @@
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar navegador web</translation>
     </message>
 </context>
 <context>
@@ -362,23 +322,19 @@
     </message>
     <message>
         <source>Send message to</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enviar mensagem para</translation>
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Escrever e-mail</translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Visite a seguinte página web para se inscrever ou visualizar arquivos.</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iniciar navegador web</translation>
     </message>
 </context>
 </TS>

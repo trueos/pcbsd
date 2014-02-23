@@ -1450,7 +1450,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation>zfs メニュー</translation>
+        <translation>ZFS メニュー</translation>
     </message>
     <message>
         <source>Confirmation</source>

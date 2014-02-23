@@ -348,8 +348,7 @@ from the supported software release.</source>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">O sistema de arquivos está marcado para ser destruído após desmontar.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this
@@ -401,22 +400,21 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>This property cannot be changed after the system is created.</source>
-        <translation type="unfinished">Esta propriedade não pode ser alterada depois que o sistema foi criado.</translation>
+        <translation>Esta propriedade não pode ser alterada após o sistema ser criado.</translation>
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriedade do usuário</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Propriedade desconhecida ou informação não disponível.
+Leia o manual do ZFS para mais informações.</translation>
     </message>
     <message>
         <source>[Invalid]</source>
-        <translation type="unfinished">[Inválido]</translation>
+        <translation>[Inválido]</translation>
     </message>
     <message>
         <source>[Inherit]</source>
@@ -425,11 +423,11 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>[Added]</source>
-        <translation type="unfinished">[Adicionado]</translation>
+        <translation>[Adicionado]</translation>
     </message>
     <message>
         <source>[Changed]</source>
-        <translation type="unfinished">[Alterado]</translation>
+        <translation>[Alterado]</translation>
     </message>
     <message>
         <source>User property</source>
@@ -438,29 +436,26 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">Menu do dispositivo</translation>
+        <translation>Menu do dispositivo</translation>
     </message>
     <message>
         <source>Add new user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Adicionar nova propriedade de usuário</translation>
     </message>
     <message>
         <source>Delete user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apagar propriedade de usuário</translation>
     </message>
 </context>
 <context>
     <name>DialogMount</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Diálogo</translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>Device to mount:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dispositivo a montar:</translation>
     </message>
     <message>
         <source>(Device)</source>
@@ -468,7 +463,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Mount location:</source>
-        <translation type="unfinished">Localização da montagem:</translation>
+        <translation>Localização da montagem:</translation>
     </message>
     <message>
         <source>...</source>
@@ -476,14 +471,14 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Select Directory</source>
-        <translation type="unfinished">Selecionar diretório</translation>
+        <translation>Selecionar diretório</translation>
     </message>
 </context>
 <context>
     <name>DialogName</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Diálogo</translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>Pool name:</source>
@@ -492,8 +487,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Do not mount any filesystems</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Não montar quaisquer sistemas de arquivos</translation>
     </message>
     <message>
         <source>Read only pool</source>
@@ -512,8 +506,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montar todos os sistemas de arquivos automaticamente</translation>
     </message>
     <message>
         <source>Mounting behavior:</source>
@@ -522,15 +515,14 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Force operation if error (use with caution)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Forçar operação em caso de erro (use com cuidado)</translation>
     </message>
 </context>
 <context>
     <name>DialogNewPool</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">Diálogo</translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>Selected</source>
@@ -543,8 +535,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Configuration type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tipo de configuração:</translation>
     </message>
     <message>
         <source>Striped</source>
@@ -573,8 +564,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Registro</translation>
     </message>
     <message>
         <source>Spare</source>
@@ -598,8 +588,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Must select at least one device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Deve selecionar pelo menos um dispositivo</translation>
     </message>
 </context>
 <context>
@@ -627,7 +616,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Largest available free block:</source>
-        <translation type="unfinished">Maior bloco livre disponível:</translation>
+        <translation>Maior bloco livre disponível:</translation>
     </message>
     <message>
         <source>Total Size:</source>
@@ -640,8 +629,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Designation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Designação</translation>
     </message>
     <message>
         <source>Start Sector</source>
@@ -659,8 +647,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cor</translation>
     </message>
     <message>
         <source>New partition Size:</source>
@@ -688,7 +675,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Partition type:</source>
-        <translation type="unfinished">Tipo de partição:</translation>
+        <translation>Tipo de partição:</translation>
     </message>
     <message>
         <source>freebsd-zfs</source>
@@ -744,8 +731,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valor</translation>
     </message>
     <message>
         <source>Total size of the storage pool.</source>
@@ -918,7 +904,7 @@ crash dump.
     <name>DialogfsCreate</name>
     <message>
         <source>New Filesystem</source>
-        <translation type="unfinished">Novo sistema de arquivos</translation>
+        <translation>Novo sistema de arquivos</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -931,8 +917,7 @@ crash dump.
     </message>
     <message>
         <source>Prevent auto mount (canmount=noauto)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Evitar montagem automática (canmount=noauto)</translation>
     </message>
     <message>
         <source>Mountpoint</source>
@@ -940,7 +925,7 @@ crash dump.
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished">nenhum</translation>
+        <translation>nenhum</translation>
     </message>
     <message>
         <source>legacy</source>
@@ -952,13 +937,11 @@ crash dump.
     </message>
     <message>
         <source>Force UTF-8 only (utf8only=on)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Forçar UTF-8 apenas (utf8only=on)</translation>
     </message>
     <message>
         <source>Unicode normalization =</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Normalização Unicode =</translation>
     </message>
     <message>
         <source>formD</source>
@@ -970,7 +953,7 @@ crash dump.
     </message>
     <message>
         <source>Copies =</source>
-        <translation type="unfinished">Cópias =</translation>
+        <translation>Cópias =</translation>
     </message>
     <message>
         <source>Deduplication (dedup=on)</source>
@@ -978,17 +961,15 @@ crash dump.
     </message>
     <message>
         <source>Compression =</source>
-        <translation type="unfinished">Compressão =</translation>
+        <translation>Compressão =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">desligado</translation>
     </message>
     <message>
         <source>on</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">ligado</translation>
     </message>
     <message>
         <source>lzjb</source>
@@ -1043,7 +1024,7 @@ crash dump.
     <name>ZManagerWindow</name>
     <message>
         <source>PCBSD Disk Manager</source>
-        <translation type="unfinished">Gerenciador de discos PCBSD</translation>
+        <translation>Gerenciador de discos PCBSD</translation>
     </message>
     <message>
         <source>Disks</source>
@@ -1069,8 +1050,7 @@ crash dump.
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Estado:</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1089,20 +1069,19 @@ crash dump.
     </message>
     <message>
         <source>ZFS Filesystems</source>
-        <translation>Sistema de arquivos ZFS</translation>
+        <translation>Sistemas de arquivos ZFS</translation>
     </message>
     <message>
         <source>Filesystems</source>
-        <translation>Sistema de arquivos</translation>
+        <translation>Sistemas de arquivos</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Estado</translation>
     </message>
     <message>
         <source>Refreshing...</source>
-        <translation type="unfinished">Atualizando...</translation>
+        <translation>Atualizando...</translation>
     </message>
     <message>
         <source>No pools available, right click to create a new one...</source>
@@ -1119,12 +1098,11 @@ crash dump.
     </message>
     <message>
         <source>No disk</source>
-        <translation type="unfinished">Sem disco</translation>
+        <translation>Sem disco</translation>
     </message>
     <message>
         <source>ZPool: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ZPool: </translation>
     </message>
     <message>
         <source>Sliced</source>
@@ -1150,34 +1128,30 @@ crash dump.
     <message>
         <source>(Exported)
 </source>
-        <translation type="unfinished">(Exportado)
+        <translation>(Exportado)
 </translation>
     </message>
     <message>
         <source>(Destroyed)
 </source>
-        <translation type="unfinished">(Destruído)
+        <translation>(Destruído)
 </translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Desconectado</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Conectado</translation>
     </message>
     <message>
         <source>Degraded</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Degradado</translation>
     </message>
     <message>
         <source>Faulted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Com falha</translation>
     </message>
     <message>
         <source>Removed</source>
@@ -1251,13 +1225,11 @@ crash dump.
     </message>
     <message>
         <source>Attach (mirror) device...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Conectar dispositivo (espelho)...</translation>
     </message>
     <message>
         <source>Detach from mirror</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Desconectar do espelho</translation>
     </message>
     <message>
         <source>Take offline</source>
@@ -1271,18 +1243,15 @@ crash dump.
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remover</translation>
     </message>
     <message>
         <source>zpool Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu zpool</translation>
     </message>
     <message>
         <source>Device Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu do dispositivo</translation>
     </message>
     <message>
         <source>Unmount</source>
@@ -1294,19 +1263,19 @@ crash dump.
     </message>
     <message>
         <source>Create MBR partition table</source>
-        <translation type="unfinished">Criar tabela de partição MBR</translation>
+        <translation>Criar tabela de partição MBR</translation>
     </message>
     <message>
         <source>Create GPT partition table</source>
-        <translation type="unfinished">Criar tabela de partição GPT</translation>
+        <translation>Criar tabela de partição GPT</translation>
     </message>
     <message>
         <source>Create BSD partition table</source>
-        <translation type="unfinished">Criar tabela de partição BSD</translation>
+        <translation>Criar tabela de partição BSD</translation>
     </message>
     <message>
         <source>Delete Partition Table</source>
-        <translation type="unfinished">Apagar tabela de partição</translation>
+        <translation>Apagar tabela de partição</translation>
     </message>
     <message>
         <source>Add new slice</source>
@@ -1324,7 +1293,7 @@ crash dump.
     </message>
     <message>
         <source>Destroy this partition</source>
-        <translation type="unfinished">Destruir esta partição</translation>
+        <translation>Destruir esta partição</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -1338,13 +1307,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Error report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Relatório de erro</translation>
     </message>
     <message>
         <source>Create new zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar novo zpool</translation>
     </message>
     <message>
         <source>Important information</source>
@@ -1357,8 +1324,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Attach mirror devices to </source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Conectar dispositivos espelhos ao </translation>
     </message>
     <message>
         <source>The pool was imported in read-only mode, therefore attempting to export the pool will leave the pool in the state it was when imported, not necessarily exported.</source>
@@ -1382,8 +1348,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Adicionar mais dispositivos ao zpool</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
@@ -1402,13 +1367,11 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Montado]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Não Montado]</translation>
     </message>
     <message>
         <source> of </source>
@@ -1457,7 +1420,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">Editar propriedades</translation>
+        <translation>Editar propriedades</translation>
     </message>
     <message>
         <source>zfs Menu</source>
