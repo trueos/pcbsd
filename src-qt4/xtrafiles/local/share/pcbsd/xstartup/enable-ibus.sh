@@ -16,7 +16,7 @@ ibus_initialize() {
 # Check if this lang needs ibus
 case ${LANG} in
   ja_JP*)
-  ibus_initialize "anthy"
+  ibus_initialize "mozc-jp"
   ENABLE="YES"
   ;;
   ko_KR*)
