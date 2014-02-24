@@ -115,8 +115,7 @@
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неверное Имя пользователя/Пароль</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>

@@ -22,8 +22,7 @@
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Obtendo fontes do PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -146,8 +145,7 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Você já tem um processo em execução. Aguarde-o antes de finalizar.</translation>
     </message>
 </context>
 </TS>

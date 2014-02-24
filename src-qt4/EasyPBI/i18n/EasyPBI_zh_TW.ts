@@ -105,7 +105,7 @@
     </message>
     <message>
         <source>Add File</source>
-        <translation>添加檔案</translation>
+        <translation>加入檔案</translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
@@ -305,7 +305,7 @@
     </message>
     <message>
         <source>Add Entry</source>
-        <translation>添加項目</translation>
+        <translation>加入項目</translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
@@ -597,7 +597,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>加入</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -621,93 +621,75 @@
     </message>
     <message>
         <source>Port/Package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port/套件</translation>
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選取不同的 FreeBSD 套件</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>變更</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>檢視套件 Overrides (選用)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>加入 Pkg</translation>
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>檢視套件庫資訊 (選用)</translation>
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>標記</translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>該應用程式的搜尋標記 (以半形逗號分隔)         </translation>
     </message>
     <message>
         <source>App Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>加入類型</translation>
     </message>
     <message>
         <source>App Cat</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>應用程式分類</translation>
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>此應用程式該屬的分類</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Icon URL</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>圖示 URL</translation>
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>檢視套件庫管理 (選用)</translation>
     </message>
     <message>
         <source>Build Key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Build Key</translation>
     </message>
     <message>
         <source>Revision #</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Revision #</translation>
     </message>
     <message>
         <source>Priority</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>優先序</translation>
     </message>
     <message>
         <source>No TMPFS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無 TMPFS</translation>
     </message>
     <message>
         <source>Build Key: Change this to trigger an automatic rebuild of the PBI</source>
@@ -726,83 +708,67 @@
     </message>
     <message>
         <source>Create a new PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>建立新 PBI 模組</translation>
     </message>
     <message>
         <source>Load an existing PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>載入現有 PBI 模組</translation>
     </message>
     <message>
         <source>Select PBI Module Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選取 PBI 模組設定</translation>
     </message>
     <message>
         <source>PBI Configuration (pbi.conf)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 設定 (pbi.conf)</translation>
     </message>
     <message>
         <source>Could not create the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無法建立 XDG 項目。</translation>
     </message>
     <message>
         <source>This requires an active internet connection and administrator privileges.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">需要有效網際網路連線及管理員身分。</translation>
     </message>
     <message>
         <source>Build PBI (Running)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>建置 PBI (正在運行)</translation>
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>建置 PBI (完成)</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>說明</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>結束</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+Q</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>關於</translation>
     </message>
     <message>
         <source>Shift+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+A</translation>
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pkg 設置</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
@@ -816,8 +782,7 @@
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>建置依存性</translation>
     </message>
     <message>
         <source>Make Options</source>
@@ -826,13 +791,11 @@
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>啟用 %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>停用 %1</translation>
     </message>
 </context>
 <context>
@@ -880,8 +843,7 @@
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
@@ -944,7 +906,7 @@
     </message>
     <message>
         <source>Default directory to open when adding icons/files to a module</source>
-        <translation>為模組添加圖示/檔案時預設要開啟的目錄</translation>
+        <translation>為模組加入圖示/檔案時預設要開啟的目錄</translation>
     </message>
     <message>
         <source>Select a local directory.</source>
@@ -1102,43 +1064,35 @@
     <name>pkgSelect</name>
     <message>
         <source>Select a package</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選取套件</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>搜尋</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>可用套件</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>取消</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>接受</translation>
     </message>
     <message>
         <source>No Packages Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無可用套件</translation>
     </message>
     <message>
         <source>Search Finished</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>完成搜尋</translation>
     </message>
     <message>
         <source>No package found with that term</source>

@@ -263,11 +263,11 @@
     </message>
     <message>
         <source>Add Selected</source>
-        <translation>添加所選的</translation>
+        <translation>加入所選的</translation>
     </message>
     <message>
         <source>Add Hidden</source>
-        <translation>添加隱藏網路</translation>
+        <translation>加入隱藏網路</translation>
     </message>
     <message>
         <source>Network Name</source>
@@ -275,7 +275,7 @@
     </message>
     <message>
         <source>Please enter the name of the network you wish to add</source>
-        <translation>請輸入要添加網路的名稱</translation>
+        <translation>請輸入要加入網路的名稱</translation>
     </message>
     <message>
         <source>Configured Network Profiles</source>
@@ -283,7 +283,7 @@
     </message>
     <message>
         <source>Add &amp;network</source>
-        <translation>添加網路(&amp;N)</translation>
+        <translation>加入網路(&amp;N)</translation>
     </message>
     <message>
         <source>WPA Configuration</source>

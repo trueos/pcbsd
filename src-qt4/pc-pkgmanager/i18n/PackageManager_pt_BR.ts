@@ -5,38 +5,34 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configuração</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Conjunto de pacotes</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Production (Pacotes atualizados trimestralmente - Recomendado)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Edge (Pacotes atualizados frequentemente - Para testes e desenvolvimento)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Ok</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Cancelar</translation>
+        <translation>&amp;Cancelar</translation>
     </message>
 </context>
 <context>
     <name>dialogConfirm</name>
     <message>
         <source>Confirm Package Changes</source>
-        <translation type="unfinished">Confirmar alterações de pacotes</translation>
+        <translation>Confirmar alterações de pacotes</translation>
     </message>
     <message>
         <source>The following changes will be made to the system. Please confirm below and click OK to continue.</source>
@@ -48,7 +44,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Cancelar</translation>
+        <translation>&amp;Cancelar</translation>
     </message>
 </context>
 <context>
@@ -59,7 +55,7 @@
     </message>
     <message>
         <source>System Package Manager</source>
-        <translation type="unfinished">Gerenciador de pacotes do sistema</translation>
+        <translation>Gerenciador de pacotes do sistema</translation>
     </message>
     <message>
         <source>Add / Remove Packages</source>
@@ -83,8 +79,7 @@
     </message>
     <message>
         <source>My Package 1.0</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>My Package 1.0</translation>
     </message>
     <message>
         <source>http://www.pcbsd.org</source>
@@ -96,7 +91,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">&amp;Aplicar</translation>
+        <translation>&amp;Aplicar</translation>
     </message>
     <message>
         <source>Package Updates</source>
@@ -109,8 +104,7 @@
     </message>
     <message>
         <source>&amp;Update packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">At&amp;ualizar pacotes</translation>
     </message>
     <message>
         <source>Package</source>
@@ -135,8 +129,7 @@
     </message>
     <message>
         <source>&amp;View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Visualizar</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -149,7 +142,7 @@
     </message>
     <message>
         <source>Package Updates (%1)</source>
-        <translation type="unfinished">Atualizações de pacotes (%1)</translation>
+        <translation>Atualizações de pacotes (%1)</translation>
     </message>
     <message>
         <source>Available updates</source>
@@ -177,8 +170,7 @@
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pode ser necessário corrigir os conflitos manualmente antes de tentar de novo.</translation>
     </message>
     <message>
         <source>Downloading packages...</source>
@@ -218,8 +210,7 @@
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Os seguintes pacotes que requerem os pacotes acima também serão removidos:</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>
@@ -279,16 +270,15 @@
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation type="unfinished">Nenhum pacote foi encontrado com esse termo de busca. Por favor, ajuste-o e tente novamente.</translation>
+        <translation>Nenhum pacote pôde ser encontrado com esse termo de busca. Por favor, altere-o e tente novamente.</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation type="unfinished">Processos em execução</translation>
+        <translation>Processos em execução</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os pacotes estão sendo alterados. Tem certeza que quer sair?</translation>
     </message>
     <message>
         <source>Package Check</source>
@@ -297,8 +287,7 @@
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não foi possível verificar se há atualizações de pacotes!</translation>
     </message>
     <message>
         <source>Downloading</source>
@@ -306,28 +295,23 @@
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Básico (Meta-pacotes)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Avançado (Todos os pacotes)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">&amp;Configuração</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lendo o banco de dados do pacote...</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurar</translation>
     </message>
     <message>
         <source>Shift+Q</source>
@@ -336,8 +320,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Shift+S</source>

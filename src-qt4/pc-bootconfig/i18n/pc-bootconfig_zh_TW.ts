@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>加入</translation>
     </message>
     <message>
         <source>Remove the currently selected boot environment</source>

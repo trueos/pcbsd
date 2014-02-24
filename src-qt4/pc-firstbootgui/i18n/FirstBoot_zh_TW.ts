@@ -136,7 +136,7 @@
     </message>
     <message>
         <source>On this screen you may connect to an available wifi network. If you have a hidden network, it may be added later in the Network Manager.</source>
-        <translation>在本畫面可連接可用的 wifi 無線網路。如有隱藏網路，可稍後於「網路管理員」添加。</translation>
+        <translation>在本畫面可連接可用的 wifi 無線網路。如有隱藏網路，可稍後於「網路管理員」加入。</translation>
     </message>
     <message>
         <source>The computer setup is now finished! Click Finish to log into your new Desktop.</source>

@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Requesting System Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запрос прав системы</translation>
     </message>
     <message>
         <source>Access Denied</source>
@@ -18,18 +17,15 @@
     </message>
     <message>
         <source>This user does not have administrator permissions on this system!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пользователь не имеет права администратора на этой системе!</translation>
     </message>
     <message>
         <source>Invalid Password! Tries Left: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Неверный пароль! Осталось попыток: %1</translation>
     </message>
     <message>
         <source>Toggle command details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Переключение деталей команды</translation>
     </message>
 </context>
 </TS>

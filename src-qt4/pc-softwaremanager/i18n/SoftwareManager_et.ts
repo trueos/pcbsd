@@ -612,7 +612,7 @@
     </message>
     <message>
         <source>%1 Download Error:</source>
-        <translation>%1 allalaadimise viga:</translation>
+        <translation>Rakenduse %1 allalaadimise viga:</translation>
     </message>
     <message>
         <source>The PBI could not be downloaded, please try again later</source>

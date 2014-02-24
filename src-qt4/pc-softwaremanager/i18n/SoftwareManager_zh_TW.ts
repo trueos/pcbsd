@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>加入</translation>
     </message>
     <message>
         <source>...</source>
@@ -73,7 +73,7 @@
     </message>
     <message>
         <source>Add PBI Repository</source>
-        <translation>添加 PBI 套件庫</translation>
+        <translation>加入 PBI 套件庫</translation>
     </message>
     <message>
         <source>Repository File (*.rpo)</source>
@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Repo Successfully Added</source>
-        <translation>成功添加套件庫</translation>
+        <translation>成功加入套件庫</translation>
     </message>
     <message>
         <source>This repo should be ready to use in a short time (depending on your internet connection speed).</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>This repo could not be added.</source>
-        <translation>無法添加套件庫。</translation>
+        <translation>無法加入套件庫。</translation>
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
@@ -372,7 +372,7 @@
     </message>
     <message>
         <source>Add</source>
-        <translation>添加</translation>
+        <translation>加入</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -384,7 +384,7 @@
     </message>
     <message>
         <source>Add (All Users)</source>
-        <translation>添加 (全部使用者)</translation>
+        <translation>加入 (全部使用者)</translation>
     </message>
     <message>
         <source>Path Links</source>
@@ -428,7 +428,7 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation>不詳</translation>
+        <translation>不明</translation>
     </message>
     <message>
         <source>Install Now!</source>
@@ -468,48 +468,39 @@
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>驗證安裝情況</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>是否確定安裝此應用程式？</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+Q</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>返回</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>尋找</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>啟動</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>建立時間：</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>架構：</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -533,33 +524,27 @@
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安裝 PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 應用程式 (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>是否確定開始安裝此等 PBI？</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>注意：您之後要在 AppCafe 手動加入桌面/選單圖示。</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開始更新嗎？</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>是否馬上開始更新此應用程式？</translation>
     </message>
 </context>
 <context>
@@ -654,7 +639,7 @@
     </message>
     <message>
         <source>Unknown</source>
-        <translation>不詳</translation>
+        <translation>不明</translation>
     </message>
     <message>
         <source>Download Canceled</source>
@@ -702,8 +687,7 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>移除應用程式</translation>
     </message>
 </context>
 <context>

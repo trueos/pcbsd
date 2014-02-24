@@ -484,78 +484,63 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Back</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Find</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Created:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Architecture:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shortcuts</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Contact Maintainer</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Current Operations</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancel Operations</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Install PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Application (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Are you ready to begin installing these PBI&apos;s?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Update?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Do you wish to start updating this application right now?</translation>
     </message>
 </context>
 <context>
@@ -698,8 +683,7 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Removing Application</translation>
     </message>
 </context>
 <context>

@@ -63,7 +63,7 @@
     <name>dialogEditIP</name>
     <message>
         <source>&amp;Add</source>
-        <translation>添加(&amp;A)</translation>
+        <translation>加入(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Add IP</source>
-        <translation>添加 IP</translation>
+        <translation>加入 IP</translation>
     </message>
     <message>
         <source>IP Address:</source>
@@ -275,7 +275,7 @@
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation>添加新 Jail</translation>
+        <translation>加入新 Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
@@ -402,7 +402,7 @@
     </message>
     <message>
         <source>Add a new Jail</source>
-        <translation>添加新 Jail</translation>
+        <translation>加入新 Jail</translation>
     </message>
     <message>
         <source>Remove the selected Jail</source>
@@ -602,7 +602,7 @@
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>添加(&amp;A)</translation>
+        <translation>加入(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Remove</source>

@@ -5,8 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD 錯誤回報工具</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
@@ -15,33 +14,27 @@
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD 基礎系統</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD 基礎系統</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg 伺服器</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>桌面環境</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD 軟體 (port/套件)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD 軟體 (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
@@ -65,8 +58,7 @@
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org 伺服器</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
@@ -95,13 +87,11 @@
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>新項目</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GNOME</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
@@ -115,8 +105,7 @@
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
@@ -130,8 +119,7 @@
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
@@ -145,8 +133,7 @@
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
@@ -185,8 +172,7 @@
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 軟體</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
@@ -195,18 +181,15 @@
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>圖示</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>應用程式</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>版本</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
@@ -220,8 +203,7 @@
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI 軟體：</translation>
     </message>
     <message>
         <source>Not listed here?</source>
@@ -230,8 +212,7 @@
     </message>
     <message>
         <source>MATE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
@@ -240,8 +221,7 @@
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
@@ -263,8 +243,7 @@
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>關閉</translation>
     </message>
 </context>
 <context>
