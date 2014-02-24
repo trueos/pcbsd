@@ -188,6 +188,15 @@ bool PBIDBAccess::installedPbiHasXdgMenu(QString installPath){
   return FALSE;
 }
 
+bool PBIDBAccess::installedPbiHasXdgMime(QString installPath){
+  if(!installPath.endsWith("/")){ installPath.append("/"); }
+  bool ok = DBDir->cd(installPath+".xdg-mime");
+  if(ok){
+    if( DBDir->entryList(QStringList()<<"*.xml",QDir::Files).length() > 0 ){ return TRUE; }	  
+  }
+  return FALSE;
+}
+
 QString PBIDBAccess::indexFilePath(){
   return DBPath+"index/"+currentRepoID+"-index";
 }

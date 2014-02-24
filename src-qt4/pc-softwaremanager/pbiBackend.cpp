@@ -461,6 +461,10 @@ QStringList PBIBackend::PBIInfo( QString pbiID, QStringList infoList){
       if(PBIHASH[pbiID].menuIcons){output<<"true";}
       else{ output<<"false";}
     }
+    else if(infoList[i]=="hasmimetypes"){ 
+      if(PBIHASH[pbiID].mimetypes){output<<"true";}
+      else{ output<<"false";}
+    }
     else{ output << ""; }
   }
   //qDebug()<< "Info Requested for:" << pbiID << infoList << "Info:" << output;
@@ -1256,6 +1260,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
      bool root = sysDB->installedPbiNeedsRoot(pbiID);
      bool desktop = sysDB->installedPbiHasXdgDesktop(info[6]);
      bool menu = sysDB->installedPbiHasXdgMenu(info[6]);
+     bool mime = sysDB->installedPbiHasXdgMime(info[6]);
      //Now add this info to the PBI structure
      pbi.name    = info[0];
      pbi.version = info[1];
@@ -1282,6 +1287,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
      pbi.autoUpdate  = autoUp;
      pbi.desktopIcons= desktop;
      pbi.menuIcons   = menu;
+     pbi.mimetypes = mime;
      //Clean up the mdate to make it human-readable
      QDate date(pbi.mdate.left(4).toInt(), pbi.mdate.mid(4,2).toInt(), pbi.mdate.right(2).toInt() );
      pbi.mdate =date.toString(Qt::SystemLocaleShortDate); //put it in the current locale format (short version)

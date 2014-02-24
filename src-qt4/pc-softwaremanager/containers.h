@@ -38,7 +38,7 @@ class InstalledPBI{
     enum PBISTATUS{ NONE, DOWNLOADING, INSTALLING, REMOVING, UPDATING, PENDINGDOWNLOAD, PENDINGINSTALL, PENDINGREMOVAL, PENDINGUPDATE, UPDATEAVAILABLE, WORKING };
     QString name, version, author, website, arch, path, icon, license, mdate, metaID, downloadfile, description, maintainer, fbsdversion;
     PBISTATUS status;
-    bool rootInstall, autoUpdate, desktopIcons, menuIcons;
+    bool rootInstall, autoUpdate, desktopIcons, menuIcons, mimetypes;
     
     InstalledPBI(){
       rootInstall=FALSE; autoUpdate=FALSE; desktopIcons=FALSE; menuIcons=FALSE;

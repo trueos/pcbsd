@@ -180,10 +180,10 @@ void MainUI::initializeInstalledTab(){
       spmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddPath()) );
       spmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemovePath()) );  
       spmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddPathAll()) );
-    QMenu *sfmenu = shortcutMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
-      sfmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
-      sfmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMime()) );  
-      sfmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMimeAll()) );
+    sMimeMenu = shortcutMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
+      sMimeMenu ->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
+      sMimeMenu ->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMime()) );  
+      sMimeMenu ->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMimeAll()) );
   ui->tool_install_shortcuts->setMenu(shortcutMenu);
   //Setup the binary menu for installed applications
   appBinMenu = new QMenu();
@@ -234,7 +234,7 @@ QStringList MainUI::getCheckedItems(){
       }
     }
   }
-  qDebug() << "Checked Items:" << output;
+  //qDebug() << "Checked Items:" << output;
   return output;	
 }
 
