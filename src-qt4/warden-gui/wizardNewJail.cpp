@@ -110,71 +110,65 @@ bool wizardNewJail::validatePage()
   goodPal.setColor(QPalette::Window,white);
   goodPal.setColor(QPalette::WindowText,white);
   labelMessage->setText(QString());
-
+  bool ok = true;
 
   switch (currentId()) {
      case Page_IP:
          // Make sure items are not empty
          if ( checkIPv4->isChecked() && lineIP->text().isEmpty() ) {
-            button(QWizard::NextButton)->setEnabled(false);
-            return false;
+            ok=false;
 	 }
          if ( checkIPv6->isChecked() && lineIP6->text().isEmpty() ) {
-            button(QWizard::NextButton)->setEnabled(false);
-            return false;
+            ok=false;
 	 }
          if ( lineHost->text().isEmpty() ) {
-            button(QWizard::NextButton)->setEnabled(false);
-            return false;
+            ok=false;
 	 }
          if ( lineHost->text().contains(" ") ) {
-            button(QWizard::NextButton)->setEnabled(false);
             labelMessage->setText(tr("Hostname cannot contain spaces!"));
-            return false;
+	    ok=false;
 	 }
 
 	 // Check if this IP / Host is already used
          for (int i = 0; i < usedHosts.size(); ++i) {
             if ( usedHosts.at(i).toLower() == lineHost->text().toLower() ) {
-               button(QWizard::NextButton)->setEnabled(false);
                lineHost->setPalette(badPal);
                labelMessage->setText(tr("Hostname already used!"));
-               return false;
+	       ok=false;
 	    }
 	 }
          for (int i = 0; i < usedIP.size(); ++i)
             if ( usedIP.at(i).contains(lineIP->text() + "/24") ) {
-               button(QWizard::NextButton)->setEnabled(false);
                lineIP->setPalette(badPal);
                labelMessage->setText(tr("IP already used!"));
-               return false;
+	       ok=false;
+	       break;
 	    }
 
          // Check if we have a good IPV4 or IPV6 address
 	 if ( checkIPv4->isChecked() && ! pcbsd::Utils::validateIPV4(lineIP->text())) {
-           button(QWizard::NextButton)->setEnabled(false);
            lineIP->setPalette(badPal);
            labelMessage->setText(tr("Invalid IP address!"));
-           return false;
+	   ok=false;
          }
 
 	 if ( checkIPv6->isChecked() && ! pcbsd::Utils::validateIPV6(lineIP6->text()) ) {
-           button(QWizard::NextButton)->setEnabled(false);
            lineIP6->setPalette(badPal);
            labelMessage->setText(tr("Invalid IPv6 address!"));
-           return false;
+	   ok=false;
          }
-
-
-         // Got to the end, must be good!
-         lineIP->setPalette(goodPal);
-         lineHost->setPalette(goodPal);
-         button(QWizard::NextButton)->setEnabled(true);
-         return true;
+	if(!ok){
+	   button(QWizard::NextButton)->setEnabled(false);
+	}else{
+           // Got to the end, must be good!
+           lineIP->setPalette(goodPal);
+           lineHost->setPalette(goodPal);
+           button(QWizard::NextButton)->setEnabled(true);
+	}
      case Page_Root:
 	 if ( lineRoot->text() != lineRoot2->text() ) {
            button(QWizard::NextButton)->setEnabled(false);
-	   return false;
+	   ok = false;
          } else {
            button(QWizard::NextButton)->setEnabled(true);
 	 }
@@ -182,14 +176,13 @@ bool wizardNewJail::validatePage()
      case Page_Linux:
 	  if ( lineLinuxScript->text().isEmpty() ) {
             button(QWizard::NextButton)->setEnabled(false);
-	    return false;
+	    ok = false;
 	  }
      default:
          button(QWizard::NextButton)->setEnabled(true);
-         return true;
   }
 
-  return true;
+  return ok;
 }
 
 int wizardNewJail::nextId() const
