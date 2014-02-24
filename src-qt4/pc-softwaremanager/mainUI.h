@@ -94,6 +94,7 @@ private slots:
   void slotGoToHome();
   void slotGoToCategory(QString);
   void slotGoToApp(QString);
+  void slotUpdateAppDownloadButton();
   void slotGoToSearch();
   void slotShowSimilarApps(QStringList);
   void slotShowSearchResults(QStringList, QStringList);
@@ -119,7 +120,7 @@ private:
   QStringList getCheckedItems();
   //BROWSER TAB
   QTimer *searchTimer;
-  QString cCat;
+  QString cCat, cApp;
   void initializeBrowserTab();
   //OTHER
   QLabel *statusLabel;

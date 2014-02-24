@@ -291,6 +291,10 @@ void MainUI::slotRefreshInstallTab(){
   slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
+  //If the browser app page is currently visible for this app
+  if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
+    slotUpdateAppDownloadButton();
+  }
 }
 
 void MainUI::slotCheckSelectedItems(){
@@ -326,6 +330,11 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
 	 ui->tree_install_apps->topLevelItem(i)->setIcon(0, QIcon( PBI->PBIInfo(itemID, QStringList() << "icon").join("") ));
       }
     }
+  }
+  //If the browser app page is current for this app
+  QString metaID = PBI->pbiToAppID(pbiID);
+  if( (ui->stacked_browser->currentWidget() == ui->page_app) && (cApp == metaID) && ui->page_app->isVisible() ){
+    slotUpdateAppDownloadButton();
   }
 }
 
@@ -831,6 +840,7 @@ void MainUI::slotGoToApp(QString appID){
     qDebug() << "Invalid App:" << appID;
     return;
   }
+  cApp = appID; //save this for later
   //Start the search for similar apps
   PBI->searchSimilar = appID;
   ui->group_bapp_similar->setVisible(FALSE);
@@ -867,7 +877,8 @@ void MainUI::slotGoToApp(QString appID){
     else{ ui->label_bapp_size->setText( Extras::sizeKToDisplay(data[14]) ); }
   }
   //Now update the download button appropriately
-  QString ico;
+  slotUpdateAppDownloadButton();
+  /*QString ico;
   QString working = PBI->currentAppStatus(appID);
   if(!working.isEmpty()){ //app currently pending or actually doing something
     ui->tool_bapp_download->setText(working);
@@ -898,6 +909,7 @@ void MainUI::slotGoToApp(QString appID){
     ui->tool_bapp_download->setIcon(QIcon(ico));
   }
   ui->tool_bapp_download->setWhatsThis(appID); //set for slot
+  */
   //Now enable/disable the shortcut buttons
   ui->tool_browse_app->setVisible(TRUE);
     ui->tool_browse_app->setText(data[0]);
@@ -912,6 +924,42 @@ void MainUI::slotGoToApp(QString appID){
   ui->tabWidget->setCurrentWidget(ui->tab_browse);
   ui->stacked_browser->setCurrentWidget(ui->page_app);
 	
+}
+
+void MainUI::slotUpdateAppDownloadButton(){
+  QString ico;
+  QString working = PBI->currentAppStatus(cApp);
+  QStringList info = PBI->AppInfo(cApp, QStringList() << "latestversion" << "backupversion" << "requiresroot");
+  QString pbiID = PBI->isInstalled(cApp);
+  if(!working.isEmpty()){ //app currently pending or actually doing something
+    ui->tool_bapp_download->setText(working);
+    ui->tool_bapp_download->setIcon(QIcon(":icons/working.png"));
+    ui->tool_bapp_download->setEnabled(FALSE);
+  }else if( pbiID.isEmpty() ){ //new installation
+    ui->tool_bapp_download->setText(tr("Install Now!"));
+    ico = ":icons/app_download.png";
+    ui->tool_bapp_download->setEnabled(TRUE);
+  }else if( !PBI->upgradeAvailable(pbiID).isEmpty() ){ //Update available
+    ui->tool_bapp_download->setText(tr("Update"));
+    ico = ":icons/app_upgrade.png";
+    ui->tool_bapp_download->setEnabled(TRUE);
+  }else if(!info[1].isEmpty()){  //Downgrade available
+    ui->tool_bapp_download->setText(tr("Downgrade"));
+    ico = ":icons/app_downgrade.png";
+    ui->tool_bapp_download->setEnabled(TRUE);
+  }else{ //already installed (no downgrade available)
+    ui->tool_bapp_download->setText(tr("Installed"));
+    ui->tool_bapp_download->setIcon(QIcon(":icons/dialog-ok.png"));
+    ui->tool_bapp_download->setEnabled(FALSE);
+  }
+  //Now set the icon appropriately if it requires root permissions
+  if(!ico.isEmpty()){
+    if(info[2]=="true"){ //requires root permissions to install
+      ico.replace(".png","-root.png");
+    }
+    ui->tool_bapp_download->setIcon(QIcon(ico));
+  }
+  ui->tool_bapp_download->setWhatsThis(cApp); //set for slot
 }
 
 void MainUI::slotGoToSearch(){
@@ -1058,7 +1106,7 @@ void MainUI::on_tool_bapp_download_clicked(){
   PBI->installApp(QStringList() << appID);
   ui->tool_bapp_download->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
   //Now show the Installed tab
-  ui->tabWidget->setCurrentWidget(ui->tab_installed);
+  //ui->tabWidget->setCurrentWidget(ui->tab_installed);
 }
 
 void MainUI::on_group_br_home_newapps_toggled(bool show){
