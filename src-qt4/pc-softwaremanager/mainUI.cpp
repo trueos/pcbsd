@@ -167,6 +167,24 @@ void MainUI::initializeInstalledTab(){
     actionMenu->addAction( QIcon(":icons/remove.png"), tr("Uninstall"), this, SLOT(slotActionRemove()) );
     actionMenu->addSeparator();
     actionMenu->addAction( QIcon(":icons/dialog-cancel.png"), tr("Cancel Actions"), this, SLOT(slotActionCancel()) );
+  //Setup the shortcuts menu for installed applications
+  shortcutMenu = new QMenu(this);
+    sDeskMenu = shortcutMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
+      sDeskMenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
+      sDeskMenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveDesktop()) );
+    sMenuMenu = shortcutMenu->addMenu( QIcon(":icons/xdg_menu.png"), tr("Menu Icons"));
+      sMenuMenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMenu()) );
+      sMenuMenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMenu()) );  
+      sMenuMenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMenuAll()) );
+    QMenu *spmenu = shortcutMenu->addMenu( QIcon(":icons/xdg_paths.png"), tr("Path Links"));
+      spmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddPath()) );
+      spmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemovePath()) );  
+      spmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddPathAll()) );
+    QMenu *sfmenu = shortcutMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
+      sfmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
+      sfmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMime()) );  
+      sfmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMimeAll()) );
+  ui->tool_install_shortcuts->setMenu(shortcutMenu);
   //Setup the binary menu for installed applications
   appBinMenu = new QMenu();
   ui->tool_install_startApp->setMenu(appBinMenu);
@@ -178,8 +196,6 @@ void MainUI::initializeInstalledTab(){
   ui->tree_install_apps->setIconSize(QSize(22,22));
   connect(ui->tree_install_apps, SIGNAL(itemClicked(QTreeWidgetItem*, int)), this, SLOT(slotCheckSelectedItems()) );
   slotRefreshInstallTab();
-  qDebug() << "Detailed shortcuts button not implemented yet";
-  ui->tool_install_shortcuts->setEnabled(false);
 }
 
 void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
@@ -204,20 +220,21 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
 }
 
 QStringList MainUI::getCheckedItems(){
-  //Return the pbiID's of all the checked items
+  //Return the pbiID's of all the active items
   QStringList output;
-  for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
-    if(ui->tree_install_apps->topLevelItem(i)->checkState(0) == Qt::Checked){
-      output << ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
+  //See if we are on the single-app details page - then get the current app only
+  if(ui->stackedWidget->currentWidget() == ui->page_install_details){
+      output << cDetails;  
+	  
+  //If on the main Installed page, look for checked items only
+  }else{
+    for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
+      if(ui->tree_install_apps->topLevelItem(i)->checkState(0) == Qt::Checked){
+        output << ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
+      }
     }
   }
-  //If no items checked, use the item that is selected instead
-  if(output.isEmpty()){
-    //Make sure that an item is selected
-    if(ui->tree_install_apps->topLevelItemCount() >0){
-      output << ui->tree_install_apps->currentItem()->whatsThis(0);  
-    }
-  }
+  qDebug() << "Checked Items:" << output;
   return output;	
 }
 
@@ -578,6 +595,7 @@ void MainUI::slotUpdateSelectedPBI(){
 void MainUI::updateInstallDetails(QString appID){
   //Get the information to update the details page
   //Get the PBI info for that item
+    cDetails = appID; //save for later
     QStringList vals; 
     vals << "name" << "icon" << "author" << "website" << "version" << "license" << "description" << "maintainer" << "date" << "arch";
     QStringList bools;
@@ -602,6 +620,8 @@ void MainUI::updateInstallDetails(QString appID){
       else if(desktopSC){ shortcuts = tr("Desktop"); }
       else if(menuSC){ shortcuts = tr("Menu"); }
       else{ shortcuts = tr("None"); }
+    sDeskMenu->setEnabled(desktopSC);
+    sMenuMenu->setEnabled(menuSC);
     //Now display that info on the UI
     ui->label_install_app->setText(vals[0]);
     ui->label_install_icon->setPixmap( QPixmap(vals[1]).scaled(64,64, Qt::KeepAspectRatio, Qt::SmoothTransformation) );
@@ -618,7 +638,7 @@ void MainUI::updateInstallDetails(QString appID){
     ui->tool_install_maintainer->setVisible( vals[7].contains("@") );
     ui->label_install_date->setText(vals[8]);
     ui->label_install_arch->setText(vals[9]);
-    ui->label_install_shortcuts->setText(shortcuts);
+    //ui->label_install_shortcuts->setText(shortcuts);
     ui->check_install_autoupdate->setChecked(autoupdate);
   
     //Adjust the quick action buttons as necessary
