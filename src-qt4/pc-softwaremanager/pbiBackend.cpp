@@ -630,6 +630,12 @@ QStringList PBIBackend::pbiBinList(QString pbiID){
   return output;
 }
 
+QString PBIBackend::pbiToAppID(QString pbiID){
+  QString appID;
+  if( PBIHASH.contains(pbiID) ){ appID = PBIHASH[pbiID].metaID; }	
+  return appID;
+}
+
 // === Configuration Management ===
 void PBIBackend::openConfigurationDialog(){
   //temporarily disable the filesystem watcher (causes issues with repo changes)

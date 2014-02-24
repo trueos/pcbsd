@@ -767,7 +767,7 @@ template) require_root
     get) require_root
 	 OPT="${2}"
          JAILNAME="${3}"
-         if [ -z "${JAILNAME}" ] ; then exit_err "No jail specified!"; fi
+         if [ -z "${JAILNAME}" ] ; then help_get; exit 1; fi
          if [ ! -e "${JDIR}/${JAILNAME}" ] ; then exit_err "No such jail!"; fi
 	 set_warden_metadir
 

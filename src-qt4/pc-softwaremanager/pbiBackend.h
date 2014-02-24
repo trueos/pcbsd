@@ -69,6 +69,7 @@ public:
 	QString currentAppStatus( QString appID , bool rawstatus = false);
 	bool isWorking(QString pbiID);
 	QStringList pbiBinList(QString pbiID);
+	QString pbiToAppID(QString pbiID);
 	
 	//Configuration Management
 	void openConfigurationDialog();
@@ -76,7 +77,7 @@ public:
 	//Import/Export PBI lists
 	bool exportPbiListToFile(QString filepath);
 	bool importPbiListFromFile(QString filepath);
-
+	
 public slots:
 	void startAppSearch(); //get list of apps containing the search string (SIGNAL OUTPUT ONLY)
 	void startSimilarSearch(); //get list of apps that are similar to the input app

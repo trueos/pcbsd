@@ -94,6 +94,7 @@ private slots:
   void slotGoToHome();
   void slotGoToCategory(QString);
   void slotGoToApp(QString);
+  void slotUpdateAppDownloadButton();
   void slotGoToSearch();
   void slotShowSimilarApps(QStringList);
   void slotShowSearchResults(QStringList, QStringList);
@@ -113,21 +114,19 @@ private:
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
-  QMenu *actionMenu, *appBinMenu;
+  QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu;
+  QString cDetails;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
   QStringList getCheckedItems();
   //BROWSER TAB
   QTimer *searchTimer;
-  QString cCat;
+  QString cCat, cApp;
   void initializeBrowserTab();
   //OTHER
   QLabel *statusLabel;
   void clearScrollArea(QScrollArea*);
   void slotDisplayStats();
-    
-    
-signals:
     
 } ;
 
