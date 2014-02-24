@@ -60,6 +60,7 @@ TRANSLATIONS = 	i18n/pc-bugreport_af.ts \
 		i18n/pc-bugreport_fi.ts \
 		i18n/pc-bugreport_fr.ts \
 		i18n/pc-bugreport_fr_CA.ts \
+		i18n/pc-bugreport_fur.ts \
 		i18n/pc-bugreport_gl.ts \
 		i18n/pc-bugreport_he.ts \
 		i18n/pc-bugreport_hi.ts \
@@ -78,6 +79,7 @@ TRANSLATIONS = 	i18n/pc-bugreport_af.ts \
 		i18n/pc-bugreport_ms.ts \
 		i18n/pc-bugreport_mt.ts \
 		i18n/pc-bugreport_nb.ts \
+		i18n/pc-bugreport_ne.ts \
 		i18n/pc-bugreport_nl.ts \
 		i18n/pc-bugreport_pa.ts \
 		i18n/pc-bugreport_pl.ts \
