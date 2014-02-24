@@ -114,7 +114,7 @@ private:
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
-  QMenu *actionMenu, *appBinMenu;
+  QMenu *actionMenu, *appBinMenu, *shortcutMenu;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);
   QStringList getCheckedItems();
@@ -126,9 +126,6 @@ private:
   QLabel *statusLabel;
   void clearScrollArea(QScrollArea*);
   void slotDisplayStats();
-    
-    
-signals:
     
 } ;
 

@@ -293,7 +293,7 @@ void MainUI::slotRefreshInstallTab(){
   slotCheckSelectedItems();
   //If the browser app page is currently visible for this app
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && ui->page_app->isVisible() ){
-    slotUpdateAppDownloadButton();
+    slotGoToApp(cApp);
   }
 }
 
@@ -878,38 +878,7 @@ void MainUI::slotGoToApp(QString appID){
   }
   //Now update the download button appropriately
   slotUpdateAppDownloadButton();
-  /*QString ico;
-  QString working = PBI->currentAppStatus(appID);
-  if(!working.isEmpty()){ //app currently pending or actually doing something
-    ui->tool_bapp_download->setText(working);
-    ui->tool_bapp_download->setIcon(QIcon(":icons/working.png"));
-    ui->tool_bapp_download->setEnabled(FALSE);
-  }else if(useLatest && cVer.isEmpty()){ //new installation
-    ui->tool_bapp_download->setText(tr("Install Now!"));
-    ico = ":icons/app_download.png";
-    ui->tool_bapp_download->setEnabled(TRUE);
-  }else if(useLatest){ //Update available
-    ui->tool_bapp_download->setText(tr("Update"));
-    ico = ":icons/app_upgrade.png";
-    ui->tool_bapp_download->setEnabled(TRUE);
-  }else if(!nobackup){  //Downgrade available
-    ui->tool_bapp_download->setText(tr("Downgrade"));
-    ico = ":icons/app_downgrade.png";
-    ui->tool_bapp_download->setEnabled(TRUE);
-  }else{ //already installed (no downgrade available)
-    ui->tool_bapp_download->setText(tr("Installed"));
-    ui->tool_bapp_download->setIcon(QIcon(":icons/dialog-ok.png"));
-    ui->tool_bapp_download->setEnabled(FALSE);
-  }
-  //Now set the icon appropriately if it requires root permissions
-  if(!ico.isEmpty()){
-    if(data[8]=="true"){ //requires root permissions to install
-      ico.replace(".png","-root.png");
-    }
-    ui->tool_bapp_download->setIcon(QIcon(ico));
-  }
-  ui->tool_bapp_download->setWhatsThis(appID); //set for slot
-  */
+
   //Now enable/disable the shortcut buttons
   ui->tool_browse_app->setVisible(TRUE);
     ui->tool_browse_app->setText(data[0]);
