@@ -312,9 +312,17 @@ Usage:
   # lpreserver cronsnap <dataset> <action> <frequency> <numToKeep>
   
   action = start / stop
-  frequency = daily@XX / hourly / 30min / 10min / 5min
-		    ^^ Hour to execute
+  frequency = auto / daily@XX / hourly / 30min / 10min / 5min
+		           ^^ Hour to execute
   numToKeep = Number of snapshots to keep total
+
+  NOTE: When frequency is set to "auto" the following will take place:
+    * Snapshots will be created every 5 minutes and kept for an hour.
+    * A hourly snapshot will be kept for a day.
+    * A daily snapshot will be kept for a month.
+    * A Monthly snapshot will be kept for a year.
+    * The life-preserver daemon will also keep track of the zpool disk space,
+      if the capacity falls below 75%, the oldest snapshot will be auto-pruned.
 
 Example:
 
