@@ -8,7 +8,7 @@
 #include <QDebug>
 #include <QFile>
 
-class DLProcess : QProcess{
+class DLProcess : public QProcess{
 	Q_OBJECT
 public:
 	DLProcess(QObject* parent = 0);
