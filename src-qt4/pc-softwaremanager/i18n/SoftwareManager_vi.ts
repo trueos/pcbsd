@@ -183,10 +183,6 @@
         <translation>Giấy phép:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Ccác phím tắt:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Hủy bỏ bất kỳ hành động cho ứng dụng này</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Hủy bỏ hành động</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Để bàn/Menu</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Để bàn</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Thực đơn</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>không ai trong</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

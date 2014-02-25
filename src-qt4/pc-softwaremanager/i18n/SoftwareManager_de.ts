@@ -183,10 +183,6 @@
         <translation>Lizenz:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Verknüpfungen:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Alle Aktionen für dieses Programm verwerfen</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Aktionen abbrechen</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Arbeitsfläche/Menü</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Arbeitsfläche</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menü</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Keine</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

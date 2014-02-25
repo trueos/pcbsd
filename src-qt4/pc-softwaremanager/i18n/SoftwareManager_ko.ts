@@ -183,10 +183,6 @@
         <translation>라이선스:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>바로가기:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>이 응용프로그램에 대한 작업을 취소</translation>
     </message>
@@ -409,22 +405,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>작업 취소</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>데스크톱/메뉴</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>데스크톱</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>메뉴</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>없음</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

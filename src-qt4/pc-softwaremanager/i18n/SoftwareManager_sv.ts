@@ -183,10 +183,6 @@
         <translation>Licens:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Genvägar:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Avbryt alla åtgärder för detta program</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Avbryt åtgärder</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Skrivbord/Meny</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Skrivbord</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Meny</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Inget</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

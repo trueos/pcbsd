@@ -183,10 +183,6 @@
         <translation>许可证：</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>捷径：</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>取消此程序的任何动作</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>取消动作</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>桌面/菜单</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>桌面</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>菜单</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>无</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

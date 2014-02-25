@@ -183,10 +183,6 @@
         <translation>Licentie:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Sneltoetsen:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Annuleer alle acties voor deze toepassing</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Acties annuleren</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Bureaublad/menu</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Bureaublad</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menu</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Geen</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

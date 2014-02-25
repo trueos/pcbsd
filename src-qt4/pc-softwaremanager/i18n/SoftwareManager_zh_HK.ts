@@ -183,10 +183,6 @@
         <translation>授權條款：</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>快捷鍵：</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>取消此應用程式所有動作</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>取消動作</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>桌面/選單</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>桌面</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>選單</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>無</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

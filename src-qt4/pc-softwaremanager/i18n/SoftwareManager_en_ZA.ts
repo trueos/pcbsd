@@ -183,10 +183,6 @@
         <translation>License:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Shortcuts:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Cancel any actions for this application</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Cancel Actions</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Desktop/Menu</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menu</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>None</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

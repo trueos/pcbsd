@@ -25,7 +25,7 @@ void wizardNewJail::programInit()
     connect(lineIP6, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(checkIPv4, SIGNAL(clicked()), this, SLOT(slotCheckChecks()));
     connect(checkIPv6, SIGNAL(clicked()), this, SLOT(slotCheckChecks()));
-    connect(lineHost, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
+    connect(lineHost, SIGNAL(editingFinished( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(lineLinuxScript, SIGNAL(textChanged ( const QString & )), this, SLOT(slotCheckComplete() ) );
     connect(pushLinuxScript, SIGNAL(clicked()), this, SLOT(slotSelectLinuxScript()) );
     connect(this, SIGNAL(currentIdChanged(int)), this, SLOT(slotCheckComplete()) );
@@ -114,7 +114,7 @@ bool wizardNewJail::validatePage()
 
   switch (currentId()) {
      case Page_IP:
-         // Make sure items are not empty
+         // Make sure items are not empty.  Also check for invalid characters
          if ( checkIPv4->isChecked() && lineIP->text().isEmpty() ) {
             ok=false;
 	 }
@@ -128,7 +128,11 @@ bool wizardNewJail::validatePage()
             labelMessage->setText(tr("Hostname cannot contain spaces!"));
 	    ok=false;
 	 }
-
+	 if ( lineHost->text().contains("~") || lineHost->text().contains("`") || lineHost->text().contains("!") || lineHost->text().contains("@") || lineHost->text().contains("#") || lineHost->text().contains("$") || lineHost->text().contains("%") || lineHost->text().contains("^") || lineHost->text().contains("&") || lineHost->text().contains("*") || lineHost->text().contains("(") || lineHost->text().contains(")") || lineHost->text().contains("_") || lineHost->text().contains("+") || lineHost->text().contains("=") || lineHost->text().contains(";") || lineHost->text().contains(":") || lineHost->text().contains("'") || lineHost->text().contains("|") || lineHost->text().contains("?") || lineHost->text().contains("<") || lineHost->text().contains(">") || lineHost->text().contains(".") || lineHost->text().contains("?") || lineHost->text().contains(",") ) {
+            button(QWizard::NextButton)->setEnabled(false);
+            labelMessage->setText(tr("Hostname cannot contain special characters!"));
+            return false;
+	 }
 	 // Check if this IP / Host is already used
          for (int i = 0; i < usedHosts.size(); ++i) {
             if ( usedHosts.at(i).toLower() == lineHost->text().toLower() ) {

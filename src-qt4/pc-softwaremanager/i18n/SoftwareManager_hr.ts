@@ -198,10 +198,6 @@
         <translation>Licenca:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Prečaci:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation type="unfinished">
             </translation>
@@ -431,23 +427,6 @@
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Radna površina/izbornik</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Radna površina</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Izbornik</translation>
-    </message>
-    <message>
-        <source>None</source>
         <translation type="unfinished">
             </translation>
     </message>

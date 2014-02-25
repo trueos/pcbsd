@@ -201,11 +201,6 @@
         <translation>Licencia:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation type="unfinished">
             </translation>
@@ -427,22 +422,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Cancelar acciones</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Escritorio/Menú</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Escritorio</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menú</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Ninguno</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
