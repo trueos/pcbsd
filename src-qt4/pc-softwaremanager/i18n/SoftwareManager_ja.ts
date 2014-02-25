@@ -183,10 +183,6 @@
         <translation>ライセンス:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>ショートカット:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>このアプリケーションに対するアクションをキャンセルします</translation>
     </message>
@@ -389,22 +385,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>アクションをキャンセルする</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>デスクトップ/メニュー</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>デスクトップ</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>メニュー</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>無し</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

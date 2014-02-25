@@ -219,11 +219,6 @@
         <translation type="unfinished">Licenza: </translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation type="unfinished">
             </translation>
@@ -476,26 +471,6 @@
     </message>
     <message>
         <source>Cancel Actions</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>None</source>
         <translation type="unfinished">
             </translation>
     </message>

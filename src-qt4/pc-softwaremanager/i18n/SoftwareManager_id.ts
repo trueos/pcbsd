@@ -183,10 +183,6 @@
         <translation>Lisensi:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Jalan Pintas:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Batalkan setiap tindakan untuk aplikasi ini</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Batalkan Tindakan</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Desktop/Menu</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menu</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Sama sekali tidak</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>
