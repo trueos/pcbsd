@@ -684,7 +684,7 @@ void MainUI::updateInstallDetails(QString appID){
   if( stat.isEmpty() && statF.isEmpty() ){
     //Not currently running - hide the display indicators
     ui->group_install_appStat->setVisible(false);
-  }else if(stat.startsWith("DLSTAT::")){
+  /*}else if(stat.startsWith("DLSTAT::")){
     //Currently downloading - show download status indicators
     QString percent = stat.section("::",1,1);
     QString total = stat.section("::",2,2);
@@ -703,14 +703,14 @@ void MainUI::updateInstallDetails(QString appID){
     else{
       ui->label_install_DL->setVisible(TRUE);
       ui->label_install_DL->setText(speed);
-    }
+    }*/
   }else{
     //Currently installing/removing/updating - show last message from process
     if(!statF.isEmpty()){ ui->label_install_status->setText(statF); }
     else{ ui->label_install_status->setText(stat); }
     ui->group_install_appStat->setVisible(TRUE);
-      ui->progress_install_DL->setVisible(FALSE);
-      ui->label_install_DL->setVisible(FALSE);
+      //ui->progress_install_DL->setVisible(FALSE);
+      //ui->label_install_DL->setVisible(FALSE);
   }
 }
 
@@ -915,10 +915,13 @@ void MainUI::slotGoToApp(QString appID){
 void MainUI::slotUpdateAppDownloadButton(){
   QString ico;
   QString working = PBI->currentAppStatus(cApp);
+  QString rawstat = PBI->currentAppStatus(cApp, true);
   QStringList info = PBI->AppInfo(cApp, QStringList() << "latestversion" << "backupversion" << "requiresroot");
   QString pbiID = PBI->isInstalled(cApp);
-  if(!working.isEmpty()){ //app currently pending or actually doing something
-    ui->tool_bapp_download->setText(working);
+  qDebug() << "App Download status:" << working << rawstat;
+  if(!working.isEmpty() && !rawstat.isEmpty() ){ //app currently pending or actually doing something
+    if(rawstat.startsWith("DLSTAT::")){ ui->tool_bapp_download->setText(tr("Downloading..")); }
+    else{ ui->tool_bapp_download->setText(working); }
     ui->tool_bapp_download->setIcon(QIcon(":icons/working.png"));
     ui->tool_bapp_download->setEnabled(FALSE);
   }else if( pbiID.isEmpty() ){ //new installation

@@ -84,6 +84,7 @@ public slots:
 	
 private:
 	QWidget *parentWidget;
+	QTimer *watchTimer;
 	//variables - warden mode
 	QString wardenDir, wardenIP;
 	bool wardenMode;
@@ -129,7 +130,8 @@ private:
 	
 private slots:
 	void updateDlDirPath(QString);
-	
+	void slotWatcherNotification();
+
 	//Process functions
 	void checkProcesses();
 	void slotProcessFinished(int);

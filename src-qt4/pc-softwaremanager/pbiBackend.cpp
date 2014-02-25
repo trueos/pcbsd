@@ -54,8 +54,12 @@
    autoXDG.clear(); autoXDG << "desktop" << "menu" << "mime" << "paths";
    currentRepoNum = "001"; //first repo by default
    //Filesystem watcher
+   watchTimer = new QTimer(this);
+     watchTimer->setSingleShot(true);
+     watchTimer->setInterval(500); //1/2 a second intervals (to make sure we do not run it too freqently)
+     connect(watchTimer, SIGNAL(timeout()), this, SLOT(slotSyncToDatabase()) );
    watcher = new QFileSystemWatcher();
-   connect(watcher,SIGNAL(directoryChanged(QString)),this,SLOT(slotSyncToDatabase()) );
+   connect(watcher,SIGNAL(directoryChanged(QString)),this,SLOT(slotWatcherNotification()) );
    
  }
  
@@ -525,23 +529,41 @@ QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
     //appID given
     if(!APPHASH.contains(appID)){ return ""; }
     QStringList pbilist = PBIHASH.keys();
+    bool active = false;
     for(int i=0; i<pbilist.length(); i++){
-      if(PBIHASH[pbilist[i]].metaID == appID){ status = PBIHASH[pbilist[i]].status; metaID=appID; break; }
+      //Be careful about more than one pbiID matching the given appID - grab the active one
+      if(PBIHASH[pbilist[i]].metaID == appID){ 
+        status = PBIHASH[pbilist[i]].status; 
+	metaID=appID;
+	active = !(status==InstalledPBI::UPDATEAVAILABLE || status==InstalledPBI::NONE);
+      }
+      if(active){ break; }
     }
   }
   //Determine if the app is currently in a pending/running state
   if(rawstatus){ //output the raw status for active processes
     switch (status){
 	case InstalledPBI::DOWNLOADING:
-	  output = lDownload; break;
+	  output = lDownload;
+	  if(output.isEmpty()){ output = "Downloading"; }
+	  break;
 	case InstalledPBI::INSTALLING:
-	  output = lInstall; break;
+	  output = lInstall; 
+	  if(output.isEmpty()){ output = "Installing"; }
+	  break;
 	case InstalledPBI::REMOVING:
-	  output = lRemove; break;
+	  output = lRemove; 
+	  if(output.isEmpty()){ output = "Removing"; }
+	  break;
 	case InstalledPBI::UPDATING:
-	  output = lUpdate; break;
+	  output = lUpdate; 
+	  if(output.isEmpty()){ output = "Updating"; }
+	  break;
+	case InstalledPBI::NONE:
+	case InstalledPBI::UPDATEAVAILABLE:
+	  output.clear(); break;
 	default:
-	  output.clear();
+	  output = "Pending";
     }
   }else{
     switch (status){
@@ -955,6 +977,10 @@ void PBIBackend::queueInstall(QString appID, QString version){
      dlDir = baseDlDir; 
    }
    if(!dlDir.endsWith("/")){ dlDir.append("/"); } 
+ }
+ 
+ void PBIBackend::slotWatcherNotification(){
+  watchTimer->start();	 
  }
  
  // Internal Process Management
