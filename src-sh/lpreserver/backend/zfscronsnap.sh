@@ -22,6 +22,12 @@ if [ "$ACTION" = "start" ] ; then
 
   TIME="${3}"
 
+  if [ "$TIME" = "auto" ] ; then
+     enable_cron "$DATASET" "auto" "auto" "auto"
+     echo "Snapshot frequency set: Automatic"
+     exit 0
+  fi
+
   # See if the user is running daily with a hour specified
   echo $TIME | grep -q "daily"
   if [ $? -eq 0 ] ; then

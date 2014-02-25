@@ -112,8 +112,8 @@ enable_cron()
       hourly) cLine="0       *       *       *       *" ;;
        30min) cLine="0,30    *       *       *       *" ;;
        10min) cLine="*/10    *       *       *       *" ;;
-        5min) cLine="*/5     *       *       *       *" ;;
-          *) exit_err "Invalid time specified" ;; 
+   5min|auto) cLine="*/5     *       *       *       *" ;;
+           *) exit_err "Invalid time specified" ;;
    esac 
 
    echo -e "$cLine\troot    ${cronscript} $1 $3" >> /etc/crontab

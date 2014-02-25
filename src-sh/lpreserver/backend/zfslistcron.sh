@@ -24,5 +24,6 @@ do
    if [ "$min" = "0,30" ] ; then time="30min" ; fi
    if [ "$min" = '*/10' ] ; then time="10min" ; fi
    if [ "$min" = '*/5' ] ; then time="5min" ; fi
+   if [ "$min" = '*/5' -a "$count" = "auto" ] ; then time="Automatic" ; fi
    echo "$i - $time - total: $count"
 done
