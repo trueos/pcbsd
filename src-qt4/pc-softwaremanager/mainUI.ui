@@ -42,6 +42,21 @@
         <string>Installed</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>-1</number>
+        </property>
+        <property name="leftMargin">
+         <number>2</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>2</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="styleSheet">
@@ -53,49 +68,35 @@
           <widget class="QWidget" name="page_install_list">
            <layout class="QVBoxLayout" name="verticalLayout_21">
             <item>
-             <widget class="QFrame" name="frame_3">
-              <property name="styleSheet">
-               <string notr="true">QFrame{background-color: rgba(250,250,250,170);}</string>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_13">
-               <property name="margin">
-                <number>2</number>
-               </property>
-               <item>
-                <spacer name="horizontalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>278</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QToolButton" name="tool_install_details">
-                 <property name="text">
-                  <string>Application Details</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="SoftwareManager.qrc">
-                   <normaloff>:/icons/go-next.png</normaloff>:/icons/go-next.png</iconset>
-                 </property>
-                 <property name="toolButtonStyle">
-                  <enum>Qt::ToolButtonTextBesideIcon</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>278</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_install_details">
+                <property name="text">
+                 <string>Application Details</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="SoftwareManager.qrc">
+                  <normaloff>:/icons/go-next.png</normaloff>:/icons/go-next.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
             <item>
              <widget class="QTreeWidget" name="tree_install_apps">
@@ -189,10 +190,10 @@
           </widget>
           <widget class="QWidget" name="page_install_details">
            <layout class="QGridLayout" name="gridLayout_2">
-            <item row="0" column="0">
-             <widget class="QFrame" name="frame">
+            <item row="3" column="0">
+             <widget class="QFrame" name="frame_2">
               <property name="styleSheet">
-               <string notr="true">QFrame{background-color: rgba(250,250,250,170);}</string>
+               <string notr="true"/>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -200,75 +201,189 @@
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <layout class="QHBoxLayout" name="horizontalLayout_14">
                <property name="margin">
                 <number>2</number>
                </property>
                <item>
-                <widget class="QToolButton" name="tool_install_back">
-                 <property name="text">
-                  <string>Back</string>
+                <layout class="QFormLayout" name="formLayout_7">
+                 <property name="fieldGrowthPolicy">
+                  <enum>QFormLayout::ExpandingFieldsGrow</enum>
                  </property>
-                 <property name="icon">
-                  <iconset resource="SoftwareManager.qrc">
-                   <normaloff>:/icons/go-previous.png</normaloff>:/icons/go-previous.png</iconset>
-                 </property>
-                 <property name="toolButtonStyle">
-                  <enum>Qt::ToolButtonTextBesideIcon</enum>
-                 </property>
-                </widget>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_3">
+                   <property name="text">
+                    <string>Created:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="label_install_date">
+                   <property name="text">
+                    <string notr="true">Build Date</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label">
+                   <property name="text">
+                    <string>Version:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="label_install_version">
+                   <property name="text">
+                    <string notr="true">x.xx.x</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
                <item>
-                <spacer name="horizontalSpacer_7">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                <layout class="QFormLayout" name="formLayout">
+                 <property name="fieldGrowthPolicy">
+                  <enum>QFormLayout::ExpandingFieldsGrow</enum>
                  </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>0</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QToolButton" name="tool_install_remove">
-                 <property name="toolTip">
-                  <string>Remove the selected application</string>
-                 </property>
-                 <property name="statusTip">
-                  <string>Remove the selected application</string>
-                 </property>
-                 <property name="text">
-                  <string>Uninstall</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="SoftwareManager.qrc">
-                   <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
-                 </property>
-                 <property name="toolButtonStyle">
-                  <enum>Qt::ToolButtonTextBesideIcon</enum>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QToolButton" name="tool_install_gotobrowserpage">
-                 <property name="text">
-                  <string>Find</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="SoftwareManager.qrc">
-                   <normaloff>:/icons/edit-find.png</normaloff>:/icons/edit-find.png</iconset>
-                 </property>
-                 <property name="toolButtonStyle">
-                  <enum>Qt::ToolButtonTextBesideIcon</enum>
-                 </property>
-                </widget>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_4">
+                   <property name="text">
+                    <string>License:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLabel" name="label_install_license">
+                   <property name="text">
+                    <string notr="true">BSD</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_5">
+                   <property name="text">
+                    <string>Architecture:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QLabel" name="label_install_arch">
+                   <property name="text">
+                    <string notr="true">arch</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
              </widget>
             </item>
-            <item row="1" column="0">
+            <item row="7" column="0">
+             <widget class="QGroupBox" name="group_install_appStat">
+              <property name="title">
+               <string>Current Operations</string>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_18">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_10">
+                 <item>
+                  <widget class="QToolButton" name="tool_install_cancel">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Cancel any actions for this application</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Cancel any actions for this application</string>
+                   </property>
+                   <property name="text">
+                    <string>Cancel Operations</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="SoftwareManager.qrc">
+                     <normaloff>:/icons/dialog-cancel.png</normaloff>:/icons/dialog-cancel.png</iconset>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonIconOnly</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="tool_install_update">
+                   <property name="toolTip">
+                    <string>Update the application to the most recent version</string>
+                   </property>
+                   <property name="statusTip">
+                    <string>Update the selected application</string>
+                   </property>
+                   <property name="text">
+                    <string>Update</string>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="SoftwareManager.qrc">
+                     <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
+                   </property>
+                   <property name="toolButtonStyle">
+                    <enum>Qt::ToolButtonIconOnly</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_install_status">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string notr="true">TextLabel</string>
+                   </property>
+                   <property name="wordWrap">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                 <item>
+                  <widget class="QProgressBar" name="progress_install_DL">
+                   <property name="value">
+                    <number>24</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_install_DL">
+                   <property name="minimumSize">
+                    <size>
+                     <width>80</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string notr="true">label</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_6">
               <item>
                <widget class="QLabel" name="label_install_icon">
@@ -374,109 +489,7 @@
               </item>
              </layout>
             </item>
-            <item row="2" column="0">
-             <widget class="QFrame" name="frame_2">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_14">
-               <property name="margin">
-                <number>2</number>
-               </property>
-               <item>
-                <layout class="QFormLayout" name="formLayout_7">
-                 <property name="fieldGrowthPolicy">
-                  <enum>QFormLayout::ExpandingFieldsGrow</enum>
-                 </property>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_3">
-                   <property name="text">
-                    <string>Created:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_5">
-                   <property name="text">
-                    <string>Architecture:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QLabel" name="label_install_date">
-                   <property name="text">
-                    <string notr="true">Build Date</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QLabel" name="label_install_arch">
-                   <property name="text">
-                    <string notr="true">arch</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label">
-                   <property name="text">
-                    <string>Version:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QLabel" name="label_install_version">
-                   <property name="text">
-                    <string notr="true">x.xx.x</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QFormLayout" name="formLayout">
-                 <property name="fieldGrowthPolicy">
-                  <enum>QFormLayout::ExpandingFieldsGrow</enum>
-                 </property>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_4">
-                   <property name="text">
-                    <string>License:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QLabel" name="label_install_license">
-                   <property name="text">
-                    <string notr="true">BSD</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_2">
-                   <property name="text">
-                    <string>Shortcuts:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QLabel" name="label_install_shortcuts">
-                   <property name="text">
-                    <string notr="true">Desktop, Menu</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="3" column="0">
+            <item row="4" column="0">
              <widget class="QPlainTextEdit" name="text_install_description">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -489,7 +502,7 @@
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
+            <item row="5" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_12">
               <property name="margin">
                <number>1</number>
@@ -557,7 +570,7 @@
               </item>
              </layout>
             </item>
-            <item row="5" column="0">
+            <item row="6" column="0">
              <spacer name="verticalSpacer">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -570,109 +583,76 @@
               </property>
              </spacer>
             </item>
-            <item row="6" column="0">
-             <widget class="QGroupBox" name="group_install_appStat">
-              <property name="title">
-               <string>Current Operations</string>
+            <item row="0" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QToolButton" name="tool_install_back">
+                <property name="text">
+                 <string>Back</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="SoftwareManager.qrc">
+                  <normaloff>:/icons/go-previous.png</normaloff>:/icons/go-previous.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_install_remove">
+                <property name="toolTip">
+                 <string>Remove the selected application</string>
+                </property>
+                <property name="statusTip">
+                 <string>Remove the selected application</string>
+                </property>
+                <property name="text">
+                 <string>Uninstall</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="SoftwareManager.qrc">
+                  <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QToolButton" name="tool_install_gotobrowserpage">
+                <property name="text">
+                 <string>Find</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="SoftwareManager.qrc">
+                  <normaloff>:/icons/edit-find.png</normaloff>:/icons/edit-find.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="1" column="0">
+             <widget class="Line" name="line_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
               </property>
-              <property name="flat">
-               <bool>true</bool>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_18">
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_10">
-                 <item>
-                  <widget class="QToolButton" name="tool_install_cancel">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="toolTip">
-                    <string>Cancel any actions for this application</string>
-                   </property>
-                   <property name="statusTip">
-                    <string>Cancel any actions for this application</string>
-                   </property>
-                   <property name="text">
-                    <string>Cancel Operations</string>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="SoftwareManager.qrc">
-                     <normaloff>:/icons/dialog-cancel.png</normaloff>:/icons/dialog-cancel.png</iconset>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonIconOnly</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QToolButton" name="tool_install_update">
-                   <property name="toolTip">
-                    <string>Update the application to the most recent version</string>
-                   </property>
-                   <property name="statusTip">
-                    <string>Update the selected application</string>
-                   </property>
-                   <property name="text">
-                    <string>Update</string>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="SoftwareManager.qrc">
-                     <normaloff>:/icons/view-refresh.png</normaloff>:/icons/view-refresh.png</iconset>
-                   </property>
-                   <property name="toolButtonStyle">
-                    <enum>Qt::ToolButtonIconOnly</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_install_status">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string notr="true">TextLabel</string>
-                   </property>
-                   <property name="wordWrap">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_9">
-                 <item>
-                  <widget class="QProgressBar" name="progress_install_DL">
-                   <property name="value">
-                    <number>24</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_install_DL">
-                   <property name="minimumSize">
-                    <size>
-                     <width>80</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string notr="true">label</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
              </widget>
             </item>
            </layout>
@@ -690,6 +670,18 @@
         <string>Browse For Apps</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="leftMargin">
+         <number>2</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>2</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
@@ -879,8 +871,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>70</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -930,8 +922,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>49</width>
+                    <height>16</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -955,8 +947,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>86</width>
+                 <height>16</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -1355,8 +1347,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>419</width>
+                    <height>61</height>
                    </rect>
                   </property>
                  </widget>
@@ -1416,8 +1408,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>55</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>
@@ -1454,8 +1446,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>55</width>
+                    <height>16</height>
                    </rect>
                   </property>
                  </widget>

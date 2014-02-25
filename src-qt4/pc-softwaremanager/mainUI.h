@@ -114,7 +114,7 @@ private:
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
-  QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu;
+  QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu, *sMimeMenu;
   QString cDetails;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);

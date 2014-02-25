@@ -183,10 +183,6 @@
         <translation>Litsents:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Otseteed:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Tühista selle rakenduse tegevused</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Tühista tegevused</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Töölaud/menüü</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Töölaud</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Menüü</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Puuduvad</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

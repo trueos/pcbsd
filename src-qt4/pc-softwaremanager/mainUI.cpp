@@ -180,10 +180,10 @@ void MainUI::initializeInstalledTab(){
       spmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddPath()) );
       spmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemovePath()) );  
       spmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddPathAll()) );
-    QMenu *sfmenu = shortcutMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
-      sfmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
-      sfmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMime()) );  
-      sfmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMimeAll()) );
+    sMimeMenu = shortcutMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
+      sMimeMenu ->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
+      sMimeMenu ->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMime()) );  
+      sMimeMenu ->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMimeAll()) );
   ui->tool_install_shortcuts->setMenu(shortcutMenu);
   //Setup the binary menu for installed applications
   appBinMenu = new QMenu();
@@ -234,7 +234,7 @@ QStringList MainUI::getCheckedItems(){
       }
     }
   }
-  qDebug() << "Checked Items:" << output;
+  //qDebug() << "Checked Items:" << output;
   return output;	
 }
 
@@ -599,7 +599,7 @@ void MainUI::updateInstallDetails(QString appID){
     QStringList vals; 
     vals << "name" << "icon" << "author" << "website" << "version" << "license" << "description" << "maintainer" << "date" << "arch";
     QStringList bools;
-    bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons" << "requiresroot";
+    bools << "autoupdate" << "hasdesktopicons" << "hasmenuicons" << "requiresroot" << "hasmimetypes";
     vals = PBI->PBIInfo(appID,vals);
     bools = PBI->PBIInfo(appID,bools);
     //Make sure the info lists are not empty
@@ -614,14 +614,11 @@ void MainUI::updateInstallDetails(QString appID){
     bool menuSC= (bools[2] == "true"); 	 // XDG menu entries available
     bool autoupdate = (bools[0] == "true"); //auto-update enabled
     bool rootonly = (bools[3] == "true"); //requires root
+    bool mimeSC = (bools[4] == "true"); //XDG mime entries available
     //Create the shortcuts string
-    QString shortcuts;
-      if(desktopSC && menuSC){ shortcuts = tr("Desktop/Menu"); }
-      else if(desktopSC){ shortcuts = tr("Desktop"); }
-      else if(menuSC){ shortcuts = tr("Menu"); }
-      else{ shortcuts = tr("None"); }
     sDeskMenu->setEnabled(desktopSC);
     sMenuMenu->setEnabled(menuSC);
+    sMimeMenu->setEnabled(mimeSC);
     //Now display that info on the UI
     ui->label_install_app->setText(vals[0]);
     ui->label_install_icon->setPixmap( QPixmap(vals[1]).scaled(64,64, Qt::KeepAspectRatio, Qt::SmoothTransformation) );

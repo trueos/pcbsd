@@ -183,10 +183,6 @@
         <translation>Ліцензія:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation>Ярлики:</translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Відмінити будь-які поточні дії з цим додаткрм</translation>
     </message>
@@ -397,22 +393,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Відмінити дії</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Стільниця/Меню</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Стільниця</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Меню</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>Нічого</translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

@@ -207,11 +207,6 @@
         <translation>Lisenssi:</translation>
     </message>
     <message>
-        <source>Shortcuts:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Cancel any actions for this application</source>
         <translation>Peru kaikki sovellusta koskevat toiminnot</translation>
     </message>
@@ -444,23 +439,6 @@
     <message>
         <source>Cancel Actions</source>
         <translation>Peru toiminnot</translation>
-    </message>
-    <message>
-        <source>Desktop/Menu</source>
-        <translation>Työpöytä/Valikko</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Työpöytä</translation>
-    </message>
-    <message>
-        <source>Menu</source>
-        <translation>Valikko</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Verify PBI Removal</source>

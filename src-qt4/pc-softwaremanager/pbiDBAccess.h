@@ -41,6 +41,7 @@ public:
 	bool installedPbiAutoUpdate(QString pbiID);
 	bool installedPbiHasXdgDesktop(QString installPath);
 	bool installedPbiHasXdgMenu(QString installPath);
+	bool installedPbiHasXdgMime(QString installPath);
 	QString indexFilePath();
 	QString metaFilePath();
 	QStringList parseIndexLine(QString line);
