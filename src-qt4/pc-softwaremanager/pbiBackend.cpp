@@ -226,7 +226,7 @@ void PBIBackend::upgradePBI(QStringList pbiID){
   for(int i=0; i<pbiID.length(); i++){
     if( PBIHASH.contains(pbiID[i]) ){
       if( PBIHASH[pbiID[i]].status == InstalledPBI::UPDATEAVAILABLE ){
-      	QString cmd = generateUpdateCMD(pbiID[i]);
+	QString cmd = generateUpdateCMD(pbiID[i]);
         PENDINGUPDATE << pbiID[i] + ":::" + cmd;
         PBIHASH[pbiID[i]].setStatus(InstalledPBI::PENDINGUPDATE);
         emit PBIStatusChange(pbiID[i]);
@@ -549,11 +549,14 @@ QString PBIBackend::currentAppStatus( QString appID, bool rawstatus ){
 	  if(sDownload){ output = tr("Download Canceled"); }
 	  if(lDownload.startsWith("DLSTAT::")){
 	    QString percent = lDownload.section("::",1,1);
-	    output = QString(tr("Downloading: %1%")).arg( percent );
-	  }else if(lDownload == "DLDONE"){
-	    output = tr("Download Finished");
+	    QString spd = lDownload.section("::",3,3);
+	    if(spd=="??"){
+	      output = QString(tr("Downloading: %1%")).arg( percent );
+	    }else{
+	      output = QString(tr("Downloading: %1% @ %2")).arg( percent, spd );
+	    }
 	  }else{
-            output = tr("Download Starting"); 
+	    output = lDownload;
 	  }
 	  break;
         case InstalledPBI::INSTALLING:
@@ -1155,9 +1158,18 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
    QString message;
    if(ID == ProcessManager::UPDATE){
      if(!sUpdate){ //not stopped manually
-       if(PBIHASH.contains(cUpdate)){name = PBIHASH[cUpdate].name; }
-       title = QString(tr("%1 Update Error:")).arg(name); 
-       message = tr("The update process experienced an error and could not be completed");
+       //Try to do the update through full download instead
+       if(PBIHASH.contains(cUpdate)){
+	 QString metaID = PBIHASH[cUpdate].metaID;
+	 if(APPHASH.contains(metaID)){
+	  QString version = APPHASH[metaID].latestVersion;
+	  queueInstall(metaID, version);
+	 }else{
+	  QString name = PBIHASH[cUpdate].name;
+          title = QString(tr("%1 Update Error:")).arg(name); 
+          message = tr("The update process experienced an error and could not be completed");
+	 }
+       }
      }
    }
    else if(ID == ProcessManager::INSTALL){ 

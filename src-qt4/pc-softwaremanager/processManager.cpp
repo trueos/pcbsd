@@ -134,79 +134,18 @@ QStringList ProcessManager::getProcessLog(ProcessID ID){
 // =========================
 // ===== PRIVATE SLOTS =====
 // =========================
-//QString ProcessManager::parseDlLine(QString line){
   /*DOWNLOAD NOTIFICATION CODES:
   Download complete: "DLDONE"
   Download running: "DLSTAT::<percent>::<total size>::<download speed>"
 	-- A value of "??" means that it is unknown
   Download starting: "DLSTART"
   */
-/*
-  QString out;
-  if( line.startsWith("FETCH:") ){ return "DLSTART"; }
-  else if( line == "FETCHDONE"){ return "DLDONE"; }
-  else if(!line.startsWith("SIZE:")){ return out; }
-  //qDebug() << "parse Download Line:" << line;
-  //Line format: SIZE:  <KB> DOWNLOADED:  <KB> SPEED:  <KB/s> KB/s
-  line = line.simplified();
-  line.replace("SIZE: ","");
-  line.replace("DOWNLOADED: ", "");
-  line.replace("SPEED: ","");
-  line.replace("KB/s","");
-  bool totok, curok, spdok;
-  double tot, cur, spd;
-  tot = line.section(" ",0,0).toDouble(&totok);
-  cur = line.section(" ",1,1).toDouble(&curok);
-  spd = line.section(" ",2,2).toDouble(&spdok);
-  //qDebug() << " - DownloadStats:" << tot << cur << spd;
-  if(totok && tot==0){totok=FALSE;}
-  if(curok && cur==0){curok=FALSE;}
-  if(spdok && spd==0){spdok=FALSE;}
-  //Now format the output string
-  QString stats;
-  out = "DLSTAT::";
-  //Get percent and totals
-  if(totok && curok){
-    bool totErr = (tot==cur); //catch for a display error where the cur is always identical to the tot
-    if(!totErr){	  
-      //Calculate the percentage
-      double percent = (cur/tot)*100;
-      percent = int(percent*10)/10.0;
-      out.append(QString::number(percent)+"::");
-      //Now list the total
-      out.append( Extras::sizeKToDisplay(QString::number(tot)) +"::" );
-    }else{
-      //Only Total/Current is known (unknown percentage since not complete yet)
-      out.append("??::"+Extras::sizeKToDisplay(QString::number(tot))+"::");
-    }	    
-  }else if(curok){
-    //Only Total/Current is known (unknown percentage since not complete yet)
-    out.append("??::"+Extras::sizeKToDisplay(QString::number(cur))+"::");
-  }else if(totok){
-    //Only Total/Current is known (unknown percentage since not complete yet)
-    out.append("??::"+Extras::sizeKToDisplay(QString::number(tot))+"::");
-  }else{
-    //Unknown Total and Current
-    out.append("??::??::");
-  }
-  //Now get the speed
-  if(spdok){
-    out.append( Extras::sizeKToDisplay(QString::number(spd))+"/s" );
-  }else{
-    out.append("??");
-  }
-  return out;
-}
-*/
+
 // == UPDATE PROCESS ==
 void ProcessManager::slotUpProcMessage(QString msg){
-  //Check for DL start/finish messages
-  if(msg.startsWith("FETCH:")){ msg = "DLSTART"; }
-  else if(msg.startsWith("FETCHDONE")){ msg = "DLDONE"; }
-  else{
-    //Add the message to the log
-    upLog << msg;
-  }
+  //Add the message to the log
+  upLog << msg;
+  
   //Now send it out
   emit ProcessMessage(UPDATE, msg);
 }
@@ -249,12 +188,8 @@ void ProcessManager::slotRemProcFinished(){
 // == DOWNLOAD PROCESS ==
 void ProcessManager::slotDlProcMessage(QString msg){
   //Check for DL start/finish messages
-  if(msg.startsWith("FETCH:")){ msg = "DLSTART"; }
-  else if(msg.startsWith("FETCHDONE")){ msg = "DLDONE"; }
-  else{
-    //Add the message to the log
-    dlLog << msg;
-  }
+  //Add the message to the log
+  dlLog << msg;
   //Now send it out
   emit ProcessMessage(DOWNLOAD, msg);
 }
