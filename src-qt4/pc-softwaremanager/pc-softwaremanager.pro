@@ -3,7 +3,7 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS	+= -lQtSolutions_SingleApplication-head
+LIBS	+= -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
 //INCLUDEPATH+= ../libpcbsd/utils/
 

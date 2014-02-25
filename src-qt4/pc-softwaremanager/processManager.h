@@ -1,12 +1,12 @@
 #ifndef _APPCAFE_PROCESS_MANAGER_H
 #define _APPCAFE_PROCESS_MANAGER_H
 
-#include <QProcess>
-#include <QProcessEnvironment>
 #include <QString>
 #include <QStringList>
 #include <QObject>
 #include <QDebug>
+
+#include <pcbsd-DLProcess.h>
 
 #include "extras.h"
 	
@@ -31,21 +31,27 @@ signals:
 	void ProcessError(int ID,QStringList);
 	
 private:
-	QProcess *upProc, *remProc, *dlProc, *inProc, *otProc;
+	DLProcess *upProc, *remProc, *dlProc, *inProc, *otProc;
 	QStringList upLog, remLog, dlLog, inLog;
         bool remStrictErrChecking;
 
 private slots:
-	QString parseDlLine(QString);
-	void slotUpProcMessage();
+	//QString parseDlLine(QString);
+	void slotUpProcMessage(QString);
+	void slotUpProcStats(QString,QString, QString);
 	void slotUpProcFinished();
-	void slotRemProcMessage();
+
+	void slotRemProcMessage(QString);
 	void slotRemProcFinished();
-	void slotDlProcMessage();
+
+	void slotDlProcMessage(QString);
+	void slotDlProcStats(QString,QString, QString);
 	void slotDlProcFinished();
-	void slotInProcMessage();
+
+	void slotInProcMessage(QString);
 	void slotInProcFinished();
-	void slotOtProcMessage();
+
+	void slotOtProcMessage(QString);
 	void slotOtProcFinished();
 
 };

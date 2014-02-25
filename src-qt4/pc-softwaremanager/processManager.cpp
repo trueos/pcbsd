@@ -26,32 +26,36 @@
  #include "processManager.h"
 
 ProcessManager::ProcessManager(){
-  //Get the system environment for all the processes
-  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("PBI_FETCH_PARSING","YES"); //For readable download notifications
     //Initialize the UPDATE Process
-    upProc = new QProcess; upProc->setProcessEnvironment(env);
-    upProc->setProcessChannelMode(QProcess::MergedChannels);
-    connect(upProc, SIGNAL(readyRead()),this,SLOT(slotUpProcMessage()) );
+    upProc = new DLProcess(this);
+	upProc->setDLType("PBI");
+    connect(upProc, SIGNAL(UpdateMessage(QString)), this, SLOT(slotUpProcMessage(QString)) );
+    connect(upProc, SIGNAL(UpdatePercent(QString, QString, QString)), this, SLOT(slotUpProcStats(QString,QString, QString)) );
     connect(upProc, SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotUpProcFinished()) );
+	
     //Initialize the REMOVE Process
-    remProc = new QProcess; remProc->setProcessEnvironment(env);
-    remProc->setProcessChannelMode(QProcess::MergedChannels);
-    connect(remProc, SIGNAL(readyRead()),this,SLOT(slotRemProcMessage()) );
+    remProc = new DLProcess(this);
+	//remProc->setDLType("PBI"); //Does not need download parsing - just use standard message output
+    connect(remProc, SIGNAL(UpdateMessage(QString)), this, SLOT(slotRemProcMessage(QString)) );
     connect(remProc, SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotRemProcFinished()) );
+	
     //Initialize the DOWNLOAD Process
-    dlProc = new QProcess; dlProc->setProcessEnvironment(env);
-    dlProc->setProcessChannelMode(QProcess::MergedChannels);
-    connect(dlProc, SIGNAL(readyRead()),this,SLOT(slotDlProcMessage()) );
+    dlProc = new DLProcess(this);
+	dlProc->setDLType("PBI");
+    connect(dlProc, SIGNAL(UpdateMessage(QString)), this, SLOT(slotDlProcMessage(QString)) );
+    connect(dlProc, SIGNAL(UpdatePercent(QString, QString, QString)), this, SLOT(slotDlProcStats(QString,QString, QString)) );
     connect(dlProc, SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotDlProcFinished()) );
+	
     //Initialize the INSTALL Process
-    inProc = new QProcess; inProc->setProcessEnvironment(env);
-    inProc->setProcessChannelMode(QProcess::MergedChannels);
-    connect(inProc, SIGNAL(readyRead()),this,SLOT(slotInProcMessage()) );
+    inProc = new DLProcess(this);
+	//inProc->setDLType("PBI"); //Does not need download parsing - just use standard message output
+    connect(inProc, SIGNAL(UpdateMessage(QString)), this, SLOT(slotInProcMessage(QString)) );
     connect(inProc, SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotInProcFinished()) );
+    
     //Initialize the OTHER Process
-    otProc = new QProcess; otProc->setProcessEnvironment(env);
-    connect(otProc, SIGNAL(readyReadStandardOutput()),this,SLOT(slotOtProcMessage()) );
+    otProc = new DLProcess(this);
+	//otProc->setDLType("PBI"); //Does not need download parsing - just use standard message output
+    connect(otProc, SIGNAL(UpdateMessage(QString)), this, SLOT(slotOtProcMessage(QString)) );
     connect(otProc, SIGNAL(finished(int,QProcess::ExitStatus)),this,SLOT(slotOtProcFinished()) );
 }
 
@@ -130,13 +134,14 @@ QStringList ProcessManager::getProcessLog(ProcessID ID){
 // =========================
 // ===== PRIVATE SLOTS =====
 // =========================
-QString ProcessManager::parseDlLine(QString line){
+//QString ProcessManager::parseDlLine(QString line){
   /*DOWNLOAD NOTIFICATION CODES:
   Download complete: "DLDONE"
   Download running: "DLSTAT::<percent>::<total size>::<download speed>"
 	-- A value of "??" means that it is unknown
   Download starting: "DLSTART"
   */
+/*
   QString out;
   if( line.startsWith("FETCH:") ){ return "DLSTART"; }
   else if( line == "FETCHDONE"){ return "DLDONE"; }
@@ -192,23 +197,24 @@ QString ProcessManager::parseDlLine(QString line){
   }
   return out;
 }
-
+*/
 // == UPDATE PROCESS ==
-void ProcessManager::slotUpProcMessage(){
-  while( upProc->canReadLine() ){
-    QString line = upProc->readLine().simplified();
-    if(line.isEmpty()){ continue; }
-    QString dl = parseDlLine(line);
-    if(!dl.isEmpty()){ 
-      emit ProcessMessage(UPDATE,dl); //Download status
-      if( !dl.startsWith("DLSTAT::") ){
-	upLog << line; //not just a status update - add to the log (log download start/stop)    
-      }
-    }else{ 
-      emit ProcessMessage(UPDATE,line); 
-      upLog << line; //not a download line - add to the log
-    }
+void ProcessManager::slotUpProcMessage(QString msg){
+  //Check for DL start/finish messages
+  if(msg.startsWith("FETCH:")){ msg = "DLSTART"; }
+  else if(msg.startsWith("FETCHDONE")){ msg = "DLDONE"; }
+  else{
+    //Add the message to the log
+    upLog << msg;
   }
+  //Now send it out
+  emit ProcessMessage(UPDATE, msg);
+}
+
+void ProcessManager::slotUpProcStats(QString percent, QString size, QString speed){
+  //Format the display string for output
+  QString out = "DLSTAT::"+percent+"::"+size+"::"+speed;
+  emit ProcessMessage(UPDATE, out);
 }
 
 void ProcessManager::slotUpProcFinished(){
@@ -223,14 +229,11 @@ void ProcessManager::slotUpProcFinished(){
 }
 
 // == REMOVE PROCESS ==
-void ProcessManager::slotRemProcMessage(){
-  while( remProc->canReadLine() ){
-    QString line = remProc->readLine().simplified();
-    if(!line.isEmpty()){ 
-      remLog << line; 
-      emit ProcessMessage(REMOVE,line);
-    }
-  }
+void ProcessManager::slotRemProcMessage(QString msg){
+  //Add the message to the log
+  remLog << msg;
+  //Now send it out
+  emit ProcessMessage(REMOVE, msg);
 }
 
 void ProcessManager::slotRemProcFinished(){
@@ -244,21 +247,22 @@ void ProcessManager::slotRemProcFinished(){
 }
 
 // == DOWNLOAD PROCESS ==
-void ProcessManager::slotDlProcMessage(){
-  while( dlProc->canReadLine() ){
-    QString line = dlProc->readLine().simplified();
-    if(line.isEmpty()){ continue; }
-    QString dl = parseDlLine(line);
-    if(!dl.isEmpty()){ 
-      emit ProcessMessage(DOWNLOAD,dl); //Download status
-      if( !dl.startsWith("DLSTAT::") ){
-	dlLog << line; //not just a status update - add to the log (log download start/stop)    
-      }
-    }else{ 
-      emit ProcessMessage(DOWNLOAD,line); 
-      dlLog << line; //not a download line - add to the log
-    }
+void ProcessManager::slotDlProcMessage(QString msg){
+  //Check for DL start/finish messages
+  if(msg.startsWith("FETCH:")){ msg = "DLSTART"; }
+  else if(msg.startsWith("FETCHDONE")){ msg = "DLDONE"; }
+  else{
+    //Add the message to the log
+    dlLog << msg;
   }
+  //Now send it out
+  emit ProcessMessage(DOWNLOAD, msg);
+}
+
+void ProcessManager::slotDlProcStats(QString percent, QString size, QString speed){
+  //Format the display string for output
+  QString out = "DLSTAT::"+percent+"::"+size+"::"+speed;
+  emit ProcessMessage(DOWNLOAD, out);
 }
 
 void ProcessManager::slotDlProcFinished(){
@@ -272,14 +276,11 @@ void ProcessManager::slotDlProcFinished(){
 }
 
 // == INSTALL PROCESS ==
-void ProcessManager::slotInProcMessage(){
-  while( inProc->canReadLine() ){
-    QString line = inProc->readLine().simplified();
-    if(!line.isEmpty()){ 
-      inLog << line; 
-      emit ProcessMessage(INSTALL,line);
-    }
-  }
+void ProcessManager::slotInProcMessage(QString msg){
+  //Add the message to the log
+  inLog << msg;
+  //Now send it out
+  emit ProcessMessage(INSTALL, msg);
 }
 
 void ProcessManager::slotInProcFinished(){
@@ -293,9 +294,9 @@ void ProcessManager::slotInProcFinished(){
 }
 
 // == OTHER PROCESS ==
-void ProcessManager::slotOtProcMessage(){
-  QString msg = otProc->readAllStandardOutput();
-  emit ProcessMessage(OTHER,msg);
+void ProcessManager::slotOtProcMessage(QString msg){
+  //send it out (no logging - this channel is for quick commands with almost no output)
+  emit ProcessMessage(OTHER, msg);
 }
 
 void ProcessManager::slotOtProcFinished(){
