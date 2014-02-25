@@ -153,6 +153,16 @@ QStringList PBIBackend::getRecentApps(){
   return output; //newest->oldest
 }
 
+QStringList PBIBackend::getRecommendations(){
+  QStringList apps;
+  QStringList out = Extras::readFile(":defaultrecommendations.txt"); //make this load a db file later
+  for(int i=0; i<out.length(); i++){
+    //Make sure they are all valid apps in the repo
+    if(APPHASH.contains(out[i])){ apps << out[i]; }
+  }
+  return apps;
+}
+
 bool PBIBackend::safeToQuit(){
   //returns true if there is no pending/current processes
   bool ok = ( PENDINGDL.isEmpty() && PENDINGUPDATE.isEmpty() && PENDINGREMOVAL.isEmpty() \

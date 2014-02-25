@@ -1,0 +1,14 @@
+firefox
+chromium
+opera
+thunderbird
+libreoffice
+apacheopenoffice
+audacious
+vlc
+homebank
+pithos
+freemat
+keepassx
+gimp
+wine

@@ -684,33 +684,11 @@ void MainUI::updateInstallDetails(QString appID){
   if( stat.isEmpty() && statF.isEmpty() ){
     //Not currently running - hide the display indicators
     ui->group_install_appStat->setVisible(false);
-  /*}else if(stat.startsWith("DLSTAT::")){
-    //Currently downloading - show download status indicators
-    QString percent = stat.section("::",1,1);
-    QString total = stat.section("::",2,2);
-    QString speed = stat.section("::",3,3);
-    ui->group_install_appStat->setVisible(TRUE);
-      ui->progress_install_DL->setVisible(TRUE);
-    if(total == "??"){ ui->label_install_status->setText( tr("Downloading file:") ); }
-    else{ ui->label_install_status->setText( QString(tr("Downloading %1 file:")).arg(total) ); }
-    if(percent == "??"){
-      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(0);
-    }else{
-      ui->progress_install_DL->setMinimum(0); ui->progress_install_DL->setMaximum(1000);
-      ui->progress_install_DL->setValue( int(percent.toFloat()*10) );
-    }
-    if(speed == "??"){ ui->label_install_DL->setVisible(FALSE); }
-    else{
-      ui->label_install_DL->setVisible(TRUE);
-      ui->label_install_DL->setText(speed);
-    }*/
   }else{
     //Currently installing/removing/updating - show last message from process
     if(!statF.isEmpty()){ ui->label_install_status->setText(statF); }
     else{ ui->label_install_status->setText(stat); }
     ui->group_install_appStat->setVisible(TRUE);
-      //ui->progress_install_DL->setVisible(FALSE);
-      //ui->label_install_DL->setVisible(FALSE);
   }
 }
 
@@ -726,7 +704,7 @@ void MainUI::initializeBrowserTab(){
   ui->tool_browse_app->setVisible(FALSE);
   //Clear any items left over from the designer form
   clearScrollArea(ui->scroll_br_home_newapps);
-  clearScrollArea(ui->scroll_br_home_cats);
+  clearScrollArea(ui->scroll_br_home_rec);
   //Search functionality
   searchTimer = new QTimer();
     searchTimer->setSingleShot(TRUE);
@@ -756,20 +734,35 @@ void MainUI::slotEnableBrowser(){
 void MainUI::slotUpdateBrowserHome(){
   //Load the Categories
   QStringList cats = PBI->browserCategories();
-  clearScrollArea(ui->scroll_br_home_cats);
-  QVBoxLayout *catlayout = new QVBoxLayout;
-  QStringList info; info << "name" << "description" << "icon";
-  cats.sort(); //sort them alphabetically
-  for(int i=0; i<cats.length(); i++){
-    QStringList data = PBI->CatInfo(cats[i],info);
+    cats.sort();
+    QMenu *catmenu = new QMenu(this);
+    QStringList info; info << "name" << "shortdescription" << "icon";
+    for(int i=0; i<cats.length(); i++){
+      QStringList data = PBI->CatInfo(cats[i],info);
+      if(!data.isEmpty()){
+      QAction *act = new QAction(QIcon(data[2]), data[0], this);
+        act->setToolTip(data[1]);
+	act->setWhatsThis(cats[i]);
+	catmenu->addAction(act);
+      }
+    }
+    connect(catmenu, SIGNAL(triggered(QAction*)), this, SLOT(slotGoToCatClicked(QAction*)) );
+    ui->tool_browse_gotocat->setMenu(catmenu);
+  //Load the Recommendations
+  clearScrollArea(ui->scroll_br_home_rec);
+  QVBoxLayout *reclayout = new QVBoxLayout;
+  QStringList recList = PBI->getRecommendations();
+  //info.clear(); info << "name" << "shortdescription" << "icon";
+  for(int i=0; i<recList.length(); i++){
+    QStringList data = PBI->AppInfo(recList[i],info);
     if(!data.isEmpty()){
-      LargeItemWidget *item = new LargeItemWidget(cats[i],data[0],data[1],data[2]);
-      connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToCategory(QString)) );
-      catlayout->addWidget(item);
+      LargeItemWidget *item = new LargeItemWidget(recList[i],data[0],data[1],data[2]);
+      connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
+      reclayout->addWidget(item);
     }
   }
-  catlayout->addStretch(); //add a spacer to the end
-  ui->scroll_br_home_cats->widget()->setLayout(catlayout);
+  reclayout->addStretch(); //add a spacer to the end
+  ui->scroll_br_home_rec->widget()->setLayout(reclayout);
   //Load the newest applications
   clearScrollArea(ui->scroll_br_home_newapps);
   QHBoxLayout *newapplayout = new QHBoxLayout;
@@ -787,7 +780,7 @@ void MainUI::slotUpdateBrowserHome(){
   newapplayout->setSpacing(0);
   ui->scroll_br_home_newapps->widget()->setLayout(newapplayout);
   //Make sure that the newapps scrollarea is the proper fit vertically (no vertical scrolling)
-  ui->scroll_br_home_newapps->setMinimumHeight(ui->scroll_br_home_newapps->widget()->minimumSizeHint().height()+ui->scroll_br_home_newapps->horizontalScrollBar()->height());
+  ui->scroll_br_home_newapps->setMinimumHeight(ui->scroll_br_home_newapps->widget()->minimumSizeHint().height());
   
   //Make sure the new apps area is invisible if no items available
   if(newapps.isEmpty()){ ui->group_br_home_newapps->setVisible(FALSE); }
@@ -804,8 +797,9 @@ void MainUI::slotGoToHome(){
   ui->tabWidget->setCurrentWidget(ui->tab_browse);
   ui->stacked_browser->setCurrentWidget(ui->page_home);	
   //Make sure the shortcut buttons are disabled
-  ui->tool_browse_cat->setVisible(FALSE);
-  ui->tool_browse_app->setVisible(FALSE);
+  ui->tool_browse_cat->setVisible(false);
+  ui->tool_browse_app->setVisible(false);
+  ui->tool_browse_gotocat->setVisible(true);
 }
 
 void MainUI::slotGoToCategory(QString cat){
@@ -833,8 +827,9 @@ void MainUI::slotGoToCategory(QString cat){
   applayout->addStretch();
   ui->scroll_br_cat_apps->widget()->setLayout(applayout);
   //Now enable/disable the shortcut buttons
-  ui->tool_browse_app->setVisible(FALSE);
-  ui->tool_browse_cat->setVisible(TRUE);
+  ui->tool_browse_app->setVisible(false);
+  ui->tool_browse_cat->setVisible(true);
+  ui->tool_browse_gotocat->setVisible(false);
     QStringList catinfo = PBI->CatInfo(cat,QStringList() << "name" << "icon");
     ui->tool_browse_cat->setText(catinfo[0]);
     if(catinfo[1].isEmpty()){ catinfo[1] = defaultIcon; }
@@ -843,6 +838,10 @@ void MainUI::slotGoToCategory(QString cat){
   ui->stacked_browser->setCurrentWidget(ui->page_cat);
   //Now save that this category is currently displayed
   cCat = cat;
+}
+
+void MainUI::slotGoToCatClicked(QAction* act){
+  slotGoToCategory(act->whatsThis());	
 }
 
 void MainUI::slotGoToApp(QString appID){
@@ -902,6 +901,7 @@ void MainUI::slotGoToApp(QString appID){
     ui->tool_browse_app->setIcon(QIcon(data[1]));
   QStringList catinfo = PBI->CatInfo(Extras::nameToID(data[7]),QStringList() << "name" << "icon");
   if(!catinfo.isEmpty()){
+    ui->tool_browse_gotocat->setVisible(false);
     ui->tool_browse_cat->setVisible(TRUE);
     ui->tool_browse_cat->setText(catinfo[0]);
     if(catinfo[1].isEmpty()){ catinfo[1] = defaultIcon; }
@@ -918,7 +918,7 @@ void MainUI::slotUpdateAppDownloadButton(){
   QString rawstat = PBI->currentAppStatus(cApp, true);
   QStringList info = PBI->AppInfo(cApp, QStringList() << "latestversion" << "backupversion" << "requiresroot");
   QString pbiID = PBI->isInstalled(cApp);
-  qDebug() << "App Download status:" << working << rawstat;
+  //qDebug() << "App Download status:" << working << rawstat;
   if(!working.isEmpty() && !rawstat.isEmpty() ){ //app currently pending or actually doing something
     if(rawstat.startsWith("DLSTAT::")){ ui->tool_bapp_download->setText(tr("Downloading..")); }
     else{ ui->tool_bapp_download->setText(working); }
@@ -982,7 +982,7 @@ void MainUI::slotShowSimilarApps(QStringList apps){
     layout->setContentsMargins(1,1,1,1);
     ui->scroll_bapp_similar->widget()->setLayout(layout);
     //Make sure that the similar scrollarea is the proper fit vertically (no vertical scrolling)
-    ui->scroll_bapp_similar->setMinimumHeight(ui->scroll_bapp_similar->widget()->minimumSizeHint().height()+ui->scroll_bapp_similar->horizontalScrollBar()->height());
+    ui->scroll_bapp_similar->setMinimumHeight(ui->scroll_bapp_similar->widget()->minimumSizeHint().height() +ui->scroll_bapp_similar->horizontalScrollBar()->height()/1.2);
     //Now make the group visible as appropriate
     ui->group_bapp_similar->setVisible(TRUE);
     if(ui->group_bapp_similar->isChecked()){ ui->scroll_bapp_similar->setVisible(TRUE); }

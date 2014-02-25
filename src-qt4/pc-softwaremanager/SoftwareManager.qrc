@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>defaultrecommendations.txt</file>
     <file>icons/config.png</file>
     <file>icons/add-root.png</file>
     <file>icons/remove-root.png</file>

@@ -25,7 +25,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -678,6 +678,23 @@
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="tool_browse_gotocat">
+            <property name="text">
+             <string>Browse Category</string>
+            </property>
+            <property name="icon">
+             <iconset resource="SoftwareManager.qrc">
+              <normaloff>:/icons/xdg_menu.png</normaloff>:/icons/xdg_menu.png</iconset>
+            </property>
+            <property name="popupMode">
+             <enum>QToolButton::InstantPopup</enum>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="tool_browse_cat">
             <property name="text">
              <string>Category</string>
@@ -783,7 +800,7 @@ QScrollArea{
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_home">
            <layout class="QGridLayout" name="gridLayout">
@@ -850,8 +867,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>419</width>
+                    <height>61</height>
                    </rect>
                   </property>
                   <layout class="QHBoxLayout" name="horizontalLayout_5"/>
@@ -862,22 +879,13 @@ spacing: 1px;
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QGroupBox" name="group_bhome_cats">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
+             <widget class="QGroupBox" name="group_br_recommend">
               <property name="title">
-               <string>Browse By Category</string>
+               <string>PC-BSD Recommendations</string>
               </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_7">
+              <layout class="QVBoxLayout" name="verticalLayout_13">
                <item>
-                <widget class="QScrollArea" name="scroll_br_home_cats">
+                <widget class="QScrollArea" name="scroll_br_home_rec">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
                    <horstretch>0</horstretch>
@@ -901,8 +909,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>413</width>
+                    <height>262</height>
                    </rect>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_6"/>
@@ -1326,8 +1334,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>419</width>
-                    <height>61</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                  </widget>

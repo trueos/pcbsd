@@ -42,6 +42,7 @@ public:
 	QStringList browserCategories(); //return list of available browser categories
 	QStringList browserApps( QString catID ); //list all apps in the given category
 	QStringList getRecentApps(); //list all recent applications/update
+	QStringList getRecommendations(); //list all PC-BSD recommended applications
 	bool safeToQuit(); //return FALSE if there are process running/waiting
 	// Local/Repo Interaction
 	QString isInstalled(QString appID); //returns pbiID that is installed (if possible);

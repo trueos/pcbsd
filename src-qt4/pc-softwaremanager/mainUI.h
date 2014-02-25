@@ -93,6 +93,7 @@ private slots:
   void slotUpdateBrowserHome();
   void slotGoToHome();
   void slotGoToCategory(QString);
+  void slotGoToCatClicked(QAction* act);
   void slotGoToApp(QString);
   void slotUpdateAppDownloadButton();
   void slotGoToSearch();

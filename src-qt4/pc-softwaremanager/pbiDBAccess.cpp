@@ -248,10 +248,8 @@ QStringList PBIDBAccess::parseAppMetaLine(QString line){
   output << list[9]; //REQUIRESROOT
   output << list[10]; //DATE ADDED (just a number - not human-readable)
   output << list[11]; //MAINTAINER EMAIL
-  //Cleanup the short description (remove any line breaks)
-  QStringList tmp = list[12].split("<br>", QString::SkipEmptyParts);
-  list[12] = tmp.join(" ").simplified();
-  output << list[12]; //SHORT DESCRIPTION
+  //Cleanup the short description
+  output << cleanupDescription( list[12].split("<br>", QString::SkipEmptyParts) ); //SHORT DESCRIPTION
   return output;
 }
 
@@ -426,5 +424,7 @@ QString PBIDBAccess::cleanupDescription(QStringList tmp){
       i--;
     }
   }
-  return tmp.join("\n");
+  QString desc = tmp.join("\n");
+  desc.remove("\\\\"); //Remove any double backslashes
+  return desc;
 }
