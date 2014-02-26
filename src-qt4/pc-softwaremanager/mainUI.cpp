@@ -783,6 +783,7 @@ void MainUI::initializeBrowserTab(){
     connect(searchTimer,SIGNAL(timeout()),this,SLOT(slotGoToSearch()) );
   connect(ui->tool_browse_search,SIGNAL(clicked()),this,SLOT(slotGoToSearch()) );
   connect(ui->line_browse_searchbar,SIGNAL(returnPressed()),this,SLOT(slotGoToSearch()) );
+  connect(ui->tool_browse_gotocat, SIGNAL(clicked()), this, SLOT(slotGoToCatBrowser()) );
 }
 
 // === SLOTS ===
@@ -803,27 +804,11 @@ void MainUI::slotEnableBrowser(){
 }
 
 void MainUI::slotUpdateBrowserHome(){
-  //Load the Categories
-  QStringList cats = PBI->browserCategories();
-    cats.sort();
-    QMenu *catmenu = new QMenu(this);
-    QStringList info; info << "name" << "shortdescription" << "icon";
-    for(int i=0; i<cats.length(); i++){
-      QStringList data = PBI->CatInfo(cats[i],info);
-      if(!data.isEmpty()){
-      QAction *act = new QAction(QIcon(data[2]), data[0], this);
-        act->setToolTip(data[1]);
-	act->setWhatsThis(cats[i]);
-	catmenu->addAction(act);
-      }
-    }
-    connect(catmenu, SIGNAL(triggered(QAction*)), this, SLOT(slotGoToCatClicked(QAction*)) );
-    ui->tool_browse_gotocat->setMenu(catmenu);
   //Load the Recommendations
   clearScrollArea(ui->scroll_br_home_rec);
   QVBoxLayout *reclayout = new QVBoxLayout;
   QStringList recList = PBI->getRecommendations();
-  info.clear(); info << "name" << "shortdescription" << "icon" << "type";
+  QStringList info; info << "name" << "shortdescription" << "icon" << "type";
   for(int i=0; i<recList.length(); i++){
     QStringList data = PBI->AppInfo(recList[i],info);
     if(!data.isEmpty()){
@@ -864,6 +849,23 @@ void MainUI::slotUpdateBrowserHome(){
   ui->tool_browse_cat->setVisible(FALSE);
   ui->tool_browse_app->setVisible(FALSE); 
   
+  //Now update the category browser page (since it only needs to be done once like the home menu)
+  //Load the Categories
+  QStringList cats = PBI->browserCategories();
+    cats.sort();
+    clearScrollArea(ui->scroll_br_cats);
+    QVBoxLayout *catlayout = new QVBoxLayout;
+    info.clear(); info << "name" << "description" << "icon";
+    for(int i=0; i<cats.length(); i++){
+      QStringList data = PBI->CatInfo(cats[i],info);
+      if(!data.isEmpty()){
+        LargeItemWidget *item = new LargeItemWidget(cats[i],data[0],data[1],data[2]);
+        connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToCategory(QString)) );
+        catlayout->addWidget(item);
+      }
+    }
+    catlayout->addStretch(); //add a spacer to the end
+    ui->scroll_br_cats->widget()->setLayout(catlayout);
 }
 
 void MainUI::slotGoToHome(){
@@ -873,6 +875,15 @@ void MainUI::slotGoToHome(){
   ui->tool_browse_cat->setVisible(false);
   ui->tool_browse_app->setVisible(false);
   ui->tool_browse_gotocat->setVisible(true);
+}
+
+void MainUI::slotGoToCatBrowser(){
+  ui->tabWidget->setCurrentWidget(ui->tab_browse);
+  ui->stacked_browser->setCurrentWidget(ui->page_browsecats);
+  //Make sure the shortcut buttons are diabled
+  ui->tool_browse_cat->setVisible(false);
+  ui->tool_browse_app->setVisible(false);
+  ui->tool_browse_gotocat->setVisible(false);
 }
 
 void MainUI::slotGoToCategory(QString cat){

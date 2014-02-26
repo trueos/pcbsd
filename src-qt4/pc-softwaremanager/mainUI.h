@@ -94,6 +94,7 @@ private slots:
   void slotEnableBrowser();
   void slotUpdateBrowserHome();
   void slotGoToHome();
+  void slotGoToCatBrowser();
   void slotGoToCategory(QString);
   void slotGoToCatClicked(QAction* act);
   void slotGoToApp(QString);

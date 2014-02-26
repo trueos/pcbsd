@@ -758,7 +758,7 @@
         <item>
          <widget class="QStackedWidget" name="stacked_browser">
           <property name="styleSheet">
-           <string notr="true">QWidget#page_home, QWidget#page_cat, QWidget#page_app, QWidget#page_search{
+           <string notr="true">QWidget#page_home, QWidget#page_cat, QWidget#page_app, QWidget#page_search, QWidget#page_browsecats{
 background-image: url(:/browserBackground.png);
 background-position: left bottom;
 background-color: rgb(255, 255, 255);
@@ -934,11 +934,33 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>435</width>
+                 <height>386</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_browsecats">
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QScrollArea" name="scroll_br_cats">
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_5">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>435</width>
+                 <height>386</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_24"/>
               </widget>
              </widget>
             </item>
