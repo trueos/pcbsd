@@ -41,3 +41,5 @@ case $EMAILMODE in
        fi
        ;;
 esac
+
+rm ${MSGQUEUE} 2>/dev/null

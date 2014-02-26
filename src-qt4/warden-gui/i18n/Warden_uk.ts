@@ -792,5 +792,9 @@
         <source>Hostname cannot contain spaces!</source>
         <translation>Ім&apos;я хоста не має містити пробілів!</translation>
     </message>
+    <message>
+        <source>Hostname cannot contain special characters!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

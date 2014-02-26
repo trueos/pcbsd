@@ -239,10 +239,6 @@
         <translation>최근 추가된 보기</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>카테고리 별 찾아보기</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>크기:</translation>
     </message>
@@ -452,14 +448,6 @@
             </translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>파일 다운로드:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>%1 파일 다운로딩:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>응용프로그램 시작</translation>
     </message>
@@ -555,6 +543,18 @@
         <source>Do you wish to start updating this application right now?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -676,16 +676,6 @@
              {1%?}</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation type="unfinished">
             </translation>
@@ -720,6 +710,10 @@
         <source>Removing Application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

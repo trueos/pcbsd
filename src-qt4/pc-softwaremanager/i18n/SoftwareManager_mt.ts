@@ -239,10 +239,6 @@
         <translation>View Żidiet riċenti</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>Fittex skond il-Kategorija</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Size:</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>Disponibbli: %2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>File Tniżżil ta:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>Tniżżil ta %1-file:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>Tibda l-applikazzjoni</translation>
     </message>
@@ -521,6 +509,18 @@
     <message>
         <source>Do you wish to start updating this application right now?</source>
         <translation>Do inti tixtieq li tibda aġġornament din l-applikazzjoni dritt issa?</translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -626,14 +626,6 @@
         <translation>Downloading: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>Download Finished</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>Download Starting</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>Installa Canceled (se tneħħi)</translation>
     </message>
@@ -664,6 +656,10 @@
     <message>
         <source>Removing Application</source>
         <translation>It-tneħħija Applikazzjoni</translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

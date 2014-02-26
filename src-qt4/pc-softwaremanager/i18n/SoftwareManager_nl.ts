@@ -239,10 +239,6 @@
         <translation>Bekijk recente toevoegingen</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>Zoek op categorie</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Grootte:</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>Beschikbaar: %2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>Bestand aan het binnenhalen:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>%1 bestand aan het binnenhalen:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>Start de toepassing</translation>
     </message>
@@ -538,6 +526,18 @@
         <source>Do you wish to start updating this application right now?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -643,14 +643,6 @@
         <translation>Aan het binnenhalen: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>Binnenhalen voltooid</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>Binnenhalen vangt aan</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>Installatie geannuleerd (zal verwijderen)</translation>
     </message>
@@ -682,6 +674,10 @@
         <source>Removing Application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

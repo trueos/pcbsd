@@ -177,6 +177,8 @@ fi
 # If we are successful and user wants all notifications, send out a message
 if [ $snapStat -eq 0 -a "$EMAILMODE" = "ALL" ] ; then
    email_msg "Success - Automated Snapshot" "`echo_queue_msg`"
+else
+   rm ${MSGQUEUE} 2>/dev/null
 fi
 
 # Check if we need to run a replication task for this dataset

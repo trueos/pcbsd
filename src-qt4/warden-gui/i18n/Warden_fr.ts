@@ -792,5 +792,9 @@
         <source>Hostname cannot contain spaces!</source>
         <translation>Nom de l&apos;hôte ne peut pas contenir d&apos;espaces!</translation>
     </message>
+    <message>
+        <source>Hostname cannot contain special characters!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

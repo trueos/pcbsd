@@ -239,10 +239,6 @@
         <translation>檢視最近新增項目</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>按分類瀏覽</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>大小：</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>可提供：%2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>正在下載檔案：</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>正在下載 %1 檔案：</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>啟動應用程式</translation>
     </message>
@@ -525,6 +513,18 @@
     <message>
         <source>Do you wish to start updating this application right now?</source>
         <translation>是否馬上開始更新此應用程式？</translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -630,14 +630,6 @@
         <translation>正在下載：%1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>完成下載</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>開始下載</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>取消安裝 (會移除)</translation>
     </message>
@@ -668,6 +660,10 @@
     <message>
         <source>Removing Application</source>
         <translation>移除應用程式</translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

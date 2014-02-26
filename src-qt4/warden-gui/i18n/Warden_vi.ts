@@ -792,5 +792,9 @@
         <source>Hostname cannot contain spaces!</source>
         <translation>Tên máy không thể chứa khoảng trắng?</translation>
     </message>
+    <message>
+        <source>Hostname cannot contain special characters!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
