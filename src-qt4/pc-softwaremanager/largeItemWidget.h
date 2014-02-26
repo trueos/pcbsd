@@ -33,13 +33,15 @@
 #include <QAction>
 #include <QString>
 #include <QIcon>
+#include <QHBoxLayout>
+#include <QPixmap>
 
 class LargeItemWidget : public QWidget{
 	Q_OBJECT
 	
   private:
     QString uniqueAppID; //should be something unique like <name>-<version>-<arch>	
-    
+    QLabel *type;
   signals:
     void appClicked(QString);
     
@@ -58,12 +60,19 @@ class LargeItemWidget : public QWidget{
 
       //Create the labels
       QLabel *appName = new QLabel("<b>"+name+"</b>");
+	    appName->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
       QLabel *appDesc = new QLabel(description);
         appDesc->setWordWrap(TRUE);
+      type = new QLabel();
+	    //type->setScaledContents(true);
+	    type->setVisible(false);
+      QHBoxLayout *hl = new QHBoxLayout;
+	    hl->addWidget(appName);
+	    hl->addWidget(type);
       //Add the items to the widget
       QGridLayout *layout = new QGridLayout;
       layout->addWidget(button,0,0,2,1);
-      layout->addWidget(appName,0,1);
+      layout->addLayout(hl,0,1);
       layout->addWidget(appDesc,1,1);
       this->setLayout(layout);
       
@@ -72,6 +81,24 @@ class LargeItemWidget : public QWidget{
       connect(button,SIGNAL(clicked()), this, SLOT(sendSignal()) );
     }
     virtual ~LargeItemWidget(){}
+    
+    void setType(QString typ){
+      if(typ.toLower()=="graphical"){
+        type->setPixmap(QPixmap(":icons/graphicalapp.png").scaled(16,16));
+	type->setToolTip(tr("Graphical Application"));
+        type->setVisible(true);
+      }else if(typ.toLower()=="text"){
+        type->setPixmap(QPixmap(":icons/textapp.png").scaled(16,16));
+	type->setToolTip(tr("Command-line Application"));
+        type->setVisible(true);	      
+      }else if(typ.toLower()=="server"){
+        type->setPixmap(QPixmap(":icons/serverapp.png").scaled(16,16));
+	type->setToolTip(tr("Server Application"));
+        type->setVisible(true);	      
+      }else{
+        type->setVisible(false);	      
+      }
+    }
     
   protected:
     void mousePressEvent(QMouseEvent *ev){ Q_UNUSED(ev); sendSignal(); }  

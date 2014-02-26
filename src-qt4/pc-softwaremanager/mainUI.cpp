@@ -752,11 +752,13 @@ void MainUI::slotUpdateBrowserHome(){
   clearScrollArea(ui->scroll_br_home_rec);
   QVBoxLayout *reclayout = new QVBoxLayout;
   QStringList recList = PBI->getRecommendations();
-  //info.clear(); info << "name" << "shortdescription" << "icon";
+  info.clear(); info << "name" << "shortdescription" << "icon" << "type";
   for(int i=0; i<recList.length(); i++){
     QStringList data = PBI->AppInfo(recList[i],info);
     if(!data.isEmpty()){
       LargeItemWidget *item = new LargeItemWidget(recList[i],data[0],data[1],data[2]);
+      //Set the type icon
+      item->setType(data[3].toLower());
       connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
       reclayout->addWidget(item);
     }
@@ -813,13 +815,14 @@ void MainUI::slotGoToCategory(QString cat){
   clearScrollArea(ui->scroll_br_cat_apps);
   apps.sort();
   QVBoxLayout *applayout = new QVBoxLayout;
-  QStringList info; info << "name" << "shortdescription" << "icon";
+  QStringList info; info << "name" << "shortdescription" << "icon" << "type";
   for(int i=0; i<apps.length(); i++){
     QStringList data = PBI->AppInfo(apps[i],info);
     if(!data.isEmpty()){
       //Trim the description if necessary
       if(data[1].size()>100){ data[1] = data[1].left(100).append("..."); }
       LargeItemWidget *item = new LargeItemWidget(apps[i],data[0],data[1],data[2]);
+      item->setType(data[3].toLower());
       connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
       applayout->addWidget(item); 
     }
@@ -1004,13 +1007,14 @@ void MainUI::slotShowSearchResults(QStringList best, QStringList rest){
     //Now fill the "best" section
     clearScrollArea(ui->scroll_bsearch_best);
     QVBoxLayout *layout = new QVBoxLayout;
-    QStringList info; info << "name" << "shortdescription" << "icon";
+    QStringList info; info << "name" << "shortdescription" << "icon" << "type";
     for(int i=0; i<best.length(); i++){
       QStringList data = PBI->AppInfo(best[i],info);
       if(!data.isEmpty()){
         //Trim the description if necessary
         if(data[1].size()>100){ data[1] = data[1].left(100).append("..."); }
         LargeItemWidget *item = new LargeItemWidget(best[i],data[0],data[1],data[2]);
+	item->setType(data[3].toLower());
         connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
         layout->addWidget(item); 
       }
@@ -1031,6 +1035,7 @@ void MainUI::slotShowSearchResults(QStringList best, QStringList rest){
           //Trim the description if necessary
           if(data[1].size()>100){ data[1] = data[1].left(100).append("..."); }
           LargeItemWidget *item = new LargeItemWidget(rest[i],data[0],data[1],data[2]);
+	  item->setType(data[3].toLower());
           connect(item,SIGNAL(appClicked(QString)),this,SLOT(slotGoToApp(QString)) );
           layout2->addWidget(item); 
         }
