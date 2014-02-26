@@ -70,6 +70,8 @@ private slots:
   void on_tool_install_remove_clicked();
   void on_tool_install_cancel_clicked();
   void on_tool_install_maintainer_clicked();
+  void slotInstalledAppRightClicked(const QPoint &);
+  void contextMenuFinished();
   void slotActionAddDesktop();
   void slotActionRemoveDesktop();
   void slotActionAddPath();
@@ -115,7 +117,7 @@ private:
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
-  QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu, *sMimeMenu;
+  QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu, *sMimeMenu, *contextActionMenu;
   QString cDetails;
   void initializeInstalledTab();
   void formatInstalledItemDisplay(QTreeWidgetItem *item);

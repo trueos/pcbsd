@@ -144,6 +144,7 @@ void MainUI::on_actionInstall_From_File_triggered(){
 // ===== INSTALLED TAB =====
 // =========================
 void MainUI::initializeInstalledTab(){
+	
   //Setup the action menu for installed applications
   actionMenu = new QMenu();
     actionMenu->addAction( QIcon(":icons/view-refresh.png"), tr("Update"), this, SLOT(slotActionUpdate()) );
@@ -189,12 +190,17 @@ void MainUI::initializeInstalledTab(){
   appBinMenu = new QMenu();
   ui->tool_install_startApp->setMenu(appBinMenu);
     connect(appBinMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotStartApp(QAction*)) );
+  //Initialize the context menu
+  contextActionMenu = new QMenu(this);
+    connect(contextActionMenu, SIGNAL(aboutToHide()), this, SLOT(contextMenuFinished()) );
   //Now setup the action button
   ui->tool_install_performaction->setMenu(actionMenu);
   ui->tool_install_performaction->setPopupMode(QToolButton::InstantPopup);
   //Now setup any defaults for the installed tab
   ui->tree_install_apps->setIconSize(QSize(22,22));
+  ui->tree_install_apps->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(ui->tree_install_apps, SIGNAL(itemClicked(QTreeWidgetItem*, int)), this, SLOT(slotCheckSelectedItems()) );
+  connect(ui->tree_install_apps, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT( slotInstalledAppRightClicked(const QPoint &)) );
   slotRefreshInstallTab();
 }
 
@@ -222,9 +228,14 @@ void MainUI::formatInstalledItemDisplay(QTreeWidgetItem *item){
 QStringList MainUI::getCheckedItems(){
   //Return the pbiID's of all the active items
   QStringList output;
-  //See if we are on the single-app details page - then get the current app only
+  //See if we are on the single-app details page or custom context menu- then get the current app only
   if(ui->stackedWidget->currentWidget() == ui->page_install_details){
       output << cDetails;  
+	  
+  //Check for whether this is the context menu on the main widget
+  }else if(!cDetails.isEmpty()){
+     output << cDetails;
+     cDetails.clear();
 	  
   //If on the main Installed page, look for checked items only
   }else{
@@ -322,6 +333,9 @@ void MainUI::slotCheckSelectedItems(){
     }
   }
   ui->tool_install_performaction->setEnabled(chkd);
+  if(ui->stackedWidget->currentWidget() != ui->page_app){
+    cDetails.clear(); //Make sure this is cleared if not on the details page
+  }
 }
 
 void MainUI::slotPBIStatusUpdate(QString pbiID){
@@ -485,6 +499,61 @@ void MainUI::on_tool_install_maintainer_clicked(){
   cmd.append("-----------\nPBI Information:\nName: "+info[0] + "\nDate Created: "+info[1] +"\nVersion: "+info[2] +"\nArchitecture: "+info[3] +"\nFreeBSD Version: "+info[4] );
   //Startup the command externally
   QProcess::execute("xdg-open \""+cmd+"\"");
+}
+
+void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
+  //Get the item under the mouse click
+  QString pbiID = ui->tree_install_apps->itemAt(pt)->whatsThis(0);
+  qDebug() << "Get context menu for:" << pbiID;
+  //Now Update the context menu appropriately
+  QStringList info = PBI->PBIInfo(pbiID, QStringList() << "hasdesktopicons" << "hasmenuicons" << "hasmimetypes");
+  if(info.isEmpty()){ return; } //invalid application
+  bool pending = PBI->isWorking(pbiID);
+  contextActionMenu->clear();
+  if(!PBI->upgradeAvailable(pbiID).isEmpty() &&  !pending){
+    //Upgrade is only available if actions not pending
+    contextActionMenu->addAction( QIcon(":icons/view-refresh.png"), tr("Update"), this, SLOT(slotActionUpdate()) );
+    contextActionMenu->addSeparator();
+  }
+  if(info[0]=="true"){
+    QMenu *dmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_desktop.png"), tr("Desktop Icons"));
+      dmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddDesktop()) );
+      dmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveDesktop()) );
+  }
+  if(info[1]=="true"){
+    QMenu *mmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_menu.png"), tr("Menu Icons"));
+      mmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMenu()) );
+      mmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMenu()) );  
+      mmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMenuAll()) );
+  }
+  //Paths are always available
+    QMenu *pmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_paths.png"), tr("Path Links"));
+      pmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddPath()) );
+      pmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemovePath()) );  
+      pmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddPathAll()) );
+  if(info[2]=="true"){
+    QMenu *fmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
+      fmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
+      fmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMime()) );  
+      fmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMimeAll()) );
+  }
+  if(!pending){
+    //Remove option is only available if not currently pending actions
+    contextActionMenu->addSeparator();
+    contextActionMenu->addAction( QIcon(":icons/remove.png"), tr("Uninstall"), this, SLOT(slotActionRemove()) );
+  }
+  if(pending){
+    //Cancel option is only available if actions are currently pending	  
+    contextActionMenu->addSeparator();
+    contextActionMenu->addAction( QIcon(":icons/dialog-cancel.png"), tr("Cancel Actions"), this, SLOT(slotActionCancel()) );
+  }
+  //Now show the menu
+  cDetails = pbiID; //save this so we know which app is currently being modified
+  contextActionMenu->popup(ui->tree_install_apps->mapToGlobal(pt));
+}
+
+void MainUI::contextMenuFinished(){
+  QTimer::singleShot(500, this, SLOT(slotCheckSelectedItems()) );	
 }
 
 // === SELECTED PBI ACTIONS ===
