@@ -3,9 +3,10 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
+LIBS    += -L../../../libpcbsd
 LIBS	+= -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
-//INCLUDEPATH+= ../libpcbsd/utils/
+INCLUDEPATH+= ../libpcbsd/utils/
 
 HEADERS	+= mainUI.h \
     	  smallItemWidget.h \
