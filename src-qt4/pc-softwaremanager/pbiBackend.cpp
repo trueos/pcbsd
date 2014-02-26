@@ -1163,6 +1163,8 @@ void PBIBackend::queueInstall(QString appID, QString version){
      cDownload.clear(); //remove that it is finished	
      lDownload.clear();
    }else if(ID == ProcessManager::OTHER){
+     //qDebug() << "Other Finished:" << cOther;
+     //emit PBIStatusChange(cOther);
      cOther.clear();	   
    }
    //Get the next processes going

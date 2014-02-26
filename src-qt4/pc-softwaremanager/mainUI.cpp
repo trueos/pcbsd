@@ -316,6 +316,10 @@ void MainUI::slotRefreshInstallTab(){
       ui->tree_install_apps->resizeColumnToContents(i);
     } 
   }
+  //If the installed app page is visible, be sure to update it too
+  if( ui->stackedWidget->currentWidget() == ui->page_install_details){
+    updateInstallDetails(cDetails);
+  }
   slotUpdateSelectedPBI();; //Update the info boxes
   slotDisplayStats();
   slotCheckSelectedItems();
@@ -333,7 +337,7 @@ void MainUI::slotCheckSelectedItems(){
     }
   }
   ui->tool_install_performaction->setEnabled(chkd);
-  if(ui->stackedWidget->currentWidget() != ui->page_app){
+  if(ui->stackedWidget->currentWidget() != ui->page_install_details){
     cDetails.clear(); //Make sure this is cleared if not on the details page
   }
 }
@@ -441,7 +445,7 @@ void MainUI::on_check_install_autoupdate_clicked(){
     }
   }
   //Now force the info on the page to be updated in a moment (need time for database to update)
-  QTimer::singleShot(200, this, SLOT(on_tool_install_details_clicked()) );
+  //QTimer::singleShot(500, this, SLOT(on_tool_install_details_clicked()) );
 }
 
 void MainUI::on_tool_install_update_clicked(){
@@ -923,10 +927,6 @@ void MainUI::slotGoToCategory(QString cat){
   ui->stacked_browser->setCurrentWidget(ui->page_cat);
   //Now save that this category is currently displayed
   cCat = cat;
-}
-
-void MainUI::slotGoToCatClicked(QAction* act){
-  slotGoToCategory(act->whatsThis());	
 }
 
 void MainUI::slotGoToApp(QString appID){
