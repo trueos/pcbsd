@@ -492,6 +492,10 @@ void MainUI::on_tool_install_maintainer_clicked(){
   //Get the maintainer email
   QString email = PBI->PBIInfo(appID, QStringList() << "maintainer").join("");
   if(email.isEmpty()){ return; }
+  //Verify that the user wants to launch their email client
+  if(QMessageBox::Yes != QMessageBox::question(this, tr("Launch Email Client?"), tr("Do you want to try launching your default email client? \n You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.")+"\n\n"+email, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+    return;
+  }
   qDebug() << "Launching email to:" << email;
   //Get the command from the action
   QString cmd = "mailto:"+email;
