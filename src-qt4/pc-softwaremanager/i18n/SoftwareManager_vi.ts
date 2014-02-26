@@ -239,10 +239,6 @@
         <translation>Xem bổ sung gần đây</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>Duyệt theo Thể loại</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>kích thước:</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>Có sẵn: %2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>Tải về tập tin:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>Tải tập tin %1 :</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>Bắt đầu ứng dụng</translation>
     </message>
@@ -521,6 +509,18 @@
     <message>
         <source>Do you wish to start updating this application right now?</source>
         <translation>Bạn có muốn bắt đầu cập nhật ứng dụng này ngay bây giờ?</translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -626,14 +626,6 @@
         <translation>Tải về: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>tải về hoàn thành</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>Bắt đầu tải về</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>Cài đặt hủy (sẽ loại bỏ)</translation>
     </message>
@@ -664,6 +656,10 @@
     <message>
         <source>Removing Application</source>
         <translation>loại bỏ ứng dụng</translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

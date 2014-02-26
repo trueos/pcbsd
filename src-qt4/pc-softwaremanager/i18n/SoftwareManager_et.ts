@@ -239,10 +239,6 @@
         <translation>Vaata uusi rakendusi</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>Sirvi kategooriaid</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Suurus:</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>Saadaval: %2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>Faili allalaadimine:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation type="unfinished">Faili %1 allalaadimine:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>Käivita rakendus</translation>
     </message>
@@ -538,6 +526,18 @@
         <source>Do you wish to start updating this application right now?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -643,14 +643,6 @@
         <translation>Allalaadimine: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>Allalaadimine valmis</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>Allalaadimine algab</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>Paigaldamine peatatud (rakendus eemaldatakse)</translation>
     </message>
@@ -682,6 +674,10 @@
         <source>Removing Application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

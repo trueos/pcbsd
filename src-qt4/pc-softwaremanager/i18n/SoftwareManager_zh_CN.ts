@@ -239,10 +239,6 @@
         <translation>浏览最近新添加的程序</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>以类型浏览</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>大小：</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>可用：%2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>正在下载文件：</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>正在下载文件%1：</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>启动程序</translation>
     </message>
@@ -538,6 +526,18 @@
         <source>Do you wish to start updating this application right now?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -643,14 +643,6 @@
         <translation>正在下载：%1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>下载已完成</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>下载已开始</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>下载已取消(将删除)</translation>
     </message>
@@ -682,6 +674,10 @@
         <source>Removing Application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

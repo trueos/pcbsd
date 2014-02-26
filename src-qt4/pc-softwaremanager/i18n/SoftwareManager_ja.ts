@@ -239,10 +239,6 @@
         <translation>最近追加されたアプリケーション</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>カテゴリーごとの表示</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>サイズ:</translation>
     </message>
@@ -415,14 +411,6 @@
         <translation>見つかりませんでした: %1</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>ファイルをダウンロード中:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>%1 個のファイルをダウンロード中:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>アプリケーションを起動します</translation>
     </message>
@@ -521,6 +509,18 @@
     <message>
         <source>Do you wish to start updating this application right now?</source>
         <translation>このアプリケーションを今すぐアップデートしてよろしいですか?</translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -626,14 +626,6 @@
         <translation>ダウンロード中: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>ダウンロードが完了しました</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>ダウンロードを開始しています</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>インストールがキャンセルされました(削除されます)</translation>
     </message>
@@ -664,6 +656,10 @@
     <message>
         <source>Removing Application</source>
         <translation>アプリケーションを削除しています</translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -239,10 +239,6 @@
         <translation>Lihat tambahan terkini</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>Telusuri berdasarkan kategori</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Ukuran:</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>Tersedia: %2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>Sedang mengunduh file:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>Sedang mengunduh %1 file:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>Mulai aplikasi</translation>
     </message>
@@ -538,6 +526,18 @@
         <source>Do you wish to start updating this application right now?</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -643,14 +643,6 @@
         <translation>Mengunduh: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>Pengunduhan selesai</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>Mulai mengunduh</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>Instalasi dibatalkan (akan dihapus)</translation>
     </message>
@@ -682,6 +674,10 @@
         <source>Removing Application</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

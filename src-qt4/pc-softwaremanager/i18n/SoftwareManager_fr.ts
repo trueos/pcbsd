@@ -239,10 +239,6 @@
         <translation>Voir Additions récentes</translation>
     </message>
     <message>
-        <source>Browse By Category</source>
-        <translation>Parcourir par catégorie</translation>
-    </message>
-    <message>
         <source>Size:</source>
         <translation>Taille :</translation>
     </message>
@@ -435,14 +431,6 @@
         <translation>Disponible: %2</translation>
     </message>
     <message>
-        <source>Downloading file:</source>
-        <translation>Téléchargement du fichier:</translation>
-    </message>
-    <message>
-        <source>Downloading %1 file:</source>
-        <translation>Téléchargement de fichier% 1:</translation>
-    </message>
-    <message>
         <source>Start the application</source>
         <translation>Démarrer l&apos;application</translation>
     </message>
@@ -521,6 +509,18 @@
     <message>
         <source>Do you wish to start updating this application right now?</source>
         <translation>Voulez-vous commencer à mettre à jour cette application maintenant?</translation>
+    </message>
+    <message>
+        <source>Browse Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>PC-BSD Recommendations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Downloading..</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -626,14 +626,6 @@
         <translation>Téléchargement: %1%</translation>
     </message>
     <message>
-        <source>Download Finished</source>
-        <translation>Téléchargement terminé</translation>
-    </message>
-    <message>
-        <source>Download Starting</source>
-        <translation>Début du Téléchargement</translation>
-    </message>
-    <message>
         <source>Install Canceled (will remove)</source>
         <translation>Installation annulée (va être retiré)</translation>
     </message>
@@ -664,6 +656,10 @@
     <message>
         <source>Removing Application</source>
         <translation>Mise à jour</translation>
+    </message>
+    <message>
+        <source>Downloading: %1% @ %2</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

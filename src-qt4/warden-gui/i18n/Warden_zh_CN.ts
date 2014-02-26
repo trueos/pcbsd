@@ -792,5 +792,9 @@
         <source>Hostname cannot contain spaces!</source>
         <translation>主机名不可包含空格！</translation>
     </message>
+    <message>
+        <source>Hostname cannot contain special characters!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
