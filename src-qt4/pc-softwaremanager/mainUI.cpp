@@ -503,7 +503,9 @@ void MainUI::on_tool_install_maintainer_clicked(){
 
 void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
   //Get the item under the mouse click
-  QString pbiID = ui->tree_install_apps->itemAt(pt)->whatsThis(0);
+  QTreeWidgetItem *it = ui->tree_install_apps->itemAt(pt);
+  if(it==0){ return; } // no item selected
+  QString pbiID = it->whatsThis(0);
   qDebug() << "Get context menu for:" << pbiID;
   //Now Update the context menu appropriately
   QStringList info = PBI->PBIInfo(pbiID, QStringList() << "hasdesktopicons" << "hasmenuicons" << "hasmimetypes");
