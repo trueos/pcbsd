@@ -470,13 +470,13 @@ void Backend::readSystemUsers(){
   QStringList uList;	
   bool usepw = true; //for testing purposes
   if(usepw){
-    //Use "pw" to get all possible users
+    //Use "getent" to get all possible users
     QProcess p;
     p.setProcessChannelMode(QProcess::MergedChannels);
       QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
       env.insert("MM_CHARSET","UTF-8");
     p.setProcessEnvironment(env);
-    p.start("pw usershow -a");
+    p.start("getent passwd");
     while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
       p.waitForFinished(200);
       QCoreApplication::processEvents();
@@ -487,9 +487,9 @@ void Backend::readSystemUsers(){
    for(int i=0; i<uList.length(); i++){
     bool bad = FALSE;
     // "nologin" as their shell
-    if(uList[i].section(":",9,9).contains("nologin")){bad=TRUE;}
+    if(uList[i].section(":",6,6).contains("nologin")){bad=TRUE;}
     // "nonexistent" as their user directory
-    else if(uList[i].section(":",8,8).contains("nonexistent")){bad=TRUE;}
+    else if(uList[i].section(":",5,5).contains("nonexistent")){bad=TRUE;}
     // uid > 1000
     else if(uList[i].section(":",2,2).toInt() < 1000){bad=TRUE;}
 
@@ -498,9 +498,9 @@ void Backend::readSystemUsers(){
     else{
       //Add this user to the lists if it is good
       usernameList << uList[i].section(":",0,0).simplified();
-      displaynameList << uList[i].section(":",7,7).simplified();
-      homedirList << uList[i].section(":",8,8).simplified();
-      usershellList << uList[i].section(":",9,9).simplified();
+      displaynameList << uList[i].section(":",4,4).simplified();
+      homedirList << uList[i].section(":",5,5).simplified();
+      usershellList << uList[i].section(":",6,6).simplified();
     }
    }
   }else{ 

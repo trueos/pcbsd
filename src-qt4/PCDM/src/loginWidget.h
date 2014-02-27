@@ -53,12 +53,13 @@ class LoginWidget : public QGroupBox
         void retranslateUi();
         void resetFocus(QString item="");
         void allowPasswordView(bool);
+	void allowUserSelection(bool);
   
   private:
   	QComboBox* listUsers;
 	QComboBox* listDE;
   	QListWidget* listUserBig;
-  	QLineEdit* linePassword;
+  	QLineEdit *linePassword, *lineUsername;
 	QToolButton* pushLogin;
 	QToolButton* pushViewPassword;
 	QToolButton *pushUserIcon, *userIcon;
@@ -68,7 +69,7 @@ class LoginWidget : public QGroupBox
 	QStringList idL, desktopIcons, desktopInfo;
 	QSize desktopIconSize;
         QString hostName;
-	bool userSelected, pwVisible, allowPWVisible;
+	bool userSelected, pwVisible, allowPWVisible, showUsers;
 
 	void updateWidget();
 

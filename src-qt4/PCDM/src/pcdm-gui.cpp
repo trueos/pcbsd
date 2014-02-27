@@ -191,6 +191,7 @@ void PCDMgui::createGUIfromTheme(){
     loginW->changeButtonIcon("pwview",tmpIcon, currentTheme->itemIconSize("password"));
     //Enable/disable the password view functionality
     loginW->allowPasswordView( Config::allowPasswordView() );
+    loginW->allowUserSelection( Config::allowUserSelection() );
     //Add item to the grid
     grid->addWidget( loginW, currentTheme->itemLocation("login","row"), \
                       currentTheme->itemLocation("login","col"), \

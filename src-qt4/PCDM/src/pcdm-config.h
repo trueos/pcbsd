@@ -33,6 +33,7 @@ public:
   static int autoLoginDelay(); //Returns the number of seconds to delay auto-login
   static QString splashscreen();	//return the image file for the splashscreen
   static bool allowPasswordView();	//returns whether password view button is enabled
+  static bool allowUserSelection(); 	//returns whether to display system users for selection
 
 };
 

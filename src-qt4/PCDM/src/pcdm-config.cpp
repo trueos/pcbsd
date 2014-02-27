@@ -24,6 +24,7 @@ void Config::loadDefaults(){
   confStruct << "/usr/local/share/PCDM/images/default-splash.png"; // [7] Splash Screen File
   confStruct << "TRUE";					// [8] Password view button enabled
   confStruct << "10";						// [9] Auto-login delay (seconds)
+  confStruct << "TRUE";					// [10] Show System Users
   return;
 }
 
@@ -55,6 +56,7 @@ void Config::readConfigFile(QString filePath){
       else if(var=="SPLASHSCREEN_FILE"){ confStruct[7] = val; }
       else if(var=="ENABLE_VIEW_PASSWORD_BUTTON"){ confStruct[8] = val; }
       else if(var=="AUTO_LOGIN_DELAY"){ confStruct[9] = val; }
+      else if(var=="SHOW_SYSTEM_USERS"){ confStruct[10] = val; }
       else{}
       
     }
@@ -116,3 +118,7 @@ bool Config::allowPasswordView(){
   else{ return FALSE; }	
 }
 
+bool Config::allowUserSelection(){
+  if(confStruct[10].toLower()=="true"){ return TRUE; }
+  else{ return FALSE; }	
+}

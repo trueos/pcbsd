@@ -17,10 +17,12 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   userSelected = FALSE; //focus on the username first
   pwVisible = FALSE; //Have the password box hide the input behind dots
   allowPWVisible = TRUE; //Allow the password button to show the password text
-  
+  showUsers = true; //Display the available users on the system
+	
   //Create the Grid layout
   QHBoxLayout* hlayout1 = new QHBoxLayout();
   QHBoxLayout* hlayout2 = new QHBoxLayout();
+  QHBoxLayout* hlayout3 = new QHBoxLayout();
   QVBoxLayout* vlayout = new QVBoxLayout();
   QFormLayout* flayout = new QFormLayout();
   //Create the items
@@ -35,6 +37,8 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
   	listUsers->setFocusPolicy(Qt::NoFocus); //big one gets keyboard focus instead
   linePassword = new QLineEdit;
   	linePassword->setFocusPolicy(Qt::StrongFocus);
+  lineUsername = new QLineEdit;
+	lineUsername->setFocusPolicy(Qt::StrongFocus);
   pushLogin = new QToolButton;
 	QAction* tmp1 = new QAction(this);
 	pushLogin->setDefaultAction( tmp1 );
@@ -56,7 +60,9 @@ LoginWidget::LoginWidget(QWidget* parent) : QGroupBox(parent)
     vlayout->addLayout(hlayout1);
     vlayout->addWidget(listUserBig);
     //User selected widgets
-      flayout->addRow(pushUserIcon, listUsers);
+        hlayout3->addWidget(listUsers);
+        hlayout3->addWidget(lineUsername);
+      flayout->addRow(pushUserIcon, hlayout3);
       flayout->addRow(pushViewPassword, linePassword);
       flayout->addRow(deIcon,listDE);
     vlayout->addSpacing(15);
@@ -87,17 +93,31 @@ LoginWidget::~LoginWidget(){
 
 void LoginWidget::updateWidget(){
   //Setup the visibility/sizes
-  if(userSelected){
+  if(userSelected && showUsers){
     userIcon->setVisible(FALSE);
     listUserBig->setVisible(FALSE);
     pushUserIcon->setVisible(TRUE);
     listUsers->setVisible(TRUE);
+    lineUsername->setVisible(false);
+    linePassword->setVisible(TRUE);
+    pushLogin->setVisible(TRUE);
+    pushViewPassword->setVisible(TRUE);
+    if( listDE->count() < 1 ){ listDE->setVisible(FALSE); deIcon->setVisible(FALSE); }
+    else{ listDE->setVisible(TRUE); deIcon->setVisible(TRUE); }
+  }else if(!showUsers){
+    //Do not show either of the user selection widgets
+    userIcon->setVisible(FALSE);
+    listUserBig->setVisible(FALSE);
+    pushUserIcon->setVisible(TRUE);
+    listUsers->setVisible(false);
+    lineUsername->setVisible(true);
     linePassword->setVisible(TRUE);
     pushLogin->setVisible(TRUE);
     pushViewPassword->setVisible(TRUE);
     if( listDE->count() < 1 ){ listDE->setVisible(FALSE); deIcon->setVisible(FALSE); }
     else{ listDE->setVisible(TRUE); deIcon->setVisible(TRUE); }
   }else{
+    //ShowUsers and none selected
     userIcon->setVisible(TRUE);
     listUserBig->setVisible(TRUE);
     pushUserIcon->setVisible(FALSE);
@@ -153,7 +173,12 @@ void LoginWidget::slotUserHighlighted(int row){
 }
 
 void LoginWidget::slotTryLogin(){
-  QString user = listUsers->currentText();
+  QString user;
+  if(showUsers){
+    user = listUsers->currentText();
+  }else{
+    user = lineUsername->text();
+  }
   QString pw = linePassword->text();
   emit loginRequested(user,pw);
   linePassword->setText(""); //always clear the box after a login attempt
@@ -362,4 +387,9 @@ void LoginWidget::allowPasswordView(bool allow){
     connect(pushViewPassword,SIGNAL(pressed()),this,SLOT(slotChangePWView()));
     connect(pushViewPassword,SIGNAL(released()),this,SLOT(slotChangePWView()));    
   }
+}
+
+void LoginWidget::allowUserSelection(bool allow){
+  showUsers = allow;
+  updateWidget();
 }
