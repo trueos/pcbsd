@@ -467,17 +467,53 @@ QStringList Backend::readXSessionsFile(QString filePath, QString locale){
 void Backend::readSystemUsers(){
   //make sure the lists are empty
   usernameList.clear(); displaynameList.clear(); homedirList.clear();
-  //Get all the users from the file "/etc/passwd"
-  QStringList uList;
-  QFile PWF("/etc/passwd");
-  if( PWF.open(QIODevice::ReadOnly | QIODevice::Text) ){
-    QTextStream in(&PWF);
-      in.setCodec( "UTF-8" );
-    while( !in.atEnd() ){
-      uList << QString( in.readLine() );
+  QStringList uList;	
+  bool usepw = true; //for testing purposes
+  if(usepw){
+    //Use "pw" to get all possible users
+    QProcess p;
+    p.setProcessChannelMode(QProcess::MergedChannels);
+      QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+      env.insert("MM_CHARSET","UTF-8");
+    p.setProcessEnvironment(env);
+    p.start("pw usershow -a");
+    while(p.state()==QProcess::Starting || p.state() == QProcess::Running){
+      p.waitForFinished(200);
+      QCoreApplication::processEvents();
     }
-    PWF.close();    
-  }
+    uList = QString( p.readAllStandardOutput() ).split("\n");
+    
+    //Remove all users that have:
+   for(int i=0; i<uList.length(); i++){
+    bool bad = FALSE;
+    // "nologin" as their shell
+    if(uList[i].section(":",9,9).contains("nologin")){bad=TRUE;}
+    // "nonexistent" as their user directory
+    else if(uList[i].section(":",8,8).contains("nonexistent")){bad=TRUE;}
+    // uid > 1000
+    else if(uList[i].section(":",2,2).toInt() < 1000){bad=TRUE;}
+
+    //See if it failed any checks
+    if(bad){ uList.removeAt(i); i--; }
+    else{
+      //Add this user to the lists if it is good
+      usernameList << uList[i].section(":",0,0).simplified();
+      displaynameList << uList[i].section(":",7,7).simplified();
+      homedirList << uList[i].section(":",8,8).simplified();
+      usershellList << uList[i].section(":",9,9).simplified();
+    }
+   }
+  }else{ 
+    //Get all the users from the file "/etc/passwd"
+    QFile PWF("/etc/passwd");
+    if( PWF.open(QIODevice::ReadOnly | QIODevice::Text) ){
+      QTextStream in(&PWF);
+        in.setCodec( "UTF-8" );
+      while( !in.atEnd() ){
+        uList << QString( in.readLine() );
+      }
+      PWF.close();    
+    }
   //Remove all users that have:
   for(int i=0; i<uList.length(); i++){
     bool bad = FALSE;
@@ -497,6 +533,8 @@ void Backend::readSystemUsers(){
       homedirList << uList[i].section(":",5,5).simplified();
       usershellList << uList[i].section(":",6,6).simplified();
     }
+  }
+  
   }
   
 }
