@@ -148,11 +148,11 @@ if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 755 pbisyscmd /usr/pbi/.pbisyscmd
 fi
 
-# Install the nullfs binary
-cd ${DIR}/mount_nullfs && make 
-install -o root -g wheel -m 755 mount_nullfs ${LB}/share/pbi-manager/.mount_nullfs
+# Install the pbifs binary
+cd ${DIR}/pbifs && make 
+install -o root -g wheel -m 755 pbifs ${LB}/share/pbi-manager/.pbifs
 if [ "${LB}" = "/usr/local" ] ; then
-  install -o root -g wheel -m 755 mount_nullfs /usr/pbi/.mount_nullfs
+  install -o root -g wheel -m 755 pbifs /usr/pbi/.pbifs
 fi
 
 # Install the MANPATH conf

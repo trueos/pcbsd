@@ -1,6 +1,5 @@
 #!/bin/sh
 
-NULLFS="/usr/pbi/.mount_nullfs"
 MNTLOCK="/usr/pbi/.mntLock"
 MNTSLEEP="sleep 0.5"
 
@@ -90,78 +89,18 @@ undo_mount_lock() {
 
 mount_dirs() {
 
-   do_mount_lock "1"
+   # Mount our FUSE file-system
+   /usr/pbi/.pbifs ${1} ${pDir}/run ${pDir}/virtbase
 
-   # Check some of the common items to mount into the PBI container
-   is_mounted "${pDir}/virtbase" || ( $NULLFS / "${pDir}/virtbase" ; $MNTSLEEP ; check_nvidia_linux "${1}" )
+   # Can't get rid of these nullfs / devfs mounts, needed for unix sockets to work
+   is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
+   is_mounted "${pDir}/virtbase/tmp" || mount_nullfs /tmp "${pDir}/virtbase/tmp"
 
-   is_mounted "${pDir}/virtbase/dev" || (mount -t devfs devfs "${pDir}/virtbase/dev" ; $MNTSLEEP )
-   is_mounted "${pDir}/virtbase/usr/local" || ($NULLFS ${1}/local "${pDir}/virtbase/usr/local" ; $MNTSLEEP )
-   is_mounted "${pDir}/virtbase/var/run" || ($NULLFS ${pDir}/run "${pDir}/virtbase/var/run" ; $MNTSLEEP )
-   if [ -d "/var/run/dbus" ] ; then
-     is_mounted "${pDir}/virtbase/var/run/dbus" || ( mkdir ${pDir}/virtbase/var/run/dbus 2>/dev/null ; $NULLFS /var/run/dbus "${pDir}/virtbase/var/run/dbus" ; $MNTSLEEP )
-   fi
-
-   # If the host has Linux compat
-   if [ -d "${pDir}/virtbase/compat/linux" ] ; then
-     is_mounted "${pDir}/virtbase/compat/linux" || ($NULLFS ${1}/linux "${pDir}/virtbase/compat/linux" ; $MNTSLEEP )
-   fi
-
-   # Sort out the items to mount into the PBI container
-   for i in `mount | grep -e "(zfs" -e "(smbfs" -e "(nfs" -e "(ufs" -e "(msdos" -e "(ntfs" -e "(fusefs" | grep -e "on /" | grep -v "/usr/jails" | grep -v "/usr/pbi" | grep -v "/usr/local" | awk '{print $3}'`
-   do
-     if [ "$i" = "/" ] ; then continue ; fi
-     is_mounted "${pDir}/virtbase${i}" || ($NULLFS ${i} "${pDir}/virtbase${i}" ; $MNTSLEEP )
-   done
-
-   # Mount any system-wide fonts / cursors / icons into the PBI container
-   if [ -d "${pDir}/virtbase/usr/local/etc/fonts" -a -d "/usr/local/etc/fonts" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/etc/fonts" || ($NULLFS /usr/local/etc/fonts "${pDir}/virtbase/usr/local/etc/fonts" ; $MNTSLEEP )
-   fi
-   if [ -d "${pDir}/virtbase/usr/local/lib/X11/fonts" -a -d "/usr/local/lib/X11/fonts" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/lib/X11/fonts" || ($NULLFS /usr/local/lib/X11/fonts "${pDir}/virtbase/usr/local/lib/X11/fonts" ; $MNTSLEEP )
-   fi
-   if [ -d "${pDir}/virtbase/usr/local/lib/X11/icons" -a -d "/usr/local/lib/X11/icons" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/lib/X11/icons" || ($NULLFS /usr/local/lib/X11/icons "${pDir}/virtbase/usr/local/lib/X11/icons" ; $MNTSLEEP )
-   fi
-   if [ -d "${pDir}/virtbase/usr/local/share/icons" -a -d "/usr/local/share/icons" ] ; then
-      is_mounted "${pDir}/virtbase/usr/local/share/icons" || ($NULLFS /usr/local/share/icons "${pDir}/virtbase/usr/local/share/icons" ; $MNTSLEEP )
-   fi
-
-   # Support for some font packages(example: japanese/font-vlgothic)
-   for fontdir in /usr/local/share/font-*
-   do
-      subdir=`basename $fontdir`
-      if [ ! -d "${pDir}/virtbase/usr/local/share/$subdir" ]; then
-         mkdir "${pDir}/virtbase/usr/local/share/$subdir"
-      fi
-      is_mounted "${pDir}/virtbase/usr/local/share/$subdir" || ($NULLFS /usr/local/share/$subdir "${pDir}/virtbase/usr/local/share/$subdir" ; $MNTSLEEP )
-   done
-
-   # Check if we need to mount linprocfs in the PBI container
-   if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
-      is_mounted "${pDir}/virtbase/compat/linux/proc" || (mount -t linprocfs linproc "${pDir}/virtbase/compat/linux/proc" ; $MNTSLEEP )
-   fi
-
-   undo_mount_lock
-
-   sleep 1
-   sync
-
-   # Copy over the system command
-   cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/pbisyscmd"
-   cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/openwith"
-   cp /usr/pbi/.pbisyscmd "${pDir}/virtbase/usr/local/bin/xdg-open"
-   chmod 755 "${pDir}/virtbase/usr/local/bin/pbisyscmd" 
-
-   # Copy the custom ldconfig
-   cp /usr/pbi/.ldconfig "${pDir}/virtbase/var/run/ldconfig"
-   chroot "${pDir}/virtbase" /var/run/ldconfig start >/dev/null 2>/dev/null
+   # Start the ldconfig run
+   chroot "${pDir}/virtbase" /etc/rc.d/ldconfig start >/dev/null 2>/dev/null
 
    # Start devfs to ensure /dev/* get proper permissions
    chroot "${pDir}/virtbase" /etc/rc.d/devfs start >/dev/null 2>/dev/null
-
-   sync
 }
 
 umount_pbidir() {
