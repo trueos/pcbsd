@@ -58,35 +58,6 @@ check_nvidia_linux()
    done
 }
 
-do_mount_lock() {
-
-   # At this point we have waited 15 seconds, if another mount still hasn't finished
-   # by now then there are other serious problems
-   if [ $1 -gt 10 ] ; then
-      exit 1
-   fi
-
-   # Check if we have another mount going now
-   if [ -e "${MNTLOCK}" ] ; then
-      pgrep -qF ${MNTLOCK} 2>/dev/null
-      if [ $? -ne 0 ] ; then
-         # Expired run it seems
-         rm -f ${MNTLOCK} 2>/dev/null
-      else
-	 # Another mount is running, wait a bit for it to finish
-	 sleep 1.5
-	 do_mount_lock "`expr $1 + 1`"
-	 return
-      fi
-   fi
-
-   echo "$$" > ${MNTLOCK}
-}
-
-undo_mount_lock() {
-  rm -f ${MNTLOCK} >/dev/null 2>/dev/null
-}
-
 mount_dirs() {
 
    # Mount our FUSE file-system
