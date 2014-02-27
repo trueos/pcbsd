@@ -96,6 +96,9 @@ mount_dirs() {
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
    is_mounted "${pDir}/virtbase/tmp" || mount_nullfs /tmp "${pDir}/virtbase/tmp"
 
+   # Check if we need to enable nvidia support for linux
+   check_nvidia_linux "$1"
+
    # Start the ldconfig run
    chroot "${pDir}/virtbase" /etc/rc.d/ldconfig start >/dev/null 2>/dev/null
 
