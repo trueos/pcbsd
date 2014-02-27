@@ -52,11 +52,9 @@ public slots:
     void slotSingleInstance();
 
 private slots:
-    void on_EnableVNC_clicked(bool checked);
-    void on_AutoLoginEnabledCB_clicked(bool checked);
     void on_SaveButton_clicked();
-    void on_UsersList_currentIndexChanged(int item);
-    void on_checkShowPW_clicked(bool checked);
+
+    void itemChanged();
 };
 
 #endif // MAINWINDOW_H

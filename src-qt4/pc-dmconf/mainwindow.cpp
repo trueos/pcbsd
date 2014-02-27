@@ -110,13 +110,25 @@ void MainWindow::initUI()
     if ( showpw == "TRUE" )
       ui->checkShowPW->setChecked(true);
 
-    ui->SaveButton->setEnabled(false);
-}
-
-///////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_UsersList_currentIndexChanged(int item) {
-    Q_UNUSED(item);
-    ui->SaveButton->setEnabled(true);
+    ui->checkShowUsers->setChecked(true); //PCDM defaults to true
+    QString showusers = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "SHOW_SYSTEM_USERS");
+    if( showusers != "TRUE" ){
+      ui->checkShowUsers->setChecked(false);
+    }
+    
+    //Update the UI appropriately
+    itemChanged();
+    ui->SaveButton->setEnabled(false); //re-disable the save button because nothing has changed yet
+    
+    //Now setup all the signals/slots for updating the UI appropriately
+    connect( ui->AutoLoginEnabledCB, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
+    connect( ui->UsersList, SIGNAL(currentIndexChanged(int)), this, SLOT(itemChanged()) );
+    connect( ui->spin_autoLogDelay, SIGNAL(valueChanged(int)), this, SLOT(itemChanged()) );
+    connect( ui->EnableVNC, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
+    connect( ui->checkShowPW, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
+    connect( ui->checkShowUsers, SIGNAL(stateChanged(int)), this, SLOT(itemChanged()) );
+    
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -204,31 +216,17 @@ void MainWindow::on_SaveButton_clicked()
     else
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ENABLE_VIEW_PASSWORD_BUTTON", "ENABLE_VIEW_PASSWORD_BUTTON=FALSE", -1);
 
+    if(ui->checkShowUsers->isChecked()){
+	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "SHOW_SYSTEM_USERS", "SHOW_SYSTEM_USERS=TRUE", -1);
+    }else{
+	pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "SHOW_SYSTEM_USERS", "SHOW_SYSTEM_USERS=FALSE", -1);
+    }
+    
     // Lastly make sure we set perms
     system("chmod 600 " + DM_CONFIG_FILE.toLatin1());
     ui->SaveButton->setEnabled(false);
 }
 
-///////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_AutoLoginEnabledCB_clicked(bool checked)
-{
-    ui->UsersList->setEnabled(checked);
-    ui->SaveButton->setEnabled(true);
-}
-
-///////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_EnableVNC_clicked(bool checked)
-{
-  Q_UNUSED(checked);
-  ui->SaveButton->setEnabled(true);
-}
-
-///////////////////////////////////////////////////////////////////////////////
-void MainWindow::on_checkShowPW_clicked(bool checked)
-{
-  Q_UNUSED(checked);
-  ui->SaveButton->setEnabled(true);
-}
 
 ///////////////////////////////////////////////////////////////////////////////
 void MainWindow::slotSingleInstance()
@@ -237,4 +235,12 @@ void MainWindow::slotSingleInstance()
    this->showNormal();
    this->activateWindow();
    this->raise();
+}
+
+/////////////////////////////////////////////////
+void MainWindow::itemChanged(){
+  ui->SaveButton->setEnabled(true);
+  //Double check the dependant options for whether they are possible to be changed
+  ui->UsersList->setEnabled( ui->AutoLoginEnabledCB->isChecked() );
+  ui->spin_autoLogDelay->setEnabled( ui->AutoLoginEnabledCB->isChecked() );
 }
