@@ -921,12 +921,16 @@ void MainUI::slotGoToCategory(QString cat){
   ui->scroll_br_cat_apps->widget()->setLayout(applayout);
   //Now enable/disable the shortcut buttons
   ui->tool_browse_app->setVisible(false);
-  ui->tool_browse_cat->setVisible(true);
-  ui->tool_browse_gotocat->setVisible(false);
+  ui->tool_browse_cat->setVisible(false);
+  ui->tool_browse_gotocat->setVisible(true);
+  //Setup the icon/name for the category display
     QStringList catinfo = PBI->CatInfo(cat,QStringList() << "name" << "icon");
     ui->tool_browse_cat->setText(catinfo[0]);
+    ui->label_cat_name->setText(catinfo[0]);
     if(catinfo[1].isEmpty()){ catinfo[1] = defaultIcon; }
     ui->tool_browse_cat->setIcon(QIcon(catinfo[1]));
+    ui->label_cat_icon->setPixmap( QPixmap(catinfo[1]).scaled(32,32) ); 
+  //Now move to the page
   ui->tabWidget->setCurrentWidget(ui->tab_browse);
   ui->stacked_browser->setCurrentWidget(ui->page_cat);
   //Now save that this category is currently displayed
@@ -1155,6 +1159,10 @@ void MainUI::on_tool_browse_cat_clicked(){
   QString cat = Extras::nameToID(ui->tool_browse_cat->text());
   if(cCat == cat){ //already loaded - just show it (prevents resetting scroll positions)
     ui->stacked_browser->setCurrentWidget(ui->page_cat);
+    //Now enable/disable the shortcut buttons
+    ui->tool_browse_app->setVisible(false);
+    ui->tool_browse_cat->setVisible(false);
+    ui->tool_browse_gotocat->setVisible(true);
   }else{ //load and show the category
     slotGoToCategory(cat);
   }

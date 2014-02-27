@@ -680,7 +680,7 @@
           <item>
            <widget class="QToolButton" name="tool_browse_gotocat">
             <property name="text">
-             <string>Browse Category</string>
+             <string>Browse Categories</string>
             </property>
             <property name="icon">
              <iconset resource="SoftwareManager.qrc">
@@ -800,7 +800,7 @@ QScrollArea{
            <enum>QFrame::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="page_home">
            <layout class="QGridLayout" name="gridLayout">
@@ -925,6 +925,43 @@ spacing: 1px;
           <widget class="QWidget" name="page_cat">
            <layout class="QVBoxLayout" name="verticalLayout_9">
             <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <widget class="QLabel" name="label_cat_icon">
+                <property name="maximumSize">
+                 <size>
+                  <width>32</width>
+                  <height>32</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string notr="true"/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="SoftwareManager.qrc">:/icons/appcafe.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_cat_name">
+                <property name="font">
+                 <font>
+                  <pointsize>11</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Category</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
              <widget class="QScrollArea" name="scroll_br_cat_apps">
               <property name="widgetResizable">
                <bool>true</bool>
@@ -934,8 +971,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>98</width>
-                 <height>28</height>
+                 <width>435</width>
+                 <height>346</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -957,7 +994,7 @@ spacing: 1px;
                  <x>0</x>
                  <y>0</y>
                  <width>435</width>
-                 <height>384</height>
+                 <height>386</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1481,7 +1518,7 @@ spacing: 1px;
      <x>0</x>
      <y>0</y>
      <width>473</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
