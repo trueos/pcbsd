@@ -794,7 +794,7 @@
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tên máy không thể chứa các ký tự đặc biệt!</translation>
     </message>
 </context>
 </TS>
