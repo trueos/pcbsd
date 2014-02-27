@@ -78,6 +78,11 @@ void MainWindow::initUI()
     }
     getUsers();
     ui->UsersList->clear();
+    QString autoLogDelay = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "AUTO_LOGIN_DELAY");
+    if(!autoLogDelay.isEmpty()){
+      ui->spin_autoLogDelay->setValue(autoLogDelay.toInt());
+    }
+    
     QString autoLogUser = pcbsd::Utils::getValFromSHFile(DM_CONFIG_FILE, "AUTO_LOGIN_USER");
     for (int  i=0; i<mvUsers.size(); i++)
     {
@@ -151,7 +156,7 @@ void MainWindow::on_SaveButton_clicked()
 {
     bool ok;
     system("touch " + DM_CONFIG_FILE.toLatin1());
-    if ( ui->AutoLoginEnabledCB->isChecked() ) {
+    if ( ui->AutoLoginEnabledCB->isChecked() && !ui->UsersList->currentText().isEmpty() ) {
        // First ask for password
        QString pw = QInputDialog::getText(this, tr("Password Request"),
                         tr("Please enter the login password for this user"), 
@@ -162,10 +167,13 @@ void MainWindow::on_SaveButton_clicked()
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ENABLE_AUTO_LOGIN", "ENABLE_AUTO_LOGIN=TRUE", -1);
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_USER", "AUTO_LOGIN_USER=" + ui->UsersList->currentText(), -1);
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_PASSWORD", "AUTO_LOGIN_PASSWORD=" + pw, -1);
+       pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_DELAY","AUTO_LOGIN_DELAY="+QString::number(ui->spin_autoLogDelay->value()), -1);
     } else {
+       ui->AutoLoginEnabledCB->setChecked(false); //make sure this is not checked to reflect file contents
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "ENABLE_AUTO_LOGIN", "ENABLE_AUTO_LOGIN=FALSE", -1);
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_USER", "", -1);
        pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_PASSWORD", "", -1);
+       pcbsd::Utils::setConfFileValue(DM_CONFIG_FILE, "AUTO_LOGIN_DELAY","", -1);
     }
 
     if ( ui->EnableVNC->isChecked() ) {
