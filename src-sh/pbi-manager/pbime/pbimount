@@ -61,7 +61,7 @@ check_nvidia_linux()
 mount_dirs() {
 
    # Mount our FUSE file-system
-   /usr/pbi/.pbifs ${1} ${pDir}/run ${pDir}/virtbase
+   is_mounted "${pDir}/virtbase" || /usr/pbi/.pbifs ${1} ${pDir}/run ${pDir}/virtbase
 
    # Can't get rid of these nullfs / devfs mounts, needed for unix sockets to work
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
