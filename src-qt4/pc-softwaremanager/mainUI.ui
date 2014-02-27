@@ -934,8 +934,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>435</width>
-                 <height>386</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -957,7 +957,7 @@ spacing: 1px;
                  <x>0</x>
                  <y>0</y>
                  <width>435</width>
-                 <height>386</height>
+                 <height>384</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1356,8 +1356,8 @@ spacing: 1px;
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>419</width>
-                    <height>61</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                  </widget>
@@ -1481,12 +1481,12 @@ spacing: 1px;
      <x>0</x>
      <y>0</y>
      <width>473</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionInstall_From_File"/>
     <addaction name="separator"/>
@@ -1497,7 +1497,7 @@ spacing: 1px;
    </widget>
    <widget class="QMenu" name="menuConfigure">
     <property name="title">
-     <string>Configure</string>
+     <string>&amp;Configure</string>
     </property>
     <addaction name="actionAppCafe_Settings"/>
    </widget>
@@ -1511,7 +1511,7 @@ spacing: 1px;
      <normaloff>:/icons/import.png</normaloff>:/icons/import.png</iconset>
    </property>
    <property name="text">
-    <string>Import PBI List</string>
+    <string>&amp;Import PBI List</string>
    </property>
   </action>
   <action name="actionExport_PBI_List">
@@ -1520,7 +1520,7 @@ spacing: 1px;
      <normaloff>:/icons/export.png</normaloff>:/icons/export.png</iconset>
    </property>
    <property name="text">
-    <string>Export PBI List</string>
+    <string>&amp;Export PBI List</string>
    </property>
   </action>
   <action name="actionQuit">
@@ -1532,7 +1532,7 @@ spacing: 1px;
     <string>&amp;Quit</string>
    </property>
    <property name="shortcut">
-    <string>Shift+Q</string>
+    <string>Ctrl+Q</string>
    </property>
   </action>
   <action name="actionRepositories">
@@ -1543,13 +1543,10 @@ spacing: 1px;
   <action name="actionAppCafe_Settings">
    <property name="icon">
     <iconset resource="SoftwareManager.qrc">
-     <normaloff>:/icons/config.png</normaloff>:/icons/config.png</iconset>
+     <normaloff>:/icons/preferences-system.png</normaloff>:/icons/preferences-system.png</iconset>
    </property>
    <property name="text">
-    <string>AppCafe Settings</string>
-   </property>
-   <property name="shortcut">
-    <string>Shift+S</string>
+    <string>&amp;Settings</string>
    </property>
   </action>
   <action name="actionInstall_From_File">
@@ -1558,7 +1555,7 @@ spacing: 1px;
      <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
    </property>
    <property name="text">
-    <string>Install PBI</string>
+    <string>I&amp;nstall PBI</string>
    </property>
   </action>
  </widget>
