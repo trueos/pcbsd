@@ -74,7 +74,7 @@ mkZFSSnap() {
 }
 
 listZFSSnap() {
-  zfs list -t snapshot | grep -e "^NAME" -e "^${1}@"
+  zfs list -t snapshot | grep -e "^${1}@" | awk '{print $1}'
 }
 
 rmZFSSnap() {

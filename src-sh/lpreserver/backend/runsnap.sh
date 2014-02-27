@@ -63,12 +63,18 @@ do_automatic_prune()
      rSnaps="$tmp $rSnaps"
   done
 
+  # Get the last replicated snapshot
+  lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
+
   num=0
   for snap in $rSnaps
   do
      # Skip snaps not created by life-preserver
      cur="`echo $snap | cut -d '-' -f 1`"
      if [ "$cur" != "auto" ] ; then continue; fi
+
+     # If this snapshot is the last one replicated, lets skip pruning it for now
+     if [ "$cur" = "$lastSEND" ]; then continue; fi
 
      sec="`echo $snap | cut -d '-' -f 7`"
      min="`echo $snap | cut -d '-' -f 6`"
