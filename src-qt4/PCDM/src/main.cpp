@@ -22,6 +22,7 @@
 #include "pcdm-backend.h"
 #include "pcdm-config.h"
 #include "pcdm-xprocess.h"
+#include "pcdm-logindelay.h"
 
 #define TMPLANGFILE QString("/tmp/.PCDMLang")
 #define TMPAUTOLOGINFILE QString("/tmp/.PCDMAutoLogin")
@@ -50,7 +51,7 @@ int runSingleSession(int argc, char *argv[]){
   bool ALtriggered = FALSE;
   if(QFile::exists(TMPAUTOLOGINFILE)){ ALtriggered=TRUE; QFile::remove(TMPAUTOLOGINFILE); }
   
-  QString changeLang; 
+  //QString changeLang; 
   // Load the configuration file
   QString confFile = "/usr/local/etc/pcdm.conf";
   if(!QFile::exists(confFile)){ 
@@ -74,6 +75,25 @@ int runSingleSession(int argc, char *argv[]){
   //Initialize the xprocess
   XProcess desktop;
   
+  // Check what directory our app is in
+    QString appDir = "/usr/local/share/PCDM";
+    // Load the translator
+    QTranslator translator;
+    QString langCode = lang;
+    //Check for a language change detected
+    //if ( ! changeLang.isEmpty() )       
+       //langCode = changeLang;
+    //Load the proper locale for the translator
+    if ( QFile::exists(appDir + "/i18n/PCDM_" + langCode + ".qm" ) ) {
+      translator.load( QString("PCDM_") + langCode, appDir + "/i18n/" );
+      a.installTranslator(&translator);
+      Backend::log("Loaded Translation:" + appDir + "/i18n/PCDM_" + langCode + ".qm");
+    } else {
+      Backend::log("Could not find: " + appDir + "/i18n/PCDM_" + langCode + ".qm");
+      langCode = "";
+    }
+    //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
+    
   //*** STARTUP THE PROGRAM ***
   bool goodAL = FALSE; //Flag for whether the autologin was successful
   // Start the autologin procedure if applicable
@@ -85,35 +105,29 @@ int runSingleSession(int argc, char *argv[]){
     if( user.isEmpty() || dsk.isEmpty() ){
 	 goodAL=FALSE;   
     }else{
-	desktop.loginToXSession(user,pwd, dsk,lang);
-	splash.close();
-	if(desktop.isRunning()){
-	  goodAL=TRUE; //flag this as a good login to skip the GUI
+	//Run the time delay for the autologin attempt
+	if(Config::autoLoginDelay() > 1){
+	  loginDelay dlg(Config::autoLoginDelay(), user);
+	  splash.close();
+	  dlg.start();
+	  dlg.exec();
+	  goodAL = dlg.continueLogin;
+	}else{
+	  goodAL = true;
 	}
+	//now start the autologin if appropriate
+	if(goodAL){
+	  desktop.loginToXSession(user,pwd, dsk,lang);
+	  splash.close();
+	  if(desktop.isRunning()){
+	    goodAL=TRUE; //flag this as a good login to skip the GUI
+	  }
+        }
     }
   }
   //qDebug() << "AutoLogin Finished:" << QString::number(clock.elapsed())+" ms";
   if(!goodAL){
     // ------START THE PCDM GUI-------
-    
-    // Check what directory our app is in
-    QString appDir = "/usr/local/share/PCDM";
-    // Load the translator
-    QTranslator translator;
-    QString langCode = lang;
-    //Check for a language change detected
-    if ( ! changeLang.isEmpty() )       
-       langCode = changeLang;
-    //Load the proper locale for the translator
-    if ( QFile::exists(appDir + "/i18n/PCDM_" + langCode + ".qm" ) ) {
-      translator.load( QString("PCDM_") + langCode, appDir + "/i18n/" );
-      a.installTranslator(&translator);
-      Backend::log("Loaded Translation:" + appDir + "/i18n/PCDM_" + langCode + ".qm");
-    } else {
-      Backend::log("Could not find: " + appDir + "/i18n/PCDM_" + langCode + ".qm");
-      langCode = "";
-    }
-    //qDebug() << "Translation Finished:" << QString::number(clock.elapsed())+" ms";
 
     Backend::log("Starting up PCDM interface");
     PCDMgui w;

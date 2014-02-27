@@ -15,7 +15,8 @@ SOURCES += src/main.cpp \
            src/fancySwitcher.cpp \
            src/dialogKeyboard.cpp \
            src/dialogLocale.cpp \
-           src/loginWidget.cpp
+           src/loginWidget.cpp \
+	   src/pcdm-logindelay.cpp
 
 HEADERS += src/pcdm-gui.h \
     	   src/pcdm-backend.h \
@@ -26,10 +27,12 @@ HEADERS += src/pcdm-gui.h \
            src/fancySwitcher.h \
            src/dialogKeyboard.h \
            src/dialogLocale.h \
-           src/loginWidget.h
+           src/loginWidget.h \
+	   src/pcdm-logindelay.h
            
 FORMS += src/dialogKeyboard.ui \
-	 src/dialogLocale.ui
+	 src/dialogLocale.ui \
+	 src/pcdm-logindelay.ui
 
 TRANSLATIONS =  i18n/PCDM_af.ts \
 		i18n/PCDM_ar.ts \

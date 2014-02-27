@@ -30,6 +30,7 @@ public:
   static QString autoLoginUsername();	//returns username to log into automatically
   static QString autoLoginDesktop();	//return *.desktop file to startup automatically
   static QString autoLoginPassword();	//returns password to log in automatically
+  static int autoLoginDelay(); //Returns the number of seconds to delay auto-login
   static QString splashscreen();	//return the image file for the splashscreen
   static bool allowPasswordView();	//returns whether password view button is enabled
 
