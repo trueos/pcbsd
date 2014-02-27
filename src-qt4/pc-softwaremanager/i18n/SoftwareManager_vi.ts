@@ -133,6 +133,21 @@
     </message>
 </context>
 <context>
+    <name>LargeItemWidget</name>
+    <message>
+        <source>Graphical Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Command-line Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Server Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainUI</name>
     <message>
         <source>AppCafe</source>
@@ -512,14 +527,23 @@
     </message>
     <message>
         <source>Browse Category</source>
-        <translation type="unfinished"></translation>
+        <translation>duyệt Thể loại</translation>
     </message>
     <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished"></translation>
+        <translation>Khuyến nghị PC-BSD</translation>
     </message>
     <message>
         <source>Downloading..</source>
+        <translation>Đang tải xuống..</translation>
+    </message>
+    <message>
+        <source>Launch Email Client?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want to try launching your default email client? 
+ You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -659,7 +683,7 @@
     </message>
     <message>
         <source>Downloading: %1% @ %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Đang tải xuống: %1% @ %2</translation>
     </message>
 </context>
 <context>

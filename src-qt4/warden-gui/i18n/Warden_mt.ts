@@ -790,11 +790,11 @@
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation>Hostname  ma jistax ikun fiha spazji!</translation>
+        <translation>Hostname ma jistax ikun fiha spazji!</translation>
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished"></translation>
+        <translation>Hostname ma jistax ikun fiha karattri speċjali!</translation>
     </message>
 </context>
 </TS>

@@ -80,6 +80,7 @@ CSysController::CSysController()
     process().setProcessEnvironment(env);
     misFBSDRebootRequired= false;
     misRebootRequired = false;
+    mCurrCheckState = eUndefined;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -133,6 +134,7 @@ void CSysController::updateSelected(QVector<CSysController::SSystemUpdate> selec
 void CSysController::onCheckUpdates()
 {
     misFREEBSDCheck= false;
+    mCurrCheckState = eUndefined;
     mvUpdates.clear();
     mFilesLocallyModifyed.clear();
     mFilesToRemove.clear();
@@ -156,12 +158,15 @@ void CSysController::checkShellCommand(QString &cmd, QStringList &args)
     {
         cmd= FBSD_UPDATE_COMMAND;
         args= FBSD_UPDATE_ARGS;
+        mCurrCheckState = eUndefined;
     }
     else
     {
         cmd= PC_UPDATE_COMMAND;
         args= PC_UPDATE_ARGS;
     }
+    //TODO: add sudo if regular user
+    //if ()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -369,15 +374,6 @@ void CSysController::parseCheckPCBSDLine(QString line)
 ///////////////////////////////////////////////////////////////////////////////
 void CSysController::parseCheckFREEBSDLine(QString line)
 {
-    typedef enum{
-        eUndefined,
-        eFilesModifyedLocally,
-        eFilesToDelete,
-        eFilesToUpdate
-    }ECheckState;
-
-    static ECheckState currCheckState = eUndefined;
-
     line=line.trimmed();
     if (!line.length())
     {
@@ -391,35 +387,35 @@ void CSysController::parseCheckFREEBSDLine(QString line)
 
     if (line.contains(FILES_MODIFYED_LOCALLY))
     {
-        currCheckState= eFilesModifyedLocally;        
+        mCurrCheckState= eFilesModifyedLocally;
         return;
     }
     else if (line.contains(FILES_TO_DELETE))
     {
-        currCheckState= eFilesToDelete;
+        mCurrCheckState= eFilesToDelete;
         mCurrentFbsdDescription= fbsdUpdateDescription(line);
         return;
     }
     else if (line.contains(FILES_TO_UPDATE))
     {        
-        currCheckState= eFilesToUpdate;
+        mCurrCheckState= eFilesToUpdate;
         mCurrentFbsdDescription= fbsdUpdateDescription(line);
 
         return;
     }
 
 
-    if (eFilesModifyedLocally == currCheckState)
+    if (eFilesModifyedLocally == mCurrCheckState)
     {
         mFilesLocallyModifyed<<line;
     }
     else
-    if (eFilesToDelete == currCheckState)
+    if (eFilesToDelete == mCurrCheckState)
     {
         mFilesToRemove<<line;
     }
     else
-    if(eFilesToUpdate == currCheckState)
+    if(eFilesToUpdate == mCurrCheckState)
     {
         mFilesToUpdate<<line;
         // Check if reboot requuired.

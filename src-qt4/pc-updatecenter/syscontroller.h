@@ -75,6 +75,13 @@ public:
         _SFbsdUpdatesDescription():mUpdateNo(-1){;}
 
     }SFbsdUpdatesDescription;
+
+    typedef enum{
+        eUndefined,
+        eFilesModifyedLocally,
+        eFilesToDelete,
+        eFilesToUpdate
+    }ECheckState;
     
     QVector<SSystemUpdate> updates() {return mvUpdates;}
     QStringList filesToUpdate()      {return mFilesToUpdate;}
@@ -107,6 +114,7 @@ private:
     QStringList mFilesToUpdate;
     bool        misFBSDRebootRequired;
     bool        misRebootRequired;
+    ECheckState mCurrCheckState;
 
     QVector<SSystemUpdate> mvUpdatesToApply;
     int                    mCurrentUpdate;
