@@ -280,6 +280,10 @@ static int pbi_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	char newpath[MAXPATHLEN];
 	get_modified_path(newpath, path);
 
+	// Avoid a recursive directory tree
+	if ( strpos(newpath, "/usr/pbi/.mounts") == 0)
+           return 0;
+
 	DIR *openDir = opendir(newpath);
 
 	struct dirent *de;
