@@ -536,11 +536,13 @@ void MainUI::slotInstalledAppRightClicked(const QPoint &pt){
       mmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemoveMenu()) );  
       mmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddMenuAll()) );
   }
-  //Paths are always available
+  //Paths are always available if actually installed
+  if( !PBI->isInstalled(pbiID).isEmpty() ){
     QMenu *pmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_paths.png"), tr("Path Links"));
       pmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddPath()) );
       pmenu->addAction( QIcon(":icons/remove.png"),tr("Remove"),this,SLOT(slotActionRemovePath()) );  
       pmenu->addAction( QIcon(":icons/add-root.png"),tr("Add (All Users)"),this,SLOT(slotActionAddPathAll()) );
+  }
   if(info[2]=="true"){
     QMenu *fmenu = contextActionMenu->addMenu( QIcon(":icons/xdg_mime.png"), tr("File Associations"));
       fmenu->addAction( QIcon(":icons/add.png"),tr("Add"),this,SLOT(slotActionAddMime()) );
@@ -1194,7 +1196,7 @@ void MainUI::on_tool_bapp_download_clicked(){
   PBI->installApp(QStringList() << appID);
   ui->tool_bapp_download->setEnabled(FALSE); //make sure it cannot be clicked more than once before page refresh
   //Now show the Installed tab
-  //ui->tabWidget->setCurrentWidget(ui->tab_installed);
+  ui->tabWidget->setCurrentWidget(ui->tab_installed);
 }
 
 void MainUI::on_group_br_home_newapps_toggled(bool show){

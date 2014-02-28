@@ -258,19 +258,28 @@ void PBIBackend::upgradePBI(QStringList pbiID){
 void PBIBackend::removePBI(QStringList pbiID){
   qDebug() << "PBI Removals requested for:" << pbiID;
   QStringList xdgrem; xdgrem << "remove-desktop" << "remove-menu" << "remove-mime" << "remove-paths";
+  QStringList cancelList;
   for(int i=0; i<pbiID.length(); i++){
+	    
     if(PBIHASH.contains(pbiID[i])){
-      //Remove XDG entries for this app
-      PENDINGREMOVAL << pbiID[i]+":::"+generateXDGCMD(pbiID[i],xdgrem, FALSE);
-      //Remove the app itself
-      PENDINGREMOVAL << pbiID[i]+":::"+generateRemoveCMD(pbiID[i]);
-      //Now update the status
-      PBIHASH[pbiID[i]].setStatus(InstalledPBI::PENDINGREMOVAL);
-      emit PBIStatusChange(pbiID[i]);
+      if( isInstalled(pbiID[i]).isEmpty() ){
+	//Not a fully-installed PBI - cancel it instead
+	cancelList << pbiID[i];
+      }else{
+        //Remove XDG entries for this app
+        PENDINGREMOVAL << pbiID[i]+":::"+generateXDGCMD(pbiID[i],xdgrem, FALSE);
+        //Remove the app itself
+        PENDINGREMOVAL << pbiID[i]+":::"+generateRemoveCMD(pbiID[i]);
+        //Now update the status
+        PBIHASH[pbiID[i]].setStatus(InstalledPBI::PENDINGREMOVAL);
+        emit PBIStatusChange(pbiID[i]);
+      }
     }else{
       qDebug() << pbiID[i] << "not a valid PBI to remove";	    
     }
   }
+  //If there are PBIs to cancel, do that too
+  if(!cancelList.isEmpty()){ cancelActions(cancelList); }
   //Now check/start the remove process
   QTimer::singleShot(0,this,SLOT(checkProcesses()) );
 }
