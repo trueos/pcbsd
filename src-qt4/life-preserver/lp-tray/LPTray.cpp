@@ -2,15 +2,50 @@
 
 //PUBLIC
 LPTray::LPTray() : QSystemTrayIcon(){
+  qDebug() << "Starting up Life-preserver Tray...";
   //Start up the log file watcher and connect the signals/slots
   watcher = new LPWatcher();
 	connect(watcher,SIGNAL(MessageAvailable(QString)),this,SLOT(watcherMessage(QString)) );
 	connect(watcher,SIGNAL(StatusUpdated()),this,SLOT(watcherMessage()) );
+  //Load the tray settings file
+  settings = new QSettings(QSettings::UserScope,"PCBSD", "life-preserver-tray");
+  //Create the notification option widgets
+  nShowAll = new QRadioButton(tr("Show all"));
+	naAll = new QWidgetAction(this);
+	naAll->setDefaultWidget(nShowAll);
+  nShowError = new QRadioButton(tr("Warnings Only"));
+	naErr = new QWidgetAction(this);
+	naErr->setDefaultWidget(nShowError);
+  nShowNone = new QRadioButton(tr("None"));
+	naNone = new QWidgetAction(this);
+	naNone->setDefaultWidget(nShowNone);
+  //Create notification menu
+  notificationMenu = new QMenu(tr("Popup Settings"));
+	notificationMenu->setIcon( QIcon(":/images/configure.png") );
+	notificationMenu->addAction(naAll);
+	notificationMenu->addAction(naErr);
+	notificationMenu->addAction(naNone);
+  //Activate the proper notification setting widget
+  QString popset = settings->value("popup-policy", "").toString();
+  qDebug() << "Current Popup Policy:" << popset;
+  if(popset=="all"){ nShowAll->setChecked(true); popupPolicy = 2; }
+  else if(popset=="errors"){ nShowError->setChecked(true); popupPolicy = 1; }
+  else if(popset=="none"){ nShowNone->setChecked(true); popupPolicy = 0; }
+  else{ 
+    nShowError->setChecked(true);
+    settings->setValue("popup-policy","errors"); //save the proper setting
+    popupPolicy = 1;
+  }
+  //Now connect the popup settings signals/slots
+  connect(nShowAll, SIGNAL(clicked()), this, SLOT(changePopupPolicy()) );
+  connect(nShowError, SIGNAL(clicked()), this, SLOT(changePopupPolicy()) );
+  connect(nShowNone, SIGNAL(clicked()), this, SLOT(changePopupPolicy()) );
   //Setup the context menu
   menu = new QMenu;
 	menu->addAction(QIcon(":/images/tray-icon-idle.png"),tr("Open Life Preserver"),this,SLOT(startGUI()) );
 	menu->addSeparator();
 	menu->addAction(QIcon(":/images/backup-failed.png"),tr("View Messages"),this,SLOT(startMessageDialog()) );
+        menu->addMenu(notificationMenu);
 	menu->addAction(QIcon(":/images/refresh.png"),tr("Refresh Tray"),this,SLOT(refreshStatus()) );
 	menu->addSeparator();
 	menu->addAction(QIcon(":/images/application-exit.png"),tr("Close Tray"),this,SLOT(slotClose()) );
@@ -61,7 +96,7 @@ void LPTray::updateToolTip(){
 void LPTray::watcherMessage(QString type){
   qDebug() << "New Watcher Message:" << type;
   QStringList info;
-  if(type=="message"){
+  if(type=="message" &&  popupPolicy > 1){
     //Show the message pop-up
     info << "time" << "message";
     info = watcher->getMessages(type,info);
@@ -72,11 +107,11 @@ void LPTray::watcherMessage(QString type){
     info << "id" << "time" << "message";
     info = watcher->getMessages(type,info);
     if(info.isEmpty()){ return; }
-    if(info[0] == "STARTED"){
+    if(info[0] == "STARTED" && popupPolicy > 1 ){
       this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
-    }else if(info[0] == "FINISHED"){
+    }else if(info[0] == "FINISHED" && popupPolicy > 1){
       this->showMessage( info[1], info[2], QSystemTrayIcon::Information, 5000);
-    }else if(info[0] == "ERROR"){
+    }else if(info[0] == "ERROR" && popupPolicy > 0){
       this->showMessage( info[1], info[2], QSystemTrayIcon::Warning, 10000);
     }
     
@@ -100,9 +135,9 @@ void LPTray::watcherMessage(QString type){
     info << "id" << "time" << "message";
     info = watcher->getMessages(type, info);
     if(!info.isEmpty()){
-      if(info[0]=="ERROR"){ 
+      if(info[0]=="ERROR" && popupPolicy > 0 ){ 
 	this->showMessage(info[1], info[2], QSystemTrayIcon::Warning, 5000);
-      }else{ 
+      }else if(popupPolicy > 1){ 
 	this->showMessage(info[1], info[2], QSystemTrayIcon::Information, 5000); 
       }
     }
@@ -171,4 +206,23 @@ void LPTray::startMessageDialog(){
 void LPTray::refreshStatus(){
   //Manually trigger the watcher to update status notifications
   watcher->refresh();
+}
+
+void LPTray::changePopupPolicy(){
+  QString policy;
+  if(nShowAll->isChecked()){
+    policy = "all";
+    popupPolicy = 2;
+  }else if(nShowError->isChecked()){
+    policy = "errors";
+    popupPolicy = 1;
+  }else if(nShowNone->isChecked()){
+    policy = "none";
+    popupPolicy = 0;
+  }else{
+    policy = "errors";
+    popupPolicy = 1;
+  }
+  qDebug() << "Change Popup Policy:" << policy;
+  settings->setValue("popup-policy", policy);
 }
