@@ -73,6 +73,14 @@ do_automatic_prune()
      mon="`echo $lastSend | cut -d '-' -f 3`"
      year="`echo $lastSend | cut -d '-' -f 2`"
      sendEpoc=`date -j -f "%Y %m %d %H %M %S" "$year $mon $day $hour $min $sec" "+%s"`
+     # Check that this replication target is still active
+     if [ -e "$REPCONF" ] ; then
+       cat ${REPCONF} | grep -q "^${LDATA}:"
+       if [ $? -ne 0 ] ; then
+          unset lastSEND
+          unset sendEpoc
+       fi
+     fi
   fi
 
   num=0
