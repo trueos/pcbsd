@@ -677,6 +677,7 @@ int main(int argc, char *argv[])
 		fuse_opt_add_arg(&args, argv[i]);
 	}
 	fuse_opt_add_arg(&args, "-oallow_other");
+	fuse_opt_add_arg(&args, "-s");
 
 	return fuse_main(args.argc, args.argv, &pbi_oper, NULL);
 }
