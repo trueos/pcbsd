@@ -238,7 +238,7 @@ void PBIBackend::cancelActions(QStringList pbiID){
 void PBIBackend::upgradePBI(QStringList pbiID){
   qDebug() << "PBI Upgrades requested for:" << pbiID;
   for(int i=0; i<pbiID.length(); i++){
-    if( PBIHASH.contains(pbiID[i]) ){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       if( PBIHASH[pbiID[i]].status == InstalledPBI::UPDATEAVAILABLE ){
 	QString cmd = generateUpdateCMD(pbiID[i]);
         PENDINGUPDATE << pbiID[i] + ":::" + cmd;
@@ -333,7 +333,7 @@ void PBIBackend::installPBIFromFile(QStringList files){
 
 void PBIBackend::addDesktopIcons(QStringList pbiID, bool allusers){ // add XDG desktop icons
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"desktop",allusers);
       //Now add it to the queue
@@ -346,7 +346,7 @@ void PBIBackend::addDesktopIcons(QStringList pbiID, bool allusers){ // add XDG d
 
 void PBIBackend::addMenuIcons(QStringList pbiID, bool allusers){ // add XDG menu icons
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"menu",allusers);
       //Now add it to the queue
@@ -359,7 +359,7 @@ void PBIBackend::addMenuIcons(QStringList pbiID, bool allusers){ // add XDG menu
 
 void PBIBackend::addPaths(QStringList pbiID, bool allusers){ // create path links
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"paths",allusers);
       //Now add it to the queue
@@ -372,7 +372,7 @@ void PBIBackend::addPaths(QStringList pbiID, bool allusers){ // create path link
 
 void PBIBackend::addMimeTypes(QStringList pbiID, bool allusers){ // remove path links
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"mime",allusers);
       //Now add it to the queue
@@ -385,7 +385,7 @@ void PBIBackend::addMimeTypes(QStringList pbiID, bool allusers){ // remove path 
 
 void PBIBackend::rmDesktopIcons(QStringList pbiID, bool allusers){ // remove XDG desktop icons
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"remove-desktop",allusers);
       //Now add it to the queue
@@ -398,7 +398,7 @@ void PBIBackend::rmDesktopIcons(QStringList pbiID, bool allusers){ // remove XDG
 
 void PBIBackend::rmMenuIcons(QStringList pbiID, bool allusers){ // remove XDG menu icons
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"remove-menu",allusers);
       //Now add it to the queue
@@ -411,7 +411,7 @@ void PBIBackend::rmMenuIcons(QStringList pbiID, bool allusers){ // remove XDG me
 
 void PBIBackend::rmPaths(QStringList pbiID, bool allusers){ // remove path links
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"remove-paths",allusers);
       //Now add it to the queue
@@ -424,7 +424,7 @@ void PBIBackend::rmPaths(QStringList pbiID, bool allusers){ // remove path links
 
 void PBIBackend::rmMimeTypes(QStringList pbiID, bool allusers){ // remove path links
   for(int i=0; i<pbiID.length(); i++){
-    if(PBIHASH.contains(pbiID[i])){
+    if( PBIHASH.contains(pbiID[i]) && !isInstalled(pbiID[i]).isEmpty() ){
       //generate the command
       QString cmd = generateXDGCMD(pbiID[i],QStringList()<<"remove-mime",allusers);
       //Now add it to the queue
@@ -436,7 +436,7 @@ void PBIBackend::rmMimeTypes(QStringList pbiID, bool allusers){ // remove path l
 }
 
 void PBIBackend::enableAutoUpdate(QString pbiID, bool enable){
-  if(!PBIHASH.contains(pbiID)){return;}
+  if(!PBIHASH.contains(pbiID) || isInstalled(pbiID).isEmpty() ){return;}
   //Generate the command
   QString cmd = generateAutoUpdateCMD(pbiID,enable);
   //Now put it in the queue
