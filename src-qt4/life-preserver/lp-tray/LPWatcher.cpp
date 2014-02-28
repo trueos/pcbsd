@@ -81,7 +81,7 @@ void LPWatcher::refresh(){
 QStringList LPWatcher::getMessages(QString type, QStringList msgList){
   QStringList output;
   type = type.toLower();
-  //Valid types - "critical"/"running"/"message"
+  //Valid types - "critical"/"running"/"message"/"replication"/"mirror"/"resilver"/"scrub"
   //Valid messages - "dataset","message","summary","id", "timestamp", "time"
   unsigned int base;
   if(type=="message"){base=10;}

@@ -183,12 +183,12 @@ void LPTray::startMessageDialog(){
     QStringList info = watcher->getMessages(types[i], infoL);
     if(info.isEmpty()){continue;}
     //Take into account multiple devices/messages per type
-    QStringList devs=info[2].split(":::"); QStringList msgs=info[3].split(":::");
+    QStringList devs=info[2].split(":::"); QStringList msg=info[3].split(":::");
     for(int j=0; j<devs.length(); j++){
       if(info[0] == "ERROR"){
-        errs << info[1] + " (" + devs[j] + "): " + msgs[j];
+        errs << info[1] + " (" + devs[j] + "): " + msg[j];
       }else if(!info[0].isEmpty()){
-        msgs << info[1] + " (" + devs[j] + "): " + msgs[j];
+        msgs << info[1] + " (" + devs[j] + "): " + msg[j];
       }
     }
     if(!info[4].isEmpty()){
