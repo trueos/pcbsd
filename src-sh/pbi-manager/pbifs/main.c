@@ -251,6 +251,17 @@ int cp(const char *to, const char *from)
 		return -1;
 }
 
+static int pbi_access(const char *path, int mask)
+{
+	char newpath[MAXPATHLEN];
+	get_modified_path(newpath, path);
+
+	int res = access(newpath, mask);
+	if (res == -1)
+		return -errno;
+	return 0;
+}
+
 static int pbi_getattr(const char *path, struct stat *stbuf)
 {
 	char newpath[MAXPATHLEN];
@@ -571,6 +582,7 @@ static int pbi_write(const char *path, const char *buf, size_t size, off_t offse
 }
 
 static struct fuse_operations pbi_oper = {
+	.access		= pbi_access,
 	.chmod		= pbi_chmod,
 	.chown		= pbi_chown,
 	.create		= pbi_create,
