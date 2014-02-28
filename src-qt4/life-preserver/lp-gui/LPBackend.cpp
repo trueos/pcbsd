@@ -113,14 +113,16 @@ QStringList LPBackend::listCurrentStatus(){
 bool LPBackend::setupDataset(QString dataset, int time, int numToKeep){
   //Configure inputs
   QString freq;
+  if(time == -60){ freq = "hourly"; }
   if(time == -30){ freq = "30min"; }
   else if(time == -10){ freq = "10min"; }
   else if(time == -5){ freq = "5min"; }
   else if(time >= 0 && time < 24){ freq = "daily@"+QString::number(time); }
-  else{ freq = "hourly"; }
+  else{ freq = "auto"; }
   
   //Create the command
-  QString cmd = "lpreserver cronsnap "+dataset+" start "+freq+" "+QString::number(numToKeep);
+  QString cmd = "lpreserver cronsnap "+dataset+" start "+freq;
+  if(freq != "auto"){ cmd.append(" "+QString::number(numToKeep) ); } //also add the number to keep
   int ret = LPBackend::runCmd(cmd);
    
   return (ret == 0);
@@ -146,7 +148,8 @@ bool LPBackend::datasetInfo(QString dataset, int& time, int& numToKeep){
       else if(sch=="5min"){time = -5;}
       else if(sch=="10min"){time = -10;}
       else if(sch=="30min"){time = -30;}
-      else{ time = -60; } //hourly
+      else if(sch=="hourly"){ time = -60; } //hourly
+      else{ time = -999; } //auto
       //Get total snapshots
       numToKeep = out[i].section("- total:",1,1).simplified().toInt();
       ok=true;
@@ -190,6 +193,9 @@ bool LPBackend::revertSnapshot(QString dataset, QString snapshot){
 bool LPBackend::setupReplication(QString dataset, QString remotehost, QString user, int port, QString remotedataset, int time){
   QString stime = "sync"; //synchronize on snapshot creation (default)
   if(time >= 0 && time < 24){ stime = QString::number(time); } //daily at a particular hour (24 hour notation)
+  else if(time == -60){ stime = "hour"; }
+  else if(time == -30){ stime = "30min"; }
+  else if(time == -10){ stime = "10min"; }
   
   
   QString cmd = "lpreserver replicate add "+remotehost+" "+user+" "+ QString::number(port)+" "+dataset+" "+remotedataset+" "+stime;
@@ -219,6 +225,9 @@ bool LPBackend::replicationInfo(QString dataset, QString& remotehost, QString& u
       remotedataset = data.section(":",1,1).section(" Time",0,0);
       QString synchro = data.section("Time:",1,1).simplified();
 	if(synchro == "sync"){ time = -1; }
+	else if(synchro =="hour"){ time = -60; }
+	else if(synchro == "30min"){ time = -30; }
+	else if(synchro == "10min"){ time = -10; }
 	else{ time = synchro.toInt(); }
       ok = true;
       break;

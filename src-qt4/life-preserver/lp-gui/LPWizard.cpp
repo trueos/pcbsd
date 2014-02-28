@@ -25,17 +25,19 @@ void LPWizard::slotFinished(){
   enableReplication = ui->groupReplicate->isChecked();
   if(enableReplication){
     remotePort = ui->spinPort->value();
-    if(ui->radioSYNC->isChecked()){ 
-      remoteTime = -1;
-    }else{
-      remoteTime = ui->time_replicate->time().hour();
-    }
+    int remoteTime = ui->combo_remote_freq->currentIndex();
+    if(remoteTime==0){ remoteTime = -999; } //Sync
+    else if(remoteTime==1){ remoteTime =  ui->time_replicate->time().hour(); } //Daily @
+    else if(remoteTime==2){ remoteTime = -60; } //hourly
+    else if(remoteTime==3){ remoteTime = -30; } //30min
+    else{ remoteTime = -10; } //10min
     remoteHost = ui->lineHostName->text();
     remoteUser = ui->lineUserName->text();
     remoteDataset = ui->lineRemoteDataset->text();
     //Prompt for the SSH key generation
     LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
   }
+  if(ui->radio_automatic->isChecked()){ localTime = -999; }
   if(ui->radioDaily->isChecked()){ localTime = ui->timeEdit->time().hour(); }
   else if( ui->radio10Min->isChecked()){ localTime = -10; }
   else if( ui->radio30Min->isChecked()){ localTime = -30; }
@@ -80,4 +82,21 @@ void LPWizard::scanNetwork(){
       break;
     }
   }
+}
+
+void LPWizard::on_combo_remote_freq_itemChanged(int index){
+  //Adjust the visibility of the replication time selector
+  ui->time_replicate->setVisible( (index == 1) );
+}
+
+int LPWizard::nextId() const{
+	int cpg = currentId();
+	if(cpg == 1 && ui->radio_automatic->isChecked() ){
+	  //Automatic snapshot schedule - skip the snapshot pruning page (not needed)
+	  return 3;
+	}else if(cpg==4){ //last page
+	  return -1;
+	}else{
+	  return (cpg+1); //go to the next page
+	}
 }

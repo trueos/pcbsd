@@ -23,7 +23,7 @@
   <property name="options">
    <set>QWizard::IndependentPages</set>
   </property>
-  <widget class="QWizardPage" name="wizardPage1">
+  <widget class="QWizardPage" name="wizardPage_start">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <spacer name="verticalSpacer">
@@ -95,7 +95,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWizardPage" name="wizardPage">
+  <widget class="QWizardPage" name="wizardPage_snapSchedule">
    <property name="title">
     <string/>
    </property>
@@ -121,7 +121,7 @@
        </item>
        <item>
         <layout class="QGridLayout" name="gridLayout_4">
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QRadioButton" name="radioHourly">
            <property name="sizePolicy">
             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
@@ -134,7 +134,7 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
+         <item row="1" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout_11">
            <item>
             <widget class="QRadioButton" name="radioDaily">
@@ -148,7 +148,7 @@
               <string>Daily @</string>
              </property>
              <property name="checked">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -198,28 +198,28 @@
            </item>
           </layout>
          </item>
-         <item row="2" column="0">
+         <item row="3" column="0">
           <widget class="QRadioButton" name="radio30Min">
            <property name="text">
             <string>30 minutes</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
+         <item row="4" column="0">
           <widget class="QRadioButton" name="radio10Min">
            <property name="text">
             <string>10 minutes</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="5" column="0">
           <widget class="QRadioButton" name="radio5Min">
            <property name="text">
             <string>5 minutes</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="0">
+         <item row="6" column="0">
           <spacer name="verticalSpacer_3">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -232,6 +232,16 @@
            </property>
           </spacer>
          </item>
+         <item row="0" column="0">
+          <widget class="QRadioButton" name="radio_automatic">
+           <property name="text">
+            <string>Automatic</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
       </layout>
@@ -239,7 +249,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWizardPage" name="wizardPage_5">
+  <widget class="QWizardPage" name="wizardPage_snapPrune">
    <layout class="QGridLayout" name="gridLayout_11">
     <item row="0" column="0">
      <widget class="QGroupBox" name="groupBox_5">
@@ -385,7 +395,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWizardPage" name="wizardPage_3">
+  <widget class="QWizardPage" name="wizardPage_replicate">
    <layout class="QGridLayout" name="gridLayout_10">
     <item row="0" column="0">
      <widget class="QGroupBox" name="groupBox_2">
@@ -469,22 +479,34 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_5">
              <item>
-              <widget class="QRadioButton" name="radioSYNC">
-               <property name="text">
-                <string>With snapshot creation (Best for daily snapshots)</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_3">
                <item>
-                <widget class="QRadioButton" name="radioRepTime">
-                 <property name="text">
-                  <string>Daily at:</string>
-                 </property>
+                <widget class="QComboBox" name="combo_remote_freq">
+                 <item>
+                  <property name="text">
+                   <string>Sync with snapshots</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Daily</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Hourly</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>30 Minutes</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>10 Minutes</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item>
@@ -514,7 +536,7 @@
                   </time>
                  </property>
                  <property name="displayFormat">
-                  <string>h AP</string>
+                  <string>@ h AP</string>
                  </property>
                 </widget>
                </item>
@@ -642,7 +664,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWizardPage" name="wizardPage_4">
+  <widget class="QWizardPage" name="wizardPage_finished">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <widget class="QLabel" name="labelFinished">

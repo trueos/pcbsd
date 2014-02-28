@@ -52,17 +52,19 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated){
   //Now put the values into the UI
   // - local settings
   if(localSchedule == -5){ //5 minutes
-    ui->combo_local_schedule->setCurrentIndex(4);	  
+    ui->combo_local_schedule->setCurrentIndex(5);	  
   }else if(localSchedule == -10){ //10 minutes
-    ui->combo_local_schedule->setCurrentIndex(3);	
+    ui->combo_local_schedule->setCurrentIndex(4);	
   }else if(localSchedule == -30){ //30 minutes
-    ui->combo_local_schedule->setCurrentIndex(2);	  
+    ui->combo_local_schedule->setCurrentIndex(3);	  
+  }else if(localSchedule == -60){ //assume hourly
+    ui->combo_local_schedule->setCurrentIndex(2);	 
   }else if(localSchedule > 0 && localSchedule < 24){ //daily @ hour
-    ui->combo_local_schedule->setCurrentIndex(0);
+    ui->combo_local_schedule->setCurrentIndex(1);
     ui->time_local_daily->setTime( QTime(localSchedule, 0) );
-  }else{ //assume hourly
-    localSchedule = -60;
-    ui->combo_local_schedule->setCurrentIndex(1);	  
+  }else{ //assume auto
+    localSchedule = -999; //just to make sure it does not match anything else
+    ui->combo_local_schedule->setCurrentIndex(0);
   }
   setLocalKeepNumber();
 	
@@ -73,12 +75,21 @@ void LPConfig::loadDatasetConfiguration(QString dataset, bool replicated){
   ui->lineRemoteDataset->setText(remoteDataset);
   ui->spinPort->setValue(remotePort);
   if(remoteFreq >=0 && remoteFreq < 24){
-    ui->radioRepTime->setChecked(true);
+    ui->combo_remote_schedule->setCurrentIndex(1); //Daily @
     ui->time_replicate->setTime( QTime(remoteFreq,0) );
+  }else if(remoteFreq == -60){
+    ui->combo_remote_schedule->setCurrentIndex(2); //Hourly
+  }else if(remoteFreq == -30){
+    ui->combo_remote_schedule->setCurrentIndex(3); // 30 minutes
+  }else if(remoteFreq == -10){
+    ui->combo_remote_schedule->setCurrentIndex(4); // 10 minutes
   }else{
-    ui->radioSYNC->setChecked(true);
+    remoteFreq = -999; //just to make sure it is the "other" case
+    ui->combo_remote_schedule->setCurrentIndex(0); // Sync
   }
-  
+  //Now update the visibility of items appropriately
+  on_combo_local_schedule_currentIndexChanged(ui->combo_local_schedule->currentIndex());
+  on_combo_remote_schedule_currentIndexChanged(ui->combo_remote_schedule->currentIndex());
 }
 
 void LPConfig::checkForChanges(){
@@ -89,13 +100,14 @@ void LPConfig::checkForChanges(){
   //Local Settings
   int nSchedule;
   int schint = ui->combo_local_schedule->currentIndex();
-  if(schint == 0){ nSchedule = ui->time_local_daily->time().hour(); } //daily @ hour
-  else if(schint == 1){ nSchedule = -60; } //hourly
-  else if(schint == 2){ nSchedule = -30; } //30 min
-  else if(schint == 3){ nSchedule = -10; } //10 min
+  if(schint == 0){ nSchedule = -999; } //Auto
+  if(schint == 1){ nSchedule = ui->time_local_daily->time().hour(); } //daily @ hour
+  else if(schint == 2){ nSchedule = -60; } //hourly
+  else if(schint == 3){ nSchedule = -30; } //30 min
+  else if(schint == 4){ nSchedule = -10; } //10 min
   else{ nSchedule = -5; } //5 min
   int nTotSnaps;
-  if( ui->combo_local_keepunits->currentIndex() == 0 && (schint != 0) ){ //days
+  if( ui->combo_local_keepunits->currentIndex() == 0 && (schint != 1) ){ //days
     int numperday = 1440/(-nSchedule);
     nTotSnaps = numperday * ui->spin_local_numkeep->value();
   }else{ //total number (or daily snapshots)
@@ -118,15 +130,21 @@ void LPConfig::checkForChanges(){
   tmp = ui->lineRemoteDataset->text().simplified();
   if( tmp != remoteDataset ){ remoteChanged = true; remoteDataset = tmp; }
   if( ui->spinPort->value() != remotePort){ remoteChanged = true; remotePort = ui->spinPort->value(); updateSSHKey=true;}
-  int nFreq = -1;
-  if(ui->radioRepTime->isChecked()){
-    nFreq = ui->time_replicate->time().hour();
-  }
-  if(nFreq < 0){
-    if( remoteFreq >= 0 && remoteFreq < 24){remoteChanged = true; remoteFreq = nFreq;}
+  
+  int nFreq = ui->combo_remote_schedule->currentIndex();
+  if(nFreq == 0){
+    nFreq = -999; //Sync
+  }else if(nFreq==1){
+    nFreq = ui->time_replicate->time().hour(); //Daily @
+  }else if(nFreq==2){
+    nFreq = -60; //Hourly
+  }else if(nFreq==3){
+    nFreq = -30; //30 minutes
   }else{
-    if( nFreq != remoteFreq ){ remoteChanged = true; remoteFreq = nFreq; }
+    nFreq = -10; //10 minutes
   }
+  if( nFreq != remoteFreq ){ remoteChanged = true; remoteFreq = nFreq; }
+
   if(updateSSHKey){
     //Prompt for the SSH key generation
     LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
@@ -168,7 +186,16 @@ void LPConfig::slotCancelConfig(){
 
 void LPConfig::on_combo_local_schedule_currentIndexChanged(int index){
   //Adjust whether the daily time box is visible
-  ui->time_local_daily->setVisible( (index == 0) );
+  ui->time_local_daily->setVisible( (index == 1) );
+  //Show the Number to keep options if applicable
+  ui->spin_local_numkeep->setVisible( (index!=0) );
+  ui->label_local_keep->setVisible( (index!=0) );
+  ui->combo_local_keepunits->setVisible( (index!=0) );
+}
+
+void LPConfig::on_combo_remote_schedule_currentIndexChanged(int index){
+  //Adjust whether the daily time box is visible
+  ui->time_replicate->setVisible( (index == 1) );
 }
 
 void LPConfig::autoDetectReplicationTargets(){

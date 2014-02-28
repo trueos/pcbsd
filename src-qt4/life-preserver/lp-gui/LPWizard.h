@@ -27,6 +27,8 @@ public:
 	int localTime, totalSnapshots, remotePort, remoteTime;
 	QString remoteHost, remoteUser, remoteDataset;
 
+	virtual int nextId() const; //override the standard page order sometimes
+
 private:
 	Ui::LPWizard *ui;
 
@@ -34,6 +36,7 @@ private slots:
 	void slotFinished();
 	void slotCancelled();
 	void scanNetwork();
+	void on_combo_remote_freq_itemChanged(int index);
 };
 
 #endif
