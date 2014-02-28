@@ -136,15 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished"></translation>
+        <translation>グラフィカルアプリケーション</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished"></translation>
+        <translation>コマンドラインアプリケーション</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished"></translation>
+        <translation>サーバーアプリケーション</translation>
     </message>
 </context>
 <context>
@@ -282,32 +282,12 @@
         <translation>その他の検索結果</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>ファイル</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>設定</translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation>PBI リストのインポート</translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation>PBI リストのエクスポート</translation>
-    </message>
-    <message>
         <source>&amp;Quit</source>
         <translation>終了(&amp;Q)</translation>
     </message>
     <message>
         <source>Repositories</source>
         <translation>リポジトリー</translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
-        <translation>AppCafe の設定</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -458,14 +438,6 @@
         <translation>このアプリケーションをインストールしますか?</translation>
     </message>
     <message>
-        <source>Shift+Q</source>
-        <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>Shift+S</source>
-        <translation>Shift+S</translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation>戻る</translation>
     </message>
@@ -526,27 +498,53 @@
         <translation>このアプリケーションを今すぐアップデートしてよろしいですか?</translation>
     </message>
     <message>
-        <source>Browse Category</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSDの一押し</translation>
     </message>
     <message>
         <source>Downloading..</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードしています..</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished"></translation>
+        <translation>Eメールクライアントを起動しますか?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation>デフォルトのEメールクライアントを起動しますか? 
+ これが正しく動作するためには、現在のデスクトップ環境でこの設定をしている必要があります。いない場合は、手動で以下のアドレスにメールを送信することができます。</translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;nstall PBI</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -686,8 +684,7 @@
     </message>
     <message>
         <source>Downloading: %1% @ %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ダウンロードしています: %1% @ %2</translation>
     </message>
 </context>
 <context>

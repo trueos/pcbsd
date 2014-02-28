@@ -1544,12 +1544,12 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
+        <translation>Crea una snapshot
             </translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
+        <translation>Cancella snapshot
             </translation>
     </message>
     <message>
@@ -1559,7 +1559,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
+        <translation>Configura proprietà
             </translation>
     </message>
     <message>
@@ -1579,7 +1579,7 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
+        <translation>Nuovo nome
             </translation>
     </message>
     <message>

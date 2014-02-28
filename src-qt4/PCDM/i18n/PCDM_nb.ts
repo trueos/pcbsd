@@ -170,6 +170,29 @@
     </message>
 </context>
 <context>
+    <name>loginDelay</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%v/%m seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>

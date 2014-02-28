@@ -244,7 +244,7 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
+        <translation>Nome di sistema
             </translation>
     </message>
     <message>

@@ -136,15 +136,18 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -282,32 +285,12 @@
         <translation>Інші результати</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Файл</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Налаштування</translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation>Імпортувати список PBI</translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation>Експортувати список PBI</translation>
-    </message>
-    <message>
         <source>&amp;Quit</source>
         <translation>Вихід</translation>
     </message>
     <message>
         <source>Repositories</source>
         <translation>Репозиторії</translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
-        <translation>Налаштування AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -458,14 +441,6 @@
         <translation>Ви певні що бажаєте встановити цей додаток?</translation>
     </message>
     <message>
-        <source>Shift+Q</source>
-        <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>Shift+S</source>
-        <translation>Shift+S</translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation type="unfinished">
             </translation>
@@ -541,11 +516,6 @@
             </translation>
     </message>
     <message>
-        <source>Browse Category</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation type="unfinished">
             </translation>
@@ -557,11 +527,45 @@
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;nstall PBI</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

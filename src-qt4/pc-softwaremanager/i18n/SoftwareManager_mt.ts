@@ -136,15 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Applikazzjoni Graphical</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Kmand tal-linja Applikazzjoni</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Server Applikazzjoni</translation>
     </message>
 </context>
 <context>
@@ -282,32 +282,12 @@
         <translation>Oħrajn Riżultati</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>File</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>kkonfigurat</translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation>Lista importazzjoni PBI</translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation>Lista esportazzjoni PBI</translation>
-    </message>
-    <message>
         <source>&amp;Quit</source>
         <translation>&amp;Quit</translation>
     </message>
     <message>
         <source>Repositories</source>
         <translation>Repożitorji</translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
-        <translation>AppCafe Settings</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -458,14 +438,6 @@
         <translation>Int żgur li trid tinstalla din l-applikazzjoni?</translation>
     </message>
     <message>
-        <source>Shift+Q</source>
-        <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>Shift+S</source>
-        <translation>Shift+S</translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation>Dahar</translation>
     </message>
@@ -526,10 +498,6 @@
         <translation>Do inti tixtieq li tibda aġġornament din l-applikazzjoni dritt issa?</translation>
     </message>
     <message>
-        <source>Browse Category</source>
-        <translation>Browse Kategorija</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>Rakkomandazzjonijiet PC-BSD</translation>
     </message>
@@ -539,11 +507,44 @@
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tnedija Email Klijent?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation>Do inti tixtieq li jippruvaw tnedija default klijent email tiegħek?
+Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew. Jekk le, tista &apos;tibgħat email lill-indirizz hawn taħt manwalment.</translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;nstall PBI</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

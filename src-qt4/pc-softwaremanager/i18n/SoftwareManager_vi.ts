@@ -136,15 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished"></translation>
+        <translation>ứng dụng đồ họa</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Dòng lệnh ứng dụng</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished"></translation>
+        <translation>ứng dụng máy chủ</translation>
     </message>
 </context>
 <context>
@@ -282,32 +282,12 @@
         <translation>Kết quả khác</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>tập tin</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Cấu hình</translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation>Nhập khẩu PBI Danh sách</translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation>Danh sách xuất khẩu PBI</translation>
-    </message>
-    <message>
         <source>&amp;Quit</source>
         <translation>&amp;Thoát</translation>
     </message>
     <message>
         <source>Repositories</source>
         <translation>kho để hàng hóa</translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
-        <translation>Cài đặt AppCafe</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -458,14 +438,6 @@
         <translation>Bạn có chắc chắn bạn muốn cài đặt ứng dụng này?</translation>
     </message>
     <message>
-        <source>Shift+Q</source>
-        <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>Shift+S</source>
-        <translation>Shift+S</translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation>lưng</translation>
     </message>
@@ -526,10 +498,6 @@
         <translation>Bạn có muốn bắt đầu cập nhật ứng dụng này ngay bây giờ?</translation>
     </message>
     <message>
-        <source>Browse Category</source>
-        <translation>duyệt Thể loại</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>Khuyến nghị PC-BSD</translation>
     </message>
@@ -539,11 +507,44 @@
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished"></translation>
+        <translation>Email Client khởi động?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation>Bạn có muốn thử tung ra ứng dụng email mặc định của bạn?
+Bạn phải có thiết lập này trong môi trường máy tính để bàn hiện tại của bạn cho tiện làm việc đúng cách. Nếu không, bạn có thể gửi email đến địa chỉ dưới đây bằng tay</translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;nstall PBI</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

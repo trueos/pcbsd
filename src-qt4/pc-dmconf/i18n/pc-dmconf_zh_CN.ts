@@ -63,5 +63,17 @@
         <source>This application will now close</source>
         <translation>此程序即将关闭</translation>
     </message>
+    <message>
+        <source>Time Delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> Seconds</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display available users</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

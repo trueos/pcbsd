@@ -750,33 +750,27 @@
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hilfe</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Umschalt+S</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Umschalt+Q</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>Shift+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Umschalt+A</translation>
     </message>
     <message>
         <source>Pkg Setup</source>
@@ -790,13 +784,11 @@
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Direkt aus den Quellen erstellen</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erstellungsabhängigkeiten</translation>
     </message>
     <message>
         <source>Make Options</source>
@@ -854,13 +846,11 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pkg          </translation>
     </message>
     <message>
         <source>Select Port</source>

@@ -157,15 +157,18 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -309,34 +312,11 @@
         <translation>Muut tulokset</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Tiedosto</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Konfiguroi</translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Quit</source>
         <translation>&amp;Lopeta</translation>
     </message>
     <message>
         <source>Repositories</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -509,16 +489,6 @@
         <translation>Oletko varma, että haluat asentaa tämän sovelluksen?</translation>
     </message>
     <message>
-        <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation type="unfinished">
             </translation>
@@ -594,11 +564,6 @@
             </translation>
     </message>
     <message>
-        <source>Browse Category</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation type="unfinished">
             </translation>
@@ -610,11 +575,45 @@
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;nstall PBI</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

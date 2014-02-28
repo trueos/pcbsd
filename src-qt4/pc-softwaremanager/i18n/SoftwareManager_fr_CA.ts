@@ -136,15 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Graphique Application</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Application ligne de commande</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Application Serveur</translation>
     </message>
 </context>
 <context>
@@ -282,32 +282,12 @@
         <translation>Autres résultats</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Fichiers</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Configurer</translation>
-    </message>
-    <message>
-        <source>Import PBI List</source>
-        <translation>Importer PBI Liste</translation>
-    </message>
-    <message>
-        <source>Export PBI List</source>
-        <translation>Exporter PBI Liste</translation>
-    </message>
-    <message>
         <source>&amp;Quit</source>
         <translation>&amp;Quitter            </translation>
     </message>
     <message>
         <source>Repositories</source>
         <translation>Répertoires</translation>
-    </message>
-    <message>
-        <source>AppCafe Settings</source>
-        <translation>AppCafe Réglages</translation>
     </message>
     <message>
         <source>Error!</source>
@@ -458,14 +438,6 @@
         <translation>Êtes-vous sûr que vous voulez installer cette application?</translation>
     </message>
     <message>
-        <source>Shift+Q</source>
-        <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>Shift+S</source>
-        <translation>Shift+S</translation>
-    </message>
-    <message>
         <source>Back</source>
         <translation>Retour</translation>
     </message>
@@ -526,10 +498,6 @@
         <translation>Voulez-vous commencer à mettre à jour cette application maintenant?</translation>
     </message>
     <message>
-        <source>Browse Category</source>
-        <translation>Parcourir la catégorie</translation>
-    </message>
-    <message>
         <source>PC-BSD Recommendations</source>
         <translation>PC-BSD Recommandations</translation>
     </message>
@@ -539,11 +507,44 @@
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancez client de messagerie?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
+        <translation>Voulez-vous essayer de lancer votre client de messagerie par défaut?
+Vous devez avoir cette configuration dans votre environnement de bureau actuel pour que cela fonctionne correctement. Si non, vous pouvez envoyer un email à l&apos;adresse ci-dessous manuellement.</translation>
+    </message>
+    <message>
+        <source>Browse Categories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Export PBI List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ctrl+Q</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I&amp;nstall PBI</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
