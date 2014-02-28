@@ -119,6 +119,7 @@ case "$1" in
 	    exit 1
 	fi
 	for i in $(cat *.conflicts 2> /dev/null); do
+	    if [ ! -e "etc-merged/$i" ] ; then continue ; fi
 	    if egrep -q '^(<<<<<<< |=======$|>>>>>>> )' etc-merged/$i; then
 		echo "Unresolved conflicts in ${i}" 1>&2
 		exit 1
