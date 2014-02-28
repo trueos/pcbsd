@@ -171,7 +171,7 @@ add_rep_task() {
   TIME=$6
 
   case $TIME in
-     [0-9][0-9]|sync)  ;;
+     [0-9][0-9]|sync|hour|30min|10min) ;;
      *) exit_err "Invalid time: $TIME"
   esac
  
@@ -190,8 +190,14 @@ add_rep_task() {
   echo "$LDATA:$TIME:$HOST:$USER:$PORT:$RDATA" >> ${REPCONF}
 
   if [ "$TIME" != "sync" ] ; then
+    case $TIME in
+        hour) cTime="0     *" ;;
+       30min) cTime="*/30     *" ;;
+       10min) cTime="*/10     *" ;;
+           *) cTime="0     *" ;;
+    esac
     cronscript="${PROGDIR}/backend/runrep.sh"
-    cLine="0    $TIME       *       *       *"
+    cLine="$cTime       *       *       *"
     echo -e "$cLine\troot    ${cronscript} ${LDATA}" >> /etc/crontab
   fi
 }
