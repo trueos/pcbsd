@@ -790,7 +790,13 @@ make_bootstrap_pkgng_file_standard()
   local jaildir="${1}"
   local outfile="${2}"
 
-  local release="$(uname -r | cut -d '-' -f 1-2)"
+  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
+     echo "Missing /bin/freebsd-version in jail.."
+     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
+     return 1
+  fi
+
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
   local arch="$(uname -m)"
 
 cat<<__EOF__>"${outfile}"
@@ -837,7 +843,13 @@ make_bootstrap_pkgng_file_pluginjail()
   local jaildir="${1}"
   local outfile="${2}"
 
-  local release="$(uname -r | cut -d '-' -f 1-2)"
+  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
+     echo "Missing /bin/freebsd-version in jail.."
+     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
+     return 0
+  fi
+
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
   local arch="$(uname -m)"
 
   get_mirror
@@ -910,7 +922,14 @@ bootstrap_pkgng()
   if [ -z "${jailtype}" ] ; then
     jailtype="standard"
   fi
-  local release="$(uname -r | cut -d '-' -f 1-2)"
+
+  if [ ! -e "${jaildir}/bin/freebsd-version" ] ; then
+     echo "Missing /bin/freebsd-version in jail.."
+     echo "PKG bootstrap can only be done on 10.0 and higher, skipping..."
+     return 1
+  fi
+
+  local release="`${jaildir}/bin/freebsd-version | cut -d '-' -f 1-2`"
   local arch="$(uname -m)"
 
   local ffunc="make_bootstrap_pkgng_file_standard"
@@ -922,10 +941,7 @@ bootstrap_pkgng()
   echo "Boot-strapping pkgng"
 
   mkdir -p ${jaildir}/usr/local/etc
-  pubcert="/usr/local/etc/pkg-pubkey.cert"
 
-  cp "${pubcert}" ${jaildir}/usr/local/etc
-  install_pc_extractoverlay "${jaildir}"
 
   ${ffunc} "${jaildir}" "${jaildir}/bootstrap-pkgng"
   chmod 755 "${jaildir}/bootstrap-pkgng"
