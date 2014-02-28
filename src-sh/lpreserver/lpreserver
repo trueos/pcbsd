@@ -155,6 +155,8 @@ Add Options:
 
 	add <remotehost> <user> <port> <hostdataset> <remotedataset> <time>
 
+	<time> = XX/sync/hour/30min/10min
+
 	Example 1: 
 
 	add freenas.8343 backupuser 22 tank1/usr/home/kris tankbackup/backups sync
