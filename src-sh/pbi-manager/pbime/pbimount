@@ -70,11 +70,13 @@ mount_dirs() {
    # Check if we need to enable nvidia support for linux
    check_nvidia_linux "$1"
 
+   # Start devfs to ensure /dev/* get proper permissions
+   chroot "${pDir}/virtbase" /etc/rc.d/devfs start >/dev/null 2>/dev/null
+
    # Start the ldconfig run
    chroot "${pDir}/virtbase" /etc/rc.d/ldconfig start >/dev/null 2>/dev/null
 
-   # Start devfs to ensure /dev/* get proper permissions
-   chroot "${pDir}/virtbase" /etc/rc.d/devfs start >/dev/null 2>/dev/null
+   sleep 1
 }
 
 umount_pbidir() {
