@@ -582,7 +582,7 @@ share/pbi-manager/.pbimount
 share/pbi-manager/.pbisyscmd
 share/pbi-manager/.pbisyslisten
 share/pbi-manager/.ldconfig
-share/pbi-manager/.mount_nullfs
+share/pbi-manager/.pbifs
 share/pbi-manager/.pbiwrapper-i386
 share/pbi-manager/.pbiwrapper-amd64
 share/pbi-manager/module-examples/gimp/xdg-menu/gimp.desktop
