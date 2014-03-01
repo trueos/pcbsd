@@ -65,15 +65,15 @@
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>遅延時間</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished"></translation>
+        <translation> 秒</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished"></translation>
+        <translation>利用できるユーザーを表示する</translation>
     </message>
 </context>
 </TS>

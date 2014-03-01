@@ -517,35 +517,35 @@ Irid ikollok dan setup fl-ambjent tiegħek desktop kurrenti biex dan jaħdem sew
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished"></translation>
+        <translation>Browse Kategoriji</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fajl</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kkonfigurat</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Import PBI Lista</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Export Lista PBI</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Settings</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>I&amp;nstall PBI</translation>
     </message>
 </context>
 <context>

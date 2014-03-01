@@ -65,15 +65,15 @@
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Thời gian trễ</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>giây</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished"></translation>
+        <translation>Màn hình hiển thị người dùng có sẵn</translation>
     </message>
 </context>
 </TS>

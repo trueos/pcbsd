@@ -25,131 +25,139 @@
     </message>
     <message>
         <location filename="../LPConfig.ui" line="70"/>
-        <source>Daily</source>
+        <source>Automatic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../LPConfig.ui" line="75"/>
-        <source>Hourly</source>
+        <location filename="../LPConfig.ui" line="348"/>
+        <source>Daily</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../LPConfig.ui" line="80"/>
-        <source>30 minutes</source>
+        <location filename="../LPConfig.ui" line="353"/>
+        <source>Hourly</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../LPConfig.ui" line="85"/>
-        <source>10 minutes</source>
+        <source>30 minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../LPConfig.ui" line="90"/>
+        <source>10 minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPConfig.ui" line="95"/>
         <source>5 minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="112"/>
+        <location filename="../LPConfig.ui" line="117"/>
+        <location filename="../LPConfig.ui" line="371"/>
         <source>@ h AP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="134"/>
+        <location filename="../LPConfig.ui" line="139"/>
         <source>Days</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="139"/>
+        <location filename="../LPConfig.ui" line="144"/>
         <source>Total</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="155"/>
+        <location filename="../LPConfig.ui" line="160"/>
         <source>Keep:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="163"/>
+        <location filename="../LPConfig.ui" line="168"/>
         <source>Replication</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="169"/>
+        <location filename="../LPConfig.ui" line="174"/>
         <source>Replicate on a Remote System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="196"/>
+        <location filename="../LPConfig.ui" line="201"/>
         <source>Scan Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="224"/>
+        <location filename="../LPConfig.ui" line="229"/>
         <source>Host Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="238"/>
+        <location filename="../LPConfig.ui" line="243"/>
         <source>User Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="258"/>
+        <location filename="../LPConfig.ui" line="263"/>
         <source>SSH Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="308"/>
+        <location filename="../LPConfig.ui" line="313"/>
         <source>Remote Dataset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="320"/>
+        <location filename="../LPConfig.ui" line="325"/>
         <source>Frequency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="326"/>
-        <source>With snapshot creation (Best for daily snapshots)</source>
+        <location filename="../LPConfig.ui" line="343"/>
+        <source>Sync with snapshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="338"/>
-        <source>Daily at:</source>
+        <location filename="../LPConfig.ui" line="358"/>
+        <source>30 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="345"/>
-        <source>h AP</source>
+        <location filename="../LPConfig.ui" line="363"/>
+        <source>10 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="405"/>
+        <location filename="../LPConfig.ui" line="434"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="419"/>
+        <location filename="../LPConfig.ui" line="448"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="177"/>
+        <location filename="../LPConfig.cpp" line="204"/>
         <source>No Network Targets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="177"/>
+        <location filename="../LPConfig.cpp" line="204"/>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="186"/>
+        <location filename="../LPConfig.cpp" line="213"/>
         <source>Select Replication Target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.cpp" line="186"/>
+        <location filename="../LPConfig.cpp" line="213"/>
         <source>Hostname:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -949,6 +957,7 @@
     </message>
     <message>
         <location filename="../LPWizard.ui" line="133"/>
+        <location filename="../LPWizard.ui" line="497"/>
         <source>Hourly</source>
         <translation type="unfinished"></translation>
     </message>
@@ -959,7 +968,6 @@
     </message>
     <message>
         <location filename="../LPWizard.ui" line="179"/>
-        <location filename="../LPWizard.ui" line="517"/>
         <source>h AP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -979,113 +987,133 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="247"/>
+        <location filename="../LPWizard.ui" line="238"/>
+        <source>Automatic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPWizard.ui" line="257"/>
         <source>Snapshot pruning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="253"/>
+        <location filename="../LPWizard.ui" line="263"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The oldest snapshots will be auto-pruned after reaching either the number of days or the total number of snapshots that you specify. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="273"/>
-        <location filename="../LPWizard.ui" line="329"/>
+        <location filename="../LPWizard.ui" line="283"/>
+        <location filename="../LPWizard.ui" line="339"/>
         <source>Keep</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="296"/>
+        <location filename="../LPWizard.ui" line="306"/>
         <source>days worth of snapshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="346"/>
+        <location filename="../LPWizard.ui" line="356"/>
         <source>total snapshots </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="393"/>
+        <location filename="../LPWizard.ui" line="403"/>
         <source>Replication Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="399"/>
+        <location filename="../LPWizard.ui" line="409"/>
         <source>Replication will keep a copy of your data on a remote system in the case of a total disk failure.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="409"/>
+        <location filename="../LPWizard.ui" line="419"/>
         <source>NOTE: A valid replication target system must be running a compatible version of ZFS and have SSH enabled, such as on a FreeNAS system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="419"/>
+        <location filename="../LPWizard.ui" line="429"/>
         <source>Replicate my data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="446"/>
+        <location filename="../LPWizard.ui" line="456"/>
         <source>Scan Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="468"/>
+        <location filename="../LPWizard.ui" line="478"/>
         <source>Frequency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="474"/>
-        <source>With snapshot creation (Best for daily snapshots)</source>
+        <location filename="../LPWizard.ui" line="487"/>
+        <source>Sync with snapshots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="486"/>
-        <source>Daily at:</source>
+        <location filename="../LPWizard.ui" line="492"/>
+        <source>Daily</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="544"/>
+        <location filename="../LPWizard.ui" line="502"/>
+        <source>30 Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPWizard.ui" line="507"/>
+        <source>10 Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPWizard.ui" line="539"/>
+        <source>@ h AP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPWizard.ui" line="566"/>
         <source>Host Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="558"/>
+        <location filename="../LPWizard.ui" line="580"/>
         <source>User Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="578"/>
+        <location filename="../LPWizard.ui" line="600"/>
         <source>SSH Port</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="628"/>
+        <location filename="../LPWizard.ui" line="650"/>
         <source>Remote Dataset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.ui" line="650"/>
+        <location filename="../LPWizard.ui" line="672"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your new Life Preserver schedule is now set up! You may go back and change your configuration at any time from within the main Life Preserver window.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Click the Finish button to apply these settings and create the new backup schedule.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="64"/>
+        <location filename="../LPWizard.cpp" line="66"/>
         <source>No Network Targets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="64"/>
+        <location filename="../LPWizard.cpp" line="66"/>
         <source>We could not find any systems on the local network with SSH availability (port 22)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="73"/>
+        <location filename="../LPWizard.cpp" line="75"/>
         <source>Select Replication Target</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPWizard.cpp" line="73"/>
+        <location filename="../LPWizard.cpp" line="75"/>
         <source>Hostname:</source>
         <translation type="unfinished"></translation>
     </message>

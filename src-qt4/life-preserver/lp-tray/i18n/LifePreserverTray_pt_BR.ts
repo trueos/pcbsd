@@ -52,37 +52,57 @@
 <context>
     <name>LPTray</name>
     <message>
-        <location filename="../LPTray.cpp" line="13"/>
+        <location filename="../LPTray.cpp" line="47"/>
         <source>View Messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPTray.cpp" line="14"/>
+        <location filename="../LPTray.cpp" line="49"/>
         <source>Refresh Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPTray.cpp" line="11"/>
+        <location filename="../LPTray.cpp" line="45"/>
         <source>Open Life Preserver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../LPTray.cpp" line="13"/>
+        <source>Show all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../LPTray.cpp" line="16"/>
+        <source>Warnings Only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPTray.cpp" line="19"/>
+        <source>None</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPTray.cpp" line="23"/>
+        <source>Popup Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPTray.cpp" line="51"/>
         <source>Close Tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPTray.cpp" line="87"/>
+        <location filename="../LPTray.cpp" line="122"/>
         <source>Time: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPTray.cpp" line="92"/>
+        <location filename="../LPTray.cpp" line="127"/>
         <source>%1: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPTray.cpp" line="94"/>
+        <location filename="../LPTray.cpp" line="129"/>
         <source>System Alert</source>
         <translation type="unfinished"></translation>
     </message>
