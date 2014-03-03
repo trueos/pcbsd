@@ -1,3 +1,4 @@
+
 #include <pcbsd-utils.h>
 #include "devCheck.h"
 
@@ -53,25 +54,31 @@ QStringList DevCheck::devChildren(QString node){
 
 QString DevCheck::devLabel(QString node, QString filesystem){
   QString dlabel;
-  QStringList glout = pcbsd::Utils::runShellCommand("glabel list");
-  int index = glout.indexOf("Geom name: "+node);
-  while(index != -1){
-    for(int i=index; i<glout.length(); i++){ 
-      if(glout[i].contains("Name: ")){ index = i; break;} //should only be 1 or 2 lines to find this
-    }
-    if(index == -1){ break; } //quick check to make sure we don't error out
-    QString path = glout[index].section("Name:",1,10,QString::SectionSkipEmpty).simplified();  
-    int fschk = fsMatch.indexOf(filesystem);
-    if(fschk != -1){
-      if(fsFilter[fschk] == path.section("/",0,0).simplified() ){
-        //good label
-        dlabel = path.section("/",-1).simplified();
-        break;
+  if(filesystem.toLower()=="ntfs"){
+    //Use ntfslabel for ntfs filesystems
+    dlabel = pcbsd::Utils::runShellCommand("ntfslabel "+devDir.absoluteFilePath(node) ).join("").simplified();
+  }else{
+    //All other filesystems
+    QStringList glout = pcbsd::Utils::runShellCommand("glabel list");
+    int index = glout.indexOf("Geom name: "+node);
+    while(index != -1){
+      for(int i=index; i<glout.length(); i++){ 
+        if(glout[i].contains("Name: ")){ index = i; break;} //should only be 1 or 2 lines to find this
       }
+      if(index == -1){ break; } //quick check to make sure we don't error out
+      QString path = glout[index].section("Name:",1,10,QString::SectionSkipEmpty).simplified();  
+      int fschk = fsMatch.indexOf(filesystem);
+      if(fschk != -1){
+        if(fsFilter[fschk] == path.section("/",0,0).simplified() ){
+          //good label
+          dlabel = path.section("/",-1).simplified();
+          break;
+        }
+      }
+      index = glout.indexOf("Geom name: "+node, index); //move to the next index if there is one
     }
-    index = glout.indexOf("Geom name: "+node, index); //move to the next index if there is one
+    dlabel.replace("%20", " "); //quick check to make sure it does not have that special character
   }
-  dlabel.replace("%20", " "); //quick check to make sure it does not have that special character
   return dlabel;
 }
 
@@ -193,7 +200,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   bool hasLabel = FALSE;
   QString glabel;
   //Don't use glabel for SATA devices right now because it is inconsistent
-  if(!isCD && filesys!="NTFS"){ glabel = devLabel(node, filesys); }
+  if(!isCD){ glabel = devLabel(node, filesys); }
   //Check to see if we have a label, otherwise assign one
   if( !glabel.isEmpty() ){ dlabel = glabel; hasLabel = TRUE; } //glabel
   else if(!dlabel.isEmpty()){ hasLabel = TRUE; } //file -s label
