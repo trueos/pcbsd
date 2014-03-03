@@ -22,26 +22,16 @@ detect_x()
   if [ $? -eq 0 ] ; then cp /root/cardDetect/xorg.conf.virtualbox /etc/X11/xorg.conf ; return; fi
 
   # Try the second card, since many optimus / amd hybrids have Intel on secondary
-  cfg_second_card
-  if [ $? -ne 0 ] ; then
-    # Check if this system has a nvidia device, and run nvidia-xconfig
-    kldstat | grep -q 'nvidia'
-    if [ $? -eq 0 ] ; then
-       echo "Detected NVIDIA, creating xorg.conf"
-       nvidia-xconfig 2>/dev/null
-    fi
-  fi
-
+  cfg_card_busid "1"
 
 }
 
-cfg_second_card()
+cfg_card_busid()
 {
-  # This is a script to try an xorg.conf file configured to use the second vgapci1 device
-  # For most systems this wont do anything, but on a number of newer hybrid
-  # intel/amd or intel/nvidia laptops this may fix a problem where the intel card (which works)
-  # is the secondary pcivga1 device, and the non-functional AMD/NVIDIA optimus  shows up first.
+  whichcard="$1"
 
+  # This script will manually set BusID for the first or second vgapciX device
+  # For some reason in 10.0, it no longer auto-probes for different VGA devices :(
   inCard=0
   pciconf -lv > /tmp/.pciconf.$$
   while read line
@@ -66,7 +56,7 @@ cfg_second_card()
                 ;;
              1) card2=`echo $line | cut -d "'" -f 2`
                 card2bus="$busID"
-	        ;;
+                ;;
              *) ;;
           esac
        fi
@@ -74,25 +64,46 @@ cfg_second_card()
   done < /tmp/.pciconf.$$
   rm /tmp/.pciconf.$$
 
-  # No secondary card, return 1
-  if [ -z "$card2" ] ; then return 1; fi
+  # Which card are we configuring
+  if [ "$whichcard" = "1" ] ; then
+    cfgCard="$card1"
+    cfgCardBusID="$card1bus"
+  else
+    cfgCard="$card2"
+    cfgCardBusID="$card2bus"
+  fi
 
-  # Is this secondary an Intel chipset?
-  echo "$card2" | grep -q -i -e "intel"
-  if [ $? -ne 0 ] ; then return 1 ; fi
+  # No detected, return 1
+  if [ -z "$cfgCard" ] ; then return 1; fi
 
-  # Found a second card, lets try an xorg config for it
-  cp /root/cardDetect/XF86Config.default /etc/X11/xorg.conf
-  echo "
+  # Is this an Intel chipset?
+  echo "$cfgCard" | grep -q -i -e "intel"
+  if [ $? -eq 0 ] ; then
+     driver="intel"
+  fi
+  echo "$cfgCard" | grep -q -i -e "nvidia"
+  if [ $? -eq 0 ] ; then
+     driver="nvidia"
+  fi
+
+  # Found a card, lets try an xorg config for it
+  cp ${PROGDIR}/cardDetect/XF86Config.default /etc/X11/xorg.conf
+  if [ -n "$driver" ] ; then
+    echo "
 Section \"Device\"
         Identifier      \"Card0\"
-        Driver          \"intel\"
-        BusID           \"${card2bus}\"
+        Driver          \"$driver\"
+        BusID           \"${cfgCardBusID}\"
 EndSection
   " >> /etc/X11/xorg.conf
-
-  echo "Hybrid video detected! Using Intel chipset..."
-  sleep 3
+  else
+    echo "
+Section \"Device\"
+        Identifier      \"Card0\"
+        BusID           \"${cfgCardBusID}\"
+EndSection
+  " >> /etc/X11/xorg.conf
+  fi
 
   return 0
 }
@@ -108,8 +119,9 @@ start_xorg()
   if [ ! -e "/tmp/.xstarted" ]
   then
     # Failed to start X
-    # Lets try again with its own internal video detection
+    # Lets try again with a secondary video card
     rm /etc/X11/xorg.conf 2>/dev/null
+    cfg_card_busid "2"
 
     startx
     if [ ! -e "/tmp/.xstarted" ]

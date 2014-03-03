@@ -517,35 +517,35 @@ Vous devez avoir cette configuration dans votre environnement de bureau actuel p
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished"></translation>
+        <translation>Parcourir les catégories</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Configurer</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Importer PBI Liste</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Exporter PBI Liste</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Paramètres</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>I&amp;nstaller PBI</translation>
     </message>
 </context>
 <context>

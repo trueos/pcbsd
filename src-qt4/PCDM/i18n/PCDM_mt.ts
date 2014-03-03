@@ -153,23 +153,23 @@
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Awtomatiku Idħol&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>%v/%m secondi</translation>
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikkanċella Idħol</translation>
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Idħol Issa</translation>
     </message>
 </context>
 <context>

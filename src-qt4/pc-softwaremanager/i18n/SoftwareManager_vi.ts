@@ -517,35 +517,35 @@ Bạn phải có thiết lập này trong môi trường máy tính để bàn h
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished"></translation>
+        <translation>duyệt danh mục</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tệp</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nhập khẩu PBI Danh sách</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Khẩu PBI Danh sách</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;các thiết lập</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;cài đặt PBI</translation>
     </message>
 </context>
 <context>

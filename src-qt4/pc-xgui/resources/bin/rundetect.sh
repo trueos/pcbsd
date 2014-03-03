@@ -28,8 +28,10 @@ clear
 ###############################################################################
 # Start the script now
 
-cfg_second_card()
+cfg_card_busid()
 {
+  whichcard="$1"
+
   # This is a script to try an xorg.conf file configured to use the second vgapci1 device
   # For most systems this wont do anything, but on a number of newer hybrid
   # intel/amd or intel/nvidia laptops this may fix a problem where the intel card (which works)
@@ -66,25 +68,46 @@ cfg_second_card()
   done < /tmp/.pciconf.$$
   rm /tmp/.pciconf.$$
 
-  # No secondary card, return 1
-  if [ -z "$card2" ] ; then return 1; fi
+  # Which card are we configuring
+  if [ "$whichcard" = "1" ] ; then
+    cfgCard="$card1"
+    cfgCardBusID="$card1bus"
+  else
+    cfgCard="$card2"
+    cfgCardBusID="$card2bus"
+  fi
 
-  # Is this secondary an Intel chipset?
-  echo "$card2" | grep -q -i -e "intel"
-  if [ $? -ne 0 ] ; then return 1 ; fi
+  # No detected, return 1
+  if [ -z "$cfgCard" ] ; then return 1; fi
 
-  # Found a second card, lets try an xorg config for it
+  # Is this an Intel chipset?
+  echo "$cfgCard" | grep -q -i -e "intel"
+  if [ $? -eq 0 ] ; then
+     driver="intel"
+  fi
+  echo "$cfgCard" | grep -q -i -e "nvidia"
+  if [ $? -eq 0 ] ; then
+     driver="nvidia"
+  fi
+
+  # Found a card, lets try an xorg config for it
   cp ${PROGDIR}/cardDetect/XF86Config.default /etc/X11/xorg.conf
-  echo "
+  if [ -n "$driver" ] ; then
+    echo "
 Section \"Device\"
         Identifier      \"Card0\"
-        Driver          \"intel\"
-        BusID           \"${card2bus}\"
+        Driver          \"$driver\"
+        BusID           \"${cfgCardBusID}\"
 EndSection
   " >> /etc/X11/xorg.conf
-
-  echo "Hybrid video detected! Using Intel chipset..."
-  sleep 3
+  else
+    echo "
+Section \"Device\"
+        Identifier      \"Card0\"
+        BusID           \"${cfgCardBusID}\"
+EndSection
+  " >> /etc/X11/xorg.conf
+  fi
 
   return 0
 }
@@ -171,7 +194,7 @@ do
       echo "Using failsafe VESA 1024x768 mode..." >/dev/console
       cp ${PROGDIR}/cardDetect/XF86Config.compat /etc/X11/xorg.conf
     else
-      cfg_second_card
+      cfg_card_busid "1"
       if [ $? -ne 0 ] ; then
         # Check if this system has a nvidia device, and run nvidia-xconfig
         kldstat | grep -q 'nvidia'
@@ -183,6 +206,8 @@ do
       AUTORES="YES"
     fi
   elif [ "${ATTEMPT}" = "1" ] ; then
+    cfg_card_busid "2"
+
     # Failed to start X
     # Now lets have it try some magic itself
     rm /etc/X11/xorg.conf 2>/dev/null

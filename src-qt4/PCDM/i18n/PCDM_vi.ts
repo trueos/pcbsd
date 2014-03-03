@@ -153,23 +153,23 @@
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>thoại</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; PCDM Đăng nhập tự động&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>%v/%m giây</translation>
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished"></translation>
+        <translation>hủy bỏ Đăng nhập</translation>
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished"></translation>
+        <translation>Bây giờ đăng nhập</translation>
     </message>
 </context>
 <context>

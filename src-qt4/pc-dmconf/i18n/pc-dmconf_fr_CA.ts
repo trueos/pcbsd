@@ -65,15 +65,15 @@
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished"></translation>
+        <translation>Temps de délai</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>Secondes</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les utilisateurs disponibles</translation>
     </message>
 </context>
 </TS>
