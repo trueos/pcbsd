@@ -202,7 +202,7 @@ void MenuItem::mountItem(){
   //Create the fileystem specific command for mounting
   QString fstype;
   QString fsopts="";
-  if( filesystem == "FAT" ){ fstype = "mount -t msdosfs"; fsopts = "-o large,longnames,-m=644,-M=777"; }
+  if( filesystem == "FAT" ){ fstype = "mount -t msdosfs"; fsopts = QString("-o large,longnames,-m=644,-M=777,-L=")+QString(getenv("LANG")); }
   else if(filesystem == "NTFS"){ fstype = "ntfs-3g"; }
   else if(filesystem == "EXT"){ fstype = "mount -t ext2fs"; }
   else if(filesystem == "CD9660"){ fstype = "mount -t cd9660"; }
