@@ -65,7 +65,15 @@ mount_dirs() {
 
    # Can't get rid of these nullfs / devfs mounts, needed for unix sockets to work
    is_mounted "${pDir}/virtbase/dev" || mount -t devfs devfs "${pDir}/virtbase/dev"
+   is_mounted "${pDir}/virtbase/proc" || mount -t procfs procfs "${pDir}/virtbase/proc"
    is_mounted "${pDir}/virtbase/tmp" || mount_nullfs /tmp "${pDir}/virtbase/tmp"
+
+   if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
+     is_mounted "${pDir}/virtbase/compat/linux/proc" || mount -t linprocfs linprocfs "${pDir}/virtbase/compat/linux/proc"
+   fi
+   if [ -d "${pDir}/virtbase/compat/linux/sys" ] ; then
+     is_mounted "${pDir}/virtbase/compat/linux/sys" || mount -t linsysfs linsysfs "${pDir}/virtbase/compat/linux/sys"
+   fi
 
    # Check if we need to enable nvidia support for linux
    check_nvidia_linux "$1"

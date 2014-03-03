@@ -92,17 +92,38 @@ const char *replace_str(const char *str, char *orig, char *rep)
 ***********************************************************************************/
 int get_modified_path(char *npath, const char *opath)
 {
+	// Get the real pathname we are using now
+	char rPath[MAXPATHLEN];
+	// Check if this is a relative path, or absolute
+	if ( strpos(opath, "/") == 0 ) {
+		strcpy(rPath, opath);
+	} else {
+		getwd(rPath);
+		strcat(rPath, opath);
+
+		// Debugging
+		/*
+		char testcmd[MAXPATHLEN];
+		strcpy(testcmd, "echo \"failedpath: ");
+		strcat(testcmd, opath);
+		strcat(testcmd, " -> ");
+		strcat(testcmd, rPath);
+		strcat(testcmd, "\" >> /tmp/failedpath");
+		system(testcmd);
+		*/
+	}
+
 	// First, lets look for calls to /var/run/ld-elf*.so.hints
 	// These need to be replaced with calls to our new hints file in hintsdir
-	if ( strpos(opath, "/var/run/") == 0 )
+	if ( strpos(rPath, "/var/run/") == 0 )
 	{
-		if ( strcmp(opath, "/var/run/ld-elf.so.hints") == 0 )
+		if ( strcmp(rPath, "/var/run/ld-elf.so.hints") == 0 )
 		{
 			strcpy(npath, hintsdir);
 			strcat(npath, "/ld-elf.so.hints");
 			return 0;
 		}
-		if ( strcmp(opath, "/var/run/ld-elf32.so.hints") == 0 )
+		if ( strcmp(rPath, "/var/run/ld-elf32.so.hints") == 0 )
 		{
 			strcpy(npath, hintsdir);
 			strcat(npath, "/ld-elf32.so.hints");
@@ -110,75 +131,80 @@ int get_modified_path(char *npath, const char *opath)
 		}
 	}
 
-	if ( strcmp(opath, "/etc/rc.d/ldconfig") == 0 )
+	if ( strcmp(rPath, "/etc/rc.d/ldconfig") == 0 )
 	{
 		strcpy(npath, "/usr/pbi/.ldconfig");
 		return 0;
 	}
 
 	// Check if we have a virtual linux /compat directory to fake as well
-	if ( strpos(opath, "/compat/linux") == 0 )
+	if ( strpos(rPath, "/compat/linux") == 0 )
 	{
 		// If this is /compat/linux/proc, lets use the systems
-		if ( strpos(opath, "/compat/linux/proc") == 0 ) {
-			strcpy(npath, opath);
+		if ( strpos(rPath, "/compat/linux/proc") == 0 ) {
+			strcpy(npath, rPath);
+			return 0;
+		}
+		// If this is /compat/linux/sys, lets use the systems
+		if ( strpos(rPath, "/compat/linux/sys") == 0 ) {
+			strcpy(npath, rPath);
 			return 0;
 		}
 
 		if (0 == access(linuxdir, F_OK))
 		{
-			strcpy(npath, replace_str(opath, "/compat/linux", linuxdir));
+			strcpy(npath, replace_str(rPath, "/compat/linux", linuxdir));
 			return 0;
 		}
-		strcpy(npath, opath);
+		strcpy(npath, rPath);
 		return 0;
 	}
 
 	// Lastly, lets do all the parsing for /usr/local matching
-	if ( strpos(opath, "/usr/local") == 0 )
+	if ( strpos(rPath, "/usr/local") == 0 )
 	{
 		// Use the systems copies of some font / icon directories
-		if ( strpos(opath, "/usr/local/etc/fonts") == 0 ) {
-			strcpy(npath, opath);
+		if ( strpos(rPath, "/usr/local/etc/fonts") == 0 ) {
+			strcpy(npath, rPath);
 			return 0;
 		}
-		if ( strpos(opath, "/usr/local/lib/X11/fonts") == 0 ) {
-			strcpy(npath, opath);
+		if ( strpos(rPath, "/usr/local/lib/X11/fonts") == 0 ) {
+			strcpy(npath, rPath);
 			return 0;
 		}
-		if ( strpos(opath, "/usr/local/lib/X11/icons") == 0 ) {
-			strcpy(npath, opath);
+		if ( strpos(rPath, "/usr/local/lib/X11/icons") == 0 ) {
+			strcpy(npath, rPath);
 			return 0;
 		}
-		if ( strpos(opath, "/usr/local/share/icons") == 0 )
+		if ( strpos(rPath, "/usr/local/share/icons") == 0 )
 		{
-			strcpy(npath, opath);
+			strcpy(npath, rPath);
 			return 0;
 		}
-		if ( strpos(opath, "/usr/local/share/font-") == 0 ) {
-			strcpy(npath, opath);
+		if ( strpos(rPath, "/usr/local/share/font-") == 0 ) {
+			strcpy(npath, rPath);
 			return 0;
 		}
 
 		// Look for some of our callback utils
-		if ( strpos(opath, "/usr/local/bin/pbisyscmd") == 0 ) {
+		if ( strpos(rPath, "/usr/local/bin/pbisyscmd") == 0 ) {
 			strcpy(npath, "/usr/pbi/.pbisyscmd");
 			return 0;
 		}
-		if ( strpos(opath, "/usr/local/bin/openwith") == 0 ) {
+		if ( strpos(rPath, "/usr/local/bin/openwith") == 0 ) {
 			strcpy(npath, "/usr/pbi/.pbisyscmd");
 			return 0;
 		}
-		if ( strpos(opath, "/usr/local/bin/xdg-open") == 0 ) {
+		if ( strpos(rPath, "/usr/local/bin/xdg-open") == 0 ) {
 			strcpy(npath, "/usr/pbi/.pbisyscmd");
 			return 0;
 		}
 	
-		strcpy(npath, replace_str(opath, "/usr/local", pbidir));
+		strcpy(npath, replace_str(rPath, "/usr/local", pbidir));
 		return 0;
 	}
 
-	strcpy(npath, opath);
+	strcpy(npath, rPath);
 	return 0;
 }
 
