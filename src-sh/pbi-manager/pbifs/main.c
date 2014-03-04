@@ -99,7 +99,12 @@ int get_modified_path(char *npath, const char *opath)
 		strcpy(rPath, opath);
 	} else {
 		getwd(rPath);
-		strcat(rPath, opath);
+		// If the cwd is just '/' then don't add anything to string
+		if ( strcmp(rPath, "/") == 0 ) {
+			strcpy(rPath, opath);
+		} else {
+			strcat(rPath, opath);
+		}
 
 		// Debugging
 		/*
