@@ -5,176 +5,142 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CMD Output</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hætta</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loka</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Getting PC-BSD Ports Tree</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Getting PC-BSD Heimildir</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ferli Running</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vinsamlegast stöðva núverandi ferli áður en þú lokar þessum glugga.</translation>
     </message>
 </context>
 <context>
     <name>PBSystemTab</name>
     <message>
         <source>General</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Almennar</translation>
     </message>
     <message>
         <source>PC-BSD System Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Kerfi Samskipan</translation>
     </message>
     <message>
         <source>Generate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Generate</translation>
     </message>
     <message>
         <source>CPU Type:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>CPU Type:</translation>
     </message>
     <message>
         <source>System Memory:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Memory:</translation>
     </message>
     <message>
         <source>Tasks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tasks</translation>
     </message>
     <message>
         <source>Alt+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Misc</translation>
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þú gætir einnig búið til sjúkdómsgreiningar blaði, með upplýsingum um tölvuna þína. Þessu skjali er hægt að nota af tæknimönnum til vandræða tilgangi.</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Vista</translation>
     </message>
     <message>
         <source>Other Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aðrir valkostir</translation>
     </message>
     <message>
         <source>Force IBUS keyboard input</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Force Ibus hljómborð inntak</translation>
     </message>
     <message>
         <source>System Tasks</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kerfi Verkefni</translation>
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD útgáfur</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Base:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bakendi Hjálparforrit:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Myndræn Hjálparforrit:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kerfisupplýsingar</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD útgáfa:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ná PC-BSD &amp;Kerfi Source</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fetch PC-BSD P&amp;orts Tree</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Villa</translation>
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Villa Búa Diagnostic File</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velgengni</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diagnostic File Búið til: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ferli þegar í gangi</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þú ert nú þegar með ferli í gangi. Vinsamlegast bíðið fyrir að einn til að klára fyrst.</translation>
     </message>
 </context>
 </TS>
