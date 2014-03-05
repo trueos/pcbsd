@@ -4158,6 +4158,10 @@ mk_xdg_mime_script() {
 			 >> "${dir}/${PBI_UNINS_MIMESCRIPT}"
   	done
 
+	# Update the mime databases now
+	echo "update-mime-database" >> "${dir}/${PBI_INS_MIMESCRIPT}"
+	echo "update-mime-database" >> "${dir}/${PBI_UNINS_MIMESCRIPT}"
+
 	chmod 755 "${dir}/${PBI_INS_MIMESCRIPT}"
 	chmod 755 "${dir}/${PBI_UNINS_MIMESCRIPT}"
 
