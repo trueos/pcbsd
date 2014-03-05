@@ -343,14 +343,16 @@ void LPMain::setFileVisibility(){
 void LPMain::restoreFiles(){
   QString filePath = fsModel->filePath( ui->treeView->currentIndex() );
   qDebug() << " Restore file(s):" << filePath;
-  QString destDir = filePath.remove("/.zfs/snapshot/"+ui->label_snapshot->text());
+  QFileInfo info(filePath);	
+  QString destDir = filePath;
+	destDir.remove("/.zfs/snapshot/"+ui->label_snapshot->text());
 	destDir.chop( filePath.section("/",-1).size()+1 ); //get rid of the filename at the end
 	while(!QFile::exists(destDir)){ destDir.chop( destDir.section("/",-1).size() +1); }
   QString newFilePath = destDir+"/"+LPGUtils::generateReversionFileName(filePath, destDir);
   //qDebug() << "Destination:" << newFilePath;
   //Perform the reversion(s)
   QStringList errors;
-  if(QFileInfo(filePath).isDir()){
+  if( info.isDir() ){
     //Is a directory
     showWaitBox( QString(tr("Restoring Directory: %1")).arg(newFilePath) );
     errors = LPGUtils::revertDir(filePath, newFilePath);

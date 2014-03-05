@@ -164,9 +164,11 @@ QStringList LPGUtils::revertDir(QString oldPath, QString newPath){
   bool ok=true;
   if( !nDir.exists() ){
     //Create the new Directory
+    qDebug() << "Re-Create parent directory structure:" << newPath;
     nDir.cdUp();
-    ok = nDir.mkdir(newPath.section("/",-1));
+    ok = nDir.mkpath(newPath.section("/",-1)); //also create all parent directories if necessary
     if(ok){ 
+      qDebug() << " - Reset permissions on the main parent dir to match snapshot";
       nDir.cd(newPath.section("/",-1)); 
       QFile::setPermissions(newPath, QFile::permissions(oldPath)); //make sure the new dir has the old permissions
       QFileInfo FI(oldPath);
