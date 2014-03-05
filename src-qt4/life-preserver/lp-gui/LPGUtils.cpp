@@ -141,6 +141,7 @@ QString LPGUtils::generateReversionFileName(QString fileName, QString destDir){
 }
 
 bool LPGUtils::revertFile(QString oldPath, QString newPath){
+  qDebug() << "Reverting file:" << oldPath << " -> " << newPath;
   bool ok = QFile::copy(oldPath,newPath);
   //return the path to the new file if the copy was successful
   if(ok){ 
@@ -148,6 +149,8 @@ bool LPGUtils::revertFile(QString oldPath, QString newPath){
     QFile::setPermissions(newPath, QFile::permissions(oldPath));
     QFileInfo FI(oldPath);
       system( QString("chown "+FI.owner()+":"+FI.group()+" "+newPath).toUtf8() );
+  }else{
+    qDebug() << " - Error: Could not copy file";
   }
   return ok;
 }

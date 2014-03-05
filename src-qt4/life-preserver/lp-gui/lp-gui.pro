@@ -9,20 +9,23 @@ HEADERS	+= LPBackend.h \
 		LPContainers.h \
 		LPConfig.h \
 		LPMain.h \
-		LPGUtils.h
+		LPGUtils.h \
+		LPClassic.h
 		
 SOURCES	+= main.cpp \
 		LPBackend.cpp \
 		LPWizard.cpp \
 		LPConfig.cpp \
 		LPMain.cpp \
-		LPGUtils.cpp
+		LPGUtils.cpp \
+		LPClassic.cpp
 
 RESOURCES += lPreserve.qrc
 
 FORMS	= LPWizard.ui \
 	LPConfig.ui \
-	LPMain.ui
+	LPMain.ui \
+	LPClassic.ui
 
 TARGET=life-preserver
 target.path=/usr/local/bin
