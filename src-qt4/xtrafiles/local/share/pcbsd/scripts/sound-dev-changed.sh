@@ -81,6 +81,12 @@ set_new_dev()
    # make new device the default one
    sysctl hw.snd.default_unit=$mixerNum
 
+   # Look for pulseaudio daemons to change audio sinks on
+   for user in `ps -auwwx | grep 'pulseaudio --start' | grep -v 'grep' | awk '{print $1}'`
+   do
+      su $user -c "pactl set-default-sink $mixerNum"
+   done
+
 }
 
 # Update device based upon action
