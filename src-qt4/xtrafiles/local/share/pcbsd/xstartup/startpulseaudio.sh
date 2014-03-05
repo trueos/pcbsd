@@ -12,10 +12,10 @@ pulseaudio --check
 if [ $? -ne 0 ] ; then
    # Start pulseaudio
    pulseaudio --start
-
-   # Get the default unit
-   dU=`sysctl hw.snd.default_unit | awk '{print $2}'`
-
-   # Set the default sink to match default audio device
-   pactl set-default-sink $dU
 fi
+
+# Get the default unit
+dU=`sysctl hw.snd.default_unit | awk '{print $2}'`
+
+# Set the default sink to match default audio device
+pactl set-default-sink $dU
