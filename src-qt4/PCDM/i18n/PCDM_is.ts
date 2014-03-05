@@ -5,271 +5,221 @@
     <name>FancySwitcher</name>
     <message>
         <source>Alt+Left</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Left</translation>
     </message>
     <message>
         <source>Alt+Right</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Right</translation>
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Up</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+Down</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Veldu</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velja varamann notanda og hreinsa lykilorð reit</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velja þessa notanda</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Innskrá</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tenging til the kerfi við núverandi notanda og lykilorð</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lykilorð</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haldið niðri til að skoða nú er færð lykilorð</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Innskrá lykilorð fyrir valinn notanda</translation>
     </message>
     <message>
         <source>Available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laus notendur</translation>
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tenging til %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>laus skrifborð umhverfi</translation>
     </message>
 </context>
 <context>
     <name>PCDMgui</name>
     <message>
         <source>Virtual Keyboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Virtual Keyboard</translation>
     </message>
     <message>
         <source>Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Locale</translation>
     </message>
     <message>
         <source>Change locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Breyta staður</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keyboard Layout</translation>
     </message>
     <message>
         <source>Change Keyboard Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Breyta Keyboard Layout</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kerfi</translation>
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ábending: Gakktu úr skugga um að húfur-Lock er óvirk.</translation>
     </message>
     <message>
         <source>Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endurræsa</translation>
     </message>
     <message>
         <source>Shut Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Leggja niður</translation>
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loka PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Slökkva á tölvunni</translation>
     </message>
     <message>
         <source>Invalid Username/Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ógilt notandanafn/lykilorð</translation>
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Notendanafn/lykilorð samsetning er ógilt, reyndu aftur.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kerfi lokun</translation>
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þú ert að fara að leggja niður kerfið.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ertu viss?</translation>
     </message>
     <message>
         <source>System Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>kerfi ræsa á ný</translation>
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þú ert að endurræsa kerfið.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Gluggahleri ​​Down</translation>
     </message>
 </context>
 <context>
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM sjálfvirka innskráningu&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m seconds</translation>
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hætta við Innskrá</translation>
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Innskrá Nú</translation>
     </message>
 </context>
 <context>
     <name>widgetKeyboard</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keyboard Stillingar</translation>
     </message>
     <message>
         <source>Key Layout</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Key Layout</translation>
     </message>
     <message>
         <source>Variant</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Afbrigðið</translation>
     </message>
     <message>
         <source>Keyboard Model</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Keyboard Model</translation>
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Þú getur tegund í rúm fyrir neðan til að prófa valdar stillingar.)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sækja um</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Loka</translation>
     </message>
 </context>
 <context>
     <name>widgetLocale</name>
     <message>
         <source>Select Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Velja landsstaðal</translation>
     </message>
     <message>
         <source>Current Locale</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Núverandi Locale</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sækja um</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>hætta við</translation>
     </message>
 </context>
 </TS>

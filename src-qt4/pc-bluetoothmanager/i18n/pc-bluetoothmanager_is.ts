@@ -5,173 +5,139 @@
     <name>btmaingui</name>
     <message>
         <source>BlueTooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>BlueTooth Manager</translation>
     </message>
     <message>
         <source>Current Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Núverandi stillingar</translation>
     </message>
     <message>
         <source>Computer/Device ID</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tölvu/tæki ID</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Breyting</translation>
     </message>
     <message>
         <source>Devices Connected:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tæki tengd:</translation>
     </message>
     <message>
         <source>Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aftengja Tæki</translation>
     </message>
     <message>
         <source>Start Tray Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start Bakki Umsókn</translation>
     </message>
     <message>
         <source>Restart Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Endurræsaþjónustu</translation>
     </message>
     <message>
         <source>New Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nýr tæki</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Scan</translation>
     </message>
     <message>
         <source>Add Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bæta tæki</translation>
     </message>
     <message>
         <source>Saved Devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vistuð Tæki</translation>
     </message>
     <message>
         <source>Initiate Pairing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Frumkvæði Pörun</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stilla</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fjarlægja Tæki</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Leitað að auðfundnar Bluetooth tæki</translation>
     </message>
     <message>
         <source>No new Bluetooth devices discovered! Please put your device into &quot;discovery&quot; mode and rescan.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Engar nýjar Bluetooth tæki uppgötvað! Vinsamlegast setja tækið í &quot;uppgötvun&quot; ham og rescan.</translation>
     </message>
     <message>
         <source>Reading saved Bluetooth devices. Please wait.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lestur vistaðar Bluetooth tæki. Vinsamlegast bíðið.</translation>
     </message>
     <message>
         <source>This program must be run with root permissions to view/edit saved configurations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þetta forrit verður að keyra með rót heimildir til að skoða / breyta vistaðar stillingar</translation>
     </message>
     <message>
         <source>No saved configurations found</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Engin vistuð stillingar fundust</translation>
     </message>
     <message>
         <source>Warning</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Warning</translation>
     </message>
     <message>
         <source>No device has been selected. Please choose a device first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ekkert tæki hefur verið valin. Vinsamlegast veldu tæki fyrst.</translation>
     </message>
     <message>
         <source>Invalid Permissions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>öryrki Heimildir</translation>
     </message>
     <message>
         <source>This program must be run with root permissions to save device settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Þetta forrit verður að keyra með rót leyfi til að vista stillingar tækisins</translation>
     </message>
     <message>
         <source>PIN Code (Examples: 0000, 1234, or none)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PIN númerið (Dæmi: 0000, 1234, eða ekkert)</translation>
     </message>
     <message>
         <source>Link Key (Leave blank for automatic)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tengil Key (Skildu eftir autt til sjálfkrafa)</translation>
     </message>
     <message>
         <source>Device Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Samskipan tækisins</translation>
     </message>
     <message>
         <source>Invalid Pin length: Defaulting to none</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ógild Pin Lengd: defaulting til enginn</translation>
     </message>
     <message>
         <source>Pairing Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pörun Villa</translation>
     </message>
     <message>
         <source>Could not pair to this device. Please verify your device configuration before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gat ekki parast við þetta tæki. Vinsamlegast staðfestu stillingar tækisins áður en þú reynir aftur.</translation>
     </message>
     <message>
         <source>New Bluetooth Computer name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nýtt nafn Bluetooth Tölva</translation>
     </message>
     <message>
         <source>New Bluetooth Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nýr Bluetooth Nafn</translation>
     </message>
     <message>
         <source>Invalid Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ógilt nafn</translation>
     </message>
     <message>
         <source>Device name must not contain symbols</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Heiti tækis má ekki innihalda tákn</translation>
     </message>
 </context>
 </TS>
