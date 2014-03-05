@@ -4111,6 +4111,10 @@ mk_xdg_menu_script() {
 
   	done
 
+	# Update the mime databases now
+	echo "update-mime-database" >> "${dir}/${PBI_INS_MENUSCRIPT}"
+	echo "update-mime-database" >> "${dir}/${PBI_UNINS_MENUSCRIPT}"
+
 	chmod 755 "${dir}/${PBI_INS_MENUSCRIPT}"
 	chmod 755 "${dir}/${PBI_UNINS_MENUSCRIPT}"
 
