@@ -94,26 +94,30 @@ void DLProcess::calculateStats(QString current, QString total, QString speed, QS
     percent = -1;
   }	
   //Check if total is known  
-  if(!totok){
+  if(!totok && curok){
     //Only Current is known
     tot = cur; //output current instead of total since no percent either
   }
   //OTHER input (speed, filename)
-  QString other;
+  QString other = "??";
   //Check the speed
   if(!speed.isEmpty()){
     spd = speed.toDouble(&spdok);
-    if(spdok && spd==0){ spdok=false; }
-    if(!spdok){
-      spd = -1; //unknown
+    if(spdok && spd<=0){ spdok=false; }
+    if(spdok){
+      other = kbToString(spd)+"/s";
     }
-    other = kbToString(spd)+"/s";
   //Check for a filename instead
   }else if(!filename.isEmpty() ){
     other = filename;
   }
   //Now emit the stats
-  emit UpdatePercent(QString::number(percent), kbToString(tot), other);
+  QString perc = "??";
+  if(percent >= 0){ perc = QString::number(percent); }
+  QString tota = "??";
+  if(tot >= 0){ tota = kbToString(tot); }
+  
+  emit UpdatePercent(perc, tota, other);
 }
 
 void DLProcess::parsePBILine(QString line){
