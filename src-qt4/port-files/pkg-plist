@@ -51,6 +51,7 @@ share/pcbsd/xstartup/enable-ibus.sh
 share/pcbsd/xstartup/checkupdater.sh
 share/pcbsd/xstartup/life-preserver.sh
 share/pcbsd/xstartup/screensaver.sh
+share/pcbsd/xstartup/startpulseaudio.sh
 share/pcbsd/xstartup/vkeyboard.sh
 share/pcbsd/xstartup/setmix.sh
 share/pcbsd/xstartup/pc-mounttray.sh
