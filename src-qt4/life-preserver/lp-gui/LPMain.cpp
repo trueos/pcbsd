@@ -20,6 +20,8 @@ LPMain::LPMain(QWidget *parent) : QMainWindow(parent), ui(new Ui::LPMain){
     watcher->addPath("/var/log/lpreserver/");
   //Initialize the waitbox pointer
   waitBox = 0;
+  //Initialize the classic dialog pointer
+  classicDLG = 0;
   //Create the basic/advanced view options
   viewBasic = new QRadioButton(tr("Basic"), ui->menuView);
 	QWidgetAction *WABasic = new QWidgetAction(this); WABasic->setDefaultWidget(viewBasic);
@@ -521,6 +523,19 @@ void LPMain::menuCloseWindow(){
 void LPMain::menuCompressHomeDir(QAction* act){
   QString user = act->text();
   qDebug() << "Compress Home Dir:" << user;
+  //Start up the Classic Dialog
+  bool recreate = false;
+  if(classicDLG == 0){ recreate = true; }
+  if(recreate){
+    classicDLG = new LPClassic(this);
+    classicDLG->setHomeDir("/usr/home/"+user);
+    classicDLG->show();
+  }else if(!classicDLG->running){
+    classicDLG->setHomeDir("/usr/home/"+user); //move to the alternate user dir
+  }
+  classicDLG->raise();
+  classicDLG->show();
+  /*
   //Prompt for the package name
   QString pkgName = user+"-"+QDateTime::currentDateTime().toString("yyyyMMdd-hhmm");
   bool ok;
@@ -537,7 +552,8 @@ void LPMain::menuCompressHomeDir(QAction* act){
   }else{
     qDebug() << "Package created at:" << pkgPath;
     QMessageBox::information(this,tr("Package Success"), tr("The home directory package was successfully created.")+"\n\n"+pkgPath);
-  }	  
+  }
+  */
 }
 
 void LPMain::menuExtractHomeDir(){

@@ -22,6 +22,7 @@
 #include "LPGUtils.h"
 #include "LPWizard.h"
 #include "LPConfig.h"
+#include "LPClassic.h"
 
 namespace Ui{
 	class LPMain;
@@ -46,6 +47,7 @@ private:
 	QFileSystemWatcher *watcher;
 	QTimer *timer;
 	QSettings *settings;
+	LPClassic *classicDLG;
 
 	void showErrorDialog(QString title, QString message, QString errors);
 	void showWaitBox(QString message);
