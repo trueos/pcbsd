@@ -78,6 +78,11 @@ void sndDialog::slotSave()
   QString tmp;
   tmp.setNum(comboSound->currentIndex());
   system("sysctl hw.snd.default_unit=" + tmp.toLatin1());
+
+  // Try to set the default pulseaudio sink as well
+  QString username = QString::fromLocal8Bit(getenv("LOGNAME"));
+  system("su " + username.toLatin1() + " -c \"pactl set-default-sink " + tmp.toLatin1() + "\"");
+
   pcbsd::Utils::setConfFileValue( "/etc/sysctl.conf", "hw.snd.default_unit=", "hw.snd.default_unit=" + tmp );
   refreshDevices();
 }
