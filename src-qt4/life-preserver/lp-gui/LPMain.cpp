@@ -239,6 +239,16 @@ void LPMain::updateTabs(){
     QString cds = ui->combo_datasets->currentText();
     ui->combo_datasets->clear();
     QStringList dslist = POOLDATA.subsets();
+    dslist.sort();
+    //Now move the home directories to the top of the list
+    int moved = 0;
+    for(int i=0; i<dslist.length(); i++){  //make sure it stays in alphabetical order
+      if(dslist[i].startsWith("/usr/home/")){
+        dslist.move(i,moved);
+	moved++; 
+	i--; //make sure to not miss any items from moving
+      }
+    }
     ui->combo_datasets->addItems(dslist);
     int dsin = dslist.indexOf(cds);
     if(dsin >= 0){ ui->combo_datasets->setCurrentIndex(dsin); }
@@ -292,6 +302,10 @@ void LPMain::updateDataset(){
       if(max < 0){ max = 0; ui->slider_snapshots->setEnabled(false); }
       ui->slider_snapshots->setMaximum(max);
       ui->slider_snapshots->setValue(max); //most recent snapshot
+      int interval = 1; //one tick per snapshot
+      if( max > 20 ){ interval = max / 20; } //show 20 ticks
+      ui->slider_snapshots->setTickInterval(interval);
+
       updateSnapshot();
   }else{
     ui->slider_snapshots->setEnabled(false);
