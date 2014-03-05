@@ -117,7 +117,11 @@ void PBSystemTab::CreateSheetFile()
 	args << username;
 	//qDebug() << "CMD: " << prog+" "+args.join(" ");
 	connect( SheetGenScript, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(finishedSheet()) );
-		
+	//Make sure the diagnostic generation script is executable
+	QFileInfo info(prog);
+	if(!info.isExecutable()){
+	  QFile::setPermissions(prog, info.permissions() | QFile::ExeOther); //executable by anyone
+	}
 	SheetGenScript->start(prog, args);
 }
 
