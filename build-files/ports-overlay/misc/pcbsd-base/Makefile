@@ -121,6 +121,9 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		tk86>=0:${PORTSDIR}/x11-toolkits/tk86 \
 		panicmail>=0:${PORTSDIR}/sysutils/panicmail \
 		aria2c:${PORTSDIR}/www/aria2 \
+		pulseaudio>=0:${PORTSDIR}/audio/pulseaudio \
+		paprefs>=0:${PORTSDIR}/audio/paprefs \
+		pavucontrol>=0:${PORTSDIR}/audio/pavucontrol \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
 		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
 
