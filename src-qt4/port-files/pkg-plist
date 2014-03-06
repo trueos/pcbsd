@@ -489,6 +489,7 @@ share/pcbsd/pc-controlpanel/icons/appcafe.png
 share/pcbsd/pc-controlpanel/icons/bluetooth.png
 share/pcbsd/pc-controlpanel/icons/pc-controlpanel64x64.png
 share/pcbsd/pc-controlpanel/icons/pc-controlpanel.png
+share/pcbsd/pc-controlpanel/icons/pulseaudio.png
 share/pcbsd/pc-controlpanel/icons/cups-icon.png
 share/pcbsd/pc-controlpanel/items/system/pc-bootconfig.desktop
 share/pcbsd/pc-controlpanel/items/system/pbi-thefish.desktop
@@ -539,6 +540,8 @@ share/pcbsd/pc-controlpanel/items/de/lxde-default-apps.desktop
 share/pcbsd/pc-controlpanel/items/de/lxde-xscreensaver.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-thunar-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-soundconfig.desktop
+share/pcbsd/pc-controlpanel/items/hardware/pc-paprefs.desktop
+share/pcbsd/pc-controlpanel/items/hardware/pc-pavucontrol.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-zmanager.desktop
 share/pcbsd/pc-controlpanel/items/hardware/lxde-lxinput.desktop
 share/pcbsd/pc-controlpanel/items/hardware/kinfocenter.desktop
