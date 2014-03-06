@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Media:</source>
-        <translation>Media:</translation>
+        <translation>Пристрій:</translation>
     </message>
     <message>
         <source>Status:</source>

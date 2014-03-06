@@ -120,7 +120,7 @@ int get_modified_path(char *npath, const char *opath)
 
 	// First, lets look for calls to /var/run/ld-elf*.so.hints
 	// These need to be replaced with calls to our new hints file in hintsdir
-	if ( strpos(rPath, "/var/run/") == 0 )
+	if ( strpos(rPath, "/var/run") == 0 )
 	{
 		if ( strcmp(rPath, "/var/run/ld-elf.so.hints") == 0 )
 		{
@@ -134,6 +134,22 @@ int get_modified_path(char *npath, const char *opath)
 			strcat(npath, "/ld-elf32.so.hints");
 			return 0;
 		}
+
+		// Check for requests to socket files
+		if ( strpos(rPath, ".sock") != -1 )
+		{
+			// Return the "nullfs-mounted" /var/run
+			strcpy(npath, replace_str(rPath, "/var/run", "/usr/pbi/varrun"));
+			return 0;
+		}
+		// Check for requests to socket files
+		if ( strpos(rPath, "socket") != -1 )
+		{
+			// Return the "nullfs-mounted" /var/run
+			strcpy(npath, replace_str(rPath, "/var/run", "/usr/pbi/varrun"));
+			return 0;
+		}
+
 	}
 
 	if ( strcmp(rPath, "/etc/rc.d/ldconfig") == 0 )

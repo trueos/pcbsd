@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Затвердити</translation>
+        <translation>Гаразд</translation>
     </message>
     <message>
         <source>&amp;Close</source>

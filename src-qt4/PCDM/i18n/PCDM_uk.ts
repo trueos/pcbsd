@@ -48,11 +48,11 @@
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation>Натисніть щоб розмаскувати символи паролю</translation>
+        <translation>Тримайте, щоб побачити введений пароль</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
-        <translation>Увійти у систему обраним користувачем</translation>
+        <translation>Пароль входу для вибраного користувача</translation>
     </message>
     <message>
         <source>Available users</source>
@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation>Підказка: Перевірте чи увімкнено &apos;Caps-lock&apos;.</translation>
+        <translation>Підказка: Перевірте, чи вимкнений Caps-lock.</translation>
     </message>
     <message>
         <source>Restart</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation>Комбінація ім&apos;я користувача / пароль введена невірно. Будьласка спробуйте ще.</translation>
+        <translation>Комбінація ім&apos;я користувача / пароль введена невірно. Будь ласка, спробуйте ще.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
@@ -153,28 +153,23 @@
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Діалог</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Автоматичний вхід PCDM&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m секунд</translation>
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скасувати вхід</translation>
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Увійти</translation>
     </message>
 </context>
 <context>
@@ -201,7 +196,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Прийняти</translation>
+        <translation>Гаразд</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -220,11 +215,11 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation>Прийняти</translation>
+        <translation>Гаразд</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Відміна</translation>
+        <translation>Скасувати</translation>
     </message>
 </context>
 </TS>

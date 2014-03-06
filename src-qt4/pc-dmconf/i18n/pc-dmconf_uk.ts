@@ -33,11 +33,11 @@
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation>Будьласка введіть пароль для цього користувача</translation>
+        <translation>Будь ласка, введіть пароль для цього користувача</translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation>Увімкнути віддалену стільницю (VNC))</translation>
+        <translation>Увімкнути віддалену стільницю (VNC)</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -49,11 +49,11 @@
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation>Будьласка введіть пароль для віддаленого входу</translation>
+        <translation>Будь ласка, введіть пароль для віддаленого входу</translation>
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation>Втрачено файл налаштувань</translation>
+        <translation>Відсутній файл налаштувань</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
@@ -61,22 +61,19 @@
     </message>
     <message>
         <source>This application will now close</source>
-        <translation>Роботу утиліти буде завершено</translation>
+        <translation>Цей застосунок буде закрито</translation>
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Затримка</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> секунд</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показати можливих користувачів</translation>
     </message>
 </context>
 </TS>
