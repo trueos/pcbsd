@@ -176,7 +176,7 @@
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation>Примітка: Дані налаштування проксі використовується виключно утилітами та засобами PC-BSD. Інші інтернет-застосування можуть використовувати свої власні налаштування проксі сервера, які мають вказуватися вручну.</translation>
+        <translation>Примітка: Дані налаштування проксі використовуються виключно утилітами та засобами PC-BSD. Інші інтернет-застосування можуть використовувати свої власні налаштування проксі сервера, які мають вказуватися вручну.</translation>
     </message>
     <message>
         <source>&amp;Save</source>

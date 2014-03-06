@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Remove</source>
-        <translation>Вилучити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <source>Add PBI Repository</source>
@@ -97,15 +97,15 @@
     </message>
     <message>
         <source>Please run the command &apos;%1&apos; manually to see the full error message.</source>
-        <translation>Будьласка запустіть консольну команду &apos;%1&apos; вручну щоб побачити повне сповіщення про помилку.</translation>
+        <translation>Будь ласка, запустіть консольну команду &apos;%1&apos; вручну щоб побачити повне сповіщення про помилку.</translation>
     </message>
     <message>
         <source>Verify Removal</source>
-        <translation>Видалення</translation>
+        <translation>Підтвердити видалення</translation>
     </message>
     <message>
         <source>Are you sure you wish to remove this PBI repository?</source>
-        <translation>ви певні що бажаєте видалити цей репозиторій PBI?</translation>
+        <translation>Ви дійсно бажаєте видалити цей репозиторій PBI?</translation>
     </message>
     <message>
         <source>This repo could not be removed.</source>
@@ -117,7 +117,7 @@
     </message>
     <message>
         <source>Please enter the URL for the new repo mirror:</source>
-        <translation>Будьласка введіть URL адресу для нового дзеркала:</translation>
+        <translation>Будь ласка, введіть URL адресу для нового дзеркала:</translation>
     </message>
     <message>
         <source>Mirror Change Error</source>
@@ -136,18 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графічний застосунок</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Застосунок командного рядка</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Серверний застосунок</translation>
     </message>
 </context>
 <context>
@@ -174,7 +171,7 @@
     </message>
     <message>
         <source>Check/Uncheck all applications</source>
-        <translation>Обрати/зняти виділення для всіх додатків</translation>
+        <translation>Обрати/зняти всі застосунки</translation>
     </message>
     <message>
         <source>All</source>
@@ -202,7 +199,7 @@
     </message>
     <message>
         <source>Cancel any actions for this application</source>
-        <translation>Відмінити будь-які поточні дії з цим додаткрм</translation>
+        <translation>Скасувати будь-які поточні дії з цим додатком</translation>
     </message>
     <message>
         <source>Remove the selected application</source>
@@ -414,7 +411,7 @@
     </message>
     <message>
         <source>Searching the application database. Please Wait....</source>
-        <translation>Пошук в базі додатків. Будь ласка зачекайте...</translation>
+        <translation>Пошук в базі додатків. Будь ласка, зачекайте...</translation>
     </message>
     <message>
         <source>No Search Results Found for the term: %1</source>
@@ -434,147 +431,121 @@
     </message>
     <message>
         <source>Verify Installation</source>
-        <translation>Перевірка встановлення</translation>
+        <translation>Підтвердити встановлення</translation>
     </message>
     <message>
         <source>Are you sure you want to install this application?</source>
-        <translation>Ви певні що бажаєте встановити цей додаток?</translation>
+        <translation>Ви дійсно бажаєте встановити цей додаток?</translation>
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Повернутися</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Знайти</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створено:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Архітерктура:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ярлики</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Контакт супроводжувача</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Поточні операції</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скасувати операції</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI застосунок (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ви готові почати встановлення цих PBI?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ПРИМІТКА: Потім вам потрібно буде вручну додати іконки на робочий стіл/меню через AppCafe.</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Почати оновлення?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Бажаєте почати оновлення цього застосунку прямо зараз?</translation>
     </message>
     <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Рекомендації PC-BSD</translation>
     </message>
     <message>
         <source>Downloading..</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустити поштовий клієнт?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Бажаєте спробувати запустити типовий поштовий клієнт?
+Щоб це спрацювало, він повинен бути встановлений разом з вашим поточним стільничним оточенням. Якщо ні, ви можете послати листа на вказану адресу вручну.</translation>
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Переглянути категорії</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштувати</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Імпортувати список PBI</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Експортувати список PBI</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметри</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Встановити PBI</translation>
     </message>
 </context>
 <context>
@@ -621,7 +592,7 @@
     </message>
     <message>
         <source>Import Results</source>
-        <translation>Результати імпорту</translation>
+        <translation>Імпортувати результати</translation>
     </message>
     <message>
         <source>Are you sure you wish to install these applications?</source>
@@ -677,7 +648,7 @@
     </message>
     <message>
         <source>Downloading: %1%</source>
-        <translation>Завантаження:  %1%</translation>
+        <translation>Завантаження: %1%</translation>
     </message>
     <message>
         <source>Install Canceled (will remove)</source>
@@ -709,13 +680,11 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалення застосунку</translation>
     </message>
     <message>
         <source>Downloading: %1% @ %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Завантаження: %1% з %2</translation>
     </message>
 </context>
 <context>

@@ -109,11 +109,11 @@
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation>Вилучити обраний файл з модуля PBI</translation>
+        <translation>Видалити обраний файл з модуля PBI</translation>
     </message>
     <message>
         <source>Delete File</source>
-        <translation>Вилучити файл</translation>
+        <translation>Видалити файл</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
@@ -169,11 +169,11 @@
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation>Вилучити поточний елемент з модуля PBI</translation>
+        <translation>Видалити поточний елемент з модуля PBI</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Вилучити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation>Виконуваний файл, який має запуститися при активації елементу</translation>
+        <translation>Виконуваний файл, який має запускатися при активації елементу</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
@@ -297,11 +297,11 @@
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation>Вилучити обране посилання</translation>
+        <translation>Видалити обране посилання</translation>
     </message>
     <message>
         <source>Remove Entry</source>
-        <translation>Вилучити елемент</translation>
+        <translation>Видалити елемент</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -309,7 +309,7 @@
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation>Файл PBI що має бути зв&apos;язаний символьним посланням з системою (шлях відносно каталогу PBI)</translation>
+        <translation>Файл PBI що має бути зв&apos;язаний символьним посиланням з системою (шлях відносно каталогу PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
@@ -633,7 +633,7 @@
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
-        <translation>Переглянути переназначення пакунку (опція)</translation>
+        <translation>Переглянути переназначення пакунку (необов&apos;язково)</translation>
     </message>
     <message>
         <source>Add Pkgs</source>
@@ -641,7 +641,7 @@
     </message>
     <message>
         <source>View Repository Information (optional)</source>
-        <translation>Перегляд інформації репозиторію (опція)</translation>
+        <translation>Перегляд інформації репозиторію (необов&apos;язково)</translation>
     </message>
     <message>
         <source>Tags</source>
@@ -653,7 +653,7 @@
     </message>
     <message>
         <source>App Type</source>
-        <translation>Додати тип</translation>
+        <translation>Тип</translation>
     </message>
     <message>
         <source>App Cat</source>
@@ -661,7 +661,7 @@
     </message>
     <message>
         <source>Category where this application should be found</source>
-        <translation>Категорія в якій має міститися додаток</translation>
+        <translation>Категорія, в якій має міститися додаток</translation>
     </message>
     <message>
         <source>...</source>
@@ -673,7 +673,7 @@
     </message>
     <message>
         <source>View Repository Management (optional)</source>
-        <translation>Переглянути керування репозиторієм (опція)</translation>
+        <translation>Переглянути керування репозиторієм (необов&apos;язково)</translation>
     </message>
     <message>
         <source>Build Key</source>
@@ -681,7 +681,7 @@
     </message>
     <message>
         <source>Revision #</source>
-        <translation>№ ревізії</translation>
+        <translation>Ревізія №</translation>
     </message>
     <message>
         <source>Priority</source>
@@ -701,7 +701,7 @@
     </message>
     <message>
         <source>Build priority (higher is more urgent)</source>
-        <translation>Пріоритет збирання (більше значення- більш пріоритетне)</translation>
+        <translation>Пріоритет збирання (більше значення - більш пріоритетне)</translation>
     </message>
     <message>
         <source>Create a new PBI module</source>
@@ -733,7 +733,7 @@
     </message>
     <message>
         <source>Build PBI (Done)</source>
-        <translation>Збирання PBI (Закінчено)</translation>
+        <translation>Збирання PBI (Завершено)</translation>
     </message>
     <message>
         <source>Configure</source>
@@ -765,38 +765,31 @@
     </message>
     <message>
         <source>Pkg Setup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування пакунків</translation>
     </message>
     <message>
         <source>Legacy Port-Build Options (optional)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Успадковані налаштування збирання порту (необов&apos;язково)</translation>
     </message>
     <message>
         <source>Build directly from source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зібрати прямо з вихідних кодів</translation>
     </message>
     <message>
         <source>Build Dependencies</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Залежності</translation>
     </message>
     <message>
         <source>Make Options</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Параметри збирання</translation>
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Увімкнути %1</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вимкнути %1</translation>
     </message>
 </context>
 <context>
@@ -839,17 +832,15 @@
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порт</translation>
     </message>
     <message>
         <source>Pkg</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пакунок</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Обрати порт</translation>
+        <translation>Обрати порт</translation>
     </message>
 </context>
 <context>
@@ -1082,11 +1073,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Accept</source>
-        <translation>Затвердити</translation>
+        <translation>Гаразд</translation>
     </message>
     <message>
         <source>No Packages Available</source>
@@ -1098,7 +1089,7 @@
     </message>
     <message>
         <source>No package found with that term</source>
-        <translation>За Вашим запитом жодного пакунку не знайдено</translation>
+        <translation>За вказаним запитом жодного пакунку не знайдено</translation>
     </message>
 </context>
 </TS>

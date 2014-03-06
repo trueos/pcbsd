@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Block</source>
-        <translation>Блок</translation>
+        <translation>Заблокувати</translation>
     </message>
     <message>
         <source>Allow</source>
@@ -64,11 +64,11 @@
     </message>
     <message>
         <source>Enable Firewall on startup</source>
-        <translation>Ввімкнути фаєрвол при старті</translation>
+        <translation>Увімкнути брандмауер при старті</translation>
     </message>
     <message>
         <source>Firewall</source>
-        <translation>Фаєрвол</translation>
+        <translation>Брандмауер</translation>
     </message>
     <message>
         <source>Start</source>
@@ -88,11 +88,11 @@
     </message>
     <message>
         <source>Restore default configuration</source>
-        <translation>Відновити конфігурацію за замовчуванням</translation>
+        <translation>Відновити типову конфігурацію</translation>
     </message>
     <message>
         <source>Exceptions</source>
-        <translation>Виключення</translation>
+        <translation>Винятки</translation>
     </message>
     <message>
         <source>Add entry</source>
@@ -124,7 +124,7 @@
     </message>
     <message>
         <source>Firewall Manager</source>
-        <translation>Налаштування файрволу</translation>
+        <translation>Керування брандмауером</translation>
     </message>
 </context>
 <context>
@@ -163,8 +163,8 @@
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation>Фаєрвол буде повністю вимкнено.
-Ви впевненіі?</translation>
+        <translation>Брандмауер буде повністю вимкнено.
+Ви впевнені?</translation>
     </message>
     <message>
         <source>Success</source>

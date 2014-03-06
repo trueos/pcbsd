@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Where are you located? Please select the timezone for your location.</source>
-        <translation>Де Ви знаходитеся? Будьласка оберіть часовий пояс, що відповідає Вашому місцезнаходженню.</translation>
+        <translation>Де Ви знаходитеся? Будь ласка, оберіть часовий пояс, що відповідає Вашому місцеположенню.</translation>
     </message>
     <message>
         <source>Root Password</source>

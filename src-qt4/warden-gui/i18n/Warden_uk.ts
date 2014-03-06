@@ -790,12 +790,11 @@
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation>Ім&apos;я хоста не має містити пробілів!</translation>
+        <translation>Ім&apos;я хоста не може містити пробіли!</translation>
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ім&apos;я хоста не може містити спеціальні символи!</translation>
     </message>
 </context>
 </TS>

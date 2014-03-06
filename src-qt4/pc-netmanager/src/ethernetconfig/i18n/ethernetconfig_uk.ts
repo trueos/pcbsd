@@ -93,11 +93,11 @@
     </message>
     <message>
         <source>Obtain IPv6 address automaticall&amp;y</source>
-        <translation>Отримати IPv6 адресу автоматично</translation>
+        <translation>Отримувати IPv6 адресу автоматично</translation>
     </message>
     <message>
         <source>I&amp;nfo</source>
-        <translation>Інфо</translation>
+        <translation>Інформація</translation>
     </message>
     <message>
         <source>Configuration info</source>

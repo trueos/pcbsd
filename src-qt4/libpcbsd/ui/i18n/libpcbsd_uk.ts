@@ -33,9 +33,8 @@
     <message>
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
-        <translation>ПОПЕРЕДЖЕННЯ: Пакунки все ще в роботі
-Якщо ви відміните операцію пакунки можуть бути зламані.
-Відмінити не зважаючи на це?</translation>
+        <translation>ПОПЕРЕДЖЕННЯ: Пакунки все ще модифікуються!
+Якщо ви скасуєте операцію, пакунки можуть пошкодитися. Все одно скасувати?</translation>
     </message>
 </context>
 <context>

@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation>Production (Найбільш сабільний набір. Оновлюється щоквартально. Рекомендовано.)</translation>
+        <translation>Production (Найбільш стабільний набір. Оновлюється щоквартально. Рекомендовано.)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
@@ -21,11 +21,11 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>Ок</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Відміна</translation>
+        <translation>&amp;Cкасувати</translation>
     </message>
 </context>
 <context>
@@ -40,11 +40,11 @@
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>Ок</translation>
+        <translation>&amp;Ok</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>Відміна</translation>
+        <translation>&amp;Cкасувати</translation>
     </message>
 </context>
 <context>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Package Information</source>
-        <translation>Інформація пакунку</translation>
+        <translation>Інформація про пакунок</translation>
     </message>
     <message>
         <source>Description</source>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation>Завантаження... Будь ласка зачекайте...</translation>
+        <translation>Завантаження... Будь ласка, зачекайте...</translation>
     </message>
     <message>
         <source>No changes</source>
@@ -227,7 +227,7 @@
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation>Не обрано жодної стільниці! Будь ласка оберіть принаймні одне оточення стільниці перед збереженням.</translation>
+        <translation>Не обрано жодної стільниці! Будь ласка, оберіть принаймні одне оточення стільниці перед збереженням.</translation>
     </message>
     <message>
         <source>View Packages</source>
@@ -259,15 +259,15 @@
     </message>
     <message>
         <source>Do you want to continue the search from the top?</source>
-        <translation>Бажаєте повторити пошук спочатку? </translation>
+        <translation>Бажаєте повторити пошук з початку?</translation>
     </message>
     <message>
         <source>No packages could be found with that search term. Please adjust it and try again.</source>
-        <translation>Жодного пакунку не було знайдено. Будь ласка перевірте рядок пошуку та спробуйте ще.</translation>
+        <translation>Жодного пакунку не було знайдено. Будь ласка, перевірте рядок пошуку та спробуйте ще.</translation>
     </message>
     <message>
         <source>Processes Running</source>
-        <translation>Процес не закінчено</translation>
+        <translation>Процеси не закінчено</translation>
     </message>
     <message>
         <source>Packages are currently being changed. Are you sure you want to quit?</source>

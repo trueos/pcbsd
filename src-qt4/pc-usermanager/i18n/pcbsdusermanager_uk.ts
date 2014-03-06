@@ -557,7 +557,7 @@
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>Вилучити</translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <source>Alt+R</source>
@@ -616,11 +616,11 @@
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation>Вилучити домашній каталог?</translation>
+        <translation>Видалити домашній каталог?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation>Вилучити домашній каталог для </translation>
+        <translation>Видалити домашній каталог для </translation>
     </message>
 </context>
 <context>
@@ -691,11 +691,11 @@
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation>Вилучити домашній каталог?</translation>
+        <translation>Видалити домашній каталог?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation>Вилучити домашній каталог для </translation>
+        <translation>Видалити домашній каталог для </translation>
     </message>
 </context>
 </TS>

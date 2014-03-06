@@ -5,7 +5,7 @@
     <name>MainWindow</name>
     <message>
         <source>Please enter your user password to run this command with system permissions</source>
-        <translation>Будьласка введіть ім&apos;я користувача та пароль для запуску наступної команди з системними привілеями</translation>
+        <translation>Будь ласка, введіть ім&apos;я користувача та пароль для запуску наступної команди з системними привілеями</translation>
     </message>
     <message>
         <source>Requesting System Permissions</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Toggle command details</source>
-        <translation>Показати команду</translation>
+        <translation>Показати команду детальніше</translation>
     </message>
 </context>
 </TS>
