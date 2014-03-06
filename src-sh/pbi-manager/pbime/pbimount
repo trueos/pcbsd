@@ -68,6 +68,13 @@ mount_dirs() {
    is_mounted "${pDir}/virtbase/proc" || mount -t procfs procfs "${pDir}/virtbase/proc"
    is_mounted "${pDir}/virtbase/tmp" || mount_nullfs /tmp "${pDir}/virtbase/tmp"
 
+   # Mount our real system /var/run with nullfs, so that sockets are available which tend
+   # to exist there
+   if [ ! -d "/usr/pbi/varrun" ] ; then
+      mkdir /usr/pbi/varrun
+   fi
+   is_mounted "${pDir}/virtbase/usr/pbi/varrun" || mount_nullfs /var/run "${pDir}/virtbase/usr/pbi/varrun"
+
    if [ -d "${pDir}/virtbase/compat/linux/proc" ] ; then
      is_mounted "${pDir}/virtbase/compat/linux/proc" || mount -t linprocfs linprocfs "${pDir}/virtbase/compat/linux/proc"
    fi
