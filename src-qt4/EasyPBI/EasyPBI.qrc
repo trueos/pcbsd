@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="png">
+    <file>configure.png</file>
     <file>icons/search.png</file>
     <file>icons/accept.png</file>
     <file>icons/cancel.png</file>

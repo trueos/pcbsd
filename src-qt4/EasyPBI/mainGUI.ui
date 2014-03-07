@@ -37,7 +37,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideMiddle</enum>
@@ -118,7 +118,7 @@
              <string>Start building a PBI from the current module (requires administrator privileges)</string>
             </property>
             <property name="text">
-             <string>Build PBI</string>
+             <string>&amp;Build PBI</string>
             </property>
             <property name="icon">
              <iconset resource="EasyPBI.qrc">
@@ -159,7 +159,7 @@
              <string>Cancel the currently running build process</string>
             </property>
             <property name="text">
-             <string>Cancel Build</string>
+             <string>&amp;Cancel Build</string>
             </property>
            </widget>
           </item>
@@ -176,7 +176,7 @@
              <string>Save the current build log to disk (very useful when requesting help with a failed build)</string>
             </property>
             <property name="text">
-             <string>Save Build Log</string>
+             <string>&amp;Save Build Log</string>
             </property>
             <property name="icon">
              <iconset>
@@ -234,7 +234,7 @@
              <string>Save the current settings to the PBI configuration file</string>
             </property>
             <property name="text">
-             <string>Save Configuration</string>
+             <string>&amp;Save Configuration</string>
             </property>
             <property name="icon">
              <iconset>
@@ -258,7 +258,7 @@
              <x>0</x>
              <y>0</y>
              <width>528</width>
-             <height>822</height>
+             <height>834</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -302,7 +302,7 @@
                        <string>Select a different FreeBSD package</string>
                       </property>
                       <property name="text">
-                       <string>Change</string>
+                       <string>&amp;Change</string>
                       </property>
                      </widget>
                     </item>
@@ -857,7 +857,7 @@
                    <string>Copy an additional file into the PBI module</string>
                   </property>
                   <property name="text">
-                   <string>Add File</string>
+                   <string>&amp;Add File</string>
                   </property>
                   <property name="icon">
                    <iconset resource="EasyPBI.qrc">
@@ -871,7 +871,7 @@
                    <string>Delete the selected file from the PBI module</string>
                   </property>
                   <property name="text">
-                   <string>Delete File</string>
+                   <string>&amp;Delete File</string>
                   </property>
                   <property name="icon">
                    <iconset resource="EasyPBI.qrc">
@@ -898,7 +898,7 @@
                    <string>Create a custom wrapper script for a program binary</string>
                   </property>
                   <property name="text">
-                   <string>Wrapper Script</string>
+                   <string>&amp;Wrapper Script</string>
                   </property>
                   <property name="icon">
                    <iconset resource="EasyPBI.qrc">
@@ -950,7 +950,7 @@
                <string>Save the wrapper script</string>
               </property>
               <property name="text">
-               <string>Save Script</string>
+               <string>&amp;Save Script</string>
               </property>
               <property name="icon">
                <iconset>
@@ -1319,7 +1319,7 @@
                    <string>Save the item as currently shown</string>
                   </property>
                   <property name="text">
-                   <string>Save</string>
+                   <string>&amp;Save</string>
                   </property>
                  </widget>
                 </item>
@@ -1342,7 +1342,7 @@
                    <string>Create a new item with the current settings</string>
                   </property>
                   <property name="text">
-                   <string>Add</string>
+                   <string>&amp;Add</string>
                   </property>
                   <property name="icon">
                    <iconset resource="EasyPBI.qrc">
@@ -1428,7 +1428,7 @@
              <string>Create the selected script</string>
             </property>
             <property name="text">
-             <string>Create</string>
+             <string>&amp;Create</string>
             </property>
            </widget>
           </item>
@@ -1438,7 +1438,7 @@
              <string>Delete the selected script from the PBI module</string>
             </property>
             <property name="text">
-             <string>Remove</string>
+             <string>&amp;Remove</string>
             </property>
             <property name="icon">
              <iconset resource="EasyPBI.qrc">
@@ -1452,7 +1452,7 @@
              <string>Save the current text as the selected script</string>
             </property>
             <property name="text">
-             <string>Save</string>
+             <string>&amp;Save</string>
             </property>
            </widget>
           </item>
@@ -1550,7 +1550,7 @@
                      <string>Remove currently selected link</string>
                     </property>
                     <property name="text">
-                     <string>Remove Entry</string>
+                     <string>&amp;Remove Entry</string>
                     </property>
                     <property name="icon">
                      <iconset resource="EasyPBI.qrc">
@@ -1704,7 +1704,7 @@
                    <string>Save this link to the PBI module</string>
                   </property>
                   <property name="text">
-                   <string>Add Entry</string>
+                   <string>&amp;Add Entry</string>
                   </property>
                   <property name="icon">
                    <iconset resource="EasyPBI.qrc">
@@ -1745,18 +1745,18 @@
      <x>0</x>
      <y>0</y>
      <width>575</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Configure</string>
+     <string>&amp;Configure</string>
     </property>
     <addaction name="actionPreferences"/>
     <addaction name="separator"/>
@@ -1768,7 +1768,7 @@
      <bool>false</bool>
     </property>
     <property name="title">
-     <string>Help</string>
+     <string>&amp;Help</string>
     </property>
     <addaction name="actionAbout_EasyPBI"/>
     <addaction name="separator"/>
@@ -1820,10 +1820,10 @@
   <action name="actionPreferences">
    <property name="icon">
     <iconset resource="EasyPBI.qrc">
-     <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
+     <normaloff>:/png/configure.png</normaloff>:/png/configure.png</iconset>
    </property>
    <property name="text">
-    <string>EasyPBI Settings</string>
+    <string>&amp;Settings</string>
    </property>
    <property name="statusTip">
     <string>Open up the EasyPBI settings editor</string>
@@ -1895,7 +1895,7 @@
      <normaloff>:/png/icons/freebsd.png</normaloff>:/png/icons/freebsd.png</iconset>
    </property>
    <property name="text">
-    <string>FreeBSD Ports</string>
+    <string>Free&amp;BSD Ports</string>
    </property>
    <property name="statusTip">
     <string>Open up freshports.org for additional port information</string>
@@ -1907,7 +1907,7 @@
      <normaloff>:/png/icons/pcbsd.png</normaloff>:/png/icons/pcbsd.png</iconset>
    </property>
    <property name="text">
-    <string>PBI Modules</string>
+    <string>&amp;PBI Modules</string>
    </property>
    <property name="statusTip">
     <string>Open up the PC-BSD Wiki page for PBI developers</string>
@@ -1919,7 +1919,7 @@
      <normaloff>:/png/icons/window-close.png</normaloff>:/png/icons/window-close.png</iconset>
    </property>
    <property name="text">
-    <string>Quit</string>
+    <string>&amp;Quit</string>
    </property>
    <property name="statusTip">
     <string>Close EasyPBI</string>
@@ -1934,7 +1934,7 @@
      <normaloff>:/png/icons/config.png</normaloff>:/png/icons/config.png</iconset>
    </property>
    <property name="text">
-    <string>Package Module</string>
+    <string>&amp;Package Module</string>
    </property>
    <property name="statusTip">
     <string>Compress the current module for distribution</string>
@@ -1946,7 +1946,7 @@
      <normaloff>:/png/icons/EasyPBIicon.png</normaloff>:/png/icons/EasyPBIicon.png</iconset>
    </property>
    <property name="text">
-    <string>About</string>
+    <string>&amp;About</string>
    </property>
    <property name="statusTip">
     <string>View additional information about EasyPBI</string>
@@ -1957,7 +1957,7 @@
   </action>
   <action name="actionRefresh_Module">
    <property name="text">
-    <string>Refresh Module</string>
+    <string>&amp;Refresh Module</string>
    </property>
   </action>
  </widget>

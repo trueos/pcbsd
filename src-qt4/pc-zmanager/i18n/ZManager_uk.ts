@@ -46,31 +46,38 @@
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Як успадковуються елементи ACL в разі створення файлів та директорій.
+Можливі значення - discard, noallow, restricted, та passthrough. Опис цих значень дивіться
+в ACL Properties.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.
 The values are discard, groupmask, and passthrough. For a description of
 these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Як змінюється елемент ACL під час операції chmod.
+Можливі значення - discard, groupmask, та passthrough. Опис цих
+значень дивіться в ACL Properties.</translation>
     </message>
     <message>
         <source>Controls whether the access time for files is updated when they are read.
 Turning this property off avoids producing write traffic when reading files and
 can result in significant performance gains, though it might confuse mailers and
 similar utilities.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зміна часу доступу до файлу під час його читання. Вимкнення цієї
+властивості запобігає створенню трафіка на запис під час читання файлів,
+що може значно підвищити продуктивність, хоча і може заплутати поштові
+та аналогічні утиліти.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space available to a dataset
 and all its children, assuming no other activity in the pool. Because disk space is
 shared within a pool, available space can be limited by various factors including
 physical pool size, quotas, reservations, and other datasets within the pool.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість тільки для читання, яка показує доступний для датасету та
+всіх його нащадків обсяг дискового простору за умови відсутності іншої
+активності в пулі. Через те що дисковий простір спільний в пулі, доступний
+простір можуть обмежувати різні фактори, такі як фізичний розмір пулу,
+квоти, резерви та інші датасети в пулі.</translation>
     </message>
     <message>
         <source>If this property is set to off, the file system cannot be mounted,
@@ -82,8 +89,7 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Якщо ця властивість вимкнена, файлова система не може буде змонтованою і вона буде ігнорована командою &apos;zfs mount -a&apos;. Вимкнення цієї властивості аналогічне до встановлення значення властивості точки монтування на &apos;не вказано&apos;, за винятком того, що датасет все ще має нормальну точку монтування, яку можна успадкувати. Вимкнення цієї властивості дозволяє використовувати датасети виключно як механізм для успадкування властивостей. Наприклад, встановлення canmount=off дозволяє мати два датасети з однією й тією ж точкою монтування, внаслідок чого нащадки обох датасетів з&apos;являються в одній і тій же директорії, але мають різні успадковані характеристики.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -91,16 +97,22 @@ value is on, which automatically selects an appropriate algorithm
 (currently, fletcher4, but this may change in future releases). The
 value off disables integrity checking on user data. Disabling
 checksums is NOT a recommended practice.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Застосування контрольних сум для перевірки цілісності даних.
+Типове значення &apos;on&apos;, що автоматично обирає відповідний
+алгоритм (наразі fletcher4, але це може змінитися в наступних
+релізах). При значенні &apos;off&apos; перевірка цілісності даних
+не проводитиметься. Зазвичай відключення перевірки
+контрольних сум не рекомендується.</translation>
     </message>
     <message>
         <source>Enables or disables compression for a dataset. The values are on, off, lzjb, zle, gzip,
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Стиснення датасету. Можливі значення - on, off, lzjb, zle, gzip, та gzip-N.Наразі встановлення значення lzjb, gzip, або gzip-N має той же ефект,
+що й значення &apos;on&apos;. Увімкнення стиснення на файловій системі з існуючими
+даними матиме ефект тільки для нових даних. Існуючі дані
+залишаться нестиснутими.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the compression ratio achieved for a dataset,
@@ -108,8 +120,11 @@ expressed as a multiplier. Compression can be enabled by the zfs set compression
 dataset command. The value is calculated from the logical size of all files and the
 amount of referenced physical data. It includes explicit savings through the use of
 the compression property.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість тільки для читання, виражена як множник, яка показує ступінь
+стиснення датасету. Стиснення можна увімкнути командою &apos;zfs set compression=on&apos;
+відповідного датасету. Значення розраховується виходячи з логічного розміру
+всіх файлів та кількості пов&apos;язаних фізичних даних. Воно показує чисту економію
+за рахунок використання властивості стиснення.</translation>
     </message>
     <message>
         <source>Sets the number of copies of user data per file system. These copies
@@ -124,8 +139,7 @@ on an existing file system only affects newly written data.</source>
     </message>
     <message>
         <source>Read-only property that identifies the date and time that a dataset was created.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість тільки для читання - дата та час створення датасету.</translation>
     </message>
     <message>
         <source>Configures deduplication for a dataset. The default value is off.
@@ -141,20 +155,19 @@ are identical.</source>
     </message>
     <message>
         <source>The devices property is currently not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ця властивість пристроїв наразі не підтримується у FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether processes can be executed from within this file
 system. The default value is on.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Можуть чи ні з файлів на цій файловій системі виконуватися
+процеси. Типове значення - &apos;on&apos; (так).</translation>
     </message>
     <message>
         <source>Read-only property that indicates whether a file system, clone, or snapshot
 is currently mounted.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість (тільки для читання), яка показує, чи файлова система,
+клон чи знімок наразі змонтовані.</translation>
     </message>
     <message>
         <source>Controls the mount point used for this file system. When the mountpoint property
@@ -163,8 +176,14 @@ mount point are unmounted. If the new value is legacy, then they remain unmounte
 Otherwise, they are automatically remounted in the new location if the property was
 previously legacy or none, or if they were mounted before the property was changed.
 In addition, any shared file systems are unshared and shared in the new location.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Контролює точку монтування, яка використовується для цієї файлової системи.
+Коли точка монтування змінюється, файлова система та всі нащадки точки
+монтування відмонтовуються. Якщо нове значення успадковане, вони
+залишаються відмонтованими. В іншому випадку вони автоматично
+перемонтовуються в новому розміщенні, незалежно від того, чи властивість
+була попередньо успадкована чи ні, або якщо вони були змонтовані перед
+зміною властивості. На додаток, будь які розшарені файлові системи перестають
+такими бути і знову розшарюються в новому розміщенні.</translation>
     </message>
     <message>
         <source>Controls what is cached in the primary cache (ARC). Possible values are all,
@@ -911,7 +930,7 @@ crash dump.
     </message>
     <message>
         <source>Mountpoint</source>
-        <translation>Точка  монтування</translation>
+        <translation>Точка монтування</translation>
     </message>
     <message>
         <source>none</source>
@@ -951,15 +970,15 @@ crash dump.
     </message>
     <message>
         <source>Compression =</source>
-        <translation>Компресія =</translation>
+        <translation>Стиснення =</translation>
     </message>
     <message>
         <source>off</source>
-        <translation>Ні</translation>
+        <translation>off</translation>
     </message>
     <message>
         <source>on</source>
-        <translation>Так</translation>
+        <translation>on</translation>
     </message>
     <message>
         <source>lzjb</source>

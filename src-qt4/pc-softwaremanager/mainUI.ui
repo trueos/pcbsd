@@ -972,7 +972,7 @@ spacing: 1px;
                  <x>0</x>
                  <y>0</y>
                  <width>435</width>
-                 <height>346</height>
+                 <height>344</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_23"/>
@@ -993,8 +993,8 @@ spacing: 1px;
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>435</width>
-                 <height>386</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_24"/>
@@ -1518,7 +1518,7 @@ spacing: 1px;
      <x>0</x>
      <y>0</y>
      <width>473</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1580,7 +1580,7 @@ spacing: 1px;
   <action name="actionAppCafe_Settings">
    <property name="icon">
     <iconset resource="SoftwareManager.qrc">
-     <normaloff>:/icons/preferences-system.png</normaloff>:/icons/preferences-system.png</iconset>
+     <normaloff>:/configure.png</normaloff>:/configure.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Settings</string>

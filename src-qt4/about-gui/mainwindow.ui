@@ -319,14 +319,14 @@
        <item>
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
-          <string>System components...</string>
+          <string>&amp;System components...</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>Desktop environments...</string>
+          <string>&amp;Desktop environments...</string>
          </property>
         </widget>
        </item>
@@ -634,7 +634,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_3">
        <property name="text">
-        <string>Close</string>
+        <string>&amp;Close</string>
        </property>
       </widget>
      </item>

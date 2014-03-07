@@ -500,7 +500,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_Configuration">
    <property name="icon">
     <iconset resource="pc-pkgmanager.qrc">
-     <normaloff>:/config.png</normaloff>:/config.png</iconset>
+     <normaloff>:/configure.png</normaloff>:/configure.png</iconset>
    </property>
    <property name="text">
     <string>Settings</string>

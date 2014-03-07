@@ -58,7 +58,7 @@
        <item>
         <widget class="QPushButton" name="pushButton">
          <property name="text">
-          <string>More details...</string>
+          <string>&amp;More details...</string>
          </property>
         </widget>
        </item>
@@ -221,7 +221,7 @@
               <item>
                <widget class="QPushButton" name="checkAllButton">
                 <property name="text">
-                 <string>Check for updates</string>
+                 <string>Check for &amp;Updates</string>
                 </property>
                 <property name="icon">
                  <iconset resource="res.qrc">
@@ -408,13 +408,13 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuLogs">
     <property name="title">
-     <string>Logs</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="actionLast_system_update_log"/>
     <addaction name="actionLast_package_update_log"/>
@@ -422,22 +422,16 @@
     <addaction name="separator"/>
     <addaction name="actionBase_system_update_log"/>
    </widget>
-   <widget class="QMenu" name="menuControl">
+   <widget class="QMenu" name="menuConfigure">
     <property name="title">
-     <string>Control</string>
-    </property>
-    <addaction name="actionUpdate_set"/>
-    <addaction name="actionSystem_branches"/>
-   </widget>
-   <widget class="QMenu" name="menuRemote">
-    <property name="title">
-     <string>Remote</string>
+     <string>&amp;Configure</string>
     </property>
     <addaction name="actionJail"/>
+    <addaction name="actionSystem_branches"/>
+    <addaction name="actionUpdate_set"/>
    </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuRemote"/>
-   <addaction name="menuControl"/>
+   <addaction name="menuConfigure"/>
    <addaction name="menuLogs"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -453,7 +447,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Last system update log</string>
+    <string>Last &amp;system update log</string>
    </property>
   </action>
   <action name="actionLast_package_update_log">
@@ -461,7 +455,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Last package update log</string>
+    <string>Last &amp;package update log</string>
    </property>
   </action>
   <action name="actionLast_software_update_log">
@@ -469,7 +463,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Last software update log</string>
+    <string>Last soft&amp;ware update log</string>
    </property>
   </action>
   <action name="actionUpdate_set">
@@ -477,7 +471,7 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Update set</string>
+    <string>&amp;Update set</string>
    </property>
   </action>
   <action name="actionSystem_branches">
@@ -485,15 +479,19 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>System branches</string>
+    <string>&amp;System branches</string>
    </property>
   </action>
   <action name="actionExit">
    <property name="enabled">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/window-close.png</normaloff>:/window-close.png</iconset>
+   </property>
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Quit</string>
    </property>
   </action>
   <action name="actionJail">
@@ -501,12 +499,12 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Jail</string>
+    <string>&amp;Remote Jail</string>
    </property>
   </action>
   <action name="actionBase_system_update_log">
    <property name="text">
-    <string>Base system update history</string>
+    <string>&amp;Base system update history</string>
    </property>
   </action>
  </widget>

@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="/">
+    <file>configure.png</file>
     <file>config.png</file>
     <file>window-close3.png</file>
     <file>window-close.png</file>
