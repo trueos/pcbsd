@@ -1262,6 +1262,7 @@ void MainGUI::on_push_el_add_clicked(){
 void MainGUI::on_push_el_remove_clicked(){
   //Get the currently selected link
   QTreeWidgetItem *line = ui->tree_el_view->currentItem();
+  if(line == 0){ return; } //no item selected
   if(line->columnCount() != 3){ return; }
   QString file = line->text(0);
   QString linkto = line->text(1);
