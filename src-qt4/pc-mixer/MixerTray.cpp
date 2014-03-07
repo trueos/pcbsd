@@ -87,7 +87,10 @@ void MixerTray::changeVol(int percent, bool modify){
       //R channel lower
       Mixer::setValues(settings->value("tray-device","vol").toString(), percent, percent - CDIFF);
     }
-	  
+    if(GUI->isVisible()){
+      //also update the main mixer GUI if it is visible
+      GUI->updateGUI();
+    }
   }
   //Now update the display appropriately
   if(percent == 0){
