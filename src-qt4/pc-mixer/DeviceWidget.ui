@@ -98,6 +98,9 @@
              <iconset resource="pc-mixer.qrc">
               <normaloff>:/icons/link.png</normaloff>:/icons/link.png</iconset>
             </property>
+            <property name="autoRaise">
+             <bool>false</bool>
+            </property>
            </widget>
           </item>
           <item>

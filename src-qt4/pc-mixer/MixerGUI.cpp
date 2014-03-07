@@ -8,6 +8,7 @@ MixerGUI::MixerGUI(QSettings *set) : QMainWindow(), ui(new Ui::MixerGUI){
   //connect the signals/slots
   connect(ui->actionClose_Mixer, SIGNAL(triggered()), this, SLOT(hideGUI()) );
   connect(ui->actionClose_Mixer_and_Tray, SIGNAL(triggered()), this, SLOT(closeApplication()) );
+  connect(ui->menuConfiguration, SIGNAL(triggered(QAction*)), this, SLOT(startExternalApp(QAction*)) );
 }
 
 MixerGUI::~MixerGUI(){
