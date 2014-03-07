@@ -33,9 +33,10 @@ private:
 	QTimer *timer;
 	MixerGUI *GUI;
 	int CVOL; //current volume
+	int CDIFF; //difference between L/R channels
 	bool starting, isMuted;
 
-	void changeVol(int); //Set volume to value (0-100), -1 = mute but save volume
+	void changeVol(int percent, bool modify = true); //Set volume to value (0-100), -1 = mute but save volume
 
 private slots:
 	void loadVol(); //Sync with backend mixer (or if default device changed)
