@@ -1,5 +1,6 @@
 <RCC>
   <qresource>
+    <file>configure.png</file>
     <file>icons/graphicalapp.png</file>
     <file>icons/serverapp.png</file>
     <file>icons/textapp.png</file>
