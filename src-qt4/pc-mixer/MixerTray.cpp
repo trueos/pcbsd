@@ -16,6 +16,8 @@ MixerTray::MixerTray() : QSystemTrayIcon(){
 	muteA->setDefaultWidget(mute);
   mixer = new QToolButton(0);
 	mixer->setText(tr("Mixer"));
+	mixer->setIcon(QIcon(":icons/configure.png"));
+	mixer->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   mixerA = new QWidgetAction(0);
 	mixerA->setDefaultWidget(mixer);
   actionMenu = new QMenu(0);

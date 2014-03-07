@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>396</width>
-    <height>238</height>
+    <width>399</width>
+    <height>294</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,8 +45,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>380</width>
-         <height>153</height>
+         <width>383</width>
+         <height>209</height>
         </rect>
        </property>
       </widget>
@@ -59,7 +59,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>396</width>
+     <width>399</width>
      <height>20</height>
     </rect>
    </property>
@@ -75,16 +75,26 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionClose_Mixer_and_Tray">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/application-exit.png</normaloff>:/icons/application-exit.png</iconset>
+   </property>
    <property name="text">
     <string>Close Mixer and Tray</string>
    </property>
   </action>
   <action name="actionClose_Mixer">
+   <property name="icon">
+    <iconset resource="pc-mixer.qrc">
+     <normaloff>:/icons/window-close.png</normaloff>:/icons/window-close.png</iconset>
+   </property>
    <property name="text">
     <string>Hide Mixer</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="pc-mixer.qrc"/>
+ </resources>
  <connections/>
 </ui>

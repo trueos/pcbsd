@@ -5,7 +5,10 @@
 #include <QSettings>
 #include <QCloseEvent>
 #include <QCoreApplication>
+#include <QHBoxLayout>
+#include <QScrollBar>
 
+#include "DeviceWidget.h"
 #include "MixerBackend.h"
 
 namespace Ui{

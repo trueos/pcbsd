@@ -6,15 +6,18 @@ CONFIG	+= qt warn_on release
 
 HEADERS	+= MixerBackend.h \
 		MixerTray.h  \
-		MixerGUI.h
+		MixerGUI.h \
+		DeviceWidget.h
 		
 SOURCES	+= main.cpp \
 		MixerTray.cpp  \
-		MixerGUI.cpp
+		MixerGUI.cpp \
+		DeviceWidget.cpp
 
 RESOURCES += pc-mixer.qrc
 
-FORMS	=  MixerGUI.ui
+FORMS	=  MixerGUI.ui \
+		DeviceWidget.ui
 
 TARGET=pc-mixer
 target.path=/usr/local/bin
