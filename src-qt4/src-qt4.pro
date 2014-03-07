@@ -13,6 +13,7 @@ SUBDIRS+= libpcbsd \
 	 pc-cupscfg \
 	 pc-firstbootgui \
 	 pc-dmconf \
+	 pc-mixer \
 	 pc-mounttray \
 	 pc-netmanager \
 	 pc-pbigui \
