@@ -65,7 +65,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionClose_Mixer"/>
     <addaction name="separator"/>
@@ -73,7 +73,7 @@
    </widget>
    <widget class="QMenu" name="menuConfiguration">
     <property name="title">
-     <string>Configuration</string>
+     <string>&amp;Configuration</string>
     </property>
     <addaction name="action_Change_Audio_Device"/>
     <addaction name="separator"/>
@@ -99,7 +99,7 @@
      <normaloff>:/icons/window-close.png</normaloff>:/icons/window-close.png</iconset>
    </property>
    <property name="text">
-    <string>Hide Mixer</string>
+    <string>&amp;Quit Mixer</string>
    </property>
   </action>
   <action name="action_Change_Audio_Device">
@@ -108,7 +108,7 @@
      <normaloff>:/icons/audio-card.png</normaloff>:/icons/audio-card.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Change Audio Device</string>
+    <string>Change &amp;Audio Device</string>
    </property>
    <property name="whatsThis">
     <string>pc-su pc-soundconfig</string>
