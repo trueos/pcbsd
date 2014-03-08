@@ -80,10 +80,6 @@
         <translation>Salv l-settings attwali għall-fajl konfigurazzjoni PBI</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>Ħlief Konfigurazzjoni</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>Riżorsi</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>Kopja file addizzjonali fil-modulu PBI</translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>żid File</translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Ħassar il-file magħżul mill-modulu PBI</translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>Ħassar File</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>Oħloq b&apos;kitba ppakkjar custom għal binarja programm</translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>Wrapper Script</translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>Salv l- wrapper script</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>Salv l- Script</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>Iħassar il-punt kurrenti mill-modulu PBI</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Neħħi</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>Oħloq l-iskrittura magħżul</translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>Oħloq</translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>Ħassar l-iskrittura magħżul mill-modulu PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>Ħlief-test attwali bħala l-iskrittura magħżula</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Ħlief</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>Neħħi bħalissa link magħżula</translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>Neħħi Dħul</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,24 +328,12 @@
         <translation>Tikkanċella l-jibnu proċess bħalissa għaddej</translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>Ikkanċella Build</translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>Salv l-log kurrenti jibnu għal disk (utli ħafna meta jitolbu għajnuna ma &apos;akkumulu fallew)</translation>
     </message>
     <message>
-        <source>Save Build Log</source>
-        <translation>Ħlief Ibni Log</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>toolBar</translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>EasyPBI Settings</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -424,16 +376,8 @@
         <translation>Storja</translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD Ports</translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>Jiftħu freshports.org għal informazzjoni addizzjonali port</translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>PBI Modules</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -442,10 +386,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>Agħlaq EasyPBI</translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>Pakkett Modulu</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -596,20 +536,12 @@
         <translation>Lista sseparati l-ispazju ta &apos;assoċjazzjonijiet tal-fajl awtomatiku (Eżempju: * Test junk * Junk * TEST)</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>Add</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>Applikazzjoni jeħtieġ privileġġi amministratur li jimxu</translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>jirrikjedi Root</translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>Riffriskar Modulu</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,10 +558,6 @@
     <message>
         <source>Select a different FreeBSD package</source>
         <translation>Agħżel pakkett FreeBSD differenti</translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>Change</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -736,28 +664,12 @@
         <translation>Ibni PBI (Magħmul)</translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation>kkonfigurat</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Help</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation>Quit</translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
         <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>Dwar</translation>
     </message>
     <message>
         <source>Shift+A</source>
@@ -790,6 +702,106 @@
     <message>
         <source>Disable %1</source>
         <translation>Jiskonnettja l %1</translation>
+    </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

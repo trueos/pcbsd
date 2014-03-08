@@ -80,10 +80,6 @@
         <translation>現在の設定内容を PBI 設定ファイルに保存します</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>設定を保存</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>リソース</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>PBIモジュールにファイルを追加する</translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>ファイルを追加</translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>選択した PBI モジュール内のファイルを削除する</translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>ファイルを削除</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>バイナリープログラムのためのラッパースクリプトを作成する</translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>ラッパースクリプト</translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>ラッパースクリプトを保存します</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>スクリプトを保存</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>現在のアイテムをPBIモジュールから削除</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>削除</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>選択されたスクリプトの作成</translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>作成</translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>選択されたスクリプトをPBIモジュールから削除</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>現在入力されているテキストを選択されたスクリプトに保存します</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>選択されたリンクの削除</translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>エントリーを削除</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,20 +328,8 @@
         <translation>現在走っているビルドプロセスをキャンセルする</translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>ビルドをキャンセル</translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>現在のログをディスクに保存します(ビルド失敗時に質問する時に非常に役に立ちます)</translation>
-    </message>
-    <message>
-        <source>Save Build Log</source>
-        <translation>ビルドログを保存</translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>EasyPBI の設定</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -416,16 +368,8 @@
         <translation>履歴</translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD ports</translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>さらに port の情報を得るために freshports.org を開く</translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>PBI モジュール</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -434,10 +378,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>EasyPBI を閉じる</translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>モジュールのパッケージ化</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -588,20 +528,12 @@
         <translation>スペースで区切られたファイル関連付けのリスト (例: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>追加</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>実行には管理者権限が必要</translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>root が必要</translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>モジュールのリフレッシュ</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,10 +558,6 @@
     <message>
         <source>Select a different FreeBSD package</source>
         <translation>他のFreeBSDパッケージを選択する</translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>変更</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -736,28 +664,12 @@
         <translation>PBIをビルドする (完了)</translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation>設定する</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>ヘルプ</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation>終了する</translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
         <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>約</translation>
     </message>
     <message>
         <source>Shift+A</source>
@@ -790,6 +702,106 @@
     <message>
         <source>Disable %1</source>
         <translation>%1を無効にする</translation>
+    </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

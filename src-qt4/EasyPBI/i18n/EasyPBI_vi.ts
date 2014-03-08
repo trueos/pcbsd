@@ -80,10 +80,6 @@
         <translation>Lưu các thiết lập hiện tại vào tập tin cấu hình PBI</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>lưu cấu hình</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>Tài nguyên</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>Sao chép một tập tin bổ sung trong các mô-đun PBI</translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>Thêm tập tin</translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Xóa các tập tin được lựa chọn từ các mô-đun PBI</translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>Xóa các tập tin</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>Tạo ra một kịch bản wrapper tùy chỉnh cho một chương trình nhị phân</translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>Trình bao bọc Tập lệnh</translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>Lưu các kịch bản wrapper</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>Tiết kiệm Tập lệnh</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>Xóa các mục hiện tại từ các mô-đun PBI</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>Tạo ra các kịch bản được chọn</translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>tạo</translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>Xóa các kịch bản được lựa chọn từ các mô-đun PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>Lưu các văn bản hiện hành như kịch bản được chọn</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>tiết kiệm</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>Loại bỏ liên kết hiện đang được chọn</translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>Loại bỏ nhập cảnh</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,24 +328,12 @@
         <translation>Hủy quá trình xây dựng hiện đang chạy</translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>Hủy Xây dựng</translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>Lưu hiện tại xây dựng ghi vào đĩa (rất hữu ích khi yêu cầu giúp đỡ với một thất bại trong xây dựng)</translation>
     </message>
     <message>
-        <source>Save Build Log</source>
-        <translation>Tiết kiệm xây dựng Đăng nhập</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Thanh công cụ</translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>Cài đặt EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -424,16 +376,8 @@
         <translation>lịch sử</translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD cổng</translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>Mở freshports.org cho cổng thông tin bổ sung</translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>PBI Modules</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -442,10 +386,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>đóng EasyPBI</translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>Mô-đun gói</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -596,20 +536,12 @@
         <translation>Danh sách không gian phân cách của các hiệp hội tập tin tự động (Ví dụ:.... THI * junk * kiểm tra * JUNK *)</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>Thêm</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>Ứng dụng cần quyền quản trị để chạy</translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>đòi hỏi phải gốc</translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>Mô-đun làm mới</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,10 +558,6 @@
     <message>
         <source>Select a different FreeBSD package</source>
         <translation>Chọn một gói FreeBSD khác nhau</translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>thay đổi</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -736,28 +664,12 @@
         <translation>Xây dựng PBI (Done)</translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation>cấu hình</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Giúp</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift +S</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation>bỏ thuốc lá</translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
         <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>về</translation>
     </message>
     <message>
         <source>Shift+A</source>
@@ -790,6 +702,106 @@
     <message>
         <source>Disable %1</source>
         <translation>Vô hiệu hóa %1</translation>
+    </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

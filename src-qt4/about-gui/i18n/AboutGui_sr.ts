@@ -68,20 +68,8 @@
         <translation>Verzija</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Zatvori</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Verzija X.org servera:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>Komponente sistema:</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Grafička okruženja...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -100,6 +88,18 @@
         <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

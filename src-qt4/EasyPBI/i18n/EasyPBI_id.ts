@@ -80,10 +80,6 @@
         <translation>Simpan pengaturan saat ini ke berkas konfigurasi PBI</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>Simpan Konfigurasi</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>Sumber daya</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>Salin sebuah berkas tambahan ke dalam modul PBI</translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>Tambah berkas</translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Hapus berkas yang dipilih dari modul PBI</translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>Hapus berkas</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>Buat pembungkus naskah yang disesuaikan untuk biner program</translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>Pembungkus Naskah</translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>Simpan pembungkus naskah</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>Simpan Naskah</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>Hapus item saat ini dari modul PBI</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Hapus</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>Buat naskah yang dipilih</translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>Membuat</translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>Hapus naskah yang dipilih dari modul PBI</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>Simpan teks saat ini sebagai naskah yang dipilih</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Simpan</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>Hapus tautan yang dipilih saat ini</translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>Hapus entri</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,24 +328,12 @@
         <translation>Batalkan proses pembangunan yang sedang berjalan saat ini</translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>Batalkan pembangunan</translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>Simpan log yang dibangun saat ini ke disk (sangat berguna ketika meminta bantuan saat gagal membangun)</translation>
     </message>
     <message>
-        <source>Save Build Log</source>
-        <translation>Simpan Log yang Dibangun</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>toolBar</translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>Pengaturan EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -424,16 +376,8 @@
         <translation>Riwayat</translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD Ports</translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>Buka freshports.org untuk informasi port tambahan</translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>Modul PBI</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -442,10 +386,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>Tutup EasyPBI</translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>Modul Paket</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -596,20 +536,12 @@
         <translation>Daftar spasi pemisah dari kumpulan berkas otomatis (Contoh: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>Tambah</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>Membutuhkan wewenang administrator untuk menjalankan aplikasi</translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>Membutuhkan Root</translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>Muat ulang modul</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,10 +558,6 @@
     <message>
         <source>Select a different FreeBSD package</source>
         <translation>Pilih paket FreeBSD yang berbeda</translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>Ubah</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -736,32 +664,12 @@
         <translation>Membangun PBI (selesai)</translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>About</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -804,6 +712,106 @@
         <source>Disable %1</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

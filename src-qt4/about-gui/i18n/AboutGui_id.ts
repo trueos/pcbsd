@@ -68,20 +68,8 @@
         <translation>Versi</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Tutup</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Server x.org versi:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>Komponen-komponen sistem...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Lingkungan desktop...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -100,6 +88,18 @@
         <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

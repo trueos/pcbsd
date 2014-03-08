@@ -83,22 +83,7 @@
             </translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -121,6 +106,18 @@
         <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

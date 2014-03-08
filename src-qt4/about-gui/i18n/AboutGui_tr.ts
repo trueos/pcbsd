@@ -64,26 +64,12 @@
         <translation>Sürüm</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Kapat</translation>
-    </message>
-    <message>
         <source>ident</source>
         <translation>ident</translation>
     </message>
     <message>
         <source>X.org server version:</source>
         <translation>X.org sunucu sürümü:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -104,6 +90,18 @@
         <source>(unstable)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

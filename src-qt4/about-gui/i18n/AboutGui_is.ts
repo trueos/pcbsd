@@ -68,20 +68,8 @@
         <translation>Leagan</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Dún</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org leagan fhreastalaí:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>Comhpháirteanna Córas...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Timpeallachtaí Desktop:</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -98,6 +86,18 @@
     <message>
         <source>(unstable)</source>
         <translation>(unstable)</translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
