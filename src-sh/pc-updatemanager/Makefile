@@ -29,7 +29,9 @@ all:
 
 install_scripts: first FORCE
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 	-$(INSTALL_FILE) pc-updatemanager $(INSTALL_ROOT)$(PREFIX)/bin/
+	-$(INSTALL_FILE) etcmerge $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 
 
 uninstall_scripts:  FORCE
@@ -42,7 +44,7 @@ install_dochmod: first FORCE
 	chmod 755 $(PREFIX)/bin/pc-updatemanager
 
 install_conf: first FORCE
-	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ 
+	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 	-$(INSTALL_DIR) conf $(INSTALL_ROOT)$(PREFIX)/share/pcbsd/pc-updatemanager/
 
 
