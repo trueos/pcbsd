@@ -453,10 +453,8 @@ check_ip()
 check_pkg_conflicts()
 {
 
-  if [ -z "$EVENT_PIPE" ] ; then unset EVENT_PIPE ; fi
-
   # Lets test if we have any conflicts
-  pkg-static ${1} | tee /tmp/.pkgConflicts.$$
+  pkg-static ${1} 2>&1| tee /tmp/.pkgConflicts.$$
 
   cat /tmp/.pkgConflicts.$$ | grep -q "WARNING: locally installed"
   if [ $? -ne 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
