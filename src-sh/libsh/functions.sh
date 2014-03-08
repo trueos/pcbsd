@@ -470,6 +470,13 @@ check_pkg_conflicts()
   # Grab other style conflicts
   cat /tmp/.pkgConflicts.$$ | grep "Conflict found on path" | cut -d ')' -f 2 | cut -d '(' -f 1 | awk '{print $2}' >> /tmp/.pkgConflicts.$$.2
 
+  # OMFG this is super-lame, not only do we have to grab different style conflicts
+  # but we may even have the *wrong* package name reported if it changed in the 
+  # repo... I.E. py27-requests1-1.2.3 != py27-requests-1.2.3
+  # As a VERY crude work-around, grab the other origin names, see which one matches
+  cat /tmp/.pkgConflicts.$$ | grep "Conflict found on path" | cut -d '(' -f 2 | cut -d ')' -f 1 >> /tmp/.pkgConflicts.$$.2
+  cat /tmp/.pkgConflicts.$$ | grep "Conflict found on path" | cut -d '(' -f 3 | cut -d ")" -f 1 >> /tmp/.pkgConflicts.$$.2
+
   # Get a sorted unique list
   cat /tmp/.pkgConflicts.$$.2 | sort | uniq > /tmp/.pkgConflicts.$$.3
 
@@ -482,9 +489,18 @@ check_pkg_conflicts()
      return 0
   fi
 
+  # Done with EVENT_PIPE at this point
+  if [ -n "$EVENT_PIPE" ] ; then unset EVENT_PIPE; fi
+
+
   while read line
   do
-    cList="$line $cList"
+    # Because PKGNG sucks, we have to now double-check again if these conflicts *really*
+    # are installed <facepalm>
+    pkg-static info -e $line
+    if [ $? -eq 0 ] ; then
+      cList="$line $cList"
+    fi
   done < /tmp/.pkgConflicts.$$.3
   rm /tmp/.pkgConflicts.$$.3
   rm /tmp/.pkgConflicts.$$.2
@@ -521,11 +537,6 @@ check_pkg_conflicts()
   do
      # Nuked!
      echo "Removing conflicting package: $bPkg"
-
-     # If EVENT_PIPE is set, unset it, seems to cause some weird crash in pkgng 1.2.3
-     if [ -n "$EVENT_PIPE" ] ; then
-        unset EVENT_PIPE
-     fi
 
      # Delete the package now
      pkg delete -q -y -f ${bPkg}
