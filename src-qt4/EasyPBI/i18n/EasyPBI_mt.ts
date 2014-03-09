@@ -705,103 +705,103 @@
     </message>
     <message>
         <source>&amp;Build PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Build PBI</translation>
     </message>
     <message>
         <source>&amp;Cancel Build</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ikkanċella Build</translation>
     </message>
     <message>
         <source>&amp;Save Build Log</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħlief Build Log</translation>
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħlief Konfigurazzjoni</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bidla</translation>
     </message>
     <message>
         <source>&amp;Add File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Żid File</translation>
     </message>
     <message>
         <source>&amp;Delete File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħassar File</translation>
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;F&apos;Qartas Script</translation>
     </message>
     <message>
         <source>&amp;Save Script</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħlief Script</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħlief</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Żid</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Oħloq</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neħħi</translation>
     </message>
     <message>
         <source>&amp;Remove Entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neħħi Dħul</translation>
     </message>
     <message>
         <source>&amp;Add Entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Żid Dħul</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;File</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kkonfigurat</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Help</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Settings</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished"></translation>
+        <translation>Free&amp;BSD Ports</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;PBI Moduli</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nieqaf</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pakkett Modulu</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dwar</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Riffriskar Modulu</translation>
     </message>
 </context>
 <context>
