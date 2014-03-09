@@ -533,6 +533,7 @@ share/pcbsd/de-profiles/cinnamon.profile
 share/pcbsd/de-profiles/xfce.profile
 share/pcbsd/pc-updatemanager/conf/sysupdate.conf
 share/pcbsd/pc-updatemanager/conf/security.key
+share/pcbsd/pc-updatemanager/etcmerge
 share/pcbsd/scripts/functions.sh
 share/pcbsd/scripts/mkzfsdir.sh
 share/pcbsd/scripts/reset-firewall
