@@ -705,128 +705,103 @@
     </message>
     <message>
         <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Build PBI</translation>
     </message>
     <message>
         <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Cancel Build</translation>
     </message>
     <message>
         <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save Build Log</translation>
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save Configuration</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Change</translation>
     </message>
     <message>
         <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add File</translation>
     </message>
     <message>
         <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Delete File</translation>
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Wrapper Script</translation>
     </message>
     <message>
         <source>&amp;Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save Script</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Save</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Create</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Remove</translation>
     </message>
     <message>
         <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Remove Entry</translation>
     </message>
     <message>
         <source>&amp;Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add Entry</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;File</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configure</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Help</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Settings</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Free&amp;BSD Ports</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;PBI Modules</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Quit</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Package Module</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;About</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Refresh Module</translation>
     </message>
 </context>
 <context>
