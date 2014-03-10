@@ -42,16 +42,6 @@
             </translation>
     </message>
     <message>
-        <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Hardware</source>
         <translation type="unfinished">
             </translation>
@@ -107,17 +97,27 @@
             </translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Package set:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -453,12 +453,10 @@ check_ip()
 check_pkg_conflicts()
 {
 
-  if [ -z "$EVENT_PIPE" ] ; then unset EVENT_PIPE ; fi
-
   # Lets test if we have any conflicts
-  pkg-static ${1} | tee /tmp/.pkgConflicts.$$
+  pkg-static ${1} 2>&1| tee /tmp/.pkgConflicts.$$
 
-  cat /tmp/.pkgConflicts.$$ | grep -q "WARNING: locally installed"
+  cat /tmp/.pkgConflicts.$$ | grep -q -e "WARNING: locally installed" -e "Conflict found"
   if [ $? -ne 0 ] ; then rm /tmp/.pkgConflicts.$$ ; return ; fi
 
  
@@ -467,22 +465,45 @@ check_pkg_conflicts()
 
   # Nice ugly sed line, sure this can be neater
   cat /tmp/.pkgConflicts.$$ | grep 'WARNING: locally installed' \
-	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' | sort | uniq \
-	> /tmp/.pkgConflicts.$$.2
+	| sed 's|.*installed ||g' | sed 's| conflicts.*||g' > /tmp/.pkgConflicts.$$.2
+
+  # Grab other style conflicts
+  cat /tmp/.pkgConflicts.$$ | grep "Conflict found on path" | cut -d ')' -f 2 | cut -d '(' -f 1 | awk '{print $2}' >> /tmp/.pkgConflicts.$$.2
+
+  # OMFG this is super-lame, not only do we have to grab different style conflicts
+  # but we may even have the *wrong* package name reported if it changed in the 
+  # repo... I.E. py27-requests1-1.2.3 != py27-requests-1.2.3
+  # As a VERY crude work-around, grab the other origin names, see which one matches
+  cat /tmp/.pkgConflicts.$$ | grep "Conflict found on path" | cut -d '(' -f 2 | cut -d ')' -f 1 >> /tmp/.pkgConflicts.$$.2
+  cat /tmp/.pkgConflicts.$$ | grep "Conflict found on path" | cut -d '(' -f 3 | cut -d ")" -f 1 >> /tmp/.pkgConflicts.$$.2
+
+  # Get a sorted unique list
+  cat /tmp/.pkgConflicts.$$.2 | sort | uniq > /tmp/.pkgConflicts.$$.3
 
   # Check how many conflicts we found
-  found=`wc -l /tmp/.pkgConflicts.$$.2 | awk '{print $1}'`
+  found=`wc -l /tmp/.pkgConflicts.$$.3 | awk '{print $1}'`
   if [ "$found" = "0" ] ; then
      rm /tmp/.pkgConflicts.$$
      rm /tmp/.pkgConflicts.$$.2
+     rm /tmp/.pkgConflicts.$$.3
      return 0
   fi
 
+  # Done with EVENT_PIPE at this point
+  if [ -n "$EVENT_PIPE" ] ; then unset EVENT_PIPE; fi
+
+
   while read line
   do
-    cList="$line $cList"
-  done < /tmp/.pkgConflicts.$$.2
-  rm /tmp/.pkgConflicts.$$.2 
+    # Because PKGNG sucks, we have to now double-check again if these conflicts *really*
+    # are installed <facepalm>
+    pkg-static info -e $line
+    if [ $? -eq 0 ] ; then
+      cList="$line $cList"
+    fi
+  done < /tmp/.pkgConflicts.$$.3
+  rm /tmp/.pkgConflicts.$$.3
+  rm /tmp/.pkgConflicts.$$.2
   rm /tmp/.pkgConflicts.$$
 
   if [ "$GUI_FETCH_PARSING" != "YES" -a "$PBI_FETCH_PARSING" != "YES" -a -z "$PCFETCHGUI" ] ; then
@@ -517,20 +538,9 @@ check_pkg_conflicts()
      # Nuked!
      echo "Removing conflicting package: $bPkg"
 
-     # If EVENT_PIPE is set, unset it, seems to cause some weird crash in pkgng 1.2.3
-     if [ -n "$EVENT_PIPE" ] ; then
-        oEP="$EVENT_PIPE"
-        unset EVENT_PIPE
-     fi
-
      # Delete the package now
      pkg delete -q -y -f ${bPkg}
 
-     # Reset EVENT_PIPE if we need to
-     if [ -n "$oEP" ] ; then
-        EVENT_PIPE="$oEP"; export EVENT_PIPE
-        unset oEP
-     fi
   done
 
   # Lets test if we still have any conflicts

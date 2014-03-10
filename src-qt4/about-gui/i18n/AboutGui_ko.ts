@@ -68,20 +68,8 @@
         <translation>버전</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>닫기</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org 서버 버전:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>시스템 컴포넌트...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>데스크톱 환경...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -98,6 +86,21 @@
     </message>
     <message>
         <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>

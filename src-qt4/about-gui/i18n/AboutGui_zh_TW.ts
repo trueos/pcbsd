@@ -68,20 +68,8 @@
         <translation>版本</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>關閉</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org 伺服器版本:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>系統元件...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>桌面環境...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -98,6 +86,21 @@
     <message>
         <source>(unstable)</source>
         <translation>(不穩定)</translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

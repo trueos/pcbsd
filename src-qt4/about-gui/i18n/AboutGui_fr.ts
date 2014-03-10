@@ -64,10 +64,6 @@
         <translation>Version</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
         <source>Arch:</source>
         <translation>Architecture :</translation>
     </message>
@@ -76,28 +72,32 @@
         <translation>Version du serveur X.org:</translation>
     </message>
     <message>
-        <source>System components...</source>
-        <translation>Les composants du système...            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Environnements de bureau...            </translation>
-    </message>
-    <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD utilitaires CLI:            </translation>
+        <translation>PC-BSD utilitaires CLI:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD utilitaires UI:            </translation>
+        <translation>PC-BSD utilitaires UI:</translation>
     </message>
     <message>
         <source>Package set:</source>
-        <translation>Ensemble de packets:</translation>
+        <translation>Ensemble de packages:</translation>
     </message>
     <message>
         <source>(unstable)</source>
         <translation>(instable)</translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation>&amp;composants du système...</translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation>&amp;Desktop environnements de bureau...</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Fermer</translation>
     </message>
 </context>
 </TS>

@@ -794,8 +794,7 @@
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname cannot contain special characters!</translation>
     </message>
 </context>
 </TS>

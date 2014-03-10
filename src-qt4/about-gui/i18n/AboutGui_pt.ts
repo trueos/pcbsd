@@ -74,22 +74,8 @@
         <translation>Versão</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Fechar</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>Versão servidor X.org:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -108,6 +94,21 @@
     </message>
     <message>
         <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>

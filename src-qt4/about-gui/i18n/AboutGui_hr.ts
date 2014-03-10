@@ -68,20 +68,8 @@
         <translation>Inačica</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Zatvori</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org verzija poslužitelja:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>Komponente sustava...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Grafička okruženja...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -98,6 +86,21 @@
     </message>
     <message>
         <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
