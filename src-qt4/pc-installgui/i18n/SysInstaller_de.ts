@@ -301,6 +301,14 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

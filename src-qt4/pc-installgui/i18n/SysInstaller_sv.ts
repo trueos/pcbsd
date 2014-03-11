@@ -299,6 +299,14 @@ Klicka på Avsluta för att starta om. Efter omstarten kan du ta ut installation
         <source>&amp;Save Config to USB</source>
         <translation>&amp;Spara Konfiguration till USB</translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
