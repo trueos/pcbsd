@@ -7,12 +7,14 @@
 #include <QGraphicsPixmapItem>
 
 #include "backend.h"
+#include "../config.h"
 #include "installer.h"
 #include "helpText.h"
 
 Installer::Installer(QWidget *parent) : QMainWindow(parent)
 {
     setupUi(this);
+    labelVersion->setText(tr("Version:") + " " + PCBSDVERSION);
     translator = new QTranslator();
     haveWarnedSpace=false;
     force4K = false;

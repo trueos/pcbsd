@@ -24,4 +24,8 @@
 * POSSIBILITY OF SUCH DAMAGE.
 */
 
+// Set the PC-BSD specific version string for our utils
+#define PCBSDVERSION QString("10.0.1")
+
+// Set the LOCALBASE
 #define PREFIX QString("/usr/local")
