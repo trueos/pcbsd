@@ -42,6 +42,7 @@ display_pkg_version()
 
 if [ "$SYSTYPE" = "PCBSD" ]; then 
     display_pcbsd_banner    
+    VERNAME="PC-BSD"
 fi
 if [ "$SYSTYPE" = "TRUEOS" ]; then 
     display_trueos_banner 
@@ -53,6 +54,11 @@ echo "       Host:..............`hostname`"
 echo "       User:..............`whoami`"
 echo "       Uptime:............`uptime | awk '{sub(/^.* up +/,"");sub(/, *[0-9]+ users.*/,"");print}'`"
 echo "       FreeBSD ver:.......`uname -r`"
+if [ "$SYSTYPE" = "PCBSD" ]; then
+  echo "       PC-BSD ver:........`cat /usr/local/share/pcbsd/version`"
+else
+  echo "       TrueOS ver:........`cat /usr/local/share/pcbsd/version`"
+fi
 echo "       Arch:..............`uname -m`"
 echo "       Kernel ident:......`uname -i`"
 echo "       CPU:...............`sysctl -n hw.model`"

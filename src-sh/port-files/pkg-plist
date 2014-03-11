@@ -545,6 +545,7 @@ share/pcbsd/scripts/mkzfsdir.sh
 share/pcbsd/scripts/reset-firewall
 share/pcbsd/scripts/rmzfsdir.sh
 share/pcbsd/scripts/sys-init.sh
+share/pcbsd/version
 etc/warden.conf.dist
 etc/pc-activedirectory.conf
 etc/pc-ldap.conf
