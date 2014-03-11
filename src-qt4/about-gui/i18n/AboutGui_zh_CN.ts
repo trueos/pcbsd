@@ -81,13 +81,11 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>软件集：</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(不稳定版本)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
@@ -103,6 +101,10 @@
         <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

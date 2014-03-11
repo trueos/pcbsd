@@ -705,128 +705,103 @@
     </message>
     <message>
         <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIをビルドする(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビルドをキャンセルする(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ビルドログを保存する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定を保存する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更する(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを追加する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイルを削除する(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ラッパースクリプト(&amp;W)</translation>
     </message>
     <message>
         <source>&amp;Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スクリプトを保存する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>保存する(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>追加(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>作成(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>削除する(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エントリーを削除する(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エントリーを追加する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ヘルプ(&amp;H)</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>設定(&amp;S)</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Free&amp;BSD Ports</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBIモジュール(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>止める(&amp;Q)</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージモジュール(&amp;P)</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>このソフトウェアについて(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>モジュールを再読込する(&amp;R)</translation>
     </message>
 </context>
 <context>

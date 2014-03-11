@@ -89,18 +89,19 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>システムコンポーネント(&amp;S)...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デスクトップ環境(&amp;D)...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる(&amp;C)</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

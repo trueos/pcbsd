@@ -99,5 +99,9 @@
         <source>&amp;Close</source>
         <translation>&amp;Close</translation>
     </message>
+    <message>
+        <source>Utils:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
