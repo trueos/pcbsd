@@ -25,7 +25,7 @@
 */
 
 // Set the PC-BSD specific version string for our utils
-#define PCBSDVERSION QString("10.0.1")
+#define PCBSDVERSION QString("10.0.2-PRE")
 
 // Set the LOCALBASE
 #define PREFIX QString("/usr/local")
