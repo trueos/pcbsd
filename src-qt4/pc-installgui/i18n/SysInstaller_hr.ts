@@ -313,11 +313,13 @@ Kliknite na Završi za ponovno podizanje. NAkon ponovnog podizanja možete izbac
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

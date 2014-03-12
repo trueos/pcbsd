@@ -301,11 +301,11 @@ Kích Finish để khởi động lại. Sau khi khởi động lại, bạn có
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;Version&gt;</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bản có:</translation>
     </message>
 </context>
 <context>
