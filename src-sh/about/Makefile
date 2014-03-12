@@ -39,15 +39,16 @@ uninstall_scripts:  FORCE
 	-$(DEL_FILE) -r $(INSTALL_ROOT)$(PREFIX)/bin/about
 	-$(DEL_DIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 
+install_doinstall:
+	sh install.sh $(PREFIX)
 
 install_dochmod: first FORCE
 	@$(CHK_DIR_EXISTS) $(INSTALL_ROOT)$(PREFIX)/bin/ || $(MKDIR) $(INSTALL_ROOT)$(PREFIX)/bin/ 
 	chmod 755 $(PREFIX)/bin/about
 
 
-install:  install_scripts install_dochmod  FORCE
+install:  install_scripts install_dochmod install_doinstall FORCE
 
 uninstall: uninstall_scripts   FORCE
 
 FORCE:
-

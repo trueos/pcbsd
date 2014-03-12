@@ -99,5 +99,9 @@
         <source>&amp;Close</source>
         <translation>&amp;Đóng</translation>
     </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Các tiện ích:</translation>
+    </message>
 </context>
 </TS>

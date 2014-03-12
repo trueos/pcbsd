@@ -84,6 +84,12 @@ private slots:
     void slotConfigClicked();
     void slotConfigFinished();
 
+    // User wants to do package cleanup
+    void slotPackageCleanupClicked();
+    void slotReadPkgCleanupOutput();
+    void slotPkgCleanupDone();
+    void slotCleanupOK();
+
 private:
     // Generic pkg process handlers
     void prepPkgProcess();
@@ -111,6 +117,9 @@ private:
     QString lastError;
     QSocketNotifier *eSock;
 
+    // Start the package cleanup process
+    void doPackageCleanup();
+    QStringList pkgCleanupList;
 
     // Meta-Packages
     void initMetaWidget();

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>913</width>
-    <height>644</height>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -434,13 +434,15 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>913</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
     <property name="title">
      <string>&amp;File</string>
     </property>
+    <addaction name="action_Cleanup_Packages"/>
+    <addaction name="separator"/>
     <addaction name="action_Quit"/>
    </widget>
    <widget class="QMenu" name="menu_View">
@@ -507,6 +509,11 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Shift+S</string>
+   </property>
+  </action>
+  <action name="action_Cleanup_Packages">
+   <property name="text">
+    <string>&amp;Cleanup Packages</string>
    </property>
   </action>
  </widget>

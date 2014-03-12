@@ -298,6 +298,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>&amp;Save Config to USB</source>
         <translation>&amp;Enregistrer la configuration USB</translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation>&lt;Version&gt;</translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation>Version:</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

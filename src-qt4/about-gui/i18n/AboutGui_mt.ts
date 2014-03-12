@@ -99,5 +99,9 @@
         <source>&amp;Close</source>
         <translation>&amp;Agħlaq</translation>
     </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Utilitajiet:</translation>
+    </message>
 </context>
 </TS>

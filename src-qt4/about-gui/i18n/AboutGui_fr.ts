@@ -99,5 +99,9 @@
         <source>&amp;Close</source>
         <translation>&amp;Fermer</translation>
     </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Utilitaires:</translation>
+    </message>
 </context>
 </TS>

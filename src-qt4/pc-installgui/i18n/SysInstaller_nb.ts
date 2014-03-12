@@ -329,6 +329,16 @@ Klikk Fullfør for å starte på nytt. Etter omstart kan du løse ut installasjo
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
