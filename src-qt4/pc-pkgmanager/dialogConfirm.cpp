@@ -27,6 +27,7 @@ void dialogConfirm::setInfoText(QString text)
 
 void dialogConfirm::slotCancel()
 {
+  emit cancel();
   close();
 }
 

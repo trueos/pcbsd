@@ -38,6 +38,7 @@ void mainWin::ProgramInit(QString ch)
   connect(pushPkgApply, SIGNAL( clicked() ), this, SLOT( slotApplyClicked() ) );
   connect(action_Quit, SIGNAL( triggered(bool) ), this, SLOT( slotCloseClicked() ) );
   connect(action_Configuration, SIGNAL( triggered(bool) ), this, SLOT( slotConfigClicked() ) );
+  connect(action_Cleanup_Packages, SIGNAL( triggered(bool) ), this, SLOT( slotPackageCleanupClicked() ) );
   connect(tool_search, SIGNAL( clicked() ), this, SLOT( slotSearchPackages() ) );
   connect(line_search, SIGNAL( returnPressed()), this, SLOT( slotSearchPackages()) );
 	
@@ -79,6 +80,43 @@ void mainWin::ProgramInit(QString ch)
   palette.setColor(QPalette::Base, Qt::black);
   palette.setColor(QPalette::Text, Qt::white);
   textDisplayOut->setPalette(palette);
+}
+
+void mainWin::slotPackageCleanupClicked()
+{
+  if(QMessageBox::Yes == QMessageBox::question(this,tr("Package Cleanup"),tr("Do you want to start package cleanup?"),QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+    doPackageCleanup();
+  }
+}
+
+void mainWin::doPackageCleanup()
+{
+  dPackages = false;
+  uPackages = false;
+
+  // Set the type of pkg command
+  pkgProcessType="cleanupinit";
+  pkgCleanupList.clear();
+
+  // Init the pkg process
+  prepPkgProcess();
+
+  // Create our runlist of package commands
+  QStringList pCmds;
+
+  if ( wDir.isEmpty() )
+    pCmds << "pkg-static" << "autoremove" << "-n";
+  else
+    pCmds << "chroot" << wDir << "pkg-static" << "autoremove" << "-n";
+
+  // Setup our runList
+  pkgCmdList << pCmds;
+
+  // Start the updating now
+  startPkgProcess();
+
+  textStatus->setText(tr("Starting package cleanup..."));
+
 }
 
 void mainWin::slotViewChanged()
@@ -391,8 +429,16 @@ void mainWin::startPkgProcess() {
   uProc->setProcessChannelMode(QProcess::MergedChannels);
 
   // Connect the slots
-  connect( uProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadPkgOutput()) );
-  connect( uProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotPkgDone()) );
+  if ( pkgProcessType == "cleanupinit" ) {
+    connect( uProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadPkgCleanupOutput()) );
+    connect( uProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotPkgCleanupDone()) );
+  } else if ( pkgProcessType == "cleanup" ) {
+    connect( uProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadPkgCleanupOutput()) );
+    connect( uProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotPkgDone()) );
+  } else {
+    connect( uProc, SIGNAL(readyReadStandardOutput()), this, SLOT(slotReadPkgOutput()) );
+    connect( uProc, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotPkgDone()) );
+  }
 
   uProc->start(cmd, flags);
 
@@ -400,6 +446,88 @@ void mainWin::startPkgProcess() {
 
   progressUpdate->setRange(0, 0 );
   progressUpdate->setValue(0);
+
+}
+
+void mainWin::slotCleanupOK()
+{
+  // Create our runlist of package commands
+  QStringList pCmds;
+
+  if ( wDir.isEmpty() )
+     pCmds << "pkg-static" << "autoremove" << "-y";
+  else
+     pCmds << "chroot" << wDir << "pkg-static" << "autoremove" << "-y";
+
+  // Setup our runList
+  pkgCmdList << pCmds;
+
+  // Start the real cleanup now
+  pkgProcessType="cleanup";
+
+  // Run the next command
+  slotPkgDone();
+}
+
+void mainWin::slotPkgCleanupDone()
+{
+   // Ask the user if they indeed want to remove these packages
+   askUserConfirm = new dialogConfirm();
+   connect(askUserConfirm, SIGNAL(ok()),this, SLOT(slotCleanupOK()) );
+   connect(askUserConfirm, SIGNAL(cancel()),this, SLOT(slotPkgDone()) );
+   askUserConfirm->programInit(tr("Package Cleanup"));
+   askUserConfirm->setInfoText(tr("The following packages will be removed. Continue?") + "\n\n" + pkgCleanupList.join("\n"));
+   askUserConfirm->exec();
+}
+
+void mainWin::slotReadPkgCleanupOutput()
+{
+  QString line, tmp;
+
+  if ( pkgProcessType == "cleanupinit" )
+  {
+     while (uProc->canReadLine()) {
+       line = uProc->readLine().simplified();
+       qDebug() << line;
+
+       // Empty line? We can skip it
+       if ( line.isEmpty() )
+	  continue;
+
+       tmp = line;
+       tmp.truncate(50);
+
+       // Now show output on GUI
+       textDisplayOut->insertPlainText(line + "\n");
+       textDisplayOut->moveCursor(QTextCursor::End);
+
+       if ( tmp.indexOf("Deinstallation has") != -1 )
+          continue;
+
+       if ( tmp.indexOf("The deinstallation") != -1 )
+          continue;
+
+       // Save a list of packages we will be pruning
+       pkgCleanupList << tmp.simplified();
+     }
+  } else {
+     while (uProc->canReadLine()) {
+       line = uProc->readLine().simplified();
+       qDebug() << line;
+
+       // Empty line? We can skip it
+       if ( line.isEmpty() )
+	  continue;
+
+       tmp = line;
+       tmp.truncate(50);
+
+       // Now show output on GUI
+       textDisplayOut->insertPlainText(line + "\n");
+       textDisplayOut->moveCursor(QTextCursor::End);
+
+     }
+  }
 
 }
 
