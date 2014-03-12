@@ -1,7 +1,8 @@
 #!/bin/sh
 # Script to set "about" version number
 
-VER=`cat ../../src-qt4/config.h | grep '#define PCBSDVERSION' | cut -d '"' -f 2`
+# Source config file
+. ../config.sh
 
 DEFAULT="/usr/local"
 
@@ -19,4 +20,4 @@ if [ ! -d "${LB}/share/pcbsd" ] ; then
   mkdir -p ${LB}/share/pcbsd/
 fi
 
-echo "$VER" > ${LB}/share/pcbsd/version
+echo "$PCBSDVERSION" > ${LB}/share/pcbsd/version
