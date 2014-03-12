@@ -23,6 +23,9 @@
 #include <QDesktopServices>
 #include <QUrl>
 
+/* LibPCBSD Includes */
+#include <pcbsd-sysFlags.h>
+
 /* Local Includes */
 #include "pbiBackend.h"
 #include "extras.h"
@@ -117,6 +120,7 @@ private:
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
+  int updatesAvailable;
   QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu, *sMimeMenu, *contextActionMenu;
   QString cDetails;
   void initializeInstalledTab();
