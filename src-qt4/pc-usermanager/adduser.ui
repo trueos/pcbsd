@@ -321,7 +321,7 @@
        <item>
         <widget class="QPushButton" name="okButton">
          <property name="text">
-          <string>&amp;Ok</string>
+          <string>&amp;Save</string>
          </property>
          <property name="icon">
           <iconset>
