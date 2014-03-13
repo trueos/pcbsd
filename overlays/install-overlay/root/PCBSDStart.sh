@@ -63,7 +63,7 @@ if [ -e "/usr/pcbsd-live" ]; then
   if [ "$FOUND" = "0" ]
   then
     /root/PCBSDtext.sh
-    shutdown -r now
+    reboot -q
     exit
   fi
 
@@ -94,7 +94,7 @@ mkdir /tmp/xkb
 kenv xconsole 2>/dev/null | grep -q "YES"
 if [ $? -eq 0 ]; then
   /root/PCBSDtext.sh
-  shutdown -r now
+  reboot -q
   exit
 fi
 
@@ -105,12 +105,12 @@ start_xorg
 if [ -e "/root/.exitStatus" ] ; then
   STATUS="`cat /root/.exitStatus`"
   if [ "$STATUS" = "0" ] ; then
-    shutdown -r now
+    reboot -q
   else
     echo "Installation failed! Press any key to drop to shell or type 'reboot' to restart the system"
     read tmp
     if [ "$tmp" = "reboot" ] ; then
-      shutdown -r now
+      reboot -q
     else
       /bin/sh
     fi
