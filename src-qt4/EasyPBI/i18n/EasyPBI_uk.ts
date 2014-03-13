@@ -705,38 +705,31 @@
     </message>
     <message>
         <source>&amp;Build PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зібрати PBI</translation>
     </message>
     <message>
         <source>&amp;Cancel Build</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скасувати збирання</translation>
     </message>
     <message>
         <source>&amp;Save Build Log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти лог збирання</translation>
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти налаштування</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Змінити</translation>
     </message>
     <message>
         <source>&amp;Add File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати файл</translation>
     </message>
     <message>
         <source>&amp;Delete File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити файл</translation>
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
@@ -745,73 +738,59 @@
     </message>
     <message>
         <source>&amp;Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти скрипт</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створити</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити</translation>
     </message>
     <message>
         <source>&amp;Remove Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити елемент</translation>
     </message>
     <message>
         <source>&amp;Add Entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати елемент</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштувати</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Допомога</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Налаштування</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Порти Free&amp;BSD</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Модулі &amp;PBI</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
@@ -825,8 +804,7 @@
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Оновити модуль</translation>
     </message>
 </context>
 <context>

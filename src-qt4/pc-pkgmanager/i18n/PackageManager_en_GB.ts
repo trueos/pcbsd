@@ -319,23 +319,23 @@
     </message>
     <message>
         <source>&amp;Cleanup Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cleanup Packages</translation>
     </message>
     <message>
         <source>Package Cleanup</source>
-        <translation type="unfinished"></translation>
+        <translation>Package Cleanup</translation>
     </message>
     <message>
         <source>Do you want to start package cleanup?</source>
-        <translation type="unfinished"></translation>
+        <translation>Do you want to start package cleanup?</translation>
     </message>
     <message>
         <source>Starting package cleanup...</source>
-        <translation type="unfinished"></translation>
+        <translation>Starting package cleanup...</translation>
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>The following packages will be removed. Continue?</translation>
     </message>
 </context>
 </TS>
