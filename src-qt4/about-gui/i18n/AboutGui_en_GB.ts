@@ -101,8 +101,7 @@
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utils:</translation>
     </message>
 </context>
 </TS>

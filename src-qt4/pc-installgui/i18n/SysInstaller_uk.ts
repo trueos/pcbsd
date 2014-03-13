@@ -300,13 +300,11 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Version&gt;</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версія:</translation>
     </message>
 </context>
 <context>
