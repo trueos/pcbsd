@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>638</width>
-    <height>260</height>
+    <height>261</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -396,13 +396,13 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionClose"/>
    </widget>
    <widget class="QMenu" name="menuAdvanced">
     <property name="title">
-     <string>Emergency Services</string>
+     <string>&amp;Emergency Services</string>
     </property>
     <addaction name="action_rebuildGRUBmenu"/>
     <addaction name="action_restoreGRUBdefaults"/>
@@ -417,7 +417,7 @@
      <normaloff>:/icons/close.png</normaloff>:/icons/close.png</iconset>
    </property>
    <property name="text">
-    <string>Close</string>
+    <string>&amp;Close</string>
    </property>
   </action>
   <action name="action_rebuildGRUBmenu">
@@ -426,7 +426,7 @@
      <normaloff>:/icons/gear.png</normaloff>:/icons/gear.png</iconset>
    </property>
    <property name="text">
-    <string>Rebuild GRUB Menu</string>
+    <string>Re&amp;build GRUB Menu</string>
    </property>
   </action>
   <action name="action_restoreGRUBdefaults">
@@ -435,7 +435,7 @@
      <normaloff>:/icons/undo.png</normaloff>:/icons/undo.png</iconset>
    </property>
    <property name="text">
-    <string>Restore GRUB Defaults</string>
+    <string>&amp;Restore GRUB Defaults</string>
    </property>
   </action>
  </widget>
