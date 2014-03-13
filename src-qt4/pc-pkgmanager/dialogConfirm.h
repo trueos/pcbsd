@@ -32,6 +32,7 @@ private:
 
 signals:
     void ok();
+    void cancel();
 
 } ;
 #endif // DIALOGCONFIRM_H

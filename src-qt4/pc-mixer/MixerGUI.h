@@ -7,6 +7,8 @@
 #include <QCoreApplication>
 #include <QHBoxLayout>
 #include <QScrollBar>
+#include <QProcess>
+#include <QAction>
 
 #include "DeviceWidget.h"
 #include "MixerBackend.h"
@@ -35,6 +37,10 @@ private slots:
 	void closeApplication(){
 	  closing = true;
 	  this->close();
+	}
+	
+	void startExternalApp(QAction *act){
+	  QProcess::startDetached(act->whatsThis());
 	}
 	
 	void changeDefaultTrayDevice(QString device);

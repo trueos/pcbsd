@@ -80,10 +80,6 @@
         <translation>Sla de huidige instellingen op in het PBI-instellingenbestand</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>Instellingen opslaan</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>Hulpbronnen</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>Kopieer een extra bestand naar de PBI-module</translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>Bestand toevoegen</translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Verwijder het gekozen bestand uit de PBI-module</translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>Bestand verwijderen</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>Maak een aangepast inpakscript voor een binair bestand van een programma</translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>Verpakkerscript</translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>Sla het verpakkerscript op</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>Script opslaan</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>Verwijder het huidige element uit de PBI-module</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Verwijderen</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>Maak het gekozen script</translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>Maken</translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>Verwijder het gekozen script uit de PBI-module</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>Sla de huidige tekst op als het gekozen script</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Opslaan</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>Verwijder thans gekozen koppeling</translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>Verwijder invoerveld</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,24 +328,12 @@
         <translation>Annuleer het thans draaiende bouwproces</translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>Bouwen annuleren</translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>Sla het huidige bouwlogboek op de schijf op (zeer nuttig bij het inroepen van hulp voor een mislukt bouwsel)</translation>
     </message>
     <message>
-        <source>Save Build Log</source>
-        <translation>Sla bouwlogboek op</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>werkbalk</translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>Instellingen van EasyPBI</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -424,16 +376,8 @@
         <translation>Geschiedenis</translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD-poorten</translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>Open freshports.org voor extra poortinformatie</translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>PBI-modules</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -442,10 +386,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>EasyPBI sluiten</translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>Pakketmodule</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -596,20 +536,12 @@
         <translation>Spatiegescheiden lijst van automatische bestandassociaties (bijvoorbeeld: *.odt *.ODT)</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>Toevoegen</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>Toepassing heeft beheerdersrechten nodig om te draaien</translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>Vereist root</translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>Module verversen</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,11 +558,6 @@
     </message>
     <message>
         <source>Select a different FreeBSD package</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Change</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -765,32 +692,12 @@
             </translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>About</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -831,6 +738,131 @@
     </message>
     <message>
         <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
         <translation type="unfinished">
             </translation>
     </message>

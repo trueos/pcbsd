@@ -68,20 +68,8 @@
         <translation>バージョン</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>閉じる</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.orgサーババージョン:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>システムコンポーネントの一覧...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>デスクトップ環境...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -98,6 +86,22 @@
     <message>
         <source>(unstable)</source>
         <translation>(不安定)</translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation>システムコンポーネント(&amp;S)...</translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation>デスクトップ環境(&amp;D)...</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>閉じる(&amp;C)</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>ユーティリティー:</translation>
     </message>
 </context>
 </TS>

@@ -83,23 +83,8 @@
             </translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>बंद करें
-            </translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org सर्वर संस्करण
-            </translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>सिस्टम घटक...
-            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>डेक्सटोप इनवार्नमेन्ट...
             </translation>
     </message>
     <message>
@@ -119,6 +104,26 @@
     </message>
     <message>
         <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Utils:</source>
         <translation type="unfinished">
             </translation>
     </message>

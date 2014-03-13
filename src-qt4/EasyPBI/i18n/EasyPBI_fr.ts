@@ -80,10 +80,6 @@
         <translation>Enregistrer les paramètres actuels dans le fichier de configuration du PBI</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>Sauvegarder la configuration</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>Ressources</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>Copier un fichier supplémentaire dans le module de PBI            </translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>Ajouter un Fichier            </translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>Supprimer le fichier sélectionné dans le module de PBI            </translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>Supprimer le Fichier      </translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>Créer un script personnalisé pour un programme binaire      </translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>Script wrapper    </translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>Enregistrez le script wrapper   </translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>Enregistrer le script            </translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>Supprimer l&apos;élément en cours du module PBI            </translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Supprimer            </translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>Créer le script sélectionné            </translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>Créer            </translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>Supprimer le script sélectionné à partir du module PBI            </translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>Enregistrer le texte actuel comme le script sélectionné</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Sauvegarder            </translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>Supprimer le lien sélectionné            </translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>Supprimer une entrée            </translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,24 +328,12 @@
         <translation>Annuler le processus de construction en cours d&apos;exécution </translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>Annuler la construction            </translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>Enregistrer la version  journal actuelle sur le disque (très utile quand vous demandez de l&apos;aide en cas de mauvaise compilation)            </translation>
     </message>
     <message>
-        <source>Save Build Log</source>
-        <translation>Enregistrer l&apos;historique de construction</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>Barre d&apos;outils            </translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>EasyPBI Réglages </translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -424,16 +376,8 @@
         <translation>Historique            </translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD Ports            </translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>Ouvrez freshports.org pour obtenir des informations supplémentaire sur un port             </translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>PBI Modules            </translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -442,10 +386,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>Fermer EasyPBI            </translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>Module pour le paquet            </translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -596,20 +536,12 @@
         <translation>Séparés par des espaces, des listes de fichiers automatiques associés (Exemple:.... * Ordure ORDURE * test * TEST *)            </translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>Ajouter            </translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>L&apos;application a besoin des privilèges administrateur pour être exécuté     </translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>Administrateur Requis            </translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>Rafraîchir le Module            </translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,10 +558,6 @@
     <message>
         <source>Select a different FreeBSD package</source>
         <translation>Sélectionner un package FreeBSD different</translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>Change</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -736,28 +664,12 @@
         <translation>Construire PBI (Terminé)</translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation>Configure</translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation>Aide</translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation>Quitter</translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
         <translation>Shift+Q</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>À Propos</translation>
     </message>
     <message>
         <source>Shift+A</source>
@@ -791,6 +703,106 @@
         <source>Disable %1</source>
         <translation>Désactiver %1</translation>
     </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation>&amp;Construire PBI</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation>&amp;Annuler la construction</translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation>&amp;Sauvegarder la construction Log</translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation>&amp;Sauvegarder la Configuration</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation>&amp;Changement</translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation>&amp;Ajouter un Fichier</translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation>&amp;Supprimer un Fichier</translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation>&amp;Script d&apos;emballage de</translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation>&amp;Sauvegarder le Script</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Sauvegarder</translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation>&amp;Ajouter</translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation>&amp;Créer</translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation>&amp;Supprimer</translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation>&amp;Supprimer l&apos;entrée</translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation>&amp;Ajouter une Entrée</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Fichier</translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation>&amp;Configurer</translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation>&amp;Aide</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Paramètres</translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation>Free&amp;BSD Ports</translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation>&amp;PBI Modules</translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation>&amp;Quitter</translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation>&amp;Package Module</translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation>&amp;À Propos</translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
+        <translation>&amp;Actualiser le Module</translation>
+    </message>
 </context>
 <context>
     <name>NewModuleDialog</name>
@@ -808,7 +820,7 @@
     </message>
     <message>
         <source>Select</source>
-        <translation>Sélectionner            </translation>
+        <translation>Sélectionner</translation>
     </message>
     <message>
         <source>PNG icon file to use for the PBI (can be changed later)</source>

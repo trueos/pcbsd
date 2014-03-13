@@ -302,6 +302,16 @@ Klikni Končaj za ponovni zagon. Ob ponovnem zagonu lahko odstranite namestitven
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

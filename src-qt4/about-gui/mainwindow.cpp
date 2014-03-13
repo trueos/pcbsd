@@ -23,6 +23,7 @@
 ***************************************************************************/
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "../config.h"
 
 #include <QProcess>
 #include <QStringList>
@@ -85,12 +86,16 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     // pcbsd version
-    Ver = pcbsd::Utils::runShellCommand("uname -r").at(0);
-    ui->VersionLabel->setText(Ver+" ("+Arch+")");
+    ui->VersionLabel->setText(PCBSDVERSION);
+
+    // Utils version
+    ui->UtilsLabel->setText(pcbsd::Utils::runShellCommand("pkg query '%v' pcbsd-utils-qt4").at(0).section("'", 1, 1));
 
     QString PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
+    PkgSet="PRODUCTION";
     if (PkgSet.toUpper().trimmed() == "EDGE")
     {
+        PkgSet="EDGE";
         PkgSet+=QString(" ") + tr("(unstable)");
     }
     ui->PkgSetLabel->setText(PkgSet);

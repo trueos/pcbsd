@@ -317,5 +317,25 @@
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
+    <message>
+        <source>&amp;Cleanup Packages</source>
+        <translation>&amp;Nettoyage des Paquets</translation>
+    </message>
+    <message>
+        <source>Package Cleanup</source>
+        <translation>Nettoyage des Paquets</translation>
+    </message>
+    <message>
+        <source>Do you want to start package cleanup?</source>
+        <translation>Voulez-vous commencer le nettoyage des Paquets?</translation>
+    </message>
+    <message>
+        <source>Starting package cleanup...</source>
+        <translation>Débuter le nettoyage des paquets...</translation>
+    </message>
+    <message>
+        <source>The following packages will be removed. Continue?</source>
+        <translation>Les paquets suivants seront supprimés. Continuer?</translation>
+    </message>
 </context>
 </TS>

@@ -80,10 +80,6 @@
         <translation>将当前设置保存到这BI配置文件中</translation>
     </message>
     <message>
-        <source>Save Configuration</source>
-        <translation>保存配置</translation>
-    </message>
-    <message>
         <source>Resources</source>
         <translation>源</translation>
     </message>
@@ -104,32 +100,16 @@
         <translation>复制额外的文件到PBI模块</translation>
     </message>
     <message>
-        <source>Add File</source>
-        <translation>添加文件</translation>
-    </message>
-    <message>
         <source>Delete the selected file from the PBI module</source>
         <translation>删除PBI中已选的文件</translation>
-    </message>
-    <message>
-        <source>Delete File</source>
-        <translation>删除文件</translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
         <translation>为程序二进制文件创建一个定制封装脚本</translation>
     </message>
     <message>
-        <source>Wrapper Script</source>
-        <translation>封装脚本</translation>
-    </message>
-    <message>
         <source>Save the wrapper script</source>
         <translation>保存封装脚本</translation>
-    </message>
-    <message>
-        <source>Save Script</source>
-        <translation>保存脚本</translation>
     </message>
     <message>
         <source>Resource Icon</source>
@@ -170,10 +150,6 @@
     <message>
         <source>Delete the current item from the PBI module</source>
         <translation>从PBI条目删除当前条目</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>移除</translation>
     </message>
     <message>
         <source>Entry Details</source>
@@ -252,20 +228,12 @@
         <translation>创建选定的脚本</translation>
     </message>
     <message>
-        <source>Create</source>
-        <translation>创建</translation>
-    </message>
-    <message>
         <source>Delete the selected script from the PBI module</source>
         <translation>从此PBI模块中删除选定的脚本</translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
         <translation>将当前文本保存为选定的脚本</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
@@ -298,10 +266,6 @@
     <message>
         <source>Remove currently selected link</source>
         <translation>移除当前选定的链接</translation>
-    </message>
-    <message>
-        <source>Remove Entry</source>
-        <translation>移除条目</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -364,24 +328,12 @@
         <translation>撤销正在运行的编译进程</translation>
     </message>
     <message>
-        <source>Cancel Build</source>
-        <translation>撤销编译</translation>
-    </message>
-    <message>
         <source>Save the current build log to disk (very useful when requesting help with a failed build)</source>
         <translation>将当前编译日志保存到磁盘（对于编译失败求助时非常有用）</translation>
     </message>
     <message>
-        <source>Save Build Log</source>
-        <translation>保存编译日志</translation>
-    </message>
-    <message>
         <source>toolBar</source>
         <translation>工具栏</translation>
-    </message>
-    <message>
-        <source>EasyPBI Settings</source>
-        <translation>EasyPBI设置</translation>
     </message>
     <message>
         <source>Open up the EasyPBI settings editor</source>
@@ -424,16 +376,8 @@
         <translation>历史</translation>
     </message>
     <message>
-        <source>FreeBSD Ports</source>
-        <translation>FreeBSD Port</translation>
-    </message>
-    <message>
         <source>Open up freshports.org for additional port information</source>
         <translation>打开freshports.org以查看更多关于port的信息</translation>
-    </message>
-    <message>
-        <source>PBI Modules</source>
-        <translation>PBI模块</translation>
     </message>
     <message>
         <source>Open up the PC-BSD Wiki page for PBI developers</source>
@@ -442,10 +386,6 @@
     <message>
         <source>Close EasyPBI</source>
         <translation>关闭EasyPBI</translation>
-    </message>
-    <message>
-        <source>Package Module</source>
-        <translation>包裹模块</translation>
     </message>
     <message>
         <source>Compress the current module for distribution</source>
@@ -596,20 +536,12 @@
         <translation>以空格分列的自动文件关联列表（如：*.junk *.JUNK *.test *.TEST）</translation>
     </message>
     <message>
-        <source>Add</source>
-        <translation>添加</translation>
-    </message>
-    <message>
         <source>Application needs administrator privileges to run</source>
         <translation>程序需要管理员权限运行</translation>
     </message>
     <message>
         <source>Requires Root</source>
         <translation>需要根用户</translation>
-    </message>
-    <message>
-        <source>Refresh Module</source>
-        <translation>刷新模块</translation>
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
@@ -626,10 +558,6 @@
     <message>
         <source>Select a different FreeBSD package</source>
         <translation>选择一个其它的FreeBSD软件包</translation>
-    </message>
-    <message>
-        <source>Change</source>
-        <translation>更改</translation>
     </message>
     <message>
         <source>View Package Overrides (optional)</source>
@@ -736,32 +664,12 @@
         <translation>编译PBI(完成)</translation>
     </message>
     <message>
-        <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Help</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+S</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>About</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -802,6 +710,131 @@
     </message>
     <message>
         <source>Disable %1</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Build PBI</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel Build</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save Build Log</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save Configuration</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Wrapper Script</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save Script</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Create</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Remove</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Remove Entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Help</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Free&amp;BSD Ports</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;PBI Modules</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Package Module</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;About</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Module</source>
         <translation type="unfinished">
             </translation>
     </message>

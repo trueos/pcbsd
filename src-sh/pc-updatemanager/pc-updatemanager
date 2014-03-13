@@ -1148,14 +1148,30 @@ update_pkgs()
      exit_err "Invalid option $1 passed"
   fi
 
+  # Don't use EVENT_PIPE for the update -f command
+  if [ -n "$EVENT_PIPE" ] ; then
+     oEP="$EVENT_PIPE" 
+     unset EVENT_PIPE
+  fi
+
   # Update the DB first
   pkg-static update -f
+
+  # Enable EVENT_PIPE again
+  if [ -n "$oEP" ] ; then
+     EVENT_PIPE="$oEP"
+     unset oEP
+     export EVENT_PIPE
+  fi
 
   # Look for conflicts
   check_pkg_conflicts "upgrade -FUy $1"
   if [ $? -ne 0 ] ; then
      exit 1
   fi
+
+  # Done with EVENT_PIPE
+  unset EVENT_PIPE
 
   # Start the package update!
   pkg-static upgrade -U -y ${1}

@@ -317,5 +317,25 @@
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
+    <message>
+        <source>&amp;Cleanup Packages</source>
+        <translation>&amp;Dọn dẹp Gói</translation>
+    </message>
+    <message>
+        <source>Package Cleanup</source>
+        <translation>Dọn dẹp Gói</translation>
+    </message>
+    <message>
+        <source>Do you want to start package cleanup?</source>
+        <translation>Bạn có muốn bắt đầu gói dọn dẹp?</translation>
+    </message>
+    <message>
+        <source>Starting package cleanup...</source>
+        <translation>Bắt đầu từ gói dọn dẹp...</translation>
+    </message>
+    <message>
+        <source>The following packages will be removed. Continue?</source>
+        <translation>Những gói sau sẽ được gỡ bỏ. Tiếp tục không?</translation>
+    </message>
 </context>
 </TS>

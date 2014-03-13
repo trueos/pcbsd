@@ -68,28 +68,16 @@
         <translation>Phiên bản</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Đóng</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org phiên bản server:</translation>
     </message>
     <message>
-        <source>System components...</source>
-        <translation>Hệ thống các thành phần...            </translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Môi trường Desktop...</translation>
-    </message>
-    <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI Các tiện ích:            </translation>
+        <translation>PC-BSD CLI Các tiện ích:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI  Các tiện ích:            </translation>
+        <translation>PC-BSD UI Các tiện ích:</translation>
     </message>
     <message>
         <source>Package set:</source>
@@ -98,6 +86,22 @@
     <message>
         <source>(unstable)</source>
         <translation>(không ổn định)</translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation>&amp;Linh kiện hệ thống...</translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation>&amp;Desktop các môi trường...</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Đóng</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Các tiện ích:</translation>
     </message>
 </context>
 </TS>

@@ -1,5 +1,8 @@
 <RCC>
   <qresource>
+    <file>icons/audio-card.png</file>
+    <file>icons/pulseaudio-config.png</file>
+    <file>icons/pulseaudio.png</file>
     <file>icons/window-close.png</file>
     <file>icons/application-exit.png</file>
     <file>icons/configure.png</file>

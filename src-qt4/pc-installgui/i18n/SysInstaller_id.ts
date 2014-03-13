@@ -299,6 +299,16 @@ Klik Selesai untuk reboot. Setelah rebooting Anda bisa melepas media yang terpas
         <source>&amp;Save Config to USB</source>
         <translation>Simpan Konfigurasi ke USB</translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

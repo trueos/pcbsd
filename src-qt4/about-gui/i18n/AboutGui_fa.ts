@@ -70,21 +70,8 @@
         <translation>نسخه</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>بستن</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>ورژن سرور X.org</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>
-اجزای سیستم</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>محیط‌های میزکار</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -101,6 +88,26 @@
     </message>
     <message>
         <source>(unstable)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Utils:</source>
         <translation type="unfinished">
             </translation>
     </message>

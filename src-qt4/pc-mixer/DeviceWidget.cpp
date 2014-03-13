@@ -52,8 +52,10 @@ void DeviceWidget::updateButtons(){
   //Update the button icons/text as necessary
   if(islinked){
     ui->tool_chain->setIcon(QIcon(":icons/link.png"));
+    ui->tool_chain->setAutoRaise(false);
   }else{
     ui->tool_chain->setIcon(QIcon(":icons/link_break.png"));
+    ui->tool_chain->setAutoRaise(true);
   }
   if(ismuted){
     ui->push_mute->setIcon( QIcon(":icons/audio-volume-high.png") );

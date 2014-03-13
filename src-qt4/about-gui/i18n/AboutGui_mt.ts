@@ -68,20 +68,8 @@
         <translation>Verżjoni:</translation>
     </message>
     <message>
-        <source>Close</source>
-        <translation>Agħlaq</translation>
-    </message>
-    <message>
         <source>X.org server version:</source>
         <translation>X.org verżjoni server:</translation>
-    </message>
-    <message>
-        <source>System components...</source>
-        <translation>Komponenti tas-sistema...</translation>
-    </message>
-    <message>
-        <source>Desktop environments...</source>
-        <translation>Ambjenti desktop...</translation>
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
@@ -98,6 +86,22 @@
     <message>
         <source>(unstable)</source>
         <translation>(mhux stabbli)</translation>
+    </message>
+    <message>
+        <source>&amp;System components...</source>
+        <translation>U komponenti Sistema...</translation>
+    </message>
+    <message>
+        <source>&amp;Desktop environments...</source>
+        <translation>&amp;Desktop ambjenti...</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Agħlaq</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Utilitajiet:</translation>
     </message>
 </context>
 </TS>
