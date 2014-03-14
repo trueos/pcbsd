@@ -191,10 +191,6 @@
         <translation>パスワード:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>ファイルを暗号化する:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -324,10 +324,6 @@
         <translation>フルネーム:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>パスワードを変更(&amp;G)...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -356,12 +352,16 @@
         <translation>PC-BSD ユーザーマネージャー - 詳細モード</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>簡易表示(&amp;V)</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -369,14 +369,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD ユーザーマネージャー</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>閉じる(&amp;L)</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>適用(&amp;P)</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +381,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Jail 用のユーザーを編集</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -501,16 +501,8 @@
         <translation>ユーザーの追加</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;K</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>キャンセル(&amp;N)</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +531,14 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>ファイルを暗号化する:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">キャンセル(&amp;C)</translation>
     </message>
 </context>
 <context>

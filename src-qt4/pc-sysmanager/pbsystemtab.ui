@@ -30,7 +30,7 @@
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="Widget8">
       <attribute name="title">
@@ -100,7 +100,7 @@
          <item>
           <widget class="QPushButton" name="buttonGenerate">
            <property name="text">
-            <string>Generate</string>
+            <string>&amp;Generate</string>
            </property>
           </widget>
          </item>
@@ -585,7 +585,7 @@
        <item row="2" column="1">
         <widget class="QPushButton" name="pushMiscSave">
          <property name="text">
-          <string>&amp;Save</string>
+          <string>&amp;Apply</string>
          </property>
         </widget>
        </item>

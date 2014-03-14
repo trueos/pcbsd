@@ -117,7 +117,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Start</string>
+      <string>&amp;Start</string>
      </property>
      <property name="icon">
       <iconset resource="servicemanager.qrc">
@@ -140,7 +140,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Restart</string>
+      <string>&amp;Restart</string>
      </property>
      <property name="icon">
       <iconset resource="servicemanager.qrc">
@@ -163,7 +163,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Enable Service</string>
+      <string>&amp;Enable Service</string>
      </property>
     </widget>
    </item>
@@ -182,7 +182,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Disable Service</string>
+      <string>&amp;Disable Service</string>
      </property>
     </widget>
    </item>
@@ -214,7 +214,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Stop</string>
+      <string>&amp;Stop</string>
      </property>
      <property name="icon">
       <iconset resource="servicemanager.qrc">

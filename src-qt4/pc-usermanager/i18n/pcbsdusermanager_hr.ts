@@ -191,10 +191,6 @@
         <translation>Zaporka:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;U redu</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -210,6 +206,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,10 +325,6 @@
         <translation>Ime i prezime:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Pro&amp;mijeni zaporku...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+M</translation>
     </message>
@@ -357,12 +353,16 @@
         <translation>PC-BSD Upravitelj korisnika - Napredni način</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Jednostavan prikaz</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+J</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -370,14 +370,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD Upravitelj korisnika</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Zatvori</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Primijeni</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -390,6 +382,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Promijeni korisnike Jail-a:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -502,16 +502,8 @@
         <translation>Dodaj korisnika</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>&amp;Uredu</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+U</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>&amp;Odustani</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -541,6 +533,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -56,22 +56,6 @@
         <translation>Uri l-menu GRUB jaqa &apos;fuq il countdown</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>File</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Servizzi ta &apos;Emerġenza</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>Jerġgħu jinbnew GRUB Menu</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>Defaults Restore GRUB</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Isem</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Re-tagħbija-fajl entrati Toqob</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Agħlaq</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,26 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>L-isem ambjent boot jista jkun magħmul minn ittri u numri</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

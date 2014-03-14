@@ -12,18 +12,6 @@
         <translation>اسم الخدمة</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>بدأ</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>أوقف</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>إعادة التشغيل</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>يشتغل</translation>
     </message>
@@ -42,14 +30,6 @@
     <message>
         <source>Enabled</source>
         <translation>متاح</translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>أتح خادم</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>عطل خادم</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -72,6 +52,26 @@
         <source>Managing services for Warden Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

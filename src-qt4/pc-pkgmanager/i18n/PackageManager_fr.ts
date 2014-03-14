@@ -319,23 +319,23 @@
     </message>
     <message>
         <source>&amp;Cleanup Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nettoyage des Paquets</translation>
     </message>
     <message>
         <source>Package Cleanup</source>
-        <translation type="unfinished"></translation>
+        <translation>Nettoyage des Paquets</translation>
     </message>
     <message>
         <source>Do you want to start package cleanup?</source>
-        <translation type="unfinished"></translation>
+        <translation>Voulez-vous commencer le nettoyage des Paquets?</translation>
     </message>
     <message>
         <source>Starting package cleanup...</source>
-        <translation type="unfinished"></translation>
+        <translation>Débuter le nettoyage des paquets...</translation>
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation type="unfinished"></translation>
+        <translation>Les paquets suivants seront supprimés. Continuer?</translation>
     </message>
 </context>
 </TS>

@@ -12,18 +12,6 @@
         <translation>サービス名</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>起動(&amp;S)</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>停止(&amp;T)</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>再起動(&amp;R)</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>実行中</translation>
     </message>
@@ -34,14 +22,6 @@
     <message>
         <source>Enabled</source>
         <translation>有効</translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>サービスを有効にする</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>サービスを無効にする</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -70,6 +50,26 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Warden Jail 内サービスの管理:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

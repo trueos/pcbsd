@@ -191,10 +191,6 @@
         <translation>Passwort:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;OK</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Verschlüssele Dateien:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -356,12 +356,12 @@
         <translation>Alt+V</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Passwort än&amp;dern...</translation>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Vereinfachte &amp;Ansicht</translation>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -369,14 +369,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD-Benutzerverwaltung</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>&amp;Beenden</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>&amp;Anwenden</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +381,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Jail-Benutzer bearbeiten:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -505,10 +505,6 @@
         <translation>Alt+K</translation>
     </message>
     <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Ab&amp;bruch</translation>
-    </message>
-    <message>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
@@ -529,16 +525,20 @@
         <translation>Benutzername:</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;K</translation>
-    </message>
-    <message>
         <source>The field is empty</source>
         <translation>Das Feld ist leer</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
         <translation>Verschlüsselte Dateien:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Abbrechen</translation>
     </message>
 </context>
 <context>

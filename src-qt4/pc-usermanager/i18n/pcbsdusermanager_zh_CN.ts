@@ -190,10 +190,6 @@
         <translation>密码:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>确定(&amp;O)</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -208,6 +204,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>加密文件：</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -323,10 +323,6 @@
         <translation>全名:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>更改密码(&amp;G)...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -355,12 +351,16 @@
         <translation>PC-BSD用户管理器 - 高级模式</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>简单模式查看(&amp;V)</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -368,14 +368,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD用户管理器</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>关闭</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>应用</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -388,6 +380,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>编辑Jail用户</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -499,16 +499,8 @@
         <translation>添加用户</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>确定(&amp;K)</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>取消(&amp;N)</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -537,6 +529,14 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>加密文件：</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">取消(&amp;C)</translation>
     </message>
 </context>
 <context>

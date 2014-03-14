@@ -8,14 +8,6 @@
         <translation>CMD väljund</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>Peata</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sulge</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>PC-BSD portide puu tõmbamine</translation>
     </message>
@@ -31,6 +23,14 @@
         <source>Please stop the current process before closing this window.</source>
         <translation>Peata käimasolev tegevus enne selle akna sulgemist.</translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -41,10 +41,6 @@
     <message>
         <source>General</source>
         <translation>Üldine</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>Genereeri</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -69,10 +65,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Võid ka genereerida diagnostikalehe, kus on informatsioon süsteemi kohta. Seda saavad kasutada tehnikud vigade otsimisel.</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Salvesta</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -141,6 +133,14 @@
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation>Üks protsess juba töötab. Palun oota, kuni see lõpetab.</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

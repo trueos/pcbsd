@@ -9,16 +9,6 @@
             </translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation type="unfinished">
             </translation>
@@ -38,6 +28,14 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -49,10 +47,6 @@
         <source>PC-BSD System Configuration</source>
         <translation type="unfinished">
             </translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation type="unfinished">Ерөнхий</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -81,11 +75,6 @@
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -173,6 +162,14 @@
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

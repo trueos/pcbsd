@@ -24,10 +24,6 @@
         <translation>リモートログイン</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>パスワードの入力</translation>
     </message>
@@ -74,6 +70,14 @@
     <message>
         <source>Display available users</source>
         <translation>利用できるユーザーを表示する</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

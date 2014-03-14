@@ -65,7 +65,7 @@
      <item>
       <widget class="QPushButton" name="okButton">
        <property name="text">
-        <string>O&amp;k</string>
+        <string>&amp;Save</string>
        </property>
        <property name="icon">
         <iconset>
@@ -82,7 +82,7 @@
      <item>
       <widget class="QPushButton" name="cancelButton">
        <property name="text">
-        <string>Ca&amp;ncel</string>
+        <string>&amp;Cancel</string>
        </property>
        <property name="icon">
         <iconset>

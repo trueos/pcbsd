@@ -56,22 +56,6 @@
         <translation>在倒数时显示GRUB菜单</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>文件</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>紧急服务</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>重新构建GRUB菜单</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>恢复GRUB默认值</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>名称</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>重新载入GRUB条目文件</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>关闭</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -251,6 +231,26 @@
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>引导环境名称只能由数字和字母组成
 </translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

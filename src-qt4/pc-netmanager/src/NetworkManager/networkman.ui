@@ -24,7 +24,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabNetMan">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="Widget8">
       <attribute name="title">
@@ -791,7 +791,7 @@
      <item>
       <widget class="QPushButton" name="pushSave">
        <property name="text">
-        <string>&amp;Save</string>
+        <string>&amp;Apply</string>
        </property>
       </widget>
      </item>

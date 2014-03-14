@@ -199,10 +199,6 @@
         <translation>Passord:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -218,6 +214,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -336,10 +336,6 @@
         <translation>Fullt navn:            </translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation type="unfinished">&amp;Endre passord...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation type="unfinished">
             </translation>
@@ -370,27 +366,22 @@
         <translation>Tilgjengelig:  </translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Enkel &amp;visning</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Lukk            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -408,6 +399,14 @@
         <source>Editing Users for Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -523,17 +522,7 @@
         <translation>Legg til bruker            </translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Alt+K</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -566,6 +555,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Avbryt</translation>
     </message>
 </context>
 <context>

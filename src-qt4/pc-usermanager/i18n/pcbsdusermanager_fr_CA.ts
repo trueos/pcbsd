@@ -190,10 +190,6 @@
         <translation>Alt+G            </translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok            </translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -208,6 +204,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Crypter des fichiers:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -323,10 +323,6 @@
         <translation>Groupe primaire:            </translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Chan&amp;ger le Mot de passe...            </translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G            </translation>
     </message>
@@ -355,12 +351,16 @@
         <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD - Mode Avancé          </translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Affichage Simplifié         </translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V            </translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -368,14 +368,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>Gestion d&apos;Utilisateurs de PC-BSD          </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Appliquer            </translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -388,6 +380,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Modification des utilisateurs pour le Jail:            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -499,16 +499,8 @@
         <translation>Ajouter un Utilisateur           </translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k            </translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K            </translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>An&amp;nuler   </translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -537,6 +529,14 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Crypter des fichiers:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
