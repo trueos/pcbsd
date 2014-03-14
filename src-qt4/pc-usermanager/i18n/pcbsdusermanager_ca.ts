@@ -191,10 +191,6 @@
         <translation>Paraula de pas:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Acceptar</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+A</translation>
     </message>
@@ -210,6 +206,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,10 +325,6 @@
         <translation>Nom complet:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Can&amp;viar contrasenya...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+V</translation>
     </message>
@@ -357,12 +353,16 @@
         <translation>Gestor d&apos;usuaris PC-BSD - Mode avançat</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Visualització senzilla</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -370,14 +370,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>Gestor d&apos;usuaris PC-BSD</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Tancar</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Aplicar</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -393,6 +385,14 @@
         <source>Editing Users for Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -505,16 +505,8 @@
         <translation>Afegir usuari</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>&amp;Acceptar</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+A</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>&amp;Cancel·lar</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -544,6 +536,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Cancel·lar</translation>
     </message>
 </context>
 <context>

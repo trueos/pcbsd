@@ -12,18 +12,6 @@
         <translation>서비스 이름</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>시작</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>중지</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>다시 시작</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>실행중</translation>
     </message>
@@ -42,14 +30,6 @@
     <message>
         <source>Enabled</source>
         <translation>활성화됨</translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>서비스 활성화</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>서비스 비활성화</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -73,6 +53,26 @@
         <source>Managing services for Warden Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

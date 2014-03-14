@@ -24,32 +24,12 @@
         <translation>Service Name</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Start</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Restart</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Stop</translation>
-    </message>
-    <message>
         <source>TAG</source>
         <translation>TAG</translation>
     </message>
     <message>
         <source>Enabled</source>
         <translation>Enabled</translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>Enable Service</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Disable Service</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -70,6 +50,26 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Managing services for Warden Jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

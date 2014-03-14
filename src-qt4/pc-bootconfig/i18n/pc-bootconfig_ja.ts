@@ -56,18 +56,6 @@
         <translation>カウントダウン中に GRUB メニューを表示します</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>ファイル</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>GRUB メニューの再構築</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>GRUB デフォルト設定の再読み込み</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>名前</translation>
     </message>
@@ -146,10 +134,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>GRUB エントリーファイルを再読み込み</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>閉じる</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -236,10 +220,6 @@
         <translation>カスタム設定のエントリー</translation>
     </message>
     <message>
-        <source>Emergency Services</source>
-        <translation>非常時の修復</translation>
-    </message>
-    <message>
         <source>Working</source>
         <translation>処理しています</translation>
     </message>
@@ -250,6 +230,26 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>ブート環境名は半角英数字だけかもしれません</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

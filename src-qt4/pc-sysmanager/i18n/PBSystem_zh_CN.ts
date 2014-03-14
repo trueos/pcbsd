@@ -8,14 +8,6 @@
         <translation>CMD输出</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>停止</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>关闭</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>获取PC-BSD Ports树</translation>
     </message>
@@ -31,6 +23,14 @@
         <source>Please stop the current process before closing this window.</source>
         <translation>请在关闭此窗口前停止当前进程。</translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -41,10 +41,6 @@
     <message>
         <source>PC-BSD System Configuration</source>
         <translation>PC-BSD系统配置</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>生成</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -69,10 +65,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>你也可以生成一个关于系统的诊断列表。这个列表可以帮助技术人员排除故障。</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>保存(&amp;S)</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -141,6 +133,14 @@
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation>您已经有一个进程在运行。请先等待其完成。</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

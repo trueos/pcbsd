@@ -29,11 +29,6 @@
 </translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>저장
-</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>비밀번호 요청
 </translation>
@@ -92,6 +87,14 @@
         <source>Display available users</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -24,10 +24,6 @@
         <translation>Remote login</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Save</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Password Request</translation>
     </message>
@@ -74,6 +70,14 @@
     <message>
         <source>Display available users</source>
         <translation>Display available users</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

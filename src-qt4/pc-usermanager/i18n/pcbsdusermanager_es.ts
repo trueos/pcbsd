@@ -191,10 +191,6 @@
         <translation>Contraseña:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Encriptar ficheros:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -324,10 +324,6 @@
         <translation>Nombre completo:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Cambia&amp;r contraseña...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -356,12 +352,16 @@
         <translation>Administrador de Usuarios de PC-BSD - Modo avanzado</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Vista simple</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -369,14 +369,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>Administrador de Usuarios de PC-BSD</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Cerrar</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Aplicar</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +381,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Edición de usuarios de Jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -501,16 +501,8 @@
         <translation>Añadir usuario</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Ca&amp;ncelar</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +531,14 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Encriptar ficheros:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Cancelar</translation>
     </message>
 </context>
 <context>

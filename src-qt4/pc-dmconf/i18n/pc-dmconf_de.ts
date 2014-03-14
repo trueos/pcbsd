@@ -24,10 +24,6 @@
         <translation>Entfernte Anmeldung</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Speichern</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Passwortanforderung</translation>
     </message>
@@ -80,6 +76,14 @@
         <source>Display available users</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

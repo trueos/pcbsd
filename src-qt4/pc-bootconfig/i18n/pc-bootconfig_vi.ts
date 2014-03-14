@@ -56,22 +56,6 @@
         <translation>Hiển thị menu GRUB trong đếm ngược</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>tập tin</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Các dịch vụ khẩn cấp</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>Xây dựng lại GRUB đơn</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>Khôi phục mặc định GRUB</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>tên</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Tái nạp các mục file GRUB</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Đóng</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,26 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Tên khởi động môi trường chỉ có thể được bao gồm các chữ cái và số    </translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

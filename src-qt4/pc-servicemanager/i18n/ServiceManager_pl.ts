@@ -12,18 +12,6 @@
         <translation>Nazwa usługi</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Uruchom</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Zatrzymaj</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Uruchom ponownie</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>Działająca</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>Włączony</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>Włącz Usługę</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Wyłącz Usługę</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Wyłączony</translation>
     </message>
@@ -70,6 +50,26 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Zarządzanie usługami w celi Warden:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
