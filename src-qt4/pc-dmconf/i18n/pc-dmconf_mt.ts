@@ -24,10 +24,6 @@
         <translation>login remoti</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Ħlief</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Talba password</translation>
     </message>
@@ -74,6 +70,14 @@
     <message>
         <source>Display available users</source>
         <translation>Utenti disponibbli Display</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

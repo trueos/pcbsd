@@ -12,18 +12,6 @@
         <translation>सेवा का नाम </translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>शुरू </translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>आनत </translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>पुनः प्रारंभ </translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>चलना </translation>
     </message>
@@ -43,16 +31,6 @@
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -80,6 +58,26 @@
         <source>Managing services for Warden Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

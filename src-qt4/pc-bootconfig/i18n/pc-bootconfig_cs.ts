@@ -69,26 +69,6 @@
             </translation>
     </message>
     <message>
-        <source>File</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation type="unfinished">
             </translation>
@@ -190,11 +170,6 @@
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -312,6 +287,26 @@
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

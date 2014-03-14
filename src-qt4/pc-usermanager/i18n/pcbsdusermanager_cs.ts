@@ -191,10 +191,6 @@
         <translation>Heslo:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -210,6 +206,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,10 +325,6 @@
         <translation>Jméno a příjmení:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Změna &amp;hesla...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -357,12 +353,16 @@
         <translation>PC-BSD Správa uživatelů - Pokročilé nastavení</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Jednoduchý &amp;pohled</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+P</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -370,14 +370,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD Správa uživatelů</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Zavřít</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Použít</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -393,6 +385,14 @@
         <source>Editing Users for Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -505,16 +505,8 @@
         <translation>Přidat uživatele</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Z&amp;rušit</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -544,6 +536,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Zrušit</translation>
     </message>
 </context>
 <context>

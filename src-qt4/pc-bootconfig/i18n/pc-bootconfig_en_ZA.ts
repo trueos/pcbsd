@@ -56,22 +56,6 @@
         <translation>Display the GRUB menu during the countdown</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>File</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Emergency Services</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>Rebuild GRUB Menu</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>Restore GRUB Defaults</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Name</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Re-load the GRUB entries file</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Close</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,26 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Boot Environment names may only be comprised of letters and numbers</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

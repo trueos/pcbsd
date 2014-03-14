@@ -24,10 +24,6 @@
         <translation>Logowanie zdalne</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Zapisz</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Wymagane hasło</translation>
     </message>
@@ -77,6 +73,14 @@
         <source>Display available users</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

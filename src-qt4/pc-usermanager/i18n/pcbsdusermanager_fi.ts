@@ -191,10 +191,6 @@
         <translation>Salasana:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Salaa tiedostot:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -324,10 +324,6 @@
         <translation>Koko nimi:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Vaih&amp;da salasanaa...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+R</translation>
     </message>
@@ -356,12 +352,16 @@
         <translation>PC-BSD:n käyttäjienhallinta - Monipuolinen tila</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Yksinkertainen &amp;näkymä</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+N</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -369,14 +369,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD käyttäjienhallinta</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sulje</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Käytä</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +381,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Muokataan jail-käyttäjiä:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -509,16 +509,8 @@
         <translation>Lisää käyttäjä</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Per&amp;uuta</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -548,6 +540,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Peruuta</translation>
     </message>
 </context>
 <context>

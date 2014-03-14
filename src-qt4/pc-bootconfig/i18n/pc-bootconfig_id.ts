@@ -56,22 +56,6 @@
         <translation>Tampilkan menu GRUB selama hitung mundur</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Berkas</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Layanan Darurat</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>Menu Bangun Ulang GRBU</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>Kembalikan Standar GRBU</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Nama</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Muat ulang file entri GRUB</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Tutup</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,26 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Nama lingkungan Boot hanya dapat terdiri dari huruf dan angka</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

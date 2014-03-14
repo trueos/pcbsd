@@ -8,14 +8,6 @@
         <translation>CMD Output    </translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>Arrêt</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>Obtenir arbre des ports PC-BSD</translation>
     </message>
@@ -31,6 +23,14 @@
         <source>Please stop the current process before closing this window.</source>
         <translation>S&apos;il vous plaît arrêter le processus en cours avant de fermer cette fenêtre.</translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -41,10 +41,6 @@
     <message>
         <source>General</source>
         <translation>Général</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>Générer</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -69,10 +65,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Vous devriez également générer une fiche de diagnostic contenant des informations sur votre système. Cette fiche sera utilisée par des techniciens à des fins de dépannage.</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Sauvegarder</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -141,6 +133,14 @@
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation>Vous avez déjà un processus en cours. S&apos;il vous plaît attendre pour que l&apos;un de finir premier.</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

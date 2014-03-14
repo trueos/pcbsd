@@ -196,10 +196,6 @@
         <translation>Κωδικός:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Εντάξει</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt&amp;O</translation>
     </message>
@@ -215,6 +211,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -330,10 +330,6 @@
         <translation>Πλήρες Όνομα:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Αλλα&amp;γή Κωδικού...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -362,28 +358,22 @@
         <translation>Διαχειριστής Χρήστη PC-BSD - Προηγμένη Λειτουργία</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Απλή &amp;Απεικόνιση</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -401,6 +391,14 @@
         <source>Editing Users for Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -513,16 +511,8 @@
         <translation>Προσθήκη Χρήστη</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt&amp;K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Ακύρωση</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -552,6 +542,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Ακύρωση</translation>
     </message>
 </context>
 <context>

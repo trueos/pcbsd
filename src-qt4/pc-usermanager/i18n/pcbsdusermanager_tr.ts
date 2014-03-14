@@ -191,10 +191,6 @@
         <translation>Şifre:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Tamam</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -210,6 +206,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,10 +325,6 @@
         <translation>Tam İsim:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Şifreyi Deği&amp;ştir...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -357,12 +353,16 @@
         <translation>PC-BSD Kullanıcı Yöneticisi - Gelişmiş Kip</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Basit &amp;Görünüm</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -370,14 +370,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD Kullanıcı Yöneticisi</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Kapat</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Uygula</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -390,6 +382,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Jail için kullanıcıları düzenleyin:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -502,16 +502,8 @@
         <translation>Kullanıcı Ekle</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>&amp;Tamam</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>&amp;İptal</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -541,6 +533,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;İptal</translation>
     </message>
 </context>
 <context>

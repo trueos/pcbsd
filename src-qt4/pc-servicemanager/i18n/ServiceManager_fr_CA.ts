@@ -28,26 +28,6 @@
         <translation>Activé            </translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Débuter        </translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Recommencer            </translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>Activer le Service            </translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Désactiver le service            </translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Arrêter            </translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Désactivé       </translation>
     </message>
@@ -70,6 +50,26 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Gestion des services pour Warden jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

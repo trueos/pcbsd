@@ -24,10 +24,6 @@
         <translation>Login jarak jauh</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Simpan</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Permintaan Kata Sandi</translation>
     </message>
@@ -77,6 +73,14 @@
         <source>Display available users</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

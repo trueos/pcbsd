@@ -191,10 +191,6 @@
         <translation>Парола:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>О&amp;К</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+О</translation>
     </message>
@@ -210,6 +206,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -325,10 +325,6 @@
         <translation>Пълно име:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>С&amp;мени паролата...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -357,12 +353,16 @@
         <translation>PC-BSD Управление на потребители - Разширени настройки</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Оп&amp;ростен изглед</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -370,14 +370,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD Управление на потребителите</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Затвори</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Приложи</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -390,6 +382,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Редактиране на потребители за Jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -502,16 +502,8 @@
         <translation>Добави потребител</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>О&amp;К</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>О&amp;тказ</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -541,6 +533,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

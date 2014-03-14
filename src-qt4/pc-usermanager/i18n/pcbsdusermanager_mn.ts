@@ -209,10 +209,6 @@
         <translation>Нууц үг:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -228,6 +224,10 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -351,10 +351,6 @@
         <translation>Бүтэн нэр:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Нууц үг &amp;өөрчлөх...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+Ө</translation>
     </message>
@@ -383,28 +379,22 @@
         <translation>PC-BSD Хэрэглэгч зохицуулагч - Дэлгэрэнгүй горим</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Энгийн &amp;горим</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+Г</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -422,6 +412,14 @@
         <source>Editing Users for Jail:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -543,16 +541,8 @@
         <translation>Хэрэглэгч нэмэх</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Цуц&amp;лах</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -582,6 +572,14 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Цуцлах</translation>
     </message>
 </context>
 <context>
