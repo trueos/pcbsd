@@ -75,32 +75,12 @@
         <translation>Palomuuri</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Käynnistä</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Uudelleenkäynnistä</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Pysäytä</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Palauta oletusasetukset</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Poikkeukset</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Lisää sääntö</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>Verkkoliityntä</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Muokkaa sääntöä</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Poista sääntö</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

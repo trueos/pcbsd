@@ -53,23 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished"></translation>
+        <translation>起動(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>再起動(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished"></translation>
+        <translation>サービスを有効にする(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished"></translation>
+        <translation>サービスを無効にする(&amp;D)</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>停止(&amp;S)</translation>
     </message>
 </context>
 <context>

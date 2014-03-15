@@ -16,52 +16,16 @@
         <translation>Arvuti/seadme ID</translation>
     </message>
     <message>
-        <source>Change</source>
-        <translation>Muuda</translation>
-    </message>
-    <message>
         <source>Devices Connected:</source>
         <translation>Ühendatud seadmed:</translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>Ühenda seade lahti</translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation>Käivita süsteemisalve rakendus</translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>Taaskäivita seade</translation>
     </message>
     <message>
         <source>New Devices</source>
         <translation>Uued seadmed</translation>
     </message>
     <message>
-        <source>Scan</source>
-        <translation>Skaneeri</translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>Lisa seade</translation>
-    </message>
-    <message>
         <source>Saved Devices</source>
         <translation>Salvestatud seadmed</translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation>Alusta sidumist</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Seadista</translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>Eemalda seade</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
@@ -138,6 +102,42 @@
     <message>
         <source>Device name must not contain symbols</source>
         <translation>Seadme nimi ei tohi sisaldada sümboleid</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start &amp;Tray Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Initiate Pairing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Device</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

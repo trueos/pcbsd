@@ -16,52 +16,16 @@
         <translation>Комп&apos;ютер/ID пристрою</translation>
     </message>
     <message>
-        <source>Change</source>
-        <translation>Змінити</translation>
-    </message>
-    <message>
         <source>Devices Connected:</source>
         <translation>Приєднані пристрої:</translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>Від&apos;єднати пристрій</translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation>Показувати у системному треї</translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>Перезапустити службу</translation>
     </message>
     <message>
         <source>New Devices</source>
         <translation>Нові пристрої</translation>
     </message>
     <message>
-        <source>Scan</source>
-        <translation>Сканувати</translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>Додати пристрій</translation>
-    </message>
-    <message>
         <source>Saved Devices</source>
         <translation>Збережені пристрої</translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation>Ініціювати сполучення</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Налаштувати</translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>Видалити пристрій</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
@@ -138,6 +102,42 @@
     <message>
         <source>Device name must not contain symbols</source>
         <translation>Назва пристрою не повинна містити символи</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start &amp;Tray Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Initiate Pairing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Device</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

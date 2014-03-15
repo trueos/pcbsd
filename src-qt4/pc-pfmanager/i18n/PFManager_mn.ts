@@ -75,32 +75,12 @@
         <translation>Галт хана</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Эхлүүлэх</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Дахин эхлүүлэх</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Зогсоох</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Тохиргоо</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Анхдагч тохиргоог сэргээх</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Дүрмүүд</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Нэмэх</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>Сүлжээ</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Өөрчлөх</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Устгах</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

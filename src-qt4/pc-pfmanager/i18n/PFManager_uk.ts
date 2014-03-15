@@ -71,32 +71,12 @@
         <translation>Брандмауер</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Старт</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Рестарт</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Стоп</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Конфігурація</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Відновити типову конфігурацію</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Винятки</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Додати запис</translation>
     </message>
     <message>
         <source>Service</source>
@@ -115,16 +95,36 @@
         <translation>Інтерфейс</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Редагувати запис</translation>
-    </message>
-    <message>
-        <source>Delete entry</source>
-        <translation>Видалити запис</translation>
-    </message>
-    <message>
         <source>Firewall Manager</source>
         <translation>Керування брандмауером</translation>
+    </message>
+    <message>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

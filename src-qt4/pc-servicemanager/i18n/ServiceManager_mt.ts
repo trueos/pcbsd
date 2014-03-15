@@ -53,23 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bidu</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nerġgħu</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Jippermettu Service</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;jiskonnettja Servizz</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Stop</translation>
     </message>
 </context>
 <context>

@@ -179,10 +179,6 @@
         <translation>Catatan: Konfigurasi proxy ini khusus untuk alat dan utilitas PC-BSD saja. Aplikasi Internet lainnya masih dapat menggunakan konfigurasi proxy-nya sendiri, yang harus dikonfigurasi secara manual.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Simpan</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Tutup</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Anda mungkin perlu login kembali untuk mendapatkan efek pengaturan proxy.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

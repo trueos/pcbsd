@@ -75,32 +75,12 @@
         <translation>ਫਾਇਰਵਾਲ</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>ਸ਼ੁਰੂ</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>ਮੁੜ-ਚਾਲੂ</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>ਰੋਕੋ</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>ਸੰਰਚਨਾ</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>ਡਿਫਾਲਟ ਸੰਰਚਨਾ ਮੁੜ-ਲੋਡ</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>ਛੋਟ</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>ਐਂਟਰੀ ਸ਼ਾਮਲ</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>ਇੰਟਰਫੇਸ</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>ਐਂਟਰੀ ਸੋਧ</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>ਐਂਟਰੀ ਹਟਾਓ</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

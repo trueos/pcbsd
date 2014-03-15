@@ -184,10 +184,6 @@
         <translation>Санамж: Энэ proxy тохируулга нь PC-BSD үйлдлийн системд зориулсан багаж, хэрэгслүүд болно. Интернэтзарим програм хангамж тухайн тохиолдолд өөр өөр proxy тохируулгатай байх ба үүнийг тус бүрт нь тусгайлан тохируулж өгнө.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Хадгалах</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Хаах</translation>
     </message>
@@ -296,6 +292,10 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

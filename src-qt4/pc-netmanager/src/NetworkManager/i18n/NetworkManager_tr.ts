@@ -179,10 +179,6 @@
         <translation>Not: Bu proxy yapılandırması PC-BSD özel araçlar ve uygulamalar içindir. İnternete erişebilen diğer uygulamalar için ayrıca proxy yapılandırılmasına gereksinim olabilir.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Kaydet</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Kapat</translation>
     </message>
@@ -279,6 +275,10 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

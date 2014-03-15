@@ -204,10 +204,6 @@ Netmask:</translation>
         <translation>توجه: این تنظیمات پراکسی فقط برای برنامه ها و ابزار های خود PC-BSD است. برنامه هایی که از اینترنت استفاده می کنند شاید از این پیکربندی استفاده نمی کنند و باید به صورت دستی پیکربندی شوند</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;ذخیره</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;بستن   </translation>
     </message>
@@ -304,6 +300,10 @@ Netmask:</translation>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -179,10 +179,6 @@
         <translation>Notera: Den här proxy konfigurationen är för PC-BSD-specifika verktyg och program. Internetanslutna program kan fortfarande använda sina egna proxyinställningar, dessa måste dock konfigureras manuellt.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Spara</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Stäng</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Du kan behöva logga ut och in igen för att proxyinställningarna skall träda i kraft.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

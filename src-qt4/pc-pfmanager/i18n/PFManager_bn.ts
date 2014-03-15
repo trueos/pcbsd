@@ -75,32 +75,12 @@
         <translation>ফায়ারওয়াল</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>শুরু করো</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>পুনরায় শুরু করো</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>থামাও</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>কনফিগারেশন</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>ডিফল্ট কনফিগারেশন ফিরিয়ে আনো</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>ব্যাতিক্রম</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>এন্ট্রি করো</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>ইন্টারফেস</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>এন্ট্রি সম্পাদনা</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>এন্ট্রি মোছো</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

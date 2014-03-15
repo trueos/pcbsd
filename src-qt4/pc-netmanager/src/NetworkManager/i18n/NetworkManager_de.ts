@@ -179,10 +179,6 @@
         <translation>Beachte: Diese Proxy-Einstellung ist für PC-BSD spezifische Werkzeuge und Programme. Programme mit Netzwerkverbindung könnten ihre eigene Proxy-Einstellung benutzen, was manuell umgestellt werden muss.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Speichern</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Beenden</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Sie müssen sich möglicherweise erneut anmelden damit die Proxy-Einstellungen wirksam werden.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

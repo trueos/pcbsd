@@ -75,32 +75,12 @@
         <translation>Firewall</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Uruchom</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Restart</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Zatrzymaj</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Konfiguracja</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Przywróć domyślną konfigurację</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Wyjątki</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Dodaj wpis</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>Interfejs</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Edytuj wpis</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Usuń wpis</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

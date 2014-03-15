@@ -75,32 +75,12 @@
         <translation>جدار الحماية</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>بدأ</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>إعادة التشغيل</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>توقيف</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>إعداد</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>استعادة الإعدادات الافتراضية</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>الاستثناءات</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>إضافة مدخل</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>الواجهة</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>تحرير إدخال</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>حذف إدخال</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -16,52 +16,16 @@
         <translation>计算机/设备ID</translation>
     </message>
     <message>
-        <source>Change</source>
-        <translation>更改</translation>
-    </message>
-    <message>
         <source>Devices Connected:</source>
         <translation>设备已连接：</translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>断开设备连接</translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation>启动托盘程序</translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>重启服务</translation>
     </message>
     <message>
         <source>New Devices</source>
         <translation>新设备</translation>
     </message>
     <message>
-        <source>Scan</source>
-        <translation>扫描</translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>添加设备</translation>
-    </message>
-    <message>
         <source>Saved Devices</source>
         <translation>已保存的设备</translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation>配对初始化</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>配置</translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>移除设备</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
@@ -138,6 +102,42 @@
     <message>
         <source>Device name must not contain symbols</source>
         <translation>设备名称中不得含有符号</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start &amp;Tray Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Initiate Pairing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Device</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

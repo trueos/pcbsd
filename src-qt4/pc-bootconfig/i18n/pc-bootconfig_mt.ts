@@ -233,23 +233,23 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;fajl</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Servizzi ta &apos;Emerġenza</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Jerġgħu&amp;jibnu GRUB Menu</translation>
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Restore Defaults Toqob</translation>
     </message>
 </context>
 </TS>

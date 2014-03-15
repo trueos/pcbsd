@@ -179,10 +179,6 @@
         <translation>참고: 이 프록시 구성은 PC-BSD만의 도구와 유틸리티입니다. 인터넷을 사용하는 다른 응용 프로그램은 자체적인 프록시 구성을 사용할 수 있고, 이 경우 여전히 ​​수동으로 설정해야합니다.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>저장(&amp;S)</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>닫기(&amp;C)</translation>
     </message>
@@ -286,6 +282,10 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

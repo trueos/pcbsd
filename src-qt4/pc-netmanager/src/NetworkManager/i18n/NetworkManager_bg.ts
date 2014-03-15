@@ -179,10 +179,6 @@
         <translation>Забележка: Тази прокси конфигурация е за специфични инструменти и помощни програми на PC-BSD. Интернет приложения, може да използват своя собствена конфигурация за прокси, които ще трябва да бъдат ръчно конфигурирани.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Запис</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Затвори</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>За да се приложат настройките на Proxy -то, трябва да влезнеш на ново.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

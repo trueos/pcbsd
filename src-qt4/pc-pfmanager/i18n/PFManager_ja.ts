@@ -75,32 +75,12 @@
         <translation>ファイアーウォール</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>起動</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>再起動</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>停止</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>設定</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>初期設定に戻す</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>例外規程</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>項目の追加</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>インターフェイス</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>項目の編集</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>項目の削除</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

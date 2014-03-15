@@ -179,10 +179,6 @@
         <translation>Napomena: Ove proxy postavke su za PC-BSD posebne alate. Internet aplikacije mogu koristiti svoje vlastite proxy postavke, koje morate ručno namjestiti.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Spremi</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Zatvori</translation>
     </message>
@@ -284,6 +280,10 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

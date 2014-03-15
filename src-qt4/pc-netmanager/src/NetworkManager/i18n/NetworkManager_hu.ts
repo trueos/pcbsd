@@ -179,10 +179,6 @@
         <translation>Megjegyzés: Ez a proxybeállítás csak a PC–BSD-specifikus eszközökre és segédprogramokra vonatkozik. Az internethozzáférést igénylő alkalmazások továbbra is a saját proxybeállításaikat használhatják, melyeket saját kezűleg kell beállítani.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Mentés</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Bezárás</translation>
     </message>
@@ -279,6 +275,10 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

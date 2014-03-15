@@ -16,52 +16,16 @@
         <translation>ID van computer/apparaat</translation>
     </message>
     <message>
-        <source>Change</source>
-        <translation>Veranderen</translation>
-    </message>
-    <message>
         <source>Devices Connected:</source>
         <translation>Aangesloten apparaten:</translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>Apparaat ontkoppelen</translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation>Start de systeemvaktoepassing</translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>Dienst herstarten</translation>
     </message>
     <message>
         <source>New Devices</source>
         <translation>Nieuwe apparaten</translation>
     </message>
     <message>
-        <source>Scan</source>
-        <translation>Scannen</translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>Apparaat toevoegen</translation>
-    </message>
-    <message>
         <source>Saved Devices</source>
         <translation>Opgeslagen apparaten</translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation>Start met verbinden</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Instellen</translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>Apparaat verwijderen</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
@@ -138,6 +102,42 @@
     <message>
         <source>Device name must not contain symbols</source>
         <translation>Apparaatnaam mag geen symbolen bevatten</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Start &amp;Tray Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Restart Service</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Scan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Initiate Pairing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Remove Device</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

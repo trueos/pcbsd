@@ -179,10 +179,6 @@
         <translation>注意：此代理配置适用于 PC - BSD 的特定工具和实用程序。其他使用互联网的应用程序仍然可以使用自己的代理配置（需要手动配置）。</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>储存(＆S)</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>关闭(&amp;C)</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>需要重新登录以使代理设置生效。</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

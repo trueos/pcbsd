@@ -179,10 +179,6 @@
         <translation>注意：此代理初始化設定僅針對PC-BSD的專用工具與系統程式。其他程式視其代理設定，仍需要逐一手動設定。</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>儲存(&amp;S)</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>關閉(&amp;C)</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>可能要重新登入以讓代理設定生效。</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

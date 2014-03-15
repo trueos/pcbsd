@@ -175,10 +175,6 @@
         <translation>注意: このプロキシ設定は PC-BSD のツールやユーティリティのためのものです。他のアプリケーションでは個別にプロキシ設定を行う必要がある場合があります。</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>保存(&amp;S)</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>閉じる(&amp;C)</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>プロキシーの設定を有効にするには、再ログインが必要です。</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

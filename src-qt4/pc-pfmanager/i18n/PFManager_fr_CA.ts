@@ -67,24 +67,8 @@
         <translation>Configuration</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Restaurer la configuration par défaut</translation>
-    </message>
-    <message>
         <source>Firewall</source>
         <translation>Pare-feu</translation>
-    </message>
-    <message>
-        <source>Start</source>
-        <translation>Démarrer</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Arrêter</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Redémarrer</translation>
     </message>
     <message>
         <source>General settings</source>
@@ -97,18 +81,6 @@
     <message>
         <source>Exceptions</source>
         <translation>Exceptions</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Ajouter une entrée</translation>
-    </message>
-    <message>
-        <source>Edit entry</source>
-        <translation>Éditer l&apos;entrée</translation>
-    </message>
-    <message>
-        <source>Delete entry</source>
-        <translation>Supprimer l&apos;entrée</translation>
     </message>
     <message>
         <source>Service</source>
@@ -125,6 +97,34 @@
     <message>
         <source>Interface</source>
         <translation>Interface</translation>
+    </message>
+    <message>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

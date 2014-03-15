@@ -180,10 +180,6 @@
         <translation>Σημείωση: Αυτή η ρύθμιση παραμέτρων μεσολαβητή είναι για συγκεκριμένα εργαλεία και βοηθητικά προγράμματα του PC-BSD. Οι διαδικτύακες εφαρμογές μπορούν να χρησιμοποιούν ακόμα τη δική τους ρύθμιση μεσολαβητή, η οποία θα πρέπει να ρυθμιστεί με το χέρι.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Αποθήκευση</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Κλείσιμο</translation>
     </message>
@@ -292,6 +288,10 @@
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
