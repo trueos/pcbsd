@@ -144,11 +144,8 @@ int runSingleSession(int argc, char *argv[]){
     w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnBottomHint);
     w.setWindowState(Qt::WindowMaximized); //Qt::WindowFullScreen);
 
-    //Setup the signals/slots to startup the desktop session
-    //if(USECLIBS){ QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString)), &desktop,SLOT(setupDesktop(QString,QString,QString))); }
-    //else{ 
-	    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString)) ); 
-    //}
+    //Setup the signals/slots to startup the desktop session 
+    QObject::connect( &w,SIGNAL(xLoginAttempt(QString,QString,QString,QString)), &desktop,SLOT(loginToXSession(QString,QString,QString,QString)) ); 
     //Setup the signals/slots for return information for the GUI
     QObject::connect( &desktop, SIGNAL(InvalidLogin()), &w, SLOT(slotLoginFailure()) );
     QObject::connect( &desktop, SIGNAL(started()), &w, SLOT(slotLoginSuccess()) );
@@ -159,10 +156,7 @@ int runSingleSession(int argc, char *argv[]){
     retCode = a.exec();
   }  // end of PCDM GUI running
   //Wait for the desktop session to finish before exiting
-  //if(USECLIBS){ desktop.startDesktop(); }
-  //else{ 
     desktop.waitForSessionClosed(); 
-  //}
   splash.show(); //show the splash screen again
   //Now wait a couple seconds for things to settle
   QTime wTime = QTime::currentTime().addSecs(2);
@@ -179,8 +173,6 @@ int runSingleSession(int argc, char *argv[]){
       //Keep processing events during the wait (for splashscreen)
       QCoreApplication::processEvents(QEventLoop::AllEvents, 100); 
     }
-    //set the return code for a shutdown
-    retCode = -1; //make sure it does not start a new session
   }
   
   //Clean up Code
@@ -213,7 +205,8 @@ int main(int argc, char *argv[])
     int retCode = runSingleSession(argc,argv);
     qDebug() << "-- PCDM Session Ended --";
     //check for special exit code
-    if(retCode != 0){ neverquit=FALSE; }
+    if(retCode == -1){ neverquit=true; } //make sure we go around again at least once
+    else if(retCode != 0){ neverquit=FALSE; }
     //Now kill the shild process (whole session)
     qDebug() << "Exiting child process";
     exit(3);

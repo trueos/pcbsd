@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget4">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -49,7 +49,7 @@
           <item row="0" column="1">
            <widget class="QPushButton" name="pbRestore">
             <property name="text">
-             <string>Restore default configuration</string>
+             <string>&amp;Restore default configuration</string>
             </property>
            </widget>
           </item>
@@ -81,21 +81,21 @@
           <item row="0" column="0">
            <widget class="QPushButton" name="pbStart">
             <property name="text">
-             <string>Start</string>
+             <string>&amp;Start</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
            <widget class="QPushButton" name="pbStop">
             <property name="text">
-             <string>Stop</string>
+             <string>Sto&amp;p</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2">
            <widget class="QPushButton" name="pbRestart">
             <property name="text">
-             <string>Restart</string>
+             <string>Re&amp;start</string>
             </property>
            </widget>
           </item>
@@ -160,14 +160,14 @@
        <item row="2" column="0">
         <widget class="QPushButton" name="pbAdd">
          <property name="text">
-          <string>Add entry</string>
+          <string>&amp;Add entry</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
         <widget class="QPushButton" name="pbEdit">
          <property name="text">
-          <string>Edit entry</string>
+          <string>&amp;Edit entry</string>
          </property>
         </widget>
        </item>
@@ -190,7 +190,7 @@
        <item row="2" column="3">
         <widget class="QPushButton" name="pbDelete">
          <property name="text">
-          <string>Delete entry</string>
+          <string>&amp;Delete entry</string>
          </property>
         </widget>
        </item>
