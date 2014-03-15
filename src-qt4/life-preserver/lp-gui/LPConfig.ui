@@ -198,7 +198,7 @@
             <item>
              <widget class="QPushButton" name="push_scanNetwork">
               <property name="text">
-               <string>Scan Network</string>
+               <string>&amp;Scan Network</string>
               </property>
               <property name="icon">
                <iconset resource="lPreserve.qrc">
@@ -431,7 +431,7 @@
      <item>
       <widget class="QToolButton" name="tool_apply">
        <property name="text">
-        <string>Apply</string>
+        <string>&amp;Apply</string>
        </property>
        <property name="icon">
         <iconset resource="lPreserve.qrc">
@@ -445,7 +445,7 @@
      <item>
       <widget class="QToolButton" name="tool_cancel">
        <property name="text">
-        <string>Cancel</string>
+        <string>&amp;Close</string>
        </property>
        <property name="icon">
         <iconset resource="lPreserve.qrc">
