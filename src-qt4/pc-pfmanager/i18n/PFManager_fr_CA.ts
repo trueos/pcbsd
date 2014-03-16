@@ -100,31 +100,31 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Restaurer la configuration par défaut</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Débuter</translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished"></translation>
+        <translation>Sto&amp;p</translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished"></translation>
+        <translation>Re&amp;démarrer</translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ajouter une entrée</translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Éditer une entrée</translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Supprimer une entrée</translation>
     </message>
 </context>
 <context>

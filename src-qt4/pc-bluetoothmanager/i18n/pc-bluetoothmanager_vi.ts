@@ -105,39 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thay đổi</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ngắt kết nối thiết bị</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Bắt đầu &amp;Tray ứng dụng</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Khởi động lại dịch vụ</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Quét</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thêm thiết bị</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Khởi Ghép</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hủy bỏ thiết bị</translation>
     </message>
 </context>
 </TS>

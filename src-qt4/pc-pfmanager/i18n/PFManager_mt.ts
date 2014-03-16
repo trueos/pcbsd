@@ -100,31 +100,31 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Restore konfigurazzjoni default</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bidu</translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished"></translation>
+        <translation>Sto&amp;p</translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished"></translation>
+        <translation>Re&amp;tibda</translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Żid dħul</translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dħul Edit</translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħassar dħul</translation>
     </message>
 </context>
 <context>

@@ -105,39 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bidla</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Skonnettja Apparat</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidu &amp; trej Applikazzjoni</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Nerġgħu Servizz</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Iskanjar</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Żid Apparat</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tibda Tqabbil</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Kkonfigurat</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Neħħi Apparat</translation>
     </message>
 </context>
 </TS>

@@ -105,39 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Changer</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Déconnecter le périphérique</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Démarrer &amp; l&apos;application du plateau</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Redémarrer le service</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Balayage</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ajouter un Périphérique</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Initier le couplage</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Configurer</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Retirer le Périphérique</translation>
     </message>
 </context>
 </TS>
