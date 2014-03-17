@@ -58,7 +58,8 @@ class MenuItem : public QWidgetAction
   	QProgressBar* currentSpace;
   	QPushButton* pushMount;
   	QCheckBox* checkAutomount;
-
+	bool mountedHere; //Whether this utility is the one that mounted the device
+  
   	void unmountItem(bool force = false);
         void updateSizes();
         QString getSizeDisplay(int);

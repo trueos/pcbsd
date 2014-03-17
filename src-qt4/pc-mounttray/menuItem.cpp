@@ -11,6 +11,7 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   devType = newtype;
   filesystem = newfs;
   currentUser = user;
+  mountedHere = false; //not mounted by this app (yet)
   //Create the layout
   QGridLayout* layout = new QGridLayout();
   QHBoxLayout* hlayout = new QHBoxLayout();
@@ -262,8 +263,10 @@ void MenuItem::mountItem(){
   if(ok){
     emit itemMounted(mntpoint);
     mountpoint = mntpoint;
+    mountedHere = true;
   }else{
     mountpoint.clear();
+    mountedHere = false;
   }
   if( !checkAutomount->isChecked() ){
     emit newMessage(title, result); //suppress the output message if it was automounted
@@ -433,7 +436,7 @@ bool MenuItem::umount(bool force, QString mntpoint){
   output = systemCMD(cmd1);
   if(output.join(" ").simplified().isEmpty()){
     //unmounting successful, remove the mount point directory
-    if(mountpoint != "/mnt" && mountpoint != "/media"){ //make sure not to remove base directories
+    if(mountpoint != "/mnt" && mountpoint != "/media" && mountedHere){ //make sure not to remove base directories
       output = systemCMD(cmd2);
     }
     if(!output.join(" ").simplified().isEmpty()){
@@ -441,6 +444,7 @@ bool MenuItem::umount(bool force, QString mntpoint){
       qDebug() << " - Error message:" << output;
     }
     ok = TRUE;
+    mountedHere = false; //not mounted by this app anymore
   }else{
     qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
     qDebug() << " - Error message:" << output;
