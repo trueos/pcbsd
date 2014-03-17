@@ -15,23 +15,19 @@
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD-Basissystem</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD-Basissystem</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg-Server</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arbeitsplatz-Umgebung</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
