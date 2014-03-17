@@ -75,32 +75,12 @@
         <translation>방화벽</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>시작</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>다시 시작</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>중지</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>설정</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>기본 설정을 복구</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>예외</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>항목 추가</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,39 @@
         <translation>인터페이스</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>항목 수정</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>항목 삭제</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

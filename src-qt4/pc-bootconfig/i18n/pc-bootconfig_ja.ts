@@ -233,23 +233,23 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
-        <translation type="unfinished"></translation>
+        <translation>緊急時サービス(&amp;E)</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>GRUBメニューの再構築(&amp;B)</translation>
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>デフォルトのGRUBメニューに復旧(&amp;R)</translation>
     </message>
 </context>
 </TS>

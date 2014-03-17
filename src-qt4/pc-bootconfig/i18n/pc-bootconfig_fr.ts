@@ -229,27 +229,27 @@
     </message>
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
-        <translation>Le nom d&apos;environnement d&apos;initialisation ne peuvent être composés de lettres et de chiffres   </translation>
+        <translation>Le nom d&apos;environnement d&apos;initialisation ne peuvent être composés de lettres et de chiffres</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Services d&apos;urgences</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Re&amp;construire GRUB Menu</translation>
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Restaurer GRUB Défaut</translation>
     </message>
 </context>
 </TS>

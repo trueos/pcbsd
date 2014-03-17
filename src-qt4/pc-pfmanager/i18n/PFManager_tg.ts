@@ -75,32 +75,12 @@
         <translation>Firewall</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Оғоз</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Бозоғозӣ</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Қатъ</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Пайкарбандӣ</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Барқарори пайкарбандии пешфарз</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Истисно</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Иловаи воридот</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,39 @@
         <translation>Интерфейс</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Таҳрири воридот</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Нест кардани воридот</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

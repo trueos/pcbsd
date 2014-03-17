@@ -195,11 +195,11 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Annuler         </translation>
+        <translation>&amp;Annuler</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation>Alt+A       </translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
 </context>
 <context>
@@ -218,7 +218,7 @@
     </message>
     <message>
         <source>&apos;</source>
-        <translation>&apos;            </translation>
+        <translation>&apos;</translation>
     </message>
     <message>
         <source>You must specify a password</source>
@@ -230,69 +230,69 @@
     </message>
     <message>
         <source>Invalid password, please choose another.</source>
-        <translation>Mot de passe invalide, merci d&apos;en choisir un autre.      </translation>
+        <translation>Mot de passe invalide, merci d&apos;en choisir un autre.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation>Mot de passe correspondent            </translation>
+        <translation>Mot de passe correspondent</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Les mots de passe ne correspondent pas            </translation>
+        <translation>Les mots de passe ne correspondent pas</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation>Entrée invalide            </translation>
+        <translation>Entrée invalide</translation>
     </message>
 </context>
 <context>
     <name>ChangePassDialog</name>
     <message>
         <source>Change Password</source>
-        <translation>Changer le Mot de Passe          </translation>
+        <translation>Changer le Mot de Passe</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation>Mot de passe:            </translation>
+        <translation>Mot de passe:</translation>
     </message>
     <message>
         <source>Confirm Password:</source>
-        <translation>Confirmation du Mot de Passe:        </translation>
+        <translation>Confirmation du Mot de Passe:</translation>
     </message>
     <message>
         <source>O&amp;k</source>
-        <translation>O&amp;k            </translation>
+        <translation>O&amp;k</translation>
     </message>
     <message>
         <source>Alt+K</source>
-        <translation>Alt+K            </translation>
+        <translation>Alt+K</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Canceller            </translation>
+        <translation>&amp;Annuler</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation>Alt+A        </translation>
+        <translation>Alt+A</translation>
     </message>
 </context>
 <context>
     <name>MainDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD </translation>
+        <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD</translation>
     </message>
     <message>
         <source>&amp;Users</source>
-        <translation>&amp;Utilisateurs            </translation>
+        <translation>&amp;Utilisateurs</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Ajouter            </translation>
+        <translation>&amp;Ajouter</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation>Alt+A            </translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
@@ -300,19 +300,19 @@
     </message>
     <message>
         <source>Alt+R</source>
-        <translation>Alt+S            </translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>User ID:</source>
-        <translation>Utilisateur ID:            </translation>
+        <translation>Utilisateur ID:</translation>
     </message>
     <message>
         <source>Full Name:</source>
-        <translation>Nom Complet:      </translation>
+        <translation>Nom Complet:</translation>
     </message>
     <message>
         <source>Home Directory:</source>
-        <translation>Répertoire Home:            </translation>
+        <translation>Répertoire Home:</translation>
     </message>
     <message>
         <source>Shell:</source>
@@ -320,109 +320,109 @@
     </message>
     <message>
         <source>Primary Group:</source>
-        <translation>Groupe primaire:            </translation>
+        <translation>Groupe primaire:</translation>
     </message>
     <message>
         <source>Alt+G</source>
-        <translation>Alt+G            </translation>
+        <translation>Alt+G</translation>
     </message>
     <message>
         <source>&amp;Groups</source>
-        <translation>&amp;Groupes            </translation>
+        <translation>&amp;Groupes</translation>
     </message>
     <message>
         <source>A&amp;dd</source>
-        <translation>A&amp;jouter            </translation>
+        <translation>A&amp;jouter</translation>
     </message>
     <message>
         <source>Alt+D</source>
-        <translation>Alt+D            </translation>
+        <translation>Alt+D</translation>
     </message>
     <message>
         <source>Available:  </source>
-        <translation>Disponible:            </translation>
+        <translation>Disponible:</translation>
     </message>
     <message>
         <source>Members:</source>
-        <translation>Membres:            </translation>
+        <translation>Membres:</translation>
     </message>
     <message>
         <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD - Mode Avancé          </translation>
+        <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD - Mode Avancé</translation>
     </message>
     <message>
         <source>Alt+V</source>
-        <translation>Alt+V            </translation>
+        <translation>Alt+V</translation>
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Changer Mot passe...</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Affichage Simple</translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>Gestion d&apos;Utilisateurs de PC-BSD          </translation>
+        <translation>Gestion d&apos;Utilisateurs de PC-BSD</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation>Appliquer les changements ? </translation>
+        <translation>Appliquer les changements ?</translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation>Il y a des changements en cours qui n&apos;ont pas été appliqués. Aimeriez-vous les appliquer avant de quitter?            </translation>
+        <translation>Il y a des changements en cours qui n&apos;ont pas été appliqués. Aimeriez-vous les appliquer avant de quitter?</translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation>Modification des utilisateurs pour le Jail:            </translation>
+        <translation>Modification des utilisateurs pour le Jail:</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Appliquer</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
 </context>
 <context>
     <name>SimpleAddCode</name>
     <message>
         <source>Good Input</source>
-        <translation>Entrée correcte   </translation>
+        <translation>Entrée correcte</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation>Le champ est vide            </translation>
+        <translation>Le champ est vide</translation>
     </message>
     <message>
         <source>This field can only accept letters and numbers</source>
-        <translation>Ce champ ne peut accepter les lettres et les numéros de            </translation>
+        <translation>Ce champ ne peut accepter les lettres et les numéros de</translation>
     </message>
     <message>
         <source>This username is already in use, please choose another.</source>
-        <translation>Ce nom d&apos;utilisateur est déjà en cours d&apos;utilisation, s&apos;il vous plaît en choisir un autre.            </translation>
+        <translation>Ce nom d&apos;utilisateur est déjà en cours d&apos;utilisation, s&apos;il vous plaît en choisir un autre.</translation>
     </message>
     <message>
         <source>Passwords match</source>
-        <translation>Mot de passe correspondent            </translation>
+        <translation>Mot de passe correspondent</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation>Les mots de passe ne correspondent pas            </translation>
+        <translation>Les mots de passe ne correspondent pas</translation>
     </message>
     <message>
         <source>Invalid input</source>
-        <translation>Entrée invalide            </translation>
+        <translation>Entrée invalide</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
-        <translation>Ce champ ne peut contenir! @ Ou:            </translation>
+        <translation>Ce champ ne peut contenir! @ Ou:</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
@@ -433,43 +433,43 @@
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation>Les éléments non-essentiels cause des erreurs qui se sont produites tout en essayant d&apos;ajouter un nouvel utilisateur, voulez-vous continuer?\N            </translation>
+        <translation>Les éléments non-essentiels cause des erreurs qui se sont produites tout en essayant d&apos;ajouter un nouvel utilisateur, voulez-vous continuer?\n</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field has not been filled in.</source>
         <translation>
-- Le champ &apos;Nom utilisateur&apos; n&apos;a pas été rempli.            </translation>
+- Le champ &apos;Nom utilisateur&apos; n&apos;a pas été rempli.</translation>
     </message>
     <message>
         <source>
 - The &apos;Username&apos; field may only contain letters and numbers (not spaces).</source>
         <translation>
- - Le champ &apos;Nom utilisateur&apos; ne peut contenir que des lettres et des chiffres (pas d&apos;espaces).           </translation>
+ - Le champ &apos;Nom utilisateur&apos; ne peut contenir que des lettres et des chiffres (pas d&apos;espaces).</translation>
     </message>
     <message>
         <source>
 - The username you have chosen is already in use, please choose another.</source>
         <translation>
- - Le nom d&apos;utilisateur que vous avez choisi est déjà en cours d&apos;utilisation, s&apos;il vous plaît en choisir un autre.           </translation>
+ - Le nom d&apos;utilisateur que vous avez choisi est déjà en cours d&apos;utilisation, s&apos;il vous plaît en choisir un autre.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field has not been filled in.</source>
         <translation>
- - Le champ &apos;Nom Complet&apos; n&apos;a pas été rempli.      </translation>
+ - Le champ &apos;Nom Complet&apos; n&apos;a pas été rempli.</translation>
     </message>
     <message>
         <source>
 - The &apos;Full Name&apos; field may not contain ! @ or :</source>
         <translation>
-- Le champ &apos;Nom complet&apos; ne peuvent pas contenir! @ Ou:            </translation>
+- Le champ &apos;Nom complet&apos; ne peuvent pas contenir! @ Ou:</translation>
     </message>
     <message>
         <source>
 - Both password fields must be filled in.</source>
         <translation>
- - Les deux champs mot de passe doivent être remplies.           </translation>
+ - Les deux champs mot de passe doivent être remplies.</translation>
     </message>
     <message>
         <source>
@@ -485,46 +485,46 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation>Erreur!            </translation>
+        <translation>Erreur!</translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation>Attention!            </translation>
+        <translation>Attention!</translation>
     </message>
 </context>
 <context>
     <name>SimpleAddDlg</name>
     <message>
         <source>Add User</source>
-        <translation>Ajouter un Utilisateur           </translation>
+        <translation>Ajouter un Utilisateur</translation>
     </message>
     <message>
         <source>Alt+K</source>
-        <translation>Alt+K            </translation>
+        <translation>Alt+K</translation>
     </message>
     <message>
         <source>Alt+N</source>
-        <translation>Alt+N          </translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <source>Confirm Password:</source>
-        <translation>Confirmation du Mot de Passe:      </translation>
+        <translation>Confirmation du Mot de Passe:</translation>
     </message>
     <message>
         <source>Password:</source>
-        <translation>Mot de Passe:            </translation>
+        <translation>Mot de Passe:</translation>
     </message>
     <message>
         <source>Full Name:</source>
-        <translation>Nom Complet:            </translation>
+        <translation>Nom Complet:</translation>
     </message>
     <message>
         <source>Username:</source>
-        <translation>Utilisateur:  </translation>
+        <translation>Utilisateur:</translation>
     </message>
     <message>
         <source>The field is empty</source>
-        <translation>Ce champ est vide            </translation>
+        <translation>Ce champ est vide</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
@@ -532,38 +532,38 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context>
     <name>SimpleDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>PC-BSD Gestionnaire d&apos;utilisateurs            </translation>
+        <translation>PC-BSD Gestionnaire d&apos;utilisateurs</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation>&amp;Ajouter            </translation>
+        <translation>&amp;Ajouter</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation>Alt+A            </translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation>&amp;Retirer            </translation>
+        <translation>&amp;Retirer</translation>
     </message>
     <message>
         <source>Alt+R</source>
-        <translation>Alt+R            </translation>
+        <translation>Alt+R</translation>
     </message>
     <message>
         <source>&amp;Change Admin Password...</source>
-        <translation>&amp;Changer le mot de passe Administrateur...            </translation>
+        <translation>&amp;Changer le mot de passe Administrateur...</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -571,7 +571,7 @@
     </message>
     <message>
         <source>A&amp;dvanced View</source>
-        <translation>A&amp;vancé Affichage           </translation>
+        <translation>A&amp;vancé Affichage</translation>
     </message>
     <message>
         <source>Alt+D</source>
@@ -579,23 +579,23 @@
     </message>
     <message>
         <source>Full Name:</source>
-        <translation>Nom Complet:       </translation>
+        <translation>Nom Complet:</translation>
     </message>
     <message>
         <source>Can administrate s&amp;ystem</source>
-        <translation>Peut administrer le s&amp;ystème            </translation>
+        <translation>Peut administrer le s&amp;ystème</translation>
     </message>
     <message>
         <source>Alt+Y</source>
-        <translation>Alt+Y            </translation>
+        <translation>Alt+Y</translation>
     </message>
     <message>
         <source>C&amp;hange Password...</source>
-        <translation>C&amp;hanger le Mot de Passe...            </translation>
+        <translation>C&amp;hanger le Mot de Passe...</translation>
     </message>
     <message>
         <source>Alt+H</source>
-        <translation>Alt+H            </translation>
+        <translation>Alt+H</translation>
     </message>
 </context>
 <context>

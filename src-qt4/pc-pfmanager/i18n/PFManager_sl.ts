@@ -75,32 +75,12 @@
         <translation>Požarni zid</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Zaženi</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Znova zaženi</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Ustavi</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Nastavitve</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Obnovi privzete nastavitve</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Izjeme</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Dodaj vnos</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,39 @@
         <translation>Vmesnik</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Uredi vnos</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Odstrani vnos</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

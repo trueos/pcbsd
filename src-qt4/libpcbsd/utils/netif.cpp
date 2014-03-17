@@ -537,7 +537,6 @@ void NetworkInterface::wifiQuickConnect(QString SSID, QString netKey, QString De
 	  //Set WEP Defaults
 	  int WEPIndex = 0;
           //bool WEPHex = true; //Use Hex WEP key
-          
           streamout << " key_mgmt=NONE\n";
           streamout << " wep_tx_keyidx=" + tmp.setNum(WEPIndex) + "\n";
           // Check if we are using a plaintext WEP or not
