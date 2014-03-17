@@ -70,7 +70,7 @@
          <string>Configure snapshot and replication schedules</string>
         </property>
         <property name="text">
-         <string>Configure</string>
+         <string>&amp;Configure</string>
         </property>
         <property name="icon">
          <iconset resource="lPreserve.qrc">
@@ -83,7 +83,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_status">
        <attribute name="icon">
@@ -353,7 +353,7 @@
              <string>Restore the selected file/folder to the live system.</string>
             </property>
             <property name="text">
-             <string>Restore</string>
+             <string>&amp;Restore</string>
             </property>
             <property name="icon">
              <iconset resource="lPreserve.qrc">
@@ -364,8 +364,6 @@
          </layout>
         </item>
        </layout>
-       <zorder>line_2</zorder>
-       <zorder>treeView</zorder>
       </widget>
      </widget>
     </item>
@@ -377,16 +375,16 @@
      <x>0</x>
      <y>0</y>
      <width>459</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <widget class="QMenu" name="menuManage_Pool">
      <property name="title">
-      <string>Manage Pool</string>
+      <string>&amp;Manage Pool</string>
      </property>
      <property name="icon">
       <iconset resource="lPreserve.qrc">
@@ -396,7 +394,7 @@
     </widget>
     <widget class="QMenu" name="menuUnmanage_Pool">
      <property name="title">
-      <string>Unmanage Pool</string>
+      <string>&amp;Unmanage Pool</string>
      </property>
      <property name="icon">
       <iconset resource="lPreserve.qrc">
@@ -413,12 +411,12 @@
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>View</string>
+     <string>&amp;View</string>
     </property>
    </widget>
    <widget class="QMenu" name="menuDisks">
     <property name="title">
-     <string>Disks</string>
+     <string>&amp;Disks</string>
     </property>
     <widget class="QMenu" name="menuRemove_Disk">
      <property name="title">
@@ -461,7 +459,7 @@
    </widget>
    <widget class="QMenu" name="menuSnapshots">
     <property name="title">
-     <string>Snapshots</string>
+     <string>&amp;Snapshots</string>
     </property>
     <widget class="QMenu" name="menuDelete_Snapshot">
      <property name="title">
@@ -478,11 +476,11 @@
    </widget>
    <widget class="QMenu" name="menuClassic_Backups">
     <property name="title">
-     <string>Classic Backups</string>
+     <string>&amp;Classic Backups</string>
     </property>
     <widget class="QMenu" name="menuCompress_Home_Dir">
      <property name="title">
-      <string>Compress Home Dir</string>
+      <string>Com&amp;press Home Dir</string>
      </property>
      <property name="icon">
       <iconset resource="lPreserve.qrc">
@@ -506,7 +504,7 @@
      <normaloff>:/images/application-exit.png</normaloff>:/images/application-exit.png</iconset>
    </property>
    <property name="text">
-    <string>Close Window</string>
+    <string>&amp;Close Window</string>
    </property>
   </action>
   <action name="actionAdvanced">
@@ -563,7 +561,7 @@
      <normaloff>:/images/key.png</normaloff>:/images/key.png</iconset>
    </property>
    <property name="text">
-    <string>Save Key to USB</string>
+    <string>&amp;Save Key to USB</string>
    </property>
   </action>
   <action name="action_startScrub">
@@ -593,7 +591,7 @@
      <normaloff>:/images/box_extract.png</normaloff>:/images/box_extract.png</iconset>
    </property>
    <property name="text">
-    <string>Extract Home Dir</string>
+    <string>&amp;Extract Home Dir</string>
    </property>
   </action>
   <action name="actionPools">

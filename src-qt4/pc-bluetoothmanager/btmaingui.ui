@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tabSettings">
        <attribute name="title">
@@ -44,7 +44,7 @@
           <item>
            <widget class="QPushButton" name="pushChangeCompName">
             <property name="text">
-             <string>Change</string>
+             <string>&amp;Change</string>
             </property>
            </widget>
           </item>
@@ -72,7 +72,7 @@
           <item>
            <widget class="QPushButton" name="pushDisconnectDevice">
             <property name="text">
-             <string>Disconnect Device</string>
+             <string>&amp;Disconnect Device</string>
             </property>
            </widget>
           </item>
@@ -103,7 +103,7 @@
           <item>
            <widget class="QPushButton" name="pushStartTray">
             <property name="text">
-             <string>Start Tray Application</string>
+             <string>Start &amp;Tray Application</string>
             </property>
            </widget>
           </item>
@@ -123,7 +123,7 @@
           <item>
            <widget class="QPushButton" name="pushRestart">
             <property name="text">
-             <string>Restart Service</string>
+             <string>&amp;Restart Service</string>
             </property>
            </widget>
           </item>
@@ -157,7 +157,7 @@
           <item>
            <widget class="QPushButton" name="pushScanNew">
             <property name="text">
-             <string>Scan</string>
+             <string>&amp;Scan</string>
             </property>
            </widget>
           </item>
@@ -177,7 +177,7 @@
           <item>
            <widget class="QPushButton" name="pushAddDevice">
             <property name="text">
-             <string>Add Device</string>
+             <string>&amp;Add Device</string>
             </property>
            </widget>
           </item>
@@ -205,7 +205,7 @@
           <item>
            <widget class="QPushButton" name="pushConnectDevice">
             <property name="text">
-             <string>Initiate Pairing</string>
+             <string>&amp;Initiate Pairing</string>
             </property>
            </widget>
           </item>
@@ -225,14 +225,14 @@
           <item>
            <widget class="QPushButton" name="pushConfigureOld">
             <property name="text">
-             <string>Configure</string>
+             <string>&amp;Configure</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="pushRemoveOld">
             <property name="text">
-             <string>Remove Device</string>
+             <string>&amp;Remove Device</string>
             </property>
            </widget>
           </item>

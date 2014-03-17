@@ -181,10 +181,6 @@
         <translation type="unfinished">Piezīme: Šī starpniekservera konfigurācija ir domāta priekš PC-BSD specifiskiem rīkiem. Internet atkarīgās programmas var izmantot pašas savus starpniekserveru konfigurācijas, kurām ir jābūt manuāli iestatītām.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Saglabāt</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Aizvērt</translation>
     </message>
@@ -281,6 +277,11 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Jums var nākties pieteikties no jauna, lai starpniekservera iestatījumi stātos spēkā.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

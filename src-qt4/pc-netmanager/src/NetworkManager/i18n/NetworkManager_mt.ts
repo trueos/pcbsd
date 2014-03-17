@@ -179,10 +179,6 @@
         <translation>Nota: Din il-konfigurazzjoni prokura huwa għal għodod speċifiċi PC-BSD u l-utilitajiet. Applikazzjonijiet konxji Internet jista &apos;jibqa&apos; juża konfigurazzjoni prokura tagħhom stess, li se jkollhom jiġu konfigurati manwalment.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Ħlief</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Agħlaq</translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Jista &apos;jkollok bżonn terġa&apos; login għal settings prokura biex tieħu effett.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Applika</translation>
     </message>
 </context>
 </TS>

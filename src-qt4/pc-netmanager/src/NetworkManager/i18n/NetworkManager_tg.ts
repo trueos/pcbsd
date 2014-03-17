@@ -179,10 +179,6 @@
         <translation>Эзоҳ: Ин танзимоти proxy барои барномаҳо ва асбобҳои махсуси PC-BSD мувофиқ аст. Барномаҳои дорои пайвастшавии Интернет то ҳол метавонанд танзимоти proxy-и худро истифода баранд, вале шумо бояд онҳоро ба таври дастӣ танзим кунед.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Захира кунед</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Пӯшидан</translation>
     </message>
@@ -286,6 +282,11 @@
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

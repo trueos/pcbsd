@@ -91,7 +91,11 @@ QString Backend::getUsernameFromDisplayname(QString dspname){
 
 QString Backend::getDisplayNameFromUsername(QString username){
   int i = usernameList.indexOf(username);
-  return displaynameList[i];  
+  if(i==-1){ i = displaynameList.indexOf(username); } //make sure it was not a display name passed in
+  if(i==-1){ return ""; }
+  else{
+    return displaynameList[i];  
+  }
 }
 
 QString Backend::getUserHomeDir(QString username){
@@ -249,8 +253,8 @@ void Backend::checkLocalDirs(){
   //Check for sample files
   if(!mainDir.exists("pcdm.conf.sample")){ QFile::copy(":samples/pcdm.conf",base+"/pcdm.conf.sample"); } 
   //Check for the PCDM runtime directory
-  mainDir.cd("/var/db/pcdm");
-  if(!mainDir.exists()){ mainDir.mkdir("/var/db/pcdm"); }
+  mainDir.cd(DBDIR);
+  if(!mainDir.exists()){ mainDir.mkpath(DBDIR); }
 }
 
 QString Backend::getLastUser(){
@@ -259,7 +263,8 @@ QString Backend::getLastUser(){
     readSystemLastLogin();  
   }
   //return the value
-  return lastUser;
+  QString user = getDisplayNameFromUsername(lastUser);
+  return user;
 }
 
 QString Backend::getLastDE(QString user){
@@ -273,7 +278,7 @@ QString Backend::getLastDE(QString user){
 }
 
 void Backend::saveLoginInfo(QString user, QString desktop){
-  writeSystemLastLogin(user,desktop); //save the system file (/usr/local/share/PCDM/.lastlogin)
+  writeSystemLastLogin(user,desktop); //save the system file (DBDIR/lastlogin)
   writeUserLastDesktop(user,desktop); //save the user file (~/.lastlogin)
 }
 
@@ -284,7 +289,7 @@ void Backend::readDefaultSysEnvironment(QString &lang, QString &keymodel, QStrin
     keylayout = "us";
     keyvariant = "";
   //Read the current inputs file and overwrite default values
-  QFile file("/var/db/pcdm/defaultInputs");
+  QFile file(DBDIR+"defaultInputs");
   bool goodFile=false;
   if(file.exists()){
     if(file.open(QIODevice::ReadOnly | QIODevice::Text) ){
@@ -308,11 +313,11 @@ void Backend::readDefaultSysEnvironment(QString &lang, QString &keymodel, QStrin
 }
 
 void Backend::saveDefaultSysEnvironment(QString lang, QString keymodel, QString keylayout, QString keyvariant){
-  QFile file("/var/db/pcdm/defaultInputs");
+  QFile file(DBDIR+"defaultInputs");
   //Make sure the containing directory exists
-  if(!QFile::exists("/var/db/pcdm")){
+  if(!QFile::exists(DBDIR)){
     QDir dir;
-    dir.mkpath("/var/db/pcdm");
+    dir.mkpath(DBDIR);
   }
   //Now save the file
     if(file.open(QIODevice::WriteOnly | QIODevice::Text) ){
@@ -540,12 +545,12 @@ void Backend::readSystemUsers(){
 }
 
 void Backend::readSystemLastLogin(){
-    if(!QFile::exists("/usr/local/share/PCDM/.lastlogin")){
+    if(!QFile::exists(DBDIR+"lastlogin")){
       lastUser.clear();
       Backend::log("PCDM: No previous login data found");
     }else{
       //Load the previous login data
-      QFile file("/usr/local/share/PCDM/.lastlogin");
+      QFile file(DBDIR+"lastlogin");
       if(!file.open(QIODevice::ReadOnly | QIODevice::Text)){
         Backend::log("PCDM: Unable to open previous login data file");    
       }else{
@@ -558,7 +563,7 @@ void Backend::readSystemLastLogin(){
 }
 
 void Backend::writeSystemLastLogin(QString user, QString desktop){
-  QFile file1("/usr/local/share/PCDM/.lastlogin");
+  QFile file1(DBDIR+"lastlogin");
   if(!file1.open(QIODevice::Truncate | QIODevice::WriteOnly | QIODevice::Text)){
     Backend::log("PCDM: Unable to save last login data to system directory");	  
   }else{

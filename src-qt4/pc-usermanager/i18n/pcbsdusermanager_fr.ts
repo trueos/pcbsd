@@ -208,7 +208,7 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
 </context>
 <context>
@@ -357,11 +357,11 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Changer Mot passe...</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Affichage Simple</translation>
     </message>
 </context>
 <context>
@@ -384,11 +384,11 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Appliquer</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
     </message>
 </context>
 <context>
@@ -534,11 +534,11 @@ Mot de passe invalide</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Enregistrer</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Annuler</translation>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context>

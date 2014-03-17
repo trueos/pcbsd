@@ -179,10 +179,6 @@
         <translation>Lưu ý: cấu hình proxy này là cho các công cụ cụ thể PC-BSD và tiện ích. Ứng dụng phần mềm Internet vẫn có thể sử dụng cấu hình proxy của riêng mình, mà sẽ phải được cấu hình bằng tay.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Lưu</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Đóng </translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Bạn có thể cần phải đăng nhập để thiết lập proxy để có hiệu lực.      </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Áp ​​dụng</translation>
     </message>
 </context>
 </TS>

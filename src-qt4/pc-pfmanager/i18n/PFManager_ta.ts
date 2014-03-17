@@ -75,32 +75,12 @@
         <translation>கனலரண்</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>துவக்குக</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>மறுதுவக்கம் செய்க</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>நிறுத்துக</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>அமைவு</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>வழக்கமான அமைவை மீட்டெடு</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>விதிவிலக்கு</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>புலனை (என்ட்ரி) சேர்</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,39 @@
         <translation>இடைமுகம் (இன்டர்ஃபேஸ்)</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>புலனை (என்ட்ரி) திருத்து</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>புலனை (என்ட்ரி) அழி</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħlief</translation>
     </message>
 </context>
 <context>
@@ -356,11 +356,11 @@
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Bidla Password...</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;View sempliċi</translation>
     </message>
 </context>
 <context>
@@ -383,11 +383,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Applika</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Agħlaq</translation>
     </message>
 </context>
 <context>
@@ -533,11 +533,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Ħlief</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Ikkanċella</translation>
+        <translation>&amp;Ikkanċella</translation>
     </message>
 </context>
 <context>

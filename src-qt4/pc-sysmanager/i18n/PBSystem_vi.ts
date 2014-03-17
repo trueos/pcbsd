@@ -25,11 +25,11 @@
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Dừng</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Đóng</translation>
     </message>
 </context>
 <context>
@@ -132,15 +132,15 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation>Bạn đã sẵn sàng một quá trình chạy. Xin vui lòng chờ một đó để hoàn thành đầu tiên.  </translation>
+        <translation>Bạn đã sẵn sàng một quá trình chạy. Xin vui lòng chờ một đó để hoàn thành đầu tiên.</translation>
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tạo</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Áp ​​dụng</translation>
     </message>
 </context>
 </TS>

@@ -179,10 +179,6 @@
         <translation>ملاحظة: هذه الإعدادات للبروكسي هي للأدوات وبرامج منافع PC-BSD. تطبيقات الإنترنت قد تستمر في إستخدام البروكسي الخاص بها، مما يستدعي تهيئته يدويا.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;حفظ</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;إغلاق</translation>
     </message>
@@ -284,6 +280,11 @@
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>
