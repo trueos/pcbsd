@@ -23,6 +23,10 @@ void netKey::setSSID(QString SSID){
  slotShowKey();
 }
 
+void netKey::showKeyType(bool show){
+  group_keytype->setVisible(show);
+}
+
 void netKey::slotShowKey(){
   if( checkShowKey->isChecked() ){
     lineKey->setEchoMode(QLineEdit::Normal);
@@ -38,7 +42,9 @@ void netKey::slotApply()
     {
 	QMessageBox::warning( this, tr("Network Key Error"), tr("Error: The entered network keys do not match!\n") );
     } else {
-  	emit saved(lineKey->text(), labelssid->text());
+	bool useHex = true;
+	if( group_keytype->isVisible() && radio_text->isChecked() ){ useHex = false; }
+  	emit saved(lineKey->text(), labelssid->text(), useHex);
         close();
     }
 }
