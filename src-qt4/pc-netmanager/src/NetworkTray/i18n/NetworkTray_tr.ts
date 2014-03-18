@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>Harhangi bir kablosuz ağ bulunamadı</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>Bağlanıyor: </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>Lütfen Bekleyin</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,18 @@
     <message>
         <source>Show network key as text</source>
         <translation>Ağ anahtarını metin olarak görüntüle</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

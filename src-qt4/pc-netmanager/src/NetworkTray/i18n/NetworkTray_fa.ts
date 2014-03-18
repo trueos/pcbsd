@@ -91,14 +91,6 @@ SSID:</translation>
         <source>No Wireless Network Connection</source>
         <translation>بدون اتصال به شبکه های بی سیم</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation> اتصال به</translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>لطفا صبر کنید         </translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -138,6 +130,18 @@ SSID:</translation>
     <message>
         <source>Show network key as text</source>
         <translation>نمایش کد شبکه در قالب متن </translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

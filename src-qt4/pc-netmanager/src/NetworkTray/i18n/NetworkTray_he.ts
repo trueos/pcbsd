@@ -80,14 +80,6 @@
         <source>No Wireless Network Connection</source>
         <translation>אין חיבור לרשת אלחוטית</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>מתחבר ל-</translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>אנא המתן</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,18 @@
     <message>
         <source>Show network key as text</source>
         <translation>הצג מפתח רשת כטקסט</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
