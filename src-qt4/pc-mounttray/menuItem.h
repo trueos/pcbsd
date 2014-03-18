@@ -15,17 +15,20 @@
 #include <QDebug>
 #include <QLabel>
 #include <QTimer>
+#include <QPainter>
+#include <QPixmap>
 
 extern bool DEBUG_MODE;
 extern QString DEVICEDIR;
 extern QString MOUNTDIR;
+//extern QString USERNAME;
 
 class MenuItem : public QWidgetAction
 {
 	Q_OBJECT
 
   public:
-	MenuItem(QWidget* parent = 0, QString newdevice="", QString newlabel="", QString newtype="", QString newfs="", QString user="");
+	MenuItem(QWidget* parent = 0, QString newdevice="", QString newlabel="", QString newtype="", QString newfs="");
 	~MenuItem();
 	
 	QString device;
@@ -35,7 +38,7 @@ class MenuItem : public QWidgetAction
         QString maxSize;  //number in KB saved as a QString
         QString currentSize; //number in KB saved as a QString
         QString AMFILE;
-  	QString currentUser; //username of current user (for setting mount dir ownership)
+  	//QString currentUser; //username of current user (for setting mount dir ownership)
 	
   	//Setters
 	void updateItem();
@@ -58,13 +61,17 @@ class MenuItem : public QWidgetAction
   	QProgressBar* currentSpace;
   	QPushButton* pushMount;
   	QCheckBox* checkAutomount;
+	QPixmap baseicon;
 	bool mountedHere; //Whether this utility is the one that mounted the device
+	bool rootRequired, oldroot;
   
   	void unmountItem(bool force = false);
         void updateSizes();
         QString getSizeDisplay(int);
         bool checkSavedAutoMount();
         QStringList systemCMD(QString);
+	QString createRunScript(QString mntpoint, QString mntcmd);
+	QString createRemoveScript(QString mntpoint, bool force);
   
 	bool umount(bool force, QString mntpoint);
   	
@@ -79,6 +86,7 @@ class MenuItem : public QWidgetAction
 	void itemUnmounted(QString); 	//device node
 	void itemRemoved(QString);  	//device node
         void newMessage(QString, QString);	//message to be displayed
+	void itemWorking();
 
 };
 #endif
