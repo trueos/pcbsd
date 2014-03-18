@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>무선 네트워크 연결 없음</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>연결중:</translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>기다려주십시오.</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,18 @@
     <message>
         <source>Show network key as text</source>
         <translation>텍스트로 네트워크 열쇠글 보기</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

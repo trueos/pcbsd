@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>無線ネットワークは見当たりません</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>接続先 </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>お待ちください</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,18 @@
     <message>
         <source>Show network key as text</source>
         <translation>ネットワークキーを平文で表示する</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
