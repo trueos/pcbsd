@@ -17,6 +17,9 @@
 #include <QTimer>
 #include <QPainter>
 #include <QPixmap>
+#include <QInputDialog>
+
+#include "devCheck.h"
 
 extern bool DEBUG_MODE;
 extern QString DEVICEDIR;
@@ -28,7 +31,7 @@ class MenuItem : public QWidgetAction
 	Q_OBJECT
 
   public:
-	MenuItem(QWidget* parent = 0, QString newdevice="", QString newlabel="", QString newtype="", QString newfs="");
+	MenuItem(QWidget* parent = 0, DevCheck *chk = 0, QString newdevice="", QString newlabel="", QString newtype="", QString newfs="");
 	~MenuItem();
 	
 	QString device;
@@ -62,6 +65,7 @@ class MenuItem : public QWidgetAction
   	QPushButton* pushMount;
   	QCheckBox* checkAutomount;
 	QPixmap baseicon;
+	DevCheck *DEVCHECK;
 	bool mountedHere; //Whether this utility is the one that mounted the device
 	bool rootRequired, oldroot;
   

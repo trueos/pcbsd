@@ -27,10 +27,14 @@ class DevCheck
 	QStringList devChildren(QString);
 	QString devLabel(QString, QString);
 	bool devInfo(QString, QString*, QString*, QString*, QString*);
-        
+	
+	QStringList AvailableFS();
+	QString getMountCommand(QString FS, QString dev, QString mntpoint);
+  
   private:
   	QStringList validDevs, validDevTypes, devFilter;
   	QStringList fsDetection, fsMatch, fsFilter;
+	QStringList fsManual, fsCMD, fsBinCheck;
   	QDir devDir;
 
 };

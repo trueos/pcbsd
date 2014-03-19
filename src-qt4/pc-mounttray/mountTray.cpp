@@ -138,7 +138,7 @@ bool MountTray::addDevice(QString dev, QString label, QString type, QString file
  
   qDebug() << "Valid Device Connection:" << dev << type << label << filesys;
   //Create the menu item (will automount if necessary)
-  MenuItem *tmp = new MenuItem(this, dev, label, type, filesys);
+  MenuItem *tmp = new MenuItem(this, DCheck, dev, label, type, filesys);
   //connect the signals/slots
   connect(tmp, SIGNAL(itemMounted(QString)), this, SLOT(openMediaDir(QString)) );
   connect(tmp, SIGNAL(newMessage(QString,QString)), this, SLOT(slotDisplayPopup(QString,QString)) );

@@ -10,12 +10,28 @@ DevCheck::DevCheck(){
   for(int i=0; i<validDevs.length(); i++){
     devFilter << validDevs[i]+"*";
   }
-  //Initialize lists of filesystems and detection strings
+  //Initialize lists of filesystems and detection strings for automatic detection
   fsDetection.clear();
   fsMatch.clear();
+  fsFilter.clear();
   fsDetection << "FAT" << "NTFS" << "EXT" << "ISO 9660" << "Unix Fast File system" << "Reiser" << "XFS"; //string to match for a particular filesystem
   fsMatch << "FAT" << "NTFS" << "EXT" << "CD9660" << "UFS" << "REISERFS" << "XFS"; //internal labels for the filesystems
   fsFilter << "fat" << "ntfs" << "ext" << "cdrom" << "ufs" << "reiser" << "xfs"; //label categories in /dev/
+  //Initialize lists of Manual Filesystems that might be available
+  fsManual.clear(); fsCMD.clear(); fsBinCheck.clear();
+  fsManual << "FAT"  << "EXFAT" << "NTFS" << "EXT" << "EXT4" << "CD9660" << "UFS" << "REISERFS" << "XFS";
+  //fsCMD: %1 becomes device path, %2 becomes mointpoint path
+  fsCMD << "mount -t msdosfs -o large,longnames,-m=755,-L="+QString(getenv("LANG"))+" %1 %2"; //FAT
+  fsCMD << "mount.exfat-fuse %1 %2"; //EXFAT
+  fsCMD << "ntfs-3g %1 %2"; //NTFS
+  fsCMD << "mount -t ext2fs %1 %2"; //EXT
+  fsCMD << "ext4fuse %1 %2"; //EXT4
+  fsCMD << "mount -t cd9660 %1 %2"; //CD9660
+  fsCMD << "mount -t ufs %1 %2"; //UFS
+  fsCMD << "mount -t reiserfs %1 %2"; //REISERFS
+  fsCMD << "mount -t xfs %1 %2"; //XFS
+  fsBinCheck << "/sbin/mount_msdosfs" << "/usr/local/bin/mount.exfat-fuse" << "/usr/local/bin/ntfs-3g" << "/sbin/mount" \
+		<< "/usr/local/bin/ext4fuse" << "/sbin/mount_cd9660" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount";
   //Initialize the device directory
   devDir = QDir(DEVICEDIR);
 }
@@ -142,7 +158,8 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
       //Check for actual sub-devices (*s[#][a/b/c/....])
       if( devChildren(node).length() > 0 ){ hasPartitions = TRUE; }
     //}
-    if( !tmp.filter("last mounted on /").isEmpty() && (detType == "SATA")){
+    //if( !tmp.filter("last mounted on /").isEmpty() && (detType == "SATA")){
+    if( !tmp.filter("active").isEmpty() ){ //currently running partition/device
       isMounted = TRUE;
     }
     //Now try to get the size of the disk
@@ -170,7 +187,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   //First try to get the device label using the "file -s" output
   QString dlabel;
   if(isCD){
-    if( !output.contains("ERROR:") ){
+    if(!output.contains("ERROR:") && (output.section(":",1,1).simplified() != "data") ){
       dlabel = output.section("'",-2).remove("'").simplified();
       if(dlabel.contains("(")){ dlabel = dlabel.left(dlabel.indexOf("(")+1).trimmed();}
     }
@@ -230,9 +247,9 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   else if( hasFS && isCD ){ good = TRUE; } //CD/DVD data disks don't have as much info
   //Allow devices that match 2 of the 3 criteria
   else if( hasFS && oksize ){ good = TRUE; } //This will catch most good devices
-  else if( hasLabel && oksize ){ good = TRUE; } //allow unknown filesystems if there is a good size reading
   else if( hasFS && hasLabel ){ good = TRUE; } // allow device if it has a known label and filesystem
-  
+  else if( hasLabel || oksize ){ good = TRUE; } //allow unknown filesystems if there is a good size reading
+  else if( detType=="SD" ){ good = TRUE; } //SD cards do not show that much info
   //Now setup the outputs as appropriate
   maxsize->append( QString::number(kb) );
   label->append(dlabel);
@@ -243,6 +260,25 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     if(DEBUG_MODE){qDebug() << " -Detected Flags:" << isMounted << hasPartitions << hasLabel << hasFS << oksize;} 
   }
   return good;
+}
+
+QStringList DevCheck::AvailableFS(){
+  QStringList avail;
+  for(int i=0; i<fsBinCheck.length(); i++){
+    if( QFile::exists(fsBinCheck[i]) ){ avail << fsManual[i]; }
+  }
+  return avail;
+}
+
+QString DevCheck::getMountCommand(QString FS, QString dev, QString mntpoint){
+  QString CMD = "mount_auto "+dev+" "+mntpoint;
+  int index = fsManual.indexOf(FS);
+  if(index != -1){
+    CMD = fsCMD[index].arg(dev, mntpoint);
+  }else{
+    qDebug() << "Using mount_auto: " << dev <<mntpoint;
+  }
+  return CMD;
 }
 
 /*

@@ -2,7 +2,7 @@
 #include "menuItem.h"
 
 
-MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString newtype, QString newfs) : QWidgetAction(parent)
+MenuItem::MenuItem(QWidget* parent, DevCheck *chk, QString newdevice, QString newlabel, QString newtype, QString newfs) : QWidgetAction(parent)
 {
   AMFILE= QDir::homePath() + "/.pc-automounttray";   //File to save/load all the devices to be automounted
   //Set the device info variables
@@ -10,6 +10,7 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   device = newdevice;
   devType = newtype;
   filesystem = newfs;
+  DEVCHECK = chk;
   //currentUser = user;
   mountedHere = false; //not mounted by this app (yet)
   rootRequired = false; //assume user device for the moment
@@ -49,7 +50,7 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   else if(devType == "SATA"){ baseicon = QPixmap(":icons/harddrive.png"); }
   else if(devType == "SD"){ baseicon = QPixmap(":icons/sdcard.png"); }
   else if(devType == "CD9660"){ baseicon = QPixmap(":icons/dvd.png"); }
-  else if(devType == "ISO"){baseicon = QPixmap(":icons/dvd.png"); }
+  else if(devType == "ISO"){baseicon = QPixmap(":icons/dvd.png"); rootRequired = true;}
   else if(devType == "SCSI"){baseicon = QPixmap(":icons/harddrive.png"); }
   devIcon->setPixmap(baseicon);
   //Start the automount procedure if necessary
@@ -133,22 +134,37 @@ bool MenuItem::isMounted(){
       //Check if the mountpoint is in the current user's home directory
       rootRequired = !( mountpoint.startsWith(home) || mountpoint.startsWith(shorthome) );
       //qDebug() << "Mountpoint directory in non-user directory:" << rootRequired << mountpoint << home;
+    }else if(mountedHere && devType == "ISO"){
+      rootRequired = true; //Requires root to remove the MD device, not necessary to mount it though
     }
-  }else if(devType=="ISO"){
-    //Simple check for unmounted items
-    rootRequired = true;
   }else{
     //Not mounted and passed known user device limitations
     rootRequired = false;
   }
   //qDebug() << "Check for root:" << device << rootRequired;
   //Now update the icon
-    if(rootRequired){
+    if(rootRequired && filesystem=="UNKNOWN"){
+      //Add the root-overlay to the base icon
+      QPixmap tmp = baseicon;
+      QPixmap overlay1(":icons/root-overlay.png");
+      QPixmap overlay2(":icons/question-overlay.png");
+      QPainter paint(&tmp);
+	    paint.drawPixmap(devIcon->width()-20, devIcon->height()-20, overlay1 ); //put it in the bottom-right corner
+	    paint.drawPixmap(devIcon->width()-24,0, overlay2 ); //put it in the top-right corner
+      devIcon->setPixmap(tmp);	    
+    }else if(rootRequired){
       //Add the root-overlay to the base icon
       QPixmap tmp = baseicon;
       QPixmap overlay(":icons/root-overlay.png");
       QPainter paint(&tmp);
 	    paint.drawPixmap(devIcon->width()-20, devIcon->height()-20, overlay ); //put it in the bottom-right corner
+      devIcon->setPixmap(tmp);
+    }else if(filesystem=="UNKNOWN"){
+      //Add the root-overlay to the base icon
+      QPixmap tmp = baseicon;
+      QPixmap overlay(":icons/question-overlay.png");
+      QPainter paint(&tmp);
+	   paint.drawPixmap(devIcon->width()-24,0, overlay ); //put it in the top-right corner
       devIcon->setPixmap(tmp);
     }else{
       devIcon->setPixmap(baseicon); //base icon w/ no overlay
@@ -236,21 +252,19 @@ void MenuItem::mountItem(){
   QString mntpoint = MOUNTDIR + deviceName.replace(" ","-"); //take into account spaces in the name
 
   //Create the fileystem specific command for mounting
-  QString fstype;
-  QString fsopts="";
-  if( filesystem == "FAT" ){ fstype = "mount -t msdosfs"; fsopts = QString("-o large,longnames,-m=755,-L=")+QString(getenv("LANG")); }
-  else if(filesystem == "NTFS"){ fstype = "ntfs-3g"; }
-  else if(filesystem == "EXT"){ fstype = "mount -t ext2fs"; }
-  else if(filesystem == "CD9660"){ fstype = "mount -t cd9660"; }
-  else if(filesystem == "UFS"){ fstype = "mount -t ufs"; }
-  else if(filesystem == "REISERFS"){ fstype = "mount -t reiserfs"; }
-  else if(filesystem == "XFS"){ fstype = "mount -t xfs"; }
-  else{
-    qDebug() << "Unknown device filesystem:" << device << filesystem << " attempting mount_auto command";
-    fstype = "mount_auto";
-    //QMessageBox::warning(this,tr("Unknown Device Filesystem"),tr("The filesystem on this device is unknown and cannot be mounted at this time") );
-    //return FALSE;
+  QString tmpFileSystem;
+  QString cmd;
+  if(filesystem=="UNKNOWN"){
+    //prompt for filesystem
+    bool selected = false;
+    tmpFileSystem = QInputDialog::getItem(0, deviceName+"("+devType+")", tr("Mount as:"), DEVCHECK->AvailableFS(), 0, false, &selected);
+    if( !selected || tmpFileSystem.isEmpty() ){ return; } //cancelled
+    //Now get the mount command
+    cmd = DEVCHECK->getMountCommand(tmpFileSystem, device, mntpoint);
+  }else{
+    cmd = DEVCHECK->getMountCommand(filesystem, device, mntpoint);
   }
+
   //Make sure the mntpoint is available
   QDir mpd(mntpoint);
   if(mpd.exists() && !rootRequired){
@@ -259,7 +273,7 @@ void MenuItem::mountItem(){
     mpd.rmdir(mntpoint);
   }
   //Prepare the mount command to run
-  QString cmd = fstype + " " +fsopts + " " + device + " " + mntpoint;
+  //QString cmd = fstype + " " +fsopts + " " + device + " " + mntpoint;
   qDebug() << "Mounting device" << device << "on" << mntpoint << "("<<filesystem<<")";
   if(DEBUG_MODE){ qDebug() << " - command:" << cmd; }
   //Generate the run script
@@ -286,7 +300,9 @@ void MenuItem::mountItem(){
   }
   //Now parse the return code
   QString result, title;
+  mountedHere = true; //need to set this before running isMounted to update icons right
   ok = isMounted();
+  mountedHere = ok; //now make sure it is the proper value
   if( ok ){
 	title = tr("Success");
 	result = QString( tr("%1 mounted at %2") ).arg(deviceName).arg(mntpoint);
@@ -313,10 +329,9 @@ void MenuItem::mountItem(){
   if(ok){
     emit itemMounted(mntpoint);
     mountpoint = mntpoint;
-    mountedHere = true;
+    if( !tmpFileSystem.isEmpty() ){ filesystem = tmpFileSystem; } //this one worked - use it in the future
   }else{
     mountpoint.clear();
-    mountedHere = false;
   }
   if( !checkAutomount->isChecked()  && !(title.isEmpty() && result.isEmpty()) ){
     emit newMessage(title, result); //suppress the output message if it was automounted
