@@ -876,6 +876,12 @@ QStringList Installer::getGlobalCfgSettings()
   if ( Arch == "amd64" )
      distFiles+=" lib32";
 
+  // Check for ports / src sources
+  if ( fSRC )
+     distFiles+=" src";
+  if ( fPORTS )
+     distFiles+=" ports";
+
   // System type we are installing
   if ( radioDesktop->isChecked() )
     tmpList << "installType=PCBSD";
@@ -995,8 +1001,6 @@ void Installer::startConfigGen()
  
   // We can skip these options if doing a restore
   if ( ! radioRestore->isChecked() ) {
-
-    cfgList+=getComponentCfgSettings();
 
     // Save the install config script to disk
     cfgList << "runExtCommand=/root/save-config.sh";
@@ -1563,24 +1567,6 @@ void Installer::slotReadInstallerOutput()
      }
 
   } // end of while loop
-}
-
-// Return list of components to install
-QStringList Installer::getComponentCfgSettings()
-{
-  QStringList componentList, com;
-  if ( fSRC )
-    com << "src";
-  if ( fPORTS )
-    com << "ports";
-
-  if ( ! com.isEmpty() ) {
-    componentList << "";
-    componentList << "# Optional Components";
-    componentList << "installComponents=" + com.join(",");
-  }
-
-  return componentList;
 }
 
 // Start xvkbd
