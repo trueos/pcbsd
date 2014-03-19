@@ -12,18 +12,6 @@
         <translation>Име на услугата</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Старт</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Стоп</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Рестарт</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>Работеща</translation>
     </message>
@@ -38,14 +26,6 @@
     <message>
         <source>Enabled</source>
         <translation>Активирана</translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>Активирай услуга</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Забранена услуга</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -69,6 +49,31 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
         <translation type="unfinished">
             </translation>
     </message>

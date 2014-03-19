@@ -81,25 +81,27 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakettien kokoonpano:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(epävakaa)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Järjestelmän komponentit</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Työpöytäympäristöt</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Sulje</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Apuohjelmat:</translation>
     </message>
 </context>
 </TS>

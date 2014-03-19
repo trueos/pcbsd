@@ -2,7 +2,7 @@
 #include "menuItem.h"
 
 
-MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString newtype, QString newfs, QString user) : QWidgetAction(parent)
+MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString newtype, QString newfs) : QWidgetAction(parent)
 {
   AMFILE= QDir::homePath() + "/.pc-automounttray";   //File to save/load all the devices to be automounted
   //Set the device info variables
@@ -10,7 +10,9 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   device = newdevice;
   devType = newtype;
   filesystem = newfs;
-  currentUser = user;
+  //currentUser = user;
+  mountedHere = false; //not mounted by this app (yet)
+  rootRequired = false; //assume user device for the moment
   //Create the layout
   QGridLayout* layout = new QGridLayout();
   QHBoxLayout* hlayout = new QHBoxLayout();
@@ -43,12 +45,13 @@ MenuItem::MenuItem(QWidget* parent, QString newdevice, QString newlabel, QString
   connect(checkAutomount,SIGNAL(toggled(bool)),this,SLOT(slotAutoMountToggled(bool)));
 
   //Setup the device Icon based on the type
-  if(devType == "USB"){ devIcon->setPixmap(QPixmap(":icons/usb.png")); }
-  else if(devType == "SATA"){ devIcon->setPixmap(QPixmap(":icons/harddrive.png")); }
-  else if(devType == "SD"){ devIcon->setPixmap(QPixmap(":icons/sdcard.png")); }
-  else if(devType == "CD9660"){ devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
-  else if(devType == "ISO"){devIcon->setPixmap(QPixmap(":icons/dvd.png")); }
-  else if(devType == "SCSI"){devIcon->setPixmap(QPixmap(":icons/harddrive.png")); }
+  if(devType == "USB"){ baseicon = QPixmap(":icons/usb.png"); }
+  else if(devType == "SATA"){ baseicon = QPixmap(":icons/harddrive.png"); }
+  else if(devType == "SD"){ baseicon = QPixmap(":icons/sdcard.png"); }
+  else if(devType == "CD9660"){ baseicon = QPixmap(":icons/dvd.png"); }
+  else if(devType == "ISO"){baseicon = QPixmap(":icons/dvd.png"); }
+  else if(devType == "SCSI"){baseicon = QPixmap(":icons/harddrive.png"); }
+  devIcon->setPixmap(baseicon);
   //Start the automount procedure if necessary
   if(checkAutomount->isChecked() || devType=="ISO"){
     QTimer::singleShot(500,this,SLOT( slotAutoMount() ));
@@ -121,6 +124,36 @@ bool MenuItem::isMounted(){
       break; 
     }
   }
+  //Set the rootRequired flag as appropriate
+  if(mounted){
+    //Only check the mountpoint owner if not already flagged for root perms
+    if(!rootRequired && !mountedHere){ 
+      QString home = QDir::homePath();
+      QString shorthome = home; shorthome.replace("/usr/home/", "/home/");
+      //Check if the mountpoint is in the current user's home directory
+      rootRequired = !( mountpoint.startsWith(home) || mountpoint.startsWith(shorthome) );
+      //qDebug() << "Mountpoint directory in non-user directory:" << rootRequired << mountpoint << home;
+    }
+  }else if(devType=="ISO"){
+    //Simple check for unmounted items
+    rootRequired = true;
+  }else{
+    //Not mounted and passed known user device limitations
+    rootRequired = false;
+  }
+  //qDebug() << "Check for root:" << device << rootRequired;
+  //Now update the icon
+    if(rootRequired){
+      //Add the root-overlay to the base icon
+      QPixmap tmp = baseicon;
+      QPixmap overlay(":icons/root-overlay.png");
+      QPainter paint(&tmp);
+	    paint.drawPixmap(devIcon->width()-20, devIcon->height()-20, overlay ); //put it in the bottom-right corner
+      devIcon->setPixmap(tmp);
+    }else{
+      devIcon->setPixmap(baseicon); //base icon w/ no overlay
+    }
+
   return mounted;
 }
 
@@ -130,9 +163,9 @@ void MenuItem::cleanup(){
     unmountItem(); //unmount and remove mountpoint
   }else{
     //Just check for mountpoint removal
-    if(QFile::exists(mountpoint)){
+    if(QFile::exists(mountpoint) && mountedHere){
       qDebug() << "Removing old mountpoint:" << mountpoint;
-      QString output = pcbsd::Utils::runShellCommand("rmdir "+mountpoint).join(" ");
+      QString output = systemCMD("rmdir "+mountpoint).join(" ");
       if(!output.isEmpty()){ qDebug() << " -Error:" <<output; }
     }
   }
@@ -141,6 +174,9 @@ void MenuItem::cleanup(){
   PRIVATE FUNCTIONS
 */
 void MenuItem::slotMountClicked(){
+  //Hide the parent menu
+  emit itemWorking();
+  //Now 
   if( isConnected() ){
     if( !isMounted() ){
       mountItem();
@@ -202,7 +238,7 @@ void MenuItem::mountItem(){
   //Create the fileystem specific command for mounting
   QString fstype;
   QString fsopts="";
-  if( filesystem == "FAT" ){ fstype = "mount -t msdosfs"; fsopts = QString("-o large,longnames,-m=644,-M=777,-L=")+QString(getenv("LANG")); }
+  if( filesystem == "FAT" ){ fstype = "mount -t msdosfs"; fsopts = QString("-o large,longnames,-m=755,-L=")+QString(getenv("LANG")); }
   else if(filesystem == "NTFS"){ fstype = "ntfs-3g"; }
   else if(filesystem == "EXT"){ fstype = "mount -t ext2fs"; }
   else if(filesystem == "CD9660"){ fstype = "mount -t cd9660"; }
@@ -217,57 +253,77 @@ void MenuItem::mountItem(){
   }
   //Make sure the mntpoint is available
   QDir mpd(mntpoint);
-  if(mpd.exists()){
+  if(mpd.exists() && !rootRequired){
     //Remove the existing directory (will work only if it is empty)
     mpd.cdUp();
     mpd.rmdir(mntpoint);
   }
-  //Prepare the commands to run
-  QString cmd1 = "mkdir " + mntpoint;
-  QString cmd2 = fstype + " " +fsopts + " " + device + " " + mntpoint;
-  //cmd2 = "su -m "+currentUser+" -c \""+cmd2+"\""; //add command to run as user
-  QString cmd3 = "chmod 755 " + mntpoint; //to set full user/root access
-  //QString cmd4 = "chown "+currentUser+":"+currentUser+" "+mntpoint; //make the current user the owner
+  //Prepare the mount command to run
+  QString cmd = fstype + " " +fsopts + " " + device + " " + mntpoint;
   qDebug() << "Mounting device" << device << "on" << mntpoint << "("<<filesystem<<")";
-  if(DEBUG_MODE){ qDebug() << " - command:" << cmd2; }
-  
-  bool ok = FALSE;
-  QString result, title;
+  if(DEBUG_MODE){ qDebug() << " - command:" << cmd; }
+  //Generate the run script
+  QString runscript = createRunScript( mntpoint, cmd);
+  //Now run the script 
+  bool ok = !runscript.isEmpty();
+  bool tryroot = false;
+  QStringList outL("ERROR:SCRIPT");
   //Run the mounting commands
-  QStringList output = pcbsd::Utils::runShellCommand(cmd1);
-  if( output.join(" ").simplified().isEmpty() ){
-    //directory created, run the next commands
-    //system(cmd4.toUtf8()); //set directory ownershipt before mounting device
-    system(cmd3.toUtf8()); //set directory permissions
-    output = pcbsd::Utils::runShellCommand(cmd2);
-    if( output.join(" ").simplified().isEmpty() ){
-      title = tr("Success");
-      result = QString( tr("%1 mounted at %2") ).arg(deviceName).arg(mntpoint);
-      ok = TRUE;
-    }else{
-      qDebug() << "pc-mounttray: Error mounting device:" << device;
-      qDebug() << " - Error message:" << output;
-      title = QString( tr("Error mounting %1 at %2") ).arg(deviceName).arg(mntpoint);
-      result =  output.join(" ");
-      //Remove the mount point just created
-      pcbsd::Utils::runShellCommand("rmdir "+mntpoint);
-    }
-  }else{
-    qDebug() << "pc-mounttray: Error creating mountpoint:" << mntpoint;
-    qDebug() << " - Error message:" << output;
-    title = QString( tr("Error mounting %1") ).arg(deviceName);
-    result =  QString( tr("Could not create mount point at %1") ).arg(mntpoint);
+  if(ok && !rootRequired){
+    outL.clear();
+    outL = systemCMD(runscript);
+    //qDebug() << "Mount return code 1:" << outL;
+    //if it could not mount device with permissions issues - try as root
+    if( !outL.filter("Permission denied").isEmpty() || !outL.filter("not permitted").isEmpty() ){ 
+      qDebug() << " - Permissions issue, try as root";
+      tryroot = true; 
+    } 
   }
+  if( (ok && rootRequired) || tryroot ){
+    outL.clear();
+    outL = systemCMD("pc-su "+runscript);
+    //qDebug() << "Mount return code 2:" << outL;
+  }
+  //Now parse the return code
+  QString result, title;
+  ok = isMounted();
+  if( ok ){
+	title = tr("Success");
+	result = QString( tr("%1 mounted at %2") ).arg(deviceName).arg(mntpoint);
+	if(tryroot){ rootRequired = true; } //flag this as requiring root for later
+  }else if( !outL.filter("ERROR:MOUNTPOINT").isEmpty() ){
+	title = tr("Failure");
+	result = QString( tr("Could not create mountpoint: %1") ).arg(mntpoint);
+  }else if( !outL.filter("ERROR:MOUNTING").isEmpty() ){
+	title = tr("Failure");
+	result = QString( tr("Could not mount device %1 on %2 (%3)") ).arg(deviceName, mntpoint, filesystem);
+  }else{
+	QString tmp = outL.join("");
+	  tmp.remove("password:"); //pc-su sometimes outputs this
+	if(!tmp.simplified().isEmpty() || !(rootRequired || tryroot) ){ //check for pc-su cancellation
+	  qDebug() << "General Error output:" << outL;
+	  title = tr("General Error");
+	  result = tr("Could not create/run the device mounting script");
+	}
+  }
+  qDebug() << "pc-mounttray: "<<title << result;
+  if(DEBUG_MODE){ qDebug() << " - output:" << outL; }
+  
   //Output the proper signals depending upon success
   if(ok){
     emit itemMounted(mntpoint);
     mountpoint = mntpoint;
+    mountedHere = true;
   }else{
     mountpoint.clear();
+    mountedHere = false;
   }
-  if( !checkAutomount->isChecked() ){
+  if( !checkAutomount->isChecked()  && !(title.isEmpty() && result.isEmpty()) ){
     emit newMessage(title, result); //suppress the output message if it was automounted
   }
+  //Now remove the runscript
+  //if(ok)  //only for testing purposes
+    QFile::remove(runscript);
   
 }
 
@@ -281,71 +337,25 @@ void MenuItem::unmountItem(bool force){
       return;
     }
   }
-  
-  //Unmount all the NULLFS mountpoints first (in case it has been mounted into a PBI container)
-  QStringList nullfs = systemCMD("mount").filter(mountpoint).filter("nullfs");
-  bool ok= true;
-  for(int i=0; i<nullfs.length() && ok; i++){
-    QString nfspoint = nullfs[i].section(" on ",1,10).section("(",0,0).simplified();
-    ok = umount(force, nfspoint);
-  }
-  //If successful, also unmount the main mountpoint
-  if(ok){
-    ok = umount(force, mountpoint);
-  }
-  //Make sure there are no spaces in the mounpoint path
-  //QString cmd1 = "umount \"" + mountpoint +"\"";
-  //if(force){ cmd1.replace("umount ","umount -f "); }
-  //QString cmd2 = "rmdir \"" + mountpoint +"\"";
-  //qDebug() << "Unmounting device from" << mountpoint;
-  //Run the commands
-  //QStringList output;
+  bool ok = umount(force, mountpoint);
   QString result, title;
-  /*bool ok = umount(force, mountpoint);
-  output = pcbsd::Utils::runShellCommand(cmd1);
-  if(output.join(" ").simplified().isEmpty()){
-    //unmounting successful, remove the mount point directory
-    if(mountpoint != "/mnt" && mountpoint != "/media"){ //make sure not to remove base directories
-      output = pcbsd::Utils::runShellCommand(cmd2);
-    }
-    if(!output.join(" ").simplified().isEmpty()){
-      qDebug() << "pc-mounttray: Error removing mountpoint:" << mountpoint;
-      qDebug() << " - Error message:" << output;
-    }
-    ok = TRUE;*/
   if(ok){
     title = QString( tr("%1 has been successfully unmounted.") ).arg(devLabel->text());
     if(devType == "ISO"){
-      result = tr("The ISO file has been completely detached from the system.");
+      result = tr("The ISO file has been detached from the system.");
     }else{
       result = tr("It is now safe to remove the device");
     }
   }else{
-    if(!force){
-      if(QMessageBox::Yes == QMessageBox::question(0,tr("Device Busy"),
-	         tr("The device appears to be busy. Would you like to unmount it anyway?")+"\n\n"+tr("NOTE: This is generally not recommended unless you are sure that you don't have any applications using the device."),
-                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
-        unmountItem(true); //force the unmount recursively
-	return;
-      }
-    }
-    //qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
-    //qDebug() << " - Error message:" << output;
-    title = QString( tr("Error: %1 could not be unmounted") ).arg(devLabel->text());
-    //result = output.join(" ");
+    title = QString( tr("Error: %1 was not unmounted") ).arg(devLabel->text());
   }
   //emit the proper signals
   if(ok){
+    qDebug() << " *Success*";
     mountpoint.clear();
-    if(devType=="ISO" && device.section("/",-1).startsWith("md") ){
-      //Get the md number
-      QString num = device.section("/md",-1).simplified();
-      //also remove the MD device from the system using "mdconfig"
-      qDebug() << "Detaching Memory Disk:" << num;
-      QString cmd = "mdconfig -d -u "+num;
-      system(cmd.toUtf8());
-    }
     emit itemUnmounted(device);
+  }else{
+    qDebug() << " *Failure*";
   }
   emit newMessage(title, result);
 }
@@ -421,30 +431,131 @@ QStringList MenuItem::systemCMD(QString command){
    return out;
 }
 
+QString MenuItem::createRunScript(QString mntpoint, QString mntcmd){
+  //generate the run script filename
+  QString filename = QDir::homePath()+"/.mounttrayrunscript";
+  if(QFile::exists(filename)){
+    int i=2;
+    while(QFile::exists(filename+QString::number(i))){ i++; }
+    filename = filename+QString::number(i);
+  }
+  //Now generate the run script
+  QFile file(filename);
+  if( !file.open(QFile::WriteOnly | QFile::Text) ){
+    return ""; //could not create run script
+  }
+  QTextStream out(&file);
+  out << "#!/bin/sh\n";
+    //Create the mountpoint
+    out << "mkdir \""+mntpoint+"\"\n";
+    out << "if [ $? -ne 0 ]; then\n  echo ERROR:MOUNTPOINT\n  exit 1\nfi\n";
+    //Now set the mountpoint permissions
+    if(filesystem != "FAT"){ //FAT command sets permissions itself
+      out << "chmod 755 "+mntpoint+"\n";
+      out << "if [ $? -ne 0 ]; then\n  echo ERROR:PERMS\nfi\n";
+    }
+    //run the mount command
+    out << mntcmd + "\n";
+    out << "if [ $? -ne 0 ]; then\n  rmdir "+mntpoint+"\n  echo ERROR:MOUNTING\n  exit 2\nfi\n";
+  
+  //Now exit with the success signal
+  out << "exit 0";
+  file.close();
+  QFile::setPermissions(filename, QFile::permissions(filename) | QFile::ExeOwner); //make it executable
+  return filename;
+}
+
+QString MenuItem::createRemoveScript(QString mntpoint, bool force){
+ //generate the run script filename
+  QString filename = QDir::homePath()+"/.mounttrayrunscript";
+  if(QFile::exists(filename)){
+    int i=2;
+    while(QFile::exists(filename+QString::number(i))){ i++; }
+    filename = filename+QString::number(i);
+  }
+  //Now generate the run script
+  QFile file(filename);
+  if( !file.open(QFile::WriteOnly | QFile::Text) ){
+    return ""; //could not create run script
+  }
+  QTextStream out(&file);
+  out << "#!/bin/sh\n";
+     //Unmount all the NULLFS mountpoints first (in case it has been mounted into a PBI container)
+    QStringList nullfs = systemCMD("mount").filter(mntpoint).filter("nullfs");
+    bool ok= true;
+    for(int i=0; i<nullfs.length() && ok; i++){
+      QString nfspoint = nullfs[i].section(" on ",1,10).section("(",0,0).simplified();
+      if(!force){ out << "umount \""+nfspoint+"\"\n"; }
+      else{        out << "umount -f \""+nfspoint+"\"\n"; }
+      out << "if [ $? -ne 0 ]; then\n  echo ERROR:UNMOUNT\n exit 1\nfi\n";
+      qDebug() << " - will unmount nullfs point:" << nfspoint;
+    }
+    //Unmount the device
+    if(!force){ out << "umount \""+mntpoint+"\"\n";  }
+    else{        out << "umount -f \""+mntpoint+"\"\n";  }
+    out << "if [ $? -ne 0 ]; then\n  echo ERROR:UNMOUNT\n  exit 1\nfi\n";
+    //Remove the mountpoint if appropriate
+    if(mountedHere){
+      qDebug() << " - will remove mountpoint directory";
+      out << "rmdir \""+mntpoint+ "\"\n";
+      out << "if [ $? -ne 0 ]; then\n  echo ERROR:RMDIR\nfi\n";
+    }
+    //If an MD device, also remove it
+    if(devType=="ISO" && device.section("/",-1).startsWith("md") && mountedHere ){
+      //Get the md number
+      QString num = device.section("/md",-1).simplified();
+      //also remove the MD device from the system using "mdconfig"
+      qDebug() << " - will detach memory disk #"<< num;
+      out << "mdconfig -d -u "+num+"\n";
+      out << "if [ $? -ne 0 ]; then\n  echo ERROR:MDDETACH\nfi\n";
+    }
+  //Now exit with the success signal
+  out << "exit 0";
+  file.close();
+  QFile::setPermissions(filename, QFile::permissions(filename) | QFile::ExeOwner); //make it executable
+  return filename;
+}
+
 bool MenuItem::umount(bool force, QString mntpoint){
-  QString cmd1 = "umount \"" + mntpoint +"\"";
-  if(force){ cmd1.replace("umount ","umount -f "); }
-  QString cmd2 = "rmdir \"" + mountpoint +"\"";
   qDebug() << "Unmounting device from" << mntpoint;
+  if(rootRequired){ qDebug() << " - prompt for root"; }
+  QString runscript = createRemoveScript(mntpoint, force);
   //Run the commands
   QStringList output;
   QString result, title;
-  bool ok = FALSE;
-  output = systemCMD(cmd1);
-  if(output.join(" ").simplified().isEmpty()){
-    //unmounting successful, remove the mount point directory
-    if(mountpoint != "/mnt" && mountpoint != "/media"){ //make sure not to remove base directories
-      output = systemCMD(cmd2);
-    }
-    if(!output.join(" ").simplified().isEmpty()){
+  bool ok = !runscript.isEmpty();
+  if(ok && rootRequired){ output = systemCMD("pc-su "+runscript); }
+  else if(ok){ output = systemCMD(runscript); }
+  else{ return false; } //could not even create the runscript
+  //Check output
+  if(output.filter("ERROR:UNMOUNT").isEmpty() && !isMounted() ){
+    //unmounting successful
+    if( !output.filter("ERROR:RMDIR").isEmpty() ){
       qDebug() << "pc-mounttray: Error removing mountpoint:" << mountpoint;
       qDebug() << " - Error message:" << output;
     }
-    ok = TRUE;
+    if( !output.filter("ERROR:MDDETACH").isEmpty() ){
+      qDebug() << "pc-mounttray: Error detaching MD device";
+      qDebug() << " - Error message:" << output;
+    }
+    ok = true;
+    mountedHere = false; //not mounted by this app anymore
+  }else if( !output.filter("Device busy").isEmpty() && !force){
+    qDebug() << " - Device Busy";
+    //Ask whether to force the removal
+    if(QMessageBox::Yes == QMessageBox::question(0,tr("Device Busy"),
+	         tr("The device appears to be busy. Would you like to unmount it anyway?")+"\n\n"+tr("NOTE: This is generally not recommended unless you are sure that you don't have any applications using the device."),
+                 QMessageBox::Yes | QMessageBox::No, QMessageBox::No) ){
+        ok = umount(true, mntpoint); //force the unmount recursively
+    }
   }else{
     qDebug() << "pc-mounttray: Error unmounting mountpoint:" << mountpoint;
     qDebug() << " - Error message:" << output;
+    ok = false;
   }
+  if(DEBUG_MODE){ qDebug() << " - output:" << output; }
+  QFile::remove(runscript);
+  
   return ok;
 }
 

@@ -12,18 +12,6 @@
         <translation>Назва служби</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Старт</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Стоп</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Рестарт</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>Виконується</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>Увімкнена</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>Увімкнути службу</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Вимкнути службу</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Вимкнена</translation>
     </message>
@@ -70,6 +50,31 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Керування службами в&apos;язниці Warden:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

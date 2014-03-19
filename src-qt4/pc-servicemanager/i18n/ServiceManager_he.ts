@@ -12,18 +12,6 @@
         <translation>שם השרות</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>התחל</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>הפסק</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>הפעל מחדש</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>פעיל</translation>
     </message>
@@ -42,14 +30,6 @@
     <message>
         <source>Enabled</source>
         <translation>מופעל</translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>הפעל שירות</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>הפסק שירות</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -71,6 +51,31 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
         <translation type="unfinished">
             </translation>
     </message>

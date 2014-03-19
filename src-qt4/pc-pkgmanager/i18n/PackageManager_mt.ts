@@ -317,5 +317,25 @@
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
+    <message>
+        <source>&amp;Cleanup Packages</source>
+        <translation>&amp;Pakketti Cleanup</translation>
+    </message>
+    <message>
+        <source>Package Cleanup</source>
+        <translation>Pakketti Cleanup</translation>
+    </message>
+    <message>
+        <source>Do you want to start package cleanup?</source>
+        <translation>Do inti tixtieq li tibda cleanup pakkett?</translation>
+    </message>
+    <message>
+        <source>Starting package cleanup...</source>
+        <translation>Bidu cleanup pakkett...</translation>
+    </message>
+    <message>
+        <source>The following packages will be removed. Continue?</source>
+        <translation>Il-pakketti li ġejjin se jitneħħew. Kompli?</translation>
+    </message>
 </context>
 </TS>

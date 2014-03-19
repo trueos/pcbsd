@@ -24,10 +24,6 @@
         <translation>Віддалений вхід</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Запит паролю</translation>
     </message>
@@ -74,6 +70,16 @@
     <message>
         <source>Display available users</source>
         <translation>Показати можливих користувачів</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

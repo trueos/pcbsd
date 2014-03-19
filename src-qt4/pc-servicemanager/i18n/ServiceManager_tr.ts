@@ -12,18 +12,6 @@
         <translation>Hizmet Adı</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Başla</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Dur</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Yeniden başla</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>Çalışıyor</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>Etkinleştirildi</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>Servisi Etkinleştir</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Servisi devre dışı yap</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Pasifleştirildi</translation>
     </message>
@@ -69,6 +49,31 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
         <translation type="unfinished">
             </translation>
     </message>

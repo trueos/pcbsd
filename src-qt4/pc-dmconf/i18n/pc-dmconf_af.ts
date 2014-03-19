@@ -24,10 +24,6 @@
         <translation>afgeleë login            </translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>red            </translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Vergeet Versoek            </translation>
     </message>
@@ -78,6 +74,16 @@
     </message>
     <message>
         <source>Display available users</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>

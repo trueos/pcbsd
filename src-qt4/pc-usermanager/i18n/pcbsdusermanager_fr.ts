@@ -191,10 +191,6 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
         <translation>Mot de Passe:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;OK</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,10 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     <message>
         <source>Encrypt Files:</source>
         <translation>Crypter des fichiers:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Enregistrer</translation>
     </message>
 </context>
 <context>
@@ -324,10 +324,6 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
         <translation>Nom Complet:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Chan&amp;ger le Mot de Passe...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -356,12 +352,16 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
         <translation>Gestionnaire d&apos;Utilisateurs de PC-BSD - Mode Avancé</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Affichage Simplifié</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation>&amp;Changer Mot passe...</translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation>&amp;Affichage Simple</translation>
     </message>
 </context>
 <context>
@@ -369,14 +369,6 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     <message>
         <source>PC-BSD User Manager</source>
         <translation>Gestion d&apos;Utilisateurs de PC-BSD</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Fermer</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Appliquer</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +381,14 @@ L&apos;utilisateur existe déjà, merci d&apos;en choisir un autre.</translation
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Edition des utilisateurs pour la Jail :</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Appliquer</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Fermer</translation>
     </message>
 </context>
 <context>
@@ -501,16 +501,8 @@ Mot de passe invalide</translation>
         <translation>Ajouter un Utilisateur</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;K</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>An&amp;nuler</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +531,14 @@ Mot de passe invalide</translation>
     <message>
         <source>Encrypt Files:</source>
         <translation>Crypter des fichiers:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Enregistrer</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Annuler</translation>
     </message>
 </context>
 <context>

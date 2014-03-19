@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>Tidak ada Koneksi Jaringan Wireless</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>Menghubungkan ke </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>Tunggu Sebentar</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,21 @@
     <message>
         <source>Show network key as text</source>
         <translation>Tampilkan kunci jaringan sebagai teks</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

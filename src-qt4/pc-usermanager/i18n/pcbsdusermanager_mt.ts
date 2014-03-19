@@ -190,10 +190,6 @@
         <translation>Password:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -208,6 +204,10 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Kriptaġġ Files:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Ħlief</translation>
     </message>
 </context>
 <context>
@@ -323,10 +323,6 @@
         <translation>Isem sħiħ:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Chan&amp;ge Password...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -355,12 +351,16 @@
         <translation>PC-BSD User Manager - Avvanzata Modalità</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Sempliċi&amp;View</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation>&amp;Bidla Password...</translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation>&amp;View sempliċi</translation>
     </message>
 </context>
 <context>
@@ -368,14 +368,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD User Manager</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Agħlaq</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Applika</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -388,6 +380,14 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Editjar Utenti għal Jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Applika</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Agħlaq</translation>
     </message>
 </context>
 <context>
@@ -500,16 +500,8 @@
         <translation>żid User</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Ca&amp;ncel</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -538,6 +530,14 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Kriptaġġ Files:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>&amp;Ħlief</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Ikkanċella</translation>
     </message>
 </context>
 <context>

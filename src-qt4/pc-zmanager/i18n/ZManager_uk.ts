@@ -89,7 +89,16 @@ mechanism to inherit properties. One example of setting canmount=off is
 to have two datasets with the same mountpoint, so that the children of
 both datasets appear in the same directory, but might have different
 inherited characteristics.</source>
-        <translation>Якщо ця властивість вимкнена, файлова система не може буде змонтованою і вона буде ігнорована командою &apos;zfs mount -a&apos;. Вимкнення цієї властивості аналогічне до встановлення значення властивості точки монтування на &apos;не вказано&apos;, за винятком того, що датасет все ще має нормальну точку монтування, яку можна успадкувати. Вимкнення цієї властивості дозволяє використовувати датасети виключно як механізм для успадкування властивостей. Наприклад, встановлення canmount=off дозволяє мати два датасети з однією й тією ж точкою монтування, внаслідок чого нащадки обох датасетів з&apos;являються в одній і тій же директорії, але мають різні успадковані характеристики.</translation>
+        <translation>Якщо ця властивість вимкнена, файлова система не може буде
+змонтованою і вона буде ігнорована командою &apos;zfs mount -a&apos;.
+Вимкнення цієї властивості аналогічне до встановлення значення
+властивості точки монтування на &apos;не вказано&apos;, за винятком того, що
+датасет все ще має нормальну точку монтування, яку можна успадкувати.
+Вимкнення цієї властивості дозволяє використовувати датасети
+виключно як механізм для успадкування властивостей. Наприклад,
+встановлення canmount=off дозволяє мати два датасети з однією й тією
+ж точкою монтування, внаслідок чого нащадки обох датасетів з&apos;являються
+в одній і тій же директорії, але мають різні успадковані характеристики.</translation>
     </message>
     <message>
         <source>Controls the checksum used to verify data integrity. The default
@@ -109,7 +118,8 @@ checksums is NOT a recommended practice.</source>
 and gzip-N. Currently, setting this property to lzjb, gzip, or gzip-N has the same
 effect as setting this property to on. Enabling compression on a file system with
 existing data only compresses new data. Existing data remains uncompressed.</source>
-        <translation>Стиснення датасету. Можливі значення - on, off, lzjb, zle, gzip, та gzip-N.Наразі встановлення значення lzjb, gzip, або gzip-N має той же ефект,
+        <translation>Стиснення датасету. Можливі значення - on, off, lzjb, zle, gzip, та gzip-N.
+Наразі встановлення значення lzjb, gzip, або gzip-N має той же ефект,
 що й значення &apos;on&apos;. Увімкнення стиснення на файловій системі з існуючими
 даними матиме ефект тільки для нових даних. Існуючі дані
 залишаться нестиснутими.</translation>
@@ -359,13 +369,11 @@ from the supported software release.</source>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ця властивість не підтримується у FreeBSD.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Цю файлову систему помічено на знищення після відмонтування.</translation>
     </message>
     <message>
         <source>The compression ratio achieved for the referenced space of this

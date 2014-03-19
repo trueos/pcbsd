@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&lt;Unknown&gt;</source>
-        <translation>&lt;Unknown&gt;</translation>
+        <translation>Nieznane</translation>
     </message>
     <message>
         <source>Host:</source>
@@ -81,25 +81,27 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zbiór pakietów:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(niestabilne)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Komponenty systemowe:</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Środowiska graficzne...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zamknij</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Narzędzia:</translation>
     </message>
 </context>
 </TS>

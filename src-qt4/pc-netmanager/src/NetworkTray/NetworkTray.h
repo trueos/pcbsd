@@ -36,7 +36,7 @@ private slots:
    void slotQuit();
    void slotTriggerFileChanged();
    void slotGetNetKey(QAction* act);
-   void slotQuickConnect(QString key, QString SSID);
+   void slotQuickConnect(QString key, QString SSID, bool hexkey);
    void slotCheckWifiAvailability();
    void slotUpdateIfStatus();
    

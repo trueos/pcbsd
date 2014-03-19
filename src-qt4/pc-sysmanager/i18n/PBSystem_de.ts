@@ -8,14 +8,6 @@
         <translation>CMD-Ausgabe</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>Beenden</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Schließen</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>PC-BSD-Portbaum anfordern</translation>
     </message>
@@ -30,6 +22,16 @@
     <message>
         <source>Please stop the current process before closing this window.</source>
         <translation>Biite den aktuellen Prozeß beenden, bevor das Fenster geschlossen wird.</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -63,16 +65,8 @@
         <translation>Verschiedenes</translation>
     </message>
     <message>
-        <source>Generate</source>
-        <translation>Erzeugen</translation>
-    </message>
-    <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Sie können ebenfalls ein Diagnoseblatt mit Informationen über Ihr System generieren. Dieses kann von Technikern zur Fehlersuche verwendet werden.</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Speichern</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -145,6 +139,16 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

@@ -8,14 +8,6 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>thôi</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Đóng</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>Bắt cổng PC-BSD cây</translation>
     </message>
@@ -31,6 +23,14 @@
         <source>Please stop the current process before closing this window.</source>
         <translation>Hãy dừng quá trình hiện tại trước khi đóng cửa sổ này.</translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>&amp;Dừng</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Đóng</translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -41,10 +41,6 @@
     <message>
         <source>General</source>
         <translation>Chung</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>Sinh</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -69,10 +65,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Bạn cũng có thể tạo ra tờ chẩn đoán, thông tin về hệ thống của bạn. Tờ này có thể được sử dụng bởi các kỹ thuật cho mục đích xử lý sự cố.</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Lưu</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -140,7 +132,15 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation>Bạn đã sẵn sàng một quá trình chạy. Xin vui lòng chờ một đó để hoàn thành đầu tiên.  </translation>
+        <translation>Bạn đã sẵn sàng một quá trình chạy. Xin vui lòng chờ một đó để hoàn thành đầu tiên.</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation>&amp;Tạo</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Áp ​​dụng</translation>
     </message>
 </context>
 </TS>

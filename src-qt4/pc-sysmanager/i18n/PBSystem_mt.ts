@@ -8,14 +8,6 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>Stop</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Agħlaq</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>Getting Portijiet PC-BSD Tree</translation>
     </message>
@@ -31,6 +23,14 @@
         <source>Please stop the current process before closing this window.</source>
         <translation>Jekk jogħġbok tieqaf l-proċess attwali qabel ma tagħlaq il-tieqa.</translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>&amp;Stop</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Agħlaq</translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -41,10 +41,6 @@
     <message>
         <source>PC-BSD System Configuration</source>
         <translation>Sistema Konfigurazzjoni PC-BSD</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>Iġġenera</translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -69,10 +65,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Inti tista &apos;wkoll tiġġenera folja dijanjostiku, bl-informazzjoni dwar is-sistema tiegħek. Din il-folja tista &apos;tintuża minn tekniċi għal skopijiet troubleshooting.</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Ħlief</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -141,6 +133,14 @@
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation>Diġà għandek proċess running. Jekk jogħġbok stenna għal li wieħed biex jintemm l-ewwel.</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation>&amp;Iġġenera</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Applika</translation>
     </message>
 </context>
 </TS>

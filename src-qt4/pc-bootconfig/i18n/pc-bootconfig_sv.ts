@@ -56,22 +56,6 @@
         <translation>Visa GRUB menyn under tiden av nedräkningen</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Fil            </translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Beredskapstjänster            </translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>Bygg om GRUB meny            </translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>Återställ GRUB till standardvärden</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Namn</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Ladda om GRUBs inmatningsfil</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Stäng</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,31 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Bootmiljönamn får bara bestå av bokstäver och nummer</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

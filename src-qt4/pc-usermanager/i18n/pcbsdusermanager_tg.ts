@@ -209,10 +209,6 @@
         <translation>Парол:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -226,6 +222,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -351,10 +352,6 @@
         <translation>Номи пурра:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Ив&amp;ази парол...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+А</translation>
     </message>
@@ -383,12 +380,18 @@
         <translation>Идораи корбари PC-BSD - Ҳолати иловагӣ</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Ҳо&amp;лати оддӣ</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+Л</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -396,16 +399,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation type="unfinished">Идораи корбари PC-BSD</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -419,6 +412,16 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -542,16 +545,8 @@
         <translation>Иловаи корбар</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Беко&amp;р кардан</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -581,6 +576,15 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Бекор кардан</translation>
     </message>
 </context>
 <context>

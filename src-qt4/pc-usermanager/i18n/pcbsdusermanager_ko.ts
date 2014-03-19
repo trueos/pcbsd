@@ -221,11 +221,6 @@
             </translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation type="unfinished">
             </translation>
@@ -242,6 +237,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -383,11 +383,6 @@
             </translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation type="unfinished">
             </translation>
@@ -423,12 +418,17 @@
             </translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
+        <source>Alt+V</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Alt+V</source>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -437,16 +437,6 @@
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -462,6 +452,16 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -586,17 +586,7 @@
             </translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Alt+K</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -632,6 +622,16 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
         <translation type="unfinished">
             </translation>
     </message>

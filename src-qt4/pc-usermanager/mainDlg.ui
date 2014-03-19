@@ -224,7 +224,7 @@
           <item row="5" column="1">
            <widget class="QPushButton" name="passwordButton">
             <property name="text">
-             <string>Chan&amp;ge Password...</string>
+             <string>&amp;Change Password...</string>
             </property>
             <property name="icon">
              <iconset resource="pcbsdusermanager.qrc">
@@ -526,7 +526,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Simple &amp;View</string>
+          <string>&amp;Simple View</string>
          </property>
          <property name="shortcut">
           <string>Alt+V</string>

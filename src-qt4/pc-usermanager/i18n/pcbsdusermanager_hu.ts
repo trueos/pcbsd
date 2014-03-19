@@ -191,10 +191,6 @@
         <translation>Jelszó:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Rendben</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -208,6 +204,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -325,10 +326,6 @@
         <translation>Teljes név:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Új &amp;jelszó…</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+J</translation>
     </message>
@@ -357,12 +354,18 @@
         <translation>PC–BSD-felhasználókezelő (speciális mód)</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Egyszerű nézet</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+E</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -370,14 +373,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC–BSD-felhasználókezelő</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Bezárás</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Alkalmaz</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -390,6 +385,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Jail felhasználóinak szerkesztése:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -502,16 +507,8 @@
         <translation>Új felhasználó</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>R&amp;endben</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Még&amp;se</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -541,6 +538,15 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Mégse</translation>
     </message>
 </context>
 <context>

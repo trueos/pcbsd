@@ -58,18 +58,6 @@
         <translation>%1 haagitud asukohas %2</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>%1 ei õnnestunud haakida asukohta %2</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>%1 haakimisel esines viga</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>Haakepunkti loomine asukohas %1 ei õnnestunud</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 on lahti haagitud.</translation>
     </message>
@@ -78,20 +66,12 @@
         <translation>Seadme saab nüüd ohutult eemaldada</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>Viga: %1 ei õnnestunud lahti haakida</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>Vaba kettaruumi on %1</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>Haagitud asukohta %1</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation>ISO-fail on süsteemist täielikult lahti haagitud.</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -105,6 +85,34 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>MÄRKUS: tavaliselt ei ole see soovitatav kui just ei ole kindel, et ükski rakendus seda seadet ei kasuta.</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -115,16 +123,6 @@
     <message>
         <source>Close Tray</source>
         <translation>Sulge rakendus</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>Kasutaja tuvastamise tõrge</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>Ei õnnestunud kindlaks teha, milline tavakasutaja programmi käivitas 
-Failihaldurit ei saa juurkasutaja õigustega avada</translation>
     </message>
     <message>
         <source>New Device</source>

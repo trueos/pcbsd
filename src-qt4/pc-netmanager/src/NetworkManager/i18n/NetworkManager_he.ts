@@ -193,11 +193,6 @@
             </translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
@@ -313,6 +308,11 @@
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

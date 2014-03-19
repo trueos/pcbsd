@@ -56,22 +56,6 @@
         <translation>GRUB-Menü anzeigen, während der Countdown läuft</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Datei</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Notfalldienste</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>GRUB-Menü erneuern</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>GRUB-Vorgaben wiederherstellen</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Name</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Lade die Eingabendatei von GRUB neu</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Beenden</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,26 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Namen in der Boot-Umgebung dürfen nur aus Buchstaben und Zahlen bestehen</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;Datei</translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation>&amp;Notfalldienste</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Beenden</translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation>&amp;GRUB-Menü wiederherstellen</translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation>&amp;GRUB Standardeinstellung herstellen</translation>
     </message>
 </context>
 </TS>

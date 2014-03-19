@@ -32,6 +32,7 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
   defaultIcon = ":/application.png";
   statusLabel = new QLabel();
   ui->statusbar->addWidget(statusLabel);
+  updatesAvailable = -1; //app starting value (0 for no updates, 1 for updates available)
 }
 
 void MainUI::setWardenMode(QString dir, QString ip){
@@ -260,6 +261,7 @@ void MainUI::slotRefreshInstallTab(){
   for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
     cList << ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
   }
+  bool up = false; //to keep track of whether updates are available for any installed apps
   //Quick finish if no items installed
   if(installList.isEmpty()){
     ui->tree_install_apps->clear();
@@ -288,9 +290,11 @@ void MainUI::slotRefreshInstallTab(){
           ui->tree_install_apps->insertTopLevelItem(i,item);
           cList.insert(i,installList[i]); //reflect this inclusion into the current list
 	}
+	up = up || !PBI->upgradeAvailable(installList[i]).isEmpty(); //will remain "true" if a single item has an update available
       }else if(todo==1){
         //Update current item
         formatInstalledItemDisplay( ui->tree_install_apps->topLevelItem(i) );
+	up = up || !PBI->upgradeAvailable(installList[i]).isEmpty(); //will remain "true" if a single item has an update available
       }else{
         //Remove current item
         ui->tree_install_apps->takeTopLevelItem(i);
@@ -306,6 +310,12 @@ void MainUI::slotRefreshInstallTab(){
     }
   } //end of empty list check
   
+  //Check whether the system needs to be notified about a new PBI update availability
+  if( (updatesAvailable==0 && up) || (updatesAvailable==1 && !up) ){
+    SystemFlags::setFlag(SystemFlags::PbiUpdate);
+  }
+  if(up){ updatesAvailable = 1; }
+  else{ updatesAvailable = 0; }
   //Make sure that there is an item selected
   if(ui->tree_install_apps->topLevelItemCount() > 0 ){
     if( ui->tree_install_apps->selectedItems().isEmpty() ){
@@ -654,7 +664,7 @@ void MainUI::slotStartApp(QAction* act){
   QString desktopfile = act->whatsThis();
   QString cmd = "xdg-open "+desktopfile;
   //Startup the command externally
-  QProcess::execute(cmd);
+  QProcess::startDetached(cmd);
 }
 
 void MainUI::slotUpdateSelectedPBI(){
@@ -1222,7 +1232,7 @@ void MainUI::slotDisplayError(QString title,QString message,QStringList log){
     dlg->setWindowTitle(title);
     dlg->setText(message);
     dlg->setDetailedText(log.join("\n"));
-  dlg->exec();
+  dlg->show();
 }
 
 void MainUI::slotDisplayStats(){

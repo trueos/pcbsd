@@ -12,18 +12,6 @@
         <translation>Nom de Service</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Démarrer</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Arrêter</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Redémarrer</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>En marche</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>Activé</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>Activer le service</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Désactiver le service</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Désactivé</translation>
     </message>
@@ -70,6 +50,26 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Configurer les services pour Warden Jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation>&amp;Débuter</translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation>&amp;Redémarrer</translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation>&amp;Activer le service</translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation>&amp;Désactiver le Service</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>&amp;Arrêt</translation>
     </message>
 </context>
 <context>

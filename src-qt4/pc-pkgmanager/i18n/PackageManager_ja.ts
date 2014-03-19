@@ -167,11 +167,11 @@
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation>再試行する前に手動で競合を修正が必要かもしれません            </translation>
+        <translation>再試行する前に手動で競合を修正が必要かもしれません。</translation>
     </message>
     <message>
         <source>Downloading packages...</source>
-        <translation>パッケージをダウンロードしています</translation>
+        <translation>パッケージをダウンロードしています...</translation>
     </message>
     <message>
         <source>Failed!</source>
@@ -316,6 +316,30 @@
     <message>
         <source>Shift+S</source>
         <translation>Shift+S</translation>
+    </message>
+    <message>
+        <source>&amp;Cleanup Packages</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Package Cleanup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Do you want to start package cleanup?</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Starting package cleanup...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>The following packages will be removed. Continue?</source>
+        <translation>以下のパッケージが削除されます。処理を続行しますか?</translation>
     </message>
 </context>
 </TS>

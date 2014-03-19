@@ -38,9 +38,9 @@ if [ -e "${PREFIX}/share/pbi-manager/.pbime" ] ; then
 fi
 
 # Check if we have our warden.conf file
-if [ ! -e "/usr/local/etc/warden.conf" ] ; then
-   cp /usr/local/etc/warden.conf.dist /usr/local/etc/warden.conf
-   chmod 644 /usr/local/etc/warden.conf
+if [ ! -e "${PREFIX}/etc/warden.conf" ] ; then
+   cp ${PREFIX}/etc/warden.conf.dist ${PREFIX}/etc/warden.conf
+   chmod 644 ${PREFIX}/etc/warden.conf
 fi
 
 exit 0

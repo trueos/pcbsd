@@ -5,28 +5,23 @@
     <name>DNSList</name>
     <message>
         <source>Public DNS servers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Julkiset DNS palvelimet</translation>
     </message>
     <message>
         <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Voit valita yhden julkisen DNS palvelimen palveluntarjoajasi tarjoaman sijaan</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IP osoite</translation>
     </message>
     <message>
         <source>Provider</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palveluntarjoaja</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sijainti</translation>
     </message>
 </context>
 <context>
@@ -37,7 +32,7 @@
     </message>
     <message>
         <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD Verkon Hallinta</translation>
+        <translation>PC-BSD:n verkkoasetukset</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -61,7 +56,7 @@
     </message>
     <message>
         <source>Display system tray icon</source>
-        <translation type="unfinished">Näytä kuvake järjestelmäpalkissa</translation>
+        <translation>Näytä kuvake järjestelmäpalkissa</translation>
     </message>
     <message>
         <source>DNS 1:</source>
@@ -81,7 +76,7 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation>&amp;Konfiguroi</translation>
+        <translation>&amp;Muokkaa</translation>
     </message>
     <message>
         <source>Gateway:</source>
@@ -97,15 +92,15 @@
     </message>
     <message>
         <source>IP: </source>
-        <translation>IP:</translation>
+        <translation>IP: </translation>
     </message>
     <message>
         <source>Netmask: </source>
-        <translation>Aliverkon peite:</translation>
+        <translation>Aliverkon peite: </translation>
     </message>
     <message>
         <source>Configure </source>
-        <translation>Konfiguroi</translation>
+        <translation>Muokkaa </translation>
     </message>
     <message>
         <source>Device Information</source>
@@ -125,88 +120,67 @@
     </message>
     <message>
         <source>Network Configuration (Advanced)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verkkoasetukset (Kokeneille käyttäjille)</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tuntematon langaton laite</translation>
     </message>
     <message>
         <source>Search Domain:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haku domain:</translation>
     </message>
     <message>
         <source>Enable IPv6 support</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ota IPv6 käyttöön</translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sekalaiset</translation>
     </message>
     <message>
         <source>Enable wireless / wired failover via lagg0 interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salli langaton / langallinen varmistus lagg0 rajapinnan kautta</translation>
     </message>
     <message>
         <source>Proxy</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välityspalvelin</translation>
     </message>
     <message>
         <source>Proxy Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välityspalvelimen asetukset</translation>
     </message>
     <message>
         <source>Server Address</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palvelimen osoite</translation>
     </message>
     <message>
         <source>Port Number</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Portin numero</translation>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Välityspalvelimen tyyppi</translation>
     </message>
     <message>
         <source>Specify a Username / Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käytä käyttäjätunnusta ja salasanaa</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käyttäjätunnus</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasana</translation>
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Huomaa, nämä välityspalvelimen asetukset koskevat vain PC-BSD:n ohjelmistoja. Sovellukset jotka muodostavat omia internet yhteyksiä voivat edelleen käyttää omia välityspalvelin asetuksia. Joudut muokkaamaan ne sovelluskohtaisesti itse.</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sulje</translation>
     </message>
     <message>
         <source>Need Root Access</source>
@@ -220,58 +194,47 @@
     </message>
     <message>
         <source>Address:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Osoite:</translation>
     </message>
     <message>
         <source>SSID:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSID:</translation>
     </message>
     <message>
         <source>Status:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tila:</translation>
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anna verkkonimi</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verkkonimessä voi olla vain kirjaimia ja numeroita</translation>
     </message>
     <message>
         <source>IPV6 DNS 1:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPV6 DNS 1:</translation>
     </message>
     <message>
         <source>IPv6 DNS 2:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>IPV6 DNS 2:</translation>
     </message>
     <message>
         <source>Public servers</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Julkiset palvelimet</translation>
     </message>
     <message>
         <source>Computer Restart Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tietokone tulee uudelleenkäynnistää</translation>
     </message>
     <message>
         <source>You must restart your computer to finish changing your hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sinun tulee käynnistää tietokone uudelleen, jotta uusi verkkonimi tulee voimaan</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Perus</translation>
     </message>
     <message>
         <source>Digest</source>
@@ -280,18 +243,15 @@
     </message>
     <message>
         <source>System Hostname</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järjestelmän verkkonimi</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käytä omia DNS asetuksia</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käytä omaa yhdyskäytävä asetusta</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
@@ -320,6 +280,10 @@
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
+        <translation>Voit joutua kirjautumaan uudelleen ennen kuin välityspalvelimen asetukset tulevat voimaan.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

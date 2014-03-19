@@ -24,10 +24,6 @@
         <translation>Ceangal Cianda</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Sábháil</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Pasfhocal teastáil</translation>
     </message>
@@ -74,6 +70,16 @@
     <message>
         <source>Display available users</source>
         <translation>Sýna tiltækar notendum</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

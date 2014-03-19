@@ -203,12 +203,13 @@
         <translation>Alt+A</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Encrypt Files:</source>
         <translation>Bestanden versleutelen:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -324,10 +325,6 @@
         <translation>Volledige naam:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Wachtwoord ver&amp;anderen...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+A</translation>
     </message>
@@ -356,12 +353,18 @@
         <translation>PC-BSD-gebruikersbeheerder - Geavanceerde modus</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Eenvoudige &amp;weergave</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+W</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -369,14 +372,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD-gebruikersbeheerder</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sluiten</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Toepassen</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +384,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Gebruikers voor Gevangenis bewerken:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -505,10 +510,6 @@
         <translation>Alt+K</translation>
     </message>
     <message>
-        <source>Ca&amp;ncel</source>
-        <translation>A&amp;nnuleren</translation>
-    </message>
-    <message>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
@@ -533,12 +534,17 @@
         <translation>Het veld is leeg</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;K</translation>
-    </message>
-    <message>
         <source>Encrypt Files:</source>
         <translation>Bestanden versleutelen:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Annuleren</translation>
     </message>
 </context>
 <context>

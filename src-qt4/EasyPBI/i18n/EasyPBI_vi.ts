@@ -705,103 +705,103 @@
     </message>
     <message>
         <source>&amp;Build PBI</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Xây dựng PBI</translation>
     </message>
     <message>
         <source>&amp;Cancel Build</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hủy bỏ xây dựng</translation>
     </message>
     <message>
         <source>&amp;Save Build Log</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Xây dựng Lưu Đăng nhập</translation>
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lưu Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thay đổi</translation>
     </message>
     <message>
         <source>&amp;Add File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thêm tập</translation>
     </message>
     <message>
         <source>&amp;Delete File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Xóa tập tin</translation>
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Wrapper Script</translation>
     </message>
     <message>
         <source>&amp;Save Script</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lưu Script</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Lưu</translation>
     </message>
     <message>
         <source>&amp;Add</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thêm</translation>
     </message>
     <message>
         <source>&amp;Create</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tạo</translation>
     </message>
     <message>
         <source>&amp;Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hủy bỏ</translation>
     </message>
     <message>
         <source>&amp;Remove Entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Hủy bỏ nhập</translation>
     </message>
     <message>
         <source>&amp;Add Entry</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thêm nhập cảnh</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Tệp</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Trợ giúp</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;các thiết lập</translation>
     </message>
     <message>
         <source>Free&amp;BSD Ports</source>
-        <translation type="unfinished"></translation>
+        <translation>Free&amp;BSD Ports</translation>
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;PBI môđun</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Thoát</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Đóng gói Mô đun</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Giới</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Làm mới Mô đun</translation>
     </message>
 </context>
 <context>

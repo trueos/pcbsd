@@ -26,7 +26,7 @@ case $ANS in
              startx 2>/tmp/Xerrors ;;
     utility) /root/PCBSDUtil.sh
               clear ;;
-     reboot)  shutdown -r now ;;
+     reboot)  reboot -q ;;
           *) ;;
 esac
 

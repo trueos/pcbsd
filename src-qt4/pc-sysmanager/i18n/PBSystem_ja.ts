@@ -8,14 +8,6 @@
         <translation>コマンド出力</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>停止</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>閉じる</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>PC-BSDのPorts Treeを取得しています</translation>
     </message>
@@ -30,6 +22,14 @@
     <message>
         <source>Please stop the current process before closing this window.</source>
         <translation>このウィンドウを閉じる前に現在実行しているプロセスを停止してください。</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>停止(&amp;S)</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>閉じる(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -51,10 +51,6 @@
         <translation>システムメモリー:</translation>
     </message>
     <message>
-        <source>Generate</source>
-        <translation>生成(&amp;G)</translation>
-    </message>
-    <message>
         <source>Tasks</source>
         <translation>タスク</translation>
     </message>
@@ -65,10 +61,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>診断シートではシステムについての情報が記録されています。このシートは技術者が問題を解決するために使われます。</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>保存(&amp;S)</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -141,6 +133,14 @@
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation>既に処理を実行しています。完了するまでお待ちください。</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation>作成(&amp;G)</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>適用(&amp;A)</translation>
     </message>
 </context>
 </TS>

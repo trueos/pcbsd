@@ -298,6 +298,14 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <source>&amp;Save Config to USB</source>
         <translation>將設定儲存至 USB (&amp;S)</translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation>&lt;版本&gt;</translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation>版本：</translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
@@ -358,8 +366,7 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the software to install. Post-install you may also add / remove software via the Package Manager (desktop) or &quot;pkg&quot; command (server).</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請選取要安裝的軟體。安裝完後可以套件管理員 (桌面) 或「pkg」指令 (伺服器) 加入 / 移除軟體。</translation>
     </message>
 </context>
 <context>
@@ -669,33 +676,27 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     </message>
     <message>
         <source>Please select the disk or partition you wish to install onto. Please note that you must select either an entire disk or a primary partition that is at least 20GB for a server install or 50GB for a desktop install. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>請選取用來安裝的磁碟或分割區。請注意，必須選取有至少 20GB (伺服器) 或 50GB (桌面) 的整隻磁碟或主分割區。</translation>
     </message>
     <message>
         <source>Installing to SSD (Disables SWAP / atime)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>安裝至固態硬碟(SSD) (會停用置換區(SWAP) / atime)</translation>
     </message>
     <message>
         <source>No boot-loader!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>沒有開機載入程式！</translation>
     </message>
     <message>
         <source>The original system datasets / mount-points will be automatically restored.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>會自動還原原來的系統資料集 / 掛載點。</translation>
     </message>
     <message>
         <source>Boot-Loader (GRUB recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>開機載入程式 (推薦用 GRUB)</translation>
     </message>
     <message>
         <source>You have chosen not to install a boot-loader. You will need to manually setup your own loader.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>已選擇不安裝開機載入程式。您要自行手動設置載入程式。</translation>
     </message>
 </context>
 <context>
@@ -801,116 +802,97 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
     <name>wizardRestore</name>
     <message>
         <source>This wizard will walk you though the process of restoring your system from a Life-Preserver backup. Click next to begin. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>本精靈會引導您自 Life-Preserver 備份進行還原。按「下一步」開始。</translation>
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>要開始，請輸入備份伺服器的主機名稱、使用者名稱和連接埠。</translation>
     </message>
     <message>
         <source>Backup Server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>備份伺服器</translation>
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>主機名稱</translation>
     </message>
     <message>
         <source>User Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>使用者名稱</translation>
     </message>
     <message>
         <source>SSH Port</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>SSH 連接埠</translation>
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>伺服器身分核對</translation>
     </message>
     <message>
         <source>Use USB key</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>使用 USB 金鑰</translation>
     </message>
     <message>
         <source>Use password authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>使用密碼核對身分</translation>
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>本伺服器有以下系統的備份，選取要還原的一個。</translation>
     </message>
     <message>
         <source>Restore System Selection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選取要還原系統</translation>
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>還原摘要</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>系統已準備好進行還原，按「完成」繼續。</translation>
     </message>
     <message>
         <source>No keys found!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>找不到金鑰！</translation>
     </message>
     <message>
         <source>No Auth keys could be found on that memory stick!
 Please try another USB stick or use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>記憶棒裡找不到身分核對金鑰！
+請嘗試另一支 USB 記憶棒，或使用密碼核對身分。</translation>
     </message>
     <message>
         <source>Connection failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>未能連線！</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無法連接備份伺服器！
+請檢查連接狀況，並驗證使用者/密碼是否正確。</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>無法連接備份伺服器！
+請檢查主機名稱和連接狀況。</translation>
     </message>
     <message>
         <source>Will restore from:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>還原來源地：</translation>
     </message>
     <message>
         <source>Select the SSH key to use</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>選取要使用的 SSH 金鑰</translation>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>金鑰檔案：</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>如您將 Life-Preserver 金鑰儲存到 USB 記憶棒，現在將之插入電腦並選取 USB 金鑰，否則可能要用密碼核對身分。</translation>
     </message>
 </context>
 </TS>

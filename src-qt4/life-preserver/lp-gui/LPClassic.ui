@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>265</width>
-    <height>263</height>
+    <height>266</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -296,7 +296,7 @@
          <item>
           <widget class="QPushButton" name="push_stop">
            <property name="text">
-            <string>Stop</string>
+            <string>&amp;Stop</string>
            </property>
            <property name="icon">
             <iconset resource="lPreserve.qrc">
@@ -320,7 +320,7 @@
          <item>
           <widget class="QPushButton" name="push_finished">
            <property name="text">
-            <string>Finished</string>
+            <string>&amp;Finished</string>
            </property>
            <property name="icon">
             <iconset resource="lPreserve.qrc">

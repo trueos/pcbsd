@@ -191,10 +191,6 @@
         <translation>Пароль:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,11 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Шифрование файлов:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -320,10 +321,6 @@
         <translation>Полное имя:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Изменить пароль... [&amp;G]</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -352,10 +349,6 @@
         <translation>Менеджер пользователей PC-BSD - Режим эксперта</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Простой Вид [&amp;V]</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
     </message>
@@ -363,20 +356,22 @@
         <source>Home Directory:</source>
         <translation>Домашний каталог:</translation>
     </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
         <translation>Менеджер пользователей PC-BSD</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Закрыть</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Применить</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +384,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Редактирование пользователей для тюрьмы (Jail):</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -501,16 +506,8 @@
         <translation>Добавить пользователя</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Отмена [&amp;N]</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +536,15 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Шифрование файлов:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">Отмена [&amp;C]</translation>
     </message>
 </context>
 <context>

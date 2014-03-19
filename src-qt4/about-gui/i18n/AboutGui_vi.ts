@@ -73,11 +73,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD CLI Các tiện ích:            </translation>
+        <translation>PC-BSD CLI Các tiện ích:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD UI  Các tiện ích:            </translation>
+        <translation>PC-BSD UI Các tiện ích:</translation>
     </message>
     <message>
         <source>Package set:</source>
@@ -89,15 +89,19 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Linh kiện hệ thống...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Desktop các môi trường...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Đóng</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Các tiện ích:</translation>
     </message>
 </context>
 </TS>

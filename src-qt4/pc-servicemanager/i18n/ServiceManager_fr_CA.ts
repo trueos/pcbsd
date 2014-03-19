@@ -28,36 +28,16 @@
         <translation>Activé            </translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Débuter        </translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Recommencer            </translation>
-    </message>
-    <message>
-        <source>Enable Service</source>
-        <translation>Activer le Service            </translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Désactiver le service            </translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Arrêter            </translation>
-    </message>
-    <message>
         <source>Disabled</source>
-        <translation>Désactivé       </translation>
+        <translation>Désactivé</translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation>Inconnu            </translation>
+        <translation>Inconnu</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>Arrêté            </translation>
+        <translation>Arrêté</translation>
     </message>
     <message>
         <source>The following services are available on this system</source>
@@ -71,16 +51,36 @@
         <source>Managing services for Warden Jail:</source>
         <translation>Gestion des services pour Warden jail:</translation>
     </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation>&amp;Débuter</translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation>&amp;Redémarrer</translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation>&amp;Activer le service</translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation>&amp;Désactiver le Service</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>&amp;Arrêt</translation>
+    </message>
 </context>
 <context>
     <name>progressUI</name>
     <message>
         <source>Service</source>
-        <translation>Service      </translation>
+        <translation>Service</translation>
     </message>
     <message>
         <source>Service Action in progress...</source>
-        <translation>Action du service en cours...      </translation>
+        <translation>Action du service en cours...</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
@@ -88,15 +88,15 @@
     </message>
     <message>
         <source>Failed</source>
-        <translation>Échec        </translation>
+        <translation>Échec</translation>
     </message>
     <message>
         <source>The specified command failed.</source>
-        <translation>La commande spécifiée a échoué.            </translation>
+        <translation>La commande spécifiée a échoué.</translation>
     </message>
     <message>
         <source>Finished</source>
-        <translation>Terminer   </translation>
+        <translation>Terminé</translation>
     </message>
     <message>
         <source>Close</source>

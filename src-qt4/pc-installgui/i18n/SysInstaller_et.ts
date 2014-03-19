@@ -299,6 +299,16 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
         <source>&amp;Save Config to USB</source>
         <translation>&amp;Salvesta seadistus USB-pulgale</translation>
     </message>
+    <message>
+        <source>&lt;Version&gt;</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

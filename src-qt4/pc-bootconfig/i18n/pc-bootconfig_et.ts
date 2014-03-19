@@ -56,22 +56,6 @@
         <translation>Näita GRUB-i menüüd sekundite loendamise ajal</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Fail</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Hädaabiteenused</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>Ehita uuesti GRUB-i menüü</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>Taasta GRUB-i vaikesätted</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Nimi</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Laadi uuesti GRUB-i sissekannete fail</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sulge</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,31 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Alglaadimiskeskkonna nimes võib olla ainult tähti ja numbreid</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

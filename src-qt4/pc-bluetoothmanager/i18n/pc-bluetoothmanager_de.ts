@@ -16,52 +16,16 @@
         <translation>Computer/Geräte-ID</translation>
     </message>
     <message>
-        <source>Change</source>
-        <translation>Ändern</translation>
-    </message>
-    <message>
         <source>Devices Connected:</source>
         <translation>Verbundene Geräte:</translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>Gerät entfernen</translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation>Starte Anwendung in der Benachrichtigungsfläche  </translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>Dienst neu starten</translation>
     </message>
     <message>
         <source>New Devices</source>
         <translation>Neue Geräte</translation>
     </message>
     <message>
-        <source>Scan</source>
-        <translation>Suchen</translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>Gerät hinzufügen</translation>
-    </message>
-    <message>
         <source>Saved Devices</source>
         <translation>Gespeicherte Geräte</translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation>Leite Kopplung ein</translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Konfigurieren</translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>Gerät entfernen</translation>
     </message>
     <message>
         <source>Searching for discoverable Bluetooth devices</source>
@@ -138,6 +102,51 @@
     <message>
         <source>Device name must not contain symbols</source>
         <translation>Gerätename darf keine Symbole enthalten</translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start &amp;Tray Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Scan</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Initiate Pairing</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Remove Device</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

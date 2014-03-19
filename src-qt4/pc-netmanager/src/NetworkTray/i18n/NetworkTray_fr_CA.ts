@@ -76,14 +76,6 @@
         <translation>Aucune connexion réseau sans fil</translation>
     </message>
     <message>
-        <source>Connecting to </source>
-        <translation>Connexion à    </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>Veuillez patienter            </translation>
-    </message>
-    <message>
         <source>Configure </source>
         <translation>Configuration</translation>
     </message>
@@ -127,6 +119,18 @@
     <message>
         <source>Show network key as text</source>
         <translation>Montrer la clé réseau sous forme de texte            </translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation>Type de Clé</translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation>Hex Clé (défaut)</translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation>Texte brut</translation>
     </message>
 </context>
 </TS>

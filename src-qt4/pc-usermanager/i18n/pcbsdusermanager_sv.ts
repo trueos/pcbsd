@@ -191,10 +191,6 @@
         <translation>Lösenord:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,11 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Kryptera filer:            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -324,10 +325,6 @@
         <translation>Namn:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Ändra lösenord...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+N</translation>
     </message>
@@ -356,12 +353,18 @@
         <translation>PC-BSD Användar Hanterare - Avancerat Läge</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Förenklad &amp;Vy</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -369,14 +372,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD Användar Hanterare</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Stäng</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Verkställ</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +384,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Editerar Användare för Jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -501,16 +506,8 @@
         <translation>Lägg till användare</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;k</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +536,15 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Kryptera filer:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Avbryt</translation>
     </message>
 </context>
 <context>

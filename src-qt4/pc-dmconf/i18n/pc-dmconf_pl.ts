@@ -24,10 +24,6 @@
         <translation>Logowanie zdalne</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Zapisz</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Wymagane hasło</translation>
     </message>
@@ -65,18 +61,23 @@
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Opóźnienie czasowe</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>  Sekund</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wyświetlanie dostępnych użytkowników</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Zastosuj</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Zamknij</translation>
     </message>
 </context>
 </TS>

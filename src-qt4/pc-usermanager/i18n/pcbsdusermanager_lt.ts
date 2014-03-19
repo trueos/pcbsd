@@ -191,10 +191,6 @@
         <translation>Slaptažodis:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Gerai</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+G</translation>
     </message>
@@ -208,6 +204,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -325,10 +326,6 @@
         <translation>Vardas ir pavardė:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Pakeis&amp;ti slaptažodį...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+T</translation>
     </message>
@@ -357,12 +354,18 @@
         <translation>PC-BSD naudotojų tvarkytuvė - Sudėtingesnis režimas</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Nesudėtingas &amp;rodinys</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+R</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -370,14 +373,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD naudotojų administratorius</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Uždaryti</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Pritaikyti</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -391,6 +386,16 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -505,16 +510,8 @@
         <translation>Sukurti naudotoją</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>G&amp;erai</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+E</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>At&amp;sisakyti</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -544,6 +541,15 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">A&amp;tsisakyti</translation>
     </message>
 </context>
 <context>

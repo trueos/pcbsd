@@ -189,10 +189,6 @@
         <translation>गुप्तलिपि </translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>औ के</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>आल्ट +औ </translation>
     </message>
@@ -206,6 +202,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -324,10 +325,6 @@
         <translation>पूरा नाम </translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>गुप्लिपि को बदलना</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>आल्ट +जी </translation>
     </message>
@@ -356,28 +353,24 @@
         <translation>पी सी -बी अस डी उपयोग करने वाला -प्रगति शेली </translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>साधरण और दृश्य </translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>आल्ट + वी </translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -393,6 +386,16 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -500,16 +503,8 @@
         <translation>उपयोग करने वाले का नाम जोरना </translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>औ के </translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>आल्ट + के </translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>रद करना </translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -540,6 +535,15 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">रध करना </translation>
     </message>
 </context>
 <context>

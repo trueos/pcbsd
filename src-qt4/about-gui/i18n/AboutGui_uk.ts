@@ -89,15 +89,19 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished"></translation>
+        <translation>Компоненти системи...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished"></translation>
+        <translation>Оточення стільниці...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрити</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Утиліти:</translation>
     </message>
 </context>
 </TS>

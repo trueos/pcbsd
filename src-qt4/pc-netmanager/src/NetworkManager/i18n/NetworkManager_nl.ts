@@ -167,10 +167,6 @@
         <translation>Let op: Deze proxy-instellingen zijn alleen voor de PC-BSD-hulpprogramma&apos;s. Andere toepassingen kunnen nog hun eigen proxy-instellingen hebben, die u handmatig moet instellen.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Opslaan</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Afsluiten</translation>
     </message>
@@ -277,6 +273,11 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>U zou u mogelijk opnieuw moeten aanmelden om de proxy-instellingen van kracht te laten worden.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

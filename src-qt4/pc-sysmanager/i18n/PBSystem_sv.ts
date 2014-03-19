@@ -8,14 +8,6 @@
         <translation>CMD Output</translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation>Stopp</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Stäng</translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation>Hämtar PC-BSD Portsträdet</translation>
     </message>
@@ -31,6 +23,16 @@
         <source>Please stop the current process before closing this window.</source>
         <translation>Var god och stoppa den aktuella processen före du stänger detta fönster.</translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -41,10 +43,6 @@
     <message>
         <source>General</source>
         <translation>Allmänt</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>Skapa</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -69,10 +67,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>Du kan också generera ett diagnostik dokument, med information om ditt system. Det här dokumentet kan användas av tekniker för att felsökningsändamål.</translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Spara</translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -141,6 +135,16 @@
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
         <translation>Du har redan en process som körs. Var god och vänta på att den ska bli klar först.</translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

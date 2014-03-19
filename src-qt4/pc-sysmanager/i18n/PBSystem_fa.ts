@@ -9,16 +9,6 @@
             </translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation type="unfinished">
             </translation>
@@ -38,6 +28,16 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -48,10 +48,6 @@
     <message>
         <source>PC-BSD System Configuration</source>
         <translation>پیکربندی سیستم  PC-BSD </translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>به وجود آوردن     </translation>
     </message>
     <message>
         <source>CPU Type:</source>
@@ -76,10 +72,6 @@
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
         <translation>همچنین شما می توانید یک جدول تشخیصی با اطلاعات در مورد سیستم شما، تولید کنید . این برگه را می توان توسط تکنسین های برای مقاصد عیب یابی استفاده می شود.    </translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
-        <translation>و ذخیره     </translation>
     </message>
     <message>
         <source>Other Options</source>
@@ -160,6 +152,16 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

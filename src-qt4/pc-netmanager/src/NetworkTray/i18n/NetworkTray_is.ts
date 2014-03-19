@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>Nei Wireless Network Connection</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>Tengst er við</translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>Vinsamlegast bíðið</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,21 @@
     <message>
         <source>Show network key as text</source>
         <translation>Sýna lykill net sem texta  </translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

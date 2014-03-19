@@ -317,5 +317,25 @@
         <source>Shift+S</source>
         <translation>Shift+S</translation>
     </message>
+    <message>
+        <source>&amp;Cleanup Packages</source>
+        <translation>Очистити пакунки</translation>
+    </message>
+    <message>
+        <source>Package Cleanup</source>
+        <translation>Автоочищення пакунків</translation>
+    </message>
+    <message>
+        <source>Do you want to start package cleanup?</source>
+        <translation>Ви дійсно бажаєте запустити процес автоматичного очищення непотрібних пакунків?</translation>
+    </message>
+    <message>
+        <source>Starting package cleanup...</source>
+        <translation>Запуск очищення пакунків...</translation>
+    </message>
+    <message>
+        <source>The following packages will be removed. Continue?</source>
+        <translation>Наступні пакунки будуть видалені. Продовжити?</translation>
+    </message>
 </context>
 </TS>

@@ -191,10 +191,6 @@
         <translation>密碼:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>確定(&amp;O)</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+O</translation>
     </message>
@@ -209,6 +205,11 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>加密檔案：</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -324,10 +325,6 @@
         <translation>全名:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>變更密碼...(&amp;g)</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -352,10 +349,6 @@
         <translation>PC-BSD使用者管理員 - 進階模式</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>簡易瀏覽(&amp;V)</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
     </message>
@@ -363,20 +356,22 @@
         <source>Available:  </source>
         <translation>可使用:</translation>
     </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD使用者管理員</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>關閉</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>套用</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +384,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>編輯Jail中的使用者:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -501,16 +506,8 @@
         <translation>新增使用者</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>O&amp;K</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>取消(&amp;n)</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +536,15 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>加密檔案：</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">取消(&amp;C)</translation>
     </message>
 </context>
 <context>

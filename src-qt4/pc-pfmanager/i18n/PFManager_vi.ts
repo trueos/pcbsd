@@ -75,32 +75,12 @@
         <translation>Tường lửa</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Bắt đầu </translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>khởi động lại</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Thôi   </translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Cấu hình    </translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Khôi phục lại cấu hình mặc định</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Trường hợp ngoại lệ  </translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Thêm phần   </translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>Giao diện</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Chỉnh sửa nhập cảnh  </translation>
+        <source>&amp;Restore default configuration</source>
+        <translation>&amp;Khôi phục cấu hình mặc định</translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Xóa nhập cảnh</translation>
+        <source>&amp;Start</source>
+        <translation>&amp;Bắt đầu</translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation>Sto&amp;p</translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation>Lại&amp;bắt đầu</translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation>&amp;Thêm nhập cảnh</translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation>&amp;Sửa đổi nhập cảnh</translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation>&amp;Xóa mục nhập</translation>
     </message>
 </context>
 <context>

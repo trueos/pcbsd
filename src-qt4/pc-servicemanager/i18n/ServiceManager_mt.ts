@@ -12,18 +12,6 @@
         <translation>Isem Servizz</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>bidu</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>tieqaf</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Nerġgħu</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>Running</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>Iffaċilitati</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>jippermettu Servizz</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Itfi Servizz</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Disabled</translation>
     </message>
@@ -70,6 +50,26 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>Servizzi għall Jail Warden ġestjoni:</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation>&amp;Bidu</translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation>&amp;Nerġgħu</translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation>&amp;Jippermettu Service</translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation>&amp;jiskonnettja Servizz</translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation>&amp;Stop</translation>
     </message>
 </context>
 <context>

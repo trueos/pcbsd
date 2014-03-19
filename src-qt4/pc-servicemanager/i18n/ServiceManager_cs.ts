@@ -12,18 +12,6 @@
         <translation>Jméno služby</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Spustit</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Zastavit</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Restartovat</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>Spuštěno</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>Povoleno</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>Spustit službu</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>Zastavit službu</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>Zastaveno</translation>
     </message>
@@ -69,6 +49,31 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
         <translation type="unfinished">
             </translation>
     </message>

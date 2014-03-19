@@ -56,22 +56,6 @@
         <translation>Toon het GRUB-menu tijdens het aftellen</translation>
     </message>
     <message>
-        <source>File</source>
-        <translation>Bestand</translation>
-    </message>
-    <message>
-        <source>Emergency Services</source>
-        <translation>Nooddiensten</translation>
-    </message>
-    <message>
-        <source>Rebuild GRUB Menu</source>
-        <translation>GRUB-menu opnieuw opbouwen</translation>
-    </message>
-    <message>
-        <source>Restore GRUB Defaults</source>
-        <translation>GRUB-standaarden herstellen</translation>
-    </message>
-    <message>
         <source>Name</source>
         <translation>Naam</translation>
     </message>
@@ -154,10 +138,6 @@
     <message>
         <source>Re-load the GRUB entries file</source>
         <translation>Herlaad het GRUB-invoerveldenbestand</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sluiten</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -250,6 +230,31 @@
     <message>
         <source>Boot Environment names may only be comprised of letters and numbers</source>
         <translation>Namen van opstartomgeving mogen alleen bestaan uit letters en cijfers</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Emergency Services</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;build GRUB Menu</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restore GRUB Defaults</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

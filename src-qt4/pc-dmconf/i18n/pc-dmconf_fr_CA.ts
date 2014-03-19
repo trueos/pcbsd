@@ -24,10 +24,6 @@
         <translation>Connexion à distance</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>Sauvegarder</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Mot de Passe requis</translation>
     </message>
@@ -74,6 +70,14 @@
     <message>
         <source>Display available users</source>
         <translation>Afficher les utilisateurs disponibles</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Appliquer</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Fermer</translation>
     </message>
 </context>
 </TS>

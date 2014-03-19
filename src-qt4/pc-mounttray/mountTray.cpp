@@ -19,7 +19,7 @@ void MountTray::programInit()
   DCheck = new DevCheck(); //initialize class for checking devices
   qDebug() << "pc-mounttray: starting up";
   MTINIT=true; //set the flag that the mount tray is initializing;
-  getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
+  //getInitialUsername(); //try to detect the non-root user who is running the program with root permissions
   getFileManager();
     
   loadSavedSettings();
@@ -138,11 +138,12 @@ bool MountTray::addDevice(QString dev, QString label, QString type, QString file
  
   qDebug() << "Valid Device Connection:" << dev << type << label << filesys;
   //Create the menu item (will automount if necessary)
-  MenuItem *tmp = new MenuItem(this, dev, label, type, filesys, USERNAME);
+  MenuItem *tmp = new MenuItem(this, dev, label, type, filesys);
   //connect the signals/slots
   connect(tmp, SIGNAL(itemMounted(QString)), this, SLOT(openMediaDir(QString)) );
   connect(tmp, SIGNAL(newMessage(QString,QString)), this, SLOT(slotDisplayPopup(QString,QString)) );
   connect(tmp, SIGNAL(itemRemoved(QString)), this, SLOT(removeDevice(QString)) );
+  connect(tmp, SIGNAL(itemWorking()), this, SLOT(slotCloseMenu()) );
   deviceList << tmp;
   //Update the menu
   updateMenu();
@@ -256,7 +257,7 @@ void MountTray::closeTray(){
   exit(0);
 }
 
-void MountTray::getInitialUsername(){
+/*void MountTray::getInitialUsername(){
   //Get the original user who started the tray app
   QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
   //qDebug() << "System Environment:" << env.toStringList();
@@ -286,7 +287,7 @@ void MountTray::getInitialUsername(){
   }
   USERNAME=username.simplified(); //set the global variable
   if(DEBUG_MODE){ qDebug() << "-User detected:" << USERNAME; }
-}
+}*/
 
 void MountTray::getFileManager(){
   //Check for broken DE's that need a FM manually set
@@ -314,17 +315,12 @@ void MountTray::openMediaDir(QString dir){
   //Open the default file-manager to the directory listed
   if(dir.isEmpty()){ dir = MOUNTDIR; }
   if(!dir.endsWith("/")){ dir.append("/"); } //make sure the filemanager knows it is a directory
-  //Make sure we can setup user permissions
-  if(USERNAME=="root"){
-    qDebug() << "Cannot open filemanager with root permissions";
-    return;
-  }
-  //Open the default file manager to the given directory as that user
-  qDebug() << "Opening the media directory with user permissions";
-  QString cmd = "su -m "+USERNAME+" -c \""+FMCMD+" \'"+dir+"\' \"";
+  //Open the default file manager to the given directory
+  qDebug() << "Opening the media directory";
+  QString cmd = FMCMD+" \""+dir+"\"";
   if(DEBUG_MODE){ qDebug() << " -cmd:" << cmd ; }
-  cmd.prepend("("); cmd.append(") &");
-  system( cmd.toUtf8() );
+  //cmd.prepend("("); cmd.append(") &");
+  QProcess::startDetached(cmd);
 }
 
 void MountTray::slotRescan(){
@@ -376,8 +372,8 @@ void MountTray::slotOpenISO(){
   int num = 1;
   while( QFile::exists("/dev/md"+QString::number(num)) ){ num++; }
   //add it to the device tree (will automatically get picked up by the device detection method)
-  QString cmd = "mdconfig -a -f "+file+" -u "+QString::number(num);
-  system(cmd.toUtf8());
+  QString cmd = "pc-su mdconfig -a -f "+file+" -u "+QString::number(num);
+  QProcess::startDetached(cmd);
 }
 
 void MountTray::slotSingleInstance()
@@ -389,9 +385,9 @@ void MountTray::slotSingleInstance()
 
 void MountTray::slotDisplayPopup(QString title, QString msg, QString device){
   popupSave = device; //so we know what to do when it is clicked
-  //Display a popup bubble with the given message for 3 seconds
+  //Display a popup bubble with the given message for 2 seconds
   trayIcon->contextMenu()->hide(); //close the menu list
-  trayIcon->showMessage(title, msg , QSystemTrayIcon::NoIcon,3000 );
+  trayIcon->showMessage(title, msg , QSystemTrayIcon::NoIcon,2000 );
 }
 
 void MountTray::slotDisplayWarning(QString title, QString msg){
@@ -485,4 +481,8 @@ void MountTray::saveCurrentSettings(){
   out << "DiskSpaceTimingMaxMilliseconds)"+QString::number(diskTimerMaxMS)+"\n";
   //Now close the file
   file.close();
+}
+
+void MountTray::slotCloseMenu(){
+  trayIcon->contextMenu()->hide();
 }

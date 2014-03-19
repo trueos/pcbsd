@@ -195,10 +195,6 @@
         <translation>Parool: </translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Valmis</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+V</translation>
     </message>
@@ -209,6 +205,11 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Krüpteeri failid:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -324,10 +325,6 @@
         <translation>Täisnimi:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Vaheta &amp;salasõna...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+S</translation>
     </message>
@@ -356,12 +353,18 @@
         <translation>PC-BSD kasutajahaldur - Täiendav vaade</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>Tavaline V&amp;aade</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+R</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -369,14 +372,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>PC-BSD kasutajahaldur</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Sulge</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>Rakenda</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -389,6 +384,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>Kasutajate redigeerimine vanglas:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -501,16 +506,8 @@
         <translation>Lisa kasutaja</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>&amp;Olgu</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+O</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>&amp;Katkesta</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -539,6 +536,15 @@
     <message>
         <source>Encrypt Files:</source>
         <translation>Krüpteeri failid:</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Katkesta</translation>
     </message>
 </context>
 <context>

@@ -24,10 +24,6 @@
         <translation>đăng nhập từ xa</translation>
     </message>
     <message>
-        <source>Save</source>
-        <translation>lưu</translation>
-    </message>
-    <message>
         <source>Password Request</source>
         <translation>Yêu cầu mật khẩu</translation>
     </message>
@@ -74,6 +70,14 @@
     <message>
         <source>Display available users</source>
         <translation>Màn hình hiển thị người dùng có sẵn</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Áp ​​dụng</translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation>&amp;Đóng</translation>
     </message>
 </context>
 </TS>

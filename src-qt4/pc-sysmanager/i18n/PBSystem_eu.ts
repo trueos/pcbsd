@@ -9,16 +9,6 @@
             </translation>
     </message>
     <message>
-        <source>Stop</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Getting PC-BSD Ports Tree</source>
         <translation type="unfinished">
             </translation>
@@ -38,6 +28,16 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
 </context>
 <context>
     <name>PBSystemTab</name>
@@ -48,10 +48,6 @@
     <message>
         <source>General</source>
         <translation>Orokorra</translation>
-    </message>
-    <message>
-        <source>Generate</source>
-        <translation>Sortu</translation>
     </message>
     <message>
         <source>Alt+S</source>
@@ -78,11 +74,6 @@
     </message>
     <message>
         <source>You may also generate a diagnostic sheet, with information about your system. This sheet can be used by technicians for troubleshooting purposes.</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -168,6 +159,16 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Generate</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

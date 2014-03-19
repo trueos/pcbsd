@@ -189,10 +189,6 @@
         <translation>رمزعبور: </translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>و تایید</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation> Alt+O</translation>
     </message>
@@ -206,6 +202,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -323,10 +324,6 @@
         <translation>نام کامل:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>تغییر رمزعبور...  </translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
@@ -355,12 +352,18 @@
         <translation>مدیریت کاربر PC-BSD در حالت پیشرفته</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>ساده و نمایش</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V </translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -368,14 +371,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation>مدیریت کاربر PC-BSD   </translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>بستن</translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation>تایید کردن</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -388,6 +383,16 @@
     <message>
         <source>Editing Users for Jail:</source>
         <translation>ویرایش کردن کاربر برای jail:</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -498,16 +503,8 @@
         <translation>اضافه کردن کاربر </translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>&amp; تایید  </translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+K</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>لغو</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -537,6 +534,15 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;لغو</translation>
     </message>
 </context>
 <context>

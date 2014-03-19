@@ -12,18 +12,6 @@
         <translation>服务名称</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>启动</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>停止</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>重新启动</translation>
-    </message>
-    <message>
         <source>Running</source>
         <translation>正在运行</translation>
     </message>
@@ -44,14 +32,6 @@
         <translation>已启用</translation>
     </message>
     <message>
-        <source>Enable Service</source>
-        <translation>启用服务</translation>
-    </message>
-    <message>
-        <source>Disable Service</source>
-        <translation>禁用服务</translation>
-    </message>
-    <message>
         <source>Disabled</source>
         <translation>已禁用</translation>
     </message>
@@ -70,6 +50,31 @@
     <message>
         <source>Managing services for Warden Jail:</source>
         <translation>管理Warden Jail的服务：</translation>
+    </message>
+    <message>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Enable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disable Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Stop</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

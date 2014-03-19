@@ -48,7 +48,10 @@ void XProcess::loginToXSession(QString username, QString password, QString deskt
   xde = desktop;
   xlang = lang;
   //Now start the login process
-  startXSession();
+  if( !startXSession() ){
+    //Could not continue after session changed significantly - close down the session to restart
+    QCoreApplication::exit(-1); //special code to make sure we are just restarting the PCDM session (not the full X session)
+  }
 }
 
 bool XProcess::isRunning(){
@@ -68,20 +71,21 @@ void XProcess::waitForSessionClosed(){
 */
 
 bool XProcess::startXSession(){
-  //disconnect(SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(slotCleanup()) );
+  //Returns TRUE if the session can continue, or FALSE if it needs to be closed down
+
   //Check that the necessary info to start the session is available
   if( xuser.isEmpty() || xcmd.isEmpty() || xhome.isEmpty() || xde.isEmpty() ){
     emit InvalidLogin();  //Make sure the GUI knows that it was a failure
-    return FALSE;
+    return true;
   }
   //Backend::log("Starting up Desktop environment ("+xcmd+") as user ("+xuser+")");
   
   //Check for PAM username/password validity
-  if( !pam_checkPW() ){ emit InvalidLogin(); pam_shutdown(); return FALSE; }
+  if( !pam_checkPW() ){ emit InvalidLogin(); pam_shutdown(); return true; }
 
 
   //Save the current user/desktop as the last login
-  Backend::saveLoginInfo(Backend::getDisplayNameFromUsername(xuser),xde);
+  Backend::saveLoginInfo(xuser,xde);
 
   // Get the users uid/gid information
   struct passwd *pw;
@@ -91,7 +95,6 @@ bool XProcess::startXSession(){
   if (!(pw = getpwnam(xuser.toLatin1()))) {
       uid = strtol(xuser.toLatin1(), &ok, 10);
       if (!(pw = getpwuid(uid))) {
-    	  emit InvalidLogin();  //Make sure the GUI knows that it was a failure
           return FALSE;
       }
   }
@@ -109,14 +112,12 @@ bool XProcess::startXSession(){
   //QWidget *wid = new QWidget();
   if (setgid(pw->pw_gid) < 0) {
       qDebug() << "setgid() failed!";
-      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
       return FALSE;
   }
 
   // Setup our other groups
   if (initgroups(xuser.toLatin1(), pw->pw_gid) < 0) {
       qDebug() << "initgroups() failed!";
-      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
       setgid(0);
       return FALSE;
   }
@@ -124,7 +125,6 @@ bool XProcess::startXSession(){
   // Lets drop to user privs
   if (setuid(pw->pw_uid) < 0) {
       qDebug() << "setuid() failed!";
-      emit InvalidLogin();  //Make sure the GUI knows that it was a failure
       return FALSE;
   }
   //Startup the PAM session

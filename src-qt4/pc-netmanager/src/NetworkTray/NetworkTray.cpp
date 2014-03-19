@@ -688,26 +688,27 @@ void NetworkTray::slotGetNetKey(QAction* act){
   
   if(sectype == "None"){
     //run the Quick-Connect slot without a key
-    slotQuickConnect("",SSID);
+    slotQuickConnect("",SSID, false);
     
   }else{
     //Open the dialog to prompt for the Network Security Key
     dialogNetKey = new netKey();
     //Insert the SSID into the dialog
     dialogNetKey->setSSID(SSID);
+    dialogNetKey->showKeyType( sectype == "WEP" );
     //connect the signal from the dialog to the quick-connect slot
-    connect(dialogNetKey,SIGNAL( saved(QString,QString) ),this,SLOT( slotQuickConnect(QString,QString) ) );
+    connect(dialogNetKey,SIGNAL( saved(QString,QString,bool) ),this,SLOT( slotQuickConnect(QString,QString,bool) ) );
     //Activate the dialog
     dialogNetKey->exec();
   }
 }
 
-void NetworkTray::slotQuickConnect(QString key,QString SSID){
+void NetworkTray::slotQuickConnect(QString key,QString SSID, bool hexkey){
   
   //Run the wifiQuickConnect function
-  NetworkInterface::wifiQuickConnect(SSID,key,DeviceName);
+  NetworkInterface::wifiQuickConnect(SSID,key,DeviceName, hexkey);
   
-  //Inform the user that it is connecting
-  QString msg = tr("Connecting to ") + SSID;
-  trayIcon->showMessage( tr("Please Wait"),msg,QSystemTrayIcon::NoIcon,10000);
+  //Inform the user that it is connecting (this is done by libpcbsd now)
+  //QString msg = tr("Connecting to ") + SSID;
+  //trayIcon->showMessage( tr("Please Wait"),msg,QSystemTrayIcon::NoIcon,10000);
 }

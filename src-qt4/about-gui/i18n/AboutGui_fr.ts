@@ -73,15 +73,15 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>PC-BSD utilitaires CLI:            </translation>
+        <translation>PC-BSD utilitaires CLI:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>PC-BSD utilitaires UI:            </translation>
+        <translation>PC-BSD utilitaires UI:</translation>
     </message>
     <message>
         <source>Package set:</source>
-        <translation>Ensemble de packets:</translation>
+        <translation>Ensemble de packages:</translation>
     </message>
     <message>
         <source>(unstable)</source>
@@ -89,15 +89,19 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;composants du système...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Desktop environnements de bureau...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Fermer</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation>Utilitaires:</translation>
     </message>
 </context>
 </TS>

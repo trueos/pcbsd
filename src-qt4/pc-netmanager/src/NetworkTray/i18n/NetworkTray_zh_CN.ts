@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>没有无线网络连接</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>正在连接到 </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>请等待</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,21 @@
     <message>
         <source>Show network key as text</source>
         <translation>明文显示网络密码</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

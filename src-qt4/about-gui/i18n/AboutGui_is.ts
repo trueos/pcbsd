@@ -89,15 +89,20 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;kerfi hluti...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Skrifborð umhverfi...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Loka</translation>
+    </message>
+    <message>
+        <source>Utils:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

@@ -17,17 +17,20 @@
 bool DEBUG_MODE;
 QString DEVICEDIR;
 QString MOUNTDIR;
+//QString ROOTMOUNTDIR;
+//QString USERNAME;
 
 int  main(int argc, char ** argv)
 {
    //Check for root permissions
    QString id = QProcessEnvironment::systemEnvironment().toStringList().filter("LOGNAME=").join(" ").remove("LOGNAME=").simplified();
    //qDebug() << id;
-    if( id != "root" ){
-      qDebug() << "pc-mounttray requires root permissions for device management!";
-      qDebug() << " - HINT: run 'sudo pc-mounttray' instead";
+    if( id == "root" ){
+      qDebug() << "pc-mounttray should not be started with root permissions";
       exit(1);
-    }
+    }/*else{
+      USERNAME = id;
+    }*/
    //Check for "-v" flag for debugging
    QString flag = QString(argv[1]);
    if( flag == "-v" || flag == "-debug" ){ DEBUG_MODE=TRUE; }
@@ -35,7 +38,17 @@ int  main(int argc, char ** argv)
    
    //Now start the application
    DEVICEDIR = "/dev/";
-   MOUNTDIR = "/media/";
+   MOUNTDIR = QDir::homePath()+"/Media/";
+   //ROOTMOUNTDIR = "/media/";
+   if(!QFile::exists(MOUNTDIR)){
+     QDir dir(MOUNTDIR);
+     bool ok = dir.mkpath(dir.absolutePath());
+     if(!ok){
+       qDebug() << "Error: Could not create the user media directory:" << MOUNTDIR;
+       qDebug() << " - No way to mount devices: exiting....";
+       exit(1);
+     }
+   }
    QtSingleApplication a(argc, argv);
    if ( a.isRunning() )
      return !(a.sendMessage("show"));

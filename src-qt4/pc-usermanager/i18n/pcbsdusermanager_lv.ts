@@ -194,10 +194,6 @@
         <translation>Parole:</translation>
     </message>
     <message>
-        <source>&amp;Ok</source>
-        <translation>&amp;Labi</translation>
-    </message>
-    <message>
         <source>Alt+O</source>
         <translation>Alt+L</translation>
     </message>
@@ -211,6 +207,11 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -328,10 +329,6 @@
         <translation>Pilns vārds:</translation>
     </message>
     <message>
-        <source>Chan&amp;ge Password...</source>
-        <translation>Mainīt pa&amp;roli...</translation>
-    </message>
-    <message>
         <source>Alt+G</source>
         <translation>Alt+R</translation>
     </message>
@@ -360,12 +357,18 @@
         <translation>PC-BSD lietotāju menedžeris - izvērstais režīms</translation>
     </message>
     <message>
-        <source>Simple &amp;View</source>
-        <translation>&amp;Vienkāršais skats</translation>
-    </message>
-    <message>
         <source>Alt+V</source>
         <translation>Alt+V</translation>
+    </message>
+    <message>
+        <source>&amp;Change Password...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Simple View</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -373,16 +376,6 @@
     <message>
         <source>PC-BSD User Manager</source>
         <translation type="unfinished">PC-BSD lietotāju menedžeris</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Apply</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
@@ -396,6 +389,16 @@
     </message>
     <message>
         <source>Editing Users for Jail:</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Close</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -510,16 +513,8 @@
         <translation>Pievienot lietotāju</translation>
     </message>
     <message>
-        <source>O&amp;k</source>
-        <translation>&amp;Labi</translation>
-    </message>
-    <message>
         <source>Alt+K</source>
         <translation>Alt+L</translation>
-    </message>
-    <message>
-        <source>Ca&amp;ncel</source>
-        <translation>&amp;Atcelt</translation>
     </message>
     <message>
         <source>Alt+N</source>
@@ -549,6 +544,15 @@
         <source>Encrypt Files:</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Atcelt</translation>
     </message>
 </context>
 <context>

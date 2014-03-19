@@ -14,5 +14,6 @@
     <file>icons/refresh.png</file>
     <file>icons/config.png</file>
     <file>icons/checkmark.png</file>
+    <file>icons/root-overlay.png</file>
   </qresource>
 </RCC>

@@ -75,32 +75,12 @@
         <translation>Ugunsmūris</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Sākt</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Pārstartēt</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Apstāties</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Konfigurācija</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Atjaunot sākotnējos iestatījumus</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Izņēmumi</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Pievienot ierakstu</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,39 @@
         <translation>Saskarne</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Rediģēt ierakstu</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Dzēst ierakstu</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

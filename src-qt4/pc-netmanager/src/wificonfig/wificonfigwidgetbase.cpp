@@ -164,9 +164,9 @@ void wificonfigwidgetbase::updateWPASupp()
            streamout << " wep_tx_keyidx=" + tmp.setNum(WEPIndex[curItem]) + "\n";
            // Check if we are using a plaintext WEP or not
            if ( WEPHex[curItem] )
-             streamout << " wep_key" + tmp.setNum(WEPIndex[curItem]) + "=\"" + WEPKey[curItem] + "\"\n";
-           else
              streamout << " wep_key" + tmp.setNum(WEPIndex[curItem]) + "=" + WEPKey[curItem] + "\n";
+           else
+             streamout << " wep_key" + tmp.setNum(WEPIndex[curItem]) + "=\"" + WEPKey[curItem] + "\"\n";
 
          } else if (SSIDEncType[curItem] == WPA_ENCRYPTION ) {
 

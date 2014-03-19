@@ -98,16 +98,6 @@
         <translation type="unfinished">
             </translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -154,6 +144,21 @@
     <message>
         <source>Error: The entered network keys do not match!
 </source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
         <translation type="unfinished">
             </translation>
     </message>
