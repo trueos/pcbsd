@@ -1007,7 +1007,7 @@
      <x>0</x>
      <y>0</y>
      <width>757</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -1025,8 +1025,9 @@
    </widget>
    <widget class="QMenu" name="Jails">
     <property name="title">
-     <string>Jails</string>
+     <string>&amp;Configure</string>
     </property>
+    <addaction name="separator"/>
     <addaction name="jailsRefreshAction"/>
     <addaction name="separator"/>
     <addaction name="jailsConfigurationAction"/>
@@ -1036,8 +1037,12 @@
    <addaction name="separator"/>
   </widget>
   <action name="fileExitAction">
+   <property name="icon">
+    <iconset resource="warden.qrc">
+     <normaloff>:/window-close3.png</normaloff>:/window-close3.png</iconset>
+   </property>
    <property name="text">
-    <string>E&amp;xit</string>
+    <string>&amp;Quit</string>
    </property>
    <property name="iconText">
     <string>Exit</string>
@@ -1051,7 +1056,7 @@
   </action>
   <action name="fileCreate_JailAction">
    <property name="text">
-    <string>New Jail</string>
+    <string>&amp;New Jail</string>
    </property>
    <property name="iconText">
     <string>New Jail</string>
@@ -1062,7 +1067,7 @@
   </action>
   <action name="jailsRefreshAction">
    <property name="text">
-    <string>Refresh</string>
+    <string>&amp;Refresh Jails</string>
    </property>
    <property name="iconText">
     <string>Refresh</string>
@@ -1072,8 +1077,12 @@
    </property>
   </action>
   <action name="jailsConfigurationAction">
+   <property name="icon">
+    <iconset resource="warden.qrc">
+     <normaloff>:/configure.png</normaloff>:/configure.png</iconset>
+   </property>
    <property name="text">
-    <string>Configuration</string>
+    <string>&amp;Settings</string>
    </property>
    <property name="iconText">
     <string>Configuration</string>
@@ -1084,7 +1093,7 @@
   </action>
   <action name="fileImport_JailAction">
    <property name="text">
-    <string>Import Jail</string>
+    <string>&amp;Import Jail</string>
    </property>
    <property name="iconText">
     <string>Import Jail</string>
@@ -1095,7 +1104,7 @@
   </action>
   <action name="actionTemplate_Manager">
    <property name="text">
-    <string>Template Manager</string>
+    <string>&amp;Template Manager</string>
    </property>
   </action>
  </widget>
