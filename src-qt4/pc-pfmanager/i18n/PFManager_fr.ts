@@ -75,32 +75,12 @@
         <translation>Pare-feu</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>Démarrer</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>Redémarrer</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>Arrêter</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>Configuration</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>Restaurer les configurations par défaut</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>Exceptions</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>Ajouter une règle</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,32 @@
         <translation>Interface</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>Éditer la règle</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation>&amp;Restaurer la configuration par défaut</translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>Supprimer la règle</translation>
+        <source>&amp;Start</source>
+        <translation>&amp;Débuter</translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation>Sto&amp;p</translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation>Re&amp;démarrer</translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation>&amp;Ajouter une entrée</translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation>&amp;Éditer une entrée</translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation>&amp;Supprimer une entrée</translation>
     </message>
 </context>
 <context>

@@ -58,18 +58,6 @@
         <translation>%1 gắn ở %2</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>Lỗi gắn %1 tại %2</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>Lỗi gắn tại %1      </translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>Không có thể tạo ra điểm lắp tại 1%     </translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 đã được gỡ bỏ thành công.</translation>
     </message>
@@ -78,20 +66,12 @@
         <translation>Bây giờ nó là an toàn để loại bỏ các thiết bị</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>Lỗi: %1 không thể được gỡ bỏ            </translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1 không gian đĩa có sẵn     </translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>Gắn ở %1</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation>Tập tin ISO đã được hoàn toàn tách rời khỏi hệ thống.</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -105,6 +85,34 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>Chú ý: Đây là nói chung không nên trừ khi bạn có chắc rằng bạn không có bất kỳ ứng dụng bằng cách sử dụng thiết bị.</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -115,16 +123,6 @@
     <message>
         <source>Close Tray</source>
         <translation>Đóng Tray            </translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>Người sử dụng phát hiện lỗi</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>Không thể xác định người sử dụng không root bắt đầu ứng dụng 
- Không thể mở tập tin quản lý với quyền root</translation>
     </message>
     <message>
         <source>New Device</source>

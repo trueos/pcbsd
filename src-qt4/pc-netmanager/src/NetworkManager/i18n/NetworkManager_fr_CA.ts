@@ -151,10 +151,6 @@
         <translation>Remarque: Cette configuration proxy est pour les outils PC-BSD et des utilitaires spécifiques. Les utilisateur d&apos;applications Internet avancées peuvent toujours utiliser leur configuration propre proxy, qui devra être configuré manuellement.            </translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Sauvegarder           </translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Fermer            </translation>
     </message>
@@ -277,6 +273,10 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Vous devrez peut-être vous reconnecter afin que les paramètres de proxy  prennent effet.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation>&amp;Appliquer</translation>
     </message>
 </context>
 </TS>

@@ -179,10 +179,6 @@
         <translation>Märkus: see proksi seadistus on PC-BSD tööriistadele ja programmidele. Internetti kasutavad rakendused võivad kasutada oma proksi seadeid, mis tuleb käsitsi määrata.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Salvesta</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Välju</translation>
     </message>
@@ -277,6 +273,11 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Proksi seadete aktiveerimiseks peab võib-olla uuesti sisse logima.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

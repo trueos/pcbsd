@@ -93,7 +93,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>PC-BSD is a community effort, with releases being made possible by a variety of your neighbors in the open-source community. From helping with development, to asking and answering questions on our forums, there are plenty of ways to help contribute. The websites below provide a great place to get started.</source>
-        <translation>PC-BSD on yhteisön aikaansaama, jonka uudet julkaisut ovat mahdollisia monien avoimen lähdekoodin yhteisöjen ansiosta. On paljon erilaisia tapoja osallistua, kuten auttaminen kehittämisessä tai kysyä ja vastata kysymyksiin foorumilla. Alla olevat nettisivut tarjoavat loistavan paikan aloittaa.</translation>
+        <translation>PC-BSD on yhteisön aikaansaama. Uudet julkaisut ovat mahdollisia monien avoimen lähdekoodin yhteisöjen ansiosta. On paljon erilaisia tapoja joilla voit osallistua, kuten auttaminen kehitystyössä, tai kysymyksien esittäminen ja vastaaminen foorumilla. Alla olevat nettisivut tarjoavat loistavan paikan aloittaa.</translation>
     </message>
     <message>
         <source>Don&apos;t show on next startup</source>

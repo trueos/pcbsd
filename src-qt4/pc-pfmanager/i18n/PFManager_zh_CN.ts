@@ -75,32 +75,12 @@
         <translation>防火墙</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>启动</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>重新启动</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>停止</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>配置</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>恢复缺省配置</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>例外</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>添加规则</translation>
     </message>
     <message>
         <source>Service</source>
@@ -119,12 +99,39 @@
         <translation>接口</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>编辑规则</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>删除规则</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

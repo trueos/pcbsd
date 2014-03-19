@@ -58,18 +58,6 @@
         <translation>%1挂载于%2</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>将%1挂载于%2时发生错误</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>挂载%1时发生错误</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>无法于%1处创建挂载点</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>已成功卸载%1</translation>
     </message>
@@ -78,20 +66,12 @@
         <translation>现在可以安全移除此设备</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>错误：无法卸载%1</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1的可用磁盘空间</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>挂载于%1</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation>ISO文件已经彻底从系统上移除。</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -105,6 +85,34 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>注意：除非你没有程序在使用此设备，否则不推荐这么做。</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -115,16 +123,6 @@
     <message>
         <source>Close Tray</source>
         <translation>关闭托盘</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>用户探测时发生错误</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>无法确定哪个非根用户启动了此程序
-无法使用根权限打开文件管理器</translation>
     </message>
     <message>
         <source>New Device</source>

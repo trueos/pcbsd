@@ -184,10 +184,6 @@
         <translation>Note: Denne mellemværtsindstilling er for særlige værktøjer for PC-BSD. Internetapplikationer akn stadig bruge deres egen mellemværtsindstilling, som så skal indstilles manuelt.            </translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>&amp;Gem            </translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>&amp;Luk            </translation>
     </message>
@@ -294,6 +290,11 @@
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
         <translation type="unfinished">
             </translation>
     </message>

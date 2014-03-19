@@ -70,21 +70,6 @@
             </translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation type="unfinished">
             </translation>
@@ -95,22 +80,12 @@
             </translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -129,6 +104,34 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -139,16 +142,6 @@
     <message>
         <source>Close Tray</source>
         <translation>트레이 닫기</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>상용자 검색 오류</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>프로그램을 시작한 루트가 아닌 사용자를 확인할 수 없습니다.
-루트 권한으로 파일 관리자를 열 수 없습니다.</translation>
     </message>
     <message>
         <source>New Device</source>

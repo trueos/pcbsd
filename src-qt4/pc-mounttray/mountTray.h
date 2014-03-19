@@ -55,10 +55,11 @@ private slots:
   void slotOpenFSDialog();
   void slotOpenSettings();
   void slotOpenISO();
+  void slotCloseMenu();
   
 private:
   DevCheck *DCheck;
-  QString USERNAME;
+  //QString USERNAME;
   QLocalSocket* devdProc;
   QTimer *devdTimer;  
   int numMount, numAvail;
@@ -82,7 +83,7 @@ private:
   int findDeviceInList(QString);
   bool addDevice(QString,QString,QString,QString);
   void startupDevdProc();
-  void getInitialUsername();
+  //void getInitialUsername();
   void getFileManager();
   void loadSavedSettings();
   void saveCurrentSettings();

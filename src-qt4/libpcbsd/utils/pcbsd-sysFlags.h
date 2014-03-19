@@ -13,7 +13,7 @@
 #include "pcbsd-utils.h"
 
 // DEFINE THE FLAG FILES
-#define FLAGDIR QString("/tmp/pcbsdflags")
+#define FLAGDIR QString("/tmp/.pcbsdflags")
 #define NETWORKRESTARTED QString("network-restarted")
 #define PKGUPDATEAVAILABLE QString("pkg-update-available")
 #define SYSUPDATEAVAILABLE QString("sys-update-available")

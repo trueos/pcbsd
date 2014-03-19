@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>Бездротове з&apos;єднання відсутнє</translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>З&apos;єднання з </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>Будь ласка, зачекайте</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -127,6 +119,21 @@
     <message>
         <source>Show network key as text</source>
         <translation>Показати ключ мережі як текст</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

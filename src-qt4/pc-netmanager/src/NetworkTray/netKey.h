@@ -17,7 +17,8 @@ public:
         }
 
    void setSSID( QString SSID );
-
+   void showKeyType(bool show);
+	
 public slots:
 
 private slots:
@@ -28,7 +29,7 @@ private slots:
 private:
 
 signals:
-    void saved(QString, QString);
+    void saved(QString, QString, bool);
 
 } ;
 #endif // NETKEY_H

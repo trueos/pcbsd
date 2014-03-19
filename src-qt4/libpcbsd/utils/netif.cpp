@@ -436,7 +436,7 @@ QString NetworkInterface::getWifiParent(QString dev)
    return Utils::sysctl("net.wlan." + DevNum + ".%parent");
 }
 
-void NetworkInterface::wifiQuickConnect(QString SSID, QString netKey, QString DeviceName){
+void NetworkInterface::wifiQuickConnect(QString SSID, QString netKey, QString DeviceName, bool WEPHex){
   /* 
      This function uses a set of defaults to connect to a wifi access point with a minimum
      of information from the user. It does *NOT* (currently) support the WPA-Enterprise encryption
@@ -536,10 +536,7 @@ void NetworkInterface::wifiQuickConnect(QString SSID, QString netKey, QString De
        } else if ( SecType.contains("WEP") ) {
 	  //Set WEP Defaults
 	  int WEPIndex = 0;
-	  // Default to plain-text WEP keys..
-	  // This needs to be fixed to figure it out automatically
-          bool WEPHex = false;
-          
+          //bool WEPHex = true; //Use Hex WEP key
           streamout << " key_mgmt=NONE\n";
           streamout << " wep_tx_keyidx=" + tmp.setNum(WEPIndex) + "\n";
           // Check if we are using a plaintext WEP or not

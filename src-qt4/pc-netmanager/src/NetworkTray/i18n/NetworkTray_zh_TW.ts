@@ -79,14 +79,6 @@
         <source>No Wireless Network Connection</source>
         <translation>沒有無線網路連接            </translation>
     </message>
-    <message>
-        <source>Connecting to </source>
-        <translation>連線至 </translation>
-    </message>
-    <message>
-        <source>Please Wait</source>
-        <translation>請稍候</translation>
-    </message>
 </context>
 <context>
     <name>netKey</name>
@@ -126,6 +118,21 @@
     <message>
         <source>Show network key as text</source>
         <translation>以文字顯示網路金鑰</translation>
+    </message>
+    <message>
+        <source>Key Type</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Hex Key (default)</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Plain Text</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

@@ -19,28 +19,8 @@
             </translation>
     </message>
     <message>
-        <source>Change</source>
-        <translation>Zmeniť
-            </translation>
-    </message>
-    <message>
         <source>Devices Connected:</source>
         <translation>Pripojené Zariadenia
-            </translation>
-    </message>
-    <message>
-        <source>Disconnect Device</source>
-        <translation>Odpojte Zariadenie
-            </translation>
-    </message>
-    <message>
-        <source>Start Tray Application</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Restart Service</source>
-        <translation>Reštartovanie Služby
             </translation>
     </message>
     <message>
@@ -49,33 +29,8 @@
             </translation>
     </message>
     <message>
-        <source>Scan</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Add Device</source>
-        <translation>Pridať Zariadenie
-            </translation>
-    </message>
-    <message>
         <source>Saved Devices</source>
         <translation>Uložené Zariadenia
-            </translation>
-    </message>
-    <message>
-        <source>Initiate Pairing</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Configure</source>
-        <translation>Konfigurovať
-            </translation>
-    </message>
-    <message>
-        <source>Remove Device</source>
-        <translation>Odobrať Zariadenie
             </translation>
     </message>
     <message>
@@ -170,6 +125,51 @@
     </message>
     <message>
         <source>Device name must not contain symbols</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Change</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Disconnect Device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Start &amp;Tray Application</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Restart Service</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Scan</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add Device</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Initiate Pairing</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Remove Device</source>
         <translation type="unfinished">
             </translation>
     </message>

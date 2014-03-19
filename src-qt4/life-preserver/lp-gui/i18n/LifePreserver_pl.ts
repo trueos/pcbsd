@@ -72,12 +72,12 @@
     </message>
     <message>
         <location filename="../LPClassic.ui" line="299"/>
-        <source>Stop</source>
+        <source>&amp;Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../LPClassic.ui" line="323"/>
-        <source>Finished</source>
+        <source>&amp;Finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -198,7 +198,17 @@
     </message>
     <message>
         <location filename="../LPConfig.ui" line="201"/>
-        <source>Scan Network</source>
+        <source>&amp;Scan Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPConfig.ui" line="434"/>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPConfig.ui" line="448"/>
+        <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -242,16 +252,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPConfig.ui" line="434"/>
-        <source>Apply</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPConfig.ui" line="448"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../LPConfig.cpp" line="204"/>
         <source>No Network Targets</source>
         <translation type="unfinished"></translation>
@@ -277,11 +277,6 @@
     <message>
         <location filename="../LPMain.ui" line="14"/>
         <source>Life Preserver</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="73"/>
-        <source>Configure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -335,80 +330,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="356"/>
-        <source>Restore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="385"/>
-        <source>File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="416"/>
-        <source>View</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="421"/>
-        <source>Disks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="425"/>
+        <location filename="../LPMain.ui" line="423"/>
         <source>Detach Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="445"/>
+        <location filename="../LPMain.ui" line="443"/>
         <source>Set Disk Online</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="464"/>
-        <source>Snapshots</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="481"/>
-        <source>Classic Backups</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="485"/>
-        <source>Compress Home Dir</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="509"/>
-        <source>Close Window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="514"/>
+        <location filename="../LPMain.ui" line="512"/>
         <location filename="../LPMain.cpp" line="29"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="519"/>
+        <location filename="../LPMain.ui" line="517"/>
         <location filename="../LPMain.cpp" line="26"/>
         <source>Basic</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="596"/>
-        <source>Extract Home Dir</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="644"/>
+        <location filename="../LPMain.ui" line="642"/>
         <source>Stop Scrub</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="389"/>
-        <source>Manage Pool</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -427,60 +372,119 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="399"/>
-        <source>Unmanage Pool</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../LPMain.ui" line="524"/>
+        <location filename="../LPMain.ui" line="522"/>
         <source>Recover File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="529"/>
+        <location filename="../LPMain.ui" line="527"/>
         <source>Restore Dataset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="534"/>
-        <location filename="../LPMain.ui" line="566"/>
+        <location filename="../LPMain.ui" line="532"/>
         <source>Save Key to USB</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="435"/>
+        <location filename="../LPMain.ui" line="433"/>
         <source>Set Disk Offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="548"/>
-        <location filename="../LPMain.ui" line="557"/>
+        <location filename="../LPMain.ui" line="546"/>
+        <location filename="../LPMain.ui" line="555"/>
         <source>New Snapshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="468"/>
+        <location filename="../LPMain.ui" line="466"/>
         <source>Delete Snapshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="543"/>
+        <location filename="../LPMain.ui" line="73"/>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="356"/>
+        <source>&amp;Restore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="383"/>
+        <source>&amp;File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="387"/>
+        <source>&amp;Manage Pool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="397"/>
+        <source>&amp;Unmanage Pool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="414"/>
+        <source>&amp;View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="419"/>
+        <source>&amp;Disks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="462"/>
+        <source>&amp;Snapshots</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="479"/>
+        <source>&amp;Classic Backups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="483"/>
+        <source>Com&amp;press Home Dir</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="507"/>
+        <source>&amp;Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="541"/>
         <source>Attach Disk</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="575"/>
+        <location filename="../LPMain.ui" line="564"/>
+        <source>&amp;Save Key to USB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="573"/>
         <source>Start Scrub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="578"/>
+        <location filename="../LPMain.ui" line="576"/>
         <source>Check system data integrity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../LPMain.ui" line="587"/>
+        <location filename="../LPMain.ui" line="585"/>
         <source>Classic Backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../LPMain.ui" line="594"/>
+        <source>&amp;Extract Home Dir</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

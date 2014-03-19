@@ -59,18 +59,6 @@
         <translation>%1 montiran na %2</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>Greška pri montiranju %1 na %2</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>Greška pri montiranju %1</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>Ne mogu napraviti točku montiranja na %1</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 je uspješno odmontiran.</translation>
     </message>
@@ -79,21 +67,12 @@
         <translation>Sada je sigurno ukloniti uređaj</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>Greška: %1 se ne može odmontirati</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1 prostora diska je dostupno</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>Montiram na %1</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -107,6 +86,34 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>NAPOMENA: Ovo se uglavnom ne preporučuje osim ako niste sigurni da nemate programe koji koriste ovaj uređaj.</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -117,17 +124,6 @@
     </message>
     <message>
         <source>Close Tray</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
         <translation type="unfinished">
             </translation>
     </message>

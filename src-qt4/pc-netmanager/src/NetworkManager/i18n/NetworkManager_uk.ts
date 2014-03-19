@@ -179,10 +179,6 @@
         <translation>Примітка: Дані налаштування проксі використовуються виключно утилітами та засобами PC-BSD. Інші інтернет-застосування можуть використовувати свої власні налаштування проксі сервера, які мають вказуватися вручну.</translation>
     </message>
     <message>
-        <source>&amp;Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
         <source>&amp;Close</source>
         <translation>Закрити</translation>
     </message>
@@ -277,6 +273,11 @@
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
         <translation>Ви повинні перезайти у сеанс щоб налаштування проксі набули чинності.</translation>
+    </message>
+    <message>
+        <source>&amp;Apply</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

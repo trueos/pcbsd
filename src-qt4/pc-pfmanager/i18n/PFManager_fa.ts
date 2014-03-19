@@ -92,39 +92,14 @@
 دیوار آتش</translation>
     </message>
     <message>
-        <source>Start</source>
-        <translation>
-شروع</translation>
-    </message>
-    <message>
-        <source>Restart</source>
-        <translation>
-شروع مجدد</translation>
-    </message>
-    <message>
-        <source>Stop</source>
-        <translation>
-ایست</translation>
-    </message>
-    <message>
         <source>Configuration</source>
         <translation>
 پیکربندی</translation>
     </message>
     <message>
-        <source>Restore default configuration</source>
-        <translation>
-بازگردانی پیکربندی پیش فرض</translation>
-    </message>
-    <message>
         <source>Exceptions</source>
         <translation>
 استثنا ها</translation>
-    </message>
-    <message>
-        <source>Add entry</source>
-        <translation>
-افزودن مدخل</translation>
     </message>
     <message>
         <source>Service</source>
@@ -147,14 +122,39 @@
 رابط</translation>
     </message>
     <message>
-        <source>Edit entry</source>
-        <translation>
-ویرایش مدخل</translation>
+        <source>&amp;Restore default configuration</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
-        <source>Delete entry</source>
-        <translation>
-حذف مدخل</translation>
+        <source>&amp;Start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Sto&amp;p</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Re&amp;start</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Add entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Edit entry</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Delete entry</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
