@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation>Konfiguration zu PBI</translation>
+        <translation>PBI-Konfiguration</translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
@@ -401,7 +401,7 @@
     </message>
     <message>
         <source>Installation Scripts</source>
-        <translation>Installationsskripte</translation>
+        <translation>Installations-Skripte</translation>
     </message>
     <message>
         <source>Permissions Error</source>
@@ -704,13 +704,11 @@
     </message>
     <message>
         <source>Enable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 aktivieren</translation>
     </message>
     <message>
         <source>Disable %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%1 deaktivieren</translation>
     </message>
     <message>
         <source>&amp;Build PBI</source>
@@ -742,13 +740,11 @@
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Wrapper-Skript</translation>
     </message>
     <message>
         <source>&amp;Save Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Skript speichern</translation>
     </message>
     <message>
         <source>&amp;Save</source>
@@ -796,28 +792,23 @@
     </message>
     <message>
         <source>&amp;PBI Modules</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;PBI-Module</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Beenden</translation>
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modul &amp;packen</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Über</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Modul auf&amp;rischen</translation>
     </message>
 </context>
 <context>
@@ -864,11 +855,11 @@
     </message>
     <message>
         <source>Pkg</source>
-        <translation>Pkg          </translation>
+        <translation>Pkg</translation>
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Port auswählen</translation>
+        <translation>Port auswählen</translation>
     </message>
 </context>
 <context>

@@ -140,15 +140,18 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

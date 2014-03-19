@@ -65,18 +65,6 @@
         <translation>%1 eszköz %2 helyre csatolva</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>Nem sikerült csatolni %1 eszközt %2 helyre</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>Nem sikerült csatolni %1 eszközt</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>%1 helyen a csatolási pont nem hozható létre</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 eszköz le lett csatlakoztatva.</translation>
     </message>
@@ -85,20 +73,11 @@
         <translation>Az eszköz eltávolítható</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>Hiba! %1 eszköz nem csatolható le</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1 szabad hely áll rendelkezésre</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -117,6 +96,34 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -127,16 +134,6 @@
     <message>
         <source>Close Tray</source>
         <translation>Tálca bezárása</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>Felhasználó-felismerési hiba</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>Nem sikerült felismerni a nem-root felhasználót, aki az alkalmazást indította el.
-Nem lehet root-jogosultságokkal megnyitni a fájlkezelőt!</translation>
     </message>
     <message>
         <source>New Device</source>

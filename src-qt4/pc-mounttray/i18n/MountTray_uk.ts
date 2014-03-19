@@ -58,18 +58,6 @@
         <translation>%1 змонтовано в %2</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>Помилка монтування %1 в %2</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>Помилка монтування %1</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>Не вдалося створити точку монтування %1</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 було успішно відмонтовано.</translation>
     </message>
@@ -78,20 +66,12 @@
         <translation>Тепер можна безпечно від&apos;єднати пристрій</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>Помилка: %1 не може бути відмонтовано</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1 вільно</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>Змонтовано в %1</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation>Файл ISO було повністю від&apos;єднано.</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -105,6 +85,34 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>ПРИМІТКА: Загалом ця діє не є рекомендованою. Ви маєте впевнитись що жодна програма не використовує пристрій.</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -115,16 +123,6 @@
     <message>
         <source>Close Tray</source>
         <translation>Закрити</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>Помилка визначення користувача</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>Неможливо визначити звичайного користувача (не-root), який запустив застосування 
-Неможливо відкрити файловий менеджер з правами root</translation>
     </message>
     <message>
         <source>New Device</source>

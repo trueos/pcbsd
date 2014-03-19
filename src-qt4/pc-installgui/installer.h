@@ -98,7 +98,6 @@ private:
     // Functions which return parts of the config file
     QStringList getGlobalCfgSettings();
     QStringList getDiskCfgSettings();
-    QStringList getComponentCfgSettings();
 
     void startConfigGen(); // Function which takes pieces of cfg, and assembles
     void checkSpaceWarning(); // Function to check space of disk drive
