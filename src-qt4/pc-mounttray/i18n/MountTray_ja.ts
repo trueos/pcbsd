@@ -58,18 +58,6 @@
         <translation>%1 を %2 にマウントしました</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>%1 を %2 へのマウント中にエラーが発生しました</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>%1 のマウント中にエラー</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>%1 にマウントポイントを作成することができません</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 のアンマウントに成功しました</translation>
     </message>
@@ -78,20 +66,12 @@
         <translation>安全にデバイスを取り外すことができます</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>エラー: %1 をアンマウントに失敗しました</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1 の空きディスク容量</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>%1 にマウントしました</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation>ISO ファイルはシステムから取り外されました。</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -105,22 +85,40 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>注意: どのアプリケーションでもこのデバイスを使用していないと確信できる場合を除いて、これを実行する事はおすすめできません。</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
     <message>
         <source>Open Media Directory</source>
         <translation>メディアディレクトリーを開く</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>ユーザー判定エラー</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>このアプリケーションを起動した非 root ユーザーを特定できません。
-root 権限付きでファイルマネージャーを開くことはできません。</translation>
     </message>
     <message>
         <source>Close Tray</source>

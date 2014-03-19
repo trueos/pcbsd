@@ -81,13 +81,11 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketsatz:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(instabil)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
@@ -103,8 +101,7 @@
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Werkzeuge:</translation>
     </message>
 </context>
 </TS>

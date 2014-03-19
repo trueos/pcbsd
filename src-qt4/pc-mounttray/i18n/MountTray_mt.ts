@@ -58,18 +58,6 @@
         <translation>%1 mmuntati fuq %2</translation>
     </message>
     <message>
-        <source>Error mounting %1 at %2</source>
-        <translation>Żball immuntar %1 fil %2</translation>
-    </message>
-    <message>
-        <source>Error mounting %1</source>
-        <translation>Żball immuntar %1</translation>
-    </message>
-    <message>
-        <source>Could not create mount point at %1</source>
-        <translation>Ma kellekx joħolqu punti mmuntati għal %1</translation>
-    </message>
-    <message>
         <source>%1 has been successfully unmounted.</source>
         <translation>%1 tkun ġiet-b&apos;suċċess mhux immuntati.</translation>
     </message>
@@ -78,20 +66,12 @@
         <translation>Issa huwa sikur biex tneħħi l-apparat</translation>
     </message>
     <message>
-        <source>Error: %1 could not be unmounted</source>
-        <translation>Żball: %1 ma setgħux jinżammu unmounted</translation>
-    </message>
-    <message>
         <source>%1 of disk space available</source>
         <translation>%1 ta &apos;spazju disk disponibbli</translation>
     </message>
     <message>
         <source>Mounted at %1</source>
         <translation>Mounted at %1</translation>
-    </message>
-    <message>
-        <source>The ISO file has been completely detached from the system.</source>
-        <translation>Il-fajl ISO tkun ġiet-kompletament Sejħa jinqalgħu mis-sistema.</translation>
     </message>
     <message>
         <source>Device Busy</source>
@@ -105,6 +85,34 @@
         <source>NOTE: This is generally not recommended unless you are sure that you don&apos;t have any applications using the device.</source>
         <translation>NOTA: Dan mhuwiex rakkomandat Ġeneralment Sakemm inti huma sikuri li inti ma għandekx xi applikazzjonijiet li qed jużaw l-apparat.</translation>
     </message>
+    <message>
+        <source>Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create mountpoint: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not mount device %1 on %2 (%3)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Could not create/run the device mounting script</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The ISO file has been detached from the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: %1 was not unmounted</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -115,16 +123,6 @@
     <message>
         <source>Close Tray</source>
         <translation>Tray Agħlaq</translation>
-    </message>
-    <message>
-        <source>User Detection Error</source>
-        <translation>Sejbien User Żball</translation>
-    </message>
-    <message>
-        <source>Unable to determine the non-root user who started the application 
-Can not open the file manager with root permissions</source>
-        <translation>Mhux biex determinati l-utent mhux root Have you bdiet l-implimentazzjoni
-Ma tistax tiftaħ il-maniġer fajl permessi root</translation>
     </message>
     <message>
         <source>New Device</source>
