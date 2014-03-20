@@ -122,18 +122,15 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loại chính</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hex Key (mặc định)</translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Văn bản đơn giản</translation>
     </message>
 </context>
 </TS>

@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Salvar</translation>
     </message>
 </context>
 <context>
@@ -358,13 +357,11 @@
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Alterar senha...</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Vista Simples</translation>
     </message>
 </context>
 <context>
@@ -387,13 +384,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aplicar</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fechar</translation>
     </message>
 </context>
 <context>
@@ -539,12 +534,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Salvar</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Cancelar</translation>
+        <translation>&amp;Cancelar</translation>
     </message>
 </context>
 <context>

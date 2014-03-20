@@ -87,30 +87,34 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Défaillance</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de créer le point de montage: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de monter le périphérique %1 sur %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur Générale</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de créer/exécuter le script de dispositif de montage</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier ISO a été détaché du système.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
+        <translation>Erreur: %1 n&apos;a pas été démonté</translation>
+    </message>
+    <message>
+        <source>Mount as:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

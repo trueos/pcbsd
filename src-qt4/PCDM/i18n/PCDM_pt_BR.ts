@@ -48,7 +48,7 @@
     </message>
     <message>
         <source>Hold to view the currently entered password</source>
-        <translation type="unfinished">Espere para ver a senha digitada no momento</translation>
+        <translation>Segurar para ver a senha digitada no momento</translation>
     </message>
     <message>
         <source>Login password for the selected user</source>
@@ -60,7 +60,7 @@
     </message>
     <message>
         <source>Login to %1</source>
-        <translation type="unfinished">Logar para %1</translation>
+        <translation>Entre para %1</translation>
     </message>
     <message>
         <source>Available desktop environments</source>
@@ -153,28 +153,23 @@
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diálogo</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Login Automático&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m segundos</translation>
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cancelar Login</translation>
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entrar Agora</translation>
     </message>
 </context>
 <context>

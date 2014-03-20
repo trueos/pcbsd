@@ -53,28 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустити</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезапустити</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Увімкнути сервіс</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вимкнути сервіс</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зупинити</translation>
     </message>
 </context>
 <context>

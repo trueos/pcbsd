@@ -311,14 +311,6 @@
         <translation>&amp;Plik</translation>
     </message>
     <message>
-        <source>Jails</source>
-        <translation>Cele</translation>
-    </message>
-    <message>
-        <source>E&amp;xit</source>
-        <translation>W&amp;yjscie</translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation>Wyjście</translation>
     </message>
@@ -655,8 +647,32 @@
         <translation>Menadżer pakietów</translation>
     </message>
     <message>
-        <source>Template Manager</source>
-        <translation>Menadżer szablonów</translation>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;New Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Jails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Template Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -87,30 +87,34 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuqqas</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ma kellekx joħolqu mountpoint:%1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Ma kellekx impunjazzjoni mezz %1 fuq %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error ġenerali</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished"></translation>
+        <translation>Ma kellekx joħolqu/imexxu l-apparat ta &apos;mmuntar iskrittura</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Il-fajl ISO ġiet jinqalgħu mis-sistema.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
+        <translation>Error: %1 ma kienx mhux immuntati</translation>
+    </message>
+    <message>
+        <source>Mount as:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

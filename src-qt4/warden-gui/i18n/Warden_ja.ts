@@ -311,10 +311,6 @@
         <translation>ファイル(&amp;F)</translation>
     </message>
     <message>
-        <source>E&amp;xit</source>
-        <translation>終了(&amp;X)</translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
@@ -619,10 +615,6 @@
         <translation>ユーザー管理</translation>
     </message>
     <message>
-        <source>Jails</source>
-        <translation>Jail</translation>
-    </message>
-    <message>
         <source>No valid network interface specified! Select one now?</source>
         <translation>有効なネットワークインターフェイスが指定されていません。指定しますか?</translation>
     </message>
@@ -651,12 +643,36 @@
         <translation>パッケージマネージャー</translation>
     </message>
     <message>
-        <source>Template Manager</source>
-        <translation>テンプレートマネージャー</translation>
-    </message>
-    <message>
         <source>Working on Jail</source>
         <translation>Jailの動作</translation>
+    </message>
+    <message>
+        <source>&amp;Configure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;New Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Jails</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Import Jail</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Template Manager</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

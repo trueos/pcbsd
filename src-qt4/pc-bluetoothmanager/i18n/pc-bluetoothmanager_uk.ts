@@ -105,13 +105,11 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Змінити</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Від&apos;єднати пристрій</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>

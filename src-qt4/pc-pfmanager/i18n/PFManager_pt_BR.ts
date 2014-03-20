@@ -100,38 +100,31 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restaurar configuração padrão</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Inicio</translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Parar</translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Re&amp;inicio</translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Adicionar entrada</translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Editar entrada</translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Apagar entrada</translation>
     </message>
 </context>
 <context>
