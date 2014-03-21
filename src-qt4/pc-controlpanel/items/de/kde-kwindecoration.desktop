@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=kcmshell4 kwindecoration
-Icon=preferences-system-windows-action
+Icon=preferences-system-windows
 Type=Service
 X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/kwindecoration/index.html
