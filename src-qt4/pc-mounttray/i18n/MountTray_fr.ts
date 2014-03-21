@@ -115,7 +115,7 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished"></translation>
+        <translation>Monter a:</translation>
     </message>
 </context>
 <context>

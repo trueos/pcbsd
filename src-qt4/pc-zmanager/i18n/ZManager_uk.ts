@@ -223,8 +223,8 @@ override the ancestor&apos;s quota, but rather imposes an additional limit.</sou
     <message>
         <source>Controls whether a dataset can be modified. When set to on,
 no modifications can be made.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Заборона модифікації датасету. Коли значення &apos;on&apos; (так),
+ніяких змін робити не можна.</translation>
     </message>
     <message>
         <source>Specifies a suggested block size for files in the file system. This
@@ -297,30 +297,26 @@ options equivalent to the contents of this property.</source>
     </message>
     <message>
         <source>The sharesmb property has currently no effect on FreeBSD.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість sharesmb наразі не має ефекту у FreeBSD.</translation>
     </message>
     <message>
         <source>Controls whether the .zfs directory is hidden or visible in the root of the file system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Прихована чи видима .zfs директорія в корені файлової системи.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the dataset type as filesystem (file system or clone), volume, or snapshot.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість (тільки для читання), яка показує тип файлової системи (файлова система чи клон), розділ або знімок.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space consumed by a dataset and all its descendents.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість (тільки для читання), яка показує споживання дискового простору датасетом та всіма його нащадками.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
 children of this dataset, which would be freed if all the dataset&apos;s children
 were destroyed.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість (тільки для читання), яка показує дисковий простір зайнятий
+нащадками датасету, і який можна звільнити, знищивши всі нащадки датасету.</translation>
     </message>
     <message>
         <source>Read-only property that identifies the amount of disk space that is used by
@@ -369,7 +365,7 @@ from the supported software release.</source>
     </message>
     <message>
         <source>This property is not supported on FreeBSD.</source>
-        <translation>Ця властивість не підтримується у FreeBSD.</translation>
+        <translation>Ця властивість не підтримується FreeBSD.</translation>
     </message>
     <message>
         <source>The file system is marked to be destroyed after unmount.</source>
@@ -869,7 +865,7 @@ of the deduplication feature.</source>
     </message>
     <message>
         <source>This property has currently no value on FreeBSD.</source>
-        <translation>Ця властивість наразі не має значення в FreeBSD.</translation>
+        <translation>Ця властивість наразі не має значення у FreeBSD.</translation>
     </message>
     <message>
         <source>Controls the location of where the pool configuration is cached.
@@ -1341,58 +1337,47 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Add more devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати пристрій до Z-пулу</translation>
     </message>
     <message>
         <source>Add log devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати лог-пристрій до Z-пулу</translation>
     </message>
     <message>
         <source>Add cache devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати кеш-пристрій до Z-пулу</translation>
     </message>
     <message>
         <source>Add spare devices to zpool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати запасний пристрій до Z-пулу</translation>
     </message>
     <message>
         <source>[Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Змонтовано]</translation>
     </message>
     <message>
         <source>[Not Mounted]</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>[Не змонтовано]</translation>
     </message>
     <message>
         <source> of </source>
-        <translation type="unfinished">
-            </translation>
+        <translation> з </translation>
     </message>
     <message>
         <source>Rename dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перейменувати датасет</translation>
     </message>
     <message>
         <source>Create new dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Створити новий датасет</translation>
     </message>
     <message>
         <source>Create a clone dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Клонувати датасет</translation>
     </message>
     <message>
         <source>Destroy dataset</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Знищити датасет</translation>
     </message>
     <message>
         <source>Promote filesystem</source>
@@ -1401,43 +1386,35 @@ OK to destroy the slice/partition?</source>
     </message>
     <message>
         <source>Take a snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зробити знімок</translation>
     </message>
     <message>
         <source>Destroy snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Знищити знімок</translation>
     </message>
     <message>
         <source>Rollback to this snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відкотитися до знімку</translation>
     </message>
     <message>
         <source>Edit properties</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Редагувати властивості</translation>
     </message>
     <message>
         <source>zfs Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>zfs меню</translation>
     </message>
     <message>
         <source>Confirmation</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Підтвердження</translation>
     </message>
     <message>
         <source>Take a new snapshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зробити новий знімок</translation>
     </message>
     <message>
         <source>New name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Нова назва</translation>
     </message>
     <message>
         <source>This operation cannot be undone and will cause all data added after the snapshot to be lost.

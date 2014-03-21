@@ -648,31 +648,31 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштувати</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Вихід</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Нова В&apos;язниця</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation type="unfinished"></translation>
+        <translation>Оновити в&apos;язниці</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Налаштуваня</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation type="unfinished"></translation>
+        <translation>Імпортувати В&apos;язницю</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Керування шаблонами</translation>
     </message>
 </context>
 <context>
