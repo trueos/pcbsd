@@ -33,9 +33,15 @@ class DevCheck
   
   private:
   	QStringList validDevs, validDevTypes, devFilter;
-  	QStringList fsDetection, fsMatch, fsFilter;
+  	QStringList fsDetection, dsDetection, fsMatch, fsFilter;
 	QStringList fsManual, fsCMD, fsBinCheck;
+	QStringList activeDevs;
   	QDir devDir;
 
+	//Function to scan the system and save which devices are currently active for skipping
+	void findActiveDevices();
+	//Functions to run disk detection methods and return the info/validity
+	bool getDiskInfo(QString fulldev, QString *filesystem, QString *label);
+	bool getSpecialFileInfo(QString fulldev, QString*filesystem, QString *label);
 };
 #endif

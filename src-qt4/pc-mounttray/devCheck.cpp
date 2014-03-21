@@ -14,7 +14,8 @@ DevCheck::DevCheck(){
   fsDetection.clear();
   fsMatch.clear();
   fsFilter.clear();
-  fsDetection << "FAT" << "NTFS" << "EXT" << "ISO 9660" << "Unix Fast File system" << "Reiser" << "XFS"; //string to match for a particular filesystem
+  fsDetection << "FAT" << "NTFS" << "EXT" << "ISO 9660" << "Unix Fast File system" << "Reiser" << "XFS"; //string to find in "file -s" output
+  dsDetection << "FAT" << "NTFS" << "EXT" << "ISO9660" << "UFS" << "Reiser" << "XFS"; //string to find in "diskinfo" output
   fsMatch << "FAT" << "NTFS" << "EXT" << "CD9660" << "UFS" << "REISERFS" << "XFS"; //internal labels for the filesystems
   fsFilter << "fat" << "ntfs" << "ext" << "cdrom" << "ufs" << "reiser" << "xfs"; //label categories in /dev/
   //Initialize lists of Manual Filesystems that might be available
@@ -34,6 +35,8 @@ DevCheck::DevCheck(){
 		<< "/usr/local/bin/ext4fuse" << "/sbin/mount_cd9660" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount";
   //Initialize the device directory
   devDir = QDir(DEVICEDIR);
+  //Find all the currently active devices (that system is booted from)
+  findActiveDevices();
 }
 
 DevCheck::~DevCheck(){
@@ -45,6 +48,7 @@ DevCheck::~DevCheck(){
 
 bool DevCheck::isValid(QString node){
   bool ok = FALSE;
+  if(activeDevs.contains(node)){ return false; } //currently active node - skip it
   for(int i=0; i<validDevs.length(); i++){
     if(node.startsWith(validDevs[i]) && node!="mdctl"){ 
 	ok = TRUE; 
@@ -112,7 +116,8 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   else{ node = dev; fullDev = DEVICEDIR + dev; }
   //Do not allow sym-links
   if(!QFile::symLinkTarget(fullDev).isEmpty()){ return FALSE; }
-  
+  //Do not allow currently active devices
+  if(activeDevs.contains(node)){ return FALSE; }
   //Double check for valid device types (just in case)
   QString detType;
   for(int i=0; i<validDevs.length(); i++){
@@ -121,6 +126,12 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
 	break; 
     }
   }
+  //Make sure it is a no-child device (except memory disks or CD's, those need to be the parent)
+  int children = devChildren(node).length();
+  if( !node.startsWith("md") && detType!="CD9660" && detType!="ISO" && children>0 ){ return FALSE; }
+  //Make sure we quit before running commands on any invalid device nodes
+  if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
+  //Get the camctl info and refine the device type if possible
   QString camctl;
   if(detType == "USB" && QFile::exists(fullDev)){
     //make sure that it is not a SCSI device
@@ -132,99 +143,41 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     if(camctl.contains("camcontrol")){ camctl.clear(); } //error or invalid device type
   }
   if(!camctl.isEmpty()){
-    //Alternate Device name for label later
+    //Alternate Device name for label later (if needed)
     camctl = camctl.section(">",0,0).section("<",-1).section(" ",0,0).simplified();
     QString partition = node.section("s",1,1);
     if(!partition.isEmpty()){ camctl.append("-"+partition); }
   }
-  //Make sure we quit before running commands on any invalid device nodes
-  if(detType.isEmpty() || !QFile::exists(fullDev) ){return FALSE;}
-  else{type->append(detType);}
-  bool isCD=FALSE;
-  if(detType == "CD9660" || detType == "ISO"){ isCD=TRUE; }
+  //Save the device type
+  type->append(detType);
   
-  //Read the Device Info using "file -s <device>"
-  QString cmd = "file -s "+fullDev;
-  QString output = pcbsd::Utils::runShellCommand(cmd).join(" ");
-  //if(isCD){ qDebug() << "File -s output:" << output; }
-  
-  // ** Get the max storage size **
-  int kb = 0;
-  bool hasPartitions = FALSE; 
-  bool isMounted = FALSE;
-  if( !isCD ){
-    QStringList tmp = output.split(",");
-    //if( !tmp.filter("partition ").isEmpty() ){
-      //Check for actual sub-devices (*s[#][a/b/c/....])
-      if( devChildren(node).length() > 0 ){ hasPartitions = TRUE; }
-    //}
-    //if( !tmp.filter("last mounted on /").isEmpty() && (detType == "SATA")){
-    if( !tmp.filter("active").isEmpty() ){ //currently running partition/device
-      isMounted = TRUE;
-    }
-    //Now try to get the size of the disk
-    if( !tmp.filter("number of data blocks").isEmpty() ){
-      tmp = tmp.filter("number of data blocks");
-      kb = tmp[0].remove("number of data blocks").simplified().toInt();
-    }else if( !tmp.filter("number of blocks").isEmpty() ){
-      tmp = tmp.filter("number of blocks");
-      kb = tmp[0].remove("number of blocks").simplified().toInt();
-    }else if( !tmp.filter("hidden sectors").isEmpty()){
-      tmp = tmp.filter("hidden sectors");
-      kb = tmp[0].remove("hidden sectors").simplified().toInt();
-    }else if( !tmp.filter("sectors").isEmpty()){
-      tmp = tmp.filter("sectors");
-      //qDebug() << "Det Sectors line:"<<tmp;
-      int num=0;
-      for(int i=0; i<tmp.length(); i++){
-        int n = tmp[i].remove("sectors").section("(",0,0).simplified().toInt();
-        if(n > num){ num = n; }
-      }
-      kb = num;
-    }else{ kb = -1; }
-  } //end non-CD size and isMounted detection
-  bool oksize = (kb > 0);
-  //First try to get the device label using the "file -s" output
-  QString dlabel;
-  if(isCD){
-    if(!output.contains("ERROR:") && (output.section(":",1,1).simplified() != "data") ){
-      dlabel = output.section("'",-2).remove("'").simplified();
-      if(dlabel.contains("(")){ dlabel = dlabel.left(dlabel.indexOf("(")+1).trimmed();}
-    }
+  bool isCD= (detType == "CD9660" || detType == "ISO"); //simplification for later
+  //Run either "file -s" or "disktype" to get device info
+  bool valid = false;
+  QString fs, dlabel;
+  if(QFile::exists("/usr/local/bin/disktype")){
+    valid = getDiskInfo(fullDev, &fs, &dlabel);
   }else{
-   dlabel = output.section("label: \"",1,1).section("\"",0,0).simplified(); //device name
+    // "file -s" should always work - use it as the backup method
+    valid = getSpecialFileInfo(fullDev, &fs, &dlabel);
   }
-  // - trim the label out of the output line for filesystem type detection
-  QString devFSsec, devFSsec2;
-  if(!isCD){
-    devFSsec = output.section("label:",0,0);
-    devFSsec2 = output.section("label:",1,3).section(",",1,1,QString::SectionSkipEmpty);
-  }else{
-    devFSsec = output.simplified();	  
-  }
-  // ** Find the filesystem type for the device **
-  QString filesys;
-  for(int i=0; i<fsDetection.length(); i++){
-    if(devFSsec.contains(fsDetection[i]) || devFSsec2.contains(fsDetection[i]) ){
-      filesys = fsMatch[i]; 
-    }
-  }
+  if(!valid){ //don't bother continuing - already invalid
+    if(DEBUG_MODE){ qDebug() << "Invalid Device:" << node << detType << dlabel << fs; } 
+    return FALSE; 
+  } 
+ 
   //If the filesystem could not be detected or is not supported
-  bool hasFS = TRUE;
-  if(filesys.isEmpty()){ filesys = "UNKNOWN"; hasFS=FALSE; }
+  if(fs.isEmpty()){ fs = "UNKNOWN"; }
   
   //Now get the device label (if there is one) using glabel
-  bool hasLabel = FALSE;
   QString glabel;
   //Don't use glabel for SATA devices right now because it is inconsistent
-  if(!isCD){ glabel = devLabel(node, filesys); }
+  if(!isCD){ glabel = devLabel(node, fs); }
   //Check to see if we have a label, otherwise assign one
-  if( !glabel.isEmpty() ){ dlabel = glabel; hasLabel = TRUE; } //glabel
-  else if(!dlabel.isEmpty()){ hasLabel = TRUE; } //file -s label
-  else if( !camctl.isEmpty() ){ 
-    //not necessarily a "detected" label, but just an alternate fallback name
-    dlabel = camctl;
-  }else{
+  if( !glabel.isEmpty() ){ dlabel = glabel; } //glabel
+  else if(!dlabel.isEmpty()){ } //device info label
+  else if( !camctl.isEmpty() ){ dlabel = camctl; } //camcontrol device ID
+  else{
     //Assign a device label
     if(isCD){
       if(detType == "ISO"){
@@ -240,26 +193,11 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
   if(dlabel.contains("(")){ dlabel = dlabel.remove("(").simplified(); }
   if(dlabel.contains(")")){ dlabel = dlabel.remove(")").simplified(); }
   dlabel = dlabel.simplified();
-  //Now perform the final checks to see if it is a good device
-  bool good = FALSE;
-  if( isMounted ){}//Always ignore this device (local FreeBSD installation that is being used)
-  else if( hasPartitions ){} //Ignore devices that have partitions accessible as seperate devices
-  else if( hasFS && isCD ){ good = TRUE; } //CD/DVD data disks don't have as much info
-  //Allow devices that match 2 of the 3 criteria
-  else if( hasFS && oksize ){ good = TRUE; } //This will catch most good devices
-  else if( hasFS && hasLabel ){ good = TRUE; } // allow device if it has a known label and filesystem
-  else if( hasLabel || oksize ){ good = TRUE; } //allow unknown filesystems if there is a good size reading
-  else if( detType=="SD" ){ good = TRUE; } //SD cards do not show that much info
-  //Now setup the outputs as appropriate
-  maxsize->append( QString::number(kb) );
+
+  //Setup the outputs
   label->append(dlabel);
-  filesystem->append(filesys);
-  
-  if(!good){
-    qDebug() << "Invalid Device:" << node << detType << dlabel << filesys << kb; 
-    if(DEBUG_MODE){qDebug() << " -Detected Flags:" << isMounted << hasPartitions << hasLabel << hasFS << oksize;} 
-  }
-  return good;
+  filesystem->append(fs);
+  return valid;
 }
 
 QStringList DevCheck::AvailableFS(){
@@ -285,4 +223,101 @@ QString DevCheck::getMountCommand(QString FS, QString dev, QString mntpoint){
   PRIVATE FUNCTIONS
 */
 
+void DevCheck::findActiveDevices(){
+  activeDevs.clear();
+  QStringList info = pcbsd::Utils::runShellCommand("mount");
+  if(info.isEmpty()){ return; } //nothing to detect
+  
+  for( int j=0; j<info.length(); j++){
+    if(info[j].section(" ",2,2) != "/"){ continue; }
+    QString line = info[j].simplified();
+    QString dev = line.section(" on ",0,0).simplified(); //get the device
+    if(dev.startsWith("/dev/")){
+      //Non-ZFS
+      if(QFile::exists(dev)){
+        dev.remove("/dev/");
+        activeDevs << dev;
+      }
+    }else if(line.section("(",1,1).contains("zfs")){
+      //ZFS - Just get the base pool name
+      dev = dev.section("/",0,0);
+      //Now get which physical devices are associated with that zpool
+      QStringList zinfo = pcbsd::Utils::runShellCommand("zpool status "+dev);
+      int startI = zinfo.indexOf("STATE");
+      if(startI==-1){ startI = 0; }
+      else{ startI++; } //skip the header line
+      for(int i=startI; i<zinfo.length(); i++){
+        if(zinfo[i].contains(":")){ continue; } //end of the device info section
+        zinfo[i] = zinfo[i].replace("\t"," ").simplified(); //Change all tabs to spaces
+        dev = zinfo[i].section(" ",0,0,QString::SectionSkipEmpty);
+        if(QFile::exists("/dev/"+dev) && !dev.isEmpty() ){
+          activeDevs << dev;
+        }
+      }
+    }
+  } //end loop over mount lines
+  activeDevs.removeDuplicates();
+  //qDebug() << "Active Devices:" << activeDevs;
+}
 
+bool DevCheck::getDiskInfo(QString fulldev, QString *filesystem, QString *label){
+  //This function will run the "disktype" utility and parses the output
+  //  -- it will return "true" if there is a valid size for the device
+  //  -- NOTE: Can only detect filesystem/size/label, and NOT whether it is active
+  filesystem->clear(); label->clear();
+  QStringList info = pcbsd::Utils::runShellCommand("disktype "+fulldev);
+  QString bytes; bool blankDisk=false;
+  for(int i=0; i<info.length(); i++){
+    if(info[i].isEmpty() || info[i].startsWith("---")){ continue; } //skip this line
+    else if( info[i].startsWith("Character device,") && !info[i].contains("unknown size") ){
+      //Get the size if possible
+      QString tmp = info[i].section("(",1,1).section(")",0,0);
+      if(tmp.contains("bytes")){ bytes = tmp.section(" ",0,0,QString::SectionSkipEmpty); }
+    }else if( info[i].contains("Blank disk/medium") ){ 
+      blankDisk = true;
+    }else if( info[i].contains("file system") ){
+      QString tmp = info[i].section("file system",0,0);
+      for(int j=0; j<dsDetection.length(); j++){
+        if(tmp.contains(dsDetection[j])){ filesystem->append(fsMatch[j]); break; }
+      }
+    }else if( info[i].contains("Volume name") ){
+      QString tmp = info[i].section("\"",1,1).section("\"",0,0).simplified(); //name is within quotes
+      label->append(tmp);
+    }
+    //stop if all info found (size is always the first to be found in info)
+    if(!filesystem->isEmpty() && !label->isEmpty()){ break; }
+  }
+  return !(bytes.isEmpty() || blankDisk);
+}
+
+bool DevCheck::getSpecialFileInfo(QString fulldev, QString *filesystem, QString *label){
+  //This function will run the "file -s" utility and parses the output
+  //  -- it will return "true" if there is a valid size for the device and it is NOT "active"
+  //  -- filesystem/label detection is very sketchy with this utility
+  filesystem->clear(); label->clear();
+  QString info = pcbsd::Utils::runShellCommand("file -s "+fulldev).join("").simplified();
+  //Quick exit if invalid device
+  if(info.contains("ERROR:") || info.contains("Device not configured") ){ return false; }
+  //Get ready to look for info
+  QStringList infoL = info.split(",");
+  bool hasblocks = false;
+  bool active = false;
+  //Check for the filesystem
+  for(int i=0; i<fsDetection.length(); i++){
+    if(info.contains(fsDetection[i])){ filesystem->append( fsMatch[i] ); break; }
+  }
+  //Check if it is active
+  if( !infoL.filter("active").isEmpty() ){ active = true; }
+  //Check for listed number of blocks
+  if( !infoL.filter("blocks").isEmpty() || !infoL.filter("sectors").isEmpty() ){ hasblocks = true; }
+  else if( filesystem->contains("CD9660") ){ hasblocks = true; } //CD/DVD devices do not report size info when filled
+  //Few checks for a disk label
+  if( !infoL.filter("volume name").isEmpty() ){
+    label->append( infoL.filter("volume name").join("").section("volume name",0,0,QString::SectionSkipEmpty).simplified() );
+  }else if( !infoL.filter("label: \"").isEmpty() ){
+    label->append( infoL.filter("label: \"").join("").section("label: \"",1,1).section("\"",0,0).simplified() );
+  }else if( (infoL.length() == 1) && filesystem->contains("CD9660") && info.contains("\'") ){
+    label->append( info.section("\'",1,1).section("\'",0,0).simplified() );
+  }
+  return (hasblocks && !active);  
+}
