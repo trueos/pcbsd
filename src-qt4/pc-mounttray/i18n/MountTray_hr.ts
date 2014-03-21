@@ -123,7 +123,8 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
