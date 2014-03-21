@@ -5,7 +5,7 @@
  *
  */
 
-#define FUSE_USE_VERSION 26
+#define FUSE_USE_VERSION 30
 
 #include <dirent.h>
 #include <errno.h>
@@ -20,8 +20,10 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-
 #define NOT_FOUND -1
+
+// Uncomment to enable debugging
+//#define DODEBUG	1
 
 // Set some globals
 char hintsdir[MAXPATHLEN];
@@ -82,6 +84,17 @@ const char *replace_str(const char *str, char *orig, char *rep)
 	sprintf(buffer+(p-str), "%s%s", rep, p+strlen(orig));
 
 	return buffer;
+}
+
+void do_debug_log(const char *func, const char *str)
+{
+	char logcmd[MAXPATHLEN];
+	strcpy(logcmd, "echo \"");
+	strcat(logcmd, func);
+	strcat(logcmd, "() ");
+	strcat(logcmd, str);
+	strcat(logcmd, "\" >> /usr/pbi/.pbifs-debug.log");
+	system(logcmd);
 }
 
 /**********************************************************************************
@@ -230,6 +243,7 @@ int get_modified_path(char *npath, const char *opath)
 }
 
 int newfile_chown(const char *path) {
+
 	struct fuse_context *ctx = fuse_get_context();
 	if (ctx->uid != 0 && ctx->gid != 0) {
 		int res = lchown(path, ctx->uid, ctx->gid);
@@ -241,6 +255,9 @@ int newfile_chown(const char *path) {
 
 int cp(const char *to, const char *from)
 {
+#ifdef DODEBUG
+	do_debug_log("cp", to);
+#endif
 	int fd_to, fd_from;
 	char buf[4096];
 	ssize_t nread;
@@ -283,6 +300,10 @@ int cp(const char *to, const char *from)
 	  	}
 		close(fd_from);
 
+#ifdef DODEBUG
+	do_debug_log("cp", "DONE");
+#endif
+
 		/* Success! */
 		return 0;
 	}
@@ -314,14 +335,6 @@ static int pbi_getattr(const char *path, struct stat *stbuf)
 	char newpath[MAXPATHLEN];
 	get_modified_path(newpath, path);
 
-	/*
-	char testcmd[MAXPATHLEN];
-	strcpy(testcmd, "echo \"getattr: ");
-	strcat(testcmd, newpath);
-	strcat(testcmd, "\" >> /tmp/newpath");
-	system(testcmd);
-	*/
-
 	int res = lstat(newpath, stbuf);
         if (res == -1)
 		return -errno;
@@ -335,6 +348,10 @@ static int pbi_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	(void) offset;
 	(void) fi;
 
+#ifdef DODEBUG
+	do_debug_log("readdir()", path);
+#endif
+
 	char newpath[MAXPATHLEN];
 	get_modified_path(newpath, path);
 
@@ -343,6 +360,8 @@ static int pbi_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
            return 0;
 
 	DIR *openDir = opendir(newpath);
+	if ( openDir == NULL )
+		return -errno;
 
 	struct dirent *de;
 	while ((de = readdir(openDir)) != NULL) {
@@ -369,28 +388,38 @@ static int pbi_open(const char *path, struct fuse_file_info *fi)
 	int fd = open(newpath, fi->flags);
         if (fd == -1)
 		return -errno;
-	fi->fh = (unsigned long)fd;
 
+	close(fd);
 	return 0;
 }
 
 static int pbi_read(const char *path, char *buf, size_t size, off_t offset,
 		      struct fuse_file_info *fi)
 {
+	char newpath[MAXPATHLEN];
+	get_modified_path(newpath, path);
+
 	(void) fi;
 
-	int result = pread(fi->fh, buf, size, offset);
-	if (result == -1)
-		return -errno;
+        int res;
 
-	return result;
+        (void) fi;
+        int fh = open(newpath, O_RDONLY);
+        if (fh == -1)
+                return -errno;
+
+        result = pread(fh, buf, size, offset);
+        if (result == -1)
+                result = -errno;
+
+        close(fh);
+        return result;
 }
 
 static int pbi_statfs(const char *path, struct statvfs *stbuf) 
 {
 	char newpath[MAXPATHLEN];
 	get_modified_path(newpath, path);
-
 
 	return statvfs(newpath, stbuf);
 }
@@ -449,32 +478,24 @@ static int pbi_create(const char *path, mode_t mode, struct fuse_file_info *fi)
 	newfile_chown(newpath);
 	fchmod(res, mode);
 
-	fi->fh = res;
+	close(res);
 	return 0;
 }
 
 static int pbi_flush(const char *path, struct fuse_file_info *fi)
 {
-	int fd = dup(fi->fh);
-	if (fd == -1) {
-		if (fsync(fi->fh) == -1) 
-			return -EIO;
-		return -errno;
-        }
-
-	int res = close(fd);
-	if (res == -1)
-		return -errno;
-
+	// Doesn't really do anything
+	(void) path;
+        (void) fi;
 	return 0;
 }
 
 static int pbi_fsync(const char *path, int isdatasync, struct fuse_file_info *fi)
 {
-	(void) isdatasync;
-	int res = fsync(fi->fh);
-        if (res == -1)
-		return -errno;
+	// Doesn't really do anything
+	(void) path;
+        (void) isdatasync;
+        (void) fi;
 	return 0;
 }
 
@@ -506,30 +527,31 @@ static int pbi_mkdir(const char *path, mode_t mode)
 
 static int pbi_mknod(const char *path, mode_t mode, dev_t rdev)
 {
-	int ftype = mode & S_IFMT;
-	int fpath = mode & (S_ISUID| S_ISGID | S_ISVTX | S_IRWXU | S_IRWXG | S_IRWXO);
+	int res;
 
 	char newpath[MAXPATHLEN];
 	get_modified_path(newpath, path);
 
-	int res = mknod(newpath, ftype, rdev);
-	if (res == -1)
-		return -errno;
+        if (S_ISREG(mode)) {
+                res = open(newpath, O_CREAT | O_EXCL | O_WRONLY, mode);
+                if (res >= 0)
+                        res = close(res);
+        } else if (S_ISFIFO(mode))
+                res = mkfifo(newpath, mode);
+        else
+                res = mknod(newpath, mode, rdev);
+        if (res == -1)
+                return -errno;
 
-        newfile_chown(newpath);
-	chmod(newpath, fpath);
-
-	return 0;
+        return 0;
 }
 
 static int pbi_release(const char *path, struct fuse_file_info *fi)
 {
 	(void) path;
+	(void) fi;
 
-	int res = close(fi->fh);
-	if (res == -1)
-		return -errno;
-
+	// Doesn't really do anything
 	return 0;
 }
 
@@ -621,11 +643,21 @@ static int pbi_utimens(const char *path, const struct timespec ts[2])
 static int pbi_write(const char *path, const char *buf, size_t size, off_t offset,
 	struct fuse_file_info *fi)
 {
-	(void) path;
-	int written = pwrite(fi->fh, buf, size, offset);
-	if (written == -1)
-		return -errno;
-	return written;
+        (void) fi;
+	char newpath[MAXPATHLEN];
+	get_modified_path(newpath, path);
+
+	int fd;
+        fd = open(newpath, O_WRONLY);
+        if (fd == -1)
+                return -errno;
+
+        int written = pwrite(fd, buf, size, offset);
+        if (written == -1)
+                written = -errno;
+
+        close(fd);
+        return written;
 }
 
 static struct fuse_operations pbi_oper = {
@@ -724,8 +756,15 @@ int main(int argc, char *argv[])
 		fuse_opt_add_arg(&args, argv[i]);
 	}
 	fuse_opt_add_arg(&args, "-oallow_other");
+	fuse_opt_add_arg(&args, "-odirect_io");
+	fuse_opt_add_arg(&args, "-ouse_ino");
+	fuse_opt_add_arg(&args, "-ohard_remove");
+	fuse_opt_add_arg(&args, "-onoauto_cache");
+	fuse_opt_add_arg(&args, "-oatomic_o_trunc");
+	fuse_opt_add_arg(&args, "-obig_writes");
 	fuse_opt_add_arg(&args, "-s");
 
-	return fuse_main(args.argc, args.argv, &pbi_oper, NULL);
+	int exitcode = fuse_main(args.argc, args.argv, &pbi_oper, NULL);
+	return exitcode;
 }
 
