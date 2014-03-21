@@ -233,28 +233,23 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невідкладні задачі</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перебудувати меню GRUB</translation>
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відновити налаштування GRUB</translation>
     </message>
 </context>
 </TS>

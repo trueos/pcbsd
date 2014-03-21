@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>You can select one of public DNS servers instead of DNS server from your ISP</source>
-        <translation>Você pode selecionar um dos servidores públicos DNS ao invés do servidor DNS de seu provedor de internet</translation>
+        <translation>Você pode selecionar um dos servidores de DNS público, em vez do servidor de DNS do seu ISP</translation>
     </message>
     <message>
         <source>IP address</source>
@@ -276,8 +276,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aplicar</translation>
     </message>
 </context>
 </TS>

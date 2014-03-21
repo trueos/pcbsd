@@ -311,14 +311,6 @@
         <translation>&amp;Dossier           </translation>
     </message>
     <message>
-        <source>Jails</source>
-        <translation>Jails            </translation>
-    </message>
-    <message>
-        <source>E&amp;xit</source>
-        <translation>S&amp;ortir            </translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation>Sortir            </translation>
     </message>
@@ -655,8 +647,32 @@
         <translation>Gestionnaire de Paquets            </translation>
     </message>
     <message>
-        <source>Template Manager</source>
-        <translation>Gestionnaire de modèles</translation>
+        <source>&amp;Configure</source>
+        <translation>&amp;Configuration</translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation>&amp;Quitter</translation>
+    </message>
+    <message>
+        <source>&amp;New Jail</source>
+        <translation>&amp;Nouveau Jail</translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Jails</source>
+        <translation>&amp;Rafraîchir Jails</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>&amp;Paramètres</translation>
+    </message>
+    <message>
+        <source>&amp;Import Jail</source>
+        <translation>&amp;Importer Jail</translation>
+    </message>
+    <message>
+        <source>&amp;Template Manager</source>
+        <translation>&amp;Gestionnaire de modèles</translation>
     </message>
 </context>
 <context>

@@ -87,31 +87,36 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>thất bại</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tạo ra điểm lắp: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể gắn kết thiết bị %1 trên %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Lỗi chung</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished"></translation>
+        <translation>Không thể tạo ra/chạy các thiết bị lắp kịch bản</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>File ISO đã được tách ra khỏi hệ thống.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished"></translation>
+        <translation>Lỗi: %1 không phải là chưa lắp ráp</translation>
+    </message>
+    <message>
+        <source>Mount as:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

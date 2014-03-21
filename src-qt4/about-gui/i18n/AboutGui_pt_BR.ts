@@ -73,11 +73,11 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation>Utilitários CLI do PC-BSD:</translation>
+        <translation>Utilitários PC-BSD CLI:</translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation>Utilitários UI do PC-BSD:</translation>
+        <translation>Utilitários PC-BSD UI:</translation>
     </message>
     <message>
         <source>Package set:</source>
@@ -89,23 +89,19 @@
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Componentes do sistema...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ambientes de trabalho...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fechar</translation>
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uteis:</translation>
     </message>
 </context>
 </TS>

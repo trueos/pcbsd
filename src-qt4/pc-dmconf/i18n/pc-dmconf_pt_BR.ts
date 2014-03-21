@@ -61,28 +61,23 @@
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tempo de atraso</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> Segundos</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mostrar usuários disponíveis</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aplicar</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fechar</translation>
     </message>
 </context>
 </TS>

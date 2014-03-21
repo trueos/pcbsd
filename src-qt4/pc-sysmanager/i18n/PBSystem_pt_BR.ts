@@ -26,13 +26,11 @@
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Parar</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fechar</translation>
     </message>
 </context>
 <context>
@@ -96,8 +94,7 @@
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilitários gráficos:</translation>
     </message>
     <message>
         <source>System Information</source>
@@ -109,8 +106,7 @@
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Fetch PC-BSD e sistema Fonte</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
@@ -143,13 +139,11 @@
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Gerar</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aplicar</translation>
     </message>
 </context>
 </TS>

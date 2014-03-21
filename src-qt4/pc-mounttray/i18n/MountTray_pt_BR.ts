@@ -87,31 +87,36 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível criar ponto de montagem: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível montar o dispositivo %1 em %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro geral</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível criar/executar o script de montagem do dispositivo</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>O arquivo ISO foi destacado do sistema.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished"></translation>
+        <translation>Erro: %1 não foi desmontado</translation>
+    </message>
+    <message>
+        <source>Mount as:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>
@@ -173,7 +178,7 @@
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation type="unfinished">Configurações da Bandeja de Montagem</translation>
+        <translation>Configurações da Bandeja de Montagem</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>

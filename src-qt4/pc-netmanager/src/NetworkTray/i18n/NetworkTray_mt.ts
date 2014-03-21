@@ -122,18 +122,15 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Key Tip</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hex Key (default)</translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Plain Text</translation>
     </message>
 </context>
 </TS>

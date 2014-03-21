@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти</translation>
     </message>
 </context>
 <context>
@@ -358,13 +357,11 @@
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Змінити пароль...</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Простий вигляд</translation>
     </message>
 </context>
 <context>
@@ -387,13 +384,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Застосувати</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрити</translation>
     </message>
 </context>
 <context>
@@ -539,12 +534,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">Скасувати</translation>
+        <translation>Скасувати</translation>
     </message>
 </context>
 <context>

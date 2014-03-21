@@ -87,31 +87,35 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished"></translation>
+        <translation>Збій</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити точку монтування: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося змонтувати пристрій %1 в %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Загальна помилка</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося створити/запустити скрипт монтування пристрою</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO файл було від&apos;єднано від системи.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished"></translation>
+        <translation>Помилка: %1 було не відмонтовано</translation>
+    </message>
+    <message>
+        <source>Mount as:</source>
+        <translation>Монтувати як:</translation>
     </message>
 </context>
 <context>
@@ -166,7 +170,7 @@
     </message>
     <message>
         <source>ISO Files (*.iso)</source>
-        <translation>ISO образи (*.iso)</translation>
+        <translation>ISO файли (*.iso)</translation>
     </message>
 </context>
 <context>

@@ -381,16 +381,6 @@
             ملف</translation>
     </message>
     <message>
-        <source>Jails</source>
-        <translation>
-            السجون</translation>
-    </message>
-    <message>
-        <source>E&amp;xit</source>
-        <translation>
-            خروج</translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation>
 خروج            </translation>
@@ -790,7 +780,37 @@
             </translation>
     </message>
     <message>
-        <source>Template Manager</source>
+        <source>&amp;Configure</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;New Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Jails</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Import Jail</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>&amp;Template Manager</source>
         <translation type="unfinished">
             </translation>
     </message>

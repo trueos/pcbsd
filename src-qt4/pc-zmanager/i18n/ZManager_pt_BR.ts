@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Apply changes recursively to all descendants</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aplicar alterações de forma recursiva para todos os descendentes</translation>
     </message>
     <message>
         <source>Property</source>
@@ -18,18 +17,15 @@
     </message>
     <message>
         <source>Value</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valor</translation>
     </message>
     <message>
         <source>Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fonte</translation>
     </message>
     <message>
         <source>Add user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Adicionar propriedade de usuário</translation>
     </message>
     <message>
         <source>...</source>
@@ -37,13 +33,11 @@
     </message>
     <message>
         <source>Remove user property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Remover propriedade de usuário</translation>
     </message>
     <message>
         <source>Inherit from parent</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Herdar do pai</translation>
     </message>
     <message>
         <source>Revert changes</source>

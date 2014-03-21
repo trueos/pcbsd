@@ -49,6 +49,23 @@ const char* const REQUIRED_DE = "PC-RequiredDE";
 const char* const PBI_PREFIX_MACRO = "%PBI_PREFIX%";
 
 const QString DEFAULT_ICON_LOCATION = PREFIX + "/share/pcbsd/pc-controlpanel/icons/";
+
+#define OXYGEN_THEME_PATH "/usr/local/share/icons/oxygen/"
+#define OXYGEN_DIMS "64x64"
+#define OXYGEN OXYGEN_THEME_PATH OXYGEN_DIMS
+
+const QString ICON_SEARCH_PATH[] =
+{
+    QString(PREFIX) + "/share/pcbsd/pc-controlpanel/icons/",
+    OXYGEN"/apps/",
+    OXYGEN"/actions/",
+    OXYGEN"/categories/",
+    OXYGEN"/places/",
+    OXYGEN"/status/"
+};
+
+const int ICON_SEARCH_PASS_SIZE = sizeof(ICON_SEARCH_PATH) / sizeof(QString);
+
 const char* const DEFAULT_ICON = "preferences-other.png";
 
 const QString SU_NAMES[] = {QString("pc-su "), QString("kdesu "), QString("gtksu ")};
@@ -234,6 +251,17 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
             QString FileName = QString(DEFAULT_ICON_LOCATION) + mIconFile;
 
             anIcon = QIcon(FileName);
+        }        
+        // try to find icons in some custom icon search paths
+        if (!anIcon.availableSizes().size() && (mIconFile.indexOf("/") == -1))
+        {
+            QString icon_name = (mIconFile.indexOf(".")>0)?mIconFile:mIconFile + ".png";
+            for (int i=0; i<ICON_SEARCH_PASS_SIZE; i++)
+            {
+                anIcon = QIcon(ICON_SEARCH_PATH[i] + icon_name);
+                if (anIcon.availableSizes().size())
+                    break;
+            }
         }
         if (!anIcon.availableSizes().size())
         {
@@ -246,6 +274,7 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
     }
     if (anIcon.availableSizes().size())
         setIcon(anIcon);
+
 
 
     //Get TryMessage extended field

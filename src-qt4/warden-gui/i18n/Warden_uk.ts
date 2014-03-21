@@ -311,14 +311,6 @@
         <translation>Файл</translation>
     </message>
     <message>
-        <source>Jails</source>
-        <translation>В&apos;язниці</translation>
-    </message>
-    <message>
-        <source>E&amp;xit</source>
-        <translation>Вихід</translation>
-    </message>
-    <message>
         <source>Exit</source>
         <translation>Вихід</translation>
     </message>
@@ -655,7 +647,31 @@
         <translation>Менеджер пакунків</translation>
     </message>
     <message>
-        <source>Template Manager</source>
+        <source>&amp;Configure</source>
+        <translation>Налаштувати</translation>
+    </message>
+    <message>
+        <source>&amp;Quit</source>
+        <translation>Вихід</translation>
+    </message>
+    <message>
+        <source>&amp;New Jail</source>
+        <translation>Нова В&apos;язниця</translation>
+    </message>
+    <message>
+        <source>&amp;Refresh Jails</source>
+        <translation>Оновити в&apos;язниці</translation>
+    </message>
+    <message>
+        <source>&amp;Settings</source>
+        <translation>Налаштуваня</translation>
+    </message>
+    <message>
+        <source>&amp;Import Jail</source>
+        <translation>Імпортувати В&apos;язницю</translation>
+    </message>
+    <message>
+        <source>&amp;Template Manager</source>
         <translation>Керування шаблонами</translation>
     </message>
 </context>

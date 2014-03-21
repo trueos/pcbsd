@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Toggle command details</source>
-        <translation type="unfinished">Detalhes do comando de alternância</translation>
+        <translation>Detalhes do comando Alternar</translation>
     </message>
 </context>
 </TS>

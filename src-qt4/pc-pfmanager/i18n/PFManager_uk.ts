@@ -100,38 +100,31 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Відновити налаштування за замовчуванням</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Увімкнути</translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вимкнути</translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезапустити</translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Додати правило</translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Редагувати правило</translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Видалити правило</translation>
     </message>
 </context>
 <context>

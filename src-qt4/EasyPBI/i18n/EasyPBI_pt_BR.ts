@@ -61,12 +61,11 @@
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation>Port FreeBSD a ser empacotado como um PBI</translation>
+        <translation>Port do FreeBSD para ser empacotado como um PBI</translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ports adicionais do FreeBSD para ser copilado após o programa principal</translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
@@ -106,17 +105,15 @@
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Criar um script wrapper personalizado para um programa binário</translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salve o script wrapper</translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">Ícone do recurso</translation>
+        <translation>Ícone do recurso</translation>
     </message>
     <message>
         <source>Resource Description</source>
@@ -128,11 +125,11 @@
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation type="unfinished">Definir quaisquer entradas de área de trabalho/menu e quaisquer tipos MIME</translation>
+        <translation>Definir as entradas da área de trabalho/menu e os tipos MIME</translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation type="unfinished">Criar e editar entradas da área de trabalho</translation>
+        <translation>Criar e editar entradas da área de trabalho</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -140,7 +137,7 @@
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation>Criar e editar entradas de menu</translation>
+        <translation>Criar e editar entradas do menu</translation>
     </message>
     <message>
         <source>Menu</source>
@@ -148,7 +145,7 @@
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">Atualizar a lista atual (útil se os arquivos foram modificados recentemente fora do EasyPBI)</translation>
+        <translation>Atualizar a lista atual (útil se os arquivos foram modificados recentemente fora do EasyPBI)</translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
@@ -156,7 +153,7 @@
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">Detalhes de entrada</translation>
+        <translation>Detalhes de entrada</translation>
     </message>
     <message>
         <source>Visible name for the item</source>
@@ -168,20 +165,19 @@
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">Binário a ser executado quando o item for ativado</translation>
+        <translation>Binário a ser executado quando o item for ativado</translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation type="unfinished">Binários auto-detectáveis para o PBI</translation>
+        <translation>Auto detectar binários para o PBI</translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">Ícone visível a ser usado pelo item</translation>
+        <translation>Ícone visível para ser usado pelo item</translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Menu da categoria para o item a ser localizado.</translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
@@ -189,7 +185,7 @@
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">Iniciar o aplicativo em uma sessão do terminal</translation>
+        <translation>Iniciar o aplicativo em uma sessão do terminal</translation>
     </message>
     <message>
         <source>Open in Terminal</source>
@@ -197,7 +193,7 @@
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">Marcar este item para que não seja exibido para todos</translation>
+        <translation>Marcar este item para não ser mostrado</translation>
     </message>
     <message>
         <source>Make Invisible</source>
@@ -205,16 +201,15 @@
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Padrões MIME</translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">Salvar o item como mostrado</translation>
+        <translation>Salvar o item como mostrado atualmente</translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">Criar um novo item com as configurações atuais</translation>
+        <translation>Criar um novo item com as configurações atuais</translation>
     </message>
     <message>
         <source>Scripts</source>
@@ -222,7 +217,7 @@
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">Scripts adicionais de instalação/compilação</translation>
+        <translation>Scripts adicionais de instalação/compilação</translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
@@ -238,26 +233,23 @@
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salve o texto atual como o script selecionado</translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">Conteúdo para o script selecionado</translation>
+        <translation>Conteúdo para o script selecionado</translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">Links externos</translation>
+        <translation>Links externos</translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivos a serem linkados ao sistema local</translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entradas atuais</translation>
     </message>
     <message>
         <source>File</source>
@@ -265,8 +257,7 @@
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Link para</translation>
     </message>
     <message>
         <source>File Type</source>
@@ -274,8 +265,7 @@
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Remover o link selecionado</translation>
     </message>
     <message>
         <source>Add Entry</source>
@@ -283,17 +273,15 @@
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Arquivo PBI que se linka ao sistema local (relativo ao diretório PBI)</translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">Binários auto-detectáveis para este PBI</translation>
+        <translation>Binários auto detectáveis para este PBI</translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Localização do link a ser criado (em relação à base local: normalmente /usr /local/)</translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
@@ -312,12 +300,11 @@
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Construindo módulo</translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">Mostra o módulo que está sendo usado para criar um PBI</translation>
+        <translation>Mostra o módulo que está sendo usado para criar um PBI</translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
@@ -426,17 +413,15 @@
     </message>
     <message>
         <source>There was an error trying to create the local EasyPBI directory structure. Please check the permissions for your home directory and restart EasyPBI.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Houve um erro ao tentar criar a estrutura de diretórios EasyPBI local. Por favor, verifique as permissões no seu diretório home e reinicie o EasyPBI.</translation>
     </message>
     <message>
         <source>Resources Unavailable</source>
-        <translation type="unfinished">Recursos indisponíveis</translation>
+        <translation>Recursos indisponíveis</translation>
     </message>
     <message>
         <source>Some external resources could not be found, so the EasyPBI services that use these resources have been deactivated.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alguns recursos externos não podem ser encontrado, por isso, os serviços EasyPBI que utilizam esses recursos foram desativados.</translation>
     </message>
     <message>
         <source>Success</source>
@@ -444,12 +429,11 @@
     </message>
     <message>
         <source>A copy of the current module has been successfully packaged  within the module directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uma cópia do módulo atual foi empacotado com sucesso dentro do diretório do módulo.</translation>
     </message>
     <message>
         <source>EasyPBI: Permissions Error</source>
-        <translation type="unfinished">EasyPBI: Erro de permissões</translation>
+        <translation>EasyPBI: Erro de permissões</translation>
     </message>
     <message>
         <source>Could not create PBI module. Please check the directory permissions and try again.</source>
@@ -465,8 +449,7 @@
     </message>
     <message>
         <source>The PBI configuration file could not be saved. Please check your file permissions before trying again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O arquivo de configuração PBI não pode ser salvo. Por favor verifique as permissões do arquivo antes de tentar novamente.</translation>
     </message>
     <message>
         <source>Select Resources</source>
@@ -474,8 +457,7 @@
     </message>
     <message>
         <source>New Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Novo Script Wrapper</translation>
     </message>
     <message>
         <source>Filename</source>
@@ -491,8 +473,7 @@
     </message>
     <message>
         <source>Could not save the changes to the XDG entry.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não foi possível salvar as alterações para a entrada XDG.</translation>
     </message>
     <message>
         <source>Error Saving File</source>
@@ -500,8 +481,7 @@
     </message>
     <message>
         <source>Could not save the script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não foi possível salvar o script</translation>
     </message>
     <message>
         <source>Please check the file permissions and try again</source>
@@ -557,8 +537,7 @@
     </message>
     <message>
         <source>Space-separated list of automatic file associations (Example: *.junk *.JUNK *.test *.TEST)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lista automática separada por espaços de associações de arquivos (Exemplo: *.junk *.JUNK *.test *.TEST)</translation>
     </message>
     <message>
         <source>Application needs administrator privileges to run</source>
@@ -570,13 +549,11 @@
     </message>
     <message>
         <source>Please open up the EasyPBI settings to correct this deficiency.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, abra as configurações EasyPBI para corrigir essa deficiência.</translation>
     </message>
     <message>
         <source>Start building a PBI from the current module (requires administrator privileges)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Comece a construir uma PBI do módulo atual (requer privilégios de administrador)</translation>
     </message>
     <message>
         <source>Port/Package</source>

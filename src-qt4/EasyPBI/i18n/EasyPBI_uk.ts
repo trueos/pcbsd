@@ -733,8 +733,7 @@
     </message>
     <message>
         <source>&amp;Wrapper Script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Скрипт обгортка</translation>
     </message>
     <message>
         <source>&amp;Save Script</source>
@@ -794,13 +793,11 @@
     </message>
     <message>
         <source>&amp;Package Module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запакувати модуль</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Про...</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
