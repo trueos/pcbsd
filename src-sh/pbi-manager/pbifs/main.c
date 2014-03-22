@@ -401,7 +401,7 @@ static int pbi_read(const char *path, char *buf, size_t size, off_t offset,
 
 	(void) fi;
 
-        int res;
+        int result;
 
         (void) fi;
         int fh = open(newpath, O_RDONLY);
