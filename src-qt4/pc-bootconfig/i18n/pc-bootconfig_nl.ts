@@ -233,28 +233,23 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Bestand</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Nooddiensten</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sluiten</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUBmenu &amp;herbouwen</translation>
     </message>
     <message>
         <source>&amp;Restore GRUB Defaults</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>GRUB-standaardinstellingen herstel&amp;len</translation>
     </message>
 </context>
 </TS>

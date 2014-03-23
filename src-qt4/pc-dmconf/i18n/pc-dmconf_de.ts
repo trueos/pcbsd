@@ -49,33 +49,27 @@
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fehlende Konfigurationsdatei</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die PCDM Konfigurationsdatei wurde nicht gefunden: %1</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diese Anwendung wird nun geschlossen</translation>
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zeitverzögerung</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> Sekunden</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Zeige verfügbare Nutzer an</translation>
     </message>
     <message>
         <source>&amp;Apply</source>

@@ -122,18 +122,15 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sleutelsoort</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hex-sleutel (standaard)</translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Platte tekst</translation>
     </message>
 </context>
 </TS>

@@ -105,48 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更する(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスを切断する(&amp;D)</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>起動とトレイアプリケーション</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>サービスを再起動する(&amp;R)</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>スキャンする(&amp;S)</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスを追加する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ペアリングを開始する(&amp;I)</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>変更する(&amp;C)</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスを外す(&amp;R)</translation>
     </message>
 </context>
 </TS>

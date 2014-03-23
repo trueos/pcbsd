@@ -87,43 +87,35 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>マウントポイント: %1を作成できませんでした</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイス %1 を %2 へマウントできませんでした (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>一般的なエラー</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>デバイスをマウントさせるスクリプトを作成または動かすことができませんでした</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISOファイルはシステムから解除されました。</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>エラー: %1 はアンマウントされていませんでした</translation>
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>次のようにマウントする:</translation>
     </message>
 </context>
 <context>

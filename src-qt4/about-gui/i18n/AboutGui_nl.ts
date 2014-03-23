@@ -81,33 +81,27 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakketset:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(onstabiel)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Systeemcomponenten...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Werkomgevingen...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hulpmiddelen:</translation>
     </message>
 </context>
 </TS>

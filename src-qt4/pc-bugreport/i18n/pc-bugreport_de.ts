@@ -10,8 +10,7 @@
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte geben Sie die Komponente an, in welcher der Fehler aufgetreten ist.</translation>
     </message>
     <message>
         <source>FreeBSD base system</source>
@@ -31,18 +30,15 @@
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Software (Ports/Pakete)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Software (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Melde einen Fehler mit FreeBSDs SEND-PR-Mechanismus</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -51,8 +47,7 @@
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Melde einen Fehler mit PC-BSDs trac-Mechanismus</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
@@ -61,8 +56,7 @@
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg-server</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
@@ -86,18 +80,15 @@
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bitte wählen Sie die Desktopumgebung, die Fehler verursacht:</translation>
     </message>
     <message>
         <source>New Item</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neuer Eintrag</translation>
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
@@ -111,8 +102,7 @@
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
@@ -126,8 +116,7 @@
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
@@ -141,8 +130,7 @@
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
@@ -156,8 +144,7 @@
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nicht unterstützte Desktopumgebung</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
@@ -171,8 +158,7 @@
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD Software</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
@@ -181,8 +167,7 @@
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI software</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
@@ -191,18 +176,15 @@
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Icon</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendung</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Version</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
@@ -216,18 +198,15 @@
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Software:</translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hier nicht aufgelistet?</translation>
     </message>
     <message>
         <source>MATE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
@@ -236,8 +215,7 @@
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
@@ -249,8 +227,7 @@
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
