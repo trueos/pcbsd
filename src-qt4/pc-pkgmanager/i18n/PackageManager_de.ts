@@ -5,13 +5,11 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguration</translation>
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketset</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
@@ -351,8 +349,7 @@
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Die folgenden Pakete werden entfernt. Fortfahren?            </translation>
     </message>
 </context>
 </TS>

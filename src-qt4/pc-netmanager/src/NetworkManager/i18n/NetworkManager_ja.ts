@@ -276,8 +276,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>適用する(&amp;A)</translation>
     </message>
 </context>
 </TS>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>430</height>
+    <width>595</width>
+    <height>428</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -124,8 +124,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>581</width>
-         <height>334</height>
+         <width>579</width>
+         <height>332</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -281,7 +281,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>597</width>
+     <width>595</width>
      <height>21</height>
     </rect>
    </property>
@@ -374,6 +374,18 @@
    </property>
    <property name="toolTip">
     <string>Cinnamon</string>
+   </property>
+  </action>
+  <action name="actionSystemOnly">
+   <property name="icon">
+    <iconset resource="controlpanel.qrc">
+     <normaloff>:/images/images/system_only.png</normaloff>:/images/images/system_only.png</iconset>
+   </property>
+   <property name="text">
+    <string>System only items</string>
+   </property>
+   <property name="toolTip">
+    <string>Hide all desktop items</string>
    </property>
   </action>
  </widget>

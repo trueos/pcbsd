@@ -361,8 +361,7 @@
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>簡素な表示(&amp;S)</translation>
     </message>
 </context>
 <context>
@@ -385,13 +384,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>適用する(&amp;A)</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>閉じる(&amp;C)</translation>
     </message>
 </context>
 <context>

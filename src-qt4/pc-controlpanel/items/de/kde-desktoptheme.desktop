@@ -2,7 +2,7 @@
 Exec=kcmshell4 desktoptheme
 Icon=preferences-desktop
 Type=Service
-
+PC-RequiredDE=KDE
 X-KDE-ServiceTypes=KCModule
 X-KDE-Library=kcm_desktoptheme
 X-KDE-ParentApp=kcontrol
@@ -153,13 +153,13 @@ Comment[ia]=Personalisar le thema de scriptorio
 Comment[id]=Sesuaikan tema desktop
 Comment[is]=Sérsníða skjáborðsþema
 Comment[it]=Personalizza il tema del desktop
-Comment[ja]=デスクトップテーマのカスタマイズ
+Comment[ja]=デスクトップテーマをカスタマイズする
 Comment[kk]=Үстел нақышын өзінше баптап алу
 Comment[km]=ប្ដូរ​ស្បែក​ផ្ទៃតុ​តាមបំណង
 Comment[kn]=ಗಣಕತೆರೆ ಪರಿಸರವಿನ್ಯಾಸವನ್ನು ಇಚ್ಛೆಗೆ ತಕ್ಕಂತೆ ಹೊಂದಿಸಿ
 Comment[ko]=테마 사용자 정의
 Comment[lt]=Derinti darbastalio temą
-Comment[lv]=Pielāgot darbivrsmas tēmu
+Comment[lv]=Iestatīt darbvirsmas tēmu
 Comment[mr]=डेस्कटॉप शैलीत ऐच्छिक बदल करा
 Comment[nb]=Still inn temaet for skrivebordet
 Comment[nds]=Dat Schriefdischmuster topassen

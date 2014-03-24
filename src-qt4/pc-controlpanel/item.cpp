@@ -71,6 +71,30 @@ const char* const DEFAULT_ICON = "preferences-other.png";
 const QString SU_NAMES[] = {QString("pc-su "), QString("kdesu "), QString("gtksu ")};
 const QString SUDO_COMMAND("sudo ");
 
+///// Debug tracer /////////////////////////
+class CDebugTracer
+{
+public:
+    CDebugTracer(QString name)
+    {
+        qDebug()<<QString("Entering...")+name;
+        mName= name;
+    }
+    QString mName;
+    ~CDebugTracer()
+    {
+        qDebug()<<QString("Exiting...")+mName;
+    }
+};
+
+#define TR\
+    CDebugTracer tr##__LINE__(__FUNCTION__);
+
+#define TRN(n)\
+    CDebugTracer tr##__LINE__(n);
+
+//////////////////////////////////////////////
+
 QCPItem::QCPItem():misValid(false), misMsgBox(false), isRequireRoot(false),isSudo(false)
 {
 }
@@ -78,6 +102,8 @@ QCPItem::QCPItem():misValid(false), misMsgBox(false), isRequireRoot(false),isSud
 ///////////////////////////////////////////////////////////////////////////////
 bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
 {
+    TR;
+
     QString Str;
 
     bool isPBISoftware = false;
@@ -91,6 +117,8 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
 
     SPBIInfo PBIInfo;
     mvEnabledDE = vEnabledDE;
+
+
 
     //Try to open file
     QSettings Reader(FileName, QSettings::IniFormat);
@@ -158,7 +186,10 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
             }//if found
         }//for all enabled DE
         if (!found)
+        {
+            //qDebug()<<QString("--Finishing (RequiredDE)")+FileName;
             return false;
+        }
     }
 
     //Check TryCommand extention field
@@ -179,7 +210,10 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
         shell_proc.start("/bin/sh",QStringList()<<tmpFile.fileName());
         shell_proc.waitForFinished(7000);
         if (shell_proc.exitCode())
+        {
+            //qDebug()<<QString("--Finishing (TryExec)")+FileName;
             return false;
+        }
     }
     /*if (Str.length())
     {
@@ -318,6 +352,7 @@ bool QCPItem::readDE(QString FileName, const QVector<QString>& vEnabledDE)
     misValid= true;
     mFileName= FileName;
 
+    //qDebug()<<QString("++Finishing (s)")+FileName;
     return true;
 }
 

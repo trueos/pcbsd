@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>This username is already in use, please choose another.</source>
-        <translation>Šis lietotājvārds jau eksistē, lūdzu izvēlies citādāku.</translation>
+        <translation>Šis lietotājvārds jau eksistē, lūdzu izvēlies citu.</translation>
     </message>
     <message>
         <source>Passwords match</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>Invalid input</source>
-        <translation>Nav derīga ievade</translation>
+        <translation>Ievade nav derīga</translation>
     </message>
     <message>
         <source>This field may not contain ! @ or :</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Directory will be used</source>
-        <translation>Tiks lietota direktorija</translation>
+        <translation>Tiks lietota mape</translation>
     </message>
     <message>
         <source>Invalid Path!</source>
@@ -45,11 +45,11 @@
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>
-        <translation>Direktorija neeksistē, bet tā tiks izveidota</translation>
+        <translation>Mape neeksistē, bet tā tiks izveidota</translation>
     </message>
     <message>
         <source>Requested path is a file (not a directory!)</source>
-        <translation>Obligātais ceļš norāda uz failu (nevis direktoriju!)</translation>
+        <translation>Norādītais ceļš norāda uz failu (nevis mapi!)</translation>
     </message>
     <message>
         <source>
@@ -101,7 +101,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation>Kļūda!</translation>
+        <translation>Ķibele!</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation>Novietojot mājas mapi ārpus &apos;/home/&apos; var radīt saderības problēmas ar dažām programmām. NAV IETEICAMS</translation>
+        <translation>&apos;Mājas mapi&apos; novietojot ārpus &apos;/home/&apos; var radīt saderības problēmas ar dažām programmām. NAV IETEICAMS</translation>
     </message>
     <message>
         <source>- The &apos;Home Directory&apos; field has not been filled in.</source>
@@ -121,29 +121,26 @@
     </message>
     <message>
         <source>- The value entered as &apos;Home Directory&apos; is not a valid path.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Vērtība laukā &apos;Mājas mape&apos; nav derīgs ceļš.</translation>
     </message>
     <message>
         <source>- Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs and is NOT RECOMMENDED.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- &apos;Mājas mapes&apos; novietošana ārpus &apos;/home/&apos; var radīt saderības problēmas ar dažām programmām. Tas NAV IETEICAMS</translation>
     </message>
     <message>
         <source>- A file was selected as &apos;Home Directory&apos;, this value must be a directory.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>- Kā &apos;Mājas mape&apos; ir norādīts fails, taču tam ir jabūt mapei.</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation>Notika sekojošas kļūdas mēģinot pievienot jaunu lietotāju:
+        <translation>Cenšoties pievienot jaunu lietotāju atgadījās sekojošas kļūmes:
 </translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation>Notika sekojošas ne-kritiskas kļūdas cenšoties pievienot jaunu lietotāju, vai vēlaties turpināt?
+        <translation>Cenšoties pievienot jaunu lietotāju atgadījās sekojošas maznozīmīgas ķibeles. Vai vēlies turpināt?
 </translation>
     </message>
 </context>
@@ -159,7 +156,7 @@
     </message>
     <message>
         <source>Home Directory:</source>
-        <translation>Mājas direktorija:</translation>
+        <translation>Mājas mape:</translation>
     </message>
     <message>
         <source>Shell:</source>
@@ -207,20 +204,18 @@
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šifrēt failus:</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Saglabāt</translation>
     </message>
 </context>
 <context>
     <name>ChangePassCode</name>
     <message>
         <source>Change Password for &apos;</source>
-        <translation>Mainīt paroli lietotājam &apos;</translation>
+        <translation>Nomainīt paroli lietotājam &apos;</translation>
     </message>
     <message>
         <source>&apos;</source>
@@ -236,7 +231,7 @@
     </message>
     <message>
         <source>Invalid password, please choose another.</source>
-        <translation>Nederīga parole, lūdzu mēģini citādāku.</translation>
+        <translation>Nederīga parole, esi tik laipns, mēģini citu.</translation>
     </message>
     <message>
         <source>Passwords match</source>
@@ -310,7 +305,7 @@
     </message>
     <message>
         <source>Home Directory:</source>
-        <translation>Mājas direktorija:</translation>
+        <translation>Mājas mape:</translation>
     </message>
     <message>
         <source>Primary Group:</source>
@@ -354,7 +349,7 @@
     </message>
     <message>
         <source>PC-BSD User Manager - Advanced Mode</source>
-        <translation>PC-BSD lietotāju menedžeris - izvērstais režīms</translation>
+        <translation>PC-BSD lietotāju pārvaldnieks - Izvērstais režīms</translation>
     </message>
     <message>
         <source>Alt+V</source>
@@ -362,45 +357,38 @@
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Nomainīt paroli...</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vienkāršs &amp;skats</translation>
     </message>
 </context>
 <context>
     <name>PCBSDUserManager</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation type="unfinished">PC-BSD lietotāju menedžeris</translation>
+        <translation>PC-BSD lietotāju pārvaldnieks</translation>
     </message>
     <message>
         <source>Apply pending changes?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vai pielietot atzīmetas izmaiņas?</translation>
     </message>
     <message>
         <source>There are pending changes which have not been applied. Would you like to apply them before quitting?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ir atzīmētas izmaiņas, kuras nav pielietotas. Vai pirms iziešanas vēlies tās pielietot?</translation>
     </message>
     <message>
         <source>Editing Users for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Izolatoru lietotāju rediģēšana:</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Piemērot</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ai&amp;zvērt</translation>
     </message>
 </context>
 <context>
@@ -483,7 +471,7 @@
     </message>
     <message>
         <source>Error!</source>
-        <translation>Kļūda!</translation>
+        <translation>Ķibele!</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -491,19 +479,19 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">Lauks ir tukšs</translation>
+        <translation>Neraža, lauks ir tukšs</translation>
     </message>
     <message>
         <source>The following errors occurred while trying to add a new user:
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pievienojot jaunu lietotāju atgadījās šādas ķibeles:
+</translation>
     </message>
     <message>
         <source>The following non-critical errors occurred while trying to add a new user, do you wish to continue?
 </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pievienojot jaunu lietotāju atgadījās šādas maznozīmīgas ķibeles. Vai ir drosme turpinat?
+</translation>
     </message>
 </context>
 <context>
@@ -538,28 +526,26 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">Lauks ir tukšs</translation>
+        <translation>Neraža. Lauks ir tukšs</translation>
     </message>
     <message>
         <source>Encrypt Files:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šifrēt failus:</translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Saglabāt</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Atcelt</translation>
+        <translation>&amp;Atcelt</translation>
     </message>
 </context>
 <context>
     <name>SimpleDlg</name>
     <message>
         <source>PC-BSD User Manager</source>
-        <translation>PC-BSD lietotāju menedžeris</translation>
+        <translation>PC-BSD lietotāju pārvaldnieks</translation>
     </message>
     <message>
         <source>&amp;Add</source>
@@ -579,7 +565,7 @@
     </message>
     <message>
         <source>&amp;Change Admin Password...</source>
-        <translation>&amp;Mainīt administrātora paroli...</translation>
+        <translation>&amp;Nomainīt administrātora paroli...</translation>
     </message>
     <message>
         <source>Alt+C</source>
@@ -603,7 +589,7 @@
     </message>
     <message>
         <source>C&amp;hange Password...</source>
-        <translation>Mainīt paro&amp;li...</translation>
+        <translation>Nomainīt paro&amp;li...</translation>
     </message>
     <message>
         <source>Alt+H</source>
@@ -626,24 +612,22 @@
     </message>
     <message>
         <source>The field is empty</source>
-        <translation type="unfinished">Lauks ir tukšs</translation>
+        <translation>Neraža. Lauks ir tukšs</translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vai dzēst mājas mapi?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dzēst mājas mapi lietotājam</translation>
     </message>
 </context>
 <context>
     <name>mainDlgCode</name>
     <message>
         <source>The field is empty</source>
-        <translation>Lauks ir tukšs</translation>
+        <translation>Neraža. Lauks ir tukšs</translation>
     </message>
     <message>
         <source>New User</source>
@@ -655,7 +639,7 @@
     </message>
     <message>
         <source>Error adding group...</source>
-        <translation>Kļūda pievienojot grupu...</translation>
+        <translation>Ķibele pievienojot grupu...</translation>
     </message>
     <message>
         <source>Invalid group name specified. Group names may contain only letters and number. Spaces are NOT permitted</source>
@@ -667,11 +651,11 @@
     </message>
     <message>
         <source>&apos; already exists, please choose a different name</source>
-        <translation>&apos; jau eksistē, lūdzu izvēlies citu vārdu</translation>
+        <translation>&apos; jau eksistē, lūdzu izvēlies citu nosaukumu</translation>
     </message>
     <message>
         <source>New Group</source>
-        <translation type="unfinished">Jauna grupa</translation>
+        <translation>Jauna grupa</translation>
     </message>
     <message>
         <source>Please enter a name for your new group</source>
@@ -683,15 +667,15 @@
     </message>
     <message>
         <source>Invalid Path!</source>
-        <translation>Nederīga lokācija!</translation>
+        <translation>Nederīga vietne!</translation>
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>
-        <translation>Direktorija neeksistē, bet tā tiks izveidota</translation>
+        <translation>Mape neeksistē, bet tā tiks izveidota</translation>
     </message>
     <message>
         <source>Requested path is a file (not a directory!)</source>
-        <translation>Prasītā lokācija norāda uz failu (nevis direktoriju!)</translation>
+        <translation>Prasītais ceļš norāda ir fails, nevis mape!</translation>
     </message>
     <message>
         <source>Good Input</source>
@@ -703,18 +687,15 @@
     </message>
     <message>
         <source>Placing home directory outside &apos;/home/&apos; can cause compatibility problems with some programs. NOT RECOMMENDED</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&apos;Mājas mapes&apos; novietošana ārpus &apos;/home/&apos; var radīt saderības problēmas ar dažām programmām. Tas NAV IETEICAMS</translation>
     </message>
     <message>
         <source>Delete Home Directory?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vai dzēst &apos;mājas mapi&apos;?</translation>
     </message>
     <message>
         <source>Delete the home directory for </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dzēst &apos;mājas mapi&apos; lietotājam</translation>
     </message>
 </context>
 </TS>

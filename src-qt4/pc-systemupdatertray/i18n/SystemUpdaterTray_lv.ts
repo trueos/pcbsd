@@ -5,136 +5,111 @@
     <name>UpdaterTray</name>
     <message>
         <source>Check for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Parbaudīt aktualizējumus</translation>
     </message>
     <message>
         <source>Run at startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palaist pie startēšanas</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation>PC-BSD atjauninājumu menedžeris</translation>
+        <translation>PC-BSD atjauninājumu pārvaldnieks</translation>
     </message>
     <message>
         <source>Checking for updates...</source>
-        <translation>Tiek pārbaudīti atjauninājumi...</translation>
+        <translation>Tiek pārbaudīti aktualizējumi...</translation>
     </message>
     <message>
         <source>Failed to contact the update server!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neizdevās saziņa ar aktualizējumu serveri!</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tava sistēma ir pilnībā aktualizēta.</translation>
     </message>
     <message>
         <source>System updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejami sistēmas aktualizējumi</translation>
     </message>
     <message>
         <source>PBI updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejami PBI aktualizējumi</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palaist AppCafe</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Iziet</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejami sistēmas aktualizējumi</translation>
     </message>
     <message>
         <source>Software Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejami programmatūras aktualizējumi</translation>
     </message>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palaist aktualizatoru</translation>
     </message>
     <message>
         <source>Important system updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejami svarīgi sistēmas aktualizējumi. Klikšķini šeit, lai tos uzstādītu!</translation>
     </message>
     <message>
         <source>Software updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejami programmatūras aktualizējumi. Klikšķini šeit, lai tos uzstādītu!</translation>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nepieciešams restarts</translation>
     </message>
     <message>
         <source>Please restart your computer to complete the pending updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizācijas pabeigšanai ir jāpārlaiž dators.</translation>
     </message>
     <message>
         <source>System restart required to finish updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizācijas pabeigšanai nepieciešama sistēmas pārlaišana</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palaist Sargu (Warden)</translation>
     </message>
     <message>
         <source>Jail updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas izolatoru (jail) aktualitātes</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas izolatoru (jail) aktualitātes</translation>
     </message>
     <message>
         <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas svarīgas izolatoru (jail) aktualitātes. Klikšķini šeit, lai palaistu Sargu (Warden).</translation>
     </message>
     <message>
         <source>Display notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rādīt paziņojumus</translation>
     </message>
     <message>
         <source>Package updates available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas paku aktualitātes</translation>
     </message>
     <message>
         <source>Important package updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas svarīgas paku aktualitātes. Klikšķini šeit, lai tās uzstādītu.</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palaist Paku pārvaldnieku</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas paku aktualitātes</translation>
     </message>
 </context>
 </TS>

@@ -5,16 +5,16 @@
     <name>QObject</name>
     <message>
         <source>Keep these display settings?</source>
-        <translation>Saglabāt šos displeja iestatījumus?</translation>
+        <translation>Vai saglabāt šos ekrāna iestatījumus?</translation>
     </message>
     <message>
         <source>The previous attempt failed, please check your settings and try again.</source>
-        <translation>Iepriekšējais mēģinājums izgāzās, lūdzu pārbaudiet savus iestatījumus un mēģiniet vēlreiz.</translation>
+        <translation>Iepriekšējais mēģinājums izgāzās, lūdzu pārbaudi savus iestatījumus un mēģini vēlreiz.</translation>
     </message>
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation>Jūsu displejs ir konfigurēt.
+        <translation>Tavs ekrāns ir iestatīts.
 Saglabāt šos iestatījumus?</translation>
     </message>
 </context>
@@ -22,11 +22,11 @@ Saglabāt šos iestatījumus?</translation>
     <name>XGUI</name>
     <message>
         <source>Display Settings</source>
-        <translation>Displeja iestatījumi</translation>
+        <translation>Ekrāna iestatījumi</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation>Apstiprināt</translation>
+        <translation>Piemērot</translation>
     </message>
     <message>
         <source>Skip</source>
@@ -34,7 +34,7 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Galvenais</translation>
+        <translation>Pamata</translation>
     </message>
     <message>
         <source>Screen Resolution:</source>
@@ -58,7 +58,7 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation>Izvērsts</translation>
+        <translation>Papildus</translation>
     </message>
     <message>
         <source>Monitor Settings</source>
@@ -74,7 +74,7 @@ Saglabāt šos iestatījumus?</translation>
     </message>
     <message>
         <source>Vertical Refresh:</source>
-        <translation>Vertikālā atsvaidzināšana</translation>
+        <translation>Vertikālā atsvaidzināšana:</translation>
     </message>
     <message>
         <source>50.0-76.0</source>
@@ -83,27 +83,28 @@ Saglabāt šos iestatījumus?</translation>
     <message>
         <source>The settings you have specified will now be tested.
 If your screen does not appear, please wait and you will be returned to this screen.</source>
-        <translation>Jūsu izvēlētie iestatījumi tagad tiks izmēģināti. Ja jūsu ekrāns neparādās, lūdzu uzgaidiet un Jūs atgriezīsieties pie šī ekrāna.</translation>
+        <translation>Tavi izvēlētie iestatījumi tagad tiks iemēģināti.
+Ja uz ekrāna nekas (salasāms) neparādās, lūdzu uzgaidi un drīzumā tiks atgriezts šis pats ekrāna saturs.</translation>
     </message>
     <message>
         <source>Video Card:</source>
-        <translation>Video karte:</translation>
+        <translation>Video adapteris:</translation>
     </message>
     <message>
         <source>Monitor:</source>
-        <translation>Monitors:</translation>
+        <translation>Ekrāns:</translation>
     </message>
     <message>
         <source>Enable Dual-Head support</source>
-        <translation>Ieslēgt Dual-Head atbalstu</translation>
+        <translation>Iespējot divgalvaino (dual-head) atbalstu</translation>
     </message>
     <message>
         <source>Monitor Resolution:</source>
-        <translation>Monitora izšķirtspēja:</translation>
+        <translation>Ekrāna izšķirtspēja:</translation>
     </message>
     <message>
         <source>Unknown Monitor</source>
-        <translation>Nezināms monitors</translation>
+        <translation>Nezināms ekrāns</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -111,11 +112,11 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation>PC-BSD nespēja automātiski atpazīt jūsu monitoru. Jums var nākties precizēt šī monitora horizontālo un vertikālo atsvaidzināšanu &quot;Izvērsts&quot; cilnē.</translation>
+        <translation>PC-BSD diemžēl nespēja automātiski atpazīt Tavu ekrānu. Tev var nākties precizēt šī ekrāna horizontālo un vertikālo atsvaidzināšanu cilnē [Papildus].</translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>
-        <translation type="unfinished">Dual-Head atbalsts ir domāts sistēmām ar vienu video karti un diviem monitoriem. Citi &quot;uzstādījumi&quot; var tikt sasniegti rediģējot /etc/X11/xorg.conf</translation>
+        <translation>Davgalvainais (Dual-Head) atbalsts ir domāts sistēmām ar vienu video adapteri un diviem ekrāniem. Citi iestatījumi var tikt ieregulēti rediģējot failu /etc/X11/xorg.conf</translation>
     </message>
 </context>
 <context>
@@ -126,7 +127,7 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Do you wish to use this resolution?</source>
-        <translation>Vai jūs vēlaties izmantot šo izšķirtspēju?</translation>
+        <translation>Vai vēlies izmantot šo izšķirtspēju?</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -146,11 +147,11 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source> seconds...</source>
-        <translation> sekundes...</translation>
+        <translation> sekundēm...</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation>&amp;Ok</translation>
+        <translation>&amp;Labi</translation>
     </message>
     <message>
         <source>Resolution:</source>

@@ -70,6 +70,8 @@ private:
 
     void refreshDEConfigureApp();
 
+    void prepareNonDEItemsHiding();
+
         //CDEList mDEList;
     QMenu* DEChoiseMenu;
 
@@ -99,6 +101,7 @@ private slots:
         void onDirectoryChanged(const QString & path);
         void on_DEChooserButton_triggered(QAction *arg1);
         void on_deLaunchConfigApp_clicked();
+        void on_actionSystemOnly_triggered();
 };
 
 #endif // MAINWND_H

@@ -87,43 +87,35 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mislukking</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon geen koppelpunt maken: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon apparaat %1 niet koppelen op %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Algemene fout</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kon het script voor koppelen niet maken/draaien</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Het ISO-bestand is losgemaakt van het systeem.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fout: %1 werd niet ontkoppeld</translation>
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aankoppelen als:</translation>
     </message>
 </context>
 <context>

@@ -319,23 +319,19 @@
     </message>
     <message>
         <source>&amp;Cleanup Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージをクリーンアップする(&amp;C)</translation>
     </message>
     <message>
         <source>Package Cleanup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージのクリーンアップ</translation>
     </message>
     <message>
         <source>Do you want to start package cleanup?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージのクリーンアップを開始してよろしいですか?</translation>
     </message>
     <message>
         <source>Starting package cleanup...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>パッケージのクリーンアップを開始しています...</translation>
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>

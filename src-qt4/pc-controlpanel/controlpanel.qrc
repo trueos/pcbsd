@@ -14,5 +14,6 @@
         <file>images/security-medium.png</file>
         <file>images/object-locked.png</file>
         <file>images/config.png</file>
+        <file>images/system_only.png</file>
     </qresource>
 </RCC>

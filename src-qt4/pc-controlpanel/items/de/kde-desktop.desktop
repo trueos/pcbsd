@@ -4,7 +4,7 @@ X-KDE-ServiceTypes=KCModule
 X-DocPath=kcontrol/desktop/index.html
 Icon=preferences-desktop
 Exec=kcmshell4 desktop
-
+PC-RequiredDE=KDE
 X-KDE-Library=kcm_kwindesktop
 X-KDE-ParentApp=kcontrol
 
@@ -153,14 +153,14 @@ Comment[ia]=Tu pote configurar le quantitate del scriptorios virtual.
 Comment[id]=Anda dapat mengatur berapa banyak desktop virtual yang ada.
 Comment[is]=Hér getur þú stillt hversu mörg sýndaskjáborðin eru.
 Comment[it]=Configura quanti desktop virtuali vuoi.
-Comment[ja]=仮想デスクトップの数を設定
+Comment[ja]=いくつかある仮想デスクトップを設定することができます。
 Comment[ka]=თქვენ შეგიძლიათ ვირტუალური სამუშაო მაგიდების რაოდენობის კონფიგურაცია
 Comment[kk]=Керек виртуалды үстелдер санын орнату.
 Comment[km]=អ្នក​អាច​កំណត់​រចនា​សម្ព័ន្ធ​ឲ្យ​មាន​ផ្ទៃតុ​និម្មិត​ច្រើន ។
 Comment[kn]=ಎಷ್ಟು ವಾಸ್ತವಪ್ರಾಯ ಗಣಕತೆರೆಗಳಿವೆಯೆಂದು ಸಂರಚಿಸಬಹುದು.
 Comment[ko]=다중 데스크톱의 개수 설정
 Comment[lt]=Čia galite nustatyti kiek virtualių darbastalių naudoti.
-Comment[lv]=Jūs varat konfigurēt virtuālo darbvirsmu skaitu.
+Comment[lv]=Iestatīt virtuālo darbvirsmu skaitu
 Comment[mai]=अहाँ बिन्यस्त कए सकैत छी जे ओतए कतेक आभासी डेस्कटाप हुए.
 Comment[mk]=Може да конфигурирате колку виртуелни работни површини ќе има.
 Comment[ml]=എത്ര വിര്‍ച്ച്വല്‍ പണിയിടങ്ങളുണ്ടെന്നു് നിങ്ങള്‍ക്കു് ക്രമീകരിക്കാം.

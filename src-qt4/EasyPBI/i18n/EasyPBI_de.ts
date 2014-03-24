@@ -1084,7 +1084,7 @@
     </message>
     <message>
         <source>...</source>
-        <translation>...     </translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Available Packages</source>

@@ -50,6 +50,9 @@
 
 static QString DETEXT;
 
+static QSettings settings("PC-BSD", "ControlPanel");
+const char* const HIDE_DE_ITEMS_SETTING = "HideDeItems";
+
 ///////////////////////////////////////////////////////////////////////////////
 MainWnd::MainWnd(QWidget *parent) :
     QMainWindow(parent),
@@ -243,6 +246,7 @@ void MainWnd::on_toolButton_2_clicked()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWnd::setupDEChooser()
 {
+    DEChoiseMenu->addAction(ui->actionSystemOnly);
     DEChoiseMenu->addAction(ui->actionAll);
     DEChoiseMenu->addAction(ui->actionKDE);
     DEChoiseMenu->addAction(ui->actionGnome);
@@ -264,7 +268,10 @@ void MainWnd::setupDEChooser()
         ui->action_name->setVisible(true);\
         if (InstalledDEList.byName(DEName)->isActive){\
             ui->action_name->setText(QString(DEName) + Current);\
-            ui->DEChooserButton->setIcon(ui->action_name->icon());}\
+            ui->DEChooserButton->setIcon(ui->action_name->icon());\
+            QFont fnt = QFont(ui->action_name->font());\
+            fnt.setWeight(QFont::Bold);\
+            ui->action_name->setFont(fnt); }\
         else\
             ui->action_name->setText(QString(DEName));\
         }else{ui->action_name->setVisible(false);}
@@ -275,7 +282,7 @@ void MainWnd::setupDEChooser()
     SETUP_ACTION( actionLXDE, "LXDE" );
     SETUP_ACTION( actionEnlightenment, "Enlightenment" );
     SETUP_ACTION( actionMate, "Mate" );
-    SETUP_ACTION( actionCinnamon, "Cinnamon" );
+    SETUP_ACTION( actionCinnamon, "Cinnamon" );    
 
 #undef SETUP_ACTION
 
@@ -289,6 +296,12 @@ void MainWnd::setupDEChooser()
 	}
 
     ui->DEChooserButton->setVisible(InstalledDEList.size()>1);
+
+    //Check if user check "Hide all de related items" while previous run
+    if (settings.value(HIDE_DE_ITEMS_SETTING, QVariant(false)).toBool())
+    {
+        prepareNonDEItemsHiding();
+    }
 
 }
 
@@ -307,6 +320,7 @@ void MainWnd::on_actionAll_triggered()
 
     misDisplayDEName = true;
 
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
     //refresh
     on_toolButton_2_clicked();
 }
@@ -325,7 +339,7 @@ void MainWnd::on_actionKDE_triggered()
 
     misDisplayDEName = false;
 
-
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
     //refresh
     on_toolButton_2_clicked();
 }
@@ -344,6 +358,7 @@ void MainWnd::on_actionLXDE_triggered()
 
     misDisplayDEName = false;
 
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
     //refresh
     on_toolButton_2_clicked();
 }
@@ -361,6 +376,8 @@ void MainWnd::on_actionGnome_triggered()
     mvEnabledDE.push_back("Gnome");
 
     misDisplayDEName = false;
+
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
 
     //refresh
     on_toolButton_2_clicked();
@@ -381,6 +398,8 @@ void MainWnd::on_actionEnlightenment_triggered()
 
     misDisplayDEName = false;
 
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
+
     //refresh
     on_toolButton_2_clicked();
 }
@@ -398,6 +417,8 @@ void MainWnd::on_actionMate_triggered()
     mvEnabledDE.push_back("Mate");
 
     misDisplayDEName = false;
+
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
 
     //refresh
     on_toolButton_2_clicked();
@@ -417,6 +438,8 @@ void MainWnd::on_actionCinnamon_triggered()
 
     misDisplayDEName = false;
 
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
+
     //refresh
     on_toolButton_2_clicked();
 }
@@ -434,6 +457,9 @@ void MainWnd::on_actionXFCE_triggered()
     mvEnabledDE.push_back("XFCE");
 
     misDisplayDEName = false;
+
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(false));
+
     //refresh
     on_toolButton_2_clicked();
 }
@@ -541,6 +567,17 @@ void MainWnd::refreshDEConfigureApp()
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+void MainWnd::prepareNonDEItemsHiding()
+{
+    ui->DEChooserButton->setIcon(ui->actionSystemOnly->icon());
+
+    mvEnabledDE.clear();
+    mvEnabledDE.push_back("--PC-BSD--");
+
+    settings.setValue(HIDE_DE_ITEMS_SETTING, QVariant(true));
+}
+
+///////////////////////////////////////////////////////////////////////////////
 void MainWnd::on_DEChooserButton_triggered(QAction *arg1)
 {
     Q_UNUSED(arg1);
@@ -575,4 +612,12 @@ void MainWnd::on_deLaunchConfigApp_clicked()
     QString proc = proc_args[0];
     proc_args.pop_front();
     process.startDetached(proc, proc_args);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_actionSystemOnly_triggered()
+{
+    prepareNonDEItemsHiding();
+
+    on_toolButton_2_clicked();
 }

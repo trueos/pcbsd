@@ -122,13 +122,11 @@
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Typ des Schlüssels</translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hexschlüssel (Voreinstellung)</translation>
     </message>
     <message>
         <source>Plain Text</source>

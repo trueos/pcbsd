@@ -5,8 +5,7 @@
     <name>dialogConfig</name>
     <message>
         <source>Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <source>Package Set</source>

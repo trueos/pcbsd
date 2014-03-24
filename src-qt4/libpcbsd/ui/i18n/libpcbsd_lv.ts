@@ -24,7 +24,7 @@
     </message>
     <message>
         <source>Update Progress</source>
-        <translation>Atjaunināšanas progress</translation>
+        <translation>Aktualizēšanas progress</translation>
     </message>
     <message>
         <source>Meta-Package Changes</source>
@@ -34,7 +34,7 @@
         <source>Warning: Packages are still being modifed!
 If you cancel now the packages may be corrupted. Cancel anyway?</source>
         <translation>Uzmanību: Pakotnes joprojām tiek mainītas!
-Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</translation>
+Ja process tagad tiks atcelts - pakotnes var tikt sabojātas. Vienalga atcelt?</translation>
     </message>
 </context>
 <context>
@@ -65,7 +65,7 @@ Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</t
     </message>
     <message>
         <source>EAP Identity:</source>
-        <translation type="unfinished">EAP identitāte:</translation>
+        <translation>EAP identitāte:</translation>
     </message>
     <message>
         <source>CA Certificate:</source>
@@ -101,18 +101,18 @@ Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</t
     </message>
     <message>
         <source>Alt+C</source>
-        <translation>Alt+C</translation>
+        <translation>Alt+A</translation>
     </message>
 </context>
 <context>
     <name>metaWidget</name>
     <message>
         <source>Apply</source>
-        <translation>Pielietot</translation>
+        <translation>Izdarīt izmaiņas</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
-        <translation>Ielādē... Lūdzu uzgaidiet...</translation>
+        <translation>Ielādē... Lūdzu uzgaidi...</translation>
     </message>
     <message>
         <source>Performing system-package changes.</source>
@@ -124,7 +124,7 @@ Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</t
     </message>
     <message>
         <source>The meta-pkg manager returned an error. For more details please look at the log file:</source>
-        <translation>Meta-pkg pārvaldnieks atgrieza kļūdu. Lai iegūtu plašāku informāciju lūdzu aplūkojiet žurnālfailu:</translation>
+        <translation>Meta-pkg pārvaldnieks atgrieza kļūdu. Lai iegūtu plašāku informāciju lūdzu skatiet žurnālfailu:</translation>
     </message>
     <message>
         <source>System packages updated successfully.</source>
@@ -136,7 +136,7 @@ Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</t
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation>Netika izvēlēta neviena darbvirsma! Pirms saglabāšanas lūdzu izvēlieties vismaz vienu darbvirsmu.</translation>
+        <translation>Netika izvēlēta neviena darbvirsma! Pirms saglabāšanas lūdzu izvēlies vismaz vienu darbvirsmu.</translation>
     </message>
     <message>
         <source>View Packages</source>
@@ -148,7 +148,7 @@ Ja jūs atcelsiet tagad, tad pakotnes var tikt sabojātas. Atcelt tik un tā?</t
     </message>
     <message>
         <source>Downloading: %1</source>
-        <translation>Lejuplādē: %1</translation>
+        <translation>Šurplādē: %1</translation>
     </message>
 </context>
 </TS>

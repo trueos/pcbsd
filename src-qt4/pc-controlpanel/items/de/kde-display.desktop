@@ -3,7 +3,7 @@ Exec=kcmshell4 display
 Icon=preferences-desktop-display
 Type=Service
 X-KDE-ServiceTypes=KCModule
-
+PC-RequiredDE=KDE
 X-KDE-Library=kcm_display
 X-KDE-ParentApp=kcontrol
 
@@ -59,7 +59,7 @@ Name[kn]=ಪ್ರದರ್ಶಕ
 Name[ko]=디스플레이
 Name[ku]=Dîmender
 Name[lt]=Ekranas
-Name[lv]=Displejs
+Name[lv]=Ekrāns
 Name[mai]=देखाबू
 Name[mk]=Приказ
 Name[ml]=പ്രദര്‍ശനം
@@ -154,7 +154,7 @@ Comment[kn]=ಪ್ರದರ್ಶಕದ ಸಂಯೋಜನೆಗಳು
 Comment[ko]=디스플레이 설정
 Comment[ku]=Mîhengên Dîmenderê
 Comment[lt]=Ekrano parametrai
-Comment[lv]=Ekrāna parametri
+Comment[lv]=Ekrāna iestatījumi
 Comment[mai]=जमावट देखाबू
 Comment[mk]=Поставувања на приказот
 Comment[ml]=പ്രദര്‍ശനത്തിന്റെ സജ്ജീകരണങ്ങള്‍
