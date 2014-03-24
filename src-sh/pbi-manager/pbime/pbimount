@@ -129,7 +129,7 @@ mount_dirs() {
    fi
 
    # Support for some font packages(example: japanese/font-vlgothic)
-   for fontdir in /usr/local/share/font-*
+   for fontdir in `ls -1 /usr/local/share/font-* 2>/dev/null`
    do
       subdir=`basename $fontdir`
       if [ ! -d "${pDir}/virtbase/usr/local/share/$subdir" ]; then
