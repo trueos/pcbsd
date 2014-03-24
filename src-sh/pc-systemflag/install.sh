@@ -7,13 +7,13 @@ else
 fi
 
 # Install manpages
-mkdir -p ${LOCALBASE}/man/man8 >/dev/null 2>/dev/null
-for i in `ls man8/`
+mkdir -p ${LOCALBASE}/man/man1 >/dev/null 2>/dev/null
+for i in `ls man1/`
 do
-  if [ -e "${LOCALBASE}/man/man8/${i}.gz" ] ; then
-    rm ${LOCALBASE}/man/man8/${i}.gz >/dev/null 2>/dev/null
+  if [ -e "${LOCALBASE}/man/man1/${i}.gz" ] ; then
+    rm ${LOCALBASE}/man/man1/${i}.gz >/dev/null 2>/dev/null
   fi
-  gzip -c man8/${i} > ${LOCALBASE}/man/man8/${i}.gz
+  gzip -c man1/${i} > ${LOCALBASE}/man/man1/${i}.gz
 done
 
 # Install the executable

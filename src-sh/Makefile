@@ -40,7 +40,8 @@ SUBTARGETS    =  \
 		sub-meta \
 		sub-warden \
 		sub-xdgutil \
-		sub-pccheckx
+		sub-pccheckx \
+		sub-pcsystemflag
 		
 sub-pccheckx: pc-checkxdisplay/$(MAKEFILE) FORCE
 	cd pc-checkxdisplay/ && $(MAKE) -f $(MAKEFILE)
@@ -315,6 +316,19 @@ sub-pcthinclient-clean: pc-thinclient/$(MAKEFILE) FORCE
 sub-pcthinclient-install_subtargets: pc-thinclient/$(MAKEFILE) FORCE
 	cd pc-thinclient/ && $(MAKE) -f $(MAKEFILE) install
 
+sub-pcsystemflag: pc-systemflag/$(MAKEFILE) FORCE
+	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE)
+sub-pcsystemflag-make_default: pc-systemflag/$(MAKEFILE) FORCE
+	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE) 
+sub-pcsystemflag-make_first: pc-systemflag/$(MAKEFILE) FORCE
+	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE) first
+sub-pcsystemflag-all: pc-systemflag/$(MAKEFILE) FORCE
+	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE) all
+sub-pcsystemflag-clean: pc-systemflag/$(MAKEFILE) FORCE
+	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE) clean
+sub-pcsystemflag-install_subtargets: pc-systemflag/$(MAKEFILE) FORCE
+	cd pc-systemflag/ && $(MAKE) -f $(MAKEFILE) install
+	
 make_default: sub-libsh-make_default \
 	sub-lpreserver-make_default \
 	sub-pbi-make_default \
@@ -336,6 +350,7 @@ make_default: sub-libsh-make_default \
 	sub-pcthinclient-make_default \
 	sub-xdgutil-make_default \
 	sub-pccheckx-make_default \
+	sub-pcsystemflag-make_default \
 	FORCE
 
 make_first: sub-libsh-make_first \
@@ -359,6 +374,7 @@ make_first: sub-libsh-make_first \
 	sub-pcthinclient-make_first \
 	sub-xdgutil-make_first \
 	sub-pccheckx-make_first \
+	sub-pcsystemflag-make_first \
 	FORCE
 
 all:	sub-libsh-all \
@@ -382,6 +398,7 @@ all:	sub-libsh-all \
 	sub-pcthinclient-all \
 	sub-xdgutil-all \
 	sub-pccheckx-all \
+	sub-pcsystemflag-all \
 	FORCE
 
 clean: sub-pbi-clean \
@@ -405,6 +422,7 @@ clean: sub-pbi-clean \
 	sub-pcthinclient-clean \
 	sub-xdgutil-clean \
 	sub-pccheckx-clean \
+	sub-pcsystemflag-clean \
 	FORCE
 
 install_subtargets: sub-libsh-install_subtargets \
@@ -428,6 +446,7 @@ install_subtargets: sub-libsh-install_subtargets \
 	sub-pcthinclient-install_subtargets \
 	sub-xdgutil-install_subtargets \
 	sub-pccheckx-install_subtargets \
+	sub-pcsystemflag-install_subtargets \
 	FORCE
 
 install: install_subtargets FORCE

@@ -23,6 +23,7 @@ bin/pc-firstgui
 bin/pc-runxgui
 bin/pc-checkxdisplay
 bin/pc-installdialog
+bin/pc-systemflag
 bin/enable_user_pefs
 sbin/app
 sbin/pbi
@@ -635,6 +636,7 @@ man/man1/pbi_update.1.gz
 man/man1/pbi_metatool.1.gz
 man/man1/pbi_patch.1.gz
 man/man1/pbi_update_hashdir.1.gz
+man/man1/pc-systemflag.1.gz
 man/man5/pbi.conf.5.gz
 man/man8/pbi_addrepo.8.gz
 man/man8/pbi_autobuild.8.gz
