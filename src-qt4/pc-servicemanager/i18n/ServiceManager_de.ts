@@ -49,8 +49,7 @@
     </message>
     <message>
         <source>Managing services for Warden Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serviceverwaltung für Warden Jail:</translation>
     </message>
     <message>
         <source>&amp;Start</source>

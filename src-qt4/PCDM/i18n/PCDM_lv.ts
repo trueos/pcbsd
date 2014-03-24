@@ -24,15 +24,15 @@
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation>Izvēlieties</translation>
+        <translation>Atzīmēt</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation>Izvēlieties citu lietotāju un notīriet paroles lauku</translation>
+        <translation>Izvēlies citu lietotāju un notīri paroles lauku</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation>Izvēlieties šo lietotāju</translation>
+        <translation>Atzīmē šo lietotāju</translation>
     </message>
     <message>
         <source>Login</source>
@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Tip: Make sure that caps-lock is turned off.</source>
-        <translation>Padoms: Pārliecinieties ka caps-lock ir izslēgts</translation>
+        <translation>Padoms: Pārliecinies vai caps-lock ir izslēgts.</translation>
     </message>
     <message>
         <source>Restart</source>
@@ -107,7 +107,7 @@
     </message>
     <message>
         <source>Close PCDM</source>
-        <translation>Aizvērt PCDM</translation>
+        <translation>Aizvērt ekrāna pārvaldnieku PCDM</translation>
     </message>
     <message>
         <source>Shutdown the computer</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Username/Password combination is invalid, please try again.</source>
-        <translation>Lietotājvārda/Paroles kombinācija ir nepareiza, lūdzu mēģiniet vēlreiz.</translation>
+        <translation>Lietotājvārda/Paroles kombinācija ir nepareiza, lūdzu mēģini vēlreiz.</translation>
     </message>
     <message>
         <source>System Shutdown</source>
@@ -127,11 +127,11 @@
     </message>
     <message>
         <source>You are about to shut down the system.</source>
-        <translation>Jūs tūlīt izslēgsiet sistēmu.</translation>
+        <translation>Tu esi noskaņojies uz sistēmas izslēgšanu.</translation>
     </message>
     <message>
         <source>Are you sure?</source>
-        <translation>Vai esat pārliecināti?</translation>
+        <translation>Vai esi tam gatavs?</translation>
     </message>
     <message>
         <source>System Restart</source>
@@ -139,42 +139,37 @@
     </message>
     <message>
         <source>You are about to restart the system.</source>
-        <translation>Jūs tūlīt restartēsiet sistēmu.</translation>
+        <translation>Tu esi noskaņojies uz sistēmas restartēšanu.</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>System Shutting Down</source>
-        <translation>Sistēma izslēdzas</translation>
+        <translation>Sistēma saka visiem atā</translation>
     </message>
 </context>
 <context>
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dialogs</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ekrāna pārvaldnieka PCDM automātiska pieteikšanās&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>%v/%m seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>%v/%m sekundes</translation>
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atcelt pieteikšanos</translation>
     </message>
     <message>
         <source>Login Now</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieteikties tagad</translation>
     </message>
 </context>
 <context>
@@ -197,11 +192,11 @@
     </message>
     <message>
         <source>( you may type into the space below to test your selected settings. )</source>
-        <translation>( šeit jūs varat pārbaudīt jūsu izvēlētos iestatījumus. )</translation>
+        <translation>(šeit apakšā Tu vari pārbaudīt paša izvēlētos iestatījumus.)</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>&amp;Apstiprināt</translation>
+        <translation>&amp;Piemērot</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -220,7 +215,7 @@
     </message>
     <message>
         <source>Apply</source>
-        <translation>Apstiprināt</translation>
+        <translation>Piemērot</translation>
     </message>
     <message>
         <source>Cancel</source>

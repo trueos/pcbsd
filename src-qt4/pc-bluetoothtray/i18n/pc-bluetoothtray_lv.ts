@@ -5,38 +5,31 @@
     <name>BluetoothTray</name>
     <message>
         <source>New Bluetooth Device Detected</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pamanīta jauna Zilzoba ierīce</translation>
     </message>
     <message>
         <source>Start Bluetooth Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palaist Zilzoba pārvaldnieku</translation>
     </message>
     <message>
         <source>Restart Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pārlaist Zilzoba pakalpojumus</translation>
     </message>
     <message>
         <source>Close Bluetooth Tray</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aizvērt Zilzoba izbīdni</translation>
     </message>
     <message>
         <source>Please Wait</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nestreb karstu. Esi pacietīgs</translation>
     </message>
     <message>
         <source>Restarting Bluetooth Services</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pārstartēt Zilzoba pakalpojumus</translation>
     </message>
     <message>
         <source>Click here to configure Bluetooth device configurations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lai iestatītu Zilzoba ierīces, klikšķini šeit</translation>
     </message>
 </context>
 </TS>

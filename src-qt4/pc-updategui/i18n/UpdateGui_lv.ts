@@ -5,198 +5,159 @@
     <name>mainWin</name>
     <message>
         <source>Update Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualitāšu/aktualizējumu pārvaldnieks</translation>
     </message>
     <message>
         <source>Preparing to check for updates... Please Wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gatavojos aktualitāšu pārbaudei... Draugs, esi pacietīgs...</translation>
     </message>
     <message>
         <source>Available Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamās aktualitātes</translation>
     </message>
     <message>
         <source>Select / Deselect All</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atzīmēt/atatzīmēt visus</translation>
     </message>
     <message>
         <source>Update Conflict</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizācijas konflikts</translation>
     </message>
     <message>
         <source>More than one stand-alone update has been selected! Please unselect all other updates and try again.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atzīmēts vairāk kā viens atsevišķs aktualizējums. Lūdzu noņem atzīmes visiem pārējiem aktualizējumiem un mēģini vēlreiz.</translation>
     </message>
     <message>
         <source>Update Failed!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizēšana neizdevās.</translation>
     </message>
     <message>
         <source>Failed to install:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Neizdevās instalēt:</translation>
     </message>
     <message>
         <source>Update Ready</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizēšana gatava</translation>
     </message>
     <message>
         <source>Please reboot to start the update to PC-BSD version &quot;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lūdzu pārstartē, laiu uzsāktu PC-BSD versijai atbilstošu aktualizēšanu &quot;</translation>
     </message>
     <message>
         <source>This process may take a while, please do NOT interrupt the process.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šis process var paņemt kādu brīdi. Lūdzu NEPĀRTRAUC to.</translation>
     </message>
     <message>
         <source>Updating:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizēju:</translation>
     </message>
     <message>
         <source>Checking for updates... Please Wait...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pārbaudu aktualitātes... Draugs, esi pacietīgs...</translation>
     </message>
     <message>
         <source>Your system is fully updated!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tava sistēma ir pilnībā aktuāla!</translation>
     </message>
     <message>
         <source>PC-BSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD versija:</translation>
     </message>
     <message>
         <source>This update must be installed by itself.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Šī aktualitāte jāinstalē pati par sevi.</translation>
     </message>
     <message>
         <source>Creating a backup of your data first is recommended.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ieteicama iepriekšēja datu rezerves kopiju veidošana.</translation>
     </message>
     <message>
         <source>This is a patch for your version of PC-BSD</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šis is ielāps priekš Tavas PC-BSD versijas.</translation>
     </message>
     <message>
         <source>Patch Size:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ielāpa izmērs:</translation>
     </message>
     <message>
         <source>System Package Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas pakotņu aktualizācija</translation>
     </message>
     <message>
         <source>The following package updates are available:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas šādas pakotņu aktualitātes:</translation>
     </message>
     <message>
         <source>Updates for Jail:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualitātes priekš Izolatora:</translation>
     </message>
     <message>
         <source>Starting Update: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sāku aktualizāciju: %1 [%2 no %3]</translation>
     </message>
     <message>
         <source>Downloading: %1 (Update %2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šurplādēju: %1 [aktualitāte %2 no %3]</translation>
     </message>
     <message>
         <source>Updating: %1 (%2 of %3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizēju: %1 [%2 no %3]</translation>
     </message>
     <message>
         <source>System Upgrade: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistēmas aktualizēšana: %1 [%2]</translation>
     </message>
     <message>
         <source>Patch: %1 (%2)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ielāps: %1 [%2]</translation>
     </message>
     <message>
         <source>A system upgrade is waiting to be installed. Please reboot to begin!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalēšanu gaida sistēmas versijas paaugstinājums. Lūdzu restartē sistēmu, lai sāktu!</translation>
     </message>
     <message>
         <source>An unknown error occured!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Uzklupa nezināma ķibele!</translation>
     </message>
     <message>
         <source>Re&amp;scan for Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vēlreiz skenēt aktualitātes</translation>
     </message>
     <message>
         <source>&amp;Install selected updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Instalēt atzīmētās aktualitātes</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
     <message>
         <source>System updates available!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pieejamas sistēmas aktualitātes!</translation>
     </message>
     <message>
         <source>Update Details</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sīkāka info par aktualizāciju</translation>
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pamatsistēmas aktualitātes</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sekojoši faili tiks aktualizēti:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sīkāka info par aktualizāciju:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nespēju palaist freebsd-update, jo ir aktīvs cits konkurējošs process!            </translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aktualizācijas pabeigšanai nepieciešams sistēmas restarts!</translation>
     </message>
 </context>
 </TS>

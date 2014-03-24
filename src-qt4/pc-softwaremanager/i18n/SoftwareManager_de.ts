@@ -136,18 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Anwendung mit graphischer Unterstützung</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kommandozeilenanwendung</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serveranwendung</translation>
     </message>
 </context>
 <context>
@@ -442,33 +439,27 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Züruck</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starte</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Erstellt:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Architektur:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tastenkürzel:</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
@@ -477,69 +468,57 @@
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laufende Tätigkeiten</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Breche Tätigkeiten ab</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Installiere PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Anwendung (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sind Sie bereit diese PBIs zu installieren?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>HINWEIS: Sie müssen danach manuell die Desktop-/Menü-icons mit Hilfe des AppCafes hinzufügen</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Starte Update?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Möchten Sie die Anwendung jetzt sofort updaten?</translation>
     </message>
     <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD Empfehlungen</translation>
     </message>
     <message>
         <source>Downloading..</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Lade herunter...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Email-anwendung starten?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Möchten Sie versuchen die Standard-email-anwendung zu starten?
+Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig eingerichtet haben. Falls nicht können Sie die Email manuell an die folgende Adresse schicken.</translation>
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Durchsuche Kategorien</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -563,8 +542,7 @@
     </message>
     <message>
         <source>Ctrl+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Strg+Q</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -709,13 +687,11 @@
     </message>
     <message>
         <source>Removing Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Entferne Anwendung</translation>
     </message>
     <message>
         <source>Downloading: %1% @ %2</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lade herunter: %1 @ %2</translation>
     </message>
 </context>
 <context>

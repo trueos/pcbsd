@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation>Ieslēgt &quot;parādīt paroli&quot; pogu</translation>
+        <translation>Iespējot pogu [parādīt paroli]</translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
@@ -49,43 +49,35 @@
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nu ļoti pietrūkst konfigurācijas faila</translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nespēju sameklēt ekrāna pārvaldnieka PCDM iestatījumu/konfigurācijas failu: %1</translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Šī aplikācija visiem saka atā un tūlīt aizvērsies</translation>
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Laika nobīde</translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished">
-            </translation>
+        <translation> sekundes</translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atainot pieejamos lietotājus</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Pielietot</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Klapēt &amp;ciet</translation>
     </message>
 </context>
 </TS>

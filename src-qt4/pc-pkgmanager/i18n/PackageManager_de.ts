@@ -9,8 +9,7 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketset</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
