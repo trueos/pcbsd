@@ -1,0 +1,56 @@
+#!/bin/sh
+#Set cross-application notification flags
+
+manpage(){
+echo "USAGE: pc-systemflag <FLAG> <Optional Message>
+	FLAGS:
+	PBIUPDATE  - PBI Update Availability Changed
+	PKGUPDATE  - pkg Update Availability Changed
+	SYSUPDATE  - System Update Availability Changed
+	NETRESTART - Network Access Changed
+
+EXAMPLE 1: pc-systemflag PBIUPDATE \"Updates Available\"
+EXAMPLE 2: pc-systemflag NETRESTART"
+
+exit 1
+}
+
+#Check for help pages
+if [ ${1} = "-h" -o ${1} = "help" ]; then
+ manpage
+elif [ ! -n "${1}" ]; then
+ manpage
+fi
+
+echo "${1} + ${2}"
+
+#Always check for the existance of the flag directory and try to create it if possible
+FLAGDIR="/tmp/.pcbsdflags"
+if [ ! -d ${FLAGDIR} ]; then
+  mkdir -p -m 777 ${FLAGDIR}
+fi
+
+#Figure out which flag type this is for
+if [ ${1} = "PBIUPDATE" ]; then
+  FLAGFILE="${FLAGDIR}/pbi-update-available-${LOGNAME}"
+elif [ ${1} = "PKGUPDATE" ]; then
+  FLAGFILE="${FLAGDIR}/pkg-update-available-${LOGNAME}"
+elif [ ${1} = "SYSUPDATE" ]; then
+  FLAGFILE="${FLAGDIR}/sys-update-available-${LOGNAME}"
+elif [ ${1} = "NETRESTART" ]; then
+  FLAGFILE="${FLAGDIR}/network-restarted-${LOGNAME}"
+elif [ ${1} = "CHECKDIR" ]; then
+  exit 0
+else
+  echo "Invalid Option: ${1}"
+  manpage
+fi
+
+#Set the flag
+if [ -n "${2}" ]; then
+    echo "${2}" > ${FLAGFILE}
+else
+    touch ${FLAGFILE}
+fi
+#chmod 777 ${FLAGFILE}
+exit 0
