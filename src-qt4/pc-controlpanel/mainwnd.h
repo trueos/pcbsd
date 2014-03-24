@@ -70,6 +70,8 @@ private:
 
     void refreshDEConfigureApp();
 
+    void prepareNonDEItemsHiding();
+
         //CDEList mDEList;
     QMenu* DEChoiseMenu;
 
