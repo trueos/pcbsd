@@ -27,7 +27,7 @@ public:
 	
 	static void setFlag( SYSFLAG flag, QString contents = ""){
 	  if(!QFile::exists(FLAGDIR)){
-	    pcbsd::Utils::runShellCommand("mkdir -p -m 666 "+FLAGDIR);
+	    pcbsd::Utils::runShellCommand("mkdir -p -m 777 "+FLAGDIR);
 	    if( !QFile::exists(FLAGDIR) ){ return; }
 	  }
 	  QString cmd;
