@@ -161,6 +161,7 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     // "file -s" should always work - use it as the backup method
     valid = getSpecialFileInfo(fullDev, &fs, &dlabel);
   }
+  if(detType=="ISO" && fs.isEmpty() ){ valid = false; } //skip ISO's with unknown filesystems (swap, etc)
   if(!valid){ //don't bother continuing - already invalid
     if(DEBUG_MODE){ qDebug() << "Invalid Device:" << node << detType << dlabel << fs; } 
     return FALSE; 
