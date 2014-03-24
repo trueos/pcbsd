@@ -42,17 +42,29 @@ void SystemFlagWatcher::watcherNotification(){
   QFileInfoList flags = dir.entryInfoList( QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
   for(int i=0; i<flags.length(); i++){
      if(CDT < flags[i].lastModified()){
+       QString contents = quickRead(flags[i].absoluteFilePath()); //add this later
        //New flag - check which one and emit the proper signal
-       if(flags[i].fileName() == NETWORKRESTARTED){
-         emit FlagChanged(SystemFlags::NetRestart, "");
-       }else if(flags[i].fileName() == PKGUPDATEAVAILABLE){
-	 emit FlagChanged(SystemFlags::PkgUpdate, "");
-       }else if(flags[i].fileName() == SYSUPDATEAVAILABLE){
-	 emit FlagChanged(SystemFlags::SysUpdate, "");
-       }else if(flags[i].fileName() == PBIUPDATEAVAILABLE){
-	 emit FlagChanged(SystemFlags::PbiUpdate, "");
+       if(flags[i].fileName().startsWith(NETWORKRESTARTED) ){
+         emit FlagChanged(SystemFlags::NetRestart, contents);
+       }else if(flags[i].fileName().startsWith(PKGUPDATEAVAILABLE) ){
+	 emit FlagChanged(SystemFlags::PkgUpdate, contents);
+       }else if(flags[i].fileName().startsWith(SYSUPDATEAVAILABLE) ){
+	 emit FlagChanged(SystemFlags::SysUpdate, contents);
+       }else if(flags[i].fileName().startsWith(PBIUPDATEAVAILABLE) ){
+	 emit FlagChanged(SystemFlags::PbiUpdate, contents);
        }
      }
   }
   CDT = QDateTime::currentDateTime(); //Now update the last time flags were checked
+}
+
+QString SystemFlagWatcher::quickRead(QString filepath){
+  if(filepath.isEmpty()){ return ""; }
+  QFile file(filepath);
+  if( !file.open(QIODevice::ReadOnly | QIODevice::Text) ){ return ""; }
+  QStringList ret;
+  while( !file.atEnd() ){
+    ret << QString( file.readLine() );
+  }
+  return ret.join("\n");
 }
