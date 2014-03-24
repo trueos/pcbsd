@@ -6,8 +6,16 @@
 #include "ui_snddialog.h"
 #include "../config.h"
 
+#include <unistd.h>
+
 int main( int argc, char ** argv )
 {
+   // Make sure we are running as root
+   if (getuid() != 0) {
+      qDebug("Error, needs to be run as root");
+      exit(1);
+   }
+   
     QApplication a(argc, argv);
 
     QTranslator translator;
