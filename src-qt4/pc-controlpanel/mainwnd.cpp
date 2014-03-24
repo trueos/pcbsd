@@ -243,6 +243,7 @@ void MainWnd::on_toolButton_2_clicked()
 ///////////////////////////////////////////////////////////////////////////////
 void MainWnd::setupDEChooser()
 {
+    DEChoiseMenu->addAction(ui->actionSystemOnly);
     DEChoiseMenu->addAction(ui->actionAll);
     DEChoiseMenu->addAction(ui->actionKDE);
     DEChoiseMenu->addAction(ui->actionGnome);
@@ -276,6 +277,7 @@ void MainWnd::setupDEChooser()
     SETUP_ACTION( actionEnlightenment, "Enlightenment" );
     SETUP_ACTION( actionMate, "Mate" );
     SETUP_ACTION( actionCinnamon, "Cinnamon" );
+
 
 #undef SETUP_ACTION
 
@@ -575,4 +577,15 @@ void MainWnd::on_deLaunchConfigApp_clicked()
     QString proc = proc_args[0];
     proc_args.pop_front();
     process.startDetached(proc, proc_args);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+void MainWnd::on_actionSystemOnly_triggered()
+{
+    ui->DEChooserButton->setIcon(ui->actionSystemOnly->icon());
+
+    mvEnabledDE.clear();
+    mvEnabledDE.push_back("--PC-BSD--");
+
+    on_toolButton_2_clicked();
 }

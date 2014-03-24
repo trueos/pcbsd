@@ -2,7 +2,7 @@
 Exec=kcmshell4 desktoptheme
 Icon=preferences-desktop
 Type=Service
-
+PC-RequiredDE=KDE
 X-KDE-ServiceTypes=KCModule
 X-KDE-Library=kcm_desktoptheme
 X-KDE-ParentApp=kcontrol

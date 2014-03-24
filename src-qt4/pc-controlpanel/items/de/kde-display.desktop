@@ -3,7 +3,7 @@ Exec=kcmshell4 display
 Icon=preferences-desktop-display
 Type=Service
 X-KDE-ServiceTypes=KCModule
-
+PC-RequiredDE=KDE
 X-KDE-Library=kcm_display
 X-KDE-ParentApp=kcontrol
 
