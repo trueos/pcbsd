@@ -875,7 +875,7 @@ Bitte versuchen Sie es mit einem anderen USB-Stick oder verwenden Sie Passwortau
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
         <translation>Konnte keine Verbindung zum Backup-Server aufbauen!
-Bitte überprüfen Sie, ob der Server erreichbar ist, und überprüfen Sie Ihren Benutzernamen / Passwort.</translation>
+Bitte überprüfen Sie, ob der Server erreichbar ist, und überprüfen Sie Ihren Benutzernamen/Passwort.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!
@@ -897,8 +897,7 @@ Bitte überprüfen Sie, ob der Server erreichbar ist.</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Falls Sie Ihren Life-Preserver Schlüssel auf einem USB-Stick gespeichert haben, stecken Sie ihn jetzt an und wählen Sie ihn aus. Anderenfalls wählen Sie Passwortauthentifizierung aus.</translation>
     </message>
 </context>
 </TS>

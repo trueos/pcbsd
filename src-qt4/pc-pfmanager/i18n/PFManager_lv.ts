@@ -13,11 +13,11 @@
     </message>
     <message>
         <source>Service:</source>
-        <translation>Serviss:</translation>
+        <translation>Pakalpojums:</translation>
     </message>
     <message>
         <source>Policy:</source>
-        <translation>Polise:</translation>
+        <translation>Politika:</translation>
     </message>
     <message>
         <source>Protocol:</source>
@@ -56,15 +56,15 @@
     <name>MainDialog</name>
     <message>
         <source>Firewall Manager</source>
-        <translation>Ugunsmūra menedžeris</translation>
+        <translation>Ugunsmūra pārvaldnieks</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>Galvenais</translation>
+        <translation>Vispārējais</translation>
     </message>
     <message>
         <source>General settings</source>
-        <translation>Galvenie uzstādījumi</translation>
+        <translation>Vispārējie iestatījumi</translation>
     </message>
     <message>
         <source>Enable Firewall on startup</source>
@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Service</source>
-        <translation>Serviss</translation>
+        <translation>Pakalpojums</translation>
     </message>
     <message>
         <source>Port</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>Policy</source>
-        <translation>Polise</translation>
+        <translation>Politika</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -100,38 +100,31 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atgūt noklusēto konfigu&amp;rāciju</translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Startēt</translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>A&amp;pturēt</translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Re&amp;startēt</translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pievienot ier&amp;akstu</translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>R&amp;ediģēt ierakstu</translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Dzēst ierakstu</translation>
     </message>
 </context>
 <context>
@@ -161,17 +154,17 @@
     </message>
     <message>
         <source>Restored.</source>
-        <translation>Atjaunots.</translation>
+        <translation>Atgūts.</translation>
     </message>
     <message>
         <source>Config file successfuly restored.</source>
-        <translation>Konfigurācijas fails veiksmīgi atjaunots.</translation>
+        <translation>Konfigurācijas fails veiksmīgi atgūts.</translation>
     </message>
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
         <translation>Šis pilnībā atslēgs ugunsmūri.
-Vai esat pārliecināts?</translation>
+Vai tiešām to vēlies?</translation>
     </message>
     <message>
         <source>Success</source>
@@ -194,7 +187,7 @@ Vai esat pārliecināts?</translation>
     <name>RcConfig</name>
     <message>
         <source>Error opening the specified rc.conf file.</source>
-        <translation>Kļūda atverot norādīto rc.conf failu.</translation>
+        <translation>Kļūme atverot norādīto rc.conf failu.</translation>
     </message>
 </context>
 <context>

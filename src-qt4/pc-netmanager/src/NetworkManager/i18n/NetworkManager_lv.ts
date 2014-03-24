@@ -17,18 +17,18 @@
     </message>
     <message>
         <source>Provider</source>
-        <translation>Provaideris</translation>
+        <translation>Pakalpojuma sniedzējs</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished">Lokācija</translation>
+        <translation>Vieta</translation>
     </message>
 </context>
 <context>
     <name>NetworkMan</name>
     <message>
         <source>PC-BSD Network Manager</source>
-        <translation>PC-BSD tīkla menedžeris</translation>
+        <translation>PC-BSD tīkla pārvaldnieks</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -44,7 +44,7 @@
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation>999\.999\.999\.999; </translation>
+        <translation>999\.999\.999\.999;</translation>
     </message>
     <message>
         <source>DNS 1:</source>
@@ -92,7 +92,7 @@
     </message>
     <message>
         <source>IP: </source>
-        <translation>IP: </translation>
+        <translation>IP:</translation>
     </message>
     <message>
         <source>Netmask: </source>
@@ -120,7 +120,7 @@
     </message>
     <message>
         <source>Network Configuration (Advanced)</source>
-        <translation>Tīkla konfigurācija (paplašināti)</translation>
+        <translation>Tīkla konfigurācija (paplašinātā)</translation>
     </message>
     <message>
         <source>Unknown Wireless Device</source>
@@ -128,12 +128,11 @@
     </message>
     <message>
         <source>Search Domain:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Meklēšanas domēns:</translation>
     </message>
     <message>
         <source>Enable IPv6 support</source>
-        <translation>Ieslēgt IPv6 atbalstu</translation>
+        <translation>Iespējot IPv6 atbalstu</translation>
     </message>
     <message>
         <source>Misc</source>
@@ -141,16 +140,15 @@
     </message>
     <message>
         <source>Enable wireless / wired failover via lagg0 interface</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Iespējot bezvadu|vadu kļūmjdrošumu caur saskarni lagg0</translation>
     </message>
     <message>
         <source>Proxy</source>
-        <translation>Starpniekserveris</translation>
+        <translation>Starpserveris</translation>
     </message>
     <message>
         <source>Proxy Configuration</source>
-        <translation>Starpniekservera konfigurācija</translation>
+        <translation>Starpservera konfigurācija</translation>
     </message>
     <message>
         <source>Server Address</source>
@@ -162,7 +160,7 @@
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation>Starpniekservera tips</translation>
+        <translation>Starpservera tips</translation>
     </message>
     <message>
         <source>Specify a Username / Password</source>
@@ -178,7 +176,7 @@
     </message>
     <message>
         <source>Note: This proxy configuration is for PC-BSD specific tools and utilities. Internet aware applications may still use their own proxy configuration, which will have to be manually configured.</source>
-        <translation type="unfinished">Piezīme: Šī starpniekservera konfigurācija ir domāta priekš PC-BSD specifiskiem rīkiem. Internet atkarīgās programmas var izmantot pašas savus starpniekserveru konfigurācijas, kurām ir jābūt manuāli iestatītām.</translation>
+        <translation>Piezīme: Šī starpservera konfigurācija ir domāta priekš specifiskiem PC-BSD rīkiem un utilītām. Aplikācijas, kuras ir Internet-patstāvīgas, var izmantot pašas savus starpserveru iestatījumus, kuriem jābūt atsevišķi manuāli iestatītiem.</translation>
     </message>
     <message>
         <source>&amp;Close</source>
@@ -186,11 +184,11 @@
     </message>
     <message>
         <source>Need Root Access</source>
-        <translation>Nepieciešama root pieeja</translation>
+        <translation>Nepieciešama &quot;root&quot; pieeja</translation>
     </message>
     <message>
         <source>This program must be run as root!</source>
-        <translation>Šai programmai ir jābūt palaistai izmantojot Root!</translation>
+        <translation>Šai programmai jābūt palaistai ar &quot;root&quot; tiesībām!</translation>
     </message>
     <message>
         <source>Address:</source>
@@ -198,7 +196,7 @@
     </message>
     <message>
         <source>SSID:</source>
-        <translation>SSID:</translation>
+        <translation>SSID (WLan identifikators):</translation>
     </message>
     <message>
         <source>Status:</source>
@@ -206,7 +204,7 @@
     </message>
     <message>
         <source>Please enter a hostname</source>
-        <translation>Lūdzu ievadiet resursdatora nosaukumu</translation>
+        <translation>Lūdzu ievadi resursdatora nosaukumu</translation>
     </message>
     <message>
         <source>Hostname may only contain letters and numbers</source>
@@ -230,29 +228,27 @@
     </message>
     <message>
         <source>You must restart your computer to finish changing your hostname</source>
-        <translation>Jums jārestartē dators, lai pabeigtu mainīt resursdatora nosaukumu</translation>
+        <translation>Tev jārestartē dators, lai noslēgtu resursdatora nosaukuma maiņas procedūru</translation>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pamata</translation>
     </message>
     <message>
         <source>Digest</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apskats</translation>
     </message>
     <message>
         <source>System Hostname</source>
-        <translation>Sistēmas nosaukums</translation>
+        <translation>Sistēmas &quot;hosta&quot; nosaukums</translation>
     </message>
     <message>
         <source>Enable Custom DNS</source>
-        <translation type="unfinished">Ieslēgt pielāgotu DNS</translation>
+        <translation>Iespējot pielāgotu DNS</translation>
     </message>
     <message>
         <source>Enable Custom Gateway</source>
-        <translation>Ieslēgt pielāgotu vārteju</translation>
+        <translation>Iespējot pielāgotu vārteju</translation>
     </message>
     <message>
         <source>Invalid IPv6 DNS specified</source>
@@ -272,16 +268,15 @@
     </message>
     <message>
         <source>Proxy enabled</source>
-        <translation>Starpniekserveris ieslēgts</translation>
+        <translation>Starpserveris iespējots</translation>
     </message>
     <message>
         <source>You may need to re-login for proxy settings to take effect.</source>
-        <translation>Jums var nākties pieteikties no jauna, lai starpniekservera iestatījumi stātos spēkā.</translation>
+        <translation>Lai starpservera iestatījumi stātos spēkā, Tev var nākties pieteikties sistēmā no jauna.</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>S&amp;aglabāt izmaiņas</translation>
     </message>
 </context>
 </TS>

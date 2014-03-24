@@ -65,11 +65,11 @@
     </message>
     <message>
         <source>999\.999\.999\.999; </source>
-        <translation>999\.999\.999\.999; </translation>
+        <translation>999\.999\.999\.999;</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished">Specifiskāk</translation>
+        <translation>Papildopcijas</translation>
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
@@ -81,11 +81,11 @@
     </message>
     <message>
         <source>Custom MAC address</source>
-        <translation>Izvēles MAC adrese</translation>
+        <translation>Izvēlēta MAC adrese</translation>
     </message>
     <message>
         <source>IPv6 static address</source>
-        <translation>Statiskā IPv6 adrese</translation>
+        <translation>IPv6 statiskā adrese</translation>
     </message>
     <message>
         <source>Address:</source>
@@ -97,7 +97,7 @@
     </message>
     <message>
         <source>I&amp;nfo</source>
-        <translation type="unfinished">informācija</translation>
+        <translation>I&amp;nformācija</translation>
     </message>
     <message>
         <source>Configuration info</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>Traffic info</source>
-        <translation type="unfinished">Noslogojuma informācija</translation>
+        <translation>Tīkla aktivitātes informācija</translation>
     </message>
     <message>
         <source>Packets:</source>

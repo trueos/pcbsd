@@ -5,11 +5,11 @@
     <name>MainWnd</name>
     <message>
         <source>PCBSD Control Panel</source>
-        <translation>PCBSD kontroles panelis</translation>
+        <translation>PCBSD Kontrolpanelis</translation>
     </message>
     <message>
         <source>Software and updates</source>
-        <translation>Programmatūra un atjaunināšana</translation>
+        <translation>Programmatūra un tās aktualizēšana</translation>
     </message>
     <message>
         <source>System management</source>
@@ -93,31 +93,27 @@
     </message>
     <message>
         <source>Reading items...</source>
-        <translation type="unfinished">Lasa vienības...</translation>
+        <translation>Lasu vienības...</translation>
     </message>
     <message>
         <source>What do you want to configure?</source>
-        <translation>Ko jūs vēlaties konfigurēt?</translation>
+        <translation>Ko vēlies iestatīt/konfigurēt?</translation>
     </message>
     <message>
         <source>Mate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mate</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>(Mate)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">(Mate)</translation>
     </message>
     <message>
         <source>(Cinnamon)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(Cinnamon)</translation>
     </message>
 </context>
 </TS>

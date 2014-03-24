@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Arch:</source>
-        <translation>Kodols:</translation>
+        <translation>CPU arhitektūra:</translation>
     </message>
     <message>
         <source>ident</source>
@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>CPU:</source>
-        <translation>CPU:</translation>
+        <translation>Procesors:</translation>
     </message>
     <message>
         <source>Mem.</source>
@@ -81,33 +81,27 @@
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Paku komplekts:</translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>(nestabila)</translation>
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sistēmas komponentes...</translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Darbvirsmas vides...</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ai&amp;zvērt</translation>
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Utilītas         </translation>
     </message>
 </context>
 </TS>
