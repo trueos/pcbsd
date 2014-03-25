@@ -54,7 +54,7 @@ MenuItem::MenuItem(QWidget* parent, DevCheck *chk, QString newdevice, QString ne
   else if(devType == "SCSI"){baseicon = QPixmap(":icons/harddrive.png"); }
   devIcon->setPixmap(baseicon);
   //Start the automount procedure if necessary
-  if(checkAutomount->isChecked() || devType=="ISO"){
+  if(checkAutomount->isChecked() || devType=="ISO" || filesystem=="AVDISK" ){
     QTimer::singleShot(500,this,SLOT( slotAutoMount() ));
   }
   //Update the Item based upon current device status
@@ -72,7 +72,14 @@ MenuItem::~MenuItem(){
 void MenuItem::updateItem(){
   //Update the item visuals, based upon current device status
   if( isConnected() ){
-    if( isMounted() ){
+    if(filesystem == "AVDISK"){
+      //non-mountable audio/video disk (cd/dvd usually)
+      devIcon->setEnabled(TRUE);  //Make the icon full color
+      devIcon->setToolTip(device+"\n"+tr("Audio/Video Disk"));
+      pushMount->setText(tr("Play"));
+      pushMount->setIcon(QIcon(":icons/play.png"));
+      checkAutomount->setVisible(FALSE);
+    }else if( isMounted() ){
       if(mountpoint.isEmpty()){
       	//detect the current mountpoint
       	QString output = pcbsd::Utils::runShellCommandSearch("mount",device);
@@ -194,7 +201,9 @@ void MenuItem::slotMountClicked(){
   emit itemWorking();
   //Now 
   if( isConnected() ){
-    if( !isMounted() ){
+    if(filesystem=="AVDISK"){
+      emit openAVDisk(device);
+    }else if( !isMounted() ){
       mountItem();
     }else{
       unmountItem();  
@@ -208,7 +217,9 @@ void MenuItem::slotMountClicked(){
 void MenuItem::slotAutoMount(){
 //Just like slotMountClicked, but will only mount the device if appropriate (no removals);
   if( isConnected() ){
-    if( !isMounted() ){
+     if(filesystem=="AVDISK"){
+      emit openAVDisk(device);
+    }else if( !isMounted() ){
       mountItem();
     }
   }else{

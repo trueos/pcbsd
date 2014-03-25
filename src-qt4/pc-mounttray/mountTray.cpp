@@ -144,6 +144,7 @@ bool MountTray::addDevice(QString dev, QString label, QString type, QString file
   connect(tmp, SIGNAL(newMessage(QString,QString)), this, SLOT(slotDisplayPopup(QString,QString)) );
   connect(tmp, SIGNAL(itemRemoved(QString)), this, SLOT(removeDevice(QString)) );
   connect(tmp, SIGNAL(itemWorking()), this, SLOT(slotCloseMenu()) );
+  connect(tmp, SIGNAL(openAVDisk(QString)), this, SLOT(slotOpenAVDisk(QString)) );
   deviceList << tmp;
   //Update the menu
   updateMenu();
@@ -486,3 +487,17 @@ void MountTray::saveCurrentSettings(){
 void MountTray::slotCloseMenu(){
   trayIcon->contextMenu()->hide();
 }
+
+void MountTray::slotOpenAVDisk(QString dev){
+  //Quick dialog for the user to select an application from ~/bin/*
+    // -- will be expanded later
+  QDir dir(QDir::homePath()+"/bin");
+  QStringList bins = dir.entryList(QDir::Executable | QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+  qDebug() << "Check for bins:" << bins << dir.absolutePath() << dir.exists();
+  if(bins.isEmpty()){ return; }
+  QString bin = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Application:"), bins,0, true);
+  if(bin.isEmpty()){ return; }
+  qDebug() << "Open Audio/Video disk:" << dev;
+  QProcess::startDetached( dir.absoluteFilePath(bin) );
+}
+  

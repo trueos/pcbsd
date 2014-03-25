@@ -56,6 +56,7 @@ private slots:
   void slotOpenSettings();
   void slotOpenISO();
   void slotCloseMenu();
+  void slotOpenAVDisk(QString dev);
   
 private:
   DevCheck *DCheck;

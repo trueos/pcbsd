@@ -91,6 +91,7 @@ class MenuItem : public QWidgetAction
 	void itemRemoved(QString);  	//device node
         void newMessage(QString, QString);	//message to be displayed
 	void itemWorking();
+	void openAVDisk(QString); //device node (/dev/cd*)
 
 };
 #endif

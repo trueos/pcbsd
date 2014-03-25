@@ -162,6 +162,10 @@ bool DevCheck::devInfo(QString dev, QString* type, QString* label, QString* file
     valid = getSpecialFileInfo(fullDev, &fs, &dlabel);
   }
   if(detType=="ISO" && fs.isEmpty() ){ valid = false; } //skip ISO's with unknown filesystems (swap, etc)
+  else if(detType=="CD9660" &&  fs.isEmpty() ){
+    //Try to determine which type of cd/dvd this is since it is not a data disk (which can be mounted)
+    fs = "AVDISK"; //audio/video disk (not mountable)
+  }
   if(!valid){ //don't bother continuing - already invalid
     if(DEBUG_MODE){ qDebug() << "Invalid Device:" << node << detType << dlabel << fs; } 
     return FALSE; 
