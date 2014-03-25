@@ -2889,6 +2889,8 @@ lib/libpcbsd-utils.so.0.9.8
 lib/libpcbsd-utils.so
 lib/libpcbsd-utils.so.0
 lib/libpcbsd-utils.so.0.9
+include/pcbsd-xdgutils.h
+include/pcbsd-xdgfile.h
 include/pcbsd-sysFlags.h
 include/pcbsd-DLProcess.h
 include/pcbsd-hardware.h
