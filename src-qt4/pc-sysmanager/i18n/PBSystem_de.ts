@@ -25,13 +25,11 @@
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stopp</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Beenden</translation>
     </message>
 </context>
 <context>
@@ -90,13 +88,11 @@
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Backend-Werkzeuge:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Grafische Werkzeuge:</translation>
     </message>
     <message>
         <source>System Information</source>
@@ -108,13 +104,11 @@
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD &amp;System-Quellen anfordern</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD-P&amp;ortbaum anfordern</translation>
     </message>
     <message>
         <source>Error</source>
@@ -134,23 +128,19 @@
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Prozeß läuft bereits</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sie haben bereits einen laufen Prozeß. Bitte warten Sie, bis dieser beendet ist.</translation>
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Generieren</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Anwenden</translation>
     </message>
 </context>
 </TS>

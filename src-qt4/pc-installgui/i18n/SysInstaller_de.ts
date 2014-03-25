@@ -293,23 +293,19 @@ Klicken Sie Finish zum Neustart. Nach dem Neustart sollten Sie das Installations
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Einstellungen von USB-Stick &amp;laden</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Einstellungen auf USB-Stick &amp;speichern</translation>
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Version&gt;</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Version:</translation>
     </message>
 </context>
 <context>

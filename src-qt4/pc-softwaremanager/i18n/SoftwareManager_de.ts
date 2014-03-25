@@ -463,8 +463,7 @@
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kontaktiere Betreuer</translation>
     </message>
     <message>
         <source>Current Operations</source>
@@ -504,7 +503,7 @@
     </message>
     <message>
         <source>Downloading..</source>
-        <translation type="unfinished">Lade herunter...</translation>
+        <translation>Herunterladen...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
@@ -522,23 +521,19 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Datei </translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguriere</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI-Liste &amp;importieren</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI-Liste &amp;exportiere</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -546,13 +541,11 @@ Damit dies funktioniert müssen Sie in Ihrer Desktopumgebung diese richtig einge
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ein&amp;stellungen</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI i&amp;nstallieren</translation>
     </message>
 </context>
 <context>

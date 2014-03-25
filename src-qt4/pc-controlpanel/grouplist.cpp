@@ -40,6 +40,7 @@ QGroupList::QGroupList(QWidget *parent) :
 	setViewMode(QListView::IconMode);
 	setWordWrap(true);
 	setFrameStyle(QFrame::NoFrame);
+    setSortingEnabled(true);
         //setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum));
 }
 
@@ -49,7 +50,7 @@ int QGroupList::read(QString Path, const QVector<QString>& vEnabledDE, bool Enab
 	clear();
 	QDir dir(Path);
 	if (!dir.exists(Path))
-		return 0;
+		return 0;    
 
 	QStringList DirList =dir.entryList(QStringList("*.desktop"));
 	for(int i=0; i<DirList.size(); i++)
@@ -69,8 +70,8 @@ int QGroupList::read(QString Path, const QVector<QString>& vEnabledDE, bool Enab
                         addItem(anItem);
                     }
                 }
-		else
-			delete anItem;
+                else
+                    delete anItem;
 	}// for all files in dir
 
     setAcceptDrops(false);
@@ -78,9 +79,11 @@ int QGroupList::read(QString Path, const QVector<QString>& vEnabledDE, bool Enab
 
 	setIconSize(QSize(32, 32));
 
-        fitSize();
+    fitSize();
 
-        return count();
+
+
+    return count();
 }
 
 ///////////////////////////////////////////////////////////////////////////////

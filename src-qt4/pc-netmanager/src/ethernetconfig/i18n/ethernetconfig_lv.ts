@@ -13,31 +13,31 @@
     </message>
     <message>
         <source>Alt+O</source>
-        <translation type="unfinished">Alt+L</translation>
+        <translation>Alt+L</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>&amp;Apstiprināt</translation>
+        <translation>&amp;Piemērot</translation>
     </message>
     <message>
         <source>Alt+A</source>
-        <translation type="unfinished">Alt+A</translation>
+        <translation>Alt+P</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">Aizvēr&amp;t</translation>
+        <translation>&amp;Aizvērt</translation>
     </message>
     <message>
         <source>Alt+C</source>
-        <translation type="unfinished">Alt+T</translation>
+        <translation>Alt+A</translation>
     </message>
     <message>
         <source>Disable this networ&amp;k device</source>
-        <translation type="unfinished">At&amp;slēgt šo tīkla ierīci</translation>
+        <translation>At&amp;spējot/atslēgt šo tīkla ierīci</translation>
     </message>
     <message>
         <source>Alt+K</source>
-        <translation type="unfinished">Alt+S</translation>
+        <translation>Alt+S</translation>
     </message>
     <message>
         <source>&amp;General</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>Alt+Y</source>
-        <translation type="unfinished">Alt+M</translation>
+        <translation>Alt+M</translation>
     </message>
     <message>
         <source>Network address configuration</source>
@@ -73,11 +73,11 @@
     </message>
     <message>
         <source>Use hardware defau&amp;lt MAC address</source>
-        <translation type="unfinished">&amp;Lietot sistēmas noklusēto MAC adresi</translation>
+        <translation>&amp;Lietot sistēmas noklusēto MAC adresi</translation>
     </message>
     <message>
         <source>Alt+L</source>
-        <translation type="unfinished">Alt+L</translation>
+        <translation>Alt+L</translation>
     </message>
     <message>
         <source>Custom MAC address</source>
@@ -93,7 +93,7 @@
     </message>
     <message>
         <source>Obtain IPv6 address automaticall&amp;y</source>
-        <translation type="unfinished">Piešķirt IPv6 adresi automātiski</translation>
+        <translation>Iegūt IPv6 adresi &amp;automātiski</translation>
     </message>
     <message>
         <source>I&amp;nfo</source>

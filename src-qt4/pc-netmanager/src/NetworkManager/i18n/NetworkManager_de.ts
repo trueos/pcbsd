@@ -276,7 +276,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Ü&amp;bernehmen</translation>
+        <translation>&amp;Anwenden</translation>
     </message>
 </context>
 </TS>

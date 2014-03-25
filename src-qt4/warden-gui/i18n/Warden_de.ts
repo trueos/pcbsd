@@ -648,18 +648,15 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguriere</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Beenden</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Neue Jail</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
@@ -668,18 +665,15 @@
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ein&amp;stellungen</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jail &amp;importieren</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vorlagenverwal&amp;tung</translation>
     </message>
 </context>
 <context>
@@ -813,13 +807,11 @@
     </message>
     <message>
         <source>Hostname cannot contain spaces!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname darf keine Leerzeichen enthalten!</translation>
     </message>
     <message>
         <source>Hostname cannot contain special characters!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hostname darf keine Sonderzeichen enthalten!</translation>
     </message>
 </context>
 </TS>
