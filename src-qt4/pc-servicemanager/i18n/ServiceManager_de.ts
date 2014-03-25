@@ -53,28 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Start</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Neustart</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dienst aktivi&amp;eren</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dienst &amp;deaktivieren</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Stoppen</translation>
     </message>
 </context>
 <context>

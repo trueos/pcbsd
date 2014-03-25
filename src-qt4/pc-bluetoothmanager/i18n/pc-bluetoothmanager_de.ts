@@ -105,13 +105,11 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ändern</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Gerät entfernen</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
@@ -120,8 +118,7 @@
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Dienst e&amp;rneut starten</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
@@ -130,8 +127,7 @@
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gerät &amp;verbinden</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
@@ -140,13 +136,11 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Konfiguriere</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gerät &amp;entfernen</translation>
     </message>
 </context>
 </TS>

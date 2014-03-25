@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>FreeBSD base</source>
-        <translation>FreeBSD versija</translation>
+        <translation>FreeBSD bāze</translation>
     </message>
     <message>
         <source>Arch:</source>

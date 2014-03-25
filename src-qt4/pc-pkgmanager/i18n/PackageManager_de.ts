@@ -9,25 +9,23 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation>Paketset</translation>
+        <translation>Paketsatz</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Produktion (Pakete werden vierteljährlich aktualisiert - empfohlen)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rand (Pakete werden häufig aktualisiert - Zum Testen und für die Entwicklung)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">&amp;Weiter</translation>
+        <translation>&amp;Weiter</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Abbruch</translation>
+        <translation>&amp;Abbruch</translation>
     </message>
 </context>
 <context>
@@ -93,7 +91,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation>Ü&amp;bernehmen</translation>
+        <translation>&amp;Anwenden</translation>
     </message>
     <message>
         <source>Package Updates</source>
@@ -129,7 +127,7 @@
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Anzeigen</translation>
+        <translation>&amp;Ansicht</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -157,7 +155,7 @@
     </message>
     <message>
         <source>required by:</source>
-        <translation>notwendig für</translation>
+        <translation>notwendig für:</translation>
     </message>
     <message>
         <source>The following packages are causing conflicts with the selected changes and can be automatically removed. Continue?</source>
@@ -169,7 +167,7 @@
     </message>
     <message>
         <source>You may need to manually fix the conflicts before trying again.</source>
-        <translation>Möglicherweise müssen Sie die Konflikte manuell beheben bevor Sie es erneutt versuchen.</translation>
+        <translation>Möglicherweise müssen Sie die Konflikte manuell beheben bevor Sie es erneut versuchen.</translation>
     </message>
     <message>
         <source>Downloading packages...</source>
@@ -289,67 +287,55 @@
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Grundausstattung (Meta-Pakete)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fortgeschritten (Alle Pakete)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguration</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lese Paket-Datenbank...</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Konfiguriere</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+B</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Einstellungen</translation>
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+E</translation>
     </message>
     <message>
         <source>&amp;Cleanup Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pa&amp;kete bereinigen</translation>
     </message>
     <message>
         <source>Package Cleanup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paketbereinigung</translation>
     </message>
     <message>
         <source>Do you want to start package cleanup?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Wollen Sie die Paket-Bereinigung beginnen?</translation>
     </message>
     <message>
         <source>Starting package cleanup...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Beginne Paketbereinigung...</translation>
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation>Die folgenden Pakete werden entfernt. Fortfahren?            </translation>
+        <translation>Die folgenden Pakete werden entfernt. Fortfahren?</translation>
     </message>
 </context>
 </TS>

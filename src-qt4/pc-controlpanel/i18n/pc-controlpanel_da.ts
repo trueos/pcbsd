@@ -121,5 +121,13 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>System only items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide all desktop items</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

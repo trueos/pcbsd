@@ -105,48 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Change</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Disconnect Device</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Start &amp;Tray Application</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Restart Service</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Scan</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Add Device</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Initiate Pairing</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Configure</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Remove Device</translation>
     </message>
 </context>
 </TS>
