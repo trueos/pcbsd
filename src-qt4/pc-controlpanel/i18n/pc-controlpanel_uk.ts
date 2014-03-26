@@ -117,11 +117,11 @@
     </message>
     <message>
         <source>System only items</source>
-        <translation type="unfinished"></translation>
+        <translation>Лише системні</translation>
     </message>
     <message>
         <source>Hide all desktop items</source>
-        <translation type="unfinished"></translation>
+        <translation>Сховати едлементи налаштування оточення стільниці</translation>
     </message>
 </context>
 </TS>
