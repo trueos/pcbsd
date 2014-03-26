@@ -72,7 +72,7 @@ void MountTray::programInit()
   updateMenu();
 
   qDebug() << "-Program now ready for use";
-  MTINIT=false;
+  QTimer::singleShot(500, this, SLOT(slotDoneWithInit()) ); //give it 1/2 a second to settle
 }
 
 void MountTray::updateMenu(){
@@ -258,38 +258,6 @@ void MountTray::closeTray(){
   exit(0);
 }
 
-/*void MountTray::getInitialUsername(){
-  //Get the original user who started the tray app
-  QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-  //qDebug() << "System Environment:" << env.toStringList();
-  QString username = env.value( "LOGNAME" );
-  //qDebug() << "First attempt user detected:" << username;
-  if(username=="root"){
-    username = env.value( "SUDO_USER" ); //try this environment variable instead
-    //qDebug() << "Second attempt user detected:" << username;
-  }
-  if(username=="root" || username.isEmpty() ){
-   //attempt another method of determining the username
-   QStringList uList = pcbsd::Utils::runShellCommand("who");
-   if( uList.length() > 0 ){ 
-     username = uList[0].section(" ",0,0,QString::SectionSkipEmpty);
-     for(int i=0; i<uList.length(); i++){
-       if( !uList[i].section(" ",0,0,QString::SectionSkipEmpty).contains(username) ){
-         username = "root"; //too many users logged in; this method will not work
-         break;
-       }
-     }
-     //qDebug() << "Third attempt user detected:" << username;
-   }
-  }
-  if(username=="root"){
-    QMessageBox::warning(this,tr("User Detection Error"),tr("Unable to determine the non-root user who started the application \nCan not open the file manager with root permissions") );
-    return;
-  }
-  USERNAME=username.simplified(); //set the global variable
-  if(DEBUG_MODE){ qDebug() << "-User detected:" << USERNAME; }
-}*/
-
 void MountTray::getFileManager(){
   //Check for broken DE's that need a FM manually set
   FMCMD = "xdg-open"; //the default auto-detection application
@@ -382,6 +350,10 @@ void MountTray::slotSingleInstance()
   trayIcon->show();
   //Also pop-up the mount tray settings dialog
   slotOpenSettings();
+}
+
+void MountTray::slotDoneWithInit(){
+  MTINIT = false;
 }
 
 void MountTray::slotDisplayPopup(QString title, QString msg, QString device){
@@ -489,6 +461,7 @@ void MountTray::slotCloseMenu(){
 }
 
 void MountTray::slotOpenAVDisk(QString dev){
+  if(MTINIT){ return; } //don't open the launcher during program initialization
   //Get the list of all AudioVideo Applications on the sytem
   QList<XDGFile> apps = XDGUtils::allApplications();
   apps = XDGUtils::filterAppsByCategory("AudioVideo", apps);
@@ -500,7 +473,7 @@ void MountTray::slotOpenAVDisk(QString dev){
   }
   //Prompt for the user to select an application
   bool ok = false;
-  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Application:"), names,0, true, &ok);
+  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Open With:"), names,0, true, &ok);
   if(!ok || appname.isEmpty()){ return; }
   int index = names.indexOf(appname);
   if(index == -1){ return; }

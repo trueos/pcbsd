@@ -47,6 +47,7 @@ public slots:
   
 private slots:
   void slotSingleInstance();
+  void slotDoneWithInit();
   void newDevdMessage();
   void slotDevChanges(bool showPopup = TRUE);
   void slotTrayActivated(QSystemTrayIcon::ActivationReason);
