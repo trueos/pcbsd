@@ -40,10 +40,16 @@ public:
 	  if(lname.isEmpty()){ return name; }
 	  else{ return lname; }
 	}
+	QString RawName(){
+	  return name;
+	}
 	// -- Generic Name --
 	QString GenericName(){ //will return localized generic name if there is one
 	  if(lgname.isEmpty()){ return gname; }
 	  else{ return lgname; }
+	}
+	QString RawGenericName(){
+	  return gname;
 	}
 	// -- Comment --
 	QString Comment(){ //will return localized comment if there is one
