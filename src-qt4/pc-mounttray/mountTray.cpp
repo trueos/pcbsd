@@ -469,7 +469,16 @@ void MountTray::slotOpenAVDisk(QString dev){
   //Now generate the QStringList of application names
   QStringList names;
   for(int i=0; i<apps.length(); i++){
-    names << apps[i].Name();
+    //Filter out "invalid" applications (mixers, etc..)
+    QString rname = apps[i].RawName();
+    if(rname.contains("mixer", Qt::CaseInsensitive) || rname.contains("control", Qt::CaseInsensitive) ){ 
+	//skip it
+	apps.removeAt(i);
+	i--;
+    }else{
+      if( apps[i].Comment().isEmpty() ){ names << apps[i].Name(); }
+      else{ names << apps[i].Name() +" ("+apps[i].Comment()+")"; }
+    }
   }
   //Prompt for the user to select an application
   bool ok = false;
