@@ -489,15 +489,25 @@ void MountTray::slotCloseMenu(){
 }
 
 void MountTray::slotOpenAVDisk(QString dev){
-  //Quick dialog for the user to select an application from ~/bin/*
-    // -- will be expanded later
-  QDir dir(QDir::homePath()+"/bin");
-  QStringList bins = dir.entryList(QDir::Executable | QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
-  qDebug() << "Check for bins:" << bins << dir.absolutePath() << dir.exists();
-  if(bins.isEmpty()){ return; }
-  QString bin = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Application:"), bins,0, true);
-  if(bin.isEmpty()){ return; }
+  //Get the list of all AudioVideo Applications on the sytem
+  QList<XDGFile> apps = XDGUtils::allApplications();
+  apps = XDGUtils::filterAppsByCategory("AudioVideo", apps);
+  apps = XDGUtils::sortAppsByName(apps);
+  //Now generate the QStringList of application names
+  QStringList names;
+  for(int i=0; i<apps.length(); i++){
+    names << apps[i].Name();
+  }
+  qDebug() << "Names: " <<names;
+  //Prompt for the user to select an application
+  bool ok = false;
+  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Application:"), names,0, true, &ok);
+  if(!ok || appname.isEmpty()){ return; }
+  int index = names.indexOf(appname);
+  if(index == -1){ return; }
+  //Now start the application
   qDebug() << "Open Audio/Video disk:" << dev;
-  QProcess::startDetached( dir.absoluteFilePath(bin) );
+  qDebug() << " -- With:"<<appname;
+  QProcess::startDetached( apps[index].Exec() );
 }
   

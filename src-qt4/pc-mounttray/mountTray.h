@@ -15,11 +15,16 @@
 #include <QTextStream>
 #include <QFileDialog>
 
+//libpcbsd includes
+#include <pcbsd-xdgfile.h>
+#include <pcbsd-xdgutils.h>
+
 #include "menuItem.h"
 #include "devCheck.h"
 #include "fsWatcher.h"
 #include "fsDialog.h"
 #include "settingsDialog.h"
+
 
 extern bool DEBUG_MODE;
 extern QString DEVICEDIR;
