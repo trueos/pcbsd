@@ -498,7 +498,6 @@ void MountTray::slotOpenAVDisk(QString dev){
   for(int i=0; i<apps.length(); i++){
     names << apps[i].Name();
   }
-  qDebug() << "Names: " <<names;
   //Prompt for the user to select an application
   bool ok = false;
   QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Application:"), names,0, true, &ok);
