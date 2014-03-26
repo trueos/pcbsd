@@ -2,16 +2,23 @@
 #Set cross-application notification flags
 
 manpage(){
-echo "USAGE: pc-systemflag <FLAG> <Optional Message>
+echo "USAGE: pc-systemflag <FLAG> <MESSAGE>
 	FLAGS:
 	PBIUPDATE  - PBI Update Availability Changed
 	PKGUPDATE  - pkg Update Availability Changed
 	SYSUPDATE  - System Update Availability Changed
 	NETRESTART - Network Access Changed
 
-EXAMPLE 1: pc-systemflag PBIUPDATE \"Updates Available\"
-EXAMPLE 2: pc-systemflag NETRESTART"
-
+	MESSAGES:
+	WORKING	-  App is currently working
+	ERROR	-  App experienced an error
+	SUCCESS	-  App finished successfully
+	UPDATE	-  App has updates available
+	
+EXAMPLE 1: pc-systemflag PBIUPDATE UPDATE (A PBI can be updated)
+EXAMPLE 2: pc-systemflag NETRESTART SUCCESS (Network restarted successfully)
+EXAMPLE 3: pc-systemflag SYSUPDATE ERROR (Could not check for system updates)
+"
 exit 1
 }
 
@@ -22,7 +29,7 @@ elif [ ! -n "${1}" ]; then
  manpage
 fi
 
-echo "${1} + ${2}"
+#echo "${1} + ${2}"
 
 #Always check for the existance of the flag directory and try to create it if possible
 FLAGDIR="/tmp/.pcbsdflags"
@@ -46,11 +53,19 @@ else
   manpage
 fi
 
-#Set the flag
-if [ -n "${2}" ]; then
-    echo "${2}" > ${FLAGFILE}
+#Figure out which flag message this is
+if [ ${2} = "WORKING" ]; then
+  MSG="working"
+elif [ ${2} = "ERROR" ]; then
+  MSG="error"
+elif [ ${2} = "SUCCESS" ]; then
+  MSG="success"
+elif [ ${2} = "UPDATE" ]; then
+  MSG="updateavailable"
 else
-    touch ${FLAGFILE}
+  echo "Invalid Message: ${2}"
+  manpage
 fi
-#chmod 777 ${FLAGFILE}
+#Set the flag
+echo ${MSG} > ${FLAGFILE}
 exit 0
