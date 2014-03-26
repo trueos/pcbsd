@@ -9,6 +9,7 @@
 #include <QFile>
 #include <QDir>
 #include <QTimer>
+#include <QTextStream>
 
 #include <unistd.h>
 

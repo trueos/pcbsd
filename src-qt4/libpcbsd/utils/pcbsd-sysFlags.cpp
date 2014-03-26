@@ -63,8 +63,10 @@ QString SystemFlagWatcher::quickRead(QString filepath){
   QFile file(filepath);
   if( !file.open(QIODevice::ReadOnly | QIODevice::Text) ){ return ""; }
   QStringList ret;
-  while( !file.atEnd() ){
-    ret << QString( file.readLine() );
+  QTextStream in(&file);
+  while( !in.atEnd() ){
+    ret << QString( in.readLine() );
   }
+  file.close();
   return ret.join("\n");
 }
