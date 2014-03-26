@@ -15,12 +15,12 @@ DevCheck::DevCheck(){
   fsMatch.clear();
   fsFilter.clear();
   fsDetection << "FAT" << "NTFS" << "EXT" << "ISO 9660" << "Unix Fast File system" << "Reiser" << "XFS"; //string to find in "file -s" output
-  dsDetection << "FAT" << "NTFS" << "EXT" << "ISO9660" << "UFS" << "Reiser" << "XFS"; //string to find in "diskinfo" output
-  fsMatch << "FAT" << "NTFS" << "EXT" << "CD9660" << "UFS" << "REISERFS" << "XFS"; //internal labels for the filesystems
+  dsDetection << "FAT" << "NTFS" << "EXT" << "ISO9660" << "UFS" << "Reiser" << "XFS" << "UDF"; //string to find in "diskinfo" output
+  fsMatch << "FAT" << "NTFS" << "EXT" << "CD9660" << "UFS" << "REISERFS" << "XFS" << "UDF"; //internal labels for the filesystems
   fsFilter << "fat" << "ntfs" << "ext" << "cdrom" << "ufs" << "reiser" << "xfs"; //label categories in /dev/
   //Initialize lists of Manual Filesystems that might be available
   fsManual.clear(); fsCMD.clear(); fsBinCheck.clear();
-  fsManual << "FAT"  << "EXFAT" << "NTFS" << "EXT" << "EXT4" << "CD9660" << "UFS" << "REISERFS" << "XFS";
+  fsManual << "FAT"  << "EXFAT" << "NTFS" << "EXT" << "EXT4" << "CD9660" << "UFS" << "REISERFS" << "XFS" << "UDF";
   //fsCMD: %1 becomes device path, %2 becomes mointpoint path
   fsCMD << "mount -t msdosfs -o large,longnames,-m=755,-L="+QString(getenv("LANG"))+" %1 %2"; //FAT
   fsCMD << "mount.exfat-fuse %1 %2"; //EXFAT
@@ -31,8 +31,9 @@ DevCheck::DevCheck(){
   fsCMD << "mount -t ufs %1 %2"; //UFS
   fsCMD << "mount -t reiserfs %1 %2"; //REISERFS
   fsCMD << "mount -t xfs %1 %2"; //XFS
+  fsCMD << "mount -t udf %1 %2"; //UDF
   fsBinCheck << "/sbin/mount_msdosfs" << "/usr/local/bin/mount.exfat-fuse" << "/usr/local/bin/ntfs-3g" << "/sbin/mount" \
-		<< "/usr/local/bin/ext4fuse" << "/sbin/mount_cd9660" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount";
+		<< "/usr/local/bin/ext4fuse" << "/sbin/mount_cd9660" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount_udf";
   //Initialize the device directory
   devDir = QDir(DEVICEDIR);
   //Find all the currently active devices (that system is booted from)
