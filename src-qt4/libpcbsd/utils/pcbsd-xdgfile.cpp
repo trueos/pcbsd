@@ -17,12 +17,19 @@ void XDGFile::LoadDesktopFile(QString filePath){
   //Get the locale code
   QString loc = QString( getenv("LANG") ).section(".",0,0); // <language>_<country>
   QString sloc = loc.section("_",0,0); //short localization code (language only)
+  //qDebug() << "Localization Code:" << loc << sloc;
   //Parse the file contents and save the values appropriately
+  bool desktopsection = false;
   for(int i=0; i<contents.length(); i++){
+    if(contents[i].startsWith("[")){
+      if(contents[i]=="[Desktop Entry]"){ desktopsection=true; }
+      else{ desktopsection=false; }
+    }else if(!desktopsection){ continue; } //skip this section
     if( !contents[i].contains("=") ){ continue; } 
     QString var = contents[i].section("=",0,0);
     QString val = contents[i].section("=",1,50);
     bool isLocalized = ( var.endsWith("["+loc+"]") || var.endsWith("["+sloc+"]") );
+    if(!isLocalized && var.contains("[")){ continue; } //invalid localization
     var = var.section("[",0,0); //Chop the localization stuff off the end of the variable
     if(var=="Name"){
 	if(isLocalized){ lname = val; }
@@ -58,8 +65,9 @@ QStringList XDGFile::quickRead(){
   QStringList out;
   QFile F(filepath);
   if( !F.open(QIODevice::ReadOnly | QIODevice::Text) ){ return out; } //unable to open file
-  while( !F.atEnd() ){
-    out << QString( F.readLine() );
+  QTextStream in(&F);
+  while( !in.atEnd() ){
+    out << in.readLine();
   }
   F.close();
   return out;

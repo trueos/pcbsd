@@ -9,6 +9,8 @@ Author: Ken Moore <ken@pcbsd.org> 3/25/14
 #include <QStringList>
 #include <QFile>
 #include <QFileInfo>
+#include <QTextStream>
+#include <QDebug>
 
 #include <unistd.h>
 #include <stdlib.h>
