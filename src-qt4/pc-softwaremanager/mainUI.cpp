@@ -311,8 +311,10 @@ void MainUI::slotRefreshInstallTab(){
   } //end of empty list check
   
   //Check whether the system needs to be notified about a new PBI update availability
-  if( (updatesAvailable==0 && up) || (updatesAvailable==1 && !up) ){
-    SystemFlags::setFlag(SystemFlags::PbiUpdate);
+  if( updatesAvailable==0 && up ){
+    SystemFlags::setFlag(SystemFlags::PbiUpdate, SystemFlags::UpdateAvailable); //updates available
+  }else if( updatesAvailable==1 && !up ){
+    SystemFlags::setFlag(SystemFlags::PbiUpdate, SystemFlags::Success); //all up to date
   }
   if(up){ updatesAvailable = 1; }
   else{ updatesAvailable = 0; }
