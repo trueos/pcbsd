@@ -42,16 +42,22 @@ void SystemFlagWatcher::watcherNotification(){
   QFileInfoList flags = dir.entryInfoList( QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
   for(int i=0; i<flags.length(); i++){
      if(CDT < flags[i].lastModified()){
-       QString contents = quickRead(flags[i].absoluteFilePath()); //add this later
+       QString contents = quickRead(flags[i].absoluteFilePath());
+	SystemFlags::SYSMESSAGE msg;
+	if(contents==MWORKING){ msg = SystemFlags::Working; }
+	else if(contents==MERROR){ msg = SystemFlags::Error; }
+	else if(contents==MSUCCESS){ msg = SystemFlags::Success; }
+	else if(contents==MUPDATE){ msg = SystemFlags::UpdateAvailable; }
+	else{ continue; } //invalid message - skip this flag
        //New flag - check which one and emit the proper signal
        if(flags[i].fileName().startsWith(NETWORKRESTARTED) ){
-         emit FlagChanged(SystemFlags::NetRestart, contents);
+         emit FlagChanged(SystemFlags::NetRestart, msg);
        }else if(flags[i].fileName().startsWith(PKGUPDATEAVAILABLE) ){
-	 emit FlagChanged(SystemFlags::PkgUpdate, contents);
+	 emit FlagChanged(SystemFlags::PkgUpdate, msg);
        }else if(flags[i].fileName().startsWith(SYSUPDATEAVAILABLE) ){
-	 emit FlagChanged(SystemFlags::SysUpdate, contents);
+	 emit FlagChanged(SystemFlags::SysUpdate, msg);
        }else if(flags[i].fileName().startsWith(PBIUPDATEAVAILABLE) ){
-	 emit FlagChanged(SystemFlags::PbiUpdate, contents);
+	 emit FlagChanged(SystemFlags::PbiUpdate, msg);
        }
      }
   }

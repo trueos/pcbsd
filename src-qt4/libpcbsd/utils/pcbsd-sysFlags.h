@@ -22,37 +22,52 @@
 #define SYSUPDATEAVAILABLE QString("sys-update-available")
 #define PBIUPDATEAVAILABLE QString("pbi-update-available")
 
+// DEFINE THE SIMPLE MESSAGES
+#define MWORKING QString("working")
+#define MERROR QString("error")
+#define MSUCCESS QString("success")
+#define MUPDATE QString("updateavailable")
+
 class SystemFlags{
 public:
 	enum SYSFLAG{ NetRestart, PkgUpdate, SysUpdate, PbiUpdate};
-	
-	static void setFlag( SYSFLAG flag, QString contents = ""){
+	enum SYSMESSAGE{ Working, Error, Success, UpdateAvailable};
+	static void setFlag( SYSFLAG flag, SYSMESSAGE msg){
 	  if(!QFile::exists(FLAGDIR)){
 	    pcbsd::Utils::runShellCommand("mkdir -p -m 777 "+FLAGDIR);
 	    if( !QFile::exists(FLAGDIR) ){ return; }
 	  }
-	  QString cmd;
-	  if(contents.isEmpty()){ cmd = "touch %1"; }
-	  else{ cmd = "echo '%2' > %1"; cmd = cmd.arg("%1", contents); }
+	  QString cmd = "echo '%2' > %1";
+	  //Get the Message Type
+	  QString contents;
+	  switch(msg){
+	    case Working:
+		contents = MWORKING; break;
+	    case Error:
+		contents = MERROR; break;
+	    case Success:
+		contents = MSUCCESS; break;
+	    case UpdateAvailable:
+		contents = MUPDATE; break;
+	    default:
+		return; //invalid message
+	  }
 	  //Now get the flag type
-	  cmd = cmd.arg(FLAGDIR+"/");
 	  QString user = "-"+QString( getlogin() );
+	  QString file;
 	  switch(flag){
 	    case NetRestart:
-		cmd = cmd.arg(NETWORKRESTARTED+user);
-		break;
+		file = NETWORKRESTARTED+user; break;
 	    case PkgUpdate:
-		cmd = cmd.arg(PKGUPDATEAVAILABLE+user);
-		break;
+		file = PKGUPDATEAVAILABLE+user; break;
 	    case SysUpdate:
-		cmd = cmd.arg(SYSUPDATEAVAILABLE+user);
-		break;
+		file = SYSUPDATEAVAILABLE+user; break;
 	    case PbiUpdate:
-		cmd = cmd.arg(PBIUPDATEAVAILABLE+user);
-		break;
+		file = PBIUPDATEAVAILABLE+user; break;
 	    default:
-		return;
+		return; //invalid flag
 	  }
+	  cmd = cmd.arg(file, contents);
 	  pcbsd::Utils::runShellCommand(cmd);
 	}
 
@@ -76,7 +91,7 @@ private slots:
 	QString quickRead(QString filepath);
 
 signals:
-	void FlagChanged(SystemFlags::SYSFLAG, QString);
+	void FlagChanged(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE);
 };
 
 #endif
