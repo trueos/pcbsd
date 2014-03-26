@@ -36,7 +36,6 @@ void SystemFlagWatcher::watchFlagDir(){
 }
 
 void SystemFlagWatcher::watcherNotification(){
-  //Does not specify the contents of a flag just yet - KenMoore 3/12/14
   QDir dir(FLAGDIR);
   if(!dir.exists()){ return; } //flag directory does not exist yet - do nothing
   QFileInfoList flags = dir.entryInfoList( QDir::Files | QDir::NoDotAndDotDot, QDir::Time);
@@ -65,6 +64,7 @@ void SystemFlagWatcher::watcherNotification(){
 }
 
 QString SystemFlagWatcher::quickRead(QString filepath){
+  //only need one line from the file
   if(filepath.isEmpty()){ return ""; }
   QFile file(filepath);
   if( !file.open(QIODevice::ReadOnly | QIODevice::Text) ){ return ""; }
