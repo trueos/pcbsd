@@ -426,14 +426,13 @@ disabled  Disables synchronous requests. File system transactions
     </message>
     <message>
         <source>User Property</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Властивість користувача</translation>
     </message>
     <message>
         <source>Unknown property or information not available.
 Read ZFS manual for more information.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Невідома властивість або інформація відсутня.
+Перегляньте керівництво по ZFS для детальної інформації.</translation>
     </message>
     <message>
         <source>[Invalid]</source>
@@ -534,8 +533,7 @@ Read ZFS manual for more information.</source>
     </message>
     <message>
         <source>Mount with alternative root:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Монтувати з альтернативним коренем:</translation>
     </message>
     <message>
         <source>Mount all filesystems automatically</source>

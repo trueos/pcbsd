@@ -129,6 +129,14 @@
         <translation type="unfinished">
             </translation>
     </message>
+    <message>
+        <source>Audio/Video Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Play</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MountTray</name>
@@ -189,6 +197,14 @@
         <source>ISO Files (*.iso)</source>
         <translation type="unfinished">
             </translation>
+    </message>
+    <message>
+        <source>Audio/Video Disk</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Application:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
