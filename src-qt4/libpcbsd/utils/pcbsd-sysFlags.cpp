@@ -25,7 +25,9 @@ void SystemFlagWatcher::checkForRecent(int minutes){
 //    PRIVATE
 //=========
 void SystemFlagWatcher::watchFlagDir(){
-  watcher->addPath(FLAGDIR);
+  if(QFile::exists(FLAGDIR)){ //just to silence all the warnings about missing directory
+    watcher->addPath(FLAGDIR);
+  }
   //Now manually run the detection routine
   watcherNotification();
   //Now check that the directory is being watched
