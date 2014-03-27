@@ -10,7 +10,7 @@
 #include <QtGui>
 #include <qtsingleapplication.h>
 
-#include "UpdaterTray.h"
+#include "TrayUI.h"
 #include "../config.h"
 
 int  main(int argc, char ** argv)
@@ -28,14 +28,12 @@ int  main(int argc, char ** argv)
    a.installTranslator( &translator );
    qDebug() << "Locale:" << langCode;
 
-   qDebug() << "Starting Tray Application";
-
-   UpdaterTray tray;
+   TrayUI tray;
    QApplication::setQuitOnLastWindowClosed(false);
 
    // Init our program
    QObject::connect(&a, SIGNAL(messageReceived(const QString&)), &tray, SLOT(slotSingleInstance()) );
-
-   tray.programInit();
+   tray.show();
+   //tray.programInit();
    return  a.exec();
 }

@@ -3,11 +3,11 @@ LANGUAGE	= C++
 
 CONFIG	+= qt warn_on release
 
-LIBS    += -lQtSolutions_SingleApplication-head
+LIBS    += -lQtSolutions_SingleApplication-head -lpcbsd-utils
 
-HEADERS	+= UpdaterTray.h
+HEADERS	+= TrayUI.h
 
-SOURCES	+= main.cpp UpdaterTray.cpp
+SOURCES	+= main.cpp TrayUI.cpp
 
 #FORMS	= SystemUpdater.ui \
 

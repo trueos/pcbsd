@@ -1,12 +1,31 @@
+#include <QApplication>
+#include <QDateTime>
+#include <QDebug>
+#include <QFile>
+#include <QImage>
+#include <QMenu>
+#include <QMessageBox>
+#include <QProcess>
+#include <QSettings>
+#include <QTimer>
+#include <QToolTip>
+#include <QTranslator>
+#include <QTextStream>
 #include <QAction>
 #include <QDialog>
 #include <QFileSystemWatcher>
-#include <QFile>
-#include <QMenu>
 #include <QPair>
-#include <QProcess>
 #include <QString>
 #include <QSystemTrayIcon>
+
+#include <unistd.h>
+#include <sys/types.h>
+
+/* libPCBSD includes */
+#include <pcbsd-sysFlags.h>
+
+//Local includes
+#include "../config.h"
 
 #define SYSTRIGGER "/tmp/.sysupdatetraytrigger"
 #define PBITRIGGER "/tmp/.pbiupdatetraytrigger"
@@ -65,10 +84,11 @@ private:
    QString getLineFromCommandOutput( QString command );
    void loadUpdaterPrefs();
    QProcess *checkPBIProc;
-   QFileSystemWatcher *fileWatcher;
+   /*QFileSystemWatcher *fileWatcher;
    QFileSystemWatcher *fileWatcherSys;
    QFileSystemWatcher *fileWatcherAutoUpdate;
    QFileSystemWatcher *pbiWatcherAutoUpdate;
+   */
    QString sysPatchsetTmpFile;
    bool useCustomTmpDir;
    QString customTmpDir;
@@ -83,4 +103,5 @@ private:
    QMenu *trayIconMenu;
    bool shownPopup;
    bool doingCheck;
+   SystemFlagWatcher *watcher;
 };

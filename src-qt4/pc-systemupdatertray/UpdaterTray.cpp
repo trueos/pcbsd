@@ -1,22 +1,4 @@
-/* Qt */
-#include <QApplication>
-#include <QDateTime>
-#include <QDebug>
-#include <QFile>
-#include <QImage>
-#include <QMenu>
-#include <QMessageBox>
-#include <QProcess>
-#include <QSettings>
-#include <QTimer>
-#include <QToolTip>
-#include <QTranslator>
-#include <QTextStream>
-#include <unistd.h>
-#include <sys/types.h>
-
 #include "UpdaterTray.h"
-#include "../config.h"
 
 /* Update interval in ms  - Every 24 hours */
 #define  UPDATE_MSEC 1000 * 60 * 60 * 24 
