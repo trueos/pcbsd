@@ -21,17 +21,19 @@
 #define PKGUPDATEAVAILABLE QString("pkg-update-available")
 #define SYSUPDATEAVAILABLE QString("sys-update-available")
 #define PBIUPDATEAVAILABLE QString("pbi-update-available")
+#define WARDENUPDATEAVAILABLE QString("warden-update-available")
 
 // DEFINE THE SIMPLE MESSAGES
 #define MWORKING QString("working")
 #define MERROR QString("error")
 #define MSUCCESS QString("success")
 #define MUPDATE QString("updateavailable")
+#define MUPDATING QString("updating")
 
 class SystemFlags{
 public:
-	enum SYSFLAG{ NetRestart, PkgUpdate, SysUpdate, PbiUpdate};
-	enum SYSMESSAGE{ Working, Error, Success, UpdateAvailable};
+	enum SYSFLAG{ NetRestart, PkgUpdate, SysUpdate, PbiUpdate, WardenUpdate};
+	enum SYSMESSAGE{ Working, Error, Success, UpdateAvailable, Updating};
 	static void setFlag( SYSFLAG flag, SYSMESSAGE msg){
 	  if(!QFile::exists(FLAGDIR)){
 	    pcbsd::Utils::runShellCommand("mkdir -p -m 777 "+FLAGDIR);
@@ -49,6 +51,8 @@ public:
 		contents = MSUCCESS; break;
 	    case UpdateAvailable:
 		contents = MUPDATE; break;
+	    case Updating:
+		contents = MUPDATING; break;
 	    default:
 		return; //invalid message
 	  }
@@ -64,6 +68,8 @@ public:
 		file = SYSUPDATEAVAILABLE+user; break;
 	    case PbiUpdate:
 		file = PBIUPDATEAVAILABLE+user; break;
+	    case WardenUpdate:
+		file = WARDENUPDATEAVAILABLE+user; break;
 	    default:
 		return; //invalid flag
 	  }

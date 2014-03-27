@@ -49,6 +49,7 @@ void SystemFlagWatcher::watcherNotification(){
 	else if(contents==MERROR){ msg = SystemFlags::Error; }
 	else if(contents==MSUCCESS){ msg = SystemFlags::Success; }
 	else if(contents==MUPDATE){ msg = SystemFlags::UpdateAvailable; }
+	else if(contents==MUPDATING){ msg = SystemFlags::Updating; }
 	else{ continue; } //invalid message - skip this flag
        //New flag - check which one and emit the proper signal
        if(flags[i].fileName().startsWith(NETWORKRESTARTED) ){
@@ -59,6 +60,8 @@ void SystemFlagWatcher::watcherNotification(){
 	 emit FlagChanged(SystemFlags::SysUpdate, msg);
        }else if(flags[i].fileName().startsWith(PBIUPDATEAVAILABLE) ){
 	 emit FlagChanged(SystemFlags::PbiUpdate, msg);
+       }else if(flags[i].fileName().startsWith(WARDENUPDATEAVAILABLE) ){
+	 emit FlagChanged(SystemFlags::WardenUpdate, msg);
        }
      }
   }
