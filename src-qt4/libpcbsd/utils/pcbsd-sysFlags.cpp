@@ -1,10 +1,8 @@
 #include "pcbsd-sysFlags.h"
 
-SystemFlagWatcher::SystemFlagWatcher(){
+SystemFlagWatcher::SystemFlagWatcher(QObject* parent) : QObject(parent){
   CDT = QDateTime::currentDateTime();
   watcher = new QFileSystemWatcher(this);
-  connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherNotification()) );
-  connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherNotification()) );
   QTimer::singleShot(1, this, SLOT(watchFlagDir()) ); 
 }
 
@@ -25,19 +23,25 @@ void SystemFlagWatcher::checkForRecent(int minutes){
 //    PRIVATE
 //=========
 void SystemFlagWatcher::watchFlagDir(){
-  if(QFile::exists(FLAGDIR)){ //just to silence all the warnings about missing directory
-    watcher->addPath(FLAGDIR);
+  if(!QFile::exists(FLAGDIR)){ //just to silence all the warnings about missing directory
+    pcbsd::Utils::runShellCommand("pc-systemflag CHECKDIR");
   }
+  watcher->addPath(FLAGDIR);
   //Now manually run the detection routine
   watcherNotification();
   //Now check that the directory is being watched
   if(watcher->directories().isEmpty()){
     //flag dir does not exist yet, try again in 2 minutes
-    QTimer::singleShot(120000, this, SLOT(watchFlagDir()) );
+    QTimer::singleShot(60000, this, SLOT(watchFlagDir()) );
+    //qDebug() << "Nothing watched: wait 1 minute";
+  }else{
+    connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(watcherNotification()) );
+    connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(watcherNotification()) );	  
   }
 }
 
 void SystemFlagWatcher::watcherNotification(){
+  //qDebug() << "Watcher found change";
   QDir dir(FLAGDIR);
   if(!dir.exists()){ return; } //flag directory does not exist yet - do nothing
   QFileInfoList flags = dir.entryInfoList( QDir::Files | QDir::NoDotAndDotDot, QDir::Time);

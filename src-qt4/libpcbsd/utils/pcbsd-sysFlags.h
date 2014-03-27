@@ -58,7 +58,7 @@ public:
 	  }
 	  //Now get the flag type
 	  QString user = "-"+QString( getlogin() );
-	  QString file;
+	  QString file = FLAGDIR+"/";
 	  switch(flag){
 	    case NetRestart:
 		file = NETWORKRESTARTED+user; break;
@@ -74,6 +74,7 @@ public:
 		return; //invalid flag
 	  }
 	  cmd = cmd.arg(file, contents);
+	  if(QFile::exists(file)){ pcbsd::Utils::runShellCommand("rm "+file); } //make sure watchers can see the change
 	  pcbsd::Utils::runShellCommand(cmd);
 	}
 
@@ -82,7 +83,7 @@ public:
 class SystemFlagWatcher : public QObject{
 	Q_OBJECT
 public:
-	SystemFlagWatcher();
+	SystemFlagWatcher(QObject *parent = 0);
 	~SystemFlagWatcher();
 
 	void checkForRecent(int minutes);
