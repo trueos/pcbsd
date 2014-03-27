@@ -64,6 +64,7 @@ echo "       Kernel ident:......`uname -i`"
 echo "       CPU:...............`sysctl -n hw.model`"
 echo "       CPU cores:.........`sysctl -n kern.smp.cpus`"
 echo "       Memory (free/avail):${FREE_MEMORY} / ${AVAIL_MEMORY} Mb"
+echo "       Package set:.......:`cat /usr/local/etc/pcbsd.conf 2>/dev/null | grep 'PACKAGE_SET: ' | sed 's|PACKAGE_SET: ||g'`"
 if [ "$SYSTYPE" = "PCBSD" ]; then 
 echo "       Desktop environment:`de-info | grep "DE name" | sed "s/DE name: //"`"
 fi
