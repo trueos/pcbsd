@@ -13,7 +13,7 @@ SOURCES	+= main.cpp TrayUI.cpp
 
 RESOURCES += SystemUpdaterTray.qrc
 
-INCLUDEPATH += /usr/local/include
+INCLUDEPATH += ../libpcbsd/utils ../libpcbsd /usr/local/include
 
 TRANSLATIONS =  i18n/SystemUpdaterTray_af.ts \
 		i18n/SystemUpdaterTray_ar.ts \
