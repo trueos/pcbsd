@@ -22,6 +22,9 @@ void SystemFlagWatcher::checkForRecent(int minutes){
   watcherNotification(); //Now manually check for flags since then
 }
 
+void SystemFlagWatcher::checkFlags(){
+  watcherNotification(); //Manually check for newer flags
+}
 //=========
 //    PRIVATE
 //=========

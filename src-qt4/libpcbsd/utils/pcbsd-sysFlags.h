@@ -44,6 +44,9 @@ public:
 
 	void checkForRecent(int minutes);
 
+public slots:
+	void checkFlags(); //force re-checking for flag updates at the current time
+
 private:
 	QDateTime CDT;  //current date time
 	QFileSystemWatcher *watcher;
