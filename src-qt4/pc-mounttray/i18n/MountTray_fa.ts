@@ -217,7 +217,8 @@
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

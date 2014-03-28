@@ -186,7 +186,7 @@
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir Avec:</translation>
     </message>
 </context>
 <context>

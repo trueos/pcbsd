@@ -88,8 +88,7 @@
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Utilitarios Backend</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>

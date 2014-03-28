@@ -115,11 +115,11 @@
     </message>
     <message>
         <source>Aliases</source>
-        <translation type="unfinished">Apelidos</translation>
+        <translation>Atalhos</translation>
     </message>
     <message>
         <source>IPv4 Aliases</source>
-        <translation type="unfinished">Apelidos IPv4</translation>
+        <translation>Atalhos IPv4</translation>
     </message>
     <message>
         <source>IPv4 Bridge Aliases</source>

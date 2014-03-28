@@ -574,8 +574,7 @@
     </message>
     <message>
         <source>Tags</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Marke     </translation>
     </message>
     <message>
         <source>Comma-separated list of search tags for the application</source>

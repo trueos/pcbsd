@@ -46,8 +46,7 @@
     <message>
         <source>Controls how ACL entries are inherited when files and directories are created. The values are
 discard, noallow, restricted, and passthrough. For a description of these values, see ACL Properties.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Controla como as entradas ACL são herdadas quando os arquivos e diretórios são criados. Os valores são \ ndescartar, não permitir, restritos e passar por. Para uma descrição desses valores, consulte Propriedades da ACL.</translation>
     </message>
     <message>
         <source>Controls how an ACL entry is modified during a chmod operation.

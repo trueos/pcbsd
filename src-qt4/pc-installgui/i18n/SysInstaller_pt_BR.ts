@@ -255,13 +255,11 @@
     </message>
     <message>
         <source>ZFS Datasets:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Conjuntos de dados ZFS:</translation>
     </message>
     <message>
         <source>The original ZFS layout will be restored</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>O layout original ZFS será restaurado</translation>
     </message>
     <message>
         <source>Performing a restore from a Life-Preserver backup. Click next to start the restore wizard.</source>
@@ -287,8 +285,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Installing meta-package: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Instalando o meta-pacote: %1</translation>
     </message>
     <message>
         <source>Restoring system: %1</source>
@@ -296,23 +293,19 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>&amp;Load config from USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Carregue a configuração a partir do USB</translation>
     </message>
     <message>
         <source>&amp;Save Config to USB</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salvar as configuração no USB</translation>
     </message>
     <message>
         <source>&lt;Version&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;Version&gt;</translation>
     </message>
     <message>
         <source>Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versão:</translation>
     </message>
 </context>
 <context>
@@ -817,8 +810,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>To get started please enter the hostname, username and port of your backup server.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Para começar, digite o nome do host, nome de usuário e porta do servidor de backup.</translation>
     </message>
     <message>
         <source>Backup Server</source>
@@ -826,8 +818,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Host Name</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nome do host</translation>
     </message>
     <message>
         <source>User Name</source>
@@ -839,8 +830,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Server Authentication</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Servidor de Autenticação</translation>
     </message>
     <message>
         <source>Use USB key</source>
@@ -852,8 +842,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>The following systems are backed up on this server, select the one you wish to restore. </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os seguintes sistemas estão becapeados neste servidor, selecione o que você deseja restaurar. </translation>
     </message>
     <message>
         <source>Restore System Selection</source>
@@ -862,8 +851,7 @@ Clique em Finalizar para reiniciar. Depois de reiniciar, você pode ejetar a mí
     </message>
     <message>
         <source>Restore Summary</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Resumo da restauração</translation>
     </message>
     <message>
         <source>The system is ready to be restored, click Finish to continue.</source>
@@ -892,8 +880,8 @@ Confira se o servidor está acessível e verifique o seu usuário/senha.</transl
     <message>
         <source>Could not connect to the backup server!
 Please check your hostname and that the backup server is reachable.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Não foi possível conectar ao servidor de becape!
+Confira o nome do host e se o servidor de becape está acessível.</translation>
     </message>
     <message>
         <source>Will restore from:</source>
@@ -905,8 +893,7 @@ Please check your hostname and that the backup server is reachable.</source>
     </message>
     <message>
         <source>Key File:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo da chave:</translation>
     </message>
     <message>
         <source>If you saved your Life-Preserver key onto a USB drive, insert it now and select USB key, otherwise you may wish to use password authentication.</source>

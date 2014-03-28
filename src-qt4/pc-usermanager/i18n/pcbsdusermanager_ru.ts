@@ -208,8 +208,7 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сохранить [&amp;S]</translation>
     </message>
 </context>
 <context>
@@ -358,13 +357,11 @@
     </message>
     <message>
         <source>&amp;Change Password...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сменить пароль... [&amp;C]</translation>
     </message>
     <message>
         <source>&amp;Simple View</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Простой вид [&amp;S]</translation>
     </message>
 </context>
 <context>
@@ -387,13 +384,11 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Применить [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
 </context>
 <context>
