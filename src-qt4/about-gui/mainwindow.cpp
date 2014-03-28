@@ -91,8 +91,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // Utils version
     ui->UtilsLabel->setText(pcbsd::Utils::runShellCommand("pkg query '%v' pcbsd-utils-qt4").at(0).section("'", 1, 1));
 
-    QString PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
-    PkgSet="PRODUCTION";
+    QString PkgSet="PRODUCTION";
+    PkgSet = pcbsd::Utils::getValFromPCBSDConf("PACKAGE_SET");
     if (PkgSet.toUpper().trimmed() == "EDGE")
     {
         PkgSet="EDGE";

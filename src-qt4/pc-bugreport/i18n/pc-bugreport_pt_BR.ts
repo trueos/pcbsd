@@ -9,16 +9,15 @@
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Por favor, selecione o componente onde o erro ocorre.</translation>
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">Sistema básico do FreeBSD</translation>
+        <translation>Sistema básico do FreeBSD</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">Sistema básico do PC-BSD</translation>
+        <translation>Sistema básico do PC-BSD</translation>
     </message>
     <message>
         <source>Xorg server</source>
@@ -26,8 +25,7 @@
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ambiente de Trabalho</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
@@ -43,18 +41,15 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Enviar um e-mail para a lista de discussão sobre erros do FreeBSD. Visite a seguinte página web para se inscrever ou ler os arquivos desta lista&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Enviar um relatório de erro usando o mecanismo de trac do PC-BSD</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Enviar um e-mail para a lista de discussão de testes do PC-BSD. Visite a seguinte página web para se inscrever ou ler os arquivos desta lista</translation>
     </message>
     <message>
         <source>X.org server</source>
@@ -66,13 +61,11 @@
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Enviar um e-mail para a lista de discussão de testes do xorg. Visite a seguinte página web para se inscrever ou ler os arquivos desta lista</translation>
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Se você acha que esse problema é específico do FreeBSD, por favor relate o bug na lista de discurssão FreeBSD-x11</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>

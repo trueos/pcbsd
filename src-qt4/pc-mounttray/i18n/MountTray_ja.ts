@@ -119,11 +119,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオ/ビデオディスク</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>再生する</translation>
     </message>
 </context>
 <context>
@@ -182,11 +182,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>オーディオ/ビデオディスク</translation>
     </message>
     <message>
-        <source>Application:</source>
-        <translation type="unfinished"></translation>
+        <source>Open With:</source>
+        <translation>アプリケーションから開く:</translation>
     </message>
 </context>
 <context>

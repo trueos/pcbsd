@@ -5,8 +5,7 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saída CMD</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
@@ -14,7 +13,7 @@
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">Obtendo fontes do PC-BSD</translation>
+        <translation>Obtendo fontes do PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
@@ -89,8 +88,7 @@
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Utilitarios Backend</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
@@ -106,12 +104,11 @@
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">Fetch PC-BSD e sistema Fonte</translation>
+        <translation>Fetch PC-BSD e sistema fonte</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fetch PC-BSD &amp; arvore de ports</translation>
     </message>
     <message>
         <source>Error</source>

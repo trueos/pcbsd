@@ -115,16 +115,15 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Montar como:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Disco de Audio/Video</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Tocar</translation>
     </message>
 </context>
 <context>
@@ -183,11 +182,12 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Disco de Áudio/Vídeo</translation>
     </message>
     <message>
-        <source>Application:</source>
-        <translation type="unfinished"></translation>
+        <source>Open With:</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

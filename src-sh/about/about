@@ -64,6 +64,7 @@ echo "       Kernel ident:......`uname -i`"
 echo "       CPU:...............`sysctl -n hw.model`"
 echo "       CPU cores:.........`sysctl -n kern.smp.cpus`"
 echo "       Memory (free/avail):${FREE_MEMORY} / ${AVAIL_MEMORY} Mb"
+echo "       Package set:.......:`cat /usr/local/etc/pcbsd.conf 2>/dev/null | grep 'PACKAGE_SET: ' | sed 's|PACKAGE_SET: ||g'`"
 if [ "$SYSTYPE" = "PCBSD" ]; then 
 echo "       Desktop environment:`de-info | grep "DE name" | sed "s/DE name: //"`"
 fi
@@ -77,7 +78,9 @@ if [ "$SYSTYPE" = "PCBSD" ]; then
 echo ""
 echo "Installed desktop environments:"
 display_pkg_version "       KDE:.........." "kde-workspace"
-display_pkg_version "       Gnome:........" "gnome2-lite"
+display_pkg_version "       Gnome:........" "pcbsd-meta-gnome"
+display_pkg_version "       Cinnamon:....." "pcbsd-meta-cinnamon"
+display_pkg_version "       MATE:........." "pcbsd-meta-mate"
 display_pkg_version "       LXDE:........." "lxde-meta"
 display_pkg_version "       XFCE:........." "xfce"
 display_pkg_version "       e17:.........." "enlightenment"

@@ -285,18 +285,15 @@
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Bandeiras para determinar o tipo de arquivo</translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Bandeiras disponíveis para o novo link</translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Salvar este link para o módulo PBI</translation>
     </message>
     <message>
         <source>Module Building</source>
@@ -312,12 +309,11 @@
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">Diretório de saída</translation>
+        <translation>Diretório de saída</translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Localização do PBI acabado para ser localizado</translation>
     </message>
     <message>
         <source>Displays any output from a PBI build process</source>

@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Apenas os itens do sistema </translation>
     </message>
     <message>
         <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Esconder todos os itens do desktop</translation>
     </message>
 </context>
 </TS>

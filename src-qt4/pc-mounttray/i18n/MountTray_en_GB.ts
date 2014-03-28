@@ -119,11 +119,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio/Video Disk</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>Play</translation>
     </message>
 </context>
 <context>
@@ -182,11 +182,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio/Video Disk</translation>
     </message>
     <message>
-        <source>Application:</source>
-        <translation type="unfinished"></translation>
+        <source>Open With:</source>
+        <translation>Open With:</translation>
     </message>
 </context>
 <context>

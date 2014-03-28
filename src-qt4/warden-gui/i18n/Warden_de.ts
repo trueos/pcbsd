@@ -660,8 +660,7 @@
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jails erneue&amp;rn</translation>
     </message>
     <message>
         <source>&amp;Settings</source>

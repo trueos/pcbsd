@@ -113,8 +113,7 @@
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Benachrich&amp;tigungsprogramm starten            </translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
@@ -122,8 +121,7 @@
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ab&amp;suchen            </translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
@@ -131,8 +129,7 @@
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paarung &amp;initiieren</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
