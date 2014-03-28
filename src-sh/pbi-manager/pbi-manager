@@ -5394,6 +5394,7 @@ start_update_checks() {
 		return $?
 	else
 		# Loop and check all PBIs for updates
+		PBI_UPDATESAVAILABLE=""
 		for i in `ls ${PBI_DBAPPDIR}/ 2>/dev/null`
                 do
 			PBI_REPO=""
@@ -5411,8 +5412,21 @@ start_update_checks() {
 				check_pbi_update "$i" "display" \
 				 "$PBI_PROGNAME" "current" \
 				 "$PBI_FBSDVER" "$PBI_APPARCH" "$_repoID" "$PBI_PROGMDATE"
+				 if [ $? ]; then
+				   PBI_UPDATESAVAILABLE="YES"
+				 fi
                         fi
                 done
+		#Set the appropriate system flag if possible
+		if [ ! -e "/usr/local/bin/pc-systemflag" ]; then
+		  #do nothing - PC-BSD system flag support not available
+		elif [ -z "${PBI_REPO}" ]; then
+		  pc-systemflag PBIUPDATE ERROR #no repo available
+		elif [ -z "${PBI_UPDATESAVAILABLE}" ]; then
+		  pc-systemflag PBIUPDATE SUCCESS # all up to date
+		else
+		  pc-systemflag PBIUPDATE UPDATE # updates available
+		fi
 		return 0
 	fi
 
