@@ -3,11 +3,14 @@
 SystemFlagWatcher::SystemFlagWatcher(QObject* parent) : QObject(parent){
   CDT = QDateTime::currentDateTime();
   watcher = new QFileSystemWatcher(this);
+  chktime = new QTimer(this); //default timer in case a flag was not detected for some reason
+	chktime->setInterval(5 * 60 * 1000); //5 minutes default interval
+	connect(chktime, SIGNAL(timeout()), this, SLOT(watcherNotification()) );
   QTimer::singleShot(1, this, SLOT(watchFlagDir()) ); 
 }
 
 SystemFlagWatcher::~SystemFlagWatcher(){
-	
+  watcher->removePaths( watcher->directories() );
 }
 
 //========
@@ -70,6 +73,8 @@ void SystemFlagWatcher::watcherNotification(){
      }
   }
   CDT = QDateTime::currentDateTime(); //Now update the last time flags were checked
+  if(chktime->isActive()){ chktime->stop(); }
+  chktime->start(); //restart the default timer
 }
 
 QString SystemFlagWatcher::quickRead(QString filepath){

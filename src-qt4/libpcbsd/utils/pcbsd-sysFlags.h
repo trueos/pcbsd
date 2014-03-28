@@ -34,50 +34,6 @@ class SystemFlags{
 public:
 	enum SYSFLAG{ NetRestart, PkgUpdate, SysUpdate, PbiUpdate, WardenUpdate};
 	enum SYSMESSAGE{ Working, Error, Success, UpdateAvailable, Updating};
-	static void setFlag( SYSFLAG flag, SYSMESSAGE msg){
-	  if(!QFile::exists(FLAGDIR)){
-	    pcbsd::Utils::runShellCommand("mkdir -p -m 777 "+FLAGDIR);
-	    if( !QFile::exists(FLAGDIR) ){ return; }
-	  }
-	  QString cmd = "echo '%2' > %1";
-	  //Get the Message Type
-	  QString contents;
-	  switch(msg){
-	    case Working:
-		contents = MWORKING; break;
-	    case Error:
-		contents = MERROR; break;
-	    case Success:
-		contents = MSUCCESS; break;
-	    case UpdateAvailable:
-		contents = MUPDATE; break;
-	    case Updating:
-		contents = MUPDATING; break;
-	    default:
-		return; //invalid message
-	  }
-	  //Now get the flag type
-	  QString user = "-"+QString( getlogin() );
-	  QString file = FLAGDIR+"/";
-	  switch(flag){
-	    case NetRestart:
-		file = NETWORKRESTARTED+user; break;
-	    case PkgUpdate:
-		file = PKGUPDATEAVAILABLE+user; break;
-	    case SysUpdate:
-		file = SYSUPDATEAVAILABLE+user; break;
-	    case PbiUpdate:
-		file = PBIUPDATEAVAILABLE+user; break;
-	    case WardenUpdate:
-		file = WARDENUPDATEAVAILABLE+user; break;
-	    default:
-		return; //invalid flag
-	  }
-	  cmd = cmd.arg(file, contents);
-	  if(QFile::exists(file)){ pcbsd::Utils::runShellCommand("rm "+file); } //make sure watchers can see the change
-	  pcbsd::Utils::runShellCommand(cmd);
-	}
-
 };
 
 class SystemFlagWatcher : public QObject{
@@ -91,6 +47,7 @@ public:
 private:
 	QDateTime CDT;  //current date time
 	QFileSystemWatcher *watcher;
+	QTimer *chktime;
 
 private slots:
 	void watchFlagDir();
