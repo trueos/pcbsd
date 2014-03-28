@@ -184,6 +184,9 @@ void TrayUI::startSYSCheck(){
 }
 
 void TrayUI::startWardenCheck(){
+  WARDENSTATUS=0;
+  return; //Warden check command not currently working - just keep it invisible
+  //-------
   if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
   if(WARDENSTATUS==1){ return; } //already checking for updates
   qDebug() << " -Starting Warden Check...";
