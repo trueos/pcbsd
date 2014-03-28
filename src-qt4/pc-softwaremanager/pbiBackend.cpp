@@ -1268,7 +1268,7 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
        if(localChanges){ syncPBI(sysList[i],TRUE); } //synchronize the data with local file changes
        else{ updateStatus(sysList[i]); } //just update the status
        currInst.removeAt(index);
-     }     
+     }
    }
    //Non-Installed applications
    for(int i=0; i<currInst.length(); i++){
@@ -1299,6 +1299,17 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
      }else{
        QTimer::singleShot(60000,this,SLOT(slotSyncToDatabase())); //try again in a minute  
      }
+   }
+   //Update the system flag for whether updates are available
+   bool updates = false;
+   for(int i=0; i<sysList.length(); i++){
+     //Check if there are updates available for this PBI
+     updates = (updates || !upgradeAvailable(sysList[i]).isEmpty() );
+   }
+   if(updates){
+     QProcess::startDetached("pc-systemflag PBIUPDATE UPDATE");
+   }else if(!noRepo){
+     QProcess::startDetached("pc-systemflag PBIUPDATE SUCCESS");
    }
  }
  
@@ -1475,7 +1486,8 @@ void PBIBackend::slotProcessError(int ID, QStringList log){
        	     else if(APPHASH[metaID].latestArch==sysArch){} // do not save over an app that is the proper arch
        	     else if(Extras::newerDateTime(info[3], APPHASH[metaID].latestDatetime) ){ save=TRUE; } //save over older app
        	   }else{
-       	     if(APPHASH[metaID].backupDatetime.isEmpty()){ save=TRUE; } //nothing saved yet, go ahead
+       	     if(APPHASH[metaID].latestVersion==info[2]){} //do not save the same backup PBI as the latest PBI 
+	     else if(APPHASH[metaID].backupDatetime.isEmpty()){ save=TRUE; } //nothing saved yet, go ahead
        	     else if(APPHASH[metaID].backupArch==sysArch){} // do not save over an app that is the proper arch
        	     else if(Extras::newerDateTime(info[3], APPHASH[metaID].backupDatetime) ){ save=TRUE; } //save over older app
        	   }

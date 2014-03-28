@@ -32,7 +32,6 @@ MainUI::MainUI(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainUI){
   defaultIcon = ":/application.png";
   statusLabel = new QLabel();
   ui->statusbar->addWidget(statusLabel);
-  updatesAvailable = -1; //app starting value (0 for no updates, 1 for updates available)
 }
 
 void MainUI::setWardenMode(QString dir, QString ip){
@@ -261,7 +260,6 @@ void MainUI::slotRefreshInstallTab(){
   for(int i=0; i<ui->tree_install_apps->topLevelItemCount(); i++){
     cList << ui->tree_install_apps->topLevelItem(i)->whatsThis(0);
   }
-  bool up = false; //to keep track of whether updates are available for any installed apps
   //Quick finish if no items installed
   if(installList.isEmpty()){
     ui->tree_install_apps->clear();
@@ -290,11 +288,11 @@ void MainUI::slotRefreshInstallTab(){
           ui->tree_install_apps->insertTopLevelItem(i,item);
           cList.insert(i,installList[i]); //reflect this inclusion into the current list
 	}
-	up = up || !PBI->upgradeAvailable(installList[i]).isEmpty(); //will remain "true" if a single item has an update available
+	
       }else if(todo==1){
         //Update current item
         formatInstalledItemDisplay( ui->tree_install_apps->topLevelItem(i) );
-	up = up || !PBI->upgradeAvailable(installList[i]).isEmpty(); //will remain "true" if a single item has an update available
+	
       }else{
         //Remove current item
         ui->tree_install_apps->takeTopLevelItem(i);
@@ -309,15 +307,7 @@ void MainUI::slotRefreshInstallTab(){
       cList.removeAt(il); //reflect the change to the current list 
     }
   } //end of empty list check
-  
-  //Check whether the system needs to be notified about a new PBI update availability
-  if( updatesAvailable==0 && up ){
-    SystemFlags::setFlag(SystemFlags::PbiUpdate, SystemFlags::UpdateAvailable); //updates available
-  }else if( updatesAvailable==1 && !up ){
-    SystemFlags::setFlag(SystemFlags::PbiUpdate, SystemFlags::Success); //all up to date
-  }
-  if(up){ updatesAvailable = 1; }
-  else{ updatesAvailable = 0; }
+
   //Make sure that there is an item selected
   if(ui->tree_install_apps->topLevelItemCount() > 0 ){
     if( ui->tree_install_apps->selectedItems().isEmpty() ){
@@ -372,12 +362,13 @@ void MainUI::slotPBIStatusUpdate(QString pbiID){
 	}
       }
     }else{
-      //Just check/update the icon if necessary
+      //Just check/update the icon if necessary	
       if(ui->tree_install_apps->topLevelItem(i)->icon(0).isNull()){
 	 ui->tree_install_apps->topLevelItem(i)->setIcon(0, QIcon( PBI->PBIInfo(itemID, QStringList() << "icon").join("") ));
       }
     }
   }
+ 
   //If the browser app page is current for this app
   QString metaID = PBI->pbiToAppID(pbiID);
   if( (ui->stacked_browser->currentWidget() == ui->page_app) && (cApp == metaID) && ui->page_app->isVisible() ){

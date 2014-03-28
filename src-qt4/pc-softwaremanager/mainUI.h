@@ -120,7 +120,6 @@ private:
   QString wardenDir, wardenIP, defaultIcon;
   PBIBackend *PBI;
   //INSTALLED TAB
-  int updatesAvailable;
   QMenu *actionMenu, *appBinMenu, *shortcutMenu, *sDeskMenu, *sMenuMenu, *sMimeMenu, *contextActionMenu;
   QString cDetails;
   void initializeInstalledTab();
