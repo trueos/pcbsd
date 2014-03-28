@@ -217,6 +217,13 @@ do_check() {
   if [ "${PATCHFOUND}" = "0" ]; then 
      # No available updates
      echo "Your system is up to date!"
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
+       pc-systemflag SYSUPDATE SUCCESS #set the system flag that system is up to date
+     fi
+  else
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+      pc-systemflag SYSUPDATE UPDATE #set the system flag that system updates are available
+    fi
   fi
 
   rm ${PATCHTMPFILE}
@@ -1085,6 +1092,9 @@ do_install() {
 	if [ `id -u` != "0" ] ; then exit_err "Must be run as root!" ; fi
 	if [ -z "$1" ] ; then exit_err "No updates specified to install!"; fi
 
+	if [ -e "/usr/local/bin/pc-systemflag" ]; then
+	  pc-systemflag SYSUPDATE UPDATING #set the flag that system is updating
+	fi
 	# Begin to update the selected items
 	for up in `echo $1 | sed 's|,| |g'`
 	do
@@ -1104,7 +1114,9 @@ do_install() {
           fi
 
 	done 
-
+	if [ -e "/usr/local/bin/pc-systemflag" ]; then
+	  pc-systemflag SYSUPDATE SUCCESS #set the flag that system updates finished
+	fi
         # All Finished!
         rm ${PATCHTMPFILE}
         exit 0
@@ -1112,7 +1124,13 @@ do_install() {
 
 is_net_up() {
 	ping -c 1 www.pcbsd.org >/dev/null 2>/dev/null
-	return $?
+	ret=$?
+	if [ $ret -ne 0 ]; then
+	  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+	    pc-systemflag NETRESTART ERROR #set the system flag that no internet available
+	  fi
+	fi
+	return $ret
 }
 
 checkup_pkgs() {
@@ -1123,6 +1141,9 @@ checkup_pkgs() {
   pkg-static upgrade -n >/tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "Error checking for package updates..."
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
+       pc-systemflag PKGUPDATE ERROR #set the system flag pkg check errored
+     fi
      exit 1
   fi
 
@@ -1130,6 +1151,9 @@ checkup_pkgs() {
   grep -q "Upgrading" /tmp/.pkgData.$$
   if [ $? -ne 0 ] ; then
      echo "All packages are up to date!"
+     if [ -e "/usr/local/bin/pc-systemflag" ]; then
+       pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
+     fi
      rm /tmp/.pkgData.$$
      return 0
   fi
@@ -1139,6 +1163,9 @@ checkup_pkgs() {
   rm /tmp/.pkgData.$$
   echo ""
   echo "To start the upgrade run \"${0} pkgupdate\""
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
+  fi
   return 0
 }
 
@@ -1147,7 +1174,9 @@ update_pkgs()
   if [ -n "$1" -a "$1" != "-f" ] ; then
      exit_err "Invalid option $1 passed"
   fi
-
+  if [ -e "/usr/local/bin/pc-systemflag" ]; then
+    pc-systemflag PKGUPDATE UPDATING #set the system flag that packages are updating
+  fi
   # Don't use EVENT_PIPE for the update -f command
   if [ -n "$EVENT_PIPE" ] ; then
      oEP="$EVENT_PIPE" 
@@ -1190,7 +1219,15 @@ update_pkgs()
 
   if [ $result -ne 0 ] ; then
      echo "Failed updating..."
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+      pc-systemflag PKGUPDATE UPDATE #set the system flag that updates available
+    fi
+  else
+    if [ -e "/usr/local/bin/pc-systemflag" ]; then
+      pc-systemflag PKGUPDATE SUCCESS #set the system flag that packages are up to date
+    fi
   fi
+  
   exit $result
 }
 
