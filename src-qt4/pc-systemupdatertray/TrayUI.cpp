@@ -3,15 +3,19 @@
 //PUBLIC
 TrayUI::TrayUI() : QSystemTrayIcon(){
   qDebug() << "Starting Up System Updater Tray...";
-  //Set all the initial flags to "up-to-date"
-  PBISTATUS=0;
-  PKGSTATUS=0;
-  SYSSTATUS=0;
+  //Set all the initial flags ( <0 means do initial checks if appropriate)
+  PBISTATUS=-1;
+  PKGSTATUS=-1;
+  SYSSTATUS=-1;
   WARDENSTATUS=0;
   noInternet = false; //assume internet is available until we get a failure
   wasworking = false;
   //Load the tray settings file
   settings = new QSettings("PCBSD");
+  //Setup the checktimer
+  chktime = new QTimer(this);
+	chktime->setInterval(1000 * 60 * 60 * 24); //every 24 hours
+	connect(chktime, SIGNAL(timeout()), this, SLOT(checkForUpdates()) );
   //Generate the Menu
   menu = new QMenu(0);
   this->setContextMenu(menu);
@@ -68,13 +72,16 @@ TrayUI::TrayUI() : QSystemTrayIcon(){
   updateTrayIcon();
   updateToolTip();
   //Start up the system flag watcher and connect the signals/slots
-  watcher = new SystemFlagWatcher();
+  watcher = new SystemFlagWatcher(this);
 	connect(watcher,SIGNAL(FlagChanged(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE)),this,SLOT(watcherMessage(SystemFlags::SYSFLAG, SystemFlags::SYSMESSAGE)) );
   watcher->checkForRecent(10); //Check for flags in the last 10 minutes
   
   //Now connect the tray clicked signal
   connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(slotTrayClicked(QSystemTrayIcon::ActivationReason)) );
   connect(this, SIGNAL(messageClicked()), this, SLOT(launchApp()) );
+  
+  //Startup the initial checks in 1 minute
+  QTimer::singleShot(60000, this, SLOT(startupChecks()));
 }
 
 TrayUI::~TrayUI(){
@@ -127,7 +134,7 @@ void TrayUI::updateToolTip(){
     msg.append( "\n"+tr("System Reboot Required"));
   }else if(noInternet){
     msg.append("\n"+tr("Error checking for updates")+"\n"+tr("Please make sure you have a working internet connection") );
-  }else if(PBISTATUS==0 && SYSSTATUS==0 && PKGSTATUS==0 && WARDENSTATUS==0){
+  }else if(PBISTATUS<=0 && SYSSTATUS<=0 && PKGSTATUS<=0 && WARDENSTATUS<=0){
     msg.append("\n"+tr("Your system is fully updated") );
   }else{
     if(SYSSTATUS==2){ msg.append("\n"+tr("System Updates Available")); }
@@ -153,13 +160,15 @@ bool TrayUI::rebootNeeded(){
 
 void TrayUI::startPBICheck(){
   if(PBISTATUS==1){ return; } //already checking for updates
-  QString cmd = "pbi_update --checkall";
+  qDebug() << " -Starting PBI Check...";
+  QString cmd = "pbi_update --check-all";
   PBISTATUS=1; //working
   QProcess::startDetached(cmd); 	
 }
 
 void TrayUI::startPKGCheck(){
   if(PKGSTATUS==1){ return; } //already checking for updates
+  qDebug() << " -Starting Package Check...";
   QString cmd = "sudo pc-updatemanager pkgcheck";
   PKGSTATUS=1; //working
   QProcess::startDetached(cmd);  
@@ -168,6 +177,7 @@ void TrayUI::startPKGCheck(){
 void TrayUI::startSYSCheck(){
   if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
   if(SYSSTATUS==1){ return; } //already checking for updates
+  qDebug() << " -Starting System Check...";
   QString cmd = "sudo pc-updatemanager check";
   SYSSTATUS=1; //working
   QProcess::startDetached(cmd); 	
@@ -176,24 +186,36 @@ void TrayUI::startSYSCheck(){
 void TrayUI::startWardenCheck(){
   if(rebootNeeded()){ return; } //do not start another check if a reboot is required first
   if(WARDENSTATUS==1){ return; } //already checking for updates
+  qDebug() << " -Starting Warden Check...";
   QString cmd = "warden checkup all";
   WARDENSTATUS=1; //working
   QProcess::startDetached(cmd);
 }
 
+// ===============
+//     PRIVATE SLOTS
+// ===============
 void TrayUI::checkForUpdates(){
-  //Simplification functions to start all checks
+  //Simplification function to start all checks
     startPBICheck();
     startPKGCheck();
     startSYSCheck();
     startWardenCheck();
     updateTrayIcon();
     updateToolTip();
+    QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
 }
 
-// ===============
-//     PRIVATE SLOTS
-// ===============
+void TrayUI::startupChecks(){
+  //Slot to perform startup checks as necessary
+  // - This should make sure we don't re-check systems that were checked recently
+  if(SYSSTATUS<0){ startSYSCheck(); }
+  if(PKGSTATUS<0){ startPKGCheck(); }
+  if(WARDENSTATUS<0){ startWardenCheck(); }
+  if(PBISTATUS<0){ startPBICheck(); }
+  QTimer::singleShot(60000, watcher, SLOT(checkFlags()) ); //make sure to manually check 1 minute from now
+}
+
 void TrayUI::launchApp(QString app){
   //Check for auto-launch
   if(app.isEmpty()){
@@ -221,10 +243,14 @@ void TrayUI::launchApp(QString app){
 
 void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE msg){
   //reset the noInternet flag (prevent false positives, since something obviously just changed)
-  noInternet = false;
+    // - PBI system uses cached files - not a good indicator of internet availability
+  bool oldstat = noInternet;
+  if(flag != SystemFlags::PbiUpdate && flag != SystemFlags::NetRestart){ noInternet = false; }
   switch(flag){
 	case SystemFlags::NetRestart:
-	  if(noInternet){ checkForUpdates(); } //only re-check if no internet previously available
+	  if(msg==SystemFlags::Error){ noInternet = true; }
+	  else{ noInternet = false; }
+	  if(!noInternet && oldstat){ checkForUpdates(); } //only re-check if no internet previously available
 	  break;
 	case SystemFlags::PkgUpdate:
 	  if(msg==SystemFlags::UpdateAvailable){ PKGSTATUS=2; }
@@ -247,7 +273,7 @@ void TrayUI::watcherMessage(SystemFlags::SYSFLAG flag, SystemFlags::SYSMESSAGE m
 	  else if(msg==SystemFlags::Working){ PBISTATUS=1; }
 	  else if(msg==SystemFlags::Success){ PBISTATUS=0; }
 	  else if(msg==SystemFlags::Updating){ PBISTATUS=3; }
-	  else if(msg==SystemFlags::Error){ PBISTATUS=0; noInternet=true; }
+	  else if(msg==SystemFlags::Error){ PBISTATUS=0; } //nothing special for PBI errors yet
 	  else{ startPBICheck(); } //unknown - check it
 	  break;	
 	case SystemFlags::WardenUpdate:
