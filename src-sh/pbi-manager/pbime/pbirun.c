@@ -1,6 +1,4 @@
 /*-
- * Copyright (c) 2003 Mike Barcroft <mike@FreeBSD.org>
- * Copyright (c) 2007 Bill Moran/Collaborative Fusion
  * Copyright (c) 2014 Kris Moore/PC-BSD Software <kris@pcbsd.org>
  * All rights reserved.
  *
@@ -45,81 +43,33 @@ static void	usage(void);
 int
 main(int argc, char *argv[])
 {
-	char initscript[4096];
-	char hintsfile[4096];
-	char pbirun[500];
 	char *newargv[1024];
-	char newlibdir[MAXPATHLEN];
         int argoffset;
 
-	/* Is this a request to cleanup? */
-	if ( argc == 3 )
-		return 0;
+	// Tickle the ldconfig file
+	system("/usr/pbi/.pbild >/dev/null 2>/dev/null");
 
-	if (argc < 4)
-		usage();
-
-	if ( (strlen("/usr/pbi/.pbi_preload.so") + strlen(argv[1]) + strlen(argv[2])) > 4090)
-                err(1, "Max length exceeded for pbidir");
-
-	// Set the environment variables
-	setenv("LD_PRELOAD", "/usr/pbi/.pbi_preload.so", 1);
-	setenv("PBI_PRELOAD", "/usr/pbi/.pbi_preload.so", 1);
-	setenv("PBI_RUNDIR", argv[2], 1);
-	unsetenv("PBI_BREAKOUT");
-
-	// Set the hints-file location
-	strcpy(hintsfile, "/var/run/ld-elf.so.hints.");
-        strcat(hintsfile, basename(argv[2]));
-	setenv("LD_ELF_HINTS_PATH", hintsfile, 1);
-	
-	// Do the init of the environment
-	strcpy(initscript, "/usr/pbi/.pbiinit ");
-	strcat(initscript, argv[2]);
-	//printf( "initscript: %s \n", initscript);
-	if ( system(initscript) != 0 )
-                err(1, "Failed PBI init!");
-	
-	// Backwards compat check for old PBIs
-	if ( (argc > 5) && (strcmp(argv[5], "args") == 0) )
-	{
-		argoffset=6;
-	} else {
-       	        // Running with old pbi wrapper
-               	argoffset=4;
-	}
-
+	newargv[0] = argv[1];
+	newargv[1] = '\0';
 	// Setup the newargv with right stack
-	strcpy(pbirun, "/usr/pbi/.pbirun");
-	newargv[0] = pbirun;
-	newargv[1] = argv[3];
-
-	int j = 2;
-	for ( int i = argoffset; i<argc; i++)
+	for ( int i = 2; i<argc; i++)
 	{
-		newargv[j] = argv[i];
+		//printf("argv %d %s\n", i, argv[i]);
+		newargv[i-1] = argv[i];
 		if ( i > 1020 ) {
 			err(1, "Too many args...");
 		}
-		j++;
+		newargv[i] = '\0';
 	}
-	//sleep(5);
-
-	// Make sure 32bit compat is enabled
-	strncat(newlibdir, "/usr/local", (strlen("/usr/local") ));
-	strcat(newlibdir, "/lib");
-	setenv("LD_32_LIBRARY_PATH", newlibdir, 1);
-
-	//printf("Running %s - %s\n", newargv[0], newargv[1]);
 
 	// Execute the PBI now
-	return execvp("/usr/pbi/.pbirun", newargv);
+	return execvp(argv[1], newargv);
 }
 
 static void
 usage(void)
 {
 
-	fprintf(stderr, "usage: pbime mntdir pbidir command cwd [...]\n");
+	fprintf(stderr, "usage: pbirun command\n");
 	exit(1); 
 }

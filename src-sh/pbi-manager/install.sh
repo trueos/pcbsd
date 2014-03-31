@@ -135,24 +135,28 @@ fi
 
 # Install the pbime wrapper
 cd ${DIR}/pbime && make
-install -o root -g wheel -m 4751 pbime ${LB}/share/pbi-manager/.pbime
-install -o root -g wheel -m 755 pbimount ${LB}/share/pbi-manager/.pbimount
+install -o root -g wheel -m 755 pbime ${LB}/share/pbi-manager/.pbime
+install -o root -g wheel -m 4751 pbild ${LB}/share/pbi-manager/.pbild
+install -o root -g wheel -m 755 pbirun ${LB}/share/pbi-manager/.pbirun
+install -o root -g wheel -m 755 pbiinit ${LB}/share/pbi-manager/.pbiinit
 install -o root -g wheel -m 755 ldconfig ${LB}/share/pbi-manager/.ldconfig
-install -o root -g wheel -m 755 pbisyslisten ${LB}/share/pbi-manager/.pbisyslisten
 install -o root -g wheel -m 755 pbisyscmd ${LB}/share/pbi-manager/.pbisyscmd
+install -o root -g wheel -m 755 pbisyscmd ${LB}/share/pbi-manager/openwith
 if [ "${LB}" = "/usr/local" ] ; then
-  install -o root -g wheel -m 4751 pbime /usr/pbi/.pbime
-  install -o root -g wheel -m 755 pbimount /usr/pbi/.pbimount
+  install -o root -g wheel -m 755 pbime /usr/pbi/.pbime
+  install -o root -g wheel -m 4751 pbild /usr/pbi/.pbild
+  install -o root -g wheel -m 755 pbirun /usr/pbi/.pbirun
+  install -o root -g wheel -m 755 pbiinit /usr/pbi/.pbiinit
   install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
-  install -o root -g wheel -m 755 pbisyslisten /usr/pbi/.pbisyslisten
   install -o root -g wheel -m 755 pbisyscmd /usr/pbi/.pbisyscmd
+  install -o root -g wheel -m 755 pbisyscmd /usr/bin/openwith
 fi
 
-# Install the pbifs binary
-cd ${DIR}/pbifs && make 
-install -o root -g wheel -m 755 pbifs ${LB}/share/pbi-manager/.pbifs
+# Install the pbi_preload wrapper library
+cd ${DIR}/pbi_preload && make 
+install -o root -g wheel -m 755 pbi_preload.so ${LB}/share/pbi-manager/.pbi_preload.so
 if [ "${LB}" = "/usr/local" ] ; then
-  install -o root -g wheel -m 755 pbifs /usr/pbi/.pbifs
+  install -o root -g wheel -m 755 pbi_preload.so /usr/pbi/.pbi_preload.so
 fi
 
 # Install the MANPATH conf
