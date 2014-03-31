@@ -16,6 +16,12 @@ stop_cmd=":"
 
 ldconfig_start()
 {
+	ldconfig_paths="/usr/lib/compat ${PBI_RUNDIR}/local/lib ${PBI_RUNDIR}/local/lib/compat/pkg"
+	ldconfig_local_dirs="${PBI_RUNDIR}/local/libdata/ldconfig"
+	ldconfig_local32_dirs="${PBI_RUNDIR}/local/libdata/ldconfig32"
+	ldconfig_file="/var/run/ld-elf.so.hints.`basename ${PBI_RUNDIR}`"
+	ldconfig32_file="/var/run/ld-elf32.so.hints.`basename ${PBI_RUNDIR}`"
+
 	local _files _ins
 
 	_ins="-i"
@@ -36,7 +42,7 @@ ldconfig_start()
 			fi
 		done
 		check_startmsgs && echo 'ELF ldconfig path:' ${_LDC}
-		${ldconfig} -elf ${_ins} ${_LDC}
+		${ldconfig} -elf ${_ins} -f ${ldconfig_file} ${_LDC}
 
 		case `sysctl -n hw.machine_arch` in
 		amd64)
@@ -56,7 +62,7 @@ ldconfig_start()
 			done
 			check_startmsgs &&
 			    echo '32-bit compatibility ldconfig path:' ${_LDC}
-			${ldconfig} -32 -m ${_ins} ${_LDC}
+			${ldconfig} -32 -m ${_ins} -f ${ldconfig32_file} ${_LDC}
 			;;
 		esac
 

@@ -29,12 +29,13 @@ fi
 
 # If on FreeBSD > 10, install the PBI mounting files
 if [ -e "${PREFIX}/share/pbi-manager/.pbime" ] ; then
-   install -o root -g wheel -m 4751 ${PREFIX}/share/pbi-manager/.pbime /usr/pbi/.pbime
-   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbimount /usr/pbi/.pbimount
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbime /usr/pbi/.pbime
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbime /usr/pbi/.pbirun
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbiinit /usr/pbi/.pbiinit
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.ldconfig /usr/pbi/.ldconfig
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbisyscmd /usr/pbi/.pbisyscmd
-   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbisyslisten /usr/pbi/.pbisyslisten
-   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbifs /usr/pbi/.pbifs
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/openwith /usr/bin/openwith
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbi_preload.so /usr/pbi/.pbi_preload.so
 fi
 
 # Check if we have our warden.conf file

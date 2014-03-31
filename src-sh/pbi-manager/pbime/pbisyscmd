@@ -1,41 +1,28 @@
 #!/bin/sh
+# PC-BSD Helper script to open files with default mime type
+###########################################################
 
-if [ -z "$PBI_SYSPIPE" ] ; then exit 1; fi
+target="$1"
 
-# Create the command return pipe
-RFIFO="`mktemp -u /tmp/.pbi-return-pipe-XXXXXXXXXXXXXXXX`"
-mkfifo ${RFIFO}
-if [ $? -ne 0 ] ; then
-   echo "Failed to create return pipe"
-   exit 1
-fi
+unset LD_LIBRARY_PATH
+unset LD_PRELOAD
+unset PBI_PRELOAD
+unset PBI_RUNDIR
+PBI_BREAKOUT="YES" ; export PBI_BREAKOUT
 
-
-# Check for some common mime commands to open files with
-if [ "`basename $0`" = "openwith" ] ; then
-  echo "EXEC: ${RFIFO} openwith \"$@\"" > ${PBI_SYSPIPE}
-elif [ "`basename $0`" = "xdg-open" ] ; then
-  echo "EXEC: ${RFIFO} xdg-open \"$@\"" > ${PBI_SYSPIPE}
+echo $target | grep -e "^http" -e "^ftp" -e "^mailto:" >/dev/null 2>/dev/null
+if [ $? -eq 0 ] ; then
+  # Opening a link
+  echo "/usr/local/bin/xdg-open $target" | /bin/sh
+  if [ $? -ne 0 ] ; then
+	zenity --error --title "Open URL error" --text "Could not locate any known browser!"
+  fi
 else
-  # Send the raw command upstream
-  echo "EXEC: ${RFIFO} $@" > ${PBI_SYSPIPE}
+  # Opening a file
+  echo "gvfs-open $target" | /bin/sh
+  if [ $? -ne 0 ] ; then
+        ext=`echo $target | awk -F . '{print $NF}'`
+	zenity --error --title "File association error" --text "The file extension (.${ext}) has no associated program!"
+  fi
 fi
 
-# Run the listener daemon loop, to keep an ear to the ground for output from the
-# system command we are running
-while :
-do
-   line="`cat ${RFIFO}`"
-   echo $line | grep -q "^CLOSE:"
-   if [ $? -eq 0 ]; then 
-      # Command finished! Cleanup and exit with the status
-      err="`echo $line | cut -d ' ' -f 2`"
-      rm ${RFIFO}
-      exit $err
-   fi
-
-   # Display the output
-   echo $line
-done
-
-exit 0
