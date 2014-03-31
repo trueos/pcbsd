@@ -5,6 +5,7 @@
 target="$1"
 
 unset LD_LIBRARY_PATH
+unset LD_ELF_HINTS_PATH
 unset LD_PRELOAD
 unset PBI_PRELOAD
 unset PBI_RUNDIR
