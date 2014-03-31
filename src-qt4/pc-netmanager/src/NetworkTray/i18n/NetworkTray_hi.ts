@@ -57,32 +57,32 @@
     </message>
     <message>
         <source>Unknown Wireless Device</source>
-        <translation type="unfinished">
+        <translation>अज्ञात वायरलैस उपकर्ण
             </translation>
     </message>
     <message>
         <source>Device Name:</source>
-        <translation type="unfinished">
+        <translation>उपकर्ण का नाम:
             </translation>
     </message>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
+        <translation>अज्ञात
             </translation>
     </message>
     <message>
         <source>Close the Network Monitor</source>
-        <translation type="unfinished">
+        <translation>नेटवर्क मॉनिटर को बंद करें
             </translation>
     </message>
     <message>
         <source>Click here to configure wireless connections</source>
-        <translation type="unfinished">
+        <translation>वायरलैस संबंध को समनुरूप करने के लिए यहाँ क्लिक करें
             </translation>
     </message>
     <message>
         <source>No Wireless Network Connection</source>
-        <translation type="unfinished">
+        <translation>कोई वायरलैस नेटवर्क संबंध नहीं है
             </translation>
     </message>
 </context>

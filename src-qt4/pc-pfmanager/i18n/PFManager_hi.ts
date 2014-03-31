@@ -100,37 +100,37 @@
     </message>
     <message>
         <source>&amp;Restore default configuration</source>
-        <translation type="unfinished">
+        <translation>&amp;रीस्टोर करें डिफॉल्ट समाकृति
             </translation>
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
+        <translation>&amp;शुरू करें
             </translation>
     </message>
     <message>
         <source>Sto&amp;p</source>
-        <translation type="unfinished">
+        <translation>स्टा&amp;प
             </translation>
     </message>
     <message>
         <source>Re&amp;start</source>
-        <translation type="unfinished">
+        <translation>री&amp;स्टार्ट
             </translation>
     </message>
     <message>
         <source>&amp;Add entry</source>
-        <translation type="unfinished">
+        <translation>&amp;एंट्री जोड़ें
             </translation>
     </message>
     <message>
         <source>&amp;Edit entry</source>
-        <translation type="unfinished">
+        <translation>&amp;एंट्री संपादन
             </translation>
     </message>
     <message>
         <source>&amp;Delete entry</source>
-        <translation type="unfinished">
+        <translation>&amp;एंट्री रद्द करें
             </translation>
     </message>
 </context>
@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>outgoing</source>
-        <translation>बहर्जना </translation>
+        <translation>आउटगोइंग</translation>
     </message>
     <message>
         <source>TCP</source>
@@ -170,27 +170,27 @@
     <message>
         <source>This will turn off the firewall completely.
 Are you sure?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ये फाइयर वॉल को पूरी तरह बंद कर देगा
+आप निश्चित हैं?            </translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
+        <translation>कामयाबी
             </translation>
     </message>
     <message>
         <source>Restarted successfuly!</source>
-        <translation type="unfinished">
+        <translation>पुनः संघहन कामयाब
             </translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
+        <translation>विफलता
             </translation>
     </message>
     <message>
         <source>Failed to restart!</source>
-        <translation type="unfinished">
+        <translation>दोबारा शुरू करने में विफलता
             </translation>
     </message>
 </context>
@@ -198,7 +198,7 @@ Are you sure?</source>
     <name>RcConfig</name>
     <message>
         <source>Error opening the specified rc.conf file.</source>
-        <translation type="unfinished">
+        <translation>विस्तृत rc.conf फाइल खोलने में त्रुटि
             </translation>
     </message>
 </context>
@@ -206,7 +206,7 @@ Are you sure?</source>
     <name>services</name>
     <message>
         <source>Unknown</source>
-        <translation type="unfinished">
+        <translation>अज्ञात
             </translation>
     </message>
 </context>

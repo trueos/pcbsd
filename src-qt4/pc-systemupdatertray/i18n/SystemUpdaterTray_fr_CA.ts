@@ -2,114 +2,110 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>UpdaterTray</name>
-    <message>
-        <source>Start the AppCafe</source>
-        <translation>Démarrer AppCafe          </translation>
-    </message>
-    <message>
-        <source>Check for updates</source>
-        <translation>Chercher des mises à jour          </translation>
-    </message>
-    <message>
-        <source>Run at startup</source>
-        <translation>Lancer au démarrage            </translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Quitter            </translation>
-    </message>
-    <message>
-        <source>PC-BSD Update Manager</source>
-        <translation>Gestionnaire de mise à jour PC-BSD    </translation>
-    </message>
-    <message>
-        <source>Your system is fully updated</source>
-        <translation>Votre système est entièrement mis à jour      </translation>
-    </message>
-    <message>
-        <source>Failed to contact the update server!</source>
-        <translation>Impossible de contacter le serveur de mise à jour !</translation>
-    </message>
-    <message>
-        <source>Checking for updates...</source>
-        <translation>Vérification des mises à jour...            </translation>
-    </message>
-    <message>
-        <source>System updates available</source>
-        <translation>Mises à jour système disponibles            </translation>
-    </message>
-    <message>
-        <source>PBI updates available</source>
-        <translation>Mises à jour de PBI disponibles        </translation>
-    </message>
-    <message>
-        <source>System Updates Available</source>
-        <translation>Mises à jour système disponibles            </translation>
-    </message>
-    <message>
-        <source>Software Updates Available</source>
-        <translation>Mises à jour logiciel disponible            </translation>
-    </message>
+    <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
         <translation>Lancer le Gestionnaire de Mise à jour           </translation>
-    </message>
-    <message>
-        <source>Important system updates are available. Click here to install them!</source>
-        <translation>Des mises à jour importante du système sont disponibles. Cliquez ici pour les installer !            </translation>
-    </message>
-    <message>
-        <source>Software updates are available. Click here to install them!</source>
-        <translation>Des mises à jour logiciel sont disponibles. Cliquez ici pour les installer !            </translation>
-    </message>
-    <message>
-        <source>Restart Required</source>
-        <translation>Redémarrage nécessaire           </translation>
-    </message>
-    <message>
-        <source>Please restart your computer to complete the pending updates</source>
-        <translation>Redémarrez votre ordinateur pour terminer les mises à jour        </translation>
-    </message>
-    <message>
-        <source>System restart required to finish updates</source>
-        <translation>Redémarrage du système est requis pour terminer les mises à jour            </translation>
-    </message>
-    <message>
-        <source>Start the Warden</source>
-        <translation>Lancer Warden            </translation>
-    </message>
-    <message>
-        <source>Jail updates available</source>
-        <translation>Jail mise à jour disponible            </translation>
-    </message>
-    <message>
-        <source>Jail Updates Available</source>
-        <translation>MIse à jour Jail disponible            </translation>
-    </message>
-    <message>
-        <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation>Importante mise à jour Jail disponible. Cliquez ici pour lancer Warden !</translation>
-    </message>
-    <message>
-        <source>Display notifications</source>
-        <translation>Afficher les notifications</translation>
-    </message>
-    <message>
-        <source>Package updates available</source>
-        <translation>Mise à jour de Paquets disponibles</translation>
-    </message>
-    <message>
-        <source>Important package updates are available. Click here to install them!</source>
-        <translation>Mises à jour de paquets importants sont disponibles. Cliquez ici pour les installer!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
         <translation>Démarrez le gestionnaire de paquets</translation>
     </message>
     <message>
+        <source>Start the AppCafe</source>
+        <translation>Démarrer AppCafe          </translation>
+    </message>
+    <message>
+        <source>Start the Warden</source>
+        <translation>Lancer Warden            </translation>
+    </message>
+    <message>
+        <source>Check For Updates</source>
+        <translation>Vérifier les Mise à jour</translation>
+    </message>
+    <message>
+        <source>Run At Startup</source>
+        <translation>Exécuter au démarrage</translation>
+    </message>
+    <message>
+        <source>Display Notifications</source>
+        <translation>Afficher les Notifications</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>Quitter            </translation>
+    </message>
+    <message>
+        <source>System Reboot Required</source>
+        <translation>Redémarrage du système requis</translation>
+    </message>
+    <message>
+        <source>System Updates Available</source>
+        <translation>Mises à jour système disponibles            </translation>
+    </message>
+    <message>
         <source>Package Updates Available</source>
         <translation>Mises à jour de paquets disponibles</translation>
+    </message>
+    <message>
+        <source>PBI Updates Available</source>
+        <translation>PBI Mise à jour disponible</translation>
+    </message>
+    <message>
+        <source>Jail Updates Available</source>
+        <translation>MIse à jour Jail disponible            </translation>
+    </message>
+    <message>
+        <source>PC-BSD System Message</source>
+        <translation>PC-BSD Système de Message</translation>
+    </message>
+    <message>
+        <source>PC-BSD Update Manager</source>
+        <translation>Gestionnaire de mise à jour PC-BSD    </translation>
+    </message>
+    <message>
+        <source>Error checking for updates</source>
+        <translation>Erreur de vérification des mises à jour</translation>
+    </message>
+    <message>
+        <source>Please make sure you have a working internet connection</source>
+        <translation>S&apos;il vous plaît assurez-vous que vous avez une connexion internet</translation>
+    </message>
+    <message>
+        <source>Your system is fully updated</source>
+        <translation>Votre système est entièrement mis à jour      </translation>
+    </message>
+    <message>
+        <source>Checking for system updates...</source>
+        <translation>Vérification des mises à jour du système...</translation>
+    </message>
+    <message>
+        <source>System Updating...</source>
+        <translation>Mise à jour du système...</translation>
+    </message>
+    <message>
+        <source>Checking for package updates...</source>
+        <translation>Vérification des mises à jour de paquets...</translation>
+    </message>
+    <message>
+        <source>Packages Updating...</source>
+        <translation>Forfaits Mise à jour...</translation>
+    </message>
+    <message>
+        <source>Checking for jail updates...</source>
+        <translation>Vérification des mises à jour de Jail..</translation>
+    </message>
+    <message>
+        <source>Jails Updating...</source>
+        <translation>Mise à jour des Jails...</translation>
+    </message>
+    <message>
+        <source>Checking for PBI updates</source>
+        <translation>Vérification des mises à jour de PBI</translation>
+    </message>
+    <message>
+        <source>PBI Updating...</source>
+        <translation>PBI mise à jour..</translation>
     </message>
 </context>
 </TS>

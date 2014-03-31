@@ -2,114 +2,110 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>UpdaterTray</name>
-    <message>
-        <source>Check for updates</source>
-        <translation>アップデートの有無を確認する</translation>
-    </message>
-    <message>
-        <source>Run at startup</source>
-        <translation>起動時に実行する</translation>
-    </message>
-    <message>
-        <source>PC-BSD Update Manager</source>
-        <translation>PC-BSD アップデートマネージャー</translation>
-    </message>
-    <message>
-        <source>Checking for updates...</source>
-        <translation>アップデートの有無を確認中...</translation>
-    </message>
-    <message>
-        <source>Failed to contact the update server!</source>
-        <translation>アップデートサーバーへの接続に失敗しました。</translation>
-    </message>
-    <message>
-        <source>Your system is fully updated</source>
-        <translation>このシステムは完全にアップデートされました</translation>
-    </message>
-    <message>
-        <source>System updates available</source>
-        <translation>新しいシステムアップデートが有ります</translation>
-    </message>
-    <message>
-        <source>PBI updates available</source>
-        <translation>新しいPBIアップデートが有ります</translation>
-    </message>
-    <message>
-        <source>Start the AppCafe</source>
-        <translation>AppCafeを起動する</translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>終了(&amp;Q)</translation>
-    </message>
-    <message>
-        <source>System Updates Available</source>
-        <translation>システムアップデートがあります。</translation>
-    </message>
-    <message>
-        <source>Software Updates Available</source>
-        <translation>ソフトウェアアップデートがあります。</translation>
-    </message>
+    <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
         <translation>アップデートマネージャーを起動する</translation>
-    </message>
-    <message>
-        <source>Important system updates are available. Click here to install them!</source>
-        <translation>重要なシステムアップデートがあります。ここをクリックしてインストールしてください。</translation>
-    </message>
-    <message>
-        <source>Software updates are available. Click here to install them!</source>
-        <translation>ソフトウェアアップデートがあります。ここをクリックしてインストールしてください。</translation>
-    </message>
-    <message>
-        <source>Restart Required</source>
-        <translation>再起動が必要です</translation>
-    </message>
-    <message>
-        <source>Please restart your computer to complete the pending updates</source>
-        <translation>アップデートを完了させるにはコンピューターを再起動してください</translation>
-    </message>
-    <message>
-        <source>System restart required to finish updates</source>
-        <translation>アップデートの完了にはシステムの再起動が必要です</translation>
-    </message>
-    <message>
-        <source>Start the Warden</source>
-        <translation>Warden を起動する</translation>
-    </message>
-    <message>
-        <source>Jail updates available</source>
-        <translation>Jail のアップデートがあります</translation>
-    </message>
-    <message>
-        <source>Jail Updates Available</source>
-        <translation>Jail のアップデートがあります</translation>
-    </message>
-    <message>
-        <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation>重要な jail のアップデートがあります。ここをクリックして Warden を起動してください!</translation>
-    </message>
-    <message>
-        <source>Display notifications</source>
-        <translation>通知を表示する</translation>
-    </message>
-    <message>
-        <source>Package updates available</source>
-        <translation>パッケージのアップデートがあります</translation>
-    </message>
-    <message>
-        <source>Important package updates are available. Click here to install them!</source>
-        <translation>重要なパッケージのアップデートがあります。ここをクリックしてインストールしてください!</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
         <translation>パッケージマネージャーを起動する</translation>
     </message>
     <message>
+        <source>Start the AppCafe</source>
+        <translation>AppCafeを起動する</translation>
+    </message>
+    <message>
+        <source>Start the Warden</source>
+        <translation>Wardenを起動する</translation>
+    </message>
+    <message>
+        <source>Check For Updates</source>
+        <translation>更新を確認する</translation>
+    </message>
+    <message>
+        <source>Run At Startup</source>
+        <translation>起動時に実行する</translation>
+    </message>
+    <message>
+        <source>Display Notifications</source>
+        <translation>お知らせを表示する</translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation>終了する(&amp;Q)</translation>
+    </message>
+    <message>
+        <source>System Reboot Required</source>
+        <translation>システムの再起動が必須です</translation>
+    </message>
+    <message>
+        <source>System Updates Available</source>
+        <translation>システムの更新があります</translation>
+    </message>
+    <message>
         <source>Package Updates Available</source>
-        <translation>パッケージのアップデートがあります</translation>
+        <translation>パッケージの更新があります</translation>
+    </message>
+    <message>
+        <source>PBI Updates Available</source>
+        <translation>PBIの更新があります</translation>
+    </message>
+    <message>
+        <source>Jail Updates Available</source>
+        <translation>Jail の更新があります</translation>
+    </message>
+    <message>
+        <source>PC-BSD System Message</source>
+        <translation>PC-BSDシステムメッセージ</translation>
+    </message>
+    <message>
+        <source>PC-BSD Update Manager</source>
+        <translation>PC-BSDアップデートマネージャー</translation>
+    </message>
+    <message>
+        <source>Error checking for updates</source>
+        <translation>更新のエラーを確認しています</translation>
+    </message>
+    <message>
+        <source>Please make sure you have a working internet connection</source>
+        <translation>インターネットに正しく接続されていることを確認して下さい</translation>
+    </message>
+    <message>
+        <source>Your system is fully updated</source>
+        <translation>お使いのシステムは完全に更新されました</translation>
+    </message>
+    <message>
+        <source>Checking for system updates...</source>
+        <translation>システムの更新を確認しています...</translation>
+    </message>
+    <message>
+        <source>System Updating...</source>
+        <translation>システムを更新しています...</translation>
+    </message>
+    <message>
+        <source>Checking for package updates...</source>
+        <translation>パッケージの更新を確認しています...</translation>
+    </message>
+    <message>
+        <source>Packages Updating...</source>
+        <translation>パッケージを更新しています...</translation>
+    </message>
+    <message>
+        <source>Checking for jail updates...</source>
+        <translation>jailの更新を確認しています...</translation>
+    </message>
+    <message>
+        <source>Jails Updating...</source>
+        <translation>jailを更新しています...</translation>
+    </message>
+    <message>
+        <source>Checking for PBI updates</source>
+        <translation>PBIの更新を確認しています...</translation>
+    </message>
+    <message>
+        <source>PBI Updating...</source>
+        <translation>PBIを更新しています...</translation>
     </message>
 </context>
 </TS>

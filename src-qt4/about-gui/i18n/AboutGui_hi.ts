@@ -39,7 +39,7 @@
     </message>
     <message>
         <source>ident</source>
-        <translation type="unfinished">
+        <translation> पहचान
             </translation>
     </message>
     <message>
@@ -89,42 +89,42 @@
     </message>
     <message>
         <source>PC-BSD CLI utilities:</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी सी.एल.आई यूटीलिटी 
             </translation>
     </message>
     <message>
         <source>PC-BSD UI utilities:</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी यू.आई यूटीलिटी 
             </translation>
     </message>
     <message>
         <source>Package set:</source>
-        <translation type="unfinished">
+        <translation> पैकेज सेट
             </translation>
     </message>
     <message>
         <source>(unstable)</source>
-        <translation type="unfinished">
+        <translation>अस्थायी
             </translation>
     </message>
     <message>
         <source>&amp;System components...</source>
-        <translation type="unfinished">
+        <translation>&amp;सिस्टम कॉंपोनेंट
             </translation>
     </message>
     <message>
         <source>&amp;Desktop environments...</source>
-        <translation type="unfinished">
+        <translation>&amp;डेस्कटॉप एन्वाइरन्मेंट
             </translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
+        <translation>&amp;बंद
             </translation>
     </message>
     <message>
         <source>Utils:</source>
-        <translation type="unfinished">
+        <translation>यूटील्स:
             </translation>
     </message>
 </context>

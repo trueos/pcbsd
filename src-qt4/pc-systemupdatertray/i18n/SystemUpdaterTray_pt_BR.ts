@@ -2,114 +2,126 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>UpdaterTray</name>
-    <message>
-        <source>Check for updates</source>
-        <translation>Verificar atualizações</translation>
-    </message>
-    <message>
-        <source>Run at startup</source>
-        <translation>Executar na inicialização</translation>
-    </message>
-    <message>
-        <source>PC-BSD Update Manager</source>
-        <translation>Gerenciador de Atualizações do PC-BSD</translation>
-    </message>
-    <message>
-        <source>Checking for updates...</source>
-        <translation>Verificando atualizações...</translation>
-    </message>
-    <message>
-        <source>Failed to contact the update server!</source>
-        <translation>Falha ao contatar o servidor de atualização!</translation>
-    </message>
-    <message>
-        <source>Your system is fully updated</source>
-        <translation>O seu sistema está completamente atualizado</translation>
-    </message>
-    <message>
-        <source>System updates available</source>
-        <translation>As atualizações para o sistema estão disponíveis</translation>
-    </message>
-    <message>
-        <source>PBI updates available</source>
-        <translation>As atualizações PBI estão disponíveis</translation>
-    </message>
-    <message>
-        <source>Start the AppCafe</source>
-        <translation>Iniciar o AppCafe</translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation>Sair</translation>
-    </message>
-    <message>
-        <source>System Updates Available</source>
-        <translation>Atualizações do sistema disponíveis</translation>
-    </message>
-    <message>
-        <source>Software Updates Available</source>
-        <translation>Atualizações de Aplicativos Disponíveis</translation>
-    </message>
+    <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation>Iniciar o Gerenciador de Atualizações</translation>
-    </message>
-    <message>
-        <source>Important system updates are available. Click here to install them!</source>
-        <translation>Atualizações importantes do sistema estão disponíveis. Clique aqui para instalá-los!</translation>
-    </message>
-    <message>
-        <source>Software updates are available. Click here to install them!</source>
-        <translation>Atualizações de aplicativos estão disponíveis. Clique aqui para instalá-los!</translation>
-    </message>
-    <message>
-        <source>Restart Required</source>
-        <translation>Necessário reiniciar</translation>
-    </message>
-    <message>
-        <source>Please restart your computer to complete the pending updates</source>
-        <translation>Favor reiniciar seu computador para completar as atualizações pendentes</translation>
-    </message>
-    <message>
-        <source>System restart required to finish updates</source>
-        <translation>Reinício do sistema necessário para finalizar as atualizações</translation>
-    </message>
-    <message>
-        <source>Start the Warden</source>
-        <translation>Iniciar o Warden</translation>
-    </message>
-    <message>
-        <source>Jail updates available</source>
-        <translation>Atualizações do Jail disponíveis</translation>
-    </message>
-    <message>
-        <source>Jail Updates Available</source>
-        <translation>Atualizações do Jail disponíveis</translation>
-    </message>
-    <message>
-        <source>Important jail updates are available. Click here to launch the Warden!</source>
-        <translation>Atualizações importantes estão disponíveis. Clique aqui para iniciar o Warden!</translation>
-    </message>
-    <message>
-        <source>Display notifications</source>
-        <translation>Exibir notificações</translation>
-    </message>
-    <message>
-        <source>Package updates available</source>
-        <translation>As atualizações de pacotes estão disponíveis</translation>
-    </message>
-    <message>
-        <source>Important package updates are available. Click here to install them!</source>
-        <translation>As atualizações importantes de pacotes estão disponíveis. Clique aqui para instalá-los!</translation>
+        <translation type="unfinished">Iniciar o Gerenciador de Atualizações</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation>Iniciar o Gerenciador de Pacotes</translation>
+        <translation type="unfinished">Iniciar o Gerenciador de Pacotes</translation>
+    </message>
+    <message>
+        <source>Start the AppCafe</source>
+        <translation type="unfinished">Iniciar o AppCafe</translation>
+    </message>
+    <message>
+        <source>Start the Warden</source>
+        <translation type="unfinished">Iniciar o Warden</translation>
+    </message>
+    <message>
+        <source>Check For Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Run At Startup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Display Notifications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">Sair</translation>
+    </message>
+    <message>
+        <source>System Reboot Required</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Updates Available</source>
+        <translation type="unfinished">Atualizações do sistema disponíveis</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation>As Atualizações de Pacotes estão Disponíveis</translation>
+        <translation type="unfinished">As Atualizações de Pacotes estão Disponíveis</translation>
+    </message>
+    <message>
+        <source>PBI Updates Available</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Jail Updates Available</source>
+        <translation type="unfinished">Atualizações do Jail disponíveis</translation>
+    </message>
+    <message>
+        <source>PC-BSD System Message</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PC-BSD Update Manager</source>
+        <translation type="unfinished">Gerenciador de Atualizações do PC-BSD</translation>
+    </message>
+    <message>
+        <source>Error checking for updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Please make sure you have a working internet connection</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Your system is fully updated</source>
+        <translation type="unfinished">O seu sistema está completamente atualizado</translation>
+    </message>
+    <message>
+        <source>Checking for system updates...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Updating...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for package updates...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Packages Updating...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for jail updates...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Jails Updating...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for PBI updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PBI Updating...</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 </TS>

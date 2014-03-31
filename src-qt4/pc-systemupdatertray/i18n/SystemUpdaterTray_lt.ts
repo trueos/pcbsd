@@ -2,85 +2,18 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
-    <name>UpdaterTray</name>
+    <name>TrayUI</name>
     <message>
-        <source>Check for updates</source>
-        <translation>Ieškoti naujinių</translation>
+        <source>Start the Update Manager</source>
+        <translation type="unfinished">Paleisti naujinimų tvarkytuvę</translation>
     </message>
     <message>
-        <source>Run at startup</source>
-        <translation>Paleisti startuojant sistemai</translation>
-    </message>
-    <message>
-        <source>PC-BSD Update Manager</source>
-        <translation>PC-BSD naujinimų tvarkytuvė</translation>
-    </message>
-    <message>
-        <source>Checking for updates...</source>
-        <translation>Ieškoma naujinimų...</translation>
-    </message>
-    <message>
-        <source>Failed to contact the update server!</source>
-        <translation>Nepavyko susisiekti su autnaujinimų serveriu!</translation>
-    </message>
-    <message>
-        <source>Your system is fully updated</source>
-        <translation>Jūsų sistema pilnai atnaujinta.</translation>
-    </message>
-    <message>
-        <source>System updates available</source>
-        <translation>Yra prieinami sistemos atnaujinimai</translation>
-    </message>
-    <message>
-        <source>PBI updates available</source>
-        <translation>Yra prieinami PBI atnaujinimai      </translation>
+        <source>Start the Package Manager</source>
+        <translation type="unfinished">
+            </translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>System Updates Available</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Software Updates Available</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Start the Update Manager</source>
-        <translation>Paleisti naujinimų tvarkytuvę</translation>
-    </message>
-    <message>
-        <source>Important system updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Software updates are available. Click here to install them!</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Restart Required</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>Please restart your computer to complete the pending updates</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
-        <source>System restart required to finish updates</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -90,7 +23,42 @@
             </translation>
     </message>
     <message>
-        <source>Jail updates available</source>
+        <source>Check For Updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Run At Startup</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Display Notifications</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Quit</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Reboot Required</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>System Updates Available</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Package Updates Available</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PBI Updates Available</source>
         <translation type="unfinished">
             </translation>
     </message>
@@ -100,32 +68,65 @@
             </translation>
     </message>
     <message>
-        <source>Important jail updates are available. Click here to launch the Warden!</source>
+        <source>PC-BSD System Message</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Display notifications</source>
+        <source>PC-BSD Update Manager</source>
+        <translation type="unfinished">PC-BSD naujinimų tvarkytuvė</translation>
+    </message>
+    <message>
+        <source>Error checking for updates</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Package updates available</source>
+        <source>Please make sure you have a working internet connection</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Important package updates are available. Click here to install them!</source>
+        <source>Your system is fully updated</source>
+        <translation type="unfinished">Jūsų sistema pilnai atnaujinta.</translation>
+    </message>
+    <message>
+        <source>Checking for system updates...</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Start the Package Manager</source>
+        <source>System Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
-        <source>Package Updates Available</source>
+        <source>Checking for package updates...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Packages Updating...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for jail updates...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Jails Updating...</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>Checking for PBI updates</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>PBI Updating...</source>
         <translation type="unfinished">
             </translation>
     </message>
