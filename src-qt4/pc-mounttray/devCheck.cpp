@@ -14,13 +14,13 @@ DevCheck::DevCheck(){
   fsDetection.clear();
   fsMatch.clear();
   fsFilter.clear();
-  fsDetection << "FAT" << "NTFS" << "EXT" << "ISO 9660" << "Unix Fast File system" << "Reiser" << "XFS" << "HFS"; //string to find in "file -s" output
-  dsDetection << "FAT" << "NTFS" << "EXT" << "ISO9660" << "UFS" << "Reiser" << "XFS" << "UDF" << "HFS"; //string to find in "diskinfo" output
-  fsMatch << "FAT" << "NTFS" << "EXT" << "CD9660" << "UFS" << "REISERFS" << "XFS" << "UDF" << "HFS"; //internal labels for the filesystems
-  fsFilter << "fat" << "ntfs" << "ext" << "cdrom" << "ufs" << "reiser" << "xfs" << "udf" << "hfs"; //label categories in /dev/
+  fsDetection << "FAT" << "NTFS" << "EXT" << "ISO 9660" << "Unix Fast File system" << "Reiser" << "XFS"; //string to find in "file -s" output
+  dsDetection << "FAT" << "NTFS" << "EXT" << "ISO9660" << "UFS" << "Reiser" << "XFS" << "UDF"; //string to find in "diskinfo" output
+  fsMatch << "FAT" << "NTFS" << "EXT" << "CD9660" << "UFS" << "REISERFS" << "XFS" << "UDF"; //internal labels for the filesystems
+  fsFilter << "fat" << "ntfs" << "ext" << "cdrom" << "ufs" << "reiser" << "xfs" << "udf"; //label categories in /dev/
   //Initialize lists of Manual Filesystems that might be available
   fsManual.clear(); fsCMD.clear(); fsBinCheck.clear();
-  fsManual << "FAT"  << "EXFAT" << "NTFS" << "EXT" << "EXT4" << "CD9660" << "UFS" << "REISERFS" << "XFS" << "UDF" << "HFS";
+  fsManual << "FAT"  << "EXFAT" << "NTFS" << "EXT" << "EXT4" << "CD9660" << "UFS" << "REISERFS" << "XFS" << "UDF";
   //fsCMD: %1 becomes device path, %2 becomes mointpoint path
   QString langCode = QString(getenv("LANG"));
   if(langCode.startsWith("C.") || langCode.startsWith("en")){
@@ -37,10 +37,8 @@ DevCheck::DevCheck(){
   fsCMD << "mount -t reiserfs %1 %2"; //REISERFS
   fsCMD << "mount -t xfs %1 %2"; //XFS
   fsCMD << "mount -t udf %1 %2"; //UDF
-  fsCMD << "hmount %1 %2"; //HFS
   fsBinCheck << "/sbin/mount_msdosfs" << "/usr/local/bin/mount.exfat-fuse" << "/usr/local/bin/ntfs-3g" << "/sbin/mount" \
-		<< "/usr/local/bin/ext4fuse" << "/sbin/mount_cd9660" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount_udf" \
-		<< "/usr/local/bin/hmount";
+		<< "/usr/local/bin/ext4fuse" << "/sbin/mount_cd9660" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount" << "/sbin/mount_udf";
   //Initialize the device directory
   devDir = QDir(DEVICEDIR);
   //Find all the currently active devices (that system is booted from)
