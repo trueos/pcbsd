@@ -90,63 +90,63 @@
     <name>netKey</name>
     <message>
         <source>Please Enter Network Key</source>
-        <translation type="unfinished">
+        <translation>कृपया करके नेटवर्क की डालें
             </translation>
     </message>
     <message>
         <source>SSID</source>
-        <translation type="unfinished">
+        <translation>एस.एस.आई.डी
             </translation>
     </message>
     <message>
         <source>Network Key</source>
-        <translation type="unfinished">
+        <translation>नेटवर्क की
             </translation>
     </message>
     <message>
         <source>Network Key (Repeat)</source>
-        <translation type="unfinished">
+        <translation>नेटवर्क की (दोबारा)
             </translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished">
+        <translation>लगायें
             </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">
+        <translation>रद्ध करें
             </translation>
     </message>
     <message>
         <source>Network Key Error</source>
-        <translation type="unfinished">
+        <translation>नेटवर्क की में त्रुटि
             </translation>
     </message>
     <message>
         <source>Error: The entered network keys do not match!
 </source>
-        <translation type="unfinished">
+        <translation>त्रुटि: लगाई गई नेटवर्क की आपस में नहीं मिल रही
             </translation>
     </message>
     <message>
         <source>Show network key as text</source>
-        <translation type="unfinished">
+        <translation>नेटवर्क की को मूलशब्द में दिखायें
             </translation>
     </message>
     <message>
         <source>Key Type</source>
-        <translation type="unfinished">
+        <translation>की के प्रकार
             </translation>
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
+        <translation>हेक्स की (डिफॉल्ट)
             </translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
+        <translation>सामान्या मूलशब्द
             </translation>
     </message>
 </context>

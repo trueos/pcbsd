@@ -5,19 +5,19 @@
     <name>QObject</name>
     <message>
         <source>Keep these display settings?</source>
-        <translation type="unfinished">
+        <translation>यह डिसप्ले सेट्टिंग्स रखनी है?
             </translation>
     </message>
     <message>
         <source>The previous attempt failed, please check your settings and try again.</source>
-        <translation type="unfinished">
+        <translation>पिछला प्रयास असफल रहा, कृपया अपनी सेट्टिंग्स देखें, और दोबारा प्रयास करें
             </translation>
     </message>
     <message>
         <source>Your display has been configured.
 Keep these settings?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>आपकी डिसप्ले समनुरूप कर दी गई है
+यह सेट्टिंग्स रखनी है?            </translation>
     </message>
 </context>
 <context>
@@ -89,42 +89,42 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>Video Card:</source>
-        <translation type="unfinished">
+        <translation>वीडियो कार्ड
             </translation>
     </message>
     <message>
         <source>Monitor:</source>
-        <translation type="unfinished">
+        <translation>मॉनिटर
             </translation>
     </message>
     <message>
         <source>Enable Dual-Head support</source>
-        <translation type="unfinished">
+        <translation>समर्थ करें दोहरा मुख्य समर्थन का
             </translation>
     </message>
     <message>
         <source>Monitor Resolution:</source>
-        <translation type="unfinished">
+        <translation>मॉनिटर रेज़ल्यूशन:
             </translation>
     </message>
     <message>
         <source>Unknown Monitor</source>
-        <translation type="unfinished">
+        <translation>अज्ञात मॉनिटर
             </translation>
     </message>
     <message>
         <source>Warning!</source>
-        <translation type="unfinished">
+        <translation>चेतावनी
             </translation>
     </message>
     <message>
         <source>PC-BSD was unable to autodetect your monitor. You may need to specify this monitor&apos;s Horizontal and Vertical refresh rates in the &apos;Advanced&apos; tab.</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी असमर्थ रहा आपका मॉनिटर पकड़ने के लिए | आपको इस मॉनिटर की क्षैतिज और लम्बवत पुनश्चर्या दर, &apos;अग्रिम&apos; टेब से विस्तृत करनी पड़ेगी
             </translation>
     </message>
     <message>
         <source>Dual-Head support is designed for systems with one video card and two monitors. Other setups may be achieved by editing /etc/X11/xorg.conf</source>
-        <translation type="unfinished">
+        <translation>दोहरा मुख्य समर्थन, उन सिस्टम्स के लिए बनाया गया है, जिनमें एक वीडियो कार्ड और दो मॉनिटर हों | बाकी सेट अप /etc/X11/xorg.conf  संपादक करके  प्राप्त किए जा सकते हैं
             </translation>
     </message>
 </context>
@@ -160,17 +160,17 @@ If your screen does not appear, please wait and you will be returned to this scr
     </message>
     <message>
         <source>&amp;Ok</source>
-        <translation type="unfinished">
+        <translation>&amp;ठीक है
             </translation>
     </message>
     <message>
         <source>Resolution:</source>
-        <translation type="unfinished">
+        <translation>रेज़ल्यूशन:
             </translation>
     </message>
     <message>
         <source>Driver:</source>
-        <translation type="unfinished">
+        <translation>ड्राइवर:
             </translation>
     </message>
 </context>

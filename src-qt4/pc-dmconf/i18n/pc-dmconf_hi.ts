@@ -5,97 +5,97 @@
     <name>MainWindow</name>
     <message>
         <source>Login Manager Settings</source>
-        <translation type="unfinished">
+        <translation>लॉगइन प्रबंधक सेट्टिंग्स
             </translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished">
+        <translation>ऑटो लॉगइन
             </translation>
     </message>
     <message>
         <source>Enable auto login</source>
-        <translation type="unfinished">
+        <translation>ऑटो लॉगइन समर्थ करें
             </translation>
     </message>
     <message>
         <source>Auto login user</source>
-        <translation type="unfinished">
+        <translation>ऑटो लॉगइन यूज़र
             </translation>
     </message>
     <message>
         <source>Remote login</source>
-        <translation type="unfinished">
+        <translation>दूरस्थ लॉगइन
             </translation>
     </message>
     <message>
         <source>Password Request</source>
-        <translation type="unfinished">
+        <translation>पासवर्ड अनुरोध
             </translation>
     </message>
     <message>
         <source>Please enter the login password for this user</source>
-        <translation type="unfinished">
+        <translation>इस उपयोगकर्ता के लिए लॉगिन पासवर्ड दर्ज करें
             </translation>
     </message>
     <message>
         <source>Enable Remote Desktop (VNC)</source>
-        <translation type="unfinished">
+        <translation>रिमोट डेस्कटॉप सक्षम करें(वी.एन.सी)
             </translation>
     </message>
     <message>
         <source>Misc</source>
-        <translation type="unfinished">
+        <translation>विविध
             </translation>
     </message>
     <message>
         <source>Enable &quot;show password&quot; button</source>
-        <translation type="unfinished">
+        <translation>&quot;शो पासवर्ड&quot; बटन को सक्षम करें
             </translation>
     </message>
     <message>
         <source>Please enter the remote login password</source>
-        <translation type="unfinished">
+        <translation>दूरस्थ लॉगिन पासवर्ड दर्ज करें
             </translation>
     </message>
     <message>
         <source>Missing Config File</source>
-        <translation type="unfinished">
+        <translation>समाकृति फाइल गुम है
             </translation>
     </message>
     <message>
         <source>The PCDM configuration file could not be found: %1</source>
-        <translation type="unfinished">
+        <translation>पी.सी.डी.एम समाकृति फाइल मिल नही रही:%1
             </translation>
     </message>
     <message>
         <source>This application will now close</source>
-        <translation type="unfinished">
+        <translation>यह अप्लिकेशन अब बंद हो जाएगी
             </translation>
     </message>
     <message>
         <source>Time Delay</source>
-        <translation type="unfinished">
+        <translation>समय में देरी
             </translation>
     </message>
     <message>
         <source> Seconds</source>
-        <translation type="unfinished">
+        <translation>  सेकेंड्स
             </translation>
     </message>
     <message>
         <source>Display available users</source>
-        <translation type="unfinished">
+        <translation>प्रदर्शन उपलब्ध उपयोगकर्ता
             </translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
+        <translation>&amp;लागू करें
             </translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
+        <translation>&amp;बंद करें
             </translation>
     </message>
 </context>

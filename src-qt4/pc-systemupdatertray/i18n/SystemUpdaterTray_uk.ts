@@ -5,7 +5,7 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Запустити менеджер оновлень</translation>
+        <translation>Запустити менеджер оновлень</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>

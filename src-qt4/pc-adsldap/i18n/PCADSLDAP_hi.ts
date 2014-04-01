@@ -5,147 +5,147 @@
     <name>pcADSLDAP</name>
     <message>
         <source>Active Directory</source>
-        <translation type="unfinished">
+        <translation>सक्रिय निर्देशिका
             </translation>
     </message>
     <message>
         <source>Enable Active Directory</source>
-        <translation type="unfinished">
+        <translation>सक्रिय निर्देशिका सक्षम करें
             </translation>
     </message>
     <message>
         <source>Domain Name (DNS/Realm-Name)</source>
-        <translation type="unfinished">
+        <translation>डोमेन का नाम(डी.एन.एस / क्षेत्र-नाम)
             </translation>
     </message>
     <message>
         <source>NetBIOS Name</source>
-        <translation type="unfinished">
+        <translation>नेट बाइयोस(बी.आई.ओ.एस) का नाम
             </translation>
     </message>
     <message>
         <source>Workgroup Name</source>
-        <translation type="unfinished">
+        <translation>कार्यसमूह का नाम
             </translation>
     </message>
     <message>
         <source>Allow Trusted Domains</source>
-        <translation type="unfinished">
+        <translation>विश्वस्त डोमेन की अनुमति दें
             </translation>
     </message>
     <message>
         <source>Administrator Name</source>
-        <translation type="unfinished">
+        <translation>व्यवस्थापक का नाम
             </translation>
     </message>
     <message>
         <source>Administrator Password</source>
-        <translation type="unfinished">
+        <translation>व्यवस्थापक का पासवर्ड
             </translation>
     </message>
     <message>
         <source>Administrator Password (Confirm)</source>
-        <translation type="unfinished">
+        <translation>व्यवस्थापक का पासवर्ड(स्थायीकृत)
             </translation>
     </message>
     <message>
         <source>LDAP</source>
-        <translation type="unfinished">
+        <translation>एल.डी.ए.पी
             </translation>
     </message>
     <message>
         <source>Enable LDAP</source>
-        <translation type="unfinished">
+        <translation>एल.डी.ए.पी सक्षम करें
             </translation>
     </message>
     <message>
         <source>Hostname</source>
-        <translation type="unfinished">
+        <translation>होस्ट का नाम
             </translation>
     </message>
     <message>
         <source>Base DN</source>
-        <translation type="unfinished">
+        <translation>बेस डी.एन
             </translation>
     </message>
     <message>
         <source>Allow Anon Binding</source>
-        <translation type="unfinished">
+        <translation>झट से बाध्यकारी की अनुमति दें
             </translation>
     </message>
     <message>
         <source>Root bind DN</source>
-        <translation type="unfinished">
+        <translation>रूट बाध्यकारी डी.एन
             </translation>
     </message>
     <message>
         <source>Root bind password</source>
-        <translation type="unfinished">
+        <translation>रूट बाध्य पास्वोर्ड
             </translation>
     </message>
     <message>
         <source>Password Encryption</source>
-        <translation type="unfinished">
+        <translation>पासवर्ड गूढ़लेखन
             </translation>
     </message>
     <message>
         <source>User Suffix</source>
-        <translation type="unfinished">
+        <translation>उपयोगकर्ता प्रत्यय
             </translation>
     </message>
     <message>
         <source>Group Suffix</source>
-        <translation type="unfinished">
+        <translation>समूह प्रत्यय
             </translation>
     </message>
     <message>
         <source>Password Suffix</source>
-        <translation type="unfinished">
+        <translation>पासवर्ड प्रत्यय
             </translation>
     </message>
     <message>
         <source>Machine Suffix</source>
-        <translation type="unfinished">
+        <translation>मशीन प्रत्यय
             </translation>
     </message>
     <message>
         <source>Encryption Mode</source>
-        <translation type="unfinished">
+        <translation>गूढ़लेखन प्रकार
             </translation>
     </message>
     <message>
         <source>Self Signed Certificate</source>
-        <translation type="unfinished">
+        <translation>स्व हस्ताक्षरित प्रमाण पत्र
             </translation>
     </message>
     <message>
         <source>Auxiliary Parameters</source>
-        <translation type="unfinished">
+        <translation>सहायक पैरामीटर्स
             </translation>
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
+        <translation>&amp;सेव
             </translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
+        <translation>&amp;बंद करें
             </translation>
     </message>
     <message>
         <source>Active Directory Configuration</source>
-        <translation type="unfinished">
+        <translation>सक्रिय निर्देशिका समाकृति
             </translation>
     </message>
     <message>
         <source>The Active Directory passwords specified do not match!</source>
-        <translation type="unfinished">
+        <translation>निर्दिष्ट सक्रिय निर्देशिका पासवर्ड मेल नहीं खाते
             </translation>
     </message>
     <message>
         <source>AD and LDAP Configuration</source>
-        <translation type="unfinished">
+        <translation>ए.डी और एल.डी.ए.पी समाकृति
             </translation>
     </message>
 </context>
