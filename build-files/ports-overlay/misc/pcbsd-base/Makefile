@@ -125,7 +125,8 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		pavucontrol>=0:${PORTSDIR}/audio/pavucontrol \
 		disktype>=0:${PORTSDIR}/sysutils/disktype \
 		grub-mkconfig:${PORTSDIR}/sysutils/grub2 \
-		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi
+		grub2-efi>=0:${PORTSDIR}/sysutils/grub2-efi \
+		vagrant>=0:${PORTSDIR}/sysutils/vagrant
 
 NO_BUILD=	yes
 
