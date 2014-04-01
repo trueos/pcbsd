@@ -138,6 +138,7 @@ cd ${DIR}/pbime && make
 install -o root -g wheel -m 755 pbime ${LB}/share/pbi-manager/.pbime
 install -o root -g wheel -m 4751 pbild ${LB}/share/pbi-manager/.pbild
 install -o root -g wheel -m 755 pbirun ${LB}/share/pbi-manager/.pbirun
+install -o root -g wheel -m 755 pbirun32 ${LB}/share/pbi-manager/.pbirun32
 install -o root -g wheel -m 755 pbiinit ${LB}/share/pbi-manager/.pbiinit
 install -o root -g wheel -m 755 ldconfig ${LB}/share/pbi-manager/.ldconfig
 install -o root -g wheel -m 755 pbisyscmd ${LB}/share/pbi-manager/.pbisyscmd
@@ -146,6 +147,7 @@ if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 755 pbime /usr/pbi/.pbime
   install -o root -g wheel -m 4751 pbild /usr/pbi/.pbild
   install -o root -g wheel -m 755 pbirun /usr/pbi/.pbirun
+  install -o root -g wheel -m 755 pbirun32 /usr/pbi/.pbirun32
   install -o root -g wheel -m 755 pbiinit /usr/pbi/.pbiinit
   install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
   install -o root -g wheel -m 755 pbisyscmd /usr/pbi/.pbisyscmd
@@ -155,8 +157,10 @@ fi
 # Install the pbi_preload wrapper library
 cd ${DIR}/pbi_preload && make 
 install -o root -g wheel -m 755 pbi_preload.so ${LB}/share/pbi-manager/.pbi_preload.so
+install -o root -g wheel -m 755 pbi_preload32.so ${LB}/share/pbi-manager/.pbi_preload32.so
 if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 755 pbi_preload.so /usr/pbi/.pbi_preload.so
+  install -o root -g wheel -m 755 pbi_preload32.so /usr/pbi/.pbi_preload32.so
 fi
 
 # Install the MANPATH conf

@@ -63,6 +63,7 @@ main(int argc, char *argv[])
 	}
 
 	// Execute the PBI now
+	//printf("Running %s\n", argv[1]);
 	return execvp(argv[1], newargv);
 }
 

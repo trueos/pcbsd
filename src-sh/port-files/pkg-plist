@@ -587,9 +587,11 @@ etc/rc.d/pbid
 share/pbi-manager/.pbime
 share/pbi-manager/.pbiinit
 share/pbi-manager/.pbirun
+share/pbi-manager/.pbirun32
 share/pbi-manager/.pbisyscmd
 share/pbi-manager/.ldconfig
 share/pbi-manager/.pbi_preload.so
+share/pbi-manager/.pbi_preload32.so
 share/pbi-manager/.pbiwrapper-i386
 share/pbi-manager/.pbiwrapper-amd64
 share/pbi-manager/module-examples/gimp/xdg-menu/gimp.desktop

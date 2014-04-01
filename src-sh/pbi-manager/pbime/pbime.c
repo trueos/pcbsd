@@ -63,8 +63,9 @@ main(int argc, char *argv[])
                 err(1, "Max length exceeded for pbidir");
 
 	// Set the environment variables
-	setenv("LD_PRELOAD", "/usr/pbi/.pbi_preload.so", 1);
-	setenv("PBI_PRELOAD", "/usr/pbi/.pbi_preload.so", 1);
+	setenv("LD_32_PBIPRELOAD", "/usr/pbi/.pbi_preload32.so", 1);
+	setenv("LD_PBIPRELOAD", "/usr/pbi/.pbi_preload.so", 1);
+
 	setenv("PBI_RUNDIR", argv[2], 1);
 	unsetenv("PBI_BREAKOUT");
 
@@ -72,13 +73,16 @@ main(int argc, char *argv[])
 	strcpy(hintsfile, "/var/run/ld-elf.so.hints.");
         strcat(hintsfile, basename(argv[2]));
 	setenv("LD_ELF_HINTS_PATH", hintsfile, 1);
+	strcpy(hintsfile, "/var/run/ld-elf32.so.hints.");
+        strcat(hintsfile, basename(argv[2]));
+	setenv("LD_32_ELF_HINTS_PATH", hintsfile, 1);
 	
 	// Do the init of the environment
 	strcpy(initscript, "/usr/pbi/.pbiinit ");
 	strcat(initscript, argv[2]);
 	//printf( "initscript: %s \n", initscript);
-	if ( system(initscript) != 0 )
-                err(1, "Failed PBI init!");
+	//if ( system(initscript) != 0 )
+	//	err(1, "Failed PBI init!");
 	
 	// Backwards compat check for old PBIs
 	if ( (argc > 5) && (strcmp(argv[5], "args") == 0) )
@@ -90,7 +94,12 @@ main(int argc, char *argv[])
 	}
 
 	// Setup the newargv with right stack
+	//if (strstr(argv[2], "-i386"))
+	//	strcpy(pbirun, "/usr/pbi/.pbirun32");
+	//else
+
 	strcpy(pbirun, "/usr/pbi/.pbirun");
+
 	newargv[0] = pbirun;
 	newargv[1] = argv[3];
 
