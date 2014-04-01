@@ -339,39 +339,83 @@ int get_modified_path(char *npath, const char *opath, int resolvpath)
 int get_link_path(char *npath, const char *opath)
 { 
         char linkpath[MAXPATHLEN];
+        char tmppath[MAXPATHLEN];
+        char tmp[MAXPATHLEN];
+        char origpath[MAXPATHLEN];
 	int didchdir=0;
 
 	if ( opath == NULL )
 		return -1;
 	
-	// Dont need to resolve links that aren't absolute
-	if ( strpos(opath, "/") != 0 )
+	// Dont need to resolve links that aren't absolute or in /usr/local && /usr/pbi
+	if ( ( strpos(opath, "/usr/local") != 0 ) && (strpos(opath, "/usr/pbi") != 0) )
 		return -1;
 	
+	typeof(chdir) *sys_chdir;
+        sys_chdir = dlsym(RTLD_NEXT, "chdir");
+	typeof(readlink) *sys_readlink;
+        sys_readlink = dlsym(RTLD_NEXT, "readlink");
         char curdir[MAXPATHLEN];
         char *newdir;
-	getcwd(curdir, MAXPATHLEN);
-	newdir = dirname(opath);
+	int size;
 
-	if ( strpos(opath, "/usr/pbi") == 0 && strcmp(curdir, newdir) != 0) {
-	   didchdir=1;
-	   chdir(newdir);
+	// See if we can remove a trailing /
+	strcpy(origpath, opath);
+	size_t len = strlen(origpath);
+	if((len > 0) && (origpath[len-1] == '/'))
+		origpath[len-1] = '\0';
+
+
+	// Setup our intial check on the requested path
+	strcpy(tmppath, origpath);
+	getcwd(curdir, MAXPATHLEN);
+
+	for(;;) {
+		newdir = dirname(tmppath);
+		if ( strpos(tmppath, "/usr/pbi") == 0 && strcmp(curdir, newdir) != 0) {
+			didchdir=1;
+			(*sys_chdir)(newdir);
+		}
+
+		// See if this is a symlink we are path'ing
+		size = sys_readlink(tmppath, linkpath, sizeof(linkpath) );
+		if ( size != -1 )
+		{
+			// Add the null term
+			linkpath[size]='\0';
+
+			// Get the modified path for this link
+			dbug("link_redirect()", tmppath, linkpath);
+			get_modified_path(npath, linkpath, 0);
+
+			// Get the string after the sym-link resolution
+			strcpy(tmp, replace_str(origpath, tmppath, ""));
+			dbug("Fragment:", tmp, tmp);
+
+			// Add the fragment back to the new path
+			strcat(npath, tmp);
+			dbug("link_redirect2()", opath, npath);
+
+			// Change dir back to orig
+			if ( didchdir == 1 )
+				(*sys_chdir)(curdir);
+			return 0;
+		}
+
+		if ( didchdir == 1 )
+			(*sys_chdir)(curdir);
+
+		// If we have reached the end of the path we can break out now
+		strcpy(tmp, dirname(tmppath));
+		strcpy(tmppath, tmp);
+		if ( strcmp(tmppath, "/usr/pbi") == 0 || \
+			 strcmp(tmppath, "/usr/local") == 0 || \
+			 strcmp(tmppath, "/") == 0 )
+		{
+			break;
+		}
 	}
 
-	// We need to do some magic here to see if this file is a sym-link
-	// See if this is a sym-link we are stat'ing
-	if ( (readlink(opath, linkpath, sizeof(linkpath)) != -1 ) && strpos(opath, "/usr/pbi") == 0 )
-	{
-        	dbug("link_redirect()", opath, linkpath);
-        	get_modified_path(npath, linkpath, 0);
-		dbug("link_redirect2()", opath, npath);
-		if ( didchdir == 1 )
-	   		chdir(curdir);
-		return 0;
-	} 
-
-	if ( didchdir == 1 )
-   		chdir(curdir);
 	return -1;
 }
 
@@ -489,9 +533,22 @@ int chdir(const char *path)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
 
 	dbug("chdir()", path, newpath);
 	typeof(chdir) *sys_chdir;
+        sys_chdir = dlsym(RTLD_NEXT, "chdir");
+        return (*sys_chdir)(newpath);
+}
+
+int _chdir(const char *path)
+{
+        char newpath[MAXPATHLEN];
+        get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
+
+	dbug("_chdir()", path, newpath);
+	typeof(_chdir) *sys_chdir;
         sys_chdir = dlsym(RTLD_NEXT, "chdir");
         return (*sys_chdir)(newpath);
 }
@@ -500,6 +557,7 @@ int chmod(const char *path, mode_t mode)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
 
 	dbug("chmod()", path, newpath);
 	typeof(chmod) *sys_chmod;
@@ -511,6 +569,7 @@ int _chmod(const char *path, mode_t mode)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
 
 	dbug("_chmod()", path, newpath);
 	typeof(_chmod) *sys_chmod;
@@ -1083,6 +1142,7 @@ DIR* opendir(const char *filename)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, filename, 0);
+        get_link_path(newpath, newpath);
 
 	dbug("opendir()", filename, newpath);
 	typeof(opendir) *sys_opendir;
@@ -1095,6 +1155,7 @@ DIR* _opendir(const char *filename)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, filename, 0);
+        get_link_path(newpath, newpath);
 
 	dbug("_opendir()", filename, newpath);
 	typeof(_opendir) *sys_opendir;
@@ -1132,6 +1193,7 @@ int stat(const char *path, struct stat *sb)
         get_link_path(newpath, newpath);
 
 	dbug("stat()", path, newpath);
+
 	typeof(stat) *sys_stat;
         sys_stat = dlsym(RTLD_NEXT, "stat");
                          
@@ -1142,7 +1204,6 @@ int _stat(const char *path, struct stat *sb)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, path, 0);
-        get_link_path(newpath, newpath);
 
 	dbug("_stat()", path, newpath);
 	typeof(_stat) *sys_stat;
@@ -1241,6 +1302,9 @@ size_t readlink(const char *restrict path, char *restrict buf, size_t bufsiz)
 	typeof(readlink) *sys_readlink;
 	sys_readlink = dlsym(RTLD_NEXT, "readlink");
 
+	return (*sys_readlink)(newpath, buf, bufsiz);
+
+	/*
 	size_t ret = (*sys_readlink)(newpath, buf, bufsiz);
 	if ( ret == -1 )
 		return ret;
@@ -1253,17 +1317,23 @@ size_t readlink(const char *restrict path, char *restrict buf, size_t bufsiz)
 	if ( strpos(bufcpy, "/") != 0 )
 		return ret;
 
+	//printf("readlink() %s -> %s\n", path, bufcpy);
+
 	dbug("readlink1()", path, bufcpy);
         get_modified_path(newlink, bufcpy, 0);
+	//printf("readlink2() %s -> %s\n", path, newlink);
 
 	// Zero out the old buf
-	bzero(buf, bufsiz);
+	//bzero(buf, ret);
 
 	// Copy the new string back
 	memcpy(buf, newlink, (sizeof(newlink)-1));
 	newbufsiz = sizeof(newlink);
+
 	dbug("readlink2()", path, buf);
+	printf("readlink3() %s -> %s\n", path, buf);
         return newbufsiz;
+	*/
 }
 
 size_t _readlink(const char *restrict path, char *restrict buf, size_t bufsiz)
@@ -1439,9 +1509,10 @@ int statfs(const char *path, struct statfs *buf)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
 
 	typeof(statfs) *sys_statfs;
-	//printf("\nIn our own statfs(): %s\n", newpath);
+	dbug("statfs()", path, newpath);
 	sys_statfs = dlsym(RTLD_NEXT, "statfs");
 	return (*sys_statfs)(newpath, buf);
 }
@@ -1450,6 +1521,7 @@ int _statfs(const char *path, struct statfs *buf)
 {
         char newpath[MAXPATHLEN];
         get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
 
 	dbug("_statfs()", path, newpath);
 	typeof(_statfs) *sys_statfs;
