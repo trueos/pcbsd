@@ -275,11 +275,15 @@ int get_modified_path(char *npath, const char *opath, int resolvpath)
 	{
 		// Check for some of the breakout commands
 		if ( strpos(rPath, "/usr/local/bin/openwith") == 0 ) {
-			strcpy(npath, "/usr/pbi/.pbisyscmd");
+			strcpy(npath, "/usr/bin/openwith");
 			return 0;
 		}
 		if ( strpos(rPath, "/usr/local/bin/xdg-open") == 0 ) {
-			strcpy(npath, "/usr/pbi/.pbisyscmd");
+			strcpy(npath, "/usr/bin/openwith");
+			return 0;
+		}
+		if ( strpos(rPath, "/usr/local/bin/pbisyscmd") == 0 ) {
+			strcpy(npath, "/usr/bin/pbisyscmd");
 			return 0;
 		}
 
@@ -311,20 +315,6 @@ int get_modified_path(char *npath, const char *opath, int resolvpath)
 			return 0;
 		}
 
-		// Look for some of our callback utils
-		if ( strpos(rPath, "/usr/local/bin/pbisyscmd") == 0 ) {
-			strcpy(npath, "/usr/pbi/.pbisyscmd");
-			return 0;
-		}
-		if ( strpos(rPath, "/usr/local/bin/openwith") == 0 ) {
-			strcpy(npath, "/usr/pbi/.pbisyscmd");
-			return 0;
-		}
-		if ( strpos(rPath, "/usr/local/bin/xdg-open") == 0 ) {
-			strcpy(npath, "/usr/pbi/.pbisyscmd");
-			return 0;
-		}
-	
 		// Check if we need to do our first init
 		if ( do_init == 0 )
 	   		first_init();

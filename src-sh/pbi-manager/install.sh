@@ -142,7 +142,7 @@ install -o root -g wheel -m 755 pbirun32 ${LB}/share/pbi-manager/.pbirun32
 install -o root -g wheel -m 755 pbiinit ${LB}/share/pbi-manager/.pbiinit
 install -o root -g wheel -m 755 ldconfig ${LB}/share/pbi-manager/.ldconfig
 install -o root -g wheel -m 755 pbisyscmd ${LB}/share/pbi-manager/.pbisyscmd
-install -o root -g wheel -m 755 pbisyscmd ${LB}/share/pbi-manager/openwith
+install -o root -g wheel -m 755 openwith ${LB}/share/pbi-manager/openwith
 if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 755 pbime /usr/pbi/.pbime
   install -o root -g wheel -m 4751 pbild /usr/pbi/.pbild
@@ -151,7 +151,7 @@ if [ "${LB}" = "/usr/local" ] ; then
   install -o root -g wheel -m 755 pbiinit /usr/pbi/.pbiinit
   install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
   install -o root -g wheel -m 755 pbisyscmd /usr/pbi/.pbisyscmd
-  install -o root -g wheel -m 755 pbisyscmd /usr/bin/openwith
+  install -o root -g wheel -m 755 openwith /usr/bin/openwith
 fi
 
 # Install the pbi_preload wrapper library
