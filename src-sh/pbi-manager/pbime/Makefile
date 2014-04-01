@@ -14,8 +14,8 @@ install: pbime
 	install -o root -g wheel -m 755 pbirun32 /usr/pbi/.pbirun32
 	install -o root -g wheel -m 755 pbiinit /usr/pbi/.pbiinit
 	install -o root -g wheel -m 755 ldconfig /usr/pbi/.ldconfig
-	install -o root -g wheel -m 755 pbisyscmd /usr/pbi/.pbisyscmd
-	install -o root -g wheel -m 755 pbisyscmd /usr/bin/openwith
+	install -o root -g wheel -m 755 pbisyscmd /usr/bin/pbisyscmd
+	install -o root -g wheel -m 755 openwith /usr/bin/openwith
 
 clean:
 	rm pbirun
