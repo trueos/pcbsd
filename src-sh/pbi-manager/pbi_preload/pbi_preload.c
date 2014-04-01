@@ -180,8 +180,9 @@ const char *replace_str(const char *str, char *orig, char *rep)
 int get_modified_path(char *npath, const char *opath, int resolvpath)
 { 
 	// Just break out now if path == NULL
-	if ( opath == NULL )
+	if ( opath == NULL || opath[0] == '\0') {
 		return -1;
+	}
 
 	// If the process is requesting to breakout of the container
 	if ( getenv("PBI_BREAKOUT") != NULL )
@@ -437,7 +438,7 @@ int access(const char *path, int mode)
 	dbug("access()", path, newpath);
 	typeof(access) *sys_access;
         sys_access = dlsym(RTLD_NEXT, "access");
-        return (*sys_access)(newpath, mode);
+	return (*sys_access)(newpath, mode);
 }
 
 int _access(const char *path, int mode)
@@ -449,7 +450,7 @@ int _access(const char *path, int mode)
 	dbug("access()", path, newpath);
 	typeof(_access) *sys_access;
         sys_access = dlsym(RTLD_NEXT, "_access");
-        return (*sys_access)(newpath, mode);
+	return (*sys_access)(newpath, mode);
 }
 
 int __acl_aclcheck_file(const char *_path, acl_type_t _type, struct acl *_aclp)
@@ -460,7 +461,7 @@ int __acl_aclcheck_file(const char *_path, acl_type_t _type, struct acl *_aclp)
 	dbug("__acl_aclcheck_file()", _path, newpath);
 	typeof(__acl_aclcheck_file) *sys_acl;
         sys_acl = dlsym(RTLD_NEXT, "__acl_aclcheck_file");
-        return (*sys_acl)(newpath, _type, _aclp);
+	return (*sys_acl)(newpath, _type, _aclp);
 }
 
 acl_t acl_get_file(const char *path_p, acl_type_t type)
@@ -471,7 +472,7 @@ acl_t acl_get_file(const char *path_p, acl_type_t type)
 	dbug("acl_get_file()", path_p, newpath);
 	typeof(acl_get_file) *sys_acl;
         sys_acl = dlsym(RTLD_NEXT, "acl_get_file");
-        return (*sys_acl)(newpath, type);
+	return (*sys_acl)(newpath, type);
 }
 
 acl_t _acl_get_file(const char *path_p, acl_type_t type)
@@ -1193,7 +1194,6 @@ int stat(const char *path, struct stat *sb)
         get_link_path(newpath, newpath);
 
 	dbug("stat()", path, newpath);
-
 	typeof(stat) *sys_stat;
         sys_stat = dlsym(RTLD_NEXT, "stat");
                          
