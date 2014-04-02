@@ -534,12 +534,11 @@
     </message>
     <message>
         <source>&amp;Save</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сохранить [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">Отмена [&amp;C]</translation>
+        <translation>Отмена [&amp;C]</translation>
     </message>
 </context>
 <context>

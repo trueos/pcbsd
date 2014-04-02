@@ -5,123 +5,107 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Start the Update Manager</translation>
+        <translation>Start the Update Manager</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">Start the Package Manager</translation>
+        <translation>Start the Package Manager</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Start the AppCafe</translation>
+        <translation>Start the AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Start the Warden</translation>
+        <translation>Start the Warden</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Check For Updates</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Run At Startup</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Display Notifications</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Quit</translation>
+        <translation>Quit</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Reboot Required</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">System Updates Available</translation>
+        <translation>System Updates Available</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Package Updates Available</translation>
+        <translation>Package Updates Available</translation>
     </message>
     <message>
         <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Updates Available</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Jail Updates Available</translation>
+        <translation>Jail Updates Available</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD System Message</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">PC-BSD Update Manager</translation>
+        <translation>PC-BSD Update Manager</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Error checking for updates</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Please make sure you have a working internet connection</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">Your system is fully updated</translation>
+        <translation>Your system is fully updated</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Checking for system updates...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>System Updating...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Checking for package updates...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Packages Updating...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Checking for jail updates...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Jails Updating...</translation>
     </message>
     <message>
         <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Checking for PBI updates</translation>
     </message>
     <message>
         <source>PBI Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Updating...</translation>
     </message>
 </context>
 </TS>

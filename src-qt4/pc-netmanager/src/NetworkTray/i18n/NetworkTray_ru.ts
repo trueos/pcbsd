@@ -126,13 +126,11 @@
     </message>
     <message>
         <source>Hex Key (default)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Шестнадцатеричный ключ (по умолчанию)</translation>
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обычный текст</translation>
     </message>
 </context>
 </TS>
