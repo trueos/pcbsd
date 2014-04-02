@@ -47,6 +47,8 @@ typedef struct Struct_Obj_Entry {
 char hintsfile[MAXPATHLEN];
 char hints32[MAXPATHLEN];
 char pbidir[MAXPATHLEN];
+char username[MAXPATHLEN];
+char hashdir[MAXPATHLEN];
 char linuxdir[MAXPATHLEN];
 
 // Have we done our init yet?
@@ -93,6 +95,11 @@ void first_init()
    strcat(hintsfile, pbiname);
    strcpy(hints32, "/var/run/ld-elf32.so.hints.");
    strcat(hints32, pbiname);
+
+   // Get the process username
+   strcpy(username, getenv("LOGNAME"));
+   strcpy(hashdir, "/usr/pbi/.hashdir-");
+   strcat(hashdir, username);
 
    // Yay, init is all done!
    do_init=1;
@@ -321,6 +328,25 @@ int get_modified_path(char *npath, const char *opath, int resolvpath)
 
 		strcpy(npath, replace_str(rPath, "/usr/local", pbidir));
 		return 0;
+	}
+
+	// Any special matching for /usr/pbi
+	if ( strpos(rPath, "/usr/pbi") == 0 )
+	{
+
+		// Check if we need to do our first init
+		if ( do_init == 0 )
+			first_init();
+
+		// The PBI shouldn't be mucking about in our hard-linked hashdir
+		if ( strpos(rPath, hashdir) == 0 ) {
+			strcpy(npath, replace_str(rPath, hashdir, pbidir));
+			int hashloc = strpos(npath, ":::");
+			if ( hashloc != -1 )
+				npath[hashloc] = '\0';
+			return 0;
+		}
+
 	}
 
 	strcpy(npath, rPath);
