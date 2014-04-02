@@ -5,38 +5,31 @@
     <name>CMDDialog</name>
     <message>
         <source>CMD Output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Вывод команд</translation>
     </message>
     <message>
         <source>Getting PC-BSD Ports Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Получение дерева портов PC-BSD</translation>
     </message>
     <message>
         <source>Getting PC-BSD Sources</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Получение исходников PC-BSD</translation>
     </message>
     <message>
         <source>Process Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процесс запущен</translation>
     </message>
     <message>
         <source>Please stop the current process before closing this window.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, остановите текущий процесс до закрытия этого окна.</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Остановить [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Закрыть [&amp;C]</translation>
     </message>
 </context>
 <context>
@@ -87,43 +80,35 @@
     </message>
     <message>
         <source>PC-BSD Versions</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версии PC-BSD</translation>
     </message>
     <message>
         <source>Base:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Основа:</translation>
     </message>
     <message>
         <source>Backend Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Утилиты администрирования:</translation>
     </message>
     <message>
         <source>Graphical Utilities:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Графические утилиты:</translation>
     </message>
     <message>
         <source>System Information</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системная информация</translation>
     </message>
     <message>
         <source>FreeBSD Version:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Версия FreeBSD:</translation>
     </message>
     <message>
         <source>Fetch PC-BSD &amp;System Source</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Получить исходники системы PC-BSD [&amp;S]</translation>
     </message>
     <message>
         <source>Fetch PC-BSD P&amp;orts Tree</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Получить дерево портов PC-BSD [&amp;O]</translation>
     </message>
     <message>
         <source>Error</source>
@@ -131,38 +116,31 @@
     </message>
     <message>
         <source>Error Generating Diagnostic File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка создания файла диагностики</translation>
     </message>
     <message>
         <source>Success</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Успех</translation>
     </message>
     <message>
         <source>Diagnostic File Created: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Файл диагностики создан: %1</translation>
     </message>
     <message>
         <source>Process Already Running</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Процесс уже запущен</translation>
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>У Вас уже есть запущенный процесс. Пожалуйста, подождите, что-бы он завершился первым.</translation>
     </message>
     <message>
         <source>&amp;Generate</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Создать [&amp;G]</translation>
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Применить [&amp;A]</translation>
     </message>
 </context>
 </TS>

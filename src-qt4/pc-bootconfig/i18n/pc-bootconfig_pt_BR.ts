@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Amount of time before the default option is started (0 deactivates automatic booting)</source>
-        <translation type="unfinished">Quantidade de tempo antes que a opção padrão seja inicializada (0 desabilita a inicialização automática)</translation>
+        <translation>Quantidade de tempo antes que a opção padrão seja inicializada (0 desabilita a inicialização automática)</translation>
     </message>
     <message>
         <source>Display the GRUB menu during the countdown</source>
@@ -129,15 +129,15 @@
     </message>
     <message>
         <source>Custom Entries</source>
-        <translation type="unfinished">Entradas personalizadas</translation>
+        <translation>Entradas personalizadas</translation>
     </message>
     <message>
         <source>Save the current entry configuration</source>
-        <translation type="unfinished">Salvar a atual configuração de entrada</translation>
+        <translation>Salvar a configuração atual de entrada</translation>
     </message>
     <message>
         <source>Re-load the GRUB entries file</source>
-        <translation type="unfinished">Recarregar o arquivo de entradas do GRUB</translation>
+        <translation>Recarregar o arquivo de entradas do GRUB</translation>
     </message>
     <message>
         <source>Invalid Name</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Performing Boot Environment Changes. Please Wait.</source>
-        <translation type="unfinished">Realizando mudanças no Ambiente de Inicialização. Aguarde por favor.</translation>
+        <translation>Realizando mudanças no Ambiente de Inicialização. Aguarde por favor.</translation>
     </message>
     <message>
         <source>New BE name</source>

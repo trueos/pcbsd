@@ -53,28 +53,23 @@
     </message>
     <message>
         <source>&amp;Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Restart</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезапуск [&amp;R]</translation>
     </message>
     <message>
         <source>&amp;Enable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Включить службу [&amp;E]</translation>
     </message>
     <message>
         <source>&amp;Disable Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Выключить службу [&amp;D]</translation>
     </message>
     <message>
         <source>&amp;Stop</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Остановить [&amp;S]</translation>
     </message>
 </context>
 <context>
@@ -89,7 +84,7 @@
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Отменить</translation>
+        <translation>Отменить [&amp;C]</translation>
     </message>
     <message>
         <source>Failed</source>

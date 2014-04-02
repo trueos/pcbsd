@@ -5,60 +5,55 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Iniciar o Gerenciador de Atualizações</translation>
+        <translation>Iniciar o Gerenciador de Atualizações</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">Iniciar o Gerenciador de Pacotes</translation>
+        <translation>Iniciar o Gerenciador de Pacotes</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Iniciar o AppCafe</translation>
+        <translation>Iniciar o AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Iniciar o Warden</translation>
+        <translation>Iniciar o Warden</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Verificar atualizações</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Executar na inicialização</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Exibir notificações</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Sair</translation>
+        <translation>Sair</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Necessário reinicialização do sistema</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">Atualizações do sistema disponíveis</translation>
+        <translation>Atualizações disponíveis do sistema</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">As Atualizações de Pacotes estão Disponíveis</translation>
+        <translation>Atualizações disponíveis de Pacotes</translation>
     </message>
     <message>
         <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Atualizações disponíveis de PBI</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Atualizações do Jail disponíveis</translation>
+        <translation>Atualizações disponíveis do Jail</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>

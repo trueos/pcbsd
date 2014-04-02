@@ -160,8 +160,7 @@
     <name>loginDelay</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Диалог</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PCDM Automatic Login&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -175,8 +174,7 @@
     </message>
     <message>
         <source>Cancel Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отменить вход</translation>
     </message>
     <message>
         <source>Login Now</source>

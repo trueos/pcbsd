@@ -105,48 +105,39 @@
     </message>
     <message>
         <source>&amp;Change</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Изменить [&amp;C]</translation>
     </message>
     <message>
         <source>&amp;Disconnect Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Отключение устройства [&amp;D]</translation>
     </message>
     <message>
         <source>Start &amp;Tray Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запуск приложения в трее [&amp;T]</translation>
     </message>
     <message>
         <source>&amp;Restart Service</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Перезапуск службы [&amp;R]</translation>
     </message>
     <message>
         <source>&amp;Scan</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Сканирование [&amp;S]</translation>
     </message>
     <message>
         <source>&amp;Add Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Добавить устройство [&amp;A]</translation>
     </message>
     <message>
         <source>&amp;Initiate Pairing</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запустить процесс подключения [&amp;I]</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Настроить [&amp;C]</translation>
     </message>
     <message>
         <source>&amp;Remove Device</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Удалить устройство [&amp;R]</translation>
     </message>
 </context>
 </TS>

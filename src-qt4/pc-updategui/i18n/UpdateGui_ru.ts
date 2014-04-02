@@ -141,28 +141,23 @@
     </message>
     <message>
         <source>Base System Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновления базовой системы</translation>
     </message>
     <message>
         <source>The following files will be updated:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Следующие файлы будут обновлены:</translation>
     </message>
     <message>
         <source>Update Details:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновить информацию:</translation>
     </message>
     <message>
         <source>Could not run freebsd-update, another process is already running!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Не удалось запустить FreeBSD-обновления, другой процесс уже запущен!</translation>
     </message>
     <message>
         <source>Reboot required for update to finish!</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Требуется перезагрузка для завершения обновления!</translation>
     </message>
 </context>
 </TS>

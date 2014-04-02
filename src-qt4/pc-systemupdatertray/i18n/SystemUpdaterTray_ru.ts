@@ -5,123 +5,107 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Запустить менеджер обновлений</translation>
+        <translation>Запустить менеджер обновлений</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">Запустить диспетчер пакетов</translation>
+        <translation>Запустить менеджер пакетов</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Запустить AppCafe</translation>
+        <translation>Запустить AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Запуск Warden</translation>
+        <translation>Запустить Warden</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверить наличие обновлений</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Запускать при загрузке</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Показать уведомления</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">Выход</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Требуется перезагрузка системы</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">Обновления системы доступны</translation>
+        <translation>Доступны обновления системы</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Доступен пакет обновлений</translation>
+        <translation>Доступны обновления пакетов</translation>
     </message>
     <message>
         <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Доступны обновления PBI</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Доступны обновления Jail</translation>
+        <translation>Доступны обновления Jail</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Системное сообщение PC-BSD</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">Менеджер обновлений PC-BSD</translation>
+        <translation>Менеджер обновлений PC-BSD</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ошибка проверки обновлений</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Пожалуйста, убедитесь, что у Вас есть работающее интернет-соединение</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">Ваша система полностью обновлена</translation>
+        <translation>Ваша система полностью обновлена</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверка обновлений системы...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновление системы...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверка обновлений пакетов...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновление пакетов...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверка обновлений Jail...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновление Jail...</translation>
     </message>
     <message>
         <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Проверка обновлений PBI...</translation>
     </message>
     <message>
         <source>PBI Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Обновление PBI...</translation>
     </message>
 </context>
 </TS>
