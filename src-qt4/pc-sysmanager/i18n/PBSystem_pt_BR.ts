@@ -132,7 +132,7 @@
     </message>
     <message>
         <source>You already have a process running. Please wait for that one to finish first.</source>
-        <translation type="unfinished">Você já tem um processo em execução. Aguarde-o antes de finalizar.</translation>
+        <translation>Você já tem um processo em execução. Por favor, aguarde que ele termine antes.</translation>
     </message>
     <message>
         <source>&amp;Generate</source>

@@ -5,392 +5,391 @@
     <name>MainGUI</name>
     <message>
         <source>EasyPBI</source>
-        <translation type="unfinished">
+        <translation>ईज़ी पी.बी.आई
             </translation>
     </message>
     <message>
         <source>PBI Configuration</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई समाकृति
             </translation>
     </message>
     <message>
         <source>Main settings for the PBI</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई के लिए प्रमुख सेट्टिंग्स
             </translation>
     </message>
     <message>
         <source>Program Information</source>
-        <translation type="unfinished">
+        <translation>प्रोग्राम सूचना
             </translation>
     </message>
     <message>
         <source>Official name of the target program</source>
-        <translation type="unfinished">
+        <translation>लक्ष्य कार्यक्रम का अधिकारिक नाम
             </translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished">
+        <translation type="unfinished">नाम
             </translation>
     </message>
     <message>
         <source>Version of the program to be packaged</source>
-        <translation type="unfinished">
+        <translation>पैक किए जा रहे प्रोग्राम का संस्करण
             </translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
+        <translation type="unfinished">संस्करण
             </translation>
     </message>
     <message>
         <source>URL of the main website for the target program</source>
-        <translation type="unfinished">
+        <translation>लक्ष्य कार्यक्रम के लिए मुख्य वेबसाइट का यूआरएल
             </translation>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished">
+        <translation type="unfinished">वेबसाइट
             </translation>
     </message>
     <message>
         <source>Author of the main program (or FreeBSD port maintainer instead)</source>
-        <translation type="unfinished">
+        <translation>मुख्य कार्यक्रम के लेखक(या फ्री बी.एस.डी पोर्ट प्रबंधक)
             </translation>
     </message>
     <message>
         <source>Author</source>
-        <translation type="unfinished">
+        <translation type="unfinished">लेखक
             </translation>
     </message>
     <message>
         <source>Icon that will be used for the program (PNG resources available)</source>
-        <translation type="unfinished">
+        <translation>कार्यक्रम के लिए उपयोग किया जाएगा जो चिह्न(उपलब्ध पी.एन.जी संसाधन)
             </translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
+        <translation type="unfinished">चिह्न
             </translation>
     </message>
     <message>
         <source>FreeBSD port to be packaged as a PBI</source>
-        <translation type="unfinished">
+        <translation>फ्री बी.एस.डी पोर्ट एक पी.बी.आई के रूप में पैक करने के लिए
             </translation>
     </message>
     <message>
         <source>Additional FreeBSD ports to be built after the main program</source>
-        <translation type="unfinished">
+        <translation>मुख्य कार्यक्रम के बाद निर्मित करने के लिए अतिरिक्त फ्री बी.एस.डी पोर्ट 
             </translation>
     </message>
     <message>
         <source>Require administrator permissions to install this PBI</source>
-        <translation type="unfinished">
+        <translation>इस पी.बी.आई को स्थापित करने के लिए व्यवस्थापक अनुमति की आवश्यकता
             </translation>
     </message>
     <message>
         <source>Requires Root Permissions</source>
-        <translation type="unfinished">
+        <translation>रूट अनुमति की आवश्यकता
             </translation>
     </message>
     <message>
         <source>Save the current settings to the PBI configuration file</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई समाकृति फाइल को वर्तमान सेटिंग्स में सेव करें
             </translation>
     </message>
     <message>
         <source>Resources</source>
-        <translation type="unfinished">
+        <translation type="unfinished">संसाधन
             </translation>
     </message>
     <message>
         <source>Additional files to be included in the PBI</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई में शामिल करने के लिए अतिरिक्त फ़ाइलें
             </translation>
     </message>
     <message>
         <source>Current Resources</source>
-        <translation type="unfinished">
+        <translation>वर्तमान संसाधन 
             </translation>
     </message>
     <message>
         <source>Current files to be included in the PBI</source>
-        <translation type="unfinished">
+        <translation>वर्तमान फाइलें पी.बी.आई में शामिल होने के लिए
             </translation>
     </message>
     <message>
         <source>Copy an additional file into the PBI module</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई मॉड्यूल में एक अतिरिक्त फ़ाइल कॉपी करें
             </translation>
     </message>
     <message>
         <source>Delete the selected file from the PBI module</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई मॉड्यूल से चयनित फ़ाइल हटाएँ
             </translation>
     </message>
     <message>
         <source>Create a custom wrapper script for a program binary</source>
-        <translation type="unfinished">
+        <translation>एक कार्यक्रम द्विआधारी के लिए एक कस्टम आवरण स्क्रिप्ट बनाएं
             </translation>
     </message>
     <message>
         <source>Save the wrapper script</source>
-        <translation type="unfinished">
+        <translation>आवरण स्क्रिप्ट को सेव करें
             </translation>
     </message>
     <message>
         <source>Resource Icon</source>
-        <translation type="unfinished">
+        <translation type="unfinished">संसाधन चिह्न
             </translation>
     </message>
     <message>
         <source>Resource Description</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>संसाधन वर्णनn            </translation>
     </message>
     <message>
         <source>XDG Entries</source>
-        <translation type="unfinished">
+        <translation>एक्स.डी.जी प्रविष्टियां
             </translation>
     </message>
     <message>
         <source>Set any desktop/menu entries, and any MIME types</source>
-        <translation type="unfinished">
+        <translation>किसी भी डेस्कटॉप / मेनू प्रविष्टियों, और किसी भी माइम प्रकार सेट करें
             </translation>
     </message>
     <message>
         <source>Create and edit desktop entries</source>
-        <translation type="unfinished">
+        <translation>बनाएँ और डेस्कटॉप प्रविष्टियों को संपादित करें
             </translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished">
+        <translation type="unfinished">डेस्कटॉप
             </translation>
     </message>
     <message>
         <source>Create and edit menu entries</source>
-        <translation type="unfinished">
+        <translation>बनाएँ और संपादित करें मेनू प्रविष्टियों को
             </translation>
     </message>
     <message>
         <source>Menu</source>
-        <translation type="unfinished">
+        <translation type="unfinished">मेनू
             </translation>
     </message>
     <message>
         <source>Refresh the current list (useful if files recently modified outside of EasyPBI)</source>
-        <translation type="unfinished">
+        <translation>वर्तमान सूची को ताज़ा करें(उपयोगी होंगी अगर फाइलें हाल ही में ईज़ी पी.बी.आई के बाहर संशोधित हो)
             </translation>
     </message>
     <message>
         <source>Delete the current item from the PBI module</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई मॉड्यूल से वर्तमान आइटम हटाएं
             </translation>
     </message>
     <message>
         <source>Entry Details</source>
-        <translation type="unfinished">
+        <translation>प्रवेश विवरण
             </translation>
     </message>
     <message>
         <source>Visible name for the item</source>
-        <translation type="unfinished">
+        <translation type="unfinished">आइटम के लिए दर्शनीय नाम
             </translation>
     </message>
     <message>
         <source>Executable</source>
-        <translation type="unfinished">
+        <translation>निष्पाद्य
             </translation>
     </message>
     <message>
         <source>Binary to be run when the item is activated</source>
-        <translation type="unfinished">
+        <translation>बाइनरी तब चलेगा, जब आइटम सक्रिय होगी
             </translation>
     </message>
     <message>
         <source>Auto-detected binaries for the PBI</source>
-        <translation type="unfinished">
+        <translation>खुद पता चलने वाली बाइनॅरीज़ पी.बी.आई के लिए
             </translation>
     </message>
     <message>
         <source>Visible icon to use for the item</source>
-        <translation type="unfinished">
+        <translation>आइटम के लिए उपयोग करने के लिए दर्शनीय आइकन
             </translation>
     </message>
     <message>
         <source>Menu category for the item to be located.</source>
-        <translation type="unfinished">
+        <translation>आइटम स्थित होने के लिए मेनू श्रेणी
             </translation>
     </message>
     <message>
         <source>Possible Menu categories</source>
-        <translation type="unfinished">
+        <translation>संभव मेनू श्रेणियाँ
             </translation>
     </message>
     <message>
         <source>Start the application in a terminal session</source>
-        <translation type="unfinished">
+        <translation>एक टर्मिनल सत्र में आवेदन प्रारंभ करें
             </translation>
     </message>
     <message>
         <source>Open in Terminal</source>
-        <translation type="unfinished">
+        <translation type="unfinished">टर्मिनल में खोलें
             </translation>
     </message>
     <message>
         <source>Flag this item to not be displayed at all</source>
-        <translation type="unfinished">
+        <translation>एस आइटम को फ्लैग करें, ताकि ये बिल्कुल भी प्रदर्शित नहीं हो
             </translation>
     </message>
     <message>
         <source>Make Invisible</source>
-        <translation type="unfinished">
+        <translation>अदृश्य बनाने
             </translation>
     </message>
     <message>
         <source>MIME Patterns</source>
-        <translation type="unfinished">
+        <translation>माइम(एम.आई.एम.ई) पैटर्न्स
             </translation>
     </message>
     <message>
         <source>Save the item as currently shown</source>
-        <translation type="unfinished">
+        <translation>इस आइटम को वर्तमान में दिखाए गए के रूप में सेव करें
             </translation>
     </message>
     <message>
         <source>Create a new item with the current settings</source>
-        <translation type="unfinished">
+        <translation>वर्तमान सेटिंग्स के साथ एक नया आइटम बनाएँ
             </translation>
     </message>
     <message>
         <source>Scripts</source>
-        <translation type="unfinished">
+        <translation>आलेख
             </translation>
     </message>
     <message>
         <source>Additional installation/build scripts</source>
-        <translation type="unfinished">
+        <translation>अतिरिक्त स्थापना / आलेखों का निर्माण
             </translation>
     </message>
     <message>
         <source>Choose a script that you wish to create or edit</source>
-        <translation type="unfinished">
+        <translation>आप बनाने या संपादित करना चाहते हैं तो एक स्क्रिप्ट चुनें
             </translation>
     </message>
     <message>
         <source>Create the selected script</source>
-        <translation type="unfinished">
+        <translation>चयनित स्क्रिप्ट बनाएं
             </translation>
     </message>
     <message>
         <source>Delete the selected script from the PBI module</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई मॉड्यूल से चयनित स्क्रिप्ट हटाएं
             </translation>
     </message>
     <message>
         <source>Save the current text as the selected script</source>
-        <translation type="unfinished">
+        <translation>चयनित स्क्रिप्ट के रूप में मौजूदा मूलशब्द सेव करें
             </translation>
     </message>
     <message>
         <source>Contents for the selected script</source>
-        <translation type="unfinished">
+        <translation>चयनित स्क्रिप्ट के लिए सामग्री
             </translation>
     </message>
     <message>
         <source>External-Links</source>
-        <translation type="unfinished">
+        <translation>बाहरी लिंक
             </translation>
     </message>
     <message>
         <source>FIles to be linked into the local system</source>
-        <translation type="unfinished">
+        <translation>स्थानीय सिस्टम से लिंक करें फाइल को
             </translation>
     </message>
     <message>
         <source>Current Entries</source>
-        <translation type="unfinished">
+        <translation>वर्तमान प्रविष्टियां
             </translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">
+        <translation>फाइल
             </translation>
     </message>
     <message>
         <source>Link To</source>
-        <translation type="unfinished">
+        <translation>लिंक करें
             </translation>
     </message>
     <message>
         <source>File Type</source>
-        <translation type="unfinished">
+        <translation>फाइल की भांति
             </translation>
     </message>
     <message>
         <source>Remove currently selected link</source>
-        <translation type="unfinished">
+        <translation>वर्तमान में चयनित लिंक निकालें
             </translation>
     </message>
     <message>
         <source>Add Entry</source>
-        <translation type="unfinished">
+        <translation>एंट्री जोड़ें
             </translation>
     </message>
     <message>
         <source>PBI file to be sym-linked into the local system (relative to the PBI directory)</source>
-        <translation type="unfinished">
+        <translation>स्थानीय सिस्टम में पी.बी.आई फाइल को संतुलित लिंक करें(पी.बी.आई निर्देशिका के सापेक्ष)(
             </translation>
     </message>
     <message>
         <source>Auto-detected binaries for this PBI</source>
-        <translation type="unfinished">
+        <translation>इस पी.बी.आई के लिए खुद पता चलने वाली बायनेरिज़
             </translation>
     </message>
     <message>
         <source>Location for the link to be created (relative to the local base: normally /usr/local/)</source>
-        <translation type="unfinished">
+        <translation>लिंक ब्नाने के लिए स्थान(स्थानीय आधार के सापेक्ष: सामान्य रूप से / यूस्र / स्थानीय /)
             </translation>
     </message>
     <message>
         <source>Flags to determine the file type</source>
-        <translation type="unfinished">
+        <translation>फ़ाइल प्रकार निर्धारित करने के लिए झंडे
             </translation>
     </message>
     <message>
         <source>Available flags for the new link</source>
-        <translation type="unfinished">
+        <translation>नई लिंक के लिए उपलब्ध झंडे
             </translation>
     </message>
     <message>
         <source>Save this link to the PBI module</source>
-        <translation type="unfinished">
+        <translation>इस लिंक को पी.बी.आई मॉड्यूल में सेव करें
             </translation>
     </message>
     <message>
         <source>Module Building</source>
-        <translation type="unfinished">
+        <translation>मॉड्यूल बनायें
             </translation>
     </message>
     <message>
         <source>Shows the module that is currently being used to build a PBI</source>
-        <translation type="unfinished">
+        <translation>उस मॉड्यूल को दिखायें, जो वर्तमान में पी.बी.आई ब्नाने के लिए इस्तेमाल किया जा रहा है
             </translation>
     </message>
     <message>
         <source>No PBI currently being built</source>
-        <translation type="unfinished">
+        <translation>कोई पी.बी.आई वर्तमान में बनाया नहीं जा रहा है
             </translation>
     </message>
     <message>
         <source>Output Directory</source>
-        <translation type="unfinished">
+        <translation>आउटपुट निर्देशिका
             </translation>
     </message>
     <message>
         <source>Location for the finished PBI to be located</source>
-        <translation type="unfinished">
+        <translation>ख़त्म हो चुके पी बी आई की स्थिति को निकालना
             </translation>
     </message>
     <message>

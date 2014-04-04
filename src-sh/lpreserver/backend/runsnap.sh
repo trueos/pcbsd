@@ -66,12 +66,12 @@ do_automatic_prune()
   # Get the last replicated snapshot
   lastSEND=`zfs get -r backup:lpreserver ${LDATA} | grep LATEST | awk '{$1=$1}1' OFS=" " | tail -1 | cut -d '@' -f 2 | cut -d ' ' -f 1`
   if [ -n "$lastSend" ] ; then
-     sec="`echo $lastSend | cut -d '-' -f 7`"
-     min="`echo $lastSend | cut -d '-' -f 6`"
-     hour="`echo $lastSend | cut -d '-' -f 5`"
-     day="`echo $lastSend | cut -d '-' -f 4`"
-     mon="`echo $lastSend | cut -d '-' -f 3`"
-     year="`echo $lastSend | cut -d '-' -f 2`"
+     sec="`echo $lastSEND | cut -d '-' -f 7`"
+     min="`echo $lastSEND | cut -d '-' -f 6`"
+     hour="`echo $lastSEND | cut -d '-' -f 5`"
+     day="`echo $lastSEND | cut -d '-' -f 4`"
+     mon="`echo $lastSEND | cut -d '-' -f 3`"
+     year="`echo $lastSEND | cut -d '-' -f 2`"
      sendEpoc=`date -j -f "%Y %m %d %H %M %S" "$year $mon $day $hour $min $sec" "+%s"`
      # Check that this replication target is still active
      if [ -e "$REPCONF" ] ; then
