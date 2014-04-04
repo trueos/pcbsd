@@ -576,7 +576,6 @@ share/pcbsd/pc-controlpanel/items/de/xfce-wm-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-workspaces-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-wmtweaks-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/lxde-lxappearance.desktop
-share/pcbsd/pc-controlpanel/items/de/kde-systemsettings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-accessibility-settings.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce-settings-manager.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-settings-editor.desktop
@@ -588,8 +587,6 @@ share/pcbsd/pc-controlpanel/items/de/lxde-default-apps.desktop
 share/pcbsd/pc-controlpanel/items/de/lxde-xscreensaver.desktop
 share/pcbsd/pc-controlpanel/items/de/xfce4-thunar-settings.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-soundconfig.desktop
-share/pcbsd/pc-controlpanel/items/hardware/pc-paprefs.desktop
-share/pcbsd/pc-controlpanel/items/hardware/pc-pavucontrol.desktop
 share/pcbsd/pc-controlpanel/items/hardware/pc-zmanager.desktop
 share/pcbsd/pc-controlpanel/items/hardware/lxde-lxinput.desktop
 share/pcbsd/pc-controlpanel/items/hardware/kinfocenter.desktop
