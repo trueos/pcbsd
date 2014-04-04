@@ -82,7 +82,13 @@ QString DevCheck::devLabel(QString node, QString filesystem){
   QString dlabel;
   if(filesystem.toLower()=="ntfs"){
     //Use ntfslabel for ntfs filesystems
-    dlabel = pcbsd::Utils::runShellCommand("ntfslabel "+devDir.absoluteFilePath(node) ).join("").simplified();
+    QStringList tmp = pcbsd::Utils::runShellCommand("ntfslabel "+devDir.absoluteFilePath(node) );
+    if(tmp.length() ==1){
+      dlabel = tmp[0]; //good result
+    }else if(tmp.length()==2 && tmp[0].startsWith("Failed ")){
+      dlabel = tmp[1]; //also good result, just warning for first line (Windows 8)
+    }
+    //skip outputs if 0 or >2 lines - (errors without detected label)
   }else{
     //All other filesystems
     QStringList glout = pcbsd::Utils::runShellCommand("glabel list");
