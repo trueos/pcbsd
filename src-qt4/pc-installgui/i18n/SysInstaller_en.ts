@@ -840,70 +840,70 @@ Click Finish to reboot. After rebooting you may eject the install media.</source
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="793"/>
+        <location filename="../wizardDisk.cpp" line="798"/>
         <source>Enter SWAP size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="794"/>
+        <location filename="../wizardDisk.cpp" line="799"/>
         <source>Size (MB)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="930"/>
+        <location filename="../wizardDisk.cpp" line="945"/>
         <source>Installing to file-system mounted at /mnt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="944"/>
+        <location filename="../wizardDisk.cpp" line="959"/>
         <source>The disk will be setup with the following configuration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="963"/>
+        <location filename="../wizardDisk.cpp" line="978"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="963"/>
+        <location filename="../wizardDisk.cpp" line="978"/>
         <source>Mirroring:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1003"/>
-        <location filename="../wizardDisk.cpp" line="1043"/>
-        <location filename="../wizardDisk.cpp" line="1073"/>
+        <location filename="../wizardDisk.cpp" line="1018"/>
+        <location filename="../wizardDisk.cpp" line="1058"/>
+        <location filename="../wizardDisk.cpp" line="1088"/>
         <source>Partition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1004"/>
-        <location filename="../wizardDisk.cpp" line="1044"/>
-        <location filename="../wizardDisk.cpp" line="1074"/>
+        <location filename="../wizardDisk.cpp" line="1019"/>
+        <location filename="../wizardDisk.cpp" line="1059"/>
+        <location filename="../wizardDisk.cpp" line="1089"/>
         <source>FileSystem:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1005"/>
-        <location filename="../wizardDisk.cpp" line="1045"/>
-        <location filename="../wizardDisk.cpp" line="1075"/>
+        <location filename="../wizardDisk.cpp" line="1020"/>
+        <location filename="../wizardDisk.cpp" line="1060"/>
+        <location filename="../wizardDisk.cpp" line="1090"/>
         <source>Size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1019"/>
+        <location filename="../wizardDisk.cpp" line="1034"/>
         <source>ZFS Datasets:&lt;br&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1021"/>
-        <location filename="../wizardDisk.cpp" line="1076"/>
+        <location filename="../wizardDisk.cpp" line="1036"/>
+        <location filename="../wizardDisk.cpp" line="1091"/>
         <source>Mount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../wizardDisk.cpp" line="1024"/>
-        <location filename="../wizardDisk.cpp" line="1078"/>
+        <location filename="../wizardDisk.cpp" line="1039"/>
+        <location filename="../wizardDisk.cpp" line="1093"/>
         <source>Options:</source>
         <translation type="unfinished"></translation>
     </message>

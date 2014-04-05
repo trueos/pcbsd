@@ -276,8 +276,7 @@
     </message>
     <message>
         <source>&amp;Apply</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>套用(&amp;A)</translation>
     </message>
 </context>
 </TS>

@@ -235,8 +235,7 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>檔案(&amp;F)</translation>
     </message>
     <message>
         <source>&amp;Emergency Services</source>
@@ -245,8 +244,7 @@
     </message>
     <message>
         <source>&amp;Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>關閉(&amp;C)</translation>
     </message>
     <message>
         <source>Re&amp;build GRUB Menu</source>
