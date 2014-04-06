@@ -648,38 +648,31 @@
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Cấu hình</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Thoát</translation>
     </message>
     <message>
         <source>&amp;New Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Nhà tù mới</translation>
     </message>
     <message>
         <source>&amp;Refresh Jails</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Làm mới nhà tù</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;các thiết lập</translation>
     </message>
     <message>
         <source>&amp;Import Jail</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;nhập Jail</translation>
     </message>
     <message>
         <source>&amp;Template Manager</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Tiêu bản Manager</translation>
     </message>
 </context>
 <context>

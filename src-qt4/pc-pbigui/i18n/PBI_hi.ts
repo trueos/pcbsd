@@ -73,102 +73,102 @@
     </message>
     <message>
         <source>The program</source>
-        <translation type="unfinished">
+        <translation>क्रमादेश
             </translation>
     </message>
     <message>
         <source>is already installed. Overwrite it?</source>
-        <translation type="unfinished">
+        <translation>पहले से ही स्थापित है | इसके ऊपर लिखें?
             </translation>
     </message>
     <message>
         <source>PBI Installer</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई स्थापित करने वाला
             </translation>
     </message>
     <message>
         <source>Vendor: </source>
-        <translation type="unfinished">
+        <translation>विक्रेता:
             </translation>
     </message>
     <message>
         <source>URL: </source>
-        <translation type="unfinished">
+        <translation>यूआरएल:
             </translation>
     </message>
     <message>
         <source>Valid Digital Signature</source>
-        <translation type="unfinished">
+        <translation>मान्य डिजिटल हस्ताक्षर
             </translation>
     </message>
     <message>
         <source>Cannot locate PBI file:</source>
-        <translation type="unfinished">
+        <translation>पी.बी.आई फ़ाइल को ढूँढ नहीं सकते:
             </translation>
     </message>
     <message>
         <source>Error while running pbi_add!</source>
-        <translation type="unfinished">
+        <translation>पीबीआई_जोड़ चलते हुए त्रुटि !
             </translation>
     </message>
     <message>
         <source>Cannot load meta data from this PBI. File corrupt / invalid.</source>
-        <translation type="unfinished">
+        <translation>इस पी.बी.आई से मेटा डाटा लोड नहीं हो पा रहा | भ्रष्ट / अवैध फाइल
             </translation>
     </message>
     <message>
         <source>Click Next to begin the installation.</source>
-        <translation type="unfinished">
+        <translation>स्थापना आरंभ करने के लिए अगला क्लिक करें
             </translation>
     </message>
     <message>
         <source>The pbi_add command returned an error, the source file may be corrupt or invalid.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>पीबीआई_जोड़ आदेश में कोई त्रुटि , स्रोत फ़ाइल भ्रष्ट या अवैध हो सकती है
+</translation>
     </message>
     <message>
         <source>Creating menu icons and links...</source>
-        <translation type="unfinished">
+        <translation>मेनू चिह्न और लिंक बनाए जा रहे हैं..
             </translation>
     </message>
     <message>
         <source>Merging Files...</source>
-        <translation type="unfinished">
+        <translation>विलय फ़ाइलें...
             </translation>
     </message>
     <message>
         <source>Registering installation and cleanup...</source>
-        <translation type="unfinished">
+        <translation>पंजीयन स्थापना और सफाई...
             </translation>
     </message>
     <message>
         <source>Preparing to install...</source>
-        <translation type="unfinished">
+        <translation>स्थापना के लिए तैयारी...
             </translation>
     </message>
     <message>
         <source>No digital signature</source>
-        <translation type="unfinished">
+        <translation>कोई डिजिटल हस्ताक्षर नहीं
             </translation>
     </message>
     <message>
         <source>This application has no digital signature. Installing applications from unknown sources can be dangerous. Continue with the install? </source>
-        <translation type="unfinished">
+        <translation>इस एप्लिकेशन के पास डिजिटल हस्ताक्षर नहीं है | अज्ञात स्रोतों से स्थापना अनुप्रयोगों खतरनाक हो सकता है | स्थापित करना जारी रखें?
             </translation>
     </message>
     <message>
         <source>Invalid digital signature</source>
-        <translation type="unfinished">
+        <translation>अमान्य डिजिटल हस्ताक्षर
             </translation>
     </message>
     <message>
         <source>This application has a bad or unknown digital signature. Installing applications from unknown sources can be dangerous. Continue with the install? </source>
-        <translation type="unfinished">
+        <translation>इस अप्लिकेशन का एक बुरा या अज्ञात डिजिटल हस्ताक्षर है | अज्ञात स्रोतों से स्थापना अनुप्रयोगों खतरनाक हो सकता है | स्थापित करना जारी रखें?
             </translation>
     </message>
     <message>
         <source>Error, This application must be installed as root!</source>
-        <translation type="unfinished">
+        <translation>त्रुटि, इस अप्लिकेशन को रूट के रूप में स्थापित किया जाना चाहिए!
             </translation>
     </message>
 </context>
