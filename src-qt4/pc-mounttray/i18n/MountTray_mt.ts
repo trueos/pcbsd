@@ -115,16 +115,15 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">Mount bħala:</translation>
+        <translation>Mount bħala:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">Awdjo / Vidjo Disk</translation>
+        <translation>Awdjo / Vidjo Disk</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Play</translation>
     </message>
 </context>
 <context>
@@ -183,13 +182,11 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio/Video Disk</translation>
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Lftaħ Bil:</translation>
     </message>
 </context>
 <context>

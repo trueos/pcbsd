@@ -442,124 +442,101 @@
     </message>
     <message>
         <source>Back</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tagasi</translation>
     </message>
     <message>
         <source>Find</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otsi</translation>
     </message>
     <message>
         <source>Start</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käivita</translation>
     </message>
     <message>
         <source>Created:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Loodud:</translation>
     </message>
     <message>
         <source>Architecture:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arhitektuur:</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Otseteed</translation>
     </message>
     <message>
         <source>Contact Maintainer</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjuta haldajale</translation>
     </message>
     <message>
         <source>Current Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käimasolevad tegevused</translation>
     </message>
     <message>
         <source>Cancel Operations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Katkesta tegevused</translation>
     </message>
     <message>
         <source>Install PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Paigalda PBI</translation>
     </message>
     <message>
         <source>PBI Application (*.pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI rakendus (*.pbi)</translation>
     </message>
     <message>
         <source>Are you ready to begin installing these PBI&apos;s?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kas soovid nende PBI-de paigaldamist alustada?</translation>
     </message>
     <message>
         <source>NOTE: You will need to manually add desktop/menu icons through the AppCafe afterwards.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Märkus: töölaua ja menüü ikoonid tuleb hiljem AppCafe kaudu käsitsi lisada.</translation>
     </message>
     <message>
         <source>Start Update?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alustada uuendamist?</translation>
     </message>
     <message>
         <source>Do you wish to start updating this application right now?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kas soovid alustada kohe selle rakenduse uuendamist?</translation>
     </message>
     <message>
         <source>PC-BSD Recommendations</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD soovitused</translation>
     </message>
     <message>
         <source>Downloading..</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Allalaadimine...</translation>
     </message>
     <message>
         <source>Launch Email Client?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käivita e-maili klient?</translation>
     </message>
     <message>
         <source>Do you want to try launching your default email client? 
  You must have this setup within your current desktop environment for this to work properly. If not, you can send an email to the address below manually.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kas proovida käivitada meiliklient?
+Selleks peab meiliklient olema seadistatud. Kui ei ole, siis saab allolevale aadressile e-maili saata käsitsi.</translation>
     </message>
     <message>
         <source>Browse Categories</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sirvi kategooriaid</translation>
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Fail</translation>
     </message>
     <message>
         <source>&amp;Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Seadista</translation>
     </message>
     <message>
         <source>&amp;Import PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Impordi PBI nimekiri</translation>
     </message>
     <message>
         <source>&amp;Export PBI List</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Ekspordi PBI nimekiri</translation>
     </message>
     <message>
         <source>Ctrl+Q</source>
@@ -568,13 +545,11 @@
     </message>
     <message>
         <source>&amp;Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Sätted</translation>
     </message>
     <message>
         <source>I&amp;nstall PBI</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Paigalda PBI</translation>
     </message>
 </context>
 <context>

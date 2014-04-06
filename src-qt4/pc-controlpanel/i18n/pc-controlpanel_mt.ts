@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sistema oġġetti biss</translation>
     </message>
     <message>
         <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Aħbi l-oġġetti kollha desktop</translation>
     </message>
 </context>
 </TS>

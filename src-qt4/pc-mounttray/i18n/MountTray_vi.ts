@@ -115,18 +115,15 @@
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gắn kết như:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio/Video đĩa</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Chơi</translation>
     </message>
 </context>
 <context>
@@ -169,7 +166,7 @@
     </message>
     <message>
         <source>Change Settings</source>
-        <translation>Thay đổi Thiết lập            </translation>
+        <translation>Thay đổi Thiết lập</translation>
     </message>
     <message>
         <source>Load ISO File</source>
@@ -185,24 +182,22 @@
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio/Video đĩa</translation>
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Với mở:</translation>
     </message>
 </context>
 <context>
     <name>SettingsDialog</name>
     <message>
         <source>Mount Tray Settings</source>
-        <translation>Núi Thiết lập Tray       </translation>
+        <translation>Núi Thiết lập Tray</translation>
     </message>
     <message>
         <source>Monitor disk storage space</source>
-        <translation>Không gian lưu trữ đĩa giám sát        </translation>
+        <translation>Không gian lưu trữ đĩa giám sát</translation>
     </message>
     <message>
         <source>Perform check on device notifications</source>
@@ -210,11 +205,11 @@
     </message>
     <message>
         <source>Maximum time between checks (minutes)</source>
-        <translation>Thời gian tối đa giữa kiểm tra (phút)            </translation>
+        <translation>Thời gian tối đa giữa kiểm tra (phút)</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Hủy bỏ            </translation>
+        <translation>Hủy bỏ</translation>
     </message>
     <message>
         <source>Apply</source>
