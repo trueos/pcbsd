@@ -460,7 +460,7 @@ void MountTray::slotCloseMenu(){
   trayIcon->contextMenu()->hide();
 }
 
-void MountTray::slotOpenAVDisk(QString dev){
+void MountTray::slotOpenAVDisk(QString type){
   if(MTINIT){ return; } //don't open the launcher during program initialization
   //Get the list of all AudioVideo Applications on the sytem
   QList<XDGFile> apps = XDGUtils::allApplications();
@@ -496,18 +496,15 @@ void MountTray::slotOpenAVDisk(QString dev){
   int index = names.indexOf(appname);
   if(index == -1){ return; }
   //Now start the application
-  qDebug() << "Open Audio/Video disk:" << dev;
+  qDebug() << "Open "+type.toLower()+" disk:";
   qDebug() << " -- With:"<<appname;
   QString cmd = apps[index].Exec();
-  if(apps[index].RawName().toLower()=="umplayer"){
-    //try to distinguish between audio or video disk (not implemented yet)
     // append "cd://1 or dvd://1" to open that disk
-    if(QMessageBox::Yes == QMessageBox::question(0, tr("Audio or Video Disk?"), tr("Is this an audio cd?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+    if(type.toLower()=="audio"){
       cmd.append(" cdda://1"); //audio cd
-    }else{
+    }else{ //video DVD
       cmd.append(" dvd://1"); //video dvd
     }
-  }
   qDebug() << " -- Exec:" << cmd;
   QProcess::startDetached( cmd );
 }
