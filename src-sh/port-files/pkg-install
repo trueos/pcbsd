@@ -30,6 +30,7 @@ fi
 # If on FreeBSD > 10, install the PBI mounting files
 if [ -e "${PREFIX}/share/pbi-manager/.pbime" ] ; then
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbime /usr/pbi/.pbime
+   install -o root -g wheel -m 4751 ${PREFIX}/share/pbi-manager/.pbild /usr/pbi/.pbild
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbirun /usr/pbi/.pbirun
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbirun32 /usr/pbi/.pbirun32
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbiinit /usr/pbi/.pbiinit
