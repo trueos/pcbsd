@@ -5412,7 +5412,7 @@ start_update_checks() {
 				check_pbi_update "$i" "display" \
 				 "$PBI_PROGNAME" "current" \
 				 "$PBI_FBSDVER" "$PBI_APPARCH" "$_repoID" "$PBI_PROGMDATE"
-				 if [ $? ]; then
+				 if [ $? -eq 0 ]; then
 				   PBI_UPDATESAVAILABLE="YES"
 				 fi
                         fi

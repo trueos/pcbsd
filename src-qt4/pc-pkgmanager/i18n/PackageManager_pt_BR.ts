@@ -99,12 +99,11 @@
     </message>
     <message>
         <source>Re&amp;scan packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Explora pacotes</translation>
     </message>
     <message>
         <source>&amp;Update packages</source>
-        <translation type="unfinished">At&amp;ualizar pacotes</translation>
+        <translation>Atualizar pacotes</translation>
     </message>
     <message>
         <source>Package</source>
@@ -124,8 +123,7 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arquivo</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -133,8 +131,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Fechar</translation>
     </message>
     <message>
         <source>Checking for updates</source>
@@ -182,7 +179,7 @@
     </message>
     <message>
         <source>The package commands failed. A copy of the output was saved to /tmp/pkg-output.log</source>
-        <translation type="unfinished">Os comandos do pacote falharam. Uma cópia da saída foi salva em /tmp/pkg-output.log</translation>
+        <translation>Os comandos do pacote falharam. Uma cópia da saída foi salva em /tmp/pkg-output.log</translation>
     </message>
     <message>
         <source>Finished!</source>
@@ -190,7 +187,7 @@
     </message>
     <message>
         <source>Package changes complete!</source>
-        <translation type="unfinished">As alterações do pacote estão completas!</translation>
+        <translation>Alterações do pacote completadas!</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
@@ -210,7 +207,7 @@
     </message>
     <message>
         <source>The following packages that require the above packages will also removed:</source>
-        <translation type="unfinished">Os seguintes pacotes que requerem os pacotes acima também serão removidos:</translation>
+        <translation>Os seguintes pacotes que requerem os pacotes acima também serão removidos:</translation>
     </message>
     <message>
         <source>The following packages will be installed:</source>

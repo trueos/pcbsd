@@ -190,7 +190,7 @@
     </message>
     <message>
         <source>Package changes complete!</source>
-        <translation>Paki muudatused valmis!</translation>
+        <translation>Pakkide muudatused valmis!</translation>
     </message>
     <message>
         <source>Loading... Please wait...</source>
@@ -286,32 +286,27 @@
     </message>
     <message>
         <source>Downloading</source>
-        <translation>Laetakse alla</translation>
+        <translation>Laaditakse alla</translation>
     </message>
     <message>
         <source>&amp;Basic (Meta-Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Lihtne (meta-pakid)</translation>
     </message>
     <message>
         <source>&amp;Advanced (All Packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Edasijõudnutele (kõik pakid)</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Seadistus</translation>
     </message>
     <message>
         <source>Reading package database...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide andmebaasi lugemine...</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Seadista</translation>
     </message>
     <message>
         <source>Shift+Q</source>
@@ -320,8 +315,7 @@
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sätted</translation>
     </message>
     <message>
         <source>Shift+S</source>

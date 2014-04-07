@@ -425,7 +425,7 @@ void wizardDisk::generateDiskLayout()
 	rootOpts="(compress=lz4)";
 
      // This lets the user do nifty stuff like a mirror/raid post-install with a single zpool command
-    fileSystem << targetDisk << targetSlice << "/" + rootOpts + ",/tmp(compress=lz4),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=lz4),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4),/var/tmp(compress=lz4)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
+    fileSystem << targetDisk << targetSlice << "/" + rootOpts + ",/tmp(compress=lz4|suid=off|exec=off),/usr(canmount=off),/usr/home(compress=lz4),/usr/jails(compress=lz4),/usr/obj(compress=lz4),/usr/pbi(compress=lz4),/usr/ports(compress=lz4),/usr/ports/distfiles(compress=lz4),/usr/src(compress=lz4),/var(canmount=off),/var/audit(compress=lz4),/var/log(compress=lz4|exec=off|suid=off),/var/tmp(compress=lz4|exec=off|suid=off)" << fsType << tmp.setNum(totalSize) << "" << tmpPass;
     sysFinalDiskLayout << fileSystem;
     fileSystem.clear();
 
@@ -707,6 +707,11 @@ void wizardDisk::slotTreeMountsRightClick()
   popupNE->addAction( "on", this, SLOT(slotZEXON()));
   popupNE->addAction( "off", this, SLOT(slotZEXOFF()));
 
+  // Add suid sub-menu
+  popupNE = popup->addMenu("suid");
+  popupNE->addAction( "on", this, SLOT(slotZSUIDON()));
+  popupNE->addAction( "off", this, SLOT(slotZSUIDOFF()));
+
   popup->exec( QCursor::pos() );
 
 }
@@ -809,6 +814,16 @@ void wizardDisk::slotZEXOFF()
 void wizardDisk::slotZEXON()
 {
   toggleZFSOpt(QString("exec=on"));
+}
+
+void wizardDisk::slotZSUIDOFF()
+{
+  toggleZFSOpt(QString("suid=off"));
+}
+
+void wizardDisk::slotZSUIDON()
+{
+  toggleZFSOpt(QString("suid=on"));
 }
 
 // Toggle an option being on / off for ZFS

@@ -77,6 +77,7 @@ RUN_DEPENDS=	pc-updategui:${PORTSDIR}/sysutils/pcbsd-utils-qt4 \
 		xvkbd:${PORTSDIR}/x11/xvkbd \
 		volman>=0:${PORTSDIR}/sysutils/volman \
 		mplayer:${PORTSDIR}/multimedia/mplayer \
+		umplayer>=0:${PORTSDIR}/multimedia/umplayer \
 		fribidi>=0:${PORTSDIR}/converters/fribidi \
 		ja-font-vlgothic>=0:${PORTSDIR}/japanese/font-vlgothic \
 		ibus-qt>=0:${PORTSDIR}/textproc/ibus-qt \

@@ -131,8 +131,7 @@
     </message>
     <message>
         <source>Plain Text</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>純文字</translation>
     </message>
 </context>
 </TS>
