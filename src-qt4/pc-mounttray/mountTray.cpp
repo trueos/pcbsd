@@ -476,19 +476,32 @@ void MountTray::slotOpenAVDisk(QString dev){
 	apps.removeAt(i);
 	i--;
     }else{
-      if( apps[i].Comment().isEmpty() ){ names << apps[i].Name(); }
-      else{ names << apps[i].Name() +" ("+apps[i].Comment()+")"; }
+      QString txt;
+      if( apps[i].Comment().isEmpty() ){ txt = apps[i].Name(); }
+      else{ txt = apps[i].Name() +" ("+apps[i].Comment()+")"; }
+      //Make sure that UMPlayer is listed first and recommended
+      if(apps[i].RawName().toLower()=="umplayer"){
+	 txt = apps[i].Name()+ "  **"+tr("Recommended")+"**"; 
+	 names.prepend(txt); //put at the top
+	 apps.move(i,0); //move the file to the front as well
+      }else{
+	 names << txt;
+      }
     }
   }
   //Prompt for the user to select an application
   bool ok = false;
-  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Open With:"), names,0, true, &ok);
+  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Open With:"), names,0, false, &ok);
   if(!ok || appname.isEmpty()){ return; }
   int index = names.indexOf(appname);
   if(index == -1){ return; }
   //Now start the application
   qDebug() << "Open Audio/Video disk:" << dev;
   qDebug() << " -- With:"<<appname;
+  QString cmd = apps[index].Exec();
+  if(apps[index].RawName().toLower()=="umplayer"){
+    //try to distinguish between audio or video disk (not implemented yet)
+  }
   QProcess::startDetached( apps[index].Exec() );
 }
   
