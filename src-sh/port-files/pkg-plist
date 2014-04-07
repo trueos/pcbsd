@@ -587,6 +587,7 @@ etc/man.d/pbi.conf
 etc/rc.d/pbid
 share/pbi-manager/.pbime
 share/pbi-manager/.pbiinit
+share/pbi-manager/.pbild
 share/pbi-manager/.pbirun
 share/pbi-manager/.pbirun32
 share/pbi-manager/.pbisyscmd
