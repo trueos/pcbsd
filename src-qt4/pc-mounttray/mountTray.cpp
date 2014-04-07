@@ -501,7 +501,14 @@ void MountTray::slotOpenAVDisk(QString dev){
   QString cmd = apps[index].Exec();
   if(apps[index].RawName().toLower()=="umplayer"){
     //try to distinguish between audio or video disk (not implemented yet)
+    // append "cd://1 or dvd://1" to open that disk
+    if(QMessageBox::Yes == QMessageBox::question(0, tr("Audio or Video Disk?"), tr("Is this an audio cd?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) ){
+      cmd.append(" cdda://1"); //audio cd
+    }else{
+      cmd.append(" dvd://1"); //video dvd
+    }
   }
-  QProcess::startDetached( apps[index].Exec() );
+  qDebug() << " -- Exec:" << cmd;
+  QProcess::startDetached( cmd );
 }
   
