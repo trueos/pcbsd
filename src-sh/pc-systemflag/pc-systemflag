@@ -77,4 +77,5 @@ if [ -f ${FLAGFILE} ]; then
   rm ${FLAGFILE} #make sure the filesystem watcher sees the file change by removing the old flag
 fi
 echo ${MSG} > ${FLAGFILE}
+touch ${FLAGFILE} #make sure the timestamp gets reset
 exit 0
