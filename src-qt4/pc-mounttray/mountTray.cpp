@@ -491,7 +491,7 @@ void MountTray::slotOpenAVDisk(QString type){
   }
   //Prompt for the user to select an application
   bool ok = false;
-  QString appname = QInputDialog::getItem(0, tr("Audio/Video Disk"), tr("Open With:"), names,0, false, &ok);
+  QString appname = QInputDialog::getItem(0, QString(tr("%1 Disk")).arg(type) , tr("Open With:"), names,0, false, &ok);
   if(!ok || appname.isEmpty()){ return; }
   int index = names.indexOf(appname);
   if(index == -1){ return; }
@@ -499,12 +499,14 @@ void MountTray::slotOpenAVDisk(QString type){
   qDebug() << "Open "+type.toLower()+" disk:";
   qDebug() << " -- With:"<<appname;
   QString cmd = apps[index].Exec();
-    // append "cd://1 or dvd://1" to open that disk
+  //Only auto-start the disk with UMPlayer - no guarantee this method works for other apps
+  if(apps[index].RawName().toLower()=="umplayer"){
     if(type.toLower()=="audio"){
       cmd.append(" cdda://1"); //audio cd
     }else{ //video DVD
       cmd.append(" dvd://1"); //video dvd
     }
+  }
   qDebug() << " -- Exec:" << cmd;
   QProcess::startDetached( cmd );
 }

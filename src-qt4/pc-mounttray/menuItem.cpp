@@ -202,9 +202,9 @@ void MenuItem::slotMountClicked(){
   //Now 
   if( isConnected() ){
     if(filesystem=="AVDISK"){
-      emit openAVDisk("AUDIO");
+      emit openAVDisk("Audio");
     }else if(filesystem=="UDF" && devType=="CD9660"){
-      emit openAVDisk("VIDEO");
+      emit openAVDisk("Video");
     }else if( !isMounted() ){
       mountItem();
     }else{
@@ -220,9 +220,9 @@ void MenuItem::slotAutoMount(){
 //Just like slotMountClicked, but will only mount the device if appropriate (no removals);
   if( isConnected() ){
      if(filesystem=="AVDISK"){
-      emit openAVDisk(device);
+      emit openAVDisk("Audio");
     }else if(filesystem=="UDF" && devType=="CD9660"){
-      emit openAVDisk("VIDEO");
+      emit openAVDisk("Video");
     }else if( !isMounted() ){
       mountItem();
     }
