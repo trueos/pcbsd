@@ -188,6 +188,10 @@
         <source>Open With:</source>
         <translation>Open With:</translation>
     </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>
