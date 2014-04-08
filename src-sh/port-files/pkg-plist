@@ -595,6 +595,7 @@ share/pbi-manager/.pbi_preload.so
 share/pbi-manager/.pbi_preload32.so
 share/pbi-manager/.pbiwrapper-i386
 share/pbi-manager/.pbiwrapper-amd64
+share/pbi-manager/openwith
 share/pbi-manager/module-examples/gimp/xdg-menu/gimp.desktop
 share/pbi-manager/module-examples/gimp/xdg-mime/gimp-xdg.png
 share/pbi-manager/module-examples/gimp/xdg-mime/gimp-xdg.xml
