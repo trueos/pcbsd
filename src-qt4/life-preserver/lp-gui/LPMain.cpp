@@ -409,6 +409,7 @@ void LPMain::openConfigGUI(){
   bool change = false;
   if(CFG.localChanged){
     ui->statusbar->showMessage(QString(tr("Configuring dataset: %1")).arg(ds),0);
+    qDebug() << "Settings up local snapshots:" << ds << "Frequency:" << CFG.localSchedule;
     LPBackend::setupDataset(ds, CFG.localSchedule, CFG.localSnapshots);
     ui->statusbar->clearMessage();
     change = true;
@@ -417,10 +418,12 @@ void LPMain::openConfigGUI(){
     change = true;
     if(CFG.isReplicated){
       ui->statusbar->showMessage(QString(tr("Configuring replication: %1")).arg(ds),0);
+      qDebug() << "Setting up Replication:" << ds << " Frequency:" << CFG.remoteFreq;
       LPBackend::setupReplication(ds, CFG.remoteHost, CFG.remoteUser, CFG.remotePort, CFG.remoteDataset, CFG.remoteFreq);
       QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
     }else{
       ui->statusbar->showMessage(QString(tr("Removing replication: %1")).arg(ds),0);
+      qDebug() << "Removing Replication:" << ds;
       LPBackend::removeReplication(ds);
     }
     ui->statusbar->clearMessage();
@@ -452,8 +455,10 @@ void LPMain::menuAddPool(QAction *act){
   if(!wiz.cancelled){
     ui->statusbar->showMessage(QString(tr("Enabling dataset management: %1")).arg(dataset),0);
     //run the proper commands to get the dataset enabled
+    qDebug() << "Setup Snapshots:" << dataset << " Frequency:" << wiz.localTime;
     if( LPBackend::setupDataset(dataset, wiz.localTime, wiz.totalSnapshots) ){
       if(wiz.enableReplication){
+      	 qDebug() << "Setting up replication:" << dataset << " Frequency:" << wiz.remoteTime;
 	 LPBackend::setupReplication(dataset, wiz.remoteHost, wiz.remoteUser, wiz.remotePort, wiz.remoteDataset, wiz.remoteTime);     
 	 QMessageBox::information(this,tr("Reminder"),tr("Don't forget to save your SSH key to a USB stick so that you can restore your system from the remote host later!!"));
       }

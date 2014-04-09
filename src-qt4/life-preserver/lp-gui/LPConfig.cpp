@@ -120,9 +120,9 @@ void LPConfig::checkForChanges(){
   bool updateSSHKey = false;
   if(isReplicated != ui->groupReplicate->isChecked()){
     remoteChanged = true;
-    isReplicated = ui->groupReplicate->isChecked();
-    if(isReplicated){ updateSSHKey = true; }
   }
+  isReplicated = ui->groupReplicate->isChecked();
+  if(isReplicated && remoteChanged){ updateSSHKey = true; }
   QString tmp = ui->lineHostName->text().simplified();
   if( tmp != remoteHost ){ remoteChanged = true; remoteHost = tmp; updateSSHKey=true;}
   tmp = ui->lineUserName->text().simplified();
@@ -144,7 +144,7 @@ void LPConfig::checkForChanges(){
     nFreq = -10; //10 minutes
   }
   if( nFreq != remoteFreq ){ remoteChanged = true; remoteFreq = nFreq; }
-
+  
   if(updateSSHKey){
     //Prompt for the SSH key generation
     LPBackend::setupSSHKey(remoteHost, remoteUser, remotePort);
