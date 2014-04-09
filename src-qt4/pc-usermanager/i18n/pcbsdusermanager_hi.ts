@@ -41,7 +41,8 @@
     </message>
     <message>
         <source>Invalid Path!</source>
-        <translation>अशक्त पथ </translation>
+        <translation>अशक्त पथ!
+</translation>
     </message>
     <message>
         <source>Directory does not exist, but will be made</source>

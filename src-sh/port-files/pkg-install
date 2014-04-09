@@ -19,17 +19,10 @@ if [ $? -ne 0 ] ; then
         ${PREFIX}/sbin/pbi_addrepo ${PREFIX}/share/pbi-manager/pcbsd.rpo
 fi
 
-# Copy over the wrapper files
-if [ `uname -m` = "amd64" ] ; then
-  cp ${PREFIX}/share/pbi-manager/.pbiwrapper-i386 /usr/pbi/.pbiwrapper-i386
-  cp ${PREFIX}/share/pbi-manager/.pbiwrapper-amd64 /usr/pbi/.pbiwrapper-amd64
-else
-  cp ${PREFIX}/share/pbi-manager/.pbiwrapper-i386 /usr/pbi/.pbiwrapper-i386
-fi
-
-# If on FreeBSD > 10, install the PBI mounting files
+# Install the PBI runtime stuff into /usr/pbi
 if [ -e "${PREFIX}/share/pbi-manager/.pbime" ] ; then
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbime /usr/pbi/.pbime
+   install -o root -g wheel -m 4751 ${PREFIX}/share/pbi-manager/.pbild /usr/pbi/.pbild
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbirun /usr/pbi/.pbirun
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbirun32 /usr/pbi/.pbirun32
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbiinit /usr/pbi/.pbiinit
@@ -38,6 +31,8 @@ if [ -e "${PREFIX}/share/pbi-manager/.pbime" ] ; then
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/openwith /usr/bin/openwith
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbi_preload.so /usr/pbi/.pbi_preload.so
    install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbi_preload32.so /usr/pbi/.pbi_preload32.so
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbiwrapper-i386 /usr/pbi/.pbiwrapper-i386
+   install -o root -g wheel -m 755 ${PREFIX}/share/pbi-manager/.pbiwrapper-amd64 /usr/pbi/.pbiwrapper-amd64
 fi
 
 # Check if we have our warden.conf file

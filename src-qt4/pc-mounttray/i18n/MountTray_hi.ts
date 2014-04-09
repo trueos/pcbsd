@@ -232,6 +232,10 @@
         <translation>साथ खोलें:
             </translation>
     </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsDialog</name>

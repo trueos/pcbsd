@@ -248,7 +248,8 @@ void PCDMgui::createGUIfromTheme(){
   if(DEBUG_MODE){ qDebug() << " - Fill GUI with data"; }
   retranslateUi();
   if(DEBUG_MODE){ qDebug() << "Done with initialization"; }
-
+  //Now move the mouse cursor over this window (fix for multi-monitor setups)
+  QCursor::setPos( loginW->pos() );
 }
 
 void PCDMgui::fillExtraScreens(){
