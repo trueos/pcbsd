@@ -136,18 +136,15 @@
     <name>LargeItemWidget</name>
     <message>
         <source>Graphical Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Graafiline rakendus</translation>
     </message>
     <message>
         <source>Command-line Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Käsurearakendus</translation>
     </message>
     <message>
         <source>Server Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Serverirakendus</translation>
     </message>
 </context>
 <context>

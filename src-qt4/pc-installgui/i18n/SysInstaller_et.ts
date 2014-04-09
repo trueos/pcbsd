@@ -534,7 +534,7 @@ Vajuta &quot;Lõpeta&quot;, et taaskäivitada. Pärast taaskäivitamist võib pa
     </message>
     <message>
         <source>Please check the disk summary below and click finish to save your settings. </source>
-        <translation>Vaata ketta seadete kokkuvõte üle ja vajuta &quot;Lõpeta&quot;, et seaded salvestada.</translation>
+        <translation>Vaata ketta seadete kokkuvõte üle ja vajuta &quot;Lõpeta&quot;, et sätted salvestada.</translation>
     </message>
     <message>
         <source>Use entire disk</source>
@@ -872,7 +872,7 @@ Proovi mõnda muud USB-pulka või kasuta parooliga autentimist.</translation>
         <source>Could not connect to the backup server!
 Please check that the server is reachable and verify your user/password.</source>
         <translation>Varundusserveriga ei saanud ühendust!
-Kontrolli, kas server on kättesaadav ja kinnita oma kasutajanimi/parool.</translation>
+Kontrolli, kas server on kättesaadav, ja kinnita oma kasutajanimi/parool.</translation>
     </message>
     <message>
         <source>Could not connect to the backup server!

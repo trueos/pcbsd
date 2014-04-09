@@ -192,17 +192,17 @@
         <translation>ISO 檔案 (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Recommended</source>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

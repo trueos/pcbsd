@@ -9,18 +9,15 @@
     </message>
     <message>
         <source>Package Set</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide komplekt</translation>
     </message>
     <message>
         <source>Production (Packages updated quarterly - Recommended)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Stabiilne (pakke uuendatakse kord kvartalis – soovitatav)</translation>
     </message>
     <message>
         <source>Edge (Packages updated frequently - For testing and development)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Arendus (pakke uuendatakse tihti – testimiseks ja arenduseks)</translation>
     </message>
     <message>
         <source>&amp;Ok</source>
@@ -138,7 +135,7 @@
     </message>
     <message>
         <source>Checking for updates</source>
-        <translation>Uuenduste kontrollimine</translation>
+        <translation>Uuenduste otsimine</translation>
     </message>
     <message>
         <source>Package Updates (%1)</source>
@@ -282,7 +279,7 @@
     </message>
     <message>
         <source>Unable to check for package updates!</source>
-        <translation>Pakkide uuendusi ei õnnestunud kontrollida!</translation>
+        <translation>Pakkide uuendusi ei õnnestunud otsida!</translation>
     </message>
     <message>
         <source>Downloading</source>
@@ -324,28 +321,23 @@
     </message>
     <message>
         <source>&amp;Cleanup Packages</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&amp;Korista pakke</translation>
     </message>
     <message>
         <source>Package Cleanup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Üleliigsete pakkide eemaldamine</translation>
     </message>
     <message>
         <source>Do you want to start package cleanup?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kas soovid alustada pakkide koristamist?</translation>
     </message>
     <message>
         <source>Starting package cleanup...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Pakkide koristamine algab...</translation>
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Järgmised pakid eemaldatakse. Kas jätkata?</translation>
     </message>
 </context>
 </TS>
