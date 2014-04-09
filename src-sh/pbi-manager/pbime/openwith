@@ -12,4 +12,4 @@ unset LD_PBIPRELOAD
 unset PBI_RUNDIR
 PBI_BREAKOUT="YES" ; export PBI_BREAKOUT
 
-echo "/usr/local/bin/xdg-open $@" | /bin/sh
+/usr/local/bin/xdg-open "$1"
