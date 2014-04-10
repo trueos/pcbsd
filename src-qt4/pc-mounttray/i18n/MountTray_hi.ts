@@ -229,12 +229,13 @@
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
+        <translation>अनुशंसित
             </translation>
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>डिस्क %1
+</translation>
     </message>
 </context>
 <context>

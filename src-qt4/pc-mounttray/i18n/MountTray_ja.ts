@@ -186,12 +186,11 @@
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>おすすめ</translation>
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ディスク</translation>
     </message>
 </context>
 <context>
