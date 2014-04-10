@@ -182,17 +182,15 @@
     </message>
     <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ava programmiga:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Soovitatav</translation>
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 ketas</translation>
     </message>
 </context>
 <context>

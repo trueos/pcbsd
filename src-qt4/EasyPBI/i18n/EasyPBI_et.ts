@@ -665,18 +665,15 @@
     </message>
     <message>
         <source>Shift+S</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+S</translation>
     </message>
     <message>
         <source>Shift+Q</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+V</translation>
     </message>
     <message>
         <source>Shift+A</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Shift+I</translation>
     </message>
     <message>
         <source>Pkg Setup</source>
@@ -804,7 +801,7 @@
     </message>
     <message>
         <source>&amp;About</source>
-        <translation type="unfinished">&amp;Info</translation>
+        <translation>&amp;Info</translation>
     </message>
     <message>
         <source>&amp;Refresh Module</source>
@@ -861,7 +858,7 @@
     </message>
     <message>
         <source>Select Port</source>
-        <translation type="unfinished">Vali port</translation>
+        <translation>Vali port</translation>
     </message>
 </context>
 <context>
