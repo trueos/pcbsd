@@ -205,7 +205,8 @@
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

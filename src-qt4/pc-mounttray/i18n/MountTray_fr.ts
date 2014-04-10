@@ -190,7 +190,7 @@
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Disque</translation>
     </message>
 </context>
 <context>

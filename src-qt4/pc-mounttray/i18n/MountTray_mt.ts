@@ -186,12 +186,11 @@
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakkomandata</translation>
     </message>
     <message>
         <source>%1 Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Disk</translation>
     </message>
 </context>
 <context>
