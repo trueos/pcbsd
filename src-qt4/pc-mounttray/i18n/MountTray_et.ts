@@ -87,53 +87,43 @@
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viga</translation>
     </message>
     <message>
         <source>Could not create mountpoint: %1</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ei õnnestunud luua haakepunkti: %1</translation>
     </message>
     <message>
         <source>Could not mount device %1 on %2 (%3)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ei õnnestunud haakida seadet %1 asukohas %2 (%3)</translation>
     </message>
     <message>
         <source>General Error</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Üldine viga</translation>
     </message>
     <message>
         <source>Could not create/run the device mounting script</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ei õnnestunud luua/käivitada seadme haakimise skripti</translation>
     </message>
     <message>
         <source>The ISO file has been detached from the system.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>ISO-fail on süsteemist lahti ühendatud.</translation>
     </message>
     <message>
         <source>Error: %1 was not unmounted</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viga: seadet %1 ei haagitud lahti</translation>
     </message>
     <message>
         <source>Mount as:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Haagi asukohas:</translation>
     </message>
     <message>
         <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Audio-/videoketas</translation>
     </message>
     <message>
         <source>Play</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Mängi</translation>
     </message>
 </context>
 <context>
@@ -191,18 +181,16 @@
         <translation>ISO-failid (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Open With:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ava programmiga:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>Soovitatav</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation type="unfinished">%1 ketas</translation>
     </message>
 </context>
 <context>

@@ -181,16 +181,16 @@
         <translation>ISO Files (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation>Audio/Video Disk</translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation>Lftaħ Bil:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>Rakkomandata</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>%1 Disk</translation>
     </message>
 </context>
 <context>

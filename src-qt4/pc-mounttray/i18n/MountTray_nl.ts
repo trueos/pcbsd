@@ -183,18 +183,19 @@
         <translation>ISO-bestanden (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation type="unfinished">
-            </translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation type="unfinished">
             </translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">
+            </translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation type="unfinished">
+            </translation>
     </message>
 </context>
 <context>

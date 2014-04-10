@@ -11,8 +11,4 @@ unset LD_PBIPRELOAD
 unset PBI_RUNDIR
 export PBI_BREAKOUT="YES"
 
-if [ -e ${SHELL} ]; then
-  echo "$@" | ${SHELL}
-else
-  echo "$@" | /bin/sh
-fi
+$@

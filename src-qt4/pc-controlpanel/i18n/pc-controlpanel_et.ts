@@ -117,13 +117,11 @@
     </message>
     <message>
         <source>System only items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Ainult süsteemi kirjed</translation>
     </message>
     <message>
         <source>Hide all desktop items</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Peida kõik töölaua kirjed</translation>
     </message>
 </context>
 </TS>

@@ -5,123 +5,107 @@
     <name>TrayUI</name>
     <message>
         <source>Start the Update Manager</source>
-        <translation type="unfinished">Bắt đầu Update Manager      </translation>
+        <translation>Bắt đầu Update Manager</translation>
     </message>
     <message>
         <source>Start the Package Manager</source>
-        <translation type="unfinished">Bắt đầu Package Manager       </translation>
+        <translation>Bắt đầu Package Manager</translation>
     </message>
     <message>
         <source>Start the AppCafe</source>
-        <translation type="unfinished">Bắt đầu AppCafe  </translation>
+        <translation>Bắt đầu AppCafe</translation>
     </message>
     <message>
         <source>Start the Warden</source>
-        <translation type="unfinished">Bắt đầu Warden     </translation>
+        <translation>Bắt đầu Warden</translation>
     </message>
     <message>
         <source>Check For Updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đối với kiểm tra thông tin cập nhật</translation>
     </message>
     <message>
         <source>Run At Startup</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khởi Tại Startup</translation>
     </message>
     <message>
         <source>Display Notifications</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Màn hình hiển thị thông báo</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished">bỏ            </translation>
+        <translation>bỏ</translation>
     </message>
     <message>
         <source>System Reboot Required</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Khởi động lại hệ thống yêu cầu</translation>
     </message>
     <message>
         <source>System Updates Available</source>
-        <translation type="unfinished">Hệ thống thông tin cập nhật có sẵn    </translation>
+        <translation>Hệ thống thông tin cập nhật có sẵn</translation>
     </message>
     <message>
         <source>Package Updates Available</source>
-        <translation type="unfinished">Cập nhật gói sẵn</translation>
+        <translation>Cập nhật gói sẵn</translation>
     </message>
     <message>
         <source>PBI Updates Available</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI cập nhật có sẵn</translation>
     </message>
     <message>
         <source>Jail Updates Available</source>
-        <translation type="unfinished">Cập nhật Jail có sẵn       </translation>
+        <translation>Cập nhật Jail có sẵn</translation>
     </message>
     <message>
         <source>PC-BSD System Message</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống PC-BSD tin nhắn</translation>
     </message>
     <message>
         <source>PC-BSD Update Manager</source>
-        <translation type="unfinished">PC-BSD Cập nhật đốc            </translation>
+        <translation>PC-BSD Cập nhật đốc</translation>
     </message>
     <message>
         <source>Error checking for updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra lỗi để cập nhật</translation>
     </message>
     <message>
         <source>Please make sure you have a working internet connection</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hãy chắc chắn rằng bạn có một kết nối internet</translation>
     </message>
     <message>
         <source>Your system is fully updated</source>
-        <translation type="unfinished">Hệ thống của bạn là cập nhật đầy đủ    </translation>
+        <translation>Hệ thống của bạn là cập nhật đầy đủ</translation>
     </message>
     <message>
         <source>Checking for system updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra các bản cập nhật hệ thống...</translation>
     </message>
     <message>
         <source>System Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Hệ thống cập nhật...</translation>
     </message>
     <message>
         <source>Checking for package updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra các bản cập nhật gói...</translation>
     </message>
     <message>
         <source>Packages Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gói cập nhật...</translation>
     </message>
     <message>
         <source>Checking for jail updates...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kiểm tra các bản cập nhật tù...</translation>
     </message>
     <message>
         <source>Jails Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nhà tù Đang cập nhật...</translation>
     </message>
     <message>
         <source>Checking for PBI updates</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Đang kiểm tra các bản cập nhật PBI</translation>
     </message>
     <message>
         <source>PBI Updating...</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI Đang cập nhật...</translation>
     </message>
 </context>
 </TS>

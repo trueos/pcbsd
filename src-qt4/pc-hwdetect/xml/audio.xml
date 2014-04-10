@@ -41,6 +41,7 @@
 <!--Start intel -->
 	<x8086>
 		<snd_ich>0x24c58086</snd_ich>
+		<snd_ich>0x24c58086</snd_ich>
 		<snd_ich>0x24d58086</snd_ich>
 		<snd_ich>0x24158086</snd_ich>
 		<snd_ich>0x266e8086</snd_ich>

@@ -15,46 +15,38 @@
     </message>
     <message>
         <source>Alt+Up</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+ylös</translation>
     </message>
     <message>
         <source>Alt+Down</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Alt+alas</translation>
     </message>
 </context>
 <context>
     <name>LoginWidget</name>
     <message>
         <source>Select</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitse</translation>
     </message>
     <message>
         <source>Select an alternate user and clear the password field</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitse vaihtoehtoinen käyttäjä ja tyhjennä salasanakenttä</translation>
     </message>
     <message>
         <source>Select this user</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Valitse tämä käyttäjä</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjaudu</translation>
     </message>
     <message>
         <source>Login to the system with the current user and password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kirjaudu järjestelmään nykyisellä käyttäjällä ja salasanalla</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Salasana</translation>
     </message>
     <message>
         <source>Hold to view the currently entered password</source>

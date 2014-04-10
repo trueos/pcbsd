@@ -5,93 +5,75 @@
     <name>MainWindow</name>
     <message>
         <source>PC-BSD bug reporting tool</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD vigadest teatamise tööriist</translation>
     </message>
     <message>
         <source>Please select the component where the error occurs.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali komponent, millel viga esines</translation>
     </message>
     <message>
         <source>FreeBSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD süsteemi baas</translation>
     </message>
     <message>
         <source>PC-BSD base system</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD süsteemi baas</translation>
     </message>
     <message>
         <source>Xorg server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg-i server</translation>
     </message>
     <message>
         <source>Desktop environment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Töölauakeskkond</translation>
     </message>
     <message>
         <source>FreeBSD software (ports/packages)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD tarkvara (pordid/pakid)</translation>
     </message>
     <message>
         <source>PC-BSD software (pbi)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD tarkvara (pbi)</translation>
     </message>
     <message>
         <source>1. Submit a bug report using FreeBSD&apos;s SEND-PR mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Esita vearaport FreeBSD SEND-PR-mehhanismi kaudu</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Send an email to the FreeBSD bugs mailing list. Visit the following web page to subscribe to or read the archives of this list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Saada e-mail FreeBSD vigade meililisti. Külasta järgmist veebilehte, et seda meililisti lugeda või tellida&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using PC-BSD&apos;s trac mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Esita vearaport FreeBSD trac-mehhanismi kaudu</translation>
     </message>
     <message>
         <source>Send an email to the PC-BSD testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saada e-mail PC-BSD testimise meililisti. Külasta järgmist veebilehte, et seda meililisti lugeda või tellida</translation>
     </message>
     <message>
         <source>X.org server</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>X.org-i server</translation>
     </message>
     <message>
         <source>1. Submit a bug report using using freedesktop&apos;s bugzilla mechanism</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Esita vearaport freedesktopi bugzilla mehhanismi kaudu</translation>
     </message>
     <message>
         <source>2. Send an email to the xorg testing mailing list. Visit the following web page to subscribe to or read the archives of this list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Saada e-mail xorg-i testimise meililisti. Külasta järgmist veebilehte, et seda meililisti lugeda või tellida</translation>
     </message>
     <message>
         <source>3. If you think that problem is FreeBSD specific please report bug to freebsd-x11 maillist</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Kui arvad, et probleem on FreeBSD-s, siis teata veast freebsd-x11 meililisti</translation>
     </message>
     <message>
         <source>4. If you think that problem is PC-BSD specific, please report to testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>4. Kui arvad, et probleem on PC-BSD-s, siis teata testimise meililisti</translation>
     </message>
     <message>
         <source>Please select which desktop environment causes the issue:</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Palun vali, milline töölauakeskkond vea põhjustab:</translation>
     </message>
     <message>
         <source>New Item</source>
@@ -100,285 +82,231 @@
     </message>
     <message>
         <source>Gnome</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Gnome</translation>
     </message>
     <message>
         <source>1. Send an email to the freebsd-gnome mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Saada e-mail freebsd-gnome-i meililisti</translation>
     </message>
     <message>
         <source>2. Send an email to the PC-BSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Saada e-mail PC-BSD testimise meililisti</translation>
     </message>
     <message>
         <source>KDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>KDE</translation>
     </message>
     <message>
         <source>1. Submit a bug report to the KDE bug tracker</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Edasta vearaport KDE veajälgimissüsteemii</translation>
     </message>
     <message>
         <source>3.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>3. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD testimise meililisti</translation>
     </message>
     <message>
         <source>XFCE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>XFCE</translation>
     </message>
     <message>
         <source>1. You can report a bug to XFCE bugzilla site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Veateateid saab edastada XFCE bugzilla veebisaidile</translation>
     </message>
     <message>
         <source>2. If you think that problem is FreeBSD specific please report to the kde-freebsd mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Kui arvad, et probleem on FreeBSD-s, siis edasta vearaport kde-freebsd meililisti</translation>
     </message>
     <message>
         <source>LXDE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>LXDE</translation>
     </message>
     <message>
         <source>1. You can report a bug to the LXDE bug tracker at SourceForge</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Veateateid saab edastada LXDE veajälgimisüsteemis SourceForge&apos;is</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD testing mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD testimise meililisti</translation>
     </message>
     <message>
         <source>Unsupported desktop unvironment</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Toetamata töölauakeskkond</translation>
     </message>
     <message>
         <source>1. You may report a bug to your favorite desktop environment bug tracker / mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Vearaporti saab edastada eelistatud töölauakeskkonna veajälgimissüsteemi või meililisti</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to PCBSD testing mail list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD testimise meililisti</translation>
     </message>
     <message>
         <source>FreeBSD software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD tarkvara</translation>
     </message>
     <message>
         <source>1. You can report issues to freebsd-ports-bugs mailing lists</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Vearaporti saab edastada meililistile freebsd-ports-bugs</translation>
     </message>
     <message>
         <source>PBI software</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI tarkvara</translation>
     </message>
     <message>
         <source>Please select PBI software with bug</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Vali PBI tarkvara, millel viga esineb</translation>
     </message>
     <message>
         <source>Icon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ikoon</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Rakendus</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Versioon</translation>
     </message>
     <message>
         <source>1. You can try to report a bug at software site</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Vearaporte võib proovida saata tarkvara veebisaidil</translation>
     </message>
     <message>
         <source>2.If you think that problem is PC-BSD specific please report to the PCBSD pbi-bugs mailing list</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>2. Kui arvad, et probleem on PC-BSD-s, siis edasta vearaport PC-BSD meililisti pbi-bugs</translation>
     </message>
     <message>
         <source>PBI software: </source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PBI tarkvara: </translation>
     </message>
     <message>
         <source>Not listed here?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ei leia tarkvara siit nimekirjast?</translation>
     </message>
     <message>
         <source>MATE</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>MATE</translation>
     </message>
     <message>
         <source>1. You can report a bug on MATE GitHub bug tracker related to MATE component</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. MATE&apos;iga seonduvad veateated saab edastada MATE&apos;i veajälgimissüsteemi GitHubis</translation>
     </message>
     <message>
         <source>Cinnamon</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Cinnamon</translation>
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>1. Cinnamoniga seonduvad veateated saab edastada Cinnamoni veajälgimissüsteemi GitHubis</translation>
     </message>
 </context>
 <context>
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Dialoog</translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Kopeeri lõikelauale</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Sulge</translation>
     </message>
 </context>
 <context>
     <name>Toolbox</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Vorm</translation>
     </message>
     <message>
         <source>Toolbox</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Tööriistad</translation>
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Tee ekraanitõmmis</translation>
     </message>
     <message>
         <source>dmesg output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>dmesg väljund</translation>
     </message>
     <message>
         <source>Xorg log</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg-i logi</translation>
     </message>
     <message>
         <source>Diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diagnostikaraport</translation>
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PC-BSD diagnostikaraport</translation>
     </message>
     <message>
         <source>lsusb output</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>lsusb väljund</translation>
     </message>
     <message>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>PCI seadmete nimekiri – PCIConf</translation>
     </message>
     <message>
         <source>Xorg version</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Xorg-i versioon</translation>
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>FreeBSD versioon (uname -a)</translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Viga</translation>
     </message>
     <message>
         <source>Failed to create diagnostic sheet</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Diagnostikalehte ei õnnestunud luua</translation>
     </message>
 </context>
 <context>
     <name>WebURL</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Vorm</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ava veebibrauser</translation>
     </message>
 </context>
 <context>
     <name>maillist</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">Vorm</translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
-            </translation>
+        <translation type="unfinished">TextLabel</translation>
     </message>
     <message>
         <source>Send message to</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Saada sõnum aadressile</translation>
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Koosta e-mail</translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Külasta järgnevat veebilehte tellimiseks või arhiivide vaatamiseks.</translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Ava veebibrauser</translation>
     </message>
 </context>
 </TS>

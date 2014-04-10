@@ -223,18 +223,19 @@
             </translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation>ऑडियो / वीडियो डिस्क
-            </translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation>साथ खोलें:
             </translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>अनुशंसित
+            </translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>डिस्क %1
+</translation>
     </message>
 </context>
 <context>

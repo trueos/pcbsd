@@ -228,8 +228,7 @@
     </message>
     <message>
         <source>No desktops have been selected! Please choose at least one desktop before saving.</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Nenhum desktop foi selecionado! Por favor, escolha pelo menos um desktop antes de salvar.</translation>
     </message>
     <message>
         <source>View Packages</source>
@@ -346,8 +345,7 @@
     </message>
     <message>
         <source>The following packages will be removed. Continue?</source>
-        <translation type="unfinished">
-            </translation>
+        <translation>Os pacotes seguintes serão removidos. Continuar?</translation>
     </message>
 </context>
 </TS>

@@ -181,16 +181,16 @@
         <translation>ISO Tập tin (*.iso)</translation>
     </message>
     <message>
-        <source>Audio/Video Disk</source>
-        <translation>Audio/Video đĩa</translation>
-    </message>
-    <message>
         <source>Open With:</source>
         <translation>Với mở:</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"></translation>
+        <translation>Đê xuât</translation>
+    </message>
+    <message>
+        <source>%1 Disk</source>
+        <translation>%1 đĩa</translation>
     </message>
 </context>
 <context>
