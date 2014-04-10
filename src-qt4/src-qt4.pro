@@ -21,7 +21,7 @@ SUBDIRS+= libpcbsd \
 	 pc-pkgmanager \
 	 pc-servicemanager \
 	 pc-softwaremanager \
-	 pc-sounddetect \
+	 pc-hwdetect \
 	 pc-soundconfig \
 	 pc-installgui \
 	 pc-sysmanager \

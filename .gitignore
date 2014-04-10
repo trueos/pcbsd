@@ -1457,4 +1457,10 @@ src-sh/pc-adctl/pc-sambaconf/pc-sambaconf
 src-sh/pc-adctl/pc-sambaconf/samba-lexer.lex.c
 src-sh/pc-adctl/pc-sambaconf/samba-parser.tab.c
 src-sh/pc-adctl/pc-sambaconf/samba-parser.tab.h
-
+src-qt4/pc-mixer/Makefile
+src-qt4/pc-mixer/pc-mixer
+src-qt4/pc-mixer/ui_DeviceWidget.h
+src-qt4/pc-mixer/ui_MixerGUI.h
+src-sh/pbi-manager/fontconfig/
+src-sh/pbi-manager/pbime/pbirun32
+src-sh/pc-systemflag/install
