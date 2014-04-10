@@ -39,6 +39,7 @@
 struct acl;
 struct stat;
 struct statfs;
+struct statvfs;
 struct timeval;
 typedef struct Struct_Obj_Entry {
 } Obj_Entry;
@@ -463,7 +464,7 @@ int _access(const char *path, int mode)
         get_modified_path(newpath, path, 0);
         get_link_path(newpath, newpath);
 
-	dbug("access()", path, newpath);
+	dbug("_access()", path, newpath);
 	typeof(_access) *sys_access;
         sys_access = dlsym(RTLD_NEXT, "_access");
 	return (*sys_access)(newpath, mode);
@@ -1228,6 +1229,41 @@ int _stat(const char *path, struct stat *sb)
         return (*sys_stat)(newpath, sb);
 }
 
+int __sys_stat(const char *path, struct stat *sb)
+{
+        char newpath[MAXPATHLEN];
+        get_modified_path(newpath, path, 0);
+
+	dbug("__sys_stat()", path, newpath);
+	typeof(__sys_stat) *sys_stat;
+        sys_stat = dlsym(RTLD_NEXT, "__sys_stat");
+        return (*sys_stat)(newpath, sb);
+}
+
+int statvfs(const char * restrict path, struct statvfs * restrict buf)
+{
+        char newpath[MAXPATHLEN];
+        get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
+
+	dbug("statvfs()", path, newpath);
+	typeof(statvfs) *sys_statvfs;
+        sys_statvfs = dlsym(RTLD_NEXT, "statvfs");
+        return (*sys_statvfs)(newpath, buf);
+}
+
+int _statvfs(const char * restrict path, struct statvfs * restrict buf)
+{
+        char newpath[MAXPATHLEN];
+        get_modified_path(newpath, path, 0);
+        get_link_path(newpath, newpath);
+
+	dbug("_statvfs()", path, newpath);
+	typeof(_statvfs) *sys_statvfs;
+        sys_statvfs = dlsym(RTLD_NEXT, "statvfs");
+        return (*sys_statvfs)(newpath, buf);
+}
+
 int open(const char *path, int flags, int mode)
 {
         char newpath[MAXPATHLEN];
@@ -1333,11 +1369,11 @@ size_t readlink(const char *restrict path, char *restrict buf, size_t bufsiz)
 	if ( strpos(bufcpy, "/") != 0 )
 		return ret;
 
-	//printf("readlink() %s -> %s\n", path, bufcpy);
+	printf("readlink() %s -> %s\n", path, bufcpy);
 
 	dbug("readlink1()", path, bufcpy);
         get_modified_path(newlink, bufcpy, 0);
-	//printf("readlink2() %s -> %s\n", path, newlink);
+	printf("readlink2() %s -> %s\n", path, newlink);
 
 	// Zero out the old buf
 	//bzero(buf, ret);
