@@ -403,7 +403,7 @@
      <x>0</x>
      <y>0</y>
      <width>615</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -488,7 +488,7 @@
    </property>
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/window-close.png</normaloff>:/window-close.png</iconset>
+     <normaloff>:/images/window-close.png</normaloff>:/images/window-close.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Quit</string>

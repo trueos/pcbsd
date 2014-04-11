@@ -1,7 +1,7 @@
 <RCC>
   <qresource prefix="/">
-    <file>window-close.png</file>
-    <file>configure.png</file>
+    <file>images/window-close.png</file>
+    <file>images/configure.png</file>
     <file>images/pbiupdates.png</file>
     <file>images/pkgupdates.png</file>
     <file>images/sysupdater.png</file>
