@@ -245,7 +245,7 @@
     </message>
     <message>
         <source>1. You can report a bug using Cinnamon bug tracker on GitHub</source>
-        <translation type="unfinished">
+        <translation>1. आप गिटहब पे सीनामोन बग ट्रेकर को इस्तेमाल करके बग रिपोर्ट कर सकते हैं
             </translation>
     </message>
 </context>
@@ -253,17 +253,17 @@
     <name>ShowInfoDialog</name>
     <message>
         <source>Dialog</source>
-        <translation type="unfinished">
+        <translation>संवाद
             </translation>
     </message>
     <message>
         <source>Copy to clipboard</source>
-        <translation type="unfinished">
+        <translation>क्लिपबोर्ड पे कॉपी करें
             </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">
+        <translation>बंद करें
             </translation>
     </message>
 </context>
@@ -271,67 +271,67 @@
     <name>Toolbox</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
+        <translation>प्रपत्र
             </translation>
     </message>
     <message>
         <source>Toolbox</source>
-        <translation type="unfinished">
+        <translation>टूल बॉक्स
             </translation>
     </message>
     <message>
         <source>Take screenshot</source>
-        <translation type="unfinished">
+        <translation>स्क्रीनशॉट लें
             </translation>
     </message>
     <message>
         <source>dmesg output</source>
-        <translation type="unfinished">
+        <translation>ड्मेस्ग आउटपुट
             </translation>
     </message>
     <message>
         <source>Xorg log</source>
-        <translation type="unfinished">
+        <translation>एक्सऑर्ग लॉग
             </translation>
     </message>
     <message>
         <source>Diagnostic report</source>
-        <translation type="unfinished">
+        <translation>नैदानिक ​​रिपोर्ट
             </translation>
     </message>
     <message>
         <source>PCBSD diagnostic report</source>
-        <translation type="unfinished">
+        <translation>पी.सी-बी.एस.डी नैदानिक ​​रिपोर्ट
             </translation>
     </message>
     <message>
         <source>lsusb output</source>
-        <translation type="unfinished">
+        <translation>इसुसब आउटपुट
             </translation>
     </message>
     <message>
         <source>PCI devices list - PCIConf</source>
-        <translation type="unfinished">
+        <translation>पीसीआई उपकर्ण सूची- पीसीआई समाकृति
             </translation>
     </message>
     <message>
         <source>Xorg version</source>
-        <translation type="unfinished">
+        <translation>एक्सऑर्ग संस्करण
             </translation>
     </message>
     <message>
         <source>FreeBSD version  (uname -a)</source>
-        <translation type="unfinished">
+        <translation>फ्री बी.एस.डी संस्करण (उपयोगकर्ता का नाम-ए)
             </translation>
     </message>
     <message>
         <source>Failure</source>
-        <translation type="unfinished">
+        <translation>विफलता
             </translation>
     </message>
     <message>
         <source>Failed to create diagnostic sheet</source>
-        <translation type="unfinished">
+        <translation>नैदानिक ​​शीट बनाने में विफल
             </translation>
     </message>
 </context>
@@ -339,12 +339,12 @@
     <name>WebURL</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
+        <translation>प्रपत्र
             </translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
+        <translation>वेब ब्राउजर लॉन्च करें
             </translation>
     </message>
 </context>
@@ -352,32 +352,32 @@
     <name>maillist</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">
+        <translation>प्रपत्र
             </translation>
     </message>
     <message>
         <source>TextLabel</source>
-        <translation type="unfinished">
+        <translation>मूलशब्द लेबल
             </translation>
     </message>
     <message>
         <source>Send message to</source>
-        <translation type="unfinished">
+        <translation>करने के लिए संदेश भेजें
             </translation>
     </message>
     <message>
         <source>Compose email</source>
-        <translation type="unfinished">
+        <translation>ईमेल लिखें
             </translation>
     </message>
     <message>
         <source>Visit the following web page to subscribe or view archives.</source>
-        <translation type="unfinished">
+        <translation>सदस्यता के लिए या अभिलेखागार देखने के लिए निम्न वेब पृष्ठ पर जाएं
             </translation>
     </message>
     <message>
         <source>Launch web browser</source>
-        <translation type="unfinished">
+        <translation>वेब ब्राउजर लॉन्च करें
             </translation>
     </message>
 </context>
