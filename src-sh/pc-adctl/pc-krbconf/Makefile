@@ -6,9 +6,9 @@
 
 PREFIX?= /usr/local
 MAN=
-PROGOWN=	root
-PROGGRP=	wheel
-PROGMODE=	0555
+BINOWN=		root
+BINGRP=		wheel
+BINMODE=	0555
 DESTDIR=	$(PREFIX)/bin
 
 PROG=	pc-krbconf
