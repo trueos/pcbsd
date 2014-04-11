@@ -1,4 +1,4 @@
-etc/rc.d/pc-sounddetect
+etc/rc.d/pc-hwdetect
 etc/rc.d/pcdm
 bin/about-gui
 bin/life-preserver
@@ -26,7 +26,7 @@ bin/pc-pkgmanager
 bin/pc-servicemanager
 bin/pc-softwaremanager
 bin/appcafe
-bin/pc-sounddetect
+bin/pc-hwdetect
 bin/pc-soundconfig
 bin/pc-sysinstaller
 bin/pc-sysmanager
@@ -451,7 +451,12 @@ share/pcbsd/pc-systemupdatertray/images/updating.png
 share/pcbsd/pc-systemupdatertray/images/warden.png
 share/pcbsd/pc-systemupdatertray/images/working.png
 share/pcbsd/pc-systemupdatertray/images/view-refresh.png
-share/pcbsd/pc-sounddetect/soundcards.xml
+share/pcbsd/pc-hwdetect/agp.xml
+share/pcbsd/pc-hwdetect/audio.xml
+share/pcbsd/pc-hwdetect/display.xml
+share/pcbsd/pc-hwdetect/multimedia.xml
+share/pcbsd/pc-hwdetect/network.xml
+share/pcbsd/pc-hwdetect/soundcards.xml
 share/pcbsd/pc-netmanager/umts_stick
 share/pcbsd/pc-netmanager/pics/defaulticon.png
 share/pcbsd/pc-netmanager/pics/info.png
@@ -2921,7 +2926,7 @@ include/pcbsd-ui.h
 @dirrm share/pcbsd/pc-installgui
 @dirrm share/pcbsd/pc-netmanager/pics
 @dirrm share/pcbsd/pc-netmanager
-@dirrm share/pcbsd/pc-sounddetect
+@dirrm share/pcbsd/pc-hwdetect
 @dirrm share/pcbsd/splash-screens
 @dirrm share/pcbsd/pc-systemupdatertray/images
 @dirrm share/pcbsd/pc-systemupdatertray

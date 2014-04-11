@@ -96,6 +96,7 @@ void MixerTray::changeVol(int percent, bool modify){
   if(percent == 0){
     isMuted = true;
     mute->setIcon( QIcon::fromTheme("audio-volume-high", QIcon(":icons/audio-volume-high.png")) );
+    this->setIcon( QIcon::fromTheme("audio-volume-muted",QIcon(":icons/audio-volume-muted.png")) );
   }else{
     isMuted = false;
     if(percent < 33){
