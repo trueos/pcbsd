@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="/">
+    <file>images/info.png</file>
+    <file>images/appcafe.png</file>
+    <file>images/pkgmanager.png</file>
+    <file>images/save.png</file>
+    <file>images/rightarrow.png</file>
+    <file>images/leftarrow.png</file>
     <file>images/window-close.png</file>
     <file>images/configure.png</file>
     <file>images/pbiupdates.png</file>
